@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { SITE_NAME, NAV_LINKS } from "@/lib/constants";
 
 export function Footer() {
@@ -14,6 +15,7 @@ export function Footer() {
               수험생을 위한 기출문제 앱 &amp; 커뮤니티.
               질문하고, 자료를 공유하고, 수험 정보를 나눠요.
             </p>
+            <AppStoreButtons className="mt-5" size="sm" />
           </div>
           <div>
             <p className="mb-4 font-system text-eyebrow font-semibold uppercase text-fog">

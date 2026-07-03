@@ -4,6 +4,7 @@ import {
   SectionHeading,
   ElectricHighlight,
 } from "@/components/ui/Typography";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { FeatureCard, LargePanel, TintedAccentCard } from "@/components/ui/Card";
 import { Tag, CheckBadge } from "@/components/ui/Tag";
@@ -37,6 +38,7 @@ export default function HomePage() {
               개념카드, 시험 모드, 출제 통계를 한 앱에 담았습니다.
               커뮤니티에서 수험생들과 정보를 나눠보세요.
             </p>
+            <AppStoreButtons />
             <div className="flex flex-wrap items-center gap-3">
               <PrimaryButton href="/community">커뮤니티 가기</PrimaryButton>
               <SecondaryButton href="/#features">앱 기능 보기</SecondaryButton>
@@ -215,10 +217,11 @@ export default function HomePage() {
               앱으로 공부하고, 커뮤니티에서 연결하세요
             </h2>
             <p className="mx-auto mt-3 max-w-md font-display text-body text-smoke">
-              앱스토어에서 「봄기출」을 검색해 설치하거나, 웹 커뮤니티에
-              가입해 수험 정보를 나눠보세요.
+              앱을 설치해 기출을 풀고, 웹 커뮤니티에 가입해 수험 정보를
+              나눠보세요.
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <AppStoreButtons className="mt-6 justify-center" />
+            <div className="mt-4 flex flex-wrap justify-center gap-3">
               <PrimaryButton href="/login">커뮤니티 가입</PrimaryButton>
               <SecondaryButton href="/community">게시판 둘러보기</SecondaryButton>
             </div>

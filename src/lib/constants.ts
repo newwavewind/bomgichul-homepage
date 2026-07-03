@@ -7,6 +7,15 @@ export const SITE_DESCRIPTION =
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
 
+/** 앱 스토어 링크 (ox-quiz-app 기준) */
+export const APP_LINKS = {
+  /** Google Play — 봄기출 공인중개사 */
+  android:
+    "https://play.google.com/store/apps/details?id=com.sanghyun.civillaw",
+  /** App Store — 봄기출 공인중개사 */
+  ios: "https://apps.apple.com/kr/app/id6784651251",
+} as const;
+
 export const POSTS_PER_PAGE = 10;
 
 export const CATEGORIES: {
@@ -165,7 +174,7 @@ export const FAQ_ITEMS = [
   {
     question: "앱은 어디서 다운로드하나요?",
     answer:
-      "iOS·Android 앱스토어에서 「봄기출」을 검색해 설치할 수 있습니다. 일부 과목·연도는 무료로 이용 가능하며, 전체 기출은 과목별 프리미엄으로 잠금 해제할 수 있습니다.",
+      "iOS App Store와 Google Play에서 「봄기출 공인중개사」를 검색해 설치할 수 있습니다. 일부 과목·연도는 무료로 이용 가능하며, 전체 기출은 과목별 프리미엄으로 잠금 해제할 수 있습니다.",
   },
 ];
 
