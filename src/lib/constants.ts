@@ -1,6 +1,7 @@
 import type { PostCategory } from "@/types/database";
 
 export const SITE_NAME = "봄기출";
+export const SITE_URL = "https://www.bomgichul.com";
 export const SITE_DESCRIPTION =
   "공인중개사·자격시험 수험생을 위한 기출 O/X 앱. 연도별·목차별 학습, 개념카드, 시험 모드, 출제 통계까지 — 커뮤니티에서 수험 정보를 나눠요.";
 
