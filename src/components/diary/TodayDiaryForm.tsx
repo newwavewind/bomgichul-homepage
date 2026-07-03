@@ -1,0 +1,178 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { getKSTDateString } from "@/lib/exam";
+import { DIARY_MOODS } from "@/lib/constants";
+import { FeatureCard } from "@/components/ui/Card";
+import { Input, Textarea } from "@/components/ui/Input";
+import { PrimaryButton } from "@/components/ui/Button";
+import type { DiaryMood, StudyDiary } from "@/types/database";
+
+interface TodayDiaryFormProps {
+  todayDiary: StudyDiary | null;
+  todayLabel: string;
+}
+
+export function TodayDiaryForm({ todayDiary, todayLabel }: TodayDiaryFormProps) {
+  const router = useRouter();
+  const [content, setContent] = useState(todayDiary?.content ?? "");
+  const [mood, setMood] = useState<DiaryMood | null>(
+    (todayDiary?.mood as DiaryMood) ?? null
+  );
+  const [studyHours, setStudyHours] = useState(
+    todayDiary?.study_minutes ? String(todayDiary.study_minutes / 60) : ""
+  );
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [saved, setSaved] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSaved(false);
+
+    if (!isSupabaseConfigured()) {
+      setError("Supabase 연결이 필요합니다.");
+      setLoading(false);
+      return;
+    }
+
+    const trimmed = content.trim();
+    if (!trimmed) {
+      setError("오늘의 기록을 적어주세요.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        setError("로그인이 필요합니다.");
+        setLoading(false);
+        return;
+      }
+
+      const studyMinutes = studyHours
+        ? Math.round(parseFloat(studyHours) * 60)
+        : 0;
+
+      const { error: upsertError } = await supabase.from("study_diaries").upsert(
+        {
+          author_id: user.id,
+          diary_date: getKSTDateString(),
+          content: trimmed,
+          mood,
+          study_minutes: Number.isFinite(studyMinutes) ? studyMinutes : 0,
+        },
+        { onConflict: "author_id,diary_date" }
+      );
+
+      if (upsertError) {
+        setError(upsertError.message);
+      } else {
+        setSaved(true);
+        router.refresh();
+      }
+    } catch {
+      setError("저장에 실패했습니다.");
+    }
+
+    setLoading(false);
+  };
+
+  return (
+    <FeatureCard tint="paper">
+      <div className="mb-6 flex items-center justify-between gap-3">
+        <div>
+          <h2 className="font-display text-subheading font-semibold text-ink">
+            오늘의 일기
+          </h2>
+          <p className="mt-0.5 font-display text-body-sm text-smoke">{todayLabel}</p>
+        </div>
+        {todayDiary && (
+          <span className="rounded-[var(--radius-tags)] bg-ice/50 px-3 py-1 font-display text-[12px] font-medium text-electric-blue">
+            작성됨
+          </span>
+        )}
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <label className="mb-3 block font-display text-body-sm font-medium text-ink">
+            오늘 기분
+          </label>
+          <div className="flex flex-wrap gap-2">
+            {DIARY_MOODS.map((m) => (
+              <button
+                key={m.value}
+                type="button"
+                onClick={() => setMood(mood === m.value ? null : m.value)}
+                className={`rounded-[var(--radius-tags)] px-3 py-1.5 font-display text-body-sm font-medium transition-colors ${
+                  mood === m.value
+                    ? "bg-midnight text-paper"
+                    : "bg-surface text-ink hover:bg-snow"
+                }`}
+              >
+                {m.emoji} {m.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <Input
+          id="study-hours"
+          label="오늘 공부 시간 (선택)"
+          type="number"
+          min="0"
+          max="24"
+          step="0.5"
+          value={studyHours}
+          onChange={(e) => setStudyHours(e.target.value)}
+          placeholder="예: 3.5"
+        />
+
+        <Textarea
+          id="diary-content"
+          label="오늘의 기록"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
+          rows={8}
+          placeholder="오늘 공부한 내용, 느낀 점, 내일 할 일 등을 자유롭게 적어보세요"
+        />
+
+        {error && <p className="font-display text-body-sm text-coral">{error}</p>}
+        {saved && (
+          <p className="font-display text-body-sm text-electric-blue">
+            오늘 일기가 저장됐어요!
+          </p>
+        )}
+
+        <div className="flex justify-end">
+          <PrimaryButton type="submit" disabled={loading}>
+            {loading ? "저장 중..." : todayDiary ? "수정하기" : "저장하기"}
+          </PrimaryButton>
+        </div>
+      </form>
+    </FeatureCard>
+  );
+}
+
+export function DiaryLoginPrompt() {
+  return (
+    <FeatureCard tint="ice" className="text-center">
+      <p className="mb-2 font-display text-subheading font-semibold text-ink">
+        로그인하고 오늘 일기를 써보세요
+      </p>
+      <p className="mb-6 font-display text-body-sm text-smoke">
+        매일의 공부 기록을 남기면 D-day와 함께 나만의 수험 일기가 쌓여요.
+      </p>
+      <PrimaryButton href="/login">로그인하기</PrimaryButton>
+    </FeatureCard>
+  );
+}
