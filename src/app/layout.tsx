@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Outfit, Caveat } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
+import { SITE_NAME, SITE_DESCRIPTION, GA_MEASUREMENT_ID } from "@/lib/constants";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -40,6 +41,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }
