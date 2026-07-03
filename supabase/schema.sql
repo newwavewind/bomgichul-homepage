@@ -149,8 +149,21 @@ create policy "본인 게시글 첨부만 삭제"
     )
   );
 
--- Storage: Supabase Dashboard > Storage에서 'archive' public 버킷 생성 후 storage policies 적용
--- (supabase/migrations/002_archive.sql 참고)
+-- Storage: archive public 버킷 (자료실)
+insert into storage.buckets (id, name, public)
+values ('archive', 'archive', true)
+on conflict (id) do update set public = true;
+
+create policy "누구나 archive 파일 조회"
+  on storage.objects for select using (bucket_id = 'archive');
+
+create policy "로그인 사용자 archive 업로드"
+  on storage.objects for insert
+  with check (bucket_id = 'archive' and auth.role() = 'authenticated');
+
+create policy "본인 archive 파일 삭제"
+  on storage.objects for delete
+  using (bucket_id = 'archive' and auth.uid()::text = (storage.foldername(name))[1]);
 
 -- 수험일기 (본인만 조회·작성)
 create table if not exists public.study_diaries (

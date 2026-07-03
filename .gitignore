@@ -38,6 +38,9 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 .env*.local
+.supabase-access-token
+.supabase-db-password
+.env.supabase.local
 
 # keep env template
 !.env.local.example
@@ -59,3 +62,6 @@ next-env.d.ts
 
 # OS
 Thumbs.db
+
+# Supabase CLI local state
+supabase/.temp/

@@ -27,11 +27,13 @@ npm install
 
 ### 2. Supabase 설정
 
-1. [Supabase](https://supabase.com)에서 새 프로젝트 생성
-2. SQL Editor에서 `supabase/schema.sql` 실행
-3. Authentication > URL Configuration에 Site URL 및 Redirect URL 설정
-   - Site URL: `http://localhost:3000`
-   - Redirect URL: `http://localhost:3000/auth/callback`
+상세 가이드: [`supabase/SETUP.md`](supabase/SETUP.md)
+
+1. [Supabase](https://supabase.com)에서 **새 프로젝트** 생성 (ox-quiz-app과 별도)
+2. SQL Editor에서 `supabase/schema.sql` 실행 (또는 `npx supabase db push`)
+3. Authentication → URL Configuration:
+   - Site URL: `https://bomgichul-homepage.vercel.app`
+   - Redirect URL: `http://localhost:3000/auth/callback`, `https://bomgichul-homepage.vercel.app/auth/callback`
 
 ### 3. 환경 변수
 
