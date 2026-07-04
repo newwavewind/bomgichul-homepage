@@ -208,7 +208,11 @@ export const SORT_OPTIONS = [
 
 export type SortOption = (typeof SORT_OPTIONS)[number]["value"];
 
-/** 봄기출 PC앱 (ox-quiz-app 웹 배포). app.bomgichul.com DNS 연결 후 해당 URL로 교체 가능 */
+/**
+ * 봄기출 PC앱 (ox-quiz-app 웹 배포)
+ * app.bomgichul.com DNS(A → 76.76.21.21) 반영 후 아래 URL로 교체:
+ * https://app.bomgichul.com
+ */
 export const PC_APP_URL = "https://bomgichul-pc-app.vercel.app";
 
 export const NAV_LINKS = [
