@@ -2,7 +2,11 @@
 
 import { useRef, useState } from "react";
 import { formatFileSize, getFileIcon } from "@/lib/storage";
-import { MAX_FILES_PER_POST, MAX_FILE_SIZE_MB } from "@/lib/constants";
+import {
+  MAX_FILES_PER_POST,
+  MAX_FILE_SIZE_MB,
+  MAX_MP4_FILE_SIZE_MB,
+} from "@/lib/constants";
 
 interface FileUploadProps {
   files: File[];
@@ -57,7 +61,7 @@ export function FileUpload({ files, onChange, disabled, label = "첨부 파일" 
           파일을 드래그하거나 클릭하여 선택
         </p>
         <p className="mt-1 font-display text-body-sm text-fog">
-          PDF, 이미지, HWP, DOCX, XLSX, ZIP · 최대 {MAX_FILE_SIZE_MB}MB · {MAX_FILES_PER_POST}개
+          PDF, 이미지, HWP, DOCX, XLSX, CSV, ZIP · 최대 {MAX_FILE_SIZE_MB}MB · MP4 {MAX_MP4_FILE_SIZE_MB}MB · {MAX_FILES_PER_POST}개
         </p>
         <input
           ref={inputRef}
@@ -65,7 +69,7 @@ export function FileUpload({ files, onChange, disabled, label = "첨부 파일" 
           multiple
           className="hidden"
           disabled={disabled}
-          accept=".pdf,.png,.jpg,.jpeg,.webp,.docx,.xlsx,.pptx,.zip,.txt,.hwp"
+          accept=".pdf,.png,.jpg,.jpeg,.webp,.docx,.xlsx,.pptx,.zip,.txt,.csv,.hwp,.mp4,video/mp4,text/csv"
           onChange={(e) => addFiles(e.target.files)}
         />
       </div>

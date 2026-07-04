@@ -4,10 +4,12 @@ export const SITE_NAME = "봄기출";
 export const SITE_URL = "https://www.bomgichul.com";
 /** 핵심 슬로건 */
 export const SITE_TAGLINE = "질문은 봄기출이 작성합니다.";
+/** 커뮤니티 아이덴티티 */
+export const SITE_IDENTITY = "공인중개사 커뮤니티";
 /** 플랫폼 포지셔닝 */
-export const SITE_PLATFORM = "AI 수험생 학습 플랫폼";
+export const SITE_PLATFORM = "공인중개사 AI 학습 플랫폼";
 /** 전체 브랜딩 문구 */
-export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_TAGLINE} ${SITE_PLATFORM}`;
+export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE}`;
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 공인중개사 커뮤니티";
 export const SITE_DESCRIPTION =
@@ -55,14 +57,14 @@ export const APP_FEATURES = [
   {
     title: "기출 O/X 학습",
     description:
-      "연도별·목차별로 기출 O/X를 풀며 진도를 관리하세요. 틀린 문제는 자동으로 오답노트에 모입니다.",
+      "연도별·목차별로 기출 O/X를 풀며 진도를 관리하세요. 실제 시험지 문장으로 빠르게 반복 학습합니다.",
     icon: "📚",
     tag: "학습",
   },
   {
     title: "시험 모드",
     description:
-      "기출문제 일괄 채점, 출제 빈도 반영 랜덤 5~40문항, 시험 중 오답 수집까지 실전처럼 연습할 수 있어요.",
+      "기출문제 일괄 채점, 출제 빈도 반영 랜덤 5~40문항으로 실전처럼 연습할 수 있어요.",
     icon: "📝",
     tag: "시험",
   },
@@ -95,13 +97,6 @@ export const APP_FEATURES = [
     tag: "암기노트",
   },
   {
-    title: "오답노트",
-    description:
-      "학습·시험·랜덤 풀이에서 틀린 문항을 모아 반복 학습. 시험 직전에 약점만 골라 복습하세요.",
-    icon: "🔁",
-    tag: "오답",
-  },
-  {
     title: "다과목 지원",
     description:
       "부동산학개론, 민법, 공인중개사법 등 1·2차 과목을 선택해 학습. 과목별 기출과 커리큘럼이 준비되어 있어요.",
@@ -123,13 +118,13 @@ export const SUBJECTS = [
   { name: "부동산학개론", round: "1차", status: "available" as const },
   { name: "민법 및 민사특별법", round: "1차", status: "available" as const },
   { name: "공인중개사법령 및 실무", round: "2차", status: "available" as const },
-  { name: "부동산공시법령", round: "2차", status: "coming" as const },
-  { name: "부동산세법", round: "2차", status: "coming" as const },
-  { name: "부동산공법", round: "2차", status: "coming" as const },
+  { name: "부동산공시법령", round: "2차", status: "available" as const },
+  { name: "부동산세법", round: "2차", status: "available" as const },
+  { name: "부동산공법", round: "2차", status: "available" as const },
 ];
 
 export const STATS = [
-  { label: "지원 과목", value: "6+" },
+  { label: "지원 과목", value: "6" },
   { label: "기출 연도", value: "10년+" },
   { label: "학습 모드", value: "5가지" },
 ];
@@ -170,12 +165,12 @@ export const FAQ_ITEMS = [
   {
     question: "봄기출은 어떤 시험을 준비할 수 있나요?",
     answer:
-      "현재 공인중개사 1차(부동산학개론, 민법), 2차(공인중개사법령) 등을 지원합니다. 부동산공시법·세법·공법 등 2차 과목도 순차 추가 예정입니다.",
+      "공인중개사 1차(부동산학개론, 민법 및 민사특별법)와 2차(공인중개사법령 및 실무, 부동산공시법령, 부동산세법, 부동산공법) 전 과목을 지원합니다.",
   },
   {
     question: "앱에서 어떤 방식으로 공부하나요?",
     answer:
-      "연도별·목차별 O/X 학습, 빈칸 채우기, 시험 모드(기출·랜덤), 개념카드, 출제 통계, 오답노트, 암기노트, 용어집을 제공합니다. 하단 탭에서 학습·개념카드·시험·암기노트·용어집으로 이동할 수 있어요.",
+      "연도별·목차별 O/X 학습, 빈칸 채우기, 시험 모드(기출·랜덤), 개념카드, 출제 통계, 암기노트, 용어집을 제공합니다. 하단 탭에서 학습·개념카드·시험·암기노트·용어집으로 이동할 수 있어요.",
   },
   {
     question: "개념카드는 일반 요약과 뭐가 다른가요?",
@@ -190,7 +185,7 @@ export const FAQ_ITEMS = [
   {
     question: "자료실에는 어떤 자료를 올릴 수 있나요?",
     answer:
-      "기출, 노트, 요약 등 수험에 도움이 되는 PDF·이미지·문서 파일을 과목별로 올릴 수 있습니다. 파일당 최대 20MB, 게시글당 5개까지 첨부 가능합니다.",
+      "기출, 노트, 요약 등 수험에 도움이 되는 PDF·이미지·문서·CSV·MP4 파일을 과목별로 올릴 수 있습니다. 일반 파일은 최대 20MB, MP4는 최대 100MB, 게시글당 5개까지 첨부 가능합니다.",
   },
   {
     question: "앱은 어디서 다운로드하나요?",
@@ -277,6 +272,8 @@ export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries(
 );
 
 export const MAX_FILE_SIZE_MB = 20;
+/** MP4만 별도 용량 제한 */
+export const MAX_MP4_FILE_SIZE_MB = 100;
 export const MAX_FILES_PER_POST = 5;
 export const ALLOWED_FILE_TYPES = [
   "application/pdf",
@@ -288,6 +285,9 @@ export const ALLOWED_FILE_TYPES = [
   "application/vnd.openxmlformats-officedocument.presentationml.presentation",
   "application/zip",
   "text/plain",
+  "text/csv",
+  "application/csv",
   "application/hwp",
   "application/x-hwp",
+  "video/mp4",
 ];

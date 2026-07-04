@@ -11,6 +11,17 @@ export function EyebrowLabel({ children, className = "" }: EyebrowLabelProps) {
   );
 }
 
+/** Handwritten caption in marker orange */
+export function HandCaption({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return <p className={`hand-caption ${className}`}>{children}</p>;
+}
+
 interface DisplayHeadlineProps {
   children: React.ReactNode;
   className?: string;
@@ -49,8 +60,17 @@ export function SectionHeading({
 
 interface ElectricHighlightProps {
   children: React.ReactNode;
+  underline?: boolean;
 }
 
-export function ElectricHighlight({ children }: ElectricHighlightProps) {
-  return <span className="font-semibold text-electric-blue">{children}</span>;
+/** Marker orange emphasis — optional hand-drawn underline */
+export function ElectricHighlight({
+  children,
+  underline = false,
+}: ElectricHighlightProps) {
+  return (
+    <span className={underline ? "marker-underline" : "font-semibold text-electric-blue"}>
+      {children}
+    </span>
+  );
 }

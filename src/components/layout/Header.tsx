@@ -6,7 +6,15 @@ export async function Header() {
 
   return (
     <HeaderNav
-      user={user ? { id: user.id, nickname: user.nickname } : null}
+      user={
+        user
+          ? {
+              id: user.id,
+              nickname: user.nickname,
+              usernameSet: user.usernameSet,
+            }
+          : null
+      }
     />
   );
 }

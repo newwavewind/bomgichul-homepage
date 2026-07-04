@@ -1,7 +1,46 @@
 import { createClient } from "@/lib/supabase/client";
-import { MAX_FILE_SIZE_MB } from "@/lib/constants";
+import {
+  ALLOWED_FILE_TYPES,
+  MAX_FILE_SIZE_MB,
+  MAX_MP4_FILE_SIZE_MB,
+} from "@/lib/constants";
 
 const BUCKET = "archive";
+
+const ALLOWED_EXTENSIONS = new Set([
+  "pdf",
+  "png",
+  "jpg",
+  "jpeg",
+  "webp",
+  "docx",
+  "xlsx",
+  "pptx",
+  "zip",
+  "txt",
+  "csv",
+  "hwp",
+  "mp4",
+]);
+
+function getFileExtension(file: File): string {
+  return file.name.split(".").pop()?.toLowerCase() ?? "";
+}
+
+function isMp4File(file: File): boolean {
+  return getFileExtension(file) === "mp4" || file.type === "video/mp4";
+}
+
+function getMaxFileSizeMb(file: File): number {
+  return isMp4File(file) ? MAX_MP4_FILE_SIZE_MB : MAX_FILE_SIZE_MB;
+}
+
+function isAllowedFile(file: File): boolean {
+  const ext = getFileExtension(file);
+  if (ALLOWED_EXTENSIONS.has(ext)) return true;
+  if (file.type && ALLOWED_FILE_TYPES.includes(file.type)) return true;
+  return false;
+}
 
 export function formatFileSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -12,6 +51,8 @@ export function formatFileSize(bytes: number): string {
 export function getFileIcon(mimeType: string): string {
   if (mimeType === "application/pdf") return "📄";
   if (mimeType.startsWith("image/")) return "🖼️";
+  if (mimeType.startsWith("video/")) return "🎬";
+  if (mimeType.includes("csv")) return "📑";
   if (mimeType.includes("spreadsheet") || mimeType.includes("excel")) return "📊";
   if (mimeType.includes("word") || mimeType.includes("hwp")) return "📝";
   if (mimeType.includes("zip")) return "📦";
@@ -24,12 +65,18 @@ export async function uploadArchiveFiles(
   files: File[]
 ): Promise<{ path: string; name: string; size: number; mime: string }[]> {
   const supabase = createClient();
-  const maxBytes = MAX_FILE_SIZE_MB * 1024 * 1024;
   const uploaded: { path: string; name: string; size: number; mime: string }[] = [];
 
   for (const file of files) {
+    if (!isAllowedFile(file)) {
+      throw new Error(
+        `"${file.name}"은(는) 지원하지 않는 형식입니다. PDF, 이미지, 문서, CSV, MP4, ZIP만 올릴 수 있습니다.`
+      );
+    }
+    const maxMb = getMaxFileSizeMb(file);
+    const maxBytes = maxMb * 1024 * 1024;
     if (file.size > maxBytes) {
-      throw new Error(`"${file.name}"은(는) ${MAX_FILE_SIZE_MB}MB를 초과합니다.`);
+      throw new Error(`"${file.name}"은(는) ${maxMb}MB를 초과합니다.`);
     }
 
     const safeName = file.name.replace(/[^a-zA-Z0-9._-가-힣]/g, "_");

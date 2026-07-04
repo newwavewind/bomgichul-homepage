@@ -13,14 +13,18 @@ export async function getUser() {
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("nickname, avatar_url")
+    .select("nickname, avatar_url, username_set")
     .eq("id", user.id)
     .single();
+
+  const usernameSet = Boolean(profile?.username_set);
 
   return {
     id: user.id,
     email: user.email,
-    nickname: profile?.nickname ?? user.email?.split("@")[0] ?? "익명",
-    avatar_url: profile?.avatar_url ?? null,
+    /** 공개 아이디 — username_set 전에는 헤더 등에 노출하지 않음 */
+    nickname: usernameSet ? (profile?.nickname ?? "익명") : "",
+    usernameSet,
+    avatar_url: null as string | null,
   };
 }

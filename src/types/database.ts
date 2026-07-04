@@ -6,6 +6,7 @@ export interface Profile {
   id: string;
   nickname: string;
   avatar_url: string | null;
+  username_set: boolean;
   created_at: string;
 }
 
@@ -57,9 +58,11 @@ export interface StudyDiary {
   id: string;
   author_id: string;
   diary_date: string;
+  days_until_exam: number;
   content: string;
   mood: DiaryMood | null;
   study_minutes: number;
   created_at: string;
   updated_at: string;
+  profiles?: Pick<Profile, "nickname" | "avatar_url">;
 }

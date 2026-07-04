@@ -44,6 +44,10 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
+  icons: {
+    icon: "/brand/logo.png",
+    apple: "/brand/logo.png",
+  },
   verification: {
     // Next.js Verification 타입에 naver 키가 없어 other로 동일 메타 출력
     other: {

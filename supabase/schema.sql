@@ -6,6 +6,7 @@ create table public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   nickname text not null,
   avatar_url text,
+  username_set boolean not null default false,
   created_at timestamptz default now() not null
 );
 
@@ -74,23 +75,16 @@ create policy "본인 댓글만 수정"
 create policy "본인 댓글만 삭제"
   on public.comments for delete using (auth.uid() = author_id);
 
--- 회원가입 시 프로필 자동 생성 (이메일·Google OAuth 공통)
+-- 회원가입 시 프로필 자동 생성 (Google 실명·사진 미사용, 아이디는 onboarding에서 설정)
 create or replace function public.handle_new_user()
 returns trigger as $$
 begin
-  insert into public.profiles (id, nickname, avatar_url)
+  insert into public.profiles (id, nickname, avatar_url, username_set)
   values (
     new.id,
-    coalesce(
-      new.raw_user_meta_data->>'nickname',
-      new.raw_user_meta_data->>'full_name',
-      new.raw_user_meta_data->>'name',
-      split_part(new.email, '@', 1)
-    ),
-    coalesce(
-      new.raw_user_meta_data->>'avatar_url',
-      new.raw_user_meta_data->>'picture'
-    )
+    '수험생' || left(replace(new.id::text, '-', ''), 6),
+    null,
+    false
   );
   return new;
 end;
@@ -174,11 +168,12 @@ create policy "본인 archive 파일 삭제"
   on storage.objects for delete
   using (bucket_id = 'archive' and auth.uid()::text = (storage.foldername(name))[1]);
 
--- 수험일기 (본인만 조회·작성)
+-- 수험일기 (D-day 기준 공개, 작성·수정·삭제는 본인만)
 create table if not exists public.study_diaries (
   id uuid primary key default gen_random_uuid(),
   author_id uuid not null references public.profiles(id) on delete cascade,
   diary_date date not null,
+  days_until_exam int not null,
   content text not null,
   mood text check (mood is null or mood in ('great', 'good', 'okay', 'tired', 'hard')),
   study_minutes int default 0 not null,
@@ -190,10 +185,13 @@ create table if not exists public.study_diaries (
 create index if not exists study_diaries_author_date_idx
   on public.study_diaries(author_id, diary_date desc);
 
+create index if not exists study_diaries_dday_idx
+  on public.study_diaries(days_until_exam, diary_date desc);
+
 alter table public.study_diaries enable row level security;
 
-create policy "본인 일기만 조회"
-  on public.study_diaries for select using (auth.uid() = author_id);
+create policy "일기는 누구나 조회 가능"
+  on public.study_diaries for select using (true);
 
 create policy "본인 일기만 작성"
   on public.study_diaries for insert with check (auth.uid() = author_id);

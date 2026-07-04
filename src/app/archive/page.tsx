@@ -40,10 +40,10 @@ export default async function ArchivePage({ searchParams }: ArchivePageProps) {
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <EyebrowLabel className="mb-2">수험 자료 공유</EyebrowLabel>
+            <EyebrowLabel className="mb-2">공인중개사 수험 자료 공유</EyebrowLabel>
             <SectionHeading as="h1">자료실</SectionHeading>
             <p className="mt-2 font-display text-body-sm text-smoke">
-              기출, 노트, 요약 자료를 올리고 다운로드하세요 · 총 {total}개
+              공인중개사 기출, 노트, 요약 자료를 올리고 다운로드하세요 · 총 {total}개
             </p>
           </div>
           <PrimaryButton href="/archive/new">자료 올리기</PrimaryButton>

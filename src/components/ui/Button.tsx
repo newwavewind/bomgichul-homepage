@@ -11,11 +11,12 @@ interface PrimaryButtonProps {
 }
 
 const sizeStyles = {
-  default: "px-4 py-2",
-  sm: "px-3.5 py-1.5",
-  nav: "px-3.5 py-1.5",
+  default: "px-7 py-2.5",
+  sm: "px-5 py-2",
+  nav: "px-5 py-2",
 };
 
+/** Pill action — cream fill, charcoal border (DESIGN.md primary language) */
 export function PrimaryButton({
   href,
   onClick,
@@ -27,10 +28,10 @@ export function PrimaryButton({
 }: PrimaryButtonProps) {
   const styles = `
     inline-flex items-center justify-center gap-2
-    rounded-[var(--radius-buttons)] bg-midnight
-    ${sizeStyles[size]} font-display text-body-sm font-medium text-paper
-    tracking-[var(--tracking-body-sm)] shadow-[var(--shadow-button)]
-    transition-opacity hover:opacity-90
+    rounded-[var(--radius-buttons)] border-[1.5px] border-carbon
+    bg-paper ${sizeStyles[size]} font-display text-body-sm font-medium text-ink
+    shadow-[var(--shadow-button)]
+    transition-colors hover:bg-snow
     disabled:cursor-not-allowed disabled:opacity-50
     ${className}
   `;
@@ -46,6 +47,7 @@ export function PrimaryButton({
   );
 }
 
+/** Filled charcoal — secondary emphasis from current system */
 export function SecondaryButton({
   href,
   onClick,
@@ -56,9 +58,9 @@ export function SecondaryButton({
 }: Omit<PrimaryButtonProps, "size">) {
   const styles = `
     inline-flex items-center justify-center gap-2
-    rounded-[var(--radius-buttons)] bg-carbon
-    px-3 py-1.5 font-display text-body-sm font-medium text-paper
-    tracking-[var(--tracking-body-sm)] shadow-[var(--shadow-button)]
+    rounded-[var(--radius-buttons)] border-[1.5px] border-carbon
+    bg-carbon px-5 py-2 font-display text-body-sm font-medium text-paper
+    shadow-[var(--shadow-button)]
     transition-opacity hover:opacity-90
     disabled:cursor-not-allowed disabled:opacity-50
     ${className}
@@ -92,10 +94,14 @@ export function OutlineButton({
 }: OutlineButtonProps) {
   const styles = `
     inline-flex items-center justify-center
-    rounded-[var(--radius-buttons)] px-3 py-2
-    font-display text-body-sm font-medium
+    rounded-[var(--radius-buttons)] px-3.5 py-2
+    font-display text-body-sm font-medium text-ink
     transition-colors
-    ${active ? "bg-surface text-ink" : "bg-paper text-ink hover:bg-surface"}
+    ${
+      active
+        ? "border-[1.5px] border-carbon bg-snow"
+        : "border border-transparent hover:border-mist hover:bg-snow"
+    }
     ${className}
   `;
 

@@ -7,8 +7,8 @@ import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { BrandLockup } from "@/components/ui/BrandLockup";
 import { CheckBadge } from "@/components/ui/Tag";
-import { LogoMark } from "@/components/illustrations/LogoMark";
-import { SITE_PLATFORM, SITE_TAGLINE } from "@/lib/constants";
+import { BrandLogo } from "@/components/illustrations/BrandLogo";
+import { SITE_IDENTITY, SITE_PLATFORM, SITE_TAGLINE } from "@/lib/constants";
 
 function GoogleIcon() {
   return (
@@ -33,6 +33,26 @@ function GoogleIcon() {
   );
 }
 
+function readAuthNext(): string {
+  const params = new URLSearchParams(window.location.search);
+  const fromQuery = params.get("next");
+  if (fromQuery?.startsWith("/") && !fromQuery.startsWith("//")) {
+    return fromQuery;
+  }
+
+  const match = document.cookie.match(/(?:^|;\s*)auth_next=([^;]+)/);
+  if (match?.[1]) {
+    try {
+      const value = decodeURIComponent(match[1]);
+      if (value.startsWith("/") && !value.startsWith("//")) return value;
+    } catch {
+      // ignore
+    }
+  }
+
+  return "/community";
+}
+
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -40,7 +60,12 @@ export default function LoginPage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("error") === "auth") {
-      setMessage("로그인에 실패했습니다. 다시 시도해주세요.");
+      const detail = params.get("message");
+      setMessage(
+        detail
+          ? decodeURIComponent(detail)
+          : "로그인에 실패했습니다. 다시 시도해주세요."
+      );
     }
   }, []);
 
@@ -50,21 +75,46 @@ export default function LoginPage() {
 
     try {
       const supabase = createClient();
-      const params = new URLSearchParams(window.location.search);
-      const next = params.get("next") ?? "/community";
-      const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
+      const next = readAuthNext();
 
-      const { error } = await supabase.auth.signInWithOAuth({
+      // redirectTo에는 query를 붙이지 않습니다.
+      // Allow list 매칭 실패·authorize URL 파싱 오류를 막기 위함입니다.
+      // next 경로는 쿠키로 전달하고 callback에서 읽습니다.
+      document.cookie = `auth_next=${encodeURIComponent(next)}; path=/; max-age=600; samesite=lax`;
+
+      const redirectTo = `${window.location.origin}/auth/callback`;
+
+      const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo },
+        options: {
+          redirectTo,
+          queryParams: {
+            prompt: "select_account",
+          },
+        },
       });
 
       if (error) {
         setMessage(error.message);
         setLoading(false);
+        return;
       }
-    } catch {
-      setMessage("Supabase 연결이 필요합니다. .env.local을 확인해주세요.");
+
+      // 브라우저 리다이렉트가 막힌 경우 수동 이동
+      if (data?.url) {
+        window.location.assign(data.url);
+        return;
+      }
+
+      setMessage(
+        "Google 로그인 URL을 받지 못했습니다. Supabase Google Provider 설정을 확인해주세요."
+      );
+      setLoading(false);
+    } catch (err) {
+      // 이전에는 모든 예외를 env 메시지로 덮어 실제 원인을 가렸습니다.
+      const detail =
+        err instanceof Error ? err.message : "알 수 없는 오류가 발생했습니다.";
+      setMessage(detail);
       setLoading(false);
     }
   };
@@ -73,17 +123,18 @@ export default function LoginPage() {
     <div className="px-4 py-12 md:py-16">
       <div className="mx-auto grid max-w-4xl gap-8 lg:grid-cols-2">
         <div className="hidden lg:block">
+          <BrandLogo size="lg" className="mb-6" />
           <BrandLockup variant="section" className="mb-6" />
           <SectionHeading as="h1" className="mb-4 text-heading-sm">
-            수험생들과 함께 성장하세요
+            공인중개사 수험생과 함께 성장하세요
           </SectionHeading>
           <p className="mb-8 font-display text-body text-smoke">
-            Google 계정으로 바로 로그인하고, {SITE_PLATFORM}과 커뮤니티를
+            Google 계정으로 바로 로그인하고, {SITE_IDENTITY}와 학습 앱을
             이용하세요.
           </p>
           <div className="space-y-4">
             <CheckBadge label="AI 질문" value="자동 작성" />
-            <CheckBadge label="커뮤니티" value="4 카테고리" />
+            <CheckBadge label="공인중개사 커뮤니티" value="4 카테고리" />
             <CheckBadge label="가입" value="무료" />
           </div>
         </div>
@@ -91,16 +142,16 @@ export default function LoginPage() {
         <FeatureCard tint="paper" className="border border-mist/60">
           <div className="mb-8 text-center">
             <div className="mb-4 flex justify-center">
-              <LogoMark />
+              <BrandLogo size="md" />
             </div>
-            <EyebrowLabel className="mb-2">{SITE_PLATFORM}</EyebrowLabel>
+            <EyebrowLabel className="mb-2">{SITE_IDENTITY}</EyebrowLabel>
             <SectionHeading as="h2" className="text-heading-sm">
               로그인
             </SectionHeading>
             <p className="mt-3 font-display text-body-sm text-smoke">
-              {SITE_TAGLINE}
+              {SITE_PLATFORM}
               <br />
-              Google 계정으로 간편하게 시작하세요.
+              {SITE_TAGLINE}
             </p>
           </div>
 

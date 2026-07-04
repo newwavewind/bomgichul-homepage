@@ -38,8 +38,8 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <EyebrowLabel className="mb-2">수험생들의 수다방</EyebrowLabel>
-            <SectionHeading as="h1">커뮤니티</SectionHeading>
+            <EyebrowLabel className="mb-2">공인중개사 수험생들의 수다방</EyebrowLabel>
+            <SectionHeading as="h1">공인중개사 커뮤니티</SectionHeading>
             <p className="mt-2 font-display text-body-sm text-smoke">
               총 {total}개의 게시글
               {search && ` · "${search}" 검색 결과`}

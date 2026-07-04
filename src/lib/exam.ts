@@ -49,3 +49,22 @@ export function getExamCountdown(fromDate = getKSTDateString()) {
     formattedDate: formatKoreanDate(exam.examDate),
   };
 }
+
+/** diary_date + days_until_exam → 시험 연도 */
+export function getExamYearFromDiary(
+  diaryDate: string,
+  daysUntilExam: number
+): number {
+  const [y, m, d] = diaryDate.split("-").map(Number);
+  const date = new Date(y, m - 1, d);
+  date.setDate(date.getDate() + daysUntilExam);
+  return date.getFullYear();
+}
+
+/** D-day 탐색 범위 (시험 전 1년 ~ 시험 후 30일) */
+export const DDAY_MIN = -30;
+export const DDAY_MAX = 365;
+
+export function clampDDay(days: number): number {
+  return Math.min(DDAY_MAX, Math.max(DDAY_MIN, days));
+}

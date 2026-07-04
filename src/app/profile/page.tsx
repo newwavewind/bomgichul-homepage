@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getUser } from "@/lib/auth";
 import { getPosts } from "@/lib/posts";
 import { PostCard } from "@/components/board/PostCard";
+import { UsernameForm } from "@/components/profile/UsernameForm";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard, FeatureCard } from "@/components/ui/Card";
@@ -14,6 +15,10 @@ export default async function ProfilePage() {
     redirect("/login");
   }
 
+  if (!user.usernameSet) {
+    redirect("/onboarding");
+  }
+
   const { data: myPosts } = await getPosts({ authorId: user.id, page: 1 });
 
   return (
@@ -23,18 +28,22 @@ export default async function ProfilePage() {
         프로필
       </SectionHeading>
 
-      <FeatureCard className="mb-8">
+      <FeatureCard className="mb-8 border-[1.5px] border-carbon">
         <div className="flex items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-[var(--radius-icons)] bg-surface font-display text-heading-sm font-semibold text-ink">
+          <div className="flex h-14 w-14 items-center justify-center rounded-[var(--radius-icons)] border-[1.5px] border-carbon bg-snow font-display text-heading-sm font-semibold text-ink">
             {user.nickname.charAt(0).toUpperCase()}
           </div>
           <div>
+            <p className="font-display text-[12px] text-fog">아이디</p>
             <p className="font-display text-subheading font-semibold text-ink">
               {user.nickname}
             </p>
-            <p className="font-display text-body-sm text-smoke">{user.email}</p>
+            <p className="mt-1 font-display text-[12px] text-fog">
+              로그인용 이메일은 본인만 볼 수 있으며 공개되지 않습니다.
+            </p>
           </div>
         </div>
+        <UsernameForm currentUsername={user.nickname} />
       </FeatureCard>
 
       <div className="mb-6 flex items-center justify-between">

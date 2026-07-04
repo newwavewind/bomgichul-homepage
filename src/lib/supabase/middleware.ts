@@ -2,6 +2,25 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { getSupabaseEnv, isSupabaseConfigured } from "@/lib/supabase/env";
 
+const USERNAME_SKIP_PREFIXES = [
+  "/onboarding",
+  "/auth",
+  "/login",
+  "/_next",
+  "/brand",
+  "/favicon",
+  "/icon",
+  "/apple-icon",
+  "/robots",
+  "/sitemap",
+];
+
+function shouldSkipUsernameGate(pathname: string) {
+  return USERNAME_SKIP_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
+  );
+}
+
 export async function updateSession(request: NextRequest) {
   if (!isSupabaseConfigured()) {
     return NextResponse.next({ request });
@@ -10,28 +29,58 @@ export async function updateSession(request: NextRequest) {
   const { url, key } = getSupabaseEnv();
   let supabaseResponse = NextResponse.next({ request });
 
-  const supabase = createServerClient(
-    url,
-    key,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
-          );
-          supabaseResponse = NextResponse.next({ request });
-          cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
-          );
-        },
+  const supabase = createServerClient(url, key, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
       },
-    }
-  );
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value }) =>
+          request.cookies.set(name, value)
+        );
+        supabaseResponse = NextResponse.next({ request });
+        cookiesToSet.forEach(({ name, value, options }) =>
+          supabaseResponse.cookies.set(name, value, options)
+        );
+      },
+    },
+  });
 
-  await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const pathname = request.nextUrl.pathname;
+
+  if (user && !shouldSkipUsernameGate(pathname)) {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("username_set")
+      .eq("id", user.id)
+      .maybeSingle();
+
+    if (!profile?.username_set) {
+      const redirectUrl = request.nextUrl.clone();
+      redirectUrl.pathname = "/onboarding";
+      redirectUrl.search = "";
+      return NextResponse.redirect(redirectUrl);
+    }
+  }
+
+  if (user && pathname === "/onboarding") {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("username_set")
+      .eq("id", user.id)
+      .maybeSingle();
+
+    if (profile?.username_set) {
+      const redirectUrl = request.nextUrl.clone();
+      redirectUrl.pathname = "/community";
+      redirectUrl.search = "";
+      return NextResponse.redirect(redirectUrl);
+    }
+  }
 
   return supabaseResponse;
 }

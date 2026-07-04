@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
-import { getKSTDateString } from "@/lib/exam";
+import { getExamCountdown, getKSTDateString } from "@/lib/exam";
 import { DIARY_MOODS } from "@/lib/constants";
 import { FeatureCard } from "@/components/ui/Card";
 import { Input, Textarea } from "@/components/ui/Input";
@@ -61,10 +61,14 @@ export function TodayDiaryForm({ todayDiary, todayLabel }: TodayDiaryFormProps) 
         ? Math.round(parseFloat(studyHours) * 60)
         : 0;
 
+      const diaryDate = getKSTDateString();
+      const { days: daysUntilExam } = getExamCountdown(diaryDate);
+
       const { error: upsertError } = await supabase.from("study_diaries").upsert(
         {
           author_id: user.id,
-          diary_date: getKSTDateString(),
+          diary_date: diaryDate,
+          days_until_exam: daysUntilExam,
           content: trimmed,
           mood,
           study_minutes: Number.isFinite(studyMinutes) ? studyMinutes : 0,
@@ -90,9 +94,11 @@ export function TodayDiaryForm({ todayDiary, todayLabel }: TodayDiaryFormProps) 
       <div className="mb-6 flex items-center justify-between gap-3">
         <div>
           <h2 className="font-display text-subheading font-semibold text-ink">
-            오늘의 일기
+            오늘의 일기 (공개)
           </h2>
-          <p className="mt-0.5 font-display text-body-sm text-smoke">{todayLabel}</p>
+          <p className="mt-0.5 font-display text-body-sm text-smoke">
+            {todayLabel} · 같은 D-day에 모두 공개됩니다
+          </p>
         </div>
         {todayDiary && (
           <span className="rounded-[var(--radius-tags)] bg-ice/50 px-3 py-1 font-display text-[12px] font-medium text-electric-blue">
@@ -149,7 +155,7 @@ export function TodayDiaryForm({ todayDiary, todayLabel }: TodayDiaryFormProps) 
         {error && <p className="font-display text-body-sm text-coral">{error}</p>}
         {saved && (
           <p className="font-display text-body-sm text-electric-blue">
-            오늘 일기가 저장됐어요!
+            오늘 일기가 공개 피드에 저장됐어요!
           </p>
         )}
 
@@ -170,9 +176,9 @@ export function DiaryLoginPrompt() {
         로그인하고 오늘 일기를 써보세요
       </p>
       <p className="mb-6 font-display text-body-sm text-smoke">
-        매일의 공부 기록을 남기면 D-day와 함께 나만의 수험 일기가 쌓여요.
+        오늘 쓴 일기는 같은 D-day에 공개됩니다. 내년·후년 수험생도 볼 수 있어요.
       </p>
-      <PrimaryButton href="/login">로그인하기</PrimaryButton>
+      <PrimaryButton href="/login?next=/diary">로그인하기</PrimaryButton>
     </FeatureCard>
   );
 }

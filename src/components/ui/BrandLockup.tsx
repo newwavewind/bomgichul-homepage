@@ -1,9 +1,10 @@
 import {
   SITE_NAME,
+  SITE_IDENTITY,
   SITE_PLATFORM,
   SITE_TAGLINE,
 } from "@/lib/constants";
-import { ElectricHighlight } from "@/components/ui/Typography";
+import { ElectricHighlight, HandCaption } from "@/components/ui/Typography";
 
 type BrandLockupVariant = "hero" | "section" | "footer" | "compact" | "banner";
 
@@ -22,14 +23,15 @@ export function BrandLockup({
 
   if (variant === "hero") {
     return (
-      <div className={`flex flex-col gap-4 ${alignClass} ${className}`}>
-        <p className="font-system text-eyebrow font-semibold uppercase tracking-[0.08em] text-electric-blue">
-          {SITE_PLATFORM}
+      <div className={`flex flex-col gap-3 ${alignClass} ${className}`}>
+        <HandCaption>Dear 공인중개사 수험생,</HandCaption>
+        <p className="font-display text-eyebrow font-semibold text-electric-blue">
+          {SITE_IDENTITY} · {SITE_PLATFORM}
         </p>
         <h1 className="font-display text-display font-semibold text-ink">
           질문은
           <br />
-          <ElectricHighlight>봄기출</ElectricHighlight>이 작성합니다.
+          <ElectricHighlight underline>봄기출</ElectricHighlight>이 작성합니다.
         </h1>
       </div>
     );
@@ -41,13 +43,13 @@ export function BrandLockup({
         className={`flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3 ${alignClass} ${className}`}
       >
         <span className="font-display text-body font-semibold text-ink">{SITE_NAME}</span>
-        <span className="hidden h-4 w-px bg-mist sm:block" aria-hidden />
-        <span className="font-display text-body-sm font-medium text-smoke">
-          {SITE_TAGLINE}
+        <span className="hidden h-4 w-px bg-carbon/30 sm:block" aria-hidden />
+        <span className="font-display text-body-sm font-semibold text-electric-blue">
+          {SITE_IDENTITY}
         </span>
-        <span className="hidden h-4 w-px bg-mist sm:block" aria-hidden />
-        <span className="font-system text-eyebrow font-semibold uppercase tracking-[0.06em] text-electric-blue">
-          {SITE_PLATFORM}
+        <span className="hidden h-4 w-px bg-carbon/30 sm:block" aria-hidden />
+        <span className="font-handwritten text-[1.15rem] font-semibold text-smoke">
+          {SITE_TAGLINE}
         </span>
       </div>
     );
@@ -57,9 +59,11 @@ export function BrandLockup({
     return (
       <div className={`flex flex-col gap-2 ${alignClass} ${className}`}>
         <p className="font-display text-subheading font-semibold text-ink">{SITE_NAME}</p>
-        <p className="font-display text-body font-medium text-ink">{SITE_TAGLINE}</p>
-        <p className="font-system text-eyebrow font-semibold uppercase tracking-[0.06em] text-electric-blue">
-          {SITE_PLATFORM}
+        <p className="font-display text-body font-medium text-electric-blue">
+          {SITE_IDENTITY}
+        </p>
+        <p className="font-handwritten text-[1.35rem] font-semibold text-smoke">
+          {SITE_TAGLINE}
         </p>
       </div>
     );
@@ -67,22 +71,19 @@ export function BrandLockup({
 
   if (variant === "compact") {
     return (
-      <p className={`font-display text-body-sm text-smoke ${className}`}>
-        <span className="font-semibold text-ink">{SITE_NAME}</span>
-        <span className="mx-1.5 text-mist" aria-hidden>
+      <p className={`font-display text-body-sm text-ink/80 ${className}`}>
+        <span className="font-semibold">{SITE_NAME}</span>
+        <span className="mx-1.5 text-carbon/40" aria-hidden>
           |
         </span>
-        <span>{SITE_TAGLINE}</span>
+        <span className="text-electric-blue">{SITE_IDENTITY}</span>
       </p>
     );
   }
 
-  // section
   return (
     <div className={`flex flex-col gap-2 ${alignClass} ${className}`}>
-      <p className="font-system text-eyebrow font-semibold uppercase tracking-[0.06em] text-electric-blue">
-        {SITE_PLATFORM}
-      </p>
+      <HandCaption>{SITE_IDENTITY}</HandCaption>
       <p className="font-display text-heading-sm font-semibold text-ink">
         {SITE_TAGLINE}
       </p>
@@ -90,10 +91,9 @@ export function BrandLockup({
   );
 }
 
-/** 인라인 강조용 — 본문 속 슬로건 */
 export function BrandTaglineInline({ className = "" }: { className?: string }) {
   return (
-    <span className={`font-semibold text-ink ${className}`}>
+    <span className={`marker-underline ${className}`}>
       {SITE_TAGLINE}
     </span>
   );
