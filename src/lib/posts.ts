@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import type { SortOption } from "@/lib/constants";
@@ -31,7 +31,7 @@ export async function getPosts({
     return emptyPaginated(page);
   }
 
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const from = (page - 1) * POSTS_PER_PAGE;
   const to = from + POSTS_PER_PAGE - 1;
 
@@ -78,34 +78,53 @@ export async function getPosts({
 export async function getPost(id: string): Promise<Post | null> {
   if (!isSupabaseConfigured()) return null;
 
-  const supabase = await createClient();
-  const { data, error } = await supabase
+  const supabase = createPublicClient();
+
+  // 첨부 포함 조회
+  const withFiles = await supabase
     .from("posts")
     .select("*, profiles(nickname, avatar_url), post_attachments(*)")
     .eq("id", id)
-    .single();
+    .maybeSingle();
 
-  if (error) return null;
-  return data as Post;
+  if (!withFiles.error && withFiles.data) {
+    return withFiles.data as Post;
+  }
+
+  // 관계 조회 실패 시 본문만이라도 표시 (로그인 없이 피드백/오류글 열람)
+  const basic = await supabase
+    .from("posts")
+    .select("*, profiles(nickname, avatar_url)")
+    .eq("id", id)
+    .maybeSingle();
+
+  if (basic.error) {
+    console.error("Failed to fetch post:", basic.error.message);
+    return null;
+  }
+
+  if (!basic.data) return null;
+  return { ...basic.data, post_attachments: [] } as Post;
 }
 
 export async function incrementViewCount(id: string) {
   if (!isSupabaseConfigured()) return;
 
-  const supabase = await createClient();
-  const post = await getPost(id);
-  if (!post) return;
+  const supabase = createPublicClient();
+  const { error } = await supabase.rpc("increment_post_view", {
+    post_id: id,
+  });
 
-  await supabase
-    .from("posts")
-    .update({ view_count: post.view_count + 1 })
-    .eq("id", id);
+  // RPC 미적용 환경에서는 조용히 무시 (열람은 계속 가능)
+  if (error) {
+    console.error("Failed to increment view count:", error.message);
+  }
 }
 
 export async function getComments(postId: string) {
   if (!isSupabaseConfigured()) return [];
 
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("comments")
     .select("*, profiles(nickname, avatar_url)")
@@ -119,7 +138,7 @@ export async function getComments(postId: string) {
 export async function getCommentCount(postId: string) {
   if (!isSupabaseConfigured()) return 0;
 
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { count } = await supabase
     .from("comments")
     .select("*", { count: "exact", head: true })

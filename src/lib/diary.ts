@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { getExamYearFromDiary, getKSTDateString } from "@/lib/exam";
 import type { StudyDiary } from "@/types/database";
@@ -35,7 +36,7 @@ export async function getDiariesByDDay(
 ): Promise<PublicDiary[]> {
   if (!isSupabaseConfigured()) return [];
 
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("study_diaries")
     .select("*, profiles(nickname, avatar_url)")

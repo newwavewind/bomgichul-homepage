@@ -33,7 +33,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
       <ElevatedCard className="p-6 md:p-8">
         <div className="mb-4 flex items-center justify-between gap-4">
           <span className="rounded-[var(--radius-tags)] bg-surface px-3 py-1 font-display text-body-sm font-medium text-ink">
-            {CATEGORY_MAP[post.category]}
+            {CATEGORY_MAP[post.category] ?? post.category}
           </span>
           <PostActions
             postId={post.id}
