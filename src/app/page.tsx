@@ -1,9 +1,9 @@
 import {
   EyebrowLabel,
-  DisplayHeadline,
   SectionHeading,
   ElectricHighlight,
 } from "@/components/ui/Typography";
+import { BrandLockup } from "@/components/ui/BrandLockup";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { FeatureCard, LargePanel, TintedAccentCard } from "@/components/ui/Card";
@@ -14,6 +14,8 @@ import {
   APP_FEATURES,
   FAQ_ITEMS,
   HIGHLIGHTS,
+  SITE_PLATFORM,
+  SITE_TAGLINE,
   STATS,
   STUDY_MODES,
   SUBJECTS,
@@ -27,16 +29,11 @@ export default function HomePage() {
       <section className="px-4 pb-24 pt-8 md:pt-12">
         <div className="mx-auto grid max-w-[var(--page-max-width)] items-center gap-16 lg:grid-cols-2">
           <div className="space-y-6">
-            <EyebrowLabel>공인중개사 · 자격시험 기출 O/X 앱</EyebrowLabel>
-            <DisplayHeadline>
-              기출을 풀고,
-              <br />
-              합격에 가까워지세요
-            </DisplayHeadline>
+            <BrandLockup variant="hero" />
             <p className="max-w-md font-display text-body-lg text-smoke">
-              <ElectricHighlight>봄기출</ElectricHighlight>은 연도별·목차별 O/X 학습,
-              개념카드, 시험 모드, 출제 통계를 한 앱에 담았습니다.
-              커뮤니티에서 수험생들과 정보를 나눠보세요.
+              AI는 답을 잘합니다. 하지만 무엇을 물어야 할지 모르는 순간이
+              있습니다. <ElectricHighlight>봄기출</ElectricHighlight>은 기출을
+              풀다 막히면, 이해할 수 있는 질문까지 만들어 드립니다.
             </p>
             <AppStoreButtons />
             <div className="flex flex-wrap items-center gap-3">
@@ -53,8 +50,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Brand banner */}
+      <section className="border-y border-mist/60 bg-snow px-4 py-5">
+        <div className="mx-auto flex max-w-[var(--page-max-width)] justify-center">
+          <BrandLockup variant="banner" align="center" />
+        </div>
+      </section>
+
       {/* Stats */}
-      <section className="border-y border-mist/60 bg-surface px-4 py-12">
+      <section className="border-b border-mist/60 bg-surface px-4 py-12">
         <div className="mx-auto flex max-w-[var(--page-max-width)] flex-wrap justify-center gap-12 md:gap-24">
           {STATS.map((stat) => (
             <div key={stat.label} className="text-center">
@@ -71,8 +75,11 @@ export default function HomePage() {
       <section className="section-gap bg-snow px-4">
         <div className="mx-auto max-w-[var(--page-max-width)]">
           <div className="mb-10 text-center">
-            <EyebrowLabel className="mb-3">학습 방식</EyebrowLabel>
+            <EyebrowLabel className="mb-3">{SITE_PLATFORM}</EyebrowLabel>
             <SectionHeading>나에게 맞는 공부법</SectionHeading>
+            <p className="mx-auto mt-4 max-w-lg font-display text-body text-smoke">
+              기출을 풀고, 막히면 AI 질문으로 이해까지 — {SITE_TAGLINE}
+            </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {STUDY_MODES.map((mode) => (
@@ -91,10 +98,11 @@ export default function HomePage() {
       <section id="features" className="section-gap bg-paper px-4">
         <div className="mx-auto max-w-[var(--page-max-width)]">
           <div className="mb-12 text-center">
-            <EyebrowLabel className="mb-3">앱 주요 기능</EyebrowLabel>
+            <BrandLockup variant="section" align="center" className="mb-4" />
             <SectionHeading>봄기출 앱에 담긴 기능</SectionHeading>
             <p className="mx-auto mt-4 max-w-lg font-display text-body text-smoke">
-              학습 · 개념카드 · 시험 · 암기노트 · 용어집 — 수험 준비에 필요한 도구를 모두 제공합니다
+              학습 · 개념카드 · 시험 · 암기노트 · 용어집 — 수험 준비에 필요한
+              도구와 AI 질문 작성을 한 앱에 담았습니다
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -162,7 +170,8 @@ export default function HomePage() {
               </h2>
               <p className="mx-auto mt-4 font-display text-body-lg text-smoke">
                 기출 풀다가 막히는 문제, 자료 공유, 시험 정보 — 같은 길을 걷는
-                수험생들과 나눠보세요.
+                수험생들과 나눠보세요.{" "}
+                <span className="font-medium text-ink">{SITE_TAGLINE}</span>
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-2">
                 {["질문", "자료공유", "수다", "수험정보"].map((tag) => (
@@ -184,6 +193,9 @@ export default function HomePage() {
           <div className="mb-12 text-center">
             <EyebrowLabel className="mb-3">수험생 후기</EyebrowLabel>
             <SectionHeading>봄기출과 함께 공부하는 이유</SectionHeading>
+            <p className="mx-auto mt-4 max-w-lg font-display text-body text-smoke">
+              {SITE_PLATFORM}에서 기출을 이해하고, 합격에 가까워집니다
+            </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {TESTIMONIALS.map((t) => (
@@ -213,12 +225,10 @@ export default function HomePage() {
       <section className="section-gap px-4">
         <div className="mx-auto max-w-[var(--page-max-width)]">
           <TintedAccentCard className="text-center">
-            <h2 className="font-display text-heading-sm font-semibold text-ink">
-              앱으로 공부하고, 커뮤니티에서 연결하세요
-            </h2>
-            <p className="mx-auto mt-3 max-w-md font-display text-body text-smoke">
+            <BrandLockup variant="section" align="center" />
+            <p className="mx-auto mt-4 max-w-md font-display text-body text-smoke">
               앱을 설치해 기출을 풀고, 웹 커뮤니티에 가입해 수험 정보를
-              나눠보세요.
+              나눠보세요. 공부는 당신이, 질문은 봄기출이.
             </p>
             <AppStoreButtons className="mt-6 justify-center" />
             <div className="mt-4 flex flex-wrap justify-center gap-3">

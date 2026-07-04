@@ -74,14 +74,23 @@ create policy "본인 댓글만 수정"
 create policy "본인 댓글만 삭제"
   on public.comments for delete using (auth.uid() = author_id);
 
--- 회원가입 시 프로필 자동 생성
+-- 회원가입 시 프로필 자동 생성 (이메일·Google OAuth 공통)
 create or replace function public.handle_new_user()
 returns trigger as $$
 begin
-  insert into public.profiles (id, nickname)
+  insert into public.profiles (id, nickname, avatar_url)
   values (
     new.id,
-    coalesce(new.raw_user_meta_data->>'nickname', split_part(new.email, '@', 1))
+    coalesce(
+      new.raw_user_meta_data->>'nickname',
+      new.raw_user_meta_data->>'full_name',
+      new.raw_user_meta_data->>'name',
+      split_part(new.email, '@', 1)
+    ),
+    coalesce(
+      new.raw_user_meta_data->>'avatar_url',
+      new.raw_user_meta_data->>'picture'
+    )
   );
   return new;
 end;

@@ -2,8 +2,17 @@ import type { PostCategory } from "@/types/database";
 
 export const SITE_NAME = "봄기출";
 export const SITE_URL = "https://www.bomgichul.com";
+/** 핵심 슬로건 */
+export const SITE_TAGLINE = "질문은 봄기출이 작성합니다.";
+/** 플랫폼 포지셔닝 */
+export const SITE_PLATFORM = "AI 수험생 학습 플랫폼";
+/** 전체 브랜딩 문구 */
+export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_TAGLINE} ${SITE_PLATFORM}`;
+/** SEO / Open Graph / Twitter 기본 제목 */
+export const SITE_TITLE = "봄기출 | 공인중개사 커뮤니티";
 export const SITE_DESCRIPTION =
-  "공인중개사·자격시험 수험생을 위한 기출 O/X 앱. 연도별·목차별 학습, 개념카드, 시험 모드, 출제 통계까지 — 커뮤니티에서 수험 정보를 나눠요.";
+  "공인중개사 수험생을 위한 커뮤니티. 기출자료 공유, 수험일기, AI 학습, 정보 교류를 한 곳에서.";
+
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
 
@@ -36,6 +45,13 @@ export const CATEGORY_MAP = Object.fromEntries(
 
 /** 봄기출 앱 실제 기능 (ox-quiz-app 기준) */
 export const APP_FEATURES = [
+  {
+    title: "AI 질문 작성",
+    description:
+      "막힌 문항의 지문·보기·해설을 분석해 ChatGPT·Gemini·Claude에 바로 물을 질문을 자동으로 만듭니다. 질문은 봄기출이 작성합니다.",
+    icon: "✨",
+    tag: "AI",
+  },
   {
     title: "기출 O/X 학습",
     description:
@@ -119,9 +135,9 @@ export const STATS = [
 ];
 
 export const HIGHLIGHTS = [
+  { label: "AI 질문", value: "자동 작성" },
   { label: "기출 O/X", value: "연도·목차별" },
   { label: "개념카드", value: "주제별" },
-  { label: "커뮤니티", value: "무료" },
 ];
 
 export const TESTIMONIALS = [
@@ -146,6 +162,11 @@ export const TESTIMONIALS = [
 ];
 
 export const FAQ_ITEMS = [
+  {
+    question: "「질문은 봄기출이 작성합니다」는 무슨 뜻인가요?",
+    answer:
+      "AI는 답을 잘하지만, 무엇을 물어야 할지 모르는 순간이 있습니다. 봄기출은 기출을 풀다 막히면 지문·보기·해설을 바탕으로 ChatGPT·Gemini·Claude에 바로 붙여 넣을 수 있는 질문을 자동으로 만들어 줍니다. AI 수험생 학습 플랫폼으로서, 이해하는 공부에 집중하도록 설계했습니다.",
+  },
   {
     question: "봄기출은 어떤 시험을 준비할 수 있나요?",
     answer:

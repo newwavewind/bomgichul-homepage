@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
+import { BrandLockup } from "@/components/ui/BrandLockup";
 import { SITE_NAME, NAV_LINKS } from "@/lib/constants";
 
 export function Footer() {
@@ -8,12 +9,10 @@ export function Footer() {
       <div className="mx-auto max-w-[var(--page-max-width)] px-4 py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
-            <p className="font-display text-subheading font-semibold text-ink">
-              {SITE_NAME}
-            </p>
-            <p className="mt-3 max-w-sm font-display text-body-sm text-smoke">
-              수험생을 위한 기출문제 앱 &amp; 커뮤니티.
-              질문하고, 자료를 공유하고, 수험 정보를 나눠요.
+            <BrandLockup variant="footer" />
+            <p className="mt-4 max-w-sm font-display text-body-sm text-smoke">
+              기출을 풀다 막히면 AI에게 물을 질문까지 만들어 주는
+              수험생 학습 앱 &amp; 커뮤니티.
             </p>
             <AppStoreButtons className="mt-5" size="sm" />
           </div>
@@ -50,9 +49,12 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <p className="mt-12 font-display text-body-sm text-fog">
-          © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
-        </p>
+        <div className="mt-12 flex flex-col gap-2 border-t border-mist/60 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <BrandLockup variant="compact" />
+          <p className="font-display text-body-sm text-fog">
+            © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
