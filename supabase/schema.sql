@@ -25,7 +25,7 @@ create policy "본인 프로필만 생성 가능"
 create table public.posts (
   id uuid primary key default gen_random_uuid(),
   author_id uuid not null references public.profiles(id) on delete cascade,
-  category text not null check (category in ('question', 'resource', 'chat', 'info')),
+  category text not null check (category in ('question', 'resource', 'chat', 'info', 'bug', 'feedback')),
   title text not null,
   content text not null,
   view_count int default 0 not null,

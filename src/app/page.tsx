@@ -10,8 +10,8 @@ import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { FeatureCard, LargePanel, TintedAccentCard } from "@/components/ui/Card";
 import { Tag, CheckBadge } from "@/components/ui/Tag";
 import { FAQAccordion, TestimonialCard } from "@/components/ui/FAQ";
+import { AppPhonePreview } from "@/components/illustrations/AppPhonePreview";
 import { BrandLogo } from "@/components/illustrations/BrandLogo";
-import { CommunityMockupStack } from "@/components/illustrations/CommunityMockup";
 import { FloatingStickers } from "@/components/illustrations/Stickers";
 import {
   APP_FEATURES,
@@ -50,11 +50,8 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div className="relative flex flex-col items-center gap-6">
-            <BrandLogo size="hero" priority framed />
-            <div className="w-full">
-              <CommunityMockupStack />
-            </div>
+          <div className="relative flex justify-center">
+            <AppPhonePreview />
           </div>
         </div>
       </section>

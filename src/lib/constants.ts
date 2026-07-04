@@ -39,7 +39,14 @@ export const CATEGORIES: {
   { value: "resource", label: "자료공유", description: "기출, 노트, 팁 공유" },
   { value: "chat", label: "수다", description: "자유로운 수험생 수다" },
   { value: "info", label: "수험정보", description: "시험 일정, 합격 후기 등" },
+  { value: "bug", label: "오류신고", description: "앱 문항·기능 오류 제보" },
+  { value: "feedback", label: "피드백", description: "앱 개선 의견" },
 ];
+
+/** 웹에서 직접 작성 가능한 카테고리 (앱 전용 제외) */
+export const USER_WRITABLE_CATEGORIES = CATEGORIES.filter(
+  (c) => c.value !== "all" && c.value !== "bug" && c.value !== "feedback"
+);
 
 export const CATEGORY_MAP = Object.fromEntries(
   CATEGORIES.filter((c) => c.value !== "all").map((c) => [c.value, c.label])

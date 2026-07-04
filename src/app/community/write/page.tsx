@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
-import { CATEGORIES } from "@/lib/constants";
+import { USER_WRITABLE_CATEGORIES } from "@/lib/constants";
 import { FeatureCard } from "@/components/ui/Card";
 import { Input, Textarea } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
@@ -60,7 +60,7 @@ export default function WritePage() {
     }
   };
 
-  const categoryOptions = CATEGORIES.filter((c) => c.value !== "all");
+  const categoryOptions = USER_WRITABLE_CATEGORIES;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">

@@ -1,4 +1,10 @@
-export type PostCategory = "question" | "resource" | "chat" | "info";
+export type PostCategory =
+  | "question"
+  | "resource"
+  | "chat"
+  | "info"
+  | "bug"
+  | "feedback";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 
