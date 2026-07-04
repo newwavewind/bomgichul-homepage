@@ -2,6 +2,29 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/illustrations/BrandLogo";
 import { SITE_NAME, NAV_LINKS, SITE_IDENTITY } from "@/lib/constants";
 
+function NavItem({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  const className =
+    "font-display text-[12px] text-fog transition-colors hover:text-ink";
+  if (/^https?:\/\//.test(href)) {
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-mist bg-snow">
@@ -23,20 +46,11 @@ export function Footer() {
         </div>
         <nav className="flex flex-wrap items-center gap-x-3 gap-y-1">
           {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="font-display text-[12px] text-fog transition-colors hover:text-ink"
-            >
+            <NavItem key={link.href} href={link.href}>
               {link.label}
-            </Link>
+            </NavItem>
           ))}
-          <Link
-            href="/login"
-            className="font-display text-[12px] text-fog transition-colors hover:text-ink"
-          >
-            로그인
-          </Link>
+          <NavItem href="/login">로그인</NavItem>
         </nav>
       </div>
     </footer>

@@ -106,6 +106,14 @@ export function OutlineButton({
   `;
 
   if (href) {
+    const external = /^https?:\/\//.test(href);
+    if (external) {
+      return (
+        <a href={href} className={styles}>
+          {children}
+        </a>
+      );
+    }
     return <Link href={href} className={styles}>{children}</Link>;
   }
 
