@@ -8,13 +8,17 @@ import { CommentForm } from "@/components/board/CommentForm";
 import { CommentItem } from "@/components/board/CommentItem";
 import { PostActions } from "@/components/board/PostActions";
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 interface PostDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
 export default async function PostDetailPage({ params }: PostDetailPageProps) {
   const { id } = await params;
-  const [post, user] = await Promise.all([getPost(id), getUser()]);
+  const post = await getPost(id);
+  const user = await getUser();
 
   if (!post) notFound();
 
