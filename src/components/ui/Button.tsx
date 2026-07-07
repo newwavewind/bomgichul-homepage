@@ -1,4 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
+
+type EventParams = Record<string, string | number | boolean>;
+
+function useTrackedClick(event?: string, eventParams?: EventParams, onClick?: () => void) {
+  return () => {
+    if (event) trackEvent(event, eventParams);
+    onClick?.();
+  };
+}
 
 interface PrimaryButtonProps {
   href?: string;
@@ -8,6 +20,8 @@ interface PrimaryButtonProps {
   children: React.ReactNode;
   className?: string;
   size?: "default" | "sm" | "nav";
+  event?: string;
+  eventParams?: EventParams;
 }
 
 const sizeStyles = {
@@ -25,6 +39,8 @@ export function PrimaryButton({
   children,
   className = "",
   size = "default",
+  event,
+  eventParams,
 }: PrimaryButtonProps) {
   const styles = `
     inline-flex items-center justify-center gap-2
@@ -35,13 +51,14 @@ export function PrimaryButton({
     disabled:cursor-not-allowed disabled:opacity-50
     ${className}
   `;
+  const handleClick = useTrackedClick(event, eventParams, onClick);
 
   if (href) {
-    return <Link href={href} className={styles}>{children}</Link>;
+    return <Link href={href} className={styles} onClick={handleClick}>{children}</Link>;
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={styles}>
+    <button type={type} onClick={handleClick} disabled={disabled} className={styles}>
       {children}
     </button>
   );
@@ -55,6 +72,8 @@ export function SecondaryButton({
   disabled,
   children,
   className = "",
+  event,
+  eventParams,
 }: Omit<PrimaryButtonProps, "size">) {
   const styles = `
     inline-flex items-center justify-center gap-2
@@ -65,13 +84,14 @@ export function SecondaryButton({
     disabled:cursor-not-allowed disabled:opacity-50
     ${className}
   `;
+  const handleClick = useTrackedClick(event, eventParams, onClick);
 
   if (href) {
-    return <Link href={href} className={styles}>{children}</Link>;
+    return <Link href={href} className={styles} onClick={handleClick}>{children}</Link>;
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={styles}>
+    <button type={type} onClick={handleClick} disabled={disabled} className={styles}>
       {children}
     </button>
   );
@@ -83,6 +103,8 @@ interface OutlineButtonProps {
   children: React.ReactNode;
   className?: string;
   active?: boolean;
+  event?: string;
+  eventParams?: EventParams;
 }
 
 export function OutlineButton({
@@ -91,6 +113,8 @@ export function OutlineButton({
   children,
   className = "",
   active = false,
+  event,
+  eventParams,
 }: OutlineButtonProps) {
   const styles = `
     inline-flex items-center justify-center
@@ -104,21 +128,22 @@ export function OutlineButton({
     }
     ${className}
   `;
+  const handleClick = useTrackedClick(event, eventParams, onClick);
 
   if (href) {
     const external = /^https?:\/\//.test(href);
     if (external) {
       return (
-        <a href={href} className={styles}>
+        <a href={href} className={styles} onClick={handleClick}>
           {children}
         </a>
       );
     }
-    return <Link href={href} className={styles}>{children}</Link>;
+    return <Link href={href} className={styles} onClick={handleClick}>{children}</Link>;
   }
 
   return (
-    <button type="button" onClick={onClick} className={styles}>
+    <button type="button" onClick={handleClick} className={styles}>
       {children}
     </button>
   );

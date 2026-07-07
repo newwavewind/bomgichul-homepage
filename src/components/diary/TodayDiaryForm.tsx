@@ -26,6 +26,7 @@ export function TodayDiaryForm({ todayDiary, todayLabel, streak = 0 }: TodayDiar
   const [studyHours, setStudyHours] = useState(
     todayDiary?.study_minutes ? String(todayDiary.study_minutes / 60) : ""
   );
+  const [isPublic, setIsPublic] = useState(todayDiary?.is_public ?? true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
@@ -73,6 +74,7 @@ export function TodayDiaryForm({ todayDiary, todayLabel, streak = 0 }: TodayDiar
           content: trimmed,
           mood,
           study_minutes: Number.isFinite(studyMinutes) ? studyMinutes : 0,
+          is_public: isPublic,
         },
         { onConflict: "author_id,diary_date" }
       );
@@ -95,10 +97,11 @@ export function TodayDiaryForm({ todayDiary, todayLabel, streak = 0 }: TodayDiar
       <div className="mb-6 flex items-center justify-between gap-3">
         <div>
           <h2 className="font-display text-subheading font-semibold text-ink">
-            오늘의 일기 (공개)
+            오늘의 일기 ({isPublic ? "공개" : "비공개"})
           </h2>
           <p className="mt-0.5 font-display text-body-sm text-smoke">
-            {todayLabel} · 같은 D-day에 모두 공개됩니다
+            {todayLabel} ·{" "}
+            {isPublic ? "같은 D-day에 모두 공개됩니다" : "나만 볼 수 있어요"}
           </p>
         </div>
         <div className="flex shrink-0 items-center gap-2">
@@ -160,10 +163,22 @@ export function TodayDiaryForm({ todayDiary, todayLabel, streak = 0 }: TodayDiar
           placeholder="오늘 공부한 내용, 느낀 점, 내일 할 일 등을 자유롭게 적어보세요"
         />
 
+        <label className="flex cursor-pointer items-center gap-2">
+          <input
+            type="checkbox"
+            checked={isPublic}
+            onChange={(e) => setIsPublic(e.target.checked)}
+            className="h-4 w-4 accent-[#6366f1]"
+          />
+          <span className="font-display text-body-sm text-ink">
+            같은 D-day 공개 피드에 표시 (끄면 나만 볼 수 있어요)
+          </span>
+        </label>
+
         {error && <p className="font-display text-body-sm text-coral">{error}</p>}
         {saved && (
           <p className="font-display text-body-sm text-electric-blue">
-            오늘 일기가 공개 피드에 저장됐어요!
+            {isPublic ? "오늘 일기가 공개 피드에 저장됐어요!" : "오늘 일기가 비공개로 저장됐어요!"}
           </p>
         )}
 

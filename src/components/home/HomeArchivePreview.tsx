@@ -2,12 +2,25 @@ import Link from "next/link";
 import { getArchivePosts } from "@/lib/archive";
 import { ARCHIVE_RESOURCE_TYPE_MAP, ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
 import { getFileIcon } from "@/lib/storage";
+import { PrimaryButton } from "@/components/ui/Button";
 
 export async function HomeArchivePreview() {
   const { data: posts } = await getArchivePosts({ page: 1, sort: "popular" });
   const preview = posts.slice(0, 4);
 
-  if (preview.length === 0) return null;
+  if (preview.length === 0) {
+    return (
+      <div className="mt-10 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-6 py-10 text-center shadow-[var(--shadow-card)]">
+        <p className="font-display text-body-sm text-smoke">아직 등록된 자료가 없어요</p>
+        <p className="mt-1 font-display text-body-sm text-fog">
+          첫 번째 자료를 올려보세요!
+        </p>
+        <div className="mt-5">
+          <PrimaryButton href="/archive/new">자료 올리기</PrimaryButton>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-10 grid gap-3 text-left sm:grid-cols-2">

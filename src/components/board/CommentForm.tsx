@@ -9,10 +9,11 @@ import { Textarea } from "@/components/ui/Input";
 
 interface CommentFormProps {
   postId: string;
+  postAuthorId?: string | null;
   userId?: string | null;
 }
 
-export function CommentForm({ postId, userId }: CommentFormProps) {
+export function CommentForm({ postId, postAuthorId, userId }: CommentFormProps) {
   const router = useRouter();
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
@@ -46,15 +47,28 @@ export function CommentForm({ postId, userId }: CommentFormProps) {
 
     try {
       const supabase = createClient();
-      const { error: insertError } = await supabase.from("comments").insert({
-        post_id: postId,
-        author_id: userId,
-        content: content.trim(),
-      });
+      const { data: inserted, error: insertError } = await supabase
+        .from("comments")
+        .insert({
+          post_id: postId,
+          author_id: userId,
+          content: content.trim(),
+        })
+        .select("id")
+        .single();
 
       if (insertError) {
         setError(insertError.message);
       } else {
+        if (postAuthorId && postAuthorId !== userId) {
+          await supabase.from("notifications").insert({
+            recipient_id: postAuthorId,
+            actor_id: userId,
+            post_id: postId,
+            comment_id: inserted.id,
+            type: "comment",
+          });
+        }
         setContent("");
         router.refresh();
       }

@@ -8,6 +8,7 @@ import { ElevatedCard } from "@/components/ui/Card";
 import {
   ARCHIVE_SUBJECTS,
   ARCHIVE_SUBJECT_MAP,
+  EXAM_SUBJECTS,
   PC_APP_URL,
   SITE_NAME,
   SUBJECT_LANDING_INFO,
@@ -17,6 +18,7 @@ import type { ArchiveSubject } from "@/lib/constants";
 const VALID_SUBJECTS = ARCHIVE_SUBJECTS.map((s) => s.value).filter(
   (v): v is Exclude<ArchiveSubject, "all"> => v !== "all"
 );
+const EXAM_SUBJECT_VALUES = EXAM_SUBJECTS.map((s) => s.value) as string[];
 
 interface SubjectPageProps {
   params: Promise<{ subject: string }>;
@@ -66,6 +68,11 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <PrimaryButton href={PC_APP_URL}>앱에서 {label} 풀어보기</PrimaryButton>
+            {EXAM_SUBJECT_VALUES.includes(subject) && (
+              <SecondaryButton href={`/exam/${subject}`}>
+                {label} 기출문제 해설 보기
+              </SecondaryButton>
+            )}
             <SecondaryButton href={`/archive?subject=${subject}`}>
               {label} 자료실 전체보기
             </SecondaryButton>

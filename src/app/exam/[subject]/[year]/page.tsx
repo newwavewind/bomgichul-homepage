@@ -1,0 +1,108 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
+import { ElevatedCard } from "@/components/ui/Card";
+import { PrimaryButton } from "@/components/ui/Button";
+import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, PC_APP_URL, SITE_NAME } from "@/lib/constants";
+import {
+  getExamYearParams,
+  getExamQuestionsForYear,
+  type ExamSubject,
+} from "@/lib/exam-questions";
+
+const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
+
+function isValidSubject(value: string): value is ExamSubject {
+  return (VALID_SUBJECTS as string[]).includes(value);
+}
+
+interface ExamYearPageProps {
+  params: Promise<{ subject: string; year: string }>;
+}
+
+export function generateStaticParams() {
+  return getExamYearParams();
+}
+
+export async function generateMetadata({
+  params,
+}: ExamYearPageProps): Promise<Metadata> {
+  const { subject, year } = await params;
+  if (!isValidSubject(subject)) return {};
+
+  const label = ARCHIVE_SUBJECT_MAP[subject];
+  const title = `${year}년 ${label} 기출문제 해설`;
+  const description = `${year}년 공인중개사 ${label} 기출문제 전체 문항의 정답과 해설을 확인하세요.`;
+
+  return {
+    title,
+    description,
+    openGraph: { title: `${title} | ${SITE_NAME}`, description },
+  };
+}
+
+export default async function ExamYearPage({ params }: ExamYearPageProps) {
+  const { subject, year: yearParam } = await params;
+  if (!isValidSubject(subject)) notFound();
+
+  const year = Number(yearParam);
+  const label = ARCHIVE_SUBJECT_MAP[subject];
+  const questions = getExamQuestionsForYear(subject, year);
+  if (questions.length === 0) notFound();
+
+  const free = questions[0].free;
+
+  return (
+    <div className="px-4 py-8 md:py-12">
+      <div className="mx-auto max-w-[var(--page-max-width)]">
+        <p className="mb-4 font-display text-body-sm text-fog">
+          <Link href="/exam" className="hover:text-ink">
+            기출문제 해설
+          </Link>{" "}
+          /{" "}
+          <Link href={`/exam/${subject}`} className="hover:text-ink">
+            {label}
+          </Link>{" "}
+          / {year}년
+        </p>
+
+        <div className="mb-10">
+          <EyebrowLabel className="mb-2">{year}년 기출</EyebrowLabel>
+          <SectionHeading as="h1">
+            {year}년 {label} 기출문제 해설
+          </SectionHeading>
+          <p className="mt-3 max-w-2xl font-display text-body text-smoke">
+            문항을 선택하면 정답과 해설을 볼 수 있어요.
+          </p>
+        </div>
+
+        {!free && (
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice px-5 py-4">
+            <p className="font-display text-body-sm text-ink">
+              {year}년 기출은 앱 프리미엄 문항이에요. 전체 해설은 앱에서 확인하세요.
+            </p>
+            <PrimaryButton href={PC_APP_URL}>앱에서 전체 보기</PrimaryButton>
+          </div>
+        )}
+
+        <ElevatedCard className="overflow-hidden">
+          {questions.map((q) => (
+            <Link
+              key={q.questionNo}
+              href={`/exam/${subject}/${year}/${q.questionNo}`}
+              className="flex items-center gap-3 border-b border-mist/60 px-5 py-3.5 transition-colors last:border-b-0 hover:bg-snow"
+            >
+              <span className="shrink-0 font-display text-body-sm font-semibold text-electric-blue">
+                {q.questionNo}번
+              </span>
+              <span className="min-w-0 flex-1 truncate font-display text-body-sm text-ink">
+                {q.stem}
+              </span>
+            </Link>
+          ))}
+        </ElevatedCard>
+      </div>
+    </div>
+  );
+}

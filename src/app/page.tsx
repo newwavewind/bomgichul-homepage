@@ -9,7 +9,7 @@ import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { PrimaryButton, SecondaryButton, OutlineButton } from "@/components/ui/Button";
 import { FeatureCard, LargePanel, TintedAccentCard } from "@/components/ui/Card";
 import { Tag, CheckBadge } from "@/components/ui/Tag";
-import { FAQAccordion, TestimonialCard } from "@/components/ui/FAQ";
+import { FAQAccordion } from "@/components/ui/FAQ";
 import { AppPhonePreview } from "@/components/illustrations/AppPhonePreview";
 import { BrandLogo } from "@/components/illustrations/BrandLogo";
 import { FloatingStickers } from "@/components/illustrations/Stickers";
@@ -19,22 +19,44 @@ import { HomeArchivePreview } from "@/components/home/HomeArchivePreview";
 import { DailyOxCard } from "@/components/home/DailyOxCard";
 import { getDailyOxSet } from "@/lib/daily-quiz";
 import { getKSTDateString } from "@/lib/exam";
+import { getUser } from "@/lib/auth";
+import { getUserQuizStreak, hasCompletedTodayQuiz } from "@/lib/daily-quiz-results";
 import {
   APP_FEATURES,
   FAQ_ITEMS,
   HIGHLIGHTS,
-  SITE_PLATFORM,
   SITE_TAGLINE,
   STATS,
   STUDY_MODES,
-  TESTIMONIALS,
 } from "@/lib/constants";
 
-export default function HomePage() {
-  const dailyQuestions = getDailyOxSet(getKSTDateString());
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
+export default async function HomePage() {
+  const dateKey = getKSTDateString();
+  const dailyQuestions = getDailyOxSet(dateKey);
+  const user = await getUser();
+  const quizStreak = user ? await getUserQuizStreak(user.id) : 0;
+  const alreadyPlayedToday = user ? await hasCompletedTodayQuiz(user.id, dateKey) : false;
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
+
       {/* D-day strip */}
       <div className="px-4 pt-4">
         <DDayStrip />
@@ -51,9 +73,27 @@ export default function HomePage() {
               공인중개사 수험생을 위한 학습 앱과 커뮤니티입니다.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <PrimaryButton href="/#try">지금 무료로 풀어보기</PrimaryButton>
-              <SecondaryButton href="/community">공인중개사 커뮤니티</SecondaryButton>
-              <OutlineButton href="/#features">앱 기능 보기</OutlineButton>
+              <PrimaryButton
+                href="/#try"
+                event="cta_click"
+                eventParams={{ location: "hero", label: "try_now" }}
+              >
+                지금 무료로 풀어보기
+              </PrimaryButton>
+              <SecondaryButton
+                href="/community"
+                event="cta_click"
+                eventParams={{ location: "hero", label: "community" }}
+              >
+                공인중개사 커뮤니티
+              </SecondaryButton>
+              <OutlineButton
+                href="/#features"
+                event="cta_click"
+                eventParams={{ location: "hero", label: "features" }}
+              >
+                앱 기능 보기
+              </OutlineButton>
             </div>
             <p className="font-display text-body-sm text-smoke">
               공인중개사 공부는 당신이, 질문은 봄기출이.
@@ -80,7 +120,13 @@ export default function HomePage() {
             질문할 수 있어요.
           </p>
           <div className="mt-8">
-            <DailyOxCard questions={dailyQuestions} />
+            <DailyOxCard
+              questions={dailyQuestions}
+              userId={user?.id ?? null}
+              dateKey={dateKey}
+              initialStreak={quizStreak}
+              alreadyPlayedToday={alreadyPlayedToday}
+            />
           </div>
         </div>
       </section>
@@ -132,6 +178,15 @@ export default function HomePage() {
                 <p className="font-display text-body-sm text-smoke">{mode.description}</p>
               </FeatureCard>
             ))}
+          </div>
+          <div className="mt-6">
+            <OutlineButton
+              href="/exam"
+              event="cta_click"
+              eventParams={{ location: "study_modes", label: "exam_hub" }}
+            >
+              기출문제 해설 전체 보기 →
+            </OutlineButton>
           </div>
         </div>
       </section>
@@ -198,38 +253,23 @@ export default function HomePage() {
               </div>
 
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <PrimaryButton href="/community">공인중개사 커뮤니티</PrimaryButton>
-                <SecondaryButton href="/archive">자료실 보기</SecondaryButton>
+                <PrimaryButton
+                  href="/community"
+                  event="cta_click"
+                  eventParams={{ location: "community_panel", label: "community" }}
+                >
+                  공인중개사 커뮤니티
+                </PrimaryButton>
+                <SecondaryButton
+                  href="/archive"
+                  event="cta_click"
+                  eventParams={{ location: "community_panel", label: "archive" }}
+                >
+                  자료실 보기
+                </SecondaryButton>
               </div>
             </div>
           </LargePanel>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="section-gap bg-paper px-4">
-        <div className="mx-auto max-w-[var(--page-max-width)]">
-          <div className="mb-12 max-w-xl">
-            <HandCaption className="mb-2">수험생 후기</HandCaption>
-            <SectionHeading>봄기출과 함께 공부하는 이유</SectionHeading>
-            <p className="mt-4 font-display text-body text-smoke">
-              {SITE_PLATFORM}에서 기출을 이해하고, 합격에 가까워집니다
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {TESTIMONIALS.map((t, i) => (
-              <div
-                key={t.author}
-                className={i === 1 ? "md:-translate-y-3" : ""}
-              >
-                <TestimonialCard
-                  quote={t.quote}
-                  author={t.author}
-                  rating={t.rating}
-                />
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -262,8 +302,20 @@ export default function HomePage() {
               </p>
               <AppStoreButtons className="mt-6 justify-center" />
               <div className="mt-4 flex flex-wrap justify-center gap-3">
-                <PrimaryButton href="/login">커뮤니티 가입</PrimaryButton>
-                <SecondaryButton href="/community">게시판 둘러보기</SecondaryButton>
+                <PrimaryButton
+                  href="/login"
+                  event="cta_click"
+                  eventParams={{ location: "final_cta", label: "signup" }}
+                >
+                  커뮤니티 가입
+                </PrimaryButton>
+                <SecondaryButton
+                  href="/community"
+                  event="cta_click"
+                  eventParams={{ location: "final_cta", label: "community" }}
+                >
+                  게시판 둘러보기
+                </SecondaryButton>
               </div>
             </div>
           </TintedAccentCard>

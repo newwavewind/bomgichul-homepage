@@ -1,4 +1,7 @@
+"use client";
+
 import { APP_LINKS } from "@/lib/constants";
+import { trackEvent } from "@/lib/analytics";
 
 interface AppStoreButtonsProps {
   className?: string;
@@ -118,6 +121,7 @@ function AppStoreBadge({
       rel="noopener noreferrer"
       className={styles}
       aria-label="App Store에서 봄기출 앱 다운로드"
+      onClick={() => trackEvent("app_store_click", { store: "ios" })}
     >
       {content}
     </a>
@@ -140,6 +144,7 @@ function GooglePlayBadge({
       rel="noopener noreferrer"
       className="inline-flex items-center rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-3.5 py-2 shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
       aria-label="Google Play에서 봄기출 앱 다운로드"
+      onClick={() => trackEvent("app_store_click", { store: "android" })}
     >
       <GooglePlayMark height={logoHeight} />
     </a>

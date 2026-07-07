@@ -105,15 +105,32 @@ export function getDailyOxSet(dateKey: string): DailyOxQuestion[] {
   return items;
 }
 
-/** 막힌 문항을 AI에게 바로 물어볼 수 있는 질문 초안 — 봄기출 앱의 "AI 질문 자동 작성"과 같은 결 */
-export function buildAiQuestionPrompt(question: DailyOxQuestion): string {
+/**
+ * 막힌 문항을 AI에게 바로 물어볼 수 있는 질문 초안.
+ * 출처·지문·보기(O/X)·내가 고른 답·해설을 모두 담아, AI가 바로 깊이 있는 답을
+ * 줄 수 있도록 만든다 — "공부는 당신이, 질문은 봄기출이" 아이덴티티의 핵심 기능.
+ */
+export function buildAiQuestionPrompt(
+  question: DailyOxQuestion,
+  picked: "O" | "X"
+): string {
+  const isCorrect = picked === question.answer;
+
   return [
-    "공인중개사 기출 O/X 문제를 풀다가 막혀서 질문 드립니다.",
+    "공인중개사 기출 O/X 문제를 풀다가 막혀서 질문 드립니다. 아래 내용을 바탕으로 답변해주세요.",
     "",
-    `[과목] ${question.subject} (${question.year}년 기출)`,
+    `[출처] ${question.subject} ${question.year}년 기출`,
     `[지문] ${question.statement}`,
+    "[보기] O(맞다) / X(틀리다)",
     `[정답] ${question.answer}`,
+    `[내가 고른 답] ${picked} (${isCorrect ? "정답" : "오답"})`,
+    `[해설] ${question.explanation}`,
     "",
-    "이 지문이 왜 이 정답이 되는지 관련 법리·판례를 근거로 쉽게 설명해주시고, 수험생이 헷갈리기 쉬운 포인트가 있다면 짚어주세요.",
+    "위 지문·정답·제가 고른 답·해설을 바탕으로 다음을 자세히 설명해주세요.",
+    "1. 이 지문이 왜 이 정답이 되는지, 근거가 되는 조문·판례",
+    isCorrect
+      ? "2. 비슷하게 자주 출제되는 헷갈리는 포인트나 함정"
+      : "2. 제가 왜 틀렸는지, 헷갈렸을 만한 포인트",
+    "3. 관련해서 같이 알아두면 좋은 조문·판례가 있다면 추가로",
   ].join("\n");
 }

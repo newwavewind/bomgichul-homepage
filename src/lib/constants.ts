@@ -164,27 +164,6 @@ export const HIGHLIGHTS = [
   { label: "개념카드", value: "주제별" },
 ];
 
-export const TESTIMONIALS = [
-  {
-    quote:
-      "출제 통계에서 자주 나오는 장만 골라 학습하니 효율이 확 올랐어요. 랜덤 시험도 실전 같아요.",
-    author: "공시생 김○○",
-    rating: 5,
-  },
-  {
-    quote:
-      "개념카드로 X 패턴만 반복하니 민법 O/X가 훨씬 빨라졌습니다. 빈칸 채우기도 암기에 좋아요.",
-    author: "1차 합격 박○○",
-    rating: 5,
-  },
-  {
-    quote:
-      "앱에서 풀다 막히면 커뮤니티에 질문하고, 다른 수험생 팁도 많이 얻고 있어요.",
-    author: "2차 준비 이○○",
-    rating: 5,
-  },
-];
-
 export const FAQ_ITEMS = [
   {
     question: "「질문은 봄기출이 작성합니다」는 무슨 뜻인가요?",
@@ -236,6 +215,7 @@ export const PC_APP_URL = "https://app.bomgichul.com";
 export const NAV_LINKS = [
   { href: "/", label: "홈" },
   { href: PC_APP_URL, label: "PC앱" },
+  { href: "/exam", label: "기출문제" },
   { href: "/community", label: "커뮤니티" },
   { href: "/archive", label: "자료실" },
   { href: "/diary", label: "수험일기" },
@@ -303,6 +283,11 @@ export const ARCHIVE_RESOURCE_TYPE_MAP: Record<string, string> = {
 export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries(
   ARCHIVE_SUBJECTS.filter((s) => s.value !== "all").map((s) => [s.value, s.label])
 );
+
+/** 기출문제 해설 페이지(/exam)에서 다루는 실제 시험 과목 — ARCHIVE_SUBJECTS 중 "all"/"other" 제외 */
+export const EXAM_SUBJECTS = ARCHIVE_SUBJECTS.filter(
+  (s) => s.value !== "all" && s.value !== "other"
+) as { value: Exclude<ArchiveSubject, "all" | "other">; label: string }[];
 
 /** 과목별 랜딩 페이지(/subjects/[subject]) 소개 문구 */
 export const SUBJECT_LANDING_INFO: Record<

@@ -3,6 +3,9 @@
 import { useMemo, useState } from "react";
 import { PC_APP_URL } from "@/lib/constants";
 import { buildAiQuestionPrompt, type DailyOxQuestion } from "@/lib/daily-quiz";
+import { trackEvent } from "@/lib/analytics";
+import { createClient } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 async function copyToClipboard(text: string): Promise<boolean> {
   try {
@@ -34,13 +37,20 @@ const AI_OPTIONS: { id: AiTarget; label: string; icon: string }[] = [
   { id: "gemini", label: "Gemini", icon: "✨" },
 ];
 
-function AiQuestionActions({ question }: { question: DailyOxQuestion }) {
+function AiQuestionActions({
+  question,
+  picked,
+}: {
+  question: DailyOxQuestion;
+  picked: "O" | "X";
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
-  const prompt = useMemo(() => buildAiQuestionPrompt(question), [question]);
+  const prompt = useMemo(() => buildAiQuestionPrompt(question, picked), [question, picked]);
 
   const handleSelect = async (target: AiTarget) => {
     setMenuOpen(false);
+    trackEvent("ai_question_click", { target, subject: question.subject });
 
     if (target === "chatgpt") {
       window.open(`https://chatgpt.com/?q=${encodeURIComponent(prompt)}`, "_blank", "noopener,noreferrer");
@@ -61,6 +71,7 @@ function AiQuestionActions({ question }: { question: DailyOxQuestion }) {
 
   const handleCopy = async () => {
     const ok = await copyToClipboard(prompt);
+    trackEvent("ai_question_copy", { subject: question.subject });
     setStatus(ok ? "질문이 복사됐어요!" : "복사에 실패했어요.");
     setTimeout(() => setStatus(null), 2000);
   };
@@ -113,11 +124,26 @@ function AiQuestionActions({ question }: { question: DailyOxQuestion }) {
   );
 }
 
-export function DailyOxCard({ questions }: { questions: DailyOxQuestion[] }) {
+interface DailyOxCardProps {
+  questions: DailyOxQuestion[];
+  userId?: string | null;
+  dateKey?: string;
+  initialStreak?: number;
+  alreadyPlayedToday?: boolean;
+}
+
+export function DailyOxCard({
+  questions,
+  userId = null,
+  dateKey,
+  initialStreak = 0,
+  alreadyPlayedToday = false,
+}: DailyOxCardProps) {
   const [index, setIndex] = useState(0);
   const [picked, setPicked] = useState<"O" | "X" | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [streak, setStreak] = useState(initialStreak);
 
   const total = questions.length;
   const question = questions[index];
@@ -125,13 +151,31 @@ export function DailyOxCard({ questions }: { questions: DailyOxQuestion[] }) {
 
   const handlePick = (choice: "O" | "X") => {
     if (picked) return;
+    const correct = choice === question.answer;
     setPicked(choice);
-    if (choice === question.answer) setCorrectCount((c) => c + 1);
+    if (correct) setCorrectCount((c) => c + 1);
+    trackEvent("daily_ox_answer", { index, subject: question.subject, correct });
+  };
+
+  const saveResult = async (correct: number) => {
+    if (!userId || !dateKey || !isSupabaseConfigured()) return;
+
+    const supabase = createClient();
+    const { error } = await supabase.from("daily_quiz_results").upsert(
+      { user_id: userId, quiz_date: dateKey, total, correct },
+      { onConflict: "user_id,quiz_date" }
+    );
+
+    if (!error && !alreadyPlayedToday) {
+      setStreak((s) => s + 1);
+    }
   };
 
   const handleNext = () => {
     if (index + 1 >= total) {
       setFinished(true);
+      trackEvent("daily_ox_complete", { total, correct: correctCount });
+      saveResult(correctCount);
       return;
     }
     setIndex((i) => i + 1);
@@ -152,12 +196,24 @@ export function DailyOxCard({ questions }: { questions: DailyOxQuestion[] }) {
         <p className="mt-2 font-display text-heading-sm font-bold text-ink">
           {total}문제 중 <span className="text-electric-blue">{correctCount}개</span> 정답
         </p>
+        {userId ? (
+          streak > 0 && (
+            <p className="mt-3 inline-flex items-center gap-1.5 rounded-[var(--radius-tags)] bg-midnight px-3 py-1 font-display text-[12px] font-medium text-paper">
+              🔥 {streak}일 연속 참여
+            </p>
+          )
+        ) : (
+          <p className="mt-3 font-display text-body-sm text-smoke">
+            로그인하면 연속 참여 기록이 저장돼요.
+          </p>
+        )}
         <p className="mt-3 font-display text-body-sm text-smoke">
           연도별·목차별로 더 많은 기출을 앱에서 풀어보세요.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a
             href={PC_APP_URL}
+            onClick={() => trackEvent("cta_click", { location: "daily_ox_result", label: "pc_app" })}
             className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
           >
             앱에서 더 풀어보기
@@ -227,7 +283,7 @@ export function DailyOxCard({ questions }: { questions: DailyOxQuestion[] }) {
             <p className="mt-1 font-display text-body-sm text-smoke">{question.explanation}</p>
           </div>
 
-          <AiQuestionActions question={question} />
+          <AiQuestionActions question={question} picked={picked} />
 
           <div className="mt-4 flex justify-end">
             <button

@@ -6,6 +6,7 @@ import {
   CATEGORY_EMOJI,
   USER_WRITABLE_CATEGORIES,
 } from "@/lib/constants";
+import { PrimaryButton } from "@/components/ui/Button";
 
 const writableValues = new Set(USER_WRITABLE_CATEGORIES.map((c) => c.value));
 
@@ -26,7 +27,19 @@ export async function HomeCommunityPreview() {
   const { data: posts } = await getPosts({ page: 1, sort: "latest" });
   const preview = posts.filter((p) => writableValues.has(p.category)).slice(0, 5);
 
-  if (preview.length === 0) return null;
+  if (preview.length === 0) {
+    return (
+      <div className="mt-10 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-6 py-10 text-center shadow-[var(--shadow-card)]">
+        <p className="font-display text-body-sm text-smoke">아직 게시글이 없어요</p>
+        <p className="mt-1 font-display text-body-sm text-fog">
+          첫 번째 글을 남겨보세요!
+        </p>
+        <div className="mt-5">
+          <PrimaryButton href="/community/write">글쓰기</PrimaryButton>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-10 overflow-hidden rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper text-left shadow-[var(--shadow-card)]">

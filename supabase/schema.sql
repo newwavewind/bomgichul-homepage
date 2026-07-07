@@ -205,3 +205,157 @@ create policy "본인 일기만 삭제"
 create trigger study_diaries_updated_at
   before update on public.study_diaries
   for each row execute function public.update_updated_at();
+
+-- 기출문제 북마크 (문제 데이터는 정적 JSON에 있어 subject+year+question_no로 식별)
+create table if not exists public.question_bookmarks (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles(id) on delete cascade,
+  subject text not null,
+  year int not null,
+  question_no int not null,
+  created_at timestamptz default now() not null,
+  unique (user_id, subject, year, question_no)
+);
+
+create index if not exists question_bookmarks_user_idx
+  on public.question_bookmarks(user_id, created_at desc);
+
+alter table public.question_bookmarks enable row level security;
+
+create policy "본인 북마크만 조회"
+  on public.question_bookmarks for select using (auth.uid() = user_id);
+
+create policy "본인 북마크만 생성"
+  on public.question_bookmarks for insert with check (auth.uid() = user_id);
+
+create policy "본인 북마크만 삭제"
+  on public.question_bookmarks for delete using (auth.uid() = user_id);
+
+-- 오답노트: 사용자가 정답 확인 후 스스로 맞았는지/틀렸는지 기록
+create table if not exists public.question_attempts (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles(id) on delete cascade,
+  subject text not null,
+  year int not null,
+  question_no int not null,
+  result text not null check (result in ('correct', 'wrong')),
+  created_at timestamptz default now() not null,
+  updated_at timestamptz default now() not null,
+  unique (user_id, subject, year, question_no)
+);
+
+create index if not exists question_attempts_user_wrong_idx
+  on public.question_attempts(user_id, result, updated_at desc);
+
+alter table public.question_attempts enable row level security;
+
+create policy "본인 기록만 조회"
+  on public.question_attempts for select using (auth.uid() = user_id);
+
+create policy "본인 기록만 생성"
+  on public.question_attempts for insert with check (auth.uid() = user_id);
+
+create policy "본인 기록만 수정"
+  on public.question_attempts for update using (auth.uid() = user_id);
+
+create policy "본인 기록만 삭제"
+  on public.question_attempts for delete using (auth.uid() = user_id);
+
+create trigger question_attempts_updated_at
+  before update on public.question_attempts
+  for each row execute function public.update_updated_at();
+
+-- 문제별 개인 메모
+create table if not exists public.question_notes (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles(id) on delete cascade,
+  subject text not null,
+  year int not null,
+  question_no int not null,
+  content text not null,
+  created_at timestamptz default now() not null,
+  updated_at timestamptz default now() not null,
+  unique (user_id, subject, year, question_no)
+);
+
+alter table public.question_notes enable row level security;
+
+create policy "본인 메모만 조회"
+  on public.question_notes for select using (auth.uid() = user_id);
+
+create policy "본인 메모만 생성"
+  on public.question_notes for insert with check (auth.uid() = user_id);
+
+create policy "본인 메모만 수정"
+  on public.question_notes for update using (auth.uid() = user_id);
+
+create policy "본인 메모만 삭제"
+  on public.question_notes for delete using (auth.uid() = user_id);
+
+create trigger question_notes_updated_at
+  before update on public.question_notes
+  for each row execute function public.update_updated_at();
+
+-- 일일 기출 O/X 퀴즈 결과 (연속 참여 스트릭 계산용)
+create table if not exists public.daily_quiz_results (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles(id) on delete cascade,
+  quiz_date date not null,
+  total int not null,
+  correct int not null,
+  created_at timestamptz default now() not null,
+  unique (user_id, quiz_date)
+);
+
+create index if not exists daily_quiz_results_user_date_idx
+  on public.daily_quiz_results(user_id, quiz_date desc);
+
+alter table public.daily_quiz_results enable row level security;
+
+create policy "본인 퀴즈결과만 조회"
+  on public.daily_quiz_results for select using (auth.uid() = user_id);
+
+create policy "본인 퀴즈결과만 생성"
+  on public.daily_quiz_results for insert with check (auth.uid() = user_id);
+
+create policy "본인 퀴즈결과만 수정"
+  on public.daily_quiz_results for update using (auth.uid() = user_id);
+
+-- 수험일기 비공개 옵션
+alter table public.study_diaries
+  add column if not exists is_public boolean not null default true;
+
+drop policy if exists "일기는 누구나 조회 가능" on public.study_diaries;
+
+create policy "공개 일기이거나 본인 일기만 조회"
+  on public.study_diaries for select
+  using (is_public or auth.uid() = author_id);
+
+-- 댓글 알림 (내 글에 댓글이 달리면 알림 생성)
+create table if not exists public.notifications (
+  id uuid primary key default gen_random_uuid(),
+  recipient_id uuid not null references public.profiles(id) on delete cascade,
+  actor_id uuid not null references public.profiles(id) on delete cascade,
+  post_id uuid not null references public.posts(id) on delete cascade,
+  comment_id uuid references public.comments(id) on delete cascade,
+  type text not null default 'comment' check (type in ('comment')),
+  read_at timestamptz,
+  created_at timestamptz default now() not null
+);
+
+create index if not exists notifications_recipient_idx
+  on public.notifications(recipient_id, created_at desc);
+
+alter table public.notifications enable row level security;
+
+create policy "본인 알림만 조회"
+  on public.notifications for select using (auth.uid() = recipient_id);
+
+create policy "본인이 행위자인 알림만 생성"
+  on public.notifications for insert
+  with check (auth.uid() = actor_id and actor_id <> recipient_id);
+
+create policy "본인 알림만 읽음 처리"
+  on public.notifications for update
+  using (auth.uid() = recipient_id)
+  with check (auth.uid() = recipient_id);

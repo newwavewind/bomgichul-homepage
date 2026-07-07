@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { LogoMark } from "@/components/illustrations/LogoMark";
 import { PrimaryButton, OutlineButton, TextButton } from "@/components/ui/Button";
-import { NAV_LINKS, PC_APP_URL } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 
 interface HeaderNavProps {
   user?: {
@@ -11,6 +11,20 @@ interface HeaderNavProps {
     nickname: string;
     usernameSet: boolean;
   } | null;
+  unreadCount?: number;
+}
+
+function NotificationBell({ unreadCount }: { unreadCount: number }) {
+  return (
+    <OutlineButton href="/notifications" className="relative">
+      🔔
+      {unreadCount > 0 && (
+        <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#ef4444] font-display text-[10px] font-bold text-paper">
+          {unreadCount > 9 ? "9+" : unreadCount}
+        </span>
+      )}
+    </OutlineButton>
+  );
 }
 
 function NavLink({
@@ -22,17 +36,6 @@ function NavLink({
   label: string;
   className?: string;
 }) {
-  if (href === PC_APP_URL) {
-    return (
-      <a
-        href={href}
-        className={`inline-flex items-center justify-center gap-1 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-electric-blue px-3.5 py-2 font-display text-body-sm font-semibold text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90 ${className}`}
-      >
-        ✨ {label}
-      </a>
-    );
-  }
-
   return (
     <OutlineButton href={href} className={className}>
       {label}
@@ -40,7 +43,7 @@ function NavLink({
   );
 }
 
-export function HeaderNav({ user }: HeaderNavProps) {
+export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -58,6 +61,7 @@ export function HeaderNav({ user }: HeaderNavProps) {
           <div className="hidden items-center gap-2 md:flex">
             {user ? (
               <>
+                <NotificationBell unreadCount={unreadCount} />
                 <OutlineButton href={user.usernameSet ? "/profile" : "/onboarding"}>
                   {user.usernameSet ? user.nickname : "아이디 설정"}
                 </OutlineButton>
@@ -98,6 +102,12 @@ export function HeaderNav({ user }: HeaderNavProps) {
               ))}
               {user ? (
                 <>
+                  <OutlineButton
+                    href="/notifications"
+                    className="w-full justify-start"
+                  >
+                    🔔 알림{unreadCount > 0 ? ` (${unreadCount})` : ""}
+                  </OutlineButton>
                   <OutlineButton
                     href={user.usernameSet ? "/profile" : "/onboarding"}
                     className="w-full justify-start"

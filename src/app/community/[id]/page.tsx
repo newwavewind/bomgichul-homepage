@@ -92,7 +92,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
           </div>
         )}
 
-        <CommentForm postId={id} userId={user?.id} />
+        <CommentForm postId={id} postAuthorId={post.author_id} userId={user?.id} />
       </section>
     </div>
   );
