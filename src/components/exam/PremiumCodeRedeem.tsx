@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { trackEvent } from "@/lib/analytics";
+import { subjectFromProductType } from "@/lib/premium-subjects";
 import { PrimaryButton } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
@@ -15,6 +16,12 @@ interface PremiumCodeRedeemProps {
   subject: ExamSubject;
   userId: string | null;
   unlocked: boolean;
+}
+
+interface RegisterPcAccessCodeResult {
+  ok: boolean;
+  product_type: string;
+  email?: string | null;
 }
 
 export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRedeemProps) {
@@ -40,7 +47,7 @@ export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRede
     return (
       <div className="rounded-[var(--radius-cards)] border border-dashed border-mist bg-surface px-5 py-4">
         <p className="font-display text-body-sm text-smoke">
-          모바일 앱에서 {label} 프리미엄을 구매하셨나요? 로그인하면 발급받은 코드를 등록해 PC에서도 전체 해설을 볼 수 있어요.
+          모바일 앱에서 {label} 프리미엄을 구매하셨나요? 로그인하면 발급받은 PC 학습 코드를 등록해 PC에서도 전체 해설을 볼 수 있어요.
         </p>
         <div className="mt-3">
           <Link
@@ -69,23 +76,22 @@ export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRede
     }
 
     const supabase = createClient();
-    const { data, error: rpcError } = await supabase.rpc("redeem_premium_code", {
+    const { data, error: rpcError } = await supabase.rpc("register_pc_access_code", {
       p_code: trimmed,
     });
 
     if (rpcError) {
-      if (rpcError.message.includes("INVALID_OR_USED_CODE")) {
-        setError("코드가 올바르지 않거나 이미 사용된 코드예요.");
-      } else {
-        setError("코드 등록에 실패했어요. 잠시 후 다시 시도해주세요.");
-      }
+      setError(rpcError.message || "코드 등록에 실패했어요. 잠시 후 다시 시도해주세요.");
       setLoading(false);
       return;
     }
 
-    const unlockedSubject = data as ExamSubject;
-    trackEvent("premium_code_redeem", { subject: unlockedSubject });
-    setUnlockedSubjectLabel(ARCHIVE_SUBJECT_MAP[unlockedSubject] ?? unlockedSubject);
+    const result = data as RegisterPcAccessCodeResult;
+    const unlockedSubject = subjectFromProductType(result.product_type);
+    trackEvent("premium_code_redeem", { subject: unlockedSubject ?? result.product_type });
+    setUnlockedSubjectLabel(
+      unlockedSubject ? ARCHIVE_SUBJECT_MAP[unlockedSubject] : result.product_type
+    );
     setCode("");
     setLoading(false);
     router.refresh();
@@ -94,10 +100,10 @@ export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRede
   return (
     <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 py-4">
       <p className="font-display text-body-sm font-semibold text-ink">
-        모바일 앱에서 구매한 코드가 있으신가요?
+        모바일 앱에서 구매한 PC 학습 코드가 있으신가요?
       </p>
       <p className="mt-1 font-display text-body-sm text-smoke">
-        Google Play·App Store에서 과목을 구매하면 발급되는 코드를 입력하면, 이 계정으로 로그인한 PC에서도 그 과목의 전체 연도 해설을 볼 수 있어요. 코드는 구매한 과목에만 적용돼요.
+        Google Play·App Store에서 과목을 구매하면 발급되는 PC 학습 코드를 입력하면, 이 계정으로 로그인한 PC에서도 그 과목의 전체 연도 해설을 볼 수 있어요. 코드는 구매한 과목에만 적용돼요.
       </p>
       <form onSubmit={handleSubmit} className="mt-3 flex flex-wrap items-end gap-3">
         <div className="w-48">
@@ -105,7 +111,7 @@ export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRede
             id={`premium-code-${subject}`}
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            placeholder="예: ABCD-1234"
+            placeholder="예: BOM-XXXX-XXXX"
             disabled={loading}
           />
         </div>
