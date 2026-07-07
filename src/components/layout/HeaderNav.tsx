@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { LogoMark } from "@/components/illustrations/LogoMark";
 import { PrimaryButton, OutlineButton, TextButton } from "@/components/ui/Button";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, PC_APP_URL } from "@/lib/constants";
 
 interface HeaderNavProps {
   user?: {
@@ -11,6 +11,33 @@ interface HeaderNavProps {
     nickname: string;
     usernameSet: boolean;
   } | null;
+}
+
+function NavLink({
+  href,
+  label,
+  className = "",
+}: {
+  href: string;
+  label: string;
+  className?: string;
+}) {
+  if (href === PC_APP_URL) {
+    return (
+      <a
+        href={href}
+        className={`inline-flex items-center justify-center gap-1 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-electric-blue px-3.5 py-2 font-display text-body-sm font-semibold text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90 ${className}`}
+      >
+        ✨ {label}
+      </a>
+    );
+  }
+
+  return (
+    <OutlineButton href={href} className={className}>
+      {label}
+    </OutlineButton>
+  );
 }
 
 export function HeaderNav({ user }: HeaderNavProps) {
@@ -22,11 +49,9 @@ export function HeaderNav({ user }: HeaderNavProps) {
         <div className="flex items-center justify-between gap-3 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-3 py-2 shadow-[var(--shadow-button)] md:px-4">
           <LogoMark />
 
-          <nav className="hidden items-center gap-0.5 lg:flex">
+          <nav className="hidden items-center gap-1 lg:flex">
             {NAV_LINKS.map((link) => (
-              <OutlineButton key={link.href} href={link.href}>
-                {link.label}
-              </OutlineButton>
+              <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
           </nav>
 
@@ -64,13 +89,12 @@ export function HeaderNav({ user }: HeaderNavProps) {
           <div className="mt-2 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-4 shadow-[var(--shadow-card)] md:hidden">
             <nav className="flex flex-col gap-1" onClick={() => setMobileOpen(false)}>
               {NAV_LINKS.map((link) => (
-                <OutlineButton
+                <NavLink
                   key={link.href}
                   href={link.href}
+                  label={link.label}
                   className="w-full justify-start"
-                >
-                  {link.label}
-                </OutlineButton>
+                />
               ))}
               {user ? (
                 <>

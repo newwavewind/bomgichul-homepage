@@ -26,36 +26,89 @@ async function copyToClipboard(text: string): Promise<boolean> {
   }
 }
 
+type AiTarget = "chatgpt" | "claude" | "gemini";
+
+const AI_OPTIONS: { id: AiTarget; label: string; icon: string }[] = [
+  { id: "chatgpt", label: "ChatGPT", icon: "💬" },
+  { id: "claude", label: "Claude", icon: "✳️" },
+  { id: "gemini", label: "Gemini", icon: "✨" },
+];
+
 function AiQuestionActions({ question }: { question: DailyOxQuestion }) {
-  const [copied, setCopied] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
   const prompt = useMemo(() => buildAiQuestionPrompt(question), [question]);
 
-  const handleAskChatGPT = () => {
-    window.open(`https://chatgpt.com/?q=${encodeURIComponent(prompt)}`, "_blank", "noopener,noreferrer");
+  const handleSelect = async (target: AiTarget) => {
+    setMenuOpen(false);
+
+    if (target === "chatgpt") {
+      window.open(`https://chatgpt.com/?q=${encodeURIComponent(prompt)}`, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    if (target === "claude") {
+      window.open(`https://claude.ai/new?q=${encodeURIComponent(prompt)}`, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    // Gemini는 URL로 질문을 미리 채울 수 없어 클립보드 복사 후 새 탭으로 열어줍니다.
+    const ok = await copyToClipboard(prompt);
+    window.open("https://gemini.google.com/app", "_blank", "noopener,noreferrer");
+    setStatus(ok ? "질문이 복사됐어요! Gemini 채팅창에 붙여넣으세요." : "복사에 실패했어요. Gemini 탭에서 직접 질문해주세요.");
+    setTimeout(() => setStatus(null), 3500);
   };
 
   const handleCopy = async () => {
     const ok = await copyToClipboard(prompt);
-    setCopied(ok);
-    if (ok) setTimeout(() => setCopied(false), 2000);
+    setStatus(ok ? "질문이 복사됐어요!" : "복사에 실패했어요.");
+    setTimeout(() => setStatus(null), 2000);
   };
 
   return (
-    <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-mist/60 pt-4">
-      <button
-        type="button"
-        onClick={handleAskChatGPT}
-        className="inline-flex items-center gap-1.5 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-midnight px-4 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
-      >
-        ✨ AI에게 바로 질문하기
-      </button>
-      <button
-        type="button"
-        onClick={handleCopy}
-        className="font-display text-body-sm font-medium text-fog transition-colors hover:text-ink"
-      >
-        {copied ? "질문이 복사됐어요!" : "질문 복사 (Gemini·Claude용)"}
-      </button>
+    <div className="mt-4 border-t border-mist/60 pt-4">
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="inline-flex items-center gap-1.5 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-midnight px-4 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
+          >
+            ✨ AI에게 바로 질문하기
+          </button>
+
+          {menuOpen && (
+            <>
+              <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(false)} />
+              <div className="absolute left-0 top-full z-20 mt-2 w-48 overflow-hidden rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper shadow-[var(--shadow-card)]">
+                {AI_OPTIONS.map((opt) => (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => handleSelect(opt.id)}
+                    className="flex w-full items-center gap-2 px-4 py-2.5 text-left font-display text-body-sm font-medium text-ink transition-colors hover:bg-snow"
+                  >
+                    <span>{opt.icon}</span>
+                    {opt.label}에게 물어보기
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="font-display text-body-sm font-medium text-fog transition-colors hover:text-ink"
+        >
+          질문 복사
+        </button>
+      </div>
+
+      {status && (
+        <p className="mt-2 font-display text-body-sm text-electric-blue">{status}</p>
+      )}
     </div>
   );
 }
