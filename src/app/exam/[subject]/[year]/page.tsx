@@ -10,6 +10,8 @@ import {
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
+import { getUser } from "@/lib/auth";
+import { isSubjectUnlocked } from "@/lib/premium";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -51,11 +53,20 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
   const questions = getExamQuestionsForYear(subject, year);
   if (questions.length === 0) notFound();
 
-  const free = questions[0].free;
+  const user = await getUser();
+  const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const free = questions[0].free || unlocked;
 
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
+        <Link
+          href={`/exam/${subject}`}
+          className="mb-4 inline-block font-display text-body-sm text-fog transition-colors hover:text-ink"
+        >
+          ← {label} 목록으로
+        </Link>
+
         <p className="mb-4 font-display text-body-sm text-fog">
           <Link href="/exam" className="hover:text-ink">
             기출문제 해설
@@ -80,7 +91,11 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
         {!free && (
           <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice px-5 py-4">
             <p className="font-display text-body-sm text-ink">
-              {year}년 기출은 앱 프리미엄 문항이에요. 전체 해설은 앱에서 확인하세요.
+              {year}년 기출은 앱 프리미엄 문항이에요. 전체 해설은 앱에서 확인하거나, 이미 구매하셨다면{" "}
+              <Link href={`/exam/${subject}#unlock`} className="font-medium underline">
+                코드를 등록
+              </Link>
+              해 보세요.
             </p>
             <PrimaryButton href={PC_APP_URL}>앱에서 전체 보기</PrimaryButton>
           </div>

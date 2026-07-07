@@ -6,6 +6,7 @@ import { PrimaryButton } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
+import { QuestionStem } from "@/components/exam/QuestionStem";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SUBJECT_LANDING_INFO, PC_APP_URL, SITE_NAME } from "@/lib/constants";
 import {
   getAllExamParams,
@@ -17,6 +18,7 @@ import { getUser } from "@/lib/auth";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { getAttemptResult } from "@/lib/attempts";
 import { getQuestionNote } from "@/lib/notes";
+import { isSubjectUnlocked } from "@/lib/premium";
 import { QuestionNoteEditor } from "@/components/exam/QuestionNoteEditor";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
@@ -79,6 +81,8 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
   const bookmarked = user ? await isQuestionBookmarked(user.id, subject, year, questionNo) : false;
   const attemptResult = user ? await getAttemptResult(user.id, subject, year, questionNo) : null;
   const note = user ? await getQuestionNote(user.id, subject, year, questionNo) : null;
+  const subjectUnlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const accessible = question.free || subjectUnlocked;
 
   const faqStructuredData = {
     "@context": "https://schema.org",
@@ -102,6 +106,13 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
+        <Link
+          href={`/exam/${subject}/${year}`}
+          className="mb-4 inline-block font-display text-body-sm text-fog transition-colors hover:text-ink"
+        >
+          ← {year}년 문항 목록으로
+        </Link>
+
         <p className="mb-4 font-display text-body-sm text-fog">
           <Link href="/exam" className="hover:text-ink">
             기출문제 해설
@@ -139,14 +150,12 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             initialBookmarked={bookmarked}
           />
         </div>
-        <p className="mb-8 max-w-3xl font-display text-body-lg leading-relaxed text-ink">
-          {question.stem}
-        </p>
+        <QuestionStem stem={question.stem} />
 
         <ExamAnswerList
           items={question.items}
           correctChoice={question.correctChoice}
-          free={question.free}
+          free={accessible}
           subject={subject}
           year={year}
           questionNo={questionNo}
@@ -162,10 +171,14 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           initialContent={note?.content ?? ""}
         />
 
-        {!question.free && (
+        {!accessible && (
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice px-5 py-4">
             <p className="font-display text-body-sm text-ink">
-              전체 해설은 앱에서 확인할 수 있어요.
+              전체 해설은 앱에서 확인하거나, 이미 구매하셨다면{" "}
+              <Link href={`/exam/${subject}#unlock`} className="font-medium underline">
+                코드를 등록
+              </Link>
+              해 보세요.
             </p>
             <PrimaryButton href={PC_APP_URL}>앱에서 전체 해설 보기</PrimaryButton>
           </div>

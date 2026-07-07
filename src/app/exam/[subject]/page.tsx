@@ -17,6 +17,9 @@ import {
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
+import { getUser } from "@/lib/auth";
+import { isSubjectUnlocked } from "@/lib/premium";
+import { PremiumCodeRedeem } from "@/components/exam/PremiumCodeRedeem";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -56,10 +59,19 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const info = SUBJECT_LANDING_INFO[subject];
   const years = getExamYears(subject);
+  const user = await getUser();
+  const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
 
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
+        <Link
+          href="/exam"
+          className="mb-4 inline-block font-display text-body-sm text-fog transition-colors hover:text-ink"
+        >
+          ← 과목 목록으로
+        </Link>
+
         <p className="mb-4 font-display text-body-sm text-fog">
           <Link href="/exam" className="hover:text-ink">
             기출문제 해설
@@ -81,10 +93,16 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
           </div>
         </div>
 
+        <div id="unlock" className="mb-8 scroll-mt-24">
+          <PremiumCodeRedeem subject={subject} userId={user?.id ?? null} unlocked={unlocked} />
+        </div>
+
         <ElevatedCard className="overflow-hidden">
           {years.map((year) => {
             const questions = getExamQuestionsForYear(subject, year);
-            const free = questions[0]?.free ?? false;
+            const originallyFree = questions[0]?.free ?? false;
+            const accessible = originallyFree || unlocked;
+            const tagLabel = originallyFree ? "무료" : unlocked ? "해제됨" : "프리미엄";
             return (
               <Link
                 key={year}
@@ -94,8 +112,8 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
                 <span className="font-display text-body font-medium text-ink">
                   {year}년 기출 ({questions.length}문항)
                 </span>
-                <Tag className={!free ? "!border-fog !text-fog" : ""}>
-                  {free ? "무료" : "프리미엄"}
+                <Tag className={!accessible ? "!border-fog !text-fog" : ""}>
+                  {tagLabel}
                 </Tag>
               </Link>
             );
