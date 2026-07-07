@@ -4,7 +4,8 @@ export type PostCategory =
   | "chat"
   | "info"
   | "bug"
-  | "feedback";
+  | "feedback"
+  | "review";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 

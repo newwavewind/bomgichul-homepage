@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
-import { SITE_URL } from "@/lib/constants";
+import { ARCHIVE_SUBJECTS, SITE_URL } from "@/lib/constants";
 
 /** 검색 노출 대상 정적 공개 페이지 */
 const STATIC_PAGES: MetadataRoute.Sitemap = [
@@ -29,6 +29,14 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     changeFrequency: "weekly",
     priority: 0.8,
   },
+  ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all" && s.value !== "other").map(
+    (s) => ({
+      url: `${SITE_URL}/subjects/${s.value}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })
+  ),
 ];
 
 async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {

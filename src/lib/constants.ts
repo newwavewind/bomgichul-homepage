@@ -38,7 +38,8 @@ export const CATEGORIES: {
   { value: "question", label: "질문", description: "공부 관련 질문" },
   { value: "resource", label: "자료공유", description: "기출, 노트, 팁 공유" },
   { value: "chat", label: "수다", description: "자유로운 수험생 수다" },
-  { value: "info", label: "수험정보", description: "시험 일정, 합격 후기 등" },
+  { value: "info", label: "수험정보", description: "시험 일정, 공고 등" },
+  { value: "review", label: "합격후기", description: "합격 수기, 공부법 공유" },
   { value: "bug", label: "오류신고", description: "앱 문항·기능 오류 제보" },
   { value: "feedback", label: "피드백", description: "앱 개선 의견" },
 ];
@@ -47,6 +48,27 @@ export const CATEGORIES: {
 export const USER_WRITABLE_CATEGORIES = CATEGORIES.filter(
   (c) => c.value !== "all" && c.value !== "bug" && c.value !== "feedback"
 );
+
+/** 앱 전용 카테고리 (오류신고·피드백) — 게시판에서는 낮은 우선순위로 노출 */
+export const APP_ONLY_CATEGORIES = CATEGORIES.filter(
+  (c) => c.value === "bug" || c.value === "feedback"
+);
+
+/** 카테고리별 배지 색상 (Tailwind 클래스, 정적 문자열이어야 JIT가 인식함) */
+export const CATEGORY_BADGE_CLASS: Record<PostCategory, string> = {
+  question: "bg-iris/10 text-iris",
+  resource: "bg-leaf/10 text-leaf",
+  chat: "bg-magenta/10 text-magenta",
+  info: "bg-electric-blue/10 text-electric-blue",
+  review: "bg-amber/10 text-amber",
+  bug: "bg-mist text-fog",
+  feedback: "bg-mist text-fog",
+};
+
+/** 카테고리별 강조 이모지 (있는 것만) */
+export const CATEGORY_EMOJI: Partial<Record<PostCategory, string>> = {
+  review: "🏆",
+};
 
 export const CATEGORY_MAP = Object.fromEntries(
   CATEGORIES.filter((c) => c.value !== "all").map((c) => [c.value, c.label])
@@ -187,7 +209,7 @@ export const FAQ_ITEMS = [
   {
     question: "커뮤니티는 어떻게 이용하나요?",
     answer:
-      "홈페이지 커뮤니티에서 질문, 수다, 수험정보 카테고리로 글을 작성할 수 있습니다. 기출 PDF·노트·요약 자료는 자료실에서 등록하고 다운로드할 수 있어요. 게시글은 누구나 볼 수 있고, 글쓰기·댓글·자료 업로드는 로그인 후 이용 가능합니다.",
+      "홈페이지 커뮤니티에서 질문, 수다, 수험정보, 합격후기 카테고리로 글을 작성할 수 있습니다. 기출 PDF·노트·요약 자료는 자료실에서 등록하고 다운로드할 수 있어요. 게시글은 누구나 볼 수 있고, 글쓰기·댓글·자료 업로드는 로그인 후 이용 가능합니다.",
   },
   {
     question: "자료실에는 어떤 자료를 올릴 수 있나요?",
@@ -281,6 +303,45 @@ export const ARCHIVE_RESOURCE_TYPE_MAP: Record<string, string> = {
 export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries(
   ARCHIVE_SUBJECTS.filter((s) => s.value !== "all").map((s) => [s.value, s.label])
 );
+
+/** 과목별 랜딩 페이지(/subjects/[subject]) 소개 문구 */
+export const SUBJECT_LANDING_INFO: Record<
+  Exclude<ArchiveSubject, "all">,
+  { round: "1차" | "2차"; description: string }
+> = {
+  realestate: {
+    round: "1차",
+    description:
+      "부동산학개론 기출 O/X와 자료를 연도별·목차별로 모아뒀습니다. 부동산 시장론·정책론·투자론까지 한 번에 학습하세요.",
+  },
+  civillaw: {
+    round: "1차",
+    description:
+      "민법 및 민사특별법 기출 O/X와 판례 요약. 의사표시·대리·물권변동 등 자주 출제되는 쟁점 위주로 정리했습니다.",
+  },
+  "broker-law": {
+    round: "2차",
+    description:
+      "공인중개사법령 및 실무 기출과 자료. 중개계약·중개보수·행정처분 등 실무 관련 조문을 집중적으로 학습하세요.",
+  },
+  "registry-law": {
+    round: "2차",
+    description: "부동산공시법령(부동산등기법·공간정보관리법) 기출 O/X와 자료를 모아뒀습니다.",
+  },
+  "realestate-tax": {
+    round: "2차",
+    description: "부동산세법 기출 O/X와 자료. 취득세·재산세·양도소득세 등 세목별로 정리했습니다.",
+  },
+  "realestate-public-law": {
+    round: "2차",
+    description:
+      "부동산공법(국토계획법·도시개발법 등) 기출 O/X와 자료를 목차별로 확인하세요.",
+  },
+  other: {
+    round: "2차",
+    description: "기타 공인중개사 수험 자료를 모아뒀습니다.",
+  },
+};
 
 export const MAX_FILE_SIZE_MB = 20;
 /** MP4만 별도 용량 제한 */

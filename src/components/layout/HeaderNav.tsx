@@ -62,7 +62,7 @@ export function HeaderNav({ user }: HeaderNavProps) {
 
         {mobileOpen && (
           <div className="mt-2 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-4 shadow-[var(--shadow-card)] md:hidden">
-            <nav className="flex flex-col gap-1">
+            <nav className="flex flex-col gap-1" onClick={() => setMobileOpen(false)}>
               {NAV_LINKS.map((link) => (
                 <OutlineButton
                   key={link.href}

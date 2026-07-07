@@ -20,7 +20,7 @@ export function DDayPanel() {
         <div className="text-center md:text-right">
           <p
             className={`font-display text-[56px] font-bold leading-none tracking-tight md:text-[72px] ${
-              days <= 30 && days >= 0 ? "text-electric-blue" : "text-ink"
+              days <= 30 && days >= 0 ? "text-amber" : "text-ink"
             }`}
           >
             {label}
@@ -31,7 +31,7 @@ export function DDayPanel() {
             </p>
           )}
           {days === 0 && (
-            <p className="mt-2 font-display text-body-sm font-medium text-electric-blue">
+            <p className="mt-2 font-display text-body-sm font-medium text-amber">
               오늘이 시험 day! 화이팅!
             </p>
           )}

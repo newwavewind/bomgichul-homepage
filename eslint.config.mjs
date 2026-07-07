@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Separate Capacitor app project living inside this repo folder.
+    "ox-quiz-app/**",
   ]),
 ]);
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/illustrations/BrandLogo";
-import { SITE_NAME, NAV_LINKS, SITE_IDENTITY } from "@/lib/constants";
+import { SITE_NAME, NAV_LINKS, SITE_IDENTITY, ARCHIVE_SUBJECTS } from "@/lib/constants";
 
 function NavItem({
   href,
@@ -52,6 +52,22 @@ export function Footer() {
           ))}
           <NavItem href="/login">로그인</NavItem>
         </nav>
+      </div>
+      <div className="border-t border-mist/70">
+        <div className="mx-auto flex max-w-[var(--page-max-width)] flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3">
+          <span className="font-display text-[12px] text-fog">과목별 기출·자료</span>
+          {ARCHIVE_SUBJECTS.filter((s) => s.value !== "all" && s.value !== "other").map(
+            (s) => (
+              <Link
+                key={s.value}
+                href={`/subjects/${s.value}`}
+                className="font-display text-[12px] text-fog transition-colors hover:text-ink"
+              >
+                {s.label}
+              </Link>
+            )
+          )}
+        </div>
       </div>
     </footer>
   );

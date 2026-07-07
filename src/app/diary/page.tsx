@@ -2,6 +2,7 @@ import { getUser } from "@/lib/auth";
 import {
   getTodayDiary,
   getDiariesByDDay,
+  getUserDiaryStreak,
   groupDiariesByExamYear,
 } from "@/lib/diary";
 import {
@@ -34,6 +35,7 @@ export default async function DiaryPage({ searchParams }: DiaryPageProps) {
   );
 
   const todayDiary = user ? await getTodayDiary(user.id) : null;
+  const streak = user ? await getUserDiaryStreak(user.id) : 0;
   const diaries = await getDiariesByDDay(selectedDDay);
   const yearGroups = groupDiariesByExamYear(diaries);
   const isTodayDDay = selectedDDay === todayDDay;
@@ -62,7 +64,11 @@ export default async function DiaryPage({ searchParams }: DiaryPageProps) {
         {isTodayDDay && (
           <div className="mb-10">
             {user ? (
-              <TodayDiaryForm todayDiary={todayDiary} todayLabel={todayLabel} />
+              <TodayDiaryForm
+                todayDiary={todayDiary}
+                todayLabel={todayLabel}
+                streak={streak}
+              />
             ) : (
               <DiaryLoginPrompt />
             )}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { PostCategory } from "@/types/database";
-import { CATEGORY_MAP } from "@/lib/constants";
+import { CATEGORY_MAP, CATEGORY_BADGE_CLASS, CATEGORY_EMOJI } from "@/lib/constants";
 
 interface PostCardProps {
   id: string;
@@ -39,7 +39,10 @@ export function PostCard({
       href={`/community/${id}`}
       className="flex items-center gap-4 border-b border-mist/60 px-6 py-5 transition-colors last:border-b-0 hover:bg-snow"
     >
-      <span className="shrink-0 rounded-[var(--radius-tags)] bg-[#fafafa] px-3 py-1 font-display text-body-sm font-medium text-ink">
+      <span
+        className={`shrink-0 rounded-[var(--radius-tags)] px-3 py-1 font-display text-body-sm font-medium ${CATEGORY_BADGE_CLASS[category]}`}
+      >
+        {CATEGORY_EMOJI[category] ? `${CATEGORY_EMOJI[category]} ` : ""}
         {CATEGORY_MAP[category]}
       </span>
 

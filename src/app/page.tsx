@@ -6,13 +6,19 @@ import {
 } from "@/components/ui/Typography";
 import { BrandLockup } from "@/components/ui/BrandLockup";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
-import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
+import { PrimaryButton, SecondaryButton, OutlineButton } from "@/components/ui/Button";
 import { FeatureCard, LargePanel, TintedAccentCard } from "@/components/ui/Card";
 import { Tag, CheckBadge } from "@/components/ui/Tag";
 import { FAQAccordion, TestimonialCard } from "@/components/ui/FAQ";
 import { AppPhonePreview } from "@/components/illustrations/AppPhonePreview";
 import { BrandLogo } from "@/components/illustrations/BrandLogo";
 import { FloatingStickers } from "@/components/illustrations/Stickers";
+import { DDayStrip } from "@/components/home/DDayStrip";
+import { HomeCommunityPreview } from "@/components/home/HomeCommunityPreview";
+import { HomeArchivePreview } from "@/components/home/HomeArchivePreview";
+import { DailyOxCard } from "@/components/home/DailyOxCard";
+import { getDailyOxSet } from "@/lib/daily-quiz";
+import { getKSTDateString } from "@/lib/exam";
 import {
   APP_FEATURES,
   FAQ_ITEMS,
@@ -25,8 +31,15 @@ import {
 } from "@/lib/constants";
 
 export default function HomePage() {
+  const dailyQuestions = getDailyOxSet(getKSTDateString());
+
   return (
     <>
+      {/* D-day strip */}
+      <div className="px-4 pt-4">
+        <DDayStrip />
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden px-4 pb-20 pt-8 md:pt-12">
         <div className="relative mx-auto grid max-w-[var(--page-max-width)] items-center gap-14 lg:grid-cols-2">
@@ -38,8 +51,9 @@ export default function HomePage() {
               공인중개사 수험생을 위한 학습 앱과 커뮤니티입니다.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <PrimaryButton href="/community">공인중개사 커뮤니티</PrimaryButton>
-              <SecondaryButton href="/#features">앱 기능 보기</SecondaryButton>
+              <PrimaryButton href="/#try">지금 무료로 풀어보기</PrimaryButton>
+              <SecondaryButton href="/community">공인중개사 커뮤니티</SecondaryButton>
+              <OutlineButton href="/#features">앱 기능 보기</OutlineButton>
             </div>
             <p className="font-display text-body-sm text-smoke">
               공인중개사 공부는 당신이, 질문은 봄기출이.
@@ -52,6 +66,21 @@ export default function HomePage() {
           </div>
           <div className="relative flex justify-center">
             <AppPhonePreview />
+          </div>
+        </div>
+      </section>
+
+      {/* Daily OX try-it */}
+      <section id="try" className="section-gap bg-paper px-4">
+        <div className="mx-auto max-w-[var(--page-max-width)] text-center">
+          <HandCaption className="mb-2">로그인 없이 바로 체험</HandCaption>
+          <SectionHeading>오늘의 기출 O/X</SectionHeading>
+          <p className="mx-auto mt-4 max-w-md font-display text-body text-smoke">
+            실제 기출 지문 10문제, 지금 바로 풀어보세요. 막히면 AI에게 바로
+            질문할 수 있어요.
+          </p>
+          <div className="mt-8">
+            <DailyOxCard questions={dailyQuestions} />
           </div>
         </div>
       </section>
@@ -160,6 +189,14 @@ export default function HomePage() {
                   <Tag key={tag}>{tag}</Tag>
                 ))}
               </div>
+
+              <HomeCommunityPreview />
+
+              <div className="mt-10 text-left">
+                <HandCaption className="mb-3 text-center">자료실 인기 자료</HandCaption>
+                <HomeArchivePreview />
+              </div>
+
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <PrimaryButton href="/community">공인중개사 커뮤니티</PrimaryButton>
                 <SecondaryButton href="/archive">자료실 보기</SecondaryButton>

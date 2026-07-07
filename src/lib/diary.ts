@@ -4,6 +4,44 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { getExamYearFromDiary, getKSTDateString } from "@/lib/exam";
 import type { StudyDiary } from "@/types/database";
 
+/** 오늘/어제부터 거슬러 연속으로 일기를 쓴 날수 */
+export async function getUserDiaryStreak(userId: string): Promise<number> {
+  if (!isSupabaseConfigured()) return 0;
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("study_diaries")
+    .select("diary_date")
+    .eq("author_id", userId)
+    .order("diary_date", { ascending: false })
+    .limit(400);
+
+  if (error || !data || data.length === 0) return 0;
+
+  const dates = new Set(data.map((d) => d.diary_date as string));
+  const [y, m, d] = getKSTDateString().split("-").map(Number);
+  const cursor = new Date(y, m - 1, d);
+
+  const cursorKey = () =>
+    `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(
+      cursor.getDate()
+    ).padStart(2, "0")}`;
+
+  let streak = 0;
+
+  // 오늘 일기가 없으면 어제부터 streak을 센다 (오늘 아직 안 썼을 수 있으므로)
+  if (!dates.has(cursorKey())) {
+    cursor.setDate(cursor.getDate() - 1);
+  }
+
+  while (dates.has(cursorKey())) {
+    streak += 1;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+
+  return streak;
+}
+
 export type PublicDiary = StudyDiary & {
   examYear: number;
 };

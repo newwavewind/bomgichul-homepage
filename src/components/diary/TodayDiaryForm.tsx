@@ -14,9 +14,10 @@ import type { DiaryMood, StudyDiary } from "@/types/database";
 interface TodayDiaryFormProps {
   todayDiary: StudyDiary | null;
   todayLabel: string;
+  streak?: number;
 }
 
-export function TodayDiaryForm({ todayDiary, todayLabel }: TodayDiaryFormProps) {
+export function TodayDiaryForm({ todayDiary, todayLabel, streak = 0 }: TodayDiaryFormProps) {
   const router = useRouter();
   const [content, setContent] = useState(todayDiary?.content ?? "");
   const [mood, setMood] = useState<DiaryMood | null>(
@@ -100,11 +101,18 @@ export function TodayDiaryForm({ todayDiary, todayLabel }: TodayDiaryFormProps) 
             {todayLabel} · 같은 D-day에 모두 공개됩니다
           </p>
         </div>
-        {todayDiary && (
-          <span className="rounded-[var(--radius-tags)] bg-ice/50 px-3 py-1 font-display text-[12px] font-medium text-electric-blue">
-            작성됨
-          </span>
-        )}
+        <div className="flex shrink-0 items-center gap-2">
+          {streak > 0 && (
+            <span className="rounded-[var(--radius-tags)] bg-midnight px-3 py-1 font-display text-[12px] font-medium text-paper">
+              🔥 {streak}일 연속
+            </span>
+          )}
+          {todayDiary && (
+            <span className="rounded-[var(--radius-tags)] bg-ice/50 px-3 py-1 font-display text-[12px] font-medium text-electric-blue">
+              작성됨
+            </span>
+          )}
+        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
