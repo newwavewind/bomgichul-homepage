@@ -25,7 +25,8 @@ export function inferTableHeadersFromStem(stem: string): string[] | null {
   return null;
 }
 
-type TableQuestionMeta = Pick<ExamQuestion, "tableHeader" | "stem" | "comboChoices"> & {
+type TableQuestionMeta = Pick<ExamQuestion, "tableHeader" | "comboChoices"> & {
+  stem?: string;
   year?: number;
   questionNo?: number;
 };
@@ -64,7 +65,7 @@ export function getComboColumnCells(choice: ExamComboChoice): string[] {
 }
 
 export function isTableCompositeQuestion(
-  question: Pick<ExamQuestion, "compositeLayout" | "comboChoices" | "stem">
+  question: Pick<ExamQuestion, "compositeLayout" | "comboChoices"> & { stem?: string }
 ): boolean {
   if (question.compositeLayout === "table") return true;
   const first = question.comboChoices[0];
