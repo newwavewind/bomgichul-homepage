@@ -54,13 +54,19 @@ export async function GET(request: Request) {
 
   const anthropic = new Anthropic();
 
-  const response = await anthropic.messages.create({
-    model: "claude-opus-4-8",
-    max_tokens: 4096,
-    tools: [{ type: "web_search_20260209", name: "web_search", max_uses: 8 }],
-    output_config: { format: { type: "json_schema", schema: NEWS_SCHEMA } },
-    messages: [{ role: "user", content: buildSearchPrompt(count) }],
-  });
+  let response;
+  try {
+    response = await anthropic.messages.create({
+      model: "claude-opus-4-8",
+      max_tokens: 4096,
+      tools: [{ type: "web_search_20260209", name: "web_search", max_uses: 8 }],
+      output_config: { format: { type: "json_schema", schema: NEWS_SCHEMA } },
+      messages: [{ role: "user", content: buildSearchPrompt(count) }],
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "unknown error calling Claude API";
+    return NextResponse.json({ error: message }, { status: 502 });
+  }
 
   const textBlock = response.content.find((block) => block.type === "text");
   if (!textBlock || textBlock.type !== "text") {
