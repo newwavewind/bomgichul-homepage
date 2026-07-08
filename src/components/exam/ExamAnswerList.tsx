@@ -266,7 +266,7 @@ export function ExamAnswerList({
   const isTableComposite = isTableCompositeQuestion({
     compositeLayout: resolvedCompositeLayout,
     comboChoices: resolvedComboChoices,
-    stem,
+    stem: stem ?? "",
   });
 
   const recordAttempt = async (result: AttemptResult) => {

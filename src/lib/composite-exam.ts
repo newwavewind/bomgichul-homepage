@@ -25,15 +25,20 @@ export function inferTableHeadersFromStem(stem: string): string[] | null {
   return null;
 }
 
-export function resolveTableHeaders(
-  question: Pick<ExamQuestion, "year" | "questionNo" | "tableHeader" | "stem">
-): string[] {
+type TableQuestionMeta = Pick<ExamQuestion, "tableHeader" | "stem" | "comboChoices"> & {
+  year?: number;
+  questionNo?: number;
+};
+
+export function resolveTableHeaders(question: TableQuestionMeta): string[] {
   if (question.tableHeader && question.tableHeader.length >= 2) {
     return question.tableHeader;
   }
-  const key = `${question.year}-${question.questionNo}`;
-  if (TABLE_HEADERS_BY_QUESTION[key]) {
-    return TABLE_HEADERS_BY_QUESTION[key];
+  if (question.year != null && question.questionNo != null) {
+    const key = `${question.year}-${question.questionNo}`;
+    if (TABLE_HEADERS_BY_QUESTION[key]) {
+      return TABLE_HEADERS_BY_QUESTION[key];
+    }
   }
   if (question.stem) {
     const inferred = inferTableHeadersFromStem(question.stem);
@@ -70,15 +75,11 @@ export function isTableCompositeQuestion(
   return getComboColumnCells(first).length >= 2;
 }
 
-export function defaultTableHeaders(
-  question: Pick<ExamQuestion, "year" | "questionNo" | "tableHeader" | "comboChoices" | "stem">
-): string[] {
+export function defaultTableHeaders(question: TableQuestionMeta): string[] {
   return resolveTableHeaders(question);
 }
 
-export function tableColumnCount(
-  question: Pick<ExamQuestion, "year" | "questionNo" | "tableHeader" | "comboChoices" | "stem">
-): number {
+export function tableColumnCount(question: TableQuestionMeta): number {
   const headers = defaultTableHeaders(question);
   const fromChoices = Math.max(
     0,
