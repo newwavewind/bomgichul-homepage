@@ -6,31 +6,20 @@ const TABLE_HEADERS_BY_QUESTION: Record<string, string[]> = Object.fromEntries(
   Object.entries(REALESTATE_TABLE_COMPOSITES).map(([key, value]) => [key, value.tableHeader])
 );
 
-export function inferTableHeadersFromStem(stem: string): string[] | null {
-  if (/유량\s*\(flow\).*저량\s*\(stock\)|유량.*저량/i.test(stem)) {
-    return ["유량변수", "저량변수"];
-  }
-  if (/부동산의 개념/.test(stem) && /짝지어진/.test(stem)) {
-    return ["경제적 개념", "물리적(기술적) 개념"];
-  }
-  if (/\(가\).*순영업소득.*\(나\)|현금흐름 계산에서 \(가\)/.test(stem)) {
-    return ["(가)", "(나)"];
-  }
-  if (/4P|마케팅 4P/i.test(stem) && /연결/.test(stem)) {
-    return ["마케팅 활동", "4P 전략"];
-  }
-  if (/공공주택특별법/.test(stem) && /\( ㄱ \)/.test(stem)) {
-    return ["ㄱ", "ㄴ"];
-  }
-  return null;
-}
-
 type TableQuestionMeta = Pick<ExamQuestion, "tableHeader" | "comboChoices"> & {
   stem?: string;
   year?: number;
   questionNo?: number;
 };
 
+/**
+ * 표 헤더 해석 순서: 문항 데이터의 명시적 tableHeader → 알려진 표형 문항 매핑
+ * (REALESTATE_TABLE_COMPOSITES) → 안전한 기본값. 과거에는 지문 텍스트를 정규식으로
+ * 패턴매칭해 헤더를 "추측"하는 3번째 단계가 있었으나, 새 기출이 추가될 때마다
+ * 깨지는 문제가 있어 제거했다. 새 표형 문항은 반드시 tableHeader를 명시하거나
+ * REALESTATE_TABLE_COMPOSITES에 등록해야 하며, 등록되지 않으면 아래 기본값이
+ * 그대로 노출되어(잘못된 추측이 아니라) 데이터 누락이 바로 눈에 띈다.
+ */
 export function resolveTableHeaders(question: TableQuestionMeta): string[] {
   if (question.tableHeader && question.tableHeader.length >= 2) {
     return question.tableHeader;
@@ -40,10 +29,6 @@ export function resolveTableHeaders(question: TableQuestionMeta): string[] {
     if (TABLE_HEADERS_BY_QUESTION[key]) {
       return TABLE_HEADERS_BY_QUESTION[key];
     }
-  }
-  if (question.stem) {
-    const inferred = inferTableHeadersFromStem(question.stem);
-    if (inferred) return inferred;
   }
   return ["왼쪽", "오른쪽"];
 }

@@ -10,6 +10,7 @@ interface HeaderNavProps {
     id: string;
     nickname: string;
     usernameSet: boolean;
+    isAdmin?: boolean;
   } | null;
   unreadCount?: number;
 }
@@ -61,6 +62,9 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
           <div className="hidden items-center gap-2 md:flex">
             {user ? (
               <>
+                {user.isAdmin && (
+                  <OutlineButton href="/admin">관리자</OutlineButton>
+                )}
                 <NotificationBell unreadCount={unreadCount} />
                 <OutlineButton href={user.usernameSet ? "/profile" : "/onboarding"}>
                   {user.usernameSet ? user.nickname : "아이디 설정"}
@@ -102,6 +106,11 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
               ))}
               {user ? (
                 <>
+                  {user.isAdmin && (
+                    <OutlineButton href="/admin" className="w-full justify-start">
+                      관리자
+                    </OutlineButton>
+                  )}
                   <OutlineButton
                     href="/notifications"
                     className="w-full justify-start"

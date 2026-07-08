@@ -14,6 +14,7 @@ export async function Header() {
               id: user.id,
               nickname: user.nickname,
               usernameSet: user.usernameSet,
+              isAdmin: user.isAdmin,
             }
           : null
       }

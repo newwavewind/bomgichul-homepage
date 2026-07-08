@@ -632,3 +632,15 @@ revoke all on function public.get_or_create_dm_conversation(uuid) from public;
 revoke all on function public.mark_dm_conversation_read(uuid) from public;
 grant execute on function public.get_or_create_dm_conversation(uuid) to authenticated;
 grant execute on function public.mark_dm_conversation_read(uuid) to authenticated;
+
+-- 관리자 권한
+create table if not exists public.admin_users (
+  user_id uuid primary key references public.profiles(id) on delete cascade,
+  created_at timestamptz not null default now()
+);
+
+alter table public.admin_users enable row level security;
+
+create policy "본인 관리자 여부만 조회"
+  on public.admin_users for select
+  using (user_id = auth.uid());

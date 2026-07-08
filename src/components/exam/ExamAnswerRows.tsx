@@ -1,0 +1,195 @@
+import { ElevatedCard } from "@/components/ui/Card";
+import { ExamAiButtons } from "@/components/exam/ExamAiButtons";
+import { CorrectAnswerBadge } from "@/components/exam/CorrectAnswerBadge";
+import { buildExamItemAiPrompt } from "@/lib/ai-links";
+import type { ExamComboChoice, ExamQuestionItem, ExamSubject } from "@/lib/exam-questions";
+
+const EXPLANATION_PREVIEW_LENGTH = 40;
+
+export interface ExamAnswerAiContext {
+  subject: ExamSubject;
+  subjectLabel: string;
+  unlocked: boolean;
+  year: number;
+  round: number;
+  questionNo: number;
+  category: string;
+  stem: string;
+  correctChoice: string;
+}
+
+function previewText(text: string): string {
+  if (text.length <= EXPLANATION_PREVIEW_LENGTH) return text;
+  return `${text.slice(0, EXPLANATION_PREVIEW_LENGTH)}…`;
+}
+
+function buildPrompt(aiContext: ExamAnswerAiContext, item: ExamQuestionItem, free: boolean) {
+  return buildExamItemAiPrompt({
+    ...aiContext,
+    item,
+    includeExplanation: free,
+  });
+}
+
+function ExplanationRow({
+  item,
+  free,
+  revealed,
+  aiContext,
+}: {
+  item: ExamQuestionItem;
+  free: boolean;
+  revealed: boolean;
+  aiContext?: ExamAnswerAiContext;
+}) {
+  const prompt = aiContext ? buildPrompt(aiContext, item, free) : "";
+
+  if (free) {
+    return (
+      <div className="ml-10 mt-2 flex flex-wrap items-center gap-2">
+        <details className="group">
+          <summary className="cursor-pointer font-display text-body-sm font-medium text-electric-blue [&::-webkit-details-marker]:hidden">
+            해설 보기 <span className="inline-block transition-transform group-open:rotate-180">▾</span>
+          </summary>
+          <p className="mt-1.5 font-display text-body-sm leading-relaxed text-smoke">
+            {item.explanation}
+          </p>
+        </details>
+        {prompt && aiContext && (
+          <ExamAiButtons
+            prompt={prompt}
+            unlocked={aiContext.unlocked}
+            subject={aiContext.subject}
+            subjectLabel={aiContext.subjectLabel}
+          />
+        )}
+      </div>
+    );
+  }
+
+  if (!revealed) return null;
+
+  return (
+    <div className="ml-10 mt-2 flex flex-wrap items-center gap-2">
+      <p className="font-display text-body-sm leading-relaxed text-smoke">
+        {previewText(item.explanation)}
+      </p>
+      {prompt && aiContext && (
+        <ExamAiButtons
+          prompt={buildPrompt(aiContext, item, false)}
+          unlocked={aiContext.unlocked}
+          subject={aiContext.subject}
+          subjectLabel={aiContext.subjectLabel}
+        />
+      )}
+    </div>
+  );
+}
+
+export function StatementRows({
+  items,
+  revealed,
+  free,
+  aiContext,
+}: {
+  items: ExamQuestionItem[];
+  revealed: boolean;
+  free: boolean;
+  aiContext?: ExamAnswerAiContext;
+}) {
+  return (
+    <div className="space-y-3">
+      {items.map((item) => (
+        <div
+          key={item.key}
+          className="rounded-[var(--radius-buttons)] border-[1.5px] border-mist bg-surface px-4 py-3"
+        >
+          <div className="flex items-start gap-3">
+            <span
+              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border-[1.5px] border-carbon font-display text-body-sm font-bold ${
+                revealed ? "visible" : "invisible"
+              } ${item.answer === "O" ? "bg-[#6366f1] text-paper" : "bg-[#ef4444] text-paper"}`}
+            >
+              {item.answer}
+            </span>
+            <p className="flex-1 font-display text-body font-medium text-ink">
+              {item.label} {item.text}
+            </p>
+          </div>
+          {(free || revealed) && (
+            <ExplanationRow item={item} free={free} revealed={revealed} aiContext={aiContext} />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function ChoiceRows({
+  items,
+  correctChoice,
+  revealed,
+  free,
+  aiContext,
+}: {
+  items: ExamQuestionItem[];
+  correctChoice: string;
+  revealed: boolean;
+  free: boolean;
+  aiContext?: ExamAnswerAiContext;
+}) {
+  return (
+    <ElevatedCard className="overflow-hidden">
+      {items.map((item) => {
+        const isCorrectChoice = item.key === correctChoice;
+        return (
+          <div key={item.key} className="border-b border-mist/60 px-5 py-5 last:border-b-0">
+            <div className="mb-2 flex items-start gap-3">
+              <span
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border-[1.5px] border-carbon font-display text-body-sm font-bold ${
+                  revealed ? "visible" : "invisible"
+                } ${item.answer === "O" ? "bg-[#6366f1] text-paper" : "bg-[#ef4444] text-paper"}`}
+              >
+                {item.answer}
+              </span>
+              <p className="flex-1 font-display text-body font-medium text-ink">
+                {item.label} {item.text}
+                <CorrectAnswerBadge visible={revealed && isCorrectChoice} className="ml-2" />
+              </p>
+            </div>
+            <ExplanationRow item={item} free={free} revealed={revealed} aiContext={aiContext} />
+          </div>
+        );
+      })}
+    </ElevatedCard>
+  );
+}
+
+export function ComboChoiceRows({
+  comboChoices,
+  correctChoice,
+  revealed,
+}: {
+  comboChoices: ExamComboChoice[];
+  correctChoice: string;
+  revealed: boolean;
+}) {
+  return (
+    <ElevatedCard className="mt-4 overflow-hidden">
+      {comboChoices.map((choice) => {
+        const isCorrectChoice = String(choice.no) === correctChoice;
+        return (
+          <div
+            key={choice.no}
+            className="border-b border-mist/60 px-5 py-4 last:border-b-0"
+          >
+            <p className="font-display text-body font-medium text-ink">
+              {choice.label} {choice.text}
+              <CorrectAnswerBadge visible={revealed && isCorrectChoice} className="ml-2" />
+            </p>
+          </div>
+        );
+      })}
+    </ElevatedCard>
+  );
+}
