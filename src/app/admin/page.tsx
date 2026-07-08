@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAdminOverview, getAdminRecentSignups } from "@/lib/admin";
-import { AdminStatCard } from "@/components/admin/AdminNav";
+import { AdminStatCard } from "@/components/admin/AdminUi";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
 

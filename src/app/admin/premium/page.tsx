@@ -1,5 +1,5 @@
 import { getAdminPremiumEntitlements } from "@/lib/admin";
-import { AdminTable, formatDateTime } from "@/components/admin/AdminNav";
+import { AdminTable, formatDateTime } from "@/components/admin/AdminUi";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
 

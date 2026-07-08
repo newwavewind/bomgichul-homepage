@@ -117,7 +117,7 @@ export async function getAdminUsers(limit = 100): Promise<AdminUserRow[]> {
 
   const adminIds = new Set((admins ?? []).map((a) => a.user_id));
   const authById = new Map(
-    (authList.data.users ?? []).map((u) => [
+    (authList.data?.users ?? []).map((u) => [
       u.id,
       { email: u.email ?? null, lastSignInAt: u.last_sign_in_at ?? null },
     ])
@@ -213,9 +213,9 @@ export async function getAdminPremiumEntitlements(limit = 50): Promise<AdminPrem
 
   if (!data) return [];
 
-  const { data: authList } = await admin.auth.admin.listUsers({ perPage: 200 });
+  const authListRes = await admin.auth.admin.listUsers({ perPage: 200 });
   const authById = new Map(
-    (authList?.users ?? []).map((u) => [u.id, u.email ?? null])
+    (authListRes.data?.users ?? []).map((u) => [u.id, u.email ?? null])
   );
 
   return data.map((row) => {
