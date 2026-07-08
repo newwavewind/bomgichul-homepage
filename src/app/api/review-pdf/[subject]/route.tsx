@@ -85,8 +85,8 @@ export async function GET(_request: NextRequest, { params }: ReviewPdfParams) {
       .filter((b) => b.subject === subject)
       .map((b) => `${b.year}-${b.question_no}`)
   );
-  const noteMap = new Map(
-    notes.map((n) => [`${n.year}-${n.question_no}`, n.content] as const)
+  const noteMap = new Map<string, string>(
+    notes.map((n) => [`${n.year}-${n.question_no}`, n.content])
   );
 
   const keys = new Set([...bookmarkSet, ...noteMap.keys()]);
