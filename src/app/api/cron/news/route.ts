@@ -35,16 +35,22 @@ const NEWS_SCHEMA = {
   additionalProperties: false,
 } as const;
 
-const SEARCH_PROMPT =
-  "최근 24~48시간 이내 한국 공인중개사(부동산 중개업·자격시험·부동산 정책) 관련 뉴스를 웹 검색으로 찾아 8~10건 선별해줘. " +
-  "각 기사는 title(원제목), summary(한국어 2~3문장 요약), source_name(언론사명), source_url(원문 링크), published_at(YYYY-MM-DD) 형식으로 정리해줘. " +
-  "신뢰할 수 있는 언론사나 정부기관 발표 위주로 고르고, 광고성 기사나 중복 보도는 제외해줘.";
+function buildSearchPrompt(count: number): string {
+  return (
+    `최근 24~48시간 이내 한국 공인중개사(부동산 중개업·자격시험·부동산 정책) 관련 뉴스를 웹 검색으로 찾아 ${count}건 선별해줘. ` +
+    "각 기사는 title(원제목), summary(한국어 2~3문장 요약), source_name(언론사명), source_url(원문 링크), published_at(YYYY-MM-DD) 형식으로 정리해줘. " +
+    "신뢰할 수 있는 언론사나 정부기관 발표 위주로 고르고, 광고성 기사나 중복 보도는 제외해줘."
+  );
+}
 
 export async function GET(request: Request) {
   const authHeader = request.headers.get("authorization");
   if (!process.env.CRON_SECRET || authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
+
+  const requestedCount = Number(new URL(request.url).searchParams.get("count")) || 10;
+  const count = Math.min(Math.max(requestedCount, 1), 15);
 
   const anthropic = new Anthropic();
 
@@ -53,7 +59,7 @@ export async function GET(request: Request) {
     max_tokens: 4096,
     tools: [{ type: "web_search_20260209", name: "web_search", max_uses: 8 }],
     output_config: { format: { type: "json_schema", schema: NEWS_SCHEMA } },
-    messages: [{ role: "user", content: SEARCH_PROMPT }],
+    messages: [{ role: "user", content: buildSearchPrompt(count) }],
   });
 
   const textBlock = response.content.find((block) => block.type === "text");
@@ -76,7 +82,7 @@ export async function GET(request: Request) {
         item.source_url?.trim().startsWith("http") &&
         /^\d{4}-\d{2}-\d{2}$/.test(item.published_at ?? "")
     )
-    .slice(0, 12)
+    .slice(0, count)
     .map((item) => ({
       title: item.title.trim(),
       summary: item.summary.trim(),
