@@ -94,7 +94,7 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
               href={`/exam/${subject}/random`}
               className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
             >
-              🎲 {unlocked ? "랜덤 문제 풀기" : "랜덤 문제 미리보기"}
+              🎲 {unlocked ? "랜덤 문제 풀기" : "랜덤 문제"}
             </Link>
           </div>
         </div>

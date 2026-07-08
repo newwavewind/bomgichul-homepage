@@ -5,7 +5,6 @@ import Link from "next/link";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { PrimaryButton } from "@/components/ui/Button";
-import { PC_APP_URL } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 import type { ExamQuestion } from "@/lib/exam-questions";
 
@@ -19,20 +18,14 @@ function formatElapsed(totalSeconds: number): string {
 
 export function MockExamRunner({
   subject,
-  subjectLabel,
   year,
   questions,
   userId,
-  unlocked,
-  totalQuestionCount,
 }: {
   subject: string;
-  subjectLabel: string;
   year: number;
   questions: ExamQuestion[];
   userId: string | null;
-  unlocked: boolean;
-  totalQuestionCount: number;
 }) {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -50,7 +43,7 @@ export function MockExamRunner({
 
   const handleSubmit = () => {
     setSubmitted(true);
-    trackEvent("mock_exam_submit", { subject, year, total, correct: correctCount, unlocked });
+    trackEvent("mock_exam_submit", { subject, year, total, correct: correctCount });
   };
 
   const handleRestart = () => {
@@ -61,47 +54,15 @@ export function MockExamRunner({
 
   return (
     <div className={submitted ? "" : "pb-24"}>
-      {!submitted && !unlocked && (
-        <div className="mb-6 rounded-[var(--radius-cards)] border border-dashed border-mist bg-surface px-4 py-2.5">
-          <p className="font-display text-body-sm text-smoke">
-            🎁 무료 미리보기 · {total}/{totalQuestionCount}문항 (프리미엄 해제 시 전체 문항 이용 가능)
-          </p>
-        </div>
-      )}
-
       {submitted && (
         <div className="mb-8 rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-paper p-6 text-center shadow-[var(--shadow-card)]">
-          <p className="font-display text-body-sm text-smoke">
-            {year}년 {unlocked ? "모의고사 결과" : "모의고사 무료 미리보기 결과"}
-          </p>
+          <p className="font-display text-body-sm text-smoke">{year}년 시험 모드 결과</p>
           <p className="mt-2 font-display text-heading-sm font-bold text-ink">
             {total}문제 중 <span className="text-[#6366f1]">{correctCount}개</span> 정답
           </p>
           <p className="mt-1 font-display text-body-sm text-smoke">
             소요 시간 {formatElapsed(elapsed)}
           </p>
-
-          {!unlocked && (
-            <div className="mt-6 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice/40 p-5 text-left">
-              <p className="font-display text-body-sm font-semibold text-ink">
-                🎁 지금은 {total}문항 미리보기였어요
-              </p>
-              <p className="mt-1 font-display text-body-sm text-smoke">
-                {subjectLabel} 프리미엄을 해제하면 {year}년 {totalQuestionCount}문항 전체를 시간 재며 풀고, 제출
-                즉시 채점·해설까지 볼 수 있어요. 모바일 앱에서 구매하면 PC 학습 코드가 발급돼요.
-              </p>
-              <div className="mt-3 flex flex-wrap gap-3">
-                <PrimaryButton href={`/exam/${subject}#unlock`}>코드 등록하러 가기</PrimaryButton>
-                <a
-                  href={PC_APP_URL}
-                  className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
-                >
-                  앱에서 구매하기
-                </a>
-              </div>
-            </div>
-          )}
-
           <div className="mt-4 flex justify-center gap-3">
             <button
               type="button"
