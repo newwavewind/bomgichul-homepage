@@ -56,12 +56,17 @@ next-env.d.ts
 # IDE / editor
 .idea/
 .vscode/
+.claude/
 *.swp
 *.swo
 *~
 
 # OS
 Thumbs.db
+
+# Local copies / workspace (not part of homepage repo)
+ox-quiz-app/
+bomgichulhomepage.code-workspace
 
 # Supabase CLI local state
 supabase/.temp/
