@@ -138,7 +138,7 @@ export async function openAiService(
     copied = await copyText(prompt);
     window.open(service.baseUrl, "_blank", "noopener,noreferrer");
   } else {
-    window.open(service.buildUrl(prompt), "_blank", "noopener,noreferrer");
+    window.open(service.buildUrl!(prompt), "_blank", "noopener,noreferrer");
   }
 
   return { copied, serviceId };
