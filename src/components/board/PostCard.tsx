@@ -1,12 +1,14 @@
 import Link from "next/link";
 import type { PostCategory } from "@/types/database";
 import { CATEGORY_MAP, CATEGORY_BADGE_CLASS, CATEGORY_EMOJI } from "@/lib/constants";
+import { PremiumBadge } from "@/components/ui/PremiumBadge";
 
 interface PostCardProps {
   id: string;
   title: string;
   category: PostCategory;
   authorName: string;
+  authorBadge?: string | null;
   viewCount: number;
   createdAt: string;
 }
@@ -31,6 +33,7 @@ export function PostCard({
   title,
   category,
   authorName,
+  authorBadge,
   viewCount,
   createdAt,
 }: PostCardProps) {
@@ -53,7 +56,10 @@ export function PostCard({
       </div>
 
       <div className="hidden shrink-0 items-center gap-4 font-display text-body-sm text-fog sm:flex">
-        <span>{authorName}</span>
+        <span className="flex items-center gap-1.5">
+          {authorName}
+          {authorBadge && <PremiumBadge label={authorBadge} />}
+        </span>
         <span>조회 {viewCount}</span>
         <span>{formatDate(createdAt)}</span>
       </div>

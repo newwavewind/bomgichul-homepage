@@ -5,11 +5,13 @@ import { getPosts } from "@/lib/posts";
 import { getBookmarksForUser } from "@/lib/bookmarks";
 import { getWrongQuestionsForUser } from "@/lib/attempts";
 import { getExamQuestion, type ExamSubject } from "@/lib/exam-questions";
+import { getPremiumBadgeForUser } from "@/lib/badges";
 import { PostCard } from "@/components/board/PostCard";
 import { UsernameForm } from "@/components/profile/UsernameForm";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard, FeatureCard } from "@/components/ui/Card";
+import { PremiumBadge } from "@/components/ui/PremiumBadge";
 import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
 
 export default async function ProfilePage() {
@@ -29,6 +31,7 @@ export default async function ProfilePage() {
     .map((b) => getExamQuestion(b.subject as ExamSubject, b.year, b.question_no))
     .filter((q): q is NonNullable<typeof q> => Boolean(q));
   const wrongQuestions = await getWrongQuestionsForUser(user.id);
+  const myBadge = await getPremiumBadgeForUser(user.id);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
@@ -44,8 +47,9 @@ export default async function ProfilePage() {
           </div>
           <div>
             <p className="font-display text-[12px] text-fog">아이디</p>
-            <p className="font-display text-subheading font-semibold text-ink">
+            <p className="flex items-center gap-2 font-display text-subheading font-semibold text-ink">
               {user.nickname}
+              {myBadge && <PremiumBadge label={myBadge} />}
             </p>
             <p className="mt-1 font-display text-[12px] text-fog">
               로그인용 이메일은 본인만 볼 수 있으며 공개되지 않습니다.

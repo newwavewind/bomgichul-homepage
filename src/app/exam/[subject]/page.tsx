@@ -90,6 +90,14 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
             <SecondaryButton href={`/subjects/${subject}`}>
               {label} 자료실 보기
             </SecondaryButton>
+            {unlocked && (
+              <Link
+                href={`/exam/${subject}/random`}
+                className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
+              >
+                🎲 랜덤 문제 풀기
+              </Link>
+            )}
           </div>
         </div>
 

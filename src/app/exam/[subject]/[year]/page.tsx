@@ -86,6 +86,33 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
           <p className="mt-3 max-w-2xl font-display text-body text-smoke">
             문항을 선택하면 정답과 해설을 볼 수 있어요.
           </p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            {unlocked ? (
+              <>
+                <Link
+                  href={`/exam/${subject}/${year}/mock`}
+                  className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
+                >
+                  📝 모의고사로 풀기
+                </Link>
+                <a
+                  href={`/api/exam-pdf/${subject}/${year}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+                >
+                  ⬇ PDF 다운로드
+                </a>
+              </>
+            ) : (
+              <p className="font-display text-body-sm text-smoke">
+                모의고사·PDF 다운로드는{" "}
+                <Link href={`/exam/${subject}#unlock`} className="font-medium text-[#6366f1] underline">
+                  프리미엄 코드를 등록
+                </Link>
+                하면 이용할 수 있어요.
+              </p>
+            )}
+          </div>
         </div>
 
         {!free && (

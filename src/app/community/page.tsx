@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { getPosts } from "@/lib/posts";
+import { getPremiumBadgesForUsers } from "@/lib/badges";
 import { PostCard } from "@/components/board/PostCard";
 import { CategoryFilter } from "@/components/board/CategoryFilter";
 import { Pagination } from "@/components/board/Pagination";
@@ -32,6 +33,7 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
     search,
     sort,
   });
+  const authorBadges = await getPremiumBadgesForUsers(posts.map((p) => p.author_id));
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -82,6 +84,7 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
                 title={post.title}
                 category={post.category}
                 authorName={post.profiles?.nickname ?? "익명"}
+                authorBadge={authorBadges[post.author_id]}
                 viewCount={post.view_count}
                 createdAt={post.created_at}
               />

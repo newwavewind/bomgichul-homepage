@@ -5,14 +5,16 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { FeatureCard } from "@/components/ui/Card";
 import { TextButton } from "@/components/ui/Button";
+import { PremiumBadge } from "@/components/ui/PremiumBadge";
 import type { Comment } from "@/types/database";
 
 interface CommentItemProps {
   comment: Comment;
   currentUserId?: string | null;
+  authorBadge?: string | null;
 }
 
-export function CommentItem({ comment, currentUserId }: CommentItemProps) {
+export function CommentItem({ comment, currentUserId, authorBadge }: CommentItemProps) {
   const router = useRouter();
   const [deleting, setDeleting] = useState(false);
 
@@ -31,8 +33,9 @@ export function CommentItem({ comment, currentUserId }: CommentItemProps) {
     <FeatureCard className="!p-5">
       <div className="mb-2 flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 font-display text-body-sm">
-          <span className="font-medium text-ink">
+          <span className="flex items-center gap-1.5 font-medium text-ink">
             {comment.profiles?.nickname ?? "익명"}
+            {authorBadge && <PremiumBadge label={authorBadge} />}
           </span>
           <span className="text-fog">
             {new Date(comment.created_at).toLocaleDateString("ko-KR")}

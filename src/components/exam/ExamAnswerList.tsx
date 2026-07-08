@@ -24,6 +24,7 @@ export function ExamAnswerList({
   questionNo,
   userId,
   initialAttemptResult,
+  onAttempt,
 }: {
   items: ExamQuestionItem[];
   correctChoice: string;
@@ -33,6 +34,7 @@ export function ExamAnswerList({
   questionNo: number;
   userId: string | null;
   initialAttemptResult: AttemptResult | null;
+  onAttempt?: (result: AttemptResult) => void;
 }) {
   const [revealed, setRevealed] = useState(false);
   const [attemptResult, setAttemptResult] = useState<AttemptResult | null>(
@@ -51,8 +53,12 @@ export function ExamAnswerList({
       { onConflict: "user_id,subject,year,question_no" }
     );
 
-    if (error) setAttemptResult(initialAttemptResult);
-    else trackEvent("exam_question_attempt", { subject, year, questionNo, result });
+    if (error) {
+      setAttemptResult(initialAttemptResult);
+    } else {
+      trackEvent("exam_question_attempt", { subject, year, questionNo, result });
+      onAttempt?.(result);
+    }
 
     setSavingAttempt(false);
   };

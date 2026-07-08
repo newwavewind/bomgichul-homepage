@@ -2,11 +2,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPost, getComments, incrementViewCount } from "@/lib/posts";
 import { getUser } from "@/lib/auth";
+import { getPremiumBadgesForUsers } from "@/lib/badges";
 import { CATEGORY_MAP } from "@/lib/constants";
 import { ElevatedCard } from "@/components/ui/Card";
 import { CommentForm } from "@/components/board/CommentForm";
 import { CommentItem } from "@/components/board/CommentItem";
 import { PostActions } from "@/components/board/PostActions";
+import { PremiumBadge } from "@/components/ui/PremiumBadge";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -24,6 +26,10 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
 
   await incrementViewCount(id);
   const comments = await getComments(id);
+  const authorBadges = await getPremiumBadgesForUsers([
+    post.author_id,
+    ...comments.map((c) => c.author_id),
+  ]);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
@@ -51,7 +57,12 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
         </h1>
 
         <div className="mb-8 flex items-center gap-3 border-b border-mist/60 pb-6 font-display text-body-sm text-fog">
-          <span>{post.profiles?.nickname ?? "익명"}</span>
+          <span className="flex items-center gap-1.5">
+            {post.profiles?.nickname ?? "익명"}
+            {authorBadges[post.author_id] && (
+              <PremiumBadge label={authorBadges[post.author_id]} />
+            )}
+          </span>
           <span>·</span>
           <span>
             {new Date(post.created_at).toLocaleDateString("ko-KR", {
@@ -87,6 +98,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
                 key={comment.id}
                 comment={comment}
                 currentUserId={user?.id}
+                authorBadge={authorBadges[comment.author_id]}
               />
             ))}
           </div>
