@@ -224,3 +224,13 @@ export interface MockExamSession {
   elapsed_seconds: number;
   created_at: string;
 }
+
+export interface NewsItem {
+  id: string;
+  title: string;
+  summary: string;
+  source_name: string;
+  source_url: string;
+  published_at: string;
+  created_at: string;
+}

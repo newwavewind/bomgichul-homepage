@@ -521,43 +521,41 @@ alter table public.dm_conversations enable row level security;
 alter table public.dm_conversation_members enable row level security;
 alter table public.dm_messages enable row level security;
 
+create or replace function public.is_dm_conversation_member(p_conversation_id uuid)
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1
+    from public.dm_conversation_members
+    where conversation_id = p_conversation_id
+      and user_id = auth.uid()
+  );
+$$;
+
+revoke all on function public.is_dm_conversation_member(uuid) from public;
+grant execute on function public.is_dm_conversation_member(uuid) to authenticated;
+
 create policy "대화방은 참여자만 조회"
   on public.dm_conversations for select
-  using (
-    exists (
-      select 1 from public.dm_conversation_members m
-      where m.conversation_id = id and m.user_id = auth.uid()
-    )
-  );
+  using (public.is_dm_conversation_member(id));
 
 create policy "대화 참여자만 조회"
   on public.dm_conversation_members for select
-  using (
-    conversation_id in (
-      select conversation_id from public.dm_conversation_members
-      where user_id = auth.uid()
-    )
-  );
+  using (public.is_dm_conversation_member(conversation_id));
 
 create policy "메시지는 참여자만 조회"
   on public.dm_messages for select
-  using (
-    exists (
-      select 1 from public.dm_conversation_members m
-      where m.conversation_id = dm_messages.conversation_id
-        and m.user_id = auth.uid()
-    )
-  );
+  using (public.is_dm_conversation_member(conversation_id));
 
 create policy "참여자만 메시지 전송"
   on public.dm_messages for insert
   with check (
     sender_id = auth.uid()
-    and exists (
-      select 1 from public.dm_conversation_members m
-      where m.conversation_id = dm_messages.conversation_id
-        and m.user_id = auth.uid()
-    )
+    and public.is_dm_conversation_member(conversation_id)
   );
 
 create trigger dm_conversations_updated_at

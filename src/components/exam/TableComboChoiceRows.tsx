@@ -1,5 +1,6 @@
 import { ElevatedCard } from "@/components/ui/Card";
 import { CorrectAnswerBadge } from "@/components/exam/CorrectAnswerBadge";
+import { SelectedAnswerBadge } from "@/components/exam/SelectedAnswerBadge";
 import {
   defaultTableHeaders,
   getComboColumnCells,
@@ -58,18 +59,27 @@ export function TableComboChoiceRows({
         while (cells.length < colCount) cells.push("");
         const isCorrectChoice = String(choice.no) === correctChoice;
         const isSelected = selectedNo === choice.no;
+        const isGradedSelection = !interactive && revealed && isSelected;
 
         const rowClass = interactive
           ? isSelected
             ? "bg-snow"
             : "hover:bg-snow"
-          : "";
+          : isGradedSelection
+            ? isCorrectChoice
+              ? "border-l-4 border-l-[#6366f1] bg-[#6366f1]/5"
+              : "border-l-4 border-l-[#ef4444] bg-[#ef4444]/5"
+            : "";
 
         const inner = (
           <>
             <span className="flex min-w-0 items-center gap-1.5 font-display text-body-sm font-bold text-ink">
               <span className="shrink-0">{choice.label}</span>
-              {revealed && isCorrectChoice && <CorrectAnswerBadge className="!text-[10px]" />}
+              {isGradedSelection ? (
+                <SelectedAnswerBadge correct={isCorrectChoice} className="!text-[10px]" />
+              ) : (
+                revealed && isCorrectChoice && <CorrectAnswerBadge className="!text-[10px]" />
+              )}
             </span>
             {cells.slice(0, colCount).map((cell, idx) => (
               <span key={idx} className="text-center font-display text-body-sm text-ink">
@@ -96,7 +106,7 @@ export function TableComboChoiceRows({
         return (
           <div
             key={choice.no}
-            className="grid gap-x-3 border-b border-mist/60 px-4 py-3 last:border-b-0"
+            className={`grid gap-x-3 border-b border-mist/60 px-4 py-3 last:border-b-0 ${rowClass}`}
             style={{ gridTemplateColumns: gridCols }}
           >
             {inner}

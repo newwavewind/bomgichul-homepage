@@ -238,6 +238,7 @@ export const NAV_LINKS = [
   { href: "/", label: "홈" },
   { href: PC_APP_URL, label: "PC앱" },
   { href: "/exam", label: "기출문제" },
+  { href: "/news", label: "뉴스" },
   { href: "/community", label: "커뮤니티" },
   { href: "/archive", label: "자료실" },
   { href: "/diary", label: "수험일기" },

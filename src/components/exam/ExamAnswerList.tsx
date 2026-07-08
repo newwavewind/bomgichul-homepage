@@ -39,6 +39,8 @@ export function ExamAnswerList({
   initialAttemptResult,
   onAttempt,
   aiContext,
+  initialRevealed = false,
+  selectedChoice,
 }: {
   items: ExamQuestionItem[];
   correctChoice: string;
@@ -55,8 +57,12 @@ export function ExamAnswerList({
   initialAttemptResult: AttemptResult | null;
   onAttempt?: (result: AttemptResult) => void;
   aiContext?: ExamAnswerAiContext;
+  /** 이미 채점된 결과(예: 시험 모드)를 곧바로 보여줄 때 true로 전달 */
+  initialRevealed?: boolean;
+  /** 사용자가 실제로 고른 선택지 — 채점된 결과에서 선택 표시에 사용 */
+  selectedChoice?: string;
 }) {
-  const [revealed, setRevealed] = useState(false);
+  const [revealed, setRevealed] = useState(initialRevealed);
   const [attemptResult, setAttemptResult] = useState<AttemptResult | null>(
     initialAttemptResult
   );
@@ -124,12 +130,14 @@ export function ExamAnswerList({
               questionNo={questionNo}
               correctChoice={correctChoice}
               revealed={revealed}
+              selectedNo={selectedChoice ? Number(selectedChoice) : undefined}
             />
           ) : (
             <ComboChoiceRows
               comboChoices={resolvedComboChoices}
               correctChoice={correctChoice}
               revealed={revealed}
+              selectedNo={selectedChoice ? Number(selectedChoice) : undefined}
             />
           )}
         </>
@@ -140,6 +148,7 @@ export function ExamAnswerList({
           revealed={revealed}
           free={free}
           aiContext={aiContext}
+          selectedKey={selectedChoice}
         />
       )}
 

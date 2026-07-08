@@ -1,6 +1,7 @@
 import { ElevatedCard } from "@/components/ui/Card";
 import { ExamAiButtons } from "@/components/exam/ExamAiButtons";
 import { CorrectAnswerBadge } from "@/components/exam/CorrectAnswerBadge";
+import { SelectedAnswerBadge } from "@/components/exam/SelectedAnswerBadge";
 import { buildExamItemAiPrompt } from "@/lib/ai-links";
 import type { ExamComboChoice, ExamQuestionItem, ExamSubject } from "@/lib/exam-questions";
 
@@ -106,19 +107,31 @@ export function ChoiceRows({
   revealed,
   free,
   aiContext,
+  selectedKey,
 }: {
   items: ExamQuestionItem[];
   correctChoice: string;
   revealed: boolean;
   free: boolean;
   aiContext?: ExamAnswerAiContext;
+  selectedKey?: string;
 }) {
   return (
     <ElevatedCard className="overflow-hidden">
       {items.map((item) => {
         const isCorrectChoice = item.key === correctChoice;
+        const isSelected = revealed && selectedKey === item.key;
         return (
-          <div key={item.key} className="border-b border-mist/60 px-5 py-5 last:border-b-0">
+          <div
+            key={item.key}
+            className={`border-b border-mist/60 px-5 py-5 last:border-b-0 ${
+              isSelected
+                ? isCorrectChoice
+                  ? "border-l-4 border-l-[#6366f1] bg-[#6366f1]/5"
+                  : "border-l-4 border-l-[#ef4444] bg-[#ef4444]/5"
+                : ""
+            }`}
+          >
             <div className="mb-2 flex items-start gap-3">
               <span
                 className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border-[1.5px] border-carbon font-display text-body-sm font-bold ${
@@ -129,7 +142,11 @@ export function ChoiceRows({
               </span>
               <p className="flex-1 font-display text-body font-medium text-ink">
                 {item.label} {item.text}
-                <CorrectAnswerBadge visible={revealed && isCorrectChoice} className="ml-2" />
+                {isSelected ? (
+                  <SelectedAnswerBadge correct={isCorrectChoice} className="ml-2" />
+                ) : (
+                  <CorrectAnswerBadge visible={revealed && isCorrectChoice} className="ml-2" />
+                )}
               </p>
             </div>
             <ExplanationRow item={item} free={free} revealed={revealed} aiContext={aiContext} />
@@ -144,23 +161,36 @@ export function ComboChoiceRows({
   comboChoices,
   correctChoice,
   revealed,
+  selectedNo,
 }: {
   comboChoices: ExamComboChoice[];
   correctChoice: string;
   revealed: boolean;
+  selectedNo?: number | null;
 }) {
   return (
     <ElevatedCard className="mt-4 overflow-hidden">
       {comboChoices.map((choice) => {
         const isCorrectChoice = String(choice.no) === correctChoice;
+        const isSelected = revealed && selectedNo === choice.no;
         return (
           <div
             key={choice.no}
-            className="border-b border-mist/60 px-5 py-4 last:border-b-0"
+            className={`border-b border-mist/60 px-5 py-4 last:border-b-0 ${
+              isSelected
+                ? isCorrectChoice
+                  ? "border-l-4 border-l-[#6366f1] bg-[#6366f1]/5"
+                  : "border-l-4 border-l-[#ef4444] bg-[#ef4444]/5"
+                : ""
+            }`}
           >
             <p className="font-display text-body font-medium text-ink">
               {choice.label} {choice.text}
-              <CorrectAnswerBadge visible={revealed && isCorrectChoice} className="ml-2" />
+              {isSelected ? (
+                <SelectedAnswerBadge correct={isCorrectChoice} className="ml-2" />
+              ) : (
+                <CorrectAnswerBadge visible={revealed && isCorrectChoice} className="ml-2" />
+              )}
             </p>
           </div>
         );

@@ -5,6 +5,7 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { PrimaryButton } from "@/components/ui/Button";
 import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
 import { Tag } from "@/components/ui/Tag";
+import { BackLink } from "@/components/ui/BackLink";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { QuestionStem } from "@/components/exam/QuestionStem";
@@ -103,12 +104,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <Link
-          href={`/exam/${subject}/${year}`}
-          className="mb-4 inline-block font-display text-body-sm text-fog transition-colors hover:text-ink"
-        >
-          ← {year}년 문항 목록으로
-        </Link>
+        <BackLink href={`/exam/${subject}/${year}`}>{year}년 문항 목록으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
           <Link href="/exam" className="hover:text-ink">

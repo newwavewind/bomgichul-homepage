@@ -5,6 +5,7 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
+import { BackLink } from "@/components/ui/BackLink";
 import {
   EXAM_SUBJECTS,
   ARCHIVE_SUBJECT_MAP,
@@ -81,12 +82,7 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <Link
-          href="/exam"
-          className="mb-4 inline-block font-display text-body-sm text-fog transition-colors hover:text-ink"
-        >
-          ← 과목 목록으로
-        </Link>
+        <BackLink href="/exam">과목 목록으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
           <Link href="/exam" className="hover:text-ink">

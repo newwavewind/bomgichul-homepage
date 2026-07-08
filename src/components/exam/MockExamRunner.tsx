@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
+import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
 import { TableComboChoiceRows } from "@/components/exam/TableComboChoiceRows";
-import { PrimaryButton } from "@/components/ui/Button";
+import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import { isTableCompositeQuestion } from "@/lib/composite-exam";
 import { enrichTableCompositeQuestion } from "@/lib/realestate-table-composites";
 import { trackEvent } from "@/lib/analytics";
@@ -94,19 +94,8 @@ export function MockExamRunner({
             {sessionSaved && " · 기록 저장됨"}
           </p>
           <div className="mt-4 flex justify-center gap-3">
-            <button
-              type="button"
-              onClick={handleRestart}
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
-            >
-              다시 풀기
-            </button>
-            <Link
-              href={`/exam/${subject}/${year}`}
-              className="font-display text-body-sm font-medium text-fog transition-colors hover:text-ink"
-            >
-              문항 목록으로
-            </Link>
+            <PrimaryButton onClick={handleRestart}>다시 풀기</PrimaryButton>
+            <OutlineButton href={`/exam/${subject}/${year}`}>문항 목록으로</OutlineButton>
           </div>
         </div>
       )}
@@ -241,6 +230,8 @@ export function MockExamRunner({
                     questionNo={q.questionNo}
                     userId={userId}
                     initialAttemptResult={null}
+                    initialRevealed
+                    selectedChoice={selected}
                     aiContext={{
                       subject: q.subject,
                       subjectLabel: ARCHIVE_SUBJECT_MAP[q.subject],
@@ -252,6 +243,11 @@ export function MockExamRunner({
                       stem: q.stem,
                       correctChoice: q.correctChoice,
                     }}
+                  />
+                  <ExamQuestionSeoExplanations
+                    question={q}
+                    subjectLabel={ARCHIVE_SUBJECT_MAP[q.subject]}
+                    unlocked={aiUnlocked}
                   />
                 </>
               )}

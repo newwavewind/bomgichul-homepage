@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
 import { PrimaryButton } from "@/components/ui/Button";
+import { BackLink } from "@/components/ui/BackLink";
 import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
@@ -72,12 +73,7 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <Link
-          href={`/exam/${subject}`}
-          className="mb-4 inline-block font-display text-body-sm text-fog transition-colors hover:text-ink"
-        >
-          ← {label} 목록으로
-        </Link>
+        <BackLink href={`/exam/${subject}`}>{label} 목록으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
           <Link href="/exam" className="hover:text-ink">
