@@ -28,7 +28,7 @@ export function QuestionStem({ stem }: { stem: string }) {
       <div className="mb-8 max-w-3xl rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-surface px-5 py-4">
         {boxLines.map((line, i) => {
           const trimmed = line.trim();
-          const isSubItem = trimmed.startsWith("-");
+          const isSubItem = trimmed.startsWith("-") || /^[가-힣]\.\s/.test(trimmed);
           const isNote = trimmed.startsWith("※");
           return (
             <p
