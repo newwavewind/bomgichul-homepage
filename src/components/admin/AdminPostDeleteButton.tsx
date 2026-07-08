@@ -35,7 +35,7 @@ export function AdminPostDeleteButton({
   return (
     <span className="inline-flex items-center gap-2">
       {confirming && (
-        <TextButton onClick={() => setConfirming(false)} disabled={loading}>
+        <TextButton onClick={() => !loading && setConfirming(false)}>
           취소
         </TextButton>
       )}
