@@ -12,6 +12,7 @@ import {
 } from "@/lib/exam-questions";
 import { getUser } from "@/lib/auth";
 import { isSubjectUnlocked } from "@/lib/premium";
+import { PdfDownloadButton } from "@/components/exam/PdfDownloadButton";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -87,32 +88,29 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
             문항을 선택하면 정답과 해설을 볼 수 있어요.
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            {unlocked ? (
-              <>
-                <Link
-                  href={`/exam/${subject}/${year}/mock`}
-                  className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
-                >
-                  📝 모의고사로 풀기
-                </Link>
-                <a
-                  href={`/api/exam-pdf/${subject}/${year}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
-                >
-                  ⬇ PDF 다운로드
-                </a>
-              </>
-            ) : (
-              <p className="font-display text-body-sm text-smoke">
-                모의고사·PDF 다운로드는{" "}
-                <Link href={`/exam/${subject}#unlock`} className="font-medium text-[#6366f1] underline">
-                  프리미엄 코드를 등록
-                </Link>
-                하면 이용할 수 있어요.
-              </p>
-            )}
+          <div className="mt-6 flex flex-wrap items-start gap-3">
+            <Link
+              href={`/exam/${subject}/${year}/mock`}
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
+            >
+              📝 {unlocked ? "모의고사로 풀기" : "모의고사 미리보기"}
+            </Link>
+            <PdfDownloadButton
+              subject={subject}
+              subjectLabel={label}
+              year={year}
+              unlocked={unlocked}
+            />
           </div>
+          {!unlocked && (
+            <p className="mt-3 font-display text-body-sm text-smoke">
+              모의고사는 5문항 무료 미리보기가 가능해요. 전체 이용은{" "}
+              <Link href={`/exam/${subject}#unlock`} className="font-medium text-[#6366f1] underline">
+                프리미엄 코드를 등록
+              </Link>
+              하면 열려요.
+            </p>
+          )}
         </div>
 
         {!free && (
