@@ -11,13 +11,22 @@ export interface NewsFeedItem {
 const SEARCH_QUERIES = [
   "공인중개사",
   "공인중개사 시험",
+  "공인중개사법",
   "부동산 중개업",
-  "부동산 정책",
+  "전월세",
   "주택임대차",
+  "청약",
+  "취득세 OR 양도세 OR 종부세",
+  "부동산 정책",
+  "집값",
 ] as const;
 
+/** 하루 목표 건수 (모자라면 있는 만큼, 넘치면 자름) */
+export const NEWS_DAILY_TARGET = 7;
+export const NEWS_DAILY_MIN = 5;
+
 const KEYWORD_RE =
-  /공인중개사|중개업|중개사|부동산\s*(정책|규제|세제|세법|공시|임대|거래)|취득세|양도세|종부세|주택임대차|전월세|청약|재건축|재개발|국토교통|부동산원/i;
+  /공인중개사|중개업|중개사|부동산\s*(정책|규제|세제|세법|공시|임대|거래)|취득세|양도세|종부세|주택임대차|전월세|청약|재건축|재개발|국토교통|부동산원|집값|매매가|전세가/i;
 
 /** 제목 비교 시 무시할 공통/형식 단어 */
 const TITLE_STOPWORDS = new Set([
@@ -114,11 +123,16 @@ function decodeXmlEntities(input: string): string {
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .replace(/&apos;/g, "'")
-    .replace(/&amp;/g, "&");
+    .replace(/&amp;/g, "&")
+    // RSS에 자주 섞이는 non-breaking space
+    .replace(/&nbsp;/g, " ")
+    .replace(/&#160;/g, " ");
 }
 
 function stripHtml(input: string): string {
   return decodeXmlEntities(input)
+    // 실제 NBSP(유니코드 160)도 일반 공백으로 정규화
+    .replace(/\u00A0/g, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -129,6 +143,15 @@ function truncateSummary(text: string, max = 220): string {
   const sliced = text.slice(0, max - 1);
   const lastSpace = sliced.lastIndexOf(" ");
   return `${(lastSpace > 80 ? sliced.slice(0, lastSpace) : sliced).trim()}…`;
+}
+
+function cleanSummary(summary: string, sourceName: string): string {
+  // title/source_name이 description에 뒤섞여 들어오는 경우가 있어 뒤를 정리
+  const normalized = summary.replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
+  if (!sourceName) return normalized;
+  const escapedSource = sourceName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  // 예: "....  파이낸스투데이" / ".... 파이낸스투데이" 같은 꼬리 제거
+  return normalized.replace(new RegExp(`\\s*${escapedSource}\\s*$`), "").trim();
 }
 
 function toDateString(value: string | undefined): string | null {
@@ -187,7 +210,8 @@ function parseRssItems(xml: string): NewsFeedItem[] {
 
     const sourceName = extractSourceName(block, rawTitle);
     const title = cleanTitle(rawTitle, sourceName);
-    const summary = truncateSummary(description || title);
+    const summaryRaw = truncateSummary(description || title);
+    const summary = cleanSummary(summaryRaw, sourceName);
     if (!title || !summary) continue;
 
     items.push({
@@ -384,11 +408,13 @@ export function isSameNewsStory(a: NewsFeedItem, b: NewsFeedItem): boolean {
 
 /**
  * URL 중복·같은 사건 중복을 제거하고 최대 maxCount건 선택.
- * 10개에 못 미치면 있는 만큼만 반환 (강제 채우기 없음).
+ * maxCount에 못 미치면 있는 만큼만 반환 (강제 채우기 없음).
+ * @param excludeAgainst 이미 저장된 기사(있다면 같은 사건으로 판정되는 후보 제외)
  */
 export function dedupeNewsStories(
   items: NewsFeedItem[],
-  maxCount: number
+  maxCount: number,
+  excludeAgainst: NewsFeedItem[] = []
 ): NewsFeedItem[] {
   const seenUrls = new Set<string>();
   const selected: NewsFeedItem[] = [];
@@ -397,6 +423,7 @@ export function dedupeNewsStories(
     if (selected.length >= maxCount) break;
     if (seenUrls.has(item.source_url)) continue;
     if (selected.some((kept) => isSameNewsStory(item, kept))) continue;
+    if (excludeAgainst.some((kept) => isSameNewsStory(item, kept))) continue;
 
     seenUrls.add(item.source_url);
     selected.push(item);
@@ -405,8 +432,52 @@ export function dedupeNewsStories(
   return selected;
 }
 
-/** 여러 검색어 RSS를 모아 당일 우선·사건 중복 제거 후 상위 N건 반환 */
-export async function collectNewsFromFeeds(count = 10): Promise<NewsFeedItem[]> {
+/**
+ * 우선순위 점수 (높을수록 먼저).
+ * 1) 공인중개사 직접 → 2) 전월세·청약·세금 → 3) 부동산 정책 → 4) 시장
+ */
+export function newsPriorityScore(item: NewsFeedItem): number {
+  const text = `${item.title} ${item.summary}`;
+
+  if (/공인중개사|중개업|중개사법|중개보조|개업공인중개사|중개보수|중개수수료/i.test(text)) {
+    return 400;
+  }
+  if (/전월세|전세|월세|주택임대차|임대차보호|청약|분양|특공/i.test(text)) {
+    return 300;
+  }
+  if (/취득세|양도세|종부세|재산세|종합부동산세|부동산\s*세/i.test(text)) {
+    return 250;
+  }
+  if (/부동산\s*정책|부동산규제|대출규제|LTV|DTI|DSR|토허제|재건축초과이익/i.test(text)) {
+    return 200;
+  }
+  if (/집값|매매가|전세가|부동산\s*시장|아파트\s*시세|매수세|관망세/i.test(text)) {
+    return 100;
+  }
+  return 50;
+}
+
+function compareNewsCandidates(
+  a: NewsFeedItem,
+  b: NewsFeedItem,
+  today: string
+): number {
+  const aToday = a.published_at === today ? 0 : 1;
+  const bToday = b.published_at === today ? 0 : 1;
+  if (aToday !== bToday) return aToday - bToday;
+
+  const scoreDiff = newsPriorityScore(b) - newsPriorityScore(a);
+  if (scoreDiff !== 0) return scoreDiff;
+
+  if (a.published_at === b.published_at) return 0;
+  return a.published_at < b.published_at ? 1 : -1;
+}
+
+/** 여러 검색어 RSS를 모아 우선순위·사건 중복 제거 후 하루 목표 건수만큼 반환 */
+export async function collectNewsFromFeeds(
+  count = NEWS_DAILY_TARGET,
+  options: { excludeAgainst?: NewsFeedItem[] } = {}
+): Promise<NewsFeedItem[]> {
   const settled = await Promise.allSettled(
     SEARCH_QUERIES.map((q) => fetchFeed(q))
   );
@@ -429,26 +500,16 @@ export async function collectNewsFromFeeds(count = 10): Promise<NewsFeedItem[]> 
   }
 
   const today = todayKstDateString();
-  const candidates = merged.filter(
-    (item) => isRelevant(item) && isRecent(item.published_at)
-  );
+  const excludeAgainst = options.excludeAgainst ?? [];
+  const candidates = merged
+    .filter((item) => isRelevant(item) && isRecent(item.published_at))
+    .sort((a, b) => compareNewsCandidates(a, b, today));
 
-  candidates.sort((a, b) => {
-    // 당일 우선, 그다음 최신일
-    const aToday = a.published_at === today ? 0 : 1;
-    const bToday = b.published_at === today ? 0 : 1;
-    if (aToday !== bToday) return aToday - bToday;
-    if (a.published_at === b.published_at) return 0;
-    return a.published_at < b.published_at ? 1 : -1;
-  });
-
-  // 당일 후보만으로 먼저 선별 (10개 미만이어도 중복 없이 있는 만큼)
   const todayPool = candidates.filter((item) => item.published_at === today);
-  const fromToday = dedupeNewsStories(todayPool, count);
+  const fromToday = dedupeNewsStories(todayPool, count, excludeAgainst);
   if (fromToday.length > 0) {
     return fromToday;
   }
 
-  // 당일 유니크 기사가 전혀 없으면 최근 기사에서만(마찬가지로 중복 없이 있는 만큼)
-  return dedupeNewsStories(candidates, count);
+  return dedupeNewsStories(candidates, count, excludeAgainst);
 }

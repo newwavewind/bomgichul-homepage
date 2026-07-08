@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { collectNewsFromFeeds } from "@/lib/news-feed";
+import {
+  NEWS_DAILY_TARGET,
+  collectNewsFromFeeds,
+  type NewsFeedItem,
+} from "@/lib/news-feed";
 
 export const maxDuration = 60;
 
@@ -10,12 +14,26 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
-  const requestedCount = Number(new URL(request.url).searchParams.get("count")) || 10;
-  const count = Math.min(Math.max(requestedCount, 1), 15);
+  const requestedCount = Number(new URL(request.url).searchParams.get("count"));
+  const count = Math.min(
+    Math.max(Number.isFinite(requestedCount) && requestedCount > 0 ? requestedCount : NEWS_DAILY_TARGET, 1),
+    NEWS_DAILY_TARGET
+  );
 
-  let rows;
+  const admin = createAdminClient();
+
+  // 최근 저장된 기사와 사건 단위로 겹치지 않게 (URL이 달라도 같은 사건이면 스킵)
+  const { data: existingRows } = await admin
+    .from("news_items")
+    .select("title, summary, source_name, source_url, published_at")
+    .order("published_at", { ascending: false })
+    .limit(40);
+
+  const excludeAgainst = (existingRows ?? []) as NewsFeedItem[];
+
+  let rows: NewsFeedItem[];
   try {
-    rows = await collectNewsFromFeeds(count);
+    rows = await collectNewsFromFeeds(count, { excludeAgainst });
   } catch (err) {
     const message = err instanceof Error ? err.message : "failed to collect news feeds";
     return NextResponse.json({ error: message }, { status: 502 });
@@ -25,7 +43,6 @@ export async function GET(request: Request) {
     return NextResponse.json({ ok: true, count: 0 });
   }
 
-  const admin = createAdminClient();
   const { error } = await admin
     .from("news_items")
     .upsert(rows, { onConflict: "source_url,published_at", ignoreDuplicates: true });
