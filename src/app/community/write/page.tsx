@@ -15,7 +15,7 @@ export default function WritePage() {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [category, setCategory] = useState<PostCategory>("question");
+  const [category, setCategory] = useState<PostCategory>("free");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

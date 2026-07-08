@@ -10,7 +10,7 @@
  */
 import { readFileSync, readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "..");
@@ -43,6 +43,33 @@ function readYearFiles(dir) {
     .flat();
 }
 
+let applyRealestateTopicClassification = null;
+async function classifyRealestateQuestions(questions) {
+  if (!applyRealestateTopicClassification) {
+    const mod = await import(
+      pathToFileURL(
+        join(
+          REPO_ROOT,
+          "..",
+          "ox-quiz-app",
+          "src",
+          "data",
+          "subjects",
+          "realestate",
+          "examTopicMap.js"
+        )
+      ).href
+    );
+    applyRealestateTopicClassification = mod.applyTopicClassification;
+  }
+
+  return applyRealestateTopicClassification(questions).map((q) => ({
+    ...q,
+    category: q.unitLabel ?? q.category ?? "미분류",
+    subcategory: q.topicLabel ?? q.subcategory ?? "미분류",
+  }));
+}
+
 function computeFreeYears(years, rule) {
   if (rule.mode === "all") return new Set(years);
   const sorted = [...new Set(years)].sort((a, b) => b - a);
@@ -55,7 +82,10 @@ let grandTotal = 0;
 let grandFree = 0;
 
 for (const [subject, dir] of Object.entries(SUBJECT_EXAM_DIRS)) {
-  const rawQuestions = readYearFiles(dir);
+  let rawQuestions = readYearFiles(dir);
+  if (subject === "realestate") {
+    rawQuestions = await classifyRealestateQuestions(rawQuestions);
+  }
   const years = rawQuestions.map((q) => q.year);
   const freeYears = computeFreeYears(years, FREE_TIER_RULES[subject]);
 
@@ -82,7 +112,12 @@ for (const [subject, dir] of Object.entries(SUBJECT_EXAM_DIRS)) {
         label: c.label,
         text: c.text,
         isCorrect: Boolean(c.is_correct),
+        ...(c.left != null ? { left: c.left } : {}),
+        ...(c.middle != null ? { middle: c.middle } : {}),
+        ...(c.right != null ? { right: c.right } : {}),
       })),
+      ...(q.composite_layout ? { compositeLayout: q.composite_layout } : {}),
+      ...(q.table_header?.length ? { tableHeader: q.table_header } : {}),
       free: freeYears.has(q.year),
     }))
     .sort((a, b) => a.year - b.year || a.questionNo - b.questionNo);

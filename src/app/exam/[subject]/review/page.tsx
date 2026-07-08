@@ -39,7 +39,7 @@ export default async function DailyReviewPage({ params }: ReviewPageProps) {
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const user = await getUser();
-  const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
 
   let questions: ReturnType<typeof buildDailyReviewQueue> = [];
   let daysUntilExam: number | null = null;

@@ -17,9 +17,9 @@ import {
 import { getUser } from "@/lib/auth";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { getAttemptResult } from "@/lib/attempts";
-import { getQuestionNote } from "@/lib/notes";
+import { getPublicMemosForQuestion } from "@/lib/question-memos";
 import { isSubjectUnlocked } from "@/lib/premium";
-import { QuestionNoteEditor } from "@/components/exam/QuestionNoteEditor";
+import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 const EXPLANATION_PREVIEW_LENGTH = 40;
@@ -80,8 +80,8 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
   const user = await getUser();
   const bookmarked = user ? await isQuestionBookmarked(user.id, subject, year, questionNo) : false;
   const attemptResult = user ? await getAttemptResult(user.id, subject, year, questionNo) : null;
-  const note = user ? await getQuestionNote(user.id, subject, year, questionNo) : null;
-  const subjectUnlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const publicMemos = await getPublicMemosForQuestion(subject, year, questionNo, user?.id);
+  const subjectUnlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const accessible = question.free || subjectUnlocked;
 
   const faqStructuredData = {
@@ -157,6 +157,9 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           correctChoice={question.correctChoice}
           questionType={question.questionType}
           comboChoices={question.comboChoices}
+          compositeLayout={question.compositeLayout}
+          tableHeader={question.tableHeader}
+          stem={question.stem}
           free={accessible}
           subject={subject}
           year={year}
@@ -174,14 +177,6 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             stem: question.stem,
             correctChoice: question.correctChoice,
           }}
-        />
-
-        <QuestionNoteEditor
-          subject={subject}
-          year={year}
-          questionNo={questionNo}
-          userId={user?.id ?? null}
-          initialContent={note?.content ?? ""}
         />
 
         {!accessible && (
@@ -239,6 +234,14 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             <div className="flex-1" />
           )}
         </div>
+
+        <QuestionMemoPanel
+          subject={subject}
+          year={year}
+          questionNo={questionNo}
+          userId={user?.id ?? null}
+          initialMemos={publicMemos}
+        />
       </div>
     </div>
   );

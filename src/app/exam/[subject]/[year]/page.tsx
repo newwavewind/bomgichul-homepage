@@ -57,7 +57,7 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
   if (questions.length === 0) notFound();
 
   const user = await getUser();
-  const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const free = questions[0].free || unlocked;
   const mockSessions =
     user && unlocked ? await getMockExamSessions(user.id, subject, year) : [];

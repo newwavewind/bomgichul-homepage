@@ -103,6 +103,9 @@ export function RandomPracticeRunner({
         correctChoice={question.correctChoice}
         questionType={question.questionType}
         comboChoices={question.comboChoices}
+        compositeLayout={question.compositeLayout}
+        tableHeader={question.tableHeader}
+        stem={question.stem}
         free
         subject={question.subject}
         year={question.year}

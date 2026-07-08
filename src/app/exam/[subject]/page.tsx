@@ -22,7 +22,9 @@ import { getNotesForSubject } from "@/lib/notes";
 import { getUser } from "@/lib/auth";
 import { isSubjectUnlocked } from "@/lib/premium";
 import { PremiumCodeRedeem } from "@/components/exam/PremiumCodeRedeem";
+import { SubjectFreeEventBanner } from "@/components/exam/SubjectFreeEventBanner";
 import { ReviewPdfButton } from "@/components/exam/ReviewPdfButton";
+import { isSubjectFreeEventActive } from "@/lib/promotions";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -63,11 +65,12 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
   const info = SUBJECT_LANDING_INFO[subject];
   const years = getExamYears(subject);
   const user = await getUser();
-  const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const [bookmarks, notes] = user
     ? await Promise.all([getBookmarksForUser(user.id), getNotesForSubject(user.id, subject)])
     : [[], []];
   const subjectBookmarkCount = bookmarks.filter((b) => b.subject === subject).length;
+  const freeEventActive = isSubjectFreeEventActive(subject);
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -125,8 +128,11 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
           </div>
         </div>
 
-        <div id="unlock" className="mb-8 scroll-mt-24">
-          <PremiumCodeRedeem subject={subject} userId={user?.id ?? null} unlocked={unlocked} />
+        <div id="unlock" className="mb-8 scroll-mt-24 space-y-4">
+          <SubjectFreeEventBanner subject={subject} />
+          {!freeEventActive && (
+            <PremiumCodeRedeem subject={subject} userId={user?.id ?? null} unlocked={unlocked} />
+          )}
         </div>
 
         <ElevatedCard className="overflow-hidden">

@@ -45,7 +45,7 @@ export default async function RandomPracticePage({ params, searchParams }: Rando
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const user = await getUser();
-  const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const years = getExamYears(subject);
   const categories = getCategoriesForSubject(subject);
 

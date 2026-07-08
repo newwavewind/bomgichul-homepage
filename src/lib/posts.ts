@@ -2,7 +2,8 @@ import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import type { SortOption } from "@/lib/constants";
-import type { PaginatedResult, Post, PostCategory } from "@/types/database";
+import type { PaginatedResult, Post, PostCategory, CommunityListFilter } from "@/types/database";
+import { BEST_BOARD_CATEGORIES, BEST_POST_MIN_VIEWS } from "@/lib/constants";
 
 const emptyPaginated = (page: number): PaginatedResult<Post> => ({
   data: [],
@@ -14,7 +15,7 @@ const emptyPaginated = (page: number): PaginatedResult<Post> => ({
 
 interface GetPostsOptions {
   page?: number;
-  category?: PostCategory | "all";
+  category?: CommunityListFilter;
   search?: string;
   sort?: SortOption;
   authorId?: string;
@@ -39,7 +40,13 @@ export async function getPosts({
     .from("posts")
     .select("*, profiles(nickname, avatar_url)", { count: "exact" });
 
-  if (category !== "all") {
+  if (category === "best") {
+    query = query
+      .in("category", BEST_BOARD_CATEGORIES)
+      .gte("view_count", BEST_POST_MIN_VIEWS)
+      .order("view_count", { ascending: false })
+      .order("created_at", { ascending: false });
+  } else if (category !== "all") {
     query = query.eq("category", category);
   }
 
@@ -51,10 +58,12 @@ export async function getPosts({
     query = query.eq("author_id", authorId);
   }
 
-  if (sort === "popular") {
-    query = query.order("view_count", { ascending: false });
-  } else {
-    query = query.order("created_at", { ascending: false });
+  if (category !== "best") {
+    if (sort === "popular") {
+      query = query.order("view_count", { ascending: false });
+    } else {
+      query = query.order("created_at", { ascending: false });
+    }
   }
 
   const { data, count, error } = await query.range(from, to);

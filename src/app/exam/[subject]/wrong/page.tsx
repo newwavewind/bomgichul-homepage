@@ -35,7 +35,7 @@ export default async function WrongPracticePage({ params }: WrongPracticePagePro
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const user = await getUser();
-  const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const wrongQuestions = user ? await getWrongQuestionsForSubject(user.id, subject) : [];
   const questions = shuffleQuestions(wrongQuestions).slice(0, WRONG_SET_SIZE);
 

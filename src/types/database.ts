@@ -2,10 +2,14 @@ export type PostCategory =
   | "question"
   | "resource"
   | "chat"
+  | "free"
   | "info"
   | "bug"
   | "feedback"
   | "review";
+
+/** 커뮤니티 목록 필터 (베스트는 DB 카테고리가 아닌 가상 필터) */
+export type CommunityListFilter = PostCategory | "all" | "best";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 
@@ -82,6 +86,58 @@ export interface QuestionNote {
   content: string;
   created_at: string;
   updated_at: string;
+}
+
+export interface PublicQuestionMemo {
+  id: string;
+  user_id: string;
+  subject: string;
+  year: number;
+  question_no: number;
+  content: string;
+  created_at: string;
+  updated_at: string;
+  author: Pick<Profile, "nickname" | "avatar_url">;
+  like_count: number;
+  liked_by_viewer: boolean;
+  comments: PublicMemoComment[];
+}
+
+export interface PublicMemoComment {
+  id: string;
+  memo_id: string;
+  user_id: string;
+  content: string;
+  created_at: string;
+  author: Pick<Profile, "nickname" | "avatar_url">;
+}
+
+export interface DmMessage {
+  id: string;
+  conversation_id: string;
+  sender_id: string;
+  content: string;
+  created_at: string;
+  author: Pick<Profile, "nickname" | "avatar_url">;
+}
+
+export interface DmConversationPreview {
+  id: string;
+  otherUser: Pick<Profile, "id" | "nickname" | "avatar_url">;
+  lastMessage: {
+    id: string;
+    conversation_id: string;
+    sender_id: string;
+    content: string;
+    created_at: string;
+  } | null;
+  unreadCount: number;
+  updatedAt: string;
+}
+
+export interface OnlineUser {
+  user_id: string;
+  nickname: string;
 }
 
 export interface DailyQuizResult {

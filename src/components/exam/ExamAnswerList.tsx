@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { ElevatedCard } from "@/components/ui/Card";
 import { ExamAiButtons } from "@/components/exam/ExamAiButtons";
+import { CorrectAnswerBadge } from "@/components/exam/CorrectAnswerBadge";
+import { TableComboChoiceRows } from "@/components/exam/TableComboChoiceRows";
+import { isTableCompositeQuestion } from "@/lib/composite-exam";
+import { enrichTableCompositeQuestion } from "@/lib/realestate-table-composites";
 import { trackEvent } from "@/lib/analytics";
 import { buildExamItemAiPrompt } from "@/lib/ai-links";
 import { createClient } from "@/lib/supabase/client";
@@ -165,13 +169,7 @@ function ChoiceRows({
               </span>
               <p className="flex-1 font-display text-body font-medium text-ink">
                 {item.label} {item.text}
-                <span
-                  className={`ml-2 inline-flex items-center rounded-full bg-[#6366f1] px-2 py-0.5 font-display text-[11px] font-bold tracking-wide text-paper ${
-                    revealed && isCorrectChoice ? "visible" : "invisible"
-                  }`}
-                >
-                  정답
-                </span>
+                <CorrectAnswerBadge visible={revealed && isCorrectChoice} className="ml-2" />
               </p>
             </div>
             <ExplanationRow item={item} free={free} revealed={revealed} aiContext={aiContext} />
@@ -202,13 +200,7 @@ function ComboChoiceRows({
           >
             <p className="font-display text-body font-medium text-ink">
               {choice.label} {choice.text}
-              <span
-                className={`ml-2 inline-flex items-center rounded-full bg-[#6366f1] px-2 py-0.5 font-display text-[11px] font-bold tracking-wide text-paper ${
-                  revealed && isCorrectChoice ? "visible" : "invisible"
-                }`}
-              >
-                정답
-              </span>
+              <CorrectAnswerBadge visible={revealed && isCorrectChoice} className="ml-2" />
             </p>
           </div>
         );
@@ -222,6 +214,9 @@ export function ExamAnswerList({
   correctChoice,
   questionType,
   comboChoices = [],
+  compositeLayout,
+  tableHeader,
+  stem,
   free,
   subject,
   year,
@@ -235,6 +230,9 @@ export function ExamAnswerList({
   correctChoice: string;
   questionType?: "correct" | "wrong" | "composite";
   comboChoices?: ExamComboChoice[];
+  compositeLayout?: "table" | "statements";
+  tableHeader?: string[];
+  stem?: string;
   free: boolean;
   subject: ExamSubject;
   year: number;
@@ -250,9 +248,25 @@ export function ExamAnswerList({
   );
   const [savingAttempt, setSavingAttempt] = useState(false);
 
+  const enriched = enrichTableCompositeQuestion({
+    year,
+    questionNo,
+    comboChoices,
+    tableHeader,
+    compositeLayout,
+  });
+  const resolvedComboChoices = enriched.comboChoices;
+  const resolvedTableHeader = enriched.tableHeader;
+  const resolvedCompositeLayout = enriched.compositeLayout;
+
   const isStatementComposite = isStatementCompositeQuestion({
     questionType: questionType ?? "correct",
-    comboChoices,
+    comboChoices: resolvedComboChoices,
+  });
+  const isTableComposite = isTableCompositeQuestion({
+    compositeLayout: resolvedCompositeLayout,
+    comboChoices: resolvedComboChoices,
+    stem,
   });
 
   const recordAttempt = async (result: AttemptResult) => {
@@ -287,11 +301,23 @@ export function ExamAnswerList({
             aiContext={aiContext}
           />
           <p className="mb-2 mt-5 font-display text-body-sm font-semibold text-smoke">선택지</p>
-          <ComboChoiceRows
-            comboChoices={comboChoices}
-            correctChoice={correctChoice}
-            revealed={revealed}
-          />
+          {isTableComposite ? (
+            <TableComboChoiceRows
+              comboChoices={resolvedComboChoices}
+              tableHeader={resolvedTableHeader}
+              stem={stem}
+              year={year}
+              questionNo={questionNo}
+              correctChoice={correctChoice}
+              revealed={revealed}
+            />
+          ) : (
+            <ComboChoiceRows
+              comboChoices={resolvedComboChoices}
+              correctChoice={correctChoice}
+              revealed={revealed}
+            />
+          )}
         </>
       ) : (
         <ChoiceRows

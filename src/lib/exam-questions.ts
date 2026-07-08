@@ -21,6 +21,9 @@ export interface ExamComboChoice {
   label: string;
   text: string;
   isCorrect: boolean;
+  left?: string;
+  right?: string;
+  middle?: string;
 }
 
 export interface ExamQuestion {
@@ -36,6 +39,8 @@ export interface ExamQuestion {
   items: ExamQuestionItem[];
   comboChoices: ExamComboChoice[];
   free: boolean;
+  compositeLayout?: "table" | "statements";
+  tableHeader?: string[];
 }
 
 /** ㄱ·ㄴ·ㄷ 보기 + ①②③ 조합 선지 형태의 조합형 문항 */

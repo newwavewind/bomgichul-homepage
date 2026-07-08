@@ -1,22 +1,15 @@
-function isBulletLine(line: string): boolean {
-  const trimmed = line.trim();
-  return trimmed.startsWith("ㅇ") || trimmed.startsWith("○");
-}
+import { parseQuestionStem } from "@/lib/exam-stem";
 
 export function QuestionStem({ stem }: { stem: string }) {
-  const lines = stem.split("\n");
-  const boxStart = lines.findIndex(isBulletLine);
+  const { intro, boxLines } = parseQuestionStem(stem);
 
-  if (boxStart === -1) {
+  if (boxLines.length === 0) {
     return (
       <p className="mb-8 max-w-3xl whitespace-pre-line font-display text-body-lg leading-relaxed text-ink">
         {stem}
       </p>
     );
   }
-
-  const intro = lines.slice(0, boxStart).join("\n").trim();
-  const boxLines = lines.slice(boxStart).filter((line) => line.trim().length > 0);
 
   return (
     <>

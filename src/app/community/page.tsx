@@ -8,8 +8,9 @@ import { SearchBar, SortSelect } from "@/components/board/SearchBar";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
-import type { PostCategory } from "@/types/database";
+import type { CommunityListFilter } from "@/types/database";
 import type { SortOption } from "@/lib/constants";
+import { BEST_POST_MIN_VIEWS } from "@/lib/constants";
 
 interface CommunityPageProps {
   searchParams: Promise<{
@@ -23,7 +24,7 @@ interface CommunityPageProps {
 export default async function CommunityPage({ searchParams }: CommunityPageProps) {
   const params = await searchParams;
   const page = Math.max(1, Number(params.page) || 1);
-  const category = (params.category as PostCategory | "all") || "all";
+  const category = (params.category as CommunityListFilter) || "all";
   const search = params.q ?? "";
   const sort = (params.sort as SortOption) || "latest";
 
@@ -43,7 +44,9 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
             <EyebrowLabel className="mb-2">공인중개사 수험생들의 수다방</EyebrowLabel>
             <SectionHeading as="h1">공인중개사 커뮤니티</SectionHeading>
             <p className="mt-2 font-display text-body-sm text-smoke">
-              총 {total}개의 게시글
+              {category === "best"
+                ? `조회 ${BEST_POST_MIN_VIEWS}회 이상 인기 글 · 총 ${total}개`
+                : `총 ${total}개의 게시글`}
               {search && ` · "${search}" 검색 결과`}
             </p>
           </div>
@@ -54,9 +57,11 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
           <Suspense fallback={null}>
             <SearchBar defaultValue={search} />
           </Suspense>
-          <Suspense fallback={null}>
-            <SortSelect current={sort} />
-          </Suspense>
+          {category !== "best" && (
+            <Suspense fallback={null}>
+              <SortSelect current={sort} />
+            </Suspense>
+          )}
         </div>
 
         <div className="mb-8">
@@ -67,10 +72,18 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
           {posts.length === 0 ? (
             <div className="px-6 py-20 text-center">
               <p className="mb-2 font-display text-body text-smoke">
-                {search ? "검색 결과가 없어요" : "아직 게시글이 없어요"}
+                {search
+                  ? "검색 결과가 없어요"
+                  : category === "best"
+                    ? "아직 베스트 글 조건을 만족하는 게시글이 없어요"
+                    : "아직 게시글이 없어요"}
               </p>
               <p className="font-display text-body-sm text-fog">
-                {search ? "다른 키워드로 검색해보세요." : "첫 번째 글을 작성해보세요!"}
+                {search
+                  ? "다른 키워드로 검색해보세요."
+                  : category === "best"
+                    ? `조회수 ${BEST_POST_MIN_VIEWS}회 이상인 글이 이곳에 모여요.`
+                    : "첫 번째 글을 작성해보세요!"}
               </p>
               <div className="mt-6">
                 <PrimaryButton href="/community/write">글쓰기</PrimaryButton>

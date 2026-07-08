@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
+import { TableComboChoiceRows } from "@/components/exam/TableComboChoiceRows";
 import { PrimaryButton } from "@/components/ui/Button";
+import { isTableCompositeQuestion } from "@/lib/composite-exam";
+import { enrichTableCompositeQuestion } from "@/lib/realestate-table-composites";
 import { trackEvent } from "@/lib/analytics";
 import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
 import type { ExamQuestion } from "@/lib/exam-questions";
@@ -113,7 +116,9 @@ export function MockExamRunner({
           const selected = answers[q.questionNo];
           const isCorrect = submitted && selected === q.correctChoice;
           const isWrong = submitted && Boolean(selected) && selected !== q.correctChoice;
-          const isStatementComposite = isStatementCompositeQuestion(q);
+          const enriched = enrichTableCompositeQuestion(q);
+          const isStatementComposite = isStatementCompositeQuestion(enriched);
+          const isTableComposite = isTableCompositeQuestion(enriched);
           const selectedItem = isStatementComposite
             ? q.comboChoices.find((choice) => String(choice.no) === selected)
             : q.items.find((item) => item.key === selected);
@@ -157,23 +162,40 @@ export function MockExamRunner({
                     </div>
                     <div className="space-y-2">
                       <p className="font-display text-body-sm font-semibold text-smoke">선택지</p>
-                      {q.comboChoices.map((choice) => (
-                        <button
-                          key={choice.no}
-                          type="button"
-                          onClick={() =>
-                            setAnswers((a) => ({ ...a, [q.questionNo]: String(choice.no) }))
+                      {isTableComposite ? (
+                        <TableComboChoiceRows
+                          comboChoices={enriched.comboChoices}
+                          tableHeader={enriched.tableHeader}
+                          stem={enriched.stem}
+                          year={enriched.year}
+                          questionNo={enriched.questionNo}
+                          correctChoice={enriched.correctChoice}
+                          revealed={false}
+                          interactive
+                          selectedNo={selected ? Number(selected) : null}
+                          onSelect={(no) =>
+                            setAnswers((a) => ({ ...a, [q.questionNo]: String(no) }))
                           }
-                          className={`flex w-full items-start gap-2 rounded-[var(--radius-buttons)] border-[1.5px] px-4 py-2.5 text-left font-display text-body-sm transition-colors ${
-                            selected === String(choice.no)
-                              ? "border-carbon bg-snow text-ink"
-                              : "border-mist text-ink hover:bg-snow"
-                          }`}
-                        >
-                          <span className="font-semibold">{choice.label}</span>
-                          <span>{choice.text}</span>
-                        </button>
-                      ))}
+                        />
+                      ) : (
+                        q.comboChoices.map((choice) => (
+                          <button
+                            key={choice.no}
+                            type="button"
+                            onClick={() =>
+                              setAnswers((a) => ({ ...a, [q.questionNo]: String(choice.no) }))
+                            }
+                            className={`flex w-full items-start gap-2 rounded-[var(--radius-buttons)] border-[1.5px] px-4 py-2.5 text-left font-display text-body-sm transition-colors ${
+                              selected === String(choice.no)
+                                ? "border-carbon bg-snow text-ink"
+                                : "border-mist text-ink hover:bg-snow"
+                            }`}
+                          >
+                            <span className="font-semibold">{choice.label}</span>
+                            <span>{choice.text}</span>
+                          </button>
+                        ))
+                      )}
                     </div>
                   </div>
                 ) : (
@@ -209,7 +231,10 @@ export function MockExamRunner({
                     items={q.items}
                     correctChoice={q.correctChoice}
                     questionType={q.questionType}
-                    comboChoices={q.comboChoices}
+                    comboChoices={enriched.comboChoices}
+                    compositeLayout={enriched.compositeLayout}
+                    tableHeader={enriched.tableHeader}
+                    stem={enriched.stem}
                     free
                     subject={q.subject}
                     year={q.year}

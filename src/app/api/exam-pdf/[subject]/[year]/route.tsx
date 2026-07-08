@@ -67,7 +67,7 @@ export async function GET(_request: NextRequest, { params }: PdfRouteParams) {
   }
 
   const user = await getUser();
-  const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   if (!unlocked) {
     return NextResponse.json(
       { error: "이 과목의 프리미엄을 해제한 계정만 PDF를 받을 수 있어요." },

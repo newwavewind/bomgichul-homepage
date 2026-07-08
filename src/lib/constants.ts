@@ -35,9 +35,9 @@ export const CATEGORIES: {
   description: string;
 }[] = [
   { value: "all", label: "전체", description: "모든 게시글" },
+  { value: "free", label: "자유게시판", description: "주제 제한 없이 자유롭게" },
   { value: "question", label: "질문", description: "공부 관련 질문" },
   { value: "resource", label: "자료공유", description: "기출, 노트, 팁 공유" },
-  { value: "chat", label: "수다", description: "자유로운 수험생 수다" },
   { value: "info", label: "수험정보", description: "시험 일정, 공고 등" },
   { value: "review", label: "합격후기", description: "합격 수기, 공부법 공유" },
   { value: "bug", label: "오류신고", description: "앱 문항·기능 오류 제보" },
@@ -59,20 +59,37 @@ export const CATEGORY_BADGE_CLASS: Record<PostCategory, string> = {
   question: "bg-iris/10 text-iris",
   resource: "bg-leaf/10 text-leaf",
   chat: "bg-magenta/10 text-magenta",
+  free: "bg-burnt/10 text-burnt",
   info: "bg-electric-blue/10 text-electric-blue",
   review: "bg-amber/10 text-amber",
   bug: "bg-mist text-fog",
   feedback: "bg-mist text-fog",
 };
 
+/** 베스트 글 최소 조회수 (이상이면 베스트 탭에 노출) */
+export const BEST_POST_MIN_VIEWS = 2;
+
+/** 베스트 글에 포함되는 카테고리 (앱 전용 제외) */
+export const BEST_BOARD_CATEGORIES: PostCategory[] = [
+  "question",
+  "resource",
+  "free",
+  "info",
+  "review",
+  "chat",
+];
+
 /** 카테고리별 강조 이모지 (있는 것만) */
 export const CATEGORY_EMOJI: Partial<Record<PostCategory, string>> = {
   review: "🏆",
 };
 
-export const CATEGORY_MAP = Object.fromEntries(
-  CATEGORIES.filter((c) => c.value !== "all").map((c) => [c.value, c.label])
-) as Record<PostCategory, string>;
+export const CATEGORY_MAP = {
+  ...Object.fromEntries(
+    CATEGORIES.filter((c) => c.value !== "all").map((c) => [c.value, c.label])
+  ),
+  chat: "자유게시판",
+} as Record<PostCategory, string>;
 
 /** 봄기출 앱 실제 기능 (ox-quiz-app 기준) */
 export const APP_FEATURES = [
@@ -188,7 +205,7 @@ export const FAQ_ITEMS = [
   {
     question: "커뮤니티는 어떻게 이용하나요?",
     answer:
-      "홈페이지 커뮤니티에서 질문, 수다, 수험정보, 합격후기 카테고리로 글을 작성할 수 있습니다. 기출 PDF·노트·요약 자료는 자료실에서 등록하고 다운로드할 수 있어요. 게시글은 누구나 볼 수 있고, 글쓰기·댓글·자료 업로드는 로그인 후 이용 가능합니다.",
+      "홈페이지 커뮤니티에서 자유게시판, 질문, 수험정보, 합격후기 카테고리로 글을 작성할 수 있습니다. 기출 PDF·노트·요약 자료는 자료실에서 등록하고 다운로드할 수 있어요. 게시글은 누구나 볼 수 있고, 글쓰기·댓글·자료 업로드는 로그인 후 이용 가능합니다.",
   },
   {
     question: "자료실에는 어떤 자료를 올릴 수 있나요?",

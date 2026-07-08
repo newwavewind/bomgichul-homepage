@@ -240,7 +240,7 @@ export default async function HomePage() {
                 <ElectricHighlight underline>{SITE_TAGLINE}</ElectricHighlight>
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-2">
-                {["질문", "자료공유", "수다", "수험정보"].map((tag) => (
+                {["자유게시판", "질문", "자료공유", "수험정보"].map((tag) => (
                   <Tag key={tag}>{tag}</Tag>
                 ))}
               </div>

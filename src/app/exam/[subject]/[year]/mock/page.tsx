@@ -37,7 +37,7 @@ export default async function MockExamPage({ params }: MockExamPageProps) {
   if (questions.length === 0) notFound();
 
   const user = await getUser();
-  const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const yearIsFree = questions[0]?.free ?? false;
   const accessible = unlocked || yearIsFree;
 
