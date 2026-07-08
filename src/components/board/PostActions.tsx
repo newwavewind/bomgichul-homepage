@@ -10,6 +10,7 @@ interface PostActionsProps {
   postId: string;
   authorId: string;
   currentUserId?: string | null;
+  isAdmin?: boolean;
   listPath?: string;
   editPath?: string;
 }
@@ -18,6 +19,7 @@ export function PostActions({
   postId,
   authorId,
   currentUserId,
+  isAdmin = false,
   listPath = "/community",
   editPath,
 }: PostActionsProps) {
@@ -25,7 +27,11 @@ export function PostActions({
   const [loading, setLoading] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  if (!currentUserId || currentUserId !== authorId) return null;
+  const isAuthor = Boolean(currentUserId && currentUserId === authorId);
+  const canDelete = isAuthor || isAdmin;
+  const canEdit = isAuthor;
+
+  if (!canEdit && !canDelete) return null;
 
   const editHref = editPath ?? `/community/${postId}/edit`;
 
@@ -50,7 +56,7 @@ export function PostActions({
 
   return (
     <div className="flex items-center gap-3">
-      <SecondaryButton href={editHref}>수정</SecondaryButton>
+      {canEdit && <SecondaryButton href={editHref}>수정</SecondaryButton>}
       {confirmDelete ? (
         <div className="flex items-center gap-2">
           <TextButton onClick={() => setConfirmDelete(false)}>취소</TextButton>
@@ -64,9 +70,11 @@ export function PostActions({
           </button>
         </div>
       ) : (
-        <TextButton onClick={handleDelete} className="text-coral hover:text-coral">
-          삭제
-        </TextButton>
+        canDelete && (
+          <TextButton onClick={handleDelete} className="text-coral hover:text-coral">
+            {isAdmin && !isAuthor ? "관리자 삭제" : "삭제"}
+          </TextButton>
+        )
       )}
     </div>
   );

@@ -1,5 +1,5 @@
 import { PrimaryButton } from "@/components/ui/Button";
-import { PC_APP_URL } from "@/lib/constants";
+import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
 
 export function PremiumFeatureLocked({
   subject,
@@ -19,17 +19,12 @@ export function PremiumFeatureLocked({
       </p>
       <p className="mt-3 font-display text-body-sm text-smoke">{description}</p>
       <p className="mt-2 font-display text-body-sm text-smoke">
-        모바일 앱에서 {subjectLabel}을 구매하면 PC 학습 코드가 발급돼요. 코드를 등록하면 바로 이용할 수
-        있어요.
+        모바일 앱(Google Play·App Store)에서 {subjectLabel}을 구매하면 PC 학습 코드가 발급돼요. 이
+        홈페이지에서 코드를 등록하면 바로 이용할 수 있어요.
       </p>
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
         <PrimaryButton href={`/exam/${subject}#unlock`}>코드 등록하러 가기</PrimaryButton>
-        <a
-          href={PC_APP_URL}
-          className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
-        >
-          앱에서 구매하기
-        </a>
+        <StorePurchaseLinks />
       </div>
     </div>
   );

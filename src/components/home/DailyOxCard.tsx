@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { PC_APP_URL } from "@/lib/constants";
+import Link from "next/link";
 import { buildAiQuestionPrompt, type DailyOxQuestion } from "@/lib/daily-quiz";
 import { trackEvent } from "@/lib/analytics";
 import { createClient } from "@/lib/supabase/client";
@@ -208,16 +208,16 @@ export function DailyOxCard({
           </p>
         )}
         <p className="mt-3 font-display text-body-sm text-smoke">
-          연도별·목차별로 더 많은 기출을 앱에서 풀어보세요.
+          연도별로 더 많은 기출은 홈페이지 기출문제에서 풀어보세요.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <a
-            href={PC_APP_URL}
-            onClick={() => trackEvent("cta_click", { location: "daily_ox_result", label: "pc_app" })}
+          <Link
+            href="/exam"
+            onClick={() => trackEvent("cta_click", { location: "daily_ox_result", label: "exam_hub" })}
             className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
           >
-            앱에서 더 풀어보기
-          </a>
+            기출문제 더 풀어보기
+          </Link>
           <button
             type="button"
             onClick={handleRestart}

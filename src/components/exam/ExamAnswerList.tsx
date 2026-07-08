@@ -149,6 +149,11 @@ export function ExamAnswerList({
           onClick={() => {
             setRevealed(true);
             trackEvent("exam_answer_reveal", {});
+            window.dispatchEvent(
+              new CustomEvent("exam:answer_revealed", {
+                detail: { subject, year, questionNo },
+              })
+            );
           }}
           className="mt-4 flex w-full items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper py-3 font-display text-body font-semibold text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
         >

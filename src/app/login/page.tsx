@@ -61,11 +61,11 @@ export default function LoginPage() {
     const params = new URLSearchParams(window.location.search);
     if (params.get("error") === "auth") {
       const detail = params.get("message");
-      setMessage(
-        detail
-          ? decodeURIComponent(detail)
-          : "로그인에 실패했습니다. 다시 시도해주세요."
-      );
+      const nextMessage = detail
+        ? decodeURIComponent(detail)
+        : "로그인에 실패했습니다. 다시 시도해주세요.";
+      // setState를 effect 본문에서 동기 호출하지 않도록 지연 실행합니다.
+      window.setTimeout(() => setMessage(nextMessage), 0);
     }
   }, []);
 
@@ -134,7 +134,7 @@ export default function LoginPage() {
           </p>
           <div className="space-y-4">
             <CheckBadge label="AI 질문" value="자동 작성" />
-            <CheckBadge label="공인중개사 커뮤니티" value="4 카테고리" />
+            <CheckBadge label="공인중개사 커뮤니티" value="5 카테고리" />
             <CheckBadge label="가입" value="무료" />
           </div>
         </div>

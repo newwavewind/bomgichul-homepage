@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAdminPosts } from "@/lib/admin";
 import { AdminTable, formatDateTime } from "@/components/admin/AdminUi";
+import { AdminPostDeleteButton } from "@/components/admin/AdminPostDeleteButton";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
 
@@ -32,13 +33,15 @@ export default async function AdminReportsPage() {
               p.authorNickname,
               String(p.viewCount),
               formatDateTime(p.createdAt),
-              <Link
-                key={p.id}
-                href={`/community/${p.id}`}
-                className="font-medium text-electric-blue hover:underline"
-              >
-                보기
-              </Link>,
+              <span key={`actions-${p.id}`} className="inline-flex items-center gap-3">
+                <Link
+                  href={`/community/${p.id}`}
+                  className="font-medium text-electric-blue hover:underline"
+                >
+                  보기
+                </Link>
+                <AdminPostDeleteButton postId={p.id} />
+              </span>,
             ])}
           />
         )}

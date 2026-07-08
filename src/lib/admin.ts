@@ -247,3 +247,19 @@ export async function getAdminRecentSignups(limit = 10): Promise<AdminRecentSign
     usernameSet: r.usernameSet,
   }));
 }
+
+export async function deleteAdminPost(
+  postId: string
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const admin = adminOrNull();
+  if (!admin) {
+    return { ok: false, error: "Supabase가 설정되지 않았습니다." };
+  }
+
+  const { error } = await admin.from("posts").delete().eq("id", postId);
+  if (error) {
+    return { ok: false, error: error.message };
+  }
+
+  return { ok: true };
+}

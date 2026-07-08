@@ -3,11 +3,12 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { PrimaryButton } from "@/components/ui/Button";
+import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
 import { Tag } from "@/components/ui/Tag";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { QuestionStem } from "@/components/exam/QuestionStem";
-import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SUBJECT_LANDING_INFO, PC_APP_URL, SITE_NAME } from "@/lib/constants";
+import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SUBJECT_LANDING_INFO, SITE_NAME } from "@/lib/constants";
 import {
   getAllExamParams,
   getExamQuestion,
@@ -20,17 +21,14 @@ import { getAttemptResult } from "@/lib/attempts";
 import { getPublicMemosForQuestion } from "@/lib/question-memos";
 import { isSubjectUnlocked } from "@/lib/premium";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
+import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
+import { ExamSeoRevealGate } from "@/components/exam/ExamSeoRevealGate";
+import { absoluteUrl, buildBreadcrumbJsonLd } from "@/lib/seo";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
-const EXPLANATION_PREVIEW_LENGTH = 40;
 
 function isValidSubject(value: string): value is ExamSubject {
   return (VALID_SUBJECTS as string[]).includes(value);
-}
-
-function previewText(text: string): string {
-  if (text.length <= EXPLANATION_PREVIEW_LENGTH) return text;
-  return `${text.slice(0, EXPLANATION_PREVIEW_LENGTH)}…`;
 }
 
 interface ExamQuestionPageProps {
@@ -53,11 +51,17 @@ export async function generateMetadata({
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${question.year}년 ${label} ${question.questionNo}번 기출문제 해설`;
   const description = question.stem.slice(0, 120);
+  const canonicalPath = `/exam/${subject}/${yearParam}/${question.questionNo}`;
 
   return {
     title,
     description,
-    openGraph: { title: `${title} | ${SITE_NAME}`, description },
+    alternates: { canonical: absoluteUrl(canonicalPath) },
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      url: absoluteUrl(canonicalPath),
+    },
   };
 }
 
@@ -83,27 +87,20 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
   const publicMemos = await getPublicMemosForQuestion(subject, year, questionNo, user?.id);
   const subjectUnlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const accessible = question.free || subjectUnlocked;
+  const seoRevealId = `seo-explanations-${subject}-${year}-${questionNo}`;
 
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: question.items.map((item) => {
-      const answerText = question.free
-        ? `${item.answer} — ${item.explanation}`
-        : `${item.answer} — ${previewText(item.explanation)} (전체 해설은 앱에서 확인하세요)`;
-      return {
-        "@type": "Question",
-        name: `${item.label} ${item.text} — 옳은 설명인가요?`,
-        acceptedAnswer: { "@type": "Answer", text: answerText },
-      };
-    }),
-  };
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "기출문제 해설", path: "/exam" },
+    { name: label, path: `/exam/${subject}` },
+    { name: `${year}년`, path: `/exam/${subject}/${year}` },
+    { name: `${questionNo}번`, path: `/exam/${subject}/${year}/${questionNo}` },
+  ]);
 
   return (
     <div className="px-4 py-8 md:py-12">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <Link
@@ -140,7 +137,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
 
         <div className="mb-2 flex flex-wrap items-center justify-between gap-3">
           <SectionHeading as="h1" className="mb-0">
-            {questionNo}번
+            {year}년 {label} {questionNo}번
           </SectionHeading>
           <BookmarkButton
             subject={subject}
@@ -182,15 +179,35 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
         {!accessible && (
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice px-5 py-4">
             <p className="font-display text-body-sm text-ink">
-              전체 해설은 앱에서 확인하거나, 이미 구매하셨다면{" "}
+              전체 해설은 프리미엄 해제 후 이 페이지에서 볼 수 있어요. 이미 구매하셨다면{" "}
               <Link href={`/exam/${subject}#unlock`} className="font-medium underline">
                 코드를 등록
               </Link>
               해 보세요.
             </p>
-            <PrimaryButton href={PC_APP_URL}>앱에서 전체 해설 보기</PrimaryButton>
+            <div className="flex flex-wrap items-center gap-2">
+              <PrimaryButton href={`/exam/${subject}#unlock`}>코드 등록</PrimaryButton>
+              <StorePurchaseLinks size="sm" />
+            </div>
           </div>
         )}
+
+        <div
+          id={seoRevealId}
+          className="max-h-0 overflow-hidden transition-[max-height] duration-300"
+        >
+          <ExamQuestionSeoExplanations
+            question={question}
+            subjectLabel={label}
+            unlocked={accessible}
+          />
+        </div>
+        <ExamSeoRevealGate
+          targetId={seoRevealId}
+          subject={subject}
+          year={year}
+          questionNo={questionNo}
+        />
 
         <div className="mt-8 flex items-stretch gap-3">
           {prev ? (

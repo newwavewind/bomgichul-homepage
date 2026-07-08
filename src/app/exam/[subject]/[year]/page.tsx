@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
 import { PrimaryButton } from "@/components/ui/Button";
-import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, PC_APP_URL, SITE_NAME } from "@/lib/constants";
+import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
+import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
   getExamYearParams,
   getExamQuestionsForYear,
@@ -15,6 +16,7 @@ import { isSubjectUnlocked } from "@/lib/premium";
 import { PdfDownloadButton } from "@/components/exam/PdfDownloadButton";
 import { MockExamHistory } from "@/components/exam/MockExamHistory";
 import { getMockExamSessions } from "@/lib/mock-exam-sessions";
+import { absoluteUrl } from "@/lib/seo";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -43,7 +45,12 @@ export async function generateMetadata({
   return {
     title,
     description,
-    openGraph: { title: `${title} | ${SITE_NAME}`, description },
+    alternates: { canonical: absoluteUrl(`/exam/${subject}/${year}`) },
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      url: absoluteUrl(`/exam/${subject}/${year}`),
+    },
   };
 }
 
@@ -113,13 +120,16 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
         {!free && (
           <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice px-5 py-4">
             <p className="font-display text-body-sm text-ink">
-              {year}년 기출은 앱 프리미엄 문항이에요. 전체 해설은 앱에서 확인하거나, 이미 구매하셨다면{" "}
+              {year}년 기출은 프리미엄 전용이에요. 코드를 등록하거나 모바일 앱에서 구매하면 이
+              페이지에서 전체 해설을 볼 수 있어요.{" "}
               <Link href={`/exam/${subject}#unlock`} className="font-medium underline">
-                코드를 등록
+                코드 등록
               </Link>
-              해 보세요.
             </p>
-            <PrimaryButton href={PC_APP_URL}>앱에서 전체 보기</PrimaryButton>
+            <div className="flex flex-wrap items-center gap-2">
+              <PrimaryButton href={`/exam/${subject}#unlock`}>코드 등록</PrimaryButton>
+              <StorePurchaseLinks size="sm" />
+            </div>
           </div>
         )}
 

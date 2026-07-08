@@ -5,6 +5,7 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { MockExamRunner } from "@/components/exam/MockExamRunner";
 import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
+import { ROBOTS_NOINDEX } from "@/lib/seo";
 import { getExamQuestionsForYear, type ExamSubject } from "@/lib/exam-questions";
 import { getUser } from "@/lib/auth";
 import { isSubjectUnlocked } from "@/lib/premium";
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: MockExamPageProps): Promise<M
   if (!isValidSubject(subject)) return {};
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${year}년 ${label} 시험 모드`;
-  return { title, openGraph: { title: `${title} | ${SITE_NAME}` } };
+  return { title, robots: ROBOTS_NOINDEX, openGraph: { title: `${title} | ${SITE_NAME}` } };
 }
 
 export default async function MockExamPage({ params }: MockExamPageProps) {

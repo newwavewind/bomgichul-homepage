@@ -11,6 +11,7 @@ import {
   SITE_URL,
   GA_MEASUREMENT_ID,
 } from "@/lib/constants";
+import { absoluteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -32,6 +33,9 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: absoluteUrl("/"),
+  },
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
@@ -50,6 +54,9 @@ export const metadata: Metadata = {
     apple: "/brand/logo.png",
   },
   verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
     // Next.js Verification 타입에 naver 키가 없어 other로 동일 메타 출력
     other: {
       "naver-site-verification": "6eb3690f67ceb4d2281d99222586a31063d2a955",
@@ -68,6 +75,18 @@ export default function RootLayout({
       className={`${outfit.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-paper text-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: SITE_NAME,
+              url: SITE_URL,
+              description: SITE_DESCRIPTION,
+            }),
+          }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

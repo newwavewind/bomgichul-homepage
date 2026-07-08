@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 
-export const alt = "봄기출 | 공인중개사 커뮤니티";
+export const alt = "봄기출 | 공인중개사 기출문제 해설";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

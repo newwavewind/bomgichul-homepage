@@ -50,6 +50,22 @@ create policy "본인 게시글만 수정"
 create policy "본인 게시글만 삭제"
   on public.posts for delete using (auth.uid() = author_id);
 
+create or replace function public.is_admin()
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1 from public.admin_users where user_id = auth.uid()
+  );
+$$;
+
+create policy "관리자는 모든 게시글 삭제 가능"
+  on public.posts for delete
+  using (public.is_admin());
+
 -- 댓글
 create table public.comments (
   id uuid primary key default gen_random_uuid(),

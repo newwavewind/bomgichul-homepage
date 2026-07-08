@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PrimaryButton } from "@/components/ui/Button";
-import { PC_APP_URL } from "@/lib/constants";
+import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
 import { trackEvent } from "@/lib/analytics";
 
 export function PdfDownloadButton({
@@ -49,18 +49,14 @@ export function PdfDownloadButton({
           </p>
           <p className="mt-1 font-display text-body-sm text-smoke">
             {subjectLabel} 프리미엄을 해제하면 {year}년을 포함한 전체 연도의 문항과 해설이 담긴 PDF를 내려받을
-            수 있어요. 모바일 앱에서 구매하면 PC 학습 코드가 발급돼요.
+            수 있어요. 모바일 앱에서 구매하면 PC 학습 코드가 발급되며, 이 홈페이지에서 등록하면
+            해제됩니다.
           </p>
-          <div className="mt-3 flex flex-wrap gap-3">
+          <div className="mt-3 flex flex-wrap items-center gap-3">
             <PrimaryButton href={`/exam/${subject}#unlock`} size="sm">
               코드 등록하러 가기
             </PrimaryButton>
-            <a
-              href={PC_APP_URL}
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-4 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
-            >
-              앱에서 구매하기
-            </a>
+            <StorePurchaseLinks size="sm" />
           </div>
         </div>
       )}

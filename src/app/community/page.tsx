@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import type { Metadata } from "next";
 import { getPosts } from "@/lib/posts";
 import { getPremiumBadgesForUsers } from "@/lib/badges";
 import { PostCard } from "@/components/board/PostCard";
@@ -10,7 +11,8 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
 import type { CommunityListFilter } from "@/types/database";
 import type { SortOption } from "@/lib/constants";
-import { BEST_POST_MIN_VIEWS } from "@/lib/constants";
+import { BEST_POST_MIN_VIEWS, CATEGORY_MAP } from "@/lib/constants";
+import { buildPageMetadata } from "@/lib/seo";
 
 interface CommunityPageProps {
   searchParams: Promise<{
@@ -19,6 +21,36 @@ interface CommunityPageProps {
     q?: string;
     sort?: string;
   }>;
+}
+
+export async function generateMetadata({
+  searchParams,
+}: CommunityPageProps): Promise<Metadata> {
+  const params = await searchParams;
+  const page = Math.max(1, Number(params.page) || 1);
+  const category = (params.category as CommunityListFilter) || "all";
+  const search = params.q?.trim() ?? "";
+
+  let title = "공인중개사 커뮤니티";
+  if (category === "best") {
+    title = "베스트 글 | 공인중개사 커뮤니티";
+  } else if (category !== "all") {
+    title = `${CATEGORY_MAP[category]} | 공인중개사 커뮤니티`;
+  }
+  if (page > 1) title = `${title} ${page}페이지`;
+
+  const description =
+    category === "best"
+      ? `조회수 ${BEST_POST_MIN_VIEWS}회 이상 인기 게시글을 모았습니다. 공인중개사 수험생 질문·합격후기·수험정보를 확인하세요.`
+      : "공인중개사 수험생 커뮤니티. 자유게시판, 질문, 자료공유, 수험정보, 합격후기를 나눠보세요.";
+
+  return buildPageMetadata({
+    title,
+    description,
+    path: "/community",
+    canonicalParams: { category: category === "all" ? undefined : category, page },
+    noIndex: Boolean(search),
+  });
 }
 
 export default async function CommunityPage({ searchParams }: CommunityPageProps) {
@@ -41,7 +73,7 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <EyebrowLabel className="mb-2">공인중개사 수험생들의 수다방</EyebrowLabel>
+            <EyebrowLabel className="mb-2">공인중개사 수험생 커뮤니티</EyebrowLabel>
             <SectionHeading as="h1">공인중개사 커뮤니티</SectionHeading>
             <p className="mt-2 font-display text-body-sm text-smoke">
               {category === "best"

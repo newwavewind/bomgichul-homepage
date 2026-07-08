@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getUser } from "@/lib/auth";
 import {
   getTodayDiary,
@@ -17,9 +18,35 @@ import { DDayNavigator } from "@/components/diary/DDayNavigator";
 import { PublicDiaryFeed } from "@/components/diary/PublicDiaryFeed";
 import { TodayDiaryForm, DiaryLoginPrompt } from "@/components/diary/TodayDiaryForm";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
+import { buildPageMetadata } from "@/lib/seo";
 
 interface DiaryPageProps {
   searchParams: Promise<{ d?: string }>;
+}
+
+export async function generateMetadata({
+  searchParams,
+}: DiaryPageProps): Promise<Metadata> {
+  const params = await searchParams;
+  const today = getKSTDateString();
+  const { days: todayDDay } = getExamCountdown(today);
+  const requested = params.d != null ? Number(params.d) : todayDDay;
+  const selectedDDay = clampDDay(
+    Number.isFinite(requested) ? Math.trunc(requested) : todayDDay
+  );
+
+  const title =
+    selectedDDay === todayDDay
+      ? "공인중개사 수험일기"
+      : `D-${selectedDDay} 수험일기`;
+
+  return buildPageMetadata({
+    title,
+    description:
+      "공인중개사 시험 D-day 기준으로 수험생들의 공개 일기를 읽고 오늘의 공부 기록을 남겨보세요.",
+    path: "/diary",
+    canonicalParams: selectedDDay === todayDDay ? undefined : { d: selectedDDay },
+  });
 }
 
 export default async function DiaryPage({ searchParams }: DiaryPageProps) {

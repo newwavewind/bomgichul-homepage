@@ -133,7 +133,7 @@ export function ProductShowcase() {
         <MockPostCard
           postNo="102"
           from={{ name: "수험생B", detail: "자료공유", color: "slate" }}
-          to={{ name: "수다", detail: "오늘의 공부", color: "marker" }}
+          to={{ name: "자유게시판", detail: "오늘의 공부", color: "marker" }}
           items={[
             { label: "좋아요", value: "45" },
             { label: "댓글", value: "18" },

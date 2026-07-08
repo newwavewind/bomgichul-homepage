@@ -37,9 +37,10 @@ export async function getArchivePosts({
 
   let query = supabase
     .from("posts")
-    .select("*, profiles(nickname, avatar_url), post_attachments(id, file_name, file_size, mime_type)", {
-      count: "exact",
-    })
+    .select(
+      "id, author_id, category, title, view_count, subject, resource_type, created_at, profiles(nickname), post_attachments(id, file_name, file_size, mime_type)",
+      { count: "planned" }
+    )
     .eq("category", "resource");
 
   if (resourceType !== "all") {

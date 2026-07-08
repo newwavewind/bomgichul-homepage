@@ -1,20 +1,53 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getPost, getComments, incrementViewCount } from "@/lib/posts";
 import { getUser } from "@/lib/auth";
 import { getPremiumBadgesForUsers } from "@/lib/badges";
-import { CATEGORY_MAP } from "@/lib/constants";
+import { CATEGORY_MAP, SITE_NAME } from "@/lib/constants";
 import { ElevatedCard } from "@/components/ui/Card";
 import { CommentForm } from "@/components/board/CommentForm";
 import { CommentItem } from "@/components/board/CommentItem";
 import { PostActions } from "@/components/board/PostActions";
 import { PremiumBadge } from "@/components/ui/PremiumBadge";
+import { absoluteUrl, truncateDescription } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 interface PostDetailPageProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PostDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const post = await getPost(id);
+  if (!post) return {};
+
+  const description = truncateDescription(post.content);
+  const title = post.title;
+  const categoryLabel = CATEGORY_MAP[post.category] ?? post.category;
+
+  return {
+    title,
+    description: `${categoryLabel} · ${description}`,
+    alternates: { canonical: absoluteUrl(`/community/${id}`) },
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      url: absoluteUrl(`/community/${id}`),
+      siteName: SITE_NAME,
+      locale: "ko_KR",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${SITE_NAME}`,
+      description,
+    },
+  };
 }
 
 export default async function PostDetailPage({ params }: PostDetailPageProps) {
@@ -49,6 +82,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
             postId={post.id}
             authorId={post.author_id}
             currentUserId={user?.id}
+            isAdmin={user?.isAdmin}
           />
         </div>
 

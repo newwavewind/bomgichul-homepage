@@ -4,15 +4,18 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { FeatureCard } from "@/components/ui/Card";
 import { Tag } from "@/components/ui/Tag";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SUBJECT_LANDING_INFO, SITE_NAME } from "@/lib/constants";
+import { absoluteUrl } from "@/lib/seo";
 import { getExamQuestionsForSubject, getExamYears, type ExamSubject } from "@/lib/exam-questions";
 
 export const metadata: Metadata = {
   title: "기출문제 해설",
   description:
     "공인중개사 1·2차 전 과목 2016~2025년 기출문제를 문항별로 해설과 함께 확인하세요.",
+  alternates: { canonical: absoluteUrl("/exam") },
   openGraph: {
     title: `기출문제 해설 | ${SITE_NAME}`,
     description: "공인중개사 1·2차 전 과목 기출문제를 문항별 해설과 함께 확인하세요.",
+    url: absoluteUrl("/exam"),
   },
 };
 

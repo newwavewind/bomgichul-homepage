@@ -7,6 +7,7 @@ import { RandomPracticeRunner } from "@/components/exam/RandomPracticeRunner";
 import { RandomPracticeFilters } from "@/components/exam/RandomPracticeFilters";
 import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
+import { ROBOTS_NOINDEX } from "@/lib/seo";
 import {
   filterExamQuestions,
   getCategoriesForSubject,
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: RandomPageProps): Promise<Met
   if (!isValidSubject(subject)) return {};
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${label} 랜덤 문제 연습`;
-  return { title, openGraph: { title: `${title} | ${SITE_NAME}` } };
+  return { title, robots: ROBOTS_NOINDEX, openGraph: { title: `${title} | ${SITE_NAME}` } };
 }
 
 export default async function RandomPracticePage({ params, searchParams }: RandomPageProps) {

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PrimaryButton } from "@/components/ui/Button";
-import { PC_APP_URL } from "@/lib/constants";
+import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
 import { trackEvent } from "@/lib/analytics";
 import { AI_SERVICES, openAiService, type AiServiceId } from "@/lib/ai-links";
 
@@ -77,19 +77,14 @@ export function ExamAiButtons({
             AI 해설 질문은 {subjectLabel} 프리미엄 전용이에요
           </p>
           <p className="mt-1 font-display text-[12px] leading-relaxed text-smoke">
-            GPT·Gemini·Claude로 지문·보기·해설을 바탕으로 추가 설명을 받을 수 있어요. 앱에서 과목을
-            구매하고 PC 학습 코드를 등록하면 이용할 수 있습니다.
+            GPT·Gemini·Claude로 지문·보기·해설을 바탕으로 추가 설명을 받을 수 있어요. 모바일 앱에서
+            과목을 구매한 뒤, 이 홈페이지에서 PC 학습 코드를 등록하면 이용할 수 있습니다.
           </p>
-          <div className="mt-2 flex flex-wrap gap-2">
+          <div className="mt-2 flex flex-wrap items-center gap-2">
             <PrimaryButton href={`/exam/${subject}#unlock`} size="sm">
               코드 등록
             </PrimaryButton>
-            <a
-              href={PC_APP_URL}
-              className="inline-flex items-center rounded-[var(--radius-buttons)] border border-mist bg-paper px-3 py-1 font-display text-[12px] font-medium text-ink hover:bg-snow"
-            >
-              앱에서 구매
-            </a>
+            <StorePurchaseLinks size="sm" />
             <button
               type="button"
               onClick={() => setShowNotice(false)}

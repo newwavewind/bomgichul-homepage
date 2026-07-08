@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LogoMark } from "@/components/illustrations/LogoMark";
 import { PrimaryButton, OutlineButton, TextButton } from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/constants";
@@ -46,6 +46,41 @@ function NavLink({
 
 export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [unread, setUnread] = useState(unreadCount);
+
+  useEffect(() => {
+    if (!user) {
+      setUnread(0);
+      return;
+    }
+
+    let cancelled = false;
+    const controller = new AbortController();
+
+    const fetchUnread = async () => {
+      try {
+        const res = await fetch("/api/notifications/unread-count", {
+          method: "GET",
+          cache: "no-store",
+          signal: controller.signal,
+        });
+        if (!res.ok) return;
+        const json = (await res.json()) as { unreadCount?: number };
+        if (!cancelled && typeof json.unreadCount === "number") {
+          setUnread(json.unreadCount);
+        }
+      } catch {
+        // Ignore transient fetch errors to avoid breaking navigation.
+      }
+    };
+
+    void fetchUnread();
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
+  }, [user]);
 
   return (
     <header className="sticky top-0 z-50 px-4 py-4">
@@ -65,7 +100,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
                 {user.isAdmin && (
                   <OutlineButton href="/admin">관리자</OutlineButton>
                 )}
-                <NotificationBell unreadCount={unreadCount} />
+                <NotificationBell unreadCount={unread} />
                 <OutlineButton href={user.usernameSet ? "/profile" : "/onboarding"}>
                   {user.usernameSet ? user.nickname : "아이디 설정"}
                 </OutlineButton>
@@ -115,7 +150,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
                     href="/notifications"
                     className="w-full justify-start"
                   >
-                    🔔 알림{unreadCount > 0 ? ` (${unreadCount})` : ""}
+                    🔔 알림{unread > 0 ? ` (${unread})` : ""}
                   </OutlineButton>
                   <OutlineButton
                     href={user.usernameSet ? "/profile" : "/onboarding"}

@@ -13,6 +13,12 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     priority: 1,
   },
   {
+    url: `${SITE_URL}/faq`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
     url: `${SITE_URL}/community`,
     lastModified: new Date(),
     changeFrequency: "daily",

@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { requireAdmin } from "@/lib/auth";
 import { AdminNav } from "@/components/admin/AdminNav";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
+import { ROBOTS_NOINDEX } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  robots: ROBOTS_NOINDEX,
+  title: "관리자",
+};
 
 export default async function AdminLayout({
   children,

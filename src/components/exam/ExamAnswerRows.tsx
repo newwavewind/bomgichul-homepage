@@ -44,44 +44,19 @@ function ExplanationRow({
 }) {
   const prompt = aiContext ? buildPrompt(aiContext, item, free) : "";
 
-  if (free) {
-    return (
-      <div className="ml-10 mt-2 flex flex-wrap items-center gap-2">
-        <details className="group">
-          <summary className="cursor-pointer font-display text-body-sm font-medium text-electric-blue [&::-webkit-details-marker]:hidden">
-            해설 보기 <span className="inline-block transition-transform group-open:rotate-180">▾</span>
-          </summary>
-          <p className="mt-1.5 font-display text-body-sm leading-relaxed text-smoke">
-            {item.explanation}
-          </p>
-        </details>
-        {prompt && aiContext && (
-          <ExamAiButtons
-            prompt={prompt}
-            unlocked={aiContext.unlocked}
-            subject={aiContext.subject}
-            subjectLabel={aiContext.subjectLabel}
-          />
-        )}
-      </div>
-    );
-  }
-
-  if (!revealed) return null;
+  // 해설 전문/요약은 아래 SEO 섹션에서만 보여주고,
+  // 카드 안에서는 AI 버튼만 유지한다.
+  if (!revealed && !free) return null;
+  if (!prompt || !aiContext) return null;
 
   return (
     <div className="ml-10 mt-2 flex flex-wrap items-center gap-2">
-      <p className="font-display text-body-sm leading-relaxed text-smoke">
-        {previewText(item.explanation)}
-      </p>
-      {prompt && aiContext && (
-        <ExamAiButtons
-          prompt={buildPrompt(aiContext, item, false)}
-          unlocked={aiContext.unlocked}
-          subject={aiContext.subject}
-          subjectLabel={aiContext.subjectLabel}
-        />
-      )}
+      <ExamAiButtons
+        prompt={free ? prompt : buildPrompt(aiContext, item, false)}
+        unlocked={aiContext.unlocked}
+        subject={aiContext.subject}
+        subjectLabel={aiContext.subjectLabel}
+      />
     </div>
   );
 }

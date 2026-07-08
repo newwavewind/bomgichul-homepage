@@ -5,6 +5,7 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { RandomPracticeRunner } from "@/components/exam/RandomPracticeRunner";
 import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
+import { ROBOTS_NOINDEX } from "@/lib/seo";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { getWrongAttemptsForSubject } from "@/lib/attempts";
 import { getBookmarksForUser } from "@/lib/bookmarks";
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: ReviewPageProps): Promise<Met
   if (!isValidSubject(subject)) return {};
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${label} 오늘의 복습`;
-  return { title, openGraph: { title: `${title} | ${SITE_NAME}` } };
+  return { title, robots: ROBOTS_NOINDEX, openGraph: { title: `${title} | ${SITE_NAME}` } };
 }
 
 export default async function DailyReviewPage({ params }: ReviewPageProps) {

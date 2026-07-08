@@ -38,7 +38,10 @@ export async function getPosts({
 
   let query = supabase
     .from("posts")
-    .select("*, profiles(nickname, avatar_url)", { count: "exact" });
+    .select(
+      "id, author_id, category, title, view_count, created_at, profiles(nickname)",
+      { count: "planned" }
+    );
 
   if (category === "best") {
     query = query

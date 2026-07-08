@@ -1,20 +1,57 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getArchivePost } from "@/lib/archive";
 import { getComments, incrementViewCount } from "@/lib/posts";
 import { getUser } from "@/lib/auth";
 import {
   ARCHIVE_RESOURCE_TYPE_MAP,
   ARCHIVE_SUBJECT_MAP,
+  SITE_NAME,
 } from "@/lib/constants";
 import { ElevatedCard } from "@/components/ui/Card";
 import { AttachmentListServer } from "@/components/archive/AttachmentList";
 import { CommentForm } from "@/components/board/CommentForm";
 import { CommentItem } from "@/components/board/CommentItem";
 import { PostActions } from "@/components/board/PostActions";
+import { absoluteUrl, truncateDescription } from "@/lib/seo";
 
 interface ArchiveDetailPageProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: ArchiveDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const post = await getArchivePost(id);
+  if (!post) return {};
+
+  const description = truncateDescription(post.content);
+  const subjectLabel = post.subject ? ARCHIVE_SUBJECT_MAP[post.subject] : null;
+  const typeLabel = post.resource_type
+    ? ARCHIVE_RESOURCE_TYPE_MAP[post.resource_type]
+    : null;
+  const prefix = [subjectLabel, typeLabel].filter(Boolean).join(" ");
+
+  return {
+    title: post.title,
+    description: prefix ? `${prefix} · ${description}` : description,
+    alternates: { canonical: absoluteUrl(`/archive/${id}`) },
+    openGraph: {
+      title: `${post.title} | ${SITE_NAME}`,
+      description,
+      url: absoluteUrl(`/archive/${id}`),
+      siteName: SITE_NAME,
+      locale: "ko_KR",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | ${SITE_NAME}`,
+      description,
+    },
+  };
 }
 
 export default async function ArchiveDetailPage({ params }: ArchiveDetailPageProps) {
@@ -51,6 +88,7 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
             postId={post.id}
             authorId={post.author_id}
             currentUserId={user?.id}
+            isAdmin={user?.isAdmin}
             listPath="/archive"
             editPath={`/archive/${post.id}/edit`}
           />

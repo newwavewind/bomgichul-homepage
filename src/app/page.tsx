@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   EyebrowLabel,
   SectionHeading,
@@ -9,7 +10,6 @@ import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { PrimaryButton, SecondaryButton, OutlineButton } from "@/components/ui/Button";
 import { FeatureCard, LargePanel, TintedAccentCard } from "@/components/ui/Card";
 import { Tag, CheckBadge } from "@/components/ui/Tag";
-import { FAQAccordion } from "@/components/ui/FAQ";
 import { AppPhonePreview } from "@/components/illustrations/AppPhonePreview";
 import { BrandLogo } from "@/components/illustrations/BrandLogo";
 import { FloatingStickers } from "@/components/illustrations/Stickers";
@@ -23,25 +23,19 @@ import { getUser } from "@/lib/auth";
 import { getUserQuizStreak, hasCompletedTodayQuiz } from "@/lib/daily-quiz-results";
 import {
   APP_FEATURES,
-  FAQ_ITEMS,
   HIGHLIGHTS,
   SITE_TAGLINE,
   STATS,
   STUDY_MODES,
 } from "@/lib/constants";
+import { buildPageMetadata } from "@/lib/seo";
 
-const faqStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "공인중개사 기출문제 해설",
+  description:
+    "공인중개사 기출 O/X와 문항별 해설, AI 질문, 수험생 커뮤니티. 부동산학개론·민법·공인중개사법 등 전 과목 기출을 연도·문항 단위로 확인하세요.",
+  path: "/",
+});
 
 export default async function HomePage() {
   const dateKey = getKSTDateString();
@@ -52,11 +46,6 @@ export default async function HomePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
-      />
-
       {/* D-day strip */}
       <div className="px-4 pt-4">
         <DDayStrip />
@@ -232,7 +221,7 @@ export default async function HomePage() {
             <div className="mx-auto max-w-2xl text-center">
               <HandCaption className="mb-3">공인중개사 커뮤니티</HandCaption>
               <h2 className="font-display text-heading font-semibold text-ink">
-                앱으로 공부하고, 여기서 수다 떨어요
+                앱으로 공부하고, 여기서 정보를 나눠요
               </h2>
               <p className="mx-auto mt-4 font-display text-body-lg text-smoke">
                 공인중개사 기출 풀다가 막히는 문제, 자료 공유, 시험 정보 —
@@ -240,7 +229,7 @@ export default async function HomePage() {
                 <ElectricHighlight underline>{SITE_TAGLINE}</ElectricHighlight>
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-2">
-                {["자유게시판", "질문", "자료공유", "수험정보"].map((tag) => (
+                {["자유게시판", "질문", "자료공유", "수험정보", "합격후기"].map((tag) => (
                   <Tag key={tag}>{tag}</Tag>
                 ))}
               </div>
@@ -273,19 +262,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section id="faq" className="section-gap bg-snow px-4">
-        <div className="mx-auto max-w-2xl">
-          <div className="mb-10 text-left">
-            <EyebrowLabel className="mb-3">자주 묻는 질문</EyebrowLabel>
-            <SectionHeading>FAQ</SectionHeading>
-          </div>
-          <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 shadow-[var(--shadow-card)] md:px-8">
-            <FAQAccordion items={FAQ_ITEMS} />
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="section-gap px-4">
         <div className="mx-auto max-w-[var(--page-max-width)]">
@@ -297,7 +273,7 @@ export default async function HomePage() {
               </div>
               <BrandLockup variant="section" align="center" />
               <p className="mx-auto mt-4 max-w-md font-display text-body text-smoke">
-                앱을 설치해 기출을 풀고, 웹 커뮤니티에 가입해 수험 정보를
+                앱을 설치해 기출을 풀고, 홈페이지 커뮤니티에 가입해 수험 정보를
                 나눠보세요. 공부는 당신이, 질문은 봄기출이.
               </p>
               <AppStoreButtons className="mt-6 justify-center" />

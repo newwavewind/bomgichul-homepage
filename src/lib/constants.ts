@@ -11,9 +11,9 @@ export const SITE_PLATFORM = "공인중개사 AI 학습 플랫폼";
 /** 전체 브랜딩 문구 */
 export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE}`;
 /** SEO / Open Graph / Twitter 기본 제목 */
-export const SITE_TITLE = "봄기출 | 공인중개사 커뮤니티";
+export const SITE_TITLE = "봄기출 | 공인중개사 기출문제 해설";
 export const SITE_DESCRIPTION =
-  "공인중개사 수험생을 위한 커뮤니티. 기출자료 공유, 수험일기, AI 학습, 정보 교류를 한 곳에서.";
+  "공인중개사 1·2차 기출문제 O/X와 문항별 해설, AI 질문, 수험생 커뮤니티·자료실. 부동산학개론·민법·공인중개사법 등 전 과목 2016~2025년 기출을 연도·문항 단위로 확인하세요.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
@@ -172,7 +172,7 @@ export const SUBJECTS = [
 export const STATS = [
   { label: "지원 과목", value: "6" },
   { label: "기출 연도", value: "10년+" },
-  { label: "학습 모드", value: "5가지" },
+  { label: "학습 모드", value: "4가지" },
 ];
 
 export const HIGHLIGHTS = [
@@ -205,12 +205,17 @@ export const FAQ_ITEMS = [
   {
     question: "커뮤니티는 어떻게 이용하나요?",
     answer:
-      "홈페이지 커뮤니티에서 자유게시판, 질문, 수험정보, 합격후기 카테고리로 글을 작성할 수 있습니다. 기출 PDF·노트·요약 자료는 자료실에서 등록하고 다운로드할 수 있어요. 게시글은 누구나 볼 수 있고, 글쓰기·댓글·자료 업로드는 로그인 후 이용 가능합니다.",
+      "홈페이지 커뮤니티에서 자유게시판, 질문, 자료공유, 수험정보, 합격후기 카테고리로 글을 작성할 수 있습니다. 기출 PDF·노트·요약 자료는 자료실에서 등록하고 다운로드할 수 있어요. 게시글은 누구나 볼 수 있고, 글쓰기·댓글·자료 업로드는 로그인 후 이용 가능합니다.",
   },
   {
     question: "자료실에는 어떤 자료를 올릴 수 있나요?",
     answer:
       "기출, 노트, 요약 등 수험에 도움이 되는 PDF·이미지·문서·CSV·MP4 파일을 과목별로 올릴 수 있습니다. 일반 파일은 최대 20MB, MP4는 최대 100MB, 게시글당 5개까지 첨부 가능합니다.",
+  },
+  {
+    question: "프리미엄은 어디서 구매하고, 코드는 어디서 등록하나요?",
+    answer:
+      "과목별 프리미엄은 Google Play·App Store의 「봄기출 공인중개사」 앱에서 구매합니다. 구매 후 발급되는 PC 학습 코드는 이 홈페이지 기출문제 과목 페이지 하단에서 등록하세요. 등록한 계정으로 로그인하면 홈페이지와 PC앱(app.bomgichul.com)에서 해당 과목이 해제됩니다.",
   },
   {
     question: "앱은 어디서 다운로드하나요?",
@@ -236,7 +241,7 @@ export const NAV_LINKS = [
   { href: "/community", label: "커뮤니티" },
   { href: "/archive", label: "자료실" },
   { href: "/diary", label: "수험일기" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 /** 공인중개사 시험 일정 (한국산업인력공단·Q-Net 공고 기준) */

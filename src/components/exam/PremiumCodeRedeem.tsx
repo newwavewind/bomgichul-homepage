@@ -47,7 +47,7 @@ export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRede
     return (
       <div className="rounded-[var(--radius-cards)] border border-dashed border-mist bg-surface px-5 py-4">
         <p className="font-display text-body-sm text-smoke">
-          모바일 앱에서 {label} 프리미엄을 구매하셨나요? 로그인하면 발급받은 PC 학습 코드를 등록해 PC에서도 전체 해설을 볼 수 있어요.
+          모바일 앱에서 {label} 프리미엄을 구매하셨나요? 로그인하면 발급받은 PC 학습 코드를 이 홈페이지에서 등록해 전체 해설을 볼 수 있어요.
         </p>
         <div className="mt-3">
           <Link
@@ -103,7 +103,7 @@ export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRede
         모바일 앱에서 구매한 PC 학습 코드가 있으신가요?
       </p>
       <p className="mt-1 font-display text-body-sm text-smoke">
-        Google Play·App Store에서 과목을 구매하면 발급되는 PC 학습 코드를 입력하면, 이 계정으로 로그인한 PC에서도 그 과목의 전체 연도 해설을 볼 수 있어요. 코드는 구매한 과목에만 적용돼요.
+        Google Play·App Store에서 과목을 구매하면 발급되는 PC 학습 코드를 입력하면, 이 홈페이지와 PC앱에서 그 과목의 전체 연도 해설을 볼 수 있어요. 코드는 구매한 과목에만 적용돼요.
       </p>
       <form onSubmit={handleSubmit} className="mt-3 flex flex-wrap items-end gap-3">
         <div className="w-48">

@@ -5,6 +5,7 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { RandomPracticeRunner } from "@/components/exam/RandomPracticeRunner";
 import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
+import { ROBOTS_NOINDEX } from "@/lib/seo";
 import { shuffleQuestions, type ExamSubject } from "@/lib/exam-questions";
 import { getWrongQuestionsForSubject } from "@/lib/attempts";
 import { getUser } from "@/lib/auth";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: WrongPracticePageProps): Prom
   if (!isValidSubject(subject)) return {};
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${label} 오답노트 연습`;
-  return { title, openGraph: { title: `${title} | ${SITE_NAME}` } };
+  return { title, robots: ROBOTS_NOINDEX, openGraph: { title: `${title} | ${SITE_NAME}` } };
 }
 
 export default async function WrongPracticePage({ params }: WrongPracticePageProps) {
