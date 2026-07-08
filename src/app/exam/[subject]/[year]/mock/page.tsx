@@ -38,6 +38,8 @@ export default async function MockExamPage({ params }: MockExamPageProps) {
 
   const user = await getUser();
   const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const yearIsFree = questions[0]?.free ?? false;
+  const accessible = unlocked || yearIsFree;
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -50,7 +52,9 @@ export default async function MockExamPage({ params }: MockExamPageProps) {
         </Link>
 
         <div className="mb-8">
-          <EyebrowLabel className="mb-2">시험 모드 · 프리미엄</EyebrowLabel>
+          <EyebrowLabel className="mb-2">
+            시험 모드{yearIsFree ? " · 무료" : " · 프리미엄"}
+          </EyebrowLabel>
           <SectionHeading as="h1">
             {year}년 {label} 시험 모드
           </SectionHeading>
@@ -59,12 +63,14 @@ export default async function MockExamPage({ params }: MockExamPageProps) {
           </p>
         </div>
 
-        {unlocked ? (
+        {accessible ? (
           <MockExamRunner
             subject={subject}
             year={year}
             questions={questions}
             userId={user?.id ?? null}
+            saveSession={unlocked}
+            aiUnlocked={unlocked}
           />
         ) : (
           <PremiumFeatureLocked

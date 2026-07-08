@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Document, Page, Text, View, StyleSheet, Font, renderToBuffer } from "@react-pdf/renderer";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
-import { getExamQuestionsForYear, type ExamSubject } from "@/lib/exam-questions";
+import { getExamQuestionsForYear, isStatementCompositeQuestion, type ExamSubject } from "@/lib/exam-questions";
 import { getUser } from "@/lib/auth";
 import { isSubjectUnlocked } from "@/lib/premium";
 
@@ -92,20 +92,47 @@ export async function GET(_request: NextRequest, { params }: PdfRouteParams) {
             <Text style={styles.questionNo}>{q.questionNo}번</Text>
             <Text style={styles.stem}>{q.stem}</Text>
 
-            {q.items.map((item) => (
-              <View key={item.key}>
-                <View style={styles.itemRow}>
-                  <Text style={styles.itemBadge}>{item.label}</Text>
-                  <Text style={styles.itemText}>
-                    {item.text} [{item.answer}]
-                    {item.key === q.correctChoice ? (
-                      <Text style={styles.correctTag}> (정답)</Text>
-                    ) : null}
-                  </Text>
+            {isStatementCompositeQuestion(q) ? (
+              <>
+                {q.items.map((item) => (
+                  <View key={item.key}>
+                    <View style={styles.itemRow}>
+                      <Text style={styles.itemBadge}>{item.label}</Text>
+                      <Text style={styles.itemText}>
+                        {item.text} [{item.answer}]
+                      </Text>
+                    </View>
+                    <Text style={styles.explanation}>{item.explanation}</Text>
+                  </View>
+                ))}
+                {q.comboChoices.map((choice) => (
+                  <View key={choice.no} style={styles.itemRow}>
+                    <Text style={styles.itemBadge}>{choice.label}</Text>
+                    <Text style={styles.itemText}>
+                      {choice.text}
+                      {String(choice.no) === q.correctChoice ? (
+                        <Text style={styles.correctTag}> (정답)</Text>
+                      ) : null}
+                    </Text>
+                  </View>
+                ))}
+              </>
+            ) : (
+              q.items.map((item) => (
+                <View key={item.key}>
+                  <View style={styles.itemRow}>
+                    <Text style={styles.itemBadge}>{item.label}</Text>
+                    <Text style={styles.itemText}>
+                      {item.text} [{item.answer}]
+                      {item.key === q.correctChoice ? (
+                        <Text style={styles.correctTag}> (정답)</Text>
+                      ) : null}
+                    </Text>
+                  </View>
+                  <Text style={styles.explanation}>{item.explanation}</Text>
                 </View>
-                <Text style={styles.explanation}>{item.explanation}</Text>
-              </View>
-            ))}
+              ))
+            )}
 
             <View style={styles.divider} />
           </View>

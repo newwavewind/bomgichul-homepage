@@ -129,3 +129,14 @@ export interface StudyDiary {
   updated_at: string;
   profiles?: Pick<Profile, "nickname" | "avatar_url">;
 }
+
+export interface MockExamSession {
+  id: string;
+  user_id: string;
+  subject: string;
+  year: number;
+  total: number;
+  correct: number;
+  elapsed_seconds: number;
+  created_at: string;
+}

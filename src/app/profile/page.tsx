@@ -6,13 +6,16 @@ import { getBookmarksForUser } from "@/lib/bookmarks";
 import { getWrongQuestionsForUser } from "@/lib/attempts";
 import { getExamQuestion, type ExamSubject } from "@/lib/exam-questions";
 import { getPremiumBadgeForUser } from "@/lib/badges";
+import { getUnlockedSubjects } from "@/lib/premium";
+import { getAttemptsForSubject, buildSubjectStudyStats } from "@/lib/study-analytics";
 import { PostCard } from "@/components/board/PostCard";
 import { UsernameForm } from "@/components/profile/UsernameForm";
+import { StudyAnalyticsPanel } from "@/components/profile/StudyAnalyticsPanel";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard, FeatureCard } from "@/components/ui/Card";
 import { PremiumBadge } from "@/components/ui/PremiumBadge";
-import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
+import { ARCHIVE_SUBJECT_MAP, EXAM_SUBJECTS } from "@/lib/constants";
 
 export default async function ProfilePage() {
   const user = await getUser();
@@ -32,6 +35,14 @@ export default async function ProfilePage() {
     .filter((q): q is NonNullable<typeof q> => Boolean(q));
   const wrongQuestions = await getWrongQuestionsForUser(user.id);
   const myBadge = await getPremiumBadgeForUser(user.id);
+  const unlockedSubjects = await getUnlockedSubjects(user.id);
+
+  const analyticsPanels = await Promise.all(
+    [...unlockedSubjects].map(async (subject) => {
+      const attempts = await getAttemptsForSubject(user.id, subject);
+      return buildSubjectStudyStats(subject, attempts);
+    })
+  );
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
@@ -58,6 +69,50 @@ export default async function ProfilePage() {
         </div>
         <UsernameForm currentUsername={user.nickname} />
       </FeatureCard>
+
+      <div className="mb-6">
+        <h2 className="font-display text-subheading font-semibold text-ink">프리미엄 학습 분석</h2>
+        <p className="mt-1 font-display text-body-sm text-smoke">
+          과목별 단원 약점과 연도별 정답률을 확인할 수 있어요.
+        </p>
+      </div>
+
+      {analyticsPanels.length === 0 ? (
+        <ElevatedCard className="mb-8 px-6 py-10 text-center">
+          <p className="font-display text-body text-smoke">
+            해제된 과목이 없어요. 코드를 등록하면 학습 분석이 표시됩니다.
+          </p>
+          <PrimaryButton href="/exam" className="mt-4">
+            기출문제로 이동
+          </PrimaryButton>
+        </ElevatedCard>
+      ) : (
+        <div className="mb-8 space-y-4">
+          {analyticsPanels.map((stats) => (
+            <StudyAnalyticsPanel
+              key={stats.subject}
+              subject={stats.subject}
+              categories={stats.categories}
+              years={stats.years}
+              totalAttempts={stats.totalAttempts}
+            />
+          ))}
+        </div>
+      )}
+
+      {unlockedSubjects.size > 0 && (
+        <div className="mb-8 flex flex-wrap gap-3">
+          {[...unlockedSubjects].map((subject) => (
+            <Link
+              key={subject}
+              href={`/exam/${subject}/review`}
+              className="inline-flex items-center rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-4 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+            >
+              {ARCHIVE_SUBJECT_MAP[subject]} 오늘의 복습 →
+            </Link>
+          ))}
+        </div>
+      )}
 
       <div className="mb-6 flex items-center justify-between">
         <h2 className="font-display text-subheading font-semibold text-ink">
@@ -97,7 +152,7 @@ export default async function ProfilePage() {
         </h2>
       </div>
 
-      <ElevatedCard className="mb-8 overflow-hidden">
+      <ElevatedCard className="mb-4 overflow-hidden">
         {wrongQuestions.length === 0 ? (
           <div className="px-6 py-16 text-center">
             <p className="font-display text-body text-smoke">
@@ -122,6 +177,20 @@ export default async function ProfilePage() {
           ))
         )}
       </ElevatedCard>
+
+      {unlockedSubjects.size > 0 && (
+        <div className="mb-8 flex flex-wrap gap-3">
+          {EXAM_SUBJECTS.filter((s) => unlockedSubjects.has(s.value as ExamSubject)).map((s) => (
+            <Link
+              key={s.value}
+              href={`/exam/${s.value}/wrong`}
+              className="font-display text-body-sm font-medium text-electric-blue hover:underline"
+            >
+              {s.label} 오답노트 연습 →
+            </Link>
+          ))}
+        </div>
+      )}
 
       <div className="mb-6 flex items-center justify-between">
         <h2 className="font-display text-subheading font-semibold text-ink">

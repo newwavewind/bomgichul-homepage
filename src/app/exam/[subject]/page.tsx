@@ -17,9 +17,12 @@ import {
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
+import { getBookmarksForUser } from "@/lib/bookmarks";
+import { getNotesForSubject } from "@/lib/notes";
 import { getUser } from "@/lib/auth";
 import { isSubjectUnlocked } from "@/lib/premium";
 import { PremiumCodeRedeem } from "@/components/exam/PremiumCodeRedeem";
+import { ReviewPdfButton } from "@/components/exam/ReviewPdfButton";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -61,6 +64,10 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
   const years = getExamYears(subject);
   const user = await getUser();
   const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const [bookmarks, notes] = user
+    ? await Promise.all([getBookmarksForUser(user.id), getNotesForSubject(user.id, subject)])
+    : [[], []];
+  const subjectBookmarkCount = bookmarks.filter((b) => b.subject === subject).length;
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -94,8 +101,27 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
               href={`/exam/${subject}/random`}
               className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
             >
-              🎲 {unlocked ? "랜덤 문제 풀기" : "랜덤 문제"}
+              🎲 {unlocked ? "랜덤 문제" : "랜덤 문제"}
             </Link>
+            <Link
+              href={`/exam/${subject}/wrong`}
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+            >
+              📕 오답노트 연습
+            </Link>
+            <Link
+              href={`/exam/${subject}/review`}
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+            >
+              📅 오늘의 복습
+            </Link>
+            <ReviewPdfButton
+              subject={subject}
+              subjectLabel={label}
+              unlocked={unlocked}
+              bookmarkCount={subjectBookmarkCount}
+              noteCount={notes.length}
+            />
           </div>
         </div>
 

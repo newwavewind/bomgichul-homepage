@@ -23,3 +23,33 @@ export async function getQuestionNote(
 
   return data ?? null;
 }
+
+export async function getNotesForUser(userId: string): Promise<QuestionNote[]> {
+  if (!isSupabaseConfigured()) return [];
+
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("question_notes")
+    .select("*")
+    .eq("user_id", userId)
+    .order("updated_at", { ascending: false });
+
+  return data ?? [];
+}
+
+export async function getNotesForSubject(
+  userId: string,
+  subject: ExamSubject
+): Promise<QuestionNote[]> {
+  if (!isSupabaseConfigured()) return [];
+
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("question_notes")
+    .select("*")
+    .eq("user_id", userId)
+    .eq("subject", subject)
+    .order("updated_at", { ascending: false });
+
+  return data ?? [];
+}

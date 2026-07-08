@@ -366,3 +366,28 @@ create policy "본인 알림만 읽음 처리"
 -- 20260705010000_pc_access_codes.sql, 20260706014500_purchase_receipts.sql 참고)
 -- 홈페이지는 src/lib/premium.ts에서 user_entitlements를 조회하고,
 -- PremiumCodeRedeem.tsx에서 register_pc_access_code()를 호출해 같은 시스템을 사용한다.
+
+-- 시험 모드 기록 (프리미엄 학습 분석용)
+create table if not exists public.mock_exam_sessions (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles(id) on delete cascade,
+  subject text not null,
+  year int not null,
+  total int not null check (total > 0),
+  correct int not null check (correct >= 0),
+  elapsed_seconds int not null check (elapsed_seconds >= 0),
+  created_at timestamptz not null default now()
+);
+
+create index if not exists mock_exam_sessions_user_subject_year_idx
+  on public.mock_exam_sessions (user_id, subject, year, created_at desc);
+
+alter table public.mock_exam_sessions enable row level security;
+
+create policy "mock_exam_sessions_select_own"
+  on public.mock_exam_sessions for select
+  using (auth.uid() = user_id);
+
+create policy "mock_exam_sessions_insert_own"
+  on public.mock_exam_sessions for insert
+  with check (auth.uid() = user_id);

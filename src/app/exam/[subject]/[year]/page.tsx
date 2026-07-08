@@ -13,6 +13,8 @@ import {
 import { getUser } from "@/lib/auth";
 import { isSubjectUnlocked } from "@/lib/premium";
 import { PdfDownloadButton } from "@/components/exam/PdfDownloadButton";
+import { MockExamHistory } from "@/components/exam/MockExamHistory";
+import { getMockExamSessions } from "@/lib/mock-exam-sessions";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -57,6 +59,8 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
   const user = await getUser();
   const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
   const free = questions[0].free || unlocked;
+  const mockSessions =
+    user && unlocked ? await getMockExamSessions(user.id, subject, year) : [];
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -103,6 +107,8 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
             />
           </div>
         </div>
+
+        {unlocked && <MockExamHistory sessions={mockSessions} />}
 
         {!free && (
           <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice px-5 py-4">

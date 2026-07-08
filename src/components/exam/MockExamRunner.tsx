@@ -6,7 +6,9 @@ import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { PrimaryButton } from "@/components/ui/Button";
 import { trackEvent } from "@/lib/analytics";
+import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
 import type { ExamQuestion } from "@/lib/exam-questions";
+import { isStatementCompositeQuestion } from "@/lib/exam-questions";
 
 function formatElapsed(totalSeconds: number): string {
   const m = Math.floor(totalSeconds / 60)
@@ -21,15 +23,20 @@ export function MockExamRunner({
   year,
   questions,
   userId,
+  saveSession = false,
+  aiUnlocked = false,
 }: {
   subject: string;
   year: number;
   questions: ExamQuestion[];
   userId: string | null;
+  saveSession?: boolean;
+  aiUnlocked?: boolean;
 }) {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [elapsed, setElapsed] = useState(0);
+  const [sessionSaved, setSessionSaved] = useState(false);
 
   useEffect(() => {
     if (submitted) return;
@@ -41,9 +48,28 @@ export function MockExamRunner({
   const answeredCount = Object.keys(answers).length;
   const correctCount = questions.filter((q) => answers[q.questionNo] === q.correctChoice).length;
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setSubmitted(true);
     trackEvent("mock_exam_submit", { subject, year, total, correct: correctCount });
+
+    if (saveSession && userId && !sessionSaved) {
+      try {
+        const res = await fetch("/api/mock-exam-sessions", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            subject,
+            year,
+            total,
+            correct: correctCount,
+            elapsedSeconds: elapsed,
+          }),
+        });
+        if (res.ok) setSessionSaved(true);
+      } catch {
+        // ignore save errors
+      }
+    }
   };
 
   const handleRestart = () => {
@@ -62,6 +88,7 @@ export function MockExamRunner({
           </p>
           <p className="mt-1 font-display text-body-sm text-smoke">
             소요 시간 {formatElapsed(elapsed)}
+            {sessionSaved && " · 기록 저장됨"}
           </p>
           <div className="mt-4 flex justify-center gap-3">
             <button
@@ -86,7 +113,10 @@ export function MockExamRunner({
           const selected = answers[q.questionNo];
           const isCorrect = submitted && selected === q.correctChoice;
           const isWrong = submitted && Boolean(selected) && selected !== q.correctChoice;
-          const selectedItem = q.items.find((item) => item.key === selected);
+          const isStatementComposite = isStatementCompositeQuestion(q);
+          const selectedItem = isStatementComposite
+            ? q.comboChoices.find((choice) => String(choice.no) === selected)
+            : q.items.find((item) => item.key === selected);
 
           return (
             <div
@@ -113,40 +143,90 @@ export function MockExamRunner({
               <QuestionStem stem={q.stem} />
 
               {!submitted ? (
-                <div className="space-y-2">
-                  {q.items.map((item) => (
-                    <button
-                      key={item.key}
-                      type="button"
-                      onClick={() => setAnswers((a) => ({ ...a, [q.questionNo]: item.key }))}
-                      className={`flex w-full items-start gap-2 rounded-[var(--radius-buttons)] border-[1.5px] px-4 py-2.5 text-left font-display text-body-sm transition-colors ${
-                        selected === item.key
-                          ? "border-carbon bg-snow text-ink"
-                          : "border-mist text-ink hover:bg-snow"
-                      }`}
-                    >
-                      <span className="font-semibold">{item.label}</span>
-                      <span>{item.text}</span>
-                    </button>
-                  ))}
-                </div>
+                isStatementComposite ? (
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      {q.items.map((item) => (
+                        <div
+                          key={item.key}
+                          className="rounded-[var(--radius-buttons)] border-[1.5px] border-mist bg-surface px-4 py-2.5 font-display text-body-sm text-ink"
+                        >
+                          <span className="font-semibold">{item.label}</span> {item.text}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="space-y-2">
+                      <p className="font-display text-body-sm font-semibold text-smoke">선택지</p>
+                      {q.comboChoices.map((choice) => (
+                        <button
+                          key={choice.no}
+                          type="button"
+                          onClick={() =>
+                            setAnswers((a) => ({ ...a, [q.questionNo]: String(choice.no) }))
+                          }
+                          className={`flex w-full items-start gap-2 rounded-[var(--radius-buttons)] border-[1.5px] px-4 py-2.5 text-left font-display text-body-sm transition-colors ${
+                            selected === String(choice.no)
+                              ? "border-carbon bg-snow text-ink"
+                              : "border-mist text-ink hover:bg-snow"
+                          }`}
+                        >
+                          <span className="font-semibold">{choice.label}</span>
+                          <span>{choice.text}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    {q.items.map((item) => (
+                      <button
+                        key={item.key}
+                        type="button"
+                        onClick={() => setAnswers((a) => ({ ...a, [q.questionNo]: item.key }))}
+                        className={`flex w-full items-start gap-2 rounded-[var(--radius-buttons)] border-[1.5px] px-4 py-2.5 text-left font-display text-body-sm transition-colors ${
+                          selected === item.key
+                            ? "border-carbon bg-snow text-ink"
+                            : "border-mist text-ink hover:bg-snow"
+                        }`}
+                      >
+                        <span className="font-semibold">{item.label}</span>
+                        <span>{item.text}</span>
+                      </button>
+                    ))}
+                  </div>
+                )
               ) : (
                 <>
                   <p className="mb-3 font-display text-body-sm text-smoke">
                     내 답:{" "}
                     <span className="font-medium text-ink">
-                      {selectedItem ? `${selectedItem.label} ${selectedItem.text}` : "미응답"}
+                      {selectedItem
+                        ? `${selectedItem.label} ${selectedItem.text}`
+                        : "미응답"}
                     </span>
                   </p>
                   <ExamAnswerList
                     items={q.items}
                     correctChoice={q.correctChoice}
+                    questionType={q.questionType}
+                    comboChoices={q.comboChoices}
                     free
                     subject={q.subject}
                     year={q.year}
                     questionNo={q.questionNo}
                     userId={userId}
                     initialAttemptResult={null}
+                    aiContext={{
+                      subject: q.subject,
+                      subjectLabel: ARCHIVE_SUBJECT_MAP[q.subject],
+                      unlocked: aiUnlocked,
+                      year: q.year,
+                      round: q.round,
+                      questionNo: q.questionNo,
+                      category: q.category,
+                      stem: q.stem,
+                      correctChoice: q.correctChoice,
+                    }}
                   />
                 </>
               )}

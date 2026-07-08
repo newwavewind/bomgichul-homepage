@@ -16,6 +16,13 @@ export interface ExamQuestionItem {
   explanation: string;
 }
 
+export interface ExamComboChoice {
+  no: number;
+  label: string;
+  text: string;
+  isCorrect: boolean;
+}
+
 export interface ExamQuestion {
   subject: ExamSubject;
   year: number;
@@ -27,7 +34,13 @@ export interface ExamQuestion {
   questionType: "correct" | "wrong" | "composite";
   correctChoice: string;
   items: ExamQuestionItem[];
+  comboChoices: ExamComboChoice[];
   free: boolean;
+}
+
+/** ㄱ·ㄴ·ㄷ 보기 + ①②③ 조합 선지 형태의 조합형 문항 */
+export function isStatementCompositeQuestion(question: Pick<ExamQuestion, "questionType" | "comboChoices">): boolean {
+  return question.questionType === "composite" && question.comboChoices.length > 0;
 }
 
 const QUESTIONS_BY_SUBJECT: Record<ExamSubject, ExamQuestion[]> = {
@@ -78,4 +91,33 @@ export function getExamYearParams(): { subject: ExamSubject; year: string }[] {
   return (Object.keys(QUESTIONS_BY_SUBJECT) as ExamSubject[]).flatMap((subject) =>
     getExamYears(subject).map((year) => ({ subject, year: String(year) }))
   );
+}
+
+export function getCategoriesForSubject(subject: ExamSubject): string[] {
+  const categories = new Set(
+    getExamQuestionsForSubject(subject)
+      .map((q) => q.category)
+      .filter((c) => c && c !== "미분류")
+  );
+  return [...categories].sort((a, b) => a.localeCompare(b, "ko"));
+}
+
+export function filterExamQuestions(
+  subject: ExamSubject,
+  options: { years?: number[]; categories?: string[] }
+): ExamQuestion[] {
+  return getExamQuestionsForSubject(subject).filter((q) => {
+    if (options.years?.length && !options.years.includes(q.year)) return false;
+    if (options.categories?.length && !options.categories.includes(q.category)) return false;
+    return true;
+  });
+}
+
+export function shuffleQuestions<T>(input: T[]): T[] {
+  const arr = [...input];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }

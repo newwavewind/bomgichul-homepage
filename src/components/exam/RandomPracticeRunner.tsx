@@ -7,16 +7,19 @@ import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { PrimaryButton } from "@/components/ui/Button";
 import { trackEvent } from "@/lib/analytics";
 import type { ExamQuestion } from "@/lib/exam-questions";
+import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
 import type { AttemptResult } from "@/types/database";
 
 export function RandomPracticeRunner({
   subject,
   questions,
   userId,
+  aiUnlocked = true,
 }: {
   subject: string;
   questions: ExamQuestion[];
   userId: string | null;
+  aiUnlocked?: boolean;
 }) {
   const [index, setIndex] = useState(0);
   const [results, setResults] = useState<Record<number, AttemptResult>>({});
@@ -98,6 +101,8 @@ export function RandomPracticeRunner({
         key={`${question.year}-${question.questionNo}`}
         items={question.items}
         correctChoice={question.correctChoice}
+        questionType={question.questionType}
+        comboChoices={question.comboChoices}
         free
         subject={question.subject}
         year={question.year}
@@ -105,6 +110,17 @@ export function RandomPracticeRunner({
         userId={userId}
         initialAttemptResult={null}
         onAttempt={(result) => setResults((r) => ({ ...r, [index]: result }))}
+        aiContext={{
+          subject: question.subject,
+          subjectLabel: ARCHIVE_SUBJECT_MAP[question.subject],
+          unlocked: aiUnlocked,
+          year: question.year,
+          round: question.round,
+          questionNo: question.questionNo,
+          category: question.category,
+          stem: question.stem,
+          correctChoice: question.correctChoice,
+        }}
       />
 
       <div className="mt-4 flex justify-end">

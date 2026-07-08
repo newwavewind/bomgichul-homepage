@@ -1,32 +1,32 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { RandomPracticeRunner } from "@/components/exam/RandomPracticeRunner";
+import { RandomPracticeFilters } from "@/components/exam/RandomPracticeFilters";
 import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
-import { getExamQuestionsForSubject, type ExamSubject } from "@/lib/exam-questions";
+import {
+  filterExamQuestions,
+  getCategoriesForSubject,
+  getExamYears,
+  shuffleQuestions,
+  type ExamSubject,
+} from "@/lib/exam-questions";
 import { getUser } from "@/lib/auth";
 import { isSubjectUnlocked } from "@/lib/premium";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
-const RANDOM_SET_SIZE = 20;
+const DEFAULT_SIZE = 20;
 
 function isValidSubject(value: string): value is ExamSubject {
   return (VALID_SUBJECTS as string[]).includes(value);
 }
 
-function shuffle<T>(input: T[]): T[] {
-  const arr = [...input];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
 interface RandomPageProps {
   params: Promise<{ subject: string }>;
+  searchParams: Promise<{ years?: string; categories?: string; size?: string }>;
 }
 
 export async function generateMetadata({ params }: RandomPageProps): Promise<Metadata> {
@@ -37,13 +37,30 @@ export async function generateMetadata({ params }: RandomPageProps): Promise<Met
   return { title, openGraph: { title: `${title} | ${SITE_NAME}` } };
 }
 
-export default async function RandomPracticePage({ params }: RandomPageProps) {
+export default async function RandomPracticePage({ params, searchParams }: RandomPageProps) {
   const { subject } = await params;
+  const { years: yearsParam, categories: categoriesParam, size: sizeParam } =
+    await searchParams;
   if (!isValidSubject(subject)) notFound();
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const user = await getUser();
   const unlocked = user ? await isSubjectUnlocked(user.id, subject) : false;
+  const years = getExamYears(subject);
+  const categories = getCategoriesForSubject(subject);
+
+  const selectedYears = yearsParam
+    ?.split(",")
+    .map(Number)
+    .filter((y) => years.includes(y));
+  const selectedCategories = categoriesParam?.split(",").filter((c) => categories.includes(c));
+  const size = Math.min(40, Math.max(10, Number(sizeParam) || DEFAULT_SIZE));
+
+  const pool = filterExamQuestions(subject, {
+    years: selectedYears?.length ? selectedYears : undefined,
+    categories: selectedCategories?.length ? selectedCategories : undefined,
+  });
+  const questions = shuffleQuestions(pool).slice(0, size);
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -59,22 +76,41 @@ export default async function RandomPracticePage({ params }: RandomPageProps) {
           <EyebrowLabel className="mb-2">랜덤 문제 · 프리미엄</EyebrowLabel>
           <SectionHeading as="h1">{label} 랜덤 문제</SectionHeading>
           <p className="mt-3 max-w-2xl font-display text-body text-smoke">
-            전체 연도 기출 중 {RANDOM_SET_SIZE}문제를 무작위로 뽑아 풀어봅니다.
+            연도·단원을 골라 원하는 범위에서 랜덤으로 풀어봅니다.
           </p>
         </div>
 
         {unlocked ? (
-          <RandomPracticeRunner
-            subject={subject}
-            questions={shuffle(getExamQuestionsForSubject(subject)).slice(0, RANDOM_SET_SIZE)}
-            userId={user?.id ?? null}
-          />
+          <>
+            <Suspense fallback={null}>
+              <RandomPracticeFilters
+                subject={subject}
+                years={years}
+                categories={categories}
+                defaultSize={DEFAULT_SIZE}
+              />
+            </Suspense>
+
+            {questions.length === 0 ? (
+              <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-8 text-center">
+                <p className="font-display text-body text-smoke">
+                  선택한 조건에 맞는 문제가 없어요. 필터를 조정해 보세요.
+                </p>
+              </div>
+            ) : (
+              <RandomPracticeRunner
+                subject={subject}
+                questions={questions}
+                userId={user?.id ?? null}
+              />
+            )}
+          </>
         ) : (
           <PremiumFeatureLocked
             subject={subject}
             subjectLabel={label}
             featureLabel="랜덤 문제"
-            description={`전체 연도 기출 중 ${RANDOM_SET_SIZE}문제를 무작위로 뽑아 풀고, 문제마다 바로 채점·해설을 확인할 수 있어요.`}
+            description="연도·단원 필터와 함께 전체 기출 중 원하는 범위를 골라 랜덤 연습할 수 있어요."
           />
         )}
       </div>

@@ -46,6 +46,7 @@
         "explanation": "적재성은 토지 위에 물건을 쌓을 수 있다는 특성으로, 제시된 파생현상들과 무관하다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -95,6 +96,7 @@
         "explanation": "공용시설 보호·공공업무 기능 효율화를 위한 지구는 중요시설물보존지구가 아니라 특정용도제한지구 또는 시설보호지구이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -144,6 +146,7 @@
         "explanation": "복합부동산: 토지와 건물이 각각 독립된 거래 객체이면서도 결합된 상태로 다루어지는 부동산. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -193,6 +196,7 @@
         "explanation": "A가 오류이다(탄력성 분자·분모 혼동)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -242,6 +246,7 @@
         "explanation": "비탄력적(탄력성 < 1): 가격 변화율 > 수요량 변화율. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -291,6 +296,7 @@
         "explanation": "A: 발산형, B: 순환형, C: 수렴형 → 정답 ⑤ ✓ 거미집이론 판별: |수요기울기 절대값| vs |공급기울기| 수렴형: |수요기울기| > |공급기울기| / 발산형: |수요기울기| < |공급기울기| / 순환형: 동일 A: |−0.8| = 0.8 vs 0.6 → 0.8 > 0.6 → 수렴형... 아니라 발산형으로 판별할 때는 공급기울기/수요기울기(절대값) 비교. 실제: 수렴형은 공급탄력성 > 수요탄력성. 기울기로는 |수요기울기| > |공급기울기| 이면 수렴형. A: |−0.8|=0.8 vs 0.6 → |수요|>|공급| → 수렴 아님... 거미집 판별 방법 재정리: 기울기의 절대값 비교에서 공급기울기 절대값 > 수요기울기 절대값이면 발산형, 작으면 수렴형, 같으면 순환형. A: 공급 0.6 vs 수요 0.8 → 0.6 < 0.8 → 수렴형? 정확한 방법: 공급의 가격탄력성 vs 수요의 가격탄력성(절대값) 비교. 탄력성 = 1/기울기(절대값)이므로: A: 공급탄력성 = 1/0.6 ≈ 1.67, 수요탄력성(절대값) = 1/0.8 = 1.25 → 공급 > 수요 → 수렴형 아님 발산형 B: 공급탄력성 = 1/0.3 ≈ 3.33, 수요탄력성(절대값) = 1/0.3 ≈ 3.33 → 동일 → 순환형 C: 공급탄력성 = 1/1.2 ≈ 0.83, 수요탄력성(절대값) = 1/0.6 ≈ 1.67 → 공급 < 수요 → 수렴형"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -340,6 +346,7 @@
         "explanation": "용도변경 제한이 강화되면 공급 조정 능력이 낮아져 비탄력적 공급이 된다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -389,6 +396,7 @@
         "explanation": "D는 1 미만이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -438,6 +446,7 @@
         "explanation": "주거분리는 도시 전체 수준뿐 아니라 근린지역 내에서도 발생한다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -487,6 +496,7 @@
         "explanation": "절대지대: 토지가 사유화되어 있다는 사실 자체로 인해 토지의 비옥도나 생산력과 관계없이 최열등지에서도 발생하는 지대이다. 세 조건 모두 절대지대의 특성이다. ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -536,6 +546,7 @@
         "explanation": "준강성 효율적 시장: 과거+현재 공표 정보가 반영 → 기본적 분석으로도 초과이윤 불가. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -585,6 +596,7 @@
         "explanation": "약 3~5년 주기의 단기 경기파동이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -634,6 +646,7 @@
         "explanation": "A: 35,000명, B: 15,000명"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -683,6 +696,7 @@
         "explanation": "토지수용 시 사업시행자와 피수용자 간 보상금 협상 등에서 갈등이 발생할 수 있다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -732,6 +746,7 @@
         "explanation": "국토계획법상 용도지역 4가지: 도시지역·관리지역·농림지역·자연환경보전지역. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -781,6 +796,7 @@
         "explanation": "도시형 생활주택은 분양가상한제 적용 제외 대상이다. 공공택지에서 공급되는 도시형 생활주택에 상한제를 적용한다는 설명은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -830,6 +846,7 @@
         "explanation": "준공공임대주택(현 공공지원민간임대주택의 전신)은 일반형임대사업자가 8년 이상 임대할 목적으로 취득하여 임대하는 민간임대주택이다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -879,6 +896,7 @@
         "explanation": "회수기간법의 한계: 회수기간 이후 현금흐름을 고려하지 않고 화폐의 시간가치도 반영 안 된다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -919,6 +937,38 @@
         "text": "총자본수익률과 저당수익률이 동일한 경우 부채비율의 변화는 자기자본수익률에 영향을 미치지 못한다.",
         "answer": "O",
         "explanation": "※ 이 문제는 출제 오류로 인해 모든 선택지가 정답으로 처리되었습니다. ㄱ [X] 레버리지를 활용하면 수익 변동성(위험)이 증가한다. 위험이 감소하는 것이 아니다. ㄴ [O] 자기자본수익률 계산: 부채비율 50%이면 자기자본:부채 = 2:1(자기자본 비중 2/3, 부채 비중 1/3이 아님). 부채비율 = 부채/자기자본 = 50%이면 자기자본1 부채0.5 → 총자본1.5. ROE = (총자본수익률 × 총자본 - 저당수익률 × 부채) / 자기자본 = (10%×1.5 - 8%×0.5)/1 = (15%-4%)/1 = 11%... 정확한 계산은 문제 조건에 따라 다를 수 있어 전항정답으로 처리됨. ㄷ [O] 부(-)의 레버리지(저당수익률 > 총자본수익률)일 때 부채비율을 낮추면 정(+)으로 전환 가능하다. ㄹ [O] 총자본수익률 = 저당수익률이면 부채비율 변화가 자기자본수익률에 영향을 주지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -970,6 +1020,7 @@
         "explanation": "회수 불가능한 임대료(불량부채)는 유효총소득을 산정할 때 가능총소득에서 차감한다. 영업경비에 포함하여 NOI를 낮추는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1010,6 +1061,38 @@
         "text": "개별 부동산의 특성으로 인한 체계적인 위험은 포트폴리오를 통해 제거할 수 있다.",
         "answer": "X",
         "explanation": "개별 부동산 특성으로 인한 위험은 비체계적 위험(비시장위험)이다. 비체계적 위험은 포트폴리오로 제거할 수 있으나, 체계적 위험은 포트폴리오로 제거할 수 없다. \"체계적 위험\"이라고 한 것이 오류이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -1061,6 +1144,7 @@
         "explanation": "부동산은 주식 등 금융상품에 비해 거래가 복잡하고 시간이 많이 소요되어 유동성(단기 현금화 가능성)이 낮다. \"가능성이 높다\"는 설명은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1110,6 +1194,7 @@
         "explanation": "※ 이 문제는 출제 오류로 인해 모든 선택지가 정답으로 처리되었습니다.\n[참고 계산]\n대출금 = 20억 × 60% = 12억원 / 자기자본 = 8억원\n연간 이자 = 12억 × 5% = 6,000만원\n건물 감가상각 = 8억 ÷ 20년 = 4,000만원(정액법)\n과세소득 = NOI 2억 - 이자 6,000만 - 감가상각 4,000만 = 1억원\n영업소득세 = 1억 × 20% = 2,000만원\n세후현금흐름 = NOI 2억 - 이자 6,000만 - 세금 2,000만 = 1억 2,000만원\n세후 자기자본수익률 = 1억 2,000만 ÷ 8억 = 15%\n계산상 ③ 15%가 맞으나 전항정답 처리됨."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1159,6 +1244,7 @@
         "explanation": "2차 저당시장은 1차 시장의 저당채권을 유동화하여 1차 시장에 자금을 재공급한다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1208,6 +1294,7 @@
         "explanation": "3억원"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1257,6 +1344,7 @@
         "explanation": "체증상환방식은 초기에 원금 상환이 거의 없어 대출잔액이 일시적으로 증가하거나 감소 속도가 매우 느릴 수 있다. \"지속적으로 감소\"하여 이자부담이 작다는 설명은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1306,6 +1394,7 @@
         "explanation": "기업구조조정 REITs: 영업인가·등록 후 6개월 경과 시 자본금 50억원 이상. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1355,6 +1444,7 @@
         "explanation": "프로젝트 금융은 비소구(non-recourse) 또는 제한적 소구(limited-recourse) 금융이다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1404,6 +1494,7 @@
         "explanation": "7백만원"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1453,6 +1544,7 @@
         "explanation": "소유자가 직접 관리: 의사능력·지휘통제력 발휘, 기밀유지 유리, 안일화 가능성, 전문성 부족. 네 가지 특성 모두 직접관리에 해당한다. ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1502,6 +1594,7 @@
         "explanation": "BTO는 준공 후 소유권을 공공에 귀속시키고 민간이 운영권을 가지는 방식이다. 그러나 \"공공이 임차하여 사용\"하는 것은 BTL 방식이다. BTO에서 공공은 임차하지 않으며, 민간 사업자가 직접 운영하여 수익을 회수한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1551,6 +1644,7 @@
         "explanation": "소규모 블록 단위의 노후 건물 정비 사업이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1600,6 +1694,7 @@
         "explanation": "30%"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1640,6 +1735,38 @@
         "text": "주택청약자 대상 경품추첨으로 가전제품 제공",
         "answer": "X",
         "explanation": ""
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ: 제품, ㄴ: 판매촉진,  /  ㄷ: 가격, ㄹ: 유통경로",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ: 유통경로, ㄴ: 판매촉진,  /  ㄷ: 가격, ㄹ: 제품",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ: 유통경로, ㄴ: 제품,  /  ㄷ: 가격, ㄹ: 판매촉진",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ: 제품, ㄴ: 유통경로,  /  ㄷ: 가격, ㄹ: 판매촉진",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ: 제품, ㄴ: 유통경로,  /  ㄷ: 판매촉진, ㄹ: 가격",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -1691,6 +1818,7 @@
         "explanation": "구분 감정평가: 하나의 물건이라도 가치가 다른 부분은 구분 평가 가능. 올바른 내용이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1740,6 +1868,7 @@
         "explanation": "지역분석은 거시적(지역 수준), 개별분석은 미시적(부동산 수준) 분석이다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1789,6 +1918,7 @@
         "explanation": "1.13억원"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1838,6 +1968,7 @@
         "explanation": "모두 오류이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1887,6 +2018,7 @@
         "explanation": "공동주택가격의 효력: 주택시장 가격정보 제공 + 과세 등 기준으로 활용. 올바른 내용이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1936,6 +2068,7 @@
         "explanation": "규칙 제8조에 포함된 절차이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -1985,6 +2118,7 @@
         "explanation": "빈지(濱地)는 바다나 강물과 육지 사이에 위치한 준(準)수면 토지로, 관습상 일반인이 자유롭게 이용할 수 있는 토지이다. 침식으로 수면 아래로 잠긴 토지는 빈지가 아닌 포락지(浦落地)이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2034,6 +2168,7 @@
         "explanation": "예측 불가한 시장 불확실성은 대표적인 시장위험요인이다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2083,6 +2218,7 @@
         "explanation": "부증성은 토지의 물리적 양이 늘어나지 않는다는 의미이지만, 용도전환을 통한 '용도적·경제적 공급'은 가능하다. 농지를 택지로 전환하는 것이 대표적 예다. 따라서 \"용도적 공급을 더 이상 늘릴 수 없다\"는 설명은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2132,6 +2268,7 @@
         "explanation": "아파트 관리는 주거용 부동산 관리의 세부 예시에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2181,6 +2318,7 @@
         "explanation": "빠른 자금회수를 원하고 구매력이 낮은 지역에서는 저가전략(침투가격전략)이 적합하다. 고가전략은 고소득·고급 시장을 대상으로 할 때 적용한다. \"고가전략을 이용한다\"는 설명은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2230,6 +2368,7 @@
         "explanation": "기숙사는 학교 또는 공장 등과 연계된 공동주거시설로 별도 법적 정의를 갖는다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2279,6 +2418,7 @@
         "explanation": "용도지역제·건폐율·용적률 등 공·사적 제한은 가격 변동에 영향을 미친다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2319,6 +2459,38 @@
         "text": "용도지역은 토지를 경제적·효율적으로 이용하고 공공복리의 증진을 도모하기 위하여 지정한다.",
         "answer": "O",
         "explanation": "옳은 것: ㄱ, ㄷ, ㄹ → 정답 ④ 국토의 계획 및 이용에 관한 법률상 용도지역은 토지의 경제적·효율적 이용과 공공복리 증진을 위해 지정된다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -2370,6 +2542,7 @@
         "explanation": "임대료 규제(임대료 상한제)는 임대인이 일정 수준 이상의 임대료를 부과할 수 없도록 제한하는 제도이다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2419,6 +2592,7 @@
         "explanation": "공공토지의 비축에 관한 법률에 따르면 비축토지는 한국토지주택공사(LH)가 관리한다. 각 지방자치단체가 직접 관리하는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2468,6 +2642,7 @@
         "explanation": "모두 오류이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2517,6 +2692,7 @@
         "explanation": "토지공급의 가격탄력성이 0(완전비탄력적)이면 세금 전액을 공급자(토지소유자)가 부담한다. 수요자에게 전가할 수 없기 때문이다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2566,6 +2742,7 @@
         "explanation": "82%, 12억 400만원"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2606,6 +2783,38 @@
         "text": "마르크스(K. Marx)는 도시로부터 거리에 따라 농작물의 재배형태가 달라진다는 점에 착안하여, 수송비의 차이가 지대의 차이를 가져온다고 보았다.",
         "answer": "X",
         "explanation": "도시로부터의 거리에 따른 농업 입지와 수송비 차이로 지대를 설명한 것은 튀넨(von Thünen)이다. 마르크스가 아니다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -2657,6 +2866,7 @@
         "explanation": "순현가법에서는 요구수익률(할인율)을 사용하는 것이 맞으나, 내부수익률법에서는 IRR을 요구수익률과 비교하며 할인율로 IRR 자체를 사용한다. 두 방법 모두 동일하게 요구수익률을 \"사용\"한다는 표현은 정확하지 않다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2706,6 +2916,7 @@
         "explanation": "세후현금흐름(ATCF) = BTCF - 영업소득세. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2755,6 +2966,7 @@
         "explanation": "다핵심이론(해리스·울만): 공업지구, 소매지구, 고급주택지구 등 여러 핵심이 있으며, 도시 성장에 따라 핵심의 수가 증가하고 특화된다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2804,6 +3016,7 @@
         "explanation": "0.5"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2853,6 +3066,7 @@
         "explanation": "용도전환이 용이할수록 대안 선택이 쉬워져 탄력성은 커진다. \"작아진다\"는 설명은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2902,6 +3116,7 @@
         "explanation": "유효수요(구매 의사 + 구매 능력)를 갖춘 수요자가 원하는 수량이 수요량이다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -2951,6 +3166,7 @@
         "explanation": "토지이용규제 완화는 생산 가능성 확대로 공급 변화요인이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3000,6 +3216,7 @@
         "explanation": "국민주택 건설을 위한 대지조성사업 융자는 주택계정 용도이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3049,6 +3266,7 @@
         "explanation": "100 상승, 200 증가"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3098,6 +3316,7 @@
         "explanation": "해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3147,6 +3366,7 @@
         "explanation": "CMO는 동일 저당풀에서 상환우선순위(tranche)와 만기가 다른 여러 종류의 MBS를 발행할 수 있다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3196,6 +3416,7 @@
         "explanation": "이는 토지적성평가제나 용도지역제에 가까운 설명이다. 토지거래허가제는 일정 규모 이상의 토지거래 시 관할관청의 사전 허가를 받도록 하는 투기억제·규제 제도이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3245,6 +3466,7 @@
         "explanation": "2억 5,000만원"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3294,6 +3516,7 @@
         "explanation": "대출기관 입장에서 DCR이 높을수록(NOI가 부채서비스액보다 충분히 클수록) 채무불이행 위험이 낮아진다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3343,6 +3566,7 @@
         "explanation": "4년 6개월"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3392,6 +3616,7 @@
         "explanation": "민감도분석은 투입변수 변화에 따른 결과치 변화를 분석하는 기법이다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3441,6 +3666,7 @@
         "explanation": "추계값의 오류가 있으면 비율 자체가 왜곡되는 것은 비율분석법의 한계이다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3490,6 +3716,7 @@
         "explanation": "8,100만원"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3539,6 +3766,7 @@
         "explanation": "DCF 분석에서 사용하는 할인율은 요구수익률 또는 지분배당률이다. 그러나 (종합)자본환원율(overall capitalization rate)은 직접환원법(소득환원법)에서 사용하는 개념으로, DCF 분석의 할인율이 아니다. 자본환원율을 DCF 분석의 요구수익률로 혼용하는 것은 개념 오류이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3588,6 +3816,7 @@
         "explanation": "3.33, 1.25"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3637,6 +3866,7 @@
         "explanation": "개별주택가격 결정 시 표준주택가격을 기준으로 주택가격비준표를 사용한다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3686,6 +3916,7 @@
         "explanation": "적합의 원칙, 변동의 원칙"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3735,6 +3966,7 @@
         "explanation": "개인업무비를 영업경비에서 제외하거나 기대이율을 사용한 오류이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3784,6 +4016,7 @@
         "explanation": "광업재단은 광산의 수익가치를 기준으로 하므로 수익환원법이 주된 방법이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3833,6 +4066,7 @@
         "explanation": "감가수정은 재조달원가에서 감가요인(물리적·기능적·경제적 감가)을 차감하는 작업이다. \"재조달원가에 가산하여\" 가액을 적정화한다는 설명은 명백히 틀렸다. 감가이므로 차감이 맞다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3882,6 +4116,7 @@
         "explanation": "재조달원가만 구하고 감가수정을 적용하지 않은 오류이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3931,6 +4166,7 @@
         "explanation": "적재성은 토지의 자연적 특성으로 일반적으로 분류되지 않는다. 오답 함정용 선택지이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -3971,6 +4207,38 @@
         "text": "이행지는 택지지역·농지지역·임지지역 상호간에 다른 지역으로 전환되고 있는 일단의 토지를 말한다.",
         "answer": "X",
         "explanation": "이행지의 정의 자체는 유사하나, \"일단의 토지\"라는 표현이 부적절하다. 이행지는 개별 필지 단위로도 성립하며, 단순히 용도전환 중인 토지를 의미한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -4022,6 +4290,7 @@
         "explanation": "건물은 토지의 정착물이지만 우리나라 민법에서 토지와 독립한 별개의 부동산으로 취급된다. \"독립된 물건으로 취급되는 것이 없다\"는 설명은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4071,6 +4340,7 @@
         "explanation": "토지매입비 상승 → 사업성에 부정적이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4120,6 +4390,7 @@
         "explanation": "위탁관리형 업무 범위에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4169,6 +4440,7 @@
         "explanation": "ㄱ도, ㄴ도 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4216,6 +4488,38 @@
         "text": "순환형  발산형  대체재",
         "answer": "X",
         "explanation": "A는 수렴형이고 보완재 관계이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "수렴형  /  순환형",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "수렴형  /  발산형",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "발산형  /  순환형",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "발산형  /  수렴형",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "순환형  /  발산형",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -4267,6 +4571,7 @@
         "explanation": "탄력적(탄력성 > 1)이면 가격 변화율 < 공급량 변화율이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4316,6 +4621,7 @@
         "explanation": "공급탄력성은 단기보다 장기에 더 크다(장기에 공급 조정이 용이하기 때문)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4365,6 +4671,7 @@
         "explanation": "틀린 보기입니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4414,6 +4721,7 @@
         "explanation": "거래세 인상 → 수요 감소 → 수요곡선 좌측(감소) 이동이다. 우상향 이동은 오답이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4463,6 +4771,7 @@
         "explanation": "이는 불로소득(경제지대)에 관한 설명에 가깝다. 입찰지대(알론소)는 각 용도별 토지이용자가 지불 가능한 최대 지대를 의미한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4512,6 +4821,7 @@
         "explanation": "베버(Weber)의 공업입지론이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4561,6 +4871,7 @@
         "explanation": "완전정보의 가치(EVPI) = 0.5 × (6억500만 - 3억250만) ÷ 1.1² = 0.5 × 3억250만 ÷ 1.21 = 0.5 × 2억5,000만 = 1억2,500만원."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4610,6 +4921,7 @@
         "explanation": "크리스탈러의 중심지이론: 중심지 계층화, 도달범위와 최소요구범위의 차이를 설명한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4659,6 +4971,7 @@
         "explanation": "공적 제한(용도지역 지정, 규제 등)은 부동산시장의 가격기능을 왜곡할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4708,6 +5021,7 @@
         "explanation": "하강국면이 지속되면 업무용 부동산의 공실률이 증가한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4748,6 +5062,38 @@
         "text": "토지초과이득세제",
         "answer": "X",
         "explanation": "토지초과이득세제 1994년 헌법불합치 결정 후 사실상 폐지되었다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -4799,6 +5145,7 @@
         "explanation": "재화의 동질성은 완전경쟁시장의 조건이며, 시장실패의 원인이 아니다. 오히려 이질성(부동산의 개별성)이 부동산 시장의 불완전성을 높이는 요인이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4848,6 +5195,7 @@
         "explanation": "양도소득세는 국세이고 누진세이나, 보유과세가 아닌 양도(거래)과세이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4897,6 +5245,7 @@
         "explanation": "토지비축제도는 정부가 토지를 직접 매입·비축하는 직접적 시장 개입이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4946,6 +5295,7 @@
         "explanation": "공공임대주택은 국가·지방자치단체의 재정 지원과 국민주택기금 등 외부재원을 활용하여 건설된다. 자체자금만으로 건설한다는 설명은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -4995,6 +5345,7 @@
         "explanation": "평균-분산 지배원리로 선택 불가능한 경우 변동계수(표준편차÷기대수익률)로 단위 수익당 위험을 비교하여 판단할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5044,6 +5395,7 @@
         "explanation": "틀린 보기입니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5100,6 +5452,38 @@
         "explanation": ""
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "가: ㄷ  /  나: ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "가: ㄱ, ㅁ  /  나: ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "가: ㄱ, ㅁ  /  나: ㄴ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "가: ㄱ, ㄷ, ㅁ  /  나: ㄴ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "가: ㄱ, ㄷ, ㅁ  /  나: ㄴ, ㄹ, ㅂ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -5149,6 +5533,7 @@
         "explanation": "현재가격이 매년 일정 비율로 상승하는 경우, 미래가격 = 현재가격 × (1+r)^n, 이는 일시불의 미래가치계수(FVIF)를 이용하는 계산이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5198,6 +5583,7 @@
         "explanation": "부채 활용(레버리지)에 따라 발생하는 이자 부담·채무불이행 위험을 금융위험(financial risk)이라 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5247,6 +5633,7 @@
         "explanation": "틀린 보기입니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5296,6 +5683,38 @@
         "explanation": "IRR법에서는 내부수익률과 요구수익률(hurdle rate)을 비교한다. 실현수익률이 아니다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -5336,6 +5755,38 @@
         "text": "대출기간 만기까지 대출기관의 총 이자수입 크기는 '원금균등상환방식 > 점증(체증)상환방식 > 원리금균등상환방식' 순이다.",
         "answer": "X",
         "explanation": "총 이자수입: 원금상환이 늦어질수록 이자가 많이 쌓인다. 점증상환은 초기 원금 상환이 가장 느리므로 총 이자가 가장 많다. 올바른 순서: 점증 > 원리금균등 > 원금균등. 문제의 \"원금균등 > 점증 > 원리금균등\" 순서는 틀렸다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -5387,6 +5838,7 @@
         "explanation": "부동산투자회사는 현물출자에 의한 설립이 허용되지 않고, 반드시 현금(금전)으로만 출자하여 설립해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5436,6 +5888,7 @@
         "explanation": "프로젝트 자금은 에스크로 계좌 등을 통해 통제되며, 차주가 임의로 관리할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5485,6 +5938,7 @@
         "explanation": "저당채권을 담보로 발행하는 채권, 부채금융이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5534,6 +5988,7 @@
         "explanation": "틀린 보기입니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5583,6 +6038,7 @@
         "explanation": "인근지역은 부동산의 이용이 동질적이고 가치형성요인 중 지역요인을 공유하는 지역이다. 개별요인이 아닌 지역요인을 공유하는 것이다. \"개별요인\"이라고 한 것이 오류이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5632,6 +6088,7 @@
         "explanation": "반올림 이전의 미세한 차이로 소수점 넷째 자리 반올림 결과는 1.059이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5672,6 +6129,38 @@
         "text": "감정평가업자가 지가변동률을 산정하는 경우에 기준",
         "answer": "X",
         "explanation": "지가변동률은 국토교통부가 직접 조사·발표하며, 표준지공시지가의 효력으로 규정된 사항이 아니다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -5723,6 +6212,7 @@
         "explanation": "ㄱ이 틀렸다. 원가방식의 원리는 비교성이 아닌 비용성이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5772,6 +6262,7 @@
         "explanation": "재조달원가를 구한 것으로, 감가수정을 적용하지 않은 오류이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5821,6 +6312,7 @@
         "explanation": "개별요인 열세(×0.95)를 적용하지 않은 오류이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5884,6 +6376,38 @@
         "explanation": "경제적 개념: 자본(ㄱ), 소비재(ㄴ), 생산요소(ㄹ), 자산(ㅂ) 물리적(기술적) 개념: 공간(ㄷ), 자연(ㅁ), 위치(ㅅ)"
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ, ㅂ  /  ㄹ, ㅁ, ㅅ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ, ㅂ  /  ㄷ, ㅁ, ㅅ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ, ㅁ, ㅅ  /  ㄴ, ㄷ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ, ㅁ, ㅂ  /  ㄱ, ㄷ, ㅅ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ, ㅂ, ㅅ  /  ㄱ, ㄴ, ㅁ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -5933,6 +6457,7 @@
         "explanation": "인접성: 외부효과 발생. 장기배려와 직접 연결 어려움."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -5982,6 +6507,7 @@
         "explanation": "재건축부담금은 재건축사업에만 해당하며 재개발사업에는 적용되지 않는다. 「재건축초과이익 환수에 관한 법률」에 의해 시행된다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6031,6 +6557,7 @@
         "explanation": "소지(素地): 대지 등으로 개발되기 이전의 자연 상태 그대로의 토지. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6080,6 +6607,7 @@
         "explanation": "가로주택정비사업: 가로구역에서 종전의 가로를 유지하며 정비하는 소규모 사업."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6129,6 +6657,7 @@
         "explanation": "ㄱ이 양도소득세로 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6178,6 +6707,7 @@
         "explanation": "가격 외 요인(소득·대체재·선호도 등) 변화 → 수요곡선 좌우 이동. 가격 변화는 곡선상 이동. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6227,6 +6757,7 @@
         "explanation": "O·정답 가격효과: -0.6 × 3% = -1.8% 소득효과: +0.4 × 3% = +1.2% 교차효과: +0.2 × 3% = +0.6% 합계: -1.8 + 1.2 + 0.6 = 0% → 변화 없음 ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6276,6 +6807,7 @@
         "explanation": "비배제성: 비용 미부담자도 소비 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6325,6 +6857,7 @@
         "explanation": "수평 공급곡선(P=상수): 가격이 고정되어 있고 수량이 가격에 무한대로 반응 → 완전탄력적 ✓ O·정답 P₁=200(수평): Q₁ = 800 - 2×200 = 400 P₂=300(수평): Q₂ = 800 - 2×300 = 200 변화량 = 200 - 400 = -200 → 200 감소 ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6374,6 +6907,7 @@
         "explanation": "건축·공급에 걸리는 기간이 짧을수록 가격 변화에 공급량을 빠르게 조절할 수 있어 공급의 가격탄력성이 커진다. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6407,6 +6941,38 @@
         "text": "특정 점포가 최대 이익을 얻을 수 있는 매출액을 확보하기 위해서는 어떤 장소에 입지하여야 하는지를 제시하였다. <보기> 가: 버제스(E. Burgess)의 동심원이론 나: 레일리(W. Reilly)의 소매인력법칙 다: 크리스탈러(W. Christaller)의 중심지이론 라: 넬슨(R. Nelson)의 소매입지이론",
         "answer": "O",
         "explanation": "ㄱ 튀넨의 이론을 도시 내부에 적용 → 버제스의 동심원이론(가) ✓ (튀넨의 농업 입지 원리를 도시 내부 토지이용에 적용) ㄴ 공간적 중심지 규모에 따라 상권 규모가 달라짐 → 크리스탈러의 중심지이론(다) ✓ ㄷ 최대 이익을 위한 매출액 확보 입지 → 넬슨의 소매입지이론(라) ✓"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ: 가, ㄴ: 나, ㄷ: 다",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ: 가, ㄴ: 나, ㄷ: 라",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ: 가, ㄴ: 다, ㄷ: 라",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ: 나, ㄴ: 다, ㄷ: 가",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ: 나, ㄴ: 다, ㄷ: 라",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -6458,6 +7024,7 @@
         "explanation": "전문품점은 소비자가 먼 거리도 기꺼이 이동(목적구매) → 거리에 덜 민감 → 마찰계수가 작다. 일상용품점은 거리에 민감 → 마찰계수가 크다. '전문품점이 마찰계수가 크다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6491,6 +7058,38 @@
         "text": "튀넨(J.H.von Thünen)은 완전히 단절된 고립국을 가정하여 이곳의 작물재배 활동은 생산비와 수송비를 반영하여 공간적으로 분화된다고 보았다.",
         "answer": "O",
         "explanation": "튀넨의 고립국 가정: 생산비 + 수송비를 반영하여 공간적 토지이용 분화. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -6542,6 +7141,7 @@
         "explanation": "저급주택이 수선·재개발되어 상위계층이 사용하는 것은 '상향여과'이다. '하향여과'는 반대. 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6591,6 +7191,7 @@
         "explanation": "ㄴ이 1.33으로 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6640,6 +7241,7 @@
         "explanation": "대출기관 유동성 증대 → 담보대출 접근성 개선. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6689,6 +7291,7 @@
         "explanation": "국토교통부장관의 투기과열지구 지정 권한. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6738,6 +7341,7 @@
         "explanation": "도시개발사업의 정의. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6787,6 +7391,7 @@
         "explanation": "분양가규제: 신규분양주택 분양가격을 정부가 통제. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6836,6 +7441,7 @@
         "explanation": "임대차관리: 임대차계약 체결·갱신·관리 업무에 한정."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6885,6 +7491,7 @@
         "explanation": "소비자 측면 후분양: 실물 확인 가능 → 부실시공 대처 유리. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6934,6 +7541,7 @@
         "explanation": "분양신탁관리: 분양 투명성·안정성 확보, 자금관리. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -6974,6 +7582,38 @@
         "text": "일시불의 현재가치계수는 할인율이 상승할수록 작아진다.",
         "answer": "O",
         "explanation": "일시불 현재가치계수 = 1/(1+r)ⁿ → 할인율(r) 상승할수록 분모 증가 → 계수 작아짐. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -7025,6 +7665,7 @@
         "explanation": "부동산투자 대가: 소득이득(운영) + 자본이득(처분). 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7074,6 +7715,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7123,6 +7765,7 @@
         "explanation": "포트폴리오이론: 분산투자로 위험 분산 → 안정적 수익. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7172,6 +7815,7 @@
         "explanation": "민감도분석: 투입요소 변화 → NPV·IRR 변화 분석. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7221,6 +7865,7 @@
         "explanation": "OER(유효총소득 기준) = 영업경비÷EGI. EGI = 2,000−500 = 1,500만원, 영업경비 = 1,000만원 → OER = 1,000÷1,500 ≈ 0.667. 0.8이 아니므로 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7270,6 +7915,7 @@
         "explanation": "양도인(자산보유자)은 유동화자산에 대한 '반환청구권을 가지지 않는다'. '보장해야 한다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7319,6 +7965,7 @@
         "explanation": "위탁관리 REITs 설립 자본금: 3억원 이상. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7368,6 +8015,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7417,6 +8065,7 @@
         "explanation": "자본환원율 상승 → 자산가격 하락 → 개발사업 타당성 저하. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7466,6 +8115,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7515,6 +8165,7 @@
         "explanation": "기준시점은 대상물건의 '가격조사를 완료한 날짜'로 한다. '개시한 날짜'는 틀렸다. 기준시점은 가격 조사가 완료된 날 또는 미리 정한 날이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7564,6 +8215,7 @@
         "explanation": "감정평가에 관한 규칙에서 시산가액 조정 규정. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7613,6 +8265,7 @@
         "explanation": "부채서비스액 포함한 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7662,6 +8315,7 @@
         "explanation": "개별공시지가 이의신청: 결정·공시일부터 30일 이내, 서면, 시장·군수·구청장. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7711,6 +8365,7 @@
         "explanation": "비교 표준지 선택: 대상 토지(일반상업지역, 상업용)와 용도지역·이용상황이 동일한 표준지 기호 2(일반상업지역, 상업용) 선택. 표준지 2 공시지가: 2,000,000원/㎡ 시점수정(상업지역 5% 상승): × 1.05 지역요인: × 1.00 (인근지역) 개별요인(기호 2 대비 가로조건 10% 우세): × 1.10 기타요인: × 1.00 (보정 없음) 가액 = 2,000,000 × 1.05 × 1.00 × 1.10 × 1.00 = 2,000,000 × 1.155 = 2,310,000원/㎡ ✓ 비교 표준지가 아님."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7760,6 +8415,7 @@
         "explanation": "개별분석: 대상 부동산의 최유효이용 판정. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7809,6 +8465,7 @@
         "explanation": "O·정답 ㄱ 신개발방식: 농지→택지 개발 = 미개발지를 새로 개발하는 신개발 ✓ ㄴ 환지방식: 보류지를 제외하고 토지소유자에게 재분배 = 환지방식 ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7858,6 +8515,7 @@
         "explanation": "비주거용 부동산 관리업: 서비스업에 해당."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -7898,6 +8556,38 @@
         "text": "영속성은 부동산활동에서 감가상각 필요성의 근거가 된다.",
         "answer": "X",
         "explanation": "영속성(불소멸성)으로 인해 토지는 마모·소멸이 없으므로 감가상각이 필요 없다. '감가상각 필요성의 근거'는 틀렸다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -7956,6 +8646,38 @@
         "explanation": "Promotion(판매촉진): 4P 구성요소."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ, ㅂ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ, ㅁ, ㅂ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -8005,6 +8727,7 @@
         "explanation": "개발권양도제(TDR): 토지이용 규제 수단."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8054,6 +8777,7 @@
         "explanation": "O·정답 ㄱ 시장성분석: 특정 부동산의 경쟁력 중심으로 분양 가능성 분석. ✓ ㄴ 민감도분석: 투입요소 변화가 결과치에 미치는 영향 분석. ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8103,6 +8827,7 @@
         "explanation": "포락지: 지적공부에 등록된 토지가 물에 침식되어 수면 아래로 잠긴 토지. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8152,6 +8877,7 @@
         "explanation": "가격이 증가, 기울기가 증가로 계산한 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8201,6 +8927,7 @@
         "explanation": "ㅇ 가계 자산: 특정 시점의 양 → 저량(stock) ㅇ 노동자 소득: 일정 기간 동안 벌어들인 양 → 유량(flow) ✓ ㅇ 가계 소비: 일정 기간 동안 사용하는 양 → 유량(flow) ✓ ㅇ 통화량: 특정 시점에 유통되는 화폐의 양 → 저량(stock) ㅇ 자본총량: 특정 시점의 자본 합계 → 저량(stock) ㅇ 신규주택 공급량: 일정 기간 동안 새로 공급된 양 → 유량(flow) ✓ 유량 변수: 소득, 소비, 신규주택 공급량 = 3개 ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8250,6 +8977,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8299,6 +9027,7 @@
         "explanation": "ㄴ이 순환형으로 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8348,6 +9077,7 @@
         "explanation": "회복시장: 직전 저점 거래가격이 새 거래가격의 하한으로 작용. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8404,6 +9134,38 @@
         "explanation": "공공투자사업: 정부가 직접 투자·집행 → 직접개입. ✓"
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㅂ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㅁ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄹ, ㅁ, ㅂ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -8444,6 +9206,38 @@
         "text": "지대는 잉여이기에 토지생산물의 가격이 높아지면 지대가 높아지고 토지생산물의 가격이 낮아지면 지대도 낮아진다.",
         "answer": "O",
         "explanation": "리카도: 지대는 잉여 → 가격이 지대를 결정(지대가 가격을 결정하지 않음). 생산물 가격 상승 → 지대 상승. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -8495,6 +9289,7 @@
         "explanation": "고소득가구가 외부효과를 고려하여 주거지 이동 → 주거분리 주도. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8544,6 +9339,7 @@
         "explanation": "불완전경쟁시장도 할당효율적 시장 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8584,6 +9380,38 @@
         "text": "알론소(W. Alonso)는 단일도심도시의 토지이용형태를 설명함에 있어 입찰지대의 개념을 적용하였다.",
         "answer": "O",
         "explanation": "알론소의 입찰지대이론: 단일도심도시에서 입찰지대 개념으로 토지이용 설명. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -8635,6 +9463,7 @@
         "explanation": "시장세분화로 정보가 세분화·전문화될 수는 있으나 거래비용이 '항상' 증가하는 것은 아니다. 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8682,6 +9511,38 @@
         "text": "부동산 거래세율 인상",
         "answer": "O",
         "explanation": "거래세율 인상 → 거래비용 증가 → 수요 감소."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -8733,6 +9594,7 @@
         "explanation": "재산세는 지방세이나 '보유단계'에 부과하는 조세이다. '취득단계'는 틀렸다. 재산세는 매년 6월 1일 기준으로 보유자에게 부과."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8782,6 +9644,7 @@
         "explanation": "주거급여: 현금 지원으로 임대료를 보조 → 소비자보조방식. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8831,6 +9694,7 @@
         "explanation": "기존주택전세임대주택: 기존주택 임차 후 저소득층·청년·신혼부부에 전대. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -8873,6 +9737,38 @@
         "explanation": "ㄴ 공인중개사제도: 1983년 (부동산중개업법) ㄷ 부동산실명제: 1995년 (부동산 실권리자명의 등기에 관한 법률) ㄱ 자산유동화제도: 1998년 (자산유동화에 관한 법률) ㄹ 부동산거래신고제: 2006년 (부동산 거래신고 등에 관한 법률) 도입 순서: ㄴ(1983) → ㄷ(1995) → ㄱ(1998) → ㄹ(2006) → ③번 ✓"
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ → ㄴ → ㄷ → ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ → ㄱ → ㄷ → ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ → ㄷ → ㄱ → ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ → ㄴ → ㄹ → ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄹ → ㄷ → ㄴ → ㄱ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -8913,6 +9809,38 @@
         "text": "토지초과이득세제",
         "answer": "X",
         "explanation": "토지초과이득세제: 헌법불합치 결정 후 폐지."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -8964,6 +9892,7 @@
         "explanation": "BOO: 건설 후 민간이 소유권·운영권 영구 보유."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9011,6 +9940,38 @@
         "text": "프로젝트의 위험이 높아지면 자본환원율도 상승한다.",
         "answer": "O",
         "explanation": "프로젝트 위험 증가 → 요구수익률 증가 → 자본환원율 상승. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -9062,6 +10023,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9111,6 +10073,7 @@
         "explanation": "저당수익률(대출이자율) > 총자본수익률이면 부(-)의 레버리지 상태. 이 상황에서 부채비율을 높이면 자기자본수익률이 '하락'한다. 자기자본수익률을 상승시키는 전략이 아니다. 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9160,6 +10123,7 @@
         "explanation": "총 매출액 - 손익분기점 = 초과 매출액 30,000 - 손익분기점 = 10,000 → 손익분기점 = 20,000만원 = 2억원 ✓ O·정답 기본임대료 = 1,000㎡ × 5만원/㎡ = 5,000만원 총 매출액 = 1,000㎡ × 30만원/㎡ = 30,000만원 총 임대료 = 5,500만원 추가임대료 = 5,500 - 5,000 = 500만원 손익분기점 초과 매출액 × 5% = 500만원 → 손익분기점 초과 매출액 = 10,000만원"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9209,6 +10173,7 @@
         "explanation": "월 단위 원리금균등상환의 월 상환액(대출) 공식. 적금 미래가치가 아님."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9258,6 +10223,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9305,6 +10271,38 @@
         "text": "주택상환사채",
         "answer": "X",
         "explanation": "주택상환사채: 채권 → 부채금융."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -9356,6 +10354,7 @@
         "explanation": "한국주택금융공사가 담보주택 가격 하락 위험 부담. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9405,6 +10404,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9452,6 +10452,38 @@
         "text": "국세 부과대상이 아닌 토지(국공유지의 경우에는 공공용 토지만 해당한다)",
         "answer": "O",
         "explanation": "국세 부과대상이 아닌 토지(국공유지 공공용): 생략 가능 ✓"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -9503,6 +10535,7 @@
         "explanation": "가치형성요인: 대상물건의 '경제적 가치'에 영향을 미치는 요인이다. '시장가치'에 영향을 미치는 요인으로만 한정하면 너무 좁은 정의이다. 감정평가에 관한 규칙상 '경제적 가치'로 정의하는 것이 정확하며, '시장가치'로만 표현한 것은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9552,6 +10585,7 @@
         "explanation": "ㄱ이 사정보정으로 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9601,6 +10635,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9650,6 +10685,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9699,6 +10735,7 @@
         "explanation": "건물 - 원가법. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9748,6 +10785,7 @@
         "explanation": "맹지: 도로에 직접 연결되지 않은 토지. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9797,6 +10835,7 @@
         "explanation": "다중주택 요건: 학생·직장인 등 여러 사람이 장기간 거주할 수 있는 구조. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9837,6 +10876,38 @@
         "text": "개별성으로 인해 일물일가 법칙의 적용이 배제되어 토지시장에서 물건 간 완전한 대체관계가 제약된다.",
         "answer": "O",
         "explanation": "개별성(이질성): 토지마다 특성이 달라 일물일가 법칙 적용 배제, 완전한 대체 관계 제약. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -9888,6 +10959,7 @@
         "explanation": "B가 1.0으로 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9937,6 +11009,7 @@
         "explanation": "수요 감소 + 공급 증가 → 가격 하락 확실. 수요 감소폭 < 공급 증가폭이면 공급 증가 효과 우세 → 거래량 증가. ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -9986,6 +11059,7 @@
         "explanation": "거미집이론 판별: |수요곡선 기울기| vs |공급곡선 기울기| (P–Q 도표, X=수량·Y=가격) - |수요 기울기| > |공급 기울기| → 발산형 - |수요 기울기| < |공급 기울기| → 수렴형 - 같으면 → 순환형 A주택시장: Qd = 200 - P, Qs = 100 + 4P Qd → P = 200 - Q → |수요 기울기| = 1 Qs → P = (1/4)Q - 25 → |공급 기울기| = 1/4 1 > 1/4 → 수요가 더 가파름 → A 발산형 B주택시장: Qd = 500 - 2P, Qs = 200 + (1/2)P Qd → P = 250 - (1/2)Q → |수요 기울기| = 1/2 Qs → P = 2Q - 400 → |공급 기울기| = 2 1/2 < 2 → B 수렴형 → A 발산형, B 수렴형 → ④"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10035,6 +11109,7 @@
         "explanation": "수직선 → 가격 변해도 공급량 변화 없음 → 완전비탄력적. '완전탄력적'은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10084,6 +11159,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10133,6 +11209,7 @@
         "explanation": "ㅇ 건설노동자 임금 상승: 생산비 증가 → 공급 감소 → 가격 상승 [하락 X] ㅇ 대체주택 수요 감소: 대체재 수요 감소 → 아파트 수요 감소 → 가격 하락 [하락 ✓] ㅇ 가구 실질소득 증가: 정상재이므로 수요 증가 → 가격 상승 [하락 X] ㅇ 아파트건설업체수 증가: 공급 증가 → 가격 하락 [하락 ✓] ㅇ 건설용 토지가격 상승: 생산비 증가 → 공급 감소 → 가격 상승 [하락 X] ㅇ 아파트 선호도 감소: 수요 감소 → 가격 하락 [하락 ✓] 가격 하락 요인: 대체주택 수요 감소, 건설업체수 증가, 선호도 감소 = 3개 해당재 수요 증가)로 해석할 수도 있음. 이 경우 가격 하락 요인: 아파트건설업체수 증가, 아파트 선호도 감소 = 2개 ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10182,6 +11259,7 @@
         "explanation": "알론소의 입찰지대곡선: 각 산업의 입찰지대곡선 중 최고값을 연결. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10231,6 +11309,7 @@
         "explanation": "크리스탈러의 중심지이론: 중심지 계층 구조 설명."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10280,6 +11359,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10313,6 +11393,38 @@
         "text": "아직 공표되지 않은 정보를 분석해도 초과이윤을 얻을 수 없다.",
         "answer": "O",
         "explanation": ""
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "A - (ㄱ), B - (ㄴ), C - (ㄷ)",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "A - (ㄱ), B - (ㄱ, ㄴ), C - (ㄱ, ㄴ, ㄷ)",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "A - (ㄷ), B - (ㄴ, ㄷ), C - (ㄱ, ㄴ, ㄷ)",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "A - (ㄱ, ㄴ, ㄷ), B - (ㄱ, ㄴ), C - (ㄱ)",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "A - (ㄱ, ㄴ, ㄷ), B - (ㄴ, ㄷ), C - (ㄷ)",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -10364,6 +11476,7 @@
         "explanation": "부동산 실권리자명의 등기제도(부동산실명제): 투기억제 목적 제도."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10413,6 +11526,7 @@
         "explanation": "재산세는 지방세(보유세)이지만, 종합부동산세는 '국세'이다. '종합부동산세도 지방세'라는 것은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10462,6 +11576,7 @@
         "explanation": "부동산거래신고제: 실제 거래가격 등 신고. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10511,6 +11626,7 @@
         "explanation": "재건축초과이익환수제도: 현재 시행 중."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10560,6 +11676,7 @@
         "explanation": "변동금리: 금리 변동 위험을 차주에게 전가 → 금융기관의 위험 감소. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10609,6 +11726,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10658,6 +11776,7 @@
         "explanation": "5년 후 8억원의 현재가치 산정 → '일시불의 현재가치계수' 사용. 저당상수는 대출 원리금 상환액 산정. 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10707,6 +11826,7 @@
         "explanation": "기회비용의 성격을 가지는 것은 '요구수익률'이다. 실현수익률은 투자 후 실제로 달성된 수익률. 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10756,6 +11876,7 @@
         "explanation": "상관계수가 +1이면(완전 정(+)의 상관관계) 분산투자효과가 없다. '상관계수에 상관없이'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10805,6 +11926,7 @@
         "explanation": "IRR법: IRR < 요구수익률이면 해당 투자안을 기각. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10854,6 +11976,7 @@
         "explanation": "계산 (할인율 5%): A: NPV = 6,825/1.05 - 3,800 = 6,500 - 3,800 = 2,700만원 PI = 6,500/3,800 = 1.71 B: NPV = 2,940/1.05 - 1,250 = 2,800 - 1,250 = 1,550만원 PI = 2,800/1,250 = 2.24 C: NPV = 4,725/1.05 - 1,800 = 4,500 - 1,800 = 2,700만원 PI = 4,500/1,800 = 2.50 A의 NPV = C의 NPV = 2,700만원. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -10901,6 +12024,38 @@
         "text": "부동산투자회사(REITs)",
         "answer": "X",
         "explanation": "REITs: 주식 발행으로 자금 조달 → 지분금융."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -10952,6 +12107,7 @@
         "explanation": "LQ 공식: (지역 산업 고용/지역 전체 고용) / (전국 산업 고용/전국 전체 고용) A지역 (전체 90명, 전국 190명): X: (30/90)/(80/190) = 0.333/0.421 = 0.79 < 1 → 비기반 Y: (30/90)/(60/190) = 0.333/0.316 = 1.055 > 1 → 기반 ✓ Z: (30/90)/(50/190) = 0.333/0.263 = 1.27 > 1 → 기반 ✓ A지역 기반산업: Y, Z → 2개 B지역 (전체 100명, 전국 190명): X: (50/100)/(80/190) = 0.50/0.421 = 1.19 > 1 → 기반 ✓ Y: (30/100)/(60/190) = 0.30/0.316 = 0.95 < 1 → 비기반 Z: (20/100)/(50/190) = 0.20/0.263 = 0.76 < 1 → 비기반 (문제에 주어진 값 확인) B지역 기반산업: X → 1개 → A: 2개, B: 1개 → ⑤번 ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11001,6 +12157,7 @@
         "explanation": "금리 6% 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11048,6 +12205,38 @@
         "text": "보통주",
         "answer": "X",
         "explanation": "보통주: 일반 지분증권. 메자닌 아님(가장 후순위 지분)."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -11099,6 +12288,7 @@
         "explanation": "한국주택금융공사: 국내 모기지 유동화중개기관. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11148,6 +12338,7 @@
         "explanation": "만기일시상환: 기간 중 이자만 납부 → 원금 잔액이 계속 많아 이자 총액이 최대. 원금균등보다 이자수입이 '더 많다'. '줄어든다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11181,6 +12372,38 @@
         "text": "민간사업자가 자금을 조달하여 시설을 건설하고, 준공과 함께 민간사업자가 당해 시설의 소유권과 운영권을 갖는 방식",
         "answer": "O",
         "explanation": "건설 → 준공과 함께 소유권·운영권 보유 = BOO(build-own-operate) ✓ (e)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ - a, ㄴ - c, ㄷ - e",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ - a, ㄴ - d, ㄷ - e",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ - b, ㄴ - c, ㄷ - f",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ - b, ㄴ - d, ㄷ - e",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ - b, ㄴ - d, ㄷ - f",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -11232,6 +12455,7 @@
         "explanation": "시장점유 마케팅: 4P Mix, STP 전략 포함. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11281,6 +12505,7 @@
         "explanation": "흡수율분석(Absorption Analysis)은 개발된 부동산이 시장에서 얼마나 빠르게 판매·임대되는지를 분석하는 것이다. 문제에서 설명한 내용은 '민감도분석(Sensitivity Analysis)'에 대한 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11330,6 +12555,7 @@
         "explanation": "AIDA: Attention(주의) → Interest(관심) → Desire(욕망) → Action(행동). 'Decision(결정)'이 아닌 'Desire(욕망)'이 맞다. 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11379,6 +12605,7 @@
         "explanation": "ㄷ이 유사지역으로 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11428,6 +12655,7 @@
         "explanation": "정액법·정률법·상환기금법 모두 내용연수에 의한 감가수정 방법. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11477,6 +12705,7 @@
         "explanation": "⑤의 설명은 '수익환원법(收益還元法)'에 대한 정의이다. 수익분석법(收益分析法)은 일반기업 경영으로 산출된 총수익을 분석하여 순수익에 필요경비를 더해 임대료를 산정하는 방법이다. 두 개념이 혼용되어 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11526,6 +12755,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11575,6 +12805,7 @@
         "explanation": "공동주택가격에 대한 이의신청은 국토교통부장관에게 한다. 시장·군수·구청장은 개별주택가격의 이의신청을 받는 기관이다. 공동주택가격을 '시장·군수·구청장에게 이의신청'하는 것은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11624,6 +12855,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11673,6 +12905,7 @@
         "explanation": "담장: 토지에 고정된 구조물. 정착물에 해당."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11722,6 +12955,7 @@
         "explanation": "영속성(불소멸성)으로 인해 토지는 감가상각이 적용되지 않는다. '하게 한다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11771,6 +13005,7 @@
         "explanation": "체비지(替費地): 도시개발사업 비용 충당을 위해 환지로 정하지 않은 토지. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11818,6 +13053,38 @@
         "text": "주택건설기술 개발에 따른 원가절감",
         "answer": "X",
         "explanation": "원가절감 → 생산비 감소 → 공급 증가."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -11869,6 +13136,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11918,6 +13186,7 @@
         "explanation": "수요 증가 + 공급 감소, 수요 증가폭 > 공급 감소폭: → 가격 상승, 거래량 증가. '거래량 감소'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -11967,6 +13236,7 @@
         "explanation": "안정시장: 가격 변동이 적어 과거 거래가격이 새 거래가격의 기준으로 활용 가능. '활용하기 어렵다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12016,6 +13286,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12065,6 +13336,7 @@
         "explanation": "불완전경쟁시장이어도 자원이 효율적으로 배분되면 할당효율적 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12112,6 +13384,38 @@
         "text": "고정된 상권을 놓고 경쟁함으로써 제로섬(zero-sum)게임이 된다는 한계가 있다.",
         "answer": "O",
         "explanation": "ㄱ~ㅁ 모두 옳은 설명이나 선지 구성상 오류로 판정됨. 고정 상권 내 경쟁 → 제로섬 게임의 한계."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -12163,6 +13467,7 @@
         "explanation": "크리스탈러의 중심지이론: 인간정주체계 분포, 도달거리와 최소요구치, 고객 다목적 구매행동 미반영 비판. 모두 일치."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12212,6 +13517,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12261,6 +13567,7 @@
         "explanation": "파레토의 경제지대론: 생산요소의 초과소득."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12310,6 +13617,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12350,6 +13658,38 @@
         "text": "해리스(C. Harris)와 울만(E. Ullman)의 다핵심이론은 단일의 중심업무지구를 핵으로 하여 발달하는 것이 아니라, 몇 개의 분리된 핵이 점진적으로 통합됨에 따라 전체적인 도시구조가 형성된다는 것이다.",
         "answer": "O",
         "explanation": "해리스·울만의 다핵심이론: 분리된 핵들이 통합되어 전체 도시구조 형성. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -12401,6 +13741,7 @@
         "explanation": ""
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12450,6 +13791,7 @@
         "explanation": "'직접관리', '간접관리'는 REITs 용어가 아님."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12499,6 +13841,7 @@
         "explanation": "부동산실명제의 근거 법률은 「부동산 실권리자명의 등기에 관한 법률」. '부동산등기법'이 아님."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12539,6 +13882,38 @@
         "text": "증여세와 종합부동산세는 부동산의 보유단계에 부과한다.",
         "answer": "X",
         "explanation": "증여세는 '취득단계', 종합부동산세는 보유단계. 증여세를 보유단계라 한 것은 틀렸다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -12590,6 +13965,7 @@
         "explanation": "4층, 바닥면적 600㎡(660㎡ 이하), 8세대, 취사시설 있음 → 공동주택으로 분류 다세대주택: 바닥면적 합계 660㎡ 이하, 4개 층 이하, 취사시설 있는 공동주택. 모든 조건 부합. ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12639,6 +14015,7 @@
         "explanation": "순현재가치(NPV)는 '요구수익률(할인율)'로 현금흐름을 할인하여 산출한다. '내부수익률'은 NPV를 0으로 만드는 할인율이며, NPV 계산에 사용하지 않는다. '내부수익률로 할인'은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12688,6 +14065,7 @@
         "explanation": "최적 포트폴리오: 투자자의 위험 태도(위험회피도)에 따라 다름. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12737,6 +14115,7 @@
         "explanation": "자산 유형·위치에 따라 자본환원율 다양. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12786,6 +14165,7 @@
         "explanation": "DTI 높을수록 채무 부담 과중 → 채무불이행 위험 증가. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12835,6 +14215,7 @@
         "explanation": "O·정답 NOI = EGI - OE = 1,000 - 500 = 500만원 순소득승수(NIM) = 총투자액 / NOI = 10,000 / 500 = 20 ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12884,6 +14265,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12933,6 +14315,7 @@
         "explanation": "주택도시기금: 국민주택 건설·구입에 출자·융자 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -12982,6 +14365,7 @@
         "explanation": "한국주택금융공사: 주택연금(주택담보노후연금)의 법정 보증기관. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13031,6 +14415,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13064,6 +14449,38 @@
         "text": "만기일시상환",
         "answer": "X",
         "explanation": ""
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ → ㄴ → ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ → ㄷ → ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ → ㄱ → ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ → ㄷ → ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ → ㄴ → ㄱ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -13115,6 +14532,7 @@
         "explanation": "ABCP의 반복적 유동화는 '금융감독원'이 아닌 '금융위원회'에 등록한 자산유동화계획의 기재내용대로 수행해야 한다. 감독기관 혼동."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13164,6 +14582,7 @@
         "explanation": "기존주택등매입임대주택: 공공주택 특별법상 공공임대주택. 해당함."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13213,6 +14632,7 @@
         "explanation": "고객점유 전략: 구매의사결정 각 단계에서 소비자와 심리적 접점 마련. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13262,6 +14682,7 @@
         "explanation": "직영관리방식: 직접관리의 다른 표현."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13309,6 +14730,38 @@
         "text": "정률법은 매년 일정한 감가율을 곱하여 감가액을 구하는 방법으로 매년 감가액이 일정하다.",
         "answer": "X",
         "explanation": "정률법은 매년 일정한 비율(감가율)을 적용하나, 잔존가치가 감소함에 따라 매년 감가액이 감소(체감)한다. '매년 감가액이 일정'한 것은 정액법이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -13360,6 +14813,7 @@
         "explanation": "합리성·적법성 결여 시 의뢰 거부 또는 수임 철회 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13409,6 +14863,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13458,6 +14913,7 @@
         "explanation": "공동주택가격은 국토교통부장관이 직접 조사·산정하여 공시. '표준공동주택가격'이라는 별도 제도는 없다. 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13507,6 +14963,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13556,6 +15013,7 @@
         "explanation": "감정평가서: 명확하고 일관성 있게 작성. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13605,6 +15063,7 @@
         "explanation": "개별성(이질성) → 토지마다 특성 다름 → 완전한 대체 관계 제약. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13654,6 +15113,7 @@
         "explanation": "공간적 측면: 지하, 지표, 공중공간. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13694,6 +15154,38 @@
         "text": "임지지역·농지지역·택지지역 상호간에 다른 지역으로 전환되고 있는 일단의 토지",
         "answer": "X",
         "explanation": "임지·농지·택지지역 상호간 전환 중인 일단의 토지 → 후보지(候補地) (다른 용도지역군으로의 전환)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ: 공지, ㄴ: 빈지, ㄷ: 후보지, ㄹ: 이행지",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ: 법지, ㄴ: 빈지, ㄷ: 이행지, ㄹ: 후보지",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ: 법지, ㄴ: 공지, ㄷ: 후보지, ㄹ: 이행지",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ: 빈지, ㄴ: 법지, ㄷ: 이행지, ㄹ: 후보지",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ: 빈지, ㄴ: 법지, ㄷ: 후보지, ㄹ: 이행지",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -13745,6 +15237,7 @@
         "explanation": "선호도 감소 → 수요 감소 → 수요곡선 좌측 이동."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13794,6 +15287,7 @@
         "explanation": "공급자는 '현재 가격'만을 기준으로 미래 공급을 결정한다고 가정. '미래 가격도 동시에 고려'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13843,6 +15337,7 @@
         "explanation": "균형량: Q=12 → Q=18, 즉 6㎡ 증가. '8㎡ 증가'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13892,6 +15387,7 @@
         "explanation": "공급곡선 수직선 → 가격 변해도 공급량 변화 없음 → 완전비탄력적. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13941,6 +15437,7 @@
         "explanation": "건축원자재 가격 상승 → 생산비 증가 → 공급 감소 → 공급곡선 좌측 이동. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -13990,6 +15487,7 @@
         "explanation": "헤이그의 마찰비용이론: 마찰비용 = 임대료 + 교통비. 즉 지대와 교통비는 대체·보완 관계이며 '합'이 아닌 마찰비용 안에서 분배되는 구조."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14039,6 +15537,7 @@
         "explanation": "레일리의 소매인력법칙: 두 도시 간 상권 경계를 결정하는 이론. '8원칙'은 넬슨(Nelson)의 소매점 입지이론."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14088,6 +15587,7 @@
         "explanation": "LQ 공식: (Xi/Xt) / (Ni/Nt) (Xi=X지역 해당산업, Xt=X지역 전체, Ni=전지역 해당산업, Nt=전지역 전체) A산업: (30/320) / (80/540) = 0.09375/0.14815 = 0.63 < 1 → 비기반 B산업: (50/320) / (90/540) = 0.15625/0.16667 = 0.94 < 1 → 비기반 C산업: (60/320) / (110/540) = 0.1875/0.2037 = 0.92 < 1 → 비기반 D산업: (100/320) / (120/540) = 0.3125/0.2222 = 1.41 > 1 → 기반산업 ✓ E산업: (80/320) / (140/540) = 0.25/0.2593 = 0.96 < 1 → 비기반 기반산업(LQ>1): D산업만 → 1개"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14137,6 +15637,7 @@
         "explanation": "총 월 소비액 = 10,000명 × 30만원 = 30억원 마찰계수 = 2 (올바른 값): 효용A = 750/5² = 30, 효용B = 2500/10² = 25, 효용C = 500/5² = 20 합계 = 75 P(A) = 30/75 = 0.4 → A 월 매출 = 30억 × 0.4 = 12억원 마찰계수 = 1 (잘못된 값): 효용A = 750/5¹ = 150, 효용B = 2500/10¹ = 250, 효용C = 500/5¹ = 100 합계 = 500 P(A) = 150/500 = 0.3 → A 월 매출 = 30억 × 0.3 = 9억원 차이 = 12억 - 9억 = 3억원 ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14186,6 +15687,7 @@
         "explanation": "운송비 = 무게 × 거리. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14235,6 +15737,7 @@
         "explanation": "중심지 재화·서비스는 중심지에서 배후지로 제공되는 것이다. '배후지에서 중심지로'는 반대로 서술된 것이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14296,6 +15799,38 @@
         "text": "납세의무자별로 합산한 과세표준에 대한 과세",
         "answer": "O",
         "explanation": "객관적으로 가장 옳은 내용을 포함하는 ③이 정답에 가깝다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "취득세와 재산세는 (ㄱ, ㅁ, ㅅ)에 해당한다.",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "취득세는 (ㄱ, ㄷ)에, 종합부동산세는 (ㄴ, ㅁ)에 해당하고, 공통점은 (ㅂ)에 해당한다.",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "재산세는 (ㄱ, ㅂ)에, 종합부동산세는 (ㄴ, ㅅ)에 해당하고, 공통점은 (ㅁ)에 해당한다.",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "양도소득세는 (ㄴ)에, 재산세는 (ㄱ)에 해당하고, 공통점은 (ㅁ, ㅅ)에 해당한다.",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "양도소득세와 종합부동산세는 (ㄴ, ㅁ, ㅂ)에 해당한다.",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -14368,6 +15903,38 @@
         "explanation": "공한지세(空閑地稅): 폐지됨."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㅇ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ, ㅇ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ, ㅁ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ, ㅁ, ㅅ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄹ, ㅁ, ㅂ, ㅅ, ㅇ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -14417,6 +15984,7 @@
         "explanation": "분양가 규제 → 채산성 저하 → 공급 축소. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14466,6 +16034,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14515,6 +16084,38 @@
         "explanation": "임대료 상한 규제(균형 이하) → 수익성 저하 → 공급량 감소, 질 저하. '공급량 증가'는 틀렸다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -14528,6 +16129,38 @@
     "questionType": "composite",
     "correctChoice": "5",
     "items": [],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "국민임대주택 / 장기전세주택",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "장기전세주택 / 기존주택전세임대주택",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "기존주택전세임대주택 / 국민임대주택",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "국민임대주택 / 민간매입임대주택",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "장기전세주택 / 민간매입임대주택",
+        "isCorrect": true
+      }
+    ],
     "free": true
   },
   {
@@ -14568,6 +16201,38 @@
         "text": "부동산투자자가 대상부동산을 원하는 시기와 가격에 현금화하지 못하는 경우는 유동성위험에 해당한다.",
         "answer": "O",
         "explanation": "원하는 시기·가격에 현금화 못하는 위험 = 유동성위험. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -14619,6 +16284,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14668,6 +16334,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14717,6 +16384,7 @@
         "explanation": "담보대출과 전세를 통한 레버리지 활용 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14766,6 +16434,7 @@
         "explanation": "종합환원율 = NOI / 총투자액 = 2억 / 10억 = 20% ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14815,6 +16484,7 @@
         "explanation": "LTV = 융자액 / 부동산가치. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14864,6 +16534,7 @@
         "explanation": "각 선지의 내용이 명확한 정오(正誤) 판단이 어려운 문제로 정답 없이 전원 처리되었으므로 앱 적용 시 모든 보기를 [O]로 처리한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14913,6 +16584,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -14962,6 +16634,7 @@
         "explanation": "주주총회 특별결의 시 이익배당한도의 50% 이상 90% 미만으로 배당 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15011,6 +16684,7 @@
         "explanation": "고정이자 MBS는 시장금리 상승 시 상대적 수익률 매력 감소 → 가격 하락. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15058,6 +16732,38 @@
         "text": "민감도분석을 통해 투입요소의 변화가 그 투자안의 내부수익률에 미치는 영향을 분석할 수 있다.",
         "answer": "O",
         "explanation": "민감도분석: 투입요소 변화 → NPV·IRR에 미치는 영향 분석. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -15116,6 +16822,38 @@
         "explanation": "자기관리방식: ㄱ(소유자 직접 통제), ㄷ(기밀·보안 유리) 위탁관리방식: ㄴ(전문성·효율성), ㄹ(고도화 대응), ㅁ(대형건물 유용), ㅂ(소유·경영 분리)"
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "자기관리방식 - ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "자기관리방식 - ㄱ, ㄷ, ㅁ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "자기관리방식 - ㄴ, ㄷ, ㄹ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "위탁관리방식 - ㄱ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "위탁관리방식 - ㄴ, ㄹ, ㅁ, ㅂ",
+        "isCorrect": true
+      }
+    ],
     "free": true
   },
   {
@@ -15165,6 +16903,7 @@
         "explanation": "AIDA 원리는 '수요자(소비자)의 구매 과정(심리 변화)'을 설명하는 고객점유 마케팅 전략이다. Attention(주의) → Interest(관심) → Desire(욕망) → Action(행동). '공급자의 욕구를 파악'이 아닌 '수요자의 구매 심리 흐름'을 분석하는 것이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15214,6 +16953,7 @@
         "explanation": "ㄴ이 국가·지자체(d), ㄷ-f 시설관리운영권. 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15263,6 +17003,7 @@
         "explanation": "비교표준지 선택: 대상토지(일반상업지역, 상업용)와 용도지역·이용상황 모두 동일한 표준지 기호 2(일반상업지역, 상업용) 선택. 표준지 2 공시지가: 8,000,000원/㎡ 시점수정(상업지역 5% 상승): × 1.05 지역요인: × 1.00 (인근지역) 개별요인(기호 2 대비 3% 열세): × 0.97 기타요인(50% 증액): × 1.50 시산가액 = 8,000,000 × 1.05 × 1.00 × 0.97 × 1.50 = 8,000,000 × 1.52775 = 12,222,000원/㎡ ✓"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15312,6 +17053,7 @@
         "explanation": "경과연수 = 2023.10.28 - 2015.10.28 = 8년 정액법 감가율 = 1/50 × 8 = 0.16 감가누계액 = 450,000,000 × 0.16 = 72,000,000원 시산가액 = 450,000,000 - 72,000,000 = 378,000,000원 ✓ O·정답 재조달원가 = 신축공사비 × (현재 건축비지수/기준 건축비지수) × 연면적 = 1,200,000 × (150/100) × 250㎡ = 1,800,000 × 250 = 450,000,000원"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15361,6 +17103,7 @@
         "explanation": "주된 감정평가방법 분류: - 상표권: 수익환원법 ✓ - 임대료: 임대사례비교법 ✗ - 저작권: 수익환원법 ✓ - 특허권: 수익환원법 ✓ - 과수원: 거래사례비교법 ✗ - 기업가치: 수익환원법 ✓ - 광업재단: 수익환원법 ✓ - 실용신안권: 수익환원법 ✓ 수익환원법인 것: 상표권, 저작권, 특허권, 기업가치, 광업재단, 실용신안권 6개가 수익환원법이라는 분석도 있었으나 공식 정답은 ⑤(5개)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15410,6 +17153,7 @@
         "explanation": "시장가치 외의 가치 기준 감정평가 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15459,6 +17203,7 @@
         "explanation": "표준지 → 개별공시지가 결정·공시 생략, 표준지공시지가를 개별공시지가로 봄. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15508,6 +17253,7 @@
         "explanation": "지역분석(거시적) → 개별분석(미시적) 순으로 실시하는 것이 일반적. '개별분석을 먼저'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15557,6 +17303,7 @@
         "explanation": "영속성(내구성)으로 인해 토지는 마모·소멸하지 않으므로 감가상각이 불필요하다. '고려하여야 한다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15606,6 +17353,7 @@
         "explanation": "ㄱ은 필지로, ㄴ은 나대지로 모두 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15655,6 +17403,7 @@
         "explanation": "대지면적(대지 전체 면적)이 아닌 바닥면적이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15695,6 +17444,38 @@
         "text": "토지에 부착된 한 그루의 수목",
         "answer": "X",
         "explanation": "한 그루의 수목: 입목에 관한 법률상 입목등기는 일단의 입목을 대상으로 하며, 한 그루는 해당되지 않음. 명인방법(관습법)으로 공시."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -15746,6 +17527,7 @@
         "explanation": "환지방식은 토지소유자의 동의를 받아야 하는 단계가 수용방식보다 더 많아 절차가 복잡하다. '적어 절차가 간단하다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15795,6 +17577,7 @@
         "explanation": "사업위탁방식: 토지소유자가 소유권을 유지하면서 개발·관리를 위탁. 신탁개발방식: 토지소유자가 신탁회사에 소유권을 이전하고 개발 위탁. 양자의 공통점이 '소유권 이전'이라는 것은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15851,6 +17634,38 @@
         "explanation": "Partnership(동반자관계): 4P 구성요소가 아님."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄷ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ, ㅁ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ, ㅁ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ, ㅁ, ㅂ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -15900,6 +17715,7 @@
         "explanation": "수요 증가폭 = 공급 감소폭: 수요 증가 + 공급 감소 모두 가격 상승 압력 → 균형가격 상승. '하락'은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15949,6 +17765,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15998,6 +17815,7 @@
         "explanation": "ㅇ 가구의 실질소득 증가: 정상재이므로 수요 증가 → 가격 상승 [상승 ✓] ㅇ 아파트 선호도 감소: 수요 감소 → 가격 하락 [상승 X] ㅇ 건축자재 가격 상승: 생산비 증가 → 공급 감소 → 가격 상승 [상승 ✓] ㅇ 담보대출 이자율 상승: 구매력 감소 → 수요 감소 → 가격 하락 [상승 X] → 가격 상승 요인: 2개"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16047,6 +17865,7 @@
         "explanation": "가격 200 상승 → 계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16096,6 +17915,7 @@
         "explanation": "신규주택 공급량: 일정 기간 동안 새로 공급된 주택 수 → 유량(flow)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16145,6 +17965,7 @@
         "explanation": "주거환경개선사업: 도시저소득 주민 집단거주 지역, 정비기반시설 극히 열악, 노후·불량건축물 과도 밀집 지역의 주거환경 개선 사업. 정확히 일치."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16194,6 +18015,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16243,6 +18065,7 @@
         "explanation": "허프모형의 공간마찰계수: 교통환경 등에 따라 달라짐. 미리 설정 필요. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16292,6 +18115,7 @@
         "explanation": "파레토의 경제지대론: 생산요소 공급 한계비용과 시장가격의 차이."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16341,6 +18165,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16390,6 +18215,7 @@
         "explanation": "토지비축제: 정부 매입 후 보유→매각 또는 공공용 사용. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16439,6 +18265,7 @@
         "explanation": "ㅇ 통합공공임대주택 [O]: 최저소득계층, 저소득 서민, 젊은 층, 사회취약계층 대상. 옳다. ㅇ 행복주택 [O]: 대학생, 사회초년생, 신혼부부 등 젊은 층 대상. 옳다. ㅇ 장기전세주택 [O]: 전세계약 방식으로 공급. 옳다. ㅇ 분양전환공공임대주택 [O]: 일정기간 임대 후 분양전환 목적. 옳다. → 4개 모두 옳음."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16488,6 +18315,7 @@
         "explanation": "DSR(총부채원리금상환비율) 강화: 대출 한도를 소득 기준으로 제한하는 금융규제. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16537,6 +18365,7 @@
         "explanation": "장수명 주택: 내구성·가변성·수리 용이성. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16577,6 +18406,38 @@
         "text": "증여세와 양도소득세는 처분단계에서 부과하는 국세이다.",
         "answer": "X",
         "explanation": "증여세는 '취득단계'에서 부과하는 국세이다. '처분단계'는 틀렸다. (증여는 재산을 무상으로 받는 것 = 취득단계)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -16628,6 +18489,7 @@
         "explanation": "BTCFM 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16677,6 +18539,7 @@
         "explanation": "포트폴리오 수익·위험은 구성 자산과 투자비중에 따라 결정. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16726,6 +18589,7 @@
         "explanation": "IRR법에서는 현금흐름의 재투자율이 'IRR'로 가정된다. 재투자율을 '요구수익률'로 가정하는 것은 NPV법이다. 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16775,6 +18639,7 @@
         "explanation": "버제스(E. Burgess): 동심원이론."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16824,6 +18689,7 @@
         "explanation": "자본환원율은 시장 간 비교·분석 도구로 활용. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16873,6 +18739,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16922,6 +18789,7 @@
         "explanation": "LTV 기준 초과 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16971,6 +18839,7 @@
         "explanation": "법정관리는 법원 주관의 특수한 관리."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17011,6 +18880,38 @@
         "text": "대출채권의 가중평균상환기간(duration)은 원금균등분할상환대출에 비해 원리금균등분할상환대출이 더 길다.",
         "answer": "O",
         "explanation": "원리금균등: 초기에 이자 비중이 높아 원금 상환 속도가 느림 → 가중평균상환기간(duration)이 원금균등보다 더 길다. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17062,6 +18963,7 @@
         "explanation": "주택연금을 받을 권리는 양도·압류 불가. '할 수 있다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17102,6 +19004,38 @@
         "text": "부동산학 석사학위 소지자로서 부동산의 투자·운용과 관련된 업무에 3년을 종사한 사람",
         "answer": "O",
         "explanation": "부동산학 석사학위 + 투자·운용 관련 업무 3년 종사. 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17153,6 +19087,7 @@
         "explanation": "MBB 투자자는 발행자(유동화기관)가 채무불이행위험과 조기상환위험을 흡수하므로 이를 부담하지 않는다. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17202,6 +19137,7 @@
         "explanation": "특수한 목적이나 합리적 이유가 있는 경우 일부 감정평가 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17251,6 +19187,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17300,6 +19237,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17349,6 +19287,7 @@
         "explanation": "직접법(신축 사례 등 직접 산정)과 간접법(비용지수 등) 병용 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17398,6 +19337,7 @@
         "explanation": "공시기준일 이후 분할·합병·신축 발생 시 추가 공시해야 하는 것은 '개별공시지가' 및 '개별주택가격'이다. 이 조항은 '공동주택가격'에는 해당하지 않는다. '공동주택가격을 결정·공시하여야 한다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17438,6 +19378,38 @@
         "text": "영업권과 특허권의 주된 감정평가방법은 수익분석법이다.",
         "answer": "X",
         "explanation": "영업권과 특허권의 주된 방법은 '수익환원법'이다. '수익분석법'이라고 한 것은 틀렸다. (수익분석법은 임대료 산정에 쓰이는 방법임)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17489,6 +19461,7 @@
         "explanation": "적재성은 토지의 특성이 아닌 잘못된 개념이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17538,6 +19511,7 @@
         "explanation": "부동산 분양 대행업은 부동산관련 서비스업에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17587,6 +19561,7 @@
         "explanation": "다세대주택은 공동주택에 해당한다. (4개 층 이하, 연면적 660㎡ 이하)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17634,6 +19609,38 @@
         "text": "택지지역·농지지역·산지(임지)지역 상호 간에 다른 지역으로 전환되고 있는 지역의 토지는 후보지(候補地)에 해당한다.",
         "answer": "O",
         "explanation": "후보지(候補地): 택지·농지·임지 지역 상호 간에 전환되고 있는 지역의 토지. 올바른 설명이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17685,6 +19692,7 @@
         "explanation": "시장세분화는 마케팅 목적으로 고객 집단을 세분하는 것. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17734,6 +19742,7 @@
         "explanation": "보완재 가격 하락 → 보완재 수요 증가 → 해당 부동산 수요 증가 → 수요곡선 우측 이동. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17790,6 +19799,38 @@
         "explanation": ""
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄹ  /  ㄷ, ㅁ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ, ㅂ  /  ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ, ㅁ  /  ㄴ, ㄷ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㅂ  /  ㄱ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄹ, ㅁ  /  ㄱ, ㄷ, ㅂ",
+        "isCorrect": true
+      }
+    ],
     "free": true
   },
   {
@@ -17839,6 +19880,7 @@
         "explanation": "토지시장은 지역별로 나뉘는 국지적(부분적) 시장 특성을 갖는다. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17888,6 +19930,7 @@
         "explanation": "수요 증가폭 < 공급 증가폭: 가격 하락, 거래량 증가. 가격 상승이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17937,6 +19980,7 @@
         "explanation": "공급함수는 부동산 공급량에 영향을 미치는 요인들(가격, 생산비, 기술 등)과 공급량의 관계를 나타내는 함수다. 올바른 설명이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17986,6 +20030,7 @@
         "explanation": "계산 결과와 불일치."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18035,6 +20080,7 @@
         "explanation": "수요의 가격탄력성 = 수요량 변화율 / 가격 변화율 1.6 = 수요량 변화율 / 5% → 수요량 변화율 = 8% 가격 하락 → 수요량 8% 증가."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18084,6 +20130,7 @@
         "explanation": "베버는 최소비용지점을 최적입지로 본다. 최대수익이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18117,6 +20164,38 @@
         "text": "튀넨(J. H. von Thünen)은 운송수단의 차에 따라 한계지대곡선의 기울기가 달라지며, 이 곡선의 기울기에 따라 집약적 농업과 조방적 농업으로 구분된다고 보았다.",
         "answer": "X",
         "explanation": "튀넨은 운송수단이 아닌 작물의 종류(운반비 특성)에 따라 지대곡선의 기울기가 달라진다고 했다. '운송수단의 차'가 아닌 '농산물의 종류'가 핵심이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -18168,6 +20247,7 @@
         "explanation": "불완전경쟁시장에서는 독점적 지위 등으로 초과이윤 발생 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18217,6 +20297,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18266,6 +20347,7 @@
         "explanation": "종합부동산세는 국세(국가 부과)이면서 보유세(보유 기간 과세)에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18315,6 +20397,7 @@
         "explanation": "5개가 아닌 3개다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18362,6 +20445,38 @@
         "text": "수익성지수법",
         "answer": "O",
         "explanation": "수익성지수법(PI): 현재가치/초기투자액 → DCF 방법."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -18413,6 +20528,38 @@
         "explanation": "헨리 조지는 토지 공급이 완전 비탄력적이므로 토지세가 지주에게 귀착되고 임차인에게 전가되지 않는다고 봤다. '임차인에게 전가'는 틀렸다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -18462,6 +20609,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18518,6 +20666,38 @@
         "explanation": "개발부담금제도: 부담금 부과를 통한 간접개입. 옳다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㅂ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄹ, ㅁ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ, ㅁ, ㅂ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -18567,6 +20747,7 @@
         "explanation": "조기상환위험은 금리 하락 시 차입자가 대출을 일찍 갚는 위험이다. 원리금을 정해진 시기에 못 갚는 것은 채무불이행위험(default risk)이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18616,6 +20797,7 @@
         "explanation": "주거급여법상 주택을 소유한 경우에도 소득·재산 기준을 충족하면 수급권자가 될 수 있다. '모든 사람이 될 수 없다'는 것은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18665,6 +20847,7 @@
         "explanation": "정부정책·규제 변화로 인한 위험은 법적 위험(legal risk) 또는 정치적 위험이다. 유동성 위험은 부동산을 빠르게 현금화하기 어려운 위험이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18714,6 +20897,7 @@
         "explanation": "분산·표준편차는 위험(변동성)을 측정하는 방법이다. 수익이 아닌 위험 측정치다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18763,6 +20947,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18812,6 +20997,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18861,6 +21047,7 @@
         "explanation": "유효총소득을 NOI로 혼동한 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18910,6 +21097,7 @@
         "explanation": "에스크로우 계정(Escrow account)을 통해 사업자금을 투명하게 관리. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18959,6 +21147,7 @@
         "explanation": "계산 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -19008,6 +21197,7 @@
         "explanation": "금리 4% 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -19057,6 +21247,7 @@
         "explanation": "위탁관리 REITs는 영업인가·등록 후 자산 투자·운용을 위해 자금 차입 및 사채 발행이 가능하다. '할 수 없다'는 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -19106,6 +21297,7 @@
         "explanation": "체증식: 초기 상환액이 적고 시간이 지날수록 증가. 미래소득 증가 예상자에 적합. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -19155,6 +21347,7 @@
         "explanation": "법령에 규정이 있는 경우 가치형성요인을 달리 가정하는 조건부 감정평가 가능. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -19204,6 +21397,7 @@
         "explanation": "인근지역은 지역요인을 공유하는 지역이다. '개별요인을 공유'가 아닌 '지역요인을 공유'가 올바른 표현이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -19253,6 +21447,7 @@
         "explanation": "상업지역 10% 적용 오류."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -19302,6 +21497,7 @@
         "explanation": "표준지공시지가: 토지거래 지표, 국가·지자체 업무, 감정평가 기준. 옳다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -19351,6 +21547,7 @@
         "explanation": "재조달원가만 계산하고 감가수정 미반영."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -19400,6 +21597,7 @@
         "explanation": "ㅇ 광업재단 - 원가법 [X] → 실제: 수익환원법 ㅇ 항공기 - 거래사례비교법 [X] → 실제: 원가법 ㅇ 기업가치 - 수익환원법 [O] → 수익환원법이 주된 방법 ㅇ 임대료 - 수익환원법 [X] → 실제: 임대사례비교법 ㅇ 건물 - 원가법 [O] → 원가법이 주된 방법 ㅇ 과수원 - 수익환원법 [X] → 실제: 거래사례비교법 ㅇ 자동차 - 원가법 [X] → 실제: 거래사례비교법 옳은 것: 기업가치-수익환원법, 건물-원가법 = 2개"
       }
     ],
+    "comboChoices": [],
     "free": true
   }
 ]

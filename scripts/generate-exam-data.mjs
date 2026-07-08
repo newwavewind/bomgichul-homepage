@@ -77,6 +77,12 @@ for (const [subject, dir] of Object.entries(SUBJECT_EXAM_DIRS)) {
         answer: it.answer,
         explanation: it.explanation,
       })),
+      comboChoices: (q.combo_choices ?? []).map((c) => ({
+        no: c.no,
+        label: c.label,
+        text: c.text,
+        isCorrect: Boolean(c.is_correct),
+      })),
       free: freeYears.has(q.year),
     }))
     .sort((a, b) => a.year - b.year || a.questionNo - b.questionNo);

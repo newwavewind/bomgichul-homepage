@@ -155,12 +155,25 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
         <ExamAnswerList
           items={question.items}
           correctChoice={question.correctChoice}
+          questionType={question.questionType}
+          comboChoices={question.comboChoices}
           free={accessible}
           subject={subject}
           year={year}
           questionNo={questionNo}
           userId={user?.id ?? null}
           initialAttemptResult={attemptResult}
+          aiContext={{
+            subject,
+            subjectLabel: label,
+            unlocked: subjectUnlocked,
+            year: question.year,
+            round: question.round,
+            questionNo: question.questionNo,
+            category: question.category,
+            stem: question.stem,
+            correctChoice: question.correctChoice,
+          }}
         />
 
         <QuestionNoteEditor

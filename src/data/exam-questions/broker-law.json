@@ -39,6 +39,38 @@
         "explanation": "우연한 기회에 단 1회 임대차계약의 중개를 하고 보수를 받은 사실만으로는 중개를 업으로 한 것이라고 볼 수 없다는 것이 판례이다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      }
+    ],
     "free": false
   },
   {
@@ -88,6 +120,7 @@
         "explanation": "위원장이 부득이한 사유로 직무를 수행할 수 없을 때에는 위원장이 미리 지명한 위원이 그 직무를 대행한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -137,6 +170,7 @@
         "explanation": "공인중개사가 다른 사람에게 자기의 성명을 사용하여 중개업무를 하게 한 경우, 시·도지사는 그 자격을 취소해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -186,6 +220,7 @@
         "explanation": "대표자를 제외한 임원 또는 사원의 3분의 1 이상이 공인중개사이어야 하며, 2분의 1 이상이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -235,6 +270,7 @@
         "explanation": "등록관청은 중개사무소등록증을 교부한 경우, 그 등록에 관한 사항을 다음달 10일까지 공인중개사협회에 통보해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -275,6 +311,38 @@
         "text": "이중소속의 금지에 위반한 경우 1년 이하의 징역 또는 1천만원 이하의 벌금형에 처한다.",
         "answer": "O",
         "explanation": "이중소속의 금지에 위반한 경우 1년 이하의 징역 또는 1천만원 이하의 벌금형에 처한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -326,6 +394,7 @@
         "explanation": "유치권이 행사되고 있는 건물도 중개대상물이 될 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -375,6 +444,7 @@
         "explanation": "중개사무소를 등록관청의 관할 지역 외의 지역으로 이전한 경우에는 이전 후의 중개사무소를 관할하는 등록관청에 신고해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -424,6 +494,7 @@
         "explanation": "법인인 개업공인중개사의 인장등록은 상업등기규칙에 따른 인감증명서의 제출로 갈음한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -473,6 +544,7 @@
         "explanation": "중개보조원의 업무상 행위는 그를 고용한 개업공인중개사의 행위로 본다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -522,6 +594,7 @@
         "explanation": "개업공인중개사가 아닌 자는 중개대상물에 대한 표시·광고를 해서는 안된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -571,6 +644,7 @@
         "explanation": "중개사무소재개신고를 받은 등록관청은 반납을 받은 중개사무소등록증을 즉시 반환해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -611,6 +685,38 @@
         "text": "전속중개계약의 유효기간 내에 다른 개업공인중개사에게 해당 중개대상물의 중개를 의뢰하여 거래한 중개의뢰인은 전속중개계약을 체결한 개업공인중개사에게 위약금 지불의무를 진다.",
         "answer": "O",
         "explanation": "전속중개계약의 유효기간 내에 다른 개업공인중개사에게 해당 중개대상물의 중개를 의뢰하여 거래한 중개의뢰인은 전속중개계약을 체결한 개업공인중개사에게 위약금 지불의무를 진다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -662,6 +768,7 @@
         "explanation": "5개는 틀린 개수이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -711,6 +818,7 @@
         "explanation": "분사무소의 소속공인중개사가 중개행위를 한 경우 그 소속공인중개사와 분사무소의 책임자가 함께 거래계약서에 서명 및 날인해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -760,6 +868,7 @@
         "explanation": "ㄷ-ㄴ-ㄱ 순서는 ㄴ과 ㄷ의 순서가 바뀌어 있어 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -809,6 +918,7 @@
         "explanation": "개업공인중개사는 자기의 중개사무소를 다른 사람의 중개행위 장소로 제공함으로써 거래당사자에게 재산상 손해를 발생하게 한 때에는 그 손해를 배상할 책임이 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -858,6 +968,7 @@
         "explanation": "천막 그 밖에 이동이 용이한 임시 중개시설물을 설치한 경우도 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -907,6 +1018,7 @@
         "explanation": "부동산거래정보망의 운영규정을 위반하여 운영한 경우의 부과·징수권자는 국토교통부장관이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -956,6 +1068,7 @@
         "explanation": "고용관계 종료 신고 후 1년 이내에 고용신고를 다시 하려는 중개보조원은 직무교육을 다시 받지 않아도 된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -996,6 +1109,38 @@
         "text": "금융기관에서 임원 이상의 현직에 있는 사람은 공제사업 운영위원회 위원이 될 수 없다.",
         "answer": "X",
         "explanation": "금융기관에서 임원 이상의 현직에 있는 사람도 공제사업 운영위원회 위원이 될 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -1047,6 +1192,7 @@
         "explanation": "甲: 125만원, 乙: 125만원은 甲에게 E의 포상금을 잘못 포함한 계산으로 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1096,6 +1242,7 @@
         "explanation": "자격정지기간은 2분의 1의 범위 안에서 가중 또는 감경할 수 있으나, 가중하더라도 6개월을 초과할 수 없으므로 9개월로 할 수 있다는 것은 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1138,6 +1285,38 @@
         "explanation": "과태료처분만 3회 받은 경우는 업무정지처분 경력이 없으므로 필수적 등록취소사유에 해당하지 않는다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -1178,6 +1357,38 @@
         "text": "건축물의 매매를 업으로 하는 행위",
         "answer": "O",
         "explanation": "건축물의 매매를 업으로 하는 행위는 금지행위에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -1229,6 +1440,7 @@
         "explanation": "공인중개사가 자격정지처분을 받고 그 정지기간 중에 다른 개업공인중개사의 소속공인중개사가 된 경우 자격취소사유가 된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1278,6 +1490,7 @@
         "explanation": "5개는 틀린 개수이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1327,6 +1540,7 @@
         "explanation": "등록관청의 요구에도 거래대금 지급을 증명할 수 있는 자료를 제출하지 아니한 자에게는 정액의 과태료가 부과되며, 취득세의 3배 이하에 상당하는 금액이 부과되는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1376,6 +1590,7 @@
         "explanation": "225,000원은 계산 결과와 다르다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1425,6 +1640,7 @@
         "explanation": "도로와의 관계는 입지조건에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1474,6 +1690,7 @@
         "explanation": "임차인이 임대인의 동의 없이 건물의 전부를 전대한 경우 임대인은 임차인의 계약갱신요구를 거절할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1514,6 +1731,38 @@
         "text": "동일한 건물에 대하여 등기부상의 면적과 건축물대장의 면적이 다른 경우 건축물대장을 기준으로 한다.",
         "answer": "O",
         "explanation": "동일한 건물에 대하여 등기부상의 면적과 건축물대장의 면적이 다른 경우 건축물대장을 기준으로 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -1565,6 +1814,7 @@
         "explanation": "대항요건 구비일과 저당권설정등기일이 같은 날인 경우, 대항력은 다음날 0시부터 발생하므로 임차인이 저당권자에 우선하지 못할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1614,6 +1864,7 @@
         "explanation": "위임장과 매수신청대리인등록증 사본은 대리행위를 하는 사건마다 제출해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1663,6 +1914,7 @@
         "explanation": "소유권은 乙에게 있으므로, 甲이 丙에게 대금 상당의 부당이득반환청구권을 행사할 수 있는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1712,6 +1964,7 @@
         "explanation": "농지전용허가를 받아 농지를 소유하는 자가 취득한 날부터 2년 이내에 그 목적사업에 착수하지 않으면 해당 농지를 처분할 의무가 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1761,6 +2014,7 @@
         "explanation": "대한민국 안의 토지를 가지고 있는 대한민국 국민이 외국인으로 변경되고 그 외국인이 해당 토지를 계속보유하려는 경우, 변경된 날부터 6개월 이내에 계속보유 신고를 해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1810,6 +2064,7 @@
         "explanation": "2억 3천만원(2억 5천만원-2천만원)을 넘어야 차순위매수신고를 대리할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1859,6 +2114,7 @@
         "explanation": "설치기간이 끝난 분묘의 연고자는 설치기간이 끝난 날부터 1년 이내에 해당 분묘에 설치된 시설물을 철거하고 매장된 유골을 화장하거나 봉안해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1899,6 +2155,38 @@
         "text": "계약의 조건 또는 기한은 부동산 거래계약 내용에 계약조건이나 기한을 붙인 경우에만 적는다.",
         "answer": "O",
         "explanation": "계약의 조건 또는 기한은 부동산 거래계약 내용에 계약조건이나 기한을 붙인 경우에만 적는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -1950,6 +2238,7 @@
         "explanation": "개업공인중개사의 행위가 손해배상책임을 발생시킬 수 있는 \"중개행위\"에 해당하는지는 객관적으로 보아 사회통념상 거래의 알선·중개를 위한 행위라고 인정되는지에 따라 판단해야 한다는 것이 판례이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1990,6 +2279,38 @@
         "text": "공인중개사가 다른 사람에게 자기의 성명을 사용하여 중개업무를 하게 하는 행위",
         "answer": "O",
         "explanation": "공인중개사가 다른 사람에게 자기의 성명을 사용하여 중개업무를 하게 하는 행위도 자격증 대여에 준하는 금지행위에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -2041,6 +2362,7 @@
         "explanation": "분사무소 책임자의 공인중개사 자격증 발급 시·도는 분사무소 설치신고서의 기재사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2090,6 +2412,7 @@
         "explanation": "대표자는 공인중개사이어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2139,6 +2462,7 @@
         "explanation": "종별을 달리하여 업무를 하고자 등록신청서를 다시 제출하는 경우, 종전의 등록증은 반납해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2181,6 +2505,38 @@
         "explanation": "우선변제권에 관한 제5조는 환산보증금 초과 임대차에는 적용되지 않고, 확정일자를 받았다는 사정도 없으므로 乙에게 우선변제권이 인정되지 않는다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -2221,6 +2577,38 @@
         "text": "주택이 철거될 경우 일정한 요건 하에 이주자택지를 공급받을 대토권",
         "answer": "O",
         "explanation": "이주자택지를 공급받을 대토권은 특정 토지 자체가 아닌 추상적 권리에 불과하여 중개대상물에 포함되지 않는다는 것이 판례이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -2272,6 +2660,7 @@
         "explanation": "업무정지처분을 받고 폐업신고를 한 개업공인중개사는 그 업무정지기간이 경과되지 아니하면 결격사유에 해당하므로 등록할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2312,6 +2701,38 @@
         "text": "甲과 乙의 위 약정을 丙이 안 경우, 乙로부터 X토지를 매수하여 등기한 丁은 그 소유권을 취득하지 못한다.",
         "answer": "X",
         "explanation": "丙이 명의신탁약정을 안 경우에도, 명의수탁자 乙로부터 X토지를 매수하여 등기한 제3자 丁은 선의·악의를 불문하고 유효하게 소유권을 취득한다(명의신탁자는 제3자에게 대항하지 못함)."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -2363,6 +2784,7 @@
         "explanation": "차임 감액청구에는 증액청구와 달리 20분의 1의 제한이 적용되지 않으므로, 경제사정의 변동으로 차임이 과도하게 된 경우 乙은 그 금액을 초과하여 감액을 청구할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2412,6 +2834,7 @@
         "explanation": "외국인을 소속공인중개사로 고용 신고하는 경우, 자격증명서류를 별도로 첨부할 필요는 없다(등록관청이 자격 확인을 요청하는 방식으로 처리)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2461,6 +2884,7 @@
         "explanation": "중개의뢰인의 의뢰에 따른 주거이전에 부수되는 용역의 알선은 겸업 가능한 업무이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2510,6 +2934,7 @@
         "explanation": "개업공인중개사의 인장등록은 중개사무소 개설등록신청과 같이 할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2559,6 +2984,7 @@
         "explanation": "개업공인중개사는 이중으로 중개사무소의 개설등록을 하여 중개업을 할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2608,6 +3034,7 @@
         "explanation": "중개사무소를 등록관청의 관할지역 외의 지역으로 이전한 경우, 그 이전신고 전에 발생한 사유로 인한 개업공인중개사에 대한 행정처분은 이전 후 등록관청이 행한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2657,6 +3084,7 @@
         "explanation": "부동산거래정보망에 정보를 공개할 의무는 전속중개계약을 체결한 경우에 발생하며, 일반중개계약에는 그러한 의무가 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2697,6 +3125,38 @@
         "text": "신고하고 휴업한 중개업의 재개",
         "answer": "O",
         "explanation": "신고하고 휴업한 중개업의 재개도 미리 신고해야 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -2748,6 +3208,7 @@
         "explanation": "사무소의 명칭에 \"공인중개사사무소\" 또는 \"부동산중개\"라는 문자를 사용하지 않은 경우는 업무정지사유에 해당하며, 개설등록의 취소사유가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2797,6 +3258,7 @@
         "explanation": "전속중개계약 체결 후 乙이 공개해야 할 X부동산에 관한 정보에는 도로 및 대중교통수단과의 연계성이 포함된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2846,6 +3308,7 @@
         "explanation": "매각허가결정에 대하여 항고를 하고자 하는 사람은 보증으로 매각대금의 10분의 1에 해당하는 금전 또는 법원이 인정한 유가증권을 공탁해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2879,6 +3342,38 @@
         "text": "공인중개사를 고용하여 중개업무를 보조하게 하는 행위",
         "answer": "X",
         "explanation": "공인중개사를 고용하여 중개업무를 보조하게 하는 행위는 정상적인 소속공인중개사 고용에 해당하여 금지행위가 아니다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -2930,6 +3425,7 @@
         "explanation": "乙은 매수신청대리 사건카드에 중개행위에 사용하기 위해 등록한 인장을 사용하여 서명날인해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2979,6 +3475,7 @@
         "explanation": "부득이한 사정으로 당해 연도의 공인중개사자격시험을 시행하지 않을 것인지 여부에 관한 의결은 정책심의위원회의 소관사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3028,6 +3525,7 @@
         "explanation": "개업공인중개사가 아닌 자로서 중개업을 하기 위하여 중개대상물에 대한 표시·광고를 한 자는 무등록중개업에 준하여 1년 이하의 징역 또는 1천만원 이하의 벌금에 처하는 형사처벌 대상이지, 과태료 부과대상이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3068,6 +3566,38 @@
         "text": "거래당사자 쌍방을 대리하는 행위를 한 경우",
         "answer": "O",
         "explanation": "거래당사자 쌍방을 대리하는 행위(금지행위 위반)를 한 경우는 자격정지사유에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -3112,6 +3642,38 @@
         "explanation": "중개의뢰인과 직접 거래를 한 개업공인중개사(금지행위 위반)는 3년 이하의 징역 또는 3천만원 이하의 벌금에 해당하며, 1년/1천만원 대상이 아니다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -3152,6 +3714,38 @@
         "text": "토지의 이용의무를 이행하지 않아 이행명령을 받은 자가 그 명령을 이행하는 경우에는 새로운 이행강제금의 부과를 즉시 중지하고, 명령을 이행하기 전에 이미 부과된 이행강제금을 징수해서는 안된다.",
         "answer": "X",
         "explanation": "토지의 이용의무를 이행하지 않아 이행명령을 받은 자가 그 명령을 이행하는 경우 새로운 이행강제금의 부과는 즉시 중지하지만, 명령을 이행하기 전에 이미 부과된 이행강제금은 징수해야 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -3203,6 +3797,7 @@
         "explanation": "업무정지처분은 그 사유가 발생한 날부터 3년이 경과한 때에는 이를 할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3252,6 +3847,7 @@
         "explanation": "외국의 법령에 따라 설립된 법인이 자본금의 2분의 1 이상을 가지고 있는 법인은 \"외국인등\"에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3301,6 +3897,7 @@
         "explanation": "개업공인중개사는 업무를 개시하기 전에 손해배상책임을 보장하기 위하여 대통령령이 정하는 바에 따라 보증보험 또는 공제에 가입하거나 공탁을 해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3350,6 +3947,7 @@
         "explanation": "국토교통부장관은 개업공인중개사가 작성하는 거래계약서의 표준이 되는 서식을 정하여 그 사용을 권장할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3390,6 +3988,38 @@
         "text": "중개업무를 수행하는 소속공인중개사가 성실·정확하게 중개대상물의 확인·설명을 하지 않은 것은 소속공인중개사의 자격정지사유에 해당한다.",
         "answer": "O",
         "explanation": "중개업무를 수행하는 소속공인중개사가 성실·정확하게 중개대상물의 확인·설명을 하지 않은 것은 소속공인중개사의 자격정지사유에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -3441,6 +4071,7 @@
         "explanation": "국토교통부장관, 시·도지사 및 등록관청은 필요하다고 인정하면 개업공인중개사등의 부동산거래사고 예방을 위한 교육을 실시할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3490,6 +4121,7 @@
         "explanation": "아파트를 제외한 주택의 경우, 단독경보형감지기 설치여부는 개업공인중개사 세부 확인사항에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3539,6 +4171,7 @@
         "explanation": "주택인 중개대상물 소재지와 중개사무소 소재지가 다른 경우, 개업공인중개사는 \"중개사무소 소재지\"를 관할하는 시·도의 조례에서 정한 기준에 따라 중개보수를 받아야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3588,6 +4221,7 @@
         "explanation": "중개대상물인 건축물 중 주택의 면적이 2분의 1미만인 경우, 주택 외의 중개대상물에 대한 중개보수 규정을 적용한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3637,6 +4271,7 @@
         "explanation": "중개의뢰인이 중간생략등기의 방법으로 전매하여 세금을 포탈하려는 것을 개업공인중개사가 알고도 투기목적의 전매를 중개한 행위는 전매차익 발생 여부와 관계없이 금지행위에 해당한다는 것이 판례이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3677,6 +4312,38 @@
         "text": "「도시 및 주거환경정비법」에 따른 관리처분계획의 인가로 취득한 입주자로 선정된 지위의 매매계약",
         "answer": "O",
         "explanation": "「도시 및 주거환경정비법」에 따른 관리처분계획의 인가로 취득한 입주자로 선정된 지위의 매매계약(입주권 전매)은 거래신고 대상이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -3728,6 +4395,7 @@
         "explanation": "계약대상 면적에는 실제 거래면적을 계산하여 적되, 건축물 면적은 집합건축물의 경우 전용면적을 적고, 그 밖의 건축물의 경우 연면적을 적는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3777,6 +4445,7 @@
         "explanation": "신고관청은 거래대금 지급을 증명할 수 있는 자료를 제출하지 아니한 사실을 자진 신고한 자에 대하여 과태료를 감경 또는 면제할 수 있는 제도가 규정되어 있지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3826,6 +4495,7 @@
         "explanation": "중개라 함은 중개대상물에 대하여 거래당사자간의 매매·교환·임대차 그 밖의 권리의 득실변경에 관한 행위를 알선하는 것을 말한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3866,6 +4536,38 @@
         "text": "토지거래 허가구역내의 토지",
         "answer": "O",
         "explanation": "토지거래 허가구역내의 토지도 중개대상물성이 부정되지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -3917,6 +4619,7 @@
         "explanation": "등록관청은 개설등록을 하고 등록신청을 받은 날부터 7일 이내에 등록신청인에게 서면으로 통지해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3957,6 +4660,38 @@
         "text": "공인중개사자격증을 대여하여 그 자격이 취소된 후 3년이 경과되지 아니한 자",
         "answer": "O",
         "explanation": "공인중개사자격증을 대여하여 그 자격이 취소된 후 3년이 경과되지 아니한 자는 결격사유에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -4008,6 +4743,7 @@
         "explanation": "매매계약에 조건이나 기한이 있는 경우 그 조건 또는 기한도 신고해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4057,6 +4793,7 @@
         "explanation": "계약대상 면적에는 실제 거래면적을 계산하여 적되, 건축물 면적은 집합건축물의 경우 전용면적을 적는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4097,6 +4834,38 @@
         "text": "불건전한 자산에 대한 적립금의 보유",
         "answer": "O",
         "explanation": "불건전한 자산에 대한 적립금의 보유는 국토교통부장관이 명할 수 있는 조치이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -4148,6 +4917,7 @@
         "explanation": "토지취득자금조달계획서는 별지 제출사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4197,6 +4967,7 @@
         "explanation": "국제연합의 산하기구가 허가 없이 생태·경관보전지역의 토지를 취득하는 계약을 체결한 경우 그 효력은 발생하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4246,6 +5017,7 @@
         "explanation": "차임이 경제사정의 침체로 상당하지 않게 된 경우 당사자는 장래의 차임 감액을 청구할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4293,6 +5065,38 @@
         "text": "국세징수법에 의한 공매대상 부동산에 대한 입찰신청의 대리",
         "answer": "O",
         "explanation": "국세징수법에 의한 공매대상 부동산에 대한 입찰신청의 대리는 겸업범위에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -4344,6 +5148,7 @@
         "explanation": "법인의 분사무소에서 사용하는 인장도 분사무소 소재지가 아니라 주된 사무소의 등록관청에 등록해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4393,6 +5198,7 @@
         "explanation": "업무정지처분을 한 때는 통보사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4442,6 +5248,7 @@
         "explanation": "자격증을 교부한 시·도지사와 중개사무소의 소재지를 관할하는 시·도지사가 서로 다른 경우에는, 처분을 행하는 시·도지사(중개사무소 소재지 관할)가 그 사실을 자격증을 교부한 시·도지사에게 통보해야 하며, 자격증 교부 시·도지사가 절차를 이행하는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4491,6 +5298,7 @@
         "explanation": "분묘기지권은 권리자가 의무자에 대하여 그 권리를 포기하는 의사표시를 하는 외에 점유까지도 포기해야만 소멸하는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4540,6 +5348,7 @@
         "explanation": "분사무소 이전신고를 받은 등록관청은 이전 전 및 이전 후의 분사무소 소재지 관할 시장·군수 또는 구청장에게 이를 지체 없이 통보해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4589,6 +5398,7 @@
         "explanation": "법인인 개업공인중개사가 표시·광고를 하는 경우 대표자의 성명을 명시하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4636,6 +5446,38 @@
         "text": "휴업기간 변경신고서에는 중개사무소등록증을 첨부해야 한다.",
         "answer": "X",
         "explanation": "휴업기간 변경신고서에는 중개사무소등록증을 첨부할 필요가 없다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ, ㅁ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -4687,6 +5529,7 @@
         "explanation": "주택의 등기를 하지 아니한 전세계약에 관하여는 주택임대차보호법을 준용한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4736,6 +5579,7 @@
         "explanation": "丙은 甲에게 손해배상을 청구할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4785,6 +5629,7 @@
         "explanation": "甲은 매수신청대리권의 범위에 해당하는 대리행위를 할 때 매각장소 또는 집행법원에 직접 출석해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4834,6 +5679,7 @@
         "explanation": "甲은 상가건물의 임차권 양도계약을 중개할 경우 양수의뢰인이 상가건물 임대차보호법에서 정한 대항력, 우선변제권 등의 보호를 받을 수 있는지를 확인·설명할 의무가 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4883,6 +5729,7 @@
         "explanation": "중개대상물인 주택 소재지와 중개사무소 소재지가 다른 경우, 주택 소재지가 아니라 중개사무소 소재지를 관할하는 시·도 조례에서 정한 기준에 따라 중개보수를 받아야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4923,6 +5770,38 @@
         "text": "\"환경조건(일조량·소음·진동)\"은 세부 확인사항이다.",
         "answer": "X",
         "explanation": "\"환경조건(일조량·소음·진동)\"도 주거용 서식의 항목이며 비주거용 건축물 서식에는 없는 항목이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -4974,6 +5853,7 @@
         "explanation": "오피스텔의 임대차에 대한 중개보수의 상한요율은 거래금액의 1천분의 5가 아니라 1천분의 4이다(1천분의 5는 매매·교환의 상한요율이다)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5014,6 +5894,38 @@
         "text": "연수교육을 정당한 사유 없이 받지 않으면 500만원 이하의 과태료를 부과한다.",
         "answer": "O",
         "explanation": "연수교육을 정당한 사유 없이 받지 않으면 500만원 이하의 과태료를 부과한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -5065,6 +5977,7 @@
         "explanation": "중개의뢰인은 일반중개계약을 체결할 때 일반중개계약서의 작성을 요청할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5114,6 +6027,7 @@
         "explanation": "손해배상책임의 보장을 위한 공탁금은 개업공인중개사가 폐업 또는 사망한 날부터 3년 이내에는 회수할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5154,6 +6068,38 @@
         "text": "매각부동산의 후순위저당권자가 경매신청을 하여 매각되어도 선순위저당권은 매각으로 소멸되지 않는다.",
         "answer": "X",
         "explanation": "매각부동산의 후순위저당권자가 경매신청을 하여 매각되면 선순위저당권도 매각으로 소멸한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -5205,6 +6151,7 @@
         "explanation": "탈세 등 관계 법령을 위반할 목적으로 미등기 부동산의 매매를 중개하여 부동산투기를 조장하는 행위는 금지행위에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5254,6 +6201,7 @@
         "explanation": "공동중개의 경우 참여한 개업공인중개사가 모두 서명 및 날인해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5303,6 +6251,7 @@
         "explanation": "甲이 법정한도를 초과하는 금액을 중개의뢰인에게 반환하였더라도, 초과 수령 자체로 이미 금지행위가 성립하므로 금지행위에 해당하지 않는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5352,6 +6301,7 @@
         "explanation": "2이상의 중개사무소에 소속공인중개사로 소속된 경우는 자격정지사유이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5401,6 +6351,7 @@
         "explanation": "ㄱ, ㄴ, ㄷ, ㅁ 모두 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5450,6 +6401,7 @@
         "explanation": "다른 사람에게 자기의 상호를 사용하여 중개업무를 하게 한 개업공인중개사는 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5490,6 +6442,38 @@
         "text": "중개대상물 확인·설명서를 교부하지 않은 경우",
         "answer": "X",
         "explanation": "중개대상물 확인·설명서를 교부하지 않은 경우는 개업공인중개사의 의무 위반이며, 소속공인중개사의 자격정지 사유 목록에는 해당하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -5541,6 +6525,7 @@
         "explanation": "재등록 개업공인중개사에 대하여 행정처분을 할 때에는 폐업기간과 폐업사유 등을 고려하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5590,6 +6575,7 @@
         "explanation": "다른 사람에게 자기의 성명을 사용하여 중개업무를 하게 한 경우는 절대적 취소사유이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5639,6 +6625,7 @@
         "explanation": "성실·정확하게 중개대상물의 확인·설명을 하지 아니한 자에 대한 부과기관은 등록관청이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5688,6 +6675,7 @@
         "explanation": "주말·체험영농을 목적으로 농지를 소유하려면 세대원 전부가 소유하는 총 면적이 1천제곱미터 미만이어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5737,6 +6725,7 @@
         "explanation": "거래당사자간 지역권의 설정과 취득을 알선하는 행위도 중개대상권리에 관한 알선이므로 중개에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5786,6 +6775,7 @@
         "explanation": "자격정지기간 중에 있는 자는 결격사유에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5835,6 +6825,7 @@
         "explanation": "시험시행기관장은 시험시행에 관한 개략적인 사항을 전년도 12월 31일까지가 아니라 매년 2월 말일까지 공고해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5875,6 +6866,38 @@
         "text": "점유",
         "answer": "X",
         "explanation": "점유는 사실상의 지배상태에 불과하여 물건 또는 재산권이 아니므로 중개대상물이 아니다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -5926,6 +6949,7 @@
         "explanation": "법인인 개업공인중개사는 등록관청에 신고하고 그 관할구역 외의 지역에 분사무소를 둘 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5975,6 +6999,7 @@
         "explanation": "협회는 부동산 정보제공에 관한 업무를 직접 수행할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6024,6 +7049,7 @@
         "explanation": "개업공인중개사가 등록한 인장을 변경한 경우, 변경일부터 7일 이내에 그 변경된 인장을 등록관청에 등록하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6073,6 +7099,7 @@
         "explanation": "심의위원회의 회의는 재적위원 과반수의 출석으로 개의하고, 출석위원 과반수의 찬성으로 의결한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6113,6 +7140,38 @@
         "text": "중개의뢰인의 의뢰에 따른 도배·이사업체의 소개 등 주거이전에 부수되는 용역의 알선",
         "answer": "O",
         "explanation": "중개의뢰인의 의뢰에 따른 도배·이사업체의 소개 등 주거이전에 부수되는 용역의 알선은 겸업범위에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -6164,6 +7223,7 @@
         "explanation": "중개보조원의 고용신고는 전자문서에 의해서도 할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6204,6 +7264,38 @@
         "text": "개업공인중개사의 성명",
         "answer": "O",
         "explanation": "개업공인중개사의 성명은 명시해야 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -6255,6 +7347,7 @@
         "explanation": "개업공인중개사는 중개대상물확인·설명서를 작성하여 거래당사자에게 교부하고 그 원본을 5년이 아니라 3년간 보존하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6304,6 +7397,7 @@
         "explanation": "거래정보사업자는 개업공인중개사로부터 공개를 의뢰받은 중개대상물의 정보를 개업공인중개사에 따라 차별적으로 공개할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6353,6 +7447,7 @@
         "explanation": "중개보조원이 중개의뢰인과 직접 거래를 하는 것도 금지된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6402,6 +7497,7 @@
         "explanation": "질병으로 인한 요양, 징집으로 인한 입영, 취학, 임신 또는 출산 등 부득이한 사유가 있는 경우 6월을 초과하여 휴업을 할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6451,6 +7547,7 @@
         "explanation": "개업공인중개사는 계약금등을 자기 명의로 금융기관 등에 예치하는 경우 자기 소유의 예치금과 분리하여 관리될 수 있도록 하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6491,6 +7588,38 @@
         "text": "X부동산에 대한 일조(日照)·소음·진동 등 환경조건",
         "answer": "O",
         "explanation": "X부동산에 대한 일조·소음·진동 등 환경조건은 공개해야 하는 정보이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -6535,6 +7664,38 @@
         "explanation": "분사무소설치의 신고는 조례로 정하는 수수료 납부 대상이다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -6575,6 +7736,38 @@
         "text": "거래규제 및 공법상 제한사항",
         "answer": "X",
         "explanation": "거래규제 및 공법상 제한사항은 개업공인중개사가 확인·설명할 사항이지 의뢰인이 기재하는 계약서 항목이 아니다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -6626,6 +7819,7 @@
         "explanation": "공인중개사법령을 위반하여 2 이상의 중개사무소를 둔 경우는 임의적(재량) 등록취소사유이지 절대적 취소사유가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6675,6 +7869,7 @@
         "explanation": "ㄱ,ㄴ,ㄷ 모두 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6724,6 +7919,7 @@
         "explanation": "확인·설명서에 서명 및 날인을 하지 않은 경우는 자격정지사유이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6773,6 +7969,7 @@
         "explanation": "공인중개사협회는 회계연도 종료 후 6개월이 아니라 3개월 이내에 매년도의 공제사업 운용실적을 공시하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6822,6 +8019,7 @@
         "explanation": "자격증을 분실 등의 사유로 반납할 수 없는 자는 신규발급절차를 거칠 필요 없이 그 사유를 기재한 사유서를 시·도지사에게 제출하면 된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6871,6 +8069,7 @@
         "explanation": "하나의 사건에 대하여 2건 이상의 신고가 접수된 경우, 공동신고가 아니라면 최초로 신고한 자에게 포상금을 지급하고 균등배분하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6920,6 +8119,7 @@
         "explanation": "휴업기간의 변경 신고를 하지 않은 경우의 과태료는 ①보다 작다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6969,6 +8169,7 @@
         "explanation": "외국인등이 법원의 확정판결 등 계약외의 원인으로 부동산등을 취득한 때에는 취득일부터 6개월 이내에 신고하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7025,6 +8226,38 @@
         "explanation": "한국관광공사법에 따른 한국관광공사는 매수할 자로 지정될 수 있다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ, ㅂ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄹ, ㅁ, ㅂ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -7074,6 +8307,7 @@
         "explanation": "신고관청 또는 허가관청으로부터 포상금 지급 결정을 통보받은 신고인은 포상금을 받으려면 국토교통부령으로 정하는 포상금 지급신청서를 작성하여 신고관청 또는 허가관청에 제출하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7123,6 +8357,7 @@
         "explanation": "이행강제금 부과처분에 대한 이의제기는 부과처분을 고지받은 날부터 14일이 아니라 30일 이내에 하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7163,6 +8398,38 @@
         "text": "대지소유자가 Y건물만을 매도하여 관습상의 법정지상권이 인정되면 Y건물 매수인은 대지소유자에게 지료를 지급할 의무가 없다.",
         "answer": "X",
         "explanation": "대지소유자가 Y건물만을 매도하여 관습상의 법정지상권이 인정되더라도, Y건물 매수인은 대지소유자에게 지료를 지급할 의무가 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -7214,6 +8481,7 @@
         "explanation": "거래당사자의 전화번호는 정정신청사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7263,6 +8531,7 @@
         "explanation": "甲이 차순위매수신고인인 경우 매각대금이 지급된 후에 매수신청의 보증을 반환받을 수 있으며, 매각기일 종결시 즉시 반환되는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7312,6 +8581,7 @@
         "explanation": "乙이 임대차의 등기 및 사업자등록(대항요건)을 마치지 못한 상태에서 甲이 상가건물을 丙에게 매도한 경우, 乙은 대항력이 없어 丙의 상가건물 인도청구에 대항할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7361,6 +8631,7 @@
         "explanation": "분묘기지권의 효력이 미치는 지역의 범위 내라고 할지라도 기존의 분묘 외에 새로운 분묘를 신설할 권능은 포함되지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7401,6 +8672,38 @@
         "text": "丙이 소유권을 취득하고 甲은 丙에게 대금 상당의 부당이득반환청구권을 행사할 수 있다.",
         "answer": "X",
         "explanation": "丙 명의의 등기는 무효이므로 丙은 원칙적으로 소유권을 취득하지 못하며, 甲의 부당이득반환청구권 행사 문제는 발생하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -7452,6 +8755,7 @@
         "explanation": "임차인 스스로 집행권원을 얻어 강제경매를 신청한 경우에는 그 자체로 배당요구의 효력이 있어 별도의 배당요구가 필요하지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7501,6 +8805,7 @@
         "explanation": "확인·설명사항이 공인전자문서센터에 보관된 경우에는 개업공인중개사가 별도로 서면으로 작성하여 보존할 의무가 면제된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7550,6 +8855,7 @@
         "explanation": "도시 및 주거환경정비법에 따른 관리처분계획의 인가로 취득한 입주자로 선정된 지위의 매매계약은 신고대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7599,6 +8905,7 @@
         "explanation": "매매대상 토지 중 공장부지로 편입되지 아니할 부분의 토지를 매도인에게 원가로 반환한다는 조건을 당사자가 약정한 경우, 그러한 사항도 신고사항에 포함된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7648,6 +8955,7 @@
         "explanation": "토지이용계획은 주거용 건축물 매매계약의 중개 의뢰를 받은 개업공인중개사가 확인·설명해야 할 사항에 포함된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7697,6 +9005,7 @@
         "explanation": "개설등록을 하려면 소유권에 의하지 않더라도 사용권(전세, 임대차 등)을 확보하면 된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7739,6 +9048,38 @@
         "explanation": "개업공인중개사인 법인의 해산으로 중개사무소 개설등록이 취소된 경우, 그 법인의 대표이었던 자는 결격사유 대상이 아니다(등록취소 사유가 위반행위로 인한 것이 아니므로)."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -7779,6 +9120,38 @@
         "text": "토지의 정착물인 미등기 건축물",
         "answer": "X",
         "explanation": "토지의 정착물인 미등기 건축물도 중개대상물에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -7830,6 +9203,7 @@
         "explanation": "공인중개사가 아닌 자는 공인중개사 또는 이와 유사한 명칭을 사용하지 못한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7877,6 +9251,38 @@
         "text": "법인인 개업공인중개사를 대상으로 한 중개업의 경영기법 제공",
         "answer": "O",
         "explanation": "법인인 개업공인중개사를 대상으로 한 중개업의 경영기법 제공은 겸업범위에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -7928,6 +9334,7 @@
         "explanation": "분사무소의 책임자인 공인중개사는 등록관청이 아니라 시·도지사가 실시하는 실무교육을 받아야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7977,6 +9384,7 @@
         "explanation": "3개월을 초과하는 중개사무소 휴업신고시에는 중개사무소등록증이 첨부되어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8026,6 +9434,7 @@
         "explanation": "법인의 소속공인중개사가 등록하지 아니한 인장을 사용한 경우, 6개월의 범위 안에서 자격정지처분을 받을 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8075,6 +9484,7 @@
         "explanation": "개업공인중개사가 의뢰받은 중개대상물에 대하여 표시·광고를 하려는 경우, 중개사무소의 명칭을 명시하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8124,6 +9534,7 @@
         "explanation": "인터넷 표시·광고 모니터링 업무 수탁 기관은 기본계획서에 따라 6개월마다가 아니라 분기별로 기본 모니터링 업무를 수행한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8173,6 +9584,7 @@
         "explanation": "분사무소의 경우 분사무소설치신고필증 원본을 게시하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8222,6 +9634,7 @@
         "explanation": "등록관청은 분사무소의 이전신고를 받은 때에는 지체 없이 그 분사무소의 이전 전 및 이전 후의 소재지를 관할하는 시장·군수 또는 구청장에게 이를 통보하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8271,6 +9684,7 @@
         "explanation": "중개업의 폐업신고는 수수료 납부사항이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8320,6 +9734,7 @@
         "explanation": "개업공인중개사가 하나의 거래계약에 대하여 서로 다른 둘 이상의 거래계약서를 작성한 경우, 등록관청은 개설등록을 취소할 수 있을 뿐(임의적 등록취소 사유) 반드시 취소하여야 하는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8369,6 +9784,7 @@
         "explanation": "甲이 공제금으로 손해배상을 한 때에는 30일이 아니라 15일 이내에 공제에 다시 가입하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8418,6 +9834,7 @@
         "explanation": "甲은 거래당사자에게 손해배상책임의 보장에 관한 사항을 설명하고 관계 증서의 사본을 교부하거나 관계 증서에 관한 전자문서를 제공하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8467,6 +9884,7 @@
         "explanation": "중개보수의 지급시기는 甲과 乙의 약정이 없을 때에는 중개대상물의 거래대금 지급이 완료된 날이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8516,6 +9934,7 @@
         "explanation": "단체를 구성하여 단체 구성원 이외의 자와 공동중개를 제한하는 행위는 금지행위에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8563,6 +9982,38 @@
         "text": "부동산거래정보망의 이용 및 정보제공방법 등에 관한 운영규정을 위반하여 부동산거래정보망을 운영한 경우",
         "answer": "O",
         "explanation": "운영규정을 위반하여 부동산거래정보망을 운영한 경우는 지정취소 사유이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -8614,6 +10065,7 @@
         "explanation": "소속공인중개사도 실무교육을 받은 자를 대상으로 2년마다 연수교육을 받아야 하나, 이를 실시하는 자는 국토교통부장관이 아니라 시·도지사이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8661,6 +10113,38 @@
         "text": "중개사무소 개설등록이 취소된 자로 중개사무소등록증을 반납하지 아니한 자 - 시·도지사",
         "answer": "X",
         "explanation": "중개사무소 개설등록이 취소된 자로 중개사무소등록증을 반납하지 아니한 자에 대한 과태료 부과기관은 시·도지사가 아니라 등록관청이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -8712,6 +10196,7 @@
         "explanation": "ㄱ:개업공인중개사, ㄴ:3, ㄷ:30, ㄹ:1의 조합은 옳지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8752,6 +10237,38 @@
         "text": "중개대상물의 매매를 업으로 하는 경우 - 정지사유",
         "answer": "O",
         "explanation": "중개대상물의 매매를 업으로 하는 경우는 자격정지 사유이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -8803,6 +10320,38 @@
         "explanation": "중개대상물이 존재하지 않아서 거래할 수 없는 중개대상물을 광고한 개업공인중개사는 업무정지 사유에 해당할 뿐 벌금부과대상으로 규정되어 있지 않다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -8852,6 +10401,7 @@
         "explanation": "최초의 이행명령이 있었던 날을 기준으로 1년에 한 번씩 그 이행명령이 이행될 때까지 반복하여 이행강제금을 부과·징수할 수 있다(두 번씩이 아니다)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8892,6 +10442,38 @@
         "text": "외국인이 「수도법」에 따른 상수원보호구역에 있는 토지를 취득하려는 경우 토지취득계약을 체결하기 전에 신고관청으로부터 토지취득의 허가를 받아야 한다.",
         "answer": "X",
         "explanation": "외국인이 「수도법」에 따른 상수원보호구역에 있는 토지를 취득하려는 경우, 이는 허가대상 구역이 아니라 신고대상에 해당하는 경우이므로 계약체결 전 허가를 받아야 한다는 서술은 옳지 않다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -8943,6 +10525,7 @@
         "explanation": "도시지역 중 주거지역의 경우 600제곱미터가 아니라 180제곱미터 이하의 토지에 대해서 토지거래계약허가가 면제된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8992,6 +10575,7 @@
         "explanation": "甲이 2018.2.5. 등록취소처분에 해당하는 행위를 하였으나 2018.3.6. 폐업신고를 하였다가 2020.10.16.(폐업기간 약 2년 7개월) 다시 개설등록을 한 경우, 폐업기간이 3년을 넘지 않으므로 등록관청은 종전의 위반행위에 대한 등록취소처분을 할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9025,6 +10609,38 @@
         "text": "甲은 乙의 업무개시 후 10일 이내에 등록관청에 고용신고를 하여야 한다.",
         "answer": "X",
         "explanation": "甲은 乙의 업무개시 전까지 등록관청에 고용신고를 하여야 한다(업무개시 후 10일 이내가 아니다)."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -9076,6 +10692,7 @@
         "explanation": "A와 甲의 명의신탁 약정을 丙이 알지 못한 경우(계약명의신탁, 매도인 선의), 甲은 X토지의 소유권을 취득한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9125,6 +10742,7 @@
         "explanation": "乙의 계약갱신요구권에 의하여 갱신되는 임대차는 전 임대차와 동일한 조건으로 다시 계약된 것으로 본다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9174,6 +10792,7 @@
         "explanation": "임차권등기명령의 집행에 따라 임차권등기가 끝난 X주택을 그 이후 임차한 임차인 丁은 이미 임차권등기가 있어 소액보증금에 관한 최우선변제를 받을 권리가 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9223,6 +10842,7 @@
         "explanation": "개업공인중개사가 중개보수를 과다 수령한 경우 차액 환급은 양 서식에 공통으로 기재된 사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9272,6 +10892,7 @@
         "explanation": "개업공인중개사가 거짓으로 부동산거래계약 신고서를 작성하여 신고한 경우에는 벌금형이 아니라 과태료 부과사유가 된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9321,6 +10942,7 @@
         "explanation": "후순위 저당권자가 경매신청을 하였더라도 매각부동산 위의 모든 저당권은 매각으로 소멸된다(소멸주의)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9370,6 +10992,7 @@
         "explanation": "甲이 매수신청대리 업무의 정지처분을 받을 수 있는 기간은 1월 이상 6월 이하가 아니라 1개월 이상 2년 이하이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9419,6 +11042,38 @@
         "explanation": "실제 권리관계 또는 공시되지 않은 물건의 권리사항은 4종 서식에 공통으로 기재된다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -9459,6 +11114,38 @@
         "text": "주택의 중개에 대한 보수 규정을 적용한다.",
         "answer": "X",
         "explanation": "건축물 중 주택의 면적이 3분의 1에 불과하여 주택 외의 건축물로 보므로, 주택의 중개에 대한 보수 규정이 아니라 주택 외 중개대상물의 보수 규정을 적용한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -9510,6 +11197,7 @@
         "explanation": "부동산 거래계약을 신고하려는 개업공인중개사는 부동산거래계약 신고서에 서명 또는 날인하여 관할 등록관청이 아니라 신고관청에 제출하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9559,6 +11247,7 @@
         "explanation": "택지개발지구 내 이주자택지를 공급받을 수 있는 지위(이른바 대토권)는 특정 토지나 건물이 아니어서 중개대상물에 해당하지 않는다는 것이 판례이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9601,6 +11290,38 @@
         "explanation": "위원장이 부득이한 사유로 직무를 수행할 수 없을 때에는 위원장이 미리 지명한 위원이 그 직무를 대행하며, 호선된 자가 대행하는 것이 아니다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -9634,6 +11355,38 @@
         "text": "乙은 甲을 대위하여 丙 명의의 소유권이전등기의 말소를 청구할 수 있다.",
         "answer": "O",
         "explanation": "乙은 甲에 대한 매매계약상의 소유권이전등기청구권을 보전하기 위하여 甲을 대위하여 丙 명의의 소유권이전등기의 말소를 청구할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -9685,6 +11438,7 @@
         "explanation": "자기 소유 토지에 분묘를 설치한 후 이장 특약 없이 토지를 양도하여 분묘기지권을 취득한 경우, 대법원 전원합의체 판례(2017다228007)에 따라 특별한 사정이 없는 한 분묘기지권자는 토지소유자에게 분묘기지에 대한 지료를 지급할 의무가 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9734,6 +11488,7 @@
         "explanation": "국토교통부장관은 전문인력과 전담조직을 갖췄다고 인정하는 단체에게 모니터링 업무를 위탁할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9783,6 +11538,7 @@
         "explanation": "일부의 구분소유자만이 공용하도록 제공되는 것임이 명백한 공용부분(일부공용부분)은 그들 구분소유자의 공유에 속한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9832,6 +11588,7 @@
         "explanation": "중개보조원의 고용신고를 받은 등록관청은 그 사실을 공인중개사협회에 통보해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9881,6 +11638,7 @@
         "explanation": "공인중개사인 개업공인중개사가 옥외광고물을 설치하는 경우 중개사무소등록증에 표기된 성명을 표기해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9914,6 +11672,38 @@
         "text": "자본금이 5천만원 이상인 「협동조합 기본법」상 사회적협동조합은 중개사무소의 등록을 할 수 있다.",
         "answer": "X",
         "explanation": "사회적협동조합은 비영리법인이므로 중개사무소 개설등록기준(영리를 목적으로 하는 상법상 회사 등)을 충족하지 못해 등록을 할 수 없다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -9965,6 +11755,7 @@
         "explanation": "중개의뢰인의 의뢰에 따른 이사업체의 소개는 겸업범위에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10005,6 +11796,38 @@
         "text": "취득시 부담해야 할 조세의 종류와 세율",
         "answer": "X",
         "explanation": "취득시 부담해야 할 조세의 종류와 세율은 확인·설명사항과 정보공개사항 어디에도 규정되어 있지 않다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -10056,6 +11879,7 @@
         "explanation": "甲은 기일입찰 방법에 의한 매각기일에 매수신청대리행위를 할 때 집행법원이 정한 매각장소 또는 집행법원에 직접 출석해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10096,6 +11920,38 @@
         "text": "거래계약서",
         "answer": "O",
         "explanation": "거래계약서는 공인전자문서센터에 보관된 경우 보존의무가 면제되는 서류에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -10147,6 +12003,7 @@
         "explanation": "「전기통신사업법」에 따른 부가통신사업자번호는 거래정보사업자지정대장의 기재사항이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10196,6 +12053,7 @@
         "explanation": "지역농업협동조합이 부동산중개업을 하는 경우 손해배상책임보증의 최저보장금액(1천만원 이상)은 개업공인중개사의 최저보장금액(2억원 이상 등)과 다르다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10236,6 +12094,38 @@
         "text": "건축물대장에 기재되지 않은 건물로 이전신고를 하는 경우, 건축물대장 기재가 지연되는 사유를 적은 서류도 제출해야 한다.",
         "answer": "O",
         "explanation": "건축물대장에 기재되지 않은 건물로 이전신고를 하는 경우, 건축물대장 기재가 지연되는 사유를 적은 서류도 제출해야 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -10287,6 +12177,7 @@
         "explanation": "재개신고를 받은 등록관청은 반납받은 중개사무소등록증을 즉시 반환해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10327,6 +12218,38 @@
         "text": "등록관청에 6개월을 초과하는 휴업신고를 한 경우",
         "answer": "X",
         "explanation": "6개월을 초과하는 휴업신고를 한 경우는 간판 철거 의무 사유에 해당하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -10378,6 +12301,7 @@
         "explanation": "국토교통부장관이 정한 거래계약서 표준서식은 의무사용 서식이 아니므로, 이를 사용하지 않았다는 이유로 과태료부과처분을 받지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10427,6 +12351,7 @@
         "explanation": "신고 의무자가 아닌 자가 거짓으로 부동산거래신고를 한 경우의 과태료도 취득가액 비율 형식으로 규정된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10460,6 +12385,38 @@
         "text": "丙이 2018. 8. 5. 다른 사람에게 자기의 상호를 사용하여 중개업무를 하게 한 후, 2018. 9. 5. 폐업신고를 하였다가 2021. 10. 5. 다시 중개사무소의 개설등록을 하였다면, 등록관청은 개설등록을 취소해야 한다.",
         "answer": "X",
         "explanation": "丙이 등록취소 사유(상호 명의대여) 행위 후 폐업신고를 하였다가 3년이 지난 후(2018.9.5.~2021.10.5.)에 다시 등록하였으므로, 폐업기간이 3년을 초과하여 등록취소 사유의 효과가 승계되지 않아 등록관청은 개설등록을 취소할 수 없다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -10511,6 +12468,7 @@
         "explanation": "계약갱신요구권 행사로 갱신된 경우에도 임차인은 언제든지 임대인에게 계약해지를 통지할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10544,6 +12502,38 @@
         "text": "「공인중개사법」에 따라 공인중개사 자격정지처분을 받고 그 자격정지기간 중에 중개업무를 행한 경우",
         "answer": "O",
         "explanation": "자격정지처분을 받고 그 자격정지기간 중에 중개업무를 행한 경우는 자격취소 사유이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -10595,6 +12585,7 @@
         "explanation": "ㄱ:2, ㄴ:3, ㄷ:3, ㄹ:3의 조합은 옳은 숫자 조합이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10635,6 +12626,38 @@
         "text": "개업공인중개사가 개설등록 후 금고 이상의 형의 집행유예를 받고 그 유예기간 중에 있게 된 경우",
         "answer": "O",
         "explanation": "개업공인중개사가 개설등록 후 금고 이상의 형의 집행유예를 받고 그 유예기간 중에 있게 된 경우는 등록취소 사유이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -10686,6 +12709,7 @@
         "explanation": "개업공인중개사가 보증보험금 등으로 손해배상을 한 때에는 그 보증보험 또는 공제금액을 다시 보전해야 하며, 다른 공제에 가입할 수 있는 것이 아니라 동일한 보증을 새로 설정해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10735,6 +12759,7 @@
         "explanation": "협회는 공제사업을 다른 회계와 구분하여 별도의 회계로 관리해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10784,6 +12809,7 @@
         "explanation": "개업공인중개사로서 중개의뢰인과 직접 거래를 한 자는 업무정지 사유일 뿐 신고포상금 지급대상으로 규정되어 있지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10824,6 +12850,38 @@
         "text": "해당 중개대상물의 거래상의 중요사항에 관하여 거짓된 언행으로 중개의뢰인의 판단을 그르치게 하는 행위를 한 경우",
         "answer": "O",
         "explanation": "중개대상물의 거래상 중요사항에 관하여 거짓된 언행으로 중개의뢰인의 판단을 그르치게 하는 행위를 한 경우는 업무정지 사유이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -10875,6 +12933,7 @@
         "explanation": "중개대상물의 매매를 업으로 하는 행위를 한 경우는 자격정지 사유이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10924,6 +12983,7 @@
         "explanation": "연수교육을 정당한 사유 없이 받지 않은 경우는 과태료 부과대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10964,6 +13024,38 @@
         "text": "부동산 매매계약에 관하여 부동산의 실제 거래가격을 거짓으로 신고하도록 조장하는 행위",
         "answer": "X",
         "explanation": "실제 거래가격을 거짓으로 신고하도록 조장하는 행위는 과태료 부과대상이지만 포상금 지급대상으로 규정되어 있지 않다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -11015,6 +13107,7 @@
         "explanation": "법인인 개업공인중개사가 등록관청의 관할구역 외의 지역에 둘 수 있는 분사무소는 시·군·구별로 1개소를 초과할 수 없다(시·도별이 아니다)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11048,6 +13141,38 @@
         "text": "甲이 「주택법」상 투기과열지구에 소재하는 丁 소유의 주택을 실제 거래가격 10억원으로 매수하는 경우",
         "answer": "O",
         "explanation": "투기과열지구에 소재하는 주택을 매수하는 경우에는 매도인이 지방공기업법상 지방공단(丁)이더라도 매수인 본인의 입주 여부 신고의무는 매도인의 유형과 무관하게 적용된다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -11099,6 +13224,7 @@
         "explanation": "ㄱ:6, ㄴ:50, ㄷ:60의 조합은 옳은 숫자 조합이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11148,6 +13274,7 @@
         "explanation": "단체를 구성하여 공동중개를 제한한 경우는 반의사불벌죄가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11188,6 +13315,38 @@
         "text": "외국인등이 허가 없이 「자연환경보전법」에 따른 생태·경관보전지역 안의 토지를 취득하는 계약을 체결한 경우 그 계약은 효력이 발생하지 않는다.",
         "answer": "O",
         "explanation": "외국인등이 허가 없이 생태·경관보전지역 안의 토지를 취득하는 계약을 체결한 경우 그 계약은 효력이 발생하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -11239,6 +13398,7 @@
         "explanation": "해당 토지를 직접 이용하지 않고 임대하고 있다는 이유로 이행명령을 받고 이행하지 않은 경우, 토지 취득가액의 100분의 7에 상당하는 이행강제금을 부과한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11288,6 +13448,7 @@
         "explanation": "토지거래허가신청에 대해 불허가처분을 받은 자는 그 통지를 받은 날부터 1개월 이내에 시장·군수·구청장에게 해당 토지에 관한 권리의 매수를 청구할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11337,6 +13498,7 @@
         "explanation": "허가구역 지정에 이의가 있는 자는 그 지정이 공고된 날부터 1개월 내에 시장·군수·구청장에게 이의를 신청할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11386,6 +13548,7 @@
         "explanation": "중개보조원은 공인중개사가 아닌 자로서 개업공인중개사에 소속되어 개업공인중개사의 중개업무와 관련된 단순한 업무를 보조하는 자를 말한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11428,6 +13591,38 @@
         "explanation": "택지개발지구 내 이주자택지를 공급받을 지위인 대토권은 중개대상물에 해당하지 않는다는 것이 판례이다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -11468,6 +13663,38 @@
         "text": "손해배상책임의 보장 등에 관한 사항",
         "answer": "O",
         "explanation": "손해배상책임의 보장 등에 관한 사항은 심의사항이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -11519,6 +13746,7 @@
         "explanation": "공인중개사가 아닌 자로서 공인중개사 명칭을 사용한 자는 1년 이하의 징역 또는 1천만원 이하의 벌금에 처한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11552,6 +13780,38 @@
         "text": "사원 중 금고 이상의 형의 집행유예를 받고 그 유예기간 중에 있는 자가 있는 법인",
         "answer": "O",
         "explanation": "사원 중 금고 이상의 형의 집행유예를 받고 그 유예기간 중에 있는 자가 있는 법인은 결격사유가 있는 법인에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -11603,6 +13863,7 @@
         "explanation": "개업공인중개사는 의뢰받은 중개대상물에 대한 표시·광고에 중개보조원에 관한 사항을 명시해서는 아니된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11652,6 +13913,7 @@
         "explanation": "신고 의무자가 아닌 자가 거짓으로 부동산거래신고를 하는 자는 별도의 과태료 규정 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11701,6 +13963,7 @@
         "explanation": "표준서식인 일반중개계약서와 전속중개계약서에는 개업공인중개사가 중개보수를 과다수령 시 그 차액의 환급을 공통적으로 규정하고 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11750,6 +14013,7 @@
         "explanation": "소유권에 관한 사항은 기본 확인사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11783,6 +14047,38 @@
         "text": "개업공인중개사는 중개대상물에 대한 거래계약이 완료되지 않을 경우에도 중개의뢰인과 중개행위에 상응하는 보수를 지급하기로 약정할 수 있고, 이 경우 공인중개사법령상 중개보수 제한 규정들이 적용된다.",
         "answer": "O",
         "explanation": "개업공인중개사는 거래계약이 완료되지 않을 경우에도 중개행위에 상응하는 보수를 지급하기로 약정할 수 있고, 이 경우에도 중개보수 제한 규정들이 적용된다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -11834,6 +14130,7 @@
         "explanation": "ㄷ-ㄴ-ㄱ은 10-7-15 순이 되어 크기순이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11883,6 +14180,7 @@
         "explanation": "거래계약서가 공인전자문서센터에 보관된 경우 5년간 보존의무가 면제되므로, \"3년간 사본 보존\"이라는 서술이 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11932,6 +14230,7 @@
         "explanation": "최근 1년 이내에 2회 이상 업무정지처분을 받고 다시 업무정지처분에 해당하는 행위를 한 경우는 등록취소 사유이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11972,6 +14271,38 @@
         "text": "부동산거래정보망의 이용 및 정보제공방법 등에 관한 운영규정을 위반하여 부동산거래정보망을 운영한 경우",
         "answer": "O",
         "explanation": "운영규정을 위반하여 부동산거래정보망을 운영한 경우는 지정취소 사유이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -12023,6 +14354,7 @@
         "explanation": "단체를 구성하여 특정 중개대상물에 대하여 중개를 제한하는 행위는 3년 이하 징역·3천만원 이하 벌금 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12072,6 +14404,7 @@
         "explanation": "협회는 매년도의 공제사업 운용실적을 일간신문·협회보 등을 통하여 공제계약자에게 공시해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12121,6 +14454,7 @@
         "explanation": "주택 외의 중개대상물의 중개에 대한 보수는 시·도의 조례가 아니라 국토교통부령으로 정하는 범위에서 개업공인중개사가 정한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12163,6 +14497,38 @@
         "explanation": "폐업기간이 3년 6개월이 지난 재등록 개업공인중개사에게는 폐업신고 전의 개설등록 취소사유에 해당하는 위반행위를 이유로 개설등록취소처분을 할 수 없다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -12198,6 +14564,38 @@
         "explanation": "사회적협동조합은 비영리법인으로서 영리를 목적으로 하는 중개업 법인의 개설등록 기준(상법상 회사 등)에 부합하지 않는다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -12231,6 +14629,38 @@
         "text": "해당 중개대상물의 거래상의 중요사항에 관하여 거짓된 언행으로 중개의뢰인의 판단을 그르치게 하는 행위를 한 자",
         "answer": "X",
         "explanation": "거래상의 중요사항에 관하여 거짓된 언행으로 중개의뢰인의 판단을 그르치게 하는 행위를 한 자는 포상금 지급 대상 목록에 해당하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -12282,6 +14712,7 @@
         "explanation": "시·도지사는 공인중개사가 부정한 방법으로 공인중개사의 자격을 취득한 경우에는 그 자격을 취소해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12331,6 +14762,7 @@
         "explanation": "ㄱ,ㄴ,ㄷ,ㄹ이 180·250·500·1천으로 되어 있어 모두 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12371,6 +14803,38 @@
         "text": "토지거래계약의 허가 관련 정보",
         "answer": "O",
         "explanation": "토지거래계약의 허가 관련 정보는 관리대상 정보로 명시되어 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -12422,6 +14886,7 @@
         "explanation": "외국인으로부터 토지취득의 허가 신청서를 받은 신고관청은 신청서를 받은 날부터 15일 이내에 허가 또는 불허가 처분을 해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12471,6 +14936,7 @@
         "explanation": "ㄱ,ㄴ이 12·15로 되어 있어 모두 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12520,6 +14986,7 @@
         "explanation": "토지거래허가를 받으려는 자는 그 허가신청서에 계약내용과 이용계획, 취득자금 조달계획 등을 적어 제출해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12567,6 +15034,38 @@
         "text": "외국 정부",
         "answer": "O",
         "explanation": "외국 정부는 외국인등에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -12618,6 +15117,7 @@
         "explanation": "옳은 지문은 4개가 아니라 1개이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12651,6 +15151,38 @@
         "text": "명의신탁자가 계약의 당사자가 되는 3자간 등기명의신탁이 무효인 경우 명의신탁자는 매도인을 대위하여 명의수탁자 명의의 등기의 말소를 청구할 수 있다.",
         "answer": "O",
         "explanation": "3자간 등기명의신탁이 무효인 경우 명의신탁자는 매도인을 대위하여 명의수탁자 명의의 등기의 말소를 청구할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -12702,6 +15234,7 @@
         "explanation": "매수인은 매각대금을 다 낸 때에 매각의 목적인 권리를 취득한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12735,6 +15268,38 @@
         "text": "임대인의 동의를 받고 전대차계약을 체결한 전차인은 임차인의 계약갱신요구권 행사기간 이내에 임차인을 대위하여 임대인에게 계약갱신요구권을 행사할 수 있다.",
         "answer": "O",
         "explanation": "임대인의 동의를 받고 전대차계약을 체결한 전차인은 임차인의 계약갱신요구권 행사기간 이내에 임차인을 대위하여 계약갱신요구권을 행사할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -12786,6 +15351,7 @@
         "explanation": "임차권등기명령의 집행에 따른 임차권등기를 마친 임차인은 이후 대항요건을 상실하더라도 이미 취득한 대항력 또는 우선변제권을 상실하지 아니한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12826,6 +15392,38 @@
         "text": "건축물의 방향",
         "answer": "X",
         "explanation": "건축물의 방향은 기본적인 표시사항으로 생략할 수 없다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -12877,6 +15475,7 @@
         "explanation": "전속중개계약의 유효기간 내에 甲이 스스로 발견한 상대방과 거래한 경우, 甲은 중개보수 전액이 아니라 중개보수의 50% 범위에서 乙이 지출한 비용을 지급하면 된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12910,6 +15509,38 @@
         "text": "중개사무소 폐업신고로 甲의 매수신청대리인 등록이 취소된 경우 3년이 지나지 아니하면 甲은 다시 매수신청대리인 등록을 할 수 없다.",
         "answer": "X",
         "explanation": "중개사무소 폐업신고로 매수신청대리인 등록이 취소된 경우 3년 제한 없이 다시 매수신청대리인 등록을 할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -12961,6 +15592,7 @@
         "explanation": "공용부분에 대한 공유자의 지분은 그가 가지는 전유부분의 처분에 따른다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13010,6 +15642,7 @@
         "explanation": "거래규제 및 공법상 제한사항은 중개대상물 확인·설명서의 기재사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13050,6 +15683,38 @@
         "text": "주택(부속토지 포함)의 중개에 대한 보수 및 실비 규정을 적용한다.",
         "answer": "X",
         "explanation": "이 사안의 대상물건은 주택이 아니라 요건을 갖춘 주거용 오피스텔이므로, 주택(부속토지 포함)의 중개에 대한 보수 및 실비 규정이 아니라 주거용 오피스텔에 대한 별도 규정을 적용한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -13101,6 +15766,7 @@
         "explanation": "거래대상의 종류가 공급계약(분양)인 경우 물건별 거래가격 및 총 실제거래가격은 부가가치세를 \"제외한\"이 아니라 \"포함한\" 금액으로 적는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13150,6 +15816,7 @@
         "explanation": "분묘가 멸실된 경우에도 유골이 존재하여 분묘의 원상회복이 가능한 일시적인 멸실에 불과하다면 분묘기지권은 소멸하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13183,6 +15850,38 @@
         "text": "공인중개사로 하여금 그의 공인중개사자격증을 다른 사람에게 대여하도록 알선하는 행위",
         "answer": "X",
         "explanation": "공인중개사로 하여금 그의 공인중개사자격증을 다른 사람에게 대여하도록 알선하는 행위는 금지행위에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -13234,6 +15933,7 @@
         "explanation": "위원이 속한 법인이 해당 안건 당사자의 대리인이었던 경우 그 위원은 심의·의결에서 제척된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13283,6 +15983,7 @@
         "explanation": "공인중개사자격을 취득한 자는 중개사무소 개설등록 여부와 관계없이 '공인중개사'에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13332,6 +16033,7 @@
         "explanation": "분사무소 설치신고를 받은 등록관청은 신고내용이 적합하면 신고확인서를 교부하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13381,6 +16083,7 @@
         "explanation": "분사무소를 설치하려는 경우 분사무소 책임자가 실무교육을 받았어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13421,6 +16124,38 @@
         "text": "점포 위치에 따른 영업상의 이점 등 무형의 재산적 가치",
         "answer": "X",
         "explanation": "점포 위치에 따른 영업상 이점 등 무형의 재산적 가치(권리금)는 중개대상물이 아니다(판례)."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -13472,6 +16207,7 @@
         "explanation": "결격사유가 없는 외국인은 중개보조원으로 고용할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13521,6 +16257,7 @@
         "explanation": "외국에 주된 영업소를 둔 법인은 「상법」상 외국회사 규정에 따른 영업소 등기 증명 서류를 제출하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13554,6 +16291,38 @@
         "text": "업무정지처분을 받고 부동산중개업 폐업신고를 한 개업공인중개사는 업무정지기간이 지나지 아니하더라도 중개사무소 개설등록을 할 수 있다.",
         "answer": "X",
         "explanation": "업무정지처분을 받고 폐업신고를 한 개업공인중개사가 업무정지기간이 지나기 전에 다시 개설등록을 하는 경우, 업무정지의 효과가 승계되어 그 기간 중에는 개설등록을 할 수 없다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -13605,6 +16374,7 @@
         "explanation": "소속공인중개사가 등록한 인장을 변경한 경우에는 변경일부터 \"10일\"이 아니라 7일 이내에 그 변경된 인장을 등록해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13654,6 +16424,7 @@
         "explanation": "공인중개사인 개업공인중개사가 이전신고서를 제출할 때에는 중개사무소등록증을 첨부하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13703,6 +16474,7 @@
         "explanation": "전속중개계약 기간 내에 의뢰인이 스스로 발견한 상대방과 직접 거래한 경우, 중개보수의 50% 범위에서 개업공인중개사가 지출한 비용을 지급하면 되고 중개보수 전액을 위약금으로 지급하는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13752,6 +16524,7 @@
         "explanation": "전매계약의 경우 분양가격, 발코니 확장비용 등 추가지급액을 부가가치세 포함 금액으로 각각 적는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13801,6 +16574,7 @@
         "explanation": "확인·설명을 성실·정확하게 하지 않거나 근거자료를 제시하지 않은 경우 500만원 이하의 과태료 부과사유에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13850,6 +16624,7 @@
         "explanation": "자기 사무소를 다른 사람의 중개행위 장소로 제공하여 거래당사자에게 손해가 발생한 경우 배상책임이 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13899,6 +16674,7 @@
         "explanation": "법 부칙 제7638호에 따른 개업공인중개사(중개인)는 '공인중개사사무소'라는 문자는 사용할 수 없으나 '부동산중개'라는 문자는 사용할 수 있으므로, \"및\"으로 둘 다 금지된다는 서술은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13948,6 +16724,7 @@
         "explanation": "시·도지사가 부동산거래사고 예방 교육을 실시하려는 경우 교육일 7일이 아니라 10일 전까지 통지하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13988,6 +16765,38 @@
         "text": "「한국지방재정공제회법」에 따른 한국지방재정공제회",
         "answer": "X",
         "explanation": "「한국지방재정공제회법」에 따른 한국지방재정공제회는 예치명의자에 해당하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14039,6 +16848,7 @@
         "explanation": "손해배상책임의 보장에 관한 사항을 설명하지 않은 경우 500만원 이하의 과태료가 부과된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14088,6 +16898,7 @@
         "explanation": "매매·임대차 보수를 단순 합산한 값으로, 동시중개시 매매 거래금액만 적용하는 규정을 반영하지 않은 오답이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14130,6 +16941,38 @@
         "explanation": "시세에 부당한 영향을 줄 목적으로 온라인 커뮤니티 등을 이용하여 특정 가격 이하로 중개를 의뢰하지 아니하도록 유도함으로써 개업공인중개사의 업무를 방해하는 행위는 금지된다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -14170,6 +17013,38 @@
         "text": "확인·설명의 근거자료를 제시하지 아니한 경우",
         "answer": "X",
         "explanation": "확인·설명의 근거자료를 제시하지 아니한 경우도 자격정지 3개월 기준이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14221,6 +17096,7 @@
         "explanation": "2022.4.1. 과태료 부과처분 후 폐업, 2023.3.2. 재등록(폐업기간 11개월, 1년 이내)한 경우 그 처분의 효과는 승계된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14270,6 +17146,7 @@
         "explanation": "분실 등으로 반납할 수 없는 자는 그 사유서를 제출하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14319,6 +17196,7 @@
         "explanation": "협회는 공제사업을 다른 회계와 구분하여 별도의 회계로 관리하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14352,6 +17230,38 @@
         "text": "중개대상물에 법정지상권이 있는지 여부는 '실제 권리관계 또는 공시되지 않은 물건의 권리 사항'란에 개업공인중개사가 직접 확인한 사항을 적는다.",
         "answer": "X",
         "explanation": "중개대상물에 법정지상권이 있는지 여부는 개업공인중개사가 직접 확인한 사항이 아니라 매도(임대)의뢰인에게 자료를 요구하여 확인한 사항을 적는 것이므로 서술이 틀렸다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14403,6 +17313,7 @@
         "explanation": "개업공인중개사는 매수신청대리행위를 함에 있어서 매각장소 또는 집행법원에 직접 출석하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14452,6 +17363,7 @@
         "explanation": "다세대주택의 일부 임대는 예외사유에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14485,6 +17397,38 @@
         "text": "임대차계약서를 제출하면서 신고를 하고 접수가 완료되면 「주택임대차보호법」에 따른 확정일자가 부여된 것으로 본다.",
         "answer": "O",
         "explanation": "임대차계약서를 제출하며 신고를 하고 접수가 완료되면 「주택임대차보호법」에 따른 확정일자가 부여된 것으로 본다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14536,6 +17480,7 @@
         "explanation": "「민법」에 따라 설립된 사단법인은 법인묘지의 설치 허가를 받을 수 없다(재단법인만 가능)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14585,6 +17530,7 @@
         "explanation": "개업공인중개사가 신고한 매매계약이 해제되면 그 개업공인중개사가 해제신고를 할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14634,6 +17580,7 @@
         "explanation": "집행법원은 배당요구의 종기를 첫 매각기일 이전으로 정한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14683,6 +17630,7 @@
         "explanation": "ㄱ:60, ㄴ:60 모두 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14718,6 +17666,38 @@
         "explanation": "매매계약의 확정적 무효에 일부 귀책사유가 있는 당사자도 그 계약의 무효를 주장할 수 있다(판례)."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -14751,6 +17731,38 @@
         "text": "신고관청은 하나의 위반행위에 대하여 2명 이상이 각각 신고한 경우에는 포상금을 균등하게 배분하여 지급한다.",
         "answer": "X",
         "explanation": "신고관청은 하나의 위반행위에 대하여 2명 이상이 각각 신고한 경우 최초로 신고한 자에게만 포상금을 지급하며, 균등하게 배분하여 지급하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14802,6 +17814,7 @@
         "explanation": "일부공용부분의 관리에 관한 사항 중 구분소유자 전원에게 이해관계가 있는 사항은 그 일부를 공용하는 구분소유자만이 아니라 구분소유자 전원의 집회결의로써 결정하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14837,6 +17850,38 @@
         "explanation": "임차권등기 없이 우선변제청구권이 인정되는 소액임차인의 소액보증금반환채권은 배당요구가 필요한 배당요구채권에 해당한다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -14870,6 +17915,38 @@
         "text": "「장사 등에 관한 법률」시행일(2001. 1. 13.) 이후 토지 소유자의 승낙 없이 설치한 분묘에 대해서 분묘기지권의 시효취득을 주장할 수 있다.",
         "answer": "X",
         "explanation": "「장사 등에 관한 법률」 시행일(2001.1.13.) 이후 토지 소유자의 승낙 없이 설치한 분묘에 대해서는 분묘기지권의 시효취득을 주장할 수 없다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14921,6 +17998,7 @@
         "explanation": "불허가처분을 받은 자는 통지를 받은 날부터 1개월 이내에 해당 토지에 관한 권리의 매수를 청구할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14954,6 +18032,38 @@
         "text": "X부동산의 소유자가 丙이고 계약명의신탁이라면, 丙이 그 약정을 알았더라도 丙으로부터 소유권이전등기를 마친 乙은 유효하게 소유권을 취득한다.",
         "answer": "X",
         "explanation": "계약명의신탁에서 매도인(丙)이 명의신탁약정 사실을 알았던 경우(악의), 매매계약 및 등기가 무효가 되어 수탁자 乙은 유효하게 소유권을 취득하지 못한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -15005,6 +18115,7 @@
         "explanation": "국토교통부장관이 직접 공인중개사자격시험을 시행하려는 경우에는 위원회의 의결을 미리 거쳐야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15054,6 +18165,7 @@
         "explanation": "개업공인중개사를 대상으로 한 중개업의 경영기법 및 경영정보의 제공은 겸업 가능하다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15103,6 +18215,7 @@
         "explanation": "중개사무소재개신고를 한 경우 등록관청은 반납받은 중개사무소등록증을 즉시 반환해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15136,6 +18249,38 @@
         "text": "乙이 甲과의 고용관계 종료 신고 후 1년 이내에 중개사무소의 개설등록을 신청한 경우 개설등록 후 1년 이내에 실무교육을 받아야 한다.",
         "answer": "X",
         "explanation": "고용관계 종료 신고 후 1년 이내에 개설등록을 신청한 소속공인중개사 출신자는 실무교육이 \"면제\"된다. \"개설등록 후 1년 이내에 실무교육을 받아야 한다\"는 서술은 틀렸다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -15187,6 +18332,7 @@
         "explanation": "등록관청은 소속공인중개사에 대한 고용 신고를 받은 경우 직접 \"공인중개사 자격 확인\"을 하여야 하며, 협회에 확인을 요청하는 절차가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15236,6 +18382,7 @@
         "explanation": "개업공인중개사가 거래당사자 쌍방을 대리한 행위는 교란행위 유형에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15278,6 +18425,38 @@
         "explanation": "손해배상책임을 보장하기 위한 보증보험의 가입은 중개업 자체의 요건이며, 매수신청대리인 등록과 별개로 법원에 등록하는 사항이 아니다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -15318,6 +18497,38 @@
         "text": "개업공인중개사의 실무교육 수료확인증",
         "answer": "X",
         "explanation": "개업공인중개사의 실무교육 수료확인증은 게시 대상이 아니다(게시 대상은 \"자격증\"이지 교육 수료확인증이 아니다)."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -15369,6 +18580,7 @@
         "explanation": "공인중개사인 개업공인중개사가 법인으로 업무를 하고자 등록신청서를 다시 제출하는 경우 종전의 등록증은 반납하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15418,6 +18630,7 @@
         "explanation": "임대차에 대한 전속중개계약을 체결한 경우 중개의뢰인의 비공개 요청이 없어도 공시지가를 공개하지 아니할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15467,6 +18680,7 @@
         "explanation": "거래가 완성된 경우 개업공인중개사는 지체 없이(3개월이 아님) 거래정보사업자에게 통보하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15516,6 +18730,7 @@
         "explanation": "「은행법」에 따른 은행은 예치명의자가 될 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15556,6 +18771,38 @@
         "text": "단체를 구성하여 특정 중개대상물에 대하여 중개를 제한하거나 단체 구성원 이외의 자와 공동중개를 제한하는 행위",
         "answer": "X",
         "explanation": "단체를 구성하여 특정 중개대상물에 대해 중개를 제한하거나 공동중개를 제한하는 행위는 업무방해 금지행위에 해당하나, 이 문항의 정답 구성상 ㄹ은 제외된다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -15607,6 +18854,7 @@
         "explanation": "공인중개사가 아닌 자로서 공인중개사 또는 유사 명칭을 사용한 경우는 1년 이하의 징역 또는 1천만원 이하의 벌금 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15656,6 +18904,7 @@
         "explanation": "개업공인중개사는 권리관계 등의 확인에 소요되는 실비를 받을 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15705,6 +18954,7 @@
         "explanation": "전속중개계약서 서식에 따르지 않고 체결한 경우도 상대적으로 경한 기간에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15754,6 +19004,7 @@
         "explanation": "개업공인중개사가 사망한 경우는 등록취소 사유(당연 소멸)이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15803,6 +19054,7 @@
         "explanation": "자산의 장부가격의 변경은 개선조치 명령사항이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15843,6 +19095,38 @@
         "text": "중개대상물 확인·설명서 교부일자",
         "answer": "O",
         "explanation": "중개대상물 확인·설명서 교부일자도 거래계약서의 필수 기재사항이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -15894,6 +19178,7 @@
         "explanation": "거래예정금액은 기본 확인사항이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15934,6 +19219,38 @@
         "text": "회원의 품위유지를 위한 업무",
         "answer": "O",
         "explanation": "회원의 품위유지를 위한 업무는 협회의 업무이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -15985,6 +19302,7 @@
         "explanation": "공고 내용의 통지를 받은 시장·군수·구청장은 그 사실을 \"7일 이상\" 공고해야 하고, 공고 내용을 \"15일간\" 일반이 열람할 수 있도록 해야 한다(\"30일간\"이 아니다)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16034,6 +19352,7 @@
         "explanation": "거래 지분은 변경신고사항이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16083,6 +19402,7 @@
         "explanation": "신고 의무는 원칙적으로 \"임대차 계약당사자\"에게 있으며, 개업공인중개사가 중개하였다고 하여 개업공인중개사에게 신고의무가 발생하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16132,6 +19452,7 @@
         "explanation": "거래계약이 해제된 경우 해제 신고는 \"해제 등이 확정된 날부터 30일 이내\"에 하는 것이 맞으나, 개업공인중개사가 신고한 거래계약의 해제는 원칙적으로 \"거래당사자\"가 공동으로 신고하는 것이 원칙이며 무조건 \"단독으로\" 신고하는 것은 아니다(개업공인중개사가 신고 대행할 수도 있음)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16181,6 +19502,7 @@
         "explanation": "대한민국국민이 외국인으로 변경된 경우 외국인으로 변경된 날부터 6개월 이내에 계속보유신고를 하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16214,6 +19536,38 @@
         "text": "「한국농어촌공사 및 농지관리기금법」에 따라 한국농어촌공사가 농지의 매매를 하는 경우",
         "answer": "O",
         "explanation": "「한국농어촌공사 및 농지관리기금법」에 따라 한국농어촌공사가 농지의 매매를 하는 경우는 적용 배제 대상이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -16265,6 +19619,7 @@
         "explanation": "「빈집 및 소규모주택 정비에 관한 특례법」에 따른 사업시행계획인가로 취득한 입주자로 선정된 지위의 매매계약은 신고 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16314,6 +19669,7 @@
         "explanation": "丙의 임대차 성립 후 丁의 저당권이 설정되고 그 저당권 실행으로 경매된 경우, 甲의 저당권(선순위)뿐 아니라 丙의 임차권도 매각으로 \"소멸한다\"(선순위 저당권이 있으면 후순위 권리·임차권은 모두 소멸)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16363,6 +19719,7 @@
         "explanation": "이해관계인은 매각대금이 모두 지급될 때까지 경매개시결정에 대한 이의신청을 할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16412,6 +19769,7 @@
         "explanation": "중개사무소 이전 시 \"10일\" 이내에 지방법원장에게 신고해야 한다. \"14일\"이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16461,6 +19819,7 @@
         "explanation": "대지사용권이 없는 구분소유자는 대지사용권을 가진 자의 \"매도청구\"에 응하여야 할 처지이며, 반대로 자신이 대지사용권을 시가로 \"매도할 것을 청구\"할 수 있는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16501,6 +19860,38 @@
         "text": "토지에 지상권이 설정된 경우 지상권자로부터 그 토지를 임차하여 건물을 신축한 임차인",
         "answer": "O",
         "explanation": "지상권자로부터 그 토지를 임차하여 건물을 신축한 임차인(전차인)도 매수청구권을 행사할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -16545,6 +19936,38 @@
         "explanation": "임차권등기를 한 이후에는 이행지체에 빠진 임대인의 보증금반환의무가 임차인의 임차권등기 말소의무보다 먼저 이행되어야 한다(선이행 의무)."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -16578,6 +20001,38 @@
         "text": "甲의 지분이 1/3, 乙의 지분이 2/3인 경우, 乙은 甲의 동의 없이 X토지를 타인에게 매도할 수 없다.",
         "answer": "O",
         "explanation": "처분행위는 지분 비율과 무관하게 공유자 전원의 동의가 필요하므로, 과반수 지분권자(乙, 2/3)라도 소수지분권자(甲)의 동의 없이 X토지 전체를 타인에게 매도할 수 없다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -16629,6 +20084,7 @@
         "explanation": "명의신탁관계에서 甲과 丙 사이에는 원칙적으로 무효를 주장할 제3자 관계가 아니며, 오히려 丙이 丁에게 무효를 주장할 수 없는 것이지 甲이 그 계약의 무효를 주장할 수 있다는 서술은 사안의 구조와 맞지 않는다. 정확히는 丙과 丁 사이의 임대차계약 자체는 유효하며 甲도 함부로 그 계약의 무효를 주장할 지위에 있지 않다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16678,6 +20134,7 @@
         "explanation": "계약갱신요구권은 임대차기간이 끝나기 6개월 전부터 2개월 전까지 행사하여야 하며, \"계약기간이 끝난 후 즉시\"가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16727,6 +20184,7 @@
         "explanation": "임차인은 임차건물을 양수인에게 \"먼저 인도하여야\" 환가대금에서 우선변제권에 따른 보증금을 지급받을 수 있다. \"보증금을 지급받은 이후에 건물을 인도하면 된다\"는 순서가 반대로 서술되어 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16760,6 +20218,38 @@
         "text": "분묘기지권을 취득한 자는 그 분묘기지권의 등기 없이도 그 분묘가 설치된 토지의 매수인에게 대항할 수 있다.",
         "answer": "O",
         "explanation": "분묘기지권은 등기 없이도 토지의 매수인에게 대항할 수 있는 관습법상 물권이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -16811,6 +20301,7 @@
         "explanation": "설치기간이 끝난 분묘의 연고자는 그 끝난 날부터 \"1년\" 이내에 철거·화장·봉안 등을 해야 한다. \"1개월\"이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16860,6 +20351,7 @@
         "explanation": "\"소속공인중개사\"란 개업공인중개사에 소속된 공인중개사(개업공인중개사인 법인의 사원 또는 임원으로서 공인중개사인 자를 포함한다)로서 중개업무를 수행하거나 개업공인중개사의 중개업무를 보조하는 자를 말한다. 법인의 사원·임원인 공인중개사는 \"제외\"가 아니라 \"포함\"된다. (법 제2조 제5호)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16893,6 +20385,38 @@
         "text": "공인중개사는 다른 공인중개사가 공인중개사자격증을 대여하는 것을 알선할 수 있다.",
         "answer": "X",
         "explanation": "누구든지 제1항 및 제2항에서 금지한 행위를 알선하여서는 아니된다. 따라서 공인중개사가 다른 공인중개사의 자격증 대여를 알선하는 것도 금지된다. \"알선할 수 있다\"는 틀렸다. (법 제7조 제3항)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -16944,6 +20468,7 @@
         "explanation": "금고 이상의 형의 집행유예를 선고받고 그 유예기간이 만료된 날부터 2년이 지나지 아니한 자는 결격사유에 해당하여 소속공인중개사가 될 수 없다. (법 제10조 제1항 제5호, 제2항)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16993,6 +20518,7 @@
         "explanation": "등록한 인장을 변경한 경우 개업공인중개사는 변경일부터 7일 이내에 그 변경된 인장을 등록관청에 등록하여야 한다. (시행규칙 제9조 제4항)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17028,6 +20554,38 @@
         "explanation": "국토교통부장관은 모니터링 기관으로부터 제출받은 결과보고서를 시·도지사 및 등록관청 등에 통보하고 필요한 조사 및 조치를 요구할 수 있다. (법 제18조의3 제3항)"
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -17061,6 +20619,38 @@
         "text": "분사무소를 설치하려는 개업공인중개사는 분사무소설치신고서를 분사무소의 소재지를 관할하는 등록관청에 제출하여야 한다.",
         "answer": "X",
         "explanation": "분사무소를 설치하려는 개업공인중개사는 분사무소설치신고서를 \"주된 사무소의 소재지를 관할하는\" 등록관청에 제출하여야 한다. 분사무소의 소재지를 관할하는 등록관청이 아니다. (법 제13조 제3항, 시행령 제15조)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17112,6 +20702,7 @@
         "explanation": "표시·광고 시 명시하여야 하는 사항은 중개사무소의 명칭·소재지·연락처· 등록번호 및 개업공인중개사(법인의 경우 대표자)의 성명이며, \"중개보조원에 관한 사항\"은 명시 대상이 아니다. (법 제18조의2 제1항)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17145,6 +20736,38 @@
         "text": "상업용 건축물의 관리대행",
         "answer": "O",
         "explanation": "상업용 건축물 및 주택의 임대관리 등 부동산의 관리대행은 겸업 가능 업무이다. (법 제14조 제1항 제1호)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -17196,6 +20819,7 @@
         "explanation": "관할 세무서장이 「부가가치세법 시행령」에 따라 개업공인중개사의 폐업신고서를 받아 이를 해당 등록관청에 송부한 경우에는 등록관청에 폐업신고서가 \"제출된 것으로 본다\"(원스톱 폐업신고 의제). \"제출된 것으로 보지 않는다\"는 틀렸다. (법 제21조 제4항)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17245,6 +20869,7 @@
         "explanation": "중개의뢰인이 보수를 지급하지 아니하였다고 하여 개업공인중개사의 확인·설명 의무와 그 위반에 따른 손해배상의무가 당연히 소멸하는 것은 아니다. (판례)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17278,6 +20903,38 @@
         "text": "개업공인중개사가 거래계약서를 작성한 경우 그 원본, 사본 또는 전자문서를 보존하여야 하는 기간은 3년이다.",
         "answer": "X",
         "explanation": "개업공인중개사가 거래계약서를 작성한 경우 그 원본, 사본 또는 전자문서를 보존하여야 하는 기간은 \"5년\"이다(공인전자문서센터에 보관된 경우는 예외). \"3년\"은 틀렸다. (법 제26조 제1항, 시행령 제22조)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17329,6 +20986,7 @@
         "explanation": "개업공인중개사가 전속중개계약을 체결한 경우라도 중개의뢰인이 비공개를 요청한 사항은 이를 공개하여서는 아니된다. (법 제24조 제1항 단서)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17378,6 +21036,7 @@
         "explanation": "아파트 분양권의 매매를 중개한 경우 이미 납입한 금액에 프리미엄을 합한 총 대금(거래 당시 수수하게 되는 총 대금)을 거래금액으로 본다. (판례)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17413,6 +21072,38 @@
         "explanation": "거래정보사업자로 지정받으려는 자가 국토교통부장관에게 제출하여야 할 서류에는 대표자의 공인중개사 자격증 사본이 포함된다. (시행규칙 제14조)"
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -17446,6 +21137,38 @@
         "text": "제3자에게 부당한 이익을 얻게 할 목적으로 거짓으로 거래가 완료된 것처럼 꾸미는 등 중개대상물의 시세에 부당한 영향을 주는 행위",
         "answer": "O",
         "explanation": "제3자에게 부당한 이익을 얻게 할 목적으로 거짓으로 거래가 완료된 것처럼 꾸미는 등 중개대상물의 시세에 부당한 영향을 주는 행위는 금지행위에 해당한다. (법 제33조 제2항)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": true
@@ -17497,6 +21220,7 @@
         "explanation": "공인중개사가 다른 사람에게 자기의 성명을 사용하여 중개업무를 하게 한 경우는 자격취소 사유에 해당한다. (법 제35조 제1항 제2호, 제7조 제1항)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17532,6 +21256,38 @@
         "explanation": "하나의 거래계약에 대하여 서로 다른 둘 이상의 거래계약서를 작성한 경우 (이중계약서 작성)는 자격정지 사유에 해당한다. (법 제36조 제1항 제5호)"
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      }
+    ],
     "free": true
   },
   {
@@ -17565,6 +21321,38 @@
         "text": "국토교통부령으로 정하는 전속중개계약서에 의하지 아니하고 전속중개계약을 체결한 경우",
         "answer": "X",
         "explanation": "국토교통부령으로 정하는 전속중개계약서에 의하지 아니하고 전속중개계약을 체결한 경우는 등록취소 사유가 아니라 \"업무정지\" 사유에 해당한다. (법 제39조 제1항)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17616,6 +21404,7 @@
         "explanation": "책임준비금의 적립비율은 공제규정으로 정하되, 공제료 수입액의 \"100분의 10 이상\"이 되도록 하여야 한다. \"100분의 20 이상\"은 틀렸다. (시행령 제34조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17665,6 +21454,7 @@
         "explanation": "분사무소설치신고확인서의 재교부를 신청하는 자도 수수료 납부대상이다. (법 제47조 제4호)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17700,6 +21490,38 @@
         "explanation": "포상금은 1건당 50만원으로 한다. (시행령 제39조 제1항)"
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -17733,6 +21555,38 @@
         "text": "누구든지 부동산거래질서교란행위를 발견하는 경우 그 사실을 신고센터에 신고할 수 있다.",
         "answer": "O",
         "explanation": "누구든지 부동산거래질서교란행위를 발견하는 경우 그 사실을 신고센터에 신고할 수 있다. (법 제47조의2 제2항)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17784,6 +21638,7 @@
         "explanation": "개업공인중개사로서 중개대상물의 확인·설명의무를 이행하면서 설명의 근거자료를 제시하지 아니한 자는 500만원 이하의 과태료 부과대상이다. (법 제51조 제2항)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17833,6 +21688,7 @@
         "explanation": "거래당사자 중 일방이 신고를 거부하여 단독으로 거래신고를 하는 경우에도 신고기간은 다른 경우와 마찬가지로 거래계약의 체결일부터 \"30일\"이다. \"60일\"은 틀렸다. (법 제3조 제1항)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17882,6 +21738,7 @@
         "explanation": "중도금 지급일 및 잔금 지급일도 거래신고사항이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17931,6 +21788,7 @@
         "explanation": "토지거래계약 허가를 받은 자가 허가받은 목적대로 이용하지 않음을 이유로 관할 행정청이 한 조치명령을 위반한 자도 형사처벌 대상이다. (법 제26조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17980,6 +21838,7 @@
         "explanation": "신고관청은 신고 내용을 조사하기 위하여 거래당사자 또는 개업공인중개사에게 거래대금의 지급을 확인할 수 있는 입금표 또는 통장사본의 제출을 요구할 수 있다. (법 제6조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18013,6 +21872,38 @@
         "text": "시장·군수 또는 구청장은 토지의 이용 의무 불이행에 따른 이행명령을 받은 자가 그 명령을 이행하는 경우에도 명령을 이행하기 전에 이미 부과된 이행강제금은 징수하여야 한다.",
         "answer": "O",
         "explanation": "이행명령을 받은 자가 그 명령을 이행하는 경우에는 새로운 이행강제금의 부과는 즉시 중지하되, 명령을 이행하기 전에 이미 부과된 이행강제금은 징수하여야 한다. (법 제18조 제4항)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -18064,6 +21955,7 @@
         "explanation": "매매계약서를 개업공인중개사가 작성·교부한 경우, 개업공인중개사의 인적사항은 부동산 거래신고사항에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18113,6 +22005,7 @@
         "explanation": "주택 임대차 계약의 신고를 하였다고 하여 「주민등록법」에 따른 전입신고를 한 것으로 의제되지 않는다(확정일자 부여 효과는 있으나 전입신고 자체가 자동으로 이루어지는 것은 아니다)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18162,6 +22055,7 @@
         "explanation": "법률에 따른 환매권의 행사도 계약 외의 원인에 의한 취득으로서 6개월 이내 신고 대상이다. (법 제8조 제2항)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18211,6 +22105,7 @@
         "explanation": "토지 소유자의 승낙에 의하여 성립하는 분묘기지권의 경우, 성립 당시 지료 지급의무에 관하여 약정을 하였다면 그 약정의 효력은 분묘 기지의 승계인에게도 미친다. (판례)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18251,6 +22146,38 @@
         "text": "계약갱신 요구권 행사 여부",
         "answer": "O",
         "explanation": "계약갱신요구권 행사 여부는 임대차 확인사항에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -18302,6 +22229,7 @@
         "explanation": "1천분의 9는 위 요건을 충족하지 못하는 오피스텔에 적용되는 요율이며, 위 요건을 충족한 오피스텔에는 적용되지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18351,6 +22279,7 @@
         "explanation": "부동산중개업의 폐업신고로 매수신청대리인 등록이 취소된 경우에는, 등록취소 후 3년이 지나지 아니하더라도 다시 매수신청대리인 등록을 할 수 있다(등록취소 사유 중 폐업신고에 의한 경우는 3년 결격기간 적용 예외)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18400,6 +22329,7 @@
         "explanation": "재매각절차에서는 전(前)의 매수인은 매수신청을 할 수 없으며 매수신청의 보증을 돌려 줄 것을 요구하지 못한다. (민사집행법 제138조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18433,6 +22363,38 @@
         "text": "3천만원의 과징금 납부의무자가 과징금 납부기한을 연장받고자 하는 경우에는 과징금 납부를 통지받은 날부터 30일 이내에 해당 특별자치도지사·특별자치시장·시장·군수 또는 구청장에게 연장신청을 하여야 한다.",
         "answer": "O",
         "explanation": "과징금 납부의무자가 과징금 납부기한을 연장받고자 하는 경우에는 과징금 납부통지를 받은 날부터 30일 이내에 해당 시장·군수·구청장 등에게 연장신청을 하여야 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -18484,6 +22446,7 @@
         "explanation": "경제사정의 중대한 변동으로 인한 폐업으로 임차인에게 해지권이 인정되는 경우, 그 해지는 임대인이 통고를 받은 날부터 \"3개월\"이 지나면 효력이 발생한다. \"통고를 받은 날부터\" 즉시 효력이 발생한다는 것은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18533,6 +22496,7 @@
         "explanation": "사설묘지를 설치·관리하는 자는 70세 이상인 자가 사망하기 전에 자신의 묘지로 사용하기 위해 매매를 요청한 경우에는 예외적으로 그 매매를 할 수 있다. (장사 등에 관한 법률 제21조 — 묘지의 사전 매매 등의 금지 및 예외)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18566,6 +22530,38 @@
         "text": "대항력이 없는 임차권은 「민사집행법」에 따른 경매로 그 임차주택이 경락되면 소멸한다.",
         "answer": "O",
         "explanation": "대항력이 없는 임차권은 「민사집행법」에 따른 경매로 그 임차주택이 경락되면 소멸한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ - 끝 -",
+        "isCorrect": false
       }
     ],
     "free": true

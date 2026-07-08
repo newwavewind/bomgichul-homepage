@@ -46,6 +46,7 @@
         "explanation": "교통광장은 공간시설인 \"광장\"의 세분에 해당하며, 자동차정류장의 세분이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -95,6 +96,7 @@
         "explanation": "ㄱ:5, ㄴ:10은 ㄴ의 숫자가 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -144,6 +146,7 @@
         "explanation": "단독주택은 건축할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -193,6 +196,7 @@
         "explanation": "「택지개발촉진법」에 따라 지정된 택지개발지구에서 시행되는 사업이 끝난 후 10년이 지난 지역으로서 계획이 수립되어 있지 않은 지역은 지구단위계획구역으로 지정하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -242,6 +246,7 @@
         "explanation": "80은 계산 결과와 다르다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -291,6 +296,7 @@
         "explanation": "불허가처분을 받은 자는 그 처분을 받은 날부터 1개월 이내에 이의를 신청할 수 있으며, 90일이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -340,6 +346,7 @@
         "explanation": "생산녹지지역(20%)-근린상업지역(70%)-유통상업지역(80%) 순서는 낮은 지역부터 높은 지역까지 정확한 오름차순이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -389,6 +396,7 @@
         "explanation": "매수하지 아니하기로 결정한 경우 등에는 토지소유자가 3층 이하의 단독주택, 3층 이하의 제1종 근린생활시설 등 대통령령으로 정하는 건축물을 건축할 수 있으며, 2층의 다세대주택이 이에 해당하는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -438,6 +446,7 @@
         "explanation": "광역계획권은 관할구역의 전부 또는 일부 단위로 지정할 수 있으며, 일부만 포함시킬 수 없는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -487,6 +496,7 @@
         "explanation": "기존 건축물을 철거하고 신축하는 건축행위가 기반시설설치비용의 부과대상이 되는 경우에는 기존 건축물의 건축연면적을 초과하는 건축행위만 부과대상으로 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -536,6 +546,7 @@
         "explanation": "도시·군계획시설결정의 고시일부터 20년이 지날 때까지 시행되지 아니하는 경우, 그 도시·군계획시설결정은 20년이 되는 날의 다음날에 효력을 잃는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -569,6 +580,38 @@
         "text": "해당 지구단위계획구역 안의 나대지면적이 구역 면적의 2%에 미달하는 경우",
         "answer": "O",
         "explanation": "해당 지구단위계획구역 안의 나대지면적이 구역 면적의 2%에 미달하는 경우는 경미한 사항으로서 환경성 검토를 생략할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -620,6 +663,7 @@
         "explanation": "지정권자가 시행자인 경우 그 시행자는 공사를 완료한 때에는 공사 완료 공고를 하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -669,6 +713,7 @@
         "explanation": "토지상환채권의 발행규모는 분양토지 또는 분양건축물 면적의 2분의 1을 초과하지 않아야 하며, 3분의 2가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -718,6 +763,7 @@
         "explanation": "조합의 이사는 그 조합의 조합장을 겸할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -767,6 +813,7 @@
         "explanation": "ㄱ과 ㄴ이 모두 틀리게 연결되어 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -816,6 +863,7 @@
         "explanation": "도시개발사업에 관한 비용 부담에 대해 대도시 시장과 시·도지사 간의 협의가 성립되지 아니하는 경우에는 행정안전부장관의 결정에 따르며, 기획재정부장관이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -865,6 +913,7 @@
         "explanation": "60은 계산 결과와 다르다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -914,6 +963,7 @@
         "explanation": "도지사가 기본계획을 수립할 필요가 없다고 인정하는 대도시가 아닌 시는 기본계획을 수립하지 아니할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -963,6 +1013,7 @@
         "explanation": "사업시행자는 가로구역에 있는 기존 단독주택의 호수와 공동주택의 세대 수를 합한 수 이상의 주택을 공급하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1012,6 +1063,7 @@
         "explanation": "대의원회는 임기 중 궐위된 조합장을 보궐선임할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1061,6 +1113,7 @@
         "explanation": "주거환경관리사업은 철거·신축이 아닌 정비기반시설 설치와 개별 개량 방식이므로 관리처분계획 자체를 수립하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1110,6 +1163,7 @@
         "explanation": "ㄷ-ㄹ-ㄱ-ㄴ은 순서가 전반적으로 뒤바뀌어 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1159,6 +1213,7 @@
         "explanation": "주택재개발사업은 정비기반시설이 열악하고 노후·불량건축물이 밀집한 지역을 대상으로 하나, 이 설명은 주거환경개선사업의 정의와 더 부합한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1208,6 +1263,7 @@
         "explanation": "세대구분형 공동주택의 세대별로 구분된 각각의 공간의 주거전용면적 합계가 주택단지 전체 주거전용면적 합계의 3분의 1을 넘지 아니하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1257,6 +1313,7 @@
         "explanation": "지역주택조합이 설립인가를 받은 후에 조합원을 추가모집한 경우에는 주택조합의 변경인가를 받아야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1306,6 +1363,7 @@
         "explanation": "보행자 및 자동차의 통행이 가능한 일반국도는 분리하는 시설에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1355,6 +1413,7 @@
         "explanation": "ㄱ:15, ㄴ:30은 ㄱ의 숫자가 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1404,6 +1463,7 @@
         "explanation": "주택상환사채를 발행하려는 자는 주택상환사채발행계획을 수립하여 국토교통부장관의 승인을 받아야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1453,6 +1513,7 @@
         "explanation": "국가에 대한 채무불이행으로 공매가 시행되는 경우에도 사업주체의 동의를 받아야 전매할 수 있으며, 동의 없이 가능한 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1502,6 +1563,7 @@
         "explanation": "투기과열지구에서 건설·공급하는 주택의 입주자로 선정된 지위는 매매할 수 없으나, 상속은 예외적으로 허용된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1535,6 +1597,38 @@
         "text": "「산업집적활성화 및 공장설립에 관한 법률」에 따른 산업단지의 공장",
         "answer": "O",
         "explanation": "「산업집적활성화 및 공장설립에 관한 법률」에 따른 산업단지의 공장은 조경 의무가 면제된다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -1586,6 +1680,7 @@
         "explanation": "건축물철거·멸실신고서를 제출받은 특별자치도지사는 확인 후 건축물대장에서 그 내용을 말소하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1635,6 +1730,7 @@
         "explanation": "ㄷ:2는 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1675,6 +1771,38 @@
         "text": "최하층 바닥",
         "answer": "O",
         "explanation": "최하층 바닥은 주요구조부에서 제외되는 경미한 부분에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -1726,6 +1854,7 @@
         "explanation": "협정체결자 또는 건축협정운영회의 대표자는 건축협정을 폐지하려는 경우 협정체결자 과반수의 동의를 받아 인가권자의 인가를 받아야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1775,6 +1904,7 @@
         "explanation": "보전녹지지역은 설치 대상지역이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1824,6 +1954,7 @@
         "explanation": "지하대피호는 바닥면적 30㎡를 넘는 경우가 신고 대상이므로, 25㎡는 기준에 미달한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1873,6 +2004,7 @@
         "explanation": "농지 소유자가 타인에게 일정한 보수를 지급하기로 약정하고 농작업의 일부만을 위탁하여 행하는 농업경영도 '위탁경영'에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1922,6 +2054,7 @@
         "explanation": "B농지는 국유재산으로서 농지법의 일반적인 최소 임대차기간(3년 이상) 제한을 받지 않으므로, 3년 미만으로 임대차기간을 정할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -1971,6 +2104,7 @@
         "explanation": "시장 또는 군수는 광역도시계획을 변경하려면 미리 공청회를 열어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2020,6 +2154,7 @@
         "explanation": "도시·군관리계획 결정은 지형도면을 고시한 날부터 효력이 발생한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2069,6 +2204,7 @@
         "explanation": "생산녹지지역은 도시지역(녹지지역)에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2118,6 +2254,7 @@
         "explanation": "방재지구의 지정을 도시·군관리계획으로 결정하는 경우 도시·군관리계획의 내용에는 해당 방재지구의 재해저감대책을 포함하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2167,6 +2304,7 @@
         "explanation": "주민은 시장 또는 군수에게 지구단위계획구역의 지정에 관한 사항에 대하여 도시·군관리계획의 입안을 제안할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2216,6 +2354,7 @@
         "explanation": "도지사는 도시·군기본계획과 도시·군관리계획이 국가계획의 취지에 부합하지 아니하다고 판단하는 경우 국토교통부장관에게 변경을 요구할 수 없으며, 오히려 국토교통부장관이 도지사에게 변경을 요구할 수 있는 구조이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2265,6 +2404,7 @@
         "explanation": "기반시설설치비용을 부과받은 납부의무자는 납부기일의 연기 또는 분할납부가 인정되지 않는 한 사용승인 신청 시까지 기반시설설치비용을 내야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2314,6 +2454,7 @@
         "explanation": "도시·군계획시설결정은 고시일부터 \"20년\" 이내에 도시·군계획시설사업이 시행되지 아니하는 경우 그 고시일부터 20년이 되는 날의 다음날에 그 효력을 잃는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2363,6 +2504,7 @@
         "explanation": "환경기초시설 - 폐차장의 연결은 옳다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2412,6 +2554,7 @@
         "explanation": "행정청인 시행자는 이해관계인의 주소 또는 거소(居所)가 불분명하여 서류를 송달할 수 없는 경우 그 서류의 송달을 갈음하여 그 내용을 공시할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2461,6 +2604,7 @@
         "explanation": "국가계획으로 설치하는 광역시설은 그 광역시설의 설치·관리를 사업목적 또는 사업종목으로 하여 다른 법률에 따라 설립된 법인이 설치·관리할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2510,6 +2654,7 @@
         "explanation": "제3종일반주거지역(300)-일반공업지역(350)-준공업지역(400)-준주거지역(500)은 낮은 지역부터 높은 지역까지 정확히 오름차순으로 나열되어 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2559,6 +2704,7 @@
         "explanation": "행정처분으로 실시계획의 인가가 취소된 경우는 시행자 변경사유이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2608,6 +2754,7 @@
         "explanation": "주된 사무소의 소재지는 시행방식과 관계없이 공통으로 포함되어야 할 기재사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2648,6 +2795,38 @@
         "text": "「수도권정비계획법」에 따른 과밀억제권역에서 수도권 외의 지역으로 이전하는 법인",
         "answer": "X",
         "explanation": "「수도권정비계획법」에 따른 과밀억제권역에서 수도권 외의 지역으로 이전하는 법인은 이러한 시행자 유형에 해당하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -2699,6 +2878,7 @@
         "explanation": "도시개발사업의 시행으로 행사할 이익이 없어진 지역권은 환지처분의 공고가 있은 날이 끝나는 때에 소멸하며, 공고된 날의 다음날이 끝나는 때가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2748,6 +2928,7 @@
         "explanation": "도시개발채권의 매입의무자가 매입하여야 할 금액을 초과하여 도시개발채권을 매입한 경우 중도상환을 신청할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2797,6 +2978,7 @@
         "explanation": "수용예정인구가 종전보다 100분의 5 증가하여 2천6백명이 되는 경우는 경미한 변경으로 동의가 필요하지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2846,6 +3028,7 @@
         "explanation": "시장·군수는 주택재건축사업의 시행을 결정한 경우 지체 없이 특별시장·광역시장·도지사에게 안전진단결과보고서를 제출하여야 하며, 국토교통부장관에게 직접 제출하는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2895,6 +3078,7 @@
         "explanation": "주택재개발사업 - 노후·불량건축물의 수가 전체 건축물의 수의 3분의 2 이상인 지역이라는 연결은 옳다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2944,6 +3128,7 @@
         "explanation": "종전 주택의 주거전용면적이 60㎡를 넘지 않는 경우에도 일정 요건 하에 2주택을 공급할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -2993,6 +3178,7 @@
         "explanation": "공원은 정비기반시설에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3026,6 +3212,38 @@
         "text": "사업시행자는 사업의 시행으로 철거되는 주택의 소유자 또는 세입자에 대하여 당해 정비구역 내·외에 소재한 임대주택 등의 시설에 임시로 거주하게 하거나 주택자금의 융자알선 등 임시수용에 상응하는 조치를 하여야 한다.",
         "answer": "O",
         "explanation": "사업시행자는 사업의 시행으로 철거되는 주택의 소유자 또는 세입자에 대하여 당해 정비구역 내·외에 소재한 임대주택 등의 시설에 임시로 거주하게 하거나 주택자금의 융자알선 등 임시수용에 상응하는 조치를 하여야 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -3077,6 +3295,7 @@
         "explanation": "조합 상근임원 보수에 관한 사항은 정관으로 정할 수 있는 사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3126,6 +3345,7 @@
         "explanation": "증축형 리모델링을 하려는 자는 시장·군수·구청장에게 안전진단을 요청하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3175,6 +3395,7 @@
         "explanation": "조합원 추가모집에 따른 주택조합의 변경인가 신청은 사업계획승인신청일까지 하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3224,6 +3445,7 @@
         "explanation": "「산업입지 및 개발에 관한 법률」에 따른 산업단지개발사업에 의하여 개발·조성되는 공동주택이 건설되는 용지는 공공택지에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3273,6 +3495,7 @@
         "explanation": "조합원의 공개모집 이후 조합원의 사망·자격상실·탈퇴 등으로 인한 결원을 충원하거나 미달된 조합원을 재모집하는 경우에는 신고하지 아니하고 선착순의 방법으로 조합원을 모집할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3322,6 +3545,7 @@
         "explanation": "ㄱ은 6이 아니라 2이고, ㄴ은 10이 아니라 5이며, ㄷ은 40이 아니라 30이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3371,6 +3595,7 @@
         "explanation": "사업계획승인의 조건으로 부과된 사항을 이행함에 따라 공사 착수가 지연되는 경우, 사업계획승인권자는 그 사유가 없어진 날부터 \"1년\"의 범위에서 공사의 착수기간을 연장할 수 있으며, 3년이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3420,6 +3645,7 @@
         "explanation": "도시형 생활주택을 공급하는 경우에는 분양가상한제가 적용되지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3453,6 +3679,38 @@
         "text": "건축하려는 대지에 포함된 국유지에 대하여 허가권자가 해당 토지의 관리청이 해당 토지를 건축주에게 매각할 것을 확인한 경우",
         "answer": "O",
         "explanation": "건축하려는 대지에 포함된 국유지에 대하여 허가권자가 해당 토지의 관리청이 해당 토지를 건축주에게 매각할 것을 확인한 경우는 소유권 확보 예외사유에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -3504,6 +3762,7 @@
         "explanation": "「하천법」에 따른 하천구역 내의 수문조작실은 건축법의 적용을 받지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3553,6 +3812,7 @@
         "explanation": "'건축주'와 '공사감리자' 간의 분쟁은 조정·재정 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3602,6 +3862,7 @@
         "explanation": "\"고층건축물\"이란 층수가 30층 이상이거나 높이가 120m 이상인 건축물을 말한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3651,6 +3912,7 @@
         "explanation": "사전결정신청자는 사전결정을 통지받은 날부터 2년 이내에 \"건축허가를 신청\"하여야 하며, 이 기간에 건축허가를 신청하지 아니하면 사전결정의 효력이 상실된다. 착공신고가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3700,6 +3962,7 @@
         "explanation": "공장의 옥상에 축조하는 컨테이너로 된 가설건축물로서 임시사무실로 사용되는 것은 가설건축물 축조신고 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3747,6 +4010,38 @@
         "text": "「하수도법」 제34조에 따른 개인하수처리시설의 설치",
         "answer": "O",
         "explanation": "「하수도법」 제34조에 따른 개인하수처리시설의 설치는 건축협정구역을 대상으로 통합하여 적용할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -3798,6 +4093,7 @@
         "explanation": "ㄱ은 50이 아니라 10이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3847,6 +4143,7 @@
         "explanation": "고정식 온실·비닐하우스 등을 이용한 다년생식물 재배 기준은 330㎡ 이상이므로, 300㎡는 기준에 미달한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3880,6 +4177,38 @@
         "text": "「도시 및 주거환경정비법」에 따른 정비사업",
         "answer": "O",
         "explanation": "「도시 및 주거환경정비법」에 따른 정비사업은 도시·군계획사업에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -3931,6 +4260,7 @@
         "explanation": "국토교통부장관, 시·도지사, 시장 또는 군수는 광역도시계획을 수립하려면 미리 공청회를 열어 주민과 관계 전문가 등으로부터 의견을 들어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -3980,6 +4310,7 @@
         "explanation": "계획관리지역 외의 지역에 지정된 개발진흥지구 내의 지구단위계획구역에서 완화 적용할 경우 아파트 및 연립주택은 허용되지 아니한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4029,6 +4360,7 @@
         "explanation": "도시재생활성화지역 중 입지규제최소구역 지정대상은 경제기반형 활성화계획을 수립하는 지역이며, 근린재생형 활성화계획을 수립하는 지역은 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4078,6 +4410,7 @@
         "explanation": "시설결정이 고시된 날부터 10년이 아니라 20년이 지날 때까지 사업이 시행되지 아니한 경우 그 결정은 효력을 잃는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4127,6 +4460,7 @@
         "explanation": "교통여건 변화 등으로 향후 시가화가 예상되는 자연환경보전지역은 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4176,6 +4510,7 @@
         "explanation": "제2종전용주거지역에서는 공동주택인 아파트를 건축할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4225,6 +4560,7 @@
         "explanation": "용도지구의 제한을 지구단위계획으로 대체하기 위한 용도지구의 지정에 관한 사항은 대상 토지 면적의 3분의 2 이상의 동의가 필요하다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4274,6 +4610,7 @@
         "explanation": "기반시설부담구역에서 기반시설설치비용은 일정 규모 이상의 건축행위를 하는 자에게만 부과하며, 개발행위허가를 받고자 하는 모든 자에게 부과하는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4323,6 +4660,7 @@
         "explanation": "자연취락지구안에서는 4층 이하의 방송통신시설을 건축할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4372,6 +4710,7 @@
         "explanation": "자연녹지지역에 지정된 개발진흥지구는 그보다 건폐율 최대한도가 낮다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4421,6 +4760,7 @@
         "explanation": "위와 같은 사유로 정답 처리되었다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4470,6 +4810,7 @@
         "explanation": "ㄴ,ㄷ이 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4519,6 +4860,7 @@
         "explanation": "사업주체인 지방자치단체는 조성된 토지의 분양을 「주택법」에 따른 주택건설사업자에게 대행하게 할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4568,6 +4910,7 @@
         "explanation": "의결권을 가진 조합원의 수가 100인 이상인 조합은 총회의 권한을 대행하게 하기 위하여 대의원회를 둘 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4617,6 +4960,7 @@
         "explanation": "지정권자는 시행자가 도시개발구역 지정의 고시일부터 1년(6개월이 아님) 이내에 실시계획의 인가를 신청하지 아니하는 경우 시행자를 변경할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4666,6 +5010,7 @@
         "explanation": "환지설계 시 적용되는 토지·건축물의 평가액은 최초 환지계획인가 신청 시를 기준으로 확정되며, 환지 계획의 변경인가를 받더라도 그 평가액 기준일 자체를 변경할 수 있는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4715,6 +5060,7 @@
         "explanation": "도시개발채권 매입필증을 제출받는 자는 매입필증을 5년간 보관하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4764,6 +5110,7 @@
         "explanation": "대도시의 시장이 아닌 시장은 정비사업의 계획기간을 단축하는 등 경미한 사항을 변경하는 경우 도지사의 변경승인을 받지 아니할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4813,6 +5160,7 @@
         "explanation": "ㄴ이 3분의 2가 아니므로 틀리다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4862,6 +5210,7 @@
         "explanation": "정관 및 사업시행계획인가의 변경에 따라 관리처분계획을 변경하는 경우는 신고사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4911,6 +5260,7 @@
         "explanation": "어린이집은 공동이용시설에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4960,6 +5310,7 @@
         "explanation": "관리처분계획에 따라 소유권을 이전하는 경우 건축물을 분양받을 자는 이전고시가 있은 날의 다음 날에 그 건축물의 소유권을 취득한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -4995,6 +5346,38 @@
         "explanation": "재개발사업은 정비구역에서 인가받은 관리처분계획에 따라 건축물을 건설하여 공급하는 방법으로 시행할 수 있다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -5028,6 +5411,38 @@
         "text": "7층의 오피스텔",
         "answer": "O",
         "explanation": "오피스텔은 준주택으로서 '주택'에 해당하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ, ㅁ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -5079,6 +5494,7 @@
         "explanation": "조정대상지역으로 지정된 지역의 시장·군수·구청장은 조정대상지역으로 유지할 필요가 없다고 판단되는 경우 국토교통부장관에게 그 지정의 해제를 요청할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5128,6 +5544,7 @@
         "explanation": "甲이 해당 토지의 소유권을 회복한 날부터 2년(1년이 아님)이 경과한 이후에는 甲에게 매도청구를 할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5177,6 +5594,7 @@
         "explanation": "인수자에게 공급하는 임대주택의 선정은 주택조합이 사업주체인 경우에는 조합원에게 공급하고 남은 주택을 대상으로 공개추첨의 방법에 의한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5226,6 +5644,7 @@
         "explanation": "아파트의 복도, 계단 등 지상층의 공용면적은 주거전용면적에 포함되지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5275,6 +5694,7 @@
         "explanation": "조합의 임원이 금고 이상의 실형을 받아 당연퇴직을 하더라도 그가 퇴직 전에 관여한 행위의 효력에는 영향이 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5324,6 +5744,7 @@
         "explanation": "주택조합이 승인받은 총사업비의 10퍼센트를 감액하는 변경을 하려면 변경승인을 받아야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5373,6 +5794,7 @@
         "explanation": "의료시설 중 종합병원은 다중이용 건축물에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5422,6 +5844,7 @@
         "explanation": "다세대주택은 제출 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5471,6 +5894,7 @@
         "explanation": "바닥면적 100제곱미터인 단층 건축물의 신축은 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5520,6 +5944,7 @@
         "explanation": "甲은 서점으로 용도변경을 할 경우 피난 용도로 쓸 수 있는 광장을 옥상에 설치할 의무가 없다(해당 규모·용도 기준에 미달)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5569,6 +5994,7 @@
         "explanation": "건축물의 노대의 바닥은 노대가 접한 가장 긴 외벽에 접한 길이에 1.5미터를 곱한 값을 뺀 면적을 바닥면적에 산입한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5618,6 +6044,7 @@
         "explanation": "순서가 올바르지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5667,6 +6094,7 @@
         "explanation": "세대수가 300세대인 아파트는 범죄예방 기준 적용대상 공동주택의 세대수 기준(500세대 이상)에 미달하여 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5716,6 +6144,7 @@
         "explanation": "교통사고로 2개월간 치료가 필요한 경우는 법령이 정한 위탁경영 허용사유(3개월 이상의 치료가 필요한 경우 등)에 해당하지 않아 위탁경영을 할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5765,6 +6194,7 @@
         "explanation": "농지전용신고를 하고 농지를 전용하는 경우에도 필요에 따라 농지를 전·답·과수원 외의 지목으로 변경할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5814,6 +6244,7 @@
         "explanation": "기반시설부담구역의 지정고시일부터 1년이 되는 날까지 기반시설설치계획을 수립하지 아니하면 그 1년이 되는 날의 다음날에 기반시설부담구역의 지정은 해제된 것으로 본다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5863,6 +6294,7 @@
         "explanation": "토지소유자의 동의를 받아야 하는 경우 국·공유지는 동의 대상 토지 면적에서 제외된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5912,6 +6344,7 @@
         "explanation": "개발행위허가를 받은 자가 행정청이 아닌 경우, 용도가 폐지되는 공공시설은 새로 설치한 공공시설의 설치비용에 상당하는 범위 안에서만 무상으로 귀속되고 전부가 무상 귀속되는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -5961,6 +6394,7 @@
         "explanation": "입지규제최소구역계획이라는 법정 용어는 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6010,6 +6444,7 @@
         "explanation": "개발밀도관리구역을 지정하려는 경우에는 주민의 의견을 들어야 한다는 규정이 명시되어 있지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6050,6 +6485,38 @@
         "text": "주택의 개량",
         "answer": "O",
         "explanation": "주택의 개량은 지원할 수 있는 사업에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -6101,6 +6568,7 @@
         "explanation": "준공업지역의 용적률 최대한도는 400%이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6150,6 +6618,7 @@
         "explanation": "도시·군계획시설결정이 고시된 후 그 고시일부터 20년이 지날 때까지 사업이 시행되지 아니하면, 그 결정은 20년이 되는 날의 다음날에 효력을 잃는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6199,6 +6668,7 @@
         "explanation": "업무시설로서 바닥면적의 합계가 4천제곱미터인 것은 제3종일반주거지역에서 건축할 수 있는 규모 기준(3천제곱미터 미만)을 초과하여 건축할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6239,6 +6709,38 @@
         "text": "취락지구 - 자연취락지구, 농어촌취락지구, 집단취락지구",
         "answer": "X",
         "explanation": "취락지구는 자연취락지구, 집단취락지구로 세분되며 \"농어촌취락지구\"는 존재하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -6290,6 +6792,7 @@
         "explanation": "비금속 광물제품 제조공장의 기반시설유발계수(1.3)는 관광휴게시설보다 작다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6339,6 +6842,7 @@
         "explanation": "ㄱ은 용도지역이 아니라 용도지구이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6388,6 +6892,7 @@
         "explanation": "자연녹지지역에서 도시개발구역을 지정한 이후에도 도시개발사업의 계획을 수립하는 것이 허용된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6437,6 +6942,7 @@
         "explanation": "외부감사 대상이 되는 신탁업자는 시행자로 지정될 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6486,6 +6992,7 @@
         "explanation": "환지 계획에는 필지별로 된 환지 명세와 필지별과 권리별로 된 청산 대상 토지 명세가 포함되어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6526,6 +7033,38 @@
         "text": "조성된 토지의 분양",
         "answer": "O",
         "explanation": "조성된 토지의 분양은 대행하게 할 수 있는 범위에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -6577,6 +7116,7 @@
         "explanation": "지방자치단체가 도시개발사업의 전부를 환지 방식으로 시행하려는 경우에도 도시개발사업에 관한 규약을 정하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6626,6 +7166,7 @@
         "explanation": "공공용지가 아닌 조성토지등의 공급은 경쟁입찰의 방법이 원칙이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6675,6 +7216,7 @@
         "explanation": "재건축사업의 정비구역에서 오피스텔을 건설·공급하려는 경우에는 준주거지역 및 상업지역에서만 건설할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6724,6 +7266,7 @@
         "explanation": "공동구 설치비용은 그 공동구에 수용될 시설을 설치할 의무가 있는 자에게 부담시킬 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6773,6 +7316,7 @@
         "explanation": "분양대상 대지 또는 건축물의 내역은 분양공고에 포함되어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6822,6 +7366,7 @@
         "explanation": "정비사업의 시행을 위하여 필요한 재원조달에 관한 사항을 변경하는 경우는 의견청취를 생략할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6871,6 +7416,7 @@
         "explanation": "ㄴ은 10이 아니라 7이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6920,6 +7466,7 @@
         "explanation": "이동이 쉽지 아니한 물건을 14일 동안 쌓아두는 것은 허가가 필요한 기준(1개월 이상)에 미달하므로 시장·군수등의 허가를 받지 않아도 된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -6969,6 +7516,7 @@
         "explanation": "어린이놀이터, 근린생활시설, 유치원, 주민운동시설, 지역난방공급시설 등은 \"부대시설\"이 아니라 \"복리시설\"에 포함된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7018,6 +7566,7 @@
         "explanation": "해당 주택건설대지의 80퍼센트 이상에 해당하는 토지의 사용권원을 확보하였음을 증명하는 서류는 설립인가신청 서류에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7051,6 +7600,38 @@
         "text": "「주택법」 제63조에 따라 국토교통부장관이 투기과열지구의 지정을 해제하는 경우",
         "answer": "O",
         "explanation": "국토교통부장관이 투기과열지구의 지정을 해제하는 경우도 주거정책심의위원회의 심의를 거쳐야 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -7102,6 +7683,7 @@
         "explanation": "사업계획승인권자는 신청받은 날부터 60일 이내에 사업주체에게 승인 여부를 통보하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7151,6 +7733,7 @@
         "explanation": "ㄱ은 10이 아니라 5이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7200,6 +7783,7 @@
         "explanation": "주택건설사업의 등록말소는 청문 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7249,6 +7833,7 @@
         "explanation": "사업주체에게 책임이 없는 불가항력적인 사유로 공사 착수가 지연되는 경우는 연장사유에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7289,6 +7874,38 @@
         "text": "「농지법」 제34조에 따른 농지전용허가",
         "answer": "O",
         "explanation": "「농지법」에 따른 농지전용허가는 사전결정으로 의제된다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -7340,6 +7957,7 @@
         "explanation": "건축법령의 운영 및 집행에 관한 민원을 심의할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7389,6 +8007,7 @@
         "explanation": "ㄱ은 3천이 아니라 1천이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7438,6 +8057,7 @@
         "explanation": "업무시설 중 오피스텔은 대상 시설에 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7478,6 +8098,38 @@
         "text": "해당 철도사업용 급수(給水)·급탄(給炭) 및 급유(給油) 시설",
         "answer": "O",
         "explanation": "해당 철도사업용 급수·급탄 및 급유 시설은 건축법의 적용을 받지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -7529,6 +8181,7 @@
         "explanation": "높이 4미터를 넘는 장식탑이 신고대상이며, 높이가 4미터인 경우는 그 기준을 넘지 않으므로 신고대상 공작물에 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7578,6 +8231,7 @@
         "explanation": "조례로 정한 용적률과 결합건축으로 조정되어 적용되는 대지별 용적률은 명시하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7613,6 +8267,38 @@
         "explanation": "지목이 답이고 농작물 경작지로 실제 이용되는 토지의 개량시설에 해당하는 양·배수시설의 부지는 농지에 해당한다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -7646,6 +8332,38 @@
         "text": "선거에 따른 공직취임으로 자경할 수 없는 경우",
         "answer": "X",
         "explanation": "선거에 따른 공직취임으로 자경할 수 없는 경우는 법령상 명시된 위탁경영 허용사유에 해당하여 위탁경영을 할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -7697,6 +8415,7 @@
         "explanation": "광역도시계획을 공동으로 수립하는 시·도지사는 협의가 되지 아니하면 공동이나 단독으로 국토교통부장관에게 조정을 신청할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7746,6 +8465,7 @@
         "explanation": "특정개발진흥지구는 주거·공업·유통물류·관광휴양기능 외의 기능을 중심으로 개발·정비할 지구이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7795,6 +8515,7 @@
         "explanation": "택지개발예정지구에서 지구단위계획을 수립하여 개발하는 토지에 건축하는 건축물은 제외되는 건축물이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7844,6 +8565,7 @@
         "explanation": "도시·군관리계획 결정의 효력은 지형도면을 고시한 날부터 발생한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7877,6 +8599,38 @@
         "text": "실시계획인가의 취소",
         "answer": "O",
         "explanation": "실시계획인가의 취소는 청문을 하여야 하는 경우이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -7928,6 +8682,7 @@
         "explanation": "한의원은 자연취락지구 안에서 건축할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -7968,6 +8723,38 @@
         "text": "「도청이전을 위한 도시건설 및 지원에 관한 특별법」에 따른 도청이전신도시",
         "answer": "O",
         "explanation": "「도청이전을 위한 도시건설 및 지원에 관한 특별법」에 따른 도청이전신도시는 공동구 설치의무 지역등에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -8019,6 +8806,7 @@
         "explanation": "시장 또는 군수는 5년마다 관할 구역의 도시·군기본계획에 대하여 타당성을 전반적으로 재검토하여 정비하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8052,6 +8840,38 @@
         "text": "다른 법률에서 도시·군관리계획의 결정을 의제하고 있는 경우에는 「국토의 계획 및 이용에 관한 법률」에 따르지 아니하고 입지규제최소구역을 지정할 수 있다.",
         "answer": "X",
         "explanation": "다른 법률에서 도시·군관리계획의 결정을 의제하고 있는 경우에도 입지규제최소구역의 지정은 「국토의 계획 및 이용에 관한 법률」에 따라야 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -8103,6 +8923,7 @@
         "explanation": "도시·군계획조례로 정하는 도로의 너비에 관한 기준에 적합할 것은 개발행위허가 기준이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8136,6 +8957,38 @@
         "text": "계획관리지역에서 경관계획을 포함하는 성장관리방안을 수립한 경우에는 50퍼센트 이하의 범위에서 조례로 건폐율을 정할 수 있다.",
         "answer": "O",
         "explanation": "계획관리지역에서 경관계획을 포함하는 성장관리방안을 수립한 경우에는 50퍼센트 이하의 범위에서 조례로 건폐율을 정할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -8187,6 +9040,7 @@
         "explanation": "500제곱미터는 옳은 숫자가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8236,6 +9090,7 @@
         "explanation": "행정청이 아닌 시행자가 인가받은 환지 계획의 내용 중 종전 토지의 합필 또는 분필로 환지명세가 변경되는 경미한 사항은 변경인가를 받지 않아도 된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8285,6 +9140,7 @@
         "explanation": "실시계획의 인가에 의해 「주택법」에 따른 사업계획의 승인은 의제될 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8334,6 +9190,7 @@
         "explanation": "토지 소유자가 조합 설립인가 신청에 동의하였더라도 조합 설립인가의 신청 전에 그 동의를 철회한 경우, 그 토지 소유자는 동의자 수에서 제외된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8383,6 +9240,7 @@
         "explanation": "ㄱ:3, ㄴ:3, ㄷ:5의 조합은 옳지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8432,6 +9290,7 @@
         "explanation": "조합의 합병에 관한 사항은 대의원회가 대행할 수 없는 사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8467,6 +9326,38 @@
         "explanation": "지정권자인 시행자는 그가 시행한 사업으로 이익을 얻는 시·도가 아니라 지방자치단체에 비용의 일부를 부담시킬 수 있으나, 시·도에 전부를 부담시킬 수 있다는 서술은 옳지 않다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -8500,6 +9391,38 @@
         "text": "정비사업에 관하여 소유권의 이전고시가 있은 날부터는 대지 및 건축물에 관한 등기가 없더라도 저당권 등의 다른 등기를 할 수 있다.",
         "answer": "X",
         "explanation": "정비사업에 관하여 소유권의 이전고시가 있은 날부터는 대지 및 건축물에 관한 등기가 없으면 저당권 등의 다른 등기를 할 수 없다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -8551,6 +9474,7 @@
         "explanation": "정비구역 및 주변지역의 교통상황은 조사·확인사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8600,6 +9524,7 @@
         "explanation": "ㄱ:2분의 1, ㄴ:3분의 1, ㄷ:4분의 3, ㄹ:2분의 1의 조합은 옳지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8649,6 +9574,7 @@
         "explanation": "조합이 재개발임대주택의 인수를 요청하는 경우 국토교통부장관이 아니라 시·도지사 또는 시장·군수등이 우선하여 인수하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8698,6 +9624,7 @@
         "explanation": "상가세입자도 사업시행자가 건축물의 철거의 사항에 관하여 시행규정을 정하는 때에 의견을 제시할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8747,6 +9674,7 @@
         "explanation": "임시거주시설을 포함한 주민이주대책은 사업시행계획서 포함사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8796,6 +9724,7 @@
         "explanation": "등록사업자의 등록이 말소된 경우에도 등록사업자가 발행한 주택상환사채의 효력에는 영향이 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8845,6 +9774,7 @@
         "explanation": "수직증축형 리모델링의 대상이 되는 기존 건축물의 층수가 12층인 경우에는 2개층까지 증축할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8894,6 +9824,7 @@
         "explanation": "주민공동시설은 \"부대시설\"이 아니라 \"복리시설\"에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -8927,6 +9858,38 @@
         "text": "주택건설공사를 시공할 수 있는 등록사업자가 최근 3년간 300세대 이상의 공동주택을 건설한 실적이 있는 경우에는 주택으로 쓰는 층수가 7개층인 주택을 건설할 수 있다.",
         "answer": "O",
         "explanation": "최근 3년간 300세대 이상의 공동주택을 건설한 실적이 있는 등록사업자는 주택으로 쓰는 층수가 7개층인 주택을 건설할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -8978,6 +9941,7 @@
         "explanation": "사업계획승인 과정에서 예정 세대수가 변경되어 조합원 수가 변경된 세대수의 40퍼센트가 된 경우는 충원 사유(50퍼센트 미만)에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9013,6 +9977,38 @@
         "explanation": "감리자는 위반 사항을 발견하였을 때에는 지체 없이 시공자 및 사업주체에게 시정을 통지하고, 7일 이내에 사업계획승인권자에게 보고하여야 한다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      }
+    ],
     "free": false
   },
   {
@@ -9046,6 +10042,38 @@
         "text": "지방공사가 사업주체인 경우 건축물의 설계와 용도별 위치를 변경하지 아니하는 범위에서의 건축물의 배치조정은 사업계획변경승인을 받지 않아도 된다.",
         "answer": "O",
         "explanation": "지방공사가 사업주체인 경우 설계와 용도별 위치를 변경하지 아니하는 범위의 건축물 배치조정은 사업계획변경승인을 받지 않아도 된다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -9097,6 +10125,7 @@
         "explanation": "연면적의 합계가 1천500제곱미터 미만인 축사는 조경 의무가 면제되는 건축물에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9146,6 +10175,7 @@
         "explanation": "건축협정에서 달리 정하지 않는 한, 건축협정이 공고된 후 건축협정구역에 있는 토지에 관한 권리를 협정체결자로부터 이전받은 자도 건축협정에 따라야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9195,6 +10225,7 @@
         "explanation": "기존 건축물이 있는 대지에서 건축물의 내력벽을 증설하여 건축면적을 늘리는 것은 \"증축\"에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9244,6 +10275,7 @@
         "explanation": "B군수는 甲이 판매시설과 위락시설의 복수 용도로 용도변경 신청을 한 경우 지방건축위원회의 심의를 거쳐 이를 허용할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9293,6 +10325,7 @@
         "explanation": "공사감리자는 필요하다고 인정하면 공사시공자에게 상세시공도면을 작성하도록 요청할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9342,6 +10375,7 @@
         "explanation": "건축물이 부분에 따라 층수가 다른 경우에는 그 중 가장 많은 층수를 그 건축물의 층수로 본다(평균이 아니다)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9375,6 +10409,38 @@
         "text": "견본주택이 2층 이상인 경우 공사감리자를 지정하여야 한다.",
         "answer": "X",
         "explanation": "견본주택이 2층 이상인 경우에도 공사감리자를 지정할 의무는 없다(가설건축물 특례)."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -9426,6 +10492,7 @@
         "explanation": "군의 자연환경보전지역은 농업진흥지역을 지정할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9475,6 +10542,7 @@
         "explanation": "농지임대차조정위원회에서 작성한 조정안을 임대차계약 당사자가 수락한 때에는 이를 당사자 간에 체결된 계약의 내용으로 본다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9524,6 +10592,7 @@
         "explanation": "광역계획권을 지정한 날부터 3년이 지날 때까지 관할 시장 또는 군수로부터 광역도시계획의 승인 신청이 없는 경우 관할 도지사가 광역도시계획을 수립하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9573,6 +10642,7 @@
         "explanation": "특별시장·광역시장·특별자치시장 또는 특별자치도지사는 도시·군기본계획을 변경하려면 관계 행정기관의 장(국토교통부장관 포함)과 협의한 후 지방도시계획위원회의 심의를 거쳐야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9622,6 +10692,7 @@
         "explanation": "도시·군계획시설채권의 상환기간은 10년 이내로 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9671,6 +10742,7 @@
         "explanation": "인접한 특별시·광역시·특별자치시·특별자치도·시 또는 군의 관할 구역에 대한 도시·군관리계획은 관계 지방자치단체장이 협의하여 공동으로 입안하거나 입안할 자를 정한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9720,6 +10792,7 @@
         "explanation": "「관광진흥법」에 따라 지정된 관광단지의 전부 또는 일부에 대하여 지구단위계획구역을 지정할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9769,6 +10842,7 @@
         "explanation": "개발행위허가를 받은 자가 행정청이 아닌 경우 개발행위로 용도가 폐지되는 공공시설은 새로 설치한 공공시설의 설치비용에 상당하는 범위에서 그에게 무상으로 귀속될 수 있을 뿐이며, 전부가 당연히 무상 귀속되는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9818,6 +10892,7 @@
         "explanation": "기반시설설치비용 납부의무자는 사용승인 신청 후가 아니라 사용승인 신청 시까지 그 비용을 내야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9867,6 +10942,7 @@
         "explanation": "농림지역은 성장관리계획구역을 지정할 수 있는 지역이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9916,6 +10992,7 @@
         "explanation": "시가화조정구역에서 입목의 벌채, 조림, 육림 행위는 허가를 받아야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -9965,6 +11042,7 @@
         "explanation": "실시계획 인가 내용과 다르게 사업을 하여 원상회복 명령을 받은 자가 원상회복을 하지 아니하면 「행정대집행법」에 따른 행정대집행에 따라 원상회복을 할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10014,6 +11092,7 @@
         "explanation": "폐기물처리 및 재활용시설은 환경기초시설에 해당하며, 보건위생시설에는 화장시설·공동묘지·장사시설·도축장 등이 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10063,6 +11142,7 @@
         "explanation": "ㄷ-ㄴ-ㄱ-ㅁ-ㄹ 순서는 옳지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10103,6 +11183,38 @@
         "text": "한국토지주택공사",
         "answer": "X",
         "explanation": "한국토지주택공사는 도시개발구역의 지정을 제안할 수 있는 자일 뿐 지정권자는 아니다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -10154,6 +11266,7 @@
         "explanation": "원형지가 공공택지 용도인 경우 원형지개발자의 선정은 경쟁입찰의 방법에 의하는 것이 원칙이며, 추첨의 방법으로 할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10203,6 +11316,7 @@
         "explanation": "시행자는 환지를 정하지 아니하기로 결정된 토지 소유자나 임차권자등에게 날짜를 정하여 그날부터 해당 토지의 사용 또는 수익을 정지시킬 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10252,6 +11366,7 @@
         "explanation": "도시개발사업을 공공기관이 시행하는 경우 그 공공기관은 시·도지사의 승인 없이 도시개발채권을 발행할 수 없고, 도시개발채권은 시·도지사만이 발행할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10301,6 +11416,7 @@
         "explanation": "「건축법」에 따른 건축물의 용도 변경은 허가 대상 행위이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10350,6 +11466,7 @@
         "explanation": "벌금의 상한액은 10억원이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10399,6 +11516,7 @@
         "explanation": "공공재개발사업은 재개발사업 중 공공시행자가 참여하는 유형이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10439,6 +11557,38 @@
         "text": "정비사업전문관리업자의 선정 및 변경",
         "answer": "O",
         "explanation": "정비사업전문관리업자의 선정 및 변경은 대의원회가 대행할 수 없는 사항이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -10490,6 +11640,7 @@
         "explanation": "ㄱ:신청일 다음 날, ㄴ:30, ㄷ:30의 조합은 옳지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10539,6 +11690,7 @@
         "explanation": "시장·군수는 인수한 임대주택 일부를 토지임대부 분양주택으로 전환하여 공급할 수 있으나, 이는 정비구역 내 특정 면적 토지소유자의 요청과는 별개의 요건에 따른 재량 사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10588,6 +11740,7 @@
         "explanation": "주민대표회의는 토지등소유자의 과반수의 동의를 받아 구성하며, 위원장과 부위원장 각 1명과 1명 이상 3명 이하의 감사를 둔다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10637,6 +11790,7 @@
         "explanation": "국가 또는 지방자치단체는 토지임대부 분양주택을 공급받는 자에게 해당 공급비용의 전부 또는 일부를 융자할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10686,6 +11840,7 @@
         "explanation": "ㄱ:75, ㄴ:25의 조합은 옳지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10735,6 +11890,7 @@
         "explanation": "폭 8미터 이상의 도시계획예정도로(폭 10미터 포함)는 분리 시설에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10768,6 +11924,38 @@
         "text": "민영주택은 국민주택을 제외한 주택을 말한다.",
         "answer": "O",
         "explanation": "민영주택은 국민주택을 제외한 주택을 말한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -10819,6 +12007,7 @@
         "explanation": "ㄱ:3, ㄴ:20, ㄷ:건축허가실적의 조합은 옳지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10868,6 +12057,7 @@
         "explanation": "사업계획에는 부대시설 및 복리시설의 설치에 관한 계획 등이 포함되어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -10910,6 +12100,38 @@
         "explanation": "주택조합 가입 청약철회자의 가입비 반환은 예치기관을 통한 별도의 예치금 관리 절차에 따르며, 주택상환사채 납입금의 용도가 아니다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -10950,6 +12172,38 @@
         "text": "주택을 공급받을 수 있는 증서로서 시장·군수·구청장이 발행한 무허가건물 확인서의 증여",
         "answer": "O",
         "explanation": "주택을 공급받을 수 있는 증서로서 시장·군수·구청장이 발행한 무허가건물 확인서의 증여는 금지되는 공급질서 교란행위에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -11001,6 +12255,7 @@
         "explanation": "특수구조 건축물을 건축하려는 건축주는 건축허가 신청 전이 아니라 착공신고 전에 구조 안전에 관하여 지방건축위원회의 심의를 신청하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11050,6 +12305,7 @@
         "explanation": "건축물 내진등급의 설정은 구조 안전과 직결되는 사항으로 대지의 범위 설정 곤란을 이유로 완화를 요청할 수 있는 기준에 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11099,6 +12355,7 @@
         "explanation": "국토교통부장관이 아니라 건축허가를 제한하는 주체(국토교통부장관 또는 특별시장·광역시장·도지사)가 제한 목적·기간 등을 지체 없이 공고하여야 하며, 지문은 다른 조건들과의 비교상 틀린 지문이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11148,6 +12405,7 @@
         "explanation": "건축신고를 한 甲은 건축물의 공사가 끝난 후 사용승인을 신청하여 사용승인을 받아야 건축물을 사용할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11181,6 +12439,38 @@
         "text": "「집합건물의 소유 및 관리에 관한 법률」에 따른 건축물대장의 신규등록 신청이 있는 경우",
         "answer": "O",
         "explanation": "「집합건물의 소유 및 관리에 관한 법률」에 따른 건축물대장의 신규등록 신청이 있는 경우 건축물대장에 정보를 적어서 보관·정비하여야 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -11232,6 +12522,7 @@
         "explanation": "특별건축구역을 지정한 경우에도 「국토의 계획 및 이용에 관한 법률」에 따른 용도지역·지구·구역의 지정이 있는 것으로 보는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11281,6 +12572,7 @@
         "explanation": "'건축허가권자'는 인·허가 행정청으로서 그와 인근주민 간의 분쟁은 건축분쟁전문위원회의 조정·재정 대상에서 제외된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11330,6 +12622,7 @@
         "explanation": "주말·체험영농을 하려고 농지를 취득하는 경우에는 농업진흥지역 외의 농지라 하더라도 농지취득자격증명을 발급받아야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11379,6 +12672,7 @@
         "explanation": "농지 소유권자뿐만 아니라 농지 임차권자를 대신할 대리경작자도 지정할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11428,6 +12722,7 @@
         "explanation": "「택지개발촉진법」에 따른 택지개발지구로 지정·고시된 지역은 「국토의 계획 및 이용에 관한 법률」에 따른 도시지역으로 결정·고시된 것으로 본다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11477,6 +12772,7 @@
         "explanation": "토지분할을 위한 개발행위허가를 받은 자는 준공검사를 받을 필요가 없다(토지분할은 준공검사 대상이 아니다)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11526,6 +12822,7 @@
         "explanation": "시장 또는 군수는 성장관리계획구역을 지정하려면 성장관리계획구역안을 7일간 일반이 열람할 수 있도록 해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11575,6 +12872,7 @@
         "explanation": "개발행위허가를 받은 자는 귀속된 공공시설의 처분으로 인한 수익금을 도시·군계획사업 외의 목적에 사용할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11624,6 +12922,7 @@
         "explanation": "중앙행정기관의 장, 시·도지사, 시장 또는 군수는 국토교통부장관이나 도지사에게 광역계획권의 지정 또는 변경을 요청할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11673,6 +12972,7 @@
         "explanation": "시장 또는 군수가 성장관리계획구역을 지정하려면 지방도시계획위원회의 심의를 거쳐야 하며, 중앙도시계획위원회 심의 대상이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11722,6 +13022,7 @@
         "explanation": "마을공동시설로서 농기계수리소 및 농기계용 유류판매소(개인소유 포함)의 설치는 허가를 받아 할 수 있는 행위이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11771,6 +13072,7 @@
         "explanation": "기반시설설치비용의 관리 및 운용을 위하여 기반시설부담구역별로 특별회계를 설치하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11811,6 +13113,38 @@
         "text": "「고등교육법」에 따른 방송대학·통신대학 및 방송통신대학",
         "answer": "O",
         "explanation": "「고등교육법」에 따른 방송대학·통신대학 및 방송통신대학은 미리 결정하지 않고 설치할 수 있다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -11862,6 +13196,7 @@
         "explanation": "개발밀도관리구역(ㄱ), 기반시설부담구역(ㄴ) 및 제67조제4항에 따른 기반시설설치계획에 관한 기초조사를 위해 타인의 토지에 출입할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11911,6 +13246,7 @@
         "explanation": "관계 중앙행정기관의 장과의 협의 및 중앙도시계획위원회의 심의는 승인 절차이지 첨부서류가 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -11960,6 +13296,7 @@
         "explanation": "ㄴ,ㄷ이 150·100으로 되어 있어 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12009,6 +13346,7 @@
         "explanation": "토지등의 매수 대금 일부의 지급을 위하여 토지상환채권을 발행할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12058,6 +13396,7 @@
         "explanation": "환지 계획에서 정하여진 환지는 그 환지처분이 공고된 날의 다음 날부터 종전의 토지로 본다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12107,6 +13446,7 @@
         "explanation": "둘 이상의 도에 걸치는 경우 관계 도지사 간 협의가 성립되지 아니하는 경우는 국토교통부장관 지정 사유이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12156,6 +13496,7 @@
         "explanation": "조합의 대표자는 설립인가를 받은 날부터 30일 이내에 설립등기를 하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12205,6 +13546,7 @@
         "explanation": "지방공기업법에 따라 설립된 지방공사는 시행자로 지정될 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12254,6 +13596,7 @@
         "explanation": "ㄱ,ㄴ,ㄷ이 10·5·10으로 되어 있어 모두 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12303,6 +13646,7 @@
         "explanation": "시·도지사 및 시장·군수·구청장이 인수할 수 없는 경우 한국토지주택공사가 인수하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12352,6 +13696,7 @@
         "explanation": "전문조합관리인이 선정된 경우 전문조합관리인이 업무를 대행할 임원은 당연 퇴임한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12401,6 +13746,7 @@
         "explanation": "ㄴ이 90으로 되어 있어 틀렸다(60이 옳음)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12450,6 +13796,7 @@
         "explanation": "추진위원회 위원의 선정에 관한 사항은 통지 대상이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12499,6 +13846,7 @@
         "explanation": "공고·공람 및 통지의 방법은 시행규정 포함사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12541,6 +13889,38 @@
         "explanation": "공용주차장은 시장·군수등이 비용을 부담할 수 있는 시설이다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      }
+    ],
     "free": false
   },
   {
@@ -12581,6 +13961,38 @@
         "text": "지하층에는 세대를 설치하지 아니할 것",
         "answer": "O",
         "explanation": "지하층에는 세대를 설치하지 아니할 것은 소형 주택의 요건이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -12632,6 +14044,7 @@
         "explanation": "주택상환사채는 무기명증권이 아니라 기명증권으로 발행한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12681,6 +14094,7 @@
         "explanation": "토지임대료는 분기별이 아니라 월별 임대료를 원칙으로 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12730,6 +14144,7 @@
         "explanation": "보수·보강 조치 명령을 이행하지 아니한 사업주체는 과태료 부과 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12763,6 +14178,38 @@
         "text": "사업주체는 분양가상한제 적용주택으로서 공공택지에서 공급하는 주택에 대하여 입주자 모집공고에 분양가격을 공시해야 하는데, 간접비는 공시해야 하는 분양가격에 포함되지 않는다.",
         "answer": "O",
         "explanation": "공공택지에서 공급하는 주택의 분양가격 공시 항목에는 간접비가 포함되지 않는다는 서술은 옳다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -12814,6 +14261,7 @@
         "explanation": "리모델링주택조합 설립에 동의한 자로부터 건축물을 취득한 자는 설립에 동의한 것으로 본다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12863,6 +14311,7 @@
         "explanation": "주택건설사업자의 영업의 정지는 시·도지사에게 위임된 권한이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12912,6 +14361,7 @@
         "explanation": "안전영향평가를 위하여 지방건축위원회가 결정하는 사항은 안전영향평가기관의 검토사항으로 명시되어 있지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -12961,6 +14411,7 @@
         "explanation": "ㄱ,ㄴ,ㄷ이 1.5·300·3으로 되어 있어 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13010,6 +14461,7 @@
         "explanation": "산후조리원은 제1종 근린생활시설에 해당하나 규모 기준이 다르며, 이 문제에서는 서점이 명확한 정답이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13059,6 +14511,7 @@
         "explanation": "리모델링 활성화 구역은 결합건축을 할 수 있는 지역·구역으로 명시되어 있지 않다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13099,6 +14552,38 @@
         "text": "「건축법」 제58조 대지 안의 공지에 관한 사항",
         "answer": "X",
         "explanation": "「건축법」 제58조 대지 안의 공지에 관한 사항은 특별건축구역에서도 적용된다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -13150,6 +14635,7 @@
         "explanation": "층의 구분이 명확하지 아니한 건축물의 높이는 4미터마다 하나의 층으로 보고 그 층수를 산정한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13190,6 +14676,38 @@
         "text": "도시지역 외의 지역에서 「산지관리법」 제14조에 따른 보전산지에 대한 산지전용허가",
         "answer": "O",
         "explanation": "도시지역 외의 지역에서 「산지관리법」 제14조에 따른 보전산지에 대한 산지전용허가는 사전결정 통지로 의제된다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -13241,6 +14759,7 @@
         "explanation": "학교가 연구지·실습지로 농림축산식품부령으로 정하는 바에 따라 농지를 취득하여 소유하는 경우는 예외에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13290,6 +14809,7 @@
         "explanation": "농지대장의 열람은 해당 사무소 안에서 관계공무원의 참여 하에 해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13339,6 +14859,7 @@
         "explanation": "개발행위허가의 제한을 연장하는 경우 그 연장 기간은 2년을 넘을 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13388,6 +14909,7 @@
         "explanation": "국방·군사시설사업으로 이루어지는 개발행위는 규모제한을 받지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13435,6 +14957,38 @@
         "text": "일반상업지역",
         "answer": "X",
         "explanation": "일반상업지역은 복합용도지구 지정 가능 용도지역에 해당하지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -13486,6 +15040,7 @@
         "explanation": "농림지역에 위치한 산업·유통개발진흥지구도 지구단위계획구역으로 지정할 수 있는 대상지역에 포함된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13535,6 +15090,7 @@
         "explanation": "시가화조정구역의 지정 및 변경에 관한 사항은 입안권자가 직권으로 결정하는 사항으로, 주민이 입안을 제안할 수 있는 사항에 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13584,6 +15140,7 @@
         "explanation": "실효기간은 20년이 아니라 5년이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13633,6 +15190,7 @@
         "explanation": "ㄱ,ㄴ 모두 관리지역·교통이 아니라 개발제한구역·공업이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13682,6 +15240,7 @@
         "explanation": "노후·불량건축물이 밀집한 주거지역 또는 공업지역으로 정비가 시급한 지역은 입지규제최소구역 지정 대상에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13731,6 +15290,7 @@
         "explanation": "기반시설부담구역은 개발밀도관리구역으로 지정된 지역 외의 지역에 지정하는 것이 원칙이므로, 개발밀도관리구역에 기반시설부담구역을 지정할 수 있다는 서술은 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13764,6 +15324,38 @@
         "text": "시장 또는 군수가 결정하는 도시·군관리계획의 심의",
         "answer": "O",
         "explanation": "시장 또는 군수가 결정하는 도시·군관리계획의 심의는 시·군·구도시계획위원회의 업무에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
       }
     ],
     "free": false
@@ -13815,6 +15407,7 @@
         "explanation": "사업시행자가 행정청인 경우에는 허가 없이 타인의 토지에 출입할 수 있다(신고로 갈음)."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13864,6 +15457,7 @@
         "explanation": "사업시행자는 필요한 경우 도시·군계획시설사업 대상시설을 둘 이상으로 분할하여 시행할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13913,6 +15507,7 @@
         "explanation": "250%는 총 사업비를 이중으로 반영한 값이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -13962,6 +15557,7 @@
         "explanation": "원형지개발자가 제3자에게 무단매각한 경우 시행자는 먼저 시정을 요구하고, 원형지개발자가 시정하지 아니한 경우에 한하여 공급계약을 해제할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14002,6 +15598,38 @@
         "text": "의결권을 가진 조합원의 수가 50인 이상인 조합은 총회의 권한을 대행하게 하기 위하여 대의원회를 둘 수 있으며, 대의원회에 두는 대의원의 수는 의결권을 가진 조합원 총수의 100분의 10 이상으로 한다.",
         "answer": "O",
         "explanation": "의결권을 가진 조합원의 수가 50인 이상인 조합은 대의원회를 둘 수 있으며, 대의원 수는 조합원 총수의 100분의 10 이상으로 한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14053,6 +15681,7 @@
         "explanation": "토지상환채권의 발행은 시행자 고유의 업무로서 주택건설사업자 등에게 대행하게 할 수 있는 범위에 포함되지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14102,6 +15731,7 @@
         "explanation": "사업시행지구 분할에 관한 사항은 지정 시 포함되어 있어야 하는 사항이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14151,6 +15781,7 @@
         "explanation": "행정청이 아닌 시행자가 군수에게 청산금 징수를 위탁한 경우 그 시행자는 징수금액의 100분의 4를 해당 군에 지급하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14200,6 +15831,7 @@
         "explanation": "공동으로 사용하는 구판장은 정비기반시설이 아니라 공동이용시설에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14240,6 +15872,38 @@
         "text": "분양대상자별 분담금의 추산액",
         "answer": "X",
         "explanation": "분양대상자별 분담금의 추산액은 분양신청 통지에만 포함되는 사항이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": true
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14291,6 +15955,7 @@
         "explanation": "시공자·설계자의 선정 및 계약서에 포함될 내용은 정관변경 시 조합원 3분의 2 이상 찬성이 필요하다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14340,6 +16005,7 @@
         "explanation": "공동구 관리비용은 원칙적으로 분할 납부가 아니라 매년 부과하며, 필요한 경우 분할하여 부과·징수할 수 있는 것은 예외적 사항으로 취급된다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14389,6 +16055,7 @@
         "explanation": "대의원회는 임기중 궐위된 조합장을 보궐선임할 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14438,6 +16105,7 @@
         "explanation": "ㄱ,ㄴ 모두 100·50이 아니라 90·40이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14487,6 +16155,7 @@
         "explanation": "ㄱ,ㄴ 모두 3·6이 아니라 1·3이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14536,6 +16205,7 @@
         "explanation": "무단거주가 아닌 입주예정자가 대표회의를 통해 사용검사를 신청할 때에는 하자보수보증금을 예치하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14578,6 +16248,38 @@
         "explanation": "조합원 모집 신고 수리일은 광고에 포함되어야 하는 내용이다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": false
   },
   {
@@ -14618,6 +16320,38 @@
         "text": "구조, 화재, 소방 및 피난안전 등 관계 법령에서 정하는 안전 기준을 충족할 것",
         "answer": "O",
         "explanation": "구조, 화재, 소방 및 피난안전 등 관계 법령에서 정하는 안전 기준을 충족할 것은 허가·신고형 요건에 해당한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14669,6 +16403,7 @@
         "explanation": "영업정지 처분을 받은 등록사업자도 그 처분 전에 사업계획승인을 받은 사업은 계속 수행할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14718,6 +16453,7 @@
         "explanation": "도로·상하수도·전기시설·가스시설·통신시설·지역난방시설은 기간시설에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14767,6 +16503,7 @@
         "explanation": "대수선인 리모델링은 안전진단 요청 대상이 아니며, 증축형 리모델링을 하려는 자만 안전진단을 요청하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14816,6 +16553,7 @@
         "explanation": "ㄱ,ㄴ이 서로 바뀌어 있어 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14865,6 +16603,7 @@
         "explanation": "일조 등의 확보를 위한 건축물의 높이 제한 완화는 건축위원회 심의만으로 가능하다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14914,6 +16653,7 @@
         "explanation": "용도변경을 위한 설계가 반드시 건축사에 의해야 하는 것은 일정 규모 이상의 경우로 한정되며, 모든 용도변경에 적용되는 것은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -14947,6 +16687,38 @@
         "text": "건축물의 기둥과 기둥 사이의 거리: 10미터 이상",
         "answer": "O",
         "explanation": "기둥과 기둥 사이의 거리 10미터 이상은 구조 안전 확인서류 제출 대상이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": false
@@ -14998,6 +16770,7 @@
         "explanation": "업무시설 중 국가 또는 지방자치단체의 청사는 출구 설치 의무 대상이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -15047,6 +16820,7 @@
         "explanation": "1,100%는 지하층과 주차장을 모두 포함하여 계산한 값이다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -15096,6 +16870,7 @@
         "explanation": "준공업지역에 있는 여객용 운수시설로서 바닥면적 합계 5천제곱미터 이상인 경우 공개공지 또는 공개공간을 설치하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -15145,6 +16920,7 @@
         "explanation": "ㄱ,ㄴ,ㄷ이 65·5·1로 되어 있어 ㄱ,ㄷ이 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -15194,6 +16970,7 @@
         "explanation": "농업인이 자기 노동력이 부족하여 농작업의 \"일부\"를 위탁하는 것은 허용되나, \"전부\"를 위탁하는 것은 위탁경영 허용 사유에 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": false
   },
   {
@@ -15243,6 +17020,7 @@
         "explanation": "\"기반시설부담구역\"은 개발밀도관리구역 외의 지역으로서 기반시설의 설치가 \"필요한\" 지역을 대상으로 지정하는 것이지, 설치가 \"곤란한\" 지역을 대상으로 하는 것이 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15292,6 +17070,7 @@
         "explanation": "지정된 구역을 변경하거나 해제하려면 도시·군관리계획의 입안권자의 의견을 들어야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15341,6 +17120,7 @@
         "explanation": "광역도시계획이나 도시·군기본계획을 수립할 때 도시·군관리계획을 함께 입안할 수 \"있다\"(동시 입안 가능)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15390,6 +17170,7 @@
         "explanation": "시·도지사는 국가계획과 관련되어 국토교통부장관이 입안하여 결정한 도시·군관리계획을 변경하려면 미리 국토교통부장관과 협의하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15430,6 +17211,38 @@
         "text": "도시자연공원구역",
         "answer": "X",
         "explanation": "도시자연공원구역은 특별건축구역 의제 대상이 아니다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -15481,6 +17294,7 @@
         "explanation": "도시·군계획시설 부지의 매수청구권은 \"토지\"의 소유자에게 인정되는 권리이며, 그 부지 내에 건물만을 소유한 자는 매수청구권자에 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15530,6 +17344,7 @@
         "explanation": "지구단위계획구역으로 지정된 지역에 대한 개발행위허가 제한 연장은 \"지방도시계획위원회\"(중앙도시계획위원회가 아님)의 심의를 거쳐야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15579,6 +17394,7 @@
         "explanation": "관리지역에서 「농지법」에 따른 농업진흥지역으로 지정·고시된 지역은 「국토의 계획 및 이용에 관한 법률」에 따른 농림지역으로 결정·고시된 것으로 본다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15628,6 +17444,7 @@
         "explanation": "기반시설부담구역으로 지정된 지역에 대해서는 개발행위허가의 제한을 \"연장할 수 없다\"."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15677,6 +17494,7 @@
         "explanation": "관광·휴양개발진흥지구는 개발진흥지구의 세분 종류에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15726,6 +17544,7 @@
         "explanation": "개발밀도관리구역은 기반시설부담구역으로 중복 지정될 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15775,6 +17594,7 @@
         "explanation": "농림지역도 완화 적용 대상 지역에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15824,6 +17644,7 @@
         "explanation": "개발계획 수립 전 토지 소유자가 변경된 경우 \"변경된 토지 소유자\"가 아니라 \"종전 토지 소유자\"의 동의서를 기준으로 하거나 승계인이 종전 동의를 승계한 것으로 본다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15873,6 +17694,7 @@
         "explanation": "도시개발구역의 토지 소유자가 도시개발을 위하여 설립한 \"조합\"은 \"환지 방식\" 사업의 시행자가 될 수 있을 뿐, 수용 또는 사용 방식 사업의 시행자로는 지정될 수 없다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15922,6 +17744,7 @@
         "explanation": "토지상환채권의 발행총액은 발행계획 포함사항이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -15971,6 +17794,7 @@
         "explanation": "도시개발사업의 시행으로 행사할 이익이 없어진 지역권은 환지처분이 공고된 날이 끝나는 때에 소멸한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16020,6 +17844,7 @@
         "explanation": "조합의 임원으로 선임된 자가 금고 이상의 형을 선고받으면 \"그 다음 날\"부터가 아니라 그 사유가 발생한 날의 \"다음 날\"부터 임원의 자격을 상실한다는 규정 취지이며, 문항의 \"그 날부터\"는 세부 기준과 다르다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16060,6 +17885,38 @@
         "text": "전부 환지 방식에서 혼용방식으로의 변경",
         "answer": "X",
         "explanation": "전부 환지 방식에서 혼용방식으로의 변경은 원칙적으로 허용되지 않는다(환지방식으로 확정된 사업을 다시 수용·사용이 포함된 혼용방식으로 되돌릴 수 없다)."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -16111,6 +17968,7 @@
         "explanation": "재건축사업의 \"토지등소유자\"는 건축물 및 그 부속토지의 \"소유자\"만을 의미하며, 재건축사업 정비구역의 건축물 부속토지의 \"지상권자\"는 재건축사업의 토지등소유자에 해당하지 않는다(재건축사업은 재개발사업과 달리 지상권자를 포함하지 않는다)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16160,6 +18018,7 @@
         "explanation": "ㄴ: 50은 틀렸다. 30이 맞다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16209,6 +18068,7 @@
         "explanation": "재건축사업은 원칙적으로 \"주택, 부대시설·복리시설 및 오피스텔\"을 건설하여 공급하는 방법으로 시행하되, 오피스텔은 준주거지역 및 상업지역에서만 건설할 수 있다. 일반주거지역에서 오피스텔을 건설하여 공급하는 방법은 허용되지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16258,6 +18118,7 @@
         "explanation": "추진위원회가 아니라 \"조합\"이 설립인가 후 지체 없이 추정분담금 등 정보를 토지등소유자에게 제공하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16307,6 +18168,7 @@
         "explanation": "사업시행자는 통합심의를 신청할 수 \"있다\"."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16340,6 +18202,38 @@
         "text": "분양신청기간 종료 후에 분양신청을 철회한 자",
         "answer": "X",
         "explanation": "분양신청기간 종료 후에 분양신청을 철회한 자는 손실보상 협의 대상에 해당하지만, 이 문항의 정답 구성상 ㄷ은 제외되어 처리된다(실무상 별도 절차 적용)."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -16391,6 +18285,7 @@
         "explanation": "지역난방시설은 기간시설에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16440,6 +18335,7 @@
         "explanation": "사업계획변경승인을 받은 경우에는 14일 이내에 문서로 입주예정자에게 그 내용을 통보하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16489,6 +18385,7 @@
         "explanation": "ㄱ: 20, ㄴ: 5, ㄷ: 19, ㄹ: 4 모두 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16538,6 +18435,7 @@
         "explanation": "국토교통부장관은 바닥충격음 성능등급 인정 내용과 다르게 판매·시공한 경우 그 인정을 취소하여야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16587,6 +18485,7 @@
         "explanation": "보수공사 등의 조치계획을 수립한 사업주체는 사전방문기간의 종료일부터 7일 이내에 사용검사권자에게 조치계획을 제출해야 한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16636,6 +18535,7 @@
         "explanation": "입주자저축은 한 사람이 한 계좌만 가입할 수 있다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16676,6 +18576,38 @@
         "text": "법 제65조제5항에 따른 입주자자격 제한",
         "answer": "O",
         "explanation": "법 제65조제5항에 따른 입주자자격 제한은 「주택공급에 관한 규칙」으로 정한다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -16727,6 +18659,7 @@
         "explanation": "다세대주택의 세대 간 경계벽을 증설하는 것은 대수선에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16776,6 +18709,7 @@
         "explanation": "주거지역에 건축하는 연면적의 합계가 1천500제곱미터인 물류시설은 조경 조치 예외 대상이 아니다(물류시설의 조경 예외는 \"산업단지의 공장\"에 준하는 특정 요건이 필요하며, 주거지역 소재는 예외 요건에 해당하지 않는다)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16825,6 +18759,7 @@
         "explanation": "출입을 제한한 경우 지체 없이 신고하는 것이 아니라, 애초에 울타리·담장 등의 시설로 공개공지등의 출입을 제한하는 행위 자체가 원칙적으로 \"금지\"된다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16874,6 +18809,7 @@
         "explanation": "안전영향평가를 실시하여야 하는 건축물이 다른 법률에 따라 구조안전과 인접 대지의 안전에 미치는 영향 등을 평가받은 경우에는 안전영향평가의 해당 항목을 평가받은 것으로 본다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16923,6 +18859,7 @@
         "explanation": "허가권자는 즉시 \"특별시장·광역시장·도지사\"에게 보고하여야 하며, 국토교통부장관에게 직접 보고하는 것이 원칙은 아니다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -16972,6 +18909,7 @@
         "explanation": "ㄴ: 내진은 틀렸다. 방화가 맞다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17021,6 +18959,7 @@
         "explanation": "국가적 문화유산으로 보존할 가치가 있는 것으로 문화체육관광부령으로 정하는 건축물은 오히려 건축법 적용이 제외되거나 별도로 취급되는 유형으로, 내진능력 공개 대상 목록에 해당하지 않는다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17070,6 +19009,7 @@
         "explanation": "「전기사업법」상 전기사업을 영위하기 위한 목적으로 태양에너지 발전설비를 설치하는 경우는 \"타용도 일시사용신고\" 대상이 아니라 \"농지전용허가·신고\" 대상에 해당한다(일시사용이 아니라 장기간 설비 설치이므로)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17103,6 +19043,38 @@
         "text": "저장 용량이 200톤인 간이액비저장조",
         "answer": "O",
         "explanation": "저장 용량이 200톤인 간이액비저장조는 농지의 전용으로 보지 않는다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17154,6 +19126,7 @@
         "explanation": "광역계획권의 녹지관리체계와 환경 보전에 관한 사항도 광역도시계획의 내용이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17203,6 +19176,7 @@
         "explanation": "乙이 5분의 4 이상은 틀렸다(乙은 3분의 2 이상)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17252,6 +19226,7 @@
         "explanation": "지구단위계획구역의 지정목적이 정비이고, 너비 12미터 이상 도로의 설치계획이 없는 경우는 생략 사유에 해당한다. (국토계획법 시행령 제25조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17301,6 +19276,7 @@
         "explanation": "자연방재지구는 토지의 이용도가 낮은 해안변, 하천변, 급경사지 주변 등의 지역으로서 건축 제한 등을 통하여 재해 예방이 필요한 지구가 맞다. (국토계획법 제37조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17348,6 +19324,38 @@
         "text": "중수도관",
         "answer": "X",
         "explanation": "중수도관은 심의 없이 의무적으로 수용하는 시설이다."
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄹ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄱ, ㄴ, ㄷ, ㅁ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ, ㅁ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -17399,6 +19407,7 @@
         "explanation": "「산업입지 및 개발에 관한 법률」에 따른 산업단지 안에 설치하는 도축장은 별도의 면적 제한 없이 해당하며(500제곱미터 미만 도축장과는 별개 규정), 지문의 1천제곱미터인 도축장도 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17448,6 +19457,7 @@
         "explanation": "「건축법」 등 다른 법령의 규정에 따라 건폐율·용적률을 완화하는 내용을 반영하기 위한 지구단위계획의 변경은 경미한 사항에 해당하지 않아 건축위원회와 도시계획위원회의 공동위원회 심의를 거쳐야 한다. (국토계획법 시행령 제25조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17497,6 +19507,7 @@
         "explanation": "「체육시설의 설치·이용에 관한 법률」에 따른 사업계획의 승인은 도시혁신계획으로 따로 정할 수 있는 사항으로 열거되어 있지 않다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17546,6 +19557,7 @@
         "explanation": "시가화조정구역 지정 당시 이미 설치된 공장의 부대시설 설치는 새로운 대지조성을 수반하지 않아야 허가 대상이 되므로, 새로운 대지조성을 수반하는 경우는 허가 대상이 아니다. (국토계획법 시행령 제88조 관련 별표)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17595,6 +19607,7 @@
         "explanation": "공업지역에 있는 「산업입지 및 개발에 관한 법률」에 따른 준산업단지의 건폐율은 80퍼센트 이하이다. (국토계획법 시행령 제84조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17644,6 +19657,7 @@
         "explanation": "시·도지사, 대도시 시장이 아닌 시행자가 사업을 완료한 때에는 시·도지사 등의 준공검사를 받아야 하며, 시·도지사가 시행자인 경우에는 국토교통부장관의 준공검사를 받도록 하는 규정은 없다(자체적으로 준공검사 절차를 거침)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17693,6 +19707,7 @@
         "explanation": "ㄷ-ㄹ-ㄱ-ㄴ은 순서가 틀렸다. (국토계획법 시행령 제85조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17742,6 +19757,7 @@
         "explanation": "환지 방식의 도시개발사업에서 환지처분의 공고가 있은 경우 그 도시개발구역에 대한 용도지역 및 지구단위계획구역은 도시개발구역 지정 전의 용도지역 및 지구단위계획구역으로 \"환원되거나 폐지된 것으로 보지 않는다\"(환지처분에 따라 새로 지정된 용도지역·지구단위계획구역이 그대로 유지된다). 지문은 반대로 서술되어 틀렸다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17777,6 +19793,38 @@
         "explanation": "한국철도공사도 제안할 수 있다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      }
+    ],
     "free": true
   },
   {
@@ -17784,7 +19832,7 @@
     "year": 2025,
     "round": 36,
     "questionNo": 55,
-    "stem": "도시개발법령상 도시개발사업 조합에 관한 규정의 일부이다. ( )에 들어갈 숫자로 옳은 것은?\n○ 조합을 설립하려면 도시개발구역의 토지 소유자 ( ㄱ )명 이상이 정관을 작성하여 지정권자에게 조합 설립의 인가를 받아야 한다.\n○ 의결권을 가진 조합원의 수가 ( ㄴ )인 이상인 조합은 총회의 권한을 대행하게 하기 위하여 대의원회를 둘 수 있다.\n○ 조합의 설립인가를 받은 조합의 대표자는 설립인가를 받은 날부터 ( ㄷ )일 이내에 주된 사무소의 소재지에서 설립등기를 하여야 한다.",
+    "stem": "도시개발법령상 도시개발사업 조합에 관한 규정의 일부이다. ( )에 들어갈 숫자로 옳은 것은? o 조합을 설립하려면 도시개발구역의 토지 소유자 ( ㄱ )명 이상이 정관을 작성하여 지정권자에게 조합 설립의 인가를 받아야 한다. o 의결권을 가진 조합원의 수가 ( ㄴ )인 이상인 조합은 총회의 권한을 대행하게 하기 위하여 대의원회를 둘 수 있다. o 조합의 설립인가를 받은 조합의 대표자는 설립인가를 받은 날부터 ( ㄷ )일 이내에 주된 사무소의 소재지에서 설립등기를 하여야 한다.",
     "category": "도시개발법",
     "subcategory": "도시개발사업조합",
     "questionType": "correct",
@@ -17826,6 +19874,7 @@
         "explanation": "ㄱ: 10, ㄴ: 100 모두 틀렸다. 조합 설립 인가에 필요한 토지 소유자는 \"7명\" 이상이고, 대의원회를 둘 수 있는 기준은 조합원 \"50인\" 이상이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17875,6 +19924,7 @@
         "explanation": "체비지의 용도로 환지 예정지가 지정된 경우 시행자는 도시개발사업에 드는 비용을 충당하기 위하여 이를 사용 또는 수익하게 하거나 \"처분할 수 있다\"(처분할 수 없다는 것은 틀림)."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17924,6 +19974,7 @@
         "explanation": "평면 환지는 환지 전 토지에 대한 권리를 환지로 조성되는 토지에 이전하는 방식이다. (도시개발법 제42조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -17973,6 +20024,7 @@
         "explanation": "도시개발채권 매입필증을 제출받는 자는 매입자로부터 제출받은 매입필증을 5년간 따로 보관하여야 한다. (도시개발법 제23조, 시행령 제39조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18022,6 +20074,7 @@
         "explanation": "기본계획의 내용 중 공동이용시설에 대한 설치계획을 변경하는 경우에는 지방의회의 의견청취 절차를 거치지 아니할 수 있다(경미한 변경). (도시정비법 제5조·제6조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18071,6 +20124,7 @@
         "explanation": "정비구역의 지정권자는 정비구역을 직권으로 해제하려는 경우 \"30일\" 이상 주민에게 공람하여 의견을 들어야 한다. \"15일 이상\"은 틀렸다. (도시정비법 제20조·제21조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18120,6 +20174,7 @@
         "explanation": "「유통산업발전법」에 따른 대규모점포등의 등록도 의제 대상에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18169,6 +20224,7 @@
         "explanation": "주민대표회의의 위원의 선출·교체 및 해임에 필요한 사항은 주민대표회의가 정한다. (도시정비법 제47조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18176,7 +20232,7 @@
     "year": 2025,
     "round": 36,
     "questionNo": 63,
-    "stem": "도시 및 주거환경정비법령상 임시거주시설의 설치 등에 관한 규정의 일부이다. ( )에 들어갈 내용으로 옳은 것은?\n○ 사업시행자는 주거환경개선사업 및 ( ㄱ )사업의 시행으로 철거되는 주택의 소유자 또는 세입자에게 해당 정비구역 안과 밖에 위치한 임대주택 등의 시설에 임시로 거주하게 하거나 주택자금의 융자를 알선하는 등 임시거주에 상응하는 조치를 하여야 한다.\n○ 사업시행자는 정비사업의 공사를 완료한 때에는 완료한 날부터 ( ㄴ )일 이내에 임시거주시설을 철거하고, 사용한 건축물이나 토지를 원상회복하여야 한다.",
+    "stem": "도시 및 주거환경정비법령상 임시거주시설의 설치 등에 관한 규정의 일부이다. ( )에 들어갈 내용으로 옳은 것은? o 사업시행자는 주거환경개선사업 및 ( ㄱ )사업의 시행으로 철거되는 주택의 소유자 또는 세입자에게 해당 정비구역 안과 밖에 위치한 임대주택 등의 시설에 임시로 거주하게 하거나 주택자금의 융자를 알선하는 등 임시거주에 상응하는 조치를 하여야 한다. o 사업시행자는 정비사업의 공사를 완료한 때에는 완료한 날부터 ( ㄴ )일 이내에 임시거주시설을 철거하고, 사용한 건축물이나 토지를 원상회복하여야 한다.",
     "category": "도시정비법",
     "subcategory": "조합·주민대표회의",
     "questionType": "correct",
@@ -18218,6 +20274,7 @@
         "explanation": "ㄴ: 60은 틀렸다. 철거 기한은 \"30일\"이다. (ㄱ: 재개발은 맞다.)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18267,6 +20324,7 @@
         "explanation": "조합의 대의원회는 총회의 의결사항 중 조합의 합병·해산에 관한 사항을 대행할 수 없는 것이 원칙이나, \"사업완료로 인한 해산\"의 경우는 그 예외에 해당하여 대의원회가 총회의 권한을 대행할 수 있다. (도시정비법 제45조 제1항 제8호 단서, 시행령 제43조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18316,6 +20374,7 @@
         "explanation": "ㄴ: 75, ㄷ: 50 모두 틀렸다. 동별 동의율은 \"50%\", 동 단위 리모델링 동의율은 \"75%\"이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18365,6 +20424,7 @@
         "explanation": "토지임대부 분양주택의 토지에 대한 임대차기간은 \"40년\" 이내로 하되, 40년의 범위에서 갱신할 수 있다. \"50년\"은 틀렸다. (주택법 제64조의2)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18414,6 +20474,7 @@
         "explanation": "공무원으로서 공동주택 관련 지도·감독 및 인·허가 업무 등에 종사한 경력이 \"5년\" 이상인 사람이 품질점검단의 위원이 될 수 있다. \"4년\"은 기준에 미달한다. (주택법 제48조의3)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18454,6 +20515,38 @@
         "text": "주택건설대지의 사용권원 및 소유권을 확보한 비율",
         "answer": "O",
         "explanation": "\"주택건설대지의 사용권원 및 소유권을 확보한 비율\"은 포함되어야 한다. (주택법 시행령 제20조의2)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄹ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -18505,6 +20598,7 @@
         "explanation": "거짓으로 주택건설사업을 등록하여 그 등록이 말소된 후 2년이 지나지 아니한 자는 주택건설사업의 등록을 할 수 없다. (주택법 제4조, 제6조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18554,6 +20648,7 @@
         "explanation": "사용검사권자가 임시사용을 승인하는 경우 임시 사용승인의 대상이 공동주택인 경우에는 세대별로 임시 사용승인을 할 수 있다. (주택법 제49조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18603,6 +20698,7 @@
         "explanation": "주택상환사채의 상환기간은 \"3년\"을 초과할 수 없다. \"5년 이내\"는 틀렸다. (주택법 제80조, 시행령 제87조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18643,6 +20739,38 @@
         "text": "높이 21미터를 초과하는 건축물에는 승용승강기뿐만 아니라 비상용승강기를 추가로 설치하여야 한다.",
         "answer": "X",
         "explanation": "높이 \"31미터\"를 초과하는 건축물에 비상용승강기를 추가로 설치하여야 하는 것이며, \"21미터\"는 틀렸다. (건축법 시행령 제90조, 제91조의3)"
+      }
+    ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": true
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄴ, ㄷ",
+        "isCorrect": false
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄹ",
+        "isCorrect": false
       }
     ],
     "free": true
@@ -18694,6 +20822,7 @@
         "explanation": "제2종 근린생활시설 중 일반음식점은 도지사 사전승인 대상 용도에 해당한다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18743,6 +20872,7 @@
         "explanation": "사전결정신청자가 사전결정을 통지받은 날부터 2년 이내에 건축허가를 신청하지 아니하면 그 사전결정의 효력이 상실된다. (건축법 제10조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18792,6 +20922,7 @@
         "explanation": "유스호스텔의 거실 바닥면적 합계 250제곱미터인 3층 이상의 층은 기준을 초과하여 설치 대상이다. (건축법 시행령 제34조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18841,6 +20972,7 @@
         "explanation": "해당 도시의 장래 발전계획은 고려사항이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18890,6 +21022,7 @@
         "explanation": "\"증축\"이란 기존 건축물이 있는 대지에서 건축물의 건축면적, 연면적, 층수 또는 높이를 늘리는 것을 말한다. (건축법 제2조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18939,6 +21072,7 @@
         "explanation": "「문화유산의 보존 및 활용에 관한 법률」에 따른 임시지정문화유산은 적용 제외 대상이다. (건축법 제3조)"
       }
     ],
+    "comboChoices": [],
     "free": true
   },
   {
@@ -18981,6 +21115,38 @@
         "explanation": "\"6개월간 국내 여행 중인 경우\"는 위탁경영 사유에 해당하지 않는다."
       }
     ],
+    "comboChoices": [
+      {
+        "no": 1,
+        "label": "①",
+        "text": "ㄱ, ㄴ",
+        "isCorrect": false
+      },
+      {
+        "no": 2,
+        "label": "②",
+        "text": "ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 3,
+        "label": "③",
+        "text": "ㄱ, ㄴ, ㄷ",
+        "isCorrect": true
+      },
+      {
+        "no": 4,
+        "label": "④",
+        "text": "ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      },
+      {
+        "no": 5,
+        "label": "⑤",
+        "text": "ㄱ, ㄴ, ㄷ, ㄹ",
+        "isCorrect": false
+      }
+    ],
     "free": true
   },
   {
@@ -18988,7 +21154,7 @@
     "year": 2025,
     "round": 36,
     "questionNo": 80,
-    "stem": "농지법령상 농지를 개량하기 위하여 성토를 하려는 자가 농지개량행위의 신고를 하지 않아도 되는 경미한 행위에 관한 내용이다. ( )에 들어갈 숫자로 옳은 것은?(단, 조례는 고려하지 않음)\n○ 면적(성토가 이루어지는 해당 필지의 총면적을 말한다) ( ㄱ )천제곱미터 이하인 농지에 대한 성토\n○ 높이(성토가 이루어지는 해당 필지에서 최근 1년간 성토한 높이를 합산한 것을 말한다) ( ㄴ )센티미터 이내의 성토",
+    "stem": "농지법령상 농지를 개량하기 위하여 성토를 하려는 자가 농지개량행위의 신고를 하지 않아도 되는 경미한 행위에 관한 내용이다. ( )에 들어갈 숫자로 옳은 것은?(단, 조례는 고려하지 않음) o 면적(성토가 이루어지는 해당 필지의 총면적을 말한다) ( ㄱ )천제곱미터 이하인 농지에 대한 성토 o 높이(성토가 이루어지는 해당 필지에서 최근 1년간 성토한 높이를 합산한 것을 말한다) ( ㄴ )센티미터 이내의 성토",
     "category": "농지법",
     "subcategory": "위탁경영·농지개량",
     "questionType": "correct",
@@ -19030,6 +21196,7 @@
         "explanation": "ㄱ: 3, ㄴ: 70 모두 틀렸다. 신고 제외 기준은 면적 \"1천제곱미터\", 높이 \"50센티미터\"이다."
       }
     ],
+    "comboChoices": [],
     "free": true
   }
 ]
