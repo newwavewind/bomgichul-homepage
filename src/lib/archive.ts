@@ -2,9 +2,9 @@ import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import type { SortOption } from "@/lib/constants";
-import type { PaginatedResult, Post } from "@/types/database";
+import type { PaginatedResult, Post, ArchiveListItem } from "@/types/database";
 
-const emptyPaginated = (page: number): PaginatedResult<Post> => ({
+const emptyPaginated = (page: number): PaginatedResult<ArchiveListItem> => ({
   data: [],
   total: 0,
   page,
@@ -26,7 +26,7 @@ export async function getArchivePosts({
   sort = "latest",
   resourceType = "all",
   subject = "all",
-}: GetArchiveOptions = {}): Promise<PaginatedResult<Post>> {
+}: GetArchiveOptions = {}): Promise<PaginatedResult<ArchiveListItem>> {
   if (!isSupabaseConfigured()) {
     return emptyPaginated(page);
   }
@@ -70,8 +70,24 @@ export async function getArchivePosts({
 
   const total = count ?? 0;
 
+  const rows = (data ?? []).map((row) => {
+    const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
+    return {
+      id: row.id,
+      author_id: row.author_id,
+      category: row.category,
+      title: row.title,
+      view_count: row.view_count,
+      subject: row.subject,
+      resource_type: row.resource_type,
+      created_at: row.created_at,
+      profiles: profile ? { nickname: profile.nickname } : undefined,
+      post_attachments: row.post_attachments ?? [],
+    } satisfies ArchiveListItem;
+  });
+
   return {
-    data: (data as Post[]) ?? [],
+    data: rows,
     total,
     page,
     pageSize: POSTS_PER_PAGE,

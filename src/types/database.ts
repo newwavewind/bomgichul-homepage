@@ -46,6 +46,34 @@ export interface Post {
   post_attachments?: PostAttachment[];
 }
 
+/** 커뮤니티 목록용 경량 타입 */
+export interface PostListItem {
+  id: string;
+  author_id: string;
+  category: PostCategory;
+  title: string;
+  view_count: number;
+  created_at: string;
+  profiles?: Pick<Profile, "nickname">;
+}
+
+/** 자료실 목록용 경량 타입 */
+export interface ArchiveListItem {
+  id: string;
+  author_id: string;
+  category: PostCategory;
+  title: string;
+  view_count: number;
+  subject: string | null;
+  resource_type: ResourceType | null;
+  created_at: string;
+  profiles?: Pick<Profile, "nickname">;
+  post_attachments?: Pick<
+    PostAttachment,
+    "id" | "file_name" | "file_size" | "mime_type"
+  >[];
+}
+
 export interface Comment {
   id: string;
   post_id: string;

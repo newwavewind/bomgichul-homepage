@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Post } from "@/types/database";
+import type { ArchiveListItem } from "@/types/database";
 import {
   ARCHIVE_RESOURCE_TYPE_MAP,
   ARCHIVE_SUBJECT_MAP,
@@ -7,7 +7,7 @@ import {
 import { formatFileSize, getFileIcon } from "@/lib/storage";
 
 interface ArchiveCardProps {
-  post: Post;
+  post: ArchiveListItem;
 }
 
 function formatDate(dateStr: string) {

@@ -2,10 +2,10 @@ import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import type { SortOption } from "@/lib/constants";
-import type { PaginatedResult, Post, PostCategory, CommunityListFilter } from "@/types/database";
+import type { PaginatedResult, Post, PostListItem, CommunityListFilter } from "@/types/database";
 import { BEST_BOARD_CATEGORIES, BEST_POST_MIN_VIEWS } from "@/lib/constants";
 
-const emptyPaginated = (page: number): PaginatedResult<Post> => ({
+const emptyPaginated = (page: number): PaginatedResult<PostListItem> => ({
   data: [],
   total: 0,
   page,
@@ -27,7 +27,7 @@ export async function getPosts({
   search = "",
   sort = "latest",
   authorId,
-}: GetPostsOptions = {}): Promise<PaginatedResult<Post>> {
+}: GetPostsOptions = {}): Promise<PaginatedResult<PostListItem>> {
   if (!isSupabaseConfigured()) {
     return emptyPaginated(page);
   }
@@ -78,8 +78,21 @@ export async function getPosts({
 
   const total = count ?? 0;
 
+  const rows = (data ?? []).map((row) => {
+    const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
+    return {
+      id: row.id,
+      author_id: row.author_id,
+      category: row.category,
+      title: row.title,
+      view_count: row.view_count,
+      created_at: row.created_at,
+      profiles: profile ? { nickname: profile.nickname } : undefined,
+    } satisfies PostListItem;
+  });
+
   return {
-    data: (data as Post[]) ?? [],
+    data: rows,
     total,
     page,
     pageSize: POSTS_PER_PAGE,
