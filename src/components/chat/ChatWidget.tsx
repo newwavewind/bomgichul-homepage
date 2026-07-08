@@ -138,8 +138,16 @@ export function ChatWidget({
         supabase.from("dm_conversations").select("id, updated_at").in("id", convIds),
       ]);
 
-    const lastByConv = new Map<string, (typeof rawMessages)[number]>();
-    for (const msg of rawMessages ?? []) {
+    type LastMessageRow = {
+      id: string;
+      conversation_id: string;
+      sender_id: string;
+      content: string;
+      created_at: string;
+    };
+
+    const lastByConv = new Map<string, LastMessageRow>();
+    for (const msg of (rawMessages ?? []) as LastMessageRow[]) {
       if (!lastByConv.has(msg.conversation_id)) lastByConv.set(msg.conversation_id, msg);
     }
 
