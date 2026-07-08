@@ -6,7 +6,8 @@ export type PostCategory =
   | "info"
   | "bug"
   | "feedback"
-  | "review";
+  | "review"
+  | "law_update";
 
 /** 커뮤니티 목록 필터 (베스트는 DB 카테고리가 아닌 가상 필터) */
 export type CommunityListFilter = PostCategory | "all" | "best";

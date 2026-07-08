@@ -39,6 +39,7 @@ export const CATEGORIES: {
   { value: "question", label: "질문", description: "공부 관련 질문" },
   { value: "resource", label: "자료공유", description: "기출, 노트, 팁 공유" },
   { value: "info", label: "수험정보", description: "시험 일정, 공고 등" },
+  { value: "law_update", label: "법령정보", description: "부동산 관련 법령 개정 소식" },
   { value: "review", label: "합격후기", description: "합격 수기, 공부법 공유" },
   { value: "bug", label: "오류신고", description: "앱 문항·기능 오류 제보" },
   { value: "feedback", label: "피드백", description: "앱 개선 의견" },
@@ -61,6 +62,7 @@ export const CATEGORY_BADGE_CLASS: Record<PostCategory, string> = {
   chat: "bg-magenta/10 text-magenta",
   free: "bg-burnt/10 text-burnt",
   info: "bg-electric-blue/10 text-electric-blue",
+  law_update: "bg-coral/10 text-coral",
   review: "bg-amber/10 text-amber",
   bug: "bg-mist text-fog",
   feedback: "bg-mist text-fog",
@@ -75,6 +77,7 @@ export const BEST_BOARD_CATEGORIES: PostCategory[] = [
   "resource",
   "free",
   "info",
+  "law_update",
   "review",
   "chat",
 ];
@@ -82,6 +85,7 @@ export const BEST_BOARD_CATEGORIES: PostCategory[] = [
 /** 카테고리별 강조 이모지 (있는 것만) */
 export const CATEGORY_EMOJI: Partial<Record<PostCategory, string>> = {
   review: "🏆",
+  law_update: "⚖️",
 };
 
 export const CATEGORY_MAP = {
@@ -239,6 +243,7 @@ export const NAV_LINKS = [
   { href: PC_APP_URL, label: "PC앱" },
   { href: "/exam", label: "기출문제" },
   { href: "/news", label: "뉴스" },
+  { href: "/community?category=law_update", label: "법령정보" },
   { href: "/community", label: "커뮤니티" },
   { href: "/archive", label: "자료실" },
   { href: "/diary", label: "수험일기" },
