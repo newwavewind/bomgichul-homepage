@@ -154,6 +154,20 @@ function cleanSummary(summary: string, sourceName: string): string {
   return normalized.replace(new RegExp(`\\s*${escapedSource}\\s*$`), "").trim();
 }
 
+/** 제목과 실질적으로 같은 요약은 빈 문자열로 — 목록에서 두 줄 중복 방지 */
+export function distinctSummary(title: string, summary: string): string {
+  const cleaned = summary.trim();
+  if (!cleaned) return "";
+
+  const normTitle = normalizeTitleText(title);
+  const normSummary = normalizeTitleText(cleaned);
+  if (normTitle === normSummary) return "";
+  if (jaccard(charBigrams(normTitle), charBigrams(normSummary)) >= 0.88) {
+    return "";
+  }
+  return cleaned;
+}
+
 function toDateString(value: string | undefined): string | null {
   if (!value) return null;
   const d = new Date(value);
@@ -211,8 +225,8 @@ function parseRssItems(xml: string): NewsFeedItem[] {
     const sourceName = extractSourceName(block, rawTitle);
     const title = cleanTitle(rawTitle, sourceName);
     const summaryRaw = truncateSummary(description || title);
-    const summary = cleanSummary(summaryRaw, sourceName);
-    if (!title || !summary) continue;
+    const summary = distinctSummary(title, cleanSummary(summaryRaw, sourceName));
+    if (!title) continue;
 
     items.push({
       title,

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   dedupeNewsStories,
+  distinctSummary,
   isSameNewsStory,
   type NewsFeedItem,
 } from "@/lib/news-feed";
@@ -58,6 +59,21 @@ describe("isSameNewsStory", () => {
       item({ title: "양평군, 공인중개사협회와 안심 중개환경 논의" }),
     ];
     expect(dedupeNewsStories(rows, 10)).toHaveLength(1);
+  });
+});
+
+describe("distinctSummary", () => {
+  it("returns empty when summary repeats the title", () => {
+    const title = "청약 경쟁률 총정리 | 2026 청약 일정·무순위(줍줍)·임대청약 한눈에";
+    expect(distinctSummary(title, title)).toBe("");
+    expect(distinctSummary(title, `  ${title}  `)).toBe("");
+  });
+
+  it("keeps summary when it adds information beyond the title", () => {
+    const title = "광주시, 공인중개사 연수교육 실시";
+    const summary =
+      "광주시는 공인중개사 600여 명을 대상으로 안전한 부동산 거래 질서 확립을 위한 연수교육을 진행했다.";
+    expect(distinctSummary(title, summary)).toBe(summary);
   });
 });
 
