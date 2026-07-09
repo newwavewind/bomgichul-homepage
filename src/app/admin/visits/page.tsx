@@ -11,7 +11,7 @@ import {
   parseKstDateKey,
   addKstDays,
 } from "@/lib/site-visits";
-import { AdminStatCard, AdminTable, formatDateTime } from "@/components/admin/AdminUi";
+import { AdminStatCard, AdminTable, formatDateTime, formatDateTimeShort } from "@/components/admin/AdminUi";
 import {
   VisitDateCalendar,
   VisitTrendChart,
@@ -65,19 +65,19 @@ export default async function AdminVisitsPage({
   );
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-6 sm:space-y-10">
       <div>
-        <SectionHeading as="h2" className="mb-2 text-subheading">
+        <SectionHeading as="h2" className="mb-2 text-heading-sm sm:text-subheading">
           방문 현황
         </SectionHeading>
-        <p className="font-display text-body-sm text-smoke">
-          로그인·비로그인 방문을 날짜별로 확인합니다. 비회원은 접속 주소(
-          <code className="rounded bg-surface px-1">localhost:3000</code> 또는 IP)와
-          함께 표시됩니다.
+        <p className="font-display text-[13px] leading-relaxed text-smoke sm:text-body-sm">
+          날짜별 방문·비회원 접속 주소(
+          <code className="rounded bg-surface px-1 text-[12px]">localhost</code> 또는 IP)를
+          확인합니다.
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,320px)_1fr]">
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-6">
         <Suspense fallback={<div className="h-80 animate-pulse rounded-[var(--radius-cards)] bg-snow" />}>
           <VisitDateCalendar
             selectedDate={selectedDate}
@@ -96,7 +96,7 @@ export default async function AdminVisitsPage({
         <p className="mb-4 font-display text-body-sm text-smoke">
           선택한 날짜의 방문 집계 (한국 시간 0시~24시)
         </p>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:grid-cols-3">
           <AdminStatCard
             label="페이지뷰"
             value={dayStats.pageViews}
@@ -129,9 +129,9 @@ export default async function AdminVisitsPage({
         <SectionHeading as="h3" className="mb-4 text-heading-sm">
           {selectedLabel} 방문자
         </SectionHeading>
-        <ElevatedCard className="overflow-hidden">
+        <ElevatedCard className="overflow-hidden p-0">
           {visitors.length === 0 ? (
-            <p className="px-6 py-12 text-center font-display text-body-sm text-fog">
+            <p className="px-4 py-10 text-center font-display text-[13px] text-fog sm:px-6 sm:py-12 sm:text-body-sm">
               이 날짜에 기록된 방문이 없습니다. 달력에서 다른 날짜를 선택해 보세요.
             </p>
           ) : (
@@ -163,16 +163,17 @@ export default async function AdminVisitsPage({
         <SectionHeading as="h3" className="mb-4 text-heading-sm">
           {selectedLabel} 방문 기록
         </SectionHeading>
-        <ElevatedCard className="overflow-hidden">
+        <ElevatedCard className="overflow-hidden p-0">
           {recent.length === 0 ? (
-            <p className="px-6 py-12 text-center font-display text-body-sm text-fog">
+            <p className="px-4 py-10 text-center font-display text-[13px] text-fog sm:px-6 sm:py-12 sm:text-body-sm">
               방문 기록이 없습니다.
             </p>
           ) : (
             <AdminTable
               headers={["시각", "방문자", "접속 주소", "페이지", "유입", "로컬"]}
+              mobilePrimaryIndex={1}
               rows={recent.map((v) => [
-                formatDateTime(v.createdAt),
+                formatDateTimeShort(v.createdAt),
                 visitorLabel(v.nickname, v.visitorId),
                 v.userId
                   ? "—"

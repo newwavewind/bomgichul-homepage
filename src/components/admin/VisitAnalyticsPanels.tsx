@@ -59,41 +59,41 @@ export function VisitDateCalendar({
   };
 
   return (
-    <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-4 shadow-[var(--shadow-card)]">
-      <div className="mb-4 flex items-center justify-between gap-2">
+    <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-3 shadow-[var(--shadow-card)] sm:p-4">
+      <div className="mb-3 flex items-center justify-between gap-2 sm:mb-4">
         <button
           type="button"
           onClick={() => shiftMonth(-1)}
-          className="rounded-lg border border-mist px-3 py-1.5 font-display text-body-sm text-ink hover:bg-snow"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-mist font-display text-body-sm text-ink hover:bg-snow sm:h-auto sm:w-auto sm:px-3 sm:py-1.5"
           aria-label="이전 달"
         >
           ←
         </button>
-        <p className="font-display text-heading-sm font-semibold text-ink">
+        <p className="font-display text-body font-semibold text-ink sm:text-heading-sm">
           {year}년 {month}월
         </p>
         <button
           type="button"
           onClick={() => shiftMonth(1)}
-          className="rounded-lg border border-mist px-3 py-1.5 font-display text-body-sm text-ink hover:bg-snow"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-mist font-display text-body-sm text-ink hover:bg-snow sm:h-auto sm:w-auto sm:px-3 sm:py-1.5"
           aria-label="다음 달"
         >
           →
         </button>
       </div>
 
-      <div className="grid grid-cols-7 gap-1 text-center">
+      <div className="grid grid-cols-7 gap-0.5 text-center sm:gap-1">
         {WEEKDAY_LABELS.map((label) => (
           <div
             key={label}
-            className="py-1 font-display text-[11px] font-medium text-fog"
+            className="py-1 font-display text-[10px] font-medium text-fog sm:text-[11px]"
           >
             {label}
           </div>
         ))}
         {cells.map((cell, index) => {
           if (!cell.day || !cell.key) {
-            return <div key={`empty-${index}`} className="aspect-square" />;
+            return <div key={`empty-${index}`} className="min-h-[40px] sm:aspect-square" />;
           }
 
           const count = dayCounts[cell.key] ?? 0;
@@ -104,7 +104,7 @@ export function VisitDateCalendar({
               key={cell.key}
               type="button"
               onClick={() => goTo(cell.key!, year, month)}
-              className={`flex aspect-square flex-col items-center justify-center rounded-lg border font-display transition-colors ${
+              className={`flex min-h-[40px] flex-col items-center justify-center rounded-md border font-display transition-colors sm:aspect-square sm:rounded-lg ${
                 isSelected
                   ? "border-electric-blue bg-electric-blue/10 text-ink"
                   : count === 0
@@ -114,13 +114,13 @@ export function VisitDateCalendar({
               aria-label={`${cell.day}일, 방문자 ${count}명`}
               aria-pressed={isSelected}
             >
-              <span className="text-body-sm font-medium">{cell.day}</span>
+              <span className="text-[13px] font-medium sm:text-body-sm">{cell.day}</span>
               {count > 0 ? (
-                <span className="text-[10px] font-semibold text-electric-blue">
+                <span className="text-[9px] font-semibold text-electric-blue sm:text-[10px]">
                   {count}
                 </span>
               ) : (
-                <span className="text-[10px] text-transparent">0</span>
+                <span className="text-[9px] text-transparent sm:text-[10px]">0</span>
               )}
             </button>
           );
@@ -137,43 +137,51 @@ type VisitTrendChartProps = {
 
 export function VisitTrendChart({ points, selectedDate }: VisitTrendChartProps) {
   const maxVisitors = Math.max(1, ...points.map((p) => p.uniqueVisitors));
+  const chartHeight = 72;
 
   return (
-    <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-4 shadow-[var(--shadow-card)]">
-      <p className="mb-1 font-display text-[12px] font-medium uppercase tracking-wide text-fog">
+    <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-3 shadow-[var(--shadow-card)] sm:p-4">
+      <p className="mb-1 font-display text-[11px] font-medium uppercase tracking-wide text-fog sm:text-[12px]">
         방문자 추이
       </p>
-      <p className="mb-4 font-display text-body-sm text-smoke">
-        최근 {points.length}일 · 순 방문자 수 (한국 시간)
+      <p className="mb-3 font-display text-[13px] text-smoke sm:mb-4 sm:text-body-sm">
+        최근 {points.length}일 · 순 방문자 (KST)
       </p>
 
-      <div className="flex items-end gap-1 overflow-x-auto pb-2" role="img" aria-label="일별 순 방문자 추이">
+      <div
+        className="flex items-end gap-0.5 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] sm:gap-1 sm:pb-2"
+        role="img"
+        aria-label="일별 순 방문자 추이"
+      >
         {points.map((point) => {
-          const height = Math.round((point.uniqueVisitors / maxVisitors) * 100);
+          const barHeight =
+            point.uniqueVisitors > 0
+              ? Math.max(8, Math.round((point.uniqueVisitors / maxVisitors) * chartHeight))
+              : 2;
           const isSelected = point.date === selectedDate;
           const [, m, d] = point.date.split("-");
 
           return (
             <div
               key={point.date}
-              className="flex min-w-[28px] flex-1 flex-col items-center gap-1"
+              className="flex w-8 shrink-0 flex-col items-center gap-0.5 sm:w-auto sm:min-w-[28px] sm:flex-1"
               title={`${point.date}: 순 방문자 ${point.uniqueVisitors}명 · 페이지뷰 ${point.pageViews}`}
             >
-              <span className="font-display text-[10px] text-fog">
+              <span className="min-h-[12px] font-display text-[9px] text-fog sm:text-[10px]">
                 {point.uniqueVisitors > 0 ? point.uniqueVisitors : ""}
               </span>
               <div
-                className={`w-full max-w-[32px] rounded-t-md transition-colors ${
+                className={`w-full max-w-[28px] rounded-t-sm transition-colors sm:max-w-[32px] sm:rounded-t-md ${
                   isSelected ? "bg-electric-blue" : "bg-electric-blue/35"
                 }`}
-                style={{ height: `${Math.max(point.uniqueVisitors > 0 ? 8 : 2, height)}px` }}
+                style={{ height: `${barHeight}px` }}
               />
               <span
-                className={`font-display text-[10px] ${
+                className={`font-display text-[9px] sm:text-[10px] ${
                   isSelected ? "font-semibold text-ink" : "text-fog"
                 }`}
               >
-                {Number(d)}/{Number(m)}
+                {Number(m)}/{Number(d)}
               </span>
             </div>
           );

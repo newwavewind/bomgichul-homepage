@@ -16,7 +16,10 @@ export function AdminNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-wrap gap-2 border-b border-mist pb-4">
+    <nav
+      className="-mx-1 flex gap-1.5 overflow-x-auto border-b border-mist pb-3 sm:mx-0 sm:flex-wrap sm:gap-2 sm:pb-4"
+      aria-label="관리자 메뉴"
+    >
       {ADMIN_LINKS.map((link) => {
         const active =
           "exact" in link && link.exact
@@ -26,7 +29,7 @@ export function AdminNav() {
           <Link
             key={link.href}
             href={link.href}
-            className={`rounded-[var(--radius-tags)] px-4 py-1.5 font-display text-body-sm font-medium transition-colors ${
+            className={`shrink-0 rounded-[var(--radius-tags)] px-3 py-2 font-display text-[13px] font-medium transition-colors sm:px-4 sm:py-1.5 sm:text-body-sm ${
               active ? "bg-midnight text-paper" : "bg-surface text-ink hover:bg-snow"
             }`}
           >

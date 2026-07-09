@@ -18,19 +18,19 @@ export default async function AdminLayout({
   const user = await requireAdmin();
 
   return (
-    <div className="px-4 py-8 md:py-12">
+    <div className="px-3 py-5 sm:px-4 sm:py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <EyebrowLabel className="mb-2">운영 전용</EyebrowLabel>
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading as="h1" className="mb-0">
+          <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-4">
+            <SectionHeading as="h1" className="mb-0 text-heading-sm sm:text-heading">
               관리자
             </SectionHeading>
-            <p className="font-display text-body-sm text-smoke">
+            <p className="font-display text-[13px] text-smoke sm:text-body-sm">
               {user.email} · {user.nickname || "관리자"}
             </p>
           </div>
-          <p className="mt-2 font-display text-body-sm text-fog">
+          <p className="mt-2 font-display text-[13px] leading-relaxed text-fog sm:text-body-sm">
             일반 회원에게는 이 메뉴가 보이지 않습니다.{" "}
             <Link href="/" className="text-electric-blue hover:underline">
               사이트로 돌아가기
@@ -38,7 +38,7 @@ export default async function AdminLayout({
           </p>
         </div>
 
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <AdminNav />
         </div>
 
