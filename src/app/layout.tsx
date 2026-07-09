@@ -4,6 +4,7 @@ import { Outfit, Caveat } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ChatShell } from "@/components/chat/ChatShell";
+import { VisitTracker } from "@/components/analytics/VisitTracker";
 import {
   SITE_NAME,
   SITE_TITLE,
@@ -91,6 +92,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <ChatShell />
+        <VisitTracker />
       </body>
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>

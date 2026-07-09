@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 const ADMIN_LINKS = [
   { href: "/admin", label: "대시보드", exact: true },
+  { href: "/admin/visits", label: "방문" },
   { href: "/admin/users", label: "회원·로그인" },
   { href: "/admin/reports", label: "오류·피드백" },
   { href: "/admin/community", label: "게시글" },

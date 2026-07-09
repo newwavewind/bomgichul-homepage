@@ -89,7 +89,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
           <LogoMark />
 
           <nav
-            className="hidden items-center gap-1 xl:flex"
+            className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:flex"
             aria-label="주요 메뉴"
           >
             {NAV_LINKS.map((link) => (
@@ -97,7 +97,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-2 md:flex">
+          <div className="hidden items-center gap-2 xl:flex">
             {user ? (
               <>
                 {user.isAdmin && (
@@ -119,17 +119,19 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
             </PrimaryButton>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-buttons)] border border-mist xl:hidden"
-            aria-label="메뉴"
-            aria-expanded={mobileOpen}
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M3 5H17M3 10H17M3 15H17" stroke="#171717" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-          </button>
+          <div className="ml-auto flex shrink-0 items-center gap-2 xl:ml-0">
+            <button
+              type="button"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-buttons)] border border-mist xl:hidden"
+              aria-label="메뉴"
+              aria-expanded={mobileOpen}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                <path d="M3 5H17M3 10H17M3 15H17" stroke="#171717" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {mobileOpen && (

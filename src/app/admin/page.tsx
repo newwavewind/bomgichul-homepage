@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { getAdminOverview, getAdminRecentSignups } from "@/lib/admin";
+import { getAdminVisitStats } from "@/lib/site-visits";
 import { AdminStatCard } from "@/components/admin/AdminUi";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
 
 export default async function AdminDashboardPage() {
-  const [overview, signups] = await Promise.all([
+  const [overview, signups, visitStats] = await Promise.all([
     getAdminOverview(),
     getAdminRecentSignups(8),
+    getAdminVisitStats(),
   ]);
 
   return (
@@ -29,6 +31,11 @@ export default async function AdminDashboardPage() {
           <AdminStatCard label="모의고사 기록" value={overview.mockExamSessions} />
           <AdminStatCard label="일일 퀴즈 참여" value={overview.dailyQuizUsers} hint="누적 기록 수" />
           <AdminStatCard label="프리미엄 이용" value={overview.premiumUsers} hint="활성 entitlements" />
+          <AdminStatCard
+            label="오늘 방문"
+            value={visitStats.uniqueVisitorsToday}
+            hint={`페이지뷰 ${visitStats.visitsToday} · 비로그인 ${visitStats.anonymousVisitorsToday}`}
+          />
         </div>
       </section>
 
@@ -73,7 +80,11 @@ export default async function AdminDashboardPage() {
           <Link href="/admin/reports" className="text-electric-blue hover:underline">
             제보 목록
           </Link>
-          에서 확인하고, 회원 로그인 이메일·공개 아이디는{" "}
+          에서 확인하고, 사이트 방문(로그인·비로그인·로컬 포함)은{" "}
+          <Link href="/admin/visits" className="text-electric-blue hover:underline">
+            방문
+          </Link>
+          탭에서, 회원 로그인 이메일·공개 아이디는{" "}
           <Link href="/admin/users" className="text-electric-blue hover:underline">
             회원·로그인
           </Link>
