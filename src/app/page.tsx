@@ -10,22 +10,14 @@ import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { PrimaryButton, SecondaryButton, OutlineButton } from "@/components/ui/Button";
 import { FeatureCard, LargePanel, TintedAccentCard } from "@/components/ui/Card";
 import { Tag, CheckBadge } from "@/components/ui/Tag";
-import { AppPhonePreview } from "@/components/illustrations/AppPhonePreview";
-import { BrandLogo } from "@/components/illustrations/BrandLogo";
 import { FloatingStickers } from "@/components/illustrations/Stickers";
 import { DDayStrip } from "@/components/home/DDayStrip";
 import { HomeCommunityPreview } from "@/components/home/HomeCommunityPreview";
 import { HomeArchivePreview } from "@/components/home/HomeArchivePreview";
-import { DailyOxCard } from "@/components/home/DailyOxCard";
-import { getDailyOxSet } from "@/lib/daily-quiz";
-import { getKSTDateString } from "@/lib/exam";
-import { getUser } from "@/lib/auth";
-import { getUserQuizStreak, hasCompletedTodayQuiz } from "@/lib/daily-quiz-results";
 import {
   APP_FEATURES,
   HIGHLIGHTS,
   SITE_TAGLINE,
-  STATS,
   STUDY_MODES,
 } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
@@ -37,23 +29,17 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/",
 });
 
-export default async function HomePage() {
-  const dateKey = getKSTDateString();
-  const dailyQuestions = getDailyOxSet(dateKey);
-  const user = await getUser();
-  const quizStreak = user ? await getUserQuizStreak(user.id) : 0;
-  const alreadyPlayedToday = user ? await hasCompletedTodayQuiz(user.id, dateKey) : false;
-
+export default function HomePage() {
   return (
     <>
       {/* D-day strip */}
-      <div className="px-4 pt-4">
+      <div className="flex justify-center px-4 pt-3">
         <DDayStrip />
       </div>
 
       {/* Hero */}
       <section className="relative overflow-hidden px-4 pb-20 pt-8 md:pt-12">
-        <div className="relative mx-auto grid max-w-[var(--page-max-width)] items-center gap-14 lg:grid-cols-2">
+        <div className="relative mx-auto max-w-[var(--page-max-width)]">
           <div className="space-y-6">
             <BrandLockup variant="hero" />
             <p className="max-w-md font-display text-body-lg text-smoke">
@@ -63,7 +49,7 @@ export default async function HomePage() {
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <PrimaryButton
-                href="/#try"
+                href="/study"
                 event="cta_click"
                 eventParams={{ location: "hero", label: "try_now" }}
               >
@@ -93,53 +79,6 @@ export default async function HomePage() {
               ))}
             </div>
           </div>
-          <div className="relative flex justify-center">
-            <AppPhonePreview />
-          </div>
-        </div>
-      </section>
-
-      {/* Daily OX try-it */}
-      <section id="try" className="section-gap bg-paper px-4">
-        <div className="mx-auto max-w-[var(--page-max-width)] text-center">
-          <HandCaption className="mb-2">로그인 없이 바로 체험</HandCaption>
-          <SectionHeading>오늘의 기출 O/X</SectionHeading>
-          <p className="mx-auto mt-4 max-w-md font-display text-body text-smoke">
-            실제 기출 지문 10문제, 지금 바로 풀어보세요. 막히면 AI에게 바로
-            질문할 수 있어요.
-          </p>
-          <div className="mt-8">
-            <DailyOxCard
-              questions={dailyQuestions}
-              userId={user?.id ?? null}
-              dateKey={dateKey}
-              initialStreak={quizStreak}
-              alreadyPlayedToday={alreadyPlayedToday}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Brand banner */}
-      <section className="border-y-[1.5px] border-carbon bg-snow px-4 py-5">
-        <div className="mx-auto flex max-w-[var(--page-max-width)] justify-center">
-          <BrandLockup variant="banner" align="center" />
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="border-b-[1.5px] border-carbon bg-paper px-4 py-12">
-        <div className="mx-auto flex max-w-[var(--page-max-width)] flex-wrap justify-center gap-12 md:gap-24">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="font-display text-heading-sm font-semibold text-ink">
-                {stat.value}
-              </p>
-              <p className="mt-1 font-handwritten text-[1.15rem] text-electric-blue">
-                {stat.label}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -170,7 +109,7 @@ export default async function HomePage() {
           </div>
           <div className="mt-6">
             <OutlineButton
-              href="/exam"
+              href="/study"
               event="cta_click"
               eventParams={{ location: "study_modes", label: "exam_hub" }}
             >
@@ -184,7 +123,6 @@ export default async function HomePage() {
       <section id="features" className="section-gap bg-paper px-4">
         <div className="mx-auto max-w-[var(--page-max-width)]">
           <div className="mb-12 max-w-xl">
-            <BrandLockup variant="section" className="mb-3" />
             <SectionHeading>봄기출 앱에 담긴 기능</SectionHeading>
             <p className="mt-4 font-display text-body text-smoke">
               학습 · 개념카드 · 시험 · 암기노트 · 용어집 — 수험 준비에 필요한
@@ -268,10 +206,6 @@ export default async function HomePage() {
           <TintedAccentCard className="relative overflow-hidden text-center">
             <FloatingStickers className="absolute inset-0 opacity-80" />
             <div className="relative">
-              <div className="mb-4 flex justify-center">
-                <BrandLogo size="md" />
-              </div>
-              <BrandLockup variant="section" align="center" />
               <p className="mx-auto mt-4 max-w-md font-display text-body text-smoke">
                 앱을 설치해 기출을 풀고, 홈페이지 커뮤니티에 가입해 수험 정보를
                 나눠보세요. 공부는 당신이, 질문은 봄기출이.

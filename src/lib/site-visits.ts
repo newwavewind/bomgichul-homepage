@@ -3,6 +3,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 export const VISITOR_COOKIE = "bomgichul_vid";
 export const VISITOR_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+export const KST_TIMEZONE = "Asia/Seoul";
 
 const SKIP_PREFIXES = [
   "/_next",
@@ -34,6 +35,17 @@ export function formatVisitPath(path: string): string {
   return `${path.slice(0, 45)}…`;
 }
 
+export function formatClientAddress(
+  clientHost: string | null,
+  clientIp: string | null,
+  isLocal: boolean
+): string {
+  if (clientHost) return clientHost;
+  if (clientIp) return clientIp;
+  if (isLocal) return "localhost";
+  return "—";
+}
+
 export type SiteVisitRow = {
   id: string;
   visitorId: string;
@@ -42,6 +54,8 @@ export type SiteVisitRow = {
   path: string;
   referrer: string | null;
   isLocal: boolean;
+  clientHost: string | null;
+  clientIp: string | null;
   createdAt: string;
 };
 
@@ -53,6 +67,8 @@ export type SiteVisitorSummary = {
   lastPath: string;
   lastSeenAt: string;
   isLocal: boolean;
+  clientHost: string | null;
+  clientIp: string | null;
 };
 
 export type SiteVisitStats = {
@@ -61,6 +77,26 @@ export type SiteVisitStats = {
   loggedInVisitsToday: number;
   anonymousVisitorsToday: number;
   visitsLast7Days: number;
+};
+
+export type SiteVisitDayStats = {
+  date: string;
+  pageViews: number;
+  uniqueVisitors: number;
+  anonymousVisitors: number;
+  localVisitors: number;
+  loggedInVisits: number;
+};
+
+export type DailyVisitTrendPoint = SiteVisitDayStats;
+
+type VisitAggregateRow = {
+  visitor_id: string;
+  user_id: string | null;
+  is_local: boolean;
+  client_host: string | null;
+  client_ip: string | null;
+  created_at: string;
 };
 
 function adminOrNull() {
@@ -72,13 +108,70 @@ function adminOrNull() {
   }
 }
 
-function startOfTodayKst(): string {
+/** YYYY-MM-DD (한국 시간) */
+export function toKstDateKey(date: Date = new Date()): string {
   return new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Seoul",
+    timeZone: KST_TIMEZONE,
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(new Date());
+  }).format(date);
+}
+
+export function parseKstDateKey(dateKey: string): string | null {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateKey)) return null;
+  const parsed = new Date(`${dateKey}T12:00:00+09:00`);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return dateKey;
+}
+
+export function kstDayBounds(dateKey: string): { start: string; end: string } {
+  const start = `${dateKey}T00:00:00+09:00`;
+  const [y, m, d] = dateKey.split("-").map(Number);
+  const next = new Date(Date.UTC(y, m - 1, d + 1, -9, 0, 0));
+  const endKey = toKstDateKey(next);
+  const end = `${endKey}T00:00:00+09:00`;
+  return { start, end };
+}
+
+export function addKstDays(dateKey: string, days: number): string {
+  const [y, m, d] = dateKey.split("-").map(Number);
+  const date = new Date(`${dateKey}T12:00:00+09:00`);
+  date.setDate(date.getDate() + days);
+  return toKstDateKey(date);
+}
+
+function aggregateDayStats(
+  dateKey: string,
+  rows: VisitAggregateRow[]
+): SiteVisitDayStats {
+  const uniqueVisitors = new Set(rows.map((r) => r.visitor_id));
+  const anonymousVisitors = new Set(
+    rows.filter((r) => !r.user_id).map((r) => r.visitor_id)
+  );
+  const localVisitors = new Set(
+    rows.filter((r) => r.is_local).map((r) => r.visitor_id)
+  );
+
+  return {
+    date: dateKey,
+    pageViews: rows.length,
+    uniqueVisitors: uniqueVisitors.size,
+    anonymousVisitors: anonymousVisitors.size,
+    localVisitors: localVisitors.size,
+    loggedInVisits: rows.filter((r) => r.user_id).length,
+  };
+}
+
+function groupRowsByKstDate(rows: VisitAggregateRow[]): Map<string, VisitAggregateRow[]> {
+  const map = new Map<string, VisitAggregateRow[]>();
+  for (const row of rows) {
+    const key = toKstDateKey(new Date(row.created_at));
+    const bucket = map.get(key);
+    if (bucket) bucket.push(row);
+    else map.set(key, [row]);
+  }
+  return map;
 }
 
 export async function recordSiteVisit(input: {
@@ -87,6 +180,8 @@ export async function recordSiteVisit(input: {
   path: string;
   referrer: string | null;
   isLocal: boolean;
+  clientHost: string | null;
+  clientIp: string | null;
 }): Promise<void> {
   const admin = adminOrNull();
   if (!admin) return;
@@ -97,51 +192,139 @@ export async function recordSiteVisit(input: {
     path: input.path.slice(0, 500),
     referrer: input.referrer?.slice(0, 500) ?? null,
     is_local: input.isLocal,
+    client_host: input.clientHost?.slice(0, 200) ?? null,
+    client_ip: input.clientIp?.slice(0, 64) ?? null,
   });
 }
 
 export async function getAdminVisitStats(): Promise<SiteVisitStats> {
-  const empty: SiteVisitStats = {
-    visitsToday: 0,
-    uniqueVisitorsToday: 0,
-    loggedInVisitsToday: 0,
-    anonymousVisitorsToday: 0,
-    visitsLast7Days: 0,
+  const today = toKstDateKey();
+  const dayStats = await getAdminVisitStatsForDate(today);
+  const trend = await getAdminDailyVisitTrend(addKstDays(today, -6), today);
+
+  return {
+    visitsToday: dayStats.pageViews,
+    uniqueVisitorsToday: dayStats.uniqueVisitors,
+    loggedInVisitsToday: dayStats.loggedInVisits,
+    anonymousVisitorsToday: dayStats.anonymousVisitors,
+    visitsLast7Days: trend.reduce((sum, point) => sum + point.pageViews, 0),
+  };
+}
+
+export async function getAdminVisitStatsForDate(
+  dateKey: string
+): Promise<SiteVisitDayStats> {
+  const empty: SiteVisitDayStats = {
+    date: dateKey,
+    pageViews: 0,
+    uniqueVisitors: 0,
+    anonymousVisitors: 0,
+    localVisitors: 0,
+    loggedInVisits: 0,
   };
 
   const admin = adminOrNull();
   if (!admin) return empty;
 
-  const today = startOfTodayKst();
-  const todayStart = `${today}T00:00:00+09:00`;
-  const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+  const { start, end } = kstDayBounds(dateKey);
+  const { data } = await admin
+    .from("site_visits")
+    .select("visitor_id, user_id, is_local, client_host, client_ip, created_at")
+    .gte("created_at", start)
+    .lt("created_at", end);
 
-  const [todayRows, weekCountRes] = await Promise.all([
-    admin
-      .from("site_visits")
-      .select("visitor_id, user_id")
-      .gte("created_at", todayStart),
-    admin
-      .from("site_visits")
-      .select("id", { count: "exact", head: true })
-      .gte("created_at", weekAgo),
-  ]);
+  return aggregateDayStats(dateKey, data ?? []);
+}
 
-  const rows = todayRows.data ?? [];
-  const uniqueVisitors = new Set(rows.map((r) => r.visitor_id));
-  const loggedInRows = rows.filter((r) => r.user_id);
-  const loggedInVisitors = new Set(loggedInRows.map((r) => r.visitor_id));
-  const anonymousVisitors = new Set(
-    rows.filter((r) => !r.user_id).map((r) => r.visitor_id)
-  );
+export async function getAdminDailyVisitTrend(
+  fromDateKey: string,
+  toDateKey: string
+): Promise<DailyVisitTrendPoint[]> {
+  const admin = adminOrNull();
+  if (!admin) return [];
 
-  return {
-    visitsToday: rows.length,
-    uniqueVisitorsToday: uniqueVisitors.size,
-    loggedInVisitsToday: loggedInRows.length,
-    anonymousVisitorsToday: anonymousVisitors.size,
-    visitsLast7Days: weekCountRes.count ?? 0,
-  };
+  const { start } = kstDayBounds(fromDateKey);
+  const { end } = kstDayBounds(toDateKey);
+
+  const { data } = await admin
+    .from("site_visits")
+    .select("visitor_id, user_id, is_local, client_host, client_ip, created_at")
+    .gte("created_at", start)
+    .lt("created_at", end);
+
+  const grouped = groupRowsByKstDate(data ?? []);
+  const points: DailyVisitTrendPoint[] = [];
+  let cursor = fromDateKey;
+
+  while (cursor <= toDateKey) {
+    points.push(aggregateDayStats(cursor, grouped.get(cursor) ?? []));
+    cursor = addKstDays(cursor, 1);
+  }
+
+  return points;
+}
+
+export async function getAdminMonthVisitorCounts(
+  year: number,
+  month: number
+): Promise<Record<string, number>> {
+  const admin = adminOrNull();
+  if (!admin) return {};
+
+  const fromDateKey = `${year}-${String(month).padStart(2, "0")}-01`;
+  const lastDay = new Date(year, month, 0).getDate();
+  const toDateKey = `${year}-${String(month).padStart(2, "0")}-${String(lastDay).padStart(2, "0")}`;
+
+  const trend = await getAdminDailyVisitTrend(fromDateKey, toDateKey);
+  return Object.fromEntries(trend.map((point) => [point.date, point.uniqueVisitors]));
+}
+
+export async function getAdminRecentVisitsForDate(
+  dateKey: string,
+  limit = 100
+): Promise<SiteVisitRow[]> {
+  const admin = adminOrNull();
+  if (!admin) return [];
+
+  const { start, end } = kstDayBounds(dateKey);
+  const { data } = await admin
+    .from("site_visits")
+    .select(
+      `
+      id,
+      visitor_id,
+      user_id,
+      path,
+      referrer,
+      is_local,
+      client_host,
+      client_ip,
+      created_at,
+      profiles:user_id (nickname)
+    `
+    )
+    .gte("created_at", start)
+    .lt("created_at", end)
+    .order("created_at", { ascending: false })
+    .limit(limit);
+
+  if (!data) return [];
+
+  return data.map((row) => {
+    const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
+    return {
+      id: row.id,
+      visitorId: row.visitor_id,
+      userId: row.user_id,
+      nickname: profile?.nickname ?? null,
+      path: row.path,
+      referrer: row.referrer,
+      isLocal: row.is_local,
+      clientHost: row.client_host,
+      clientIp: row.client_ip,
+      createdAt: row.created_at,
+    };
+  });
 }
 
 export async function getAdminRecentVisits(limit = 100): Promise<SiteVisitRow[]> {
@@ -158,6 +341,8 @@ export async function getAdminRecentVisits(limit = 100): Promise<SiteVisitRow[]>
       path,
       referrer,
       is_local,
+      client_host,
+      client_ip,
       created_at,
       profiles:user_id (nickname)
     `
@@ -177,18 +362,21 @@ export async function getAdminRecentVisits(limit = 100): Promise<SiteVisitRow[]>
       path: row.path,
       referrer: row.referrer,
       isLocal: row.is_local,
+      clientHost: row.client_host,
+      clientIp: row.client_ip,
       createdAt: row.created_at,
     };
   });
 }
 
-export async function getAdminVisitorSummaries(
-  limit = 50
+export async function getAdminVisitorSummariesForDate(
+  dateKey: string,
+  limit = 80
 ): Promise<SiteVisitorSummary[]> {
   const admin = adminOrNull();
   if (!admin) return [];
 
-  const since = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+  const { start, end } = kstDayBounds(dateKey);
   const { data } = await admin
     .from("site_visits")
     .select(
@@ -197,13 +385,16 @@ export async function getAdminVisitorSummaries(
       user_id,
       path,
       is_local,
+      client_host,
+      client_ip,
       created_at,
       profiles:user_id (nickname)
     `
     )
-    .gte("created_at", since)
+    .gte("created_at", start)
+    .lt("created_at", end)
     .order("created_at", { ascending: false })
-    .limit(500);
+    .limit(2000);
 
   if (!data) return [];
 
@@ -221,6 +412,8 @@ export async function getAdminVisitorSummaries(
         lastPath: row.path,
         lastSeenAt: row.created_at,
         isLocal: row.is_local,
+        clientHost: row.client_host,
+        clientIp: row.client_ip,
       });
       continue;
     }
@@ -230,9 +423,22 @@ export async function getAdminVisitorSummaries(
       existing.userId = row.user_id;
       existing.nickname = profile?.nickname ?? null;
     }
+    if (!existing.clientHost && row.client_host) {
+      existing.clientHost = row.client_host;
+    }
+    if (!existing.clientIp && row.client_ip) {
+      existing.clientIp = row.client_ip;
+    }
   }
 
   return [...byVisitor.values()]
     .sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt))
     .slice(0, limit);
+}
+
+/** @deprecated 최근 24시간 — getAdminVisitorSummariesForDate 사용 권장 */
+export async function getAdminVisitorSummaries(
+  limit = 50
+): Promise<SiteVisitorSummary[]> {
+  return getAdminVisitorSummariesForDate(toKstDateKey(), limit);
 }

@@ -48,12 +48,14 @@ export function AdminStatCard({
   label,
   value,
   hint,
+  href,
 }: {
   label: string;
   value: string | number;
   hint?: string;
+  href?: string;
 }) {
-  return (
+  const card = (
     <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 py-4 shadow-[var(--shadow-card)]">
       <p className="font-display text-[12px] font-medium uppercase tracking-wide text-fog">
         {label}
@@ -62,4 +64,14 @@ export function AdminStatCard({
       {hint && <p className="mt-1 font-display text-[12px] text-smoke">{hint}</p>}
     </div>
   );
+
+  if (href) {
+    return (
+      <a href={href} className="block transition-opacity hover:opacity-90">
+        {card}
+      </a>
+    );
+  }
+
+  return card;
 }

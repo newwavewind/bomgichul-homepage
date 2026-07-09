@@ -238,17 +238,51 @@ export type SortOption = (typeof SORT_OPTIONS)[number]["value"];
 /** 봄기출 PC앱 (ox-quiz-app 웹 배포) */
 export const PC_APP_URL = "https://app.bomgichul.com";
 
-export const NAV_LINKS = [
+export type NavChildLink = { href: string; label: string };
+
+export type NavGroupLink = {
+  label: string;
+  href?: string;
+  children: NavChildLink[];
+};
+
+export type NavLinkItem = NavChildLink | NavGroupLink;
+
+export function isNavGroup(link: NavLinkItem): link is NavGroupLink {
+  return "children" in link;
+}
+
+export function navGroupKey(link: NavGroupLink): string {
+  return link.href ?? link.label;
+}
+
+export function flattenNavLinks(links: NavLinkItem[]): NavChildLink[] {
+  return links.flatMap((link) =>
+    isNavGroup(link)
+      ? [
+          ...(link.href ? [{ href: link.href, label: link.label }] : []),
+          ...link.children,
+        ]
+      : [link]
+  );
+}
+
+export const NAV_LINKS: NavLinkItem[] = [
   { href: "/", label: "홈" },
   { href: PC_APP_URL, label: "PC앱" },
-  { href: "/exam", label: "기출문제" },
-  { href: "/concepts", label: "개념 목록" },
-  { href: "/news", label: "뉴스" },
-  { href: "/community?category=law_update", label: "법령정보" },
-  { href: "/community", label: "커뮤니티" },
-  { href: "/archive", label: "자료실" },
-  { href: "/diary", label: "수험일기" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/study", label: "학습" },
+  {
+    href: "/community",
+    label: "커뮤니티",
+    children: [
+      { href: "/community", label: "게시판" },
+      { href: "/community?category=law_update", label: "법령정보" },
+      { href: "/archive", label: "자료실" },
+      { href: "/diary", label: "수험일기" },
+      { href: "/news", label: "뉴스" },
+      { href: "/faq", label: "FAQ" },
+    ],
+  },
 ];
 
 /** 공인중개사 시험 일정 (한국산업인력공단·Q-Net 공고 기준) */

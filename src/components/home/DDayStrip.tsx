@@ -7,18 +7,17 @@ export function DDayStrip() {
   return (
     <Link
       href="/diary"
-      className="mx-auto flex max-w-[var(--page-max-width)] items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-lavender px-4 py-2.5 font-display text-body-sm text-ink shadow-[var(--shadow-button)] transition-opacity hover:opacity-90 md:gap-3"
+      className="mx-auto flex max-w-[var(--page-max-width)] w-fit items-center justify-center gap-1.5 rounded-full border border-carbon/60 bg-lavender/80 px-2.5 py-1 font-display text-[11px] leading-tight text-ink transition-opacity hover:opacity-90"
     >
       <span className="hidden sm:inline">{exam.label} 공인중개사 시험까지</span>
       <span className="sm:hidden">시험까지</span>
       <span
-        className={`font-display text-body font-bold ${
+        className={`font-semibold ${
           days <= 30 && days >= 0 ? "text-amber" : "text-ink"
         }`}
       >
         {label}
       </span>
-      <span className="hidden text-fog md:inline">— 수험일기에서 함께 카운트다운해요 →</span>
     </Link>
   );
 }

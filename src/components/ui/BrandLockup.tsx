@@ -1,7 +1,6 @@
 import {
   SITE_NAME,
   SITE_IDENTITY,
-  SITE_PLATFORM,
   SITE_TAGLINE,
 } from "@/lib/constants";
 import { ElectricHighlight, HandCaption } from "@/components/ui/Typography";
@@ -24,10 +23,6 @@ export function BrandLockup({
   if (variant === "hero") {
     return (
       <div className={`flex flex-col gap-3 ${alignClass} ${className}`}>
-        <HandCaption>Dear 공인중개사 수험생,</HandCaption>
-        <p className="font-display text-eyebrow font-semibold text-electric-blue">
-          {SITE_IDENTITY} · {SITE_PLATFORM}
-        </p>
         <h1 className="font-display text-display font-semibold text-ink">
           질문은
           <br />

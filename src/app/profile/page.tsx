@@ -82,7 +82,7 @@ export default async function ProfilePage() {
           <p className="font-display text-body text-smoke">
             해제된 과목이 없어요. 코드를 등록하면 학습 분석이 표시됩니다.
           </p>
-          <PrimaryButton href="/exam" className="mt-4">
+          <PrimaryButton href="/study" className="mt-4">
             기출문제로 이동
           </PrimaryButton>
         </ElevatedCard>

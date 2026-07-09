@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/illustrations/BrandLogo";
-import { SITE_NAME, NAV_LINKS, SITE_IDENTITY, ARCHIVE_SUBJECTS } from "@/lib/constants";
+import { SITE_NAME, NAV_LINKS, flattenNavLinks, SITE_IDENTITY, ARCHIVE_SUBJECTS } from "@/lib/constants";
 
 function NavItem({
   href,
@@ -45,8 +45,8 @@ export function Footer() {
           </div>
         </div>
         <nav className="flex flex-wrap items-center gap-x-3 gap-y-1">
-          {NAV_LINKS.map((link) => (
-            <NavItem key={link.href} href={link.href}>
+          {flattenNavLinks(NAV_LINKS).map((link) => (
+            <NavItem key={`${link.href}-${link.label}`} href={link.href}>
               {link.label}
             </NavItem>
           ))}

@@ -49,8 +49,8 @@ export default function FaqPage() {
             자주 묻는 질문도 함께 확인하세요.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <PrimaryButton href="/#try">지금 무료로 풀어보기</PrimaryButton>
-            <SecondaryButton href="/exam">기출문제 보러가기</SecondaryButton>
+            <PrimaryButton href="/study">지금 무료로 풀어보기</PrimaryButton>
+            <SecondaryButton href="/study#exam">기출문제 보러가기</SecondaryButton>
             <OutlineButton href="#code">코드 등록 방법 보기</OutlineButton>
             <OutlineButton href="#faq">자주 묻는 질문 보기</OutlineButton>
           </div>

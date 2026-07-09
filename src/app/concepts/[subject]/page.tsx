@@ -99,10 +99,10 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <BackLink href="/concepts">과목 목록으로</BackLink>
+        <BackLink href="/study#concepts">과목 목록으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/concepts" className="hover:text-ink">
+          <Link href="/study#concepts" className="hover:text-ink">
             개념 목록
           </Link>{" "}
           / {label}

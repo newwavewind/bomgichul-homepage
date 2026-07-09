@@ -107,7 +107,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
         <BackLink href={`/exam/${subject}/${year}`}>{year}년 문항 목록으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/exam" className="hover:text-ink">
+          <Link href="/study#exam" className="hover:text-ink">
             기출문제 해설
           </Link>{" "}
           /{" "}

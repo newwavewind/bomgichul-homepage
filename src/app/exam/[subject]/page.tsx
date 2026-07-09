@@ -82,10 +82,10 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <BackLink href="/exam">과목 목록으로</BackLink>
+        <BackLink href="/study#exam">과목 목록으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/exam" className="hover:text-ink">
+          <Link href="/study#exam" className="hover:text-ink">
             기출문제 해설
           </Link>{" "}
           / {label}

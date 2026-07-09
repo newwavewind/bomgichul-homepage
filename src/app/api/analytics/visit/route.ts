@@ -17,6 +17,17 @@ function isLocalHost(host: string | null): boolean {
   );
 }
 
+function getClientIp(request: NextRequest): string | null {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    const first = forwarded.split(",")[0]?.trim();
+    if (first) return first;
+  }
+  const realIp = request.headers.get("x-real-ip");
+  if (realIp) return realIp.trim();
+  return null;
+}
+
 export async function POST(request: NextRequest) {
   let body: { path?: string; referrer?: string };
   try {
@@ -42,12 +53,16 @@ export async function POST(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const host = request.headers.get("host");
+  const clientIp = getClientIp(request);
+
   await recordSiteVisit({
     visitorId,
     userId: user?.id ?? null,
     path,
     referrer: body.referrer?.trim() || request.headers.get("referer"),
     isLocal: isLocalHost(host),
+    clientHost: host,
+    clientIp,
   });
 
   const response = new NextResponse(null, { status: 204 });

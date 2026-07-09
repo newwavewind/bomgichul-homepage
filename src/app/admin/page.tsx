@@ -31,11 +31,13 @@ export default async function AdminDashboardPage() {
           <AdminStatCard label="모의고사 기록" value={overview.mockExamSessions} />
           <AdminStatCard label="일일 퀴즈 참여" value={overview.dailyQuizUsers} hint="누적 기록 수" />
           <AdminStatCard label="프리미엄 이용" value={overview.premiumUsers} hint="활성 entitlements" />
-          <AdminStatCard
-            label="오늘 방문"
-            value={visitStats.uniqueVisitorsToday}
-            hint={`페이지뷰 ${visitStats.visitsToday} · 비로그인 ${visitStats.anonymousVisitorsToday}`}
-          />
+          <Link href="/admin/visits" className="block transition-opacity hover:opacity-90">
+            <AdminStatCard
+              label="오늘 방문"
+              value={visitStats.uniqueVisitorsToday}
+              hint={`페이지뷰 ${visitStats.visitsToday} · 비로그인 ${visitStats.anonymousVisitorsToday}`}
+            />
+          </Link>
         </div>
       </section>
 

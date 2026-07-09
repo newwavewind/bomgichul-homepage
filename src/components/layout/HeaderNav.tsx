@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { LogoMark } from "@/components/illustrations/LogoMark";
 import { PrimaryButton, OutlineButton, TextButton } from "@/components/ui/Button";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, isNavGroup, navGroupKey, type NavGroupLink } from "@/lib/constants";
 
 interface HeaderNavProps {
   user?: {
@@ -32,15 +33,181 @@ function NavLink({
   href,
   label,
   className = "",
+  onNavigate,
 }: {
   href: string;
   label: string;
   className?: string;
+  onNavigate?: () => void;
 }) {
   return (
-    <OutlineButton href={href} className={`shrink-0 whitespace-nowrap ${className}`}>
+    <OutlineButton href={href} className={`shrink-0 whitespace-nowrap ${className}`} onClick={onNavigate}>
       {label}
     </OutlineButton>
+  );
+}
+
+function NavDropdown({ href, label, children }: NavGroupLink) {
+  const [open, setOpen] = useState(false);
+
+  const trigger = (
+    <>
+      {label}
+      <svg
+        width="12"
+        height="12"
+        viewBox="0 0 12 12"
+        fill="none"
+        aria-hidden
+        className={`transition-transform ${open ? "rotate-180" : ""}`}
+      >
+        <path
+          d="M3 4.5L6 7.5L9 4.5"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </>
+  );
+
+  return (
+    <div
+      className="relative shrink-0"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      {href ? (
+        <OutlineButton href={href} className="shrink-0 gap-1 whitespace-nowrap">
+          {trigger}
+        </OutlineButton>
+      ) : (
+        <OutlineButton
+          className="shrink-0 gap-1 whitespace-nowrap"
+          onClick={() => setOpen((prev) => !prev)}
+        >
+          {trigger}
+        </OutlineButton>
+      )}
+      {open && (
+        <div className="absolute left-0 top-full z-50 min-w-[9rem] pt-1">
+          <div className="flex flex-col rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper py-1 shadow-[var(--shadow-card)]">
+            {children.map((child) => (
+              <Link
+                key={child.href}
+                href={child.href}
+                className="block px-3.5 py-2 font-display text-body-sm font-medium text-ink transition-colors hover:bg-snow"
+                onClick={() => setOpen(false)}
+              >
+                {child.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MobileNavGroup({
+  href,
+  label,
+  children,
+  onNavigate,
+}: NavGroupLink & { onNavigate: () => void }) {
+  const [expanded, setExpanded] = useState(false);
+
+  if (!href) {
+    return (
+      <div onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          onClick={() => setExpanded((prev) => !prev)}
+          className="flex w-full items-center justify-between rounded-[var(--radius-buttons)] px-3.5 py-2 font-display text-body-sm font-medium text-ink transition-colors hover:bg-snow"
+          aria-expanded={expanded}
+        >
+          {label}
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            aria-hidden
+            className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+          >
+            <path
+              d="M3 4.5L6 7.5L9 4.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+        {expanded && (
+          <div className="ml-3 mt-1 flex flex-col gap-1 border-l border-mist pl-3">
+            {children.map((child) => (
+              <NavLink
+                key={child.href}
+                href={child.href}
+                label={child.label}
+                className="w-full justify-start"
+                onNavigate={onNavigate}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div className="flex items-center gap-1">
+        <NavLink href={href} label={label} className="flex-1 justify-start" onNavigate={onNavigate} />
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            setExpanded((prev) => !prev);
+          }}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-buttons)] border border-mist"
+          aria-expanded={expanded}
+          aria-label={`${label} 하위 메뉴`}
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            aria-hidden
+            className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+          >
+            <path
+              d="M3 4.5L6 7.5L9 4.5"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+      {expanded && (
+        <div className="ml-3 mt-1 flex flex-col gap-1 border-l border-mist pl-3">
+          {children.map((child) => (
+            <NavLink
+              key={child.href}
+              href={child.href}
+              label={child.label}
+              className="w-full justify-start"
+              onNavigate={onNavigate}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -92,9 +259,13 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
             className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:flex"
             aria-label="주요 메뉴"
           >
-            {NAV_LINKS.map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} />
-            ))}
+            {NAV_LINKS.map((link) =>
+              isNavGroup(link) ? (
+                <NavDropdown key={navGroupKey(link)} {...link} />
+              ) : (
+                <NavLink key={link.href} href={link.href} label={link.label} />
+              )
+            )}
           </nav>
 
           <div className="hidden items-center gap-2 xl:flex">
@@ -114,9 +285,6 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
             ) : (
               <OutlineButton href="/login">로그인</OutlineButton>
             )}
-            <PrimaryButton href="/community/write" size="nav" className="whitespace-nowrap">
-              글쓰기
-            </PrimaryButton>
           </div>
 
           <div className="ml-auto flex shrink-0 items-center gap-2 xl:ml-0">
@@ -137,14 +305,23 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
         {mobileOpen && (
           <div className="mt-2 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-4 shadow-[var(--shadow-card)] xl:hidden">
             <nav className="flex flex-col gap-1" onClick={() => setMobileOpen(false)}>
-              {NAV_LINKS.map((link) => (
-                <NavLink
-                  key={link.href}
-                  href={link.href}
-                  label={link.label}
-                  className="w-full justify-start"
-                />
-              ))}
+              {NAV_LINKS.map((link) =>
+                isNavGroup(link) ? (
+                  <MobileNavGroup
+                    key={navGroupKey(link)}
+                    {...link}
+                    onNavigate={() => setMobileOpen(false)}
+                  />
+                ) : (
+                  <NavLink
+                    key={link.href}
+                    href={link.href}
+                    label={link.label}
+                    className="w-full justify-start"
+                    onNavigate={() => setMobileOpen(false)}
+                  />
+                )
+              )}
               {user ? (
                 <>
                   {user.isAdmin && (

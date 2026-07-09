@@ -91,7 +91,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
         <BackLink href={`/concepts/${subject}`}>{label} 개념 목록으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/concepts" className="hover:text-ink">
+          <Link href="/study#concepts" className="hover:text-ink">
             개념 목록
           </Link>{" "}
           /{" "}
