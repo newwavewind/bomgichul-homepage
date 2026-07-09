@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
-import { NewsDateStrip } from "@/components/news/NewsDateStrip";
+import { NewsDateNavigator } from "@/components/news/NewsDateNavigator";
 import { NewsList } from "@/components/news/NewsList";
 import { getNewsItems } from "@/lib/news";
 import { SITE_NAME } from "@/lib/constants";
@@ -34,10 +34,19 @@ function resolveSelectedDate(
   return dates[0] ?? null;
 }
 
+function countNewsByDate(items: NewsItem[]): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const item of items) {
+    counts[item.published_at] = (counts[item.published_at] ?? 0) + 1;
+  }
+  return counts;
+}
+
 export default async function NewsPage({ searchParams }: NewsPageProps) {
   const { date } = await searchParams;
   const items = await getNewsItems(100);
   const dates = collectNewsDates(items);
+  const countsByDate = countNewsByDate(items);
   const selectedDate = resolveSelectedDate(dates, date);
   const filteredItems = selectedDate
     ? items.filter((item) => item.published_at === selectedDate)
@@ -54,7 +63,11 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
           </p>
         </div>
 
-        <NewsDateStrip dates={dates} selected={selectedDate} />
+        <NewsDateNavigator
+          dates={dates}
+          selected={selectedDate}
+          countsByDate={countsByDate}
+        />
         <NewsList items={filteredItems} selectedDate={selectedDate} />
       </div>
     </div>
