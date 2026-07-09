@@ -242,6 +242,7 @@ export const NAV_LINKS = [
   { href: "/", label: "홈" },
   { href: PC_APP_URL, label: "PC앱" },
   { href: "/exam", label: "기출문제" },
+  { href: "/concepts", label: "개념 목록" },
   { href: "/news", label: "뉴스" },
   { href: "/community?category=law_update", label: "법령정보" },
   { href: "/community", label: "커뮤니티" },

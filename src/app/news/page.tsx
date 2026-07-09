@@ -45,7 +45,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
 
   return (
     <div className="px-4 py-8 md:py-12">
-      <div className="mx-auto max-w-[var(--page-max-width)]">
+      <div className="mx-auto w-full max-w-[var(--page-max-width)]">
         <div className="mb-8 max-w-xl">
           <EyebrowLabel className="mb-2">매일 아침 8시 업데이트</EyebrowLabel>
           <SectionHeading as="h1">공인중개사 뉴스</SectionHeading>

@@ -1,0 +1,73 @@
+import type { ExamSubject, ExamQuestion } from "@/lib/exam-questions";
+import { getExamQuestionsForSubject, getExamQuestion } from "@/lib/exam-questions";
+import civillawConcepts from "@/data/concepts/civillaw";
+import realestateConcepts from "@/data/concepts/realestate";
+import brokerLawConcepts from "@/data/concepts/broker-law";
+import registryLawConcepts from "@/data/concepts/registry-law";
+import realestateTaxConcepts from "@/data/concepts/realestate-tax";
+import realestatePublicLawConcepts from "@/data/concepts/realestate-public-law";
+
+export interface Concept {
+  slug: string;
+  /** 교재 목차상 대분류 (예: "민법총칙", "물권법", "계약법", "민사특별법") */
+  chapterKo?: string;
+  category: string;
+  subcategory: string;
+  titleKo: string;
+  titleEn: string;
+  definition: string;
+  intuition: string;
+  keyPoints: string[];
+  pitfalls: string;
+  example: string;
+  /**
+   * 같은 category+subcategory를 공유하는 다른 개념과 문항을 정확히 나누고 싶을 때,
+   * 이 개념에 실제로 속하는 문항만 정확히 지정한다. 지정하면 category+subcategory 매칭 대신
+   * 이 목록만 사용한다.
+   */
+  questionRefs?: { year: number; questionNo: number }[];
+  /** 이 개념이 다른 개념(부모)의 하위개념일 때, 부모 개념의 slug를 지정한다. */
+  parentSlug?: string;
+}
+
+const CONCEPTS_BY_SUBJECT: Record<ExamSubject, Concept[]> = {
+  civillaw: civillawConcepts,
+  realestate: realestateConcepts,
+  "broker-law": brokerLawConcepts,
+  "registry-law": registryLawConcepts,
+  "realestate-tax": realestateTaxConcepts,
+  "realestate-public-law": realestatePublicLawConcepts,
+};
+
+export function getConceptsForSubject(subject: ExamSubject): Concept[] {
+  return CONCEPTS_BY_SUBJECT[subject] ?? [];
+}
+
+export function getConcept(subject: ExamSubject, slug: string): Concept | undefined {
+  return getConceptsForSubject(subject).find((c) => c.slug === slug);
+}
+
+export function getConceptQuestions(subject: ExamSubject, concept: Concept): ExamQuestion[] {
+  if (concept.questionRefs) {
+    return concept.questionRefs
+      .map((ref) => getExamQuestion(subject, ref.year, ref.questionNo))
+      .filter((q): q is ExamQuestion => Boolean(q))
+      .sort((a, b) => b.year - a.year || a.questionNo - b.questionNo);
+  }
+  return getExamQuestionsForSubject(subject)
+    .filter((q) => q.category === concept.category && q.subcategory === concept.subcategory)
+    .sort((a, b) => b.year - a.year || a.questionNo - b.questionNo);
+}
+
+export function getConceptQuestionCount(subject: ExamSubject, concept: Concept): number {
+  if (concept.questionRefs) return concept.questionRefs.length;
+  return getExamQuestionsForSubject(subject).filter(
+    (q) => q.category === concept.category && q.subcategory === concept.subcategory
+  ).length;
+}
+
+export function getAllConceptParams(): { subject: ExamSubject; slug: string }[] {
+  return (Object.keys(CONCEPTS_BY_SUBJECT) as ExamSubject[]).flatMap((subject) =>
+    getConceptsForSubject(subject).map((c) => ({ subject, slug: c.slug }))
+  );
+}

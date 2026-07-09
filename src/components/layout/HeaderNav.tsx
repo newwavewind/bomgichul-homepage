@@ -38,7 +38,7 @@ function NavLink({
   className?: string;
 }) {
   return (
-    <OutlineButton href={href} className={className}>
+    <OutlineButton href={href} className={`shrink-0 whitespace-nowrap ${className}`}>
       {label}
     </OutlineButton>
   );
@@ -88,7 +88,10 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
         <div className="flex items-center justify-between gap-3 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-3 py-2 shadow-[var(--shadow-button)] md:px-4">
           <LogoMark />
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav
+            className="hidden items-center gap-1 xl:flex"
+            aria-label="주요 메뉴"
+          >
             {NAV_LINKS.map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
@@ -111,7 +114,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
             ) : (
               <OutlineButton href="/login">로그인</OutlineButton>
             )}
-            <PrimaryButton href="/community/write" size="nav">
+            <PrimaryButton href="/community/write" size="nav" className="whitespace-nowrap">
               글쓰기
             </PrimaryButton>
           </div>
@@ -119,8 +122,9 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-buttons)] border border-mist md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-buttons)] border border-mist xl:hidden"
             aria-label="메뉴"
+            aria-expanded={mobileOpen}
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M3 5H17M3 10H17M3 15H17" stroke="#171717" strokeWidth="1.5" strokeLinecap="round" />
@@ -129,7 +133,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
         </div>
 
         {mobileOpen && (
-          <div className="mt-2 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-4 shadow-[var(--shadow-card)] md:hidden">
+          <div className="mt-2 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-4 shadow-[var(--shadow-card)] xl:hidden">
             <nav className="flex flex-col gap-1" onClick={() => setMobileOpen(false)}>
               {NAV_LINKS.map((link) => (
                 <NavLink

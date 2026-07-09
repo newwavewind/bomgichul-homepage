@@ -16,6 +16,10 @@ function formatWeekday(dateStr: string): string {
   return weekdays[date.getDay()] ?? "";
 }
 
+function formatDateChipLabel(dateStr: string): string {
+  return `${formatDateChip(dateStr)} ${formatWeekday(dateStr)}`;
+}
+
 export function NewsDateStrip({ dates, selected }: NewsDateStripProps) {
   if (dates.length === 0) return null;
 
@@ -37,8 +41,8 @@ export function NewsDateStrip({ dates, selected }: NewsDateStripProps) {
               role="tab"
               aria-selected={isActive}
               className={`
-                flex shrink-0 flex-col items-center rounded-[var(--radius-tags)] px-3.5 py-2
-                font-display transition-colors
+                inline-flex shrink-0 items-center whitespace-nowrap rounded-[var(--radius-tags)]
+                px-3.5 py-2 font-display text-body-sm font-semibold transition-colors
                 ${
                   isActive
                     ? "bg-midnight text-paper"
@@ -46,16 +50,7 @@ export function NewsDateStrip({ dates, selected }: NewsDateStripProps) {
                 }
               `}
             >
-              <span className="text-body-sm font-semibold leading-none">
-                {formatDateChip(date)}
-              </span>
-              <span
-                className={`mt-1 text-[11px] leading-none ${
-                  isActive ? "text-paper/80" : "text-fog"
-                }`}
-              >
-                {formatWeekday(date)}
-              </span>
+              {formatDateChipLabel(date)}
             </Link>
           );
         })}
