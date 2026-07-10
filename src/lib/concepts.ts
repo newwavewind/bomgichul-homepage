@@ -1,5 +1,9 @@
 import type { ExamSubject, ExamQuestion } from "@/lib/exam-questions";
 import { getExamQuestionsForSubject, getExamQuestion } from "@/lib/exam-questions";
+import {
+  extractStatementsFromQuestions,
+  type ConceptStatement,
+} from "@/lib/concept-statements";
 import civillawConcepts from "@/data/concepts/civillaw";
 import realestateConcepts from "@/data/concepts/realestate";
 import brokerLawConcepts from "@/data/concepts/broker-law";
@@ -66,6 +70,15 @@ export function getConceptQuestionCount(subject: ExamSubject, concept: Concept):
   return getExamQuestionsForSubject(subject).filter(
     (q) => q.category === concept.category && q.subcategory === concept.subcategory
   ).length;
+}
+
+export type { ConceptStatement };
+
+export function getConceptStatements(
+  subject: ExamSubject,
+  concept: Concept
+): { correct: ConceptStatement[]; incorrect: ConceptStatement[] } {
+  return extractStatementsFromQuestions(getConceptQuestions(subject, concept), concept);
 }
 
 export function getAllConceptParams(): { subject: ExamSubject; slug: string }[] {

@@ -5,7 +5,14 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
 import { BackLink } from "@/components/ui/BackLink";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
-import { getConcept, getConceptsForSubject, getConceptQuestions, getAllConceptParams } from "@/lib/concepts";
+import {
+  getConcept,
+  getConceptsForSubject,
+  getConceptQuestions,
+  getConceptStatements,
+  getAllConceptParams,
+  type ConceptStatement,
+} from "@/lib/concepts";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -67,6 +74,41 @@ function SectionBlock({
   );
 }
 
+function StatementList({
+  statements,
+  subject,
+  variant,
+}: {
+  statements: ConceptStatement[];
+  subject: string;
+  variant: "correct" | "incorrect";
+}) {
+  if (statements.length === 0) return null;
+
+  return (
+    <ul className="space-y-4">
+      {statements.map((statement) => (
+        <li
+          key={`${statement.year}-${statement.questionNo}-${statement.text}`}
+          className={`rounded-[var(--radius-input)] border px-4 py-3 ${
+            variant === "correct"
+              ? "border-emerald-200/80 bg-emerald-50/40"
+              : "border-rose-200/80 bg-rose-50/40"
+          }`}
+        >
+          <p className="font-display text-body text-ink">{statement.text}</p>
+          <Link
+            href={`/exam/${subject}/${statement.year}/${statement.questionNo}`}
+            className="mt-2 inline-block font-display text-body-sm text-fog hover:text-ink"
+          >
+            {statement.year}년 · {statement.questionNo}번 문제 →
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default async function ConceptDetailPage({ params }: ConceptDetailPageProps) {
   const { subject, slug } = await params;
   if (!isValidSubject(subject)) notFound();
@@ -76,6 +118,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const questions = getConceptQuestions(subject, concept);
+  const statements = getConceptStatements(subject, concept);
   const parent = concept.parentSlug ? getConcept(subject, concept.parentSlug) : undefined;
   const siblingConcepts = getConceptsForSubject(subject);
   const currentIndex = siblingConcepts.findIndex((c) => c.slug === slug);
@@ -143,6 +186,29 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
             {concept.example}
           </SectionBlock>
         </ElevatedCard>
+
+        {(statements.correct.length > 0 || statements.incorrect.length > 0) && (
+          <ElevatedCard className="mb-10 px-6">
+            {statements.correct.length > 0 && (
+              <SectionBlock label="CORRECT STATEMENTS" labelKo="옳은 지문">
+                <StatementList
+                  statements={statements.correct}
+                  subject={subject}
+                  variant="correct"
+                />
+              </SectionBlock>
+            )}
+            {statements.incorrect.length > 0 && (
+              <SectionBlock label="INCORRECT STATEMENTS" labelKo="틀린 지문">
+                <StatementList
+                  statements={statements.incorrect}
+                  subject={subject}
+                  variant="incorrect"
+                />
+              </SectionBlock>
+            )}
+          </ElevatedCard>
+        )}
 
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-display text-subheading font-semibold text-ink">
