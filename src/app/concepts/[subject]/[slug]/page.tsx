@@ -15,6 +15,7 @@ import {
 } from "@/lib/concepts";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl } from "@/lib/seo";
+import { appendReturnTo } from "@/lib/return-to";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -57,17 +58,15 @@ export async function generateMetadata({
 
 function SectionBlock({
   label,
-  labelKo,
   children,
 }: {
   label: string;
-  labelKo: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="border-b border-mist/60 py-5 last:border-b-0">
-      <p className="mb-2 font-display text-[12px] font-semibold uppercase tracking-wide text-electric-blue">
-        {label} <span className="text-fog">{labelKo}</span>
+      <p className="mb-2 font-display text-[12px] font-semibold tracking-wide text-electric-blue">
+        {label}
       </p>
       <div className="font-display text-body text-ink">{children}</div>
     </div>
@@ -78,10 +77,12 @@ function StatementList({
   statements,
   subject,
   variant,
+  returnTo,
 }: {
   statements: ConceptStatement[];
   subject: string;
   variant: "correct" | "incorrect";
+  returnTo: string;
 }) {
   if (statements.length === 0) return null;
 
@@ -98,7 +99,10 @@ function StatementList({
         >
           <p className="font-display text-body text-ink">{statement.text}</p>
           <Link
-            href={`/exam/${subject}/${statement.year}/${statement.questionNo}`}
+            href={appendReturnTo(
+              `/exam/${subject}/${statement.year}/${statement.questionNo}`,
+              returnTo
+            )}
             className="mt-2 inline-block font-display text-body-sm text-fog hover:text-ink"
           >
             {statement.year}년 · {statement.questionNo}번 문제 →
@@ -119,6 +123,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const questions = getConceptQuestions(subject, concept);
   const statements = getConceptStatements(subject, concept);
+  const returnTo = `/concepts/${subject}/${slug}`;
   const parent = concept.parentSlug ? getConcept(subject, concept.parentSlug) : undefined;
   const siblingConcepts = getConceptsForSubject(subject);
   const currentIndex = siblingConcepts.findIndex((c) => c.slug === slug);
@@ -159,30 +164,29 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
             </p>
           )}
           <SectionHeading as="h1">{concept.titleKo}</SectionHeading>
-          <p className="mt-1 font-display text-body-sm text-fog">{concept.titleEn}</p>
           <p className="mt-2 font-display text-body-sm text-smoke">
             {label} · {concept.subcategory}
           </p>
         </div>
 
         <ElevatedCard className="mb-10 px-6">
-          <SectionBlock label="DEFINITION" labelKo="정의">
+          <SectionBlock label="정의">
             {concept.definition}
           </SectionBlock>
-          <SectionBlock label="INTUITION" labelKo="직관">
+          <SectionBlock label="이해하기">
             {concept.intuition}
           </SectionBlock>
-          <SectionBlock label="KEY POINTS" labelKo="핵심 포인트">
+          <SectionBlock label="핵심 포인트">
             <ul className="list-disc space-y-1.5 pl-5">
               {concept.keyPoints.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}
             </ul>
           </SectionBlock>
-          <SectionBlock label="PITFALLS" labelKo="자주 헷갈리는 점">
+          <SectionBlock label="자주 헷갈리는 점">
             {concept.pitfalls}
           </SectionBlock>
-          <SectionBlock label="EXAMPLE" labelKo="작은 예시">
+          <SectionBlock label="작은 예시">
             {concept.example}
           </SectionBlock>
         </ElevatedCard>
@@ -190,20 +194,22 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
         {(statements.correct.length > 0 || statements.incorrect.length > 0) && (
           <ElevatedCard className="mb-10 px-6">
             {statements.correct.length > 0 && (
-              <SectionBlock label="CORRECT STATEMENTS" labelKo="옳은 지문">
+              <SectionBlock label="옳은 지문">
                 <StatementList
                   statements={statements.correct}
                   subject={subject}
                   variant="correct"
+                  returnTo={returnTo}
                 />
               </SectionBlock>
             )}
             {statements.incorrect.length > 0 && (
-              <SectionBlock label="INCORRECT STATEMENTS" labelKo="틀린 지문">
+              <SectionBlock label="틀린 지문">
                 <StatementList
                   statements={statements.incorrect}
                   subject={subject}
                   variant="incorrect"
+                  returnTo={returnTo}
                 />
               </SectionBlock>
             )}
@@ -226,7 +232,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
             questions.map((q) => (
               <Link
                 key={`${q.year}-${q.questionNo}`}
-                href={`/exam/${subject}/${q.year}/${q.questionNo}`}
+                href={appendReturnTo(`/exam/${subject}/${q.year}/${q.questionNo}`, returnTo)}
                 className="flex items-center justify-between gap-3 border-b border-mist/60 px-5 py-4 transition-colors last:border-b-0 hover:bg-snow"
               >
                 <span className="font-display text-body-sm text-ink">

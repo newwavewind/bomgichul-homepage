@@ -16,6 +16,8 @@ import {
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
+import { getConcept } from "@/lib/concepts";
+import { appendReturnTo, isValidReturnTo, parseConceptReturnTo } from "@/lib/return-to";
 import { getUser } from "@/lib/auth";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { getAttemptResult } from "@/lib/attempts";
@@ -34,6 +36,7 @@ function isValidSubject(value: string): value is ExamSubject {
 
 interface ExamQuestionPageProps {
   params: Promise<{ subject: string; year: string; no: string }>;
+  searchParams: Promise<{ from?: string }>;
 }
 
 export function generateStaticParams() {
@@ -66,9 +69,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function ExamQuestionPage({ params }: ExamQuestionPageProps) {
+export default async function ExamQuestionPage({ params, searchParams }: ExamQuestionPageProps) {
   const { subject, year: yearParam, no: noParam } = await params;
+  const { from } = await searchParams;
   if (!isValidSubject(subject)) notFound();
+
+  const returnTo = isValidReturnTo(from) ? from : null;
+  const conceptReturn = returnTo ? parseConceptReturnTo(returnTo) : null;
+  const returnConcept =
+    conceptReturn && isValidSubject(conceptReturn.subject)
+      ? getConcept(conceptReturn.subject, conceptReturn.slug)
+      : undefined;
 
   const year = Number(yearParam);
   const questionNo = Number(noParam);
@@ -104,7 +115,13 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <BackLink href={`/exam/${subject}/${year}`}>{year}년 문항 목록으로</BackLink>
+        {returnTo ? (
+          <BackLink href={returnTo}>
+            {returnConcept ? `${returnConcept.titleKo}으로 돌아가기` : "개념으로 돌아가기"}
+          </BackLink>
+        ) : (
+          <BackLink href={`/exam/${subject}/${year}`}>{year}년 문항 목록으로</BackLink>
+        )}
 
         <p className="mb-4 font-display text-body-sm text-fog">
           <Link href="/study#exam" className="hover:text-ink">
@@ -208,7 +225,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
         <div className="mt-8 flex items-stretch gap-3">
           {prev ? (
             <Link
-              href={`/exam/${subject}/${year}/${prev.questionNo}`}
+              href={appendReturnTo(`/exam/${subject}/${year}/${prev.questionNo}`, returnTo ?? undefined)}
               className="group flex flex-1 items-center gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 py-4 shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-[1.5px] border-carbon font-display text-body font-bold text-ink transition-colors group-hover:bg-carbon group-hover:text-paper">
@@ -228,7 +245,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           )}
           {next ? (
             <Link
-              href={`/exam/${subject}/${year}/${next.questionNo}`}
+              href={appendReturnTo(`/exam/${subject}/${year}/${next.questionNo}`, returnTo ?? undefined)}
               className="group flex flex-1 items-center justify-end gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 py-4 text-right shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
             >
               <span className="flex flex-col items-end">
