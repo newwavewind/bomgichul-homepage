@@ -76,12 +76,10 @@ function SectionBlock({
 function StatementList({
   statements,
   subject,
-  variant,
   returnTo,
 }: {
   statements: ConceptStatement[];
   subject: string;
-  variant: "correct" | "incorrect";
   returnTo: string;
 }) {
   if (statements.length === 0) return null;
@@ -91,11 +89,7 @@ function StatementList({
       {statements.map((statement) => (
         <li
           key={`${statement.year}-${statement.questionNo}-${statement.text}`}
-          className={`rounded-[var(--radius-input)] border px-4 py-3 ${
-            variant === "correct"
-              ? "border-emerald-200/80 bg-emerald-50/40"
-              : "border-rose-200/80 bg-rose-50/40"
-          }`}
+          className="py-3"
         >
           <p className="font-display text-body text-ink">{statement.text}</p>
           <Link
@@ -170,7 +164,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
         </div>
 
         <ElevatedCard className="mb-10 px-6">
-          <SectionBlock label="정의">
+          <SectionBlock label="개념 정리">
             {concept.definition}
           </SectionBlock>
           <SectionBlock label="이해하기">
@@ -186,33 +180,17 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           <SectionBlock label="자주 헷갈리는 점">
             {concept.pitfalls}
           </SectionBlock>
-          <SectionBlock label="작은 예시">
-            {concept.example}
-          </SectionBlock>
         </ElevatedCard>
 
-        {(statements.correct.length > 0 || statements.incorrect.length > 0) && (
+        {statements.length > 0 && (
           <ElevatedCard className="mb-10 px-6">
-            {statements.correct.length > 0 && (
-              <SectionBlock label="옳은 지문">
-                <StatementList
-                  statements={statements.correct}
-                  subject={subject}
-                  variant="correct"
-                  returnTo={returnTo}
-                />
-              </SectionBlock>
-            )}
-            {statements.incorrect.length > 0 && (
-              <SectionBlock label="틀린 지문">
-                <StatementList
-                  statements={statements.incorrect}
-                  subject={subject}
-                  variant="incorrect"
-                  returnTo={returnTo}
-                />
-              </SectionBlock>
-            )}
+            <SectionBlock label="기출 지문">
+              <StatementList
+                statements={statements}
+                subject={subject}
+                returnTo={returnTo}
+              />
+            </SectionBlock>
           </ElevatedCard>
         )}
 

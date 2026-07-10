@@ -77,7 +77,7 @@ export type { ConceptStatement };
 export function getConceptStatements(
   subject: ExamSubject,
   concept: Concept
-): { correct: ConceptStatement[]; incorrect: ConceptStatement[] } {
+): ConceptStatement[] {
   return extractStatementsFromQuestions(getConceptQuestions(subject, concept), concept);
 }
 

@@ -1,5 +1,5 @@
 import type { Concept } from "@/lib/concepts";
-import type { ExamQuestion } from "@/lib/exam-questions";
+import type { ExamQuestion, ExamQuestionItem } from "@/lib/exam-questions";
 
 export interface ConceptStatement {
   text: string;
@@ -12,7 +12,7 @@ function normalizeText(text: string): string {
 }
 
 function normalizeKey(text: string): string {
-  return normalizeText(text).replace(/[·\s]/g, "").toLowerCase();
+  return normalizeText(text).replace(/[·ㆍ\s]/g, "").toLowerCase();
 }
 
 /** 선지 번호·개수 답 등 실제 지문이 아닌 항목 제외 */
@@ -21,6 +21,7 @@ export function isMeaningfulStatement(text: string): boolean {
   if (t.length < 10) return false;
   if (/^\d+개$/.test(t)) return false;
   if (/^[①②③④⑤⑥⑦⑧⑨⑩]$/.test(t)) return false;
+  if (/^(옳다|맞다|틀렸다|틀린\s*설명이다)\.?$/.test(t)) return false;
   return true;
 }
 
@@ -63,42 +64,106 @@ export function isStatementRelevantToConcept(text: string, concept: Concept): bo
   return terms.some((term) => norm.includes(term.toLowerCase()));
 }
 
-export function extractStatementsFromQuestions(
-  questions: ExamQuestion[],
-  concept: Concept
-): { correct: ConceptStatement[]; incorrect: ConceptStatement[] } {
-  const correct = new Map<string, ConceptStatement>();
-  const incorrect = new Map<string, ConceptStatement>();
+/**
+ * 틀린 선지 해설을 학습용 '옳은 문장'으로 정리한다.
+ * 예: "'…'는 틀린 설명이다" / "(판례)" / "즉, …" 메타 문구를 제거한다.
+ */
+export function correctStatementFromExplanation(
+  explanation: string,
+  wrongText?: string
+): string | null {
+  let e = normalizeText(explanation);
+  if (!e) return null;
 
-  const consider = (text: string, answer: "O" | "X", year: number, questionNo: number) => {
-    if (!isMeaningfulStatement(text)) return;
-    if (!isStatementRelevantToConcept(text, concept)) return;
+  if (e.includes("→")) {
+    const after = e.split("→").slice(1).join("→").trim();
+    if (after.length >= 10) e = after;
+  }
 
-    const key = normalizeKey(text);
-    const stmt: ConceptStatement = {
-      text: normalizeText(text),
-      year,
-      questionNo,
-    };
+  e = e
+    .replace(/[''"][^''"]{2,}[''"](?:는|은)\s*틀린\s*설명이다\.?/g, "")
+    .replace(/\s*즉,?\s+.+$/u, "")
+    .replace(/\s*\([^)]*(?:판례|민법|조항|법령)[^)]*\)\.?/g, "")
+    .replace(/\s*\(판례\)\.?/g, "")
+    .trim();
 
-    if (answer === "O") {
-      if (!correct.has(key)) correct.set(key, stmt);
-    } else if (!incorrect.has(key)) {
-      incorrect.set(key, stmt);
-    }
-  };
-
-  for (const q of questions) {
-    for (const item of q.items) {
-      consider(item.text, item.answer, q.year, q.questionNo);
+  const sentences = e.match(/[^.!?]+[.!?]+/gu);
+  if (sentences?.length) {
+    e = sentences[0].trim();
+    if (e.length < 20 && sentences[1]) {
+      e = `${sentences[0].trim()} ${sentences[1].trim()}`;
     }
   }
 
-  const sort = (a: ConceptStatement, b: ConceptStatement) =>
-    b.year - a.year || a.questionNo - b.questionNo;
+  if (e && !/[.!?]$/.test(e)) e += ".";
 
-  return {
-    correct: [...correct.values()].sort(sort),
-    incorrect: [...incorrect.values()].sort(sort),
-  };
+  if (isMeaningfulStatement(e)) return normalizeText(e);
+
+  // 해설이 "6월 1일"처럼 짧은 교정값이면 틀린 지문 안의 대응 표현을 치환한다.
+  if (wrongText) {
+    const fragment = normalizeText(explanation).replace(/[.。]$/, "");
+    if (fragment.length >= 2 && fragment.length <= 40) {
+      const dateLike = fragment.match(/\d+월\s*\d+일/);
+      const wrongDate = wrongText.match(/\d+월\s*\d+일/);
+      if (dateLike && wrongDate && dateLike[0] !== wrongDate[0]) {
+        const flipped = normalizeText(wrongText).replace(wrongDate[0], dateLike[0]);
+        if (isMeaningfulStatement(flipped) && flipped !== normalizeText(wrongText)) {
+          return flipped;
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
+function statementTextFromItem(item: ExamQuestionItem): string | null {
+  if (item.answer === "O") {
+    const text = normalizeText(item.text);
+    // 선지가 너무 짧아 문맥이 없으면 해설을 옳은 문장으로 쓴다.
+    if (text.length < 25) {
+      const fromExpl = correctStatementFromExplanation(item.explanation, item.text);
+      if (fromExpl && fromExpl.length >= 25) return fromExpl;
+    }
+    return isMeaningfulStatement(text) ? text : null;
+  }
+
+  const corrected = correctStatementFromExplanation(item.explanation, item.text);
+  // 해설에서 뽑은 문장은 단편을 피하기 위해 더 길게 요구
+  if (!corrected || corrected.length < 25) return null;
+  return corrected;
+}
+
+/**
+ * 연결된 기출에서 옳은 지문만 모은다.
+ * 틀린 선지는 해설을 옳은 문장으로 바꿔 함께 포함한다.
+ */
+export function extractStatementsFromQuestions(
+  questions: ExamQuestion[],
+  concept: Concept
+): ConceptStatement[] {
+  const correct = new Map<string, ConceptStatement>();
+
+  for (const q of questions) {
+    for (const item of q.items) {
+      const text = statementTextFromItem(item);
+      if (!text) continue;
+      if (!isStatementRelevantToConcept(item.text, concept) && !isStatementRelevantToConcept(text, concept)) {
+        continue;
+      }
+
+      const key = normalizeKey(text);
+      if (correct.has(key)) continue;
+
+      correct.set(key, {
+        text,
+        year: q.year,
+        questionNo: q.questionNo,
+      });
+    }
+  }
+
+  return [...correct.values()].sort(
+    (a, b) => b.year - a.year || a.questionNo - b.questionNo
+  );
 }

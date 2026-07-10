@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildConceptSearchTerms,
+  correctStatementFromExplanation,
   extractStatementsFromQuestions,
   isMeaningfulStatement,
   isStatementRelevantToConcept,
@@ -52,6 +53,33 @@ describe("isStatementRelevantToConcept", () => {
   });
 });
 
+describe("correctStatementFromExplanation", () => {
+  it("turns a wrong-statement explanation into a clean correct sentence", () => {
+    expect(
+      correctStatementFromExplanation(
+        "무경험은 특정 영역에서의 경험 부족이 아니라 거래 일반에 대한 경험 부족을 의미한다. (판례) 즉, 해당 법률행위가 속한 특정 영역에서의 경험부족만을 뜻하는 것이 아니다.",
+        "무경험은 거래일반에 대한 경험부족이 아니라 해당 법률행위가 속한 특정영역에서의 경험부족을 뜻한다."
+      )
+    ).toBe("무경험은 특정 영역에서의 경험 부족이 아니라 거래 일반에 대한 경험 부족을 의미한다.");
+  });
+
+  it("removes quoted '틀린 설명이다' meta and keeps the rule", () => {
+    expect(
+      correctStatementFromExplanation(
+        "대리인에 의해 법률행위가 이루어진 경우, 궁박·경솔·무경험 상태는 본인을 기준으로 판단한다. (판례) '대리인을 기준으로 판단해야 한다'는 것은 틀린 설명이다."
+      )
+    ).toBe(
+      "대리인에 의해 법률행위가 이루어진 경우, 궁박·경솔·무경험 상태는 본인을 기준으로 판단한다."
+    );
+  });
+
+  it("applies short date corrections into the wrong statement", () => {
+    expect(
+      correctStatementFromExplanation("6월 1일", "과세기준일은 매년 7월 1일이다.")
+    ).toBe("과세기준일은 매년 6월 1일이다.");
+  });
+});
+
 describe("extractStatementsFromQuestions", () => {
   const sampleQuestion: ExamQuestion = {
     subject: "realestate-tax",
@@ -69,7 +97,7 @@ describe("extractStatementsFromQuestions", () => {
         label: "①",
         text: "과세기준일은 매년 7월 1일이다.",
         answer: "X",
-        explanation: "6월 1일",
+        explanation: "재산세의 과세기준일은 매년 6월 1일이며, 7월 1일이 아니다.",
       },
       {
         key: "5",
@@ -83,21 +111,28 @@ describe("extractStatementsFromQuestions", () => {
     free: false,
   };
 
-  it("splits O and X statements and deduplicates", () => {
+  it("merges O texts and corrected X explanations into one correct list", () => {
     const result = extractStatementsFromQuestions([sampleQuestion], {
       ...baseConcept,
       questionRefs: [{ year: 2016, questionNo: 38 }],
     });
 
-    expect(result.incorrect.map((s) => s.text)).toContain("과세기준일은 매년 7월 1일이다.");
-    expect(result.correct.map((s) => s.text)).toContain(
+    expect(result.map((s) => s.text)).toContain(
       "지방자치단체의 장은 재산세의 납부세액이 500만원을 초과하는 경우 분납하게 할 수 있다."
     );
+    expect(result.map((s) => s.text)).toContain(
+      "재산세의 과세기준일은 매년 6월 1일이며, 7월 1일이 아니다."
+    );
+    expect(result.every((s) => !s.text.includes("매년 7월 1일이다"))).toBe(true);
   });
 
   it("filters unrelated statements when questionRefs are absent", () => {
     const result = extractStatementsFromQuestions([sampleQuestion], baseConcept);
-    expect(result.incorrect.map((s) => s.text)).toContain("과세기준일은 매년 7월 1일이다.");
-    expect(result.correct).toHaveLength(0);
+    expect(result.map((s) => s.text)).toContain(
+      "재산세의 과세기준일은 매년 6월 1일이며, 7월 1일이 아니다."
+    );
+    expect(result.map((s) => s.text)).not.toContain(
+      "지방자치단체의 장은 재산세의 납부세액이 500만원을 초과하는 경우 분납하게 할 수 있다."
+    );
   });
 });

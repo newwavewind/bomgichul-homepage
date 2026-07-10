@@ -116,7 +116,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
         {returnTo ? (
-          <BackLink href={returnTo}>
+          <BackLink href={returnTo} emphasized>
             {returnConcept ? `${returnConcept.titleKo}으로 돌아가기` : "개념으로 돌아가기"}
           </BackLink>
         ) : (

@@ -1,10 +1,23 @@
 import Link from "next/link";
 
-export function BackLink({ href, children }: { href: string; children: React.ReactNode }) {
+export function BackLink({
+  href,
+  children,
+  emphasized = false,
+}: {
+  href: string;
+  children: React.ReactNode;
+  /** 개념 복귀 등 눈에 띄게 강조할 때 */
+  emphasized?: boolean;
+}) {
   return (
     <Link
       href={href}
-      className="group -ml-3 mb-4 inline-flex items-center gap-1.5 rounded-[var(--radius-buttons)] border border-transparent px-3 py-1.5 font-display text-body-sm font-medium text-smoke transition-colors hover:border-mist hover:bg-snow hover:text-ink"
+      className={
+        emphasized
+          ? "group mb-4 inline-flex items-center gap-1.5 rounded-[var(--radius-buttons)] border border-electric-blue/30 bg-ice px-3.5 py-2 font-display text-body-sm font-semibold text-electric-blue transition-colors hover:border-electric-blue/50 hover:bg-ice/80"
+          : "group -ml-3 mb-4 inline-flex items-center gap-1.5 rounded-[var(--radius-buttons)] border border-transparent px-3 py-1.5 font-display text-body-sm font-medium text-smoke transition-colors hover:border-mist hover:bg-snow hover:text-ink"
+      }
     >
       <svg
         width="14"

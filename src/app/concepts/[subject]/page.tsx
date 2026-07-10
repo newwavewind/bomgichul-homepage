@@ -9,21 +9,15 @@ import { getConceptsForSubject, getConceptQuestionCount, type Concept } from "@/
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl } from "@/lib/seo";
 
-function groupByChapter(concepts: Concept[]): { chapter: string; items: Concept[] }[] {
-  const groups: { chapter: string; items: Concept[] }[] = [];
-  for (const concept of concepts) {
-    const chapter = concept.chapterKo ?? concept.category;
-    const existing = groups.find((g) => g.chapter === chapter);
-    if (existing) {
-      existing.items.push(concept);
-    } else {
-      groups.push({ chapter, items: [concept] });
-    }
-  }
-  for (const group of groups) {
-    group.items = orderWithChildrenAfterParent(group.items);
-  }
-  return groups;
+interface SectionGroup {
+  section: string;
+  orderNo: string;
+  items: Concept[];
+}
+
+interface PartGroup {
+  chapter: string;
+  sections: SectionGroup[];
 }
 
 /** 하위개념(parentSlug 있음)을 부모 개념 바로 다음에 오도록 재정렬한다. */
@@ -49,6 +43,43 @@ function orderWithChildrenAfterParent(items: Concept[]): Concept[] {
     if (children) ordered.push(...children);
   }
   return ordered;
+}
+
+/**
+ * 앱 목차별과 같이 PART(chapterKo) → CHAPTER(sectionKo) 순으로 묶고,
+ * PART 안에서 CHAPTER에 01, 02… 번호를 붙인다.
+ */
+function groupByPartAndSection(concepts: Concept[]): PartGroup[] {
+  const parts: PartGroup[] = [];
+
+  for (const concept of concepts) {
+    const chapter = concept.chapterKo ?? concept.category;
+    let part = parts.find((p) => p.chapter === chapter);
+    if (!part) {
+      part = { chapter, sections: [] };
+      parts.push(part);
+    }
+
+    const section = concept.sectionKo ?? concept.category;
+    let sectionGroup = part.sections.find((s) => s.section === section);
+    if (!sectionGroup) {
+      sectionGroup = {
+        section,
+        orderNo: String(part.sections.length + 1).padStart(2, "0"),
+        items: [],
+      };
+      part.sections.push(sectionGroup);
+    }
+    sectionGroup.items.push(concept);
+  }
+
+  for (const part of parts) {
+    for (const section of part.sections) {
+      section.items = orderWithChildrenAfterParent(section.items);
+    }
+  }
+
+  return parts;
 }
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
@@ -94,7 +125,7 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const info = SUBJECT_LANDING_INFO[subject];
   const concepts = getConceptsForSubject(subject);
-  const groups = groupByChapter(concepts);
+  const groups = groupByPartAndSection(concepts);
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -124,41 +155,61 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
                 {group.chapter}
               </h2>
               <ElevatedCard className="overflow-hidden">
-                {group.items.map((concept) => {
-                  const count = getConceptQuestionCount(subject, concept);
-                  const isSubConcept = Boolean(concept.parentSlug);
-                  return (
-                    <Link
-                      key={concept.slug}
-                      href={`/concepts/${subject}/${concept.slug}`}
-                      className={`flex items-center justify-between gap-3 border-b border-mist/60 py-4 transition-colors last:border-b-0 hover:bg-snow ${
-                        isSubConcept ? "border-l-[3px] border-l-electric-blue/40 bg-snow/40 pl-8 pr-5" : "px-5"
-                      }`}
-                    >
-                      <div className="min-w-0">
-                        <p className="flex items-center gap-1.5 font-display text-body-sm text-fog">
-                          {isSubConcept && (
-                            <span className="inline-flex shrink-0 items-center rounded-full border border-electric-blue/40 px-1.5 py-0.5 font-display text-[10px] font-semibold text-electric-blue">
-                              하위개념
-                            </span>
-                          )}
-                          {concept.category}
-                          {concept.subcategory !== concept.category ? ` · ${concept.subcategory}` : ""}
-                        </p>
-                        <h3
-                          className={`truncate font-display text-ink ${
-                            isSubConcept ? "text-body-sm font-medium" : "text-body font-medium"
+                {group.sections.map((section) => (
+                  <div key={section.section} className="border-b border-mist/60 last:border-b-0">
+                    <div className="flex items-center gap-2.5 border-b border-mist/40 bg-snow/50 px-5 py-3">
+                      <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-carbon/20 bg-paper font-display text-[10px] font-extrabold text-ink">
+                        {section.orderNo}
+                      </span>
+                      <span className="font-display text-body-sm font-semibold text-ink">
+                        {section.section}
+                      </span>
+                    </div>
+                    {section.items.map((concept) => {
+                      const count = getConceptQuestionCount(subject, concept);
+                      const isSubConcept = Boolean(concept.parentSlug);
+                      return (
+                        <Link
+                          key={concept.slug}
+                          href={`/concepts/${subject}/${concept.slug}`}
+                          className={`flex items-center justify-between gap-3 border-b border-mist/40 py-3.5 transition-colors last:border-b-0 hover:bg-snow ${
+                            isSubConcept ? "relative pl-11 pr-5" : "px-5"
                           }`}
                         >
-                          {concept.titleKo}
-                        </h3>
-                      </div>
-                      <span className="shrink-0 font-display text-body-sm text-fog">
-                        {count}문항
-                      </span>
-                    </Link>
-                  );
-                })}
+                          {isSubConcept && (
+                            <span
+                              className="pointer-events-none absolute left-5 top-0 bottom-0 w-px bg-mist"
+                              aria-hidden
+                            />
+                          )}
+                          <div className="min-w-0">
+                            <p className="font-display text-body-sm text-fog">
+                              {isSubConcept && (
+                                <span className="mr-1.5 text-fog/80" aria-hidden>
+                                  └
+                                </span>
+                              )}
+                              {concept.category}
+                              {concept.subcategory !== concept.category
+                                ? ` · ${concept.subcategory}`
+                                : ""}
+                            </p>
+                            <h3
+                              className={`truncate font-display font-medium text-ink ${
+                                isSubConcept ? "text-body-sm text-smoke" : "text-body"
+                              }`}
+                            >
+                              {concept.titleKo}
+                            </h3>
+                          </div>
+                          <span className="shrink-0 font-display text-body-sm text-fog">
+                            {count}문항
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                ))}
               </ElevatedCard>
             </div>
           ))}
