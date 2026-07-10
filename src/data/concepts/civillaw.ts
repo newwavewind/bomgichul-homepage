@@ -1,10 +1,11 @@
 import type { Concept } from "@/lib/concepts";
 
 const concepts: Concept[] = [
-  // ───────── 제1편 민법총칙 ─────────
+  // ───────── 민법총칙 ─────────
   {
     slug: "types-of-real-right-change",
     chapterKo: "민법총칙",
+    sectionKo: "권리의 변동",
     category: "권리의변동",
     subcategory: "권리의변동",
     titleKo: "권리취득의 유형 (원시취득·승계취득, 이전적·설정적 승계)",
@@ -30,11 +31,12 @@ const concepts: Concept[] = [
   {
     slug: "contract-classification",
     chapterKo: "민법총칙",
+    sectionKo: "권리의 변동",
     category: "권리의변동",
     subcategory: "권리의변동",
+    parentSlug: "types-of-real-right-change",
     titleKo: "계약의 성질 분류 (유상·무상·쌍무·편무·낙성·요물)",
     titleEn: "Classifying Contracts by Nature",
-    parentSlug: "types-of-real-right-change",
     definition:
       "매매·임대차·도급은 쌍무·유상·낙성계약이고, 증여·사용대차는 편무·무상계약이며, 현상광고는 지정행위의 완료가 성립요건인 요물계약이라는 점에서 예외적이다.",
     intuition:
@@ -60,11 +62,12 @@ const concepts: Concept[] = [
   {
     slug: "unilateral-act-classification",
     chapterKo: "민법총칙",
+    sectionKo: "권리의 변동",
     category: "권리의변동",
     subcategory: "권리의변동",
+    parentSlug: "types-of-real-right-change",
     titleKo: "단독행위의 분류 (상대방 있는·없는 단독행위)",
     titleEn: "Classifying Unilateral Acts",
-    parentSlug: "types-of-real-right-change",
     definition:
       "취소·해제·상계·추인·최고처럼 상대방에게 의사표시가 도달해야 효력이 생기는 것은 상대방 있는 단독행위이고, 유증·재단법인 설립행위처럼 상대방 없이 의사표시만으로 효력이 생기는 것은 상대방 없는 단독행위다.",
     intuition:
@@ -84,71 +87,9 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "juridical-act-effective-time",
-    chapterKo: "민법총칙",
-    category: "법률행위",
-    subcategory: "의사표시",
-    titleKo: "의사표시의 효력발생시기 (도달주의)",
-    titleEn: "Timing of Effect for Declarations of Intent",
-    definition:
-      "상대방 있는 의사표시는 그 통지가 상대방에게 도달한 때로부터 효력이 생기며, 표의자가 통지를 발송한 후 사망하거나 행위능력을 상실하여도 의사표시의 효력에는 영향이 없다.",
-    intuition:
-      "'도달주의'는 상대방이 실제로 알 수 있는 상태가 되었을 때 비로소 법률효과를 인정하는 원칙이므로, 발송 이후 표의자에게 생긴 사정은 이미 완성된 의사표시에 영향을 줄 수 없다고 이해하면 된다.",
-    keyPoints: [
-      "표의자가 청약을 발송한 후 사망하거나 제한능력자가 되어도 청약(의사표시)의 효력에는 영향이 없다(제111조 제2항).",
-      "의사표시는 상대방에게 '도달'한 때 효력이 생긴다 — 발신한 때가 아니다.",
-      "격지자 간 계약의 승낙처럼 예외적으로 발신주의가 적용되는 경우와 구별해야 한다.",
-    ],
-    pitfalls:
-      "'표의자가 발송 후 사망하면 의사표시의 효력을 잃는다'는 서술은 틀렸다 — 도달 전 사망해도 효력에는 영향이 없다.",
-    example:
-      "매도 청약서를 발송한 직후 매도인이 사망하더라도, 그 청약서가 상대방에게 도달하면 청약으로서 유효하게 효력이 발생한다.",
-  },
-  {
-    slug: "mistake-fraud-duress",
-    chapterKo: "민법총칙",
-    category: "법률행위",
-    subcategory: "착오·사기·강박",
-    titleKo: "착오·사기·강박에 의한 의사표시 (제109·110조)",
-    titleEn: "Declarations Made by Mistake, Fraud, or Duress",
-    definition:
-      "착오·사기·강박에 의한 의사표시는 그 요건을 충족하면 표의자가 취소할 수 있는 법률행위가 되며, 계약서상 표시가 잘못되었을 뿐 당사자의 진의가 일치한 경우(오표시)에는 애초에 진의대로 계약이 유효하게 성립한다.",
-    intuition:
-      "오표시무해 원칙은 '문서의 글자'보다 '당사자가 실제로 합의한 내용'을 우선한다는 사고방식이므로, 서류상 표시 오류와 착오에 의한 의사표시를 구분하는 열쇠가 된다.",
-    keyPoints: [
-      "쌍방이 실제로는 X토지를 목적물로 합의했으나 계약서에 Y토지로 잘못 기재했다면, 오표시무해 원칙에 따라 X토지에 대해 유효하게 계약이 성립한다 — 이는 착오의 문제가 아니다.",
-      "아파트 인근에 공동묘지가 있다는 사실을 고지하지 않은 경우, 고지의무 위반으로서 기망행위(사기)에 해당할 수 있다.",
-      "착오·사기·강박에 의한 의사표시는 무효가 아니라 '취소할 수 있는' 법률행위라는 점에서 통정허위표시(무효)와 구별된다.",
-    ],
-    pitfalls:
-      "오표시무해 사안을 착오취소의 문제로 접근하는 실수가 흔하다 — 당사자의 진의가 합치했다면 애초에 취소할 착오 자체가 없다.",
-    example:
-      "매도인과 매수인이 구두로는 101호를 거래하기로 합의했으나 계약서에 실수로 102호라고 적었다면, 계약은 101호에 대해 유효하게 성립한 것으로 본다.",
-  },
-  {
-    slug: "conditional-time-limited-act",
-    chapterKo: "민법총칙",
-    category: "법률행위",
-    subcategory: "조건·기한",
-    titleKo: "조건부·기한부 법률행위",
-    titleEn: "Conditional and Time-Limited Juridical Acts",
-    definition:
-      "법률행위 당시 이미 성취된 조건(기성조건)을 정지조건으로 붙이면 그 법률행위는 '조건 없는' 법률행위가 되며, 채무면제와 같은 단독행위는 원칙적으로 조건을 붙일 수 없다.",
-    intuition:
-      "정지조건은 '장래 불확실한 사실'에 효력 발생을 걸어두는 것이므로, 이미 이루어진 사실(기성조건)을 정지조건으로 걸면 사실상 조건이 걸리지 않은 것과 같아진다고 이해하면 된다.",
-    keyPoints: [
-      "기성조건을 정지조건으로 한 법률행위는 조건 없는 법률행위가 된다(제151조 제2항) — '무효'가 아니다.",
-      "반대로 기성조건을 해제조건으로 한 법률행위는 무효가 된다.",
-      "채무면제와 같은 단독행위는 원칙적으로 조건을 붙일 수 없으나, 상대방이 동의하면 예외적으로 붙일 수 있다.",
-    ],
-    pitfalls:
-      "'기성조건을 정지조건으로 하면 무효'라고 잘못 암기하기 쉽다 — 무효가 되는 것은 기성조건을 '해제조건'으로 한 경우다.",
-    example:
-      "이미 합격 발표가 난 시험의 합격을 정지조건으로 건 증여계약은, 사실상 조건 없는 증여계약과 같은 것으로 취급된다.",
-  },
-  {
     slug: "unfair-juridical-act",
     chapterKo: "민법총칙",
+    sectionKo: "법률행위",
     category: "법률행위",
     subcategory: "반사회·불공정",
     titleKo: "불공정한 법률행위 (민법 제104조)",
@@ -176,6 +117,7 @@ const concepts: Concept[] = [
   {
     slug: "anti-social-juridical-act",
     chapterKo: "민법총칙",
+    sectionKo: "법률행위",
     category: "법률행위",
     subcategory: "반사회·불공정",
     titleKo: "반사회질서의 법률행위 (민법 제103조)",
@@ -207,6 +149,7 @@ const concepts: Concept[] = [
   {
     slug: "non-genuine-intent-expression",
     chapterKo: "민법총칙",
+    sectionKo: "법률행위",
     category: "법률행위",
     subcategory: "비진의·통정허위",
     titleKo: "비진의표시 (민법 제107조)",
@@ -224,11 +167,14 @@ const concepts: Concept[] = [
       "'비진의표시는 취소할 수 있다'는 서술은 틀렸다 — 요건이 충족되면 취소가 아니라 무효다.",
     example:
       "회사 대표가 사직할 뜻이 없으면서도 관행상 일괄사표를 제출한 경우, 회사가 그 진의 아님을 알고 있었다면 사직의 의사표시는 무효다.",
-    questionRefs: [{ year: 2016, questionNo: 43 }],
+    questionRefs: [
+      { year: 2016, questionNo: 43 },
+    ],
   },
   {
     slug: "sham-declaration",
     chapterKo: "민법총칙",
+    sectionKo: "법률행위",
     category: "법률행위",
     subcategory: "비진의·통정허위",
     titleKo: "통정허위표시 (민법 제108조)",
@@ -261,8 +207,170 @@ const concepts: Concept[] = [
     ],
   },
   {
+    slug: "mistake-fraud-duress",
+    chapterKo: "민법총칙",
+    sectionKo: "법률행위",
+    category: "법률행위",
+    subcategory: "착오·사기·강박",
+    titleKo: "착오·사기·강박에 의한 의사표시 (제109·110조)",
+    titleEn: "Declarations Made by Mistake, Fraud, or Duress",
+    definition:
+      "착오·사기·강박에 의한 의사표시는 그 요건을 충족하면 표의자가 취소할 수 있는 법률행위가 되며, 계약서상 표시가 잘못되었을 뿐 당사자의 진의가 일치한 경우(오표시)에는 애초에 진의대로 계약이 유효하게 성립한다.",
+    intuition:
+      "오표시무해 원칙은 '문서의 글자'보다 '당사자가 실제로 합의한 내용'을 우선한다는 사고방식이므로, 서류상 표시 오류와 착오에 의한 의사표시를 구분하는 열쇠가 된다.",
+    keyPoints: [
+      "쌍방이 실제로는 X토지를 목적물로 합의했으나 계약서에 Y토지로 잘못 기재했다면, 오표시무해 원칙에 따라 X토지에 대해 유효하게 계약이 성립한다 — 이는 착오의 문제가 아니다.",
+      "아파트 인근에 공동묘지가 있다는 사실을 고지하지 않은 경우, 고지의무 위반으로서 기망행위(사기)에 해당할 수 있다.",
+      "착오·사기·강박에 의한 의사표시는 무효가 아니라 '취소할 수 있는' 법률행위라는 점에서 통정허위표시(무효)와 구별된다.",
+    ],
+    pitfalls:
+      "오표시무해 사안을 착오취소의 문제로 접근하는 실수가 흔하다 — 당사자의 진의가 합치했다면 애초에 취소할 착오 자체가 없다.",
+    example:
+      "매도인과 매수인이 구두로는 101호를 거래하기로 합의했으나 계약서에 실수로 102호라고 적었다면, 계약은 101호에 대해 유효하게 성립한 것으로 본다.",
+  },
+  {
+    slug: "juridical-act-effective-time",
+    chapterKo: "민법총칙",
+    sectionKo: "의사표시",
+    category: "법률행위",
+    subcategory: "의사표시",
+    titleKo: "의사표시의 효력발생시기 (도달주의)",
+    titleEn: "Timing of Effect for Declarations of Intent",
+    definition:
+      "상대방 있는 의사표시는 그 통지가 상대방에게 도달한 때로부터 효력이 생기며, 표의자가 통지를 발송한 후 사망하거나 행위능력을 상실하여도 의사표시의 효력에는 영향이 없다.",
+    intuition:
+      "'도달주의'는 상대방이 실제로 알 수 있는 상태가 되었을 때 비로소 법률효과를 인정하는 원칙이므로, 발송 이후 표의자에게 생긴 사정은 이미 완성된 의사표시에 영향을 줄 수 없다고 이해하면 된다.",
+    keyPoints: [
+      "표의자가 청약을 발송한 후 사망하거나 제한능력자가 되어도 청약(의사표시)의 효력에는 영향이 없다(제111조 제2항).",
+      "의사표시는 상대방에게 '도달'한 때 효력이 생긴다 — 발신한 때가 아니다.",
+      "격지자 간 계약의 승낙처럼 예외적으로 발신주의가 적용되는 경우와 구별해야 한다.",
+    ],
+    pitfalls:
+      "'표의자가 발송 후 사망하면 의사표시의 효력을 잃는다'는 서술은 틀렸다 — 도달 전 사망해도 효력에는 영향이 없다.",
+    example:
+      "매도 청약서를 발송한 직후 매도인이 사망하더라도, 그 청약서가 상대방에게 도달하면 청약으로서 유효하게 효력이 발생한다.",
+  },
+  {
+    slug: "agency-basics",
+    chapterKo: "민법총칙",
+    sectionKo: "법률행위의 대리",
+    category: "대리",
+    subcategory: "대리일반",
+    titleKo: "대리인의 권한 범위",
+    titleEn: "Scope of an Agent's Authority",
+    definition:
+      "대리인은 위임받은 특정 행위와 그에 통상 수반되는 행위(예: 금전채무의 변제·상계, 매매 대리 시 중도금·잔금 수령)는 본인의 별도 허락 없이도 할 수 있으나, 위임 범위를 벗어나는 처분행위(예: 계약 해제)까지 당연히 할 수 있는 것은 아니다.",
+    intuition:
+      "대리권의 범위는 '본인이 수권행위로 부여한 목적'을 기준으로 판단하므로, 목적에 통상 포함되는 부수적 행위인지 아니면 별도의 처분권한이 필요한 행위인지를 나눠서 봐야 한다.",
+    keyPoints: [
+      "대리인은 본인의 허락 없이도 금전채무를 상계나 자신의 재산으로 변제할 수 있다 — 변제는 금전채무의 내용에 적합한 행위이기 때문이다.",
+      "매도 대리권에는 계약 이행에 관한 중도금·잔금 수령 권한도 통상 포함되지만, 이미 체결된 계약을 해제할 권한까지 당연히 포함되는 것은 아니다.",
+      "대리인의 한정후견개시는 대리권 소멸사유가 아니다 — 민법 제127조가 정한 대리권 소멸사유는 대리인의 사망·성년후견개시·파산이다.",
+      "대리인이 여러 명인 경우 원칙적으로 각자가 본인을 대리하며(각자대리 원칙), 공동대리가 원칙이 아니다.",
+    ],
+    pitfalls:
+      "'대리인은 본인의 허락 없이 채무를 변제하지 못한다'는 서술, '대리인의 한정후견개시로 대리권이 소멸한다'는 서술, '대리인이 여럿이면 공동대리가 원칙'이라는 서술은 모두 틀렸다.",
+    example:
+      "대출 계약 체결을 위임받은 대리인이 그 대출금 채무를 자신의 자금으로 대신 변제하는 것은 별도 허락이 없어도 유효하다.",
+    questionRefs: [
+      { year: 2016, questionNo: 47 },
+      { year: 2018, questionNo: 46 },
+      { year: 2018, questionNo: 59 },
+      { year: 2019, questionNo: 45 },
+      { year: 2020, questionNo: 44 },
+      { year: 2022, questionNo: 47 },
+      { year: 2023, questionNo: 42 },
+      { year: 2024, questionNo: 48 },
+    ],
+  },
+  {
+    slug: "apparent-agency",
+    chapterKo: "민법총칙",
+    sectionKo: "법률행위의 대리",
+    category: "대리",
+    subcategory: "대리일반",
+    parentSlug: "agency-basics",
+    titleKo: "표현대리 (권한을 넘은 표현대리 등)",
+    titleEn: "Apparent Agency (Ostensible Authority)",
+    definition:
+      "표현대리는 대리권이 없거나 그 범위를 넘은 경우에도 상대방의 정당한 신뢰를 보호하기 위해 본인에게 책임을 지우는 제도이며, 권한을 넘은 표현대리에서 기본대리권과 표현대리행위가 반드시 동종·유사할 필요는 없다.",
+    intuition:
+      "표현대리는 '무권대리이지만 본인에게도 책임을 물을 만한 사정(외관 형성에 본인이 관여)이 있는 경우'에 상대방의 신뢰를 보호하는 제도이므로, 유권대리와는 전혀 다른 주장·증명 구조를 가진다는 점이 핵심이다.",
+    keyPoints: [
+      "유권대리의 주장 속에 표현대리의 주장이 당연히 포함되는 것은 아니다 — 표현대리는 유권대리와 별개의 주장·증명이 필요하다.",
+      "권한을 넘은 표현대리(제126조)에서는 기본대리권과 표현대리행위가 동종이거나 유사할 필요가 없다.",
+      "표현대리는 상대방(거래 상대방)이 주장할 수 있는 것이며, 무권대리를 한 대리인 자신이 원용할 수 있는 것이 아니다.",
+      "토지거래허가구역 내 토지거래가 허가를 받지 못해 확정적 무효가 되는 경우에도, 그 무효와 별개로 표현대리 성립 여부는 논의될 수 있다.",
+    ],
+    pitfalls:
+      "유권대리 주장 안에 표현대리 주장이 포함된다고 착각하기 쉽다 — 판례는 이를 별개의 주장으로 본다.",
+    example:
+      "대리인이 담보권설정의 대리권만 받았는데 토지를 매도해버린 경우, 상대방이 그 대리인에게 매도 권한이 있다고 믿을 정당한 사유가 있었다면 권한을 넘은 표현대리가 성립해 본인이 책임을 질 수 있다.",
+    questionRefs: [
+      { year: 2018, questionNo: 42 },
+      { year: 2019, questionNo: 48 },
+      { year: 2020, questionNo: 45 },
+      { year: 2021, questionNo: 48 },
+      { year: 2022, questionNo: 49 },
+    ],
+  },
+  {
+    slug: "sub-agency",
+    chapterKo: "민법총칙",
+    sectionKo: "법률행위의 대리",
+    category: "대리",
+    subcategory: "대리일반",
+    parentSlug: "agency-basics",
+    titleKo: "임의대리인의 복임권과 복대리",
+    titleEn: "Sub-Agency and the Right to Appoint a Sub-Agent",
+    definition:
+      "임의대리인은 원칙적으로 복임권이 없으며, 본인의 승낙이 있거나 부득이한 사유가 있는 경우에만 복대리인을 선임할 수 있다(제120조). 복대리인은 대리인의 대리인이 아니라 본인의 대리인이다.",
+    intuition:
+      "임의대리는 본인이 '이 사람을 믿고' 맡긴 것이므로, 그 대리인이 마음대로 다른 사람에게 다시 맡기는 것을 원칙적으로 제한하는 것이 신뢰관계의 취지에 부합한다.",
+    keyPoints: [
+      "임의대리인은 본인의 승낙 또는 부득이한 사유가 있어야만 복대리인을 선임할 수 있다(제120조).",
+      "법정대리인은 원칙적으로 언제든지 자신의 책임으로 복대리인을 선임할 수 있되, 그 선임·감독에 대한 책임을 더 무겁게 진다는 점에서 임의대리와 대비된다.",
+      "복대리인은 대리인의 대리인이 아니라 '본인의' 대리인이라는 지위를 가진다.",
+    ],
+    pitfalls:
+      "임의대리인도 법정대리인처럼 자유롭게 복대리인을 선임할 수 있다고 착각하기 쉽다 — 임의대리는 승낙·부득이한 사유가 필요하다. 또한 복대리인을 '대리인의 대리인'으로 착각하기 쉽다 — 본인의 대리인이다.",
+    example:
+      "본인의 승낙을 받지 못한 임의대리인이 해외출장 등 부득이한 사유 없이 임의로 복대리인을 선임했다면, 그 복대리인 선임행위는 원칙적으로 대리권 없는 행위가 된다.",
+    questionRefs: [
+      { year: 2018, questionNo: 47 },
+      { year: 2019, questionNo: 46 },
+      { year: 2021, questionNo: 42 },
+      { year: 2022, questionNo: 48 },
+      { year: 2023, questionNo: 44 },
+      { year: 2025, questionNo: 44 },
+    ],
+  },
+  {
+    slug: "unauthorized-agency",
+    chapterKo: "민법총칙",
+    sectionKo: "법률행위의 대리",
+    category: "대리",
+    subcategory: "무권대리",
+    titleKo: "무권대리 행위의 추인과 최고 (민법 제130·131조)",
+    titleEn: "Ratification and Demand in Unauthorized Agency",
+    definition:
+      "대리권 없는 자가 한 대리행위는 본인이 추인하지 않는 한 본인에게 효력이 없으며, 상대방은 상당한 기간을 정하여 추인 여부의 확답을 최고할 수 있다.",
+    intuition:
+      "무권대리는 본인의 의사와 무관하게 이루어진 행위이므로 원칙적으로 본인을 구속하지 않되, 본인이 사후에 추인하면 유효하게 되는 '유동적 무효' 상태로 이해하면 된다.",
+    keyPoints: [
+      "본인이 추인하지 않으면 무권대리행위는 본인에 대하여 효력이 없다(제130조).",
+      "상대방은 상당한 기간을 정하여 추인 여부의 최고를 할 수 있고, 그 기간 내에 확답을 발하지 않으면 추인을 거절한 것으로 본다(제131조).",
+      "표현대리는 상대방이 주장할 수 있는 제도이지, 무권대리인 자신이 유효를 주장하기 위해 원용할 수 있는 것이 아니다.",
+    ],
+    pitfalls:
+      "최고에 대해 본인이 기간 내 확답하지 않으면 '추인한 것으로 본다'고 잘못 암기하기 쉽다 — 정반대로 '추인을 거절한 것으로 본다'가 맞다.",
+    example:
+      "대리권 없이 甲의 이름으로 부동산을 매도한 乙에 대해 상대방이 상당한 기간을 정해 추인 여부를 최고했으나 甲이 기간 내 답하지 않았다면, 甲은 추인을 거절한 것으로 취급된다.",
+  },
+  {
     slug: "voidable-act-period",
     chapterKo: "민법총칙",
+    sectionKo: "무효와 취소",
     category: "법률행위",
     subcategory: "무효·취소",
     titleKo: "취소할 수 있는 법률행위 (행사기간·제한능력자·법정추인)",
@@ -296,6 +404,7 @@ const concepts: Concept[] = [
   {
     slug: "void-and-rescission-effect",
     chapterKo: "민법총칙",
+    sectionKo: "무효와 취소",
     category: "법률행위",
     subcategory: "무효·취소",
     titleKo: "무효인 법률행위와 무효행위의 추인·전환",
@@ -325,123 +434,54 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "agency-basics",
+    slug: "land-transaction-permit-act",
     chapterKo: "민법총칙",
-    category: "대리",
-    subcategory: "대리일반",
-    titleKo: "대리인의 권한 범위",
-    titleEn: "Scope of an Agent's Authority",
+    sectionKo: "무효와 취소",
+    category: "민사특별법",
+    subcategory: "토지거래허가",
+    titleKo: "토지거래허가와 유동적 무효",
+    titleEn: "Land Transaction Permits and Provisional Invalidity",
     definition:
-      "대리인은 위임받은 특정 행위와 그에 통상 수반되는 행위(예: 금전채무의 변제·상계, 매매 대리 시 중도금·잔금 수령)는 본인의 별도 허락 없이도 할 수 있으나, 위임 범위를 벗어나는 처분행위(예: 계약 해제)까지 당연히 할 수 있는 것은 아니다.",
+      "토지거래허가구역 내 토지에 관한 계약은 허가를 받기 전까지 유동적 무효 상태에 있으며, 이때 매수인이 지급한 계약금은 해약금으로 추정된다(제565조 제1항).",
     intuition:
-      "대리권의 범위는 '본인이 수권행위로 부여한 목적'을 기준으로 판단하므로, 목적에 통상 포함되는 부수적 행위인지 아니면 별도의 처분권한이 필요한 행위인지를 나눠서 봐야 한다.",
+      "'유동적 무효'는 허가를 받으면 계약 체결 시로 소급하여 유효가 되고, 불허가로 확정되면 무효로 확정되는 잠정적 상태라고 이해하면 다른 무효·취소 제도와 구별이 쉬워진다.",
     keyPoints: [
-      "대리인은 본인의 허락 없이도 금전채무를 상계나 자신의 재산으로 변제할 수 있다 — 변제는 금전채무의 내용에 적합한 행위이기 때문이다.",
-      "매도 대리권에는 계약 이행에 관한 중도금·잔금 수령 권한도 통상 포함되지만, 이미 체결된 계약을 해제할 권한까지 당연히 포함되는 것은 아니다.",
-      "대리인의 한정후견개시는 대리권 소멸사유가 아니다 — 민법 제127조가 정한 대리권 소멸사유는 대리인의 사망·성년후견개시·파산이다.",
-      "대리인이 여러 명인 경우 원칙적으로 각자가 본인을 대리하며(각자대리 원칙), 공동대리가 원칙이 아니다.",
+      "허가를 받지 않은 상태의 토지거래계약은 유동적 무효 상태에 있다.",
+      "매수인이 지급한 계약금은 해약금으로 추정한다(제565조 제1항).",
+      "허가를 받으면 계약은 처음(계약체결 시)으로 소급하여 유효가 된다.",
     ],
     pitfalls:
-      "'대리인은 본인의 허락 없이 채무를 변제하지 못한다'는 서술, '대리인의 한정후견개시로 대리권이 소멸한다'는 서술, '대리인이 여럿이면 공동대리가 원칙'이라는 서술은 모두 틀렸다.",
+      "유동적 무효 상태의 계약을 통정허위표시나 반사회질서 법률행위처럼 확정적 무효로 착각하기 쉽다 — 허가 여부에 따라 유효·무효가 갈리는 잠정적 상태다.",
     example:
-      "대출 계약 체결을 위임받은 대리인이 그 대출금 채무를 자신의 자금으로 대신 변제하는 것은 별도 허락이 없어도 유효하다.",
-    questionRefs: [
-      { year: 2016, questionNo: 47 },
-      { year: 2018, questionNo: 46 },
-      { year: 2018, questionNo: 59 },
-      { year: 2019, questionNo: 45 },
-      { year: 2020, questionNo: 44 },
-      { year: 2022, questionNo: 47 },
-      { year: 2023, questionNo: 42 },
-      { year: 2024, questionNo: 48 },
-    ],
+      "토지거래허가구역 내 토지를 매매하며 계약금을 지급한 경우, 아직 허가를 받지 못한 단계에서는 계약이 유동적 무효 상태이지만 추후 허가를 받으면 계약체결 시로 소급하여 유효해진다.",
   },
   {
-    slug: "apparent-agency",
+    slug: "conditional-time-limited-act",
     chapterKo: "민법총칙",
-    category: "대리",
-    subcategory: "대리일반",
-    titleKo: "표현대리 (권한을 넘은 표현대리 등)",
-    titleEn: "Apparent Agency (Ostensible Authority)",
-    parentSlug: "agency-basics",
+    sectionKo: "조건과 기한",
+    category: "법률행위",
+    subcategory: "조건·기한",
+    titleKo: "조건부·기한부 법률행위",
+    titleEn: "Conditional and Time-Limited Juridical Acts",
     definition:
-      "표현대리는 대리권이 없거나 그 범위를 넘은 경우에도 상대방의 정당한 신뢰를 보호하기 위해 본인에게 책임을 지우는 제도이며, 권한을 넘은 표현대리에서 기본대리권과 표현대리행위가 반드시 동종·유사할 필요는 없다.",
+      "법률행위 당시 이미 성취된 조건(기성조건)을 정지조건으로 붙이면 그 법률행위는 '조건 없는' 법률행위가 되며, 채무면제와 같은 단독행위는 원칙적으로 조건을 붙일 수 없다.",
     intuition:
-      "표현대리는 '무권대리이지만 본인에게도 책임을 물을 만한 사정(외관 형성에 본인이 관여)이 있는 경우'에 상대방의 신뢰를 보호하는 제도이므로, 유권대리와는 전혀 다른 주장·증명 구조를 가진다는 점이 핵심이다.",
+      "정지조건은 '장래 불확실한 사실'에 효력 발생을 걸어두는 것이므로, 이미 이루어진 사실(기성조건)을 정지조건으로 걸면 사실상 조건이 걸리지 않은 것과 같아진다고 이해하면 된다.",
     keyPoints: [
-      "유권대리의 주장 속에 표현대리의 주장이 당연히 포함되는 것은 아니다 — 표현대리는 유권대리와 별개의 주장·증명이 필요하다.",
-      "권한을 넘은 표현대리(제126조)에서는 기본대리권과 표현대리행위가 동종이거나 유사할 필요가 없다.",
-      "표현대리는 상대방(거래 상대방)이 주장할 수 있는 것이며, 무권대리를 한 대리인 자신이 원용할 수 있는 것이 아니다.",
-      "토지거래허가구역 내 토지거래가 허가를 받지 못해 확정적 무효가 되는 경우에도, 그 무효와 별개로 표현대리 성립 여부는 논의될 수 있다.",
+      "기성조건을 정지조건으로 한 법률행위는 조건 없는 법률행위가 된다(제151조 제2항) — '무효'가 아니다.",
+      "반대로 기성조건을 해제조건으로 한 법률행위는 무효가 된다.",
+      "채무면제와 같은 단독행위는 원칙적으로 조건을 붙일 수 없으나, 상대방이 동의하면 예외적으로 붙일 수 있다.",
     ],
     pitfalls:
-      "유권대리 주장 안에 표현대리 주장이 포함된다고 착각하기 쉽다 — 판례는 이를 별개의 주장으로 본다.",
+      "'기성조건을 정지조건으로 하면 무효'라고 잘못 암기하기 쉽다 — 무효가 되는 것은 기성조건을 '해제조건'으로 한 경우다.",
     example:
-      "대리인이 담보권설정의 대리권만 받았는데 토지를 매도해버린 경우, 상대방이 그 대리인에게 매도 권한이 있다고 믿을 정당한 사유가 있었다면 권한을 넘은 표현대리가 성립해 본인이 책임을 질 수 있다.",
-    questionRefs: [
-      { year: 2018, questionNo: 42 },
-      { year: 2019, questionNo: 48 },
-      { year: 2020, questionNo: 45 },
-      { year: 2021, questionNo: 48 },
-      { year: 2022, questionNo: 49 },
-    ],
+      "이미 합격 발표가 난 시험의 합격을 정지조건으로 건 증여계약은, 사실상 조건 없는 증여계약과 같은 것으로 취급된다.",
   },
-  {
-    slug: "sub-agency",
-    chapterKo: "민법총칙",
-    category: "대리",
-    subcategory: "대리일반",
-    titleKo: "임의대리인의 복임권과 복대리",
-    titleEn: "Sub-Agency and the Right to Appoint a Sub-Agent",
-    parentSlug: "agency-basics",
-    definition:
-      "임의대리인은 원칙적으로 복임권이 없으며, 본인의 승낙이 있거나 부득이한 사유가 있는 경우에만 복대리인을 선임할 수 있다(제120조). 복대리인은 대리인의 대리인이 아니라 본인의 대리인이다.",
-    intuition:
-      "임의대리는 본인이 '이 사람을 믿고' 맡긴 것이므로, 그 대리인이 마음대로 다른 사람에게 다시 맡기는 것을 원칙적으로 제한하는 것이 신뢰관계의 취지에 부합한다.",
-    keyPoints: [
-      "임의대리인은 본인의 승낙 또는 부득이한 사유가 있어야만 복대리인을 선임할 수 있다(제120조).",
-      "법정대리인은 원칙적으로 언제든지 자신의 책임으로 복대리인을 선임할 수 있되, 그 선임·감독에 대한 책임을 더 무겁게 진다는 점에서 임의대리와 대비된다.",
-      "복대리인은 대리인의 대리인이 아니라 '본인의' 대리인이라는 지위를 가진다.",
-    ],
-    pitfalls:
-      "임의대리인도 법정대리인처럼 자유롭게 복대리인을 선임할 수 있다고 착각하기 쉽다 — 임의대리는 승낙·부득이한 사유가 필요하다. 또한 복대리인을 '대리인의 대리인'으로 착각하기 쉽다 — 본인의 대리인이다.",
-    example:
-      "본인의 승낙을 받지 못한 임의대리인이 해외출장 등 부득이한 사유 없이 임의로 복대리인을 선임했다면, 그 복대리인 선임행위는 원칙적으로 대리권 없는 행위가 된다.",
-    questionRefs: [
-      { year: 2018, questionNo: 47 },
-      { year: 2019, questionNo: 46 },
-      { year: 2021, questionNo: 42 },
-      { year: 2022, questionNo: 48 },
-      { year: 2023, questionNo: 44 },
-      { year: 2025, questionNo: 44 },
-    ],
-  },
-  {
-    slug: "unauthorized-agency",
-    chapterKo: "민법총칙",
-    category: "대리",
-    subcategory: "무권대리",
-    titleKo: "무권대리 행위의 추인과 최고 (민법 제130·131조)",
-    titleEn: "Ratification and Demand in Unauthorized Agency",
-    definition:
-      "대리권 없는 자가 한 대리행위는 본인이 추인하지 않는 한 본인에게 효력이 없으며, 상대방은 상당한 기간을 정하여 추인 여부의 확답을 최고할 수 있다.",
-    intuition:
-      "무권대리는 본인의 의사와 무관하게 이루어진 행위이므로 원칙적으로 본인을 구속하지 않되, 본인이 사후에 추인하면 유효하게 되는 '유동적 무효' 상태로 이해하면 된다.",
-    keyPoints: [
-      "본인이 추인하지 않으면 무권대리행위는 본인에 대하여 효력이 없다(제130조).",
-      "상대방은 상당한 기간을 정하여 추인 여부의 최고를 할 수 있고, 그 기간 내에 확답을 발하지 않으면 추인을 거절한 것으로 본다(제131조).",
-      "표현대리는 상대방이 주장할 수 있는 제도이지, 무권대리인 자신이 유효를 주장하기 위해 원용할 수 있는 것이 아니다.",
-    ],
-    pitfalls:
-      "최고에 대해 본인이 기간 내 확답하지 않으면 '추인한 것으로 본다'고 잘못 암기하기 쉽다 — 정반대로 '추인을 거절한 것으로 본다'가 맞다.",
-    example:
-      "대리권 없이 甲의 이름으로 부동산을 매도한 乙에 대해 상대방이 상당한 기간을 정해 추인 여부를 최고했으나 甲이 기간 내 답하지 않았다면, 甲은 추인을 거절한 것으로 취급된다.",
-  },
-
-  // ───────── 제2편 물권법 ─────────
+  // ───────── 물권법 ─────────
   {
     slug: "numerus-clausus",
     chapterKo: "물권법",
+    sectionKo: "물권의 의의",
     category: "물권총칙",
     subcategory: "물권법정주의",
     titleKo: "물권법정주의 (민법 제185조)",
@@ -463,6 +503,7 @@ const concepts: Concept[] = [
   {
     slug: "real-right-claim",
     chapterKo: "물권법",
+    sectionKo: "물권의 의의",
     category: "물권적청구권",
     subcategory: "물권적청구권",
     titleKo: "물권적 청구권의 내용과 한계",
@@ -484,6 +525,7 @@ const concepts: Concept[] = [
   {
     slug: "real-right-change-registration",
     chapterKo: "물권법",
+    sectionKo: "물권의 변동",
     category: "물권변동",
     subcategory: "등기",
     titleKo: "법률행위에 의하지 않은 물권변동과 등기",
@@ -505,6 +547,7 @@ const concepts: Concept[] = [
   {
     slug: "possessor-recoverer-relation",
     chapterKo: "물권법",
+    sectionKo: "점유권",
     category: "점유·시효",
     subcategory: "점유",
     titleKo: "점유자와 회복자의 관계",
@@ -526,6 +569,7 @@ const concepts: Concept[] = [
   {
     slug: "acquisitive-prescription",
     chapterKo: "물권법",
+    sectionKo: "점유권",
     category: "점유·시효",
     subcategory: "취득시효",
     titleKo: "취득시효와 자주점유의 추정",
@@ -547,6 +591,7 @@ const concepts: Concept[] = [
   {
     slug: "boundary-passage-right",
     chapterKo: "물권법",
+    sectionKo: "소유권",
     category: "소유권",
     subcategory: "소유권·공유",
     titleKo: "상린관계와 주위토지통행권의 범위",
@@ -574,11 +619,12 @@ const concepts: Concept[] = [
   {
     slug: "attachment-of-property",
     chapterKo: "물권법",
+    sectionKo: "소유권",
     category: "소유권",
     subcategory: "소유권·공유",
+    parentSlug: "boundary-passage-right",
     titleKo: "부합의 요건과 효과",
     titleEn: "Requirements and Effects of Attachment (Accession)",
-    parentSlug: "boundary-passage-right",
     definition:
       "부동산에 증축된 부분이 기존 건물과 구조상·이용상 독립성이 없으면 기존 건물에 부합하여 원소유자의 소유가 되지만, 정당한 권원(임차권·지상권 등)에 의해 부속시킨 물건은 부합하지 않고 부속시킨 자의 소유로 남는다.",
     intuition:
@@ -601,6 +647,7 @@ const concepts: Concept[] = [
   {
     slug: "co-ownership-management",
     chapterKo: "물권법",
+    sectionKo: "소유권",
     category: "소유권",
     subcategory: "소유권·공유",
     titleKo: "공유물의 처분·관리와 합유",
@@ -639,6 +686,7 @@ const concepts: Concept[] = [
   {
     slug: "superficies",
     chapterKo: "물권법",
+    sectionKo: "용익물권",
     category: "용익물권",
     subcategory: "지상권",
     titleKo: "지상권의 성립과 양도성 (민법 제279·282조)",
@@ -660,6 +708,7 @@ const concepts: Concept[] = [
   {
     slug: "easement",
     chapterKo: "물권법",
+    sectionKo: "용익물권",
     category: "용익물권",
     subcategory: "지역권",
     titleKo: "지역권의 부종성",
@@ -681,6 +730,7 @@ const concepts: Concept[] = [
   {
     slug: "chonsegwon",
     chapterKo: "물권법",
+    sectionKo: "용익물권",
     category: "용익물권",
     subcategory: "전세권",
     titleKo: "전세권의 이중적 성격",
@@ -702,6 +752,7 @@ const concepts: Concept[] = [
   {
     slug: "lien",
     chapterKo: "물권법",
+    sectionKo: "담보물권",
     category: "유치권",
     subcategory: "유치권",
     titleKo: "유치권의 성립요건 (견련관계)",
@@ -723,6 +774,7 @@ const concepts: Concept[] = [
   {
     slug: "mortgage-subrogation",
     chapterKo: "물권법",
+    sectionKo: "담보물권",
     category: "저당권",
     subcategory: "저당권",
     titleKo: "저당권의 물상대위 (민법 제342·370조)",
@@ -749,6 +801,7 @@ const concepts: Concept[] = [
   {
     slug: "mortgage-effect-scope",
     chapterKo: "물권법",
+    sectionKo: "담보물권",
     category: "저당권",
     subcategory: "저당권",
     titleKo: "저당권의 효력이 미치는 범위와 일괄경매",
@@ -781,11 +834,12 @@ const concepts: Concept[] = [
   {
     slug: "mortgage-general-nature",
     chapterKo: "물권법",
+    sectionKo: "담보물권",
     category: "저당권",
     subcategory: "저당권",
+    parentSlug: "mortgage-effect-scope",
     titleKo: "저당권의 부종성·수반성과 제3취득자의 비용상환청구권",
     titleEn: "Accessory Nature of Mortgages and Third-Party Acquirer's Reimbursement Right",
-    parentSlug: "mortgage-effect-scope",
     definition:
       "저당권은 담보한 채권과 분리하여 양도할 수 없으며(수반성), 저당물의 소유권을 취득한 제3취득자가 그 부동산의 보존·개량을 위해 지출한 비용은 그 부동산의 경매대가에서 우선상환을 받을 수 있다.",
     intuition:
@@ -810,11 +864,12 @@ const concepts: Concept[] = [
   {
     slug: "joint-mortgage-and-maximum-mortgage",
     chapterKo: "물권법",
+    sectionKo: "담보물권",
     category: "저당권",
     subcategory: "저당권",
+    parentSlug: "mortgage-effect-scope",
     titleKo: "공동저당의 배당과 근저당권의 채권최고액",
     titleEn: "Distribution in Joint Mortgages and the Maximum Amount in Revolving Mortgages",
-    parentSlug: "mortgage-effect-scope",
     definition:
       "공동저당에서 여러 부동산을 동시에 배당하는 경우 각 부동산의 경매대가에 비례하여 피담보채권을 분담하며, 근저당권은 결산기에 확정된 채권액이 채권최고액을 초과하더라도 채권최고액 한도에서만 우선변제를 받는다.",
     intuition:
@@ -843,11 +898,12 @@ const concepts: Concept[] = [
   {
     slug: "transfer-security",
     chapterKo: "물권법",
+    sectionKo: "담보물권",
     category: "저당권",
     subcategory: "저당권",
+    parentSlug: "mortgage-effect-scope",
     titleKo: "양도담보의 법률관계",
     titleEn: "Legal Relations under Security by Way of Transfer",
-    parentSlug: "mortgage-effect-scope",
     definition:
       "양도담보는 채무 담보를 위해 부동산 소유권을 채권자에게 이전하는 비전형담보이며, 채무자(양도담보설정자)는 담보목적 범위 내에서 여전히 그 부동산을 사용·수익하거나 제3자와 임대차계약을 체결할 수 있다.",
     intuition:
@@ -866,11 +922,11 @@ const concepts: Concept[] = [
       { year: 2020, questionNo: 78 },
     ],
   },
-
-  // ───────── 제3편 계약법 ─────────
+  // ───────── 계약법 ─────────
   {
     slug: "offer-and-acceptance",
     chapterKo: "계약법",
+    sectionKo: "계약법 총론",
     category: "계약총론",
     subcategory: "청약·승낙",
     titleKo: "계약의 성립 (청약과 승낙)",
@@ -890,142 +946,9 @@ const concepts: Concept[] = [
       "부동산 매물을 특정 가격에 팔겠다고 구체적으로 제시한 광고문은 청약으로 볼 수 있지만, 단순히 '문의 환영'이라는 안내문은 청약의 유인에 불과하다.",
   },
   {
-    slug: "contract-for-third-party",
-    chapterKo: "계약법",
-    category: "계약총론",
-    subcategory: "제3자계약",
-    titleKo: "제3자를 위한 계약",
-    titleEn: "Contract for the Benefit of a Third Party",
-    definition:
-      "제3자를 위한 계약에서 그 제3자는 계약체결 당시 현존하지 않아도 되고, 수익의 의사표시를 할 때 특정될 수 있으면 충분하며, 수익자는 계약의 해제권이나 해제로 인한 원상회복청구권을 갖지 않는다.",
-    intuition:
-      "수익자는 계약의 '당사자'가 아니라 그 계약으로부터 '이익만 받는 자'라는 지위이므로, 계약 자체를 좌우하는 권리(해제권 등)는 당사자인 요약자·낙약자에게만 있다고 이해하면 된다.",
-    keyPoints: [
-      "제3자(수익자)는 계약체결 당시 현존하지 않아도 되며, 수익의 의사표시 시점에 특정되면 충분하다(제539조 제2항 반대해석).",
-      "수익자는 계약의 해제권이나 해제를 원인으로 한 원상회복청구권이 없다.",
-      "수익자가 수익의 의사표시를 하면 그 권리는 확정되어, 이후 요약자와 낙약자가 임의로 변경·소멸시킬 수 없다(제541조).",
-    ],
-    pitfalls:
-      "수익자도 계약 당사자처럼 해제권을 행사할 수 있다고 착각하기 쉽다 — 해제권은 계약 당사자(요약자)에게만 있다.",
-    example:
-      "부모(요약자)가 보험회사(낙약자)와 계약하며 자녀(수익자)를 보험금 수령인으로 지정한 경우, 자녀는 보험금 수익의 의사표시로 권리를 확정할 수 있지만 그 계약 자체를 해제할 권리는 없다.",
-  },
-  {
-    slug: "contract-rescission",
-    chapterKo: "계약법",
-    category: "계약총론",
-    subcategory: "계약해제",
-    titleKo: "계약의 해제·해지의 의사표시",
-    titleEn: "Declaration of Rescission and Termination",
-    definition:
-      "계약의 해제·해지는 상대방에 대한 의사표시로 하며, 명시적이 아니라 묵시적으로도 가능하고 상대방에게 도달한 후에는 철회할 수 없다.",
-    intuition:
-      "일단 상대방에게 해제 의사가 도달하면 상대방은 그 사실을 신뢰하여 다른 법률관계를 형성할 수 있으므로, 그 신뢰를 보호하기 위해 철회를 금지한다(제543조 제2항 준용).",
-    keyPoints: [
-      "해지의 의사표시는 묵시적으로도 할 수 있다.",
-      "해제·해지의 의사표시가 상대방에게 도달한 후에는 이를 철회하지 못한다.",
-      "이행의 최고는 반드시 일정 기간을 명시할 필요는 없고, 상당한 기간을 정하면 충분하다.",
-    ],
-    pitfalls:
-      "'해제의 의사표시는 명시적으로만 가능하다'는 서술은 틀렸다 — 묵시적 의사표시도 유효하다.",
-    example:
-      "임차인이 장기간 차임을 연체하자 임대인이 별도의 통지 없이 임차인의 짐을 회수하도록 하는 등 계약 종료 의사를 정황상 명백히 드러낸 경우, 묵시적 해지로 인정될 수 있다.",
-    questionRefs: [
-      { year: 2016, questionNo: 74 },
-      { year: 2017, questionNo: 73 },
-      { year: 2018, questionNo: 70 },
-      { year: 2020, questionNo: 70 },
-      { year: 2023, questionNo: 74 },
-    ],
-  },
-  {
-    slug: "rescission-effect-third-party",
-    chapterKo: "계약법",
-    category: "계약총론",
-    subcategory: "계약해제",
-    titleKo: "해제의 효과 (원상회복·제3자 보호)",
-    titleEn: "Effect of Rescission: Restitution and Third-Party Protection",
-    definition:
-      "계약이 해제되면 각 당사자는 원상회복의무를 부담하고 이는 동시이행관계에 있으며, 해제 전에 등기를 마치는 등 완전한 권리를 취득한 제3자는 보호된다.",
-    intuition:
-      "해제는 계약을 소급적으로 없었던 일로 만들지만, 그 사이에 새로운 이해관계를 맺은 제3자의 신뢰까지 깨뜨리면 거래 안전이 흔들리므로 일정한 제3자는 보호해주는 것이다.",
-    keyPoints: [
-      "계약해제로 인한 당사자 쌍방의 원상회복의무는 동시이행관계에 있으며, 받은 급부에 이자를 가산하여 반환해야 한다.",
-      "해제 전 매수인으로부터 부동산을 매수하여 소유권이전등기를 마친 자는 보호되는 제3자에 해당한다.",
-      "단순히 매도인의 채권자가 목적물을 가압류한 사정만으로는 매수인이 계약을 즉시 해제할 수 있는 것은 아니다.",
-    ],
-    pitfalls:
-      "해제 후에 이해관계를 맺은 자까지 '제3자 보호' 대상으로 착각하기 쉽다 — 보호되는 제3자는 원칙적으로 해제 '전'에 등기 등으로 완전한 권리를 취득한 자에 한정된다.",
-    example:
-      "매수인이 대금을 완납하지 않아 매매계약이 해제되기 전, 그 매수인으로부터 다시 부동산을 매수해 이전등기까지 마친 사람은 해제의 영향을 받지 않고 소유권을 보유한다.",
-    questionRefs: [
-      { year: 2016, questionNo: 80 },
-      { year: 2019, questionNo: 67 },
-      { year: 2024, questionNo: 71 },
-      { year: 2024, questionNo: 72 },
-    ],
-  },
-  {
-    slug: "earnest-money-rescission",
-    chapterKo: "계약법",
-    category: "계약총론",
-    subcategory: "계약해제",
-    titleKo: "계약금(해약금)의 성질과 해약금 해제",
-    titleEn: "Nature of Earnest Money and Rescission by Forfeiture",
-    parentSlug: "contract-rescission",
-    definition:
-      "계약금은 별도 약정이 없어도 해약금으로 추정되며, 당사자 일방이 이행에 착수하기 전까지 매수인은 계약금을 포기하고 매도인은 그 배액을 상환하여 계약을 해제할 수 있다. 다만 중도금 지급 등 이행에 착수한 후에는 이 해약금 해제권을 행사할 수 없다.",
-    intuition:
-      "계약금계약은 매매계약에 딸린 종된 계약이지만, 그 자체로 '위약 없이도 빠져나갈 수 있는 보험' 역할을 한다 — 다만 상대방이 이미 이행에 착수해 신뢰를 쌓은 후에는 그 보험을 더 이상 쓸 수 없게 막아둔 것이 이행착수 전이라는 시간적 제한이다.",
-    keyPoints: [
-      "계약금계약은 매매계약의 종된 계약이며, 계약금을 위약금으로 하는 특약도 별도로 가능하다.",
-      "중도금 지급 등 이행에 착수한 후에는 특약이 없는 한 계약금을 포기하고 계약을 해제할 수 없다.",
-      "해약금에 기한 해제로 상대방에게 손해가 발생하더라도, 그 손해배상을 별도로 청구할 수는 없다.",
-      "당사자들이 해약금에 기한 해제권을 배제하기로 약정했다면, 더 이상 그 해제권을 행사할 수 없다.",
-    ],
-    pitfalls:
-      "해약금 해제로 인한 손해에 대해서도 별도로 손해배상을 청구할 수 있다고 착각하기 쉽다 — 해약금 해제는 손해배상 청구권을 발생시키지 않는다.",
-    example:
-      "매수인이 중도금을 지급하기 전이라면 계약금을 포기하고 매매계약을 해제할 수 있지만, 중도금을 이미 지급했다면 특약이 없는 한 더 이상 그럴 수 없다.",
-    questionRefs: [
-      { year: 2016, questionNo: 75 },
-      { year: 2017, questionNo: 72 },
-      { year: 2018, questionNo: 67 },
-      { year: 2019, questionNo: 65 },
-      { year: 2023, questionNo: 71 },
-    ],
-  },
-  {
-    slug: "mutual-rescission",
-    chapterKo: "계약법",
-    category: "계약총론",
-    subcategory: "계약해제",
-    titleKo: "합의해제·해지의 특유 법리",
-    titleEn: "Special Rules for Mutual Rescission by Agreement",
-    parentSlug: "contract-rescission",
-    definition:
-      "합의해제는 당사자들의 새로운 계약으로 기존 계약을 해소하는 것으로, 법정해제와 달리 별도 약정이 없는 한 원상회복에 이자를 가산할 의무가 없고 손해배상청구권도 당연히 발생하지 않는다.",
-    intuition:
-      "합의해제는 '법이 부여한 해제권 행사'가 아니라 '당사자들이 서로 합의해서 없던 일로 하자고 약속한 것'이므로, 법정해제에 관한 제548조 등의 효과(이자가산, 손해배상 등)가 당연히 적용되지는 않는다고 이해하면 된다.",
-    keyPoints: [
-      "합의해제 시 별도 약정이 없는 한 반환할 금전에 이자를 가산할 의무가 없다 — 법정해제와 다른 지점이다.",
-      "합의해제로도 원칙적으로 손해배상청구권이 발생하지 않는다.",
-      "합의해제의 경우에도 소유권이전등기가 된 후 해제되면, 특별한 사정이 없는 한 부동산의 소유권은 매도인에게 당연히 복귀한다(등기 없이도 물권 복귀).",
-    ],
-    pitfalls:
-      "합의해제에도 법정해제와 동일하게 이자가산·손해배상 의무가 발생한다고 착각하기 쉽다 — 합의해제는 당사자의 별도 약정이 없는 한 그런 의무가 발생하지 않는다.",
-    example:
-      "매도인과 매수인이 서로 합의해 매매계약을 없던 것으로 하기로 한 경우, 매도인은 특별한 사정이 없는 한 받은 대금에 이자를 붙여 돌려줄 의무가 없다.",
-    questionRefs: [
-      { year: 2019, questionNo: 68 },
-      { year: 2020, questionNo: 72 },
-      { year: 2021, questionNo: 67 },
-      { year: 2025, questionNo: 68 },
-    ],
-  },
-  {
     slug: "simultaneous-performance",
     chapterKo: "계약법",
+    sectionKo: "계약법 총론",
     category: "계약총론",
     subcategory: "동시이행",
     titleKo: "동시이행항변권의 적용 범위",
@@ -1055,6 +978,7 @@ const concepts: Concept[] = [
   {
     slug: "risk-allocation",
     chapterKo: "계약법",
+    sectionKo: "계약법 총론",
     category: "계약총론",
     subcategory: "동시이행",
     titleKo: "쌍무계약의 위험부담 (민법 제537조)",
@@ -1083,8 +1007,148 @@ const concepts: Concept[] = [
     ],
   },
   {
+    slug: "contract-for-third-party",
+    chapterKo: "계약법",
+    sectionKo: "계약법 총론",
+    category: "계약총론",
+    subcategory: "제3자계약",
+    titleKo: "제3자를 위한 계약",
+    titleEn: "Contract for the Benefit of a Third Party",
+    definition:
+      "제3자를 위한 계약에서 그 제3자는 계약체결 당시 현존하지 않아도 되고, 수익의 의사표시를 할 때 특정될 수 있으면 충분하며, 수익자는 계약의 해제권이나 해제로 인한 원상회복청구권을 갖지 않는다.",
+    intuition:
+      "수익자는 계약의 '당사자'가 아니라 그 계약으로부터 '이익만 받는 자'라는 지위이므로, 계약 자체를 좌우하는 권리(해제권 등)는 당사자인 요약자·낙약자에게만 있다고 이해하면 된다.",
+    keyPoints: [
+      "제3자(수익자)는 계약체결 당시 현존하지 않아도 되며, 수익의 의사표시 시점에 특정되면 충분하다(제539조 제2항 반대해석).",
+      "수익자는 계약의 해제권이나 해제를 원인으로 한 원상회복청구권이 없다.",
+      "수익자가 수익의 의사표시를 하면 그 권리는 확정되어, 이후 요약자와 낙약자가 임의로 변경·소멸시킬 수 없다(제541조).",
+    ],
+    pitfalls:
+      "수익자도 계약 당사자처럼 해제권을 행사할 수 있다고 착각하기 쉽다 — 해제권은 계약 당사자(요약자)에게만 있다.",
+    example:
+      "부모(요약자)가 보험회사(낙약자)와 계약하며 자녀(수익자)를 보험금 수령인으로 지정한 경우, 자녀는 보험금 수익의 의사표시로 권리를 확정할 수 있지만 그 계약 자체를 해제할 권리는 없다.",
+  },
+  {
+    slug: "contract-rescission",
+    chapterKo: "계약법",
+    sectionKo: "계약법 총론",
+    category: "계약총론",
+    subcategory: "계약해제",
+    titleKo: "계약의 해제·해지의 의사표시",
+    titleEn: "Declaration of Rescission and Termination",
+    definition:
+      "계약의 해제·해지는 상대방에 대한 의사표시로 하며, 명시적이 아니라 묵시적으로도 가능하고 상대방에게 도달한 후에는 철회할 수 없다.",
+    intuition:
+      "일단 상대방에게 해제 의사가 도달하면 상대방은 그 사실을 신뢰하여 다른 법률관계를 형성할 수 있으므로, 그 신뢰를 보호하기 위해 철회를 금지한다(제543조 제2항 준용).",
+    keyPoints: [
+      "해지의 의사표시는 묵시적으로도 할 수 있다.",
+      "해제·해지의 의사표시가 상대방에게 도달한 후에는 이를 철회하지 못한다.",
+      "이행의 최고는 반드시 일정 기간을 명시할 필요는 없고, 상당한 기간을 정하면 충분하다.",
+    ],
+    pitfalls:
+      "'해제의 의사표시는 명시적으로만 가능하다'는 서술은 틀렸다 — 묵시적 의사표시도 유효하다.",
+    example:
+      "임차인이 장기간 차임을 연체하자 임대인이 별도의 통지 없이 임차인의 짐을 회수하도록 하는 등 계약 종료 의사를 정황상 명백히 드러낸 경우, 묵시적 해지로 인정될 수 있다.",
+    questionRefs: [
+      { year: 2016, questionNo: 74 },
+      { year: 2017, questionNo: 73 },
+      { year: 2018, questionNo: 70 },
+      { year: 2020, questionNo: 70 },
+      { year: 2023, questionNo: 74 },
+    ],
+  },
+  {
+    slug: "earnest-money-rescission",
+    chapterKo: "계약법",
+    sectionKo: "계약법 총론",
+    category: "계약총론",
+    subcategory: "계약해제",
+    parentSlug: "contract-rescission",
+    titleKo: "계약금(해약금)의 성질과 해약금 해제",
+    titleEn: "Nature of Earnest Money and Rescission by Forfeiture",
+    definition:
+      "계약금은 별도 약정이 없어도 해약금으로 추정되며, 당사자 일방이 이행에 착수하기 전까지 매수인은 계약금을 포기하고 매도인은 그 배액을 상환하여 계약을 해제할 수 있다. 다만 중도금 지급 등 이행에 착수한 후에는 이 해약금 해제권을 행사할 수 없다.",
+    intuition:
+      "계약금계약은 매매계약에 딸린 종된 계약이지만, 그 자체로 '위약 없이도 빠져나갈 수 있는 보험' 역할을 한다 — 다만 상대방이 이미 이행에 착수해 신뢰를 쌓은 후에는 그 보험을 더 이상 쓸 수 없게 막아둔 것이 이행착수 전이라는 시간적 제한이다.",
+    keyPoints: [
+      "계약금계약은 매매계약의 종된 계약이며, 계약금을 위약금으로 하는 특약도 별도로 가능하다.",
+      "중도금 지급 등 이행에 착수한 후에는 특약이 없는 한 계약금을 포기하고 계약을 해제할 수 없다.",
+      "해약금에 기한 해제로 상대방에게 손해가 발생하더라도, 그 손해배상을 별도로 청구할 수는 없다.",
+      "당사자들이 해약금에 기한 해제권을 배제하기로 약정했다면, 더 이상 그 해제권을 행사할 수 없다.",
+    ],
+    pitfalls:
+      "해약금 해제로 인한 손해에 대해서도 별도로 손해배상을 청구할 수 있다고 착각하기 쉽다 — 해약금 해제는 손해배상 청구권을 발생시키지 않는다.",
+    example:
+      "매수인이 중도금을 지급하기 전이라면 계약금을 포기하고 매매계약을 해제할 수 있지만, 중도금을 이미 지급했다면 특약이 없는 한 더 이상 그럴 수 없다.",
+    questionRefs: [
+      { year: 2016, questionNo: 75 },
+      { year: 2017, questionNo: 72 },
+      { year: 2018, questionNo: 67 },
+      { year: 2019, questionNo: 65 },
+      { year: 2023, questionNo: 71 },
+    ],
+  },
+  {
+    slug: "mutual-rescission",
+    chapterKo: "계약법",
+    sectionKo: "계약법 총론",
+    category: "계약총론",
+    subcategory: "계약해제",
+    parentSlug: "contract-rescission",
+    titleKo: "합의해제·해지의 특유 법리",
+    titleEn: "Special Rules for Mutual Rescission by Agreement",
+    definition:
+      "합의해제는 당사자들의 새로운 계약으로 기존 계약을 해소하는 것으로, 법정해제와 달리 별도 약정이 없는 한 원상회복에 이자를 가산할 의무가 없고 손해배상청구권도 당연히 발생하지 않는다.",
+    intuition:
+      "합의해제는 '법이 부여한 해제권 행사'가 아니라 '당사자들이 서로 합의해서 없던 일로 하자고 약속한 것'이므로, 법정해제에 관한 제548조 등의 효과(이자가산, 손해배상 등)가 당연히 적용되지는 않는다고 이해하면 된다.",
+    keyPoints: [
+      "합의해제 시 별도 약정이 없는 한 반환할 금전에 이자를 가산할 의무가 없다 — 법정해제와 다른 지점이다.",
+      "합의해제로도 원칙적으로 손해배상청구권이 발생하지 않는다.",
+      "합의해제의 경우에도 소유권이전등기가 된 후 해제되면, 특별한 사정이 없는 한 부동산의 소유권은 매도인에게 당연히 복귀한다(등기 없이도 물권 복귀).",
+    ],
+    pitfalls:
+      "합의해제에도 법정해제와 동일하게 이자가산·손해배상 의무가 발생한다고 착각하기 쉽다 — 합의해제는 당사자의 별도 약정이 없는 한 그런 의무가 발생하지 않는다.",
+    example:
+      "매도인과 매수인이 서로 합의해 매매계약을 없던 것으로 하기로 한 경우, 매도인은 특별한 사정이 없는 한 받은 대금에 이자를 붙여 돌려줄 의무가 없다.",
+    questionRefs: [
+      { year: 2019, questionNo: 68 },
+      { year: 2020, questionNo: 72 },
+      { year: 2021, questionNo: 67 },
+      { year: 2025, questionNo: 68 },
+    ],
+  },
+  {
+    slug: "rescission-effect-third-party",
+    chapterKo: "계약법",
+    sectionKo: "계약법 총론",
+    category: "계약총론",
+    subcategory: "계약해제",
+    titleKo: "해제의 효과 (원상회복·제3자 보호)",
+    titleEn: "Effect of Rescission: Restitution and Third-Party Protection",
+    definition:
+      "계약이 해제되면 각 당사자는 원상회복의무를 부담하고 이는 동시이행관계에 있으며, 해제 전에 등기를 마치는 등 완전한 권리를 취득한 제3자는 보호된다.",
+    intuition:
+      "해제는 계약을 소급적으로 없었던 일로 만들지만, 그 사이에 새로운 이해관계를 맺은 제3자의 신뢰까지 깨뜨리면 거래 안전이 흔들리므로 일정한 제3자는 보호해주는 것이다.",
+    keyPoints: [
+      "계약해제로 인한 당사자 쌍방의 원상회복의무는 동시이행관계에 있으며, 받은 급부에 이자를 가산하여 반환해야 한다.",
+      "해제 전 매수인으로부터 부동산을 매수하여 소유권이전등기를 마친 자는 보호되는 제3자에 해당한다.",
+      "단순히 매도인의 채권자가 목적물을 가압류한 사정만으로는 매수인이 계약을 즉시 해제할 수 있는 것은 아니다.",
+    ],
+    pitfalls:
+      "해제 후에 이해관계를 맺은 자까지 '제3자 보호' 대상으로 착각하기 쉽다 — 보호되는 제3자는 원칙적으로 해제 '전'에 등기 등으로 완전한 권리를 취득한 자에 한정된다.",
+    example:
+      "매수인이 대금을 완납하지 않아 매매계약이 해제되기 전, 그 매수인으로부터 다시 부동산을 매수해 이전등기까지 마친 사람은 해제의 영향을 받지 않고 소유권을 보유한다.",
+    questionRefs: [
+      { year: 2016, questionNo: 80 },
+      { year: 2019, questionNo: 67 },
+      { year: 2024, questionNo: 71 },
+      { year: 2024, questionNo: 72 },
+    ],
+  },
+  {
     slug: "sale-formation-earnest-money",
     chapterKo: "계약법",
+    sectionKo: "매매",
     category: "매매",
     subcategory: "매매",
     titleKo: "매매의 성립과 과실귀속·대금이자",
@@ -1114,6 +1178,7 @@ const concepts: Concept[] = [
   {
     slug: "seller-warranty-liability",
     chapterKo: "계약법",
+    sectionKo: "매매",
     category: "매매",
     subcategory: "매매",
     titleKo: "매도인의 담보책임",
@@ -1143,11 +1208,12 @@ const concepts: Concept[] = [
   {
     slug: "repurchase-right",
     chapterKo: "계약법",
+    sectionKo: "매매",
     category: "매매",
     subcategory: "매매",
+    parentSlug: "seller-warranty-liability",
     titleKo: "환매권의 성립과 대항력",
     titleEn: "Establishment and Enforceability of the Right of Repurchase",
-    parentSlug: "seller-warranty-liability",
     definition:
       "부동산 환매권은 매매등기와 동시에 환매특약을 등기해야 제3자에게 대항할 수 있으며, 환매기간은 부동산의 경우 5년을 넘지 못한다.",
     intuition:
@@ -1172,11 +1238,12 @@ const concepts: Concept[] = [
   {
     slug: "unilateral-promise-to-sell",
     chapterKo: "계약법",
+    sectionKo: "매매",
     category: "매매",
     subcategory: "매매",
+    parentSlug: "seller-warranty-liability",
     titleKo: "매매의 일방예약과 예약완결권",
     titleEn: "Unilateral Promise to Sell and the Right to Complete the Contract",
-    parentSlug: "seller-warranty-liability",
     definition:
       "매매의 일방예약은 예약완결권자의 일방적 의사표시만으로 본계약(매매)이 성립하는 채권계약이며, 예약완결권은 당사자가 행사기간을 정하지 않았다면 예약이 성립한 때로부터 10년 내에 행사해야 하는 제척기간에 걸린다.",
     intuition:
@@ -1200,6 +1267,7 @@ const concepts: Concept[] = [
   {
     slug: "exchange-contract",
     chapterKo: "계약법",
+    sectionKo: "교환",
     category: "교환",
     subcategory: "교환",
     titleKo: "교환계약의 특성",
@@ -1221,6 +1289,7 @@ const concepts: Concept[] = [
   {
     slug: "lease-cost-reimbursement",
     chapterKo: "계약법",
+    sectionKo: "임대차",
     category: "임대차",
     subcategory: "임대차",
     titleKo: "임차인의 비용상환청구권",
@@ -1247,6 +1316,7 @@ const concepts: Concept[] = [
   {
     slug: "unauthorized-sublease",
     chapterKo: "계약법",
+    sectionKo: "임대차",
     category: "임대차",
     subcategory: "임대차",
     titleKo: "무단전대·동의부 전대차와 임대차 해지",
@@ -1276,11 +1346,12 @@ const concepts: Concept[] = [
   {
     slug: "lease-terms-rent-deposit",
     chapterKo: "계약법",
+    sectionKo: "임대차",
     category: "임대차",
     subcategory: "임대차",
+    parentSlug: "unauthorized-sublease",
     titleKo: "임대차의 차임·보증금 약정",
     titleEn: "Rent and Security Deposit Agreements in Lease",
-    parentSlug: "unauthorized-sublease",
     definition:
       "임대차 종료 후 보증금이 반환되지 않으면 임차인이 목적물을 계속 점유하더라도 그 점유가 불법점유가 되는 것은 아니며(동시이행항변권), 차임 증감청구권은 사정변경이 있는 경우 당사자 일방이 장래에 대하여 행사할 수 있다.",
     intuition:
@@ -1304,11 +1375,12 @@ const concepts: Concept[] = [
   {
     slug: "land-lessee-rights",
     chapterKo: "계약법",
+    sectionKo: "임대차",
     category: "임대차",
     subcategory: "임대차",
+    parentSlug: "unauthorized-sublease",
     titleKo: "건물 소유 목적 토지임차인의 특유 권리",
     titleEn: "Special Rights of Land Lessees for Building Ownership",
-    parentSlug: "unauthorized-sublease",
     definition:
       "건물 소유를 목적으로 토지를 임차한 자는 임대차를 등기하지 않아도 그 지상건물을 등기하면 제3자에게 대항할 수 있고, 기간 만료 시 지상건물이 현존하면 계약갱신을 청구할 수 있으며 갱신이 거절되면 지상물매수청구권을 행사할 수 있다.",
     intuition:
@@ -1327,11 +1399,11 @@ const concepts: Concept[] = [
       { year: 2022, questionNo: 73 },
     ],
   },
-
-  // ───────── 제4편 민사특별법 ─────────
+  // ───────── 민사특별법 ─────────
   {
     slug: "housing-lease-protection-act",
     chapterKo: "민사특별법",
+    sectionKo: "주택임대차보호법",
     category: "민사특별법",
     subcategory: "주택임대차보호법",
     titleKo: "주택임대차보호법의 적용범위",
@@ -1353,6 +1425,7 @@ const concepts: Concept[] = [
   {
     slug: "commercial-lease-protection-act",
     chapterKo: "민사특별법",
+    sectionKo: "상가건물 임대차보호법",
     category: "민사특별법",
     subcategory: "상가건물임대차보호법",
     titleKo: "상가건물임대차보호법상 대항력과 우선변제권",
@@ -1372,29 +1445,9 @@ const concepts: Concept[] = [
       "사업자등록 대상이 아닌 종교시설 용도의 건물을 임차한 경우에는 상가임대차법의 보호를 받지 못한다.",
   },
   {
-    slug: "title-trust",
-    chapterKo: "민사특별법",
-    category: "민사특별법",
-    subcategory: "명의신탁",
-    titleKo: "명의신탁의 유형과 효력 (부동산실명법 제4조)",
-    titleEn: "Types and Effect of Title Trust",
-    definition:
-      "명의신탁약정과 그에 따른 등기는 원칙적으로 무효이나, 경매에서 매도인(법원)이 명의신탁 사실을 몰랐다면 명의수탁자(매수인)는 유효하게 소유권을 취득한다.",
-    intuition:
-      "부동산실명법의 취지는 '등기명의와 실제 권리자를 일치시키는 것'이지만, 거래의 안전(특히 법원의 경매절차)까지 희생시킬 수는 없어 예외를 둔 것으로 이해하면 된다.",
-    keyPoints: [
-      "계약명의신탁: 명의신탁자가 자금을 대고 명의수탁자 명의로 매도인과 직접 계약·등기하는 유형.",
-      "경매에서의 계약명의신탁은 매도인(법원)이 명의신탁 사실을 알았는지 여부가 문제되지 않는다 — 경매는 공적 절차이므로 원소유자가 알았더라도 명의수탁자는 유효하게 소유권을 취득한다(부동산실명법 제4조 제2항).",
-      "3자간 등기명의신탁: 신탁자가 매도인과 직접 계약하되 등기만 수탁자 명의로 하는 유형으로, 계약명의신탁과 구별해야 한다.",
-    ],
-    pitfalls:
-      "'원소유자가 명의신탁 사실을 알았다면 명의수탁자는 소유권을 취득하지 못한다'는 서술은 경매의 경우 틀린 설명이다.",
-    example:
-      "甲이 자금을 대며 丙 명의로 법원 경매에 참가하게 하여 丙이 낙찰받은 경우, 원소유자(채무자)가 명의신탁 사실을 알았더라도 丙은 유효하게 소유권을 취득한다.",
-  },
-  {
     slug: "aggregate-building-act",
     chapterKo: "민사특별법",
+    sectionKo: "집합건물의 소유 및 관리에 관한 법률",
     category: "민사특별법",
     subcategory: "집합건물법",
     titleKo: "집합건물법상 전유부분과 재건축 결의",
@@ -1416,6 +1469,7 @@ const concepts: Concept[] = [
   {
     slug: "provisional-registration-security-act",
     chapterKo: "민사특별법",
+    sectionKo: "가등기담보 등에 관한 법률",
     category: "민사특별법",
     subcategory: "가등기담보",
     titleKo: "가등기담보법의 청산절차",
@@ -1435,25 +1489,26 @@ const concepts: Concept[] = [
       "채권자가 청산금을 계산해 채무자에게 통지한 후 2개월의 청산기간이 지나야, 채무자가 변제하지 않는 한 채권자가 확정적으로 소유권을 취득한다.",
   },
   {
-    slug: "land-transaction-permit-act",
+    slug: "title-trust",
     chapterKo: "민사특별법",
+    sectionKo: "부동산 실권리자명의 등기에 관한 법률",
     category: "민사특별법",
-    subcategory: "토지거래허가",
-    titleKo: "토지거래허가와 유동적 무효",
-    titleEn: "Land Transaction Permits and Provisional Invalidity",
+    subcategory: "명의신탁",
+    titleKo: "명의신탁의 유형과 효력 (부동산실명법 제4조)",
+    titleEn: "Types and Effect of Title Trust",
     definition:
-      "토지거래허가구역 내 토지에 관한 계약은 허가를 받기 전까지 유동적 무효 상태에 있으며, 이때 매수인이 지급한 계약금은 해약금으로 추정된다(제565조 제1항).",
+      "명의신탁약정과 그에 따른 등기는 원칙적으로 무효이나, 경매에서 매도인(법원)이 명의신탁 사실을 몰랐다면 명의수탁자(매수인)는 유효하게 소유권을 취득한다.",
     intuition:
-      "'유동적 무효'는 허가를 받으면 계약 체결 시로 소급하여 유효가 되고, 불허가로 확정되면 무효로 확정되는 잠정적 상태라고 이해하면 다른 무효·취소 제도와 구별이 쉬워진다.",
+      "부동산실명법의 취지는 '등기명의와 실제 권리자를 일치시키는 것'이지만, 거래의 안전(특히 법원의 경매절차)까지 희생시킬 수는 없어 예외를 둔 것으로 이해하면 된다.",
     keyPoints: [
-      "허가를 받지 않은 상태의 토지거래계약은 유동적 무효 상태에 있다.",
-      "매수인이 지급한 계약금은 해약금으로 추정한다(제565조 제1항).",
-      "허가를 받으면 계약은 처음(계약체결 시)으로 소급하여 유효가 된다.",
+      "계약명의신탁: 명의신탁자가 자금을 대고 명의수탁자 명의로 매도인과 직접 계약·등기하는 유형.",
+      "경매에서의 계약명의신탁은 매도인(법원)이 명의신탁 사실을 알았는지 여부가 문제되지 않는다 — 경매는 공적 절차이므로 원소유자가 알았더라도 명의수탁자는 유효하게 소유권을 취득한다(부동산실명법 제4조 제2항).",
+      "3자간 등기명의신탁: 신탁자가 매도인과 직접 계약하되 등기만 수탁자 명의로 하는 유형으로, 계약명의신탁과 구별해야 한다.",
     ],
     pitfalls:
-      "유동적 무효 상태의 계약을 통정허위표시나 반사회질서 법률행위처럼 확정적 무효로 착각하기 쉽다 — 허가 여부에 따라 유효·무효가 갈리는 잠정적 상태다.",
+      "'원소유자가 명의신탁 사실을 알았다면 명의수탁자는 소유권을 취득하지 못한다'는 서술은 경매의 경우 틀린 설명이다.",
     example:
-      "토지거래허가구역 내 토지를 매매하며 계약금을 지급한 경우, 아직 허가를 받지 못한 단계에서는 계약이 유동적 무효 상태이지만 추후 허가를 받으면 계약체결 시로 소급하여 유효해진다.",
+      "甲이 자금을 대며 丙 명의로 법원 경매에 참가하게 하여 丙이 낙찰받은 경우, 원소유자(채무자)가 명의신탁 사실을 알았더라도 丙은 유효하게 소유권을 취득한다.",
   },
 ];
 

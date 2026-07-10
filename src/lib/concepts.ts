@@ -9,8 +9,10 @@ import realestatePublicLawConcepts from "@/data/concepts/realestate-public-law";
 
 export interface Concept {
   slug: string;
-  /** 교재 목차상 대분류 (예: "민법총칙", "물권법", "계약법", "민사특별법") */
+  /** 교재 목차상 PART(대단원) (예: "민법총칙", "물권법", "계약법", "민사특별법") */
   chapterKo?: string;
+  /** 교재 목차상 CHAPTER(중단원). 없으면 category를 그대로 중단원명으로 사용한다. */
+  sectionKo?: string;
   category: string;
   subcategory: string;
   titleKo: string;

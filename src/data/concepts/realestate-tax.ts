@@ -3,38 +3,14 @@ import type { Concept } from "@/lib/concepts";
 const concepts: Concept[] = [
   // ───────── 조세총론 ─────────
   {
-    slug: "tax-liability-priority",
-    chapterKo: "조세총론",
-    category: "조세총론",
-    subcategory: "납세의무 성립시기",
-    titleKo: "담보 있는 조세채권과 압류 조세채권의 우선순위",
-    titleEn: "Priority between Secured and Seized Tax Claims",
-    definition:
-      "납세담보물을 매각하였을 때, 담보 있는 조세채권은 그 압류에 관계되는 조세채권보다 우선하여 변제받는다.",
-    intuition:
-      "담보를 제공받은 조세채권은 특정 재산에 대한 우선권을 이미 확보한 것이므로, 나중에 생긴 압류 조세채권보다 앞서는 것이 담보 제도의 취지에 부합한다.",
-    keyPoints: [
-      "납세담보물 매각 시, 담보 있는 조세채권이 압류에 관계되는 조세채권보다 우선한다.",
-      "재산분 주민세의 납세의무 성립시기는 매년 7월 1일이다.",
-      "국세와 지방세, 담보 유무에 따른 우선순위 규정을 구분해서 정리해야 한다.",
-    ],
-    pitfalls:
-      "우선순위를 반대로 서술하는 지문(압류 조세채권이 우선한다는 식)에 주의해야 한다.",
-    example:
-      "납세담보로 제공된 부동산이 매각된 경우, 그 담보에 관계된 조세채권은 나중에 그 재산을 압류한 다른 조세채권보다 먼저 변제받는다.",
-    questionRefs: [
-      { year: 2018, questionNo: 25 },
-      { year: 2019, questionNo: 27 },
-    ],
-  },
-  {
     slug: "tax-liability-establishment-date",
     chapterKo: "조세총론",
+    sectionKo: "조세총론",
     category: "조세총론",
     subcategory: "납세의무 성립시기",
+    parentSlug: "tax-liability-priority",
     titleKo: "세목별 납세의무 성립시기",
     titleEn: "Timing of Tax Liability Establishment by Tax Item",
-    parentSlug: "tax-liability-priority",
     definition:
       "재산분 주민세의 납세의무 성립시기는 매년 7월 1일이며, 증여로 인한 취득세는 증여계약일에, 신고한 취득세는 그 신고일이 법정기일이 되고, 토지에 대한 양도소득세의 납세의무 성립시기는 과세기간이 끝나는 때다.",
     intuition:
@@ -58,40 +34,14 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "tax-appeal-procedure",
-    chapterKo: "조세총론",
-    category: "조세총론",
-    subcategory: "납세의무 성립시기",
-    titleKo: "조세 불복절차 (이의신청·심사청구·심판청구)",
-    titleEn: "Tax Appeal Procedures",
-    parentSlug: "tax-liability-priority",
-    definition:
-      "지방세기본법에 따른 과태료 부과처분을 받은 자는 이의신청·심사청구·심판청구를 할 수 없으며, 이의신청인은 신청·청구 금액이 1천만원 미만인 경우 배우자 등을 대리인으로 선임할 수 있다.",
-    intuition:
-      "조세 불복절차는 '과세처분(세금 부과)'에 대한 불복 수단이므로, 질서벌인 과태료처럼 처음부터 이 절차의 대상이 아닌 처분과 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "과태료 부과처분은 이의신청·심사청구·심판청구의 대상이 아니다.",
-      "이의신청인은 신청·청구 금액이 1천만원 미만인 경우, 배우자 등을 대리인으로 선임할 수 있다.",
-      "감사원법에 따른 심사청구 결정으로 명의대여 사실이 확인되면, 그 결정이 확정된 날부터 1년 이내에 실제 사업자에게 경정 등 필요한 처분을 할 수 있다.",
-    ],
-    pitfalls:
-      "과태료 처분도 이의신청 대상이라고 착각하기 쉽다 — 과태료는 불복절차의 대상이 아니다.",
-    example:
-      "신청금액이 800만원인 이의신청인은 1천만원 미만 기준을 충족하므로 배우자를 대리인으로 선임할 수 있다.",
-    questionRefs: [
-      { year: 2019, questionNo: 26 },
-      { year: 2022, questionNo: 25 },
-      { year: 2023, questionNo: 25 },
-    ],
-  },
-  {
     slug: "tax-collection-and-notice",
     chapterKo: "조세총론",
+    sectionKo: "조세총론",
     category: "조세총론",
-    subcategory: "납세의무 성립시기",
+    subcategory: "납세의무 확장",
+    parentSlug: "tax-liability-priority",
     titleKo: "지방세의 징수 방법과 고지·연대납부",
     titleEn: "Local Tax Collection Methods, Notice, and Joint Liability",
-    parentSlug: "tax-liability-priority",
     definition:
       "'보통징수'는 세무공무원이 납세고지서를 발급하여 지방세를 징수하는 것을 말하며, 연대납세의무자에게는 납세고지서를 각자에게 모두 송달해야 하고, 공동상속인은 각자 상속받은 취득물건을 취득한 것으로 보되 취득세를 연대하여 납부할 의무를 진다.",
     intuition:
@@ -115,8 +65,31 @@ const concepts: Concept[] = [
     ],
   },
   {
+    slug: "non-filing-penalty",
+    chapterKo: "조세총론",
+    sectionKo: "조세총론",
+    category: "조세총론",
+    subcategory: "가산세",
+    titleKo: "무신고가산세의 세율",
+    titleEn: "Rate of the Non-Filing Penalty Tax",
+    definition:
+      "사기나 그 밖의 부정한 행위로 인하지 않은 일반 무신고의 경우, 무신고가산세는 납부세액의 100분의 20에 상당하는 금액이다.",
+    intuition:
+      "가산세는 단순 실수(일반 무신고)와 고의적 부정행위(부정 무신고)를 구분해 후자에 훨씬 무거운 제재를 가하는 구조이므로, 두 세율을 짝지어 암기하는 것이 효율적이다.",
+    keyPoints: [
+      "부정행위로 인하지 않은 일반 무신고가산세는 납부세액의 100분의 20이다.",
+      "사기나 부정한 행위로 인한 무신고의 경우에는 이보다 훨씬 높은 세율의 가산세가 적용된다.",
+      "가산세는 본세와 별개로 부과되며, 신고기한 준수 여부와 무관하게 성립한 본세 납부의무에 추가된다.",
+    ],
+    pitfalls:
+      "일반 무신고가산세율과 부정 무신고가산세율을 혼동하기 쉽다 — 세율 차이를 정확히 구분해서 암기해야 한다.",
+    example:
+      "단순히 신고기한을 놓쳐 양도소득세를 무신고한 경우(부정행위 없음), 무신고가산세는 납부세액의 20%로 계산된다.",
+  },
+  {
     slug: "tax-liability-extinction",
     chapterKo: "조세총론",
+    sectionKo: "조세총론",
     category: "조세총론",
     subcategory: "납세의무 소멸",
     titleKo: "지방세 납부의무의 소멸사유",
@@ -136,31 +109,64 @@ const concepts: Concept[] = [
       "지방세를 체납한 법인이 다른 법인에 합병되었다면, 그 납세의무는 소멸하지 않고 합병법인에 그대로 승계된다.",
   },
   {
-    slug: "non-filing-penalty",
+    slug: "tax-liability-priority",
     chapterKo: "조세총론",
+    sectionKo: "조세총론",
     category: "조세총론",
-    subcategory: "가산세",
-    titleKo: "무신고가산세의 세율",
-    titleEn: "Rate of the Non-Filing Penalty Tax",
+    subcategory: "조세우선권",
+    titleKo: "담보 있는 조세채권과 압류 조세채권의 우선순위",
+    titleEn: "Priority between Secured and Seized Tax Claims",
     definition:
-      "사기나 그 밖의 부정한 행위로 인하지 않은 일반 무신고의 경우, 무신고가산세는 납부세액의 100분의 20에 상당하는 금액이다.",
+      "납세담보물을 매각하였을 때, 담보 있는 조세채권은 그 압류에 관계되는 조세채권보다 우선하여 변제받는다.",
     intuition:
-      "가산세는 단순 실수(일반 무신고)와 고의적 부정행위(부정 무신고)를 구분해 후자에 훨씬 무거운 제재를 가하는 구조이므로, 두 세율을 짝지어 암기하는 것이 효율적이다.",
+      "담보를 제공받은 조세채권은 특정 재산에 대한 우선권을 이미 확보한 것이므로, 나중에 생긴 압류 조세채권보다 앞서는 것이 담보 제도의 취지에 부합한다.",
     keyPoints: [
-      "부정행위로 인하지 않은 일반 무신고가산세는 납부세액의 100분의 20이다.",
-      "사기나 부정한 행위로 인한 무신고의 경우에는 이보다 훨씬 높은 세율의 가산세가 적용된다.",
-      "가산세는 본세와 별개로 부과되며, 신고기한 준수 여부와 무관하게 성립한 본세 납부의무에 추가된다.",
+      "납세담보물 매각 시, 담보 있는 조세채권이 압류에 관계되는 조세채권보다 우선한다.",
+      "재산분 주민세의 납세의무 성립시기는 매년 7월 1일이다.",
+      "국세와 지방세, 담보 유무에 따른 우선순위 규정을 구분해서 정리해야 한다.",
     ],
     pitfalls:
-      "일반 무신고가산세율과 부정 무신고가산세율을 혼동하기 쉽다 — 세율 차이를 정확히 구분해서 암기해야 한다.",
+      "우선순위를 반대로 서술하는 지문(압류 조세채권이 우선한다는 식)에 주의해야 한다.",
     example:
-      "단순히 신고기한을 놓쳐 양도소득세를 무신고한 경우(부정행위 없음), 무신고가산세는 납부세액의 20%로 계산된다.",
+      "납세담보로 제공된 부동산이 매각된 경우, 그 담보에 관계된 조세채권은 나중에 그 재산을 압류한 다른 조세채권보다 먼저 변제받는다.",
+    questionRefs: [
+      { year: 2018, questionNo: 25 },
+      { year: 2019, questionNo: 27 },
+    ],
   },
-
-  // ───────── 취득세·등록면허세 ─────────
+  {
+    slug: "tax-appeal-procedure",
+    chapterKo: "조세총론",
+    sectionKo: "조세총론",
+    category: "조세총론",
+    subcategory: "조세불복",
+    parentSlug: "tax-liability-priority",
+    titleKo: "조세 불복절차 (이의신청·심사청구·심판청구)",
+    titleEn: "Tax Appeal Procedures",
+    definition:
+      "지방세기본법에 따른 과태료 부과처분을 받은 자는 이의신청·심사청구·심판청구를 할 수 없으며, 이의신청인은 신청·청구 금액이 1천만원 미만인 경우 배우자 등을 대리인으로 선임할 수 있다.",
+    intuition:
+      "조세 불복절차는 '과세처분(세금 부과)'에 대한 불복 수단이므로, 질서벌인 과태료처럼 처음부터 이 절차의 대상이 아닌 처분과 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "과태료 부과처분은 이의신청·심사청구·심판청구의 대상이 아니다.",
+      "이의신청인은 신청·청구 금액이 1천만원 미만인 경우, 배우자 등을 대리인으로 선임할 수 있다.",
+      "감사원법에 따른 심사청구 결정으로 명의대여 사실이 확인되면, 그 결정이 확정된 날부터 1년 이내에 실제 사업자에게 경정 등 필요한 처분을 할 수 있다.",
+    ],
+    pitfalls:
+      "과태료 처분도 이의신청 대상이라고 착각하기 쉽다 — 과태료는 불복절차의 대상이 아니다.",
+    example:
+      "신청금액이 800만원인 이의신청인은 1천만원 미만 기준을 충족하므로 배우자를 대리인으로 선임할 수 있다.",
+    questionRefs: [
+      { year: 2019, questionNo: 26 },
+      { year: 2022, questionNo: 25 },
+      { year: 2023, questionNo: 25 },
+    ],
+  },
+  // ───────── 지방세 ─────────
   {
     slug: "acquisition-tax-base",
-    chapterKo: "취득세·등록면허세",
+    chapterKo: "지방세",
+    sectionKo: "취득세",
     category: "취득세등록면허세",
     subcategory: "취득세",
     titleKo: "취득세 과세표준(취득가격)의 범위",
@@ -184,12 +190,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "acquisition-timing",
-    chapterKo: "취득세·등록면허세",
+    chapterKo: "지방세",
+    sectionKo: "취득세",
     category: "취득세등록면허세",
     subcategory: "취득세",
+    parentSlug: "acquisition-tax-base",
     titleKo: "취득세의 취득시기",
     titleEn: "Timing of Acquisition for Acquisition Tax",
-    parentSlug: "acquisition-tax-base",
     definition:
       "상속으로 인한 취득의 취득시기는 상속개시일이며, 연부로 취득하는 경우에는 사실상의 연부금 지급일(취득일 전 등기·등록 시에는 그 등기·등록일)을 취득일로 본다. 부동산은 등기하지 않았더라도 사실상 취득하면 취득한 것으로 본다.",
     intuition:
@@ -215,12 +222,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "acquisition-tax-standard-rate",
-    chapterKo: "취득세·등록면허세",
+    chapterKo: "지방세",
+    sectionKo: "취득세",
     category: "취득세등록면허세",
     subcategory: "취득세",
+    parentSlug: "acquisition-tax-base",
     titleKo: "취득세 표준세율의 비교",
     titleEn: "Comparing Standard Acquisition Tax Rates",
-    parentSlug: "acquisition-tax-base",
     definition:
       "농지를 유상취득하는 경우의 표준세율(1천분의 30)은 다른 취득 원인의 세율보다 높은 편이며, 공유농지를 분할로 취득하거나 상속으로 농지를 취득하는 경우에는 이보다 낮은 1천분의 23이 적용된다. 환매등기를 병행한 부동산의 환매기간 내 환매는 표준세율에서 중과기준세율을 뺀 세율이 적용된다.",
     intuition:
@@ -243,12 +251,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "deemed-acquisition-trust",
-    chapterKo: "취득세·등록면허세",
+    chapterKo: "지방세",
+    sectionKo: "취득세",
     category: "취득세등록면허세",
     subcategory: "취득세",
+    parentSlug: "acquisition-tax-base",
     titleKo: "과점주주의 간주취득세와 신탁재산 취득",
     titleEn: "Deemed Acquisition Tax for Majority Shareholders and Trust Property",
-    parentSlug: "acquisition-tax-base",
     definition:
       "법인설립 시 발행하는 주식을 취득해 과점주주가 된 경우나 과점주주 집단 내부에서 지분 비율 변동 없이 주식이 이전된 경우에는 간주취득세가 과세되지 않으며, 위탁자·수탁자 간 신탁재산 이전이나 신탁 종료·수탁자 변경으로 인한 이전도 형식적 소유권 이전으로 취득세가 부과되지 않는다.",
     intuition:
@@ -269,12 +278,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "acquisition-tax-exemption-procedure",
-    chapterKo: "취득세·등록면허세",
+    chapterKo: "지방세",
+    sectionKo: "취득세",
     category: "취득세등록면허세",
     subcategory: "취득세",
+    parentSlug: "acquisition-tax-base",
     titleKo: "취득세의 비과세와 신고·납부 절차",
     titleEn: "Acquisition Tax Exemptions and Filing Procedure",
-    parentSlug: "acquisition-tax-base",
     definition:
       "시가표준액 9억원 이하 주택의 개수(대수선 제외)나 상호주의에 따른 외국정부의 취득에는 취득세가 부과되지 않으며, 취득세는 등기·등록 신청서를 접수하는 날까지 신고·납부해야 한다.",
     intuition:
@@ -303,12 +313,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "structural-component-acquisition",
-    chapterKo: "취득세·등록면허세",
+    chapterKo: "지방세",
+    sectionKo: "취득세",
     category: "취득세등록면허세",
     subcategory: "취득세",
+    parentSlug: "acquisition-tax-base",
     titleKo: "건축물 부대설비의 취득 귀속",
     titleEn: "Attribution of Ancillary Building Facilities in Acquisition",
-    parentSlug: "acquisition-tax-base",
     definition:
       "건축물 중 조작설비 등 부대설비 부분이 주체구조부와 하나가 되어 건축물로서의 효용가치를 이루고 있다면, 주체구조부 취득자가 아닌 자가 그 부대설비를 가설했더라도 주체구조부의 취득자가 이를 함께 취득한 것으로 본다.",
     intuition:
@@ -329,7 +340,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "registration-tax-standard-rate",
-    chapterKo: "취득세·등록면허세",
+    chapterKo: "지방세",
+    sectionKo: "등록면허세",
     category: "취득세등록면허세",
     subcategory: "등록면허세",
     titleKo: "등록면허세의 표준세율과 납세지",
@@ -345,23 +357,24 @@ const concepts: Concept[] = [
     ],
     pitfalls:
       "전세권 등록면허세율을 다른 권리(저당권 등)의 세율과 혼동하지 않도록 주의한다.",
+    example:
+      "전세금 2억원짜리 전세권을 설정할 때 등록면허세는 2억원의 1천분의 2, 즉 40만원이 표준세율에 따른 세액이다.",
     questionRefs: [
       { year: 2017, questionNo: 35 },
       { year: 2018, questionNo: 40 },
       { year: 2020, questionNo: 35 },
       { year: 2021, questionNo: 31 },
     ],
-    example:
-      "전세금 2억원짜리 전세권을 설정할 때 등록면허세는 2억원의 1천분의 2, 즉 40만원이 표준세율에 따른 세액이다.",
   },
   {
     slug: "registration-tax-exemption-and-filing",
-    chapterKo: "취득세·등록면허세",
+    chapterKo: "지방세",
+    sectionKo: "등록면허세",
     category: "취득세등록면허세",
     subcategory: "등록면허세",
+    parentSlug: "registration-tax-standard-rate",
     titleKo: "등록면허세의 비과세와 신고·납부",
     titleEn: "Registration Tax Exemptions and Filing Procedure",
-    parentSlug: "registration-tax-standard-rate",
     definition:
       "국가·지방자치단체가 자기를 위하여 받는 등기·등록에는 등록면허세를 부과하지 않으며, 등록면허세는 등록을 하기 전까지 신고·납부해야 하고 신고 없이 산출세액을 등록 전까지 납부하면 신고·납부한 것으로 본다.",
     intuition:
@@ -386,43 +399,15 @@ const concepts: Concept[] = [
       { year: 2025, questionNo: 27 },
     ],
   },
-
-  // ───────── 재산세 ─────────
-  {
-    slug: "property-tax-taxable-object",
-    chapterKo: "재산세",
-    category: "재산세",
-    subcategory: "재산세 과세대상",
-    titleKo: "재산세 비과세 대상",
-    titleEn: "Property Tax Exemptions",
-    definition:
-      "임시로 사용하기 위해 건축된 건축물로서 재산세 과세기준일 현재 1년 미만인 것, 농업용 구거, 산림자원의 조성 및 관리에 관한 법률에 따라 지정된 채종림·시험림 등은 재산세 비과세 대상이다.",
-    intuition:
-      "재산세 비과세 목록은 '영속성이 낮은 재산(임시건축물)'이나 '공익·정책 목적으로 국가가 이미 관리하는 재산(보호구역, 시험림 등)'을 과세 대상에서 제외한다는 공통된 취지로 묶을 수 있다.",
-    keyPoints: [
-      "임시 사용 목적 건축물로서 과세기준일 현재 1년 미만인 것은 재산세 비과세 대상이다.",
-      "농업용 구거, 자연유수의 배수처리에 제공하는 구거, 채종림·시험림은 비과세 대상이다.",
-      "철거 계획이 확정되어 철거명령을 받은 주택은 비과세 대상이 될 수 있지만, 그 부속토지(대지)는 비과세 대상에서 제외되어 계속 과세된다.",
-      "재산세가 비과세되는 건축물에는 지역자원시설세도 함께 비과세된다.",
-    ],
-    pitfalls:
-      "1년 미만 임시 건축물을 무조건 과세대상으로 보는 실수가 있을 수 있다 — 비과세 대상임을 기억해야 한다. 철거명령 받은 주택의 부속토지까지 비과세라고 착각하는 것도 흔한 오답이다.",
-    example:
-      "공사 현장의 임시 가설건축물이 과세기준일 현재 설치된 지 10개월밖에 되지 않았다면 재산세가 부과되지 않는다.",
-    questionRefs: [
-      { year: 2017, questionNo: 28 },
-      { year: 2019, questionNo: 32 },
-      { year: 2020, questionNo: 33 },
-    ],
-  },
   {
     slug: "property-tax-object-classification",
-    chapterKo: "재산세",
+    chapterKo: "지방세",
+    sectionKo: "재산세",
     category: "재산세",
     subcategory: "재산세 과세대상",
+    parentSlug: "property-tax-taxable-object",
     titleKo: "재산세 과세대상의 구분 (종합합산·별도합산·분리과세)",
     titleEn: "Classification of Property Tax Objects",
-    parentSlug: "property-tax-taxable-object",
     definition:
       "토지에 대한 재산세 과세대상은 종합합산·별도합산·분리과세대상으로 구분되지만, 주택은 이러한 구분 없이 별도의 과세표준·세율 체계를 적용하며 건축물의 범위에는 주택이 포함되지 않는다. 1동의 건물이 주거와 주거 외 용도로 함께 쓰이면 주거용으로 쓰이는 부분만 주택으로 본다.",
     intuition:
@@ -446,13 +431,42 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "property-tax-taxpayer-determination",
-    chapterKo: "재산세",
+    slug: "property-tax-taxable-object",
+    chapterKo: "지방세",
+    sectionKo: "재산세",
     category: "재산세",
-    subcategory: "재산세 과세대상",
+    subcategory: "재산세 비과세",
+    titleKo: "재산세 비과세 대상",
+    titleEn: "Property Tax Exemptions",
+    definition:
+      "임시로 사용하기 위해 건축된 건축물로서 재산세 과세기준일 현재 1년 미만인 것, 농업용 구거, 산림자원의 조성 및 관리에 관한 법률에 따라 지정된 채종림·시험림 등은 재산세 비과세 대상이다.",
+    intuition:
+      "재산세 비과세 목록은 '영속성이 낮은 재산(임시건축물)'이나 '공익·정책 목적으로 국가가 이미 관리하는 재산(보호구역, 시험림 등)'을 과세 대상에서 제외한다는 공통된 취지로 묶을 수 있다.",
+    keyPoints: [
+      "임시 사용 목적 건축물로서 과세기준일 현재 1년 미만인 것은 재산세 비과세 대상이다.",
+      "농업용 구거, 자연유수의 배수처리에 제공하는 구거, 채종림·시험림은 비과세 대상이다.",
+      "철거 계획이 확정되어 철거명령을 받은 주택은 비과세 대상이 될 수 있지만, 그 부속토지(대지)는 비과세 대상에서 제외되어 계속 과세된다.",
+      "재산세가 비과세되는 건축물에는 지역자원시설세도 함께 비과세된다.",
+    ],
+    pitfalls:
+      "1년 미만 임시 건축물을 무조건 과세대상으로 보는 실수가 있을 수 있다 — 비과세 대상임을 기억해야 한다. 철거명령 받은 주택의 부속토지까지 비과세라고 착각하는 것도 흔한 오답이다.",
+    example:
+      "공사 현장의 임시 가설건축물이 과세기준일 현재 설치된 지 10개월밖에 되지 않았다면 재산세가 부과되지 않는다.",
+    questionRefs: [
+      { year: 2017, questionNo: 28 },
+      { year: 2019, questionNo: 32 },
+      { year: 2020, questionNo: 33 },
+    ],
+  },
+  {
+    slug: "property-tax-taxpayer-determination",
+    chapterKo: "지방세",
+    sectionKo: "재산세",
+    category: "재산세",
+    subcategory: "재산세 납세의무자",
+    parentSlug: "property-tax-taxable-object",
     titleKo: "재산세 납세의무자의 판정 사례",
     titleEn: "Case-Based Determination of Property Tax Taxpayers",
-    parentSlug: "property-tax-taxable-object",
     definition:
       "공부상 개인 명의로 등재된 종중재산을 종중소유로 신고하지 않았다면 공부상 소유자가, 상속등기가 이행되지 않고 사실상 소유자를 신고하지 않았다면 행정안전부령으로 정하는 주된 상속자가, 소유권 귀속이 분명하지 않은 경우에는 그 사용자가 재산세 납세의무자가 된다.",
     intuition:
@@ -473,8 +487,31 @@ const concepts: Concept[] = [
     ],
   },
   {
+    slug: "property-tax-taxpayer-co-ownership",
+    chapterKo: "지방세",
+    sectionKo: "재산세",
+    category: "재산세",
+    subcategory: "재산세 납세의무자",
+    titleKo: "공유재산의 재산세 납세의무자",
+    titleEn: "Taxpayer of Property Tax for Co-Owned Property",
+    definition:
+      "공유재산의 경우 그 지분에 해당하는 부분에 대하여는 그 지분권자를 납세의무자로 보며, 지분의 표시가 없는 경우에는 지분이 균등한 것으로 본다.",
+    intuition:
+      "재산세는 '재산을 사실상 소유한 자'에게 부과하는 세금이므로, 공유재산이라면 소유한 지분만큼만 그 사람에게 납세의무를 지우는 것이 자연스럽다.",
+    keyPoints: [
+      "공유재산은 그 지분에 해당하는 부분에 대해 지분권자를 납세의무자로 본다.",
+      "지분의 표시가 없는 경우에는 지분이 균등한 것으로 추정한다.",
+      "주된 재산이 아닌 재산에 대해서도 사실상 소유자를 기준으로 납세의무자를 정한다는 원칙이 함께 적용된다.",
+    ],
+    pitfalls:
+      "공유재산 전체에 대해 대표 공유자 1인이 납세의무를 진다고 착각하기 쉽다 — 각자의 지분만큼만 의무를 진다.",
+    example:
+      "토지를 3인이 지분 표시 없이 공유하고 있다면, 재산세는 각자 3분의 1씩 균등한 지분을 가진 것으로 보아 각자에게 부과된다.",
+  },
+  {
     slug: "property-tax-base-date",
-    chapterKo: "재산세",
+    chapterKo: "지방세",
+    sectionKo: "재산세",
     category: "재산세",
     subcategory: "재산세 과세표준",
     titleKo: "재산세·종합부동산세의 과세기준일",
@@ -494,8 +531,67 @@ const concepts: Concept[] = [
       "6월 15일에 부동산을 매수해 소유권이전등기를 마쳤다면, 그 해의 재산세 납세의무자는 매도인(6월 1일 현재 소유자)이다.",
   },
   {
+    slug: "property-tax-fair-market-ratio",
+    chapterKo: "지방세",
+    sectionKo: "재산세",
+    category: "재산세",
+    subcategory: "재산세 과세표준",
+    parentSlug: "property-tax-rate-progressive",
+    titleKo: "공정시장가액비율과 시가표준액",
+    titleEn: "Fair Market Value Ratio and Standard Market Price",
+    definition:
+      "토지·건축물의 재산세 과세표준은 시가표준액에 공정시장가액비율(토지·건축물 70%, 주택 60%)을 곱하여 산정하며, 토지의 시가표준액은 개별공시지가가 공시된 경우 그 개별공시지가로 한다.",
+    intuition:
+      "공정시장가액비율은 '시가표준액을 그대로 과세표준으로 쓰면 세부담이 급격히 늘 수 있으니 일정 비율만 반영한다'는 완충장치라고 이해하면, 물건별로 다른 비율(토지·건축물 70%, 주택 60%)도 자연스럽게 암기된다.",
+    keyPoints: [
+      "토지·건축물의 재산세 과세표준 = 시가표준액 × 공정시장가액비율(100분의 70).",
+      "주택에 대한 재산세의 과세표준은 시가표준액에 공정시장가액비율(100분의 60, 또는 1세대 1주택 특례비율)을 곱한 금액이다.",
+      "토지의 시가표준액은 세목별 납세의무 성립시기 당시 개별공시지가가 공시된 경우 그 개별공시지가로 한다.",
+      "1세대 1주택으로 인정되는 주택 중 시가표준액이 6억원을 초과하는 주택에는 별도로 정해진 공정시장가액비율이 적용된다.",
+    ],
+    pitfalls:
+      "주택의 과세표준을 '시가표준액의 100분의 70'으로 착각하기 쉽다 — 주택은 100분의 60(또는 특례비율)이 적용된다.",
+    example:
+      "시가표준액 5억원인 일반 토지의 재산세 과세표준은 5억원의 70%인 3억 5천만원으로 산정된다.",
+    questionRefs: [
+      { year: 2019, questionNo: 33 },
+      { year: 2021, questionNo: 29 },
+      { year: 2021, questionNo: 30 },
+      { year: 2025, questionNo: 31 },
+    ],
+  },
+  {
+    slug: "property-tax-trust-and-special-levy",
+    chapterKo: "지방세",
+    sectionKo: "재산세",
+    category: "재산세",
+    subcategory: "재산세 과세표준",
+    parentSlug: "property-tax-rate-progressive",
+    titleKo: "신탁재산의 신고의무와 부과·징수 특례",
+    titleEn: "Trust Property Reporting Duty and Special Levy Rules",
+    definition:
+      "수탁자 명의로 등기·등록된 신탁재산의 수탁자는 과세기준일부터 15일 이내에 그 사실을 관할 지방자치단체의 장에게 신고해야 하며, 재산세 산출세액이 직전 연도 재산세액 상당액의 일정 비율(주택 105~130%)을 초과하면 그 비율에 해당하는 금액을 세부담 상한으로 한다.",
+    intuition:
+      "신탁재산 신고의무는 '실제 관리자(수탁자)가 누구인지 과세관청에 알리도록' 하는 절차이고, 세부담상한은 '한 해 사이 세액이 급격히 뛰는 것을 완충'하는 장치라는 서로 다른 두 정책 목적이 이 카드에 함께 담겨 있다.",
+    keyPoints: [
+      "신탁법에 따라 위탁자별로 구분된 재산이 수탁자 명의로 신탁등기된 경우, 그 수탁자를 재산세 납세의무자로 본다.",
+      "수탁자는 과세기준일부터 15일 이내에 신탁재산 사실을 관할 지방자치단체의 장에게 신고해야 한다.",
+      "재산세 산출세액이 직전 연도 재산세액 상당액의 일정 비율(예: 주택공시가격 6억원 이하 105%, 구간별로 최대 130%)을 초과하면, 그 비율에 해당하는 금액을 세부담 상한으로 하여 징수한다.",
+      "재산세 납부세액이 250만원을 초과하는 경우 그 초과금액의 일부를 납부기한이 지난 날부터 2개월 이내에 분납할 수 있다.",
+    ],
+    pitfalls:
+      "재산세 세부담상한을 '직전연도 세액의 150%'로 일률적으로 착각하기 쉽다 — 정확한 상한 비율은 주택 공시가격 구간별로 105~130%로 세분화되어 있다.",
+    example:
+      "신탁법에 따라 위탁자별로 구분된 재산을 수탁자 명의로 신탁등기했다면, 그 수탁자는 과세기준일부터 15일 이내에 관할 지방자치단체에 신고해야 하고 재산세 납세의무자도 수탁자가 된다.",
+    questionRefs: [
+      { year: 2018, questionNo: 26 },
+      { year: 2024, questionNo: 35 },
+    ],
+  },
+  {
     slug: "property-tax-rate-progressive",
-    chapterKo: "재산세",
+    chapterKo: "지방세",
+    sectionKo: "재산세",
     category: "재산세",
     subcategory: "재산세 표준세율",
     titleKo: "종합합산과세대상 토지의 누진세율",
@@ -520,85 +616,9 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "property-tax-fair-market-ratio",
-    chapterKo: "재산세",
-    category: "재산세",
-    subcategory: "재산세 과세표준",
-    titleKo: "공정시장가액비율과 시가표준액",
-    titleEn: "Fair Market Value Ratio and Standard Market Price",
-    parentSlug: "property-tax-rate-progressive",
-    definition:
-      "토지·건축물의 재산세 과세표준은 시가표준액에 공정시장가액비율(토지·건축물 70%, 주택 60%)을 곱하여 산정하며, 토지의 시가표준액은 개별공시지가가 공시된 경우 그 개별공시지가로 한다.",
-    intuition:
-      "공정시장가액비율은 '시가표준액을 그대로 과세표준으로 쓰면 세부담이 급격히 늘 수 있으니 일정 비율만 반영한다'는 완충장치라고 이해하면, 물건별로 다른 비율(토지·건축물 70%, 주택 60%)도 자연스럽게 암기된다.",
-    keyPoints: [
-      "토지·건축물의 재산세 과세표준 = 시가표준액 × 공정시장가액비율(100분의 70).",
-      "주택에 대한 재산세의 과세표준은 시가표준액에 공정시장가액비율(100분의 60, 또는 1세대 1주택 특례비율)을 곱한 금액이다.",
-      "토지의 시가표준액은 세목별 납세의무 성립시기 당시 개별공시지가가 공시된 경우 그 개별공시지가로 한다.",
-      "1세대 1주택으로 인정되는 주택 중 시가표준액이 6억원을 초과하는 주택에는 별도로 정해진 공정시장가액비율이 적용된다.",
-    ],
-    pitfalls:
-      "주택의 과세표준을 '시가표준액의 100분의 70'으로 착각하기 쉽다 — 주택은 100분의 60(또는 특례비율)이 적용된다.",
-    example:
-      "시가표준액 5억원인 일반 토지의 재산세 과세표준은 5억원의 70%인 3억 5천만원으로 산정된다.",
-    questionRefs: [
-      { year: 2019, questionNo: 33 },
-      { year: 2021, questionNo: 29 },
-      { year: 2021, questionNo: 30 },
-      { year: 2025, questionNo: 31 },
-    ],
-  },
-  {
-    slug: "property-tax-trust-and-special-levy",
-    chapterKo: "재산세",
-    category: "재산세",
-    subcategory: "재산세 과세표준",
-    titleKo: "신탁재산의 신고의무와 부과·징수 특례",
-    titleEn: "Trust Property Reporting Duty and Special Levy Rules",
-    parentSlug: "property-tax-rate-progressive",
-    definition:
-      "수탁자 명의로 등기·등록된 신탁재산의 수탁자는 과세기준일부터 15일 이내에 그 사실을 관할 지방자치단체의 장에게 신고해야 하며, 재산세 산출세액이 직전 연도 재산세액 상당액의 일정 비율(주택 105~130%)을 초과하면 그 비율에 해당하는 금액을 세부담 상한으로 한다.",
-    intuition:
-      "신탁재산 신고의무는 '실제 관리자(수탁자)가 누구인지 과세관청에 알리도록' 하는 절차이고, 세부담상한은 '한 해 사이 세액이 급격히 뛰는 것을 완충'하는 장치라는 서로 다른 두 정책 목적이 이 카드에 함께 담겨 있다.",
-    keyPoints: [
-      "신탁법에 따라 위탁자별로 구분된 재산이 수탁자 명의로 신탁등기된 경우, 그 수탁자를 재산세 납세의무자로 본다.",
-      "수탁자는 과세기준일부터 15일 이내에 신탁재산 사실을 관할 지방자치단체의 장에게 신고해야 한다.",
-      "재산세 산출세액이 직전 연도 재산세액 상당액의 일정 비율(예: 주택공시가격 6억원 이하 105%, 구간별로 최대 130%)을 초과하면, 그 비율에 해당하는 금액을 세부담 상한으로 하여 징수한다.",
-      "재산세 납부세액이 250만원을 초과하는 경우 그 초과금액의 일부를 납부기한이 지난 날부터 2개월 이내에 분납할 수 있다.",
-    ],
-    pitfalls:
-      "재산세 세부담상한을 '직전연도 세액의 150%'로 일률적으로 착각하기 쉽다 — 정확한 상한 비율은 주택 공시가격 구간별로 105~130%로 세분화되어 있다.",
-    example:
-      "신탁법에 따라 위탁자별로 구분된 재산을 수탁자 명의로 신탁등기했다면, 그 수탁자는 과세기준일부터 15일 이내에 관할 지방자치단체에 신고해야 하고 재산세 납세의무자도 수탁자가 된다.",
-    questionRefs: [
-      { year: 2018, questionNo: 26 },
-      { year: 2024, questionNo: 35 },
-    ],
-  },
-  {
-    slug: "property-tax-taxpayer-co-ownership",
-    chapterKo: "재산세",
-    category: "재산세",
-    subcategory: "재산세 납세의무자",
-    titleKo: "공유재산의 재산세 납세의무자",
-    titleEn: "Taxpayer of Property Tax for Co-Owned Property",
-    definition:
-      "공유재산의 경우 그 지분에 해당하는 부분에 대하여는 그 지분권자를 납세의무자로 보며, 지분의 표시가 없는 경우에는 지분이 균등한 것으로 본다.",
-    intuition:
-      "재산세는 '재산을 사실상 소유한 자'에게 부과하는 세금이므로, 공유재산이라면 소유한 지분만큼만 그 사람에게 납세의무를 지우는 것이 자연스럽다.",
-    keyPoints: [
-      "공유재산은 그 지분에 해당하는 부분에 대해 지분권자를 납세의무자로 본다.",
-      "지분의 표시가 없는 경우에는 지분이 균등한 것으로 추정한다.",
-      "주된 재산이 아닌 재산에 대해서도 사실상 소유자를 기준으로 납세의무자를 정한다는 원칙이 함께 적용된다.",
-    ],
-    pitfalls:
-      "공유재산 전체에 대해 대표 공유자 1인이 납세의무를 진다고 착각하기 쉽다 — 각자의 지분만큼만 의무를 진다.",
-    example:
-      "토지를 3인이 지분 표시 없이 공유하고 있다면, 재산세는 각자 3분의 1씩 균등한 지분을 가진 것으로 보아 각자에게 부과된다.",
-  },
-  {
     slug: "property-tax-payment-in-kind",
-    chapterKo: "재산세",
+    chapterKo: "지방세",
+    sectionKo: "재산세",
     category: "재산세",
     subcategory: "재산세 징수",
     titleKo: "재산세의 물납 요건",
@@ -617,11 +637,33 @@ const concepts: Concept[] = [
     example:
       "재산세 도시지역분을 포함한 납부세액이 1,200만원인 경우, 물납 요건을 충족하면 현금 대신 부동산으로 납부할 수 있다.",
   },
-
-  // ───────── 종합부동산세 ─────────
+  {
+    slug: "local-income-tax-capital-gains",
+    chapterKo: "지방세",
+    sectionKo: "기타지방세",
+    category: "소득세",
+    subcategory: "지방소득세",
+    titleKo: "양도소득분 개인지방소득세의 과세표준",
+    titleEn: "Tax Base of Local Income Tax on Capital Gains",
+    definition:
+      "양도소득에 대한 개인지방소득세 과세표준은 종합소득 및 퇴직소득에 대한 개인지방소득세 과세표준과 구분하여 별도로 계산한다.",
+    intuition:
+      "지방소득세는 국세인 소득세에 부가되는 성격이지만, 소득의 종류(양도소득 vs 종합·퇴직소득)에 따라 계산 체계를 분리해 각각의 세율·공제를 독립적으로 적용한다고 이해하면 된다.",
+    keyPoints: [
+      "양도소득분 개인지방소득세 과세표준은 종합소득·퇴직소득분과 구분하여 계산한다.",
+      "지방소득세는 통상 소득세 산출세액에 일정 비율을 부가하는 방식으로 계산된다.",
+      "양도소득세 신고 시 지방소득세도 함께 신고·납부하는 것이 일반적이다.",
+    ],
+    pitfalls:
+      "양도소득분과 종합소득분 지방소득세를 합산해서 계산한다고 착각하기 쉽다 — 서로 구분하여 계산한다.",
+    example:
+      "근로소득(종합소득)이 있는 사람이 부동산을 양도한 경우, 양도소득분 지방소득세와 종합소득분 지방소득세는 각각 별도로 계산된다.",
+  },
+  // ───────── 국세 ─────────
   {
     slug: "comprehensive-real-estate-tax-land",
-    chapterKo: "종합부동산세",
+    chapterKo: "국세",
+    sectionKo: "종합부동산세",
     category: "종합부동산세",
     subcategory: "종합부동산세 토지",
     titleKo: "종합부동산세의 납세의무자와 합산배제",
@@ -642,7 +684,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "comprehensive-real-estate-tax-housing",
-    chapterKo: "종합부동산세",
+    chapterKo: "국세",
+    sectionKo: "종합부동산세",
     category: "종합부동산세",
     subcategory: "종합부동산세 주택",
     titleKo: "공동명의 1주택자 특례 신청",
@@ -663,7 +706,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "comprehensive-real-estate-tax-basics",
-    chapterKo: "종합부동산세",
+    chapterKo: "국세",
+    sectionKo: "종합부동산세",
     category: "종합부동산세",
     subcategory: "종합부동산세 종합",
     titleKo: "종합부동산세의 과세기준금액과 부과·징수 방식",
@@ -682,11 +726,98 @@ const concepts: Concept[] = [
     example:
       "여러 채의 주택을 보유한 사람의 공시가격 합산액이 10억원이라면, 9억원 기준금액을 초과하므로 종합부동산세 납세의무자가 된다.",
   },
-
-  // ───────── 소득세(양도소득세) ─────────
+  {
+    slug: "rental-income-exclusion",
+    chapterKo: "국세",
+    sectionKo: "소득세총설",
+    category: "소득세",
+    subcategory: "부동산임대소득",
+    titleKo: "부동산임대소득의 범위",
+    titleEn: "Scope of Real Estate Rental Income",
+    definition:
+      "지상권의 대여로 인한 소득은 부동산임대업 소득에서 제외되며, 국외에 소재하는 주택의 임대소득은 주택 수와 관계없이 과세된다.",
+    intuition:
+      "지상권 대여는 '물권의 처분·이용'에 가까워 별도 소득 구분(기타소득 등)으로 다뤄지고, 국외 주택은 애초에 국내 1주택 비과세 특례의 정책 취지(서민 주거안정)와 무관하므로 예외 없이 과세한다고 이해하면 된다.",
+    keyPoints: [
+      "지상권의 대여로 인한 소득은 부동산임대업에서 발생한 소득에서 제외한다.",
+      "국외 소재 주택의 임대소득은 주택 수와 관계없이 과세되며, 국내 1주택 비과세 특례가 적용되지 않는다.",
+      "간주임대료 계산 시 보증금 등에 대한 과세 여부는 주택 수·규모 기준에 따라 달라진다.",
+    ],
+    pitfalls:
+      "국외 주택도 1주택이면 비과세라고 착각하기 쉽다 — 국외자산에는 1주택 비과세 특례 자체가 적용되지 않는다.",
+    example:
+      "해외에 소재한 주택 1채만 보유하며 임대하는 경우에도, 국내 1주택 비과세와 달리 그 임대소득은 과세대상이다.",
+  },
+  {
+    slug: "capital-gains-tax-scope",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
+    category: "소득세",
+    subcategory: "양도소득세 과세대상",
+    titleKo: "양도소득세 과세대상에서 제외되는 이전",
+    titleEn: "Transfers Excluded from Capital Gains Tax Scope",
+    definition:
+      "무상이전에 따라 자산의 소유권이 변경된 경우와 도시개발법 등에 따른 환지처분으로 지목이 변경되는 경우는 양도소득세 과세대상인 '양도'로 보지 않는다.",
+    intuition:
+      "양도소득세는 '유상으로 자산을 넘기고 얻은 이득'에 부과하는 세금이므로, 대가 없이 넘어가는 무상이전이나 환지처럼 실질적인 경제적 이전이 없는 경우는 애초에 '양도'라는 개념 자체에 해당하지 않는다고 이해하면 된다.",
+    keyPoints: [
+      "무상이전(증여·상속 등)에 따른 소유권 변경은 유상이전이 아니므로 양도소득세 과세대상이 되지 않는다.",
+      "도시개발법 등에 따른 환지처분으로 지목이 변경되는 것은 '양도'로 보지 않는다.",
+      "전세권·영업권도 양도소득세 과세대상 자산에 포함된다는 점을 놓치지 않아야 한다.",
+    ],
+    pitfalls:
+      "환지처분에 따른 지목변경을 양도로 착각해 과세대상으로 보는 실수를 하기 쉽다.",
+    example:
+      "도시개발사업으로 환지처분을 받아 토지의 지목이 대지에서 잡종지로 바뀌었더라도, 이는 양도소득세 과세대상인 양도에 해당하지 않는다.",
+  },
+  {
+    slug: "capital-gains-tax-exemption",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
+    category: "소득세",
+    subcategory: "양도소득세 비과세",
+    titleKo: "해외이주 시 1세대 1주택 비과세 특례기간",
+    titleEn: "Special Exemption Period for Emigrants' Single-House Sale",
+    definition:
+      "해외이주로 세대전원이 출국하는 경우, 출국일부터 2년 이내에 해당 주택을 양도해야 1세대 1주택 비과세 특례를 적용받을 수 있다.",
+    intuition:
+      "출국 후 국내 주택을 곧바로 처분하기 어려운 사정을 감안해 일정 유예기간(2년)을 주되, 그 기간을 넘기면 더 이상 '거주자의 주거용 주택'이라는 비과세 취지에 맞지 않는다고 보아 특례를 인정하지 않는다고 이해하면 된다.",
+    keyPoints: [
+      "해외이주로 세대전원이 출국하는 경우 출국일부터 2년 이내에 양도해야 비과세된다 — '3년'이 아니다.",
+      "2년의 기간을 넘겨 양도하면 1세대 1주택 비과세 특례를 적용받을 수 없다.",
+      "다른 사유(취학·근무상 형편 등)로 인한 일시적 출국과는 요건과 기간이 다를 수 있으므로 구분해서 암기해야 한다.",
+    ],
+    pitfalls:
+      "출국 후 비과세 특례기간을 '3년'으로 잘못 암기하기 쉽다 — 정확히는 '2년'이다.",
+    example:
+      "해외이주로 세대전원이 출국한 후 1년 6개월 만에 국내 주택을 양도했다면, 2년 이내 요건을 충족하여 1세대 1주택 비과세를 적용받을 수 있다.",
+  },
+  {
+    slug: "capital-gains-tax-rate",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
+    category: "소득세",
+    subcategory: "양도소득세 세율",
+    titleKo: "보유기간별 양도소득세율의 적용",
+    titleEn: "Application of Capital Gains Tax Rates by Holding Period",
+    definition:
+      "1년 6개월을 보유한 1주택은 단기 중과세율이 아니라 기본세율(누진세율)이 적용되며, 보유기간이 짧을수록(예: 1년 미만) 더 높은 단일세율이 적용되는 것과 대비된다.",
+    intuition:
+      "양도소득세율은 '단기 투기를 억제하기 위해 짧게 보유할수록 세율을 높이는' 구조이므로, 일정 기간(통상 1~2년) 이상 보유하면 다시 일반적인 누진세율 체계로 돌아온다고 이해하면 된다.",
+    keyPoints: [
+      "1년 6개월 보유한 1주택은 기본세율(누진세율)이 적용된다 — '100분의 40'과 같은 단기 중과세율이 아니다.",
+      "보유기간이 1년 미만인 경우 등 짧은 보유기간에는 상대적으로 높은 단일세율이 적용될 수 있다.",
+      "다주택자 중과세율은 보유기간과 별개로 주택 수 기준에 따라 추가로 적용될 수 있다.",
+    ],
+    pitfalls:
+      "일정 기간 이상 보유한 주택에도 단기 보유 세율을 적용하는 실수를 하기 쉽다 — 보유기간에 따라 적용 세율 구간이 다르다.",
+    example:
+      "1주택을 1년 6개월 보유하다 양도한 경우, 단기 중과세율이 아니라 누진세율 구조의 기본세율표에 따라 세액이 계산된다.",
+  },
   {
     slug: "capital-gain-necessary-expense",
-    chapterKo: "소득세",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
     category: "소득세",
     subcategory: "양도차익 계산",
     titleKo: "양도비의 범위 (필요경비)",
@@ -715,12 +846,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "capital-gain-acquisition-timing",
-    chapterKo: "소득세",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
     category: "소득세",
     subcategory: "양도차익 계산",
+    parentSlug: "capital-gain-necessary-expense",
     titleKo: "양도차익 계산을 위한 취득시기",
     titleEn: "Acquisition Timing for Capital Gains Calculation",
-    parentSlug: "capital-gain-necessary-expense",
     definition:
       "건축허가를 받지 않고 자기가 건설한 건축물은 사용승인일이 아니라 사실상의 사용일을 취득시기로 하며, 환지처분으로 교부받은 토지의 면적이 권리면적과 달라진 경우 그 취득시기는 환지처분 공고가 있은 날의 다음 날이다.",
     intuition:
@@ -742,12 +874,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "capital-gain-calculation-cases",
-    chapterKo: "소득세",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
     category: "소득세",
     subcategory: "양도차익 계산",
+    parentSlug: "capital-gain-necessary-expense",
     titleKo: "양도차익 계산 사례 (환산취득가액·고가주택 안분 등)",
     titleEn: "Worked Examples of Capital Gains Calculation",
-    parentSlug: "capital-gain-necessary-expense",
     definition:
       "환산취득가액은 양도가액에 취득 당시와 양도 당시 기준시가의 비율을 곱해 산정하며, 고가주택의 과세대상 양도차익은 전체 양도차익에 (양도가액－12억원)/양도가액을 곱해 안분 계산한다.",
     intuition:
@@ -773,12 +906,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "capital-gain-special-cases",
-    chapterKo: "소득세",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
     category: "소득세",
     subcategory: "양도차익 계산",
+    parentSlug: "capital-gain-necessary-expense",
     titleKo: "양도소득 과세표준의 특수 사례",
     titleEn: "Special Cases in Capital Gains Tax Base",
-    parentSlug: "capital-gain-necessary-expense",
     definition:
       "양도소득에 대한 과세표준은 종합소득·퇴직소득의 과세표준과 구분하여 계산하며, 지가가 급등하거나 급등우려가 있어 국세청장이 지정한 지역의 토지는 기준시가를 배율방법으로 평가하고, 배우자 간 부담부증여에서 수증자에게 인수되지 않은 것으로 추정되는 채무액은 부담부증여의 채무액에서 제외한다.",
     intuition:
@@ -802,8 +936,75 @@ const concepts: Concept[] = [
     ],
   },
   {
+    slug: "acquisition-cost-interest",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
+    category: "소득세",
+    subcategory: "필요경비",
+    titleKo: "취득원가에 포함되지 않는 지연이자",
+    titleEn: "Deferred Interest Excluded from Acquisition Cost",
+    definition:
+      "취득가액을 실지거래가액에 의하는 경우, 당초 약정에 의한 지급기일의 지연으로 인하여 추가로 발생하는 이자상당액은 취득원가에 포함하지 않는다.",
+    intuition:
+      "취득원가는 '자산 자체의 대가'만 반영해야 하므로, 지급이 늦어져 추가로 물게 된 이자는 자산의 가치와 무관한 '지연에 대한 대가'로 보아 원가에서 제외한다고 이해하면 된다.",
+    keyPoints: [
+      "실지거래가액으로 취득가액을 산정할 때, 지급기일 지연에 따른 이자상당액은 취득원가에서 제외된다.",
+      "정상적인 할부이자·금융비용 등도 원칙적으로 자산의 취득원가와는 별개로 취급되는 경우가 많다는 점을 함께 정리해야 한다.",
+      "필요경비 항목을 다툴 때는 '자산 자체의 대가인지, 지급 조건에 따른 부수 비용인지'를 구분하는 것이 핵심이다.",
+    ],
+    pitfalls:
+      "지연이자도 취득을 위해 지출했으니 취득원가에 포함된다고 착각하기 쉽다 — 명시적으로 제외되는 항목이다.",
+    example:
+      "매수인이 약정된 잔금 지급일을 넘겨 추가로 지연이자를 지급했다면, 그 지연이자는 부동산의 취득원가에 포함되지 않는다.",
+  },
+  {
+    slug: "non-business-land",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
+    category: "소득세",
+    subcategory: "비사업용 토지",
+    titleKo: "비사업용 토지 판정과 농지의 범위",
+    titleEn: "Determination of Non-Business Land and Scope of Farmland",
+    definition:
+      "농지란 지적공부의 지목과 관계없이 실제로 경작에 사용되는 토지를 말하며, 농막·퇴비사·양수장·지소·농도 및 수로 등에 사용되는 토지도 농지의 범위에 포함된다.",
+    intuition:
+      "비사업용 토지 판정은 '실제로 그 본래 용도(농업 등)에 사용되고 있는가'를 핵심 기준으로 삼으므로, 지목이라는 서류상 분류보다 실질적 이용 상황이 우선한다는 원칙이 여러 세목에서 반복된다.",
+    keyPoints: [
+      "농지는 지적공부의 지목과 관계없이 실제 경작에 사용되는 토지를 기준으로 판정한다.",
+      "농막·퇴비사·양수장·지소·농도·수로 등에 사용되는 토지도 농지의 범위에 포함된다.",
+      "파산선고에 의한 처분으로 발생하는 소득은 비과세된다.",
+    ],
+    pitfalls:
+      "농지 여부를 지적공부상 지목만으로 판단하는 실수를 하기 쉽다 — 실제 이용 상황이 기준이다.",
+    example:
+      "지목이 대지로 되어 있어도 실제로 벼농사를 짓고 있다면 세법상 농지로 취급되어 비사업용 토지 판정 시 이를 반영한다.",
+  },
+  {
+    slug: "unregistered-transfer",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
+    category: "소득세",
+    subcategory: "미등기양도",
+    titleKo: "미등기양도자산의 중과세와 예외",
+    titleEn: "Heavy Taxation of Unregistered Transfers and Its Exceptions",
+    definition:
+      "미등기양도자산에는 비과세 규정을 적용할 수 없고 양도소득 과세표준의 100분의 70이라는 높은 세율이 적용되지만, 건축허가를 받지 못해 등기가 불가능한 1세대 1주택 비과세 요건 충족 자산은 미등기양도제외자산으로 취급된다.",
+    intuition:
+      "미등기양도 중과세는 등기를 피해 세금을 회피하려는 행위를 강하게 억제하려는 취지이므로, '등기를 하고 싶어도 법적으로 할 수 없는' 정당한 사정이 있는 경우까지 중과세하는 것은 불합리해 예외를 둔다고 이해하면 된다.",
+    keyPoints: [
+      "미등기양도자산에는 양도소득세 비과세 규정을 적용할 수 없다.",
+      "미등기양도자산의 양도소득세율은 양도소득 과세표준의 100분의 70이라는 매우 높은 단일세율이다.",
+      "건축허가를 받지 못해 등기가 불가능한 1세대 1주택 비과세 요건 충족 자산은 미등기양도제외자산으로 취급되어 중과세 대상에서 빠진다.",
+    ],
+    pitfalls:
+      "등기가 불가능한 모든 자산을 미등기양도로 중과세한다고 일반화하기 쉽다 — 법령상 미등기양도제외자산 목록에 해당하면 예외가 인정된다.",
+    example:
+      "건축허가를 받을 수 없는 사정으로 미등기 상태인 1세대 1주택 비과세 요건 충족 주택을 양도했다면, 미등기양도제외자산으로 취급되어 중과세를 피할 수 있다.",
+  },
+  {
     slug: "preliminary-return-deadline",
-    chapterKo: "소득세",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
     category: "소득세",
     subcategory: "양도소득세 신고납부",
     titleKo: "양도소득세 예정신고기한",
@@ -832,12 +1033,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "capital-gain-tax-rate-by-period",
-    chapterKo: "소득세",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
     category: "소득세",
     subcategory: "양도소득세 신고납부",
+    parentSlug: "preliminary-return-deadline",
     titleKo: "보유기간별 세율 (상업용 건물·분양권)",
     titleEn: "Tax Rates by Holding Period for Commercial Buildings and Presale Rights",
-    parentSlug: "preliminary-return-deadline",
     definition:
       "등기된 상업용 건물을 1년 이상 2년 미만 보유하다 양도하면 100분의 50의 세율이 적용되며, 분양권은 보유기간과 관계없이 1년 미만이면 100분의 70, 1년 이상이면 100분의 60의 세율이 적용된다.",
     intuition:
@@ -858,12 +1060,13 @@ const concepts: Concept[] = [
   },
   {
     slug: "capital-gain-relief-and-carryover",
-    chapterKo: "소득세",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
     category: "소득세",
     subcategory: "양도소득세 신고납부",
+    parentSlug: "preliminary-return-deadline",
     titleKo: "양도소득세의 특례·감면·통산",
     titleEn: "Special Relief, Reduction, and Loss Offsetting for Capital Gains Tax",
-    parentSlug: "preliminary-return-deadline",
     definition:
       "혼인으로 인한 일시적 2주택 특례는 혼인한 날부터 5년, 동거봉양 특례는 직계존속·배우자의 직계존속이 60세 이상인 경우 합가일로부터 10년 이내 양도해야 하며, 부담부증여의 채무액에 해당하는 부분은 그 양도일이 속하는 달의 말일부터 3개월 이내에 신고해야 한다.",
     intuition:
@@ -888,134 +1091,9 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "rental-income-exclusion",
-    chapterKo: "소득세",
-    category: "소득세",
-    subcategory: "부동산임대소득",
-    titleKo: "부동산임대소득의 범위",
-    titleEn: "Scope of Real Estate Rental Income",
-    definition:
-      "지상권의 대여로 인한 소득은 부동산임대업 소득에서 제외되며, 국외에 소재하는 주택의 임대소득은 주택 수와 관계없이 과세된다.",
-    intuition:
-      "지상권 대여는 '물권의 처분·이용'에 가까워 별도 소득 구분(기타소득 등)으로 다뤄지고, 국외 주택은 애초에 국내 1주택 비과세 특례의 정책 취지(서민 주거안정)와 무관하므로 예외 없이 과세한다고 이해하면 된다.",
-    keyPoints: [
-      "지상권의 대여로 인한 소득은 부동산임대업에서 발생한 소득에서 제외한다.",
-      "국외 소재 주택의 임대소득은 주택 수와 관계없이 과세되며, 국내 1주택 비과세 특례가 적용되지 않는다.",
-      "간주임대료 계산 시 보증금 등에 대한 과세 여부는 주택 수·규모 기준에 따라 달라진다.",
-    ],
-    pitfalls:
-      "국외 주택도 1주택이면 비과세라고 착각하기 쉽다 — 국외자산에는 1주택 비과세 특례 자체가 적용되지 않는다.",
-    example:
-      "해외에 소재한 주택 1채만 보유하며 임대하는 경우에도, 국내 1주택 비과세와 달리 그 임대소득은 과세대상이다.",
-  },
-  {
-    slug: "acquisition-cost-interest",
-    chapterKo: "소득세",
-    category: "소득세",
-    subcategory: "필요경비",
-    titleKo: "취득원가에 포함되지 않는 지연이자",
-    titleEn: "Deferred Interest Excluded from Acquisition Cost",
-    definition:
-      "취득가액을 실지거래가액에 의하는 경우, 당초 약정에 의한 지급기일의 지연으로 인하여 추가로 발생하는 이자상당액은 취득원가에 포함하지 않는다.",
-    intuition:
-      "취득원가는 '자산 자체의 대가'만 반영해야 하므로, 지급이 늦어져 추가로 물게 된 이자는 자산의 가치와 무관한 '지연에 대한 대가'로 보아 원가에서 제외한다고 이해하면 된다.",
-    keyPoints: [
-      "실지거래가액으로 취득가액을 산정할 때, 지급기일 지연에 따른 이자상당액은 취득원가에서 제외된다.",
-      "정상적인 할부이자·금융비용 등도 원칙적으로 자산의 취득원가와는 별개로 취급되는 경우가 많다는 점을 함께 정리해야 한다.",
-      "필요경비 항목을 다툴 때는 '자산 자체의 대가인지, 지급 조건에 따른 부수 비용인지'를 구분하는 것이 핵심이다.",
-    ],
-    pitfalls:
-      "지연이자도 취득을 위해 지출했으니 취득원가에 포함된다고 착각하기 쉽다 — 명시적으로 제외되는 항목이다.",
-    example:
-      "매수인이 약정된 잔금 지급일을 넘겨 추가로 지연이자를 지급했다면, 그 지연이자는 부동산의 취득원가에 포함되지 않는다.",
-  },
-  {
-    slug: "capital-gains-tax-scope",
-    chapterKo: "소득세",
-    category: "소득세",
-    subcategory: "양도소득세 과세대상",
-    titleKo: "양도소득세 과세대상에서 제외되는 이전",
-    titleEn: "Transfers Excluded from Capital Gains Tax Scope",
-    definition:
-      "무상이전에 따라 자산의 소유권이 변경된 경우와 도시개발법 등에 따른 환지처분으로 지목이 변경되는 경우는 양도소득세 과세대상인 '양도'로 보지 않는다.",
-    intuition:
-      "양도소득세는 '유상으로 자산을 넘기고 얻은 이득'에 부과하는 세금이므로, 대가 없이 넘어가는 무상이전이나 환지처럼 실질적인 경제적 이전이 없는 경우는 애초에 '양도'라는 개념 자체에 해당하지 않는다고 이해하면 된다.",
-    keyPoints: [
-      "무상이전(증여·상속 등)에 따른 소유권 변경은 유상이전이 아니므로 양도소득세 과세대상이 되지 않는다.",
-      "도시개발법 등에 따른 환지처분으로 지목이 변경되는 것은 '양도'로 보지 않는다.",
-      "전세권·영업권도 양도소득세 과세대상 자산에 포함된다는 점을 놓치지 않아야 한다.",
-    ],
-    pitfalls:
-      "환지처분에 따른 지목변경을 양도로 착각해 과세대상으로 보는 실수를 하기 쉽다.",
-    example:
-      "도시개발사업으로 환지처분을 받아 토지의 지목이 대지에서 잡종지로 바뀌었더라도, 이는 양도소득세 과세대상인 양도에 해당하지 않는다.",
-  },
-  {
-    slug: "unregistered-transfer",
-    chapterKo: "소득세",
-    category: "소득세",
-    subcategory: "미등기양도",
-    titleKo: "미등기양도자산의 중과세와 예외",
-    titleEn: "Heavy Taxation of Unregistered Transfers and Its Exceptions",
-    definition:
-      "미등기양도자산에는 비과세 규정을 적용할 수 없고 양도소득 과세표준의 100분의 70이라는 높은 세율이 적용되지만, 건축허가를 받지 못해 등기가 불가능한 1세대 1주택 비과세 요건 충족 자산은 미등기양도제외자산으로 취급된다.",
-    intuition:
-      "미등기양도 중과세는 등기를 피해 세금을 회피하려는 행위를 강하게 억제하려는 취지이므로, '등기를 하고 싶어도 법적으로 할 수 없는' 정당한 사정이 있는 경우까지 중과세하는 것은 불합리해 예외를 둔다고 이해하면 된다.",
-    keyPoints: [
-      "미등기양도자산에는 양도소득세 비과세 규정을 적용할 수 없다.",
-      "미등기양도자산의 양도소득세율은 양도소득 과세표준의 100분의 70이라는 매우 높은 단일세율이다.",
-      "건축허가를 받지 못해 등기가 불가능한 1세대 1주택 비과세 요건 충족 자산은 미등기양도제외자산으로 취급되어 중과세 대상에서 빠진다.",
-    ],
-    pitfalls:
-      "등기가 불가능한 모든 자산을 미등기양도로 중과세한다고 일반화하기 쉽다 — 법령상 미등기양도제외자산 목록에 해당하면 예외가 인정된다.",
-    example:
-      "건축허가를 받을 수 없는 사정으로 미등기 상태인 1세대 1주택 비과세 요건 충족 주택을 양도했다면, 미등기양도제외자산으로 취급되어 중과세를 피할 수 있다.",
-  },
-  {
-    slug: "non-business-land",
-    chapterKo: "소득세",
-    category: "소득세",
-    subcategory: "비사업용 토지",
-    titleKo: "비사업용 토지 판정과 농지의 범위",
-    titleEn: "Determination of Non-Business Land and Scope of Farmland",
-    definition:
-      "농지란 지적공부의 지목과 관계없이 실제로 경작에 사용되는 토지를 말하며, 농막·퇴비사·양수장·지소·농도 및 수로 등에 사용되는 토지도 농지의 범위에 포함된다.",
-    intuition:
-      "비사업용 토지 판정은 '실제로 그 본래 용도(농업 등)에 사용되고 있는가'를 핵심 기준으로 삼으므로, 지목이라는 서류상 분류보다 실질적 이용 상황이 우선한다는 원칙이 여러 세목에서 반복된다.",
-    keyPoints: [
-      "농지는 지적공부의 지목과 관계없이 실제 경작에 사용되는 토지를 기준으로 판정한다.",
-      "농막·퇴비사·양수장·지소·농도·수로 등에 사용되는 토지도 농지의 범위에 포함된다.",
-      "파산선고에 의한 처분으로 발생하는 소득은 비과세된다.",
-    ],
-    pitfalls:
-      "농지 여부를 지적공부상 지목만으로 판단하는 실수를 하기 쉽다 — 실제 이용 상황이 기준이다.",
-    example:
-      "지목이 대지로 되어 있어도 실제로 벼농사를 짓고 있다면 세법상 농지로 취급되어 비사업용 토지 판정 시 이를 반영한다.",
-  },
-  {
-    slug: "overseas-asset-transfer",
-    chapterKo: "소득세",
-    category: "소득세",
-    subcategory: "국외자산양도",
-    titleKo: "국외자산 양도소득세의 납세의무 요건",
-    titleEn: "Tax Liability Requirements for Transfer of Overseas Assets",
-    definition:
-      "국외자산을 양도한 거주자는 양도일까지 계속하여 5년 이상 국내에 주소 또는 거소를 둔 경우에만 그 양도소득에 대한 납세의무가 있으며, 국외자산에는 미등기 양도에 관한 규정(제91조)이 적용되지 않는다.",
-    intuition:
-      "국외자산 양도소득세는 '국내와 충분히 밀접한 관계가 있는 거주자'에게만 과세하겠다는 취지이므로 5년이라는 거주 요건을 두고, 미등기양도 중과세처럼 국내 부동산 시장 교란을 막기 위한 제도는 국외자산에는 적용할 실익이 없어 배제된다고 이해하면 된다.",
-    keyPoints: [
-      "국외자산 양도소득에 대한 납세의무는 양도일까지 계속 5년 이상 국내에 주소·거소를 둔 거주자에게만 있다.",
-      "국외자산에는 미등기 양도에 관한 규정(제91조)이 적용되지 않는다.",
-      "비과세 양도소득에 관한 규정은 국외자산 양도에도 준용된다.",
-    ],
-    pitfalls:
-      "국외자산 미등기 양도도 국내 자산처럼 중과세된다고 착각하기 쉽다 — 국외자산에는 미등기양도 중과 규정이 적용되지 않는다.",
-    example:
-      "국외 토지를 양도한 거주자가 양도일까지 계속 5년 이상 국내에 주소를 두고 있었다면, 그 국외자산 양도소득에 대해 납세의무를 진다.",
-  },
-  {
     slug: "overseas-asset-preliminary-return",
-    chapterKo: "소득세",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
     category: "소득세",
     subcategory: "양도소득세 종합",
     titleKo: "국외자산 양도소득의 예정신고 의무",
@@ -1035,67 +1113,26 @@ const concepts: Concept[] = [
       "10년째 국내에 거주 중인 사람이 국외 토지를 양도했다면, 국내자산 양도와 마찬가지로 예정신고 기한 내에 양도소득과세표준을 신고해야 한다.",
   },
   {
-    slug: "capital-gains-tax-exemption",
-    chapterKo: "소득세",
+    slug: "overseas-asset-transfer",
+    chapterKo: "국세",
+    sectionKo: "양도소득세",
     category: "소득세",
-    subcategory: "양도소득세 비과세",
-    titleKo: "해외이주 시 1세대 1주택 비과세 특례기간",
-    titleEn: "Special Exemption Period for Emigrants' Single-House Sale",
+    subcategory: "국외자산양도",
+    titleKo: "국외자산 양도소득세의 납세의무 요건",
+    titleEn: "Tax Liability Requirements for Transfer of Overseas Assets",
     definition:
-      "해외이주로 세대전원이 출국하는 경우, 출국일부터 2년 이내에 해당 주택을 양도해야 1세대 1주택 비과세 특례를 적용받을 수 있다.",
+      "국외자산을 양도한 거주자는 양도일까지 계속하여 5년 이상 국내에 주소 또는 거소를 둔 경우에만 그 양도소득에 대한 납세의무가 있으며, 국외자산에는 미등기 양도에 관한 규정(제91조)이 적용되지 않는다.",
     intuition:
-      "출국 후 국내 주택을 곧바로 처분하기 어려운 사정을 감안해 일정 유예기간(2년)을 주되, 그 기간을 넘기면 더 이상 '거주자의 주거용 주택'이라는 비과세 취지에 맞지 않는다고 보아 특례를 인정하지 않는다고 이해하면 된다.",
+      "국외자산 양도소득세는 '국내와 충분히 밀접한 관계가 있는 거주자'에게만 과세하겠다는 취지이므로 5년이라는 거주 요건을 두고, 미등기양도 중과세처럼 국내 부동산 시장 교란을 막기 위한 제도는 국외자산에는 적용할 실익이 없어 배제된다고 이해하면 된다.",
     keyPoints: [
-      "해외이주로 세대전원이 출국하는 경우 출국일부터 2년 이내에 양도해야 비과세된다 — '3년'이 아니다.",
-      "2년의 기간을 넘겨 양도하면 1세대 1주택 비과세 특례를 적용받을 수 없다.",
-      "다른 사유(취학·근무상 형편 등)로 인한 일시적 출국과는 요건과 기간이 다를 수 있으므로 구분해서 암기해야 한다.",
+      "국외자산 양도소득에 대한 납세의무는 양도일까지 계속 5년 이상 국내에 주소·거소를 둔 거주자에게만 있다.",
+      "국외자산에는 미등기 양도에 관한 규정(제91조)이 적용되지 않는다.",
+      "비과세 양도소득에 관한 규정은 국외자산 양도에도 준용된다.",
     ],
     pitfalls:
-      "출국 후 비과세 특례기간을 '3년'으로 잘못 암기하기 쉽다 — 정확히는 '2년'이다.",
+      "국외자산 미등기 양도도 국내 자산처럼 중과세된다고 착각하기 쉽다 — 국외자산에는 미등기양도 중과 규정이 적용되지 않는다.",
     example:
-      "해외이주로 세대전원이 출국한 후 1년 6개월 만에 국내 주택을 양도했다면, 2년 이내 요건을 충족하여 1세대 1주택 비과세를 적용받을 수 있다.",
-  },
-  {
-    slug: "capital-gains-tax-rate",
-    chapterKo: "소득세",
-    category: "소득세",
-    subcategory: "양도소득세 세율",
-    titleKo: "보유기간별 양도소득세율의 적용",
-    titleEn: "Application of Capital Gains Tax Rates by Holding Period",
-    definition:
-      "1년 6개월을 보유한 1주택은 단기 중과세율이 아니라 기본세율(누진세율)이 적용되며, 보유기간이 짧을수록(예: 1년 미만) 더 높은 단일세율이 적용되는 것과 대비된다.",
-    intuition:
-      "양도소득세율은 '단기 투기를 억제하기 위해 짧게 보유할수록 세율을 높이는' 구조이므로, 일정 기간(통상 1~2년) 이상 보유하면 다시 일반적인 누진세율 체계로 돌아온다고 이해하면 된다.",
-    keyPoints: [
-      "1년 6개월 보유한 1주택은 기본세율(누진세율)이 적용된다 — '100분의 40'과 같은 단기 중과세율이 아니다.",
-      "보유기간이 1년 미만인 경우 등 짧은 보유기간에는 상대적으로 높은 단일세율이 적용될 수 있다.",
-      "다주택자 중과세율은 보유기간과 별개로 주택 수 기준에 따라 추가로 적용될 수 있다.",
-    ],
-    pitfalls:
-      "일정 기간 이상 보유한 주택에도 단기 보유 세율을 적용하는 실수를 하기 쉽다 — 보유기간에 따라 적용 세율 구간이 다르다.",
-    example:
-      "1주택을 1년 6개월 보유하다 양도한 경우, 단기 중과세율이 아니라 누진세율 구조의 기본세율표에 따라 세액이 계산된다.",
-  },
-  {
-    slug: "local-income-tax-capital-gains",
-    chapterKo: "소득세",
-    category: "소득세",
-    subcategory: "지방소득세",
-    titleKo: "양도소득분 개인지방소득세의 과세표준",
-    titleEn: "Tax Base of Local Income Tax on Capital Gains",
-    definition:
-      "양도소득에 대한 개인지방소득세 과세표준은 종합소득 및 퇴직소득에 대한 개인지방소득세 과세표준과 구분하여 별도로 계산한다.",
-    intuition:
-      "지방소득세는 국세인 소득세에 부가되는 성격이지만, 소득의 종류(양도소득 vs 종합·퇴직소득)에 따라 계산 체계를 분리해 각각의 세율·공제를 독립적으로 적용한다고 이해하면 된다.",
-    keyPoints: [
-      "양도소득분 개인지방소득세 과세표준은 종합소득·퇴직소득분과 구분하여 계산한다.",
-      "지방소득세는 통상 소득세 산출세액에 일정 비율을 부가하는 방식으로 계산된다.",
-      "양도소득세 신고 시 지방소득세도 함께 신고·납부하는 것이 일반적이다.",
-    ],
-    pitfalls:
-      "양도소득분과 종합소득분 지방소득세를 합산해서 계산한다고 착각하기 쉽다 — 서로 구분하여 계산한다.",
-    example:
-      "근로소득(종합소득)이 있는 사람이 부동산을 양도한 경우, 양도소득분 지방소득세와 종합소득분 지방소득세는 각각 별도로 계산된다.",
+      "국외 토지를 양도한 거주자가 양도일까지 계속 5년 이상 국내에 주소를 두고 있었다면, 그 국외자산 양도소득에 대해 납세의무를 진다.",
   },
 ];
 

@@ -3,8 +3,31 @@ import type { Concept } from "@/lib/concepts";
 const concepts: Concept[] = [
   // ───────── 부동산학 총론 ─────────
   {
+    slug: "real-estate-concept-fixture",
+    chapterKo: "부동산학 총론",
+    sectionKo: "부동산의 개념과 분류",
+    category: "부동산의 개념과 분류",
+    subcategory: "부동산의 개념 (정착물·준부동산 포함)",
+    titleKo: "부동산의 복합개념과 경제적·물리적 분류",
+    titleEn: "Complex Concept of Real Estate and Its Economic/Physical Classification",
+    definition:
+      "부동산의 복합개념은 법률적·경제적·기술적 측면이 복합된 개념이며, 경제적 측면에서는 자본·소비재·생산요소·자산으로, 물리적(기술적) 측면에서는 공간·자연·위치로 이해된다.",
+    intuition:
+      "부동산을 '한 가지 잣대'로만 보면 이해가 좁아지므로, 법률(권리관계)·경제(자산가치)·물리(공간·자연) 세 측면을 모두 겹쳐서 보는 것이 복합개념의 핵심이다.",
+    keyPoints: [
+      "복합개념의 부동산은 법률적·경제적·기술적 측면이 복합된 개념이다.",
+      "경제적 개념에는 자본·소비재·생산요소·자산이 포함되고, 물리적 개념에는 공간·자연·위치가 포함된다.",
+      "토지소유자는 법률이 정한 범위 내에서 사용·수익·처분할 권리가 있다(민법 제211조).",
+    ],
+    pitfalls:
+      "경제적 개념과 물리적 개념의 세부 항목을 서로 바꿔서 분류하기 쉽다 — '자본·자산'은 경제적, '공간·자연'은 물리적 개념임을 구분해야 한다.",
+    example:
+      "동일한 토지라도 투자자에게는 '자본(경제적 개념)'으로, 건축가에게는 '공간(물리적 개념)'으로 인식될 수 있다는 것이 복합개념의 예다.",
+  },
+  {
     slug: "real-estate-classification",
     chapterKo: "부동산학 총론",
+    sectionKo: "부동산의 개념과 분류",
     category: "부동산의 개념과 분류",
     subcategory: "부동산의 분류 (한국표준산업분류 등)",
     titleKo: "토지 관련 용어의 구분",
@@ -39,6 +62,7 @@ const concepts: Concept[] = [
   {
     slug: "ksic-real-estate-business-classification",
     chapterKo: "부동산학 총론",
+    sectionKo: "부동산의 개념과 분류",
     category: "부동산의 개념과 분류",
     subcategory: "부동산의 분류 (한국표준산업분류 등)",
     parentSlug: "real-estate-classification",
@@ -64,29 +88,9 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "real-estate-concept-fixture",
-    chapterKo: "부동산학 총론",
-    category: "부동산의 개념과 분류",
-    subcategory: "부동산의 개념 (정착물·준부동산 포함)",
-    titleKo: "부동산의 복합개념과 경제적·물리적 분류",
-    titleEn: "Complex Concept of Real Estate and Its Economic/Physical Classification",
-    definition:
-      "부동산의 복합개념은 법률적·경제적·기술적 측면이 복합된 개념이며, 경제적 측면에서는 자본·소비재·생산요소·자산으로, 물리적(기술적) 측면에서는 공간·자연·위치로 이해된다.",
-    intuition:
-      "부동산을 '한 가지 잣대'로만 보면 이해가 좁아지므로, 법률(권리관계)·경제(자산가치)·물리(공간·자연) 세 측면을 모두 겹쳐서 보는 것이 복합개념의 핵심이다.",
-    keyPoints: [
-      "복합개념의 부동산은 법률적·경제적·기술적 측면이 복합된 개념이다.",
-      "경제적 개념에는 자본·소비재·생산요소·자산이 포함되고, 물리적 개념에는 공간·자연·위치가 포함된다.",
-      "토지소유자는 법률이 정한 범위 내에서 사용·수익·처분할 권리가 있다(민법 제211조).",
-    ],
-    pitfalls:
-      "경제적 개념과 물리적 개념의 세부 항목을 서로 바꿔서 분류하기 쉽다 — '자본·자산'은 경제적, '공간·자연'은 물리적 개념임을 구분해야 한다.",
-    example:
-      "동일한 토지라도 투자자에게는 '자본(경제적 개념)'으로, 건축가에게는 '공간(물리적 개념)'으로 인식될 수 있다는 것이 복합개념의 예다.",
-  },
-  {
     slug: "housing-building-classification",
     chapterKo: "부동산학 총론",
+    sectionKo: "부동산의 개념과 분류",
     category: "부동산의 개념과 분류",
     subcategory: "주택·건축물의 분류 (단독·공동·다중·다세대)",
     titleKo: "공동주택·다중주택의 법정 요건",
@@ -108,6 +112,7 @@ const concepts: Concept[] = [
   {
     slug: "land-characteristics",
     chapterKo: "부동산학 총론",
+    sectionKo: "부동산의 특성",
     category: "부동산의 특성",
     subcategory: "토지의 특성",
     titleKo: "토지의 자연적 특성과 파생효과",
@@ -139,11 +144,11 @@ const concepts: Concept[] = [
       { year: 2025, questionNo: 1 },
     ],
   },
-
-  // ───────── 부동산경제론 ─────────
+  // ───────── 부동산학 각론 ─────────
   {
     slug: "supply-elasticity-price-change",
-    chapterKo: "부동산경제론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
     category: "부동산경제론",
     subcategory: "수요·공급 요인",
     titleKo: "수요·공급의 기본개념과 탄력성-가격의 관계",
@@ -175,7 +180,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "flow-stock-variables",
-    chapterKo: "부동산경제론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
     category: "부동산경제론",
     subcategory: "수요·공급 요인",
     parentSlug: "supply-elasticity-price-change",
@@ -202,7 +208,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "demand-supply-shift-factors",
-    chapterKo: "부동산경제론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
     category: "부동산경제론",
     subcategory: "수요·공급 요인",
     parentSlug: "supply-elasticity-price-change",
@@ -233,7 +240,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "demand-supply-equilibrium-calculation",
-    chapterKo: "부동산경제론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
     category: "부동산경제론",
     subcategory: "수요·공급 요인",
     parentSlug: "supply-elasticity-price-change",
@@ -260,7 +268,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "market-equilibrium-shift",
-    chapterKo: "부동산경제론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
     category: "부동산경제론",
     subcategory: "균형점 이동",
     titleKo: "수요·공급 곡선의 이동과 균형점 계산",
@@ -290,7 +299,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "equilibrium-shift-direction-judgment",
-    chapterKo: "부동산경제론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
     category: "부동산경제론",
     subcategory: "균형점 이동",
     parentSlug: "market-equilibrium-shift",
@@ -317,65 +327,31 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "business-cycle-cobweb",
-    chapterKo: "부동산경제론",
+    slug: "elasticity-theory",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
     category: "부동산경제론",
-    subcategory: "경기변동·거미집이론",
-    titleKo: "거미집이론의 수렴·발산·순환형 판정",
-    titleEn: "Cobweb Model: Convergent, Divergent, and Cyclical Patterns",
+    subcategory: "탄력성 이론",
+    titleKo: "완전탄력적·완전비탄력적 수요와 총수입의 변화",
+    titleEn: "Perfectly Elastic/Inelastic Demand and Total Revenue Change",
     definition:
-      "거미집이론에서 수요곡선 기울기의 절대값이 공급곡선 기울기보다 크면 수렴형, 작으면 발산형, 같으면 순환형이 되며, 부동산 경기는 통상 약 40~60년 주기의 장기 경기파동(콘드라티예프 파동에 해당하는 부동산 경기순환)을 포함해 여러 층위의 순환을 갖는다.",
+      "완전탄력적 수요는 미세한 가격 변화에도 수요량이 무한히 변하는 경우(수요곡선이 수평)이며, 수요의 가격탄력성이 1보다 작은 비탄력적 구간에서는 가격이 오르면 총수입이 오히려 증가한다.",
     intuition:
-      "거미집이론은 '공급이 가격 변화에 얼마나 민감하게 반응하는지'를 수요와 비교해 안정성을 판정하는 모델이므로, 두 기울기의 절대값 크기 비교라는 한 가지 규칙만 정확히 기억하면 유형 판정이 쉬워진다.",
+      "총수입(가격×수요량)의 변화 방향은 탄력성이 1보다 큰지 작은지에 달려 있으므로, '비탄력적이면 가격 인상이 총수입을 늘린다'는 규칙 하나만 정확히 알아두면 여러 응용문제에 적용할 수 있다.",
     keyPoints: [
-      "수요 기울기 절대값 > 공급 기울기 → 수렴형(균형으로 수렴).",
-      "수요 기울기 절대값 < 공급 기울기 → 발산형(균형에서 이탈).",
-      "수요 기울기 절대값 = 공급 기울기 → 순환형(일정 폭으로 순환 반복).",
+      "완전탄력적 수요는 가격이 조금만 변해도 수요량이 무한히 변하는 경우로, 수요곡선이 수평선 형태다.",
+      "수요의 가격탄력성이 1보다 작으면(비탄력적), 가격 상승 시 수요량 감소율이 가격 상승률보다 작아 총수입은 오히려 증가한다.",
+      "완전비탄력적 수요는 가격이 변해도 수요량이 전혀 변하지 않는 경우로, 완전탄력적과 정반대 개념이다.",
     ],
     pitfalls:
-      "수렴·발산 조건을 반대로 암기하기 쉽다 — 수요 기울기가 더 가파를(클) 때 수렴형이 된다는 점을 정확히 기억해야 한다.",
+      "완전탄력적과 완전비탄력적의 정의를 서로 바꿔 기억하기 쉽다 — 완전탄력적은 '수요량이 무한히 변함', 완전비탄력적은 '수요량이 고정됨'이다.",
     example:
-      "수요곡선의 기울기 절대값이 1이고 공급곡선의 기울기가 0.5라면, 수요 기울기가 더 크므로 이 시장은 수렴형 거미집 패턴을 보인다.",
-    questionRefs: [
-      { year: 2016, questionNo: 6 },
-      { year: 2018, questionNo: 7 },
-      { year: 2020, questionNo: 11 },
-      { year: 2021, questionNo: 6 },
-      { year: 2023, questionNo: 5 },
-    ],
-  },
-  {
-    slug: "real-estate-business-cycle-phases",
-    chapterKo: "부동산경제론",
-    category: "부동산경제론",
-    subcategory: "경기변동·거미집이론",
-    parentSlug: "business-cycle-cobweb",
-    titleKo: "부동산경기변동의 국면별 특징",
-    titleEn: "Phase Characteristics of the Real Estate Business Cycle",
-    definition:
-      "부동산경기는 일반경기와 달리 일정한 주기·진폭으로 규칙적으로 순환하지 않으며 지역·부분시장별로 다르게 나타나고 저점이 깊고 정점이 높은 경향이 있으며, 회복시장에서는 매수자 우위에서 매도자 우위 시장으로 전환되고 상향시장에서는 가격 상승과 거래량 증가가 지속된다.",
-    intuition:
-      "부동산경기변동은 일반경기변동의 개념을 그대로 가져오되, 부동산 특유의 비동조성(지역·부분시장별 상이함)과 진폭 확대(더 깊고 더 높음)라는 두 가지 예외를 덧붙여 이해하면 된다.",
-    keyPoints: [
-      "부동산경기는 일반경기와 동일한 주기·진폭으로 규칙적으로 순환하지 않으며, 일반경기변동에 비해 저점이 깊고 정점이 높은 경향이 있고 지역별·부분시장별로 다른 변동양상을 보인다.",
-      "상승국면(회복·상향시장)에서는 직전 거래사례가격이 새로운 거래가격의 하한이 되는 경향이 있고, 회복시장에서는 매수자 우위 시장에서 매도자 우위 시장으로 전환되는 경향이 있다.",
-      "하향시장에서는 건축허가신청이 지속적으로 감소하고, 안정시장에서는 과거의 거래가격이 새로운 거래가격의 중요한 기준으로 활용되는 경향이 있다.",
-      "경기변동 중 불황과 물가상승이 동시에 나타나는 현상은 스태그플레이션이며, 콘드라티예프 파동(장기파동)·쥬글라 파동(설비투자 순환)·키친 파동(재고 순환)은 각각 주기가 다른 경기순환 파동이다.",
-    ],
-    pitfalls:
-      "부동산경기가 일반경기와 동일한 주기·진폭으로 규칙적으로 순환한다고 착각하기 쉽지만, 실제로는 저점이 깊고 정점이 높으며 주기도 더 길게 나타난다.",
-    example:
-      "부동산 경기가 회복국면에 들어서면, 매수자가 주도하던 시장이 점차 매도자가 주도하는 시장으로 바뀌는 경향이 있다.",
-    questionRefs: [
-      { year: 2016, questionNo: 12 },
-      { year: 2018, questionNo: 17 },
-      { year: 2020, questionNo: 12 },
-      { year: 2022, questionNo: 7 },
-    ],
+      "임대료 수요가 비탄력적인 상가에서 임대료를 인상하면, 수요량 감소폭이 임대료 인상폭보다 작아 임대인의 총수입은 오히려 늘어난다.",
   },
   {
     slug: "elasticity-calculation",
-    chapterKo: "부동산경제론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
     category: "부동산경제론",
     subcategory: "탄력성 계산",
     titleKo: "가격탄력성·교차탄력성의 계산과 재화 관계 판정",
@@ -406,29 +382,9 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "elasticity-theory",
-    chapterKo: "부동산경제론",
-    category: "부동산경제론",
-    subcategory: "탄력성 이론",
-    titleKo: "완전탄력적·완전비탄력적 수요와 총수입의 변화",
-    titleEn: "Perfectly Elastic/Inelastic Demand and Total Revenue Change",
-    definition:
-      "완전탄력적 수요는 미세한 가격 변화에도 수요량이 무한히 변하는 경우(수요곡선이 수평)이며, 수요의 가격탄력성이 1보다 작은 비탄력적 구간에서는 가격이 오르면 총수입이 오히려 증가한다.",
-    intuition:
-      "총수입(가격×수요량)의 변화 방향은 탄력성이 1보다 큰지 작은지에 달려 있으므로, '비탄력적이면 가격 인상이 총수입을 늘린다'는 규칙 하나만 정확히 알아두면 여러 응용문제에 적용할 수 있다.",
-    keyPoints: [
-      "완전탄력적 수요는 가격이 조금만 변해도 수요량이 무한히 변하는 경우로, 수요곡선이 수평선 형태다.",
-      "수요의 가격탄력성이 1보다 작으면(비탄력적), 가격 상승 시 수요량 감소율이 가격 상승률보다 작아 총수입은 오히려 증가한다.",
-      "완전비탄력적 수요는 가격이 변해도 수요량이 전혀 변하지 않는 경우로, 완전탄력적과 정반대 개념이다.",
-    ],
-    pitfalls:
-      "완전탄력적과 완전비탄력적의 정의를 서로 바꿔 기억하기 쉽다 — 완전탄력적은 '수요량이 무한히 변함', 완전비탄력적은 '수요량이 고정됨'이다.",
-    example:
-      "임대료 수요가 비탄력적인 상가에서 임대료를 인상하면, 수요량 감소폭이 임대료 인상폭보다 작아 임대인의 총수입은 오히려 늘어난다.",
-  },
-  {
     slug: "efficient-market-hypothesis",
-    chapterKo: "부동산경제론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
     category: "부동산경제론",
     subcategory: "효율적 시장",
     titleKo: "효율적 시장의 3단계 구분과 부동산시장의 특수성",
@@ -447,11 +403,69 @@ const concepts: Concept[] = [
     example:
       "아직 공개되지 않은 개발계획 정보까지 이미 가격에 반영되어 있다면, 이는 강성 효율적 시장의 특징을 보이는 것이다.",
   },
-
-  // ───────── 부동산시장론 ─────────
+  {
+    slug: "business-cycle-cobweb",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
+    category: "부동산경제론",
+    subcategory: "경기변동·거미집이론",
+    titleKo: "거미집이론의 수렴·발산·순환형 판정",
+    titleEn: "Cobweb Model: Convergent, Divergent, and Cyclical Patterns",
+    definition:
+      "거미집이론에서 수요곡선 기울기의 절대값이 공급곡선 기울기보다 크면 수렴형, 작으면 발산형, 같으면 순환형이 되며, 부동산 경기는 통상 약 40~60년 주기의 장기 경기파동(콘드라티예프 파동에 해당하는 부동산 경기순환)을 포함해 여러 층위의 순환을 갖는다.",
+    intuition:
+      "거미집이론은 '공급이 가격 변화에 얼마나 민감하게 반응하는지'를 수요와 비교해 안정성을 판정하는 모델이므로, 두 기울기의 절대값 크기 비교라는 한 가지 규칙만 정확히 기억하면 유형 판정이 쉬워진다.",
+    keyPoints: [
+      "수요 기울기 절대값 > 공급 기울기 → 수렴형(균형으로 수렴).",
+      "수요 기울기 절대값 < 공급 기울기 → 발산형(균형에서 이탈).",
+      "수요 기울기 절대값 = 공급 기울기 → 순환형(일정 폭으로 순환 반복).",
+    ],
+    pitfalls:
+      "수렴·발산 조건을 반대로 암기하기 쉽다 — 수요 기울기가 더 가파를(클) 때 수렴형이 된다는 점을 정확히 기억해야 한다.",
+    example:
+      "수요곡선의 기울기 절대값이 1이고 공급곡선의 기울기가 0.5라면, 수요 기울기가 더 크므로 이 시장은 수렴형 거미집 패턴을 보인다.",
+    questionRefs: [
+      { year: 2016, questionNo: 6 },
+      { year: 2018, questionNo: 7 },
+      { year: 2020, questionNo: 11 },
+      { year: 2021, questionNo: 6 },
+      { year: 2023, questionNo: 5 },
+    ],
+  },
+  {
+    slug: "real-estate-business-cycle-phases",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산경제론",
+    category: "부동산경제론",
+    subcategory: "경기변동·거미집이론",
+    parentSlug: "business-cycle-cobweb",
+    titleKo: "부동산경기변동의 국면별 특징",
+    titleEn: "Phase Characteristics of the Real Estate Business Cycle",
+    definition:
+      "부동산경기는 일반경기와 달리 일정한 주기·진폭으로 규칙적으로 순환하지 않으며 지역·부분시장별로 다르게 나타나고 저점이 깊고 정점이 높은 경향이 있으며, 회복시장에서는 매수자 우위에서 매도자 우위 시장으로 전환되고 상향시장에서는 가격 상승과 거래량 증가가 지속된다.",
+    intuition:
+      "부동산경기변동은 일반경기변동의 개념을 그대로 가져오되, 부동산 특유의 비동조성(지역·부분시장별 상이함)과 진폭 확대(더 깊고 더 높음)라는 두 가지 예외를 덧붙여 이해하면 된다.",
+    keyPoints: [
+      "부동산경기는 일반경기와 동일한 주기·진폭으로 규칙적으로 순환하지 않으며, 일반경기변동에 비해 저점이 깊고 정점이 높은 경향이 있고 지역별·부분시장별로 다른 변동양상을 보인다.",
+      "상승국면(회복·상향시장)에서는 직전 거래사례가격이 새로운 거래가격의 하한이 되는 경향이 있고, 회복시장에서는 매수자 우위 시장에서 매도자 우위 시장으로 전환되는 경향이 있다.",
+      "하향시장에서는 건축허가신청이 지속적으로 감소하고, 안정시장에서는 과거의 거래가격이 새로운 거래가격의 중요한 기준으로 활용되는 경향이 있다.",
+      "경기변동 중 불황과 물가상승이 동시에 나타나는 현상은 스태그플레이션이며, 콘드라티예프 파동(장기파동)·쥬글라 파동(설비투자 순환)·키친 파동(재고 순환)은 각각 주기가 다른 경기순환 파동이다.",
+    ],
+    pitfalls:
+      "부동산경기가 일반경기와 동일한 주기·진폭으로 규칙적으로 순환한다고 착각하기 쉽지만, 실제로는 저점이 깊고 정점이 높으며 주기도 더 길게 나타난다.",
+    example:
+      "부동산 경기가 회복국면에 들어서면, 매수자가 주도하던 시장이 점차 매도자가 주도하는 시장으로 바뀌는 경향이 있다.",
+    questionRefs: [
+      { year: 2016, questionNo: 12 },
+      { year: 2018, questionNo: 17 },
+      { year: 2020, questionNo: 12 },
+      { year: 2022, questionNo: 7 },
+    ],
+  },
   {
     slug: "location-theory-huff-reilly",
-    chapterKo: "부동산시장론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산시장론",
     category: "부동산시장론",
     subcategory: "입지론",
     titleKo: "레일리의 소매인력법칙과 컨버스의 분기점 모형",
@@ -479,7 +493,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "huff-probability-model",
-    chapterKo: "부동산시장론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산시장론",
     category: "부동산시장론",
     subcategory: "입지론",
     parentSlug: "location-theory-huff-reilly",
@@ -509,7 +524,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "location-quotient-calculation",
-    chapterKo: "부동산시장론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산시장론",
     category: "부동산시장론",
     subcategory: "입지론",
     parentSlug: "location-theory-huff-reilly",
@@ -537,7 +553,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "weber-least-cost-theory",
-    chapterKo: "부동산시장론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산시장론",
     category: "부동산시장론",
     subcategory: "입지론",
     parentSlug: "location-theory-huff-reilly",
@@ -564,7 +581,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "christaller-central-place-theory",
-    chapterKo: "부동산시장론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산시장론",
     category: "부동산시장론",
     subcategory: "입지론",
     parentSlug: "location-theory-huff-reilly",
@@ -590,7 +608,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "quasi-rent-differential-rent",
-    chapterKo: "부동산시장론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산시장론",
     category: "부동산시장론",
     subcategory: "지대론 (차액·절대지대 등)",
     titleKo: "차액지대설과 준지대·절대지대·위치지대의 구분",
@@ -623,7 +642,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "urban-structure-theory",
-    chapterKo: "부동산시장론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산시장론",
     category: "부동산시장론",
     subcategory: "도시공간구조론 (동심원·선형 등)",
     titleKo: "동심원·선형·다핵심 도시공간구조이론의 비교",
@@ -656,7 +676,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "housing-filtering-market-segregation",
-    chapterKo: "부동산시장론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산시장론",
     category: "부동산시장론",
     subcategory: "부동산시장 일반 (시장 특성·유형)",
     titleKo: "주거분리 현상과 효율적 시장의 강성·준강성 구분",
@@ -675,11 +696,366 @@ const concepts: Concept[] = [
     example:
       "아직 공개되지 않은 정보까지 가격에 반영된 시장은 강성 효율적 시장이고, 이미 발표된 뉴스만 반영된 시장은 준강성 효율적 시장이다.",
   },
-
-  // ───────── 부동산투자론 ─────────
+  {
+    slug: "market-failure-intervention",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "시장개입 (직접·간접)",
+    titleKo: "직접·간접 시장개입 수단의 구분과 시장실패 원인",
+    titleEn: "Direct vs. Indirect Market Intervention and Causes of Market Failure",
+    definition:
+      "토지수용·공공임대주택 건설은 직접적 시장개입 수단이고 개발부담금 부과 같은 조세·부담금은 간접적 시장개입 수단이며, 공공재의 비배제성·비경합성과 외부효과는 시장실패를 야기해 정부 개입의 정당성이 된다.",
+    intuition:
+      "정부가 '직접 물량·가격을 통제하는지(직접개입)' 아니면 '세금·보조금으로 유인만 조정하는지(간접개입)'로 나누어 이해하면, 다양한 정책 수단을 빠르게 분류할 수 있다.",
+    keyPoints: [
+      "개발부담금 부과는 조세·부담금을 통한 간접적 시장개입수단이다 — 직접적 시장개입수단은 토지수용, 공공임대주택 건설 등이다.",
+      "공공재(비배제성·비경합성)와 외부효과는 시장실패를 야기하므로 정부 개입의 정당성이 된다.",
+      "비배제성·비경합성으로 인해 시장실패가 발생한다는 점을 정책수단 학습의 전제로 함께 정리해야 한다.",
+    ],
+    pitfalls:
+      "'개발부담금 부과 = 직접개입'이라고 착각하는 것이 자주 나오는 함정이다 — 조세·부담금은 간접개입 수단이다.",
+    example:
+      "정부가 직접 토지를 수용해 공공택지를 조성하는 것은 직접개입이고, 개발이익을 환수하기 위해 개발부담금을 부과하는 것은 간접개입이다.",
+  },
+  {
+    slug: "zoning-negative-externality",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "부동산 정책수단·제도",
+    titleKo: "용도지역·지구제와 도시지역의 세부 구분",
+    titleEn: "Zoning System and Sub-Classifications of Urban Areas",
+    definition:
+      "용도지역·지구제는 토지이용에 수반되는 부(-)의 외부효과를 규제하는 대표적 정책수단으로, 국토는 도시지역·관리지역·농림지역·자연환경보전지역으로 구분되고 도시지역은 다시 주거·상업·공업·녹지지역으로 세분된다.",
+    intuition:
+      "용도지역·지구제는 주변에 피해를 주는 토지이용을 사전에 걸러내는 조닝(zoning) 장치라는 점에서 이해하면, 도시지역의 세부 분류(주거·상업·공업·녹지) 문제도 결국 '어느 용도의 하위 범주인가'를 가리는 문제로 정리된다.",
+    keyPoints: [
+      "용도지역·지구제는 사적 시장이 외부효과에 대한 효율적 해결책을 제시하지 못할 때 정부가 채택하는 정책수단으로, 토지이용에 따른 부(-)의 외부효과를 제거·감소시킨다.",
+      "국토는 용도지역상 도시지역·관리지역·농림지역·자연환경보전지역으로 구분되며, 도시지역은 다시 주거지역(제2종일반주거지역 등)·상업지역(근린상업지역 등)·공업지역·녹지지역(자연녹지지역 등)으로 세분된다.",
+      "준주거지역·근린상업지역·자연녹지지역은 도시지역에 속하지만, 농림지역·계획관리지역(관리지역의 세분)·자연환경보전지역은 도시지역이 아니다.",
+      "용도지구는 용도지역과 달리 하나의 대지에 중복 지정될 수 있다.",
+    ],
+    pitfalls:
+      "계획관리지역을 도시지역의 세분으로 착각하기 쉽지만, 계획관리지역은 도시지역이 아니라 관리지역의 세분이다.",
+    example:
+      "준주거지역·근린상업지역·자연녹지지역은 모두 도시지역에 속하지만, 농림지역과 자연환경보전지역은 도시지역이 아니다.",
+    questionRefs: [
+      { year: 2016, questionNo: 15 },
+      { year: 2022, questionNo: 16 },
+      { year: 2025, questionNo: 18 },
+    ],
+  },
+  {
+    slug: "land-policy-tools-current-status",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "부동산 정책수단·제도",
+    parentSlug: "zoning-negative-externality",
+    titleKo: "부동산정책 수단의 개념과 시행 여부",
+    titleEn: "Concepts and Current Status of Real Estate Policy Tools",
+    definition:
+      "토지선매·개발부담금제·토지비축제도·개발제한구역·투기과열지구 등은 국가·지방자치단체가 시장에 개입하는 대표적 토지정책 수단이며, 택지소유상한제·토지초과이득세제 등은 이미 폐지되어 현재 시행되지 않는 반면 실거래가신고제·분양가상한제·토지거래허가제 등은 현재도 시행되고 있다.",
+    intuition:
+      "이 단원은 결국 '이 제도가 지금도 있는가'와 '이 제도의 정의가 정확한가'라는 두 축으로 출제되므로, 폐지된 제도 목록과 현행 제도의 정확한 정의를 각각 짝지어 암기해야 한다.",
+    keyPoints: [
+      "토지선매는 토지거래허가구역 내에서 허가신청이 있을 때 국가·지방자치단체·한국토지주택공사 등이 사적 거래에 우선해 그 토지를 매수하는 제도이며(강제수용이 아님), 개발권양도제(TDR)는 개발이 제한되는 토지의 개발권을 다른 지역에 양도하는 제도로 법령상 우리나라에서는 시행되지 않고 있다.",
+      "토지비축제도(토지은행)는 정부가 직접 시장에 개입하는 수단으로, 공공토지의 비축에 관한 법령상 비축토지는 한국토지주택공사가 관리하며(지방자치단체가 직접 관리하는 것이 아님) 장래 공익사업과 토지시장 안정에 기여한다.",
+      "택지소유상한제·토지초과이득세제·택지초과소유부담금은 폐지되어 현재 시행되지 않지만, 실거래가신고제·분양가상한제·개발부담금제·용도지역제·토지거래허가제·개발제한구역·투기과열지구 지정·자금조달계획서 제출요구·농지취득자격증명제는 현재 시행되고 있다.",
+      "개별공시지가는 국토교통부장관이 아니라 시장·군수·구청장이 결정·공시하고, 표준지공시지가는 국토교통부장관이 매년 공시기준일 현재의 단위면적당 적정가격을 조사·평가해 공시한다.",
+    ],
+    pitfalls:
+      "개별공시지가의 공시 주체를 국토교통부장관으로 착각하기 쉽지만, 실제로는 시장·군수·구청장이 결정·공시한다(표준지공시지가만 국토교통부장관 소관).",
+    example:
+      "택지소유상한제와 토지초과이득세는 이미 폐지되어 현재 시행되지 않지만, 개발부담금제는 지금도 시행되고 있다.",
+    questionRefs: [
+      { year: 2016, questionNo: 17 },
+      { year: 2017, questionNo: 10 },
+      { year: 2017, questionNo: 26 },
+      { year: 2018, questionNo: 21 },
+      { year: 2019, questionNo: 3 },
+      { year: 2019, questionNo: 18 },
+      { year: 2021, questionNo: 16 },
+      { year: 2022, questionNo: 18 },
+      { year: 2024, questionNo: 18 },
+    ],
+  },
+  {
+    slug: "financial-regulation-classification",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "부동산 정책수단·제도",
+    parentSlug: "zoning-negative-externality",
+    titleKo: "금융규제와 비금융규제의 구분",
+    titleEn: "Distinguishing Financial from Non-Financial Regulations",
+    definition:
+      "담보인정비율(LTV)·총부채원리금상환비율(DSR) 강화처럼 대출·상환 조건을 통제하는 수단은 금융규제이지만, 양도소득세·개발부담금처럼 조세를 통한 규제나 토지거래허가제·개발제한구역·분양가상한제처럼 이용·거래 자체를 규제하는 수단은 금융규제가 아니다.",
+    intuition:
+      "금융규제인지 판별할 때는 '돈을 빌리고 갚는 조건'을 직접 건드리는가만 확인하면 된다 — 세금·용도규제·가격규제는 아무리 시장에 강하게 개입해도 금융규제로 분류되지 않는다.",
+    keyPoints: [
+      "담보인정비율(LTV) 강화, 총부채원리금상환비율(DSR) 강화는 대표적인 금융규제 수단이다.",
+      "양도소득세 강화, 개발부담금의 부담률 인상은 조세정책 수단이지 금융규제가 아니다.",
+      "토지거래허가제, 개발제한구역·택지개발지구 지정, 분양가상한제의 적용 지역 확대, 개발권양도제(TDR) 시행은 토지이용·가격 규제 수단이지 금융규제가 아니다.",
+    ],
+    pitfalls:
+      "토지거래허가제나 분양가상한제처럼 시장에 강하게 개입하는 정책을 금융규제로 착각하기 쉽지만, 이들은 대출조건을 건드리지 않으므로 금융규제가 아니다.",
+    example:
+      "정부가 총부채원리금상환비율(DSR) 기준을 강화하는 것은 금융규제에 해당하지만, 분양가상한제 적용 지역을 확대하는 것은 금융규제가 아니다.",
+    questionRefs: [
+      { year: 2020, questionNo: 5 },
+      { year: 2024, questionNo: 20 },
+    ],
+  },
+  {
+    slug: "real-estate-system-timeline-status",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "부동산 정책수단·제도",
+    parentSlug: "zoning-negative-externality",
+    titleKo: "부동산제도의 시행 여부와 도입 시기",
+    titleEn: "Timeline and Current Status of Real Estate Institutions",
+    definition:
+      "택지소유상한제·토지초과이득세제·공한지세는 폐지되어 현재 시행되지 않지만 실거래가신고제·분양가상한제·개발행위허가제·용도지역제·토지거래허가제·주택거래신고제·개발이익환수제·부동산실명제·주택 전매제한·종합부동산세는 현재 시행되고 있으며, 공인중개사제도(1983년)·부동산실명제(1995년)·자산유동화제도(1998년)·부동산거래신고제(2006년) 순으로 도입되었다.",
+    intuition:
+      "이 단원은 '지금도 있는 제도인가'와 '언제 생긴 제도인가'라는 두 축의 암기 문제이므로, 폐지된 제도 목록과 주요 제도의 도입 연도를 각각 순서대로 정리해두면 된다.",
+    keyPoints: [
+      "택지소유상한제, 토지초과이득세제, 공한지세는 폐지되어 현재 시행되지 않는 대표적인 제도다.",
+      "실거래가신고제, 분양가상한제, 개발행위허가제, 용도지역제, 토지거래허가제, 주택거래신고제, 개발이익환수제, 부동산 실권리자명의 등기제도(부동산실명제), 주택의 전매제한, 종합부동산세는 현재 시행되고 있는 제도다.",
+      "법령상 도입 시기는 공인중개사제도(1983년, 부동산중개업법) → 부동산실명제(1995년) → 자산유동화제도(1998년) → 부동산거래신고제(2006년) 순이다.",
+    ],
+    pitfalls:
+      "토지초과이득세제나 택지소유상한제를 아직 시행 중인 제도로 착각하기 쉽지만, 두 제도 모두 위헌 결정 등을 거쳐 폐지되었다.",
+    example:
+      "부동산 실권리자명의 등기제도(부동산실명제)는 1995년에 도입되어 공인중개사제도(1983년)보다 늦게 시행되었다.",
+    questionRefs: [
+      { year: 2018, questionNo: 18 },
+      { year: 2020, questionNo: 23 },
+      { year: 2020, questionNo: 24 },
+      { year: 2021, questionNo: 14 },
+      { year: 2023, questionNo: 16 },
+    ],
+  },
+  {
+    slug: "sale-price-cap-rent-subsidy",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "주택정책 (분양가규제·주거복지 등)",
+    titleKo: "분양가상한제와 분양가규제",
+    titleEn: "The Sale Price Cap System and Pricing Regulation",
+    definition:
+      "분양가상한제 적용 주택의 분양가는 택지비와 건축비의 합으로 산정되며, 국민주택건설사업 등 공공사업으로 개발·조성되는 용지에 건설되는 공동주택도 분양가 제한 대상이 될 수 있고 그 주택·입주자 지위는 전매가 제한될 수 있다.",
+    intuition:
+      "분양가상한제는 땅값 + 건축비라는 원가 구조를 그대로 반영해 상한선을 정하는 제도이며, 가격 통제의 실효성을 지키기 위해 전매제한이라는 보조 장치를 함께 둔다고 이해하면 된다.",
+    keyPoints: [
+      "분양가상한제 적용 주택의 분양가 = 택지비 + 건축비이며, 이는 주택가격 안정과 무주택자의 신규주택 구입부담 경감을 목적으로 한다.",
+      "국민주택건설사업 등 공공사업으로 개발·조성되는 용지에 건설되는 공동주택도 분양가 제한 대상이 될 수 있다(제한할 수 없다는 서술은 틀림).",
+      "분양가상한제 적용주택 및 그 주택의 입주자로 선정된 지위(분양권)에 대해서는 전매를 제한할 수 있다.",
+    ],
+    pitfalls:
+      "분양가 산정식에 '택지비 + 건축비' 외의 다른 항목을 추가하는 지문에 주의해야 한다.",
+    example:
+      "택지비가 3억원, 건축비가 2억원인 아파트라면 분양가상한제 하의 분양가는 원칙적으로 5억원으로 산정된다.",
+    questionRefs: [
+      { year: 2016, questionNo: 16 },
+      { year: 2019, questionNo: 20 },
+    ],
+  },
+  {
+    slug: "public-rental-housing-types",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "주택정책 (분양가규제·주거복지 등)",
+    parentSlug: "sale-price-cap-rent-subsidy",
+    titleKo: "공공주택 특별법령상 공공임대주택의 유형",
+    titleEn: "Types of Public Rental Housing under the Public Housing Act",
+    definition:
+      "공공임대주택은 영구임대주택·국민임대주택·통합공공임대주택·장기전세주택·분양전환공공임대주택·기존주택등매입임대주택·기존주택전세임대주택 등으로 나뉘며, 각 유형은 지원대상과 임대방식(전세 vs 매입·전대)이 다르지만 공공지원민간임대주택은 공공임대주택에 해당하지 않는다.",
+    intuition:
+      "공공임대주택 유형은 결국 '누구를 대상으로(최저소득층·젊은층·취약계층 등)'와 '어떤 방식으로 공급하는가(신축·전세·매입)'라는 두 축으로 구분하면 정리하기 쉽다.",
+    keyPoints: [
+      "영구임대주택은 최저소득계층을 대상으로 50년 이상 또는 영구 임대를 목적으로 공급하고, 국민임대주택은 무주택 서민의 주거안정을 위해, 통합공공임대주택은 최저소득계층·저소득서민·젊은층·사회취약계층 등을 폭넓게 대상으로 공급한다.",
+      "장기전세주택은 전세계약의 방식으로 공급되는 공공임대주택이고, 분양전환공공임대주택은 일정 기간 임대 후 분양전환을 목적으로 공급하며, 기존주택전세임대주택·기존주택등매입임대주택은 기존주택을 임차·매입해 저소득층 등에게 공급하는 방식이다.",
+      "공공지원민간임대주택은 「민간임대주택에 관한 특별법」에 따른 민간 임대사업자의 주택으로, 「공공주택 특별법」상 공공임대주택에는 해당하지 않는다.",
+    ],
+    pitfalls:
+      "공공지원민간임대주택을 공공임대주택의 한 유형으로 착각하기 쉽지만, 이는 민간임대주택에 관한 특별법상 별도의 제도로 공공임대주택에 해당하지 않는다.",
+    example:
+      "최저소득계층의 주거안정을 위해 50년 이상 임대할 목적으로 공급하는 주택은 영구임대주택이다.",
+    questionRefs: [
+      { year: 2020, questionNo: 22 },
+      { year: 2022, questionNo: 32 },
+      { year: 2023, questionNo: 20 },
+      { year: 2024, questionNo: 19 },
+    ],
+  },
+  {
+    slug: "rental-policy-and-housing-welfare",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "주택정책 (분양가규제·주거복지 등)",
+    parentSlug: "sale-price-cap-rent-subsidy",
+    titleKo: "임대주택정책과 주거복지제도",
+    titleEn: "Rental Housing Policy and Housing Welfare Programs",
+    definition:
+      "임대료를 균형가격 이하로 규제하면 임대주택의 초과수요(공급부족)를 초래하고, 임대료 보조(주거급여·주택바우처)는 저소득층의 실질소득을 높여 장기적으로 임대주택 공급 증가에도 기여할 수 있으며, 공공임대주택 공급은 소득재분배 효과를 가진다.",
+    intuition:
+      "임대료 규제(가격통제)와 임대료 보조(소득지원)는 둘 다 저소득층을 돕는다는 목표는 같지만, 규제는 시장을 왜곡해 공급을 줄이는 반면 보조는 구매력을 높여 공급을 늘릴 수 있다는 정반대 결과를 낳는다고 구분하면 된다.",
+    keyPoints: [
+      "임대료 상한을 균형가격 이하로 규제하면 임대주택의 공급과잉이 아니라 초과수요(공급부족·이중가격 형성)를 초래하며, 민간임대주택의 공급량과 질적 수준을 모두 저하시킬 수 있다.",
+      "임대료 보조정책(주거급여·주택바우처)은 저소득층의 실질소득을 높이고 임차인의 주거지 선택을 용이하게 하며 장기적으로 임대주택 공급을 증가시킬 수 있다.",
+      "주거급여는 소비자보조 방식의 일종으로, 주택을 소유한 사람도 소득 등 요건을 충족하면 수급권자가 될 수 있다(주택 소유자는 무조건 배제되는 것이 아님).",
+      "선분양제도는 분양대금의 조기 유입으로 사업자의 초기자금부담을 완화하지만 분양권 전매를 통한 가수요를 창출할 수 있고, 후분양제도는 건설자금을 주로 사업자가 조달하며 소비자가 부실시공·품질저하에 대처하기 유리하다.",
+    ],
+    pitfalls:
+      "임대료를 균형가격 이하로 규제하면 임대주택 공급이 늘어난다고(공급과잉) 착각하기 쉽지만, 실제로는 공급 부족(초과수요)이 발생한다.",
+    example:
+      "정부가 임대료를 시장가격보다 낮게 규제하면, 그 가격에서 임대주택의 수요량이 공급량보다 많아지는 초과수요가 발생한다.",
+    questionRefs: [
+      { year: 2017, questionNo: 9 },
+      { year: 2018, questionNo: 22 },
+      { year: 2019, questionNo: 22 },
+      { year: 2020, questionNo: 21 },
+      { year: 2021, questionNo: 17 },
+      { year: 2023, questionNo: 19 },
+      { year: 2025, questionNo: 24 },
+    ],
+  },
+  {
+    slug: "real-estate-tax-policy",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "조세정책",
+    titleKo: "부동산 조세의 국세·지방세·과세단계 분류",
+    titleEn: "Classifying Real Estate Taxes by National/Local and Stage",
+    definition:
+      "종합부동산세는 국세·보유단계, 재산세는 지방세·보유단계, 취득세·등록면허세는 지방세, 양도소득세·상속세·증여세·부가가치세는 국세이며, 취득세·상속세·증여세는 취득단계, 재산세·종합부동산세는 보유단계, 양도소득세는 처분단계에 부과된다.",
+    intuition:
+      "부동산 세금은 국세냐 지방세냐와 취득·보유·처분 중 어느 단계에 부과되는가라는 두 축으로 분류표를 만들어두면, 세목이 늘어나도 헷갈리지 않고 위치를 잡을 수 있다.",
+    keyPoints: [
+      "국세에는 종합부동산세·양도소득세·상속세·증여세·부가가치세가, 지방세에는 취득세·등록면허세·재산세가 속한다.",
+      "취득단계에는 취득세·상속세·증여세, 보유단계에는 재산세·종합부동산세, 처분단계에는 양도소득세가 부과된다(상속세·증여세를 취득단계가 아닌 다른 단계로 분류하면 틀린다).",
+      "국세이면서 동시에 보유세에 해당하는 세목은 종합부동산세뿐이며(재산세는 지방세), 종합부동산세와 재산세는 물건별 과세표준에 대한 과세뿐 아니라 납세의무자별로 합산한 과세표준에 대한 과세방식도 함께 사용한다.",
+    ],
+    pitfalls:
+      "상속세·증여세를 보유단계나 처분단계 세금으로 착각하기 쉽지만, 둘 다 취득단계에 부과되는 국세다.",
+    example:
+      "국세이면서 보유단계에 부과되는 세금을 고르라면 종합부동산세가 정답이며, 재산세는 지방세이므로 해당하지 않는다.",
+    questionRefs: [
+      { year: 2018, questionNo: 20 },
+      { year: 2019, questionNo: 6 },
+      { year: 2025, questionNo: 17 },
+    ],
+  },
+  {
+    slug: "real-estate-tax-economic-effects",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산정책론",
+    category: "부동산정책론",
+    subcategory: "조세정책",
+    parentSlug: "real-estate-tax-policy",
+    titleKo: "부동산조세의 경제적 효과와 전가·귀착",
+    titleEn: "Economic Effects, Shifting, and Incidence of Real Estate Taxes",
+    definition:
+      "재산세 부과는 보유비용 증가로 주택수요를 감소시켜 가격을 하락시키고, 토지공급이 완전비탄력적이면 조세는 전부 토지소유자(공급자)가 부담하며, 공급의 가격탄력성이 수요의 가격탄력성보다 작으면 공급자의 조세부담이 더 크고, 양도소득세 중과는 보유자의 처분을 늦추는 동결효과(lock-in effect)를 낳는다.",
+    intuition:
+      "조세의 경제적 효과는 결국 '누가 더 이동하기 어려운가(탄력성이 낮은가)'가 부담을 더 진다는 원리 하나로 수렴하므로, 공급·수요 중 어느 쪽이 비탄력적인지부터 확인하면 전가·귀착 문제를 풀 수 있다.",
+    keyPoints: [
+      "재산세 부과는 보유비용 증가로 이어져 주택수요를 감소시키고 주택가격을 하락시킨다(수요증가·가격상승은 틀림).",
+      "토지공급의 가격탄력성이 0(완전비탄력적)이면 부동산조세는 전부 토지소유자(공급자)가 부담하며, 일반적으로 공급의 가격탄력성이 수요의 가격탄력성보다 작을수록 공급자의 조세부담이 더 크다.",
+      "양도소득세 중과는 보유자가 처분(매각)을 미루게 하는 동결효과(lock-in effect)를 낳아 부동산 공급을 감소시킨다(매각을 앞당기거나 공급을 증가시키는 것이 아니며, 이로 인해 가격이 하락하는 것도 아니다).",
+      "조세의 중립성은 조세가 시장의 자원배분에 영향을 미치지 않아야 한다는 원칙이고, 조세의 귀착은 조세의 사실상 부담이 최종적으로 귀속되는 것을 말하며, 부동산 거래세를 부과하면 거래량이 감소해 경제적 순손실(초과부담)이 발생한다(발생하지 않는다는 서술은 틀렸다).",
+    ],
+    pitfalls:
+      "동결효과로 인해 매각이 앞당겨지거나 부동산가격이 하락한다고 착각하기 쉽지만, 실제로는 매각이 늦춰지고(lock-in) 공급 감소로 가격은 오히려 상승 압력을 받는다.",
+    example:
+      "토지의 공급이 완전비탄력적인 경우, 토지에 부과되는 조세는 전부 토지소유자가 부담하게 된다.",
+    questionRefs: [
+      { year: 2017, questionNo: 12 },
+      { year: 2020, questionNo: 20 },
+      { year: 2021, questionNo: 15 },
+      { year: 2022, questionNo: 19 },
+      { year: 2023, questionNo: 15 },
+      { year: 2024, questionNo: 22 },
+      { year: 2025, questionNo: 20 },
+    ],
+  },
+  {
+    slug: "leverage-effect",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
+    category: "부동산투자론",
+    subcategory: "지렛대효과 (레버리지)",
+    titleKo: "레버리지 효과와 자기자본수익률",
+    titleEn: "Leverage Effect and Return on Equity",
+    definition:
+      "타인자본(대출)을 활용하는 레버리지는 자기자본수익률의 변동성(위험)을 증가시키며, 부채비율이 정해지면 자기자본과 부채의 구성비를 통해 자기자본수익률을 계산할 수 있다.",
+    intuition:
+      "레버리지는 '수익도 손실도 자기자본 기준으로 증폭시키는 배율장치'라고 이해하면, '위험이 감소한다'는 식의 반대 서술이 왜 틀렸는지 바로 판단할 수 있다.",
+    keyPoints: [
+      "레버리지를 활용하면 자기자본수익률의 변동성(위험)이 증가한다 — '위험이 감소한다'는 서술은 틀렸다.",
+      "부채비율(부채/자기자본) 50%는 자기자본:부채 = 2:1의 구성비를 의미하며, 자기자본 비중이 부채 비중보다 크다는 점에 주의해야 한다.",
+      "대출이자율보다 총자본수익률(종합수익률)이 높을 때 정(+)의 레버리지 효과가 발생한다.",
+    ],
+    pitfalls:
+      "부채비율 수치를 자기자본·부채의 '비중'과 혼동하기 쉽다 — 부채비율 50%는 부채가 자기자본의 절반이라는 뜻이지, 부채 비중이 50%라는 뜻이 아니다.",
+    example:
+      "자기자본 1억원에 부채 5천만원(부채비율 50%)을 더해 투자한 경우, 대출이자율보다 투자수익률이 높으면 자기자본수익률은 총자본수익률보다 더 높게 나타난다.",
+  },
+  {
+    slug: "time-value-of-money",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
+    category: "부동산투자론",
+    subcategory: "화폐의 시간가치",
+    titleKo: "저당상수와 감채기금계수의 용도 구분",
+    titleEn: "Distinguishing Mortgage Constant from Sinking Fund Factor",
+    definition:
+      "매월 상환할 원리금을 계산할 때는 저당상수(mortgage constant)를 사용하며, 미래의 목표 금액을 만들기 위해 매기 적립해야 할 금액을 구할 때는 감채기금계수를 사용한다. 또한 잔금비율과 상환비율의 합은 항상 1이다.",
+    intuition:
+      "화폐의 시간가치 6계수는 '내가 지금 무엇을 알고 있고, 무엇을 구하려 하는지'에 따라 골라 쓰는 도구상자라고 생각하면, 저당상수와 감채기금계수처럼 헷갈리는 계수를 구분하는 데 도움이 된다.",
+    keyPoints: [
+      "매월 상환할 금액(원리금)을 구할 때는 저당상수를 사용한다.",
+      "미래 목표액을 만들기 위한 매기 적립금을 구할 때는 감채기금계수를 사용한다 — 저당상수와 혼동하지 않아야 한다.",
+      "잔금비율(남은 원금 비율)과 상환비율(상환된 원금 비율)의 합은 항상 1이다.",
+    ],
+    pitfalls:
+      "저당상수와 감채기금계수의 용도를 서로 바꿔 적용하는 실수가 잦다 — 상환액 계산은 저당상수, 적립액 계산은 감채기금계수다.",
+    example:
+      "대출 원리금 상환액을 구할 때는 저당상수를, 10년 후 1억원을 모으기 위한 매년 적립액을 구할 때는 감채기금계수를 사용한다.",
+  },
+  {
+    slug: "operating-cash-flow",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
+    category: "부동산투자론",
+    subcategory: "현금수지 계산 (운영수지·현금흐름)",
+    titleKo: "가능총소득(PGI)에서 세후현금흐름까지의 산출 구조",
+    titleEn: "Structure from Potential Gross Income to After-Tax Cash Flow",
+    definition:
+      "가능총소득(PGI)은 단위면적당 추정 임대료에 임대면적을 곱해 산출하며, 여기서 공실·불량부채를 차감해 유효총소득을, 영업경비를 차감해 순영업소득을, 부채서비스액을 차감해 세전현금�흐름을, 영업소득세를 차감해 세후현금흐름을 순차적으로 구한다.",
+    intuition:
+      "운영수지 계산은 위에서 아래로 항목을 하나씩 차감해가는 '폭포수' 구조이므로, PGI부터 세후현금흐름까지 순서를 통째로 암기해두면 계산 문제의 뼈대를 놓치지 않는다.",
+    keyPoints: [
+      "가능총소득(PGI) = 단위면적당 추정 임대료 × 임대면적.",
+      "PGI에서 공실 및 불량부채를 차감하면 유효총소득(EGI)이 된다.",
+      "EGI에서 영업경비를 차감하면 순영업소득(NOI), 여기서 부채서비스액을 차감하면 세전현금흐름, 영업소득세를 차감하면 세후현금흐름이 된다.",
+    ],
+    pitfalls:
+      "각 단계에서 차감하는 항목의 순서(공실→영업경비→부채서비스액→세금)를 뒤바꾸는 실수를 하기 쉽다.",
+    example:
+      "단위면적당 임대료 10만원에 임대면적 1,000㎡인 건물의 가능총소득(PGI)은 1억원이며, 여기서 공실·영업경비·부채서비스액·세금을 순서대로 차감해 최종 세후현금흐름을 구한다.",
+  },
   {
     slug: "required-vs-expected-return",
-    chapterKo: "부동산투자론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
     category: "부동산투자론",
     subcategory: "수익과 위험 (기대수익률 등)",
     titleKo: "요구수익률·기대수익률과 투자위험의 구분",
@@ -715,7 +1091,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "informational-value-calculation",
-    chapterKo: "부동산투자론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
     category: "부동산투자론",
     subcategory: "수익과 위험 (기대수익률 등)",
     parentSlug: "required-vs-expected-return",
@@ -742,7 +1119,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "expected-return-calculation",
-    chapterKo: "부동산투자론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
     category: "부동산투자론",
     subcategory: "수익과 위험 (기대수익률 등)",
     parentSlug: "required-vs-expected-return",
@@ -769,7 +1147,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "npv-irr",
-    chapterKo: "부동산투자론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
     category: "부동산투자론",
     subcategory: "할인현금흐름법 (DCF)",
     titleKo: "순현재가치(NPV)·내부수익률(IRR)·수익성지수(PI)의 비교",
@@ -802,7 +1181,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "dcf-calculation-problems",
-    chapterKo: "부동산투자론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
     category: "부동산투자론",
     subcategory: "할인현금흐름법 (DCF)",
     parentSlug: "npv-irr",
@@ -831,7 +1211,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "non-discounted-methods",
-    chapterKo: "부동산투자론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
     category: "부동산투자론",
     subcategory: "비할인법 (어림셈법·비율분석·부채감당률)",
     titleKo: "비율분석법의 지표 정의와 비교",
@@ -858,7 +1239,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "ratio-analysis-calculation",
-    chapterKo: "부동산투자론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
     category: "부동산투자론",
     subcategory: "비할인법 (어림셈법·비율분석·부채감당률)",
     parentSlug: "non-discounted-methods",
@@ -890,71 +1272,9 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "leverage-effect",
-    chapterKo: "부동산투자론",
-    category: "부동산투자론",
-    subcategory: "지렛대효과 (레버리지)",
-    titleKo: "레버리지 효과와 자기자본수익률",
-    titleEn: "Leverage Effect and Return on Equity",
-    definition:
-      "타인자본(대출)을 활용하는 레버리지는 자기자본수익률의 변동성(위험)을 증가시키며, 부채비율이 정해지면 자기자본과 부채의 구성비를 통해 자기자본수익률을 계산할 수 있다.",
-    intuition:
-      "레버리지는 '수익도 손실도 자기자본 기준으로 증폭시키는 배율장치'라고 이해하면, '위험이 감소한다'는 식의 반대 서술이 왜 틀렸는지 바로 판단할 수 있다.",
-    keyPoints: [
-      "레버리지를 활용하면 자기자본수익률의 변동성(위험)이 증가한다 — '위험이 감소한다'는 서술은 틀렸다.",
-      "부채비율(부채/자기자본) 50%는 자기자본:부채 = 2:1의 구성비를 의미하며, 자기자본 비중이 부채 비중보다 크다는 점에 주의해야 한다.",
-      "대출이자율보다 총자본수익률(종합수익률)이 높을 때 정(+)의 레버리지 효과가 발생한다.",
-    ],
-    pitfalls:
-      "부채비율 수치를 자기자본·부채의 '비중'과 혼동하기 쉽다 — 부채비율 50%는 부채가 자기자본의 절반이라는 뜻이지, 부채 비중이 50%라는 뜻이 아니다.",
-    example:
-      "자기자본 1억원에 부채 5천만원(부채비율 50%)을 더해 투자한 경우, 대출이자율보다 투자수익률이 높으면 자기자본수익률은 총자본수익률보다 더 높게 나타난다.",
-  },
-  {
-    slug: "operating-cash-flow",
-    chapterKo: "부동산투자론",
-    category: "부동산투자론",
-    subcategory: "현금수지 계산 (운영수지·현금흐름)",
-    titleKo: "가능총소득(PGI)에서 세후현금흐름까지의 산출 구조",
-    titleEn: "Structure from Potential Gross Income to After-Tax Cash Flow",
-    definition:
-      "가능총소득(PGI)은 단위면적당 추정 임대료에 임대면적을 곱해 산출하며, 여기서 공실·불량부채를 차감해 유효총소득을, 영업경비를 차감해 순영업소득을, 부채서비스액을 차감해 세전현금�흐름을, 영업소득세를 차감해 세후현금흐름을 순차적으로 구한다.",
-    intuition:
-      "운영수지 계산은 위에서 아래로 항목을 하나씩 차감해가는 '폭포수' 구조이므로, PGI부터 세후현금흐름까지 순서를 통째로 암기해두면 계산 문제의 뼈대를 놓치지 않는다.",
-    keyPoints: [
-      "가능총소득(PGI) = 단위면적당 추정 임대료 × 임대면적.",
-      "PGI에서 공실 및 불량부채를 차감하면 유효총소득(EGI)이 된다.",
-      "EGI에서 영업경비를 차감하면 순영업소득(NOI), 여기서 부채서비스액을 차감하면 세전현금흐름, 영업소득세를 차감하면 세후현금흐름이 된다.",
-    ],
-    pitfalls:
-      "각 단계에서 차감하는 항목의 순서(공실→영업경비→부채서비스액→세금)를 뒤바꾸는 실수를 하기 쉽다.",
-    example:
-      "단위면적당 임대료 10만원에 임대면적 1,000㎡인 건물의 가능총소득(PGI)은 1억원이며, 여기서 공실·영업경비·부채서비스액·세금을 순서대로 차감해 최종 세후현금흐름을 구한다.",
-  },
-  {
-    slug: "time-value-of-money",
-    chapterKo: "부동산투자론",
-    category: "부동산투자론",
-    subcategory: "화폐의 시간가치",
-    titleKo: "저당상수와 감채기금계수의 용도 구분",
-    titleEn: "Distinguishing Mortgage Constant from Sinking Fund Factor",
-    definition:
-      "매월 상환할 원리금을 계산할 때는 저당상수(mortgage constant)를 사용하며, 미래의 목표 금액을 만들기 위해 매기 적립해야 할 금액을 구할 때는 감채기금계수를 사용한다. 또한 잔금비율과 상환비율의 합은 항상 1이다.",
-    intuition:
-      "화폐의 시간가치 6계수는 '내가 지금 무엇을 알고 있고, 무엇을 구하려 하는지'에 따라 골라 쓰는 도구상자라고 생각하면, 저당상수와 감채기금계수처럼 헷갈리는 계수를 구분하는 데 도움이 된다.",
-    keyPoints: [
-      "매월 상환할 금액(원리금)을 구할 때는 저당상수를 사용한다.",
-      "미래 목표액을 만들기 위한 매기 적립금을 구할 때는 감채기금계수를 사용한다 — 저당상수와 혼동하지 않아야 한다.",
-      "잔금비율(남은 원금 비율)과 상환비율(상환된 원금 비율)의 합은 항상 1이다.",
-    ],
-    pitfalls:
-      "저당상수와 감채기금계수의 용도를 서로 바꿔 적용하는 실수가 잦다 — 상환액 계산은 저당상수, 적립액 계산은 감채기금계수다.",
-    example:
-      "대출 원리금 상환액을 구할 때는 저당상수를, 10년 후 1억원을 모으기 위한 매년 적립액을 구할 때는 감채기금계수를 사용한다.",
-  },
-  {
     slug: "portfolio-theory",
-    chapterKo: "부동산투자론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산투자론",
     category: "부동산투자론",
     subcategory: "포트폴리오이론",
     titleKo: "체계적 위험과 비체계적 위험의 분산 효과",
@@ -973,11 +1293,98 @@ const concepts: Concept[] = [
     example:
       "가격이 반대로 움직이는 두 자산(상관계수 -1에 가까움)에 나누어 투자하면, 한 자산의 손실이 다른 자산의 이익으로 상쇄되어 포트폴리오 전체의 위험이 크게 줄어든다.",
   },
-
-  // ───────── 부동산금융론 ─────────
+  {
+    slug: "loan-limit-ltv-dcr",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
+    category: "부동산금융론",
+    subcategory: "최대 융자금액 (LTV·DTI)",
+    titleKo: "LTV·DCR 기준에 따른 대출한도 산정",
+    titleEn: "Loan Limit Calculation under LTV and DCR Standards",
+    definition:
+      "대출가능금액은 담보인정비율(LTV) 기준과 부채감당률(DCR) 기준으로 각각 계산한 뒤, 두 금액 중 더 작은 금액이 실제 대출한도가 된다.",
+    intuition:
+      "은행 입장에서는 '담보가치'와 '상환능력'이라는 두 가지 리스크를 모두 관리해야 하므로, 두 기준을 각각 적용해 계산하고 더 보수적인(작은) 값을 채택하는 것이 합리적이다.",
+    keyPoints: [
+      "LTV 기준 대출가능액 = 담보가치 × LTV 비율.",
+      "DCR 기준 대출가능액은 순영업소득과 부채감당률을 이용해 산정한다.",
+      "두 기준으로 각각 계산한 금액 중 더 작은 금액이 실제 대출한도가 된다는 점을 놓치기 쉽다.",
+    ],
+    pitfalls:
+      "LTV 기준 금액만 계산하고 DCR 기준과 비교하지 않아 오답을 내는 경우가 많다 — 반드시 두 기준을 모두 계산해 더 작은 값을 골라야 한다.",
+    example:
+      "LTV 기준으로는 2억원까지 대출 가능하지만 DCR 기준으로는 1억 8천만원까지만 가능하다면, 실제 대출한도는 더 작은 값인 1억 8천만원이다.",
+    questionRefs: [
+      { year: 2016, questionNo: 25 },
+      { year: 2017, questionNo: 27 },
+      { year: 2020, questionNo: 34 },
+      { year: 2024, questionNo: 29 },
+      { year: 2025, questionNo: 31 },
+    ],
+  },
+  {
+    slug: "reverse-mortgage-pension",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
+    category: "부동산금융론",
+    subcategory: "최대 융자금액 (LTV·DTI)",
+    parentSlug: "loan-limit-ltv-dcr",
+    titleKo: "주택담보노후연금(주택연금)의 요건과 특징",
+    titleEn: "Requirements and Features of the Reverse Mortgage Pension",
+    definition:
+      "주택연금은 주택소유자가 주택에 저당권 또는 신탁 등기 방식으로 담보를 제공하고 배우자를 포함해 생존하는 동안 매월 노후생활자금을 연금 방식으로 받는 제도로, 보증기관은 한국주택금융공사이며 준주택 중 주거목적 오피스텔도 가입 대상에 포함된다.",
+    intuition:
+      "주택연금은 '집을 담보로 맡기고 다달이 현금을 받는' 역모기지 구조이므로, 대출잔액이 시간이 갈수록 오히려 불어난다는 점과 담보·수급 대상의 정확한 범위를 구분해서 암기해야 한다.",
+    keyPoints: [
+      "주택연금의 보증기관은 한국주택금융공사이며, 담보주택의 가격하락 위험은 공사가 부담한다.",
+      "주택소유자뿐만 아니라 배우자가 생존하는 동안에도 노후생활자금을 매월 지급받을 수 있다(주택소유자 본인 생존기간에만 한정되지 않음).",
+      "담보 제공 방식에는 저당권 설정 등기 방식과 신탁 등기 방식이 있으며, 준주택 중 주거목적으로 사용되는 오피스텔의 소유자도 가입할 수 있다(업무시설인 오피스텔은 제외).",
+      "수령기간이 경과할수록 대출잔액이 누적되며, 주택담보노후연금을 받을 권리는 양도·압류할 수 없다.",
+    ],
+    pitfalls:
+      "업무시설인 오피스텔도 주택연금의 담보주택 대상이라고 착각하기 쉽지만, 주거목적으로 사용되는 오피스텔만 대상이 되고 업무시설인 오피스텔은 제외된다.",
+    example:
+      "부부가 공동으로 소유한 주택으로 주택연금에 가입하면, 주택소유자가 사망해도 생존한 배우자가 계속 노후생활자금을 받을 수 있다.",
+    questionRefs: [
+      { year: 2020, questionNo: 33 },
+      { year: 2022, questionNo: 28 },
+      { year: 2024, questionNo: 32 },
+    ],
+  },
+  {
+    slug: "housing-finance-and-ltv-dti-concepts",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
+    category: "부동산금융론",
+    subcategory: "최대 융자금액 (LTV·DTI)",
+    parentSlug: "loan-limit-ltv-dcr",
+    titleKo: "주택금융의 종류와 LTV·DTI·DSR의 개념",
+    titleEn: "Types of Housing Finance and the LTV/DTI/DSR Concepts",
+    definition:
+      "담보인정비율(LTV)은 담보가치 대비 대출가능금액의 비율, 총부채상환비율(DTI)은 차주의 소득을 기준으로 대출규모를 정하는 비율, 총부채원리금상환비율(DSR)은 연간소득 대비 모든 금융부채의 연간 원리금상환액 비율이며, 주택도시기금은 국민주택의 건설·구입 등에 출자·융자할 수 있다.",
+    intuition:
+      "LTV·DTI·DSR은 모두 '얼마나 빌려줄 수 있는가'를 정하는 기준이지만 각각 담보가치·소득·총부채라는 서로 다른 잣대를 쓴다는 점, 그리고 금리방식에 따라 위험이 대출자와 차입자 중 누구에게 가는지를 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "LTV·DTI의 구체적 기준은 한국은행장이 아니라 관계 법령(금융위원회 등)이 정하며, LTV가 올라갈수록 차입자의 자기자본비율은 오히려 낮아진다(증가하는 것이 아님).",
+      "변동금리 대출은 이자율 변동위험을 차입자에게 전가해 금융기관의 위험을 줄이지만, 고정금리 대출은 그 위험을 금융기관(대출자)이 부담한다(대출자에게 위험이 없는 것이 아님).",
+      "주택도시기금은 국민주택의 건설·대지조성사업, 준주택의 건설·구입에 출자·융자할 수 있지만, 국민주택규모 이상인 주택의 리모델링에 대한 융자는 그 용도에 포함되지 않는다.",
+      "주택소비금융(구입자금 대출)의 확대는 주택구입능력을 높여 자가주택 소유와 주택거래를 촉진하지만, 주택가격 급등에 대응하는 수단이 아니라 오히려 수요를 자극하는 요인이 될 수 있다.",
+    ],
+    pitfalls:
+      "LTV가 올라갈수록 차입자의 자기자본비율도 함께 올라간다고 착각하기 쉽지만, 실제로는 LTV가 오를수록 자기자본비율은 낮아진다.",
+    example:
+      "정부가 주택담보대출 규제를 완화하면 주택소비금융이 확대되어 주택거래가 활성화될 수 있다.",
+    questionRefs: [
+      { year: 2017, questionNo: 22 },
+      { year: 2021, questionNo: 18 },
+      { year: 2022, questionNo: 27 },
+      { year: 2025, questionNo: 23 },
+    ],
+  },
   {
     slug: "amortization-methods",
-    chapterKo: "부동산금융론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
     category: "부동산금융론",
     subcategory: "원리금 상환방법",
     titleKo: "원리금균등·원금균등·체증식·만기일시상환의 비교",
@@ -1007,7 +1414,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "amortization-schedule-calculation",
-    chapterKo: "부동산금융론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
     category: "부동산금융론",
     subcategory: "원리금 상환방법",
     parentSlug: "amortization-methods",
@@ -1037,93 +1445,9 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "loan-limit-ltv-dcr",
-    chapterKo: "부동산금융론",
-    category: "부동산금융론",
-    subcategory: "최대 융자금액 (LTV·DTI)",
-    titleKo: "LTV·DCR 기준에 따른 대출한도 산정",
-    titleEn: "Loan Limit Calculation under LTV and DCR Standards",
-    definition:
-      "대출가능금액은 담보인정비율(LTV) 기준과 부채감당률(DCR) 기준으로 각각 계산한 뒤, 두 금액 중 더 작은 금액이 실제 대출한도가 된다.",
-    intuition:
-      "은행 입장에서는 '담보가치'와 '상환능력'이라는 두 가지 리스크를 모두 관리해야 하므로, 두 기준을 각각 적용해 계산하고 더 보수적인(작은) 값을 채택하는 것이 합리적이다.",
-    keyPoints: [
-      "LTV 기준 대출가능액 = 담보가치 × LTV 비율.",
-      "DCR 기준 대출가능액은 순영업소득과 부채감당률을 이용해 산정한다.",
-      "두 기준으로 각각 계산한 금액 중 더 작은 금액이 실제 대출한도가 된다는 점을 놓치기 쉽다.",
-    ],
-    pitfalls:
-      "LTV 기준 금액만 계산하고 DCR 기준과 비교하지 않아 오답을 내는 경우가 많다 — 반드시 두 기준을 모두 계산해 더 작은 값을 골라야 한다.",
-    example:
-      "LTV 기준으로는 2억원까지 대출 가능하지만 DCR 기준으로는 1억 8천만원까지만 가능하다면, 실제 대출한도는 더 작은 값인 1억 8천만원이다.",
-    questionRefs: [
-      { year: 2016, questionNo: 25 },
-      { year: 2017, questionNo: 27 },
-      { year: 2020, questionNo: 34 },
-      { year: 2024, questionNo: 29 },
-      { year: 2025, questionNo: 31 },
-    ],
-  },
-  {
-    slug: "reverse-mortgage-pension",
-    chapterKo: "부동산금융론",
-    category: "부동산금융론",
-    subcategory: "최대 융자금액 (LTV·DTI)",
-    parentSlug: "loan-limit-ltv-dcr",
-    titleKo: "주택담보노후연금(주택연금)의 요건과 특징",
-    titleEn: "Requirements and Features of the Reverse Mortgage Pension",
-    definition:
-      "주택연금은 주택소유자가 주택에 저당권 또는 신탁 등기 방식으로 담보를 제공하고 배우자를 포함해 생존하는 동안 매월 노후생활자금을 연금 방식으로 받는 제도로, 보증기관은 한국주택금융공사이며 준주택 중 주거목적 오피스텔도 가입 대상에 포함된다.",
-    intuition:
-      "주택연금은 '집을 담보로 맡기고 다달이 현금을 받는' 역모기지 구조이므로, 대출잔액이 시간이 갈수록 오히려 불어난다는 점과 담보·수급 대상의 정확한 범위를 구분해서 암기해야 한다.",
-    keyPoints: [
-      "주택연금의 보증기관은 한국주택금융공사이며, 담보주택의 가격하락 위험은 공사가 부담한다.",
-      "주택소유자뿐만 아니라 배우자가 생존하는 동안에도 노후생활자금을 매월 지급받을 수 있다(주택소유자 본인 생존기간에만 한정되지 않음).",
-      "담보 제공 방식에는 저당권 설정 등기 방식과 신탁 등기 방식이 있으며, 준주택 중 주거목적으로 사용되는 오피스텔의 소유자도 가입할 수 있다(업무시설인 오피스텔은 제외).",
-      "수령기간이 경과할수록 대출잔액이 누적되며, 주택담보노후연금을 받을 권리는 양도·압류할 수 없다.",
-    ],
-    pitfalls:
-      "업무시설인 오피스텔도 주택연금의 담보주택 대상이라고 착각하기 쉽지만, 주거목적으로 사용되는 오피스텔만 대상이 되고 업무시설인 오피스텔은 제외된다.",
-    example:
-      "부부가 공동으로 소유한 주택으로 주택연금에 가입하면, 주택소유자가 사망해도 생존한 배우자가 계속 노후생활자금을 받을 수 있다.",
-    questionRefs: [
-      { year: 2020, questionNo: 33 },
-      { year: 2022, questionNo: 28 },
-      { year: 2024, questionNo: 32 },
-    ],
-  },
-  {
-    slug: "housing-finance-and-ltv-dti-concepts",
-    chapterKo: "부동산금융론",
-    category: "부동산금융론",
-    subcategory: "최대 융자금액 (LTV·DTI)",
-    parentSlug: "loan-limit-ltv-dcr",
-    titleKo: "주택금융의 종류와 LTV·DTI·DSR의 개념",
-    titleEn: "Types of Housing Finance and the LTV/DTI/DSR Concepts",
-    definition:
-      "담보인정비율(LTV)은 담보가치 대비 대출가능금액의 비율, 총부채상환비율(DTI)은 차주의 소득을 기준으로 대출규모를 정하는 비율, 총부채원리금상환비율(DSR)은 연간소득 대비 모든 금융부채의 연간 원리금상환액 비율이며, 주택도시기금은 국민주택의 건설·구입 등에 출자·융자할 수 있다.",
-    intuition:
-      "LTV·DTI·DSR은 모두 '얼마나 빌려줄 수 있는가'를 정하는 기준이지만 각각 담보가치·소득·총부채라는 서로 다른 잣대를 쓴다는 점, 그리고 금리방식에 따라 위험이 대출자와 차입자 중 누구에게 가는지를 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "LTV·DTI의 구체적 기준은 한국은행장이 아니라 관계 법령(금융위원회 등)이 정하며, LTV가 올라갈수록 차입자의 자기자본비율은 오히려 낮아진다(증가하는 것이 아님).",
-      "변동금리 대출은 이자율 변동위험을 차입자에게 전가해 금융기관의 위험을 줄이지만, 고정금리 대출은 그 위험을 금융기관(대출자)이 부담한다(대출자에게 위험이 없는 것이 아님).",
-      "주택도시기금은 국민주택의 건설·대지조성사업, 준주택의 건설·구입에 출자·융자할 수 있지만, 국민주택규모 이상인 주택의 리모델링에 대한 융자는 그 용도에 포함되지 않는다.",
-      "주택소비금융(구입자금 대출)의 확대는 주택구입능력을 높여 자가주택 소유와 주택거래를 촉진하지만, 주택가격 급등에 대응하는 수단이 아니라 오히려 수요를 자극하는 요인이 될 수 있다.",
-    ],
-    pitfalls:
-      "LTV가 올라갈수록 차입자의 자기자본비율도 함께 올라간다고 착각하기 쉽지만, 실제로는 LTV가 오를수록 자기자본비율은 낮아진다.",
-    example:
-      "정부가 주택담보대출 규제를 완화하면 주택소비금융이 확대되어 주택거래가 활성화될 수 있다.",
-    questionRefs: [
-      { year: 2017, questionNo: 22 },
-      { year: 2021, questionNo: 18 },
-      { year: 2022, questionNo: 27 },
-      { year: 2025, questionNo: 23 },
-    ],
-  },
-  {
     slug: "mbs-securitization",
-    chapterKo: "부동산금융론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
     category: "부동산금융론",
     subcategory: "주택저당증권·유동화 (MBS·ABS 등)",
     titleKo: "MBS 종류별 위험부담과 현금흐름 구조",
@@ -1151,7 +1475,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "asset-securitization-law-and-pf",
-    chapterKo: "부동산금융론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
     category: "부동산금융론",
     subcategory: "주택저당증권·유동화 (MBS·ABS 등)",
     parentSlug: "mbs-securitization",
@@ -1178,7 +1503,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "mbs-market-effects-and-pricing",
-    chapterKo: "부동산금융론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
     category: "부동산금융론",
     subcategory: "주택저당증권·유동화 (MBS·ABS 등)",
     parentSlug: "mbs-securitization",
@@ -1203,29 +1529,9 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "reits-structure",
-    chapterKo: "부동산금융론",
-    category: "부동산금융론",
-    subcategory: "부동산투자회사 (REITs)",
-    titleKo: "REITs의 3가지 유형과 최저자본금",
-    titleEn: "Three Types of REITs and Minimum Capital Requirements",
-    definition:
-      "부동산투자회사(REITs)는 자기관리·위탁관리·기업구조조정 REITs의 3종류로 구분되며, 자기관리 REITs의 설립 시 최저 자본금은 5억원 이상이고 주주 1인당 주식소유에는 일반투자자 보호를 위한 한도 제한이 있다.",
-    intuition:
-      "REITs 3종류는 '누가 직접 자산을 운용하는가(자기관리·위탁관리)'와 '어떤 목적의 자산을 다루는가(기업구조조정)'로 구분된다고 이해하면, 유형별 특징을 헷갈리지 않고 암기할 수 있다.",
-    keyPoints: [
-      "REITs는 자기관리·위탁관리·기업구조조정 REITs의 3종류로 구분된다.",
-      "자기관리 REITs의 설립 최저 자본금은 5억원 이상이다.",
-      "주주 1인당 주식소유 한도를 제한하는 것은 일반투자자를 보호하기 위한 장치다.",
-    ],
-    pitfalls:
-      "자기관리·위탁관리 REITs의 자산운용 주체를 혼동하기 쉽다 — 자기관리는 자체 인력이, 위탁관리는 자산관리회사가 운용한다.",
-    example:
-      "자체적으로 자산운용 전문인력을 고용해 직접 부동산을 운용하는 REITs는 자기관리 REITs로 분류되며, 설립 시 최저 자본금 5억원 이상을 갖추어야 한다.",
-  },
-  {
     slug: "project-financing",
-    chapterKo: "부동산금융론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
     category: "부동산금융론",
     subcategory: "프로젝트 파이낸싱 (PF·부동산신탁 등)",
     titleKo: "프로젝트 금융의 비소구성과 신탁 당사자",
@@ -1245,8 +1551,31 @@ const concepts: Concept[] = [
       "시행사가 특정 개발사업만을 위해 설립한 프로젝트회사 명의로 대출을 받았다면, 그 사업이 실패하더라도 대주는 원칙적으로 시행사의 다른 자산까지 청구할 수 없다.",
   },
   {
+    slug: "reits-structure",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
+    category: "부동산금융론",
+    subcategory: "부동산투자회사 (REITs)",
+    titleKo: "REITs의 3가지 유형과 최저자본금",
+    titleEn: "Three Types of REITs and Minimum Capital Requirements",
+    definition:
+      "부동산투자회사(REITs)는 자기관리·위탁관리·기업구조조정 REITs의 3종류로 구분되며, 자기관리 REITs의 설립 시 최저 자본금은 5억원 이상이고 주주 1인당 주식소유에는 일반투자자 보호를 위한 한도 제한이 있다.",
+    intuition:
+      "REITs 3종류는 '누가 직접 자산을 운용하는가(자기관리·위탁관리)'와 '어떤 목적의 자산을 다루는가(기업구조조정)'로 구분된다고 이해하면, 유형별 특징을 헷갈리지 않고 암기할 수 있다.",
+    keyPoints: [
+      "REITs는 자기관리·위탁관리·기업구조조정 REITs의 3종류로 구분된다.",
+      "자기관리 REITs의 설립 최저 자본금은 5억원 이상이다.",
+      "주주 1인당 주식소유 한도를 제한하는 것은 일반투자자를 보호하기 위한 장치다.",
+    ],
+    pitfalls:
+      "자기관리·위탁관리 REITs의 자산운용 주체를 혼동하기 쉽다 — 자기관리는 자체 인력이, 위탁관리는 자산관리회사가 운용한다.",
+    example:
+      "자체적으로 자산운용 전문인력을 고용해 직접 부동산을 운용하는 REITs는 자기관리 REITs로 분류되며, 설립 시 최저 자본금 5억원 이상을 갖추어야 한다.",
+  },
+  {
     slug: "financing-instrument-classification",
-    chapterKo: "부동산금융론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산금융론",
     category: "부동산금융론",
     subcategory: "자금조달 방식 (지분·부채·메자닌금융 구분)",
     titleKo: "지분금융·부채금융·메자닌금융의 구분",
@@ -1265,293 +1594,32 @@ const concepts: Concept[] = [
     example:
       "개발사업 시행사가 채권을 발행해 자금을 조달했다면 이는 부채금융이고, 투자자로부터 지분 투자를 받았다면 이는 지분금융이다.",
   },
-
-  // ───────── 부동산정책론 ─────────
   {
-    slug: "zoning-negative-externality",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "부동산 정책수단·제도",
-    titleKo: "용도지역·지구제와 도시지역의 세부 구분",
-    titleEn: "Zoning System and Sub-Classifications of Urban Areas",
+    slug: "development-risk-feasibility",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산개발 및 관리론",
+    category: "부동산개발 및 관리론",
+    subcategory: "개발위험·타당성분석 (비율분석 포함)",
+    titleKo: "워포드의 개발위험 3분류와 부동산개발업의 정의",
+    titleEn: "Wofford's Three Categories of Development Risk and Definition of Real Estate Development Business",
     definition:
-      "용도지역·지구제는 토지이용에 수반되는 부(-)의 외부효과를 규제하는 대표적 정책수단으로, 국토는 도시지역·관리지역·농림지역·자연환경보전지역으로 구분되고 도시지역은 다시 주거·상업·공업·녹지지역으로 세분된다.",
+      "워포드는 부동산개발위험을 법률위험·시장위험·비용위험 3가지로 분류했으며, 부동산개발업의 관리 및 육성에 관한 법률상 부동산개발업은 타인에게 공급할 목적으로 부동산개발을 수행하는 업을 말한다.",
     intuition:
-      "용도지역·지구제는 주변에 피해를 주는 토지이용을 사전에 걸러내는 조닝(zoning) 장치라는 점에서 이해하면, 도시지역의 세부 분류(주거·상업·공업·녹지) 문제도 결국 '어느 용도의 하위 범주인가'를 가리는 문제로 정리된다.",
+      "개발사업의 위험은 '법이 허락하는가(법률위험)', '팔릴 것인가(시장위험)', '예산 안에서 지어지는가(비용위험)'라는 세 가지 질문으로 나눠보면 자연스럽게 구조화된다.",
     keyPoints: [
-      "용도지역·지구제는 사적 시장이 외부효과에 대한 효율적 해결책을 제시하지 못할 때 정부가 채택하는 정책수단으로, 토지이용에 따른 부(-)의 외부효과를 제거·감소시킨다.",
-      "국토는 용도지역상 도시지역·관리지역·농림지역·자연환경보전지역으로 구분되며, 도시지역은 다시 주거지역(제2종일반주거지역 등)·상업지역(근린상업지역 등)·공업지역·녹지지역(자연녹지지역 등)으로 세분된다.",
-      "준주거지역·근린상업지역·자연녹지지역은 도시지역에 속하지만, 농림지역·계획관리지역(관리지역의 세분)·자연환경보전지역은 도시지역이 아니다.",
-      "용도지구는 용도지역과 달리 하나의 대지에 중복 지정될 수 있다.",
+      "워포드의 부동산개발위험 3분류: 법률위험, 시장위험, 비용위험.",
+      "부동산개발업은 '타인에게 공급할 목적'으로 개발을 수행하는 업으로 정의된다 — 자기 사용 목적의 개발과 구별된다.",
+      "공사기간이 늘어나면 금융비용·관리비 증가로 사업성에 부정적 영향을 미친다.",
     ],
     pitfalls:
-      "계획관리지역을 도시지역의 세분으로 착각하기 쉽지만, 계획관리지역은 도시지역이 아니라 관리지역의 세분이다.",
+      "공사기간 연장을 사업성에 긍정적 요인으로 착각하기 쉽다 — 금융비용·관리비 증가로 부정적 요인이 된다.",
     example:
-      "준주거지역·근린상업지역·자연녹지지역은 모두 도시지역에 속하지만, 농림지역과 자연환경보전지역은 도시지역이 아니다.",
-    questionRefs: [
-      { year: 2016, questionNo: 15 },
-      { year: 2022, questionNo: 16 },
-      { year: 2025, questionNo: 18 },
-    ],
+      "인허가 지연으로 착공이 늦어지는 것은 법률위험, 분양이 저조한 것은 시장위험, 자재비 급등으로 공사비가 초과되는 것은 비용위험의 예다.",
   },
-  {
-    slug: "land-policy-tools-current-status",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "부동산 정책수단·제도",
-    parentSlug: "zoning-negative-externality",
-    titleKo: "부동산정책 수단의 개념과 시행 여부",
-    titleEn: "Concepts and Current Status of Real Estate Policy Tools",
-    definition:
-      "토지선매·개발부담금제·토지비축제도·개발제한구역·투기과열지구 등은 국가·지방자치단체가 시장에 개입하는 대표적 토지정책 수단이며, 택지소유상한제·토지초과이득세제 등은 이미 폐지되어 현재 시행되지 않는 반면 실거래가신고제·분양가상한제·토지거래허가제 등은 현재도 시행되고 있다.",
-    intuition:
-      "이 단원은 결국 '이 제도가 지금도 있는가'와 '이 제도의 정의가 정확한가'라는 두 축으로 출제되므로, 폐지된 제도 목록과 현행 제도의 정확한 정의를 각각 짝지어 암기해야 한다.",
-    keyPoints: [
-      "토지선매는 토지거래허가구역 내에서 허가신청이 있을 때 국가·지방자치단체·한국토지주택공사 등이 사적 거래에 우선해 그 토지를 매수하는 제도이며(강제수용이 아님), 개발권양도제(TDR)는 개발이 제한되는 토지의 개발권을 다른 지역에 양도하는 제도로 법령상 우리나라에서는 시행되지 않고 있다.",
-      "토지비축제도(토지은행)는 정부가 직접 시장에 개입하는 수단으로, 공공토지의 비축에 관한 법령상 비축토지는 한국토지주택공사가 관리하며(지방자치단체가 직접 관리하는 것이 아님) 장래 공익사업과 토지시장 안정에 기여한다.",
-      "택지소유상한제·토지초과이득세제·택지초과소유부담금은 폐지되어 현재 시행되지 않지만, 실거래가신고제·분양가상한제·개발부담금제·용도지역제·토지거래허가제·개발제한구역·투기과열지구 지정·자금조달계획서 제출요구·농지취득자격증명제는 현재 시행되고 있다.",
-      "개별공시지가는 국토교통부장관이 아니라 시장·군수·구청장이 결정·공시하고, 표준지공시지가는 국토교통부장관이 매년 공시기준일 현재의 단위면적당 적정가격을 조사·평가해 공시한다.",
-    ],
-    pitfalls:
-      "개별공시지가의 공시 주체를 국토교통부장관으로 착각하기 쉽지만, 실제로는 시장·군수·구청장이 결정·공시한다(표준지공시지가만 국토교통부장관 소관).",
-    example:
-      "택지소유상한제와 토지초과이득세는 이미 폐지되어 현재 시행되지 않지만, 개발부담금제는 지금도 시행되고 있다.",
-    questionRefs: [
-      { year: 2016, questionNo: 17 },
-      { year: 2017, questionNo: 10 },
-      { year: 2017, questionNo: 26 },
-      { year: 2018, questionNo: 21 },
-      { year: 2019, questionNo: 3 },
-      { year: 2019, questionNo: 18 },
-      { year: 2021, questionNo: 16 },
-      { year: 2022, questionNo: 18 },
-      { year: 2024, questionNo: 18 },
-    ],
-  },
-  {
-    slug: "financial-regulation-classification",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "부동산 정책수단·제도",
-    parentSlug: "zoning-negative-externality",
-    titleKo: "금융규제와 비금융규제의 구분",
-    titleEn: "Distinguishing Financial from Non-Financial Regulations",
-    definition:
-      "담보인정비율(LTV)·총부채원리금상환비율(DSR) 강화처럼 대출·상환 조건을 통제하는 수단은 금융규제이지만, 양도소득세·개발부담금처럼 조세를 통한 규제나 토지거래허가제·개발제한구역·분양가상한제처럼 이용·거래 자체를 규제하는 수단은 금융규제가 아니다.",
-    intuition:
-      "금융규제인지 판별할 때는 '돈을 빌리고 갚는 조건'을 직접 건드리는가만 확인하면 된다 — 세금·용도규제·가격규제는 아무리 시장에 강하게 개입해도 금융규제로 분류되지 않는다.",
-    keyPoints: [
-      "담보인정비율(LTV) 강화, 총부채원리금상환비율(DSR) 강화는 대표적인 금융규제 수단이다.",
-      "양도소득세 강화, 개발부담금의 부담률 인상은 조세정책 수단이지 금융규제가 아니다.",
-      "토지거래허가제, 개발제한구역·택지개발지구 지정, 분양가상한제의 적용 지역 확대, 개발권양도제(TDR) 시행은 토지이용·가격 규제 수단이지 금융규제가 아니다.",
-    ],
-    pitfalls:
-      "토지거래허가제나 분양가상한제처럼 시장에 강하게 개입하는 정책을 금융규제로 착각하기 쉽지만, 이들은 대출조건을 건드리지 않으므로 금융규제가 아니다.",
-    example:
-      "정부가 총부채원리금상환비율(DSR) 기준을 강화하는 것은 금융규제에 해당하지만, 분양가상한제 적용 지역을 확대하는 것은 금융규제가 아니다.",
-    questionRefs: [
-      { year: 2020, questionNo: 5 },
-      { year: 2024, questionNo: 20 },
-    ],
-  },
-  {
-    slug: "real-estate-system-timeline-status",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "부동산 정책수단·제도",
-    parentSlug: "zoning-negative-externality",
-    titleKo: "부동산제도의 시행 여부와 도입 시기",
-    titleEn: "Timeline and Current Status of Real Estate Institutions",
-    definition:
-      "택지소유상한제·토지초과이득세제·공한지세는 폐지되어 현재 시행되지 않지만 실거래가신고제·분양가상한제·개발행위허가제·용도지역제·토지거래허가제·주택거래신고제·개발이익환수제·부동산실명제·주택 전매제한·종합부동산세는 현재 시행되고 있으며, 공인중개사제도(1983년)·부동산실명제(1995년)·자산유동화제도(1998년)·부동산거래신고제(2006년) 순으로 도입되었다.",
-    intuition:
-      "이 단원은 '지금도 있는 제도인가'와 '언제 생긴 제도인가'라는 두 축의 암기 문제이므로, 폐지된 제도 목록과 주요 제도의 도입 연도를 각각 순서대로 정리해두면 된다.",
-    keyPoints: [
-      "택지소유상한제, 토지초과이득세제, 공한지세는 폐지되어 현재 시행되지 않는 대표적인 제도다.",
-      "실거래가신고제, 분양가상한제, 개발행위허가제, 용도지역제, 토지거래허가제, 주택거래신고제, 개발이익환수제, 부동산 실권리자명의 등기제도(부동산실명제), 주택의 전매제한, 종합부동산세는 현재 시행되고 있는 제도다.",
-      "법령상 도입 시기는 공인중개사제도(1983년, 부동산중개업법) → 부동산실명제(1995년) → 자산유동화제도(1998년) → 부동산거래신고제(2006년) 순이다.",
-    ],
-    pitfalls:
-      "토지초과이득세제나 택지소유상한제를 아직 시행 중인 제도로 착각하기 쉽지만, 두 제도 모두 위헌 결정 등을 거쳐 폐지되었다.",
-    example:
-      "부동산 실권리자명의 등기제도(부동산실명제)는 1995년에 도입되어 공인중개사제도(1983년)보다 늦게 시행되었다.",
-    questionRefs: [
-      { year: 2018, questionNo: 18 },
-      { year: 2020, questionNo: 23 },
-      { year: 2020, questionNo: 24 },
-      { year: 2021, questionNo: 14 },
-      { year: 2023, questionNo: 16 },
-    ],
-  },
-  {
-    slug: "sale-price-cap-rent-subsidy",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "주택정책 (분양가규제·주거복지 등)",
-    titleKo: "분양가상한제와 분양가규제",
-    titleEn: "The Sale Price Cap System and Pricing Regulation",
-    definition:
-      "분양가상한제 적용 주택의 분양가는 택지비와 건축비의 합으로 산정되며, 국민주택건설사업 등 공공사업으로 개발·조성되는 용지에 건설되는 공동주택도 분양가 제한 대상이 될 수 있고 그 주택·입주자 지위는 전매가 제한될 수 있다.",
-    intuition:
-      "분양가상한제는 땅값 + 건축비라는 원가 구조를 그대로 반영해 상한선을 정하는 제도이며, 가격 통제의 실효성을 지키기 위해 전매제한이라는 보조 장치를 함께 둔다고 이해하면 된다.",
-    keyPoints: [
-      "분양가상한제 적용 주택의 분양가 = 택지비 + 건축비이며, 이는 주택가격 안정과 무주택자의 신규주택 구입부담 경감을 목적으로 한다.",
-      "국민주택건설사업 등 공공사업으로 개발·조성되는 용지에 건설되는 공동주택도 분양가 제한 대상이 될 수 있다(제한할 수 없다는 서술은 틀림).",
-      "분양가상한제 적용주택 및 그 주택의 입주자로 선정된 지위(분양권)에 대해서는 전매를 제한할 수 있다.",
-    ],
-    pitfalls:
-      "분양가 산정식에 '택지비 + 건축비' 외의 다른 항목을 추가하는 지문에 주의해야 한다.",
-    example:
-      "택지비가 3억원, 건축비가 2억원인 아파트라면 분양가상한제 하의 분양가는 원칙적으로 5억원으로 산정된다.",
-    questionRefs: [
-      { year: 2016, questionNo: 16 },
-      { year: 2019, questionNo: 20 },
-    ],
-  },
-  {
-    slug: "public-rental-housing-types",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "주택정책 (분양가규제·주거복지 등)",
-    parentSlug: "sale-price-cap-rent-subsidy",
-    titleKo: "공공주택 특별법령상 공공임대주택의 유형",
-    titleEn: "Types of Public Rental Housing under the Public Housing Act",
-    definition:
-      "공공임대주택은 영구임대주택·국민임대주택·통합공공임대주택·장기전세주택·분양전환공공임대주택·기존주택등매입임대주택·기존주택전세임대주택 등으로 나뉘며, 각 유형은 지원대상과 임대방식(전세 vs 매입·전대)이 다르지만 공공지원민간임대주택은 공공임대주택에 해당하지 않는다.",
-    intuition:
-      "공공임대주택 유형은 결국 '누구를 대상으로(최저소득층·젊은층·취약계층 등)'와 '어떤 방식으로 공급하는가(신축·전세·매입)'라는 두 축으로 구분하면 정리하기 쉽다.",
-    keyPoints: [
-      "영구임대주택은 최저소득계층을 대상으로 50년 이상 또는 영구 임대를 목적으로 공급하고, 국민임대주택은 무주택 서민의 주거안정을 위해, 통합공공임대주택은 최저소득계층·저소득서민·젊은층·사회취약계층 등을 폭넓게 대상으로 공급한다.",
-      "장기전세주택은 전세계약의 방식으로 공급되는 공공임대주택이고, 분양전환공공임대주택은 일정 기간 임대 후 분양전환을 목적으로 공급하며, 기존주택전세임대주택·기존주택등매입임대주택은 기존주택을 임차·매입해 저소득층 등에게 공급하는 방식이다.",
-      "공공지원민간임대주택은 「민간임대주택에 관한 특별법」에 따른 민간 임대사업자의 주택으로, 「공공주택 특별법」상 공공임대주택에는 해당하지 않는다.",
-    ],
-    pitfalls:
-      "공공지원민간임대주택을 공공임대주택의 한 유형으로 착각하기 쉽지만, 이는 민간임대주택에 관한 특별법상 별도의 제도로 공공임대주택에 해당하지 않는다.",
-    example:
-      "최저소득계층의 주거안정을 위해 50년 이상 임대할 목적으로 공급하는 주택은 영구임대주택이다.",
-    questionRefs: [
-      { year: 2020, questionNo: 22 },
-      { year: 2022, questionNo: 32 },
-      { year: 2023, questionNo: 20 },
-      { year: 2024, questionNo: 19 },
-    ],
-  },
-  {
-    slug: "rental-policy-and-housing-welfare",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "주택정책 (분양가규제·주거복지 등)",
-    parentSlug: "sale-price-cap-rent-subsidy",
-    titleKo: "임대주택정책과 주거복지제도",
-    titleEn: "Rental Housing Policy and Housing Welfare Programs",
-    definition:
-      "임대료를 균형가격 이하로 규제하면 임대주택의 초과수요(공급부족)를 초래하고, 임대료 보조(주거급여·주택바우처)는 저소득층의 실질소득을 높여 장기적으로 임대주택 공급 증가에도 기여할 수 있으며, 공공임대주택 공급은 소득재분배 효과를 가진다.",
-    intuition:
-      "임대료 규제(가격통제)와 임대료 보조(소득지원)는 둘 다 저소득층을 돕는다는 목표는 같지만, 규제는 시장을 왜곡해 공급을 줄이는 반면 보조는 구매력을 높여 공급을 늘릴 수 있다는 정반대 결과를 낳는다고 구분하면 된다.",
-    keyPoints: [
-      "임대료 상한을 균형가격 이하로 규제하면 임대주택의 공급과잉이 아니라 초과수요(공급부족·이중가격 형성)를 초래하며, 민간임대주택의 공급량과 질적 수준을 모두 저하시킬 수 있다.",
-      "임대료 보조정책(주거급여·주택바우처)은 저소득층의 실질소득을 높이고 임차인의 주거지 선택을 용이하게 하며 장기적으로 임대주택 공급을 증가시킬 수 있다.",
-      "주거급여는 소비자보조 방식의 일종으로, 주택을 소유한 사람도 소득 등 요건을 충족하면 수급권자가 될 수 있다(주택 소유자는 무조건 배제되는 것이 아님).",
-      "선분양제도는 분양대금의 조기 유입으로 사업자의 초기자금부담을 완화하지만 분양권 전매를 통한 가수요를 창출할 수 있고, 후분양제도는 건설자금을 주로 사업자가 조달하며 소비자가 부실시공·품질저하에 대처하기 유리하다.",
-    ],
-    pitfalls:
-      "임대료를 균형가격 이하로 규제하면 임대주택 공급이 늘어난다고(공급과잉) 착각하기 쉽지만, 실제로는 공급 부족(초과수요)이 발생한다.",
-    example:
-      "정부가 임대료를 시장가격보다 낮게 규제하면, 그 가격에서 임대주택의 수요량이 공급량보다 많아지는 초과수요가 발생한다.",
-    questionRefs: [
-      { year: 2017, questionNo: 9 },
-      { year: 2018, questionNo: 22 },
-      { year: 2019, questionNo: 22 },
-      { year: 2020, questionNo: 21 },
-      { year: 2021, questionNo: 17 },
-      { year: 2023, questionNo: 19 },
-      { year: 2025, questionNo: 24 },
-    ],
-  },
-  {
-    slug: "real-estate-tax-policy",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "조세정책",
-    titleKo: "부동산 조세의 국세·지방세·과세단계 분류",
-    titleEn: "Classifying Real Estate Taxes by National/Local and Stage",
-    definition:
-      "종합부동산세는 국세·보유단계, 재산세는 지방세·보유단계, 취득세·등록면허세는 지방세, 양도소득세·상속세·증여세·부가가치세는 국세이며, 취득세·상속세·증여세는 취득단계, 재산세·종합부동산세는 보유단계, 양도소득세는 처분단계에 부과된다.",
-    intuition:
-      "부동산 세금은 국세냐 지방세냐와 취득·보유·처분 중 어느 단계에 부과되는가라는 두 축으로 분류표를 만들어두면, 세목이 늘어나도 헷갈리지 않고 위치를 잡을 수 있다.",
-    keyPoints: [
-      "국세에는 종합부동산세·양도소득세·상속세·증여세·부가가치세가, 지방세에는 취득세·등록면허세·재산세가 속한다.",
-      "취득단계에는 취득세·상속세·증여세, 보유단계에는 재산세·종합부동산세, 처분단계에는 양도소득세가 부과된다(상속세·증여세를 취득단계가 아닌 다른 단계로 분류하면 틀린다).",
-      "국세이면서 동시에 보유세에 해당하는 세목은 종합부동산세뿐이며(재산세는 지방세), 종합부동산세와 재산세는 물건별 과세표준에 대한 과세뿐 아니라 납세의무자별로 합산한 과세표준에 대한 과세방식도 함께 사용한다.",
-    ],
-    pitfalls:
-      "상속세·증여세를 보유단계나 처분단계 세금으로 착각하기 쉽지만, 둘 다 취득단계에 부과되는 국세다.",
-    example:
-      "국세이면서 보유단계에 부과되는 세금을 고르라면 종합부동산세가 정답이며, 재산세는 지방세이므로 해당하지 않는다.",
-    questionRefs: [
-      { year: 2018, questionNo: 20 },
-      { year: 2019, questionNo: 6 },
-      { year: 2025, questionNo: 17 },
-    ],
-  },
-  {
-    slug: "real-estate-tax-economic-effects",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "조세정책",
-    parentSlug: "real-estate-tax-policy",
-    titleKo: "부동산조세의 경제적 효과와 전가·귀착",
-    titleEn: "Economic Effects, Shifting, and Incidence of Real Estate Taxes",
-    definition:
-      "재산세 부과는 보유비용 증가로 주택수요를 감소시켜 가격을 하락시키고, 토지공급이 완전비탄력적이면 조세는 전부 토지소유자(공급자)가 부담하며, 공급의 가격탄력성이 수요의 가격탄력성보다 작으면 공급자의 조세부담이 더 크고, 양도소득세 중과는 보유자의 처분을 늦추는 동결효과(lock-in effect)를 낳는다.",
-    intuition:
-      "조세의 경제적 효과는 결국 '누가 더 이동하기 어려운가(탄력성이 낮은가)'가 부담을 더 진다는 원리 하나로 수렴하므로, 공급·수요 중 어느 쪽이 비탄력적인지부터 확인하면 전가·귀착 문제를 풀 수 있다.",
-    keyPoints: [
-      "재산세 부과는 보유비용 증가로 이어져 주택수요를 감소시키고 주택가격을 하락시킨다(수요증가·가격상승은 틀림).",
-      "토지공급의 가격탄력성이 0(완전비탄력적)이면 부동산조세는 전부 토지소유자(공급자)가 부담하며, 일반적으로 공급의 가격탄력성이 수요의 가격탄력성보다 작을수록 공급자의 조세부담이 더 크다.",
-      "양도소득세 중과는 보유자가 처분(매각)을 미루게 하는 동결효과(lock-in effect)를 낳아 부동산 공급을 감소시킨다(매각을 앞당기거나 공급을 증가시키는 것이 아니며, 이로 인해 가격이 하락하는 것도 아니다).",
-      "조세의 중립성은 조세가 시장의 자원배분에 영향을 미치지 않아야 한다는 원칙이고, 조세의 귀착은 조세의 사실상 부담이 최종적으로 귀속되는 것을 말하며, 부동산 거래세를 부과하면 거래량이 감소해 경제적 순손실(초과부담)이 발생한다(발생하지 않는다는 서술은 틀렸다).",
-    ],
-    pitfalls:
-      "동결효과로 인해 매각이 앞당겨지거나 부동산가격이 하락한다고 착각하기 쉽지만, 실제로는 매각이 늦춰지고(lock-in) 공급 감소로 가격은 오히려 상승 압력을 받는다.",
-    example:
-      "토지의 공급이 완전비탄력적인 경우, 토지에 부과되는 조세는 전부 토지소유자가 부담하게 된다.",
-    questionRefs: [
-      { year: 2017, questionNo: 12 },
-      { year: 2020, questionNo: 20 },
-      { year: 2021, questionNo: 15 },
-      { year: 2022, questionNo: 19 },
-      { year: 2023, questionNo: 15 },
-      { year: 2024, questionNo: 22 },
-      { year: 2025, questionNo: 20 },
-    ],
-  },
-  {
-    slug: "market-failure-intervention",
-    chapterKo: "부동산정책론",
-    category: "부동산정책론",
-    subcategory: "시장개입 (직접·간접)",
-    titleKo: "직접·간접 시장개입 수단의 구분과 시장실패 원인",
-    titleEn: "Direct vs. Indirect Market Intervention and Causes of Market Failure",
-    definition:
-      "토지수용·공공임대주택 건설은 직접적 시장개입 수단이고 개발부담금 부과 같은 조세·부담금은 간접적 시장개입 수단이며, 공공재의 비배제성·비경합성과 외부효과는 시장실패를 야기해 정부 개입의 정당성이 된다.",
-    intuition:
-      "정부가 '직접 물량·가격을 통제하는지(직접개입)' 아니면 '세금·보조금으로 유인만 조정하는지(간접개입)'로 나누어 이해하면, 다양한 정책 수단을 빠르게 분류할 수 있다.",
-    keyPoints: [
-      "개발부담금 부과는 조세·부담금을 통한 간접적 시장개입수단이다 — 직접적 시장개입수단은 토지수용, 공공임대주택 건설 등이다.",
-      "공공재(비배제성·비경합성)와 외부효과는 시장실패를 야기하므로 정부 개입의 정당성이 된다.",
-      "비배제성·비경합성으로 인해 시장실패가 발생한다는 점을 정책수단 학습의 전제로 함께 정리해야 한다.",
-    ],
-    pitfalls:
-      "'개발부담금 부과 = 직접개입'이라고 착각하는 것이 자주 나오는 함정이다 — 조세·부담금은 간접개입 수단이다.",
-    example:
-      "정부가 직접 토지를 수용해 공공택지를 조성하는 것은 직접개입이고, 개발이익을 환수하기 위해 개발부담금을 부과하는 것은 간접개입이다.",
-  },
-
-  // ───────── 부동산개발 및 관리론 ─────────
   {
     slug: "redevelopment-project-methods",
-    chapterKo: "부동산개발 및 관리론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산개발 및 관리론",
     category: "부동산개발 및 관리론",
     subcategory: "개발 사업방식 (환지·수용·지주공동·민자 등)",
     titleKo: "도시 및 주거환경정비법상 정비사업의 유형",
@@ -1577,7 +1645,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "private-investment-project-types",
-    chapterKo: "부동산개발 및 관리론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산개발 및 관리론",
     category: "부동산개발 및 관리론",
     subcategory: "개발 사업방식 (환지·수용·지주공동·민자 등)",
     parentSlug: "redevelopment-project-methods",
@@ -1606,7 +1675,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "land-acquisition-and-joint-development-methods",
-    chapterKo: "부동산개발 및 관리론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산개발 및 관리론",
     category: "부동산개발 및 관리론",
     subcategory: "개발 사업방식 (환지·수용·지주공동·민자 등)",
     parentSlug: "redevelopment-project-methods",
@@ -1633,8 +1703,31 @@ const concepts: Concept[] = [
     ],
   },
   {
+    slug: "property-management-methods",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산개발 및 관리론",
+    category: "부동산개발 및 관리론",
+    subcategory: "부동산관리 (관리방식·유형)",
+    titleKo: "위탁관리의 장단점과 재산관리(PM)의 업무 범위",
+    titleEn: "Pros and Cons of Outsourced Management and Scope of Property Management",
+    definition:
+      "위탁(외주)관리는 전문성이 높지만 기밀유지가 어렵고, 재산관리(PM)는 임대차 운영·시설 유지보수 등 개별 부동산의 일상적 운영 관리를 의미하며, 대출알선은 위탁관리형 주택임대관리업자의 법정 업무 범위에 포함되지 않는다.",
+    intuition:
+      "관리방식은 '전문성 vs 기밀유지'라는 트레이드오프로 이해하고, 재산관리(PM)·시설관리(FM)·자산관리(AM)는 관리 대상의 범위가 점점 넓어지는 계층 구조로 파악하면 헷갈리지 않는다.",
+    keyPoints: [
+      "위탁(외주)관리는 전문성이 높은 대신 기밀유지가 어렵다.",
+      "재산관리(PM)는 임대차 운영, 시설 유지보수 등 개별 부동산의 일상적 운영 관리를 뜻한다.",
+      "대출알선(금융서비스)은 위탁관리형 주택임대관리업자의 법정 업무 범위에 해당하지 않는다.",
+    ],
+    pitfalls:
+      "주택임대관리업자의 업무 범위에 금융서비스(대출알선)까지 포함된다고 착각하기 쉽다 — 법정 업무 범위 밖이다.",
+    example:
+      "위탁관리형 주택임대관리업자는 임대료 징수·시설 유지관리 등은 수행할 수 있지만, 입주자에게 대출을 알선하는 업무는 할 수 없다.",
+  },
+  {
     slug: "market-segmentation-stp",
-    chapterKo: "부동산개발 및 관리론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산개발 및 관리론",
     category: "부동산개발 및 관리론",
     subcategory: "부동산마케팅 (시장세분화·STP 등)",
     titleKo: "부동산마케팅 전략의 개념 — STP·시장점유·고객점유·관계마케팅",
@@ -1665,7 +1758,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "4p-marketing-mix-components",
-    chapterKo: "부동산개발 및 관리론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산개발 및 관리론",
     category: "부동산개발 및 관리론",
     subcategory: "부동산마케팅 (시장세분화·STP 등)",
     parentSlug: "market-segmentation-stp",
@@ -1690,50 +1784,9 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "development-risk-feasibility",
-    chapterKo: "부동산개발 및 관리론",
-    category: "부동산개발 및 관리론",
-    subcategory: "개발위험·타당성분석 (비율분석 포함)",
-    titleKo: "워포드의 개발위험 3분류와 부동산개발업의 정의",
-    titleEn: "Wofford's Three Categories of Development Risk and Definition of Real Estate Development Business",
-    definition:
-      "워포드는 부동산개발위험을 법률위험·시장위험·비용위험 3가지로 분류했으며, 부동산개발업의 관리 및 육성에 관한 법률상 부동산개발업은 타인에게 공급할 목적으로 부동산개발을 수행하는 업을 말한다.",
-    intuition:
-      "개발사업의 위험은 '법이 허락하는가(법률위험)', '팔릴 것인가(시장위험)', '예산 안에서 지어지는가(비용위험)'라는 세 가지 질문으로 나눠보면 자연스럽게 구조화된다.",
-    keyPoints: [
-      "워포드의 부동산개발위험 3분류: 법률위험, 시장위험, 비용위험.",
-      "부동산개발업은 '타인에게 공급할 목적'으로 개발을 수행하는 업으로 정의된다 — 자기 사용 목적의 개발과 구별된다.",
-      "공사기간이 늘어나면 금융비용·관리비 증가로 사업성에 부정적 영향을 미친다.",
-    ],
-    pitfalls:
-      "공사기간 연장을 사업성에 긍정적 요인으로 착각하기 쉽다 — 금융비용·관리비 증가로 부정적 요인이 된다.",
-    example:
-      "인허가 지연으로 착공이 늦어지는 것은 법률위험, 분양이 저조한 것은 시장위험, 자재비 급등으로 공사비가 초과되는 것은 비용위험의 예다.",
-  },
-  {
-    slug: "property-management-methods",
-    chapterKo: "부동산개발 및 관리론",
-    category: "부동산개발 및 관리론",
-    subcategory: "부동산관리 (관리방식·유형)",
-    titleKo: "위탁관리의 장단점과 재산관리(PM)의 업무 범위",
-    titleEn: "Pros and Cons of Outsourced Management and Scope of Property Management",
-    definition:
-      "위탁(외주)관리는 전문성이 높지만 기밀유지가 어렵고, 재산관리(PM)는 임대차 운영·시설 유지보수 등 개별 부동산의 일상적 운영 관리를 의미하며, 대출알선은 위탁관리형 주택임대관리업자의 법정 업무 범위에 포함되지 않는다.",
-    intuition:
-      "관리방식은 '전문성 vs 기밀유지'라는 트레이드오프로 이해하고, 재산관리(PM)·시설관리(FM)·자산관리(AM)는 관리 대상의 범위가 점점 넓어지는 계층 구조로 파악하면 헷갈리지 않는다.",
-    keyPoints: [
-      "위탁(외주)관리는 전문성이 높은 대신 기밀유지가 어렵다.",
-      "재산관리(PM)는 임대차 운영, 시설 유지보수 등 개별 부동산의 일상적 운영 관리를 뜻한다.",
-      "대출알선(금융서비스)은 위탁관리형 주택임대관리업자의 법정 업무 범위에 해당하지 않는다.",
-    ],
-    pitfalls:
-      "주택임대관리업자의 업무 범위에 금융서비스(대출알선)까지 포함된다고 착각하기 쉽다 — 법정 업무 범위 밖이다.",
-    example:
-      "위탁관리형 주택임대관리업자는 임대료 징수·시설 유지관리 등은 수행할 수 있지만, 입주자에게 대출을 알선하는 업무는 할 수 없다.",
-  },
-  {
     slug: "percentage-lease-analysis",
-    chapterKo: "부동산개발 및 관리론",
+    chapterKo: "부동산학 각론",
+    sectionKo: "부동산개발 및 관리론",
     category: "부동산개발 및 관리론",
     subcategory: "임대차 분석 (비율임대차 등)",
     titleKo: "비율임대차의 추가임대료 계산",
@@ -1752,11 +1805,33 @@ const concepts: Concept[] = [
     example:
       "총매출액이 7억 5천만원이고 손익분기점 매출액이 4억 5천만원이라면 초과매출액은 3억원이며, 여기에 추가임대료율 15%를 곱한 4,500만원이 추가임대료가 된다.",
   },
-
-  // ───────── 감정평가론 ─────────
+  // ───────── 부동산 감정평가론 ─────────
+  {
+    slug: "appraisal-procedure",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 기초이론",
+    category: "감정평가의 기초이론",
+    subcategory: "감정평가 개요·절차",
+    titleKo: "감정평가에 관한 규칙상 평가 절차",
+    titleEn: "Appraisal Procedure under the Rules on Real Estate Appraisal",
+    definition:
+      "감정평가에 관한 규칙 제8조는 기본적 사항의 확인 → 처리계획 수립 → 대상물건 확인 → 자료 수집 및 정리 → 자료 검토 및 가치형성요인 분석 → 감정평가방법의 선정 및 적용 → 감정평가액의 결정 및 표시 순서로 절차를 규정하며, '감정평가 의뢰'는 의뢰인이 하는 행위로 이 절차에 포함되지 않는다.",
+    intuition:
+      "이 절차는 감정평가사가 '의뢰를 받은 이후' 수행하는 업무 흐름이므로, 의뢰 자체는 의뢰인의 행위이지 평가사의 절차가 아니라는 경계선을 명확히 긋는 것이 핵심이다.",
+    keyPoints: [
+      "절차 순서: 기본적 사항 확인 → 처리계획 수립 → 대상물건 확인 → 자료 수집·정리 → 자료 검토·가치형성요인 분석 → 감정평가방법 선정·적용 → 감정평가액 결정·표시.",
+      "'감정평가 의뢰'는 의뢰인이 하는 행위이지, 감정평가사가 수행하는 절차(규칙 제8조)에 포함되지 않는다.",
+      "절차의 순서를 바꿔서 나열하는 문제가 출제되므로 전체 흐름을 순서대로 암기해야 한다.",
+    ],
+    pitfalls:
+      "'감정평가 의뢰'를 절차의 첫 단계로 포함시키는 실수를 하기 쉽다 — 의뢰는 절차 이전에 의뢰인이 하는 별개의 행위다.",
+    example:
+      "감정평가사는 의뢰를 받은 후 기본적 사항을 확인하는 것으로 절차를 시작하며, 의뢰 행위 자체는 이 절차의 일부로 계산하지 않는다.",
+  },
   {
     slug: "appraisal-terminology",
-    chapterKo: "감정평가론",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 기초이론",
     category: "감정평가의 기초이론",
     subcategory: "감정평가 용어·법령",
     titleKo: "감정평가에 관한 규칙상 용어 정의와 원칙",
@@ -1790,29 +1865,291 @@ const concepts: Concept[] = [
     ],
   },
   {
-    slug: "appraisal-procedure",
-    chapterKo: "감정평가론",
-    category: "감정평가의 기초이론",
-    subcategory: "감정평가 개요·절차",
-    titleKo: "감정평가에 관한 규칙상 평가 절차",
-    titleEn: "Appraisal Procedure under the Rules on Real Estate Appraisal",
+    slug: "regional-individual-analysis",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "부동산가격이론",
+    category: "부동산가격이론",
+    subcategory: "지역분석·개별분석",
+    titleKo: "지역분석·개별분석과 균형·적합의 원칙",
+    titleEn: "Regional/Individual Analysis and Principles of Balance and Conformity",
     definition:
-      "감정평가에 관한 규칙 제8조는 기본적 사항의 확인 → 처리계획 수립 → 대상물건 확인 → 자료 수집 및 정리 → 자료 검토 및 가치형성요인 분석 → 감정평가방법의 선정 및 적용 → 감정평가액의 결정 및 표시 순서로 절차를 규정하며, '감정평가 의뢰'는 의뢰인이 하는 행위로 이 절차에 포함되지 않는다.",
+      "지역분석은 해당 지역의 표준적 이용과 가격 수준을 파악하는 절차이며, 부동산 구성요소 간 균형이 깨지면 가치가 저하된다는 균형(기여)의 원칙과, 부동산이 주변 환경·지역 특성에 적합하게 이용되어야 한다는 적합의 원칙이 개별분석의 판단 기준이 된다.",
     intuition:
-      "이 절차는 감정평가사가 '의뢰를 받은 이후' 수행하는 업무 흐름이므로, 의뢰 자체는 의뢰인의 행위이지 평가사의 절차가 아니라는 경계선을 명확히 긋는 것이 핵심이다.",
+      "지역분석은 '숲(지역 전체 수준)'을, 개별분석은 '나무(개별 부동산의 적합성)'를 보는 단계라고 구분하면, 균형·적합의 원칙이 왜 개별분석 단계에서 다뤄지는지 자연스럽게 이해된다.",
     keyPoints: [
-      "절차 순서: 기본적 사항 확인 → 처리계획 수립 → 대상물건 확인 → 자료 수집·정리 → 자료 검토·가치형성요인 분석 → 감정평가방법 선정·적용 → 감정평가액 결정·표시.",
-      "'감정평가 의뢰'는 의뢰인이 하는 행위이지, 감정평가사가 수행하는 절차(규칙 제8조)에 포함되지 않는다.",
-      "절차의 순서를 바꿔서 나열하는 문제가 출제되므로 전체 흐름을 순서대로 암기해야 한다.",
+      "지역분석을 통해 해당 지역의 표준적 이용과 가격 수준을 파악한다.",
+      "천장을 과도하게 고급 개량해 오히려 선호도가 떨어지는 사례는, 구성요소 간 균형이 깨져 가치가 저하되는 균형(기여)의 원칙에 해당한다.",
+      "부동산이 주변 환경·지역 특성에 적합하게 이용되는지를 보는 것은 적합의 원칙이다.",
     ],
     pitfalls:
-      "'감정평가 의뢰'를 절차의 첫 단계로 포함시키는 실수를 하기 쉽다 — 의뢰는 절차 이전에 의뢰인이 하는 별개의 행위다.",
+      "균형의 원칙과 적합의 원칙을 혼동하기 쉽다 — 균형은 '부동산 내부 구성요소 간' 조화, 적합은 '부동산과 주변 환경 간' 조화를 다룬다.",
     example:
-      "감정평가사는 의뢰를 받은 후 기본적 사항을 확인하는 것으로 절차를 시작하며, 의뢰 행위 자체는 이 절차의 일부로 계산하지 않는다.",
+      "일반 주택에 어울리지 않게 과도하게 고급스러운 욕실을 설치해 오히려 전체적인 선호도가 떨어졌다면, 이는 균형의 원칙이 깨진 사례다.",
+  },
+  {
+    slug: "asset-specific-appraisal-method",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 방식",
+    category: "감정평가의 방식",
+    subcategory: "물건별 감정평가 (주된 방식)",
+    titleKo: "물건 종류별 주된 감정평가 방식 매칭",
+    titleEn: "Matching Primary Appraisal Methods to Asset Types",
+    definition:
+      "감정평가에 관한 규칙은 물건의 종류에 따라 주된 감정평가방법을 법정하고 있으며, 건물·건설기계·항공기·선박은 원가법, 자동차·과수원·구분소유권 일괄평가는 거래사례비교법, 임대료는 임대사례비교법, 광업재단·기업가치·저작권·특허권·상표권·실용신안권·영업권은 수익환원법이 주된 방법이다.",
+    intuition:
+      "감정평가 방식은 평가 대상물건의 성격에 맞는 방식을 짝짓는 문제로 접근하면 된다 — 기계·건물처럼 원가 파악이 쉬운 물건은 원가법, 자동차·과수원처럼 거래사례가 풍부한 물건은 거래사례비교법, 무형자산·수익성자산은 수익환원법이 주된 방법이 된다.",
+    keyPoints: [
+      "건물, 건설기계, 항공기, 선박은 원가법이 주된 방법이지만, 자동차와 과수원은 거래사례비교법이 주된 방법이다(자동차와 선박이 같은 방법이라고 서술하면 틀림 — 자동차는 거래사례비교법, 선박은 원가법).",
+      "광업재단, 기업가치, 저작권·특허권·상표권·실용신안권 등 무형자산, 영업권은 수익환원법이 주된 방법이며, 영업권·특허권을 수익분석법으로 평가한다는 서술은 틀렸다(수익분석법은 임대료 산정에 쓰이는 방법이다).",
+      "임대료의 주된 감정평가방법은 임대사례비교법이다(수익환원법이 아니다).",
+      "구분소유권의 대상이 되는 건물부분과 그 대지사용권을 일괄해 감정평가하는 경우의 주된 방법은 거래사례비교법이다.",
+    ],
+    pitfalls:
+      "자동차와 선박을 같은 방법으로 평가한다고 착각하기 쉽지만, 자동차의 주된 방법은 거래사례비교법, 선박의 주된 방법은 원가법으로 서로 다르다.",
+    example:
+      "과수원은 거래사례비교법이 주된 감정평가방법이며, 공시지가기준법이나 수익환원법이 아니다.",
+    questionRefs: [
+      { year: 2017, questionNo: 38 },
+      { year: 2020, questionNo: 40 },
+      { year: 2023, questionNo: 37 },
+      { year: 2024, questionNo: 40 },
+      { year: 2025, questionNo: 40 },
+    ],
+  },
+  {
+    slug: "three-appraisal-approaches-reconciliation",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 방식",
+    category: "감정평가의 방식",
+    subcategory: "물건별 감정평가 (주된 방식)",
+    parentSlug: "asset-specific-appraisal-method",
+    titleKo: "감정평가 3방식과 시산가액 조정",
+    titleEn: "The Three Appraisal Approaches and Reconciliation of Value Indications",
+    definition:
+      "감정평가 3방식(원가방식·비교방식·수익방식)은 각각 비용성·시장성·수익성의 원리에 기초하며, 각 방식으로 구한 시산가액은 상호 검토해 격차를 합리적으로 조정하는 시산가액 조정을 거쳐 최종 감정평가액을 결정한다.",
+    intuition:
+      "시산가액 조정은 세 방식으로 각각 구한 값을 그냥 평균 내는 것이 아니라, 물건의 특성에 맞게 가중치를 달리 부여해 하나의 결론으로 수렴시키는 작업이라고 이해하면 된다.",
+    keyPoints: [
+      "시산가액 조정은 산술평균 외에도 가중치를 부여하는 방법 등 다양한 방법으로 할 수 있다(산술평균만 인정된다는 서술은 틀렸다).",
+      "감정평가에 관한 규칙은 시산가액 조정에 대해 규정하고 있으며, 시산가액 조정은 각 방식으로 구한 시산가액을 상호 관련시켜 재검토함으로써 격차를 합리적으로 조정하는 작업이다.",
+      "가중치를 부여해 시산가액을 조정하는 경우, 각 방식의 시산가액에 정해진 가중치를 곱해 합산하는 방식으로 최종 감정평가액을 계산한다.",
+    ],
+    pitfalls:
+      "시산가액 조정은 단순 산술평균만 허용된다고 착각하기 쉽지만, 가중치를 부여하는 방법 등 다양한 조정 방법이 인정된다.",
+    example:
+      "거래사례를 통한 시산가액 1.2억원(비교방식, 가중치 50%), 조성비용을 통한 시산가액 1.1억원(원가방식, 가중치 20%), 임대료를 통한 시산가액 1.0억원(수익방식, 가중치 30%)이라면, 조정된 감정평가액은 1.2×0.5+1.1×0.2+1.0×0.3=1.12억원이다.",
+    questionRefs: [
+      { year: 2016, questionNo: 37 },
+      { year: 2019, questionNo: 36 },
+    ],
+  },
+  {
+    slug: "appraisal-approach-principles-and-rent-formulas",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 방식",
+    category: "감정평가의 방식",
+    subcategory: "물건별 감정평가 (주된 방식)",
+    parentSlug: "asset-specific-appraisal-method",
+    titleKo: "감정평가 3방식의 원리와 임대료 산정 공식",
+    titleEn: "Principles of the Three Approaches and Rent Calculation Formulas",
+    definition:
+      "원가방식(원가법·적산법)은 비용성, 비교방식(거래사례비교법·임대사례비교법·공시지가기준법)은 시장성, 수익방식(수익환원법·수익분석법)은 수익성의 원리에 기초하며, 적산임료=기초가액×기대이율+필요제경비, 비준임료=임대사례의 임대료×사정보정치×시점수정치×지역요인비교치×개별요인비교치, 수익임료=순수익+필요제경비로 계산한다.",
+    intuition:
+      "임대료 평가의 세 공식은 결국 '비용에서 출발하는가(적산법)', '사례에서 출발하는가(임대사례비교법)', '수익에서 출발하는가(수익분석법)'라는 차이일 뿐이므로, 출발점만 구분하면 공식의 구조가 자연스럽게 이해된다.",
+    keyPoints: [
+      "원가방식은 비용성, 비교방식(공시지가기준법 포함)은 시장성, 수익방식은 수익성의 원리에 기초한 감정평가방식이다.",
+      "적산법의 적산임료 = 기초가액 × 기대이율 + 필요제경비이며(환원이율이 아니라 기대이율), 임대사례비교법으로 구한 임료는 비준임료, 수익분석법으로 구한 임료는 수익임료라고 부른다.",
+      "공시지가기준법은 비교표준지 공시지가를 기준으로 시점수정, 지역요인 및 개별요인 비교, 그 밖의 요인 보정 과정을 거치며(사정보정이 아님), 수익환원법은 장래 순수익이나 미래의 현금흐름을 환원·할인한다.",
+    ],
+    pitfalls:
+      "적산법의 공식에서 '기대이율'을 '환원이율'로 착각하기 쉽지만, 적산임료 계산에는 기대이율을 곱한다(환원이율은 수익환원법에서 쓰인다).",
+    example:
+      "기초가액이 2억원이고 기대이율이 5%, 필요제경비가 200만원이라면 적산임료는 2억원×0.05+200만원=1,200만원이다.",
+    questionRefs: [
+      { year: 2016, questionNo: 38 },
+      { year: 2018, questionNo: 38 },
+      { year: 2020, questionNo: 37 },
+    ],
+  },
+  {
+    slug: "cost-approach-appraisal",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 방식",
+    category: "감정평가의 방식",
+    subcategory: "원가방식 (비용접근법)",
+    titleKo: "원가법의 감가수정 계산 구조",
+    titleEn: "Depreciation Adjustment Structure in the Cost Approach",
+    definition:
+      "원가법은 대상물건의 재조달원가를 구한 다음 감가수정을 하여 대상물건의 가액을 산정하는 방식이며, 감가수정은 경제적 내용연수와 잔가율을 반영해 계산한다.",
+    intuition:
+      "원가법은 '지금 다시 지으면 얼마가 드는지(재조달원가)에서 낡은 만큼(감가)을 빼는' 접근이라는 점이 핵심이며, 거래사례나 수익 자료가 부족한 특수 부동산(공공시설 등)에 특히 유용하다.",
+    keyPoints: [
+      "원가법의 산정 순서는 재조달원가 산정 → 감가수정 → 적산가액 도출이다.",
+      "정액법에 의한 감가율은 (1 − 잔가율) ÷ 경제적 내용연수로 계산한다.",
+      "재조달원가는 대상물건을 기준시점에 다시 건축·조성한다고 가정할 때 소요되는 비용이다.",
+    ],
+    pitfalls:
+      "감가수정 계산 시 경제적 내용연수와 잔존연수를 혼동하지 않도록 주의해야 한다.",
+    example:
+      "신축 시 3억원이 소요되는 건물이 경제적 내용연수 30년 중 10년이 지났다면, 정액법에 따라 매년 균등하게 감가수정을 반영해 현재 가액을 산정한다.",
+    questionRefs: [
+      { year: 2017, questionNo: 34 },
+      { year: 2017, questionNo: 40 },
+      { year: 2018, questionNo: 39 },
+      { year: 2020, questionNo: 38 },
+      { year: 2023, questionNo: 36 },
+      { year: 2025, questionNo: 39 },
+    ],
+  },
+  {
+    slug: "depreciation-methods-and-reproduction-cost",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 방식",
+    category: "감정평가의 방식",
+    subcategory: "원가방식 (비용접근법)",
+    parentSlug: "cost-approach-appraisal",
+    titleKo: "감가수정 방법과 재조달원가의 개념",
+    titleEn: "Depreciation Methods and the Concept of Reproduction Cost",
+    definition:
+      "감가수정에서 다루는 내용연수는 물리적 내용연수가 아니라 경제적 내용연수이며, 내용연수법(정액법·정률법·상환기금법)·관찰감가법·분해법 등의 방법이 있고, 재조달원가는 대상물건을 기준시점에 재생산·재취득하는 데 필요한 적정원가 총액(제세공과금·수급인의 적정이윤 포함)으로 총량조사법·구성단위법·비용지수법 등으로 산정하며 직접법·간접법을 병용할 수 있다.",
+    intuition:
+      "감가수정 방법은 '무엇을 기준으로 낡음을 계산하는가(연수·관찰·분해)'로 나뉘고, 재조달원가는 '지금 다시 짓는 데 드는 모든 비용'을 빠짐없이 담아야 한다는 원칙으로 이해하면 된다.",
+    keyPoints: [
+      "감가수정과 관련된 내용연수는 물리적 내용연수가 아니라 경제적 내용연수를 의미하며, 감가수정 방법에는 내용연수법(정액법·정률법·상환기금법), 관찰감가법, 분해법 등이 있다.",
+      "정액법은 감가누계액이 경과연수에 정비례해 증가하는 방법(직선법·균등상각법이라고도 함)이고, 정률법은 매년 일정한 감가율을 곱하지만 그 대상(잔존가액)이 매년 줄어들므로 감가액 자체는 매년 감소한다(감가액이 일정하다는 서술은 틀렸다).",
+      "상환기금법은 내용연수 만료 시 감가누계상당액과 그에 대한 복리계산 이자상당액분을 포함해 상환하는 방법이다.",
+      "재조달원가는 대상물건을 기준시점에 재생산·재취득하는 데 필요한 적정원가의 총액으로 제세공과금을 포함하며(제외하는 것이 아니다), 표준적 건설비에는 수급인의 적정이윤이 포함되고, 총량조사법·구성단위법·비용지수법으로 산정하며 직접법·간접법을 병용할 수 있다.",
+    ],
+    pitfalls:
+      "정률법에서 매년 감가액이 일정하다고 착각하기 쉽지만, 감가율은 일정해도 그 대상(잔존가액)이 매년 줄어들어 감가액 자체는 매년 감소한다.",
+    example:
+      "재조달원가를 산정할 때 표준적인 건설비뿐 아니라 수급인의 적정이윤과 제세공과금도 포함해야 한다.",
+    questionRefs: [
+      { year: 2021, questionNo: 36 },
+      { year: 2022, questionNo: 35 },
+      { year: 2024, questionNo: 38 },
+    ],
+  },
+  {
+    slug: "income-capitalization-method",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 방식",
+    category: "감정평가의 방식",
+    subcategory: "수익방식 (수익환원법)",
+    titleKo: "자본환원율의 결정요인과 시장금리의 관계",
+    titleEn: "Determinants of the Capitalization Rate and Its Relation to Market Interest Rates",
+    definition:
+      "자본환원율은 순영업소득을 부동산가격으로 나눈 값(또는 시장추출법·조성법·투자결합법 등으로 구함)이며, 자본의 기회비용을 반영해 시장금리·투자위험이 높아지면 상승하고 투자수요 증가로 자산가격이 상승하면(순영업소득 불변 시) 오히려 낮아진다.",
+    intuition:
+      "자본환원율은 '이 정도 수익률은 나와야 투자할 만하다'는 요구수익률과 비슷한 성격을 가지므로, 시장의 다른 투자수단(금리)이 오르거나 위험이 커지면 부동산에 대해서도 더 높은 환원율을 요구하게 된다고 이해하면 된다.",
+    keyPoints: [
+      "자본환원율 = 순영업소득 ÷ 부동산가격이며, 시장추출법·조성법·투자결합법 등으로도 구할 수 있다.",
+      "시장금리가 상승하거나 프로젝트(투자)의 위험이 높아지면 자본환원율은 상승하고, 투자위험이 감소하면 자본환원율은 하락한다(금리상승이 환원율을 낮춘다는 서술은 틀렸다).",
+      "순영업소득이 일정할 때 투자수요 증가로 자산가격이 상승하면 자본환원율은 오히려 낮아진다(높이는 요인이라는 서술은 틀렸다) — 환원율이 상승하면 자산가격은 하락한다(반대로 상승한다는 서술도 틀렸다).",
+      "부동산시장이 균형을 이루더라도 자산의 유형·위치 등 특성에 따라 자본환원율이 서로 다른 부동산들이 존재할 수 있으며, 유형별·지역별 시장을 비교분석하는 데 활용될 수 있다.",
+    ],
+    pitfalls:
+      "금리 상승이 자본환원율을 낮춘다거나, 환원율 상승이 자산가격을 상승시킨다고 착각하기 쉽지만, 실제로는 반대다 — 금리·위험이 오르면 환원율도 오르고, 환원율이 오르면 가격은 낮아진다.",
+    example:
+      "시장금리가 오르면 투자자들은 부동산에서도 더 높은 수익률을 요구하게 되어 자본환원율이 상승하고, 그 결과 동일한 순수익을 내는 부동산이라도 수익환원법으로 산정한 가액은 이전보다 낮아진다.",
+    questionRefs: [
+      { year: 2020, questionNo: 26 },
+      { year: 2022, questionNo: 23 },
+      { year: 2024, questionNo: 27 },
+    ],
+  },
+  {
+    slug: "direct-capitalization-income-calculation",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 방식",
+    category: "감정평가의 방식",
+    subcategory: "수익방식 (수익환원법)",
+    parentSlug: "income-capitalization-method",
+    titleKo: "직접환원법 수익가액 계산과 환원율 역산",
+    titleEn: "Direct Capitalization: Income Value Calculation and Rate Derivation",
+    definition:
+      "직접환원법의 수익가액은 순영업소득(가능총소득에서 공실손실상당액·대손충당금을 뺀 유효총소득에서 영업경비를 뺀 값)을 환원율로 나누어 구하며, 반대로 시산가액과 순영업소득이 주어지면 그 비율로 환원율을 역산할 수 있다.",
+    intuition:
+      "계산의 핵심은 '가능총소득에서 무엇을 빼서 순영업소득까지 내려가는가'이므로, 영업경비에 포함되는 항목과 제외되는 항목(부채서비스액·소득세 등)을 정확히 구분하는 것이 실수를 줄이는 길이다.",
+    keyPoints: [
+      "순영업소득(NOI) = 가능총소득(PGI) - 공실 및 대손충당금 + 기타수입 - 영업경비이며, 이 순영업소득을 환원율로 나누면 수익가액이 된다(수익가액 = NOI ÷ 환원율).",
+      "환원율은 시산가액과 순영업소득이 모두 주어진 경우, 환원율 = 순영업소득 ÷ 시산가액으로 역산할 수 있다.",
+      "영업경비에는 적정한 유지관리비·재산세·보험료 등이 포함되지만, 소유자의 개인적 지출이나 부채서비스액(원리금상환액), 소득세·법인세 등은 영업경비에 포함되지 않는다.",
+    ],
+    pitfalls:
+      "부채서비스액(원리금상환액)이나 소득세를 영업경비에 포함시키는 실수를 하기 쉽다 — 순영업소득 계산 시 이 항목들은 제외해야 한다.",
+    example:
+      "가능총소득 5,000만원에서 공실손실상당액 500만원을 빼고 영업경비 1,000만원을 빼면 순영업소득은 3,500만원이 되며, 이를 환원율 7%로 나누면 수익가액은 5억원이다.",
+    questionRefs: [
+      { year: 2017, questionNo: 37 },
+      { year: 2019, questionNo: 37 },
+      { year: 2021, questionNo: 38 },
+      { year: 2022, questionNo: 37 },
+      { year: 2024, questionNo: 36 },
+    ],
+  },
+  {
+    slug: "sales-comparison-standard-price-method",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 방식",
+    category: "감정평가의 방식",
+    subcategory: "거래사례비교법·공시지가기준법(비교방식)",
+    titleKo: "공시지가기준법의 시점수정·지역요인·개별요인 보정",
+    titleEn: "Time, Regional, and Individual Factor Adjustments in the Standard Price Method",
+    definition:
+      "공시지가기준법은 대상 토지와 용도지역·이용상황이 동일한 비교 표준지를 선택한 뒤, 그 공시지가에 시점수정·지역요인·개별요인·기타요인을 순서대로 곱하여 대상 토지의 가액을 산정한다.",
+    intuition:
+      "비교방식 계산은 '기준이 되는 표준지 가격에서 출발해, 시간차·위치차·개별조건차를 하나씩 보정해가는' 곱셈 누적 구조이므로, 보정 순서와 각 요인의 의미를 짝지어 암기하면 계산 실수를 줄일 수 있다.",
+    keyPoints: [
+      "비교 표준지는 대상 토지와 용도지역·이용상황이 동일한 표준지를 선택한다.",
+      "시점수정은 공시기준일과 평가시점 사이의 지가변동률을, 지역요인·개별요인은 표준지와 대상 토지 간 위치·조건 차이를 반영한다.",
+      "각 보정치를 표준지 공시지가에 순서대로 곱하여 최종 가액을 산정한다.",
+    ],
+    pitfalls:
+      "보정 요인 중 하나를 빠뜨리거나 곱하는 순서를 바꾸는 계산 실수가 잦다 — 시점수정·지역요인·개별요인·기타요인을 빠짐없이 반영해야 한다.",
+    example:
+      "대상 토지와 용도지역·이용상황이 같은 표준지 공시지가가 ㎡당 200만원이고, 시점수정 1.05배·개별요인 1.10배를 적용하면 대상 토지의 가액은 그만큼 보정되어 산정된다.",
+    questionRefs: [
+      { year: 2019, questionNo: 39 },
+      { year: 2021, questionNo: 40 },
+      { year: 2023, questionNo: 35 },
+      { year: 2025, questionNo: 37 },
+    ],
+  },
+  {
+    slug: "sales-comparison-adjustment-calculation",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "감정평가의 방식",
+    category: "감정평가의 방식",
+    subcategory: "거래사례비교법·공시지가기준법(비교방식)",
+    parentSlug: "sales-comparison-standard-price-method",
+    titleKo: "거래사례비교법의 사정보정·시점수정·요인비교 계산",
+    titleEn: "Sales Comparison Approach: Adjustments and Factor Comparisons",
+    definition:
+      "거래사례비교법은 대상 토지와 가치형성요인이 유사한 거래사례를 선택한 뒤 그 거래가격에 사정보정치·시점수정치·지역요인비교치·개별요인비교치를 순서대로 곱해(상승식) 대상 토지의 비준가액을 산정한다.",
+    intuition:
+      "공시지가기준법이 '표준지'에서 출발한다면, 거래사례비교법은 '실제 거래된 사례'에서 출발할 뿐 보정치를 순서대로 곱해나가는 계산 구조 자체는 동일하다고 이해하면 된다.",
+    keyPoints: [
+      "거래사례는 대상 토지와 용도지역·이용상황 등이 같거나 비슷한 사례를 선택하며, 특수한 사정이 개입된 거래는 사정보정을 거쳐야 한다.",
+      "개별요인 비교치는 항목별 격차율을 상승식(각 항목의 (1+격차율)을 순서대로 곱하는 방식)으로 산정하며, 우세·열세·동일 항목의 격차율을 정확히 적용해야 한다.",
+      "비준가액 = 거래사례가격 × 사정보정치 × 시점수정치 × 지역요인비교치 × 개별요인비교치이며, 면적 단위가 다르면 단위면적당 가격으로 환산한 뒤 대상 토지의 면적을 곱해 최종 가액을 구한다.",
+    ],
+    pitfalls:
+      "개별요인 비교치를 계산할 때 우세·열세 항목의 부호(가산/감산)를 반대로 적용하는 실수가 잦다 — 대상 토지가 우세하면 비교치가 1보다 커야 한다.",
+    example:
+      "거래사례가격이 ㎡당 100만원이고 시점수정치 1.05, 개별요인비교치 1.1을 적용하면, 대상 토지의 비준가액은 ㎡당 100만원×1.05×1.1로 산정된다.",
+    questionRefs: [
+      { year: 2018, questionNo: 36 },
+      { year: 2018, questionNo: 40 },
+      { year: 2020, questionNo: 39 },
+      { year: 2022, questionNo: 39 },
+      { year: 2024, questionNo: 37 },
+    ],
   },
   {
     slug: "official-land-price-system",
-    chapterKo: "감정평가론",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "부동산가격공시제도",
     category: "부동산가격공시제도",
     subcategory: "표준지·개별공시지가",
     titleKo: "표준지공시지가와 개별공시지가의 절차·효력",
@@ -1842,7 +2179,8 @@ const concepts: Concept[] = [
   },
   {
     slug: "official-house-price-system",
-    chapterKo: "감정평가론",
+    chapterKo: "부동산 감정평가론",
+    sectionKo: "부동산가격공시제도",
     category: "부동산가격공시제도",
     subcategory: "표준지·개별공시지가",
     parentSlug: "official-land-price-system",
@@ -1867,278 +2205,6 @@ const concepts: Concept[] = [
       { year: 2017, questionNo: 35 },
       { year: 2021, questionNo: 39 },
       { year: 2024, questionNo: 39 },
-    ],
-  },
-  {
-    slug: "regional-individual-analysis",
-    chapterKo: "감정평가론",
-    category: "부동산가격이론",
-    subcategory: "지역분석·개별분석",
-    titleKo: "지역분석·개별분석과 균형·적합의 원칙",
-    titleEn: "Regional/Individual Analysis and Principles of Balance and Conformity",
-    definition:
-      "지역분석은 해당 지역의 표준적 이용과 가격 수준을 파악하는 절차이며, 부동산 구성요소 간 균형이 깨지면 가치가 저하된다는 균형(기여)의 원칙과, 부동산이 주변 환경·지역 특성에 적합하게 이용되어야 한다는 적합의 원칙이 개별분석의 판단 기준이 된다.",
-    intuition:
-      "지역분석은 '숲(지역 전체 수준)'을, 개별분석은 '나무(개별 부동산의 적합성)'를 보는 단계라고 구분하면, 균형·적합의 원칙이 왜 개별분석 단계에서 다뤄지는지 자연스럽게 이해된다.",
-    keyPoints: [
-      "지역분석을 통해 해당 지역의 표준적 이용과 가격 수준을 파악한다.",
-      "천장을 과도하게 고급 개량해 오히려 선호도가 떨어지는 사례는, 구성요소 간 균형이 깨져 가치가 저하되는 균형(기여)의 원칙에 해당한다.",
-      "부동산이 주변 환경·지역 특성에 적합하게 이용되는지를 보는 것은 적합의 원칙이다.",
-    ],
-    pitfalls:
-      "균형의 원칙과 적합의 원칙을 혼동하기 쉽다 — 균형은 '부동산 내부 구성요소 간' 조화, 적합은 '부동산과 주변 환경 간' 조화를 다룬다.",
-    example:
-      "일반 주택에 어울리지 않게 과도하게 고급스러운 욕실을 설치해 오히려 전체적인 선호도가 떨어졌다면, 이는 균형의 원칙이 깨진 사례다.",
-  },
-  {
-    slug: "cost-approach-appraisal",
-    chapterKo: "감정평가론",
-    category: "감정평가의 방식",
-    subcategory: "원가방식 (비용접근법)",
-    titleKo: "원가법의 감가수정 계산 구조",
-    titleEn: "Depreciation Adjustment Structure in the Cost Approach",
-    definition:
-      "원가법은 대상물건의 재조달원가를 구한 다음 감가수정을 하여 대상물건의 가액을 산정하는 방식이며, 감가수정은 경제적 내용연수와 잔가율을 반영해 계산한다.",
-    intuition:
-      "원가법은 '지금 다시 지으면 얼마가 드는지(재조달원가)에서 낡은 만큼(감가)을 빼는' 접근이라는 점이 핵심이며, 거래사례나 수익 자료가 부족한 특수 부동산(공공시설 등)에 특히 유용하다.",
-    keyPoints: [
-      "원가법의 산정 순서는 재조달원가 산정 → 감가수정 → 적산가액 도출이다.",
-      "정액법에 의한 감가율은 (1 − 잔가율) ÷ 경제적 내용연수로 계산한다.",
-      "재조달원가는 대상물건을 기준시점에 다시 건축·조성한다고 가정할 때 소요되는 비용이다.",
-    ],
-    pitfalls:
-      "감가수정 계산 시 경제적 내용연수와 잔존연수를 혼동하지 않도록 주의해야 한다.",
-    example:
-      "신축 시 3억원이 소요되는 건물이 경제적 내용연수 30년 중 10년이 지났다면, 정액법에 따라 매년 균등하게 감가수정을 반영해 현재 가액을 산정한다.",
-    questionRefs: [
-      { year: 2017, questionNo: 34 },
-      { year: 2017, questionNo: 40 },
-      { year: 2018, questionNo: 39 },
-      { year: 2020, questionNo: 38 },
-      { year: 2023, questionNo: 36 },
-      { year: 2025, questionNo: 39 },
-    ],
-  },
-  {
-    slug: "depreciation-methods-and-reproduction-cost",
-    chapterKo: "감정평가론",
-    category: "감정평가의 방식",
-    subcategory: "원가방식 (비용접근법)",
-    parentSlug: "cost-approach-appraisal",
-    titleKo: "감가수정 방법과 재조달원가의 개념",
-    titleEn: "Depreciation Methods and the Concept of Reproduction Cost",
-    definition:
-      "감가수정에서 다루는 내용연수는 물리적 내용연수가 아니라 경제적 내용연수이며, 내용연수법(정액법·정률법·상환기금법)·관찰감가법·분해법 등의 방법이 있고, 재조달원가는 대상물건을 기준시점에 재생산·재취득하는 데 필요한 적정원가 총액(제세공과금·수급인의 적정이윤 포함)으로 총량조사법·구성단위법·비용지수법 등으로 산정하며 직접법·간접법을 병용할 수 있다.",
-    intuition:
-      "감가수정 방법은 '무엇을 기준으로 낡음을 계산하는가(연수·관찰·분해)'로 나뉘고, 재조달원가는 '지금 다시 짓는 데 드는 모든 비용'을 빠짐없이 담아야 한다는 원칙으로 이해하면 된다.",
-    keyPoints: [
-      "감가수정과 관련된 내용연수는 물리적 내용연수가 아니라 경제적 내용연수를 의미하며, 감가수정 방법에는 내용연수법(정액법·정률법·상환기금법), 관찰감가법, 분해법 등이 있다.",
-      "정액법은 감가누계액이 경과연수에 정비례해 증가하는 방법(직선법·균등상각법이라고도 함)이고, 정률법은 매년 일정한 감가율을 곱하지만 그 대상(잔존가액)이 매년 줄어들므로 감가액 자체는 매년 감소한다(감가액이 일정하다는 서술은 틀렸다).",
-      "상환기금법은 내용연수 만료 시 감가누계상당액과 그에 대한 복리계산 이자상당액분을 포함해 상환하는 방법이다.",
-      "재조달원가는 대상물건을 기준시점에 재생산·재취득하는 데 필요한 적정원가의 총액으로 제세공과금을 포함하며(제외하는 것이 아니다), 표준적 건설비에는 수급인의 적정이윤이 포함되고, 총량조사법·구성단위법·비용지수법으로 산정하며 직접법·간접법을 병용할 수 있다.",
-    ],
-    pitfalls:
-      "정률법에서 매년 감가액이 일정하다고 착각하기 쉽지만, 감가율은 일정해도 그 대상(잔존가액)이 매년 줄어들어 감가액 자체는 매년 감소한다.",
-    example:
-      "재조달원가를 산정할 때 표준적인 건설비뿐 아니라 수급인의 적정이윤과 제세공과금도 포함해야 한다.",
-    questionRefs: [
-      { year: 2021, questionNo: 36 },
-      { year: 2022, questionNo: 35 },
-      { year: 2024, questionNo: 38 },
-    ],
-  },
-  {
-    slug: "asset-specific-appraisal-method",
-    chapterKo: "감정평가론",
-    category: "감정평가의 방식",
-    subcategory: "물건별 감정평가 (주된 방식)",
-    titleKo: "물건 종류별 주된 감정평가 방식 매칭",
-    titleEn: "Matching Primary Appraisal Methods to Asset Types",
-    definition:
-      "감정평가에 관한 규칙은 물건의 종류에 따라 주된 감정평가방법을 법정하고 있으며, 건물·건설기계·항공기·선박은 원가법, 자동차·과수원·구분소유권 일괄평가는 거래사례비교법, 임대료는 임대사례비교법, 광업재단·기업가치·저작권·특허권·상표권·실용신안권·영업권은 수익환원법이 주된 방법이다.",
-    intuition:
-      "감정평가 방식은 평가 대상물건의 성격에 맞는 방식을 짝짓는 문제로 접근하면 된다 — 기계·건물처럼 원가 파악이 쉬운 물건은 원가법, 자동차·과수원처럼 거래사례가 풍부한 물건은 거래사례비교법, 무형자산·수익성자산은 수익환원법이 주된 방법이 된다.",
-    keyPoints: [
-      "건물, 건설기계, 항공기, 선박은 원가법이 주된 방법이지만, 자동차와 과수원은 거래사례비교법이 주된 방법이다(자동차와 선박이 같은 방법이라고 서술하면 틀림 — 자동차는 거래사례비교법, 선박은 원가법).",
-      "광업재단, 기업가치, 저작권·특허권·상표권·실용신안권 등 무형자산, 영업권은 수익환원법이 주된 방법이며, 영업권·특허권을 수익분석법으로 평가한다는 서술은 틀렸다(수익분석법은 임대료 산정에 쓰이는 방법이다).",
-      "임대료의 주된 감정평가방법은 임대사례비교법이다(수익환원법이 아니다).",
-      "구분소유권의 대상이 되는 건물부분과 그 대지사용권을 일괄해 감정평가하는 경우의 주된 방법은 거래사례비교법이다.",
-    ],
-    pitfalls:
-      "자동차와 선박을 같은 방법으로 평가한다고 착각하기 쉽지만, 자동차의 주된 방법은 거래사례비교법, 선박의 주된 방법은 원가법으로 서로 다르다.",
-    example:
-      "과수원은 거래사례비교법이 주된 감정평가방법이며, 공시지가기준법이나 수익환원법이 아니다.",
-    questionRefs: [
-      { year: 2017, questionNo: 38 },
-      { year: 2020, questionNo: 40 },
-      { year: 2023, questionNo: 37 },
-      { year: 2024, questionNo: 40 },
-      { year: 2025, questionNo: 40 },
-    ],
-  },
-  {
-    slug: "three-appraisal-approaches-reconciliation",
-    chapterKo: "감정평가론",
-    category: "감정평가의 방식",
-    subcategory: "물건별 감정평가 (주된 방식)",
-    parentSlug: "asset-specific-appraisal-method",
-    titleKo: "감정평가 3방식과 시산가액 조정",
-    titleEn: "The Three Appraisal Approaches and Reconciliation of Value Indications",
-    definition:
-      "감정평가 3방식(원가방식·비교방식·수익방식)은 각각 비용성·시장성·수익성의 원리에 기초하며, 각 방식으로 구한 시산가액은 상호 검토해 격차를 합리적으로 조정하는 시산가액 조정을 거쳐 최종 감정평가액을 결정한다.",
-    intuition:
-      "시산가액 조정은 세 방식으로 각각 구한 값을 그냥 평균 내는 것이 아니라, 물건의 특성에 맞게 가중치를 달리 부여해 하나의 결론으로 수렴시키는 작업이라고 이해하면 된다.",
-    keyPoints: [
-      "시산가액 조정은 산술평균 외에도 가중치를 부여하는 방법 등 다양한 방법으로 할 수 있다(산술평균만 인정된다는 서술은 틀렸다).",
-      "감정평가에 관한 규칙은 시산가액 조정에 대해 규정하고 있으며, 시산가액 조정은 각 방식으로 구한 시산가액을 상호 관련시켜 재검토함으로써 격차를 합리적으로 조정하는 작업이다.",
-      "가중치를 부여해 시산가액을 조정하는 경우, 각 방식의 시산가액에 정해진 가중치를 곱해 합산하는 방식으로 최종 감정평가액을 계산한다.",
-    ],
-    pitfalls:
-      "시산가액 조정은 단순 산술평균만 허용된다고 착각하기 쉽지만, 가중치를 부여하는 방법 등 다양한 조정 방법이 인정된다.",
-    example:
-      "거래사례를 통한 시산가액 1.2억원(비교방식, 가중치 50%), 조성비용을 통한 시산가액 1.1억원(원가방식, 가중치 20%), 임대료를 통한 시산가액 1.0억원(수익방식, 가중치 30%)이라면, 조정된 감정평가액은 1.2×0.5+1.1×0.2+1.0×0.3=1.12억원이다.",
-    questionRefs: [
-      { year: 2016, questionNo: 37 },
-      { year: 2019, questionNo: 36 },
-    ],
-  },
-  {
-    slug: "appraisal-approach-principles-and-rent-formulas",
-    chapterKo: "감정평가론",
-    category: "감정평가의 방식",
-    subcategory: "물건별 감정평가 (주된 방식)",
-    parentSlug: "asset-specific-appraisal-method",
-    titleKo: "감정평가 3방식의 원리와 임대료 산정 공식",
-    titleEn: "Principles of the Three Approaches and Rent Calculation Formulas",
-    definition:
-      "원가방식(원가법·적산법)은 비용성, 비교방식(거래사례비교법·임대사례비교법·공시지가기준법)은 시장성, 수익방식(수익환원법·수익분석법)은 수익성의 원리에 기초하며, 적산임료=기초가액×기대이율+필요제경비, 비준임료=임대사례의 임대료×사정보정치×시점수정치×지역요인비교치×개별요인비교치, 수익임료=순수익+필요제경비로 계산한다.",
-    intuition:
-      "임대료 평가의 세 공식은 결국 '비용에서 출발하는가(적산법)', '사례에서 출발하는가(임대사례비교법)', '수익에서 출발하는가(수익분석법)'라는 차이일 뿐이므로, 출발점만 구분하면 공식의 구조가 자연스럽게 이해된다.",
-    keyPoints: [
-      "원가방식은 비용성, 비교방식(공시지가기준법 포함)은 시장성, 수익방식은 수익성의 원리에 기초한 감정평가방식이다.",
-      "적산법의 적산임료 = 기초가액 × 기대이율 + 필요제경비이며(환원이율이 아니라 기대이율), 임대사례비교법으로 구한 임료는 비준임료, 수익분석법으로 구한 임료는 수익임료라고 부른다.",
-      "공시지가기준법은 비교표준지 공시지가를 기준으로 시점수정, 지역요인 및 개별요인 비교, 그 밖의 요인 보정 과정을 거치며(사정보정이 아님), 수익환원법은 장래 순수익이나 미래의 현금흐름을 환원·할인한다.",
-    ],
-    pitfalls:
-      "적산법의 공식에서 '기대이율'을 '환원이율'로 착각하기 쉽지만, 적산임료 계산에는 기대이율을 곱한다(환원이율은 수익환원법에서 쓰인다).",
-    example:
-      "기초가액이 2억원이고 기대이율이 5%, 필요제경비가 200만원이라면 적산임료는 2억원×0.05+200만원=1,200만원이다.",
-    questionRefs: [
-      { year: 2016, questionNo: 38 },
-      { year: 2018, questionNo: 38 },
-      { year: 2020, questionNo: 37 },
-    ],
-  },
-  {
-    slug: "sales-comparison-standard-price-method",
-    chapterKo: "감정평가론",
-    category: "감정평가의 방식",
-    subcategory: "거래사례비교법·공시지가기준법(비교방식)",
-    titleKo: "공시지가기준법의 시점수정·지역요인·개별요인 보정",
-    titleEn: "Time, Regional, and Individual Factor Adjustments in the Standard Price Method",
-    definition:
-      "공시지가기준법은 대상 토지와 용도지역·이용상황이 동일한 비교 표준지를 선택한 뒤, 그 공시지가에 시점수정·지역요인·개별요인·기타요인을 순서대로 곱하여 대상 토지의 가액을 산정한다.",
-    intuition:
-      "비교방식 계산은 '기준이 되는 표준지 가격에서 출발해, 시간차·위치차·개별조건차를 하나씩 보정해가는' 곱셈 누적 구조이므로, 보정 순서와 각 요인의 의미를 짝지어 암기하면 계산 실수를 줄일 수 있다.",
-    keyPoints: [
-      "비교 표준지는 대상 토지와 용도지역·이용상황이 동일한 표준지를 선택한다.",
-      "시점수정은 공시기준일과 평가시점 사이의 지가변동률을, 지역요인·개별요인은 표준지와 대상 토지 간 위치·조건 차이를 반영한다.",
-      "각 보정치를 표준지 공시지가에 순서대로 곱하여 최종 가액을 산정한다.",
-    ],
-    pitfalls:
-      "보정 요인 중 하나를 빠뜨리거나 곱하는 순서를 바꾸는 계산 실수가 잦다 — 시점수정·지역요인·개별요인·기타요인을 빠짐없이 반영해야 한다.",
-    example:
-      "대상 토지와 용도지역·이용상황이 같은 표준지 공시지가가 ㎡당 200만원이고, 시점수정 1.05배·개별요인 1.10배를 적용하면 대상 토지의 가액은 그만큼 보정되어 산정된다.",
-    questionRefs: [
-      { year: 2019, questionNo: 39 },
-      { year: 2021, questionNo: 40 },
-      { year: 2023, questionNo: 35 },
-      { year: 2025, questionNo: 37 },
-    ],
-  },
-  {
-    slug: "sales-comparison-adjustment-calculation",
-    chapterKo: "감정평가론",
-    category: "감정평가의 방식",
-    subcategory: "거래사례비교법·공시지가기준법(비교방식)",
-    parentSlug: "sales-comparison-standard-price-method",
-    titleKo: "거래사례비교법의 사정보정·시점수정·요인비교 계산",
-    titleEn: "Sales Comparison Approach: Adjustments and Factor Comparisons",
-    definition:
-      "거래사례비교법은 대상 토지와 가치형성요인이 유사한 거래사례를 선택한 뒤 그 거래가격에 사정보정치·시점수정치·지역요인비교치·개별요인비교치를 순서대로 곱해(상승식) 대상 토지의 비준가액을 산정한다.",
-    intuition:
-      "공시지가기준법이 '표준지'에서 출발한다면, 거래사례비교법은 '실제 거래된 사례'에서 출발할 뿐 보정치를 순서대로 곱해나가는 계산 구조 자체는 동일하다고 이해하면 된다.",
-    keyPoints: [
-      "거래사례는 대상 토지와 용도지역·이용상황 등이 같거나 비슷한 사례를 선택하며, 특수한 사정이 개입된 거래는 사정보정을 거쳐야 한다.",
-      "개별요인 비교치는 항목별 격차율을 상승식(각 항목의 (1+격차율)을 순서대로 곱하는 방식)으로 산정하며, 우세·열세·동일 항목의 격차율을 정확히 적용해야 한다.",
-      "비준가액 = 거래사례가격 × 사정보정치 × 시점수정치 × 지역요인비교치 × 개별요인비교치이며, 면적 단위가 다르면 단위면적당 가격으로 환산한 뒤 대상 토지의 면적을 곱해 최종 가액을 구한다.",
-    ],
-    pitfalls:
-      "개별요인 비교치를 계산할 때 우세·열세 항목의 부호(가산/감산)를 반대로 적용하는 실수가 잦다 — 대상 토지가 우세하면 비교치가 1보다 커야 한다.",
-    example:
-      "거래사례가격이 ㎡당 100만원이고 시점수정치 1.05, 개별요인비교치 1.1을 적용하면, 대상 토지의 비준가액은 ㎡당 100만원×1.05×1.1로 산정된다.",
-    questionRefs: [
-      { year: 2018, questionNo: 36 },
-      { year: 2018, questionNo: 40 },
-      { year: 2020, questionNo: 39 },
-      { year: 2022, questionNo: 39 },
-      { year: 2024, questionNo: 37 },
-    ],
-  },
-  {
-    slug: "income-capitalization-method",
-    chapterKo: "감정평가론",
-    category: "감정평가의 방식",
-    subcategory: "수익방식 (수익환원법)",
-    titleKo: "자본환원율의 결정요인과 시장금리의 관계",
-    titleEn: "Determinants of the Capitalization Rate and Its Relation to Market Interest Rates",
-    definition:
-      "자본환원율은 순영업소득을 부동산가격으로 나눈 값(또는 시장추출법·조성법·투자결합법 등으로 구함)이며, 자본의 기회비용을 반영해 시장금리·투자위험이 높아지면 상승하고 투자수요 증가로 자산가격이 상승하면(순영업소득 불변 시) 오히려 낮아진다.",
-    intuition:
-      "자본환원율은 '이 정도 수익률은 나와야 투자할 만하다'는 요구수익률과 비슷한 성격을 가지므로, 시장의 다른 투자수단(금리)이 오르거나 위험이 커지면 부동산에 대해서도 더 높은 환원율을 요구하게 된다고 이해하면 된다.",
-    keyPoints: [
-      "자본환원율 = 순영업소득 ÷ 부동산가격이며, 시장추출법·조성법·투자결합법 등으로도 구할 수 있다.",
-      "시장금리가 상승하거나 프로젝트(투자)의 위험이 높아지면 자본환원율은 상승하고, 투자위험이 감소하면 자본환원율은 하락한다(금리상승이 환원율을 낮춘다는 서술은 틀렸다).",
-      "순영업소득이 일정할 때 투자수요 증가로 자산가격이 상승하면 자본환원율은 오히려 낮아진다(높이는 요인이라는 서술은 틀렸다) — 환원율이 상승하면 자산가격은 하락한다(반대로 상승한다는 서술도 틀렸다).",
-      "부동산시장이 균형을 이루더라도 자산의 유형·위치 등 특성에 따라 자본환원율이 서로 다른 부동산들이 존재할 수 있으며, 유형별·지역별 시장을 비교분석하는 데 활용될 수 있다.",
-    ],
-    pitfalls:
-      "금리 상승이 자본환원율을 낮춘다거나, 환원율 상승이 자산가격을 상승시킨다고 착각하기 쉽지만, 실제로는 반대다 — 금리·위험이 오르면 환원율도 오르고, 환원율이 오르면 가격은 낮아진다.",
-    example:
-      "시장금리가 오르면 투자자들은 부동산에서도 더 높은 수익률을 요구하게 되어 자본환원율이 상승하고, 그 결과 동일한 순수익을 내는 부동산이라도 수익환원법으로 산정한 가액은 이전보다 낮아진다.",
-    questionRefs: [
-      { year: 2020, questionNo: 26 },
-      { year: 2022, questionNo: 23 },
-      { year: 2024, questionNo: 27 },
-    ],
-  },
-  {
-    slug: "direct-capitalization-income-calculation",
-    chapterKo: "감정평가론",
-    category: "감정평가의 방식",
-    subcategory: "수익방식 (수익환원법)",
-    parentSlug: "income-capitalization-method",
-    titleKo: "직접환원법 수익가액 계산과 환원율 역산",
-    titleEn: "Direct Capitalization: Income Value Calculation and Rate Derivation",
-    definition:
-      "직접환원법의 수익가액은 순영업소득(가능총소득에서 공실손실상당액·대손충당금을 뺀 유효총소득에서 영업경비를 뺀 값)을 환원율로 나누어 구하며, 반대로 시산가액과 순영업소득이 주어지면 그 비율로 환원율을 역산할 수 있다.",
-    intuition:
-      "계산의 핵심은 '가능총소득에서 무엇을 빼서 순영업소득까지 내려가는가'이므로, 영업경비에 포함되는 항목과 제외되는 항목(부채서비스액·소득세 등)을 정확히 구분하는 것이 실수를 줄이는 길이다.",
-    keyPoints: [
-      "순영업소득(NOI) = 가능총소득(PGI) - 공실 및 대손충당금 + 기타수입 - 영업경비이며, 이 순영업소득을 환원율로 나누면 수익가액이 된다(수익가액 = NOI ÷ 환원율).",
-      "환원율은 시산가액과 순영업소득이 모두 주어진 경우, 환원율 = 순영업소득 ÷ 시산가액으로 역산할 수 있다.",
-      "영업경비에는 적정한 유지관리비·재산세·보험료 등이 포함되지만, 소유자의 개인적 지출이나 부채서비스액(원리금상환액), 소득세·법인세 등은 영업경비에 포함되지 않는다.",
-    ],
-    pitfalls:
-      "부채서비스액(원리금상환액)이나 소득세를 영업경비에 포함시키는 실수를 하기 쉽다 — 순영업소득 계산 시 이 항목들은 제외해야 한다.",
-    example:
-      "가능총소득 5,000만원에서 공실손실상당액 500만원을 빼고 영업경비 1,000만원을 빼면 순영업소득은 3,500만원이 되며, 이를 환원율 7%로 나누면 수익가액은 5억원이다.",
-    questionRefs: [
-      { year: 2017, questionNo: 37 },
-      { year: 2019, questionNo: 37 },
-      { year: 2021, questionNo: 38 },
-      { year: 2022, questionNo: 37 },
-      { year: 2024, questionNo: 36 },
     ],
   },
 ];

@@ -3,209 +3,98 @@ import type { Concept } from "@/lib/concepts";
 const concepts: Concept[] = [
   // ───────── 국토계획법 ─────────
   {
-    slug: "infrastructure-facility-classification",
+    slug: "metropolitan-plan",
     chapterKo: "국토계획법",
+    sectionKo: "광역도시계획",
     category: "국토계획법",
-    subcategory: "기반시설·공동구",
-    titleKo: "기반시설의 대분류와 세부 종류 연결",
-    titleEn: "Classification of Infrastructure Facilities",
+    subcategory: "광역도시계획",
+    titleKo: "광역도시계획의 수립권자와 승인 절차",
+    titleEn: "Formulating Authorities and Approval Procedures for Metropolitan Plans",
     definition:
-      "기반시설은 교통시설·공간시설·유통공급시설·공공문화체육시설·방재시설·보건위생시설·환경기초시설의 7대 분류로 나뉘며, 자동차정류장은 화물터미널·공영차고지·복합환승센터·화물자동차 휴게소 등으로 세분되지만 교통광장은 자동차정류장이 아니라 별도의 광장에 속한다.",
+      "광역도시계획은 원칙적으로 관할 시장·군수(또는 시·도지사)가 공동으로 수립하며 도지사의 승인(시장·군수 수립 시) 또는 국토교통부장관의 승인(시·도지사 수립 시)을 받아야 하지만, 도지사가 시장·군수의 요청으로 공동 수립하는 경우에는 국토교통부장관의 승인이 필요 없고, 국가계획과 관련되거나 시장·군수의 승인 신청이 지정일부터 3년 이상 없으면 국토교통부장관·도지사가 단독으로 수립할 수 있다.",
     intuition:
-      "기반시설 분류 문제는 특정 시설(자연장지, 폐기물처리 및 재활용시설 등)을 엉뚱한 대분류에 배치해 오답을 만드는 방식으로 반복 출제되므로, 헷갈리는 시설의 소속 대분류만 정확히 암기하면 된다.",
+      "광역도시계획 수립 문제는 '누가 수립하는지'와 '승인이 필요한지 여부'를 조합해 출제하며, 도지사가 시장·군수의 요청으로 공동 수립하는 경우만 예외적으로 승인이 불필요하다는 점이 핵심이다.",
     keyPoints: [
-      "자동차정류장은 화물터미널, 공영차고지, 복합환승센터, 화물자동차 휴게소로 세분되며, 교통광장은 자동차정류장이 아니라 '광장'의 하위 종류다.",
-      "자연장지는 공간시설이 아니라 공공문화체육시설에 속하며, 폐기물처리 및 재활용시설은 환경기초시설이 아니라 보건위생시설에 속한다.",
-      "건설기계운전학원(교통시설), 방송·통신시설(유통·공급시설), 하천(방재시설), 폐차장(환경기초시설), 차량 검사 및 면허시설(교통시설), 녹지(공간시설), 학교(공공·문화체육시설)는 각각 표시된 대분류에 올바르게 속한다.",
+      "도지사가 시장·군수의 요청으로 관할 시장·군수와 공동으로 광역도시계획을 수립하는 경우에는 국토교통부장관의 승인을 받지 않아도 된다.",
+      "시장·군수가 광역도시계획을 수립·변경하려면 도지사의 승인을 받아야 하며, 국토교통부장관은 시·도지사가 요청하면 시·도지사와 공동으로 광역도시계획을 수립할 수 있다(수립 불가라는 서술은 틀림).",
+      "광역계획권이 같은 도의 관할구역에 속한 경우 관할 시장·군수가 공동으로 수립하는 것이 원칙이며, 도지사가 반드시 수립해야 하는 것은 아니다(도지사 수립 의무라는 서술은 틀림).",
+      "광역계획권을 지정한 날부터 3년이 지날 때까지 관할 시장·군수의 광역도시계획 승인 신청이 없으면 관할 도지사가 광역도시계획을 수립해야 한다.",
+      "시·도지사·시장·군수는 광역도시계획을 수립·변경하려면 미리 관계 시·도·시·군 의회와 관계 시장·군수의 의견을 들어야 하며, 변경 시에도 미리 공청회를 열어야 한다.",
+      "광역도시계획의 수립기준은 국토교통부장관이 정하며, 광역도시계획을 공동으로 수립하는 시·도지사 간 협의가 되지 않으면 공동 또는 단독으로 국토교통부장관에게 조정을 신청할 수 있다.",
+      "국토교통부장관이 광역도시계획을 수립하면 직접 공고하는 것이 아니라 관계 시·도지사에게 관련 서류를 송부하여 그 도지사가 공고·열람하게 해야 한다(국토교통부장관이 직접 공고한다는 서술은 틀림).",
+      "시장·군수가 기초조사정보체계를 구축한 경우에는 등록된 정보의 현황을 5년마다 확인하고 변동사항을 반영해야 한다.",
     ],
     pitfalls:
-      "자연장지를 '공간시설'로, 폐기물처리 및 재활용시설을 '환경기초시설'로 잘못 분류하기 쉽다 — 각각 공공·문화체육시설, 보건위생시설에 속한다는 점을 정확히 구분해야 한다.",
+      "국토교통부장관이 광역도시계획을 직접 공고한다고 착각하기 쉽지만, 실제로는 관계 시·도지사에게 송부해 그 도지사가 공고·열람하게 하는 절차를 거친다.",
     example:
-      "국토의 계획 및 이용에 관한 법령상 자동차정류장을 세분할 경우 화물터미널·공영차고지·복합환승센터·화물자동차 휴게소는 해당하지만 교통광장은 해당하지 않는다.",
+      "도지사가 시장 또는 군수의 요청으로 관할 시장 또는 군수와 공동으로 광역도시계획을 수립하는 경우에는 국토교통부장관의 승인을 받지 않고 광역도시계획을 수립할 수 있다.",
     questionRefs: [
-      { year: 2016, questionNo: 41 },
-      { year: 2017, questionNo: 49 },
-      { year: 2021, questionNo: 51 },
+      { year: 2016, questionNo: 49 },
+      { year: 2017, questionNo: 41 },
+      { year: 2018, questionNo: 42 },
+      { year: 2020, questionNo: 41 },
+      { year: 2021, questionNo: 41 },
     ],
   },
   {
-    slug: "urban-planning-facility-decision-expiry",
-    parentSlug: "infrastructure-facility-classification",
+    slug: "metropolitan-planning-zone-facility",
     chapterKo: "국토계획법",
+    sectionKo: "광역도시계획",
     category: "국토계획법",
-    subcategory: "기반시설·공동구",
-    titleKo: "도시·군계획시설결정의 실효와 매수청구권",
-    titleEn: "Expiry of Urban Planning Facility Decisions and Purchase Claims",
+    subcategory: "광역도시계획",
+    parentSlug: "metropolitan-plan",
+    titleKo: "광역계획권의 지정권자와 광역시설의 설치·관리",
+    titleEn: "Designating Authorities for Metropolitan Zones and Facility Management",
     definition:
-      "도시·군계획시설결정은 고시일부터 20년이 지날 때까지 그 시설사업이 시행되지 않으면 20년이 되는 날의 다음 날에 효력을 잃으며, 지목이 대(垈)인 토지의 소유자는 결정고시일부터 10년 이내에 사업이 시행되지 않으면 매수를 청구할 수 있고 매수의무자는 청구받은 날부터 6개월 이내에 매수 여부를 결정해 알려야 한다.",
+      "광역계획권이 둘 이상의 시·도에 걸치는 경우 국토교통부장관이 지정하고, 하나의 도 안에 속하는 경우 도지사가 지정하며(도지사가 국토교통부장관과 공동지정하는 것이 아님), 중앙행정기관장·시·도지사·시장·군수는 국토교통부장관·도지사에게 광역계획권의 지정·변경을 요청할 수 있고, 봉안시설·도축장도 광역시설이 될 수 있으며 광역시설의 설치·관리는 공동구가 아니라 협약·협의회 구성 등 별도 규정에 따른다.",
     intuition:
-      "이 카드는 '실효기간(20년, 다음 날)'과 '매수청구 요건(10년, 6개월 결정, 지목 대인 토지)'이라는 서로 다른 두 숫자체계를 뒤섞어 출제하므로, 20년/10년을 혼동하지 않는 것이 핵심이다.",
+      "광역계획권 지정권자는 '범위(둘 이상의 시·도 vs 하나의 도)'에 따라 국토교통부장관과 도지사로 나뉘며, 광역시설의 설치·관리는 공동구 규정을 그대로 준용하지 않는다는 점이 핵심 함정이다.",
     keyPoints: [
-      "도시·군계획시설결정은 고시일부터 20년이 지날 때까지 그 시설의 설치에 관한 사업이 시행되지 않으면 20년이 되는 날의 다음 날에 효력을 잃는다(10년이 아님).",
-      "지목이 대(垈)인 토지로서 도시·군계획시설 부지인 토지의 소유자는 결정고시일부터 10년 이내에 사업이 시행되지 않으면 매수를 청구할 수 있으며, 건물만 소유한 자는 매수청구권자가 아니다.",
-      "매수의무자는 매수청구를 받은 날부터 6개월 이내에 매수 여부를 결정해 토지소유자와 관할 시장 등에게 알려야 하며, 매수하기로 결정한 토지는 결정을 알린 날부터 2년 이내에 매수해야 한다.",
-      "매수의무자가 원하는 경우 도시·군계획시설채권(상환기간 10년 이내)을 발행해 매수대금을 지급할 수 있으며, 매수청구를 받고도 매수하지 않기로 결정한 경우 토지소유자는 3층 이하의 단독주택, 제1·2종 근린생활시설 등 개발행위허가를 받아 건축할 수 있다.",
-      "토지소유자는 도시·군계획시설결정의 실효 전이라도 그 토지의 도시·군계획시설결정 해제를 위한 도시·군관리계획 입안을 신청할 수 있다.",
+      "광역계획권이 둘 이상의 시·도의 관할 구역에 걸쳐 있는 경우 국토교통부장관이 지정하며, 관계 도지사들이 공동으로 지정하는 것이 아니다.",
+      "광역계획권이 하나의 도의 관할 구역에 속하는 경우 도지사가 지정하며, 국토교통부장관과 공동으로 지정·변경해야 하는 것은 아니다.",
+      "도지사가 광역계획권을 지정하려면 관계 시장·군수의 의견을 들은 후 지방도시계획위원회의 심의를 거쳐야 하며(중앙행정기관장 의견청취·중앙도시계획위원회 심의가 아님), 국토교통부장관이 광역계획권을 변경하려면 관계 시·도지사·시장·군수의 의견을 들은 후 중앙도시계획위원회의 심의를 거쳐야 한다(지방도시계획위원회가 아님).",
+      "중앙행정기관의 장, 시·도지사, 시장 또는 군수는 국토교통부장관이나 도지사에게 광역계획권의 지정 또는 변경을 요청할 수 있다.",
+      "봉안시설, 도축장은 광역시설이 될 수 있으며, 관계 특별시장·광역시장·특별자치시장·특별자치도지사는 협약을 체결하거나 협의회 등을 구성해 광역시설을 설치·관리할 수 있고, 국가계획으로 설치하는 광역시설은 그 설치·관리를 사업목적으로 하는 다른 법률상 법인이 설치·관리할 수 있다.",
+      "광역시설의 설치 및 관리는 공동구의 설치에 관한 규정에 따르지 않는다(공동구 규정 준용이 아니라 별도의 협약·협의회 규정을 따름).",
     ],
     pitfalls:
-      "도시·군계획시설결정의 실효기간을 매수청구 요건기간(10년)과 혼동해 '10년 경과 시 효력을 잃는다'고 착각하기 쉽지만, 실효기간은 20년이며 매수청구 요건만 10년이다.",
+      "광역시설의 설치·관리가 공동구 규정을 그대로 따른다고 착각하기 쉽지만, 실제로는 협약·협의회 구성 등 별도의 규정에 따른다.",
     example:
-      "도시·군계획시설결정이 고시된 도시·군계획시설에 대하여 그 고시일부터 20년이 지날 때까지 그 시설의 설치에 관한 도시·군계획시설사업이 시행되지 아니하는 경우, 그 도시·군계획시설결정은 고시일부터 20년이 되는 날의 다음 날에 그 효력을 잃는다.",
+      "중앙행정기관의 장, 시·도지사, 시장 또는 군수는 국토교통부장관이나 도지사에게 광역계획권의 지정 또는 변경을 요청할 수 있다.",
     questionRefs: [
-      { year: 2016, questionNo: 48 },
-      { year: 2017, questionNo: 48 },
-      { year: 2018, questionNo: 45 },
-      { year: 2019, questionNo: 48 },
-      { year: 2021, questionNo: 43 },
-      { year: 2024, questionNo: 46 },
+      { year: 2017, questionNo: 51 },
+      { year: 2022, questionNo: 45 },
     ],
   },
   {
-    slug: "urban-planning-facility-project-implementation",
-    parentSlug: "infrastructure-facility-classification",
+    slug: "metropolitan-plan-content-scope",
     chapterKo: "국토계획법",
+    sectionKo: "광역도시계획",
     category: "국토계획법",
-    subcategory: "기반시설·공동구",
-    titleKo: "도시·군계획시설사업의 시행자와 시행절차",
-    titleEn: "Implementers and Procedures for Urban Planning Facility Projects",
+    subcategory: "광역도시계획",
+    parentSlug: "metropolitan-plan",
+    titleKo: "광역도시계획에 포함되어야 하는 내용",
+    titleEn: "Required Content of Metropolitan Plans",
     definition:
-      "둘 이상의 특별시·광역시·특별자치시·특별자치도·시 또는 군에 걸쳐 시행되는 도시·군계획시설사업은 관계 시·도지사 또는 시장·군수가 협의하여 시행자를 정하고 협의가 성립되지 않으면 국토교통부장관이 지정하며, 같은 도 관할의 둘 이상 시·군에 걸치는 경우에는 도지사가 지정하고, 사업시행자가 타인의 토지에 출입하려면 원칙적으로 허가를 받아야 하되 행정청인 시행자는 허가 없이 출입할 수 있다.",
+      "광역도시계획에는 광역계획권의 교통 및 물류유통체계, 문화·여가공간 및 방재, 경관계획, 녹지관리체계와 환경 보전에 관한 사항이 포함되어야 하지만, 교육시설 확충 및 부동산가격 안정화에 관한 사항은 광역도시계획의 내용으로 명시되어 있지 않다.",
     intuition:
-      "시행자 지정권자는 '범위(같은 도 내 vs 둘 이상 시·도)'에 따라 도지사·국토교통부장관으로 갈리고, 타인 토지 출입은 '행정청인 시행자(허가 불요, 통지만)'와 '비행정청 시행자(허가 필요)'로 나뉜다는 점이 핵심이다.",
+      "광역도시계획의 내용은 '공간·환경·경관·교통 등 물리적 계획 사항'에 초점이 있으며, 교육시설이나 부동산가격 안정화처럼 사회·경제 정책적 사항은 포함되지 않는다는 원칙으로 기억하면 된다.",
     keyPoints: [
-      "도시·군계획시설사업이 같은 도의 관할 구역에 속하는 둘 이상의 시·군에 걸쳐 시행되는 경우에는 도지사가 시행자를 지정하며, 둘 이상의 시·도에 걸치는 경우 등 협의가 성립하지 않으면 국토교통부장관이 시행자를 정한다.",
-      "한국토지주택공사는 사업 대상 토지소유자의 동의 요건 없이 시행자로 지정받을 수 있지만, 한국철도공사 등 그 밖의 공공기관은 대상 토지 면적의 3분의 2 이상을 소유해야 시행자로 지정받을 수 있다.",
-      "지방자치단체나 지방공사가 직접 시행하는 경우에는 이행보증금을 예치하지 않아도 되며, 시행자는 필요하면 사업시행대상지역을 둘 이상으로 분할해 시행할 수 있다.",
-      "행정청인 시행자가 타인의 토지에 출입하려면 출입하려는 날의 7일 전까지 소유자·점유자·관리인에게 일시·장소를 알리면 되고 별도의 허가는 필요 없지만, 행정청이 아닌 시행자는 시장·군수의 허가를 받아야 출입할 수 있다.",
-      "동의 없이 타인의 토지를 재료 적치장·임시통로로 일시 사용한 사업시행자는 사용한 날부터 14일이 아니라 사용하기 전에 미리 시장·군수의 허가를 받아야 하며, 손실보상에 관해 협의가 성립하지 않으면 국토교통부장관에게 재결을 신청하지 않고도 관할 토지수용위원회에 재결을 신청할 수 있다.",
+      "광역도시계획에는 광역계획권의 교통 및 물류유통체계에 관한 사항, 광역계획권의 문화·여가공간 및 방재에 관한 사항, 경관계획에 관한 사항, 광역계획권의 녹지관리체계와 환경 보전에 관한 사항이 포함되어야 한다.",
+      "광역계획권의 교육시설 확충 및 부동산가격 안정화에 관한 사항은 광역도시계획의 내용으로 명시되어 있지 않다.",
     ],
     pitfalls:
-      "행정청인 시행자도 타인의 토지 출입에 반드시 허가가 필요하다고 오해하기 쉽지만, 행정청인 시행자는 사전 통지만으로 출입할 수 있고 허가는 비행정청 시행자에게만 요구된다.",
+      "부동산가격 안정화도 광역 차원의 중요한 정책이라는 이유로 광역도시계획 내용에 포함된다고 착각하기 쉽지만, 실제로는 명시된 내용에 해당하지 않는다.",
     example:
-      "도시·군계획시설사업이 같은 도의 관할 구역에 속하는 둘 이상의 시 또는 군에 걸쳐 시행되는 경우에는 도지사가 시행자를 정한다.",
+      "광역도시계획에는 광역계획권의 교통 및 물류유통체계에 관한 사항, 경관계획에 관한 사항, 광역계획권의 녹지관리체계와 환경 보전에 관한 사항이 포함되어야 한다.",
     questionRefs: [
-      { year: 2017, questionNo: 50 },
-      { year: 2021, questionNo: 50 },
-      { year: 2022, questionNo: 50 },
-      { year: 2023, questionNo: 51 },
-      { year: 2025, questionNo: 51 },
-    ],
-  },
-  {
-    slug: "development-density-facility-charge-district",
-    parentSlug: "infrastructure-facility-classification",
-    chapterKo: "국토계획법",
-    category: "국토계획법",
-    subcategory: "기반시설·공동구",
-    titleKo: "개발밀도관리구역과 기반시설부담구역",
-    titleEn: "Development Density Management and Facility Charge Districts",
-    definition:
-      "개발밀도관리구역은 기반시설의 처리·공급·수용능력이 부족할 것으로 예상되는 지역에서 해당 용도지역의 용적률 최대한도의 50% 범위에서 용적률을 강화(완화는 불가)하여 적용하는 제도이고, 기반시설부담구역은 개발행위로 기반시설이 부족할 것으로 예상되나 설치가 곤란한 지역을 지정해 기반시설설치비용을 부과하는 제도이며, 두 구역은 서로 중복 지정할 수 없다.",
-    intuition:
-      "두 제도는 '기존 용적률을 낮추는 규제(개발밀도관리구역)'와 '비용을 부과하는 부담금 제도(기반시설부담구역)'로 서로 다른 도구이며, 지정권자·심의절차·중복지정 가능 여부가 반복 출제된다.",
-    keyPoints: [
-      "개발밀도관리구역에서는 해당 용도지역에 적용되는 용적률의 최대한도의 50% 범위에서 용적률을 강화하여 적용하며, 완화는 허용되지 않는다. 시장·군수는 지정·변경 시 지방도시계획위원회의 심의를 거치면 되고 도지사의 승인은 필요 없다.",
-      "개발밀도관리구역과 기반시설부담구역은 동일한 지역에 중복하여 지정할 수 없다 — 개발밀도관리구역에 기반시설부담구역을 지정하는 것도 허용되지 않는다.",
-      "법령 개정으로 행위제한이 완화되는 지역은 기반시설부담구역으로 지정해야 하며(임의가 아닌 의무), 지구단위계획을 수립한 경우 기반시설설치계획을 수립한 것으로 본다.",
-      "기반시설부담구역의 지정고시일부터 1년이 되는 날까지 기반시설설치계획을 수립하지 않으면 그 1년이 되는 날의 다음 날에 지정이 해제된 것으로 본다.",
-      "기반시설설치비용은 용지비용을 포함해 산정되며 물납이 인정되고, 기반시설부담구역별로 특별회계를 설치해야 하며, 리모델링 건축물은 부과대상이 아니지만 기존 건축물을 철거하고 신축하는 경우 기존 건축연면적을 '초과'하는 부분만 부과대상이 된다(전체가 아님). 부과받은 자는 원칙적으로 사용승인 신청 시까지 납부해야 한다.",
-    ],
-    pitfalls:
-      "개발밀도관리구역에서 용적률을 '강화 또는 완화'할 수 있다고 착각하기 쉽지만 완화는 허용되지 않으며, 기존 건축물 철거 후 신축 시 기존 연면적까지 포함해 전부 부과대상이 된다고 오해하기 쉽지만 실제로는 기존 연면적을 초과하는 부분만 부과대상이다.",
-    example:
-      "개발밀도관리구역과 기반시설부담구역은 동일한 지역에 대하여 중복하여 지정할 수 없다.",
-    questionRefs: [
-      { year: 2016, questionNo: 50 },
-      { year: 2017, questionNo: 47 },
-      { year: 2018, questionNo: 49 },
-      { year: 2019, questionNo: 41 },
-      { year: 2020, questionNo: 52 },
-      { year: 2023, questionNo: 49 },
-      { year: 2024, questionNo: 49 },
-    ],
-  },
-  {
-    slug: "infrastructure-inducing-coefficient",
-    parentSlug: "infrastructure-facility-classification",
-    chapterKo: "국토계획법",
-    category: "국토계획법",
-    subcategory: "기반시설·공동구",
-    titleKo: "기반시설유발계수와 유발시설 제외 건축물",
-    titleEn: "Infrastructure-Inducing Coefficient and Exempt Buildings",
-    definition:
-      "기반시설유발계수는 건축물의 용도별로 유발하는 기반시설 수요를 나타내는 지표로 관광휴게시설이 단독주택·근린생활시설 등보다 크며, 사립유치원·국제기구 소유 건축물·재정비촉진 임대주택·택지개발예정지구 내 지구단위계획 수립 대상 건축물 등은 기반시설을 유발하는 시설에서 제외되지만 상업지역에 설치하는 농수산물집하장은 제외 대상이 아니다.",
-    intuition:
-      "이 카드는 '계수 크기 비교(암기형)'와 '유발시설 제외 대상 목록에서 하나만 빠뜨리는' 두 가지 출제 패턴을 다루며, 제외 목록은 공익성·비영리성이 강한 시설(유치원, 국제기구, 임대주택)이라는 공통점으로 기억하면 된다.",
-    keyPoints: [
-      "건축물별 기반시설유발계수는 관광휴게시설이 단독주택, 장례시설, 제2종 근린생활시설, 비금속 광물제품 제조공장보다 크다.",
-      "「유아교육법」에 따른 사립유치원, 「도시재정비 촉진을 위한 특별법」에 따른 임대주택, 주한 국제기구 소유 건축물, 「택지개발촉진법」에 따른 택지개발예정지구에서 지구단위계획을 수립하여 개발하는 토지의 건축물은 기반시설유발시설에서 제외된다.",
-      "상업지역에 설치하는 「농수산물유통 및 가격안정에 관한 법률」에 따른 농수산물집하장은 기반시설유발시설 제외 대상이 아니다(부과대상에 해당).",
-      "기반시설설치비용 산정에서 의료시설과 교육연구시설의 기반시설유발계수는 서로 다르다(같지 않음).",
-    ],
-    pitfalls:
-      "농수산물집하장을 공익시설로 착각해 유발시설 제외 대상으로 잘못 분류하기 쉽지만, 상업지역의 농수산물집하장은 제외 대상이 아니라 기반시설설치비용 부과대상이다.",
-    example:
-      "국토의 계획 및 이용에 관한 법령상 건축물별 기반시설유발계수 중 관광휴게시설의 계수가 단독주택·장례시설·제2종 근린생활시설보다 크다.",
-    questionRefs: [
-      { year: 2019, questionNo: 51 },
-      { year: 2020, questionNo: 43 },
-    ],
-  },
-  {
-    slug: "common-utility-tunnel-installation",
-    parentSlug: "infrastructure-facility-classification",
-    chapterKo: "국토계획법",
-    category: "국토계획법",
-    subcategory: "기반시설·공동구",
-    titleKo: "공동구의 설치의무 지역과 수용시설 심의",
-    titleEn: "Mandatory Common Utility Tunnel Zones and Housed Facilities",
-    definition:
-      "200만㎡를 초과하는 도시개발구역·택지개발지구·공공주택지구·정비구역·도청이전신도시 등을 개발하는 사업시행자는 공동구를 설치해야 하며(일반산업단지는 대상 아님), 전기·가스·수도 등 공급설비와 통신선로·열수송관은 공동구협의회의 심의 없이 의무적으로 공동구에 수용해야 하지만 하수도관·가스관 등은 공동구협의회의 심의를 거쳐야 수용할 수 있다.",
-    intuition:
-      "공동구 설치의무 지역 목록(도시개발구역·택지개발지구·공공주택지구·정비구역·도청이전신도시)에서 산업단지가 빠진다는 점과, 수용시설 중 '의무수용 vs 심의 후 수용' 구분이 반복 출제된다.",
-    keyPoints: [
-      "200만㎡를 초과하는 「도시개발법」상 도시개발구역, 「택지개발촉진법」상 택지개발지구, 「공공주택 특별법」상 공공주택지구, 「도시 및 주거환경정비법」상 정비구역, 「도청이전을 위한 도시건설 및 지원에 관한 특별법」상 도청이전신도시를 개발하는 사업시행자는 공동구를 설치해야 하지만, 「산업입지 및 개발에 관한 법률」에 따른 일반산업단지는 이 의무 대상이 아니다.",
-      "전선로·통신선로·수도관·열수송관·중수도관·쓰레기수송관은 공동구협의회의 심의 없이 공동구에 수용해야 하는 시설이며, 가스관과 하수도관은 공동구협의회의 심의를 거쳐야 공동구에 수용할 수 있다.",
-      "공동구관리자는 매년(10년마다가 아님) 해당 공동구의 안전 및 유지관리계획을 수립·시행해야 한다.",
-    ],
-    pitfalls:
-      "열수송관·쓰레기수송관도 심의를 거쳐야 수용할 수 있다고 오해하기 쉽지만, 실제로는 심의 없이 의무적으로 수용해야 하는 시설이며, 심의가 필요한 것은 가스관·하수도관이다.",
-    example:
-      "「공공주택 특별법」에 따른 공공주택지구와 「도시 및 주거환경정비법」에 따른 정비구역의 규모가 200만제곱미터를 초과하는 경우 해당 사업시행자는 공동구를 설치하여야 한다.",
-    questionRefs: [
-      { year: 2020, questionNo: 47 },
-      { year: 2025, questionNo: 45 },
-    ],
-  },
-  {
-    slug: "facilities-without-management-plan-decision",
-    parentSlug: "infrastructure-facility-classification",
-    chapterKo: "국토계획법",
-    category: "국토계획법",
-    subcategory: "기반시설·공동구",
-    titleKo: "도시지역에서 도시·군관리계획 결정 없이 설치 가능한 시설",
-    titleEn: "Facilities Installable Without an Urban Management Plan Decision",
-    definition:
-      "도시지역에서는 원칙적으로 기반시설을 도시·군관리계획으로 결정해 설치해야 하지만, 광장(건축물부설광장 제외), 방송대학·통신대학·방송통신대학, 도심공항터미널, 연료전지 설비, 일정 규모 미만의 도축장 등 법정 시설은 도시·군관리계획 결정 없이 설치할 수 있다.",
-    intuition:
-      "이 목록은 '규모가 작거나 공익성이 강해 별도 계획결정 없이도 설치를 허용해주는 시설'을 모아둔 것으로, 옥외에 설치하는 변전시설처럼 목록에서 제외되는 예외를 정확히 짚는 것이 핵심이다.",
-    keyPoints: [
-      "도시지역에서 도시·군관리계획 결정 없이 설치할 수 있는 시설에는 광장(건축물부설광장 제외), 「고등교육법」에 따른 방송대학·통신대학·방송통신대학, 공항 중 도심공항터미널, 연료전지 설비 등이 포함된다.",
-      "대지면적이 500㎡ 미만인 도축장은 도시·군관리계획 결정 없이 설치할 수 있지만, 폐기물처리 및 재활용시설 중 재활용시설은 원칙적으로 도시·군관리계획 결정이 필요한 시설로 취급되는 경우가 있어 유의해야 한다.",
-      "옥외에 설치하는 변전시설은 도시·군관리계획 결정 없이 설치할 수 있는 시설 목록에 포함되지 않는다(결정이 필요).",
-    ],
-    pitfalls:
-      "재활용시설이나 변전시설도 규모와 무관하게 항상 결정 없이 설치 가능하다고 일반화하기 쉽지만, 옥외 변전시설은 결정 없이 설치할 수 있는 시설에 해당하지 않는다는 점이 반복 출제되는 함정이다.",
-    example:
-      "도시지역에서 광장(건축물부설광장은 제외한다)과 「고등교육법」에 따른 방송대학·통신대학 및 방송통신대학은 도시·군관리계획으로 결정하지 않고 설치할 수 있다.",
-    questionRefs: [
-      { year: 2022, questionNo: 49 },
-      { year: 2025, questionNo: 46 },
+      { year: 2025, questionNo: 41 },
     ],
   },
   {
     slug: "urban-management-plan-process",
     chapterKo: "국토계획법",
+    sectionKo: "도시·군관리계획",
     category: "국토계획법",
     subcategory: "도시군관리계획 입안",
     titleKo: "도시·군계획사업과 도시·군계획시설사업의 범위",
@@ -231,10 +120,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "urban-basic-plan-formulation",
-    parentSlug: "urban-management-plan-process",
     chapterKo: "국토계획법",
+    sectionKo: "도시·군관리계획",
     category: "국토계획법",
     subcategory: "도시군관리계획 입안",
+    parentSlug: "urban-management-plan-process",
     titleKo: "도시·군기본계획의 수립·정비·승인",
     titleEn: "Formulation, Revision, and Approval of Urban/Gun Basic Plans",
     definition:
@@ -261,10 +151,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "urban-management-plan-decision-authority",
-    parentSlug: "urban-management-plan-process",
     chapterKo: "국토계획법",
+    sectionKo: "도시·군관리계획",
     category: "국토계획법",
     subcategory: "도시군관리계획 입안",
+    parentSlug: "urban-management-plan-process",
     titleKo: "도시·군관리계획의 결정권자와 효력발생 시점",
     titleEn: "Decision Authority and Effective Date of Urban Management Plans",
     definition:
@@ -294,10 +185,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "resident-plan-proposal-consent",
-    parentSlug: "urban-management-plan-process",
     chapterKo: "국토계획법",
+    sectionKo: "도시·군관리계획",
     category: "국토계획법",
     subcategory: "도시군관리계획 입안",
+    parentSlug: "urban-management-plan-process",
     titleKo: "주민의 도시·군관리계획 입안 제안과 동의요건",
     titleEn: "Resident Proposals for Urban Management Plans and Consent Requirements",
     definition:
@@ -323,10 +215,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "basic-survey-environmental-review-exemption",
-    parentSlug: "urban-management-plan-process",
     chapterKo: "국토계획법",
+    sectionKo: "도시·군관리계획",
     category: "국토계획법",
     subcategory: "도시군관리계획 입안",
+    parentSlug: "urban-management-plan-process",
     titleKo: "기초조사·환경성 검토의 생략 사유",
     titleEn: "Exemptions from Basic Surveys and Environmental Review",
     definition:
@@ -349,10 +242,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "resident-opinion-hearing-obligation",
-    parentSlug: "urban-management-plan-process",
     chapterKo: "국토계획법",
+    sectionKo: "도시·군관리계획",
     category: "국토계획법",
     subcategory: "도시군관리계획 입안",
+    parentSlug: "urban-management-plan-process",
     titleKo: "시장·군수의 주민의견 청취 의무",
     titleEn: "Obligation to Hear Resident Opinions",
     definition:
@@ -367,14 +261,17 @@ const concepts: Concept[] = [
       "개발밀도관리구역과 기반시설부담구역을 같은 절차로 착각하기 쉽지만, 기반시설부담구역 지정에는 주민의견 청취가 필요하고 개발밀도관리구역 지정에는 필요하지 않다.",
     example:
       "시장 또는 군수는 기반시설부담구역을 지정하려는 경우 주민의 의견을 들어야 하지만, 개발밀도관리구역을 지정하려는 경우에는 그러한 의무가 명시되어 있지 않다.",
-    questionRefs: [{ year: 2019, questionNo: 45 }],
+    questionRefs: [
+      { year: 2019, questionNo: 45 },
+    ],
   },
   {
     slug: "urban-planning-hearing-procedure",
-    parentSlug: "urban-management-plan-process",
     chapterKo: "국토계획법",
+    sectionKo: "도시·군관리계획",
     category: "국토계획법",
     subcategory: "도시군관리계획 입안",
+    parentSlug: "urban-management-plan-process",
     titleKo: "국토계획법상 청문 대상과 개별 조문 종합",
     titleEn: "Hearing Requirements and Miscellaneous Provisions",
     definition:
@@ -398,10 +295,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "urban-planning-committee-structure",
-    parentSlug: "urban-management-plan-process",
     chapterKo: "국토계획법",
+    sectionKo: "도시·군관리계획",
     category: "국토계획법",
     subcategory: "도시군관리계획 입안",
+    parentSlug: "urban-management-plan-process",
     titleKo: "도시계획위원회(중앙·시도·시군구)의 구성과 업무",
     titleEn: "Structure and Duties of Urban Planning Committees",
     definition:
@@ -426,10 +324,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "national-land-planning-terminology",
-    parentSlug: "urban-management-plan-process",
     chapterKo: "국토계획법",
+    sectionKo: "도시·군관리계획",
     category: "국토계획법",
     subcategory: "도시군관리계획 입안",
+    parentSlug: "urban-management-plan-process",
     titleKo: "국토계획법상 용어의 정의(공공시설·기반시설·계획 종류)",
     titleEn: "Definitions under the National Land Planning Act",
     definition:
@@ -446,11 +345,14 @@ const concepts: Concept[] = [
       "'성장관리계획'과 '공간재구조화계획'을 같은 제도로 혼동하기 쉽지만, 성장관리계획구역의 난개발 방지·계획적 개발 유도를 위한 계획은 '성장관리계획'이며 공간재구조화계획은 도시혁신구역 등에 관한 별개 개념이다.",
     example:
       "행정청이 설치하는 공동묘지는 국토의 계획 및 이용에 관한 법령상 '공공시설'에 해당한다.",
-    questionRefs: [{ year: 2024, questionNo: 41 }],
+    questionRefs: [
+      { year: 2024, questionNo: 41 },
+    ],
   },
   {
     slug: "use-zone-district",
     chapterKo: "국토계획법",
+    sectionKo: "용도지역·용도지구",
     category: "국토계획법",
     subcategory: "용도지역·용도지구",
     titleKo: "용도지역의 4대 분류 체계",
@@ -468,14 +370,17 @@ const concepts: Concept[] = [
       "계획관리지역을 이름에 '계획'이 들어간다는 이유로 도시지역으로 착각하기 쉽지만, 관리지역의 하위 분류이며 도시지역이 아니다.",
     example:
       "국토의 계획 및 이용에 관한 법령상 용도지역 중 계획관리지역은 도시지역에 해당하지 않지만, 자연녹지지역·근린상업지역·전용공업지역·생산녹지지역은 도시지역에 해당한다.",
-    questionRefs: [{ year: 2017, questionNo: 43 }],
+    questionRefs: [
+      { year: 2017, questionNo: 43 },
+    ],
   },
   {
     slug: "residential-zone-permitted-buildings",
-    parentSlug: "use-zone-district",
     chapterKo: "국토계획법",
+    sectionKo: "용도지역·용도지구",
     category: "국토계획법",
     subcategory: "용도지역·용도지구",
+    parentSlug: "use-zone-district",
     titleKo: "주거지역 세분별 건축 가능 건축물",
     titleEn: "Permitted Buildings by Residential Sub-Zone",
     definition:
@@ -499,10 +404,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "use-zone-district-area-general",
-    parentSlug: "use-zone-district",
     chapterKo: "국토계획법",
+    sectionKo: "용도지역·용도지구",
     category: "국토계획법",
     subcategory: "용도지역·용도지구",
+    parentSlug: "use-zone-district",
     titleKo: "용도지역·용도지구·용도구역 종합 규정",
     titleEn: "General Provisions on Zones, Districts, and Areas",
     definition:
@@ -530,10 +436,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "use-district-subdivision-types",
-    parentSlug: "use-zone-district",
     chapterKo: "국토계획법",
+    sectionKo: "용도지역·용도지구",
     category: "국토계획법",
     subcategory: "용도지역·용도지구",
+    parentSlug: "use-zone-district",
     titleKo: "용도지구의 종류와 세분",
     titleEn: "Types and Sub-Classifications of Use Districts",
     definition:
@@ -562,10 +469,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "natural-settlement-district",
-    parentSlug: "use-zone-district",
     chapterKo: "국토계획법",
+    sectionKo: "용도지역·용도지구",
     category: "국토계획법",
     subcategory: "용도지역·용도지구",
+    parentSlug: "use-zone-district",
     titleKo: "자연취락지구의 건축허용 범위와 지원사업",
     titleEn: "Building Scope and Support Projects in Natural Settlement Districts",
     definition:
@@ -587,10 +495,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "use-district-building-restriction-general",
-    parentSlug: "use-zone-district",
     chapterKo: "국토계획법",
+    sectionKo: "용도지역·용도지구",
     category: "국토계획법",
     subcategory: "용도지역·용도지구",
+    parentSlug: "use-zone-district",
     titleKo: "용도지구 안에서의 건축제한 일반원칙",
     titleEn: "General Building Restrictions within Use Districts",
     definition:
@@ -608,14 +517,17 @@ const concepts: Concept[] = [
       "일반주거지역에 지정된 복합용도지구에서 장례시설도 건축할 수 있다고 착각하기 쉽지만, 실제로는 건축할 수 없다.",
     example:
       "고도지구 안에서는 도시·군관리계획으로 정하는 높이를 초과하는 건축물을 건축할 수 없다.",
-    questionRefs: [{ year: 2018, questionNo: 50 }],
+    questionRefs: [
+      { year: 2018, questionNo: 50 },
+    ],
   },
   {
     slug: "location-regulation-minimum-district",
-    parentSlug: "use-zone-district",
     chapterKo: "국토계획법",
+    sectionKo: "용도지역·용도지구",
     category: "국토계획법",
     subcategory: "용도지역·용도지구",
+    parentSlug: "use-zone-district",
     titleKo: "입지규제최소구역의 지정 대상지역",
     titleEn: "Designation Targets for Location Regulation Minimum Districts",
     definition:
@@ -630,14 +542,17 @@ const concepts: Concept[] = [
       "도시재생활성화지역이면 유형에 관계없이 입지규제최소구역으로 지정할 수 있다고 오해하기 쉽지만, 근린재생형은 지정 대상에서 제외된다.",
     example:
       "세 개 이상의 노선이 교차하는 대중교통 결절지로부터 1킬로미터 이내에 위치한 지역은 도시지역에서 입지규제최소구역으로 지정할 수 있는 지역에 해당한다.",
-    questionRefs: [{ year: 2018, questionNo: 44 }],
+    questionRefs: [
+      { year: 2018, questionNo: 44 },
+    ],
   },
   {
     slug: "growth-management-plan-area",
-    parentSlug: "use-zone-district",
     chapterKo: "국토계획법",
+    sectionKo: "용도지역·용도지구",
     category: "국토계획법",
     subcategory: "용도지역·용도지구",
+    parentSlug: "use-zone-district",
     titleKo: "성장관리계획구역(성장관리방안)의 지정 대상지역",
     titleEn: "Designation Targets for Growth Management Plan Areas",
     definition:
@@ -659,10 +574,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "use-district-terminology-definition",
-    parentSlug: "use-zone-district",
     chapterKo: "국토계획법",
+    sectionKo: "용도지역·용도지구",
     category: "국토계획법",
     subcategory: "용도지역·용도지구",
+    parentSlug: "use-zone-district",
     titleKo: "'용도지구'의 법적 정의",
     titleEn: "Legal Definition of Use District",
     definition:
@@ -676,11 +592,36 @@ const concepts: Concept[] = [
       "용도지구가 강화·완화하는 대상을 '용도구역'으로 착각하기 쉽지만, 정확히는 '용도지역'의 제한을 강화·완화하는 것이다.",
     example:
       "'용도지구'란 토지의 이용 및 건축물의 용도·건폐율·용적률·높이 등에 대한 용도지역의 제한을 강화하거나 완화하여 적용함으로써 용도지역의 기능을 증진시키고 경관·안전 등을 도모하기 위하여 도시·군관리계획으로 결정하는 지역을 말한다.",
-    questionRefs: [{ year: 2019, questionNo: 52 }],
+    questionRefs: [
+      { year: 2019, questionNo: 52 },
+    ],
+  },
+  {
+    slug: "urbanization-control-zone",
+    chapterKo: "국토계획법",
+    sectionKo: "시가화·건폐율·용적률",
+    category: "국토계획법",
+    subcategory: "시가화조정구역",
+    titleKo: "시가화조정구역의 지정과 허가 기준",
+    titleEn: "Designation and Permit Standards for Urbanization Control Zones",
+    definition:
+      "시가화조정구역은 시·도지사가 도시·군관리계획으로 결정하여 지정하는 용도구역이며, 관리용건축물은 기존 면적을 제외하고 33㎡ 이하인 경우에만 허가 대상이 된다.",
+    intuition:
+      "시가화조정구역은 '무분별한 시가화를 일정 기간 유보'하는 제도이므로, 도시·군기본계획이 아니라 실행력 있는 도시·군관리계획으로 결정하고, 허용되는 건축행위도 아주 작은 관리용 규모로 엄격히 제한한다고 이해하면 된다.",
+    keyPoints: [
+      "시가화조정구역은 도시·군기본계획이 아니라 도시·군관리계획으로 결정하여 지정한다.",
+      "관리용건축물은 기존 면적을 제외하고 33㎡ 이하인 경우에만 허가 대상이 된다 — 이를 초과하면 허가 대상이 아니다.",
+      "지정하려는 구역의 면적이 1㎢ 미만인 경우에는 별도의 승인을 받지 않아도 된다.",
+    ],
+    pitfalls:
+      "시가화조정구역을 도시·군기본계획으로 결정한다고 착각하기 쉽다 — 도시·군관리계획으로 결정한다.",
+    example:
+      "기존 관리용건축물 면적을 제외하고 30㎡ 규모의 관리용건축물을 신축하는 것은 허가 대상이 되지만, 40㎡ 규모라면 33㎡ 기준을 초과해 허가 대상이 아니다.",
   },
   {
     slug: "building-coverage-floor-ratio",
     chapterKo: "국토계획법",
+    sectionKo: "시가화·건폐율·용적률",
     category: "국토계획법",
     subcategory: "건폐율·용적률",
     titleKo: "용도지역·용도지구별 건폐율 상한 비교",
@@ -707,10 +648,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "district-unit-plan-coverage-relaxation-calc",
-    parentSlug: "building-coverage-floor-ratio",
     chapterKo: "국토계획법",
+    sectionKo: "시가화·건폐율·용적률",
     category: "국토계획법",
     subcategory: "건폐율·용적률",
+    parentSlug: "building-coverage-floor-ratio",
     titleKo: "공공시설 부지 제공에 따른 건폐율 완화 계산",
     titleEn: "Coverage Ratio Relaxation for Public Facility Land Contribution",
     definition:
@@ -724,14 +666,17 @@ const concepts: Concept[] = [
       "공공시설 부지 제공 비율(25%)을 그대로 건폐율 증가폭으로 단순 가산하기 쉽지만, 실제 완화 건폐율은 별도의 계산식에 따라 산정되므로 결과값(75%)을 정확히 기억해야 한다.",
     example:
       "일반상업지역 내의 지구단위계획구역에서 건폐율이 60%이고 대지면적이 400㎡인 부지에 건축물을 건축하려는 자가 그 부지 중 100㎡를 공공시설의 부지로 제공하는 경우, 지구단위계획으로 완화하여 적용할 수 있는 건폐율의 최대한도는 75%이다.",
-    questionRefs: [{ year: 2016, questionNo: 45 }],
+    questionRefs: [
+      { year: 2016, questionNo: 45 },
+    ],
   },
   {
     slug: "floor-area-ratio-comparison",
-    parentSlug: "building-coverage-floor-ratio",
     chapterKo: "국토계획법",
+    sectionKo: "시가화·건폐율·용적률",
     category: "국토계획법",
     subcategory: "건폐율·용적률",
+    parentSlug: "building-coverage-floor-ratio",
     titleKo: "용도지역별 용적률 최대한도 비교",
     titleEn: "Comparing Floor Area Ratio Caps by Use Zone",
     definition:
@@ -758,10 +703,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "growth-management-plan-designation",
-    parentSlug: "building-coverage-floor-ratio",
     chapterKo: "국토계획법",
+    sectionKo: "시가화·건폐율·용적률",
     category: "국토계획법",
     subcategory: "건폐율·용적률",
+    parentSlug: "building-coverage-floor-ratio",
     titleKo: "성장관리계획구역의 지정 절차와 완화 특례",
     titleEn: "Growth Management Plan Area Designation and Relaxation Special Provisions",
     definition:
@@ -778,14 +724,17 @@ const concepts: Concept[] = [
       "성장관리계획구역안 열람기간을 7일로 착각하기 쉽지만, 실제로는 14일간 열람할 수 있도록 해야 한다.",
     example:
       "시장 또는 군수는 성장관리계획구역을 지정하려면 성장관리계획구역안을 14일간 일반이 열람할 수 있도록 해야 한다.",
-    questionRefs: [{ year: 2022, questionNo: 43 }],
+    questionRefs: [
+      { year: 2022, questionNo: 43 },
+    ],
   },
   {
     slug: "urban-facility-project-implementation-authority",
-    parentSlug: "building-coverage-floor-ratio",
     chapterKo: "국토계획법",
+    sectionKo: "시가화·건폐율·용적률",
     category: "국토계획법",
     subcategory: "건폐율·용적률",
+    parentSlug: "building-coverage-floor-ratio",
     titleKo: "도시·군계획시설사업 시행자의 직접 시행과 단계별 집행계획",
     titleEn: "Direct Implementation Authority and Phased Execution Plans",
     definition:
@@ -803,14 +752,17 @@ const concepts: Concept[] = [
       "단계별 집행계획 수립기한을 3개월로 착각하기 쉽지만, 도시·군관리계획 결정 의제 시에는 1년 이내에 수립해야 한다.",
     example:
       "국토교통부장관은 국가계획과 관련되거나 그 밖에 특히 필요하다고 인정되는 경우에는 관계 특별시장·광역시장·특별자치시장·특별자치도지사·시장 또는 군수의 의견을 들어 직접 도시·군계획시설사업을 시행할 수 있다.",
-    questionRefs: [{ year: 2023, questionNo: 52 }],
+    questionRefs: [
+      { year: 2023, questionNo: 52 },
+    ],
   },
   {
     slug: "development-density-district-detail",
-    parentSlug: "building-coverage-floor-ratio",
     chapterKo: "국토계획법",
+    sectionKo: "시가화·건폐율·용적률",
     category: "국토계획법",
     subcategory: "건폐율·용적률",
+    parentSlug: "building-coverage-floor-ratio",
     titleKo: "개발밀도관리구역의 지정·고시와 용적률 강화(추가 확인)",
     titleEn: "Additional Confirmation of Development Density Management Districts",
     definition:
@@ -827,14 +779,17 @@ const concepts: Concept[] = [
       "개발밀도관리구역에서 강화되는 대상을 '건폐율'로 착각하기 쉽지만, 실제로 강화되는 것은 '용적률'이다.",
     example:
       "개발밀도관리구역에서는 해당 용도지역에 적용되는 용적률의 최대한도의 50퍼센트 범위에서 용적률을 강화하여 적용한다.",
-    questionRefs: [{ year: 2024, questionNo: 51 }],
+    questionRefs: [
+      { year: 2024, questionNo: 51 },
+    ],
   },
   {
     slug: "growth-management-coverage-relaxation-scope",
-    parentSlug: "building-coverage-floor-ratio",
     chapterKo: "국토계획법",
+    sectionKo: "시가화·건폐율·용적률",
     category: "국토계획법",
     subcategory: "건폐율·용적률",
+    parentSlug: "building-coverage-floor-ratio",
     titleKo: "성장관리계획구역 건폐율 완화(30% 이하) 적용 대상지역",
     titleEn: "Scope of the 30% Coverage Relaxation in Growth Management Plan Areas",
     definition:
@@ -849,11 +804,244 @@ const concepts: Concept[] = [
       "녹지지역이면 종류를 불문하고 모두 이 완화 특례의 적용을 받는다고 착각하기 쉽지만, 보전녹지지역은 제외된다.",
     example:
       "성장관리계획구역에서 30퍼센트 이하의 범위에서 성장관리계획으로 정하는 바에 따라 건폐율을 완화하여 적용할 수 있는 지역에는 생산관리지역, 생산녹지지역, 자연녹지지역, 농림지역이 포함되지만 보전녹지지역은 포함되지 않는다.",
-    questionRefs: [{ year: 2024, questionNo: 52 }],
+    questionRefs: [
+      { year: 2024, questionNo: 52 },
+    ],
+  },
+  {
+    slug: "land-transaction-permit-npl",
+    chapterKo: "국토계획법",
+    sectionKo: "시가화·건폐율·용적률",
+    category: "국토계획법",
+    subcategory: "토지거래허가",
+    titleKo: "토지거래허가구역의 기준면적",
+    titleEn: "Minimum Area Threshold in Land Transaction Permit Zones",
+    definition:
+      "도시지역 외의 지역에 있는 허가구역에서 기준면적(임야 250㎡) 이하의 토지를 매매하는 경우에는 토지거래허가를 받지 않아도 된다.",
+    intuition:
+      "허가제도는 '일정 규모 이상의 거래'만 통제 대상으로 삼아 행정력을 효율적으로 쓰려는 취지이므로, 기준면적 이하의 소규모 거래는 애초에 허가 대상에서 빠진다고 이해하면 된다.",
+    keyPoints: [
+      "도시지역 외 지역의 허가구역에서 임야의 기준면적은 250㎡이며, 이 이하의 거래는 허가를 요하지 않는다.",
+      "지목·용도지역별로 기준면적이 다르게 정해져 있으므로 거래 대상 토지의 지목을 먼저 확인해야 한다.",
+      "기준면적 이하라 해도 여러 필지로 나누어 거래하는 등 허가를 회피할 목적의 거래는 규제될 수 있다.",
+    ],
+    pitfalls:
+      "기준면적 이하 거래는 무조건 안전하다고 생각하기 쉽지만, 허가를 회피할 목적의 분할거래 등은 별도로 규제될 수 있다.",
+    example:
+      "도시지역 외 지역의 허가구역에서 90㎡의 임야를 매매하는 경우, 기준면적(250㎡) 이하이므로 토지거래허가를 받지 않아도 된다.",
+  },
+  {
+    slug: "infrastructure-facility-classification",
+    chapterKo: "국토계획법",
+    sectionKo: "도시·군계획시설",
+    category: "국토계획법",
+    subcategory: "기반시설·공동구",
+    titleKo: "기반시설의 대분류와 세부 종류 연결",
+    titleEn: "Classification of Infrastructure Facilities",
+    definition:
+      "기반시설은 교통시설·공간시설·유통공급시설·공공문화체육시설·방재시설·보건위생시설·환경기초시설의 7대 분류로 나뉘며, 자동차정류장은 화물터미널·공영차고지·복합환승센터·화물자동차 휴게소 등으로 세분되지만 교통광장은 자동차정류장이 아니라 별도의 광장에 속한다.",
+    intuition:
+      "기반시설 분류 문제는 특정 시설(자연장지, 폐기물처리 및 재활용시설 등)을 엉뚱한 대분류에 배치해 오답을 만드는 방식으로 반복 출제되므로, 헷갈리는 시설의 소속 대분류만 정확히 암기하면 된다.",
+    keyPoints: [
+      "자동차정류장은 화물터미널, 공영차고지, 복합환승센터, 화물자동차 휴게소로 세분되며, 교통광장은 자동차정류장이 아니라 '광장'의 하위 종류다.",
+      "자연장지는 공간시설이 아니라 공공문화체육시설에 속하며, 폐기물처리 및 재활용시설은 환경기초시설이 아니라 보건위생시설에 속한다.",
+      "건설기계운전학원(교통시설), 방송·통신시설(유통·공급시설), 하천(방재시설), 폐차장(환경기초시설), 차량 검사 및 면허시설(교통시설), 녹지(공간시설), 학교(공공·문화체육시설)는 각각 표시된 대분류에 올바르게 속한다.",
+    ],
+    pitfalls:
+      "자연장지를 '공간시설'로, 폐기물처리 및 재활용시설을 '환경기초시설'로 잘못 분류하기 쉽다 — 각각 공공·문화체육시설, 보건위생시설에 속한다는 점을 정확히 구분해야 한다.",
+    example:
+      "국토의 계획 및 이용에 관한 법령상 자동차정류장을 세분할 경우 화물터미널·공영차고지·복합환승센터·화물자동차 휴게소는 해당하지만 교통광장은 해당하지 않는다.",
+    questionRefs: [
+      { year: 2016, questionNo: 41 },
+      { year: 2017, questionNo: 49 },
+      { year: 2021, questionNo: 51 },
+    ],
+  },
+  {
+    slug: "urban-planning-facility-decision-expiry",
+    chapterKo: "국토계획법",
+    sectionKo: "도시·군계획시설",
+    category: "국토계획법",
+    subcategory: "기반시설·공동구",
+    parentSlug: "infrastructure-facility-classification",
+    titleKo: "도시·군계획시설결정의 실효와 매수청구권",
+    titleEn: "Expiry of Urban Planning Facility Decisions and Purchase Claims",
+    definition:
+      "도시·군계획시설결정은 고시일부터 20년이 지날 때까지 그 시설사업이 시행되지 않으면 20년이 되는 날의 다음 날에 효력을 잃으며, 지목이 대(垈)인 토지의 소유자는 결정고시일부터 10년 이내에 사업이 시행되지 않으면 매수를 청구할 수 있고 매수의무자는 청구받은 날부터 6개월 이내에 매수 여부를 결정해 알려야 한다.",
+    intuition:
+      "이 카드는 '실효기간(20년, 다음 날)'과 '매수청구 요건(10년, 6개월 결정, 지목 대인 토지)'이라는 서로 다른 두 숫자체계를 뒤섞어 출제하므로, 20년/10년을 혼동하지 않는 것이 핵심이다.",
+    keyPoints: [
+      "도시·군계획시설결정은 고시일부터 20년이 지날 때까지 그 시설의 설치에 관한 사업이 시행되지 않으면 20년이 되는 날의 다음 날에 효력을 잃는다(10년이 아님).",
+      "지목이 대(垈)인 토지로서 도시·군계획시설 부지인 토지의 소유자는 결정고시일부터 10년 이내에 사업이 시행되지 않으면 매수를 청구할 수 있으며, 건물만 소유한 자는 매수청구권자가 아니다.",
+      "매수의무자는 매수청구를 받은 날부터 6개월 이내에 매수 여부를 결정해 토지소유자와 관할 시장 등에게 알려야 하며, 매수하기로 결정한 토지는 결정을 알린 날부터 2년 이내에 매수해야 한다.",
+      "매수의무자가 원하는 경우 도시·군계획시설채권(상환기간 10년 이내)을 발행해 매수대금을 지급할 수 있으며, 매수청구를 받고도 매수하지 않기로 결정한 경우 토지소유자는 3층 이하의 단독주택, 제1·2종 근린생활시설 등 개발행위허가를 받아 건축할 수 있다.",
+      "토지소유자는 도시·군계획시설결정의 실효 전이라도 그 토지의 도시·군계획시설결정 해제를 위한 도시·군관리계획 입안을 신청할 수 있다.",
+    ],
+    pitfalls:
+      "도시·군계획시설결정의 실효기간을 매수청구 요건기간(10년)과 혼동해 '10년 경과 시 효력을 잃는다'고 착각하기 쉽지만, 실효기간은 20년이며 매수청구 요건만 10년이다.",
+    example:
+      "도시·군계획시설결정이 고시된 도시·군계획시설에 대하여 그 고시일부터 20년이 지날 때까지 그 시설의 설치에 관한 도시·군계획시설사업이 시행되지 아니하는 경우, 그 도시·군계획시설결정은 고시일부터 20년이 되는 날의 다음 날에 그 효력을 잃는다.",
+    questionRefs: [
+      { year: 2016, questionNo: 48 },
+      { year: 2017, questionNo: 48 },
+      { year: 2018, questionNo: 45 },
+      { year: 2019, questionNo: 48 },
+      { year: 2021, questionNo: 43 },
+      { year: 2024, questionNo: 46 },
+    ],
+  },
+  {
+    slug: "urban-planning-facility-project-implementation",
+    chapterKo: "국토계획법",
+    sectionKo: "도시·군계획시설",
+    category: "국토계획법",
+    subcategory: "기반시설·공동구",
+    parentSlug: "infrastructure-facility-classification",
+    titleKo: "도시·군계획시설사업의 시행자와 시행절차",
+    titleEn: "Implementers and Procedures for Urban Planning Facility Projects",
+    definition:
+      "둘 이상의 특별시·광역시·특별자치시·특별자치도·시 또는 군에 걸쳐 시행되는 도시·군계획시설사업은 관계 시·도지사 또는 시장·군수가 협의하여 시행자를 정하고 협의가 성립되지 않으면 국토교통부장관이 지정하며, 같은 도 관할의 둘 이상 시·군에 걸치는 경우에는 도지사가 지정하고, 사업시행자가 타인의 토지에 출입하려면 원칙적으로 허가를 받아야 하되 행정청인 시행자는 허가 없이 출입할 수 있다.",
+    intuition:
+      "시행자 지정권자는 '범위(같은 도 내 vs 둘 이상 시·도)'에 따라 도지사·국토교통부장관으로 갈리고, 타인 토지 출입은 '행정청인 시행자(허가 불요, 통지만)'와 '비행정청 시행자(허가 필요)'로 나뉜다는 점이 핵심이다.",
+    keyPoints: [
+      "도시·군계획시설사업이 같은 도의 관할 구역에 속하는 둘 이상의 시·군에 걸쳐 시행되는 경우에는 도지사가 시행자를 지정하며, 둘 이상의 시·도에 걸치는 경우 등 협의가 성립하지 않으면 국토교통부장관이 시행자를 정한다.",
+      "한국토지주택공사는 사업 대상 토지소유자의 동의 요건 없이 시행자로 지정받을 수 있지만, 한국철도공사 등 그 밖의 공공기관은 대상 토지 면적의 3분의 2 이상을 소유해야 시행자로 지정받을 수 있다.",
+      "지방자치단체나 지방공사가 직접 시행하는 경우에는 이행보증금을 예치하지 않아도 되며, 시행자는 필요하면 사업시행대상지역을 둘 이상으로 분할해 시행할 수 있다.",
+      "행정청인 시행자가 타인의 토지에 출입하려면 출입하려는 날의 7일 전까지 소유자·점유자·관리인에게 일시·장소를 알리면 되고 별도의 허가는 필요 없지만, 행정청이 아닌 시행자는 시장·군수의 허가를 받아야 출입할 수 있다.",
+      "동의 없이 타인의 토지를 재료 적치장·임시통로로 일시 사용한 사업시행자는 사용한 날부터 14일이 아니라 사용하기 전에 미리 시장·군수의 허가를 받아야 하며, 손실보상에 관해 협의가 성립하지 않으면 국토교통부장관에게 재결을 신청하지 않고도 관할 토지수용위원회에 재결을 신청할 수 있다.",
+    ],
+    pitfalls:
+      "행정청인 시행자도 타인의 토지 출입에 반드시 허가가 필요하다고 오해하기 쉽지만, 행정청인 시행자는 사전 통지만으로 출입할 수 있고 허가는 비행정청 시행자에게만 요구된다.",
+    example:
+      "도시·군계획시설사업이 같은 도의 관할 구역에 속하는 둘 이상의 시 또는 군에 걸쳐 시행되는 경우에는 도지사가 시행자를 정한다.",
+    questionRefs: [
+      { year: 2017, questionNo: 50 },
+      { year: 2021, questionNo: 50 },
+      { year: 2022, questionNo: 50 },
+      { year: 2023, questionNo: 51 },
+      { year: 2025, questionNo: 51 },
+    ],
+  },
+  {
+    slug: "development-density-facility-charge-district",
+    chapterKo: "국토계획법",
+    sectionKo: "도시·군계획시설",
+    category: "국토계획법",
+    subcategory: "기반시설·공동구",
+    parentSlug: "infrastructure-facility-classification",
+    titleKo: "개발밀도관리구역과 기반시설부담구역",
+    titleEn: "Development Density Management and Facility Charge Districts",
+    definition:
+      "개발밀도관리구역은 기반시설의 처리·공급·수용능력이 부족할 것으로 예상되는 지역에서 해당 용도지역의 용적률 최대한도의 50% 범위에서 용적률을 강화(완화는 불가)하여 적용하는 제도이고, 기반시설부담구역은 개발행위로 기반시설이 부족할 것으로 예상되나 설치가 곤란한 지역을 지정해 기반시설설치비용을 부과하는 제도이며, 두 구역은 서로 중복 지정할 수 없다.",
+    intuition:
+      "두 제도는 '기존 용적률을 낮추는 규제(개발밀도관리구역)'와 '비용을 부과하는 부담금 제도(기반시설부담구역)'로 서로 다른 도구이며, 지정권자·심의절차·중복지정 가능 여부가 반복 출제된다.",
+    keyPoints: [
+      "개발밀도관리구역에서는 해당 용도지역에 적용되는 용적률의 최대한도의 50% 범위에서 용적률을 강화하여 적용하며, 완화는 허용되지 않는다. 시장·군수는 지정·변경 시 지방도시계획위원회의 심의를 거치면 되고 도지사의 승인은 필요 없다.",
+      "개발밀도관리구역과 기반시설부담구역은 동일한 지역에 중복하여 지정할 수 없다 — 개발밀도관리구역에 기반시설부담구역을 지정하는 것도 허용되지 않는다.",
+      "법령 개정으로 행위제한이 완화되는 지역은 기반시설부담구역으로 지정해야 하며(임의가 아닌 의무), 지구단위계획을 수립한 경우 기반시설설치계획을 수립한 것으로 본다.",
+      "기반시설부담구역의 지정고시일부터 1년이 되는 날까지 기반시설설치계획을 수립하지 않으면 그 1년이 되는 날의 다음 날에 지정이 해제된 것으로 본다.",
+      "기반시설설치비용은 용지비용을 포함해 산정되며 물납이 인정되고, 기반시설부담구역별로 특별회계를 설치해야 하며, 리모델링 건축물은 부과대상이 아니지만 기존 건축물을 철거하고 신축하는 경우 기존 건축연면적을 '초과'하는 부분만 부과대상이 된다(전체가 아님). 부과받은 자는 원칙적으로 사용승인 신청 시까지 납부해야 한다.",
+    ],
+    pitfalls:
+      "개발밀도관리구역에서 용적률을 '강화 또는 완화'할 수 있다고 착각하기 쉽지만 완화는 허용되지 않으며, 기존 건축물 철거 후 신축 시 기존 연면적까지 포함해 전부 부과대상이 된다고 오해하기 쉽지만 실제로는 기존 연면적을 초과하는 부분만 부과대상이다.",
+    example:
+      "개발밀도관리구역과 기반시설부담구역은 동일한 지역에 대하여 중복하여 지정할 수 없다.",
+    questionRefs: [
+      { year: 2016, questionNo: 50 },
+      { year: 2017, questionNo: 47 },
+      { year: 2018, questionNo: 49 },
+      { year: 2019, questionNo: 41 },
+      { year: 2020, questionNo: 52 },
+      { year: 2023, questionNo: 49 },
+      { year: 2024, questionNo: 49 },
+    ],
+  },
+  {
+    slug: "infrastructure-inducing-coefficient",
+    chapterKo: "국토계획법",
+    sectionKo: "도시·군계획시설",
+    category: "국토계획법",
+    subcategory: "기반시설·공동구",
+    parentSlug: "infrastructure-facility-classification",
+    titleKo: "기반시설유발계수와 유발시설 제외 건축물",
+    titleEn: "Infrastructure-Inducing Coefficient and Exempt Buildings",
+    definition:
+      "기반시설유발계수는 건축물의 용도별로 유발하는 기반시설 수요를 나타내는 지표로 관광휴게시설이 단독주택·근린생활시설 등보다 크며, 사립유치원·국제기구 소유 건축물·재정비촉진 임대주택·택지개발예정지구 내 지구단위계획 수립 대상 건축물 등은 기반시설을 유발하는 시설에서 제외되지만 상업지역에 설치하는 농수산물집하장은 제외 대상이 아니다.",
+    intuition:
+      "이 카드는 '계수 크기 비교(암기형)'와 '유발시설 제외 대상 목록에서 하나만 빠뜨리는' 두 가지 출제 패턴을 다루며, 제외 목록은 공익성·비영리성이 강한 시설(유치원, 국제기구, 임대주택)이라는 공통점으로 기억하면 된다.",
+    keyPoints: [
+      "건축물별 기반시설유발계수는 관광휴게시설이 단독주택, 장례시설, 제2종 근린생활시설, 비금속 광물제품 제조공장보다 크다.",
+      "「유아교육법」에 따른 사립유치원, 「도시재정비 촉진을 위한 특별법」에 따른 임대주택, 주한 국제기구 소유 건축물, 「택지개발촉진법」에 따른 택지개발예정지구에서 지구단위계획을 수립하여 개발하는 토지의 건축물은 기반시설유발시설에서 제외된다.",
+      "상업지역에 설치하는 「농수산물유통 및 가격안정에 관한 법률」에 따른 농수산물집하장은 기반시설유발시설 제외 대상이 아니다(부과대상에 해당).",
+      "기반시설설치비용 산정에서 의료시설과 교육연구시설의 기반시설유발계수는 서로 다르다(같지 않음).",
+    ],
+    pitfalls:
+      "농수산물집하장을 공익시설로 착각해 유발시설 제외 대상으로 잘못 분류하기 쉽지만, 상업지역의 농수산물집하장은 제외 대상이 아니라 기반시설설치비용 부과대상이다.",
+    example:
+      "국토의 계획 및 이용에 관한 법령상 건축물별 기반시설유발계수 중 관광휴게시설의 계수가 단독주택·장례시설·제2종 근린생활시설보다 크다.",
+    questionRefs: [
+      { year: 2019, questionNo: 51 },
+      { year: 2020, questionNo: 43 },
+    ],
+  },
+  {
+    slug: "common-utility-tunnel-installation",
+    chapterKo: "국토계획법",
+    sectionKo: "도시·군계획시설",
+    category: "국토계획법",
+    subcategory: "기반시설·공동구",
+    parentSlug: "infrastructure-facility-classification",
+    titleKo: "공동구의 설치의무 지역과 수용시설 심의",
+    titleEn: "Mandatory Common Utility Tunnel Zones and Housed Facilities",
+    definition:
+      "200만㎡를 초과하는 도시개발구역·택지개발지구·공공주택지구·정비구역·도청이전신도시 등을 개발하는 사업시행자는 공동구를 설치해야 하며(일반산업단지는 대상 아님), 전기·가스·수도 등 공급설비와 통신선로·열수송관은 공동구협의회의 심의 없이 의무적으로 공동구에 수용해야 하지만 하수도관·가스관 등은 공동구협의회의 심의를 거쳐야 수용할 수 있다.",
+    intuition:
+      "공동구 설치의무 지역 목록(도시개발구역·택지개발지구·공공주택지구·정비구역·도청이전신도시)에서 산업단지가 빠진다는 점과, 수용시설 중 '의무수용 vs 심의 후 수용' 구분이 반복 출제된다.",
+    keyPoints: [
+      "200만㎡를 초과하는 「도시개발법」상 도시개발구역, 「택지개발촉진법」상 택지개발지구, 「공공주택 특별법」상 공공주택지구, 「도시 및 주거환경정비법」상 정비구역, 「도청이전을 위한 도시건설 및 지원에 관한 특별법」상 도청이전신도시를 개발하는 사업시행자는 공동구를 설치해야 하지만, 「산업입지 및 개발에 관한 법률」에 따른 일반산업단지는 이 의무 대상이 아니다.",
+      "전선로·통신선로·수도관·열수송관·중수도관·쓰레기수송관은 공동구협의회의 심의 없이 공동구에 수용해야 하는 시설이며, 가스관과 하수도관은 공동구협의회의 심의를 거쳐야 공동구에 수용할 수 있다.",
+      "공동구관리자는 매년(10년마다가 아님) 해당 공동구의 안전 및 유지관리계획을 수립·시행해야 한다.",
+    ],
+    pitfalls:
+      "열수송관·쓰레기수송관도 심의를 거쳐야 수용할 수 있다고 오해하기 쉽지만, 실제로는 심의 없이 의무적으로 수용해야 하는 시설이며, 심의가 필요한 것은 가스관·하수도관이다.",
+    example:
+      "「공공주택 특별법」에 따른 공공주택지구와 「도시 및 주거환경정비법」에 따른 정비구역의 규모가 200만제곱미터를 초과하는 경우 해당 사업시행자는 공동구를 설치하여야 한다.",
+    questionRefs: [
+      { year: 2020, questionNo: 47 },
+      { year: 2025, questionNo: 45 },
+    ],
+  },
+  {
+    slug: "facilities-without-management-plan-decision",
+    chapterKo: "국토계획법",
+    sectionKo: "도시·군계획시설",
+    category: "국토계획법",
+    subcategory: "기반시설·공동구",
+    parentSlug: "infrastructure-facility-classification",
+    titleKo: "도시지역에서 도시·군관리계획 결정 없이 설치 가능한 시설",
+    titleEn: "Facilities Installable Without an Urban Management Plan Decision",
+    definition:
+      "도시지역에서는 원칙적으로 기반시설을 도시·군관리계획으로 결정해 설치해야 하지만, 광장(건축물부설광장 제외), 방송대학·통신대학·방송통신대학, 도심공항터미널, 연료전지 설비, 일정 규모 미만의 도축장 등 법정 시설은 도시·군관리계획 결정 없이 설치할 수 있다.",
+    intuition:
+      "이 목록은 '규모가 작거나 공익성이 강해 별도 계획결정 없이도 설치를 허용해주는 시설'을 모아둔 것으로, 옥외에 설치하는 변전시설처럼 목록에서 제외되는 예외를 정확히 짚는 것이 핵심이다.",
+    keyPoints: [
+      "도시지역에서 도시·군관리계획 결정 없이 설치할 수 있는 시설에는 광장(건축물부설광장 제외), 「고등교육법」에 따른 방송대학·통신대학·방송통신대학, 공항 중 도심공항터미널, 연료전지 설비 등이 포함된다.",
+      "대지면적이 500㎡ 미만인 도축장은 도시·군관리계획 결정 없이 설치할 수 있지만, 폐기물처리 및 재활용시설 중 재활용시설은 원칙적으로 도시·군관리계획 결정이 필요한 시설로 취급되는 경우가 있어 유의해야 한다.",
+      "옥외에 설치하는 변전시설은 도시·군관리계획 결정 없이 설치할 수 있는 시설 목록에 포함되지 않는다(결정이 필요).",
+    ],
+    pitfalls:
+      "재활용시설이나 변전시설도 규모와 무관하게 항상 결정 없이 설치 가능하다고 일반화하기 쉽지만, 옥외 변전시설은 결정 없이 설치할 수 있는 시설에 해당하지 않는다는 점이 반복 출제되는 함정이다.",
+    example:
+      "도시지역에서 광장(건축물부설광장은 제외한다)과 「고등교육법」에 따른 방송대학·통신대학 및 방송통신대학은 도시·군관리계획으로 결정하지 않고 설치할 수 있다.",
+    questionRefs: [
+      { year: 2022, questionNo: 49 },
+      { year: 2025, questionNo: 46 },
+    ],
   },
   {
     slug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
     titleKo: "지구단위계획구역·지구단위계획 종합원칙",
@@ -883,10 +1071,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "district-unit-plan-relaxation-outside-urban",
-    parentSlug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
+    parentSlug: "district-unit-plan",
     titleKo: "도시지역 외 지구단위계획구역의 건폐율·용적률·높이 완화",
     titleEn: "Relaxation of Coverage, Floor Area, and Height Limits Outside Urban Areas",
     definition:
@@ -903,14 +1092,17 @@ const concepts: Concept[] = [
       "건축물 높이제한도 건폐율·용적률과 같은 방식(120% 완화)으로 규정된다고 착각하기 쉽지만, 실제로는 별도의 기준을 따른다.",
     example:
       "도시지역 외 지구단위계획구역에서는 해당 용도지역 또는 개발진흥지구에 적용되는 건폐율의 150퍼센트 이내, 용적률의 200퍼센트 이내에서 완화하여 적용할 수 있다.",
-    questionRefs: [{ year: 2018, questionNo: 43 }],
+    questionRefs: [
+      { year: 2018, questionNo: 43 },
+    ],
   },
   {
     slug: "district-unit-plan-terminology",
-    parentSlug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
+    parentSlug: "district-unit-plan",
     titleKo: "'지구단위계획'의 법적 정의",
     titleEn: "Legal Definition of District Unit Plan",
     definition:
@@ -925,14 +1117,17 @@ const concepts: Concept[] = [
       "이 정의를 도시·군기본계획으로 착각하기 쉽지만, 지구단위계획은 도시·군관리계획의 한 종류다.",
     example:
       "도시·군계획 수립 대상지역의 일부에 대하여 토지이용을 합리화하고 그 기능을 증진시키며 미관을 개선하고 양호한 환경을 확보하며, 그 지역을 체계적·계획적으로 관리하기 위하여 수립하는 도시·군관리계획은 '지구단위계획'을 말한다.",
-    questionRefs: [{ year: 2019, questionNo: 44 }],
+    questionRefs: [
+      { year: 2019, questionNo: 44 },
+    ],
   },
   {
     slug: "location-regulation-district-features",
-    parentSlug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
+    parentSlug: "district-unit-plan",
     titleKo: "입지규제최소구역의 특례와 지정 대상(최신 법령)",
     titleEn: "Special Rules and Current Designation Scope for Location Regulation Minimum Districts",
     definition:
@@ -956,10 +1151,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "growth-management-plan-content",
-    parentSlug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
+    parentSlug: "district-unit-plan",
     titleKo: "성장관리방안의 내용과 건폐율 완화",
     titleEn: "Content of Growth Management Plans and Coverage Ratio Relaxation",
     definition:
@@ -975,14 +1171,17 @@ const concepts: Concept[] = [
       "기반시설의 배치·규모 사항이 성장관리방안에서 생략 가능한 임의사항이라고 착각하기 쉽지만, 실제로는 반드시 포함되어야 하는 필수사항이다.",
     example:
       "계획관리지역에서 경관계획을 포함하는 성장관리방안을 수립한 경우에는 50퍼센트 이하의 범위에서 조례로 건폐율을 정할 수 있다.",
-    questionRefs: [{ year: 2020, questionNo: 51 }],
+    questionRefs: [
+      { year: 2020, questionNo: 51 },
+    ],
   },
   {
     slug: "district-unit-plan-zone-designation-detail",
-    parentSlug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
+    parentSlug: "district-unit-plan",
     titleKo: "지구단위계획구역 지정 세부요건",
     titleEn: "Detailed Requirements for District Unit Plan Zone Designation",
     definition:
@@ -1000,14 +1199,17 @@ const concepts: Concept[] = [
       "도시지역 외 지구단위계획구역 지정 시 계획관리지역 비율 기준을 '3분의 2 이상'으로 착각하기 쉽지만, 실제로는 '100분의 50(50%) 이상'이다.",
     example:
       "「산업입지 및 개발에 관한 법률」에 따른 준산업단지와 도시지역 내 일반공업지역, 농림지역에 위치한 산업·유통개발진흥지구는 모두 지구단위계획구역으로 지정할 수 있는 대상지역에 포함된다.",
-    questionRefs: [{ year: 2023, questionNo: 44 }],
+    questionRefs: [
+      { year: 2023, questionNo: 44 },
+    ],
   },
   {
     slug: "district-unit-plan-decision-expiry",
-    parentSlug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
+    parentSlug: "district-unit-plan",
     titleKo: "주민제안 지구단위계획결정의 실효",
     titleEn: "Expiry of Resident-Proposed District Unit Plan Decisions",
     definition:
@@ -1021,14 +1223,17 @@ const concepts: Concept[] = [
       "지구단위계획의 실효기간을 도시·군계획시설결정의 실효기간(20년)과 혼동하기 쉽지만, 주민제안 지구단위계획의 실효기간은 5년으로 훨씬 짧다.",
     example:
       "주민이 입안을 제안한 지구단위계획에 관한 도시·군관리계획결정의 고시일부터 5년 이내에 사업이나 공사에 착수하지 아니하면 그 5년이 된 날의 다음 날에 그 지구단위계획에 관한 도시·군관리계획결정은 효력을 잃는다.",
-    questionRefs: [{ year: 2023, questionNo: 46 }],
+    questionRefs: [
+      { year: 2023, questionNo: 46 },
+    ],
   },
   {
     slug: "special-building-zone-deemed-designation",
-    parentSlug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
+    parentSlug: "district-unit-plan",
     titleKo: "특별건축구역으로 의제되는 구역",
     titleEn: "Zones Deemed as Special Building Zones",
     definition:
@@ -1044,14 +1249,17 @@ const concepts: Concept[] = [
       "도시자연공원구역도 특수한 공간계획 구역이므로 특별건축구역으로 의제된다고 착각하기 쉽지만, 의제 대상은 도시혁신구역과 복합용도구역에 한정된다.",
     example:
       "도시혁신구역과 복합용도구역으로 지정되면 「건축법」 제69조에 따른 특별건축구역으로 지정된 것으로 본다.",
-    questionRefs: [{ year: 2024, questionNo: 45 }],
+    questionRefs: [
+      { year: 2024, questionNo: 45 },
+    ],
   },
   {
     slug: "joint-committee-review-required-changes",
-    parentSlug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
+    parentSlug: "district-unit-plan",
     titleKo: "건축위원회·도시계획위원회 공동위원회 심의대상",
     titleEn: "Changes Requiring Joint Committee Review",
     definition:
@@ -1066,14 +1274,17 @@ const concepts: Concept[] = [
       "획지면적이나 높이의 변경 비율이 크면(25%, 15%) 공동위원회 심의가 필요하다고 착각하기 쉽지만, 공동위원회 심의 대상은 '다른 법령에 따른 건폐율 완화 반영'이라는 특정 유형의 변경에 한정된다.",
     example:
       "「건축법」 등 다른 법령의 규정에 따른 건폐율 완화 내용을 반영하기 위한 지구단위계획의 변경은 건축위원회와 도시계획위원회의 공동위원회의 심의를 거쳐야 한다.",
-    questionRefs: [{ year: 2025, questionNo: 47 }],
+    questionRefs: [
+      { year: 2025, questionNo: 47 },
+    ],
   },
   {
     slug: "urban-innovation-zone-special-matters",
-    parentSlug: "district-unit-plan",
     chapterKo: "국토계획법",
+    sectionKo: "지구단위계획",
     category: "국토계획법",
     subcategory: "지구단위계획",
+    parentSlug: "district-unit-plan",
     titleKo: "도시혁신구역에서 도시혁신계획으로 따로 정할 수 있는 사항",
     titleEn: "Matters Separately Determinable by Urban Innovation Plans",
     definition:
@@ -1088,11 +1299,14 @@ const concepts: Concept[] = [
       "도시혁신구역의 특례가 사실상 모든 인허가 절차에 적용된다고 확대 해석하기 쉽지만, 체육시설 사업계획 승인처럼 특례 목록에 없는 절차는 그대로 적용된다.",
     example:
       "도시혁신구역에서는 다른 법률 규정에도 불구하고 「주차장법」에 따른 부설주차장의 설치 기준을 도시혁신계획으로 따로 정할 수 있다.",
-    questionRefs: [{ year: 2025, questionNo: 48 }],
+    questionRefs: [
+      { year: 2025, questionNo: 48 },
+    ],
   },
   {
     slug: "development-activity-permit",
     chapterKo: "국토계획법",
+    sectionKo: "개발행위허가",
     category: "국토계획법",
     subcategory: "개발행위허가",
     titleKo: "개발행위허가의 대상·절차·제한기간",
@@ -1124,10 +1338,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "development-activity-permit-criteria",
-    parentSlug: "development-activity-permit",
     chapterKo: "국토계획법",
+    sectionKo: "개발행위허가",
     category: "국토계획법",
     subcategory: "개발행위허가",
+    parentSlug: "development-activity-permit",
     titleKo: "개발행위허가의 심사기준",
     titleEn: "Review Criteria for Development Activity Permits",
     definition:
@@ -1142,14 +1357,17 @@ const concepts: Concept[] = [
       "자금조달계획의 적정성을 개발행위허가의 일반 기준으로 착각하기 쉽다 — 이는 도시·군계획사업 시행자 지정 등 다른 절차의 요건이다.",
     example:
       "도시·군계획으로 경관계획이 수립되어 있는 경우에는 그에 적합할 것, 공유수면매립의 경우 매립목적이 도시·군계획에 적합할 것은 개발행위허가의 기준에 해당한다.",
-    questionRefs: [{ year: 2020, questionNo: 50 }],
+    questionRefs: [
+      { year: 2020, questionNo: 50 },
+    ],
   },
   {
     slug: "development-activity-public-facility-vesting",
-    parentSlug: "development-activity-permit",
     chapterKo: "국토계획법",
+    sectionKo: "개발행위허가",
     category: "국토계획법",
     subcategory: "개발행위허가",
+    parentSlug: "development-activity-permit",
     titleKo: "개발행위에 따른 공공시설 등의 귀속",
     titleEn: "Vesting of Public Facilities Resulting from Development Activities",
     definition:
@@ -1175,10 +1393,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "development-activity-facility-charge-linkage",
-    parentSlug: "development-activity-permit",
     chapterKo: "국토계획법",
+    sectionKo: "개발행위허가",
     category: "국토계획법",
     subcategory: "개발행위허가",
+    parentSlug: "development-activity-permit",
     titleKo: "개발행위와 연동된 기반시설 설치·부담 규정",
     titleEn: "Facility Installation and Charges Linked to Development Activities",
     definition:
@@ -1203,10 +1422,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "development-activity-scale-exemption",
-    parentSlug: "development-activity-permit",
     chapterKo: "국토계획법",
+    sectionKo: "개발행위허가",
     category: "국토계획법",
     subcategory: "개발행위허가",
+    parentSlug: "development-activity-permit",
     titleKo: "개발행위 규모 제한을 받지 않는 경우",
     titleEn: "Exemptions from Development Activity Scale Restrictions",
     definition:
@@ -1221,76 +1441,2294 @@ const concepts: Concept[] = [
       "친환경 인프라 관련 시설(수소연료공급시설)도 공익성이 크다는 이유로 규모 제한 예외라고 착각하기 쉽지만, 법정 예외 목록에는 포함되지 않는다.",
     example:
       "「국방·군사시설 사업에 관한 법률」에 따른 국방·군사시설사업으로 이루어지는 개발행위는 개발행위허가 시 규모의 제한을 받지 않는다.",
-    questionRefs: [{ year: 2023, questionNo: 42 }],
+    questionRefs: [
+      { year: 2023, questionNo: 42 },
+    ],
   },
+  // ───────── 도시개발법 ─────────
   {
-    slug: "metropolitan-plan",
-    chapterKo: "국토계획법",
-    category: "국토계획법",
-    subcategory: "광역도시계획",
-    titleKo: "광역계획권의 지정 절차",
-    titleEn: "Procedure for Designating Metropolitan Planning Zones",
+    slug: "urban-development-zone-designation",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    titleKo: "도시개발구역의 지정권자·대상규모·절차",
+    titleEn: "Designators, Scale Requirements, and Procedures for Urban Development Zones",
     definition:
-      "국토교통부장관이 광역계획권을 지정하려면 관계 시·도지사, 시장 또는 군수의 의견을 들은 후 중앙도시계획위원회의 심의를 거쳐야 하며, 지방도시계획위원회의 심의 대상이 아니다.",
+      "도시개발구역은 시·도지사, 대도시 시장, 국토교통부장관이 지정할 수 있으며(한국토지주택공사는 지정권자가 아님), 국토교통부장관은 국가가 시행할 필요가 있거나 관계 중앙행정기관의 장이 요청하는 경우, 천재지변 등 긴급한 경우, 둘 이상 도에 걸쳐 지정권자 협의가 불성립하는 경우 등에 지정할 수 있고, 지정 대상 규모는 주거지역·상업지역 1만㎡, 공업지역 3만㎡, 자연녹지지역 1만㎡, 생산녹지지역(지정면적의 30% 이하) 1만㎡ 이상이다.",
     intuition:
-      "광역계획권은 여러 지자체에 걸친 큰 틀의 계획이므로, 국가 차원의 위원회(중앙도시계획위원회)가 최종 심의를 담당한다고 이해하면 지방도시계획위원회와의 혼동을 피할 수 있다.",
+      "이 카드는 '누가 지정할 수 있는지(지정권자 vs 지정 제안자)'와 '어떤 경우 국토교통부장관이 예외적으로 지정하는지', '용도지역별 최소 규모 숫자'를 조합해 출제하는 방식이 핵심이다.",
     keyPoints: [
-      "국토교통부장관이 광역계획권을 지정하려면 중앙도시계획위원회의 심의를 거쳐야 한다 — 지방도시계획위원회가 아니다.",
-      "지정 전 관계 시·도지사, 시장 또는 군수의 의견을 먼저 들어야 한다.",
-      "국토교통부장관은 인접한 둘 이상의 특별시·광역시·특별자치시의 관할 구역 전부 또는 일부를 광역계획권으로 지정할 수 있다.",
+      "도시개발구역 지정권자는 시·도지사, 대도시 시장, 국토교통부장관이며, 한국토지주택공사 등 공공기관은 지정권자가 아니라 지정을 '제안'할 수 있는 자에 해당한다.",
+      "국토교통부장관은 국가가 도시개발사업을 실시할 필요가 있는 경우, 관계 중앙행정기관의 장이 요청하는 경우, 천재지변 등으로 긴급히 시행할 필요가 있는 경우, 둘 이상의 도에 걸치는 지역에서 관계 도지사 간 협의가 성립하지 않는 경우에 도시개발구역을 지정할 수 있지만, 공공기관의 장이 일정 규모의 구역 지정을 단순히 '제안'하는 것만으로는 국토교통부장관의 지정 사유가 되지 않는다.",
+      "도시개발구역으로 지정할 수 있는 대상 규모는 주거지역·상업지역 1만㎡ 이상, 공업지역 3만㎡ 이상, 자연녹지지역 1만㎡ 이상, 도시개발구역 지정면적의 30% 이하인 생산녹지지역 1만㎡ 이상이다.",
+      "「한국공항공사법」에 따른 한국공항공사, 「지방공기업법」에 따른 지방공사, 「한국철도공사법」에 따른 한국철도공사 등은 특별자치도지사·시장·군수·구청장에게 도시개발구역의 지정을 제안할 수 있다.",
+      "대도시 시장은 도지사를 거치지 않고 직접 도시개발구역을 지정할 수 있으며, 도시개발구역의 총 면적이 1만㎡ 미만이면 둘 이상의 사업시행지구로 분할해 지정할 수 없고(분할하려는 각 지구는 1만㎡ 이상이어야 함), 도시지역 외의 지역에는 구역을 지정한 후 개발계획을 수립할 수 있다.",
+      "환지 방식 사업에서 환지처분 공고가 있으면 그 구역의 용도지역·지구단위계획구역은 구역 지정 전으로 환원·폐지된 것으로 보지 않는다(존속).",
     ],
     pitfalls:
-      "광역계획권 지정 심의기관을 지방도시계획위원회로 잘못 기억하기 쉽다 — 중앙도시계획위원회가 맞다.",
+      "한국토지주택공사를 도시개발구역의 '지정권자'로 착각하기 쉽지만, 공사는 지정을 제안할 수 있는 자일 뿐 지정권자가 아니라는 점이 핵심 함정이다.",
     example:
-      "인접한 두 광역시에 걸친 광역계획권을 지정하려면, 국토교통부장관이 관계 시장의 의견을 들은 후 중앙도시계획위원회의 심의를 거쳐야 한다.",
+      "국토교통부장관은 천재지변, 그 밖의 사유로 인하여 도시개발사업을 긴급하게 할 필요가 있는 경우 도시개발구역을 지정할 수 있다.",
+    questionRefs: [
+      { year: 2018, questionNo: 53 },
+      { year: 2019, questionNo: 53 },
+      { year: 2021, questionNo: 53 },
+      { year: 2022, questionNo: 55 },
+      { year: 2025, questionNo: 53 },
+      { year: 2025, questionNo: 54 },
+    ],
   },
   {
-    slug: "urbanization-control-zone",
-    chapterKo: "국토계획법",
-    category: "국토계획법",
-    subcategory: "시가화조정구역",
-    titleKo: "시가화조정구역의 지정과 허가 기준",
-    titleEn: "Designation and Permit Standards for Urbanization Control Zones",
+    slug: "urban-development-plan-revision-release",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "개발계획의 수립·사후반영사항과 지정 해제",
+    titleEn: "Development Plan Formulation and Zone Release",
     definition:
-      "시가화조정구역은 시·도지사가 도시·군관리계획으로 결정하여 지정하는 용도구역이며, 관리용건축물은 기존 면적을 제외하고 33㎡ 이하인 경우에만 허가 대상이 된다.",
+      "도시개발구역을 지정한 후 개발계획을 수립하는 경우, 지정·고시일부터 2년 이내에 개발계획을 수립·고시하지 않으면 그 2년이 되는 날의 다음 날에 지정이 해제되고, 개발계획을 고시한 날부터 3년 이내에 실시계획 인가를 신청하지 않으면 그 3년이 되는 날의 다음 날에, 사업 시행 기간을 정한 경우 그 기간의 만료일 다음 날(또는 5년)에 각각 해제되며, 임대주택건설계획 등 세입자 주거·생활안정대책은 구역 지정 후에도 개발계획에 추가로 포함시킬 수 있다.",
     intuition:
-      "시가화조정구역은 '무분별한 시가화를 일정 기간 유보'하는 제도이므로, 도시·군기본계획이 아니라 실행력 있는 도시·군관리계획으로 결정하고, 허용되는 건축행위도 아주 작은 관리용 규모로 엄격히 제한한다고 이해하면 된다.",
+      "지정 해제의 세 단계 숫자(2년·3년·5년)를 순서대로 암기하고, 구역 지정 후 사후적으로 개발계획에 추가할 수 있는 사항(세입자 대책)과 애초에 지정 시부터 있어야 하는 사항(환경보전계획, 원형지 공급계획, 사업시행지구 분할 등)을 구분하는 것이 핵심이다.",
     keyPoints: [
-      "시가화조정구역은 도시·군기본계획이 아니라 도시·군관리계획으로 결정하여 지정한다.",
-      "관리용건축물은 기존 면적을 제외하고 33㎡ 이하인 경우에만 허가 대상이 된다 — 이를 초과하면 허가 대상이 아니다.",
-      "지정하려는 구역의 면적이 1㎢ 미만인 경우에는 별도의 승인을 받지 않아도 된다.",
+      "도시개발구역이 지정·고시된 날부터 2년이 되는 날까지 개발계획을 수립·고시하지 않으면 그 2년이 되는 날의 다음 날에 지정이 해제된 것으로 본다.",
+      "개발계획을 고시한 날부터 3년 이내에 실시계획의 인가를 신청하지 않으면 그 3년이 되는 날의 다음 날에 지정이 해제되며, 도시개발사업의 공사 완료 공고일까지 실시계획 인가를 받지 못한 경우에는 지정·고시일부터 5년이 되는 날의 다음 날에 해제된 것으로 본다.",
+      "구역 지정 후에는 임대주택건설계획 등 세입자 등의 주거 및 생활안정 대책을 개발계획에 추가로 포함시킬 수 있지만, 환경보전계획, 보건의료시설·복지시설 설치계획, 원형지 공급 대상·개발방향, 사업시행지구 분할에 관한 사항은 구역 지정 시부터 정해져 있어야 하는 사항이다.",
     ],
     pitfalls:
-      "시가화조정구역을 도시·군기본계획으로 결정한다고 착각하기 쉽다 — 도시·군관리계획으로 결정한다.",
+      "지정 해제까지의 세 숫자(2년, 3년, 5년)를 순서 없이 뒤섞어 기억하기 쉬우므로, '개발계획 수립(2년) → 실시계획 인가신청(3년) → 공사완료(5년)'의 흐름으로 순서대로 암기해야 한다.",
     example:
-      "기존 관리용건축물 면적을 제외하고 30㎡ 규모의 관리용건축물을 신축하는 것은 허가 대상이 되지만, 40㎡ 규모라면 33㎡ 기준을 초과해 허가 대상이 아니다.",
+      "도시개발구역을 지정한 후 개발계획을 수립하는 경우 도시개발구역이 지정·고시된 날부터 2년이 되는 날까지 개발계획을 수립·고시하지 아니하면 그 2년이 되는 날의 다음 날에 도시개발구역의 지정이 해제된 것으로 본다.",
+    questionRefs: [
+      { year: 2020, questionNo: 56 },
+      { year: 2023, questionNo: 57 },
+    ],
   },
   {
-    slug: "land-transaction-permit-npl",
-    chapterKo: "국토계획법",
-    category: "국토계획법",
-    subcategory: "토지거래허가",
-    titleKo: "토지거래허가구역의 기준면적",
-    titleEn: "Minimum Area Threshold in Land Transaction Permit Zones",
+    slug: "urban-development-implementer-change",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "도시개발사업 시행자의 지정·변경",
+    titleEn: "Designation and Change of Urban Development Implementers",
     definition:
-      "도시지역 외의 지역에 있는 허가구역에서 기준면적(임야 250㎡) 이하의 토지를 매매하는 경우에는 토지거래허가를 받지 않아도 된다.",
+      "지정권자는 시행자가 실시계획 인가를 받은 후 2년 이내에 사업에 착수하지 않거나, 행정처분으로 시행자 지정·실시계획 인가가 취소되거나, 시행자의 부도로 사업목적 달성이 어려운 경우 시행자를 변경할 수 있지만, 실시계획 인가 신청을 늦게 하는 것만으로는 변경사유가 되지 않으며, 국가·지방자치단체·한국부동산원·한국수자원공사·지방공사 등은 시행자로 지정될 수 있으나 한국관광공사는 도시개발사업 시행자 지정 대상이 아니다.",
     intuition:
-      "허가제도는 '일정 규모 이상의 거래'만 통제 대상으로 삼아 행정력을 효율적으로 쓰려는 취지이므로, 기준면적 이하의 소규모 거래는 애초에 허가 대상에서 빠진다고 이해하면 된다.",
+      "시행자 변경사유는 '사업을 실제로 진행하지 못하는 상태(착수 지연, 취소, 부도)'로 한정되며, 단순히 절차 신청이 늦은 것은 포함되지 않는다는 점과, 시행자로 지정될 수 있는 공공기관 목록에서 한국관광공사가 빠진다는 점이 핵심이다.",
     keyPoints: [
-      "도시지역 외 지역의 허가구역에서 임야의 기준면적은 250㎡이며, 이 이하의 거래는 허가를 요하지 않는다.",
-      "지목·용도지역별로 기준면적이 다르게 정해져 있으므로 거래 대상 토지의 지목을 먼저 확인해야 한다.",
-      "기준면적 이하라 해도 여러 필지로 나누어 거래하는 등 허가를 회피할 목적의 거래는 규제될 수 있다.",
+      "지정권자는 시행자가 실시계획의 인가를 받은 후 2년 이내에 사업을 착수하지 않는 경우, 행정처분으로 시행자 지정이 취소된 경우, 행정처분으로 실시계획의 인가가 취소된 경우, 시행자의 부도로 사업목적 달성이 어렵다고 인정되는 경우에 시행자를 변경할 수 있다.",
+      "사업시행자가 도시개발구역 지정 고시일부터 6개월 이내에 실시계획의 인가를 신청하지 않는 것은 시행자 변경사유로 명시되어 있지 않다.",
+      "국가, 지방자치단체, 한국부동산원, 한국수자원공사, 지방공사, 한국철도공사 등은 도시개발사업의 시행자로 지정될 수 있지만, 한국관광공사는 시행자 지정 대상에 포함되지 않는다.",
+      "수용 또는 사용 방식으로 시행하는 도시개발사업에서는 도시개발구역의 토지 소유자가 설립한 조합은 시행자로 지정될 수 없다(조합은 환지 방식에서만 시행자가 될 수 있음).",
     ],
     pitfalls:
-      "기준면적 이하 거래는 무조건 안전하다고 생각하기 쉽지만, 허가를 회피할 목적의 분할거래 등은 별도로 규제될 수 있다.",
+      "실시계획 인가 신청이 늦었다는 사실만으로 시행자를 변경할 수 있다고 오해하기 쉽지만, 이는 법정 변경사유에 해당하지 않는다.",
     example:
-      "도시지역 외 지역의 허가구역에서 90㎡의 임야를 매매하는 경우, 기준면적(250㎡) 이하이므로 토지거래허가를 받지 않아도 된다.",
+      "지정권자는 시행자가 도시개발사업에 관한 실시계획의 인가를 받은 후 2년 이내에 사업을 착수하지 아니하는 경우 시행자를 변경할 수 있다.",
+    questionRefs: [
+      { year: 2017, questionNo: 53 },
+      { year: 2022, questionNo: 57 },
+      { year: 2024, questionNo: 54 },
+    ],
   },
-
+  {
+    slug: "urban-development-implementation-method",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "도시개발사업의 시행방식(수용·환지·혼용)과 변경",
+    titleEn: "Implementation Methods and Their Modification",
+    definition:
+      "시행자는 도시개발사업을 수용 또는 사용하는 방식, 환지 방식, 또는 이를 혼용하는 방식으로 정해 지정권자의 인가(국토교통부장관의 허가가 아님)를 받아야 하며, 지정권자는 구역 지정 후에도 수용·사용 방식에서 전부 환지 방식으로, 수용·사용 방식에서 혼용방식으로, 혼용방식에서 전부 환지 방식으로 변경할 수 있으나 전부 환지 방식에서 혼용방식으로의 변경은 허용되지 않는다.",
+    intuition:
+      "시행방식 변경은 '환지 방식 쪽으로만 이동 가능하고, 환지 방식에서 다시 벗어나는 방향(혼용으로)으로는 갈 수 없다'는 일방향 규칙으로 정리하면 기억하기 쉽다.",
+    keyPoints: [
+      "분할 혼용방식은 수용·사용 방식이 적용되는 지역과 환지 방식이 적용되는 지역을 사업시행지구별로 분할하여 시행하는 방식이다.",
+      "계획적·체계적 개발이 필요한 경우에도 반드시 환지 방식으로만 정해야 하는 것은 아니며, 시행자는 국토교통부장관의 허가가 아니라 지정권자의 인가를 받아 시행방식을 정한다.",
+      "지정권자는 구역 지정 이후에도 수용·사용 방식에서 전부 환지 방식으로의 변경, 수용·사용 방식에서 혼용방식으로의 변경, 혼용방식에서 전부 환지 방식으로의 변경을 할 수 있지만, 전부 환지 방식에서 혼용방식으로의 변경은 할 수 없다.",
+      "지방자치단체가 도시개발사업의 전부를 환지 방식으로 시행하려는 경우에는 도시개발사업에 관한 규약을 정해야 한다.",
+    ],
+    pitfalls:
+      "시행방식 변경이 어느 방향으로든 자유롭다고 착각하기 쉽지만, 전부 환지 방식으로 일단 정해지면 다시 혼용방식으로 되돌리는 변경은 허용되지 않는다.",
+    example:
+      "지정권자는 도시개발구역지정 이후 수용 또는 사용방식에서 전부 환지 방식으로, 또는 혼용방식에서 전부 환지 방식으로 시행방식을 변경할 수 있지만, 전부 환지 방식에서 혼용방식으로는 변경할 수 없다.",
+    questionRefs: [
+      { year: 2018, questionNo: 54 },
+      { year: 2019, questionNo: 57 },
+      { year: 2024, questionNo: 58 },
+    ],
+  },
+  {
+    slug: "urban-development-expropriation-method",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "수용·사용 방식 사업시행의 절차와 요건",
+    titleEn: "Procedures for Expropriation-Based Project Implementation",
+    definition:
+      "수용 또는 사용 방식의 도시개발사업은 시행자만 토지 등을 수용할 수 있고(지정권자는 수용권 없음) 「공익사업을 위한 토지 등의 취득 및 보상에 관한 법률」을 준용하며, 수용대상 토지의 세부목록을 고시하면 사업인정 및 그 고시가 있었던 것으로 보고, 정부출연기관·공공기관 등 민간참여자가 아닌 시행자가 수용하려면 사업대상 토지면적의 3분의 2 이상 소유 및 토지 소유자 총수의 2분의 1 이상 동의가 필요하다(지방공기업법상 지방공사는 예외적으로 이 동의요건이 없는 경우가 있음).",
+    intuition:
+      "수용 또는 사용 방식의 핵심은 '누가 수용권을 갖는지(시행자만)', '수용요건(토지면적 2/3+소유자 총수 1/2, 단 일부 공공시행자는 면제)', '토지상환채권·조성토지 공급'의 세부 규정을 조합해 출제하는 것이다.",
+    keyPoints: [
+      "시행자가 아닌 지정권자는 도시개발사업에 필요한 토지 등을 수용할 수 없으며, 수용의 대상이 되는 토지의 세부목록을 고시한 경우에는 「공익사업을 위한 토지 등의 취득 및 보상에 관한 법률」에 따른 사업인정 및 그 고시가 있었던 것으로 본다.",
+      "정부출연기관 등 민간사업자가 아닌 시행자가 토지를 수용하려면 사업대상 토지면적의 3분의 2 이상을 소유하고 토지 소유자 총수의 2분의 1 이상의 동의를 받아야 하지만, 국가·지방자치단체·지방공사 등 순수 공공시행자는 이 동의 요건 없이 수용할 수 있는 경우가 있다.",
+      "지방자치단체 등 공공기관인 시행자는 지급보증 없이도 토지상환채권을 발행할 수 있으며(민간시행자만 지급보증 필요), 지정권자가 아닌 시행자는 지정권자의 승인을 받아야 조성토지등의 대금을 미리 받을 수 있다.",
+      "공공용지가 아닌 조성토지등의 공급은 원칙적으로 경쟁입찰의 방법으로 해야 하며 예외적인 경우에만 수의계약이 허용되고, 시행방식은 혼용방식에서 수용·사용 방식으로 변경할 수 없다(환지 방향으로만 가능).",
+    ],
+    pitfalls:
+      "지정권자도 수용권을 가진다고 착각하기 쉽지만, 수용권은 오직 시행자에게만 있으며 지정권자는 인가·감독 권한만 가진다.",
+    example:
+      "수용의 대상이 되는 토지의 세부목록을 고시한 경우에는 「공익사업을 위한 토지 등의 취득 및 보상에 관한 법률」에 따른 사업인정 및 그 고시가 있었던 것으로 본다.",
+    questionRefs: [
+      { year: 2016, questionNo: 54 },
+      { year: 2019, questionNo: 58 },
+    ],
+  },
+  {
+    slug: "urban-development-original-land",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "원형지의 공급·개발과 매각 제한",
+    titleEn: "Supply, Development, and Resale Restrictions on Original-Form Land",
+    definition:
+      "원형지는 국가·지방자치단체·지방공사에는 도시개발구역 전체 토지면적의 3분의 1까지 공급할 수 있고, 공장 부지 등 직접 사용 목적의 원형지개발자는 경쟁입찰로 선정하되(2회 이상 유찰 시 수의계약 가능), 공급가격은 감정가격과 기반시설 설치비용의 합산액을 기준으로 시행자가 정하며, 지방자치단체인 원형지개발자는 공사완료 공고일부터 5년의 범위에서 매각이 제한된다.",
+    intuition:
+      "원형지 규정은 '공급 면적 상한(1/3)', '개발자 선정방식(경쟁입찰 원칙)', '매각 제한기간(10년 이내에서 대통령령, 실제 5년)'을 서로 다른 숫자로 출제하므로 각각 정확히 구분해야 한다.",
+    keyPoints: [
+      "국가·지방자치단체·지방공사 등에 공급될 수 있는 원형지 면적은 도시개발구역 전체 토지면적의 3분의 1까지로 한다(3분의 2가 아님).",
+      "원형지를 공장 부지 등으로 직접 사용하는 원형지개발자의 선정은 경쟁입찰 방식으로 하며, 경쟁입찰이 2회 이상 유찰된 경우에는 수의계약으로 할 수 있다.",
+      "지정권자는 원형지의 공급을 승인할 때 용적률 등 개발밀도에 관한 이행조건을 붙일 수 있으며, 원형지 공급가격은 원형지의 감정가격과 원형지에 설치한 기반시설 공사비를 합산한 금액을 기준으로 시행자가 정한다(조례로 정하지 않음).",
+      "원형지개발자인 지방자치단체는 원형지에 대한 공사완료 공고일부터 5년의 범위에서 대통령령으로 정하는 기간이 지나면 원형지를 매각할 수 있다.",
+      "원형지개발자가 공급받은 토지 전부를 시행자 동의 없이 제3자에게 매각하는 경우, 시행자는 곧바로 계약을 해제하는 것이 아니라 원형지개발자에게 시정을 요구한 후에도 이행하지 않으면 계약을 해제할 수 있다.",
+      "원형지가 공공택지 용도인 경우 원형지개발자의 선정은 추첨의 방법으로 할 수 있다.",
+    ],
+    pitfalls:
+      "국가·지방자치단체에 공급되는 원형지 면적 상한을 '3분의 2'로 잘못 기억하기 쉽지만, 실제로는 전체 토지면적의 3분의 1까지다.",
+    example:
+      "원형지를 공장 부지로 직접 사용하는 원형지개발자의 선정은 경쟁입찰의 방식으로 하며, 경쟁입찰이 2회 이상 유찰된 경우에는 수의계약의 방법으로 할 수 있다.",
+    questionRefs: [
+      { year: 2021, questionNo: 54 },
+      { year: 2023, questionNo: 54 },
+    ],
+  },
+  {
+    slug: "urban-development-implementation-plan",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "도시개발사업 실시계획의 작성·인가",
+    titleEn: "Formulation and Approval of Implementation Plans",
+    definition:
+      "시행자가 작성하는 실시계획에는 지구단위계획이 포함되어야 하며, 지정권자인 국토교통부장관이 실시계획을 작성할 때에는 시·도지사 또는 대도시 시장의 의견을 미리 들어야 하고, 지정권자가 시행자가 아닌 경우 시행자는 작성된 실시계획에 관해 지정권자의 인가를 받아야 하며, 인가받은 실시계획 중 사업시행면적의 100분의 10 이상이 증감되는 경우 등은 변경인가가 필요하다.",
+    intuition:
+      "실시계획은 '누가 작성·인가하는지(국토교통부장관 작성 시 의견청취 대상, 시행자 작성 시 지정권자 인가)'와 '변경인가가 필요한 경중 기준(면적 증감 비율)'을 조합해 출제된다.",
+    keyPoints: [
+      "지정권자인 국토교통부장관이 실시계획을 작성하는 경우 시·도지사 또는 대도시 시장의 의견을 미리 들어야 한다(시장·군수·구청장이 아님).",
+      "지정권자가 시행자가 아닌 경우 시행자는 작성한 실시계획에 관해 지정권자의 인가를 받아야 하며, 실시계획을 인가할 때 지정권자가 공공하수도 공사시행의 허가 등에 관해 관계 행정기관의 장과 협의했다면 해당 허가를 받은 것으로 의제된다.",
+      "시행자가 작성하는 실시계획에는 지구단위계획이 포함되어야 하며, 실시계획의 인가에 의해 「주택법」에 따른 사업계획의 승인이 의제될 수 있다.",
+      "인가받은 실시계획 중 사업시행면적의 100분의 20이 감소되는 경우에는 지정권자의 변경인가가 필요하다(변경인가 불요라는 서술은 틀림).",
+      "고시된 실시계획의 내용 중 도시·군관리계획으로 결정해야 하는 사항이 종전에 결정된 사항에 저촉되면, 종전 사항이 아니라 나중에 고시된 실시계획의 내용이 우선 적용된다.",
+      "환지방식으로 시행하는 구역에 대해 지정권자가 실시계획을 작성한 경우, 사업의 명칭·목적, 도시·군관리계획의 결정내용을 관할 등기소에 통보·제출할 의무는 없다.",
+    ],
+    pitfalls:
+      "실시계획의 저촉 우선순위를 '종전 결정사항 우선'으로 착각하기 쉽지만, 실제로는 나중에 고시된 실시계획 내용이 우선 적용된다.",
+    example:
+      "지정권자인 국토교통부장관이 실시계획을 작성하는 경우 시·도지사 또는 대도시 시장의 의견을 미리 들어야 한다.",
+    questionRefs: [
+      { year: 2018, questionNo: 56 },
+      { year: 2020, questionNo: 54 },
+    ],
+  },
+  {
+    slug: "urban-development-completion-inspection",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "도시개발사업의 준공검사와 체비지",
+    titleEn: "Completion Inspection and Reserved Land",
+    definition:
+      "도시개발사업의 준공검사 전에도 체비지는 사용할 수 있으며, 지정권자가 아닌 시행자는 공사 전부가 끝나기 전이라도 끝난 부분에 대해 준공검사를 받을 수 있고, 공사를 끝내면 공사완료 보고서를 작성해 지정권자의 준공검사를 받아야 하며, 지정권자가 시행자인 경우에는 준공검사 대신 공사완료 공고를 한다.",
+    intuition:
+      "이 카드의 핵심은 '체비지는 준공 전에도 사용 가능하다'는 예외 규정과, '지정권자가 시행자인지 아닌지'에 따라 준공검사 절차(검사 vs 공고)가 달라진다는 구조를 이해하는 것이다.",
+    keyPoints: [
+      "도시개발사업의 준공검사 전이라도 체비지는 사용할 수 있다.",
+      "지정권자는 효율적인 준공검사를 위해 필요하면 관계 행정기관 등에 의뢰하여 준공검사를 할 수 있으며, 지정권자가 아닌 시행자는 공사가 전부 끝나기 전이라도 끝난 부분에 대해 준공검사를 받을 수 있다.",
+      "지정권자가 아닌 시행자가 공사를 끝낸 때에는 공사완료 보고서를 작성해 지정권자의 준공검사를 받아야 하지만, 지정권자가 시행자인 경우에는 공사를 완료하면 준공검사가 아니라 공사완료 공고를 한다.",
+    ],
+    pitfalls:
+      "체비지도 준공검사를 마쳐야만 사용할 수 있다고 오해하기 쉽지만, 실제로는 준공검사 전에도 체비지를 사용할 수 있다.",
+    example:
+      "도시개발사업의 준공검사 전이라도 체비지는 사용할 수 있다.",
+    questionRefs: [
+      { year: 2016, questionNo: 53 },
+    ],
+  },
+  {
+    slug: "urban-development-plan-change-consent",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "환지방식 개발계획 변경 시 토지소유자 동의 요건",
+    titleEn: "Landowner Consent for Changes to Envelopment-Method Development Plans",
+    definition:
+      "도시개발사업의 일부를 환지 방식으로 시행하기 위해 개발계획을 변경할 때, 사업시행지구를 분할하거나 분할된 사업시행지구를 통합하는 경우에는 토지소유자의 동의가 필요하지만, 도로 폐지나 기반시설 면적·용적률의 소폭 증가(100분의 5 미만), 수용예정인구의 소폭 증가 등 경미한 변경은 동의가 필요하지 않다.",
+    intuition:
+      "이 카드는 '경미한 변경(수치 기준 이내)'과 '중대한 변경(사업시행지구 분할·통합)'을 구분하는 문제이며, 숫자 기준(100분의 5 미만)에 해당하는 변경은 동의가 필요 없다는 원칙을 기억하면 된다.",
+    keyPoints: [
+      "사업시행지구를 분할하거나 분할된 사업시행지구를 통합하는 개발계획 변경은 토지소유자의 동의가 필요하다.",
+      "너비 12m 미만 도로의 폐지, 기반시설(도로 제외) 면적의 100분의 5 미만 증감, 용적률의 100분의 5 미만 증감, 수용예정인구의 100분의 10 미만 증감 등은 경미한 변경으로 보아 토지소유자의 동의가 필요하지 않다.",
+    ],
+    pitfalls:
+      "기반시설 면적이나 용적률이 조금이라도 증가하면 항상 동의가 필요하다고 오해하기 쉽지만, 100분의 5 미만의 증감은 경미한 변경으로 동의가 필요 없다.",
+    example:
+      "도시개발사업의 일부를 환지방식으로 시행하기 위하여 개발계획을 변경할 때, 사업시행지구를 분할하거나 분할된 사업시행지구를 통합하는 경우에는 토지소유자의 동의가 필요하다.",
+    questionRefs: [
+      { year: 2017, questionNo: 58 },
+    ],
+  },
+  {
+    slug: "urban-development-agency-scope",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "주택건설사업자에 대한 사업 대행 범위",
+    titleEn: "Scope of Delegated Work to Housing Construction Business Operators",
+    definition:
+      "도시개발사업의 시행자인 국가·지방자치단체는 실시설계, 기반시설공사, 부지조성공사, 조성된 토지의 분양을 「주택법」에 따른 주택건설사업자 등에게 대행하게 할 수 있지만, 토지상환채권의 발행은 대행 범위에 포함되지 않는다.",
+    intuition:
+      "대행 가능 범위는 '설계·조성·분양'이라는 실무적 시공·분양 업무에 한정되며, 자금조달 수단인 토지상환채권 발행처럼 시행자의 재정적 의사결정에 해당하는 사항은 대행할 수 없다는 원칙을 기억하면 된다.",
+    keyPoints: [
+      "국가 또는 지방자치단체인 시행자는 실시설계, 기반시설공사, 부지조성공사, 조성된 토지의 분양을 주택건설사업자 등에게 대행하게 할 수 있다.",
+      "토지상환채권의 발행은 주택건설사업자 등에게 대행하게 할 수 있는 도시개발사업의 범위에 포함되지 않는다.",
+    ],
+    pitfalls:
+      "조성된 토지의 분양 업무를 대행할 수 없다고 오해하기 쉽지만, 분양 업무는 대행 가능한 범위에 포함되며, 대행 불가 항목은 토지상환채권 발행이라는 점을 구분해야 한다.",
+    example:
+      "도시개발사업의 시행자인 국가 또는 지방자치단체는 실시설계, 기반시설공사, 부지조성공사, 조성된 토지의 분양을 「주택법」에 따른 주택건설사업자에게 대행하게 할 수 있다.",
+    questionRefs: [
+      { year: 2019, questionNo: 56 },
+      { year: 2023, questionNo: 56 },
+    ],
+  },
+  {
+    slug: "urban-development-cost-sharing",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "도시개발사업의 비용 부담",
+    titleEn: "Cost Sharing in Urban Development Projects",
+    definition:
+      "지정권자가 시행자가 아닌 경우 도시개발구역의 통신시설 설치는 특별한 사유가 없으면 준공검사 신청일까지 끝내야 하며, 전부 환지 방식으로 사업을 시행하는 경우 전기시설의 지중선로 설치비용은 사업시행자가 전부 부담하고, 지정권자인 시행자는 그가 시행한 사업으로 이익을 얻는 시·도에 비용의 전부 또는 일부를 부담시킬 수 없다.",
+    intuition:
+      "비용부담 문제는 '누가 어떤 시설의 비용을 얼마나 부담하는지'를 실제 법정 비율과 다르게 서술해 오답을 만드는 방식이므로, 지중선로 비용의 분담비율과 이익을 얻는 지자체에 대한 비용 전가 가능 여부를 정확히 기억해야 한다.",
+    keyPoints: [
+      "지정권자가 시행자가 아닌 경우 도시개발구역의 통신시설 설치는 특별한 사유가 없으면 준공검사 신청일까지 끝내야 한다.",
+      "전부 환지 방식으로 사업을 시행하는 경우, 전기시설의 지중선로 설치를 요청한 사업시행자가 전기공급자와 2분의 1씩 부담하는 것이 아니라 사업시행자가 전액 부담하는 것이 원칙이다(요청자가 전액 부담).",
+      "지정권자인 시행자는 그가 시행한 사업으로 이익을 얻는 시·도에 비용의 전부 또는 일부를 부담시킬 수 없다.",
+    ],
+    pitfalls:
+      "지중선로 설치비용을 사업시행자와 전기공급자가 2분의 1씩 부담한다고 착각하기 쉽지만, 전부 환지 방식에서는 설치를 요청한 사업시행자가 비용을 부담하는 것이 원칙이다.",
+    example:
+      "지정권자가 시행자가 아닌 경우 도시개발구역의 통신시설의 설치는 특별한 사유가 없으면 준공검사 신청일까지 끝내야 한다.",
+    questionRefs: [
+      { year: 2020, questionNo: 58 },
+    ],
+  },
+  {
+    slug: "urban-development-permission-required-acts",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "도시개발구역에서 허가를 받아야 하는 행위",
+    titleEn: "Acts Requiring Permission within Urban Development Zones",
+    definition:
+      "도시개발구역에서 건축물의 건축·용도변경, 공작물의 설치, 토지의 형질변경, 토석의 채취, 토지분할, 물건을 쌓아놓는 행위, 죽목의 벌채·식재, 공유수면 매립 등을 하려면 특별자치도지사·시장·군수·구청장의 허가를 받아야 하지만, 토지의 합병은 허가 대상 행위로 명시되어 있지 않다.",
+    intuition:
+      "허가대상 행위 목록은 '토지의 형질을 물리적으로 바꾸거나 구역 관리에 영향을 주는 행위'에 초점이 있으므로, 토지의 합병처럼 물리적 변화가 없는 행위는 제외된다는 점을 기억하면 된다.",
+    keyPoints: [
+      "도시개발구역에서 허가를 받아야 하는 행위에는 토석의 채취, 죽목의 식재·벌채, 공유수면의 매립, 「건축법」에 따른 건축물의 용도변경, 토지의 형질변경, 토지분할, 물건을 쌓아놓는 행위 등이 포함된다.",
+      "토지의 합병은 도시개발구역에서 허가를 받아야 할 행위로 명시되어 있지 않다(토지의 분할만 허가 대상).",
+    ],
+    pitfalls:
+      "토지의 분할과 합병을 같은 범주로 묶어 둘 다 허가 대상이라고 착각하기 쉽지만, 허가 대상은 분할이며 합병은 대상이 아니다.",
+    example:
+      "도시개발구역에서 토석의 채취, 죽목의 식재, 공유수면의 매립, 「건축법」에 따른 건축물의 용도 변경은 허가를 받아야 할 행위이지만, 토지의 합병은 그렇지 않다.",
+    questionRefs: [
+      { year: 2021, questionNo: 57 },
+    ],
+  },
+  {
+    slug: "urban-development-land-substitution-bond",
+    chapterKo: "도시개발법",
+    sectionKo: "구역지정",
+    category: "도시개발법",
+    subcategory: "도시개발구역 지정",
+    parentSlug: "urban-development-zone-designation",
+    titleKo: "토지상환채권의 발행요건과 발행규모",
+    titleEn: "Issuance Requirements for Land Substitution Bonds",
+    definition:
+      "지방공사 등 공공시행자는 지급보증 없이도 토지상환채권을 단독으로 발행할 수 있으며(민간시행자만 금융기관 지급보증 필요), 발행규모는 상환할 토지·건축물이 조성되는 분양토지·분양건축물 면적의 2분의 1을 초과할 수 없고, 토지상환채권은 이전할 수 있으며, 토지가격의 추산방법은 발행계획에 반드시 포함되어야 하고, 토지 등의 매수대금 일부의 지급을 위해서도 발행할 수 있다.",
+    intuition:
+      "토지상환채권 문제는 '지급보증이 필요한 발행자(민간) vs 필요 없는 발행자(공공)', '발행규모 상한(1/2)', '이전 가능 여부'를 조합한 오답 패턴이 반복된다.",
+    keyPoints: [
+      "지방공사 등이 단독으로 토지상환채권을 발행하는 경우 은행 등의 지급보증이 없어도 발행할 수 있다(지급보증 필요는 민간시행자에게 적용).",
+      "토지상환채권의 발행규모는 그 채권으로 상환할 토지·건축물이 도시개발사업으로 조성되는 분양토지 또는 분양건축물 면적의 2분의 1을 초과하지 않아야 한다(3분의 2가 아님).",
+      "토지상환채권은 이전할 수 있으며, 토지가격의 추산방법은 토지상환채권의 발행계획에 포함되어야 하는 사항이다.",
+      "토지 등의 매수 대금 일부의 지급을 위해서도 토지상환채권을 발행할 수 있다.",
+    ],
+    pitfalls:
+      "토지상환채권의 발행규모 상한을 '3분의 2'로 착각하기 쉽지만, 실제로는 분양토지·분양건축물 면적의 2분의 1을 초과할 수 없다.",
+    example:
+      "「지방공기업법」에 따라 설립된 지방공사가 단독으로 토지상환채권을 발행하는 경우, 그 발행규모는 상환할 토지·건축물이 조성되는 분양토지 또는 분양건축물 면적의 2분의 1을 초과하지 아니하도록 하여야 한다.",
+    questionRefs: [
+      { year: 2022, questionNo: 53 },
+    ],
+  },
+  {
+    slug: "urban-development-association",
+    chapterKo: "도시개발법",
+    sectionKo: "사업조합",
+    category: "도시개발법",
+    subcategory: "도시개발사업조합",
+    titleKo: "도시개발사업조합의 설립인가·정관·등기",
+    titleEn: "Establishment, Bylaws, and Registration of Urban Development Associations",
+    definition:
+      "조합은 도시개발사업의 전부를 환지 방식으로 시행하는 경우에만 사업시행자가 될 수 있으며, 조합을 설립하려면 도시개발구역의 토지 소유자 7명 이상이 정관을 작성해 지정권자(국토교통부장관이 아님)에게 설립인가를 받아야 하고, 이때 국공유지를 제외한 구역 토지면적의 3분의 2 이상 소유자 및 토지 소유자 총수의 2분의 1 이상의 동의가 필요하며, 조합은 주된 사무소 소재지에서 설립인가일부터 30일 이내에 설립등기를 함으로써 성립한다.",
+    intuition:
+      "조합 설립 관련 숫자(토지소유자 7명, 동의요건 2/3+1/2, 등기기한 30일)는 매 회차 반복 출제되므로 하나의 세트로 정확히 암기하고, '2분의 1+3분의 2'를 서로 바꿔 쓰는 오답에 특히 주의해야 한다.",
+    keyPoints: [
+      "조합은 도시개발사업의 전부를 환지 방식으로 시행하는 경우에만 사업시행자가 될 수 있다.",
+      "조합을 설립하려면 도시개발구역의 토지 소유자 7명 이상이 정관을 작성해 지정권자에게 조합 설립의 인가를 받아야 한다(국토교통부장관이 아님).",
+      "조합 설립의 인가를 신청하려면 국공유지를 제외한 도시개발구역 토지면적의 3분의 2 이상에 해당하는 토지 소유자와 그 구역 토지 소유자 총수의 2분의 1 이상의 동의를 받아야 한다(2분의 1과 3분의 2를 서로 바꿔 쓰면 틀림).",
+      "조합이 작성하는 정관에는 도시개발구역의 면적이 포함되어야 하며, 조합의 이사는 그 조합의 조합장을 겸할 수 없다.",
+      "조합은 그 주된 사무소의 소재지에서 등기를 하면 성립하며, 설립인가를 받은 조합의 대표자는 설립인가를 받은 날부터 30일 이내에 주된 사무소의 소재지에서 설립등기를 해야 한다.",
+      "주된 사무소의 소재지를 변경하려는 경우에는 지정권자로부터 변경인가를 받아야 한다(신고만으로 부족).",
+    ],
+    pitfalls:
+      "조합 설립인가 동의요건의 두 비율(토지면적 3분의 2, 토지 소유자 총수 2분의 1)을 서로 뒤바꿔 기억하기 쉬우므로, '면적은 3분의 2, 인원수는 2분의 1'이라는 짝을 정확히 암기해야 한다.",
+    example:
+      "조합을 설립하려면 도시개발구역의 토지 소유자 7명 이상이 정관을 작성하여 지정권자에게 조합 설립의 인가를 받아야 한다.",
+    questionRefs: [
+      { year: 2016, questionNo: 55 },
+      { year: 2018, questionNo: 55 },
+      { year: 2022, questionNo: 56 },
+      { year: 2025, questionNo: 55 },
+    ],
+  },
+  {
+    slug: "urban-development-association-officers-representative",
+    chapterKo: "도시개발법",
+    sectionKo: "사업조합",
+    category: "도시개발법",
+    subcategory: "도시개발사업조합",
+    parentSlug: "urban-development-association",
+    titleKo: "조합 임원의 결격사유와 대의원회의 권한",
+    titleEn: "Officer Disqualification and Representative Assembly Authority",
+    definition:
+      "금고 이상의 형을 선고받고 그 집행유예 기간 중에 있는 자는 조합의 임원이 될 수 없고, 조합장·이사가 자기를 위한 조합과의 계약·소송에 관해서는 대의원회가 아니라 감사가 조합을 대표하며, 의결권을 가진 조합원 수가 50인 이상인 조합은 대의원회를 둘 수 있고(의무는 아님) 대의원 수는 조합원 총수의 100분의 10 이상으로 하며, 대의원회는 환지예정지의 지정 등 총회 의결사항 일부를 대행할 수 있지만 정관 변경·개발계획 수립·조합장 선임·조합 합병은 대행할 수 없다.",
+    intuition:
+      "대의원회는 '조합 존립·정체성에 관한 중대사항(정관변경·조합장선임·합병·개발계획수립)'은 대행할 수 없고 '통상적 집행사항(환지예정지 지정 등)'만 대행할 수 있다는 원칙으로 정리하면 되며, 조합 대표소송에서는 대의원회가 아닌 감사가 조합을 대표한다는 점이 핵심 함정이다.",
+    keyPoints: [
+      "금고 이상의 형을 선고받고 그 형의 집행유예 기간 중에 있는 자는 조합의 임원이 될 수 없다.",
+      "조합장 또는 이사가 자기를 위한 조합과의 계약이나 소송에 관해서는 대의원회가 아니라 감사가 조합을 대표한다.",
+      "의결권을 가진 조합원의 수가 50인 이상인 조합은 총회의 권한을 대행하게 하기 위해 대의원회를 '둘 수 있으며'(의무 설치가 아님), 대의원회에 두는 대의원의 수는 의결권을 가진 조합원 총수의 100분의 10 이상으로 한다.",
+      "대의원회가 총회의 권한을 대행할 수 있는 사항에는 환지예정지의 지정이 포함되지만, 정관의 변경, 개발계획의 수립, 조합장의 선임, 조합의 합병에 관한 사항은 대행할 수 없다.",
+    ],
+    pitfalls:
+      "조합장의 자기 관련 소송에서 대의원회가 조합을 대표한다고 착각하기 쉽지만, 실제로는 감사가 조합을 대표한다.",
+    example:
+      "대의원회가 도시개발조합 총회의 의결사항 중 대행할 수 있는 사항에는 환지예정지의 지정이 포함되지만, 정관의 변경·조합장의 선임·조합의 합병에 관한 사항은 포함되지 않는다.",
+    questionRefs: [
+      { year: 2020, questionNo: 57 },
+      { year: 2023, questionNo: 55 },
+    ],
+  },
+  {
+    slug: "urban-development-association-membership-voting",
+    chapterKo: "도시개발법",
+    sectionKo: "사업조합",
+    category: "도시개발법",
+    subcategory: "도시개발사업조합",
+    parentSlug: "urban-development-association",
+    titleKo: "조합원의 자격과 의결권 승계",
+    titleEn: "Association Membership Qualifications and Voting Right Succession",
+    definition:
+      "도시개발구역의 토지 소유자는 미성년자라도 조합원이 될 수 있으며(자격 제한 없음), 공유 토지의 경우 공유자별로 별도 의결권이 인정되는 것이 아니라 대표 공유자 1인에게 의결권이 귀속되고, 다른 조합원으로부터 그 도시개발구역 내 토지 소유권 전부를 이전받은 조합원은 정관으로 정하는 바에 따라 본래의 의결권과 별도로 그 토지를 이전한 조합원의 의결권을 승계할 수 있으며, 조합 설립인가 신청 전에 동의를 철회한 토지 소유자는 동의자 수에서 제외된다.",
+    intuition:
+      "조합원 자격·의결권 문제는 '누가 조합원이 될 수 있는지(미성년자도 가능)'와 '의결권의 귀속·승계 방식(공유는 대표 1인, 토지 전부 이전 시 승계 가능)'을 조합해 오답을 만드는 방식으로 출제된다.",
+    keyPoints: [
+      "도시개발구역의 토지 소유자가 미성년자인 경우에도 조합의 조합원이 될 수 있다(제한 없음).",
+      "공유 토지의 경우 공유자별로 별도의 의결권이 인정되는 것이 아니라, 대표 공유자 1인에게 의결권이 귀속된다.",
+      "다른 조합원으로부터 해당 도시개발구역에 있는 토지 소유권 전부를 이전받은 조합원은 정관으로 정하는 바에 따라 본래의 의결권과는 별도로 그 토지 소유권을 이전한 조합원의 의결권을 승계할 수 있다.",
+      "토지 소유자가 조합 설립인가 신청에 동의하였더라도 신청 전에 그 동의를 철회하면 그 토지 소유자는 동의자 수에 포함되지 않는다.",
+      "조합의 임원으로 선임된 자가 금고 이상의 형을 선고받더라도 그 즉시 당연히 임원 자격을 상실하는 것은 아니다(별도의 결격·해임 절차에 따름).",
+    ],
+    pitfalls:
+      "공유 토지의 의결권을 공유자 각자에게 인정된다고 착각하기 쉽지만, 실제로는 대표 공유자 1인에게만 의결권이 귀속된다.",
+    example:
+      "다른 조합원으로부터 해당 도시개발구역에 그가 가지고 있는 토지 소유권 전부를 이전받은 조합원은 정관으로 정하는 바에 따라 본래의 의결권과는 별도로 그 토지 소유권을 이전한 조합원의 의결권을 승계할 수 있다.",
+    questionRefs: [
+      { year: 2020, questionNo: 55 },
+      { year: 2024, questionNo: 57 },
+    ],
+  },
+  {
+    slug: "urban-development-delegated-execution-agent",
+    chapterKo: "도시개발법",
+    sectionKo: "사업조합",
+    category: "도시개발법",
+    subcategory: "도시개발사업조합",
+    parentSlug: "urban-development-association",
+    titleKo: "주택건설사업자 등에 대한 도시개발사업 대행자의 범위",
+    titleEn: "Scope of Entities Authorized to Delegate Work to Housing Construction Businesses",
+    definition:
+      "도시개발사업의 시행자 중 지방자치단체, 한국관광공사 등 법정 공공기관은 「주택법」에 따른 주택건설사업자 등에게 도시개발사업의 일부를 대행하게 할 수 있지만, 「부동산투자회사법」에 따라 설립된 자기관리부동산투자회사나 「수도권정비계획법」상 과밀억제권역에서 수도권 외 지역으로 이전하는 법인은 이러한 대행을 시킬 수 있는 시행자에 해당하지 않는다.",
+    intuition:
+      "사업 대행을 시킬 수 있는 시행자는 '국가·지자체 계열 및 법정 공공기관'에 한정되며, 민간 투자기구(자기관리부동산투자회사)나 이전법인처럼 일반 민간 주체는 이 목록에 포함되지 않는다는 원칙으로 기억하면 된다.",
+    keyPoints: [
+      "지방자치단체와 「한국관광공사법」에 따른 한국관광공사는 「주택법」에 따른 주택건설사업자 등에게 도시개발사업의 일부를 대행하게 할 수 있는 시행자에 해당한다.",
+      "「부동산투자회사법」에 따라 설립된 자기관리부동산투자회사와 「수도권정비계획법」에 따른 과밀억제권역에서 수도권 외의 지역으로 이전하는 법인은 이러한 대행을 시킬 수 있는 시행자에 해당하지 않는다.",
+    ],
+    pitfalls:
+      "자기관리부동산투자회사도 공공성 있는 시행자로 착각하기 쉽지만, 사업 대행을 시킬 수 있는 시행자 목록에는 포함되지 않는다.",
+    example:
+      "지방자치단체와 「한국관광공사법」에 따른 한국관광공사는 「주택법」에 따른 주택건설사업자 등으로 하여금 도시개발사업의 일부를 대행하게 할 수 있다.",
+    questionRefs: [
+      { year: 2017, questionNo: 55 },
+    ],
+  },
+  {
+    slug: "replot-method",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    titleKo: "평면 환지와 입체 환지의 구분",
+    titleEn: "Distinction between Flat and Vertical Replotting",
+    definition:
+      "평면 환지는 환지 전 토지에 대한 권리를 도시개발사업으로 조성되는 토지에 이전하는 방식이고, 입체 환지는 환지 전 토지나 건축물(무허가 건축물은 제외)에 대한 권리를 도시개발사업으로 건설되는 구분건축물에 이전하는 방식이다.",
+    intuition:
+      "평면 환지는 '토지 → 토지', 입체 환지는 '토지·건축물 → 구분건축물(집합건물의 전유부분)'로 이전 대상이 바뀐다는 점이 핵심 구분 기준이다.",
+    keyPoints: [
+      "평면 환지는 환지 전 토지에 대한 권리를 도시개발사업으로 조성되는 토지에 이전하는 방식이다.",
+      "입체 환지는 환지 전 토지나 건축물(무허가 건축물은 제외)에 대한 권리를 도시개발사업으로 건설되는 구분건축물에 이전하는 방식이다.",
+    ],
+    pitfalls:
+      "무허가 건축물도 입체 환지의 대상이 된다고 착각하기 쉽지만, 무허가 건축물은 입체 환지 대상에서 제외된다.",
+    example:
+      "평면 환지는 환지 전 토지에 대한 권리를 환지로 조성되는 토지에 이전하는 방식이다.",
+    questionRefs: [
+      { year: 2016, questionNo: 56 },
+    ],
+  },
+  {
+    slug: "land-burden-rate-calculation",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "면적식 환지의 평균 토지부담률 계산",
+    titleEn: "Average Land Burden Rate Calculation for Area-Based Replotting",
+    definition:
+      "면적식 환지계획에서 평균 토지부담률은 '(보류지 면적 − 시행자에게 무상귀속되는 공공시설 토지면적 − 시행자 소유 토지면적) ÷ (환지계획구역 면적 − 시행자에게 무상귀속되는 공공시설 토지면적 − 시행자 소유 토지면적) × 100'의 계산식으로 산정한다.",
+    intuition:
+      "토지부담률 계산은 '분모(환지계획구역 면적에서 공공시설 무상귀속분·시행자 소유분을 뺀 순수 대상면적)'와 '분자(보류지 면적에서 같은 항목을 뺀 순수 보류지)'를 정확히 구성하는 것이 핵심이며, 예시 수치(구역 20만㎡, 무상귀속 2만㎡, 시행자 소유 1만㎡, 보류지 106,500㎡)를 대입하면 (106,500−2만−1만)÷(20만−2만−1만)×100=45%가 된다.",
+    keyPoints: [
+      "평균 토지부담률 = (보류지 면적 − 시행자에게 무상귀속되는 공공시설 토지면적 − 시행자 소유 토지면적) ÷ (환지계획구역 면적 − 시행자에게 무상귀속되는 공공시설 토지면적 − 시행자 소유 토지면적) × 100 의 계산식으로 산정한다.",
+      "환지계획구역 면적 200,000㎡, 무상귀속 공공시설 토지 20,000㎡, 시행자 소유 토지 10,000㎡, 보류지 면적 106,500㎡인 경우 평균 토지부담률은 45%로 계산된다.",
+    ],
+    pitfalls:
+      "보류지 면적 전체를 그대로 분자로 사용하기 쉽지만, 무상귀속분과 시행자 소유분을 뺀 순수 보류지 면적을 분자로 써야 한다.",
+    example:
+      "환지계획구역 면적 200,000㎡, 무상귀속 공공시설 토지 20,000㎡, 시행자 소유 토지 10,000㎡, 보류지 면적 106,500㎡인 경우 평균 토지부담률은 45%이다.",
+    questionRefs: [
+      { year: 2016, questionNo: 58 },
+    ],
+  },
+  {
+    slug: "joint-implementation-agreement-replot",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "공동시행 규약 중 환지방식 전용 기재사항",
+    titleEn: "Replotting-Specific Provisions in Joint Implementation Agreements",
+    definition:
+      "공동으로 도시개발사업을 시행하려는 자가 정하는 규약에는 청산, 환지계획 및 환지예정지의 지정, 보류지 및 체비지의 관리·처분, 토지평가협의회의 구성·운영이 환지방식으로 시행하는 경우에만 포함되어야 할 사항이며, 주된 사무소의 소재지는 시행방식과 무관하게 모든 공동시행 규약에 공통으로 포함되어야 하는 사항이다.",
+    intuition:
+      "규약 기재사항은 '환지방식 고유의 절차(청산·환지계획·보류지체비지·토지평가협의회)'와 '시행방식과 무관한 일반사항(사무소 소재지 등)'으로 구분하면 된다.",
+    keyPoints: [
+      "환지방식으로 시행하는 경우에만 규약에 포함되어야 할 사항에는 청산, 환지계획 및 환지예정지의 지정, 보류지 및 체비지의 관리·처분, 토지평가협의회의 구성 및 운영이 있다.",
+      "주된 사무소의 소재지는 환지방식 여부와 관계없이 모든 공동시행 규약에 공통으로 포함되어야 하는 일반사항이다.",
+    ],
+    pitfalls:
+      "주된 사무소의 소재지도 환지방식 전용 사항이라고 착각하기 쉽지만, 이는 시행방식과 무관하게 공통으로 포함되는 일반사항이다.",
+    example:
+      "공동으로 도시개발사업을 시행하려는 자가 정하는 규약에서 청산, 환지계획 및 환지예정지의 지정, 보류지 및 체비지의 관리·처분, 토지평가협의회의 구성 및 운영은 환지방식으로 시행하는 경우에만 포함되어야 한다.",
+    questionRefs: [
+      { year: 2017, questionNo: 54 },
+    ],
+  },
+  {
+    slug: "replot-disposition-procedure",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "환지처분의 절차와 효과",
+    titleEn: "Procedure and Effects of Replotting Disposition",
+    definition:
+      "시행자는 도시개발사업 공사를 끝내면 지체 없이 관보·공보에 공고하고, 지정권자가 시행자이면 공사완료 공고 후 60일 이내에 환지처분을 해야 하며(지정권자가 아닌 시행자는 준공검사 후 60일 이내), 환지처분이 공고된 날의 다음 날에 환지는 종전 토지로 보고 입체환지처분을 받은 자는 건축물 일부·공유지분을 취득하며, 행사할 이익이 없어진 지역권은 환지처분 공고일이 '끝나는 때'(다음 날이 아님)에 소멸한다.",
+    intuition:
+      "환지처분 관련 시점은 '다음 날부터 발생하는 효과(종전 토지 간주, 소유권 취득)'와 '공고일 그 자체가 끝나는 때 소멸하는 것(지역권)'을 구분하는 것이 핵심이며, 60일이라는 기한도 정확히 암기해야 한다.",
+    keyPoints: [
+      "시행자는 도시개발사업에 관한 공사를 끝낸 경우 지체 없이 관보 또는 공보에 이를 공고해야 하며, 지정권자가 시행자인 경우 공사완료 공고가 있으면 60일 이내에 환지처분을 해야 한다(90일이 아님).",
+      "환지 계획에 따라 입체환지처분을 받은 자는 환지처분이 공고된 날의 다음 날에 건축물의 일부와 해당 건축물이 있는 토지의 공유지분을 취득하며, 체비지로 정해지지 않은 보류지도 환지처분 공고 다음 날에 환지 계획에서 정한 자가 소유권을 취득한다.",
+      "도시개발사업 시행으로 행사할 이익이 없어진 지역권은 환지처분이 공고된 날의 '다음 날'이 아니라 그 공고일이 '끝나는 때'에 소멸한다.",
+      "도시개발구역 토지 소유자·이해관계인은 환지 방식 사업의 공사 관계 서류 공람 기간에 시행자에게 의견서를 제출할 수 있으며, 환지를 정하거나 대상에서 제외한 경우 그 과부족분은 금전으로 청산해야 한다.",
+      "시행자가 환지처분을 하려는 경우에는 환지 계획에서 정한 사항을 토지 소유자에게 알리고 관보·공보로 공고해야 하며, 환지 계획에서 정해진 환지는 그 환지처분이 공고된 날의 다음 날부터 종전의 토지로 본다.",
+    ],
+    pitfalls:
+      "지역권 소멸 시점을 '환지처분 공고일의 다음 날'로 착각하기 쉽지만, 정확히는 공고일 '그 자체가 끝나는 때'에 소멸한다는 점이 반복되는 함정이다.",
+    example:
+      "도시개발사업의 시행으로 행사할 이익이 없어진 지역권은 환지처분이 공고된 날이 끝나는 때에 소멸한다.",
+    questionRefs: [
+      { year: 2017, questionNo: 56 },
+      { year: 2022, questionNo: 54 },
+    ],
+  },
+  {
+    slug: "replot-implementation-general",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "환지방식 사업시행의 일반원칙",
+    titleEn: "General Principles of Replotting-Based Implementation",
+    definition:
+      "행정청이 아닌 시행자가 환지 계획을 작성하면 특별자치도지사·시장·군수·구청장의 인가를 받아야 하고, 환지설계 시 적용되는 토지·건축물 평가액은 최초 환지계획인가 신청 시를 기준으로 정하되 변경인가로 바꿀 수 있으며, 도시개발구역이 둘 이상의 환지계획구역으로 구분되면 사업비·보류지는 구역별로 책정할 수 있고, 조성토지등 가격은 개별공시지가가 아니라 감정평가업자의 평가와 토지평가협의회 심의를 거쳐 정하며, 지역권은 환지처분 공고일이 끝나는 때 소멸하고 시행규정은 지방자치단체가 전부 환지 방식으로 시행할 때 작성한다.",
+    intuition:
+      "환지방식 일반원칙 문제는 여러 해에 걸쳐 반복 출제되는 '틀린 지문 찾기' 유형으로, 각 회차의 오답 포인트(60일 신청이 아니라 지정권자가 결정, 구역별 책정 가능, 감정평가 필요, 임차권자 권리 등)를 모아 종합적으로 학습해야 한다.",
+    keyPoints: [
+      "시행자는 조성토지등의 가격을 평가할 때 토지평가협의회의 심의를 거쳐 결정하되, 그에 앞서 감정평가업자가 평가하게 해야 하며, 개별공시지가로 그대로 정하지 않는다.",
+      "행정청이 아닌 시행자가 환지 계획을 작성한 경우에는 특별자치도지사·시장·군수·구청장의 인가를 받아야 하며, 종전 토지의 합필·분필로 환지명세가 변경되는 경우에도 변경인가를 받아야 한다.",
+      "환지설계 시 적용되는 토지·건축물의 평가액은 최초 환지계획인가 신청 시를 기준으로 정하되, 환지 계획의 변경인가를 받아 변경할 수 있다.",
+      "도시개발구역이 둘 이상의 환지계획구역으로 구분되는 경우 사업비와 보류지는 도시개발구역 전체가 아니라 환지계획구역별로도 책정할 수 있다(전체로만 책정해야 하는 것은 아님).",
+      "환지 예정지가 지정되어도 종전 토지의 임차권자는 환지처분 공고일까지가 아니라 환지 예정지 지정의 효력발생일부터는 종전 토지를 사용·수익할 수 없다.",
+      "지정권자는 지방자치단체가 시행자인 경우 개발계획을 수립할 때 토지 소유자의 동의를 받을 필요가 없으며, 지방자치단체가 도시개발사업 전부를 환지 방식으로 시행하려는 경우에는 시행규정을 작성해야 한다.",
+      "입체 환지 방식으로 시행하는 경우 환지 계획에 건축 계획이 포함되어야 하며, 시행자는 면적이 넓은 토지는 면적을 줄이거나 환지 대상에서 제외할 수 있고, 면적이 작은 토지는 과소 토지가 되지 않도록 면적을 늘려 환지를 정하거나 제외할 수 있다.",
+      "「집합건물의 소유 및 관리에 관한 법률」상 대지사용권에 해당하는 토지지분은 분할환지할 수 없으며, 환지처분이 공고된 후에는 임차권 목적 토지의 이용이 방해받아 종전 임대료가 불합리해진 경우에도 임대료 감액을 청구할 수 없고, 환지를 정하지 않은 종전 토지의 권리는 환지처분 공고 후 소유권이전등기를 마친 때가 아니라 환지처분이 공고된 날의 다음 날에 소멸한다.",
+    ],
+    pitfalls:
+      "조성토지등의 가격을 개별공시지가로 그대로 정한다고 착각하기 쉽지만, 실제로는 감정평가업자의 평가와 토지평가협의회 심의를 거쳐 결정한다.",
+    example:
+      "행정청이 아닌 시행자가 환지 계획을 작성한 경우에는 특별자치도지사·시장·군수 또는 구청장의 인가를 받아야 한다.",
+    questionRefs: [
+      { year: 2018, questionNo: 57 },
+      { year: 2019, questionNo: 55 },
+      { year: 2020, questionNo: 53 },
+      { year: 2021, questionNo: 55 },
+      { year: 2024, questionNo: 56 },
+      { year: 2025, questionNo: 57 },
+    ],
+  },
+  {
+    slug: "replot-with-public-facility-project",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "환지방식 사업과 지자체 공공시설사업의 병행시행",
+    titleEn: "Concurrent Implementation with Local Public Facility Projects",
+    definition:
+      "지정권자가 '도시개발구역 전부를 환지 방식으로 시행하는 도시개발사업'을 '지방자치단체의 장이 집행하는 공공시설에 관한 사업'과 병행 시행할 필요가 있다고 인정하는 경우, 지방자치단체·지방공사·한국토지주택공사·요건을 갖춘 신탁업자는 시행자로 지정될 수 있지만 국가는 이 경우의 시행자로 지정될 수 없다.",
+    intuition:
+      "이 특례는 지자체가 주도하는 공공시설사업과 발맞춰 환지사업을 진행하기 위한 것이므로, 시행자 후보군은 '지자체 계열 및 공공기관·신탁업자'로 한정되고 '국가'는 이 특례의 적용 대상에서 빠진다는 점이 핵심이다.",
+    keyPoints: [
+      "도시개발구역 전부를 환지 방식으로 시행하는 사업을 지방자치단체장이 집행하는 공공시설사업과 병행 시행할 필요가 있다고 인정되는 경우, 지방자치단체, 지방공사, 한국토지주택공사, 요건을 갖춘 신탁업자는 시행자로 지정될 수 있다.",
+      "국가는 이 병행시행 특례에 따른 시행자로 지정될 수 없다.",
+    ],
+    pitfalls:
+      "국가도 공공성이 강한 시행자이므로 이 특례의 시행자가 될 수 있다고 착각하기 쉽지만, 이 특례의 시행자 목록에는 국가가 포함되지 않는다.",
+    example:
+      "지정권자가 도시개발구역 전부를 환지 방식으로 시행하는 도시개발사업을 지방자치단체의 장이 집행하는 공공시설에 관한 사업과 병행하여 시행할 필요가 있다고 인정하는 경우, 지방자치단체·지방공사·한국토지주택공사·요건을 갖춘 신탁업자는 시행자로 지정될 수 있지만 국가는 지정될 수 없다.",
+    questionRefs: [
+      { year: 2019, questionNo: 54 },
+    ],
+  },
+  {
+    slug: "replot-development-plan-minor-change",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "환지방식 개발계획의 경미한 변경 기준",
+    titleEn: "Minor Change Criteria for Replotting Development Plans",
+    definition:
+      "환지방식으로 시행하는 도시개발사업 개발계획의 경미한 변경에는 시행지구 면적의 100분의 5 이내 증감, 사업시행지구 분할·통합 시 종전 면적의 100분의 1 이내 변경, 그 밖에 100분의 5 이내의 특정 계획요소 변경 등이 포함되어 별도의 동의 없이 처리할 수 있다.",
+    intuition:
+      "경미한 변경의 숫자 조합(5%·1%·5%)을 하나의 세트로 암기하면 되며, 각 숫자가 서로 다른 항목(전체 면적 증감, 분할·통합 시 면적 변경, 기타 계획요소)에 대응한다는 점을 기억해야 한다.",
+    keyPoints: [
+      "환지방식 개발계획의 경미한 변경 기준에는 100분의 5 이내의 면적 증감, 100분의 1 이내의 분할·통합 관련 면적 변경, 100분의 5 이내의 그 밖의 계획요소 변경이 포함된다.",
+    ],
+    pitfalls:
+      "경미한 변경의 숫자 기준을 모두 동일하게(예: 전부 5%나 전부 10%) 착각하기 쉽지만, 항목별로 5%·1%·5%처럼 서로 다른 기준이 적용된다.",
+    example:
+      "환지방식으로 시행하는 도시개발사업 개발계획의 경미한 변경에는 시행지구 면적의 100분의 5 이내 증감이 포함된다.",
+    questionRefs: [
+      { year: 2022, questionNo: 58 },
+    ],
+  },
+  {
+    slug: "replot-proportion-rate-calculation",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "평가식 환지의 비례율 계산",
+    titleEn: "Proportion Rate Calculation for Value-Based Replotting",
+    definition:
+      "환지 설계를 평가식으로 하는 경우 비례율은 '(도시개발사업으로 조성되는 토지·건축물의 평가액 합계 − 총 사업비) ÷ 환지 전 토지·건축물의 평가액 합계 × 100'의 계산식으로 산정한다.",
+    intuition:
+      "비례율 계산식은 '사업으로 새로 생기는 순가치(조성 후 평가액 − 총사업비)'를 '사업 전 가치(환지 전 평가액)'로 나눈 비율이라는 의미를 이해하면 공식을 쉽게 재구성할 수 있다.",
+    keyPoints: [
+      "비례율 = (조성되는 토지·건축물의 평가액 합계 − 총 사업비) ÷ 환지 전 토지·건축물의 평가액 합계 × 100 의 계산식으로 산정한다.",
+      "총사업비 250억원, 환지 전 평가액 합계 500억원, 조성 후 평가액 합계 1,000억원인 경우 비례율은 (1,000억−250억)÷500억×100=150%로 계산된다.",
+    ],
+    pitfalls:
+      "총사업비를 분자에서 빼지 않고 조성 후 평가액만으로 비례율을 계산하는 실수를 하기 쉽다 — 반드시 총사업비를 차감한 값을 분자로 써야 한다.",
+    example:
+      "총 사업비 250억원, 환지 전 토지·건축물의 평가액 합계 500억원, 조성되는 토지·건축물의 평가액 합계 1,000억원인 경우 비례율은 150%이다.",
+    questionRefs: [
+      { year: 2023, questionNo: 53 },
+    ],
+  },
+  {
+    slug: "replot-liquidation-money",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "환지방식 사업의 청산금",
+    titleEn: "Liquidation Money in Replotting-Based Projects",
+    definition:
+      "시행자는 토지 소유자의 동의에 따라 환지를 정하지 않는 토지에 대해 환지처분 전이라도 청산금을 교부할 수 있고, 토지 소유자의 신청에 따라 환지 대상에서 제외한 토지에 대해서는 청산금을 교부하는 때 청산금을 결정할 수 있으며(결정할 수 없다는 서술은 틀림), 청산금을 받거나 징수할 권리는 5년간 행사하지 않으면 시효로 소멸하고, 이자를 붙여 분할징수·분할교부할 수 있으며, 행정청이 아닌 시행자가 군수에게 청산금 징수를 위탁하면 징수액의 100분의 4를 해당 군에 지급해야 한다.",
+    intuition:
+      "청산금 조문은 '환지처분 전 교부 가능', '신청 제외 토지도 청산금 결정 가능', '소멸시효 5년', '징수 위탁 수수료 4%'라는 네 개의 독립적 규칙으로 구성되므로 각각 따로 암기해야 한다.",
+    keyPoints: [
+      "시행자는 토지 소유자의 동의에 따라 환지를 정하지 않는 토지에 대해서는 환지처분 전이라도 청산금을 교부할 수 있다.",
+      "토지 소유자의 신청에 따라 환지 대상에서 제외한 토지에 대해서도 청산금을 교부하는 때에 청산금을 결정할 수 있다(결정할 수 없다는 서술은 틀림).",
+      "청산금을 받을 권리나 징수할 권리를 5년간 행사하지 않으면 시효로 소멸하며, 청산금은 대통령령으로 정하는 바에 따라 이자를 붙여 분할징수하거나 분할교부할 수 있다.",
+      "행정청이 아닌 시행자가 군수에게 청산금의 징수를 위탁한 경우, 그 시행자는 군수가 징수한 금액의 100분의 4에 해당하는 금액을 해당 군에 지급해야 한다.",
+    ],
+    pitfalls:
+      "환지 대상에서 신청으로 제외된 토지는 청산금을 결정할 수 없다고 착각하기 쉽지만, 실제로는 청산금을 교부하는 때에 결정할 수 있다.",
+    example:
+      "시행자는 토지 소유자의 동의에 따라 환지를 정하지 아니하는 토지에 대하여는 환지처분 전이라도 청산금을 교부할 수 있다.",
+    questionRefs: [
+      { year: 2023, questionNo: 58 },
+    ],
+  },
+  {
+    slug: "replot-consent-counting-method",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "환지방식 개발계획 수립 시 동의자 수 산정방법",
+    titleEn: "Method for Counting Consenting Landowners in Replotting Development Plans",
+    definition:
+      "도시개발구역의 토지면적을 산정할 때는 국공유지를 포함해 산정하고, 1인이 둘 이상 필지의 토지를 단독 소유한 경우 필지 수와 무관하게 토지 소유자를 1인으로 보며, 둘 이상 필지를 소유한 공유자가 동일한 경우에도 공유자 전원을 대표하는 1인으로 산정하고, 1필지를 여럿이 공유하는 경우 구분소유적 공유관계인지 여부에 따라 대표 공유자 산정방식이 달라지며, 구역 지정 제안 후 개발계획 수립 전 토지 소유자가 변경된 경우에는 변경 전 소유자의 동의서를 기준으로 한다.",
+    intuition:
+      "동의자 수 산정은 '실질적으로 몇 명의 의사가 반영되는지'를 왜곡 없이 세는 것이 목적이므로, 1인이 여러 필지를 가져도 1명으로, 여러 필지를 같은 사람들이 공유해도 중복 계산하지 않는다는 원칙으로 이해하면 된다.",
+    keyPoints: [
+      "도시개발구역의 토지면적을 산정하는 경우에는 국공유지를 제외하지 않고 포함하여 산정한다(제외라는 서술은 틀림).",
+      "1인이 둘 이상 필지의 토지를 단독으로 소유한 경우에는 필지의 수에 관계없이 토지 소유자를 1인으로 본다.",
+      "둘 이상 필지의 토지를 소유한 공유자가 동일한 경우에는 공유자 각각이 아니라 공유자 전원을 대표하는 1인의 토지 소유자로 본다.",
+      "1필지의 토지 소유권을 여럿이 공유하는 경우 「집합건물의 소유 및 관리에 관한 법률」에 따른 구분소유적 공유관계인지 여부에 따라 대표 공유자 산정방식이 달라진다(무조건 대표 공유자 1인으로 보는 것은 아님).",
+      "도시개발구역의 지정이 제안된 후부터 개발계획이 수립되기 전 사이에 토지 소유자가 변경된 경우에는 변경 전(종전) 토지 소유자의 동의서를 기준으로 한다(변경된 소유자 기준이 아님).",
+    ],
+    pitfalls:
+      "토지면적 산정 시 국공유지를 제외해야 한다고 착각하기 쉽지만, 실제로는 국공유지를 포함하여 산정한다.",
+    example:
+      "1인이 둘 이상 필지의 토지를 단독으로 소유한 경우에는 필지의 수에 관계없이 토지 소유자를 1인으로 본다.",
+    questionRefs: [
+      { year: 2024, questionNo: 53 },
+    ],
+  },
+  {
+    slug: "replot-scheduled-land",
+    chapterKo: "도시개발법",
+    sectionKo: "환지방식",
+    category: "도시개발법",
+    subcategory: "환지방식",
+    parentSlug: "replot-method",
+    titleKo: "환지 예정지 지정의 효과",
+    titleEn: "Effects of Designating a Provisional Replotting Site",
+    definition:
+      "환지 예정지가 지정되면 종전 토지의 소유자·임차권자등은 환지 예정지 지정의 효력발생일부터 환지처분 공고일까지 종전 토지를 사용·수익할 수 없고 그 대신 환지 예정지를 사용·수익하며, 시행자는 종전 토지에 임차권자등이 있으면 환지 예정지 지정 시 그 권리의 목적인 토지·부분을 함께 지정해야 하고, 체비지 용도로 지정된 환지 예정지는 시행자가 사업비 충당을 위해 처분(사용뿐 아니라 매각 등)할 수 있다.",
+    intuition:
+      "환지 예정지 지정의 핵심 효과는 '종전 토지 사용·수익권이 환지 예정지로 그대로 옮겨간다'는 것이며, 임차권자 등의 권리도 함께 이전되도록 지정해야 한다는 점과 체비지는 처분(매각)까지 가능하다는 점이 핵심이다.",
+    keyPoints: [
+      "종전 토지의 소유자는 환지 예정지 지정의 효력발생일부터 환지처분이 공고되는 날까지 종전의 토지를 사용하거나 수익할 수 없다(공고일까지 사용할 수 있다는 서술은 틀림).",
+      "환지 예정지가 지정되면 종전 토지의 임차권자등은 환지 예정지 지정의 효력발생일부터 환지처분 공고일까지 종전과 같은 내용의 권리를 환지 예정지에 대해 행사할 수 없는 것이 아니라, 오히려 환지 예정지에 대해 종전과 같은 권리를 행사한다(즉 권리가 예정지로 이전됨).",
+      "시행자가 환지 예정지를 지정할 때 종전 토지에 임차권자등이 있으면 해당 환지 예정지에 대해 그 권리의 목적인 토지 또는 그 부분을 아울러 지정해야 한다.",
+      "체비지의 용도로 환지 예정지가 지정된 경우 시행자는 도시개발사업에 드는 비용을 충당하기 위해 이를 사용하게 할 수 있을 뿐 아니라 처분(매각)할 수도 있다(처분할 수 없다는 서술은 틀림).",
+    ],
+    pitfalls:
+      "환지 예정지가 지정되면 임차권자등의 권리가 소멸하거나 행사할 수 없게 된다고 착각하기 쉽지만, 실제로는 그 권리가 환지 예정지로 그대로 이전되어 행사된다.",
+    example:
+      "시행자가 환지 예정지를 지정할 때 종전의 토지에 대한 임차권자등이 있으면 해당 환지 예정지에 대하여 해당 권리의 목적인 토지 또는 그 부분을 아울러 지정하여야 한다.",
+    questionRefs: [
+      { year: 2025, questionNo: 56 },
+    ],
+  },
+  {
+    slug: "urban-development-bond",
+    chapterKo: "도시개발법",
+    sectionKo: "개발채권·비용부담",
+    category: "도시개발법",
+    subcategory: "도시개발채권",
+    titleKo: "도시개발채권의 상환기간과 중도상환",
+    titleEn: "Redemption Period and Early Repayment of Urban Development Bonds",
+    definition:
+      "도시개발채권의 상환기간은 5년부터 10년까지의 범위에서 지방자치단체의 조례로 정하며, 매입의무자가 아닌 자가 착오로 매입한 경우에는 중도에 상환할 수 있다.",
+    intuition:
+      "도시개발채권은 지자체가 사업재원을 조달하기 위해 강제로 매입시키는 채권이므로, 매입 의무가 없는 사람이 실수로 매입했다면 그 사람의 자금이 불필요하게 묶이지 않도록 중도상환의 길을 열어준다고 이해하면 된다.",
+    keyPoints: [
+      "도시개발채권의 상환기간은 '5년부터 10년까지'의 범위에서 조례로 정한다 — '2년부터'가 아니다.",
+      "매입의무자가 아닌 자가 착오로 도시개발채권을 매입한 경우에는 중도상환이 가능하다.",
+      "도시개발사업에 필요한 비용은 특별한 규정이 없는 한 시행자가 부담한다.",
+    ],
+    pitfalls:
+      "도시개발채권의 상환기간 하한을 '2년'으로 잘못 암기하기 쉽다 — 정확히는 '5년'부터다.",
+    example:
+      "매입 의무가 없는 사람이 실수로 도시개발채권을 매입했다면, 만기 전이라도 중도상환을 신청할 수 있다.",
+  },
+  // ───────── 도시정비법 ─────────
+  {
+    slug: "maintenance-project-basic-plan",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    titleKo: "도시·주거환경정비기본계획의 수립·변경",
+    titleEn: "Urban and Residential Environment Improvement Basic Plan",
+    definition:
+      "도시·주거환경정비기본계획은 특별시장·광역시장·특별자치시장·특별자치도지사 또는 시장(대도시 시장은 직접, 그 외 시장은 도지사 승인)이 10년 단위로 수립하며, 국토교통부장관은 5년마다 타당성을 검토해 반영하고, 수립 시 14일 이상 주민공람과 지방의회 의견청취를 거쳐야 하되 일정한 경미한 변경은 이를 생략할 수 있다.",
+    intuition:
+      "기본계획 문제는 '누가 수립·승인하는지(대도시 시장은 자체 확정, 그 외 시장은 도지사 승인)'와 '어떤 변경이 주민공람·지방의회 의견청취를 생략할 수 있는 경미한 사항인지(계획기간 단축, 공동이용시설·사회복지시설 설치계획 변경 등)'를 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "기본계획의 작성방법은 국토교통부장관이 정하며, 대도시의 시장이 아닌 시장은 정비사업의 계획기간 단축 등 경미한 사항을 변경할 때에는 도지사의 승인을 받지 않아도 된다.",
+      "도지사가 기본계획을 수립할 필요가 없다고 인정하는 대도시가 아닌 시는 기본계획을 수립하지 않을 수 있으며, 대도시의 시장은 지방도시계획위원회 심의를 거치기 전에 관계 행정기관의 장과 협의해야 한다.",
+      "국토교통부장관은 기본계획에 대해 5년마다 타당성 여부를 검토해 그 결과를 반영해야 하고, 기본계획 수립권자는 수립하려는 경우 14일 이상 주민에게 공람하여 의견을 들어야 한다.",
+      "기본계획에는 주거지 관리계획, 건폐율·용적률 등 건축물의 밀도계획, 사회복지시설 및 주민문화시설 등의 설치계획이 포함되어야 하며, 생활권별 기반시설 설치계획이 포함되었다고 해서 주거지 관리계획이 생략되는 것은 아니다.",
+      "정비사업의 계획기간 단축, 공동이용시설·사회복지시설 및 주민문화시설 설치계획의 변경, 재원조달에 관한 사항의 변경 등은 지방의회 의견청취를 생략할 수 있지만, 정비예정구역 면적의 20% 이상(예: 25%)을 변경하는 경우는 생략할 수 없다.",
+      "정비구역에서는 「주택법」에 따른 지역주택조합의 조합원을 모집해서는 안 되며, 이동이 쉽지 않은 물건을 15일 이상 쌓아두려면 시장·군수등의 허가를 받아야 한다(14일은 허가 대상이 아님).",
+    ],
+    pitfalls:
+      "정비예정구역 면적의 일정 비율(20% 이상) 변경도 경미한 사항으로 착각하기 쉽지만 이는 지방의회 의견청취를 생략할 수 없는 사항이며, 물건 적치 허가 기준일수를 14일로 착각하기 쉽지만 실제 기준은 15일 이상이다.",
+    example:
+      "국토교통부장관은 도시·주거환경정비기본계획에 대하여 5년마다 타당성 여부를 검토하여 그 결과를 기본계획에 반영하여야 한다.",
+    questionRefs: [
+      { year: 2016, questionNo: 59 },
+      { year: 2018, questionNo: 59 },
+      { year: 2019, questionNo: 62 },
+      { year: 2019, questionNo: 64 },
+      { year: 2025, questionNo: 59 },
+      { year: 2025, questionNo: 60 },
+    ],
+  },
+  {
+    slug: "maintenance-plan-designation-procedure",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "정비계획의 입안과 정비구역 지정 절차",
+    titleEn: "Formulation of Maintenance Plans and Designation of Maintenance Zones",
+    definition:
+      "시장·군수가 직접 정비계획을 입안하는 경우 주민·산업 현황, 건축물 소유현황, 토지·건축물 가격, 교통상황 등을 조사·확인해야 하고(관계 중앙행정기관장의 의견은 조사사항이 아님), 공공재개발사업 예정구역 지정을 신청받은 지방도시계획위원회는 신청일부터 30일 이내(불가피한 경우 30일 범위에서 연장)에 심의를 완료해야 하며, 사업시행계획 인가 시 여러 심의를 통합하여 진행하는 통합심의 제도가 있다.",
+    intuition:
+      "정비계획 입안·지정 절차는 '조사·확인 사항의 목록', '공공재개발 심의기간(30일+30일)', '통합심의의 효과(조정·재정을 거친 것으로 봄, 사업시행자도 신청 가능)'라는 세 갈래로 출제된다.",
+    keyPoints: [
+      "시장·군수가 정비구역 지정을 위해 직접 정비계획을 입안하는 경우 주민·산업 현황, 건축물 소유현황, 토지 및 건축물의 가격, 정비구역 및 주변지역의 교통상황 등을 조사·확인해야 하지만, 관계 중앙행정기관의 장의 의견은 조사·확인 사항으로 명시되어 있지 않다.",
+      "정비계획의 입안권자가 공공재개발사업 예정구역 지정을 신청한 경우 지방도시계획위원회는 신청일부터 30일 이내에 심의를 완료해야 하며, 부득이한 경우 30일의 범위에서 연장할 수 있다.",
+      "사업시행계획의 통합심의 대상에는 「경관법」에 따른 경관 심의도 포함되며, 사업시행자는 통합심의를 신청할 수 있고, 시장·군수등은 특별한 사유가 없으면 통합심의 결과를 반영하여 사업시행계획을 인가해야 한다.",
+      "통합심의를 거친 사항은 해당 사항에 대한 관계 법률에 따른 심의·조정 또는 재정을 거친 것으로 보며, 통합심의위원회 위원장은 시장·군수등이 지명하거나 위촉한다(위원 중 호선이 아님).",
+    ],
+    pitfalls:
+      "공공재개발사업 예정구역 지정 심의기간을 20일로 착각하기 쉽지만 실제로는 30일(신청일부터)이며, 연장기간도 동일하게 30일이다. 또한 통합심의는 경관 심의를 배제하지 않고 오히려 대상에 포함한다는 점에 유의해야 한다.",
+    example:
+      "정비계획의 입안권자가 정비구역의 지정권자에게 공공재개발사업 예정구역 지정을 신청한 경우, 지방도시계획위원회는 신청일부터 30일 이내에 심의를 완료해야 한다.",
+    questionRefs: [
+      { year: 2017, questionNo: 60 },
+      { year: 2020, questionNo: 60 },
+      { year: 2021, questionNo: 61 },
+      { year: 2024, questionNo: 63 },
+    ],
+  },
+  {
+    slug: "maintenance-project-types",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "정비사업의 종류(주거환경개선사업·가로주택정비사업 등)와 시행방법",
+    titleEn: "Types of Maintenance Projects",
+    definition:
+      "주거환경개선사업은 정비기반시설이 극히 열악하고 노후·불량건축물이 과도하게 밀집한 지역의 주거환경을 개선하는 사업으로 스스로 주택개량, 환지, 관리처분계획에 따른 공급 등 여러 방법을 혼용할 수 있고, 가로주택정비사업은 가로구역 내 소규모 정비사업으로 완화된 요건이 적용되며, 재건축사업은 일반주거지역에서 오피스텔을 공급할 수 있지만 정비기반시설이 열악한 지역을 대상으로 하지 않는다.",
+    intuition:
+      "정비사업 종류 문제는 '정의(어떤 지역·목적의 사업인지)'와 '시행방법(그 사업이 어떤 공급방식을 쓸 수 있는지)'을 사업 종류별로 짝지어 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "주거환경개선사업은 도시저소득 주민이 집단거주하는 지역으로서 정비기반시설이 극히 열악하고 노후·불량건축물이 과도하게 밀집한 지역의 주거환경을 개선하거나, 단독주택·다세대주택이 밀집한 지역에서 정비기반시설과 공동이용시설 확충을 통해 주거환경을 보전·정비·개량하는 사업이다.",
+      "주거환경개선사업의 사업시행자는 정비기반시설을 설치하고 토지등소유자가 스스로 주택을 개량하는 방법, 환지로 공급하는 방법, 관리처분계획에 따라 주택 등을 건설하여 공급하는 방법을 혼용할 수 있으며, 세입자 세대수가 토지등소유자의 1/2인 경우 세입자 동의절차 없이 주택공사등을 사업시행자로 지정할 수 있다.",
+      "가로주택정비사업은 가로구역에 있는 기존 단독주택의 호수와 공동주택 세대수를 합한 수가 20 이상일 경우 시행할 수 있고, 정비계획 수립·정비구역 지정 절차 없이 진행할 수 있는 소규모 특례 사업이며, 사업시행자는 기존 단독주택·공동주택의 호수·세대수 이상의 주택을 공급해야 한다.",
+      "재개발사업은 환지로 공급하는 방법과 관리처분계획에 따라 건축물을 건설·공급하는 방법을 모두 사용할 수 있지만, 재건축사업에서 일반주거지역 정비구역에 관리처분계획에 따라 오피스텔을 건설·공급하는 방법은 허용되지 않는다.",
+    ],
+    pitfalls:
+      "가로주택정비사업의 시행 기준 세대수를 '10 이상'으로 잘못 기억하기 쉽지만 실제로는 기존 단독주택·공동주택 합산 20 이상이며, 재건축사업에서 오피스텔 공급을 관리처분계획 방식의 정상적인 시행방법으로 착각하기 쉽지만 허용되지 않는다.",
+    example:
+      "도시저소득 주민이 집단거주하는 지역으로서 정비기반시설이 극히 열악하고 노후·불량건축물이 과도하게 밀집한 지역의 주거환경을 개선하기 위하여 시행하는 사업은 주거환경개선사업이다.",
+    questionRefs: [
+      { year: 2016, questionNo: 60 },
+      { year: 2016, questionNo: 64 },
+      { year: 2017, questionNo: 63 },
+      { year: 2021, questionNo: 59 },
+      { year: 2024, questionNo: 61 },
+    ],
+  },
+  {
+    slug: "maintenance-infrastructure-facility",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "정비기반시설과 공동이용시설의 범위",
+    titleEn: "Infrastructure and Communal Facilities under the Maintenance Act",
+    definition:
+      "정비기반시설에는 도로·상하수도·공원·공용주차장·공공공지·녹지·하천·소방용수시설 등이 해당하며 공동작업장이나 공동으로 사용하는 구판장은 정비기반시설이 아니고, 공동이용시설에는 경로당·탁아소·어린이집·놀이터 등이 해당하며 유치원은 공동이용시설이 아니다.",
+    intuition:
+      "정비기반시설·공동이용시설은 각각 '목록에서 하나만 빠진 것을 찾는' 방식으로 반복 출제되므로, 두 목록에서 빠지는 예외 항목(정비기반시설: 공동작업장·구판장, 공동이용시설: 유치원)을 확실히 기억해야 한다.",
+    keyPoints: [
+      "정비기반시설에는 도로, 상하수도, 구거, 공원, 공용주차장, 공공공지, 녹지, 하천, 소방용수시설 등이 포함되지만, 공동작업장과 공동으로 사용하는 구판장은 정비기반시설이 아니다.",
+      "공동이용시설(단독주택·공동주택·제1종 근린생활시설이 아닌 것)에는 경로당, 탁아소, 어린이집, 놀이터, 공동으로 사용하는 세탁장 등이 포함되지만, 유치원은 공동이용시설에 해당하지 않는다(별도의 교육시설로 분류).",
+    ],
+    pitfalls:
+      "유치원을 어린이집·탁아소와 같은 공동이용시설로 묶어 기억하기 쉽지만, 유치원은 도시정비법상 공동이용시설 목록에서 제외된다는 점이 반복되는 함정이다.",
+    example:
+      "경로당, 탁아소, 어린이집, 놀이터는 도시정비법령상 공동이용시설에 해당하지만, 유치원은 공동이용시설에 해당하지 않는다.",
+    questionRefs: [
+      { year: 2017, questionNo: 62 },
+      { year: 2018, questionNo: 62 },
+      { year: 2023, questionNo: 59 },
+    ],
+  },
+  {
+    slug: "reconstruction-safety-diagnosis",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "주택재건축사업의 안전진단",
+    titleEn: "Safety Diagnosis for Reconstruction Projects",
+    definition:
+      "시장·군수는 정비예정구역별 정비계획의 수립시기가 도래하면 안전진단을 실시해야 하며, 구조안전성·건축마감·설비노후도·주거환경 적합성 등을 심사해 실시 여부를 결정하고, 안전진단 결과에 따라 정비계획에 반영하되 그 결과보고서를 국토교통부장관에게 제출할 의무는 없다.",
+    intuition:
+      "안전진단은 '실시 시기(정비계획 수립시기 도래 시)', '제외 대상(불가피하게 포함된 기반시설용 건축물)', '심사 항목', '결과의 처리(국토교통부장관 제출의무 없음)'로 나뉘어 출제된다.",
+    keyPoints: [
+      "시장·군수는 단계별 정비사업추진계획에 따라 정비예정구역별 정비계획의 수립시기가 도래하면 안전진단을 실시해야 한다.",
+      "진입도로 등 기반시설 설치를 위해 불가피하게 정비구역에 포함된 것으로 시장·군수가 인정하는 주택단지 내 건축물은 안전진단 대상에서 제외할 수 있다.",
+      "시장·군수는 현지조사 등을 통해 구조안전성, 건축마감, 설비노후도, 주거환경 적합성 등을 심사하여 안전진단 실시 여부를 결정하며, 시·도지사는 필요한 경우 한국시설안전공단 등에 안전진단결과의 적정성 검토를 의뢰할 수 있다.",
+      "시장·군수는 주택재건축사업의 시행을 결정하더라도 안전진단결과보고서를 국토교통부장관에게 제출할 의무는 없다.",
+    ],
+    pitfalls:
+      "안전진단결과보고서를 국토교통부장관에게 반드시 제출해야 한다고 오해하기 쉽지만, 그런 의무는 규정되어 있지 않다.",
+    example:
+      "진입도로 등 기반시설 설치를 위하여 불가피하게 정비구역에 포함된 것으로 시장·군수가 인정하는 주택단지 내의 건축물은 안전진단 대상에서 제외할 수 있다.",
+    questionRefs: [
+      { year: 2017, questionNo: 59 },
+    ],
+  },
+  {
+    slug: "maintenance-project-completion",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "정비사업 공사완료에 따른 조치(준공인가·이전고시)",
+    titleEn: "Measures upon Completion of Maintenance Project Construction",
+    definition:
+      "정비사업 공사가 완료되면 준공인가 → 공사완료 고시 → 대지확정측량·토지분할 → 관리처분계획에 따른 소유권 이전고시 순으로 절차가 진행되며, 이전고시가 있은 날의 다음 날 정비구역 지정이 해제되지만 조합은 해산된 것으로 보지 않고, 소유권은 이전고시 다음 날 취득한다.",
+    intuition:
+      "공사완료 절차는 순서(준공인가→고시→이전고시)를 묻는 문제와, '정비구역 해제 시점(다음 날)·해제의 효과(조합 존속)'를 뒤집어 출제하는 문제로 나뉜다.",
+    keyPoints: [
+      "정비사업의 진행 순서는 공사완료 → 준공인가(시장·군수등, 지방공사도 준공인가 필요) → 준공인가 고시 및 공사완료 고시 → 대지확정측량·토지분할 → 관리처분계획에 따른 소유권 이전고시이며, 준공인가 전에도 동별·세대별·구획별로 사용허가를 받을 수 있다.",
+      "관리처분계획을 수립하는 경우 정비구역의 지정은 이전고시가 있은 날의 '다음 날'에 해제된 것으로 보며(당일이 아님), 소유권을 이전받는 자는 이전고시가 있은 날의 다음 날에 그 건축물의 소유권을 취득한다.",
+      "준공인가에 따른 정비구역의 해제가 있더라도 조합이 해산된 것으로 보지는 않는다 — 정비구역 해제와 조합 존속 여부는 별개이다.",
+      "정비사업의 효율적 추진을 위해 필요한 경우 공사가 전부 완료되기 전이라도 완공된 부분에 대해 준공인가를 받아 대지·건축물별로 소유권을 이전할 수 있으며, 이전고시가 있은 날부터는 대지·건축물에 관한 등기가 없더라도 저당권 등 다른 등기를 할 수는 없다.",
+    ],
+    pitfalls:
+      "정비구역 해제와 조합 해산을 같은 시점의 같은 효과로 착각하기 쉽지만, 준공인가로 인한 정비구역 해제는 조합의 존속에 영향을 미치지 않는다는 점이 반복 출제되는 함정이다.",
+    example:
+      "관리처분계획을 수립하는 경우 정비구역의 지정은 이전고시가 있은 날의 다음 날에 해제된 것으로 본다.",
+    questionRefs: [
+      { year: 2016, questionNo: 63 },
+      { year: 2018, questionNo: 63 },
+      { year: 2020, questionNo: 59 },
+    ],
+  },
+  {
+    slug: "maintenance-subscription-notice",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "분양신청·분양공고와 토지등소유자의 범위",
+    titleEn: "Subscription Notice and Scope of Landowners",
+    definition:
+      "사업시행자는 분양신청을 하지 않은 토지등소유자와 관리처분계획 인가·고시 다음 날부터 60일 이내에 손실보상 협의를 해야 하고 협의가 성립되지 않으면 90일 이내에 수용재결을 신청해야 하며, 분양신청통지와 분양공고에는 공통으로 '분양신청하지 아니한 자에 대한 조치' 등이 포함되어야 하고, 재건축사업 정비구역 내 부속토지의 지상권자는 토지등소유자에 해당하지 않는다.",
+    intuition:
+      "분양신청 관련 숫자(60일 협의, 90일 수용재결 신청)와 재건축·재개발의 토지등소유자 정의 차이(재개발은 토지·건축물 소유자 또는 지상권자, 재건축은 건축물 및 부속토지 소유자만 해당하며 지상권자는 제외)를 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "분양신청을 하지 않은 토지등소유자가 있으면 사업시행자는 관리처분계획 인가·고시 다음 날부터 60일 이내에 손실보상 협의를 해야 하며, 협의가 성립되지 않으면 그 기간의 만료일 다음 날부터 90일 이내에 수용재결을 신청하거나 매도청구소송을 제기해야 한다.",
+      "분양신청의 통지와 분양공고에 공통으로 포함되어야 할 사항에는 분양신청 기간·장소 외에 '분양을 신청하지 아니한 자에 대한 조치'가 포함되며, 분양신청서·분담금 추산액 등은 통지에만 포함되는 사항이다.",
+      "재개발사업의 토지등소유자는 정비구역에 위치한 토지 또는 건축물의 소유자, 그 지상권자를 포함하지만, 재건축사업의 토지등소유자는 건축물 및 그 부속토지의 소유자로 한정되며 부속토지만의 지상권자는 토지등소유자에 해당하지 않는다.",
+    ],
+    pitfalls:
+      "재개발사업과 재건축사업의 토지등소유자 범위를 동일하게 착각하기 쉽지만, 재건축사업에서는 지상권자가 토지등소유자에서 제외된다는 점이 핵심 함정이다.",
+    example:
+      "재건축사업 정비구역에 위치한 건축물 부속토지의 지상권자는 도시정비법령상 토지등소유자에 해당하지 않는다.",
+    questionRefs: [
+      { year: 2022, questionNo: 61 },
+      { year: 2023, questionNo: 60 },
+      { year: 2024, questionNo: 59 },
+    ],
+  },
+  {
+    slug: "maintenance-liquidation-cost",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "청산금·비용부담과 국공유재산 처분 제한",
+    titleEn: "Liquidation Money, Cost Burden, and Restriction on Public Property Disposal",
+    definition:
+      "청산금을 징수할 권리는 소유권 이전고시일 다음 날부터 5년간 행사하지 않으면 소멸하며, 청산금 지급을 거부당한 사업시행자는 이를 공탁할 수 있고, 정비구역의 국유·공유재산은 정비사업 외의 목적으로 매각·양도될 수 없으며, 시장·군수등이 아닌 사업시행자도 부과금 체납자에 대해서는 시장·군수등에게 징수를 위탁할 수 있다.",
+    intuition:
+      "청산금·비용부담 규정은 '소멸시효 기간(5년)', '공탁 가능 여부', '국공유재산 처분 제한', '체납처분 위탁 방식'을 각각 다르게 서술해 오답을 만드는 방식으로 출제된다.",
+    keyPoints: [
+      "청산금을 징수하거나 지급받을 권리는 이전고시일 다음 날부터 5년간 행사하지 않으면 소멸한다(3년이 아님).",
+      "청산금을 지급받을 자가 수령을 거부하거나 받을 수 없는 경우 사업시행자는 그 청산금을 공탁할 수 있다.",
+      "정비구역의 국유·공유재산은 정비사업 외의 목적으로 매각되거나 양도될 수 없다.",
+      "시장·군수등이 아닌 사업시행자는 부과금 또는 청산금을 체납하는 자가 있으면 직접 지방세 체납처분의 예에 따라 징수할 수 없고, 시장·군수등에게 징수를 위탁해야 한다.",
+      "국가 또는 지방자치단체는 토지임대부 분양주택을 공급받는 자에게 해당 공급비용의 전부 또는 일부를 융자할 수 있다.",
+    ],
+    pitfalls:
+      "청산금 소멸시효를 3년으로 착각하기 쉽지만 실제로는 5년이며, 시장·군수등이 아닌 사업시행자도 스스로 체납처분을 할 수 있다고 오해하기 쉽지만 실제로는 징수를 위탁해야 한다.",
+    example:
+      "정비구역의 국유·공유재산은 「도시 및 주거환경정비법」에 따른 정비사업 외의 목적으로 매각되거나 양도될 수 없다.",
+    questionRefs: [
+      { year: 2021, questionNo: 64 },
+    ],
+  },
+  {
+    slug: "maintenance-small-housing-supply",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "국민주택규모 주택의 공급·인수와 임대주택 건설비율",
+    titleEn: "Supply of Small Housing and Rental Housing Ratios",
+    definition:
+      "사업시행자는 건설한 국민주택규모 주택을 국토교통부장관·시·도지사·시장·군수·구청장 또는 토지주택공사등에 공급해야 하며 공개추첨으로 인수자를 선정하고, 시·도지사·시장·군수·구청장이 인수할 수 없으면 한국토지주택공사가 인수하며, 정비계획의 입안권자는 재건축사업은 세대수의 90% 이하, 재개발사업은 90% 이하 범위 등에서 임대주택 및 주택규모별 건설비율을 정비계획에 반영해야 한다.",
+    intuition:
+      "국민주택규모 주택 공급·인수는 '인수 우선순위(시·도지사 → 시장·군수·구청장 → LH)'와 '임대주택 건설비율의 숫자(90%, 30%)'가 핵심 출제 포인트다.",
+    keyPoints: [
+      "사업시행자는 건설한 국민주택규모 주택을 국토교통부장관, 시·도지사, 시장, 군수, 구청장 또는 토지주택공사등에 공급해야 하며, 인수자에게 공급할 주택은 공개추첨의 방법으로 선정해야 한다.",
+      "선정된 국민주택규모 주택을 공급하는 경우 시·도지사, 시장·군수·구청장 순이 아니라 시장·군수·구청장, 시·도지사 순으로 우선 인수할 수 있으며, 이들이 인수할 수 없는 경우 한국토지주택공사가 인수해야 한다.",
+      "인수자에게 공급하는 국민주택규모 주택의 부속 토지는 인수자에게 기부채납한 것으로 본다.",
+      "정비계획의 입안권자는 주택수급 안정과 저소득주민 입주기회 확대를 위해 정비사업으로 건설하는 주택 중 재건축사업은 세대수의 90% 이하, 소형 주택은 그 중 30% 이하 등 국토교통부장관이 고시하는 임대주택 및 주택규모별 건설비율을 정비계획에 반영해야 한다.",
+    ],
+    pitfalls:
+      "국민주택규모 주택의 인수 우선순위를 '시·도지사 먼저'로 착각하기 쉽지만, 실제로는 시장·군수·구청장이 먼저 우선하여 인수할 수 있는 구조라는 점에 유의해야 한다.",
+    example:
+      "시·도지사 및 시장·군수·구청장이 국민주택규모 주택을 인수할 수 없는 경우에는 한국토지주택공사가 이를 인수하여야 한다.",
+    questionRefs: [
+      { year: 2022, questionNo: 59 },
+      { year: 2024, questionNo: 60 },
+    ],
+  },
+  {
+    slug: "maintenance-lh-sole-implementation-rule",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "한국토지주택공사 단독시행 시 시행규정의 기재사항",
+    titleEn: "Implementation Regulations for LH Sole Project Implementation",
+    definition:
+      "한국토지주택공사 등이 조합을 대신하여 단독으로 정비사업을 시행하는 경우 작성하는 시행규정에는 토지등소유자의 권리·의무, 토지·건축물에 관한 권리의 평가방법, 정비사업의 시행연도·시행방법, 공고·공람 및 통지의 방법 등을 포함해야 하지만, 조합 운영기구인 '토지등소유자 전체회의'에 관한 사항은 포함되지 않는다.",
+    intuition:
+      "이 카드는 '조합방식의 정관 기재사항'과 '공공시행자의 시행규정 기재사항'을 혼동시키는 문제이며, 토지등소유자 전체회의는 조합이 아닌 시행방식에서 등장하는 별개의 기구라는 점이 함정이다.",
+    keyPoints: [
+      "한국토지주택공사가 단독으로 시행하는 정비사업의 시행규정에는 토지등소유자의 권리·의무, 토지 및 건축물에 관한 권리의 평가방법, 정비사업의 시행연도 및 시행방법, 공고·공람 및 통지의 방법 등을 포함해야 한다.",
+      "'토지등소유자 전체회의'에 관한 사항은 조합이 없는 공공시행 방식에서의 의사결정기구 관련 사항으로, 이 시행규정의 필수 기재사항으로 명시되어 있지 않다.",
+    ],
+    pitfalls:
+      "토지등소유자 전체회의를 시행규정의 필수 기재사항으로 착각하기 쉽지만, 실제 명시된 필수 기재사항이 아니라는 점이 이 문제의 핵심 함정이다.",
+    example:
+      "한국토지주택공사가 단독으로 정비사업을 시행하는 경우 작성하는 시행규정에는 토지등소유자의 권리·의무에 관한 사항을 포함하여야 한다.",
+    questionRefs: [
+      { year: 2022, questionNo: 63 },
+    ],
+  },
+  {
+    slug: "maintenance-land-lease-housing",
+    chapterKo: "도시정비법",
+    sectionKo: "기본계획·정비구역",
+    category: "도시정비법",
+    subcategory: "기본계획·정비구역",
+    parentSlug: "maintenance-project-basic-plan",
+    titleKo: "소규모 토지등소유자에 대한 토지임대부 분양주택 공급",
+    titleEn: "Land-Lease Housing Supply for Small Landowners",
+    definition:
+      "국토교통부장관·시·도지사·시장·군수·구청장 또는 토지주택공사등은 정비구역 내 세입자와 일정 규모 이하의 토지 또는 주택을 소유한 자가 요청하는 경우, 인수한 재개발임대주택의 일부를 국민주택규모 90㎡ 미만의 범위에서 40년 이내의 토지임대부 분양주택으로 전환하여 공급할 수 있다.",
+    intuition:
+      "이 문제는 숫자(주택 규모 90㎡, 임대기간 40년)를 정확히 암기하는 것이 관건이며, 다른 비슷한 숫자(100㎡, 50년 등)와 혼동하지 않아야 한다.",
+    keyPoints: [
+      "인수한 재개발임대주택 중 일부를 토지임대부 분양주택으로 전환해 공급할 수 있는 대상 규모는 국민주택규모(전용면적 90㎡ 이하)이며, 임대차기간은 40년의 범위에서 정한다.",
+      "이 제도는 정비구역 내 세입자와 소규모 토지 등 소유자의 주거안정을 지원하기 위한 것으로, 요청이 있는 경우에 한해 적용된다.",
+    ],
+    pitfalls:
+      "토지임대부 분양주택의 규모·기간 숫자를 일반 국민주택 기준(85㎡)이나 일반 토지임대부 분양주택의 임대기간(40년, 갱신가능)과 혼동하지 않도록 정확한 수치(90㎡, 40년)를 구분해 암기해야 한다.",
+    example:
+      "정비구역에 거주하는 세입자가 요청하는 경우, 인수한 재개발임대주택의 일부를 국민주택규모(90제곱미터) 이하로 토지임대부 분양주택으로 전환하여 공급할 수 있다.",
+    questionRefs: [
+      { year: 2023, questionNo: 64 },
+    ],
+  },
+  {
+    slug: "maintenance-association-direct-implementation",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    titleKo: "조합설립의 동의요건과 정관",
+    titleEn: "Association Establishment Requirements and Bylaws",
+    definition:
+      "재개발사업 추진위원회가 조합을 설립하려면 토지등소유자의 4분의 3 이상 및 토지면적의 2분의 1 이상의 토지소유자 동의를, 재건축사업은 주택단지 내 동별 구분소유자·의결권의 각 과반수 및 전체 구분소유자·의결권의 4분의 3 이상 동의(주택단지가 아닌 지역은 토지·건축물 소유자의 4분의 3 이상 및 토지면적의 3분의 2 이상 동의)를 받아 시장·군수등의 인가를 받아야 하며, 조합원 자격에 관한 사항 등 정관의 주요사항 변경은 조합원 3분의 2 이상의 찬성을 요한다.",
+    intuition:
+      "조합설립 동의요건은 재개발과 재건축에서 서로 다른 숫자(토지등소유자 비율, 토지면적 비율)를 쓰므로 사업 유형별로 정확히 짝지어 암기해야 하며, 정관 변경 중 무엇이 '조합원 3분의 2 이상 찬성'을 요하는지, 무엇이 '정관에 자유롭게 정할 수 있는지'를 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "재개발사업의 추진위원회가 조합을 설립하려면 토지등소유자의 4분의 3 이상 및 토지면적의 2분의 1 이상의 토지소유자 동의를 받아 시장·군수등의 인가를 받아야 한다.",
+      "재건축사업의 추진위원회가 조합을 설립하려는 경우 주택단지가 아닌 지역이 정비구역에 포함된 때에는 그 지역 토지·건축물 소유자의 4분의 3 이상 및 토지면적의 3분의 2 이상의 동의를 받아야 한다.",
+      "조합이 정관 기재사항 중 조합원 자격에 관한 사항을 변경하려면 총회를 개최해 조합원 3분의 2 이상의 찬성으로 시장·군수등의 인가를 받아야 하며, 정비구역의 위치·면적, 조합의 비용부담·회계, 정비사업비의 부담 시기·절차, 시공자·설계자 선정·계약내용 등도 조합원 3분의 2 이상 찬성 대상이지만, 청산금의 징수·지급 방법·절차는 이에 해당하지 않는다.",
+      "대의원 수·선임방법, 상근임원 보수, 청산금 분할징수 여부는 정관으로 자유롭게 정할 수 있지만, 대의원회의 법정 의결정족수를 정관으로 완화할 수는 없다.",
+      "재개발조합이 조합설립인가를 받은 날부터 3년 이내에 사업시행계획인가를 신청하지 않으면 시장·군수등이 직접 정비사업을 시행할 수 있으며, 토지등소유자가 30인 미만인 경우에는 조합을 설립하지 않고 토지등소유자가 직접 재개발사업을 시행할 수 있다.",
+      "조합은 재개발조합설립인가를 받은 때 그 내용을 토지등소유자에게 통지해야 하고, 추진위원회는 조합설립인가 후가 아니라 조합설립 동의를 받기 전에 추정분담금 등의 정보를 제공해야 한다.",
+    ],
+    pitfalls:
+      "재개발과 재건축의 조합설립 동의요건(토지등소유자 비율·토지면적 비율)을 서로 바꿔 기억하기 쉽고, '조합원 3분의 2 이상 찬성' 대상에 청산금 징수·지급 방법을 포함시키는 오답이 반복 출제된다.",
+    example:
+      "재개발사업의 추진위원회가 조합을 설립하려면 토지등소유자의 4분의 3 이상 및 토지면적의 2분의 1 이상의 토지소유자의 동의를 받아 시장·군수등의 인가를 받아야 한다.",
+    questionRefs: [
+      { year: 2016, questionNo: 61 },
+      { year: 2017, questionNo: 64 },
+      { year: 2018, questionNo: 60 },
+      { year: 2020, questionNo: 61 },
+      { year: 2023, questionNo: 61 },
+      { year: 2024, questionNo: 62 },
+      { year: 2025, questionNo: 64 },
+    ],
+  },
+  {
+    slug: "maintenance-association-officers",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "조합 임원의 자격·임기·퇴임",
+    titleEn: "Association Officer Qualifications",
+    definition:
+      "토지등소유자가 100인을 초과하는 조합은 이사 5명 이상을 두어야 하며, 조합임원의 임기는 3년 이하의 범위에서 정관으로 정하되 연임할 수 있고, 조합장이 아닌 조합임원은 대의원이 될 수 없으며, 전문조합관리인이 선정되면 그가 업무를 대행할 임원은 당연 퇴임하되 퇴임 전 관여한 행위의 효력은 유지된다.",
+    intuition:
+      "조합 임원 문제는 '이사 정원 기준(토지등소유자 수)', '대의원 겸직 금지', '전문조합관리인 제도로 인한 당연퇴임'을 조합해 오답을 만드는 방식으로 출제된다.",
+    keyPoints: [
+      "토지등소유자의 수가 100인을 초과하는 조합에는 이사를 5명 이상 두어야 하며, 조합임원의 임기는 3년 이하의 범위에서 정관으로 정하되 연임할 수 있다.",
+      "조합장이 아닌 조합임원은 대의원이 될 수 없으며, 조합임원은 같은 목적의 다른 정비사업조합의 임원 또는 직원을 겸할 수 없다.",
+      "총회에서 요청하여 시장·군수등이 전문조합관리인을 선정한 경우 그 전문조합관리인이 업무를 대행할 임원은 당연 퇴임하지만, 퇴임 전에 관여한 행위의 효력은 상실되지 않는다.",
+      "조합임원의 임기만료 후 6개월 이상 조합임원이 선임되지 않은 경우에는 시장·군수등이 조합임원 선출을 위한 총회를 소집할 수 있으며, 대의원회는 임기 중 궐위된 조합장을 보궐선임할 수 없다.",
+    ],
+    pitfalls:
+      "조합임원이 결격사유로 당연 퇴임하면 퇴임 전 행위도 모두 무효가 된다고 오해하기 쉽지만, 퇴임 전에 관여한 행위의 효력은 그대로 유지된다.",
+    example:
+      "조합장이 아닌 조합임원은 대의원이 될 수 없으며, 대의원회는 임기 중 궐위된 조합장을 보궐선임할 수 없다.",
+    questionRefs: [
+      { year: 2022, questionNo: 60 },
+      { year: 2023, questionNo: 63 },
+    ],
+  },
+  {
+    slug: "maintenance-general-meeting-representative",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "조합총회의 소집과 대의원회의 대행 범위",
+    titleEn: "General Meeting Convocation and Scope of Representative Assembly Authority",
+    definition:
+      "조합임원의 권리·의무·보수·선임방법·변경·해임에 관한 정관 변경을 위한 총회는 조합원 10분의 1 이상의 요구로 조합장이 소집하고 개최 7일 전까지 통지해야 하며, 대의원회는 조합임원의 해임, 정비사업비의 변경, 정비사업전문관리업자의 선정·변경 등 총회 의결사항의 상당 부분을 대행할 수 있으나 사업완료로 인한 조합의 해산에 관한 사항은 대행할 수 없다.",
+    intuition:
+      "대의원회 대행 가능 여부는 '조합의 존속 자체에 관한 사항(해산)'인지 '운영·관리에 관한 사항(임원 해임, 사업비 변경, 용역업체 선정)'인지로 구분하면 판단하기 쉽다.",
+    keyPoints: [
+      "조합임원의 권리·의무·보수·선임방법·변경 및 해임에 관한 정관 변경을 위한 총회는 조합원 10분의 1 이상의 요구로 조합장이 소집하며, 총회를 소집하려는 자는 개최 7일 전까지 회의목적·안건·일시·장소 등을 통지해야 한다.",
+      "대의원회는 조합임원의 해임, 정비사업비의 변경, 정비사업전문관리업자의 선정 및 변경에 관한 총회 의결사항을 대행할 수 있지만, 사업완료로 인한 조합의 해산에 관한 사항은 대행할 수 없다.",
+    ],
+    pitfalls:
+      "대의원회가 조합임원 해임처럼 민감한 사항까지 대행할 수 없다고 오해하기 쉽지만, 실제로는 해임·사업비변경·용역업체선정은 대행 가능하고 오직 '조합 해산'만 대행할 수 없다.",
+    example:
+      "조합의 대의원회는 조합임원의 해임에 관한 사항을 총회의 의결 없이 대행할 수 있지만, 사업완료로 인한 조합의 해산에 관한 사항은 대행할 수 없다.",
+    questionRefs: [
+      { year: 2019, questionNo: 63 },
+      { year: 2021, questionNo: 60 },
+    ],
+  },
+  {
+    slug: "maintenance-preparation-committee-notice",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "조합설립추진위원회의 운영과 통지의무",
+    titleEn: "Duties of the Association Preparation Committee",
+    definition:
+      "조합설립추진위원회는 추진위원회 구성에 동의한 토지등소유자에게 조합설립 동의서에 포함되는 정비사업비 분담기준 등을 등기우편으로 통지해야 하며, 안전진단 결과·개략적인 사업시행계획서·정비사업전문관리업자 선정사항·추진위원 선정사항 등은 등기우편 통지의무 대상이 아니다.",
+    intuition:
+      "추진위원회의 등기우편 통지의무는 '조합설립 동의를 받기 위해 반드시 알려야 할 핵심 정보(비용분담기준)'에 한정되며, 그 밖의 운영·행정적 사항은 통지의무 대상이 아니라는 점이 핵심이다.",
+    keyPoints: [
+      "조합설립추진위원회가 추진위원회 구성에 동의한 토지등소유자에게 등기우편으로 통지해야 하는 사항에는 조합설립 동의서에 포함되는 정비사업비의 분담기준이 포함된다.",
+      "재건축사업 정비계획 입안을 위한 안전진단의 결과, 개략적인 사업시행계획서, 정비사업전문관리업자의 선정에 관한 사항, 추진위원회 위원의 선정에 관한 사항은 이 통지의무의 대상으로 명시되어 있지 않다.",
+    ],
+    pitfalls:
+      "안전진단 결과나 추진위원 선정사항도 통지의무 대상이라고 확대 해석하기 쉽지만, 실제 명시된 통지대상은 정비사업비 분담기준 등 조합설립 동의서 관련 사항으로 한정된다.",
+    example:
+      "조합설립추진위원회는 추진위원회 구성에 동의한 토지등소유자에게 조합설립 동의서에 포함되는 사항으로서 정비사업비의 분담기준을 등기우편으로 통지하여야 한다.",
+    questionRefs: [
+      { year: 2022, questionNo: 62 },
+    ],
+  },
+  {
+    slug: "maintenance-resident-representative-assembly",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "주민대표회의의 구성과 운영",
+    titleEn: "Resident Representative Assembly",
+    definition:
+      "토지등소유자가 시장·군수등 또는 토지주택공사등의 사업시행을 원하는 경우 정비구역 지정·고시 후 토지등소유자 과반수의 동의를 받아 시장·군수등의 승인을 받아 주민대표회의를 구성하며, 위원장을 포함해 5명 이상 25명 이하로 구성하되 위원장·부위원장 각 1명과 감사 1명 이상 3명 이하를 두고, 사업시행자가 정비사업비 부담 등 시행규정을 정할 때 의견을 제시할 수 있다.",
+    intuition:
+      "주민대표회의는 조합이 없는 공공시행 방식에서 조합을 대신하는 주민 의견수렴 기구이며, '구성요건(과반수 동의+시장·군수등 승인)'과 '조직 구성(인원수, 감사 정원)'이 반복 출제 포인트다.",
+    keyPoints: [
+      "주민대표회의는 토지등소유자의 과반수 동의를 받아 구성하며, 시장·군수등의 승인을 받아야 한다.",
+      "주민대표회의는 위원장을 포함해 5명 이상 25명 이하로 구성하고, 위원장과 부위원장 각 1명, 감사 1명 이상 3명 이하를 둔다(감사를 2명으로 고정하는 것은 틀림).",
+      "주민대표회의는 사업시행자가 정비사업비의 부담, 건축물의 철거 등에 관한 시행규정을 정할 때 의견을 제시할 수 있으며, 이때 상가세입자도 건축물 철거에 관한 사항에 의견을 제시할 수 있다.",
+      "시장·군수등 또는 토지주택공사등은 주민대표회의 운영에 필요한 경비의 일부를 해당 정비사업비에서 지원할 수 있으며, 위원의 선출·교체·해임에 필요한 사항은 주민대표회의가 정한다.",
+    ],
+    pitfalls:
+      "주민대표회의의 감사 정원을 '2명'으로 고정한다고 착각하기 쉽지만 실제로는 1명 이상 3명 이하이며, 상가세입자는 시행규정 관련 의견 제시에서 배제된다고 오해하기 쉽지만 건축물 철거 사항 등에는 의견을 제시할 수 있다.",
+    example:
+      "주민대표회의는 위원장을 포함하여 5명 이상 25명 이하로 구성하며, 위원장과 부위원장 각 1명과 1명 이상 3명 이하의 감사를 둔다.",
+    questionRefs: [
+      { year: 2020, questionNo: 63 },
+      { year: 2025, questionNo: 62 },
+    ],
+  },
+  {
+    slug: "maintenance-disposition-plan",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "관리처분계획의 수립·변경과 처분",
+    titleEn: "Formulation and Disposition under the Management Disposition Plan",
+    definition:
+      "사업시행자는 분양신청 현황을 기초로 관리처분계획을 수립하며, 사업시행자 변동에 따른 권리·의무 변동(분양설계 변경 없음), 매도청구 판결에 따른 변경, 정관·사업시행계획인가 변경에 따른 변경 등은 시장·군수등에게 신고로 처리할 수 있으나 계산착오·오기 등 단순정정이라도 불이익을 받는 자가 있으면 신고만으로 변경할 수 없고, 관리처분계획에 따라 조성된 대지·건축물은 원칙적으로 토지등소유자에게 공급해야 한다.",
+    intuition:
+      "관리처분계획 문제는 '변경 시 신고로 족한 경우 vs 인가가 필요한 경우'와 '처분의 원칙(관리처분계획에 따른 공급, 임대주택 인수 우선순위)'을 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "사업시행자 변동에 따른 권리·의무 변동(분양설계 변경 수반 안함), 매도청구 판결에 따른 변경, 임대주택 공급에 따른 변경, 정관·사업시행계획인가 변경에 따른 변경은 시장·군수등에게 신고로 처리할 수 있지만, 계산착오·오기 등 단순정정이라도 불이익을 받는 자가 있는 경우에는 신고만으로 변경할 수 없다.",
+      "사업시행자는 폐공가 밀집으로 우범지대화 우려가 있으면 소유자 동의 및 시장·군수의 허가를 얻어 해당 건축물을 철거할 수 있으며, 관리처분계획 인가·고시 후에도 종전 토지의 임차권자는 사업시행자의 동의를 받으면 소유권 이전고시가 있는 날까지 종전 토지를 사용할 수 있다.",
+      "환지로 공급하는 방법으로 시행하는 주거환경개선사업의 사업시행자는 주택 공급방법을 「주택법」에도 불구하고 시장·군수등의 승인을 받아 따로 정할 수 있으며, 분양신청 후 잔여분은 조합원·토지등소유자 외의 자에게도 분양할 수 있다.",
+      "조합이 재개발임대주택의 인수를 요청하는 경우 시·도지사가 우선하여 인수해야 하며, 시·도지사가 인수하지 않는 경우에 한하여 국토교통부장관에게 인수를 요청할 수 있다.",
+      "지분형주택의 규모는 주거전용면적 60㎡ 이하로 한정되며, 분양신청기간의 연장은 20일의 범위에서 한 차례만 할 수 있고, 조합원 10분의 1 이상의 관리처분계획 타당성 검증 요청이 있어도 시장·군수는 반드시 이에 따라야 하는 것은 아니다(요건 충족 시 검증 실시).",
+    ],
+    pitfalls:
+      "단순정정이면 언제나 신고만으로 관리처분계획을 변경할 수 있다고 오해하기 쉽지만, 그 정정으로 불이익을 받는 자가 있으면 신고가 아니라 별도의 절차(변경인가)가 필요하다.",
+    example:
+      "사업시행자가 인가받은 관리처분계획을 계산착오·오기·누락 등에 따른 조서의 단순정정으로 변경하려는 경우에도, 그로 인해 불이익을 받는 자가 있다면 시장·군수등에게 신고만으로 변경할 수 없다.",
+    questionRefs: [
+      { year: 2016, questionNo: 62 },
+      { year: 2018, questionNo: 61 },
+      { year: 2020, questionNo: 62 },
+      { year: 2021, questionNo: 62 },
+    ],
+  },
+  {
+    slug: "maintenance-project-implementation-general",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "정비사업의 시행자 지정과 사업시행계획인가",
+    titleEn: "Designation of Project Implementers and Implementation Plan Approval",
+    definition:
+      "조합설립인가 후 시장·군수등이 토지주택공사등을 사업시행자로 지정·고시하면 그 고시일에 조합설립인가가 취소된 것으로 보며, 조합의 명칭에는 '정비사업조합'이라는 문자를 사용해야 하고, 조합장이 자기를 위해 조합과 소송을 하는 경우 감사가 조합을 대표하며, 사업시행계획인가를 받으면 「공공주택 특별법」상 주택건설사업계획 승인, 농지전용허가, 개인하수처리시설 설치신고, 대규모점포등 등록 등이 의제될 수 있으나 「사도법」상 사도개설허가는 의제되지 않는다.",
+    intuition:
+      "이 클러스터는 '누가 사업을 시행할 수 있는지(조합, 직접시행, 공공시행자 지정)'와 '사업시행계획인가로 의제되는 인·허가 목록'을 함께 다루며, 재건축사업의 오피스텔 건설은 준주거지역·상업지역에서만 허용된다는 점도 함께 출제된다.",
+    keyPoints: [
+      "조합설립인가 후 시장·군수등이 토지주택공사등을 사업시행자로 지정·고시한 때에는 그 고시일에 조합설립인가가 취소된 것으로 본다.",
+      "조합은 명칭에 '정비사업조합'이라는 문자를 사용해야 하며, 조합장이 자기를 위해 조합과 소송을 하는 경우에는 감사가 조합을 대표한다(이사가 아님).",
+      "재건축사업을 하는 정비구역에서 오피스텔을 건설·공급하려면 「국토의 계획 및 이용에 관한 법률」에 따른 준주거지역 및 상업지역에서만 가능하다.",
+      "세입자 세대수가 토지등소유자의 1/2인 경우 시장·군수등이 토지주택공사등을 주거환경개선사업 시행자로 지정하려면 세입자 동의 없이 지정할 수 있으며(1/2 기준 이하), 재개발사업은 토지등소유자가 30인 미만인 경우에만 직접시행이 가능하고, 재건축사업 조합설립추진위원회가 구성승인 후 2년이 되었음에도 조합설립인가를 신청하지 않으면 시장·군수등이 직접 시행할 수 있다.",
+      "사업시행계획인가를 받으면 「공공주택 특별법」에 따른 주택건설사업계획의 승인, 「농지법」에 따른 농지전용허가, 「하수도법」에 따른 개인하수처리시설 설치신고, 「유통산업발전법」에 따른 대규모점포등의 등록 등이 의제될 수 있지만, 「사도법」에 따른 사도개설허가는 의제 대상이 아니다.",
+    ],
+    pitfalls:
+      "조합장이 당사자인 소송에서 이사가 조합을 대표한다고 착각하기 쉽지만, 실제로는 감사가 조합을 대표하며, 재건축사업의 오피스텔 건설은 준주거·상업지역이 아닌 지역에서는 허용되지 않는다는 점에 유의해야 한다.",
+    example:
+      "조합설립인가 후 시장·군수등이 토지주택공사등을 사업시행자로 지정·고시한 때에는 그 고시일에 조합설립인가가 취소된 것으로 본다.",
+    questionRefs: [
+      { year: 2019, questionNo: 59 },
+      { year: 2020, questionNo: 64 },
+      { year: 2021, questionNo: 63 },
+      { year: 2025, questionNo: 61 },
+    ],
+  },
+  {
+    slug: "maintenance-implementation-methods",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "정비사업 시행방법의 옳고 그름(주거환경개선사업·재개발사업)",
+    titleEn: "Correct Implementation Methods by Project Type",
+    definition:
+      "주거환경개선사업은 환지로 공급하는 방법을 사용할 수 있지만 인가받은 관리처분계획에 따라 오피스텔을 건설해 공급하는 방법은 허용되지 않으며, 재개발사업은 관리처분계획에 따라 건축물을 건설해 공급하는 방법이 허용된다.",
+    intuition:
+      "정비사업 시행방법을 사업 종류별로 나열한 지문에서, 실제 법령에 없는 방법(주거환경개선사업의 오피스텔 건설·공급)을 끼워 넣어 오답을 만드는 패턴을 확인하는 카드다.",
+    keyPoints: [
+      "주거환경개선사업은 사업시행자가 정비기반시설을 새로 설치하고 토지등소유자가 스스로 주택을 개량하는 방법, 환지로 공급하는 방법, 관리처분계획에 따라 주택 및 부대·복리시설을 건설하여 공급하는 방법을 사용할 수 있지만, 오피스텔을 건설하여 공급하는 방법은 허용되지 않는다.",
+      "재개발사업은 정비구역에서 인가받은 관리처분계획에 따라 건축물을 건설하여 공급하는 방법과 환지로 공급하는 방법을 모두 사용할 수 있다.",
+    ],
+    pitfalls:
+      "주거환경개선사업에도 오피스텔 건설·공급 방법이 포함된다고 오해하기 쉽지만, 오피스텔 건설은 주거환경개선사업의 법정 시행방법에 포함되지 않는다.",
+    example:
+      "주거환경개선사업의 사업시행자가 정비구역에서 환지로 공급하는 방법으로 사업을 시행하는 것은 도시정비법령상 허용된다.",
+    questionRefs: [
+      { year: 2018, questionNo: 64 },
+    ],
+  },
+  {
+    slug: "maintenance-common-utility-cost",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "정비사업 비용부담과 공동구 설치·관리비용",
+    titleEn: "Project Cost Burden and Common Utility Tunnel Expenses",
+    definition:
+      "정비사업비는 원칙적으로 사업시행자가 부담하되 국유·공유재산은 사업시행자 등에게 수의계약으로 우선 매각될 수 있고, 시장·군수등은 공원·공공공지·공동구·공용주차장 등 정비계획에 따라 설치되는 도시·군계획시설의 건설비용을 부담할 수 있으며, 공동구 점용예정자는 설치비용 부담금을 공사 착수 전에 3분의 1 이상 납부해야 하고 관리비용은 매년 부과·징수한다.",
+    intuition:
+      "비용부담 문제는 '누가 부담하는지(원칙: 사업시행자, 예외: 지자체 부담 가능 시설)'와 '공동구 설치·관리비용의 구체적 절차(선납비율, 부과주기)'로 나뉜다.",
+    keyPoints: [
+      "정비사업비는 원칙적으로 사업시행자가 부담하며, 지방자치단체는 시장·군수등이 아닌 사업시행자가 시행하는 정비사업 비용에 대해 융자 알선뿐 아니라 예산 범위에서 보조·융자할 수도 있다.",
+      "정비구역의 국유·공유재산은 사업시행자 또는 점유자·사용자에게 다른 사람에 우선하여 수의계약으로 매각될 수 있으며, 시장·군수등이 아닌 사업시행자는 부과금·연체료 체납자가 있으면 시장·군수등에게 부과·징수를 위탁할 수 있다.",
+      "시장·군수등이 아닌 사업시행자가 시행하는 정비사업의 정비계획에 따라 설치되는 도시·군계획시설 중 공원, 공공공지, 공동구, 공용주차장의 건설비용은 시장·군수등이 부담할 수 있다.",
+      "공동구점용예정자가 부담할 설치비용의 부담비율은 공동구 점용예정면적비율을 고려하여 시장·군수등이 정하며, 보상비용도 설치비용에 포함되고, 부담금 납부통지를 받은 공동구점용예정자는 공사 착수 전에 부담금의 3분의 1 이상을 납부해야 하며, 관리비용은 매년(반기별이 아님) 부과하고 필요한 경우 분할하여 분기별로 납부하게 할 수 있다.",
+    ],
+    pitfalls:
+      "공동구 설치비용의 부담비율 기준을 '권리지분비율'로 착각하기 쉽지만 실제로는 점용예정면적비율이며, 공동구 관리비용의 부과주기를 반기별로 잘못 기억하기 쉬운데 실제로는 매년 부과한다.",
+    example:
+      "시장·군수등이 아닌 사업시행자가 시행하는 정비사업의 정비계획에 따라 설치되는 공원·공공공지·공동구·공용주차장의 건설에 드는 비용은 시장·군수등이 부담할 수 있다.",
+    questionRefs: [
+      { year: 2019, questionNo: 60 },
+      { year: 2022, questionNo: 64 },
+      { year: 2023, questionNo: 62 },
+    ],
+  },
+  {
+    slug: "maintenance-housing-supply-general",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "정비사업 임대주택의 공급과 인수",
+    titleEn: "Supply and Acquisition of Rental Housing in Maintenance Projects",
+    definition:
+      "사업시행자는 정비사업 시행으로 임대주택을 건설하는 경우 공급대상자에게 공급하고 남은 주택은 공급대상자 외의 자에게도 공급할 수 있으며, 국토교통부장관은 조합이 요청하더라도 임대주택 인수 의무가 없고 시·도지사가 우선 인수 대상이며, 종전 주택의 주거전용면적이 60㎡를 넘지 않는 경우에도 일정 요건을 충족하면 2주택 공급이 가능할 수 있다.",
+    intuition:
+      "이 카드는 '누가 임대주택을 인수해야 하는지(시·도지사 우선, 국토교통부장관은 임의적)'와 '남은 주택의 처리(공급대상자 외에도 공급 가능)'를 중심으로 정리하면 된다.",
+    keyPoints: [
+      "사업시행자는 정비사업 시행으로 임대주택을 건설하는 경우, 공급대상자에게 주택을 공급하고 남은 주택이 있으면 공급대상자 외의 자에게도 공급할 수 있다.",
+      "국토교통부장관은 조합이 임대주택 인수를 요청하더라도 반드시 인수해야 하는 것은 아니며, 재개발임대주택의 인수는 원칙적으로 시·도지사가 우선한다.",
+      "시·도지사의 요청이 있더라도 국토교통부장관이 인수한 임대주택을 토지임대부 분양주택으로 반드시 전환·공급해야 하는 것은 아니다.",
+      "관리처분계획상 분양대상자별 종전 주택의 주거전용면적이 60㎡를 넘지 않더라도, 분양대상자가 세대원 전원이 무주택자인 경우 등 법정 요건을 충족하면 2주택 공급이 가능한 경우가 있다.",
+    ],
+    pitfalls:
+      "국토교통부장관을 임대주택 인수의 1순위 의무자로 오해하기 쉽지만, 실제로는 시·도지사가 우선 인수 대상이고 국토교통부장관의 인수·전환은 의무가 아니라 재량적 성격이 강하다.",
+    example:
+      "사업시행자는 정비사업의 시행으로 임대주택을 건설하는 경우 공급대상자에게 주택을 공급하고 남은 주택에 대하여 공급대상자 외의 자에게 공급할 수 있다.",
+    questionRefs: [
+      { year: 2017, questionNo: 61 },
+    ],
+  },
+  {
+    slug: "maintenance-subscription-announcement",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "분양공고의 필수 기재사항",
+    titleEn: "Required Content of Subscription Announcements",
+    definition:
+      "분양공고에는 분양신청자격, 분양신청방법, 분양신청기간 및 장소, 분양대상 대지 또는 건축물의 내역 등이 포함되어야 하지만, 분양대상자별 분담금의 추산액은 분양공고가 아니라 개별 통지사항에 해당한다.",
+    intuition:
+      "분양공고는 '불특정 다수에게 알리는 일반 정보'만 담고, 분양대상자별 분담금 추산액처럼 개인별로 다른 금액 정보는 개별 통지사항으로 분리된다는 원칙을 기억하면 된다.",
+    keyPoints: [
+      "분양공고에는 분양신청자격, 분양신청방법, 분양신청기간 및 장소, 분양대상 대지 또는 건축물의 내역이 포함되어야 한다.",
+      "분양대상자별 분담금의 추산액은 분양공고의 필수 기재사항이 아니라, 토지등소유자 개별 통지사항에 해당한다.",
+    ],
+    pitfalls:
+      "분담금 추산액도 공고사항으로 착각하기 쉽지만, 개인별 금액 정보는 공고가 아니라 개별 통지로 전달된다는 점이 이 문제의 핵심 함정이다.",
+    example:
+      "분양공고에는 분양신청자격, 분양신청방법, 분양신청기간 및 장소, 분양대상 대지 또는 건축물의 내역이 포함되어야 하지만, 분양대상자별 분담금의 추산액은 포함되지 않는다.",
+    questionRefs: [
+      { year: 2019, questionNo: 61 },
+    ],
+  },
+  {
+    slug: "maintenance-loss-compensation-negotiation",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "손실보상 협의 대상 토지등소유자",
+    titleEn: "Landowners Subject to Loss Compensation Negotiation",
+    definition:
+      "사업시행자는 관리처분계획 인가·고시 다음 날부터 정해진 기간 이내에 분양신청기간 내 분양신청을 하지 않은 자, 관리처분계획에 따라 분양대상에서 제외된 자와 손실보상 협의를 해야 하지만, 분양신청기간 종료 후에 분양신청을 철회한 자는 이 협의 대상에 포함되지 않는다.",
+    intuition:
+      "손실보상 협의 대상은 '애초에 분양을 신청하지 않았거나 분양대상에서 제외된 자'로 한정되며, 신청 후 스스로 철회한 자는 다른 절차(별도 처리)로 다뤄진다는 점이 핵심이다.",
+    keyPoints: [
+      "손실보상 협의 대상에는 분양신청기간 내에 분양신청을 하지 않은 자, 인가된 관리처분계획에 따라 분양대상에서 제외된 자가 포함된다.",
+      "분양신청기간 종료 후에 분양신청을 철회한 자는 이 손실보상 협의의 대상으로 명시되어 있지 않다.",
+    ],
+    pitfalls:
+      "분양신청을 철회한 자도 신청을 하지 않은 자와 동일하게 취급된다고 오해하기 쉽지만, 철회자는 이 협의 대상 목록에서 제외된다는 점을 구분해야 한다.",
+    example:
+      "분양신청기간 내에 분양신청을 하지 아니한 자와 관리처분계획에 따라 분양대상에서 제외된 자는 사업시행자와의 손실보상 협의 대상이 된다.",
+    questionRefs: [
+      { year: 2024, questionNo: 64 },
+    ],
+  },
+  {
+    slug: "maintenance-temporary-housing",
+    chapterKo: "도시정비법",
+    sectionKo: "정비사업 시행",
+    category: "도시정비법",
+    subcategory: "조합·주민대표회의",
+    parentSlug: "maintenance-association-direct-implementation",
+    titleKo: "임시거주시설의 설치 의무",
+    titleEn: "Obligation to Provide Temporary Housing",
+    definition:
+      "사업시행자는 주거환경개선사업 및 재개발사업의 시행으로 철거되는 주택의 소유자 또는 세입자에게 정비구역 안팎의 임대주택 등 시설에 임시로 거주하게 하거나 주택자금 융자 알선 등 임시거주에 상응하는 조치를 해야 하며, 이 임시거주에 상응하는 조치는 정비구역이 속한 특별자치시·특별자치도·시·군·구 외의 지역에도 할 수 있다.",
+    intuition:
+      "임시거주시설 조치는 재건축사업이 아니라 '주거환경개선사업'과 '재개발사업'에만 적용되는 사업시행자의 의무라는 점이 핵심 포인트다.",
+    keyPoints: [
+      "사업시행자의 임시거주시설 설치·임시거주 상응조치 의무는 주거환경개선사업 및 재개발사업의 시행으로 철거되는 주택의 소유자·세입자에게 적용되며, 재건축사업에는 이 의무가 적용되지 않는다.",
+      "사업시행자는 해당 정비구역 안과 밖에 위치한 임대주택 등의 시설에 임시로 거주하게 하거나, 주택자금의 융자를 알선하는 등 임시거주에 상응하는 조치를 해야 한다.",
+    ],
+    pitfalls:
+      "재건축사업에도 임시거주시설 설치의무가 적용된다고 착각하기 쉽지만, 이 의무는 주거환경개선사업과 재개발사업에만 적용된다.",
+    example:
+      "사업시행자는 주거환경개선사업 및 재개발사업의 시행으로 철거되는 주택의 소유자 또는 세입자에게 해당 정비구역 안과 밖에 위치한 임대주택 등의 시설에 임시로 거주하게 할 수 있다.",
+    questionRefs: [
+      { year: 2025, questionNo: 63 },
+    ],
+  },
+  // ───────── 건축법 ─────────
+  {
+    slug: "building-terms-scope",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    titleKo: "대지의 조경 의무 대상과 면제 건축물",
+    titleEn: "Landscaping Obligations and Exemptions",
+    definition:
+      "면적 5,000㎡ 미만 대지에 건축하는 공장, 연면적 합계 1,500㎡ 미만인 공장, 산업단지 안의 공장, 2층 이하이며 연면적 합계 1,500㎡ 미만인 공장·물류시설 등은 조경 조치가 면제되지만, 상업지역에 건축하는 물류시설이나 녹지지역이 아닌 지역의 일정 규모 기숙사 등은 조경 의무 대상이다.",
+    intuition:
+      "조경 면제 대상은 '공장·물류시설 등 산업·생산시설 중 소규모 또는 산업단지 내'라는 공통점이 있으므로, 이 틀을 벗어나는 상업지역 물류시설 같은 사례는 면제 대상이 아니라고 판단하면 된다.",
+    keyPoints: [
+      "면적 5,000㎡ 미만인 대지에 건축하는 공장, 연면적의 합계가 1,500㎡ 미만인 공장, 「산업집적활성화 및 공장설립에 관한 법률」에 따른 산업단지 안의 공장은 조경 조치를 하지 않아도 된다.",
+      "대지면적 2천㎡인 대지에 건축하는 경우, 상업지역에 건축하는 물류시설은 조경 등의 조치를 해야 하는 건축물에 해당하지만, 2층 이하 공장, 도시·군계획시설에서 허가받아 건축하는 가설건축물, 녹지지역에 건축하는 기숙사, 연면적 합계 1천㎡인 축사는 조경 의무가 면제된다.",
+    ],
+    pitfalls:
+      "상업지역에 건축하는 물류시설도 산업시설이라는 이유로 조경 의무가 면제된다고 착각하기 쉽지만, 물류시설은 조경 면제 목록(공장 중심)에 포함되지 않아 조경 조치를 해야 한다.",
+    example:
+      "면적 5,000제곱미터 미만인 대지에 건축하는 공장, 연면적의 합계가 1,500제곱미터 미만인 공장, 산업단지 안의 공장은 대지에 조경을 하지 않아도 된다.",
+    questionRefs: [
+      { year: 2016, questionNo: 72 },
+      { year: 2020, questionNo: 72 },
+    ],
+  },
+  {
+    slug: "building-terminology-general",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "건축법상 기본 용어의 정의(건축·대수선·고층건축물 등)",
+    titleEn: "Basic Definitions under the Building Act",
+    definition:
+      "'건축'에는 신축·증축·개축·재축·이전이 포함되고 건축물의 이전은 대지 내에서 위치만 옮기는 것을 말하며, 대수선은 증축·개축·재축에 해당하지 않으면서 내력벽·기둥·보·지붕틀 등을 일정 규모 이상 수선·변경하는 것이고, 고층건축물은 층수 30층 이상 또는 높이 120m 이상, 초고층건축물은 층수 50층 이상 또는 높이 200m 이상인 건축물을 말한다.",
+    intuition:
+      "용어정의는 비슷한 개념(이전·재축·대수선, 고층·초고층)의 경계선을 서로 바꿔치기하는 방식으로 출제되므로, 숫자 기준(30층/120m, 50층/200m)과 행위의 정의를 정확히 짝지어야 한다.",
+    keyPoints: [
+      "지하의 공작물에 설치하는 점포·사무소 등도 '건축물'에 해당하며, 구조 계산서와 시방서는 '설계도서'에 포함되고, 막다른 도로의 구조·너비는 그 도로가 '도로'에 해당하는지 판단하는 기준이 된다.",
+      "'고층건축물'은 층수가 30층 이상이거나 높이가 120m 이상인 건축물이며(둘 다 충족이 아니라 하나만 충족해도 해당), '초고층 건축물'은 층수 50층 이상이거나 높이 200m 이상인 건축물이다.",
+      "건축물이 천재지변으로 멸실된 경우 종전 규모보다 연면적을 늘려 다시 축조하면 '재축'이 아니라 '증축'에 해당하며, 내력벽을 해체해 같은 대지의 다른 위치로 옮기는 것은 '이전'이 아니라 철거 후 신축에 해당한다.",
+      "건축물을 이전하는 것(같은 대지 내에서 위치만 옮기는 것)은 '건축'에 해당하며, 내력벽을 증설해 건축면적을 늘리는 것은 '대수선'이 아니라 '증축'에 해당한다.",
+      "'내력벽을 수선하되 수선되는 벽면적의 합계가 30㎡ 미만'인 경우는 대수선에 포함되지 않으며, '증축'이란 기존 건축물이 있는 대지에서 건축면적·연면적·층수·높이를 늘리는 것을 말한다.",
+    ],
+    pitfalls:
+      "천재지변으로 멸실 후 종전보다 규모를 늘려 다시 짓는 것을 '재축'으로 착각하기 쉽지만, 규모를 늘리면 재축이 아니라 증축에 해당한다는 점이 반복 출제되는 함정이다.",
+    example:
+      "건축물을 이전하는 것(같은 대지 안에서 위치를 옮기는 것)은 건축법령상 '건축'에 해당한다.",
+    questionRefs: [
+      { year: 2017, questionNo: 75 },
+      { year: 2020, questionNo: 74 },
+      { year: 2025, questionNo: 77 },
+    ],
+  },
+  {
+    slug: "building-act-application-exclusion",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "건축법의 적용을 받는 건축물과 적용 제외 건축물",
+    titleEn: "Buildings Subject to or Exempt from the Building Act",
+    definition:
+      "대지에 정착된 컨테이너를 이용한 주택(이동이 쉽지 않은 경우)은 건축법의 적용을 받지만, 이동이 쉬운 컨테이너를 이용한 임시숙소, 철도 선로 부지 안의 플랫폼·운전보안시설·철도사업용 급수급탄급유시설·선로 아래 횡단 보행시설, 고속도로 통행료 징수시설, 지정·가지정 문화재(문화유산), 하천구역 내 수문조작실 등은 건축법의 적용을 받지 않는다.",
+    intuition:
+      "적용 제외 대상은 '철도 운영·문화재보존·고속도로 통행료 징수 등 특수 목적의 시설'이라는 공통점이 있으므로, 이 범주에 속하지 않는 일반적인 '주거용 컨테이너(고정식)'는 예외 없이 건축법 적용 대상이라고 판단하면 된다.",
+    keyPoints: [
+      "철도의 선로 부지에 있는 시설 중 플랫폼, 운전보안시설, 철도 선로의 아래를 가로지르는 보행시설, 해당 철도사업용 급수·급탄·급유 시설은 건축법의 적용을 받지 않는다.",
+      "고속도로 통행료 징수시설, 「하천법」에 따른 하천구역 내 수문조작실, 「문화유산의 보존 및 활용에 관한 법률」에 따른 지정문화유산·임시지정문화유산은 건축법의 적용을 받지 않는다.",
+      "대지에 정착된 컨테이너를 이용한 주택처럼 이동이 쉽지 않은 고정식 컨테이너 건축물은 건축법의 적용을 받으며, 이동이 쉬운 컨테이너를 이용한 임시숙소만 적용 제외 대상이다.",
+    ],
+    pitfalls:
+      "컨테이너를 이용한 시설은 모두 적용 제외 대상이라고 일반화하기 쉽지만, 이동이 쉽지 않아 대지에 정착된 컨테이너 주택은 건축법의 적용을 받는다.",
+    example:
+      "철도의 선로 부지에 있는 시설 중 플랫폼, 운전보안시설, 철도 선로의 아래를 가로지르는 보행시설, 해당 철도사업용 급수·급탄 및 급유 시설은 건축법의 적용을 받지 않는다.",
+    questionRefs: [
+      { year: 2017, questionNo: 73 },
+      { year: 2019, questionNo: 76 },
+      { year: 2025, questionNo: 78 },
+    ],
+  },
+  {
+    slug: "multi-use-building-definition",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "다중이용 건축물의 범위",
+    titleEn: "Definition of Multi-Use Buildings",
+    definition:
+      "다중이용 건축물은 문화 및 집회시설(전시장·동식물원 제외), 종교시설, 판매시설, 운수시설 중 여객용 시설, 의료시설 중 종합병원, 숙박시설 중 관광숙박시설 등 특정 용도로서 해당 용도로 쓰는 바닥면적의 합계가 5천㎡ 이상이거나 16층 이상인 건축물을 말하며, 관광 휴게시설은 이 용도 목록에 포함되지 않는다.",
+    intuition:
+      "다중이용 건축물 판정은 '용도 목록(문화·집회, 종교, 판매, 여객운수, 종합병원, 관광숙박)에 있는지'와 '규모기준(바닥면적 5천㎡ 이상 또는 16층 이상)'을 함께 충족해야 한다는 점, 그리고 관광휴게시설은 목록에서 제외된다는 점이 핵심이다.",
+    keyPoints: [
+      "다중이용 건축물에 해당하는 용도에는 문화 및 집회시설, 종교시설, 판매시설, 운수시설 중 여객용 시설, 의료시설 중 종합병원, 숙박시설 중 관광숙박시설이 포함된다.",
+      "관광 휴게시설은 해당 용도로 쓰는 바닥면적이 아무리 넓어도 다중이용 건축물의 용도 목록에 포함되지 않는다.",
+    ],
+    pitfalls:
+      "관광휴게시설도 사람이 많이 모이는 시설이라는 이유로 다중이용 건축물에 포함된다고 착각하기 쉽지만, 법정 용도 목록에는 포함되지 않는다.",
+    example:
+      "해당 용도로 쓰는 바닥면적의 합계가 5천제곱미터 이상인 판매시설, 종교시설, 종합병원은 다중이용 건축물에 해당하지만, 관광 휴게시설은 해당하지 않는다.",
+    questionRefs: [
+      { year: 2018, questionNo: 72 },
+    ],
+  },
+  {
+    slug: "special-structure-building-exception",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "특수구조 건축물의 범위와 특례",
+    titleEn: "Special Structure Buildings and Their Exceptions",
+    definition:
+      "한쪽 끝은 고정되고 다른 끝은 지지되지 않은 구조의 차양 등이 외벽 중심선으로부터 3m 이상 돌출된 건축물, 기둥과 기둥 사이의 거리가 20m 이상인 건축물 등은 특수구조 건축물에 해당하며, 특수구조 건축물을 건축하려는 건축주는 건축허가 신청 전에 허가권자에게 구조 안전에 관한 지방건축위원회 심의를 신청할 의무는 없다(설계자가 구조 안전을 확인하고 허가권자가 필요시 심의 요청).",
+    intuition:
+      "특수구조 건축물은 '기둥 간 거리·돌출 구조 등 구조적으로 특이한 건축물'을 규제 강화 대상으로 삼는 제도이며, 조경·안전관리예치금처럼 특수구조와 무관한 규정까지 강화·변경할 수 있다고 확대 해석하지 않는 것이 핵심이다.",
+    keyPoints: [
+      "한쪽 끝은 고정되고 다른 끝은 지지되지 않은 구조로 된 차양 등이 외벽(외벽이 없으면 외곽 기둥)의 중심선으로부터 3m 이상 돌출된 건축물은 특수구조 건축물에 해당한다.",
+      "기둥과 기둥 사이의 거리(기둥 중심선 사이 거리)가 20m 이상인 건축물이 특수구조 건축물에 해당하며, 15m인 건축물은 이 기준에 미달한다.",
+      "특수구조 건축물이라고 해서 건축 공사현장 안전관리 예치금 규정을 강화하거나 대지의 조경에 관한 규정을 변경 적용할 수 있는 것은 아니며, 건축주가 지방건축위원회 심의를 반드시 신청해야 하는 것도 아니다.",
+    ],
+    pitfalls:
+      "기둥 간 거리 기준을 15m로 착각하기 쉽지만, 실제 특수구조 건축물 기준은 20m 이상이다.",
+    example:
+      "한쪽 끝은 고정되고 다른 끝은 지지되지 아니한 구조로 된 차양이 외벽의 중심선으로부터 3미터 이상 돌출된 건축물은 특수구조 건축물에 해당한다.",
+    questionRefs: [
+      { year: 2021, questionNo: 72 },
+    ],
+  },
+  {
+    slug: "structural-safety-documentation-submission",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "착공신고 시 구조 안전 확인서류 제출대상",
+    titleEn: "Structural Safety Documents Required at Construction Notification",
+    definition:
+      "단독주택, 다세대주택, 처마높이 9m 이상인 건축물, 기둥과 기둥 사이의 거리가 10m 이상인 건축물 등은 착공신고 시 구조 안전 확인서류를 제출해야 하지만, 연면적 200㎡ 미만이고 3층 미만인 목구조 건축물은 제출 대상에서 제외될 수 있다.",
+    intuition:
+      "구조 안전 확인서류 제출대상은 '주택류(단독·다세대)는 항상 포함, 규모가 일정 기준을 넘는 건축물도 포함'이라는 원칙과 '소규모 목구조 건축물은 예외'라는 원칙을 함께 기억하면 된다.",
+    keyPoints: [
+      "단독주택, 다세대주택, 처마높이 9m 이상인 건축물, 기둥과 기둥 사이의 거리가 10m 이상인 건축물은 착공신고 시 구조 안전 확인서류 제출대상이다.",
+      "연면적이 200㎡ 미만이고 3층 미만인 목구조 건축물은 구조 안전 확인서류 제출대상에서 제외될 수 있으며, 연면적 330㎡인 2층 목구조 건축물은 이 예외기준(200㎡ 미만)을 벗어나 제출대상이 아니다(즉, 다른 요건 검토 필요).",
+    ],
+    pitfalls:
+      "모든 목구조 건축물이 예외라고 확대 해석하기 쉽지만, 목구조 예외는 연면적 200㎡ 미만이고 3층 미만인 경우로 한정된다.",
+    example:
+      "단독주택, 처마높이가 10미터인 건축물, 기둥과 기둥 사이의 거리가 10미터인 건축물, 다세대주택은 착공신고 시 구조 안전 확인서류를 제출하여야 하는 건축물이다.",
+    questionRefs: [
+      { year: 2018, questionNo: 73 },
+    ],
+  },
+  {
+    slug: "building-area-calculation-method",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "건축물 면적·높이·층수·용적률의 산정방법",
+    titleEn: "Calculation of Building Area, Height, Floor Count, and Floor Area Ratio",
+    definition:
+      "바닥면적은 벽·기둥의 중심선(구획 없는 경우 지붕 끝에서 수평거리 1m 후퇴선)으로 둘러싸인 부분의 수평투영면적으로 산정하되 승강기탑·공동주택 지상 조경시설·생활폐기물 보관함은 제외되고 필로티는 공동주택이면 바닥면적에 산입되며, 용적률 산정 시 지하층 면적과 지상층 부속용도 주차장 면적은 연면적에서 제외되고, 층수가 부분별로 다르면 가장 많은 층수를 기준으로 하며 층 구분이 불명확하면 4m마다 하나의 층으로 본다.",
+    intuition:
+      "면적 산정 문제는 '무엇이 바닥면적·연면적에 포함되는지'를 시설별로 뒤집어 출제하며, 용적률 계산 문제는 지하층·부속용도 주차장을 제외하는 규칙을 실제 숫자에 적용해 계산하는 방식으로 출제된다.",
+    keyPoints: [
+      "벽·기둥의 구획이 없는 건축물의 바닥면적은 그 지붕 끝부분으로부터 수평거리 1m를 후퇴한 선으로 둘러싸인 수평투영면적으로 하며, 승강기탑과 공동주택 지상층에 설치한 조경시설은 바닥면적에 산입하지 않는다.",
+      "필로티 부분은 공동주택의 경우 바닥면적에 산입하지만(공중 통행·차량 통행·주차에 전용되는 경우는 제외), 공동주택 지상층에 설치한 생활폐기물 보관함의 면적은 바닥면적에 산입하지 않는다.",
+      "용적률 산정 시 지하층의 면적, 지상층의 부속용도인 주차장 면적은 연면적에 산입하지 않으며, 지하주차장 경사로의 면적은 건축면적에 산입하지 않는다.",
+      "건축물 높이 제한 규정 적용 시 1층 전체에 필로티가 설치된 경우 건축물의 높이는 필로티의 층고를 포함해 산정하며(제외가 아님), 건축물의 층고는 방의 바닥구조체 윗면부터 위층 바닥구조체의 윗면까지의 높이로 한다(아랫면이 아님).",
+      "건축물 부분에 따라 층수가 다른 경우 그 중 가장 많은 층수를 그 건축물의 층수로 보며(평균이 아님), 층의 구분이 명확하지 않은 건축물의 높이는 4m마다 하나의 층으로 보아 층수를 산정한다.",
+      "대지면적 1,500㎡, 지상 11층·지하 3층, 각 층 바닥면적 1,000㎡이며 지상 1층 중 500㎡가 부속용도 주차장인 건축물의 용적률은 (지상층 연면적 11,000㎡ − 부속주차장 500㎡)÷1,500㎡×100 = 700%로 계산된다.",
+    ],
+    pitfalls:
+      "건축물 높이 제한 적용 시 1층 필로티의 층고를 제외하고 계산한다고 착각하기 쉽지만, 실제로는 필로티 층고를 포함해 높이를 산정한다.",
+    example:
+      "용적률을 산정할 때에는 지하층의 면적과 지상층의 부속용도인 주차장 면적은 연면적에 산입하지 않는다.",
+    questionRefs: [
+      { year: 2018, questionNo: 76 },
+      { year: 2020, questionNo: 77 },
+      { year: 2022, questionNo: 77 },
+      { year: 2023, questionNo: 77 },
+    ],
+  },
+  {
+    slug: "primary-structural-elements",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "주요구조부의 범위",
+    titleEn: "Scope of Primary Structural Elements",
+    definition:
+      "주요구조부는 내력벽·기둥·바닥·보·지붕틀·주계단을 말하며, 사이 기둥·최하층 바닥·작은 보·차양·옥외 계단 등 건축물의 구조상 중요하지 않은 부분은 제외된다.",
+    intuition:
+      "주요구조부 목록은 '건물 전체의 구조적 안전을 좌우하는 핵심 부재'만 포함하므로, '사이 기둥'이나 '최하층 바닥'처럼 보조적·비핵심적인 부분은 빠진다는 원칙으로 기억하면 된다.",
+    keyPoints: [
+      "주요구조부에 해당하는 것은 지붕틀, 주계단, 내력벽, 기둥, 바닥, 보이다.",
+      "사이 기둥과 최하층 바닥은 주요구조부에 해당하지 않는다.",
+    ],
+    pitfalls:
+      "'기둥'이 주요구조부라는 이유로 '사이 기둥'까지 포함된다고 확대 해석하기 쉽지만, 사이 기둥은 명시적으로 주요구조부에서 제외된다.",
+    example:
+      "지붕틀과 주계단은 건축법령상 주요구조부에 해당하지만, 사이 기둥과 최하층 바닥은 주요구조부에 해당하지 않는다.",
+    questionRefs: [
+      { year: 2016, questionNo: 75 },
+    ],
+  },
+  {
+    slug: "high-rise-evacuation-safety-zone",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "초고층건축물의 피난안전구역 설치기준",
+    titleEn: "Evacuation Safety Zone Requirements for Super-Tall Buildings",
+    definition:
+      "층수가 63층이고 높이가 190m인 초고층건축물에는 피난층 또는 지상으로 통하는 직통계단과 직접 연결되는 피난안전구역을 지상층으로부터 최대 30개 층마다 1개소 이상 설치해야 한다.",
+    intuition:
+      "이 문제는 '몇 층인 건물부터 초고층으로 분류되는지'와 '피난안전구역 설치 간격(30개 층마다 1개소)' 두 숫자를 정확히 암기하는 것이 핵심이다.",
+    keyPoints: [
+      "층수가 63층이고 높이가 190m인 건축물은 초고층건축물(층수 50층 이상 또는 높이 200m 이상 기준 중 층수 기준으로 해당)로 분류된다.",
+      "초고층건축물에는 피난층 또는 지상으로 통하는 직통계단과 직접 연결되는 피난안전구역을 지상층으로부터 최대 30개 층마다 1개소 이상 설치해야 한다.",
+    ],
+    pitfalls:
+      "피난안전구역 설치 간격을 20개 층으로 착각하기 쉽지만, 실제 기준은 최대 30개 층마다 1개소다.",
+    example:
+      "층수가 63층이고 높이가 190m인 초고층건축물에는 피난층 또는 지상으로 통하는 직통계단과 직접 연결되는 피난안전구역을 지상층으로부터 최대 30개 층마다 1개소 이상 설치하여야 한다.",
+    questionRefs: [
+      { year: 2016, questionNo: 74 },
+    ],
+  },
+  {
+    slug: "site-preparation-structure-report",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "대지조성용 공작물의 축조신고 대상",
+    titleEn: "Reporting Requirements for Site-Preparation Structures",
+    definition:
+      "대지를 조성하기 위해 건축물과 분리하여 축조하는 공작물 중 높이 6m를 넘는 굴뚝, 높이 4m를 넘는 broadcast·통신용 철탑 등 그 밖의 유사한 것, 높이 2m를 넘는 옹벽·담장, 바닥면적 30㎡를 넘는 지하대피호 등은 신고 대상이지만, 높이 4m를 넘지 않는 장식탑은 신고 대상이 아니다.",
+    intuition:
+      "이 카드는 앞선 '건축허가·사전결정' 과목의 공작물 신고 카드와 유사하지만 각 공작물 유형별 정확한 높이·면적 기준선을 다시 짚는 문제이며, 장식탑의 기준(4m 초과)이 다른 공작물과 다르다는 점이 핵심이다.",
+    keyPoints: [
+      "상업지역에 설치하는 높이 8m의 통신용 철탑, 높이 4m의 옹벽(2m 초과 기준 충족), 높이 8m의 굴뚝(6m 초과 기준 충족), 바닥면적 40㎡의 지하대피호(30㎡ 초과 기준 충족)는 모두 신고 대상이다.",
+      "높이 4m의 장식탑은 신고 기준(4m를 '넘는' 경우)에 미달하여 축조신고 대상이 아니다.",
+    ],
+    pitfalls:
+      "장식탑의 신고 기준을 다른 공작물과 같은 수치로 착각하기 쉽지만, 정확히 '높이 4m를 넘는' 경우에만 신고 대상이므로 높이 4m는 신고 대상이 아니다.",
+    example:
+      "대지를 조성하기 위하여 건축물과 분리하여 상업지역에 설치하는 높이 8미터의 통신용 철탑을 축조하려는 자는 특별자치시장·특별자치도지사 또는 시장·군수·구청장에게 신고하여야 한다.",
+    questionRefs: [
+      { year: 2019, questionNo: 77 },
+    ],
+  },
+  {
+    slug: "floating-structure-site-boundary-relaxation",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "수면 위 건축물의 대지 범위와 완화 적용 요청",
+    titleEn: "Site Boundary Relaxation for Buildings on Water",
+    definition:
+      "수면 위에 건축물을 건축하려는 자가 대지의 범위를 설정하기 곤란한 경우 허가권자에게 대지의 조경, 공개 공지 등의 확보, 건축물의 높이 제한, 대지의 안전에 관한 기준의 완화 적용을 요청할 수 있지만, 건축물 내진등급의 설정 기준은 완화 적용 요청 대상이 아니다.",
+    intuition:
+      "완화 적용 대상은 '대지'와 관련된 기준(조경, 공개공지, 높이제한, 대지안전)에 한정되며, 건축물 자체의 구조안전성(내진등급)은 대지 범위 설정과 무관하므로 완화 대상에서 제외된다는 논리로 기억하면 된다.",
+    keyPoints: [
+      "수면 위 건축물의 대지 범위 설정이 곤란한 경우 완화 적용을 요청할 수 있는 기준은 대지의 조경, 공개 공지 등의 확보, 건축물의 높이 제한, 대지의 안전이다.",
+      "건축물 내진등급의 설정에 관한 기준은 대지의 범위와 무관한 구조 안전 사항이므로 완화 적용 요청 대상이 아니다.",
+    ],
+    pitfalls:
+      "대지 관련 기준을 완화받을 수 있으면 구조 관련 기준(내진등급)도 함께 완화된다고 오해하기 쉽지만, 내진등급 기준은 이 완화 적용 요청 대상에서 제외된다.",
+    example:
+      "수면 위에 건축물을 건축하려는 자가 대지의 범위를 설정하기 곤란한 경우, 대지의 조경·공개 공지 등의 확보·건축물의 높이 제한·대지의 안전에 관한 기준의 완화 적용을 요청할 수 있다.",
+    questionRefs: [
+      { year: 2021, questionNo: 73 },
+    ],
+  },
+  {
+    slug: "building-register-maintenance",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "건축물대장의 작성·정비 의무",
+    titleEn: "Maintenance of Building Registers",
+    definition:
+      "허가권자는 사용승인서를 내준 경우, 건축허가·건축신고 대상 건축물 외의 건축물의 공사가 끝난 후 기재 요청이 있는 경우, 「집합건물의 소유 및 관리에 관한 법률」에 따른 건축물대장의 신규등록 신청이 있는 경우에 건축물대장에 건축물과 대지의 현황·구조내력 정보를 적어 보관·정비해야 한다(가설건축물은 제외).",
+    intuition:
+      "건축물대장 정비의무는 '정식 사용승인을 받은 경우'뿐 아니라 '허가·신고 대상이 아닌 건축물의 사후 기재 요청'과 '집합건물 신규등록'까지 포함한다는 점을 확장해 기억해야 한다.",
+    keyPoints: [
+      "허가권자가 건축물의 사용승인서를 내준 경우 건축물대장을 작성·정비해야 한다.",
+      "건축허가 또는 건축신고 대상 건축물 외의 건축물의 공사가 끝난 후 기재 요청이 있는 경우에도 건축물대장을 정비해야 한다.",
+      "「집합건물의 소유 및 관리에 관한 법률」에 따른 건축물대장의 신규등록 신청이 있는 경우에도 건축물대장을 작성·정비해야 하며, 가설건축물은 이 정비의무의 대상에서 제외된다.",
+    ],
+    pitfalls:
+      "건축물대장 정비의무를 '사용승인을 받은 경우'로만 한정하기 쉽지만, 허가·신고 대상이 아닌 건축물의 기재 요청이나 집합건물 신규등록의 경우에도 정비 의무가 발생한다.",
+    example:
+      "허가권자가 건축물의 사용승인서를 내준 경우에는 건축물대장에 건축물과 그 대지의 현황 및 구조내력에 관한 정보를 적어서 보관하고 이를 지속적으로 정비하여야 한다.",
+    questionRefs: [
+      { year: 2021, questionNo: 76 },
+    ],
+  },
+  {
+    slug: "site-evacuation-passage-requirements",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "대지 안 피난 및 소화에 필요한 통로 설치기준",
+    titleEn: "On-Site Evacuation and Firefighting Passage Requirements",
+    definition:
+      "건축물의 각 부분으로부터 도로에 이르는 통로 등 대지 안의 피난 및 소화에 필요한 통로는 너비 1.5m 이상(내화구조 또는 불연재료 건축물이 아닌 경우) 또는 너비 1.2m 이상(그 외)으로 설치해야 하며, 옥상광장·헬리포트 관련 기준이나 통로 폭 산정 시 유효너비 1m 이상, 필로티 내 통로 층고 3m 이상 등의 세부 수치 기준을 충족해야 한다.",
+    intuition:
+      "이 조문은 여러 숫자(유효너비, 대지면적 기준, 층고 등)가 한 문제에 뒤섞여 등장하므로, 빈칸 채우기 문제의 정답 조합(1, 300, 1, 1.5)을 하나의 세트로 암기하는 것이 효율적이다.",
+    keyPoints: [
+      "대지 안의 피난 및 소화에 필요한 통로의 유효너비는 1m 이상으로 하며, 대지면적이 300㎡ 이상인 경우 관련 기준이 적용되고, 필로티 내 통로에는 높이 1m 이상의 조건 등이 적용된다.",
+      "통로 설치와 관련한 폭 기준 중 하나로 1.5m라는 수치가 사용되며, 이는 다른 선택지의 0.9m·1.2m·1.5m 등 유사 수치와 혼동하지 않아야 한다.",
+    ],
+    pitfalls:
+      "대지 안 통로 관련 숫자 기준(유효너비 1m, 대지면적 300㎡)을 조경·공작물 관련 다른 숫자 기준과 혼동하기 쉬우므로 이 조문만의 세트로 별도 암기해야 한다.",
+    example:
+      "건축법령상 대지 안의 피난 및 소화에 필요한 통로의 유효너비는 1미터 이상으로 하여야 한다.",
+    questionRefs: [
+      { year: 2022, questionNo: 73 },
+    ],
+  },
+  {
+    slug: "type-1-neighborhood-facility",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "제1종 근린생활시설의 범위",
+    titleEn: "Scope of Type 1 Neighborhood Living Facilities",
+    definition:
+      "제1종 근린생활시설에는 슈퍼마켓·일용품소매점, 휴게음식점(바닥면적 300㎡ 미만), 이용원·미용원·목욕장·세탁소, 의원·치과의원 등 진료소, 탁구장·체육도장(500㎡ 미만) 등이 포함되며, 서점은 바닥면적과 무관하게 제1종 근린생활시설에 해당하지만 극장, 일정 규모 이상 탁구장, 파출소, 산후조리원은 각각 다른 시설군으로 분류된다.",
+    intuition:
+      "제1종·제2종 근린생활시설 구분 문제는 '규모 기준을 충족하는지'와 '애초에 근린생활시설 범주에 속하는지(극장은 문화집회시설, 파출소는 공공업무시설 등)'를 함께 확인해야 한다.",
+    keyPoints: [
+      "서점은 바닥면적 규모와 무관하게 제1종 근린생활시설에 해당한다.",
+      "극장은 문화 및 집회시설로 분류되어 제1종 근린생활시설이 아니며, 탁구장은 바닥면적 500㎡ 미만이면 제1종, 500㎡ 이상이면 제2종 근린생활시설의 운동시설로 분류되므로 규모 확인이 필요하다.",
+      "파출소는 공공업무시설로, 산후조리원은 의료 관련 시설(제2종 근린생활시설 등)로 분류되어 제1종 근린생활시설이 아니다.",
+    ],
+    pitfalls:
+      "서점을 '판매시설'로 착각해 근린생활시설이 아니라고 보기 쉽지만, 서점은 규모와 무관하게 제1종 근린생활시설에 해당한다.",
+    example:
+      "동일한 건축물 안에서 해당 용도에 쓰이는 바닥면적의 합계가 1,000㎡인 경우, 서점은 제1종 근린생활시설에 해당하지만 극장·탁구장·파출소·산후조리원은 해당하지 않는다.",
+    questionRefs: [
+      { year: 2022, questionNo: 74 },
+    ],
+  },
+  {
+    slug: "building-line-narrow-road",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "소요너비 미달 도로의 건축선 산정",
+    titleEn: "Building Line Calculation for Substandard-Width Roads",
+    definition:
+      "소요 너비에 못 미치는 도로에 접한 대지의 건축선은 그 도로 중심선으로부터 소요 너비의 2분의 1의 수평거리만큼 물러난 선으로 하되, 도로 반대쪽에 하천·철도 등이 있으면 그 경계선으로부터 소요 너비에 해당하는 수평거리의 선을 건축선으로 하며, 이렇게 후퇴한 부분은 대지면적 산정 시 대지면적에서 제외한다.",
+    intuition:
+      "이 조문은 '도로 양쪽에 모두 대지가 있는 일반적인 경우(중심선 기준 1/2 후퇴)'와 '도로 반대쪽이 하천·철도 등으로 대지가 없는 경우(그 경계선 기준 소요너비 전체)'를 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "소요 너비에 못 미치는 너비의 도로인 경우 그 중심선으로부터 소요 너비의 2분의 1의 수평거리만큼 물러난 선을 건축선으로 한다.",
+      "그 도로의 반대쪽에 하천·철도·선로부지 등이 있는 경우에는 그 경계선으로부터 소요 너비에 해당하는 수평거리의 선을 건축선으로 한다.",
+      "건축선과 도로 사이의 대지면적은 건축선 후퇴로 인해 대지면적 산정에서 제외된다.",
+    ],
+    pitfalls:
+      "도로 반대쪽에 하천이 있는 경우에도 항상 '소요너비의 2분의 1'만 후퇴한다고 착각하기 쉽지만, 이 경우에는 그 경계선으로부터 소요 너비 '전체'에 해당하는 거리를 후퇴해야 한다.",
+    example:
+      "소요 너비에 못 미치는 너비의 도로인 경우에는 그 중심선으로부터 그 소요 너비의 2분의 1의 수평거리만큼 물러난 선을 건축선으로 하며, 그 도로의 반대쪽에 하천이 있는 경우에는 그 경계선으로부터 소요 너비에 해당하는 수평거리의 선을 건축선으로 한다.",
+    questionRefs: [
+      { year: 2023, questionNo: 72 },
+    ],
+  },
+  {
+    slug: "major-renovation-definition",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "대수선의 정의와 판정기준",
+    titleEn: "Definition and Criteria for Major Renovation",
+    definition:
+      "대수선은 건축물의 증축·개축·재축에 해당하지 않으면서 내력벽·기둥·보·지붕틀을 각각 3개 이상 수선·변경하거나, 내력벽 벽면적을 30㎡ 이상 수선·변경하거나, 기둥·보·지붕틀을 증설·해체하거나, 특별피난계단·다세대주택 세대 간 경계벽 등을 증설·해체·수선·변경하는 것을 말한다.",
+    intuition:
+      "이 문제는 대수선의 법정 기준(개수·면적)에 '미달'하는 행위를 찾아내는 방식으로 출제되므로, '3개 이상', '30㎡ 이상'이라는 기준 숫자를 정확히 암기하는 것이 핵심이다.",
+    keyPoints: [
+      "보·기둥·지붕틀을 3개 이상 수선하거나 변경하는 것은 대수선에 해당하지만, 2개만 변경·수선하는 것은 대수선의 개수 기준(3개 이상)에 미달해 대수선에 해당하지 않는다.",
+      "내력벽의 벽면적을 30㎡ 이상 수선·변경하는 것, 특별피난계단을 증설·해체·수선·변경하는 것, 다세대주택의 세대 간 경계벽을 증설하는 것은 각각 대수선에 해당한다.",
+    ],
+    pitfalls:
+      "보나 기둥을 몇 개만 변경해도 대수선이라고 착각하기 쉽지만, 법정 기준은 '3개 이상'이므로 2개 이하의 변경은 대수선에 해당하지 않는다.",
+    example:
+      "보를 두 개 변경하는 것은 건축법령상 대수선의 개수 기준(3개 이상)에 미달하여 대수선에 해당하지 않는다.",
+    questionRefs: [
+      { year: 2024, questionNo: 72 },
+    ],
+  },
+  {
+    slug: "interior-finishing-material-regulation",
+    chapterKo: "건축법",
+    sectionKo: "총칙",
+    category: "건축법",
+    subcategory: "용어정의·적용범위",
+    parentSlug: "building-terms-scope",
+    titleKo: "건축물 내부 마감재료의 규제기준",
+    titleEn: "Regulation of Interior Finishing Materials",
+    definition:
+      "대통령령으로 정하는 용도·규모의 건축물의 벽·반자·지붕(반자가 없는 경우) 등 내부의 마감재료는 방화에 지장이 없는 재료로 하되, 「실내공기질 관리법」에 따른 실내공기질 유지기준·권고기준을 고려하고 관계 중앙행정기관의 장과 협의해야 한다.",
+    intuition:
+      "이 조문은 '마감재료(무엇을)', '방화(어떤 성능을 확보해야 하는지)', '실내공기질(추가로 고려해야 하는 기준)'이라는 세 빈칸을 순서대로 채우는 문제이므로, 세 단어를 하나의 문장으로 통째로 암기하는 것이 효율적이다.",
+    keyPoints: [
+      "대통령령으로 정하는 용도 및 규모의 건축물의 벽, 반자, 지붕(반자가 없는 경우) 등 내부의 마감재료는 방화에 지장이 없는 재료로 해야 한다.",
+      "마감재료 기준을 정할 때에는 「실내공기질 관리법」에 따른 실내공기질 유지기준 및 권고기준을 고려하고 관계 중앙행정기관의 장과 협의해야 한다.",
+    ],
+    pitfalls:
+      "마감재료 규제의 목적을 '내진'이나 '공기청정'으로 착각하기 쉽지만, 핵심 목적은 '방화'이며 추가로 고려하는 기준은 '실내공기질'이다.",
+    example:
+      "대통령령으로 정하는 용도 및 규모의 건축물의 벽, 반자, 지붕 등 내부의 마감재료는 방화에 지장이 없는 재료로 하되, 「실내공기질 관리법」에 따른 실내공기질 유지기준 및 권고기준을 고려하여야 한다.",
+    questionRefs: [
+      { year: 2024, questionNo: 77 },
+    ],
+  },
+  {
+    slug: "building-permit-report",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    titleKo: "건축허가의 요건·철거신고·허가제한",
+    titleEn: "Building Permit Requirements and Restrictions",
+    definition:
+      "건축물의 철거 신고는 특별자치시장·특별자치도지사 또는 시장·군수·구청장에게 하고, 건축허가는 원칙적으로 대지의 소유권을 확보해야 하지만 사용권원 확보나 집합건물 공용부분 변경 결의 등 법정 예외가 있으며, 허가권자의 건축허가·착공을 제한하는 처분은 제한기간 2년 이내(1회 1년 이내 연장 가능)로 한다.",
+    intuition:
+      "허가 관련 문제는 '누가 제한할 수 있는지(국토교통부장관 vs 특별시장·광역시장 vs 도지사)'와 '제한 절차·기간(2년+1년, 주민의견청취·건축위원회 심의, 공고·보고)'을 뒤바꿔 출제하는 패턴이 반복된다.",
+    keyPoints: [
+      "건축물 소유자가 철거하려면 특별자치시장·특별자치도지사 또는 시장·군수·구청장에게 철거예정일 3일 전까지 신고해야 하고, 재해로 멸실된 경우 멸실 후 30일 이내에 신고해야 한다.",
+      "분양 목적 공동주택의 건축주는 원칙적으로 대지 소유권을 확보해야 하나, 집합건물 공용부분 변경 결의를 증명하거나 국유지 관리청의 매각 확인이 있는 경우 등은 소유권 확보 예외에 해당한다.",
+      "국토교통부장관은 국방·국가유산보존·국민경제를 위해 특히 필요한 경우 허가권자의 건축허가·착공을, 특별시장·광역시장·도지사는 지역계획·도시계획을 위해 특히 필요한 경우 시장·군수·구청장의 건축허가·착공을 제한할 수 있다.",
+      "건축허가 제한기간은 2년 이내로 하며, 1회에 한하여 1년 이내의 범위에서 연장할 수 있고, 제한 시 주민의견 청취·건축위원회 심의를 거쳐 제한 목적·기간·대상 등을 지체 없이 공고해야 하며, 시·도지사가 제한한 경우 국토교통부장관에게 보고해야 하고 국토교통부장관은 제한 내용이 지나치다고 인정되면 해제를 명할 수 있다.",
+      "건축허가를 받은 자가 대지를 조성하기 위해 옹벽 등을 축조하려면 별도로 공작물 축조신고가 필요하며, 공사시공자 변경 시에는 신고를 해야 한다.",
+    ],
+    pitfalls:
+      "국토교통부장관의 허가제한 사유(국방·국가유산보존·국민경제)와 시·도지사의 허가제한 사유(지역계획·도시계획)를 서로 바꿔 출제하는 경우가 많고, 제한 내용이 지나치다고 인정될 때 국토교통부장관이 '직권으로 해제'하는 것이 아니라 해제를 '명할 수 있다'는 점에 유의해야 한다.",
+    example:
+      "시·도지사가 지역계획에 특히 필요하다고 인정하여 시장·군수·구청장의 건축허가를 제한하는 경우, 그 제한기간은 2년 이내로 하되 1회에 한하여 1년 이내의 범위에서 연장할 수 있다.",
+    questionRefs: [
+      { year: 2016, questionNo: 73 },
+      { year: 2017, questionNo: 72 },
+      { year: 2020, questionNo: 76 },
+      { year: 2021, questionNo: 74 },
+      { year: 2024, questionNo: 76 },
+      { year: 2025, questionNo: 73 },
+    ],
+  },
+  {
+    slug: "building-preliminary-determination",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "건축 관련 입지와 규모의 사전결정",
+    titleEn: "Preliminary Determination for Building Permits",
+    definition:
+      "건축허가 대상 건축물을 건축하려는 자는 허가권자에게 사전결정을 신청할 수 있으며, 사전결정 통지를 받으면 개발행위허가·산지전용허가(도시지역 안 보전산지 등)·농지전용허가 등이 의제되고, 사전결정을 통지받은 날부터 2년 이내에 건축허가를 신청하지 아니하면 그 효력이 상실된다.",
+    intuition:
+      "사전결정 의제 대상(개발행위허가, 보전산지 산지전용·일시사용허가, 농지전용허가 등)과 의제되지 않는 대상(하천점용허가, 농림지역 보전산지 산지전용허가)을 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "사전결정신청자는 건축위원회 심의와 교통영향평가서의 검토를 동시에 신청할 수 있으며, 허가권자는 사전결정에 앞서 소규모 환경영향평가 등에 관해 관계 행정기관과 협의해야 한다.",
+      "사전결정의 통지로 개발행위허가, 도시지역 안 보전산지에 대한 산지일시사용허가·산지전용허가, 농지전용허가 등이 의제될 수 있지만, 하천점용허가나 도시지역 외 농림지역 보전산지에 대한 산지전용허가는 의제되지 않는다.",
+      "허가권자는 사전결정을 하려면 미리 관계 행정기관의 장과 협의해야 하며, 협의를 요청받은 관계 행정기관의 장은 요청받은 날부터 15일 이내에 의견을 제출해야 한다.",
+      "사전결정신청자가 사전결정을 통지받은 날부터 2년 이내에 건축허가를 신청하지 아니하면 사전결정의 효력이 상실된다.",
+    ],
+    pitfalls:
+      "사전결정 통지 후 착공신고 기한(2년)으로 오해하기 쉽지만, 실제로는 '건축허가 신청' 기한이 2년이며 착공신고가 아니다. 또한 관계 행정기관의 의견제출 기한을 10일로 잘못 기억하기 쉬운데 실제로는 15일이다.",
+    example:
+      "건축허가 대상 건축물을 건축하려는 자가 사전결정을 통지받은 경우, 「국토의 계획 및 이용에 관한 법률」에 따른 개발행위허가를 받은 것으로 본다.",
+    questionRefs: [
+      { year: 2017, questionNo: 76 },
+      { year: 2019, questionNo: 72 },
+      { year: 2022, questionNo: 78 },
+      { year: 2025, questionNo: 74 },
+    ],
+  },
+  {
+    slug: "building-report-temporary-structure",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "건축신고와 가설건축물 축조신고",
+    titleEn: "Building Reports and Temporary Structure Notifications",
+    definition:
+      "연면적 100㎡ 이하 건축물의 신축, 바닥면적 합계 85㎡ 이내의 증축·개축·재축, 대수선 중 일정 규모 이하인 경우 등은 건축신고를 하면 건축허가를 받은 것으로 보며, 가설건축물 중 견본주택·농업용 비닐하우스·간이창고 등 법정 유형은 축조신고 대상이지만 주거용 가설건축물은 축조신고 대상이 아니다.",
+    intuition:
+      "건축신고로 허가가 의제되는 규모 기준(연면적·층수·바닥면적)과 가설건축물 축조신고 대상 목록에서 '주거용'이 배제된다는 점이 반복 출제 포인트다.",
+    keyPoints: [
+      "연면적 150㎡인 3층 건축물의 피난계단 증설처럼 대수선의 범위·규모 요건을 벗어나면 건축신고 대상이 아니며, 신고 대상에 해당하면 건축허가를 받은 것으로 본다.",
+      "가설건축물 축조신고 대상에는 전시를 위한 견본주택, 도시지역 주거지역의 농업용 비닐하우스, 야외흡연실용 가설건축물, 공장 옥상의 임시사무실용 컨테이너 등이 포함되지만, 조립식 구조의 주거용 가설건축물은 축조신고 대상이 아니다.",
+      "견본주택에도 대지와 도로의 관계에 관한 규정은 적용되며, 존치기간은 해당 주택의 분양완료일까지이고, 2층 이상이더라도 공사감리자를 따로 지정할 필요는 없다.",
+      "건축신고를 한 자가 신고일부터 1년 이내에 공사에 착수하지 아니하면 신고의 효력이 없어지며, 공사시공자를 변경하려면 신고(허가가 아님)로 족하고, 건축물 안전영향평가는 초고층 건축물 등 별도 대상에만 적용된다.",
+    ],
+    pitfalls:
+      "건축신고의 실효기한을 '6개월'로 착각하기 쉽지만 실제로는 신고일부터 1년이며, 가설건축물이 2층 이상이라고 해서 공사감리자 지정이 요구되는 것은 아니라는 점도 혼동하기 쉽다.",
+    example:
+      "도시지역의 주거지역에 설치하는 농업용 비닐하우스로서 연면적이 100㎡인 것은 가설건축물 축조신고의 대상이 된다.",
+    questionRefs: [
+      { year: 2017, questionNo: 77 },
+      { year: 2018, questionNo: 74 },
+      { year: 2020, questionNo: 78 },
+      { year: 2021, questionNo: 75 },
+    ],
+  },
+  {
+    slug: "building-use-change",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "건축물 용도변경(허가·신고·사용승인)",
+    titleEn: "Change of Building Use",
+    definition:
+      "건축물의 용도변경은 용도군 간 상위군으로 변경 시 허가, 하위군으로 변경 시 신고 대상이 되며, 용도변경한 부분의 바닥면적 합계가 100㎡ 이상이면 사용승인을 받아야 하고, 용도변경 시 대수선을 수반하는 설계는 일정 규모 이상이면 건축사가 아니면 할 수 없다.",
+    intuition:
+      "용도변경은 '허가 vs 신고'의 방향(상위군↔하위군), '사용승인이 필요한 면적 기준(100㎡)', '복수용도 인정 여부'를 조합해 여러 각도로 반복 출제된다.",
+    keyPoints: [
+      "숙박시설에서 의료시설(하위군)로 변경하는 경우는 신고, 종교시설(상위군)로 변경하는 경우는 허가 대상이며, 바닥면적 합계 1천㎡ 부분만 업무시설로 변경하는 경우에도 사용승인 요건을 벗어날 수 없다.",
+      "용도변경 시 하나의 건축물에 둘 이상의 용도(복수용도)를 정하여 신청할 수 있으며, 허가권자는 지방건축위원회의 심의를 거쳐 이를 허용할 수 있다.",
+      "시·도지사는 도시·군계획에 특히 필요하다고 인정하면 시장·군수·구청장의 용도변경허가를 제한할 수 있다.",
+      "자동차영업소에서 노래연습장으로 용도변경하는 경우처럼 같은 시설군 내 용도변경이라도 건축물대장 기재내용의 변경 신청이 필요할 수 있다.",
+    ],
+    pitfalls:
+      "용도변경도 항상 건축사의 설계가 필요하다고 오해하기 쉽지만, 용도변경을 위한 대수선이 일정 규모 미만이면 건축사가 아니어도 설계할 수 있는 경우가 있다는 점에 유의해야 한다.",
+    example:
+      "숙박시설을 의료시설로 용도변경하려는 자는 용도변경 신고를 하여야 하지만, 종교시설로 용도변경하려는 경우에는 용도변경 허가를 받아야 한다.",
+    questionRefs: [
+      { year: 2018, questionNo: 75 },
+      { year: 2020, questionNo: 75 },
+      { year: 2023, questionNo: 74 },
+    ],
+  },
+  {
+    slug: "building-agreement",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "건축협정의 체결·인가·효과",
+    titleEn: "Building Agreements",
+    definition:
+      "건축협정은 토지·건축물 소유자 등 전원의 합의로 체결하며, 협정체결자 또는 건축협정운영회의 대표자가 건축협정서를 작성해 건축협정인가권자의 인가를 받아야 하고, 인가된 건축협정구역에서는 건폐율·지하층 설치·부설주차장 설치 등을 개별 건축물마다 적용하지 않고 구역 전체를 대상으로 통합 적용할 수 있다.",
+    intuition:
+      "건축협정은 '체결 요건(전원 합의)', '인가·변경·폐지 절차', '통합 적용 가능 항목(건폐율·지하층·부설주차장·개인하수처리시설 vs 계단 설치처럼 개별 건축물마다 적용되는 항목)'의 세 갈래로 출제된다.",
+    keyPoints: [
+      "건축협정은 해당 지역의 토지 또는 건축물 소유자, 지상권자 등 전원의 합의로 체결해야 하며, 과반수 동의만으로는 체결할 수 없다.",
+      "협정체결 대상 토지가 둘 이상의 특별자치시·시·군·구에 걸치는 경우 협정 대상 토지면적의 과반이 속하는 건축협정인가권자에게 인가를 신청하며, 시·도지사에게 인가를 받는 것이 아니다.",
+      "인가받은 건축협정을 변경하려면 협정체결자 과반수의 동의를 받아 인가권자의 '변경인가'를 받아야 하고, 폐지하려면 협정체결자 과반수의 동의를 받아 인가권자의 인가를 받아야 한다(전원 동의가 아님).",
+      "건축협정이 공고된 후 협정구역 내 토지에 관한 권리를 협정체결자로부터 이전받은 자는 건축협정에서 달리 정하지 않는 한 그 협정에 따라야 한다.",
+      "건축협정구역에서는 건폐율, 지하층의 설치, 부설주차장의 설치, 개인하수처리시설의 설치를 통합하여 적용할 수 있으나, 계단의 설치는 개별 건축물마다 적용해야 한다.",
+      "건축협정구역에서 용적률을 완화 적용하려면 건축위원회 심의와 지방도시계획위원회 심의를 통합하여 거쳐야 하지만, 건폐율·높이제한·조경면적·일조확보를 위한 높이제한의 완화는 그렇지 않다.",
+    ],
+    pitfalls:
+      "건축협정의 변경·폐지 요건을 모두 '전원 동의'로 통일해 기억하기 쉽지만, 변경·폐지는 '과반수 동의'로 충분하고 체결만 전원 합의가 필요하다는 점, 그리고 용적률 완화만 통합심의 대상이라는 점을 구분해야 한다.",
+    example:
+      "건축협정인가권자가 건축협정을 인가하였을 때에는 해당 지방자치단체의 공보에 그 내용을 공고하여야 한다.",
+    questionRefs: [
+      { year: 2016, questionNo: 76 },
+      { year: 2017, questionNo: 78 },
+      { year: 2020, questionNo: 73 },
+      { year: 2023, questionNo: 73 },
+    ],
+  },
+  {
+    slug: "combined-building",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "결합건축의 대상지역과 협정서 기재사항",
+    titleEn: "Combined Building",
+    definition:
+      "결합건축은 상업지역, 역세권개발구역, 건축협정구역, 특별가로구역 등 법정 지역·구역에서 둘 이상의 대지를 대상으로 용적률을 결합하여 적용하는 제도이며, 건축주는 건축허가 신청 시 결합건축 대상 대지의 용도지역·건축계획서·조정된 대지별 용적률 등을 명시한 결합건축협정서를 제출해야 한다.",
+    intuition:
+      "결합건축은 '어느 지역에서 가능한지'와 '협정서에 무엇을 적어야 하는지'가 별개의 출제 축이며, 리모델링 활성화구역은 대상 지역에서 제외된다는 점이 핵심 함정이다.",
+    keyPoints: [
+      "결합건축을 할 수 있는 지역·구역에는 상업지역, 역세권개발구역, 건축협정구역, 특별가로구역 등이 포함되지만, 리모델링 활성화구역은 포함되지 않는다.",
+      "결합건축협정서에는 결합건축 대상 대지의 용도지역, 협정체결자의 인적사항(자연인은 성명·주소·생년월일), 대지별 건축계획서, 조례로 정한 용적률과 결합건축으로 조정되어 적용되는 대지별 용적률을 명시해야 한다.",
+      "협정체결자가 법인인 경우 명시사항은 법인의 명칭·소재지·대표자 성명 등이며, 지방세 납세증명서 제출은 결합건축협정서의 명시사항이 아니다.",
+    ],
+    pitfalls:
+      "결합건축 대상 지역에 리모델링 활성화구역까지 포함된다고 오해하기 쉽지만, 실제로는 상업지역·역세권개발구역·건축협정구역·특별가로구역 등만 해당하고 리모델링 활성화구역은 제외된다.",
+    example:
+      "건축협정구역에서 결합건축을 하려는 건축주는 결합건축협정서에 결합건축 대상 대지별 건축계획서를 명시하여야 한다.",
+    questionRefs: [
+      { year: 2019, questionNo: 78 },
+      { year: 2022, questionNo: 75 },
+    ],
+  },
+  {
+    slug: "special-building-zone",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "특별건축구역의 지정과 건축기준 적용 특례",
+    titleEn: "Special Building Zones",
+    definition:
+      "특별건축구역은 국토교통부장관 또는 시·도지사가 지정하며, 「도로법」상 접도구역 등은 지정될 수 없고, 특별건축구역에서는 조경·대지분할제한 등 일부 규정을 국가가 건축하는 건축물에 적용하지 않을 수 있는 반면 대지와 도로의 관계·대지 안의 공지 등은 적용이 배제되지 않는다.",
+    intuition:
+      "특별건축구역 문제는 '지정권자(국토교통부장관 vs 시·도지사)', '지정 제외 대상', '적용 특례를 받을 수 있는 규정과 그렇지 않은 규정'을 구분하는 것이 핵심이다.",
+    keyPoints: [
+      "국토교통부장관은 국가가 국제행사 등을 개최하는 지역의 사업구역 등을, 시·도지사는 지방자치단체가 시행하는 사업구역 등을 특별건축구역으로 지정할 수 있으며, 「도로법」에 따른 접도구역은 특별건축구역으로 지정될 수 없다.",
+      "특별건축구역에서의 건축기준 특례는 지방자치단체가 건축하는 건축물에도 적용될 수 있으며, 부설주차장 설치 규정은 개별 건축물마다 적용하지 않고 완화하여 적용할 수 있다.",
+      "특별건축구역을 지정하더라도 「국토의 계획 및 이용에 관한 법률」에 따른 용도지역·지구·구역의 지정이 있는 것으로 보지는 않는다.",
+      "국가가 건축하는 건축물에 대해서는 대지의 조경, 대지의 분할 제한에 관한 사항을 적용하지 않을 수 있지만, 대지와 도로의 관계, 대지 안의 공지에 관한 사항은 적용이 배제되지 않는다.",
+    ],
+    pitfalls:
+      "특별건축구역 지정으로 용도지역 지정의 효과까지 발생한다고 오해하기 쉽지만, 특별건축구역 지정은 용도지역·지구·구역의 지정으로 의제되지 않는다.",
+    example:
+      "「도로법」에 따른 접도구역은 특별건축구역으로 지정될 수 없다.",
+    questionRefs: [
+      { year: 2021, questionNo: 77 },
+      { year: 2022, questionNo: 76 },
+    ],
+  },
+  {
+    slug: "building-dispute-committee",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "건축분쟁전문위원회와 건축민원전문위원회",
+    titleEn: "Building Dispute and Complaint Committees",
+    definition:
+      "건축분쟁전문위원회는 건축주·공사시공자·관계전문기술자·공사감리자와 인근주민 등 사인(私人) 간의 건축 관련 분쟁을 조정·재정하며, 행정청인 건축허가권자가 당사자인 분쟁은 대상이 아니고, 건축민원전문위원회는 도지사·시장·군수·구청장이 설치해 건축법령의 운영·집행에 관한 질의민원을 심의한다.",
+    intuition:
+      "건축분쟁전문위원회의 대상 여부는 '당사자 중 하나가 허가권자(행정청)인지'로 갈리며, 건축민원전문위원회는 '누가 설치하는지'와 '심의 절차(구술 신청, 출석 의견진술 대상)'가 핵심 포인트다.",
+    keyPoints: [
+      "건축분쟁전문위원회는 건축관계자(건축주·공사시공자·관계전문기술자·공사감리자) 상호간, 또는 이들과 인근주민 간의 분쟁을 조정·재정 대상으로 하지만, '건축허가권자'가 당사자인 분쟁(허가신청자·건축신고수리자·공사감리자·인근주민과의 분쟁 등)은 대상이 아니다.",
+      "도지사는 건축위원회의 심의 등을 효율적으로 수행하기 위해 필요하면 자신이 설치하는 건축위원회에 건축민원전문위원회를 두어 운영할 수 있다.",
+      "건축민원전문위원회에 질의민원의 심의를 신청하려는 자는 원칙적으로 문서로 신청하되, 문서에 의할 수 없는 특별한 사정이 있으면 구술로도 신청할 수 있다.",
+      "건축민원전문위원회는 심의를 위해 신청인, 허가권자 외에 관계 전문가 등 필요한 자를 출석하게 하여 의견을 들을 수 있으며, 위원 또는 사무국 소속 공무원에게 관계 서류 열람·관계 사업장 조사를 하게 할 수 있다.",
+    ],
+    pitfalls:
+      "건축분쟁전문위원회가 행정청과 사인 간의 모든 분쟁을 다룬다고 오해하기 쉽지만, 건축허가권자가 당사자인 분쟁은 원칙적으로 대상에서 제외된다는 점이 반복 출제되는 함정이다.",
+    example:
+      "건축주와 공사감리자 간의 건축 관련 분쟁은 건축분쟁전문위원회의 조정 및 재정 대상이 되지만, 건축허가권자와 건축허가신청자 간의 분쟁은 대상이 되지 않는다.",
+    questionRefs: [
+      { year: 2017, questionNo: 74 },
+      { year: 2019, questionNo: 73 },
+      { year: 2021, questionNo: 78 },
+    ],
+  },
+  {
+    slug: "building-safety-evaluation",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "건축물 안전영향평가와 범죄예방 기준",
+    titleEn: "Building Safety Impact Assessment and Crime Prevention Standards",
+    definition:
+      "초고층 건축물 등 안전영향평가 대상 건축물은 건축허가 전에 안전영향평가를 실시해야 하고 평가기관은 설계기준·하중저항시스템·지반조사·지하수위 변화 등을 검토하며, 학교·다중생활시설·일용품 소매점 등 법정 건축물은 국토교통부장관이 고시하는 범죄예방 기준에 따라 건축해야 한다.",
+    intuition:
+      "안전영향평가는 '실시 시점(허가 전)', '검토 항목(구조·지반 관련 사항이며 지방건축위원회가 결정하는 사항은 아님)', '결과 공개·확정 절차'가 출제 축이고, 범죄예방 기준은 적용 대상 건축물 목록에서 예외를 찾는 방식으로 출제된다.",
+    keyPoints: [
+      "안전영향평가는 초고층 건축물 등에 대해 건축허가 전에 실시해야 하며, 안전영향평가기관은 의뢰받은 날부터 30일 이내에 결과를 제출하되 부득이한 경우 연장할 수 있다.",
+      "안전영향평가기관이 검토하는 사항에는 설계기준·하중의 적정성, 하중저항시스템의 해석·설계 적정성, 지반조사 방법·지내력 산정결과의 적정성, 굴착공사에 따른 지하수위 변화·지반 안전성 등이 포함되지만, 지방건축위원회가 결정하는 사항은 포함되지 않는다.",
+      "다른 법률에 따라 구조안전·인접 대지 안전에 미치는 영향 등을 평가받은 경우에는 안전영향평가의 해당 항목을 평가받은 것으로 본다.",
+      "범죄예방 기준에 따라 건축해야 하는 건축물에는 학교, 일용품 소매점(제1종 근린생활시설), 다중생활시설(제2종 근린생활시설·숙박시설) 등이 포함되지만, 세대수 300세대인 아파트는 별도의 세대수 기준(500세대 이상 등)에 미달하면 해당하지 않을 수 있다.",
+    ],
+    pitfalls:
+      "안전영향평가 결과가 도시계획위원회 심의를 거쳐 확정된다거나 일간신문 게재로 공개해야 한다고 오해하기 쉽지만, 실제로는 건축위원회 심의 및 관보·인터넷 홈페이지 등을 통한 공개 절차를 따른다.",
+    example:
+      "안전영향평가를 실시하여야 하는 건축물이 다른 법률에 따라 구조안전과 인접 대지의 안전에 미치는 영향 등을 평가받은 경우에는 안전영향평가의 해당 항목을 평가받은 것으로 본다.",
+    questionRefs: [
+      { year: 2018, questionNo: 78 },
+      { year: 2022, questionNo: 72 },
+      { year: 2024, questionNo: 75 },
+    ],
+  },
+  {
+    slug: "public-open-space",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "공개공지등의 설치 대상과 이용 제한",
+    titleEn: "Public Open Space Requirements",
+    definition:
+      "일반주거지역·준주거지역·상업지역·준공업지역 등에서 일정 규모 이상의 건축물은 공개공지 또는 공개공간을 설치해야 하며, 전용주거지역·전용공업지역·녹지지역 등은 원칙적으로 설치 대상이 아니고, 공개공지등에는 연간 최장 60일의 범위에서 조례로 정하는 문화행사·판촉활동을 허용할 수 있다.",
+    intuition:
+      "공개공지 문제는 '설치 대상지역(주거·상업·준공업 vs 전용주거·전용공업·녹지)'과 '설치 후 이용 제한(필로티 가능, 울타리 설치 금지, 행사 허용일수)' 두 축으로 나뉜다.",
+    keyPoints: [
+      "공개공지등의 설치 대상지역은 일반주거지역·준주거지역·상업지역·준공업지역 등이며, 전용주거지역·전용공업지역·보전녹지지역은 대상지역이 아니다.",
+      "공개공지는 필로티 구조로 설치할 수 있으며, 공개공지등에는 긴 의자·조경시설 등 건축조례로 정하는 시설을 설치해 모든 사람이 이용할 수 있도록 해야 한다.",
+      "공개공지등에는 건축조례로 정하는 바에 따라 연간 최장 60일의 기간 동안 문화행사를 열거나 판촉활동을 할 수 있다.",
+      "울타리·담장 설치나 출입구 폐쇄 등으로 공개공지등의 출입을 제한하는 행위는 원칙적으로 금지되며, 노후 산업단지 정비가 필요하다고 인정되어 지정·공고된 지역에도 공개공지등을 설치할 수 있다.",
+    ],
+    pitfalls:
+      "문화행사·판촉활동 허용일수를 '90일'로 잘못 기억하기 쉽지만 실제로는 연간 최장 60일이며, 노후 산업단지 정비지역이라고 해서 공개공지 설치가 배제되는 것은 아니라는 점도 혼동하기 쉽다.",
+    example:
+      "일반주거지역에 건축하는 일정 규모 이상의 건축물의 건축주는 공개 공지 또는 공개 공간을 설치하여야 한다.",
+    questionRefs: [
+      { year: 2016, questionNo: 77 },
+      { year: 2024, questionNo: 74 },
+    ],
+  },
+  {
+    slug: "building-permit-miscellaneous",
+    chapterKo: "건축법",
+    sectionKo: "건축허가",
+    category: "건축법",
+    subcategory: "허가·사전결정",
+    parentSlug: "building-permit-report",
+    titleKo: "공작물 축조신고·이행강제금·안전관리예치금·구분지상권 건축허가 등",
+    titleEn: "Miscellaneous Building Permit Provisions",
+    definition:
+      "건축물과 분리하여 축조하는 공작물 중 높이 2m를 넘는 옹벽·담장 등은 신고 대상이고, 이행강제금은 허가위반이 신고위반보다 높은 비율로 산정되며, 연면적 1천㎡ 이상 건축물은 안전관리예치금 대상이 될 수 있고, 국가 소유 대지에 구분지상권을 설정해 공연장 등을 설치하는 경우 구분지상권자를 건축주로 보아 건축허가를 할 수 있으며, 대지의 조경 의무는 녹지지역·일정 규모 미만 공장 등에서 면제될 수 있다.",
+    intuition:
+      "이 묶음은 하나의 통일된 주제가 아니라 조문별로 한두 문제씩 출제되는 개별 규정(공작물 신고 기준, 이행강제금 비율, 안전관리예치금 숫자, 구분지상권 건축허가 의제, 조경 면제, 착공신고 시 구조안전확인서류 대상)을 모은 것으로, 각 항목의 숫자·기준을 독립적으로 암기해야 한다.",
+    keyPoints: [
+      "높이 3m를 넘는 담장은 공작물 축조신고 대상이지만, 높이 5m의 기념탑·7m의 고가수조·3m의 광고탑·바닥면적 25㎡의 지하대피호는 각각 별도의 높이·면적 기준(예: 광고탑은 4m 초과, 지하대피호는 30㎡ 초과)에 미달하여 신고 대상이 아닐 수 있다.",
+      "이행강제금 산정 시 곱하는 비율은 허가를 받지 않고 건축한 경우가 가장 높고, 그 다음 용적률 초과, 건폐율 초과, 신고를 하지 않고 건축한 경우 순으로 낮아진다(허가위반 > 용적률초과 > 건폐율초과 > 신고위반).",
+      "허가권자는 연면적 1천㎡ 이상인 건축물로서 조례로 정하는 건축물에 대해 착공신고를 하는 건축주에게 건축비용의 1% 범위에서 안전관리예치금을 예치하게 할 수 있다.",
+      "국가·지방자치단체 소유 대지의 지상 여유공간에 구분지상권을 설정하여 문화 및 집회시설 중 공연장 등 법정 시설을 설치하려는 경우, 허가권자는 구분지상권자를 건축주로 보고 구분지상권이 설정된 부분을 대지로 보아 건축허가를 할 수 있다.",
+      "면적 4천㎡ 미만인 대지에 건축하는 공장, 연면적 합계 1천500㎡ 미만인 공장, 녹지지역·관리지역(지구단위계획구역 제외)의 건축물 등은 대지의 조경 조치를 하지 않을 수 있으며, 건축물의 높이 13m 이상 또는 기둥과 기둥 사이 거리 10m 이상인 건축물은 착공신고 시 구조 안전 확인 서류를 제출해야 한다.",
+    ],
+    pitfalls:
+      "이행강제금 비율 순서를 헷갈리기 쉬운데 '허가위반이 가장 무겁다'는 원칙만 기억하면 나머지는 용적률>건폐율>신고위반 순으로 정리할 수 있고, 안전관리예치금 예치 비율(연면적 1천㎡ 이상, 1%)의 숫자를 정확히 구분해야 한다.",
+    example:
+      "허가권자는 연면적이 1천제곱미터 이상인 건축물로서 조례로 정하는 건축물에 대하여 착공신고를 하는 건축주에게 건축비용의 1퍼센트에 해당하는 안전관리예치금을 예치하게 할 수 있다.",
+    questionRefs: [
+      { year: 2016, questionNo: 78 },
+      { year: 2018, questionNo: 77 },
+      { year: 2019, questionNo: 74 },
+      { year: 2019, questionNo: 75 },
+      { year: 2023, questionNo: 75 },
+      { year: 2024, questionNo: 73 },
+    ],
+  },
+  {
+    slug: "evacuation-facility-obligations",
+    chapterKo: "건축법",
+    sectionKo: "구조·설비",
+    category: "건축법",
+    subcategory: "승강기·피난시설",
+    titleKo: "출구 설치 의무와 내진능력 공개 대상",
+    titleEn: "Exit Installation Duties and Seismic Capacity Disclosure",
+    definition:
+      "전시장은 해당 용도로 쓰는 바닥면적 합계가 300㎡ 이상이면 관람집회시설 등과 함께 출구 설치 의무 대상 건축물에 해당하며, 높이 13m인 건축물은 내진능력 공개 대상에 해당한다.",
+    intuition:
+      "피난·구조 관련 규정은 대개 '일정 규모 이상'부터 의무가 발생하는 구조이므로, 300㎡·13m처럼 기준이 되는 숫자를 정확히 암기하는 것이 실전에서 가장 효율적이다.",
+    keyPoints: [
+      "전시장은 바닥면적 합계 300㎡ 이상인 경우 출구 설치 의무 대상 건축물에 해당한다.",
+      "일반주거지역에 있는 초등학교는 공개공지 설치 대상 용도에 해당하지 않는다.",
+      "높이 13m인 건축물은 내진능력 공개 대상에 해당한다.",
+    ],
+    pitfalls:
+      "공개공지 설치 대상 용도와 출구 설치 의무 대상 용도를 혼동하기 쉽다 — 각각 별도의 기준과 대상 목록을 가진다.",
+    example:
+      "바닥면적 합계 350㎡인 전시장은 300㎡ 기준을 넘으므로 출구 설치 의무 대상 건축물에 해당한다.",
+  },
+  {
+    slug: "street-height-limit",
+    chapterKo: "건축법",
+    sectionKo: "높이제한",
+    category: "건축법",
+    subcategory: "가로구역별 높이제한",
+    titleKo: "가로구역별 건축물의 높이제한 고려사항",
+    titleEn: "Considerations for Street-Block Height Limits",
+    definition:
+      "허가권자가 가로구역별로 건축물의 높이를 지정·공고할 때는 도로의 폭, 해당 지역의 토지이용상황 등 여러 요소를 종합적으로 고려한다.",
+    intuition:
+      "가로구역별 높이제한은 하나의 숫자를 일률적으로 정하는 것이 아니라, 그 거리의 폭과 주변 토지 이용 상황을 함께 반영해 '그 거리에 맞는' 높이를 산정하는 제도라고 이해하면 된다.",
+    keyPoints: [
+      "허가권자는 가로구역을 단위로 건축물의 높이를 지정·공고할 수 있다.",
+      "높이 지정 시 토지이용계획, 도로 폭 등 해당 지역의 특성을 고려사항으로 삼는다.",
+      "동일 가로구역이라도 필요한 경우 건축물의 용도·형태에 따라 높이를 다르게 정할 수 있다.",
+    ],
+    pitfalls:
+      "가로구역별 높이제한을 도로 폭만으로 정한다고 단순화하기 쉽다 — 토지이용계획 등 다른 요소도 함께 고려된다.",
+    example:
+      "폭이 좁은 도로에 접한 가로구역은, 넓은 도로에 접한 인근 구역보다 낮은 높이제한을 받을 수 있다.",
+  },
   // ───────── 주택법 ─────────
   {
     slug: "housing-construction-association",
     chapterKo: "주택법",
+    sectionKo: "주택건설사업·조합",
     category: "주택법",
     subcategory: "주택건설사업·조합",
     titleKo: "주택법령상 용어정의(주택단지·국민주택·부대복리시설·준주택)",
@@ -1325,10 +3763,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "housing-association-membership-and-establishment",
-    parentSlug: "housing-construction-association",
     chapterKo: "주택법",
+    sectionKo: "주택건설사업·조합",
     category: "주택법",
     subcategory: "주택건설사업·조합",
+    parentSlug: "housing-construction-association",
     titleKo: "지역주택조합의 설립요건과 조합원 자격",
     titleEn: "Regional Housing Association Requirements",
     definition:
@@ -1359,10 +3798,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "housing-project-plan-approval",
-    parentSlug: "housing-construction-association",
     chapterKo: "주택법",
+    sectionKo: "주택건설사업·조합",
     category: "주택법",
     subcategory: "주택건설사업·조합",
+    parentSlug: "housing-construction-association",
     titleKo: "주택건설사업계획의 승인",
     titleEn: "Housing Construction Project Plan Approval",
     definition:
@@ -1393,10 +3833,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "housing-remodeling",
-    parentSlug: "housing-construction-association",
     chapterKo: "주택법",
+    sectionKo: "주택건설사업·조합",
     category: "주택법",
     subcategory: "주택건설사업·조합",
+    parentSlug: "housing-construction-association",
     titleKo: "공동주택 리모델링",
     titleEn: "Apartment Remodeling",
     definition:
@@ -1422,10 +3863,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "housing-bond",
-    parentSlug: "housing-construction-association",
     chapterKo: "주택법",
+    sectionKo: "주택건설사업·조합",
     category: "주택법",
     subcategory: "주택건설사업·조합",
+    parentSlug: "housing-construction-association",
     titleKo: "주택상환사채",
     titleEn: "Housing Redemption Bonds",
     definition:
@@ -1450,10 +3892,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "registered-housing-business-operator",
-    parentSlug: "housing-construction-association",
     chapterKo: "주택법",
+    sectionKo: "주택건설사업·조합",
     category: "주택법",
     subcategory: "주택건설사업·조합",
+    parentSlug: "housing-construction-association",
     titleKo: "주택건설사업자의 등록 및 제한",
     titleEn: "Registration of Housing Construction Business Operators",
     definition:
@@ -1477,10 +3920,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "special-type-housing",
-    parentSlug: "housing-construction-association",
     chapterKo: "주택법",
+    sectionKo: "주택건설사업·조합",
     category: "주택법",
     subcategory: "주택건설사업·조합",
+    parentSlug: "housing-construction-association",
     titleKo: "세대구분형·도시형생활주택·토지임대부 분양주택",
     titleEn: "Special Housing Types",
     definition:
@@ -1505,10 +3949,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "housing-administrative-miscellaneous",
-    parentSlug: "housing-construction-association",
     chapterKo: "주택법",
+    sectionKo: "주택건설사업·조합",
     category: "주택법",
     subcategory: "주택건설사업·조합",
+    parentSlug: "housing-construction-association",
     titleKo: "사용검사 후 소유권 회복·청문·공급질서교란행위 등",
     titleEn: "Post-Inspection Ownership Recovery and Related Administrative Matters",
     definition:
@@ -1537,6 +3982,7 @@ const concepts: Concept[] = [
   {
     slug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
     titleKo: "주택 전매행위 제한과 예외",
@@ -1555,14 +4001,17 @@ const concepts: Concept[] = [
       "모든 전매 예외 사유가 사업주체의 동의를 요구한다고 일반화하기 쉽지만, 국가 채무불이행으로 인한 공매의 경우에는 동의 없이도 전매할 수 있다.",
     example:
       "수도권의 공공택지 외의 택지에서 건설·공급되는 주택의 소유자가 국가에 대한 채무를 이행하지 못하여 공매가 시행되는 경우에는 사업주체의 동의 없이도 전매를 할 수 있다.",
-    questionRefs: [{ year: 2016, questionNo: 70 }],
+    questionRefs: [
+      { year: 2016, questionNo: 70 },
+    ],
   },
   {
     slug: "housing-supply-general-rules",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "주택 공급 절차와 마감자재·주택공급규칙",
     titleEn: "Housing Supply Procedures and Materials Disclosure",
     definition:
@@ -1591,10 +4040,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "speculation-overheated-district",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "투기과열지구·조정대상지역의 지정기준과 절차",
     titleEn: "Designation Criteria for Speculation-Overheated and Adjustment Target Areas",
     definition:
@@ -1621,10 +4071,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "post-inspection-sale-claim",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "사용검사 후 매도청구",
     titleEn: "Sale Claims after Use Inspection",
     definition:
@@ -1639,14 +4090,17 @@ const concepts: Concept[] = [
       "매도청구 기한을 1년이나 3년으로 착각하기 쉽지만, 정확한 기한은 사실을 안 날부터 2년이다.",
     example:
       "사용검사 후 주택단지 내 일부의 토지의 소유권을 회복한 자에게 주택소유자들이 매도청구를 하려면 해당 토지의 면적이 주택단지 전체 대지면적의 100분의 5 미만이어야 한다.",
-    questionRefs: [{ year: 2019, questionNo: 69 }],
+    questionRefs: [
+      { year: 2019, questionNo: 69 },
+    ],
   },
   {
     slug: "housing-redemption-bond-detail",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "주택상환사채의 발행·상환과 효력",
     titleEn: "Issuance, Redemption, and Validity of Housing Bonds",
     definition:
@@ -1670,10 +4124,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "remodeling-detail-rules",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "리모델링의 결의요건·허가권자와 수직증축 특례",
     titleEn: "Remodeling Resolution Requirements and Vertical Extension Rules",
     definition:
@@ -1701,10 +4156,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "housing-supervisor-duties",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "주택 감리자의 업무와 제재",
     titleEn: "Duties and Sanctions of Housing Construction Supervisors",
     definition:
@@ -1720,14 +4176,17 @@ const concepts: Concept[] = [
       "감리업무 지정 제한기간을 2년으로 착각하기 쉽지만, 실제로는 1년의 범위에서 제한할 수 있다.",
     example:
       "감리자는 업무를 수행하면서 위반 사항을 발견하였을 때에는 지체 없이 시공자 및 사업주체에게 위반 사항을 시정할 것을 통지하고, 7일 이내에 사업계획승인권자에게 그 내용을 보고하여야 한다.",
-    questionRefs: [{ year: 2020, questionNo: 70 }],
+    questionRefs: [
+      { year: 2020, questionNo: 70 },
+    ],
   },
   {
     slug: "sale-price-cap-application-detail",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "분양가상한제 적용주택의 매입금액과 분양가격 구성",
     titleEn: "Purchase Price and Sale Price Composition of Price-Capped Housing",
     definition:
@@ -1751,10 +4210,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "housing-act-criminal-penalty",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "주택법상 징역·벌금 부과대상",
     titleEn: "Criminal Penalties under the Housing Act",
     definition:
@@ -1769,14 +4229,17 @@ const concepts: Concept[] = [
       "품질점검단 관련 의무 위반이나 조사 기피도 형사처벌 대상이라고 확대 해석하기 쉽지만, 이들은 징역·벌금이 아니라 과태료 부과대상에 그친다.",
     example:
       "지방자치단체의 장이 관계 공무원으로 하여금 사업장에 출입하여 필요한 검사를 하게 한 경우 그 검사를 방해한 자는 주택법령상 징역 또는 벌금의 부과 대상자에 해당한다.",
-    questionRefs: [{ year: 2022, questionNo: 68 }],
+    questionRefs: [
+      { year: 2022, questionNo: 68 },
+    ],
   },
   {
     slug: "use-inspection-detail-procedure",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "사용검사의 절차와 예외적 신청권자",
     titleEn: "Use Inspection Procedures and Alternative Applicants",
     definition:
@@ -1801,10 +4264,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "pre-move-in-inspection-visit",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "입주예정자의 사전방문과 하자 조치",
     titleEn: "Pre-Move-In Visits and Defect Remediation",
     definition:
@@ -1821,14 +4285,17 @@ const concepts: Concept[] = [
       "사전방문 실시 기한을 '입주지정기간 시작일 60일 전, 1일 이상'으로 착각하기 쉽지만, 정확한 기준은 '45일 전까지 2일 이상'이다.",
     example:
       "사업주체가 사전방문을 실시하려는 경우, 사용검사권자에 대한 사전방문계획의 제출은 사전방문기간 시작일 1개월 전까지 해야 한다.",
-    questionRefs: [{ year: 2024, questionNo: 69 }],
+    questionRefs: [
+      { year: 2024, questionNo: 69 },
+    ],
   },
   {
     slug: "subscription-savings-rules",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "입주자저축의 정의와 정보보호",
     titleEn: "Subscription Savings Definition and Information Protection",
     definition:
@@ -1845,14 +4312,17 @@ const concepts: Concept[] = [
       "명의인이 정보 제공사실을 요구하면 반드시 통보해야 한다고 착각하기 쉽지만, 입주자저축정보에 대해서는 통보하지 않을 수 있는 예외가 인정된다.",
     example:
       "'입주자저축'이란 국민주택과 민영주택을 공급받기 위하여 가입하는 주택청약종합저축을 말하며, 한 사람이 한 계좌만 가입할 수 있다.",
-    questionRefs: [{ year: 2024, questionNo: 70 }],
+    questionRefs: [
+      { year: 2024, questionNo: 70 },
+    ],
   },
   {
     slug: "housing-quality-inspection-panel",
-    parentSlug: "sale-price-cap-inspection",
     chapterKo: "주택법",
+    sectionKo: "주택의 공급",
     category: "주택법",
     subcategory: "분양가상한제·사용검사",
+    parentSlug: "sale-price-cap-inspection",
     titleKo: "공동주택 품질점검단의 설치와 운영",
     titleEn: "Establishment and Operation of the Housing Quality Inspection Panel",
     definition:
@@ -1870,2050 +4340,15 @@ const concepts: Concept[] = [
       "품질점검단을 시장·군수·구청장이 설치·운영한다고 착각하기 쉽지만, 설치·운영 주체는 시·도지사다.",
     example:
       "사업주체가 공동주택 품질점검단의 점검에 따르지 아니하거나 기피 또는 방해한 경우에는 과태료 부과의 대상에 해당한다.",
-    questionRefs: [{ year: 2025, questionNo: 67 }],
-  },
-
-  // ───────── 건축법 ─────────
-  {
-    slug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "건축허가의 요건·철거신고·허가제한",
-    titleEn: "Building Permit Requirements and Restrictions",
-    definition:
-      "건축물의 철거 신고는 특별자치시장·특별자치도지사 또는 시장·군수·구청장에게 하고, 건축허가는 원칙적으로 대지의 소유권을 확보해야 하지만 사용권원 확보나 집합건물 공용부분 변경 결의 등 법정 예외가 있으며, 허가권자의 건축허가·착공을 제한하는 처분은 제한기간 2년 이내(1회 1년 이내 연장 가능)로 한다.",
-    intuition:
-      "허가 관련 문제는 '누가 제한할 수 있는지(국토교통부장관 vs 특별시장·광역시장 vs 도지사)'와 '제한 절차·기간(2년+1년, 주민의견청취·건축위원회 심의, 공고·보고)'을 뒤바꿔 출제하는 패턴이 반복된다.",
-    keyPoints: [
-      "건축물 소유자가 철거하려면 특별자치시장·특별자치도지사 또는 시장·군수·구청장에게 철거예정일 3일 전까지 신고해야 하고, 재해로 멸실된 경우 멸실 후 30일 이내에 신고해야 한다.",
-      "분양 목적 공동주택의 건축주는 원칙적으로 대지 소유권을 확보해야 하나, 집합건물 공용부분 변경 결의를 증명하거나 국유지 관리청의 매각 확인이 있는 경우 등은 소유권 확보 예외에 해당한다.",
-      "국토교통부장관은 국방·국가유산보존·국민경제를 위해 특히 필요한 경우 허가권자의 건축허가·착공을, 특별시장·광역시장·도지사는 지역계획·도시계획을 위해 특히 필요한 경우 시장·군수·구청장의 건축허가·착공을 제한할 수 있다.",
-      "건축허가 제한기간은 2년 이내로 하며, 1회에 한하여 1년 이내의 범위에서 연장할 수 있고, 제한 시 주민의견 청취·건축위원회 심의를 거쳐 제한 목적·기간·대상 등을 지체 없이 공고해야 하며, 시·도지사가 제한한 경우 국토교통부장관에게 보고해야 하고 국토교통부장관은 제한 내용이 지나치다고 인정되면 해제를 명할 수 있다.",
-      "건축허가를 받은 자가 대지를 조성하기 위해 옹벽 등을 축조하려면 별도로 공작물 축조신고가 필요하며, 공사시공자 변경 시에는 신고를 해야 한다.",
-    ],
-    pitfalls:
-      "국토교통부장관의 허가제한 사유(국방·국가유산보존·국민경제)와 시·도지사의 허가제한 사유(지역계획·도시계획)를 서로 바꿔 출제하는 경우가 많고, 제한 내용이 지나치다고 인정될 때 국토교통부장관이 '직권으로 해제'하는 것이 아니라 해제를 '명할 수 있다'는 점에 유의해야 한다.",
-    example:
-      "시·도지사가 지역계획에 특히 필요하다고 인정하여 시장·군수·구청장의 건축허가를 제한하는 경우, 그 제한기간은 2년 이내로 하되 1회에 한하여 1년 이내의 범위에서 연장할 수 있다.",
     questionRefs: [
-      { year: 2016, questionNo: 73 },
-      { year: 2017, questionNo: 72 },
-      { year: 2020, questionNo: 76 },
-      { year: 2021, questionNo: 74 },
-      { year: 2024, questionNo: 76 },
-      { year: 2025, questionNo: 73 },
+      { year: 2025, questionNo: 67 },
     ],
   },
-  {
-    slug: "building-preliminary-determination",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "건축 관련 입지와 규모의 사전결정",
-    titleEn: "Preliminary Determination for Building Permits",
-    definition:
-      "건축허가 대상 건축물을 건축하려는 자는 허가권자에게 사전결정을 신청할 수 있으며, 사전결정 통지를 받으면 개발행위허가·산지전용허가(도시지역 안 보전산지 등)·농지전용허가 등이 의제되고, 사전결정을 통지받은 날부터 2년 이내에 건축허가를 신청하지 아니하면 그 효력이 상실된다.",
-    intuition:
-      "사전결정 의제 대상(개발행위허가, 보전산지 산지전용·일시사용허가, 농지전용허가 등)과 의제되지 않는 대상(하천점용허가, 농림지역 보전산지 산지전용허가)을 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "사전결정신청자는 건축위원회 심의와 교통영향평가서의 검토를 동시에 신청할 수 있으며, 허가권자는 사전결정에 앞서 소규모 환경영향평가 등에 관해 관계 행정기관과 협의해야 한다.",
-      "사전결정의 통지로 개발행위허가, 도시지역 안 보전산지에 대한 산지일시사용허가·산지전용허가, 농지전용허가 등이 의제될 수 있지만, 하천점용허가나 도시지역 외 농림지역 보전산지에 대한 산지전용허가는 의제되지 않는다.",
-      "허가권자는 사전결정을 하려면 미리 관계 행정기관의 장과 협의해야 하며, 협의를 요청받은 관계 행정기관의 장은 요청받은 날부터 15일 이내에 의견을 제출해야 한다.",
-      "사전결정신청자가 사전결정을 통지받은 날부터 2년 이내에 건축허가를 신청하지 아니하면 사전결정의 효력이 상실된다.",
-    ],
-    pitfalls:
-      "사전결정 통지 후 착공신고 기한(2년)으로 오해하기 쉽지만, 실제로는 '건축허가 신청' 기한이 2년이며 착공신고가 아니다. 또한 관계 행정기관의 의견제출 기한을 10일로 잘못 기억하기 쉬운데 실제로는 15일이다.",
-    example:
-      "건축허가 대상 건축물을 건축하려는 자가 사전결정을 통지받은 경우, 「국토의 계획 및 이용에 관한 법률」에 따른 개발행위허가를 받은 것으로 본다.",
-    questionRefs: [
-      { year: 2017, questionNo: 76 },
-      { year: 2019, questionNo: 72 },
-      { year: 2022, questionNo: 78 },
-      { year: 2025, questionNo: 74 },
-    ],
-  },
-  {
-    slug: "building-report-temporary-structure",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "건축신고와 가설건축물 축조신고",
-    titleEn: "Building Reports and Temporary Structure Notifications",
-    definition:
-      "연면적 100㎡ 이하 건축물의 신축, 바닥면적 합계 85㎡ 이내의 증축·개축·재축, 대수선 중 일정 규모 이하인 경우 등은 건축신고를 하면 건축허가를 받은 것으로 보며, 가설건축물 중 견본주택·농업용 비닐하우스·간이창고 등 법정 유형은 축조신고 대상이지만 주거용 가설건축물은 축조신고 대상이 아니다.",
-    intuition:
-      "건축신고로 허가가 의제되는 규모 기준(연면적·층수·바닥면적)과 가설건축물 축조신고 대상 목록에서 '주거용'이 배제된다는 점이 반복 출제 포인트다.",
-    keyPoints: [
-      "연면적 150㎡인 3층 건축물의 피난계단 증설처럼 대수선의 범위·규모 요건을 벗어나면 건축신고 대상이 아니며, 신고 대상에 해당하면 건축허가를 받은 것으로 본다.",
-      "가설건축물 축조신고 대상에는 전시를 위한 견본주택, 도시지역 주거지역의 농업용 비닐하우스, 야외흡연실용 가설건축물, 공장 옥상의 임시사무실용 컨테이너 등이 포함되지만, 조립식 구조의 주거용 가설건축물은 축조신고 대상이 아니다.",
-      "견본주택에도 대지와 도로의 관계에 관한 규정은 적용되며, 존치기간은 해당 주택의 분양완료일까지이고, 2층 이상이더라도 공사감리자를 따로 지정할 필요는 없다.",
-      "건축신고를 한 자가 신고일부터 1년 이내에 공사에 착수하지 아니하면 신고의 효력이 없어지며, 공사시공자를 변경하려면 신고(허가가 아님)로 족하고, 건축물 안전영향평가는 초고층 건축물 등 별도 대상에만 적용된다.",
-    ],
-    pitfalls:
-      "건축신고의 실효기한을 '6개월'로 착각하기 쉽지만 실제로는 신고일부터 1년이며, 가설건축물이 2층 이상이라고 해서 공사감리자 지정이 요구되는 것은 아니라는 점도 혼동하기 쉽다.",
-    example:
-      "도시지역의 주거지역에 설치하는 농업용 비닐하우스로서 연면적이 100㎡인 것은 가설건축물 축조신고의 대상이 된다.",
-    questionRefs: [
-      { year: 2017, questionNo: 77 },
-      { year: 2018, questionNo: 74 },
-      { year: 2020, questionNo: 78 },
-      { year: 2021, questionNo: 75 },
-    ],
-  },
-  {
-    slug: "building-use-change",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "건축물 용도변경(허가·신고·사용승인)",
-    titleEn: "Change of Building Use",
-    definition:
-      "건축물의 용도변경은 용도군 간 상위군으로 변경 시 허가, 하위군으로 변경 시 신고 대상이 되며, 용도변경한 부분의 바닥면적 합계가 100㎡ 이상이면 사용승인을 받아야 하고, 용도변경 시 대수선을 수반하는 설계는 일정 규모 이상이면 건축사가 아니면 할 수 없다.",
-    intuition:
-      "용도변경은 '허가 vs 신고'의 방향(상위군↔하위군), '사용승인이 필요한 면적 기준(100㎡)', '복수용도 인정 여부'를 조합해 여러 각도로 반복 출제된다.",
-    keyPoints: [
-      "숙박시설에서 의료시설(하위군)로 변경하는 경우는 신고, 종교시설(상위군)로 변경하는 경우는 허가 대상이며, 바닥면적 합계 1천㎡ 부분만 업무시설로 변경하는 경우에도 사용승인 요건을 벗어날 수 없다.",
-      "용도변경 시 하나의 건축물에 둘 이상의 용도(복수용도)를 정하여 신청할 수 있으며, 허가권자는 지방건축위원회의 심의를 거쳐 이를 허용할 수 있다.",
-      "시·도지사는 도시·군계획에 특히 필요하다고 인정하면 시장·군수·구청장의 용도변경허가를 제한할 수 있다.",
-      "자동차영업소에서 노래연습장으로 용도변경하는 경우처럼 같은 시설군 내 용도변경이라도 건축물대장 기재내용의 변경 신청이 필요할 수 있다.",
-    ],
-    pitfalls:
-      "용도변경도 항상 건축사의 설계가 필요하다고 오해하기 쉽지만, 용도변경을 위한 대수선이 일정 규모 미만이면 건축사가 아니어도 설계할 수 있는 경우가 있다는 점에 유의해야 한다.",
-    example:
-      "숙박시설을 의료시설로 용도변경하려는 자는 용도변경 신고를 하여야 하지만, 종교시설로 용도변경하려는 경우에는 용도변경 허가를 받아야 한다.",
-    questionRefs: [
-      { year: 2018, questionNo: 75 },
-      { year: 2020, questionNo: 75 },
-      { year: 2023, questionNo: 74 },
-    ],
-  },
-  {
-    slug: "building-agreement",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "건축협정의 체결·인가·효과",
-    titleEn: "Building Agreements",
-    definition:
-      "건축협정은 토지·건축물 소유자 등 전원의 합의로 체결하며, 협정체결자 또는 건축협정운영회의 대표자가 건축협정서를 작성해 건축협정인가권자의 인가를 받아야 하고, 인가된 건축협정구역에서는 건폐율·지하층 설치·부설주차장 설치 등을 개별 건축물마다 적용하지 않고 구역 전체를 대상으로 통합 적용할 수 있다.",
-    intuition:
-      "건축협정은 '체결 요건(전원 합의)', '인가·변경·폐지 절차', '통합 적용 가능 항목(건폐율·지하층·부설주차장·개인하수처리시설 vs 계단 설치처럼 개별 건축물마다 적용되는 항목)'의 세 갈래로 출제된다.",
-    keyPoints: [
-      "건축협정은 해당 지역의 토지 또는 건축물 소유자, 지상권자 등 전원의 합의로 체결해야 하며, 과반수 동의만으로는 체결할 수 없다.",
-      "협정체결 대상 토지가 둘 이상의 특별자치시·시·군·구에 걸치는 경우 협정 대상 토지면적의 과반이 속하는 건축협정인가권자에게 인가를 신청하며, 시·도지사에게 인가를 받는 것이 아니다.",
-      "인가받은 건축협정을 변경하려면 협정체결자 과반수의 동의를 받아 인가권자의 '변경인가'를 받아야 하고, 폐지하려면 협정체결자 과반수의 동의를 받아 인가권자의 인가를 받아야 한다(전원 동의가 아님).",
-      "건축협정이 공고된 후 협정구역 내 토지에 관한 권리를 협정체결자로부터 이전받은 자는 건축협정에서 달리 정하지 않는 한 그 협정에 따라야 한다.",
-      "건축협정구역에서는 건폐율, 지하층의 설치, 부설주차장의 설치, 개인하수처리시설의 설치를 통합하여 적용할 수 있으나, 계단의 설치는 개별 건축물마다 적용해야 한다.",
-      "건축협정구역에서 용적률을 완화 적용하려면 건축위원회 심의와 지방도시계획위원회 심의를 통합하여 거쳐야 하지만, 건폐율·높이제한·조경면적·일조확보를 위한 높이제한의 완화는 그렇지 않다.",
-    ],
-    pitfalls:
-      "건축협정의 변경·폐지 요건을 모두 '전원 동의'로 통일해 기억하기 쉽지만, 변경·폐지는 '과반수 동의'로 충분하고 체결만 전원 합의가 필요하다는 점, 그리고 용적률 완화만 통합심의 대상이라는 점을 구분해야 한다.",
-    example:
-      "건축협정인가권자가 건축협정을 인가하였을 때에는 해당 지방자치단체의 공보에 그 내용을 공고하여야 한다.",
-    questionRefs: [
-      { year: 2016, questionNo: 76 },
-      { year: 2017, questionNo: 78 },
-      { year: 2020, questionNo: 73 },
-      { year: 2023, questionNo: 73 },
-    ],
-  },
-  {
-    slug: "combined-building",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "결합건축의 대상지역과 협정서 기재사항",
-    titleEn: "Combined Building",
-    definition:
-      "결합건축은 상업지역, 역세권개발구역, 건축협정구역, 특별가로구역 등 법정 지역·구역에서 둘 이상의 대지를 대상으로 용적률을 결합하여 적용하는 제도이며, 건축주는 건축허가 신청 시 결합건축 대상 대지의 용도지역·건축계획서·조정된 대지별 용적률 등을 명시한 결합건축협정서를 제출해야 한다.",
-    intuition:
-      "결합건축은 '어느 지역에서 가능한지'와 '협정서에 무엇을 적어야 하는지'가 별개의 출제 축이며, 리모델링 활성화구역은 대상 지역에서 제외된다는 점이 핵심 함정이다.",
-    keyPoints: [
-      "결합건축을 할 수 있는 지역·구역에는 상업지역, 역세권개발구역, 건축협정구역, 특별가로구역 등이 포함되지만, 리모델링 활성화구역은 포함되지 않는다.",
-      "결합건축협정서에는 결합건축 대상 대지의 용도지역, 협정체결자의 인적사항(자연인은 성명·주소·생년월일), 대지별 건축계획서, 조례로 정한 용적률과 결합건축으로 조정되어 적용되는 대지별 용적률을 명시해야 한다.",
-      "협정체결자가 법인인 경우 명시사항은 법인의 명칭·소재지·대표자 성명 등이며, 지방세 납세증명서 제출은 결합건축협정서의 명시사항이 아니다.",
-    ],
-    pitfalls:
-      "결합건축 대상 지역에 리모델링 활성화구역까지 포함된다고 오해하기 쉽지만, 실제로는 상업지역·역세권개발구역·건축협정구역·특별가로구역 등만 해당하고 리모델링 활성화구역은 제외된다.",
-    example:
-      "건축협정구역에서 결합건축을 하려는 건축주는 결합건축협정서에 결합건축 대상 대지별 건축계획서를 명시하여야 한다.",
-    questionRefs: [
-      { year: 2019, questionNo: 78 },
-      { year: 2022, questionNo: 75 },
-    ],
-  },
-  {
-    slug: "special-building-zone",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "특별건축구역의 지정과 건축기준 적용 특례",
-    titleEn: "Special Building Zones",
-    definition:
-      "특별건축구역은 국토교통부장관 또는 시·도지사가 지정하며, 「도로법」상 접도구역 등은 지정될 수 없고, 특별건축구역에서는 조경·대지분할제한 등 일부 규정을 국가가 건축하는 건축물에 적용하지 않을 수 있는 반면 대지와 도로의 관계·대지 안의 공지 등은 적용이 배제되지 않는다.",
-    intuition:
-      "특별건축구역 문제는 '지정권자(국토교통부장관 vs 시·도지사)', '지정 제외 대상', '적용 특례를 받을 수 있는 규정과 그렇지 않은 규정'을 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "국토교통부장관은 국가가 국제행사 등을 개최하는 지역의 사업구역 등을, 시·도지사는 지방자치단체가 시행하는 사업구역 등을 특별건축구역으로 지정할 수 있으며, 「도로법」에 따른 접도구역은 특별건축구역으로 지정될 수 없다.",
-      "특별건축구역에서의 건축기준 특례는 지방자치단체가 건축하는 건축물에도 적용될 수 있으며, 부설주차장 설치 규정은 개별 건축물마다 적용하지 않고 완화하여 적용할 수 있다.",
-      "특별건축구역을 지정하더라도 「국토의 계획 및 이용에 관한 법률」에 따른 용도지역·지구·구역의 지정이 있는 것으로 보지는 않는다.",
-      "국가가 건축하는 건축물에 대해서는 대지의 조경, 대지의 분할 제한에 관한 사항을 적용하지 않을 수 있지만, 대지와 도로의 관계, 대지 안의 공지에 관한 사항은 적용이 배제되지 않는다.",
-    ],
-    pitfalls:
-      "특별건축구역 지정으로 용도지역 지정의 효과까지 발생한다고 오해하기 쉽지만, 특별건축구역 지정은 용도지역·지구·구역의 지정으로 의제되지 않는다.",
-    example:
-      "「도로법」에 따른 접도구역은 특별건축구역으로 지정될 수 없다.",
-    questionRefs: [
-      { year: 2021, questionNo: 77 },
-      { year: 2022, questionNo: 76 },
-    ],
-  },
-  {
-    slug: "building-dispute-committee",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "건축분쟁전문위원회와 건축민원전문위원회",
-    titleEn: "Building Dispute and Complaint Committees",
-    definition:
-      "건축분쟁전문위원회는 건축주·공사시공자·관계전문기술자·공사감리자와 인근주민 등 사인(私人) 간의 건축 관련 분쟁을 조정·재정하며, 행정청인 건축허가권자가 당사자인 분쟁은 대상이 아니고, 건축민원전문위원회는 도지사·시장·군수·구청장이 설치해 건축법령의 운영·집행에 관한 질의민원을 심의한다.",
-    intuition:
-      "건축분쟁전문위원회의 대상 여부는 '당사자 중 하나가 허가권자(행정청)인지'로 갈리며, 건축민원전문위원회는 '누가 설치하는지'와 '심의 절차(구술 신청, 출석 의견진술 대상)'가 핵심 포인트다.",
-    keyPoints: [
-      "건축분쟁전문위원회는 건축관계자(건축주·공사시공자·관계전문기술자·공사감리자) 상호간, 또는 이들과 인근주민 간의 분쟁을 조정·재정 대상으로 하지만, '건축허가권자'가 당사자인 분쟁(허가신청자·건축신고수리자·공사감리자·인근주민과의 분쟁 등)은 대상이 아니다.",
-      "도지사는 건축위원회의 심의 등을 효율적으로 수행하기 위해 필요하면 자신이 설치하는 건축위원회에 건축민원전문위원회를 두어 운영할 수 있다.",
-      "건축민원전문위원회에 질의민원의 심의를 신청하려는 자는 원칙적으로 문서로 신청하되, 문서에 의할 수 없는 특별한 사정이 있으면 구술로도 신청할 수 있다.",
-      "건축민원전문위원회는 심의를 위해 신청인, 허가권자 외에 관계 전문가 등 필요한 자를 출석하게 하여 의견을 들을 수 있으며, 위원 또는 사무국 소속 공무원에게 관계 서류 열람·관계 사업장 조사를 하게 할 수 있다.",
-    ],
-    pitfalls:
-      "건축분쟁전문위원회가 행정청과 사인 간의 모든 분쟁을 다룬다고 오해하기 쉽지만, 건축허가권자가 당사자인 분쟁은 원칙적으로 대상에서 제외된다는 점이 반복 출제되는 함정이다.",
-    example:
-      "건축주와 공사감리자 간의 건축 관련 분쟁은 건축분쟁전문위원회의 조정 및 재정 대상이 되지만, 건축허가권자와 건축허가신청자 간의 분쟁은 대상이 되지 않는다.",
-    questionRefs: [
-      { year: 2017, questionNo: 74 },
-      { year: 2019, questionNo: 73 },
-      { year: 2021, questionNo: 78 },
-    ],
-  },
-  {
-    slug: "building-safety-evaluation",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "건축물 안전영향평가와 범죄예방 기준",
-    titleEn: "Building Safety Impact Assessment and Crime Prevention Standards",
-    definition:
-      "초고층 건축물 등 안전영향평가 대상 건축물은 건축허가 전에 안전영향평가를 실시해야 하고 평가기관은 설계기준·하중저항시스템·지반조사·지하수위 변화 등을 검토하며, 학교·다중생활시설·일용품 소매점 등 법정 건축물은 국토교통부장관이 고시하는 범죄예방 기준에 따라 건축해야 한다.",
-    intuition:
-      "안전영향평가는 '실시 시점(허가 전)', '검토 항목(구조·지반 관련 사항이며 지방건축위원회가 결정하는 사항은 아님)', '결과 공개·확정 절차'가 출제 축이고, 범죄예방 기준은 적용 대상 건축물 목록에서 예외를 찾는 방식으로 출제된다.",
-    keyPoints: [
-      "안전영향평가는 초고층 건축물 등에 대해 건축허가 전에 실시해야 하며, 안전영향평가기관은 의뢰받은 날부터 30일 이내에 결과를 제출하되 부득이한 경우 연장할 수 있다.",
-      "안전영향평가기관이 검토하는 사항에는 설계기준·하중의 적정성, 하중저항시스템의 해석·설계 적정성, 지반조사 방법·지내력 산정결과의 적정성, 굴착공사에 따른 지하수위 변화·지반 안전성 등이 포함되지만, 지방건축위원회가 결정하는 사항은 포함되지 않는다.",
-      "다른 법률에 따라 구조안전·인접 대지 안전에 미치는 영향 등을 평가받은 경우에는 안전영향평가의 해당 항목을 평가받은 것으로 본다.",
-      "범죄예방 기준에 따라 건축해야 하는 건축물에는 학교, 일용품 소매점(제1종 근린생활시설), 다중생활시설(제2종 근린생활시설·숙박시설) 등이 포함되지만, 세대수 300세대인 아파트는 별도의 세대수 기준(500세대 이상 등)에 미달하면 해당하지 않을 수 있다.",
-    ],
-    pitfalls:
-      "안전영향평가 결과가 도시계획위원회 심의를 거쳐 확정된다거나 일간신문 게재로 공개해야 한다고 오해하기 쉽지만, 실제로는 건축위원회 심의 및 관보·인터넷 홈페이지 등을 통한 공개 절차를 따른다.",
-    example:
-      "안전영향평가를 실시하여야 하는 건축물이 다른 법률에 따라 구조안전과 인접 대지의 안전에 미치는 영향 등을 평가받은 경우에는 안전영향평가의 해당 항목을 평가받은 것으로 본다.",
-    questionRefs: [
-      { year: 2018, questionNo: 78 },
-      { year: 2022, questionNo: 72 },
-      { year: 2024, questionNo: 75 },
-    ],
-  },
-  {
-    slug: "public-open-space",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "공개공지등의 설치 대상과 이용 제한",
-    titleEn: "Public Open Space Requirements",
-    definition:
-      "일반주거지역·준주거지역·상업지역·준공업지역 등에서 일정 규모 이상의 건축물은 공개공지 또는 공개공간을 설치해야 하며, 전용주거지역·전용공업지역·녹지지역 등은 원칙적으로 설치 대상이 아니고, 공개공지등에는 연간 최장 60일의 범위에서 조례로 정하는 문화행사·판촉활동을 허용할 수 있다.",
-    intuition:
-      "공개공지 문제는 '설치 대상지역(주거·상업·준공업 vs 전용주거·전용공업·녹지)'과 '설치 후 이용 제한(필로티 가능, 울타리 설치 금지, 행사 허용일수)' 두 축으로 나뉜다.",
-    keyPoints: [
-      "공개공지등의 설치 대상지역은 일반주거지역·준주거지역·상업지역·준공업지역 등이며, 전용주거지역·전용공업지역·보전녹지지역은 대상지역이 아니다.",
-      "공개공지는 필로티 구조로 설치할 수 있으며, 공개공지등에는 긴 의자·조경시설 등 건축조례로 정하는 시설을 설치해 모든 사람이 이용할 수 있도록 해야 한다.",
-      "공개공지등에는 건축조례로 정하는 바에 따라 연간 최장 60일의 기간 동안 문화행사를 열거나 판촉활동을 할 수 있다.",
-      "울타리·담장 설치나 출입구 폐쇄 등으로 공개공지등의 출입을 제한하는 행위는 원칙적으로 금지되며, 노후 산업단지 정비가 필요하다고 인정되어 지정·공고된 지역에도 공개공지등을 설치할 수 있다.",
-    ],
-    pitfalls:
-      "문화행사·판촉활동 허용일수를 '90일'로 잘못 기억하기 쉽지만 실제로는 연간 최장 60일이며, 노후 산업단지 정비지역이라고 해서 공개공지 설치가 배제되는 것은 아니라는 점도 혼동하기 쉽다.",
-    example:
-      "일반주거지역에 건축하는 일정 규모 이상의 건축물의 건축주는 공개 공지 또는 공개 공간을 설치하여야 한다.",
-    questionRefs: [
-      { year: 2016, questionNo: 77 },
-      { year: 2024, questionNo: 74 },
-    ],
-  },
-  {
-    slug: "building-permit-miscellaneous",
-    parentSlug: "building-permit-report",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "허가·사전결정",
-    titleKo: "공작물 축조신고·이행강제금·안전관리예치금·구분지상권 건축허가 등",
-    titleEn: "Miscellaneous Building Permit Provisions",
-    definition:
-      "건축물과 분리하여 축조하는 공작물 중 높이 2m를 넘는 옹벽·담장 등은 신고 대상이고, 이행강제금은 허가위반이 신고위반보다 높은 비율로 산정되며, 연면적 1천㎡ 이상 건축물은 안전관리예치금 대상이 될 수 있고, 국가 소유 대지에 구분지상권을 설정해 공연장 등을 설치하는 경우 구분지상권자를 건축주로 보아 건축허가를 할 수 있으며, 대지의 조경 의무는 녹지지역·일정 규모 미만 공장 등에서 면제될 수 있다.",
-    intuition:
-      "이 묶음은 하나의 통일된 주제가 아니라 조문별로 한두 문제씩 출제되는 개별 규정(공작물 신고 기준, 이행강제금 비율, 안전관리예치금 숫자, 구분지상권 건축허가 의제, 조경 면제, 착공신고 시 구조안전확인서류 대상)을 모은 것으로, 각 항목의 숫자·기준을 독립적으로 암기해야 한다.",
-    keyPoints: [
-      "높이 3m를 넘는 담장은 공작물 축조신고 대상이지만, 높이 5m의 기념탑·7m의 고가수조·3m의 광고탑·바닥면적 25㎡의 지하대피호는 각각 별도의 높이·면적 기준(예: 광고탑은 4m 초과, 지하대피호는 30㎡ 초과)에 미달하여 신고 대상이 아닐 수 있다.",
-      "이행강제금 산정 시 곱하는 비율은 허가를 받지 않고 건축한 경우가 가장 높고, 그 다음 용적률 초과, 건폐율 초과, 신고를 하지 않고 건축한 경우 순으로 낮아진다(허가위반 > 용적률초과 > 건폐율초과 > 신고위반).",
-      "허가권자는 연면적 1천㎡ 이상인 건축물로서 조례로 정하는 건축물에 대해 착공신고를 하는 건축주에게 건축비용의 1% 범위에서 안전관리예치금을 예치하게 할 수 있다.",
-      "국가·지방자치단체 소유 대지의 지상 여유공간에 구분지상권을 설정하여 문화 및 집회시설 중 공연장 등 법정 시설을 설치하려는 경우, 허가권자는 구분지상권자를 건축주로 보고 구분지상권이 설정된 부분을 대지로 보아 건축허가를 할 수 있다.",
-      "면적 4천㎡ 미만인 대지에 건축하는 공장, 연면적 합계 1천500㎡ 미만인 공장, 녹지지역·관리지역(지구단위계획구역 제외)의 건축물 등은 대지의 조경 조치를 하지 않을 수 있으며, 건축물의 높이 13m 이상 또는 기둥과 기둥 사이 거리 10m 이상인 건축물은 착공신고 시 구조 안전 확인 서류를 제출해야 한다.",
-    ],
-    pitfalls:
-      "이행강제금 비율 순서를 헷갈리기 쉬운데 '허가위반이 가장 무겁다'는 원칙만 기억하면 나머지는 용적률>건폐율>신고위반 순으로 정리할 수 있고, 안전관리예치금 예치 비율(연면적 1천㎡ 이상, 1%)의 숫자를 정확히 구분해야 한다.",
-    example:
-      "허가권자는 연면적이 1천제곱미터 이상인 건축물로서 조례로 정하는 건축물에 대하여 착공신고를 하는 건축주에게 건축비용의 1퍼센트에 해당하는 안전관리예치금을 예치하게 할 수 있다.",
-    questionRefs: [
-      { year: 2016, questionNo: 78 },
-      { year: 2018, questionNo: 77 },
-      { year: 2019, questionNo: 74 },
-      { year: 2019, questionNo: 75 },
-      { year: 2023, questionNo: 75 },
-      { year: 2024, questionNo: 73 },
-    ],
-  },
-  {
-    slug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "대지의 조경 의무 대상과 면제 건축물",
-    titleEn: "Landscaping Obligations and Exemptions",
-    definition:
-      "면적 5,000㎡ 미만 대지에 건축하는 공장, 연면적 합계 1,500㎡ 미만인 공장, 산업단지 안의 공장, 2층 이하이며 연면적 합계 1,500㎡ 미만인 공장·물류시설 등은 조경 조치가 면제되지만, 상업지역에 건축하는 물류시설이나 녹지지역이 아닌 지역의 일정 규모 기숙사 등은 조경 의무 대상이다.",
-    intuition:
-      "조경 면제 대상은 '공장·물류시설 등 산업·생산시설 중 소규모 또는 산업단지 내'라는 공통점이 있으므로, 이 틀을 벗어나는 상업지역 물류시설 같은 사례는 면제 대상이 아니라고 판단하면 된다.",
-    keyPoints: [
-      "면적 5,000㎡ 미만인 대지에 건축하는 공장, 연면적의 합계가 1,500㎡ 미만인 공장, 「산업집적활성화 및 공장설립에 관한 법률」에 따른 산업단지 안의 공장은 조경 조치를 하지 않아도 된다.",
-      "대지면적 2천㎡인 대지에 건축하는 경우, 상업지역에 건축하는 물류시설은 조경 등의 조치를 해야 하는 건축물에 해당하지만, 2층 이하 공장, 도시·군계획시설에서 허가받아 건축하는 가설건축물, 녹지지역에 건축하는 기숙사, 연면적 합계 1천㎡인 축사는 조경 의무가 면제된다.",
-    ],
-    pitfalls:
-      "상업지역에 건축하는 물류시설도 산업시설이라는 이유로 조경 의무가 면제된다고 착각하기 쉽지만, 물류시설은 조경 면제 목록(공장 중심)에 포함되지 않아 조경 조치를 해야 한다.",
-    example:
-      "면적 5,000제곱미터 미만인 대지에 건축하는 공장, 연면적의 합계가 1,500제곱미터 미만인 공장, 산업단지 안의 공장은 대지에 조경을 하지 않아도 된다.",
-    questionRefs: [
-      { year: 2016, questionNo: 72 },
-      { year: 2020, questionNo: 72 },
-    ],
-  },
-  {
-    slug: "building-terminology-general",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "건축법상 기본 용어의 정의(건축·대수선·고층건축물 등)",
-    titleEn: "Basic Definitions under the Building Act",
-    definition:
-      "'건축'에는 신축·증축·개축·재축·이전이 포함되고 건축물의 이전은 대지 내에서 위치만 옮기는 것을 말하며, 대수선은 증축·개축·재축에 해당하지 않으면서 내력벽·기둥·보·지붕틀 등을 일정 규모 이상 수선·변경하는 것이고, 고층건축물은 층수 30층 이상 또는 높이 120m 이상, 초고층건축물은 층수 50층 이상 또는 높이 200m 이상인 건축물을 말한다.",
-    intuition:
-      "용어정의는 비슷한 개념(이전·재축·대수선, 고층·초고층)의 경계선을 서로 바꿔치기하는 방식으로 출제되므로, 숫자 기준(30층/120m, 50층/200m)과 행위의 정의를 정확히 짝지어야 한다.",
-    keyPoints: [
-      "지하의 공작물에 설치하는 점포·사무소 등도 '건축물'에 해당하며, 구조 계산서와 시방서는 '설계도서'에 포함되고, 막다른 도로의 구조·너비는 그 도로가 '도로'에 해당하는지 판단하는 기준이 된다.",
-      "'고층건축물'은 층수가 30층 이상이거나 높이가 120m 이상인 건축물이며(둘 다 충족이 아니라 하나만 충족해도 해당), '초고층 건축물'은 층수 50층 이상이거나 높이 200m 이상인 건축물이다.",
-      "건축물이 천재지변으로 멸실된 경우 종전 규모보다 연면적을 늘려 다시 축조하면 '재축'이 아니라 '증축'에 해당하며, 내력벽을 해체해 같은 대지의 다른 위치로 옮기는 것은 '이전'이 아니라 철거 후 신축에 해당한다.",
-      "건축물을 이전하는 것(같은 대지 내에서 위치만 옮기는 것)은 '건축'에 해당하며, 내력벽을 증설해 건축면적을 늘리는 것은 '대수선'이 아니라 '증축'에 해당한다.",
-      "'내력벽을 수선하되 수선되는 벽면적의 합계가 30㎡ 미만'인 경우는 대수선에 포함되지 않으며, '증축'이란 기존 건축물이 있는 대지에서 건축면적·연면적·층수·높이를 늘리는 것을 말한다.",
-    ],
-    pitfalls:
-      "천재지변으로 멸실 후 종전보다 규모를 늘려 다시 짓는 것을 '재축'으로 착각하기 쉽지만, 규모를 늘리면 재축이 아니라 증축에 해당한다는 점이 반복 출제되는 함정이다.",
-    example:
-      "건축물을 이전하는 것(같은 대지 안에서 위치를 옮기는 것)은 건축법령상 '건축'에 해당한다.",
-    questionRefs: [
-      { year: 2017, questionNo: 75 },
-      { year: 2020, questionNo: 74 },
-      { year: 2025, questionNo: 77 },
-    ],
-  },
-  {
-    slug: "building-act-application-exclusion",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "건축법의 적용을 받는 건축물과 적용 제외 건축물",
-    titleEn: "Buildings Subject to or Exempt from the Building Act",
-    definition:
-      "대지에 정착된 컨테이너를 이용한 주택(이동이 쉽지 않은 경우)은 건축법의 적용을 받지만, 이동이 쉬운 컨테이너를 이용한 임시숙소, 철도 선로 부지 안의 플랫폼·운전보안시설·철도사업용 급수급탄급유시설·선로 아래 횡단 보행시설, 고속도로 통행료 징수시설, 지정·가지정 문화재(문화유산), 하천구역 내 수문조작실 등은 건축법의 적용을 받지 않는다.",
-    intuition:
-      "적용 제외 대상은 '철도 운영·문화재보존·고속도로 통행료 징수 등 특수 목적의 시설'이라는 공통점이 있으므로, 이 범주에 속하지 않는 일반적인 '주거용 컨테이너(고정식)'는 예외 없이 건축법 적용 대상이라고 판단하면 된다.",
-    keyPoints: [
-      "철도의 선로 부지에 있는 시설 중 플랫폼, 운전보안시설, 철도 선로의 아래를 가로지르는 보행시설, 해당 철도사업용 급수·급탄·급유 시설은 건축법의 적용을 받지 않는다.",
-      "고속도로 통행료 징수시설, 「하천법」에 따른 하천구역 내 수문조작실, 「문화유산의 보존 및 활용에 관한 법률」에 따른 지정문화유산·임시지정문화유산은 건축법의 적용을 받지 않는다.",
-      "대지에 정착된 컨테이너를 이용한 주택처럼 이동이 쉽지 않은 고정식 컨테이너 건축물은 건축법의 적용을 받으며, 이동이 쉬운 컨테이너를 이용한 임시숙소만 적용 제외 대상이다.",
-    ],
-    pitfalls:
-      "컨테이너를 이용한 시설은 모두 적용 제외 대상이라고 일반화하기 쉽지만, 이동이 쉽지 않아 대지에 정착된 컨테이너 주택은 건축법의 적용을 받는다.",
-    example:
-      "철도의 선로 부지에 있는 시설 중 플랫폼, 운전보안시설, 철도 선로의 아래를 가로지르는 보행시설, 해당 철도사업용 급수·급탄 및 급유 시설은 건축법의 적용을 받지 않는다.",
-    questionRefs: [
-      { year: 2017, questionNo: 73 },
-      { year: 2019, questionNo: 76 },
-      { year: 2025, questionNo: 78 },
-    ],
-  },
-  {
-    slug: "multi-use-building-definition",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "다중이용 건축물의 범위",
-    titleEn: "Definition of Multi-Use Buildings",
-    definition:
-      "다중이용 건축물은 문화 및 집회시설(전시장·동식물원 제외), 종교시설, 판매시설, 운수시설 중 여객용 시설, 의료시설 중 종합병원, 숙박시설 중 관광숙박시설 등 특정 용도로서 해당 용도로 쓰는 바닥면적의 합계가 5천㎡ 이상이거나 16층 이상인 건축물을 말하며, 관광 휴게시설은 이 용도 목록에 포함되지 않는다.",
-    intuition:
-      "다중이용 건축물 판정은 '용도 목록(문화·집회, 종교, 판매, 여객운수, 종합병원, 관광숙박)에 있는지'와 '규모기준(바닥면적 5천㎡ 이상 또는 16층 이상)'을 함께 충족해야 한다는 점, 그리고 관광휴게시설은 목록에서 제외된다는 점이 핵심이다.",
-    keyPoints: [
-      "다중이용 건축물에 해당하는 용도에는 문화 및 집회시설, 종교시설, 판매시설, 운수시설 중 여객용 시설, 의료시설 중 종합병원, 숙박시설 중 관광숙박시설이 포함된다.",
-      "관광 휴게시설은 해당 용도로 쓰는 바닥면적이 아무리 넓어도 다중이용 건축물의 용도 목록에 포함되지 않는다.",
-    ],
-    pitfalls:
-      "관광휴게시설도 사람이 많이 모이는 시설이라는 이유로 다중이용 건축물에 포함된다고 착각하기 쉽지만, 법정 용도 목록에는 포함되지 않는다.",
-    example:
-      "해당 용도로 쓰는 바닥면적의 합계가 5천제곱미터 이상인 판매시설, 종교시설, 종합병원은 다중이용 건축물에 해당하지만, 관광 휴게시설은 해당하지 않는다.",
-    questionRefs: [{ year: 2018, questionNo: 72 }],
-  },
-  {
-    slug: "special-structure-building-exception",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "특수구조 건축물의 범위와 특례",
-    titleEn: "Special Structure Buildings and Their Exceptions",
-    definition:
-      "한쪽 끝은 고정되고 다른 끝은 지지되지 않은 구조의 차양 등이 외벽 중심선으로부터 3m 이상 돌출된 건축물, 기둥과 기둥 사이의 거리가 20m 이상인 건축물 등은 특수구조 건축물에 해당하며, 특수구조 건축물을 건축하려는 건축주는 건축허가 신청 전에 허가권자에게 구조 안전에 관한 지방건축위원회 심의를 신청할 의무는 없다(설계자가 구조 안전을 확인하고 허가권자가 필요시 심의 요청).",
-    intuition:
-      "특수구조 건축물은 '기둥 간 거리·돌출 구조 등 구조적으로 특이한 건축물'을 규제 강화 대상으로 삼는 제도이며, 조경·안전관리예치금처럼 특수구조와 무관한 규정까지 강화·변경할 수 있다고 확대 해석하지 않는 것이 핵심이다.",
-    keyPoints: [
-      "한쪽 끝은 고정되고 다른 끝은 지지되지 않은 구조로 된 차양 등이 외벽(외벽이 없으면 외곽 기둥)의 중심선으로부터 3m 이상 돌출된 건축물은 특수구조 건축물에 해당한다.",
-      "기둥과 기둥 사이의 거리(기둥 중심선 사이 거리)가 20m 이상인 건축물이 특수구조 건축물에 해당하며, 15m인 건축물은 이 기준에 미달한다.",
-      "특수구조 건축물이라고 해서 건축 공사현장 안전관리 예치금 규정을 강화하거나 대지의 조경에 관한 규정을 변경 적용할 수 있는 것은 아니며, 건축주가 지방건축위원회 심의를 반드시 신청해야 하는 것도 아니다.",
-    ],
-    pitfalls:
-      "기둥 간 거리 기준을 15m로 착각하기 쉽지만, 실제 특수구조 건축물 기준은 20m 이상이다.",
-    example:
-      "한쪽 끝은 고정되고 다른 끝은 지지되지 아니한 구조로 된 차양이 외벽의 중심선으로부터 3미터 이상 돌출된 건축물은 특수구조 건축물에 해당한다.",
-    questionRefs: [{ year: 2021, questionNo: 72 }],
-  },
-  {
-    slug: "structural-safety-documentation-submission",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "착공신고 시 구조 안전 확인서류 제출대상",
-    titleEn: "Structural Safety Documents Required at Construction Notification",
-    definition:
-      "단독주택, 다세대주택, 처마높이 9m 이상인 건축물, 기둥과 기둥 사이의 거리가 10m 이상인 건축물 등은 착공신고 시 구조 안전 확인서류를 제출해야 하지만, 연면적 200㎡ 미만이고 3층 미만인 목구조 건축물은 제출 대상에서 제외될 수 있다.",
-    intuition:
-      "구조 안전 확인서류 제출대상은 '주택류(단독·다세대)는 항상 포함, 규모가 일정 기준을 넘는 건축물도 포함'이라는 원칙과 '소규모 목구조 건축물은 예외'라는 원칙을 함께 기억하면 된다.",
-    keyPoints: [
-      "단독주택, 다세대주택, 처마높이 9m 이상인 건축물, 기둥과 기둥 사이의 거리가 10m 이상인 건축물은 착공신고 시 구조 안전 확인서류 제출대상이다.",
-      "연면적이 200㎡ 미만이고 3층 미만인 목구조 건축물은 구조 안전 확인서류 제출대상에서 제외될 수 있으며, 연면적 330㎡인 2층 목구조 건축물은 이 예외기준(200㎡ 미만)을 벗어나 제출대상이 아니다(즉, 다른 요건 검토 필요).",
-    ],
-    pitfalls:
-      "모든 목구조 건축물이 예외라고 확대 해석하기 쉽지만, 목구조 예외는 연면적 200㎡ 미만이고 3층 미만인 경우로 한정된다.",
-    example:
-      "단독주택, 처마높이가 10미터인 건축물, 기둥과 기둥 사이의 거리가 10미터인 건축물, 다세대주택은 착공신고 시 구조 안전 확인서류를 제출하여야 하는 건축물이다.",
-    questionRefs: [{ year: 2018, questionNo: 73 }],
-  },
-  {
-    slug: "building-area-calculation-method",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "건축물 면적·높이·층수·용적률의 산정방법",
-    titleEn: "Calculation of Building Area, Height, Floor Count, and Floor Area Ratio",
-    definition:
-      "바닥면적은 벽·기둥의 중심선(구획 없는 경우 지붕 끝에서 수평거리 1m 후퇴선)으로 둘러싸인 부분의 수평투영면적으로 산정하되 승강기탑·공동주택 지상 조경시설·생활폐기물 보관함은 제외되고 필로티는 공동주택이면 바닥면적에 산입되며, 용적률 산정 시 지하층 면적과 지상층 부속용도 주차장 면적은 연면적에서 제외되고, 층수가 부분별로 다르면 가장 많은 층수를 기준으로 하며 층 구분이 불명확하면 4m마다 하나의 층으로 본다.",
-    intuition:
-      "면적 산정 문제는 '무엇이 바닥면적·연면적에 포함되는지'를 시설별로 뒤집어 출제하며, 용적률 계산 문제는 지하층·부속용도 주차장을 제외하는 규칙을 실제 숫자에 적용해 계산하는 방식으로 출제된다.",
-    keyPoints: [
-      "벽·기둥의 구획이 없는 건축물의 바닥면적은 그 지붕 끝부분으로부터 수평거리 1m를 후퇴한 선으로 둘러싸인 수평투영면적으로 하며, 승강기탑과 공동주택 지상층에 설치한 조경시설은 바닥면적에 산입하지 않는다.",
-      "필로티 부분은 공동주택의 경우 바닥면적에 산입하지만(공중 통행·차량 통행·주차에 전용되는 경우는 제외), 공동주택 지상층에 설치한 생활폐기물 보관함의 면적은 바닥면적에 산입하지 않는다.",
-      "용적률 산정 시 지하층의 면적, 지상층의 부속용도인 주차장 면적은 연면적에 산입하지 않으며, 지하주차장 경사로의 면적은 건축면적에 산입하지 않는다.",
-      "건축물 높이 제한 규정 적용 시 1층 전체에 필로티가 설치된 경우 건축물의 높이는 필로티의 층고를 포함해 산정하며(제외가 아님), 건축물의 층고는 방의 바닥구조체 윗면부터 위층 바닥구조체의 윗면까지의 높이로 한다(아랫면이 아님).",
-      "건축물 부분에 따라 층수가 다른 경우 그 중 가장 많은 층수를 그 건축물의 층수로 보며(평균이 아님), 층의 구분이 명확하지 않은 건축물의 높이는 4m마다 하나의 층으로 보아 층수를 산정한다.",
-      "대지면적 1,500㎡, 지상 11층·지하 3층, 각 층 바닥면적 1,000㎡이며 지상 1층 중 500㎡가 부속용도 주차장인 건축물의 용적률은 (지상층 연면적 11,000㎡ − 부속주차장 500㎡)÷1,500㎡×100 = 700%로 계산된다.",
-    ],
-    pitfalls:
-      "건축물 높이 제한 적용 시 1층 필로티의 층고를 제외하고 계산한다고 착각하기 쉽지만, 실제로는 필로티 층고를 포함해 높이를 산정한다.",
-    example:
-      "용적률을 산정할 때에는 지하층의 면적과 지상층의 부속용도인 주차장 면적은 연면적에 산입하지 않는다.",
-    questionRefs: [
-      { year: 2018, questionNo: 76 },
-      { year: 2020, questionNo: 77 },
-      { year: 2022, questionNo: 77 },
-      { year: 2023, questionNo: 77 },
-    ],
-  },
-  {
-    slug: "primary-structural-elements",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "주요구조부의 범위",
-    titleEn: "Scope of Primary Structural Elements",
-    definition:
-      "주요구조부는 내력벽·기둥·바닥·보·지붕틀·주계단을 말하며, 사이 기둥·최하층 바닥·작은 보·차양·옥외 계단 등 건축물의 구조상 중요하지 않은 부분은 제외된다.",
-    intuition:
-      "주요구조부 목록은 '건물 전체의 구조적 안전을 좌우하는 핵심 부재'만 포함하므로, '사이 기둥'이나 '최하층 바닥'처럼 보조적·비핵심적인 부분은 빠진다는 원칙으로 기억하면 된다.",
-    keyPoints: [
-      "주요구조부에 해당하는 것은 지붕틀, 주계단, 내력벽, 기둥, 바닥, 보이다.",
-      "사이 기둥과 최하층 바닥은 주요구조부에 해당하지 않는다.",
-    ],
-    pitfalls:
-      "'기둥'이 주요구조부라는 이유로 '사이 기둥'까지 포함된다고 확대 해석하기 쉽지만, 사이 기둥은 명시적으로 주요구조부에서 제외된다.",
-    example:
-      "지붕틀과 주계단은 건축법령상 주요구조부에 해당하지만, 사이 기둥과 최하층 바닥은 주요구조부에 해당하지 않는다.",
-    questionRefs: [{ year: 2016, questionNo: 75 }],
-  },
-  {
-    slug: "high-rise-evacuation-safety-zone",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "초고층건축물의 피난안전구역 설치기준",
-    titleEn: "Evacuation Safety Zone Requirements for Super-Tall Buildings",
-    definition:
-      "층수가 63층이고 높이가 190m인 초고층건축물에는 피난층 또는 지상으로 통하는 직통계단과 직접 연결되는 피난안전구역을 지상층으로부터 최대 30개 층마다 1개소 이상 설치해야 한다.",
-    intuition:
-      "이 문제는 '몇 층인 건물부터 초고층으로 분류되는지'와 '피난안전구역 설치 간격(30개 층마다 1개소)' 두 숫자를 정확히 암기하는 것이 핵심이다.",
-    keyPoints: [
-      "층수가 63층이고 높이가 190m인 건축물은 초고층건축물(층수 50층 이상 또는 높이 200m 이상 기준 중 층수 기준으로 해당)로 분류된다.",
-      "초고층건축물에는 피난층 또는 지상으로 통하는 직통계단과 직접 연결되는 피난안전구역을 지상층으로부터 최대 30개 층마다 1개소 이상 설치해야 한다.",
-    ],
-    pitfalls:
-      "피난안전구역 설치 간격을 20개 층으로 착각하기 쉽지만, 실제 기준은 최대 30개 층마다 1개소다.",
-    example:
-      "층수가 63층이고 높이가 190m인 초고층건축물에는 피난층 또는 지상으로 통하는 직통계단과 직접 연결되는 피난안전구역을 지상층으로부터 최대 30개 층마다 1개소 이상 설치하여야 한다.",
-    questionRefs: [{ year: 2016, questionNo: 74 }],
-  },
-  {
-    slug: "site-preparation-structure-report",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "대지조성용 공작물의 축조신고 대상",
-    titleEn: "Reporting Requirements for Site-Preparation Structures",
-    definition:
-      "대지를 조성하기 위해 건축물과 분리하여 축조하는 공작물 중 높이 6m를 넘는 굴뚝, 높이 4m를 넘는 broadcast·통신용 철탑 등 그 밖의 유사한 것, 높이 2m를 넘는 옹벽·담장, 바닥면적 30㎡를 넘는 지하대피호 등은 신고 대상이지만, 높이 4m를 넘지 않는 장식탑은 신고 대상이 아니다.",
-    intuition:
-      "이 카드는 앞선 '건축허가·사전결정' 과목의 공작물 신고 카드와 유사하지만 각 공작물 유형별 정확한 높이·면적 기준선을 다시 짚는 문제이며, 장식탑의 기준(4m 초과)이 다른 공작물과 다르다는 점이 핵심이다.",
-    keyPoints: [
-      "상업지역에 설치하는 높이 8m의 통신용 철탑, 높이 4m의 옹벽(2m 초과 기준 충족), 높이 8m의 굴뚝(6m 초과 기준 충족), 바닥면적 40㎡의 지하대피호(30㎡ 초과 기준 충족)는 모두 신고 대상이다.",
-      "높이 4m의 장식탑은 신고 기준(4m를 '넘는' 경우)에 미달하여 축조신고 대상이 아니다.",
-    ],
-    pitfalls:
-      "장식탑의 신고 기준을 다른 공작물과 같은 수치로 착각하기 쉽지만, 정확히 '높이 4m를 넘는' 경우에만 신고 대상이므로 높이 4m는 신고 대상이 아니다.",
-    example:
-      "대지를 조성하기 위하여 건축물과 분리하여 상업지역에 설치하는 높이 8미터의 통신용 철탑을 축조하려는 자는 특별자치시장·특별자치도지사 또는 시장·군수·구청장에게 신고하여야 한다.",
-    questionRefs: [{ year: 2019, questionNo: 77 }],
-  },
-  {
-    slug: "floating-structure-site-boundary-relaxation",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "수면 위 건축물의 대지 범위와 완화 적용 요청",
-    titleEn: "Site Boundary Relaxation for Buildings on Water",
-    definition:
-      "수면 위에 건축물을 건축하려는 자가 대지의 범위를 설정하기 곤란한 경우 허가권자에게 대지의 조경, 공개 공지 등의 확보, 건축물의 높이 제한, 대지의 안전에 관한 기준의 완화 적용을 요청할 수 있지만, 건축물 내진등급의 설정 기준은 완화 적용 요청 대상이 아니다.",
-    intuition:
-      "완화 적용 대상은 '대지'와 관련된 기준(조경, 공개공지, 높이제한, 대지안전)에 한정되며, 건축물 자체의 구조안전성(내진등급)은 대지 범위 설정과 무관하므로 완화 대상에서 제외된다는 논리로 기억하면 된다.",
-    keyPoints: [
-      "수면 위 건축물의 대지 범위 설정이 곤란한 경우 완화 적용을 요청할 수 있는 기준은 대지의 조경, 공개 공지 등의 확보, 건축물의 높이 제한, 대지의 안전이다.",
-      "건축물 내진등급의 설정에 관한 기준은 대지의 범위와 무관한 구조 안전 사항이므로 완화 적용 요청 대상이 아니다.",
-    ],
-    pitfalls:
-      "대지 관련 기준을 완화받을 수 있으면 구조 관련 기준(내진등급)도 함께 완화된다고 오해하기 쉽지만, 내진등급 기준은 이 완화 적용 요청 대상에서 제외된다.",
-    example:
-      "수면 위에 건축물을 건축하려는 자가 대지의 범위를 설정하기 곤란한 경우, 대지의 조경·공개 공지 등의 확보·건축물의 높이 제한·대지의 안전에 관한 기준의 완화 적용을 요청할 수 있다.",
-    questionRefs: [{ year: 2021, questionNo: 73 }],
-  },
-  {
-    slug: "building-register-maintenance",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "건축물대장의 작성·정비 의무",
-    titleEn: "Maintenance of Building Registers",
-    definition:
-      "허가권자는 사용승인서를 내준 경우, 건축허가·건축신고 대상 건축물 외의 건축물의 공사가 끝난 후 기재 요청이 있는 경우, 「집합건물의 소유 및 관리에 관한 법률」에 따른 건축물대장의 신규등록 신청이 있는 경우에 건축물대장에 건축물과 대지의 현황·구조내력 정보를 적어 보관·정비해야 한다(가설건축물은 제외).",
-    intuition:
-      "건축물대장 정비의무는 '정식 사용승인을 받은 경우'뿐 아니라 '허가·신고 대상이 아닌 건축물의 사후 기재 요청'과 '집합건물 신규등록'까지 포함한다는 점을 확장해 기억해야 한다.",
-    keyPoints: [
-      "허가권자가 건축물의 사용승인서를 내준 경우 건축물대장을 작성·정비해야 한다.",
-      "건축허가 또는 건축신고 대상 건축물 외의 건축물의 공사가 끝난 후 기재 요청이 있는 경우에도 건축물대장을 정비해야 한다.",
-      "「집합건물의 소유 및 관리에 관한 법률」에 따른 건축물대장의 신규등록 신청이 있는 경우에도 건축물대장을 작성·정비해야 하며, 가설건축물은 이 정비의무의 대상에서 제외된다.",
-    ],
-    pitfalls:
-      "건축물대장 정비의무를 '사용승인을 받은 경우'로만 한정하기 쉽지만, 허가·신고 대상이 아닌 건축물의 기재 요청이나 집합건물 신규등록의 경우에도 정비 의무가 발생한다.",
-    example:
-      "허가권자가 건축물의 사용승인서를 내준 경우에는 건축물대장에 건축물과 그 대지의 현황 및 구조내력에 관한 정보를 적어서 보관하고 이를 지속적으로 정비하여야 한다.",
-    questionRefs: [{ year: 2021, questionNo: 76 }],
-  },
-  {
-    slug: "site-evacuation-passage-requirements",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "대지 안 피난 및 소화에 필요한 통로 설치기준",
-    titleEn: "On-Site Evacuation and Firefighting Passage Requirements",
-    definition:
-      "건축물의 각 부분으로부터 도로에 이르는 통로 등 대지 안의 피난 및 소화에 필요한 통로는 너비 1.5m 이상(내화구조 또는 불연재료 건축물이 아닌 경우) 또는 너비 1.2m 이상(그 외)으로 설치해야 하며, 옥상광장·헬리포트 관련 기준이나 통로 폭 산정 시 유효너비 1m 이상, 필로티 내 통로 층고 3m 이상 등의 세부 수치 기준을 충족해야 한다.",
-    intuition:
-      "이 조문은 여러 숫자(유효너비, 대지면적 기준, 층고 등)가 한 문제에 뒤섞여 등장하므로, 빈칸 채우기 문제의 정답 조합(1, 300, 1, 1.5)을 하나의 세트로 암기하는 것이 효율적이다.",
-    keyPoints: [
-      "대지 안의 피난 및 소화에 필요한 통로의 유효너비는 1m 이상으로 하며, 대지면적이 300㎡ 이상인 경우 관련 기준이 적용되고, 필로티 내 통로에는 높이 1m 이상의 조건 등이 적용된다.",
-      "통로 설치와 관련한 폭 기준 중 하나로 1.5m라는 수치가 사용되며, 이는 다른 선택지의 0.9m·1.2m·1.5m 등 유사 수치와 혼동하지 않아야 한다.",
-    ],
-    pitfalls:
-      "대지 안 통로 관련 숫자 기준(유효너비 1m, 대지면적 300㎡)을 조경·공작물 관련 다른 숫자 기준과 혼동하기 쉬우므로 이 조문만의 세트로 별도 암기해야 한다.",
-    example:
-      "건축법령상 대지 안의 피난 및 소화에 필요한 통로의 유효너비는 1미터 이상으로 하여야 한다.",
-    questionRefs: [{ year: 2022, questionNo: 73 }],
-  },
-  {
-    slug: "type-1-neighborhood-facility",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "제1종 근린생활시설의 범위",
-    titleEn: "Scope of Type 1 Neighborhood Living Facilities",
-    definition:
-      "제1종 근린생활시설에는 슈퍼마켓·일용품소매점, 휴게음식점(바닥면적 300㎡ 미만), 이용원·미용원·목욕장·세탁소, 의원·치과의원 등 진료소, 탁구장·체육도장(500㎡ 미만) 등이 포함되며, 서점은 바닥면적과 무관하게 제1종 근린생활시설에 해당하지만 극장, 일정 규모 이상 탁구장, 파출소, 산후조리원은 각각 다른 시설군으로 분류된다.",
-    intuition:
-      "제1종·제2종 근린생활시설 구분 문제는 '규모 기준을 충족하는지'와 '애초에 근린생활시설 범주에 속하는지(극장은 문화집회시설, 파출소는 공공업무시설 등)'를 함께 확인해야 한다.",
-    keyPoints: [
-      "서점은 바닥면적 규모와 무관하게 제1종 근린생활시설에 해당한다.",
-      "극장은 문화 및 집회시설로 분류되어 제1종 근린생활시설이 아니며, 탁구장은 바닥면적 500㎡ 미만이면 제1종, 500㎡ 이상이면 제2종 근린생활시설의 운동시설로 분류되므로 규모 확인이 필요하다.",
-      "파출소는 공공업무시설로, 산후조리원은 의료 관련 시설(제2종 근린생활시설 등)로 분류되어 제1종 근린생활시설이 아니다.",
-    ],
-    pitfalls:
-      "서점을 '판매시설'로 착각해 근린생활시설이 아니라고 보기 쉽지만, 서점은 규모와 무관하게 제1종 근린생활시설에 해당한다.",
-    example:
-      "동일한 건축물 안에서 해당 용도에 쓰이는 바닥면적의 합계가 1,000㎡인 경우, 서점은 제1종 근린생활시설에 해당하지만 극장·탁구장·파출소·산후조리원은 해당하지 않는다.",
-    questionRefs: [{ year: 2022, questionNo: 74 }],
-  },
-  {
-    slug: "building-line-narrow-road",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "소요너비 미달 도로의 건축선 산정",
-    titleEn: "Building Line Calculation for Substandard-Width Roads",
-    definition:
-      "소요 너비에 못 미치는 도로에 접한 대지의 건축선은 그 도로 중심선으로부터 소요 너비의 2분의 1의 수평거리만큼 물러난 선으로 하되, 도로 반대쪽에 하천·철도 등이 있으면 그 경계선으로부터 소요 너비에 해당하는 수평거리의 선을 건축선으로 하며, 이렇게 후퇴한 부분은 대지면적 산정 시 대지면적에서 제외한다.",
-    intuition:
-      "이 조문은 '도로 양쪽에 모두 대지가 있는 일반적인 경우(중심선 기준 1/2 후퇴)'와 '도로 반대쪽이 하천·철도 등으로 대지가 없는 경우(그 경계선 기준 소요너비 전체)'를 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "소요 너비에 못 미치는 너비의 도로인 경우 그 중심선으로부터 소요 너비의 2분의 1의 수평거리만큼 물러난 선을 건축선으로 한다.",
-      "그 도로의 반대쪽에 하천·철도·선로부지 등이 있는 경우에는 그 경계선으로부터 소요 너비에 해당하는 수평거리의 선을 건축선으로 한다.",
-      "건축선과 도로 사이의 대지면적은 건축선 후퇴로 인해 대지면적 산정에서 제외된다.",
-    ],
-    pitfalls:
-      "도로 반대쪽에 하천이 있는 경우에도 항상 '소요너비의 2분의 1'만 후퇴한다고 착각하기 쉽지만, 이 경우에는 그 경계선으로부터 소요 너비 '전체'에 해당하는 거리를 후퇴해야 한다.",
-    example:
-      "소요 너비에 못 미치는 너비의 도로인 경우에는 그 중심선으로부터 그 소요 너비의 2분의 1의 수평거리만큼 물러난 선을 건축선으로 하며, 그 도로의 반대쪽에 하천이 있는 경우에는 그 경계선으로부터 소요 너비에 해당하는 수평거리의 선을 건축선으로 한다.",
-    questionRefs: [{ year: 2023, questionNo: 72 }],
-  },
-  {
-    slug: "major-renovation-definition",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "대수선의 정의와 판정기준",
-    titleEn: "Definition and Criteria for Major Renovation",
-    definition:
-      "대수선은 건축물의 증축·개축·재축에 해당하지 않으면서 내력벽·기둥·보·지붕틀을 각각 3개 이상 수선·변경하거나, 내력벽 벽면적을 30㎡ 이상 수선·변경하거나, 기둥·보·지붕틀을 증설·해체하거나, 특별피난계단·다세대주택 세대 간 경계벽 등을 증설·해체·수선·변경하는 것을 말한다.",
-    intuition:
-      "이 문제는 대수선의 법정 기준(개수·면적)에 '미달'하는 행위를 찾아내는 방식으로 출제되므로, '3개 이상', '30㎡ 이상'이라는 기준 숫자를 정확히 암기하는 것이 핵심이다.",
-    keyPoints: [
-      "보·기둥·지붕틀을 3개 이상 수선하거나 변경하는 것은 대수선에 해당하지만, 2개만 변경·수선하는 것은 대수선의 개수 기준(3개 이상)에 미달해 대수선에 해당하지 않는다.",
-      "내력벽의 벽면적을 30㎡ 이상 수선·변경하는 것, 특별피난계단을 증설·해체·수선·변경하는 것, 다세대주택의 세대 간 경계벽을 증설하는 것은 각각 대수선에 해당한다.",
-    ],
-    pitfalls:
-      "보나 기둥을 몇 개만 변경해도 대수선이라고 착각하기 쉽지만, 법정 기준은 '3개 이상'이므로 2개 이하의 변경은 대수선에 해당하지 않는다.",
-    example:
-      "보를 두 개 변경하는 것은 건축법령상 대수선의 개수 기준(3개 이상)에 미달하여 대수선에 해당하지 않는다.",
-    questionRefs: [{ year: 2024, questionNo: 72 }],
-  },
-  {
-    slug: "interior-finishing-material-regulation",
-    parentSlug: "building-terms-scope",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "용어정의·적용범위",
-    titleKo: "건축물 내부 마감재료의 규제기준",
-    titleEn: "Regulation of Interior Finishing Materials",
-    definition:
-      "대통령령으로 정하는 용도·규모의 건축물의 벽·반자·지붕(반자가 없는 경우) 등 내부의 마감재료는 방화에 지장이 없는 재료로 하되, 「실내공기질 관리법」에 따른 실내공기질 유지기준·권고기준을 고려하고 관계 중앙행정기관의 장과 협의해야 한다.",
-    intuition:
-      "이 조문은 '마감재료(무엇을)', '방화(어떤 성능을 확보해야 하는지)', '실내공기질(추가로 고려해야 하는 기준)'이라는 세 빈칸을 순서대로 채우는 문제이므로, 세 단어를 하나의 문장으로 통째로 암기하는 것이 효율적이다.",
-    keyPoints: [
-      "대통령령으로 정하는 용도 및 규모의 건축물의 벽, 반자, 지붕(반자가 없는 경우) 등 내부의 마감재료는 방화에 지장이 없는 재료로 해야 한다.",
-      "마감재료 기준을 정할 때에는 「실내공기질 관리법」에 따른 실내공기질 유지기준 및 권고기준을 고려하고 관계 중앙행정기관의 장과 협의해야 한다.",
-    ],
-    pitfalls:
-      "마감재료 규제의 목적을 '내진'이나 '공기청정'으로 착각하기 쉽지만, 핵심 목적은 '방화'이며 추가로 고려하는 기준은 '실내공기질'이다.",
-    example:
-      "대통령령으로 정하는 용도 및 규모의 건축물의 벽, 반자, 지붕 등 내부의 마감재료는 방화에 지장이 없는 재료로 하되, 「실내공기질 관리법」에 따른 실내공기질 유지기준 및 권고기준을 고려하여야 한다.",
-    questionRefs: [{ year: 2024, questionNo: 77 }],
-  },
-  {
-    slug: "evacuation-facility-obligations",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "승강기·피난시설",
-    titleKo: "출구 설치 의무와 내진능력 공개 대상",
-    titleEn: "Exit Installation Duties and Seismic Capacity Disclosure",
-    definition:
-      "전시장은 해당 용도로 쓰는 바닥면적 합계가 300㎡ 이상이면 관람집회시설 등과 함께 출구 설치 의무 대상 건축물에 해당하며, 높이 13m인 건축물은 내진능력 공개 대상에 해당한다.",
-    intuition:
-      "피난·구조 관련 규정은 대개 '일정 규모 이상'부터 의무가 발생하는 구조이므로, 300㎡·13m처럼 기준이 되는 숫자를 정확히 암기하는 것이 실전에서 가장 효율적이다.",
-    keyPoints: [
-      "전시장은 바닥면적 합계 300㎡ 이상인 경우 출구 설치 의무 대상 건축물에 해당한다.",
-      "일반주거지역에 있는 초등학교는 공개공지 설치 대상 용도에 해당하지 않는다.",
-      "높이 13m인 건축물은 내진능력 공개 대상에 해당한다.",
-    ],
-    pitfalls:
-      "공개공지 설치 대상 용도와 출구 설치 의무 대상 용도를 혼동하기 쉽다 — 각각 별도의 기준과 대상 목록을 가진다.",
-    example:
-      "바닥면적 합계 350㎡인 전시장은 300㎡ 기준을 넘으므로 출구 설치 의무 대상 건축물에 해당한다.",
-  },
-  {
-    slug: "street-height-limit",
-    chapterKo: "건축법",
-    category: "건축법",
-    subcategory: "가로구역별 높이제한",
-    titleKo: "가로구역별 건축물의 높이제한 고려사항",
-    titleEn: "Considerations for Street-Block Height Limits",
-    definition:
-      "허가권자가 가로구역별로 건축물의 높이를 지정·공고할 때는 도로의 폭, 해당 지역의 토지이용상황 등 여러 요소를 종합적으로 고려한다.",
-    intuition:
-      "가로구역별 높이제한은 하나의 숫자를 일률적으로 정하는 것이 아니라, 그 거리의 폭과 주변 토지 이용 상황을 함께 반영해 '그 거리에 맞는' 높이를 산정하는 제도라고 이해하면 된다.",
-    keyPoints: [
-      "허가권자는 가로구역을 단위로 건축물의 높이를 지정·공고할 수 있다.",
-      "높이 지정 시 토지이용계획, 도로 폭 등 해당 지역의 특성을 고려사항으로 삼는다.",
-      "동일 가로구역이라도 필요한 경우 건축물의 용도·형태에 따라 높이를 다르게 정할 수 있다.",
-    ],
-    pitfalls:
-      "가로구역별 높이제한을 도로 폭만으로 정한다고 단순화하기 쉽다 — 토지이용계획 등 다른 요소도 함께 고려된다.",
-    example:
-      "폭이 좁은 도로에 접한 가로구역은, 넓은 도로에 접한 인근 구역보다 낮은 높이제한을 받을 수 있다.",
-  },
-
-  // ───────── 도시개발법 ─────────
-  {
-    slug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "도시개발구역의 지정권자·대상규모·절차",
-    titleEn: "Designators, Scale Requirements, and Procedures for Urban Development Zones",
-    definition:
-      "도시개발구역은 시·도지사, 대도시 시장, 국토교통부장관이 지정할 수 있으며(한국토지주택공사는 지정권자가 아님), 국토교통부장관은 국가가 시행할 필요가 있거나 관계 중앙행정기관의 장이 요청하는 경우, 천재지변 등 긴급한 경우, 둘 이상 도에 걸쳐 지정권자 협의가 불성립하는 경우 등에 지정할 수 있고, 지정 대상 규모는 주거지역·상업지역 1만㎡, 공업지역 3만㎡, 자연녹지지역 1만㎡, 생산녹지지역(지정면적의 30% 이하) 1만㎡ 이상이다.",
-    intuition:
-      "이 카드는 '누가 지정할 수 있는지(지정권자 vs 지정 제안자)'와 '어떤 경우 국토교통부장관이 예외적으로 지정하는지', '용도지역별 최소 규모 숫자'를 조합해 출제하는 방식이 핵심이다.",
-    keyPoints: [
-      "도시개발구역 지정권자는 시·도지사, 대도시 시장, 국토교통부장관이며, 한국토지주택공사 등 공공기관은 지정권자가 아니라 지정을 '제안'할 수 있는 자에 해당한다.",
-      "국토교통부장관은 국가가 도시개발사업을 실시할 필요가 있는 경우, 관계 중앙행정기관의 장이 요청하는 경우, 천재지변 등으로 긴급히 시행할 필요가 있는 경우, 둘 이상의 도에 걸치는 지역에서 관계 도지사 간 협의가 성립하지 않는 경우에 도시개발구역을 지정할 수 있지만, 공공기관의 장이 일정 규모의 구역 지정을 단순히 '제안'하는 것만으로는 국토교통부장관의 지정 사유가 되지 않는다.",
-      "도시개발구역으로 지정할 수 있는 대상 규모는 주거지역·상업지역 1만㎡ 이상, 공업지역 3만㎡ 이상, 자연녹지지역 1만㎡ 이상, 도시개발구역 지정면적의 30% 이하인 생산녹지지역 1만㎡ 이상이다.",
-      "「한국공항공사법」에 따른 한국공항공사, 「지방공기업법」에 따른 지방공사, 「한국철도공사법」에 따른 한국철도공사 등은 특별자치도지사·시장·군수·구청장에게 도시개발구역의 지정을 제안할 수 있다.",
-      "대도시 시장은 도지사를 거치지 않고 직접 도시개발구역을 지정할 수 있으며, 도시개발구역의 총 면적이 1만㎡ 미만이면 둘 이상의 사업시행지구로 분할해 지정할 수 없고(분할하려는 각 지구는 1만㎡ 이상이어야 함), 도시지역 외의 지역에는 구역을 지정한 후 개발계획을 수립할 수 있다.",
-      "환지 방식 사업에서 환지처분 공고가 있으면 그 구역의 용도지역·지구단위계획구역은 구역 지정 전으로 환원·폐지된 것으로 보지 않는다(존속).",
-    ],
-    pitfalls:
-      "한국토지주택공사를 도시개발구역의 '지정권자'로 착각하기 쉽지만, 공사는 지정을 제안할 수 있는 자일 뿐 지정권자가 아니라는 점이 핵심 함정이다.",
-    example:
-      "국토교통부장관은 천재지변, 그 밖의 사유로 인하여 도시개발사업을 긴급하게 할 필요가 있는 경우 도시개발구역을 지정할 수 있다.",
-    questionRefs: [
-      { year: 2018, questionNo: 53 },
-      { year: 2019, questionNo: 53 },
-      { year: 2021, questionNo: 53 },
-      { year: 2022, questionNo: 55 },
-      { year: 2025, questionNo: 53 },
-      { year: 2025, questionNo: 54 },
-    ],
-  },
-  {
-    slug: "urban-development-plan-revision-release",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "개발계획의 수립·사후반영사항과 지정 해제",
-    titleEn: "Development Plan Formulation and Zone Release",
-    definition:
-      "도시개발구역을 지정한 후 개발계획을 수립하는 경우, 지정·고시일부터 2년 이내에 개발계획을 수립·고시하지 않으면 그 2년이 되는 날의 다음 날에 지정이 해제되고, 개발계획을 고시한 날부터 3년 이내에 실시계획 인가를 신청하지 않으면 그 3년이 되는 날의 다음 날에, 사업 시행 기간을 정한 경우 그 기간의 만료일 다음 날(또는 5년)에 각각 해제되며, 임대주택건설계획 등 세입자 주거·생활안정대책은 구역 지정 후에도 개발계획에 추가로 포함시킬 수 있다.",
-    intuition:
-      "지정 해제의 세 단계 숫자(2년·3년·5년)를 순서대로 암기하고, 구역 지정 후 사후적으로 개발계획에 추가할 수 있는 사항(세입자 대책)과 애초에 지정 시부터 있어야 하는 사항(환경보전계획, 원형지 공급계획, 사업시행지구 분할 등)을 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "도시개발구역이 지정·고시된 날부터 2년이 되는 날까지 개발계획을 수립·고시하지 않으면 그 2년이 되는 날의 다음 날에 지정이 해제된 것으로 본다.",
-      "개발계획을 고시한 날부터 3년 이내에 실시계획의 인가를 신청하지 않으면 그 3년이 되는 날의 다음 날에 지정이 해제되며, 도시개발사업의 공사 완료 공고일까지 실시계획 인가를 받지 못한 경우에는 지정·고시일부터 5년이 되는 날의 다음 날에 해제된 것으로 본다.",
-      "구역 지정 후에는 임대주택건설계획 등 세입자 등의 주거 및 생활안정 대책을 개발계획에 추가로 포함시킬 수 있지만, 환경보전계획, 보건의료시설·복지시설 설치계획, 원형지 공급 대상·개발방향, 사업시행지구 분할에 관한 사항은 구역 지정 시부터 정해져 있어야 하는 사항이다.",
-    ],
-    pitfalls:
-      "지정 해제까지의 세 숫자(2년, 3년, 5년)를 순서 없이 뒤섞어 기억하기 쉬우므로, '개발계획 수립(2년) → 실시계획 인가신청(3년) → 공사완료(5년)'의 흐름으로 순서대로 암기해야 한다.",
-    example:
-      "도시개발구역을 지정한 후 개발계획을 수립하는 경우 도시개발구역이 지정·고시된 날부터 2년이 되는 날까지 개발계획을 수립·고시하지 아니하면 그 2년이 되는 날의 다음 날에 도시개발구역의 지정이 해제된 것으로 본다.",
-    questionRefs: [
-      { year: 2020, questionNo: 56 },
-      { year: 2023, questionNo: 57 },
-    ],
-  },
-  {
-    slug: "urban-development-implementer-change",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "도시개발사업 시행자의 지정·변경",
-    titleEn: "Designation and Change of Urban Development Implementers",
-    definition:
-      "지정권자는 시행자가 실시계획 인가를 받은 후 2년 이내에 사업에 착수하지 않거나, 행정처분으로 시행자 지정·실시계획 인가가 취소되거나, 시행자의 부도로 사업목적 달성이 어려운 경우 시행자를 변경할 수 있지만, 실시계획 인가 신청을 늦게 하는 것만으로는 변경사유가 되지 않으며, 국가·지방자치단체·한국부동산원·한국수자원공사·지방공사 등은 시행자로 지정될 수 있으나 한국관광공사는 도시개발사업 시행자 지정 대상이 아니다.",
-    intuition:
-      "시행자 변경사유는 '사업을 실제로 진행하지 못하는 상태(착수 지연, 취소, 부도)'로 한정되며, 단순히 절차 신청이 늦은 것은 포함되지 않는다는 점과, 시행자로 지정될 수 있는 공공기관 목록에서 한국관광공사가 빠진다는 점이 핵심이다.",
-    keyPoints: [
-      "지정권자는 시행자가 실시계획의 인가를 받은 후 2년 이내에 사업을 착수하지 않는 경우, 행정처분으로 시행자 지정이 취소된 경우, 행정처분으로 실시계획의 인가가 취소된 경우, 시행자의 부도로 사업목적 달성이 어렵다고 인정되는 경우에 시행자를 변경할 수 있다.",
-      "사업시행자가 도시개발구역 지정 고시일부터 6개월 이내에 실시계획의 인가를 신청하지 않는 것은 시행자 변경사유로 명시되어 있지 않다.",
-      "국가, 지방자치단체, 한국부동산원, 한국수자원공사, 지방공사, 한국철도공사 등은 도시개발사업의 시행자로 지정될 수 있지만, 한국관광공사는 시행자 지정 대상에 포함되지 않는다.",
-      "수용 또는 사용 방식으로 시행하는 도시개발사업에서는 도시개발구역의 토지 소유자가 설립한 조합은 시행자로 지정될 수 없다(조합은 환지 방식에서만 시행자가 될 수 있음).",
-    ],
-    pitfalls:
-      "실시계획 인가 신청이 늦었다는 사실만으로 시행자를 변경할 수 있다고 오해하기 쉽지만, 이는 법정 변경사유에 해당하지 않는다.",
-    example:
-      "지정권자는 시행자가 도시개발사업에 관한 실시계획의 인가를 받은 후 2년 이내에 사업을 착수하지 아니하는 경우 시행자를 변경할 수 있다.",
-    questionRefs: [
-      { year: 2017, questionNo: 53 },
-      { year: 2022, questionNo: 57 },
-      { year: 2024, questionNo: 54 },
-    ],
-  },
-  {
-    slug: "urban-development-implementation-method",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "도시개발사업의 시행방식(수용·환지·혼용)과 변경",
-    titleEn: "Implementation Methods and Their Modification",
-    definition:
-      "시행자는 도시개발사업을 수용 또는 사용하는 방식, 환지 방식, 또는 이를 혼용하는 방식으로 정해 지정권자의 인가(국토교통부장관의 허가가 아님)를 받아야 하며, 지정권자는 구역 지정 후에도 수용·사용 방식에서 전부 환지 방식으로, 수용·사용 방식에서 혼용방식으로, 혼용방식에서 전부 환지 방식으로 변경할 수 있으나 전부 환지 방식에서 혼용방식으로의 변경은 허용되지 않는다.",
-    intuition:
-      "시행방식 변경은 '환지 방식 쪽으로만 이동 가능하고, 환지 방식에서 다시 벗어나는 방향(혼용으로)으로는 갈 수 없다'는 일방향 규칙으로 정리하면 기억하기 쉽다.",
-    keyPoints: [
-      "분할 혼용방식은 수용·사용 방식이 적용되는 지역과 환지 방식이 적용되는 지역을 사업시행지구별로 분할하여 시행하는 방식이다.",
-      "계획적·체계적 개발이 필요한 경우에도 반드시 환지 방식으로만 정해야 하는 것은 아니며, 시행자는 국토교통부장관의 허가가 아니라 지정권자의 인가를 받아 시행방식을 정한다.",
-      "지정권자는 구역 지정 이후에도 수용·사용 방식에서 전부 환지 방식으로의 변경, 수용·사용 방식에서 혼용방식으로의 변경, 혼용방식에서 전부 환지 방식으로의 변경을 할 수 있지만, 전부 환지 방식에서 혼용방식으로의 변경은 할 수 없다.",
-      "지방자치단체가 도시개발사업의 전부를 환지 방식으로 시행하려는 경우에는 도시개발사업에 관한 규약을 정해야 한다.",
-    ],
-    pitfalls:
-      "시행방식 변경이 어느 방향으로든 자유롭다고 착각하기 쉽지만, 전부 환지 방식으로 일단 정해지면 다시 혼용방식으로 되돌리는 변경은 허용되지 않는다.",
-    example:
-      "지정권자는 도시개발구역지정 이후 수용 또는 사용방식에서 전부 환지 방식으로, 또는 혼용방식에서 전부 환지 방식으로 시행방식을 변경할 수 있지만, 전부 환지 방식에서 혼용방식으로는 변경할 수 없다.",
-    questionRefs: [
-      { year: 2018, questionNo: 54 },
-      { year: 2019, questionNo: 57 },
-      { year: 2024, questionNo: 58 },
-    ],
-  },
-  {
-    slug: "urban-development-expropriation-method",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "수용·사용 방식 사업시행의 절차와 요건",
-    titleEn: "Procedures for Expropriation-Based Project Implementation",
-    definition:
-      "수용 또는 사용 방식의 도시개발사업은 시행자만 토지 등을 수용할 수 있고(지정권자는 수용권 없음) 「공익사업을 위한 토지 등의 취득 및 보상에 관한 법률」을 준용하며, 수용대상 토지의 세부목록을 고시하면 사업인정 및 그 고시가 있었던 것으로 보고, 정부출연기관·공공기관 등 민간참여자가 아닌 시행자가 수용하려면 사업대상 토지면적의 3분의 2 이상 소유 및 토지 소유자 총수의 2분의 1 이상 동의가 필요하다(지방공기업법상 지방공사는 예외적으로 이 동의요건이 없는 경우가 있음).",
-    intuition:
-      "수용 또는 사용 방식의 핵심은 '누가 수용권을 갖는지(시행자만)', '수용요건(토지면적 2/3+소유자 총수 1/2, 단 일부 공공시행자는 면제)', '토지상환채권·조성토지 공급'의 세부 규정을 조합해 출제하는 것이다.",
-    keyPoints: [
-      "시행자가 아닌 지정권자는 도시개발사업에 필요한 토지 등을 수용할 수 없으며, 수용의 대상이 되는 토지의 세부목록을 고시한 경우에는 「공익사업을 위한 토지 등의 취득 및 보상에 관한 법률」에 따른 사업인정 및 그 고시가 있었던 것으로 본다.",
-      "정부출연기관 등 민간사업자가 아닌 시행자가 토지를 수용하려면 사업대상 토지면적의 3분의 2 이상을 소유하고 토지 소유자 총수의 2분의 1 이상의 동의를 받아야 하지만, 국가·지방자치단체·지방공사 등 순수 공공시행자는 이 동의 요건 없이 수용할 수 있는 경우가 있다.",
-      "지방자치단체 등 공공기관인 시행자는 지급보증 없이도 토지상환채권을 발행할 수 있으며(민간시행자만 지급보증 필요), 지정권자가 아닌 시행자는 지정권자의 승인을 받아야 조성토지등의 대금을 미리 받을 수 있다.",
-      "공공용지가 아닌 조성토지등의 공급은 원칙적으로 경쟁입찰의 방법으로 해야 하며 예외적인 경우에만 수의계약이 허용되고, 시행방식은 혼용방식에서 수용·사용 방식으로 변경할 수 없다(환지 방향으로만 가능).",
-    ],
-    pitfalls:
-      "지정권자도 수용권을 가진다고 착각하기 쉽지만, 수용권은 오직 시행자에게만 있으며 지정권자는 인가·감독 권한만 가진다.",
-    example:
-      "수용의 대상이 되는 토지의 세부목록을 고시한 경우에는 「공익사업을 위한 토지 등의 취득 및 보상에 관한 법률」에 따른 사업인정 및 그 고시가 있었던 것으로 본다.",
-    questionRefs: [
-      { year: 2016, questionNo: 54 },
-      { year: 2019, questionNo: 58 },
-    ],
-  },
-  {
-    slug: "urban-development-original-land",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "원형지의 공급·개발과 매각 제한",
-    titleEn: "Supply, Development, and Resale Restrictions on Original-Form Land",
-    definition:
-      "원형지는 국가·지방자치단체·지방공사에는 도시개발구역 전체 토지면적의 3분의 1까지 공급할 수 있고, 공장 부지 등 직접 사용 목적의 원형지개발자는 경쟁입찰로 선정하되(2회 이상 유찰 시 수의계약 가능), 공급가격은 감정가격과 기반시설 설치비용의 합산액을 기준으로 시행자가 정하며, 지방자치단체인 원형지개발자는 공사완료 공고일부터 5년의 범위에서 매각이 제한된다.",
-    intuition:
-      "원형지 규정은 '공급 면적 상한(1/3)', '개발자 선정방식(경쟁입찰 원칙)', '매각 제한기간(10년 이내에서 대통령령, 실제 5년)'을 서로 다른 숫자로 출제하므로 각각 정확히 구분해야 한다.",
-    keyPoints: [
-      "국가·지방자치단체·지방공사 등에 공급될 수 있는 원형지 면적은 도시개발구역 전체 토지면적의 3분의 1까지로 한다(3분의 2가 아님).",
-      "원형지를 공장 부지 등으로 직접 사용하는 원형지개발자의 선정은 경쟁입찰 방식으로 하며, 경쟁입찰이 2회 이상 유찰된 경우에는 수의계약으로 할 수 있다.",
-      "지정권자는 원형지의 공급을 승인할 때 용적률 등 개발밀도에 관한 이행조건을 붙일 수 있으며, 원형지 공급가격은 원형지의 감정가격과 원형지에 설치한 기반시설 공사비를 합산한 금액을 기준으로 시행자가 정한다(조례로 정하지 않음).",
-      "원형지개발자인 지방자치단체는 원형지에 대한 공사완료 공고일부터 5년의 범위에서 대통령령으로 정하는 기간이 지나면 원형지를 매각할 수 있다.",
-      "원형지개발자가 공급받은 토지 전부를 시행자 동의 없이 제3자에게 매각하는 경우, 시행자는 곧바로 계약을 해제하는 것이 아니라 원형지개발자에게 시정을 요구한 후에도 이행하지 않으면 계약을 해제할 수 있다.",
-      "원형지가 공공택지 용도인 경우 원형지개발자의 선정은 추첨의 방법으로 할 수 있다.",
-    ],
-    pitfalls:
-      "국가·지방자치단체에 공급되는 원형지 면적 상한을 '3분의 2'로 잘못 기억하기 쉽지만, 실제로는 전체 토지면적의 3분의 1까지다.",
-    example:
-      "원형지를 공장 부지로 직접 사용하는 원형지개발자의 선정은 경쟁입찰의 방식으로 하며, 경쟁입찰이 2회 이상 유찰된 경우에는 수의계약의 방법으로 할 수 있다.",
-    questionRefs: [
-      { year: 2021, questionNo: 54 },
-      { year: 2023, questionNo: 54 },
-    ],
-  },
-  {
-    slug: "urban-development-implementation-plan",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "도시개발사업 실시계획의 작성·인가",
-    titleEn: "Formulation and Approval of Implementation Plans",
-    definition:
-      "시행자가 작성하는 실시계획에는 지구단위계획이 포함되어야 하며, 지정권자인 국토교통부장관이 실시계획을 작성할 때에는 시·도지사 또는 대도시 시장의 의견을 미리 들어야 하고, 지정권자가 시행자가 아닌 경우 시행자는 작성된 실시계획에 관해 지정권자의 인가를 받아야 하며, 인가받은 실시계획 중 사업시행면적의 100분의 10 이상이 증감되는 경우 등은 변경인가가 필요하다.",
-    intuition:
-      "실시계획은 '누가 작성·인가하는지(국토교통부장관 작성 시 의견청취 대상, 시행자 작성 시 지정권자 인가)'와 '변경인가가 필요한 경중 기준(면적 증감 비율)'을 조합해 출제된다.",
-    keyPoints: [
-      "지정권자인 국토교통부장관이 실시계획을 작성하는 경우 시·도지사 또는 대도시 시장의 의견을 미리 들어야 한다(시장·군수·구청장이 아님).",
-      "지정권자가 시행자가 아닌 경우 시행자는 작성한 실시계획에 관해 지정권자의 인가를 받아야 하며, 실시계획을 인가할 때 지정권자가 공공하수도 공사시행의 허가 등에 관해 관계 행정기관의 장과 협의했다면 해당 허가를 받은 것으로 의제된다.",
-      "시행자가 작성하는 실시계획에는 지구단위계획이 포함되어야 하며, 실시계획의 인가에 의해 「주택법」에 따른 사업계획의 승인이 의제될 수 있다.",
-      "인가받은 실시계획 중 사업시행면적의 100분의 20이 감소되는 경우에는 지정권자의 변경인가가 필요하다(변경인가 불요라는 서술은 틀림).",
-      "고시된 실시계획의 내용 중 도시·군관리계획으로 결정해야 하는 사항이 종전에 결정된 사항에 저촉되면, 종전 사항이 아니라 나중에 고시된 실시계획의 내용이 우선 적용된다.",
-      "환지방식으로 시행하는 구역에 대해 지정권자가 실시계획을 작성한 경우, 사업의 명칭·목적, 도시·군관리계획의 결정내용을 관할 등기소에 통보·제출할 의무는 없다.",
-    ],
-    pitfalls:
-      "실시계획의 저촉 우선순위를 '종전 결정사항 우선'으로 착각하기 쉽지만, 실제로는 나중에 고시된 실시계획 내용이 우선 적용된다.",
-    example:
-      "지정권자인 국토교통부장관이 실시계획을 작성하는 경우 시·도지사 또는 대도시 시장의 의견을 미리 들어야 한다.",
-    questionRefs: [
-      { year: 2018, questionNo: 56 },
-      { year: 2020, questionNo: 54 },
-    ],
-  },
-  {
-    slug: "urban-development-completion-inspection",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "도시개발사업의 준공검사와 체비지",
-    titleEn: "Completion Inspection and Reserved Land",
-    definition:
-      "도시개발사업의 준공검사 전에도 체비지는 사용할 수 있으며, 지정권자가 아닌 시행자는 공사 전부가 끝나기 전이라도 끝난 부분에 대해 준공검사를 받을 수 있고, 공사를 끝내면 공사완료 보고서를 작성해 지정권자의 준공검사를 받아야 하며, 지정권자가 시행자인 경우에는 준공검사 대신 공사완료 공고를 한다.",
-    intuition:
-      "이 카드의 핵심은 '체비지는 준공 전에도 사용 가능하다'는 예외 규정과, '지정권자가 시행자인지 아닌지'에 따라 준공검사 절차(검사 vs 공고)가 달라진다는 구조를 이해하는 것이다.",
-    keyPoints: [
-      "도시개발사업의 준공검사 전이라도 체비지는 사용할 수 있다.",
-      "지정권자는 효율적인 준공검사를 위해 필요하면 관계 행정기관 등에 의뢰하여 준공검사를 할 수 있으며, 지정권자가 아닌 시행자는 공사가 전부 끝나기 전이라도 끝난 부분에 대해 준공검사를 받을 수 있다.",
-      "지정권자가 아닌 시행자가 공사를 끝낸 때에는 공사완료 보고서를 작성해 지정권자의 준공검사를 받아야 하지만, 지정권자가 시행자인 경우에는 공사를 완료하면 준공검사가 아니라 공사완료 공고를 한다.",
-    ],
-    pitfalls:
-      "체비지도 준공검사를 마쳐야만 사용할 수 있다고 오해하기 쉽지만, 실제로는 준공검사 전에도 체비지를 사용할 수 있다.",
-    example:
-      "도시개발사업의 준공검사 전이라도 체비지는 사용할 수 있다.",
-    questionRefs: [{ year: 2016, questionNo: 53 }],
-  },
-  {
-    slug: "urban-development-plan-change-consent",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "환지방식 개발계획 변경 시 토지소유자 동의 요건",
-    titleEn: "Landowner Consent for Changes to Envelopment-Method Development Plans",
-    definition:
-      "도시개발사업의 일부를 환지 방식으로 시행하기 위해 개발계획을 변경할 때, 사업시행지구를 분할하거나 분할된 사업시행지구를 통합하는 경우에는 토지소유자의 동의가 필요하지만, 도로 폐지나 기반시설 면적·용적률의 소폭 증가(100분의 5 미만), 수용예정인구의 소폭 증가 등 경미한 변경은 동의가 필요하지 않다.",
-    intuition:
-      "이 카드는 '경미한 변경(수치 기준 이내)'과 '중대한 변경(사업시행지구 분할·통합)'을 구분하는 문제이며, 숫자 기준(100분의 5 미만)에 해당하는 변경은 동의가 필요 없다는 원칙을 기억하면 된다.",
-    keyPoints: [
-      "사업시행지구를 분할하거나 분할된 사업시행지구를 통합하는 개발계획 변경은 토지소유자의 동의가 필요하다.",
-      "너비 12m 미만 도로의 폐지, 기반시설(도로 제외) 면적의 100분의 5 미만 증감, 용적률의 100분의 5 미만 증감, 수용예정인구의 100분의 10 미만 증감 등은 경미한 변경으로 보아 토지소유자의 동의가 필요하지 않다.",
-    ],
-    pitfalls:
-      "기반시설 면적이나 용적률이 조금이라도 증가하면 항상 동의가 필요하다고 오해하기 쉽지만, 100분의 5 미만의 증감은 경미한 변경으로 동의가 필요 없다.",
-    example:
-      "도시개발사업의 일부를 환지방식으로 시행하기 위하여 개발계획을 변경할 때, 사업시행지구를 분할하거나 분할된 사업시행지구를 통합하는 경우에는 토지소유자의 동의가 필요하다.",
-    questionRefs: [{ year: 2017, questionNo: 58 }],
-  },
-  {
-    slug: "urban-development-agency-scope",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "주택건설사업자에 대한 사업 대행 범위",
-    titleEn: "Scope of Delegated Work to Housing Construction Business Operators",
-    definition:
-      "도시개발사업의 시행자인 국가·지방자치단체는 실시설계, 기반시설공사, 부지조성공사, 조성된 토지의 분양을 「주택법」에 따른 주택건설사업자 등에게 대행하게 할 수 있지만, 토지상환채권의 발행은 대행 범위에 포함되지 않는다.",
-    intuition:
-      "대행 가능 범위는 '설계·조성·분양'이라는 실무적 시공·분양 업무에 한정되며, 자금조달 수단인 토지상환채권 발행처럼 시행자의 재정적 의사결정에 해당하는 사항은 대행할 수 없다는 원칙을 기억하면 된다.",
-    keyPoints: [
-      "국가 또는 지방자치단체인 시행자는 실시설계, 기반시설공사, 부지조성공사, 조성된 토지의 분양을 주택건설사업자 등에게 대행하게 할 수 있다.",
-      "토지상환채권의 발행은 주택건설사업자 등에게 대행하게 할 수 있는 도시개발사업의 범위에 포함되지 않는다.",
-    ],
-    pitfalls:
-      "조성된 토지의 분양 업무를 대행할 수 없다고 오해하기 쉽지만, 분양 업무는 대행 가능한 범위에 포함되며, 대행 불가 항목은 토지상환채권 발행이라는 점을 구분해야 한다.",
-    example:
-      "도시개발사업의 시행자인 국가 또는 지방자치단체는 실시설계, 기반시설공사, 부지조성공사, 조성된 토지의 분양을 「주택법」에 따른 주택건설사업자에게 대행하게 할 수 있다.",
-    questionRefs: [
-      { year: 2019, questionNo: 56 },
-      { year: 2023, questionNo: 56 },
-    ],
-  },
-  {
-    slug: "urban-development-cost-sharing",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "도시개발사업의 비용 부담",
-    titleEn: "Cost Sharing in Urban Development Projects",
-    definition:
-      "지정권자가 시행자가 아닌 경우 도시개발구역의 통신시설 설치는 특별한 사유가 없으면 준공검사 신청일까지 끝내야 하며, 전부 환지 방식으로 사업을 시행하는 경우 전기시설의 지중선로 설치비용은 사업시행자가 전부 부담하고, 지정권자인 시행자는 그가 시행한 사업으로 이익을 얻는 시·도에 비용의 전부 또는 일부를 부담시킬 수 없다.",
-    intuition:
-      "비용부담 문제는 '누가 어떤 시설의 비용을 얼마나 부담하는지'를 실제 법정 비율과 다르게 서술해 오답을 만드는 방식이므로, 지중선로 비용의 분담비율과 이익을 얻는 지자체에 대한 비용 전가 가능 여부를 정확히 기억해야 한다.",
-    keyPoints: [
-      "지정권자가 시행자가 아닌 경우 도시개발구역의 통신시설 설치는 특별한 사유가 없으면 준공검사 신청일까지 끝내야 한다.",
-      "전부 환지 방식으로 사업을 시행하는 경우, 전기시설의 지중선로 설치를 요청한 사업시행자가 전기공급자와 2분의 1씩 부담하는 것이 아니라 사업시행자가 전액 부담하는 것이 원칙이다(요청자가 전액 부담).",
-      "지정권자인 시행자는 그가 시행한 사업으로 이익을 얻는 시·도에 비용의 전부 또는 일부를 부담시킬 수 없다.",
-    ],
-    pitfalls:
-      "지중선로 설치비용을 사업시행자와 전기공급자가 2분의 1씩 부담한다고 착각하기 쉽지만, 전부 환지 방식에서는 설치를 요청한 사업시행자가 비용을 부담하는 것이 원칙이다.",
-    example:
-      "지정권자가 시행자가 아닌 경우 도시개발구역의 통신시설의 설치는 특별한 사유가 없으면 준공검사 신청일까지 끝내야 한다.",
-    questionRefs: [{ year: 2020, questionNo: 58 }],
-  },
-  {
-    slug: "urban-development-permission-required-acts",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "도시개발구역에서 허가를 받아야 하는 행위",
-    titleEn: "Acts Requiring Permission within Urban Development Zones",
-    definition:
-      "도시개발구역에서 건축물의 건축·용도변경, 공작물의 설치, 토지의 형질변경, 토석의 채취, 토지분할, 물건을 쌓아놓는 행위, 죽목의 벌채·식재, 공유수면 매립 등을 하려면 특별자치도지사·시장·군수·구청장의 허가를 받아야 하지만, 토지의 합병은 허가 대상 행위로 명시되어 있지 않다.",
-    intuition:
-      "허가대상 행위 목록은 '토지의 형질을 물리적으로 바꾸거나 구역 관리에 영향을 주는 행위'에 초점이 있으므로, 토지의 합병처럼 물리적 변화가 없는 행위는 제외된다는 점을 기억하면 된다.",
-    keyPoints: [
-      "도시개발구역에서 허가를 받아야 하는 행위에는 토석의 채취, 죽목의 식재·벌채, 공유수면의 매립, 「건축법」에 따른 건축물의 용도변경, 토지의 형질변경, 토지분할, 물건을 쌓아놓는 행위 등이 포함된다.",
-      "토지의 합병은 도시개발구역에서 허가를 받아야 할 행위로 명시되어 있지 않다(토지의 분할만 허가 대상).",
-    ],
-    pitfalls:
-      "토지의 분할과 합병을 같은 범주로 묶어 둘 다 허가 대상이라고 착각하기 쉽지만, 허가 대상은 분할이며 합병은 대상이 아니다.",
-    example:
-      "도시개발구역에서 토석의 채취, 죽목의 식재, 공유수면의 매립, 「건축법」에 따른 건축물의 용도 변경은 허가를 받아야 할 행위이지만, 토지의 합병은 그렇지 않다.",
-    questionRefs: [{ year: 2021, questionNo: 57 }],
-  },
-  {
-    slug: "urban-development-land-substitution-bond",
-    parentSlug: "urban-development-zone-designation",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발구역 지정",
-    titleKo: "토지상환채권의 발행요건과 발행규모",
-    titleEn: "Issuance Requirements for Land Substitution Bonds",
-    definition:
-      "지방공사 등 공공시행자는 지급보증 없이도 토지상환채권을 단독으로 발행할 수 있으며(민간시행자만 금융기관 지급보증 필요), 발행규모는 상환할 토지·건축물이 조성되는 분양토지·분양건축물 면적의 2분의 1을 초과할 수 없고, 토지상환채권은 이전할 수 있으며, 토지가격의 추산방법은 발행계획에 반드시 포함되어야 하고, 토지 등의 매수대금 일부의 지급을 위해서도 발행할 수 있다.",
-    intuition:
-      "토지상환채권 문제는 '지급보증이 필요한 발행자(민간) vs 필요 없는 발행자(공공)', '발행규모 상한(1/2)', '이전 가능 여부'를 조합한 오답 패턴이 반복된다.",
-    keyPoints: [
-      "지방공사 등이 단독으로 토지상환채권을 발행하는 경우 은행 등의 지급보증이 없어도 발행할 수 있다(지급보증 필요는 민간시행자에게 적용).",
-      "토지상환채권의 발행규모는 그 채권으로 상환할 토지·건축물이 도시개발사업으로 조성되는 분양토지 또는 분양건축물 면적의 2분의 1을 초과하지 않아야 한다(3분의 2가 아님).",
-      "토지상환채권은 이전할 수 있으며, 토지가격의 추산방법은 토지상환채권의 발행계획에 포함되어야 하는 사항이다.",
-      "토지 등의 매수 대금 일부의 지급을 위해서도 토지상환채권을 발행할 수 있다.",
-    ],
-    pitfalls:
-      "토지상환채권의 발행규모 상한을 '3분의 2'로 착각하기 쉽지만, 실제로는 분양토지·분양건축물 면적의 2분의 1을 초과할 수 없다.",
-    example:
-      "「지방공기업법」에 따라 설립된 지방공사가 단독으로 토지상환채권을 발행하는 경우, 그 발행규모는 상환할 토지·건축물이 조성되는 분양토지 또는 분양건축물 면적의 2분의 1을 초과하지 아니하도록 하여야 한다.",
-    questionRefs: [{ year: 2022, questionNo: 53 }],
-  },
-  {
-    slug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "평면 환지와 입체 환지의 구분",
-    titleEn: "Distinction between Flat and Vertical Replotting",
-    definition:
-      "평면 환지는 환지 전 토지에 대한 권리를 도시개발사업으로 조성되는 토지에 이전하는 방식이고, 입체 환지는 환지 전 토지나 건축물(무허가 건축물은 제외)에 대한 권리를 도시개발사업으로 건설되는 구분건축물에 이전하는 방식이다.",
-    intuition:
-      "평면 환지는 '토지 → 토지', 입체 환지는 '토지·건축물 → 구분건축물(집합건물의 전유부분)'로 이전 대상이 바뀐다는 점이 핵심 구분 기준이다.",
-    keyPoints: [
-      "평면 환지는 환지 전 토지에 대한 권리를 도시개발사업으로 조성되는 토지에 이전하는 방식이다.",
-      "입체 환지는 환지 전 토지나 건축물(무허가 건축물은 제외)에 대한 권리를 도시개발사업으로 건설되는 구분건축물에 이전하는 방식이다.",
-    ],
-    pitfalls:
-      "무허가 건축물도 입체 환지의 대상이 된다고 착각하기 쉽지만, 무허가 건축물은 입체 환지 대상에서 제외된다.",
-    example:
-      "평면 환지는 환지 전 토지에 대한 권리를 환지로 조성되는 토지에 이전하는 방식이다.",
-    questionRefs: [{ year: 2016, questionNo: 56 }],
-  },
-  {
-    slug: "land-burden-rate-calculation",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "면적식 환지의 평균 토지부담률 계산",
-    titleEn: "Average Land Burden Rate Calculation for Area-Based Replotting",
-    definition:
-      "면적식 환지계획에서 평균 토지부담률은 '(보류지 면적 − 시행자에게 무상귀속되는 공공시설 토지면적 − 시행자 소유 토지면적) ÷ (환지계획구역 면적 − 시행자에게 무상귀속되는 공공시설 토지면적 − 시행자 소유 토지면적) × 100'의 계산식으로 산정한다.",
-    intuition:
-      "토지부담률 계산은 '분모(환지계획구역 면적에서 공공시설 무상귀속분·시행자 소유분을 뺀 순수 대상면적)'와 '분자(보류지 면적에서 같은 항목을 뺀 순수 보류지)'를 정확히 구성하는 것이 핵심이며, 예시 수치(구역 20만㎡, 무상귀속 2만㎡, 시행자 소유 1만㎡, 보류지 106,500㎡)를 대입하면 (106,500−2만−1만)÷(20만−2만−1만)×100=45%가 된다.",
-    keyPoints: [
-      "평균 토지부담률 = (보류지 면적 − 시행자에게 무상귀속되는 공공시설 토지면적 − 시행자 소유 토지면적) ÷ (환지계획구역 면적 − 시행자에게 무상귀속되는 공공시설 토지면적 − 시행자 소유 토지면적) × 100 의 계산식으로 산정한다.",
-      "환지계획구역 면적 200,000㎡, 무상귀속 공공시설 토지 20,000㎡, 시행자 소유 토지 10,000㎡, 보류지 면적 106,500㎡인 경우 평균 토지부담률은 45%로 계산된다.",
-    ],
-    pitfalls:
-      "보류지 면적 전체를 그대로 분자로 사용하기 쉽지만, 무상귀속분과 시행자 소유분을 뺀 순수 보류지 면적을 분자로 써야 한다.",
-    example:
-      "환지계획구역 면적 200,000㎡, 무상귀속 공공시설 토지 20,000㎡, 시행자 소유 토지 10,000㎡, 보류지 면적 106,500㎡인 경우 평균 토지부담률은 45%이다.",
-    questionRefs: [{ year: 2016, questionNo: 58 }],
-  },
-  {
-    slug: "joint-implementation-agreement-replot",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "공동시행 규약 중 환지방식 전용 기재사항",
-    titleEn: "Replotting-Specific Provisions in Joint Implementation Agreements",
-    definition:
-      "공동으로 도시개발사업을 시행하려는 자가 정하는 규약에는 청산, 환지계획 및 환지예정지의 지정, 보류지 및 체비지의 관리·처분, 토지평가협의회의 구성·운영이 환지방식으로 시행하는 경우에만 포함되어야 할 사항이며, 주된 사무소의 소재지는 시행방식과 무관하게 모든 공동시행 규약에 공통으로 포함되어야 하는 사항이다.",
-    intuition:
-      "규약 기재사항은 '환지방식 고유의 절차(청산·환지계획·보류지체비지·토지평가협의회)'와 '시행방식과 무관한 일반사항(사무소 소재지 등)'으로 구분하면 된다.",
-    keyPoints: [
-      "환지방식으로 시행하는 경우에만 규약에 포함되어야 할 사항에는 청산, 환지계획 및 환지예정지의 지정, 보류지 및 체비지의 관리·처분, 토지평가협의회의 구성 및 운영이 있다.",
-      "주된 사무소의 소재지는 환지방식 여부와 관계없이 모든 공동시행 규약에 공통으로 포함되어야 하는 일반사항이다.",
-    ],
-    pitfalls:
-      "주된 사무소의 소재지도 환지방식 전용 사항이라고 착각하기 쉽지만, 이는 시행방식과 무관하게 공통으로 포함되는 일반사항이다.",
-    example:
-      "공동으로 도시개발사업을 시행하려는 자가 정하는 규약에서 청산, 환지계획 및 환지예정지의 지정, 보류지 및 체비지의 관리·처분, 토지평가협의회의 구성 및 운영은 환지방식으로 시행하는 경우에만 포함되어야 한다.",
-    questionRefs: [{ year: 2017, questionNo: 54 }],
-  },
-  {
-    slug: "replot-disposition-procedure",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "환지처분의 절차와 효과",
-    titleEn: "Procedure and Effects of Replotting Disposition",
-    definition:
-      "시행자는 도시개발사업 공사를 끝내면 지체 없이 관보·공보에 공고하고, 지정권자가 시행자이면 공사완료 공고 후 60일 이내에 환지처분을 해야 하며(지정권자가 아닌 시행자는 준공검사 후 60일 이내), 환지처분이 공고된 날의 다음 날에 환지는 종전 토지로 보고 입체환지처분을 받은 자는 건축물 일부·공유지분을 취득하며, 행사할 이익이 없어진 지역권은 환지처분 공고일이 '끝나는 때'(다음 날이 아님)에 소멸한다.",
-    intuition:
-      "환지처분 관련 시점은 '다음 날부터 발생하는 효과(종전 토지 간주, 소유권 취득)'와 '공고일 그 자체가 끝나는 때 소멸하는 것(지역권)'을 구분하는 것이 핵심이며, 60일이라는 기한도 정확히 암기해야 한다.",
-    keyPoints: [
-      "시행자는 도시개발사업에 관한 공사를 끝낸 경우 지체 없이 관보 또는 공보에 이를 공고해야 하며, 지정권자가 시행자인 경우 공사완료 공고가 있으면 60일 이내에 환지처분을 해야 한다(90일이 아님).",
-      "환지 계획에 따라 입체환지처분을 받은 자는 환지처분이 공고된 날의 다음 날에 건축물의 일부와 해당 건축물이 있는 토지의 공유지분을 취득하며, 체비지로 정해지지 않은 보류지도 환지처분 공고 다음 날에 환지 계획에서 정한 자가 소유권을 취득한다.",
-      "도시개발사업 시행으로 행사할 이익이 없어진 지역권은 환지처분이 공고된 날의 '다음 날'이 아니라 그 공고일이 '끝나는 때'에 소멸한다.",
-      "도시개발구역 토지 소유자·이해관계인은 환지 방식 사업의 공사 관계 서류 공람 기간에 시행자에게 의견서를 제출할 수 있으며, 환지를 정하거나 대상에서 제외한 경우 그 과부족분은 금전으로 청산해야 한다.",
-      "시행자가 환지처분을 하려는 경우에는 환지 계획에서 정한 사항을 토지 소유자에게 알리고 관보·공보로 공고해야 하며, 환지 계획에서 정해진 환지는 그 환지처분이 공고된 날의 다음 날부터 종전의 토지로 본다.",
-    ],
-    pitfalls:
-      "지역권 소멸 시점을 '환지처분 공고일의 다음 날'로 착각하기 쉽지만, 정확히는 공고일 '그 자체가 끝나는 때'에 소멸한다는 점이 반복되는 함정이다.",
-    example:
-      "도시개발사업의 시행으로 행사할 이익이 없어진 지역권은 환지처분이 공고된 날이 끝나는 때에 소멸한다.",
-    questionRefs: [
-      { year: 2017, questionNo: 56 },
-      { year: 2022, questionNo: 54 },
-    ],
-  },
-  {
-    slug: "replot-implementation-general",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "환지방식 사업시행의 일반원칙",
-    titleEn: "General Principles of Replotting-Based Implementation",
-    definition:
-      "행정청이 아닌 시행자가 환지 계획을 작성하면 특별자치도지사·시장·군수·구청장의 인가를 받아야 하고, 환지설계 시 적용되는 토지·건축물 평가액은 최초 환지계획인가 신청 시를 기준으로 정하되 변경인가로 바꿀 수 있으며, 도시개발구역이 둘 이상의 환지계획구역으로 구분되면 사업비·보류지는 구역별로 책정할 수 있고, 조성토지등 가격은 개별공시지가가 아니라 감정평가업자의 평가와 토지평가협의회 심의를 거쳐 정하며, 지역권은 환지처분 공고일이 끝나는 때 소멸하고 시행규정은 지방자치단체가 전부 환지 방식으로 시행할 때 작성한다.",
-    intuition:
-      "환지방식 일반원칙 문제는 여러 해에 걸쳐 반복 출제되는 '틀린 지문 찾기' 유형으로, 각 회차의 오답 포인트(60일 신청이 아니라 지정권자가 결정, 구역별 책정 가능, 감정평가 필요, 임차권자 권리 등)를 모아 종합적으로 학습해야 한다.",
-    keyPoints: [
-      "시행자는 조성토지등의 가격을 평가할 때 토지평가협의회의 심의를 거쳐 결정하되, 그에 앞서 감정평가업자가 평가하게 해야 하며, 개별공시지가로 그대로 정하지 않는다.",
-      "행정청이 아닌 시행자가 환지 계획을 작성한 경우에는 특별자치도지사·시장·군수·구청장의 인가를 받아야 하며, 종전 토지의 합필·분필로 환지명세가 변경되는 경우에도 변경인가를 받아야 한다.",
-      "환지설계 시 적용되는 토지·건축물의 평가액은 최초 환지계획인가 신청 시를 기준으로 정하되, 환지 계획의 변경인가를 받아 변경할 수 있다.",
-      "도시개발구역이 둘 이상의 환지계획구역으로 구분되는 경우 사업비와 보류지는 도시개발구역 전체가 아니라 환지계획구역별로도 책정할 수 있다(전체로만 책정해야 하는 것은 아님).",
-      "환지 예정지가 지정되어도 종전 토지의 임차권자는 환지처분 공고일까지가 아니라 환지 예정지 지정의 효력발생일부터는 종전 토지를 사용·수익할 수 없다.",
-      "지정권자는 지방자치단체가 시행자인 경우 개발계획을 수립할 때 토지 소유자의 동의를 받을 필요가 없으며, 지방자치단체가 도시개발사업 전부를 환지 방식으로 시행하려는 경우에는 시행규정을 작성해야 한다.",
-      "입체 환지 방식으로 시행하는 경우 환지 계획에 건축 계획이 포함되어야 하며, 시행자는 면적이 넓은 토지는 면적을 줄이거나 환지 대상에서 제외할 수 있고, 면적이 작은 토지는 과소 토지가 되지 않도록 면적을 늘려 환지를 정하거나 제외할 수 있다.",
-      "「집합건물의 소유 및 관리에 관한 법률」상 대지사용권에 해당하는 토지지분은 분할환지할 수 없으며, 환지처분이 공고된 후에는 임차권 목적 토지의 이용이 방해받아 종전 임대료가 불합리해진 경우에도 임대료 감액을 청구할 수 없고, 환지를 정하지 않은 종전 토지의 권리는 환지처분 공고 후 소유권이전등기를 마친 때가 아니라 환지처분이 공고된 날의 다음 날에 소멸한다.",
-    ],
-    pitfalls:
-      "조성토지등의 가격을 개별공시지가로 그대로 정한다고 착각하기 쉽지만, 실제로는 감정평가업자의 평가와 토지평가협의회 심의를 거쳐 결정한다.",
-    example:
-      "행정청이 아닌 시행자가 환지 계획을 작성한 경우에는 특별자치도지사·시장·군수 또는 구청장의 인가를 받아야 한다.",
-    questionRefs: [
-      { year: 2018, questionNo: 57 },
-      { year: 2019, questionNo: 55 },
-      { year: 2020, questionNo: 53 },
-      { year: 2021, questionNo: 55 },
-      { year: 2024, questionNo: 56 },
-      { year: 2025, questionNo: 57 },
-    ],
-  },
-  {
-    slug: "replot-with-public-facility-project",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "환지방식 사업과 지자체 공공시설사업의 병행시행",
-    titleEn: "Concurrent Implementation with Local Public Facility Projects",
-    definition:
-      "지정권자가 '도시개발구역 전부를 환지 방식으로 시행하는 도시개발사업'을 '지방자치단체의 장이 집행하는 공공시설에 관한 사업'과 병행 시행할 필요가 있다고 인정하는 경우, 지방자치단체·지방공사·한국토지주택공사·요건을 갖춘 신탁업자는 시행자로 지정될 수 있지만 국가는 이 경우의 시행자로 지정될 수 없다.",
-    intuition:
-      "이 특례는 지자체가 주도하는 공공시설사업과 발맞춰 환지사업을 진행하기 위한 것이므로, 시행자 후보군은 '지자체 계열 및 공공기관·신탁업자'로 한정되고 '국가'는 이 특례의 적용 대상에서 빠진다는 점이 핵심이다.",
-    keyPoints: [
-      "도시개발구역 전부를 환지 방식으로 시행하는 사업을 지방자치단체장이 집행하는 공공시설사업과 병행 시행할 필요가 있다고 인정되는 경우, 지방자치단체, 지방공사, 한국토지주택공사, 요건을 갖춘 신탁업자는 시행자로 지정될 수 있다.",
-      "국가는 이 병행시행 특례에 따른 시행자로 지정될 수 없다.",
-    ],
-    pitfalls:
-      "국가도 공공성이 강한 시행자이므로 이 특례의 시행자가 될 수 있다고 착각하기 쉽지만, 이 특례의 시행자 목록에는 국가가 포함되지 않는다.",
-    example:
-      "지정권자가 도시개발구역 전부를 환지 방식으로 시행하는 도시개발사업을 지방자치단체의 장이 집행하는 공공시설에 관한 사업과 병행하여 시행할 필요가 있다고 인정하는 경우, 지방자치단체·지방공사·한국토지주택공사·요건을 갖춘 신탁업자는 시행자로 지정될 수 있지만 국가는 지정될 수 없다.",
-    questionRefs: [{ year: 2019, questionNo: 54 }],
-  },
-  {
-    slug: "replot-development-plan-minor-change",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "환지방식 개발계획의 경미한 변경 기준",
-    titleEn: "Minor Change Criteria for Replotting Development Plans",
-    definition:
-      "환지방식으로 시행하는 도시개발사업 개발계획의 경미한 변경에는 시행지구 면적의 100분의 5 이내 증감, 사업시행지구 분할·통합 시 종전 면적의 100분의 1 이내 변경, 그 밖에 100분의 5 이내의 특정 계획요소 변경 등이 포함되어 별도의 동의 없이 처리할 수 있다.",
-    intuition:
-      "경미한 변경의 숫자 조합(5%·1%·5%)을 하나의 세트로 암기하면 되며, 각 숫자가 서로 다른 항목(전체 면적 증감, 분할·통합 시 면적 변경, 기타 계획요소)에 대응한다는 점을 기억해야 한다.",
-    keyPoints: [
-      "환지방식 개발계획의 경미한 변경 기준에는 100분의 5 이내의 면적 증감, 100분의 1 이내의 분할·통합 관련 면적 변경, 100분의 5 이내의 그 밖의 계획요소 변경이 포함된다.",
-    ],
-    pitfalls:
-      "경미한 변경의 숫자 기준을 모두 동일하게(예: 전부 5%나 전부 10%) 착각하기 쉽지만, 항목별로 5%·1%·5%처럼 서로 다른 기준이 적용된다.",
-    example:
-      "환지방식으로 시행하는 도시개발사업 개발계획의 경미한 변경에는 시행지구 면적의 100분의 5 이내 증감이 포함된다.",
-    questionRefs: [{ year: 2022, questionNo: 58 }],
-  },
-  {
-    slug: "replot-proportion-rate-calculation",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "평가식 환지의 비례율 계산",
-    titleEn: "Proportion Rate Calculation for Value-Based Replotting",
-    definition:
-      "환지 설계를 평가식으로 하는 경우 비례율은 '(도시개발사업으로 조성되는 토지·건축물의 평가액 합계 − 총 사업비) ÷ 환지 전 토지·건축물의 평가액 합계 × 100'의 계산식으로 산정한다.",
-    intuition:
-      "비례율 계산식은 '사업으로 새로 생기는 순가치(조성 후 평가액 − 총사업비)'를 '사업 전 가치(환지 전 평가액)'로 나눈 비율이라는 의미를 이해하면 공식을 쉽게 재구성할 수 있다.",
-    keyPoints: [
-      "비례율 = (조성되는 토지·건축물의 평가액 합계 − 총 사업비) ÷ 환지 전 토지·건축물의 평가액 합계 × 100 의 계산식으로 산정한다.",
-      "총사업비 250억원, 환지 전 평가액 합계 500억원, 조성 후 평가액 합계 1,000억원인 경우 비례율은 (1,000억−250억)÷500억×100=150%로 계산된다.",
-    ],
-    pitfalls:
-      "총사업비를 분자에서 빼지 않고 조성 후 평가액만으로 비례율을 계산하는 실수를 하기 쉽다 — 반드시 총사업비를 차감한 값을 분자로 써야 한다.",
-    example:
-      "총 사업비 250억원, 환지 전 토지·건축물의 평가액 합계 500억원, 조성되는 토지·건축물의 평가액 합계 1,000억원인 경우 비례율은 150%이다.",
-    questionRefs: [{ year: 2023, questionNo: 53 }],
-  },
-  {
-    slug: "replot-liquidation-money",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "환지방식 사업의 청산금",
-    titleEn: "Liquidation Money in Replotting-Based Projects",
-    definition:
-      "시행자는 토지 소유자의 동의에 따라 환지를 정하지 않는 토지에 대해 환지처분 전이라도 청산금을 교부할 수 있고, 토지 소유자의 신청에 따라 환지 대상에서 제외한 토지에 대해서는 청산금을 교부하는 때 청산금을 결정할 수 있으며(결정할 수 없다는 서술은 틀림), 청산금을 받거나 징수할 권리는 5년간 행사하지 않으면 시효로 소멸하고, 이자를 붙여 분할징수·분할교부할 수 있으며, 행정청이 아닌 시행자가 군수에게 청산금 징수를 위탁하면 징수액의 100분의 4를 해당 군에 지급해야 한다.",
-    intuition:
-      "청산금 조문은 '환지처분 전 교부 가능', '신청 제외 토지도 청산금 결정 가능', '소멸시효 5년', '징수 위탁 수수료 4%'라는 네 개의 독립적 규칙으로 구성되므로 각각 따로 암기해야 한다.",
-    keyPoints: [
-      "시행자는 토지 소유자의 동의에 따라 환지를 정하지 않는 토지에 대해서는 환지처분 전이라도 청산금을 교부할 수 있다.",
-      "토지 소유자의 신청에 따라 환지 대상에서 제외한 토지에 대해서도 청산금을 교부하는 때에 청산금을 결정할 수 있다(결정할 수 없다는 서술은 틀림).",
-      "청산금을 받을 권리나 징수할 권리를 5년간 행사하지 않으면 시효로 소멸하며, 청산금은 대통령령으로 정하는 바에 따라 이자를 붙여 분할징수하거나 분할교부할 수 있다.",
-      "행정청이 아닌 시행자가 군수에게 청산금의 징수를 위탁한 경우, 그 시행자는 군수가 징수한 금액의 100분의 4에 해당하는 금액을 해당 군에 지급해야 한다.",
-    ],
-    pitfalls:
-      "환지 대상에서 신청으로 제외된 토지는 청산금을 결정할 수 없다고 착각하기 쉽지만, 실제로는 청산금을 교부하는 때에 결정할 수 있다.",
-    example:
-      "시행자는 토지 소유자의 동의에 따라 환지를 정하지 아니하는 토지에 대하여는 환지처분 전이라도 청산금을 교부할 수 있다.",
-    questionRefs: [{ year: 2023, questionNo: 58 }],
-  },
-  {
-    slug: "replot-consent-counting-method",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "환지방식 개발계획 수립 시 동의자 수 산정방법",
-    titleEn: "Method for Counting Consenting Landowners in Replotting Development Plans",
-    definition:
-      "도시개발구역의 토지면적을 산정할 때는 국공유지를 포함해 산정하고, 1인이 둘 이상 필지의 토지를 단독 소유한 경우 필지 수와 무관하게 토지 소유자를 1인으로 보며, 둘 이상 필지를 소유한 공유자가 동일한 경우에도 공유자 전원을 대표하는 1인으로 산정하고, 1필지를 여럿이 공유하는 경우 구분소유적 공유관계인지 여부에 따라 대표 공유자 산정방식이 달라지며, 구역 지정 제안 후 개발계획 수립 전 토지 소유자가 변경된 경우에는 변경 전 소유자의 동의서를 기준으로 한다.",
-    intuition:
-      "동의자 수 산정은 '실질적으로 몇 명의 의사가 반영되는지'를 왜곡 없이 세는 것이 목적이므로, 1인이 여러 필지를 가져도 1명으로, 여러 필지를 같은 사람들이 공유해도 중복 계산하지 않는다는 원칙으로 이해하면 된다.",
-    keyPoints: [
-      "도시개발구역의 토지면적을 산정하는 경우에는 국공유지를 제외하지 않고 포함하여 산정한다(제외라는 서술은 틀림).",
-      "1인이 둘 이상 필지의 토지를 단독으로 소유한 경우에는 필지의 수에 관계없이 토지 소유자를 1인으로 본다.",
-      "둘 이상 필지의 토지를 소유한 공유자가 동일한 경우에는 공유자 각각이 아니라 공유자 전원을 대표하는 1인의 토지 소유자로 본다.",
-      "1필지의 토지 소유권을 여럿이 공유하는 경우 「집합건물의 소유 및 관리에 관한 법률」에 따른 구분소유적 공유관계인지 여부에 따라 대표 공유자 산정방식이 달라진다(무조건 대표 공유자 1인으로 보는 것은 아님).",
-      "도시개발구역의 지정이 제안된 후부터 개발계획이 수립되기 전 사이에 토지 소유자가 변경된 경우에는 변경 전(종전) 토지 소유자의 동의서를 기준으로 한다(변경된 소유자 기준이 아님).",
-    ],
-    pitfalls:
-      "토지면적 산정 시 국공유지를 제외해야 한다고 착각하기 쉽지만, 실제로는 국공유지를 포함하여 산정한다.",
-    example:
-      "1인이 둘 이상 필지의 토지를 단독으로 소유한 경우에는 필지의 수에 관계없이 토지 소유자를 1인으로 본다.",
-    questionRefs: [{ year: 2024, questionNo: 53 }],
-  },
-  {
-    slug: "replot-scheduled-land",
-    parentSlug: "replot-method",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "환지방식",
-    titleKo: "환지 예정지 지정의 효과",
-    titleEn: "Effects of Designating a Provisional Replotting Site",
-    definition:
-      "환지 예정지가 지정되면 종전 토지의 소유자·임차권자등은 환지 예정지 지정의 효력발생일부터 환지처분 공고일까지 종전 토지를 사용·수익할 수 없고 그 대신 환지 예정지를 사용·수익하며, 시행자는 종전 토지에 임차권자등이 있으면 환지 예정지 지정 시 그 권리의 목적인 토지·부분을 함께 지정해야 하고, 체비지 용도로 지정된 환지 예정지는 시행자가 사업비 충당을 위해 처분(사용뿐 아니라 매각 등)할 수 있다.",
-    intuition:
-      "환지 예정지 지정의 핵심 효과는 '종전 토지 사용·수익권이 환지 예정지로 그대로 옮겨간다'는 것이며, 임차권자 등의 권리도 함께 이전되도록 지정해야 한다는 점과 체비지는 처분(매각)까지 가능하다는 점이 핵심이다.",
-    keyPoints: [
-      "종전 토지의 소유자는 환지 예정지 지정의 효력발생일부터 환지처분이 공고되는 날까지 종전의 토지를 사용하거나 수익할 수 없다(공고일까지 사용할 수 있다는 서술은 틀림).",
-      "환지 예정지가 지정되면 종전 토지의 임차권자등은 환지 예정지 지정의 효력발생일부터 환지처분 공고일까지 종전과 같은 내용의 권리를 환지 예정지에 대해 행사할 수 없는 것이 아니라, 오히려 환지 예정지에 대해 종전과 같은 권리를 행사한다(즉 권리가 예정지로 이전됨).",
-      "시행자가 환지 예정지를 지정할 때 종전 토지에 임차권자등이 있으면 해당 환지 예정지에 대해 그 권리의 목적인 토지 또는 그 부분을 아울러 지정해야 한다.",
-      "체비지의 용도로 환지 예정지가 지정된 경우 시행자는 도시개발사업에 드는 비용을 충당하기 위해 이를 사용하게 할 수 있을 뿐 아니라 처분(매각)할 수도 있다(처분할 수 없다는 서술은 틀림).",
-    ],
-    pitfalls:
-      "환지 예정지가 지정되면 임차권자등의 권리가 소멸하거나 행사할 수 없게 된다고 착각하기 쉽지만, 실제로는 그 권리가 환지 예정지로 그대로 이전되어 행사된다.",
-    example:
-      "시행자가 환지 예정지를 지정할 때 종전의 토지에 대한 임차권자등이 있으면 해당 환지 예정지에 대하여 해당 권리의 목적인 토지 또는 그 부분을 아울러 지정하여야 한다.",
-    questionRefs: [{ year: 2025, questionNo: 56 }],
-  },
-  {
-    slug: "urban-development-association",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발사업조합",
-    titleKo: "도시개발사업조합의 설립과 시행자 지위",
-    titleEn: "Establishment of Urban Development Associations and Implementer Status",
-    definition:
-      "조합은 도시개발사업의 전부를 환지 방식으로 시행하는 경우 사업시행자가 될 수 있으며, 조합을 설립하려면 도시개발구역의 토지 소유자 7명 이상이 지정권자에게 조합 설립의 인가를 받아야 한다.",
-    intuition:
-      "조합 방식은 '환지'라는 특정 시행방식과 결부되어 있다는 점, 그리고 조합 설립 인가권자가 국토교통부장관이 아니라 사업의 실제 관할청인 '지정권자'라는 점이 핵심 포인트다.",
-    keyPoints: [
-      "조합은 도시개발사업의 전부를 환지 방식으로 시행하는 경우에만 시행자가 될 수 있다.",
-      "조합 설립에는 토지 소유자 7명 이상이 필요하며, 인가권자는 국토교통부장관이 아니라 지정권자다.",
-      "지방자치단체는 주택법에 따른 주택건설사업자 등에게 도시개발사업의 일부를 대행하게 할 수 있다.",
-    ],
-    pitfalls:
-      "조합 설립 인가권자를 국토교통부장관으로 착각하기 쉽다 — 정확히는 지정권자(시·도지사 등)다.",
-    example:
-      "토지 소유자 10명이 모여 환지 방식으로 도시개발사업을 시행하고자 조합을 설립하려면, 지정권자로부터 조합 설립 인가를 받아야 한다.",
-  },
-  {
-    slug: "urban-development-bond",
-    chapterKo: "도시개발법",
-    category: "도시개발법",
-    subcategory: "도시개발채권",
-    titleKo: "도시개발채권의 상환기간과 중도상환",
-    titleEn: "Redemption Period and Early Repayment of Urban Development Bonds",
-    definition:
-      "도시개발채권의 상환기간은 5년부터 10년까지의 범위에서 지방자치단체의 조례로 정하며, 매입의무자가 아닌 자가 착오로 매입한 경우에는 중도에 상환할 수 있다.",
-    intuition:
-      "도시개발채권은 지자체가 사업재원을 조달하기 위해 강제로 매입시키는 채권이므로, 매입 의무가 없는 사람이 실수로 매입했다면 그 사람의 자금이 불필요하게 묶이지 않도록 중도상환의 길을 열어준다고 이해하면 된다.",
-    keyPoints: [
-      "도시개발채권의 상환기간은 '5년부터 10년까지'의 범위에서 조례로 정한다 — '2년부터'가 아니다.",
-      "매입의무자가 아닌 자가 착오로 도시개발채권을 매입한 경우에는 중도상환이 가능하다.",
-      "도시개발사업에 필요한 비용은 특별한 규정이 없는 한 시행자가 부담한다.",
-    ],
-    pitfalls:
-      "도시개발채권의 상환기간 하한을 '2년'으로 잘못 암기하기 쉽다 — 정확히는 '5년'부터다.",
-    example:
-      "매입 의무가 없는 사람이 실수로 도시개발채권을 매입했다면, 만기 전이라도 중도상환을 신청할 수 있다.",
-  },
-
-  // ───────── 도시정비법 ─────────
-  {
-    slug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "도시·주거환경정비기본계획의 수립·변경",
-    titleEn: "Urban and Residential Environment Improvement Basic Plan",
-    definition:
-      "도시·주거환경정비기본계획은 특별시장·광역시장·특별자치시장·특별자치도지사 또는 시장(대도시 시장은 직접, 그 외 시장은 도지사 승인)이 10년 단위로 수립하며, 국토교통부장관은 5년마다 타당성을 검토해 반영하고, 수립 시 14일 이상 주민공람과 지방의회 의견청취를 거쳐야 하되 일정한 경미한 변경은 이를 생략할 수 있다.",
-    intuition:
-      "기본계획 문제는 '누가 수립·승인하는지(대도시 시장은 자체 확정, 그 외 시장은 도지사 승인)'와 '어떤 변경이 주민공람·지방의회 의견청취를 생략할 수 있는 경미한 사항인지(계획기간 단축, 공동이용시설·사회복지시설 설치계획 변경 등)'를 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "기본계획의 작성방법은 국토교통부장관이 정하며, 대도시의 시장이 아닌 시장은 정비사업의 계획기간 단축 등 경미한 사항을 변경할 때에는 도지사의 승인을 받지 않아도 된다.",
-      "도지사가 기본계획을 수립할 필요가 없다고 인정하는 대도시가 아닌 시는 기본계획을 수립하지 않을 수 있으며, 대도시의 시장은 지방도시계획위원회 심의를 거치기 전에 관계 행정기관의 장과 협의해야 한다.",
-      "국토교통부장관은 기본계획에 대해 5년마다 타당성 여부를 검토해 그 결과를 반영해야 하고, 기본계획 수립권자는 수립하려는 경우 14일 이상 주민에게 공람하여 의견을 들어야 한다.",
-      "기본계획에는 주거지 관리계획, 건폐율·용적률 등 건축물의 밀도계획, 사회복지시설 및 주민문화시설 등의 설치계획이 포함되어야 하며, 생활권별 기반시설 설치계획이 포함되었다고 해서 주거지 관리계획이 생략되는 것은 아니다.",
-      "정비사업의 계획기간 단축, 공동이용시설·사회복지시설 및 주민문화시설 설치계획의 변경, 재원조달에 관한 사항의 변경 등은 지방의회 의견청취를 생략할 수 있지만, 정비예정구역 면적의 20% 이상(예: 25%)을 변경하는 경우는 생략할 수 없다.",
-      "정비구역에서는 「주택법」에 따른 지역주택조합의 조합원을 모집해서는 안 되며, 이동이 쉽지 않은 물건을 15일 이상 쌓아두려면 시장·군수등의 허가를 받아야 한다(14일은 허가 대상이 아님).",
-    ],
-    pitfalls:
-      "정비예정구역 면적의 일정 비율(20% 이상) 변경도 경미한 사항으로 착각하기 쉽지만 이는 지방의회 의견청취를 생략할 수 없는 사항이며, 물건 적치 허가 기준일수를 14일로 착각하기 쉽지만 실제 기준은 15일 이상이다.",
-    example:
-      "국토교통부장관은 도시·주거환경정비기본계획에 대하여 5년마다 타당성 여부를 검토하여 그 결과를 기본계획에 반영하여야 한다.",
-    questionRefs: [
-      { year: 2016, questionNo: 59 },
-      { year: 2018, questionNo: 59 },
-      { year: 2019, questionNo: 62 },
-      { year: 2019, questionNo: 64 },
-      { year: 2025, questionNo: 59 },
-      { year: 2025, questionNo: 60 },
-    ],
-  },
-  {
-    slug: "maintenance-plan-designation-procedure",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "정비계획의 입안과 정비구역 지정 절차",
-    titleEn: "Formulation of Maintenance Plans and Designation of Maintenance Zones",
-    definition:
-      "시장·군수가 직접 정비계획을 입안하는 경우 주민·산업 현황, 건축물 소유현황, 토지·건축물 가격, 교통상황 등을 조사·확인해야 하고(관계 중앙행정기관장의 의견은 조사사항이 아님), 공공재개발사업 예정구역 지정을 신청받은 지방도시계획위원회는 신청일부터 30일 이내(불가피한 경우 30일 범위에서 연장)에 심의를 완료해야 하며, 사업시행계획 인가 시 여러 심의를 통합하여 진행하는 통합심의 제도가 있다.",
-    intuition:
-      "정비계획 입안·지정 절차는 '조사·확인 사항의 목록', '공공재개발 심의기간(30일+30일)', '통합심의의 효과(조정·재정을 거친 것으로 봄, 사업시행자도 신청 가능)'라는 세 갈래로 출제된다.",
-    keyPoints: [
-      "시장·군수가 정비구역 지정을 위해 직접 정비계획을 입안하는 경우 주민·산업 현황, 건축물 소유현황, 토지 및 건축물의 가격, 정비구역 및 주변지역의 교통상황 등을 조사·확인해야 하지만, 관계 중앙행정기관의 장의 의견은 조사·확인 사항으로 명시되어 있지 않다.",
-      "정비계획의 입안권자가 공공재개발사업 예정구역 지정을 신청한 경우 지방도시계획위원회는 신청일부터 30일 이내에 심의를 완료해야 하며, 부득이한 경우 30일의 범위에서 연장할 수 있다.",
-      "사업시행계획의 통합심의 대상에는 「경관법」에 따른 경관 심의도 포함되며, 사업시행자는 통합심의를 신청할 수 있고, 시장·군수등은 특별한 사유가 없으면 통합심의 결과를 반영하여 사업시행계획을 인가해야 한다.",
-      "통합심의를 거친 사항은 해당 사항에 대한 관계 법률에 따른 심의·조정 또는 재정을 거친 것으로 보며, 통합심의위원회 위원장은 시장·군수등이 지명하거나 위촉한다(위원 중 호선이 아님).",
-    ],
-    pitfalls:
-      "공공재개발사업 예정구역 지정 심의기간을 20일로 착각하기 쉽지만 실제로는 30일(신청일부터)이며, 연장기간도 동일하게 30일이다. 또한 통합심의는 경관 심의를 배제하지 않고 오히려 대상에 포함한다는 점에 유의해야 한다.",
-    example:
-      "정비계획의 입안권자가 정비구역의 지정권자에게 공공재개발사업 예정구역 지정을 신청한 경우, 지방도시계획위원회는 신청일부터 30일 이내에 심의를 완료해야 한다.",
-    questionRefs: [
-      { year: 2017, questionNo: 60 },
-      { year: 2020, questionNo: 60 },
-      { year: 2021, questionNo: 61 },
-      { year: 2024, questionNo: 63 },
-    ],
-  },
-  {
-    slug: "maintenance-project-types",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "정비사업의 종류(주거환경개선사업·가로주택정비사업 등)와 시행방법",
-    titleEn: "Types of Maintenance Projects",
-    definition:
-      "주거환경개선사업은 정비기반시설이 극히 열악하고 노후·불량건축물이 과도하게 밀집한 지역의 주거환경을 개선하는 사업으로 스스로 주택개량, 환지, 관리처분계획에 따른 공급 등 여러 방법을 혼용할 수 있고, 가로주택정비사업은 가로구역 내 소규모 정비사업으로 완화된 요건이 적용되며, 재건축사업은 일반주거지역에서 오피스텔을 공급할 수 있지만 정비기반시설이 열악한 지역을 대상으로 하지 않는다.",
-    intuition:
-      "정비사업 종류 문제는 '정의(어떤 지역·목적의 사업인지)'와 '시행방법(그 사업이 어떤 공급방식을 쓸 수 있는지)'을 사업 종류별로 짝지어 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "주거환경개선사업은 도시저소득 주민이 집단거주하는 지역으로서 정비기반시설이 극히 열악하고 노후·불량건축물이 과도하게 밀집한 지역의 주거환경을 개선하거나, 단독주택·다세대주택이 밀집한 지역에서 정비기반시설과 공동이용시설 확충을 통해 주거환경을 보전·정비·개량하는 사업이다.",
-      "주거환경개선사업의 사업시행자는 정비기반시설을 설치하고 토지등소유자가 스스로 주택을 개량하는 방법, 환지로 공급하는 방법, 관리처분계획에 따라 주택 등을 건설하여 공급하는 방법을 혼용할 수 있으며, 세입자 세대수가 토지등소유자의 1/2인 경우 세입자 동의절차 없이 주택공사등을 사업시행자로 지정할 수 있다.",
-      "가로주택정비사업은 가로구역에 있는 기존 단독주택의 호수와 공동주택 세대수를 합한 수가 20 이상일 경우 시행할 수 있고, 정비계획 수립·정비구역 지정 절차 없이 진행할 수 있는 소규모 특례 사업이며, 사업시행자는 기존 단독주택·공동주택의 호수·세대수 이상의 주택을 공급해야 한다.",
-      "재개발사업은 환지로 공급하는 방법과 관리처분계획에 따라 건축물을 건설·공급하는 방법을 모두 사용할 수 있지만, 재건축사업에서 일반주거지역 정비구역에 관리처분계획에 따라 오피스텔을 건설·공급하는 방법은 허용되지 않는다.",
-    ],
-    pitfalls:
-      "가로주택정비사업의 시행 기준 세대수를 '10 이상'으로 잘못 기억하기 쉽지만 실제로는 기존 단독주택·공동주택 합산 20 이상이며, 재건축사업에서 오피스텔 공급을 관리처분계획 방식의 정상적인 시행방법으로 착각하기 쉽지만 허용되지 않는다.",
-    example:
-      "도시저소득 주민이 집단거주하는 지역으로서 정비기반시설이 극히 열악하고 노후·불량건축물이 과도하게 밀집한 지역의 주거환경을 개선하기 위하여 시행하는 사업은 주거환경개선사업이다.",
-    questionRefs: [
-      { year: 2016, questionNo: 60 },
-      { year: 2016, questionNo: 64 },
-      { year: 2017, questionNo: 63 },
-      { year: 2021, questionNo: 59 },
-      { year: 2024, questionNo: 61 },
-    ],
-  },
-  {
-    slug: "maintenance-infrastructure-facility",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "정비기반시설과 공동이용시설의 범위",
-    titleEn: "Infrastructure and Communal Facilities under the Maintenance Act",
-    definition:
-      "정비기반시설에는 도로·상하수도·공원·공용주차장·공공공지·녹지·하천·소방용수시설 등이 해당하며 공동작업장이나 공동으로 사용하는 구판장은 정비기반시설이 아니고, 공동이용시설에는 경로당·탁아소·어린이집·놀이터 등이 해당하며 유치원은 공동이용시설이 아니다.",
-    intuition:
-      "정비기반시설·공동이용시설은 각각 '목록에서 하나만 빠진 것을 찾는' 방식으로 반복 출제되므로, 두 목록에서 빠지는 예외 항목(정비기반시설: 공동작업장·구판장, 공동이용시설: 유치원)을 확실히 기억해야 한다.",
-    keyPoints: [
-      "정비기반시설에는 도로, 상하수도, 구거, 공원, 공용주차장, 공공공지, 녹지, 하천, 소방용수시설 등이 포함되지만, 공동작업장과 공동으로 사용하는 구판장은 정비기반시설이 아니다.",
-      "공동이용시설(단독주택·공동주택·제1종 근린생활시설이 아닌 것)에는 경로당, 탁아소, 어린이집, 놀이터, 공동으로 사용하는 세탁장 등이 포함되지만, 유치원은 공동이용시설에 해당하지 않는다(별도의 교육시설로 분류).",
-    ],
-    pitfalls:
-      "유치원을 어린이집·탁아소와 같은 공동이용시설로 묶어 기억하기 쉽지만, 유치원은 도시정비법상 공동이용시설 목록에서 제외된다는 점이 반복되는 함정이다.",
-    example:
-      "경로당, 탁아소, 어린이집, 놀이터는 도시정비법령상 공동이용시설에 해당하지만, 유치원은 공동이용시설에 해당하지 않는다.",
-    questionRefs: [
-      { year: 2017, questionNo: 62 },
-      { year: 2018, questionNo: 62 },
-      { year: 2023, questionNo: 59 },
-    ],
-  },
-  {
-    slug: "reconstruction-safety-diagnosis",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "주택재건축사업의 안전진단",
-    titleEn: "Safety Diagnosis for Reconstruction Projects",
-    definition:
-      "시장·군수는 정비예정구역별 정비계획의 수립시기가 도래하면 안전진단을 실시해야 하며, 구조안전성·건축마감·설비노후도·주거환경 적합성 등을 심사해 실시 여부를 결정하고, 안전진단 결과에 따라 정비계획에 반영하되 그 결과보고서를 국토교통부장관에게 제출할 의무는 없다.",
-    intuition:
-      "안전진단은 '실시 시기(정비계획 수립시기 도래 시)', '제외 대상(불가피하게 포함된 기반시설용 건축물)', '심사 항목', '결과의 처리(국토교통부장관 제출의무 없음)'로 나뉘어 출제된다.",
-    keyPoints: [
-      "시장·군수는 단계별 정비사업추진계획에 따라 정비예정구역별 정비계획의 수립시기가 도래하면 안전진단을 실시해야 한다.",
-      "진입도로 등 기반시설 설치를 위해 불가피하게 정비구역에 포함된 것으로 시장·군수가 인정하는 주택단지 내 건축물은 안전진단 대상에서 제외할 수 있다.",
-      "시장·군수는 현지조사 등을 통해 구조안전성, 건축마감, 설비노후도, 주거환경 적합성 등을 심사하여 안전진단 실시 여부를 결정하며, 시·도지사는 필요한 경우 한국시설안전공단 등에 안전진단결과의 적정성 검토를 의뢰할 수 있다.",
-      "시장·군수는 주택재건축사업의 시행을 결정하더라도 안전진단결과보고서를 국토교통부장관에게 제출할 의무는 없다.",
-    ],
-    pitfalls:
-      "안전진단결과보고서를 국토교통부장관에게 반드시 제출해야 한다고 오해하기 쉽지만, 그런 의무는 규정되어 있지 않다.",
-    example:
-      "진입도로 등 기반시설 설치를 위하여 불가피하게 정비구역에 포함된 것으로 시장·군수가 인정하는 주택단지 내의 건축물은 안전진단 대상에서 제외할 수 있다.",
-    questionRefs: [{ year: 2017, questionNo: 59 }],
-  },
-  {
-    slug: "maintenance-project-completion",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "정비사업 공사완료에 따른 조치(준공인가·이전고시)",
-    titleEn: "Measures upon Completion of Maintenance Project Construction",
-    definition:
-      "정비사업 공사가 완료되면 준공인가 → 공사완료 고시 → 대지확정측량·토지분할 → 관리처분계획에 따른 소유권 이전고시 순으로 절차가 진행되며, 이전고시가 있은 날의 다음 날 정비구역 지정이 해제되지만 조합은 해산된 것으로 보지 않고, 소유권은 이전고시 다음 날 취득한다.",
-    intuition:
-      "공사완료 절차는 순서(준공인가→고시→이전고시)를 묻는 문제와, '정비구역 해제 시점(다음 날)·해제의 효과(조합 존속)'를 뒤집어 출제하는 문제로 나뉜다.",
-    keyPoints: [
-      "정비사업의 진행 순서는 공사완료 → 준공인가(시장·군수등, 지방공사도 준공인가 필요) → 준공인가 고시 및 공사완료 고시 → 대지확정측량·토지분할 → 관리처분계획에 따른 소유권 이전고시이며, 준공인가 전에도 동별·세대별·구획별로 사용허가를 받을 수 있다.",
-      "관리처분계획을 수립하는 경우 정비구역의 지정은 이전고시가 있은 날의 '다음 날'에 해제된 것으로 보며(당일이 아님), 소유권을 이전받는 자는 이전고시가 있은 날의 다음 날에 그 건축물의 소유권을 취득한다.",
-      "준공인가에 따른 정비구역의 해제가 있더라도 조합이 해산된 것으로 보지는 않는다 — 정비구역 해제와 조합 존속 여부는 별개이다.",
-      "정비사업의 효율적 추진을 위해 필요한 경우 공사가 전부 완료되기 전이라도 완공된 부분에 대해 준공인가를 받아 대지·건축물별로 소유권을 이전할 수 있으며, 이전고시가 있은 날부터는 대지·건축물에 관한 등기가 없더라도 저당권 등 다른 등기를 할 수는 없다.",
-    ],
-    pitfalls:
-      "정비구역 해제와 조합 해산을 같은 시점의 같은 효과로 착각하기 쉽지만, 준공인가로 인한 정비구역 해제는 조합의 존속에 영향을 미치지 않는다는 점이 반복 출제되는 함정이다.",
-    example:
-      "관리처분계획을 수립하는 경우 정비구역의 지정은 이전고시가 있은 날의 다음 날에 해제된 것으로 본다.",
-    questionRefs: [
-      { year: 2016, questionNo: 63 },
-      { year: 2018, questionNo: 63 },
-      { year: 2020, questionNo: 59 },
-    ],
-  },
-  {
-    slug: "maintenance-subscription-notice",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "분양신청·분양공고와 토지등소유자의 범위",
-    titleEn: "Subscription Notice and Scope of Landowners",
-    definition:
-      "사업시행자는 분양신청을 하지 않은 토지등소유자와 관리처분계획 인가·고시 다음 날부터 60일 이내에 손실보상 협의를 해야 하고 협의가 성립되지 않으면 90일 이내에 수용재결을 신청해야 하며, 분양신청통지와 분양공고에는 공통으로 '분양신청하지 아니한 자에 대한 조치' 등이 포함되어야 하고, 재건축사업 정비구역 내 부속토지의 지상권자는 토지등소유자에 해당하지 않는다.",
-    intuition:
-      "분양신청 관련 숫자(60일 협의, 90일 수용재결 신청)와 재건축·재개발의 토지등소유자 정의 차이(재개발은 토지·건축물 소유자 또는 지상권자, 재건축은 건축물 및 부속토지 소유자만 해당하며 지상권자는 제외)를 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "분양신청을 하지 않은 토지등소유자가 있으면 사업시행자는 관리처분계획 인가·고시 다음 날부터 60일 이내에 손실보상 협의를 해야 하며, 협의가 성립되지 않으면 그 기간의 만료일 다음 날부터 90일 이내에 수용재결을 신청하거나 매도청구소송을 제기해야 한다.",
-      "분양신청의 통지와 분양공고에 공통으로 포함되어야 할 사항에는 분양신청 기간·장소 외에 '분양을 신청하지 아니한 자에 대한 조치'가 포함되며, 분양신청서·분담금 추산액 등은 통지에만 포함되는 사항이다.",
-      "재개발사업의 토지등소유자는 정비구역에 위치한 토지 또는 건축물의 소유자, 그 지상권자를 포함하지만, 재건축사업의 토지등소유자는 건축물 및 그 부속토지의 소유자로 한정되며 부속토지만의 지상권자는 토지등소유자에 해당하지 않는다.",
-    ],
-    pitfalls:
-      "재개발사업과 재건축사업의 토지등소유자 범위를 동일하게 착각하기 쉽지만, 재건축사업에서는 지상권자가 토지등소유자에서 제외된다는 점이 핵심 함정이다.",
-    example:
-      "재건축사업 정비구역에 위치한 건축물 부속토지의 지상권자는 도시정비법령상 토지등소유자에 해당하지 않는다.",
-    questionRefs: [
-      { year: 2022, questionNo: 61 },
-      { year: 2023, questionNo: 60 },
-      { year: 2024, questionNo: 59 },
-    ],
-  },
-  {
-    slug: "maintenance-liquidation-cost",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "청산금·비용부담과 국공유재산 처분 제한",
-    titleEn: "Liquidation Money, Cost Burden, and Restriction on Public Property Disposal",
-    definition:
-      "청산금을 징수할 권리는 소유권 이전고시일 다음 날부터 5년간 행사하지 않으면 소멸하며, 청산금 지급을 거부당한 사업시행자는 이를 공탁할 수 있고, 정비구역의 국유·공유재산은 정비사업 외의 목적으로 매각·양도될 수 없으며, 시장·군수등이 아닌 사업시행자도 부과금 체납자에 대해서는 시장·군수등에게 징수를 위탁할 수 있다.",
-    intuition:
-      "청산금·비용부담 규정은 '소멸시효 기간(5년)', '공탁 가능 여부', '국공유재산 처분 제한', '체납처분 위탁 방식'을 각각 다르게 서술해 오답을 만드는 방식으로 출제된다.",
-    keyPoints: [
-      "청산금을 징수하거나 지급받을 권리는 이전고시일 다음 날부터 5년간 행사하지 않으면 소멸한다(3년이 아님).",
-      "청산금을 지급받을 자가 수령을 거부하거나 받을 수 없는 경우 사업시행자는 그 청산금을 공탁할 수 있다.",
-      "정비구역의 국유·공유재산은 정비사업 외의 목적으로 매각되거나 양도될 수 없다.",
-      "시장·군수등이 아닌 사업시행자는 부과금 또는 청산금을 체납하는 자가 있으면 직접 지방세 체납처분의 예에 따라 징수할 수 없고, 시장·군수등에게 징수를 위탁해야 한다.",
-      "국가 또는 지방자치단체는 토지임대부 분양주택을 공급받는 자에게 해당 공급비용의 전부 또는 일부를 융자할 수 있다.",
-    ],
-    pitfalls:
-      "청산금 소멸시효를 3년으로 착각하기 쉽지만 실제로는 5년이며, 시장·군수등이 아닌 사업시행자도 스스로 체납처분을 할 수 있다고 오해하기 쉽지만 실제로는 징수를 위탁해야 한다.",
-    example:
-      "정비구역의 국유·공유재산은 「도시 및 주거환경정비법」에 따른 정비사업 외의 목적으로 매각되거나 양도될 수 없다.",
-    questionRefs: [{ year: 2021, questionNo: 64 }],
-  },
-  {
-    slug: "maintenance-small-housing-supply",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "국민주택규모 주택의 공급·인수와 임대주택 건설비율",
-    titleEn: "Supply of Small Housing and Rental Housing Ratios",
-    definition:
-      "사업시행자는 건설한 국민주택규모 주택을 국토교통부장관·시·도지사·시장·군수·구청장 또는 토지주택공사등에 공급해야 하며 공개추첨으로 인수자를 선정하고, 시·도지사·시장·군수·구청장이 인수할 수 없으면 한국토지주택공사가 인수하며, 정비계획의 입안권자는 재건축사업은 세대수의 90% 이하, 재개발사업은 90% 이하 범위 등에서 임대주택 및 주택규모별 건설비율을 정비계획에 반영해야 한다.",
-    intuition:
-      "국민주택규모 주택 공급·인수는 '인수 우선순위(시·도지사 → 시장·군수·구청장 → LH)'와 '임대주택 건설비율의 숫자(90%, 30%)'가 핵심 출제 포인트다.",
-    keyPoints: [
-      "사업시행자는 건설한 국민주택규모 주택을 국토교통부장관, 시·도지사, 시장, 군수, 구청장 또는 토지주택공사등에 공급해야 하며, 인수자에게 공급할 주택은 공개추첨의 방법으로 선정해야 한다.",
-      "선정된 국민주택규모 주택을 공급하는 경우 시·도지사, 시장·군수·구청장 순이 아니라 시장·군수·구청장, 시·도지사 순으로 우선 인수할 수 있으며, 이들이 인수할 수 없는 경우 한국토지주택공사가 인수해야 한다.",
-      "인수자에게 공급하는 국민주택규모 주택의 부속 토지는 인수자에게 기부채납한 것으로 본다.",
-      "정비계획의 입안권자는 주택수급 안정과 저소득주민 입주기회 확대를 위해 정비사업으로 건설하는 주택 중 재건축사업은 세대수의 90% 이하, 소형 주택은 그 중 30% 이하 등 국토교통부장관이 고시하는 임대주택 및 주택규모별 건설비율을 정비계획에 반영해야 한다.",
-    ],
-    pitfalls:
-      "국민주택규모 주택의 인수 우선순위를 '시·도지사 먼저'로 착각하기 쉽지만, 실제로는 시장·군수·구청장이 먼저 우선하여 인수할 수 있는 구조라는 점에 유의해야 한다.",
-    example:
-      "시·도지사 및 시장·군수·구청장이 국민주택규모 주택을 인수할 수 없는 경우에는 한국토지주택공사가 이를 인수하여야 한다.",
-    questionRefs: [
-      { year: 2022, questionNo: 59 },
-      { year: 2024, questionNo: 60 },
-    ],
-  },
-  {
-    slug: "maintenance-lh-sole-implementation-rule",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "한국토지주택공사 단독시행 시 시행규정의 기재사항",
-    titleEn: "Implementation Regulations for LH Sole Project Implementation",
-    definition:
-      "한국토지주택공사 등이 조합을 대신하여 단독으로 정비사업을 시행하는 경우 작성하는 시행규정에는 토지등소유자의 권리·의무, 토지·건축물에 관한 권리의 평가방법, 정비사업의 시행연도·시행방법, 공고·공람 및 통지의 방법 등을 포함해야 하지만, 조합 운영기구인 '토지등소유자 전체회의'에 관한 사항은 포함되지 않는다.",
-    intuition:
-      "이 카드는 '조합방식의 정관 기재사항'과 '공공시행자의 시행규정 기재사항'을 혼동시키는 문제이며, 토지등소유자 전체회의는 조합이 아닌 시행방식에서 등장하는 별개의 기구라는 점이 함정이다.",
-    keyPoints: [
-      "한국토지주택공사가 단독으로 시행하는 정비사업의 시행규정에는 토지등소유자의 권리·의무, 토지 및 건축물에 관한 권리의 평가방법, 정비사업의 시행연도 및 시행방법, 공고·공람 및 통지의 방법 등을 포함해야 한다.",
-      "'토지등소유자 전체회의'에 관한 사항은 조합이 없는 공공시행 방식에서의 의사결정기구 관련 사항으로, 이 시행규정의 필수 기재사항으로 명시되어 있지 않다.",
-    ],
-    pitfalls:
-      "토지등소유자 전체회의를 시행규정의 필수 기재사항으로 착각하기 쉽지만, 실제 명시된 필수 기재사항이 아니라는 점이 이 문제의 핵심 함정이다.",
-    example:
-      "한국토지주택공사가 단독으로 정비사업을 시행하는 경우 작성하는 시행규정에는 토지등소유자의 권리·의무에 관한 사항을 포함하여야 한다.",
-    questionRefs: [{ year: 2022, questionNo: 63 }],
-  },
-  {
-    slug: "maintenance-land-lease-housing",
-    parentSlug: "maintenance-project-basic-plan",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "기본계획·정비구역",
-    titleKo: "소규모 토지등소유자에 대한 토지임대부 분양주택 공급",
-    titleEn: "Land-Lease Housing Supply for Small Landowners",
-    definition:
-      "국토교통부장관·시·도지사·시장·군수·구청장 또는 토지주택공사등은 정비구역 내 세입자와 일정 규모 이하의 토지 또는 주택을 소유한 자가 요청하는 경우, 인수한 재개발임대주택의 일부를 국민주택규모 90㎡ 미만의 범위에서 40년 이내의 토지임대부 분양주택으로 전환하여 공급할 수 있다.",
-    intuition:
-      "이 문제는 숫자(주택 규모 90㎡, 임대기간 40년)를 정확히 암기하는 것이 관건이며, 다른 비슷한 숫자(100㎡, 50년 등)와 혼동하지 않아야 한다.",
-    keyPoints: [
-      "인수한 재개발임대주택 중 일부를 토지임대부 분양주택으로 전환해 공급할 수 있는 대상 규모는 국민주택규모(전용면적 90㎡ 이하)이며, 임대차기간은 40년의 범위에서 정한다.",
-      "이 제도는 정비구역 내 세입자와 소규모 토지 등 소유자의 주거안정을 지원하기 위한 것으로, 요청이 있는 경우에 한해 적용된다.",
-    ],
-    pitfalls:
-      "토지임대부 분양주택의 규모·기간 숫자를 일반 국민주택 기준(85㎡)이나 일반 토지임대부 분양주택의 임대기간(40년, 갱신가능)과 혼동하지 않도록 정확한 수치(90㎡, 40년)를 구분해 암기해야 한다.",
-    example:
-      "정비구역에 거주하는 세입자가 요청하는 경우, 인수한 재개발임대주택의 일부를 국민주택규모(90제곱미터) 이하로 토지임대부 분양주택으로 전환하여 공급할 수 있다.",
-    questionRefs: [{ year: 2023, questionNo: 64 }],
-  },
-  {
-    slug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "조합설립의 동의요건과 정관",
-    titleEn: "Association Establishment Requirements and Bylaws",
-    definition:
-      "재개발사업 추진위원회가 조합을 설립하려면 토지등소유자의 4분의 3 이상 및 토지면적의 2분의 1 이상의 토지소유자 동의를, 재건축사업은 주택단지 내 동별 구분소유자·의결권의 각 과반수 및 전체 구분소유자·의결권의 4분의 3 이상 동의(주택단지가 아닌 지역은 토지·건축물 소유자의 4분의 3 이상 및 토지면적의 3분의 2 이상 동의)를 받아 시장·군수등의 인가를 받아야 하며, 조합원 자격에 관한 사항 등 정관의 주요사항 변경은 조합원 3분의 2 이상의 찬성을 요한다.",
-    intuition:
-      "조합설립 동의요건은 재개발과 재건축에서 서로 다른 숫자(토지등소유자 비율, 토지면적 비율)를 쓰므로 사업 유형별로 정확히 짝지어 암기해야 하며, 정관 변경 중 무엇이 '조합원 3분의 2 이상 찬성'을 요하는지, 무엇이 '정관에 자유롭게 정할 수 있는지'를 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "재개발사업의 추진위원회가 조합을 설립하려면 토지등소유자의 4분의 3 이상 및 토지면적의 2분의 1 이상의 토지소유자 동의를 받아 시장·군수등의 인가를 받아야 한다.",
-      "재건축사업의 추진위원회가 조합을 설립하려는 경우 주택단지가 아닌 지역이 정비구역에 포함된 때에는 그 지역 토지·건축물 소유자의 4분의 3 이상 및 토지면적의 3분의 2 이상의 동의를 받아야 한다.",
-      "조합이 정관 기재사항 중 조합원 자격에 관한 사항을 변경하려면 총회를 개최해 조합원 3분의 2 이상의 찬성으로 시장·군수등의 인가를 받아야 하며, 정비구역의 위치·면적, 조합의 비용부담·회계, 정비사업비의 부담 시기·절차, 시공자·설계자 선정·계약내용 등도 조합원 3분의 2 이상 찬성 대상이지만, 청산금의 징수·지급 방법·절차는 이에 해당하지 않는다.",
-      "대의원 수·선임방법, 상근임원 보수, 청산금 분할징수 여부는 정관으로 자유롭게 정할 수 있지만, 대의원회의 법정 의결정족수를 정관으로 완화할 수는 없다.",
-      "재개발조합이 조합설립인가를 받은 날부터 3년 이내에 사업시행계획인가를 신청하지 않으면 시장·군수등이 직접 정비사업을 시행할 수 있으며, 토지등소유자가 30인 미만인 경우에는 조합을 설립하지 않고 토지등소유자가 직접 재개발사업을 시행할 수 있다.",
-      "조합은 재개발조합설립인가를 받은 때 그 내용을 토지등소유자에게 통지해야 하고, 추진위원회는 조합설립인가 후가 아니라 조합설립 동의를 받기 전에 추정분담금 등의 정보를 제공해야 한다.",
-    ],
-    pitfalls:
-      "재개발과 재건축의 조합설립 동의요건(토지등소유자 비율·토지면적 비율)을 서로 바꿔 기억하기 쉽고, '조합원 3분의 2 이상 찬성' 대상에 청산금 징수·지급 방법을 포함시키는 오답이 반복 출제된다.",
-    example:
-      "재개발사업의 추진위원회가 조합을 설립하려면 토지등소유자의 4분의 3 이상 및 토지면적의 2분의 1 이상의 토지소유자의 동의를 받아 시장·군수등의 인가를 받아야 한다.",
-    questionRefs: [
-      { year: 2016, questionNo: 61 },
-      { year: 2017, questionNo: 64 },
-      { year: 2018, questionNo: 60 },
-      { year: 2020, questionNo: 61 },
-      { year: 2023, questionNo: 61 },
-      { year: 2024, questionNo: 62 },
-      { year: 2025, questionNo: 64 },
-    ],
-  },
-  {
-    slug: "maintenance-association-officers",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "조합 임원의 자격·임기·퇴임",
-    titleEn: "Association Officer Qualifications",
-    definition:
-      "토지등소유자가 100인을 초과하는 조합은 이사 5명 이상을 두어야 하며, 조합임원의 임기는 3년 이하의 범위에서 정관으로 정하되 연임할 수 있고, 조합장이 아닌 조합임원은 대의원이 될 수 없으며, 전문조합관리인이 선정되면 그가 업무를 대행할 임원은 당연 퇴임하되 퇴임 전 관여한 행위의 효력은 유지된다.",
-    intuition:
-      "조합 임원 문제는 '이사 정원 기준(토지등소유자 수)', '대의원 겸직 금지', '전문조합관리인 제도로 인한 당연퇴임'을 조합해 오답을 만드는 방식으로 출제된다.",
-    keyPoints: [
-      "토지등소유자의 수가 100인을 초과하는 조합에는 이사를 5명 이상 두어야 하며, 조합임원의 임기는 3년 이하의 범위에서 정관으로 정하되 연임할 수 있다.",
-      "조합장이 아닌 조합임원은 대의원이 될 수 없으며, 조합임원은 같은 목적의 다른 정비사업조합의 임원 또는 직원을 겸할 수 없다.",
-      "총회에서 요청하여 시장·군수등이 전문조합관리인을 선정한 경우 그 전문조합관리인이 업무를 대행할 임원은 당연 퇴임하지만, 퇴임 전에 관여한 행위의 효력은 상실되지 않는다.",
-      "조합임원의 임기만료 후 6개월 이상 조합임원이 선임되지 않은 경우에는 시장·군수등이 조합임원 선출을 위한 총회를 소집할 수 있으며, 대의원회는 임기 중 궐위된 조합장을 보궐선임할 수 없다.",
-    ],
-    pitfalls:
-      "조합임원이 결격사유로 당연 퇴임하면 퇴임 전 행위도 모두 무효가 된다고 오해하기 쉽지만, 퇴임 전에 관여한 행위의 효력은 그대로 유지된다.",
-    example:
-      "조합장이 아닌 조합임원은 대의원이 될 수 없으며, 대의원회는 임기 중 궐위된 조합장을 보궐선임할 수 없다.",
-    questionRefs: [
-      { year: 2022, questionNo: 60 },
-      { year: 2023, questionNo: 63 },
-    ],
-  },
-  {
-    slug: "maintenance-general-meeting-representative",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "조합총회의 소집과 대의원회의 대행 범위",
-    titleEn: "General Meeting Convocation and Scope of Representative Assembly Authority",
-    definition:
-      "조합임원의 권리·의무·보수·선임방법·변경·해임에 관한 정관 변경을 위한 총회는 조합원 10분의 1 이상의 요구로 조합장이 소집하고 개최 7일 전까지 통지해야 하며, 대의원회는 조합임원의 해임, 정비사업비의 변경, 정비사업전문관리업자의 선정·변경 등 총회 의결사항의 상당 부분을 대행할 수 있으나 사업완료로 인한 조합의 해산에 관한 사항은 대행할 수 없다.",
-    intuition:
-      "대의원회 대행 가능 여부는 '조합의 존속 자체에 관한 사항(해산)'인지 '운영·관리에 관한 사항(임원 해임, 사업비 변경, 용역업체 선정)'인지로 구분하면 판단하기 쉽다.",
-    keyPoints: [
-      "조합임원의 권리·의무·보수·선임방법·변경 및 해임에 관한 정관 변경을 위한 총회는 조합원 10분의 1 이상의 요구로 조합장이 소집하며, 총회를 소집하려는 자는 개최 7일 전까지 회의목적·안건·일시·장소 등을 통지해야 한다.",
-      "대의원회는 조합임원의 해임, 정비사업비의 변경, 정비사업전문관리업자의 선정 및 변경에 관한 총회 의결사항을 대행할 수 있지만, 사업완료로 인한 조합의 해산에 관한 사항은 대행할 수 없다.",
-    ],
-    pitfalls:
-      "대의원회가 조합임원 해임처럼 민감한 사항까지 대행할 수 없다고 오해하기 쉽지만, 실제로는 해임·사업비변경·용역업체선정은 대행 가능하고 오직 '조합 해산'만 대행할 수 없다.",
-    example:
-      "조합의 대의원회는 조합임원의 해임에 관한 사항을 총회의 의결 없이 대행할 수 있지만, 사업완료로 인한 조합의 해산에 관한 사항은 대행할 수 없다.",
-    questionRefs: [
-      { year: 2019, questionNo: 63 },
-      { year: 2021, questionNo: 60 },
-    ],
-  },
-  {
-    slug: "maintenance-preparation-committee-notice",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "조합설립추진위원회의 운영과 통지의무",
-    titleEn: "Duties of the Association Preparation Committee",
-    definition:
-      "조합설립추진위원회는 추진위원회 구성에 동의한 토지등소유자에게 조합설립 동의서에 포함되는 정비사업비 분담기준 등을 등기우편으로 통지해야 하며, 안전진단 결과·개략적인 사업시행계획서·정비사업전문관리업자 선정사항·추진위원 선정사항 등은 등기우편 통지의무 대상이 아니다.",
-    intuition:
-      "추진위원회의 등기우편 통지의무는 '조합설립 동의를 받기 위해 반드시 알려야 할 핵심 정보(비용분담기준)'에 한정되며, 그 밖의 운영·행정적 사항은 통지의무 대상이 아니라는 점이 핵심이다.",
-    keyPoints: [
-      "조합설립추진위원회가 추진위원회 구성에 동의한 토지등소유자에게 등기우편으로 통지해야 하는 사항에는 조합설립 동의서에 포함되는 정비사업비의 분담기준이 포함된다.",
-      "재건축사업 정비계획 입안을 위한 안전진단의 결과, 개략적인 사업시행계획서, 정비사업전문관리업자의 선정에 관한 사항, 추진위원회 위원의 선정에 관한 사항은 이 통지의무의 대상으로 명시되어 있지 않다.",
-    ],
-    pitfalls:
-      "안전진단 결과나 추진위원 선정사항도 통지의무 대상이라고 확대 해석하기 쉽지만, 실제 명시된 통지대상은 정비사업비 분담기준 등 조합설립 동의서 관련 사항으로 한정된다.",
-    example:
-      "조합설립추진위원회는 추진위원회 구성에 동의한 토지등소유자에게 조합설립 동의서에 포함되는 사항으로서 정비사업비의 분담기준을 등기우편으로 통지하여야 한다.",
-    questionRefs: [{ year: 2022, questionNo: 62 }],
-  },
-  {
-    slug: "maintenance-resident-representative-assembly",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "주민대표회의의 구성과 운영",
-    titleEn: "Resident Representative Assembly",
-    definition:
-      "토지등소유자가 시장·군수등 또는 토지주택공사등의 사업시행을 원하는 경우 정비구역 지정·고시 후 토지등소유자 과반수의 동의를 받아 시장·군수등의 승인을 받아 주민대표회의를 구성하며, 위원장을 포함해 5명 이상 25명 이하로 구성하되 위원장·부위원장 각 1명과 감사 1명 이상 3명 이하를 두고, 사업시행자가 정비사업비 부담 등 시행규정을 정할 때 의견을 제시할 수 있다.",
-    intuition:
-      "주민대표회의는 조합이 없는 공공시행 방식에서 조합을 대신하는 주민 의견수렴 기구이며, '구성요건(과반수 동의+시장·군수등 승인)'과 '조직 구성(인원수, 감사 정원)'이 반복 출제 포인트다.",
-    keyPoints: [
-      "주민대표회의는 토지등소유자의 과반수 동의를 받아 구성하며, 시장·군수등의 승인을 받아야 한다.",
-      "주민대표회의는 위원장을 포함해 5명 이상 25명 이하로 구성하고, 위원장과 부위원장 각 1명, 감사 1명 이상 3명 이하를 둔다(감사를 2명으로 고정하는 것은 틀림).",
-      "주민대표회의는 사업시행자가 정비사업비의 부담, 건축물의 철거 등에 관한 시행규정을 정할 때 의견을 제시할 수 있으며, 이때 상가세입자도 건축물 철거에 관한 사항에 의견을 제시할 수 있다.",
-      "시장·군수등 또는 토지주택공사등은 주민대표회의 운영에 필요한 경비의 일부를 해당 정비사업비에서 지원할 수 있으며, 위원의 선출·교체·해임에 필요한 사항은 주민대표회의가 정한다.",
-    ],
-    pitfalls:
-      "주민대표회의의 감사 정원을 '2명'으로 고정한다고 착각하기 쉽지만 실제로는 1명 이상 3명 이하이며, 상가세입자는 시행규정 관련 의견 제시에서 배제된다고 오해하기 쉽지만 건축물 철거 사항 등에는 의견을 제시할 수 있다.",
-    example:
-      "주민대표회의는 위원장을 포함하여 5명 이상 25명 이하로 구성하며, 위원장과 부위원장 각 1명과 1명 이상 3명 이하의 감사를 둔다.",
-    questionRefs: [
-      { year: 2020, questionNo: 63 },
-      { year: 2025, questionNo: 62 },
-    ],
-  },
-  {
-    slug: "maintenance-disposition-plan",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "관리처분계획의 수립·변경과 처분",
-    titleEn: "Formulation and Disposition under the Management Disposition Plan",
-    definition:
-      "사업시행자는 분양신청 현황을 기초로 관리처분계획을 수립하며, 사업시행자 변동에 따른 권리·의무 변동(분양설계 변경 없음), 매도청구 판결에 따른 변경, 정관·사업시행계획인가 변경에 따른 변경 등은 시장·군수등에게 신고로 처리할 수 있으나 계산착오·오기 등 단순정정이라도 불이익을 받는 자가 있으면 신고만으로 변경할 수 없고, 관리처분계획에 따라 조성된 대지·건축물은 원칙적으로 토지등소유자에게 공급해야 한다.",
-    intuition:
-      "관리처분계획 문제는 '변경 시 신고로 족한 경우 vs 인가가 필요한 경우'와 '처분의 원칙(관리처분계획에 따른 공급, 임대주택 인수 우선순위)'을 구분하는 것이 핵심이다.",
-    keyPoints: [
-      "사업시행자 변동에 따른 권리·의무 변동(분양설계 변경 수반 안함), 매도청구 판결에 따른 변경, 임대주택 공급에 따른 변경, 정관·사업시행계획인가 변경에 따른 변경은 시장·군수등에게 신고로 처리할 수 있지만, 계산착오·오기 등 단순정정이라도 불이익을 받는 자가 있는 경우에는 신고만으로 변경할 수 없다.",
-      "사업시행자는 폐공가 밀집으로 우범지대화 우려가 있으면 소유자 동의 및 시장·군수의 허가를 얻어 해당 건축물을 철거할 수 있으며, 관리처분계획 인가·고시 후에도 종전 토지의 임차권자는 사업시행자의 동의를 받으면 소유권 이전고시가 있는 날까지 종전 토지를 사용할 수 있다.",
-      "환지로 공급하는 방법으로 시행하는 주거환경개선사업의 사업시행자는 주택 공급방법을 「주택법」에도 불구하고 시장·군수등의 승인을 받아 따로 정할 수 있으며, 분양신청 후 잔여분은 조합원·토지등소유자 외의 자에게도 분양할 수 있다.",
-      "조합이 재개발임대주택의 인수를 요청하는 경우 시·도지사가 우선하여 인수해야 하며, 시·도지사가 인수하지 않는 경우에 한하여 국토교통부장관에게 인수를 요청할 수 있다.",
-      "지분형주택의 규모는 주거전용면적 60㎡ 이하로 한정되며, 분양신청기간의 연장은 20일의 범위에서 한 차례만 할 수 있고, 조합원 10분의 1 이상의 관리처분계획 타당성 검증 요청이 있어도 시장·군수는 반드시 이에 따라야 하는 것은 아니다(요건 충족 시 검증 실시).",
-    ],
-    pitfalls:
-      "단순정정이면 언제나 신고만으로 관리처분계획을 변경할 수 있다고 오해하기 쉽지만, 그 정정으로 불이익을 받는 자가 있으면 신고가 아니라 별도의 절차(변경인가)가 필요하다.",
-    example:
-      "사업시행자가 인가받은 관리처분계획을 계산착오·오기·누락 등에 따른 조서의 단순정정으로 변경하려는 경우에도, 그로 인해 불이익을 받는 자가 있다면 시장·군수등에게 신고만으로 변경할 수 없다.",
-    questionRefs: [
-      { year: 2016, questionNo: 62 },
-      { year: 2018, questionNo: 61 },
-      { year: 2020, questionNo: 62 },
-      { year: 2021, questionNo: 62 },
-    ],
-  },
-  {
-    slug: "maintenance-project-implementation-general",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "정비사업의 시행자 지정과 사업시행계획인가",
-    titleEn: "Designation of Project Implementers and Implementation Plan Approval",
-    definition:
-      "조합설립인가 후 시장·군수등이 토지주택공사등을 사업시행자로 지정·고시하면 그 고시일에 조합설립인가가 취소된 것으로 보며, 조합의 명칭에는 '정비사업조합'이라는 문자를 사용해야 하고, 조합장이 자기를 위해 조합과 소송을 하는 경우 감사가 조합을 대표하며, 사업시행계획인가를 받으면 「공공주택 특별법」상 주택건설사업계획 승인, 농지전용허가, 개인하수처리시설 설치신고, 대규모점포등 등록 등이 의제될 수 있으나 「사도법」상 사도개설허가는 의제되지 않는다.",
-    intuition:
-      "이 클러스터는 '누가 사업을 시행할 수 있는지(조합, 직접시행, 공공시행자 지정)'와 '사업시행계획인가로 의제되는 인·허가 목록'을 함께 다루며, 재건축사업의 오피스텔 건설은 준주거지역·상업지역에서만 허용된다는 점도 함께 출제된다.",
-    keyPoints: [
-      "조합설립인가 후 시장·군수등이 토지주택공사등을 사업시행자로 지정·고시한 때에는 그 고시일에 조합설립인가가 취소된 것으로 본다.",
-      "조합은 명칭에 '정비사업조합'이라는 문자를 사용해야 하며, 조합장이 자기를 위해 조합과 소송을 하는 경우에는 감사가 조합을 대표한다(이사가 아님).",
-      "재건축사업을 하는 정비구역에서 오피스텔을 건설·공급하려면 「국토의 계획 및 이용에 관한 법률」에 따른 준주거지역 및 상업지역에서만 가능하다.",
-      "세입자 세대수가 토지등소유자의 1/2인 경우 시장·군수등이 토지주택공사등을 주거환경개선사업 시행자로 지정하려면 세입자 동의 없이 지정할 수 있으며(1/2 기준 이하), 재개발사업은 토지등소유자가 30인 미만인 경우에만 직접시행이 가능하고, 재건축사업 조합설립추진위원회가 구성승인 후 2년이 되었음에도 조합설립인가를 신청하지 않으면 시장·군수등이 직접 시행할 수 있다.",
-      "사업시행계획인가를 받으면 「공공주택 특별법」에 따른 주택건설사업계획의 승인, 「농지법」에 따른 농지전용허가, 「하수도법」에 따른 개인하수처리시설 설치신고, 「유통산업발전법」에 따른 대규모점포등의 등록 등이 의제될 수 있지만, 「사도법」에 따른 사도개설허가는 의제 대상이 아니다.",
-    ],
-    pitfalls:
-      "조합장이 당사자인 소송에서 이사가 조합을 대표한다고 착각하기 쉽지만, 실제로는 감사가 조합을 대표하며, 재건축사업의 오피스텔 건설은 준주거·상업지역이 아닌 지역에서는 허용되지 않는다는 점에 유의해야 한다.",
-    example:
-      "조합설립인가 후 시장·군수등이 토지주택공사등을 사업시행자로 지정·고시한 때에는 그 고시일에 조합설립인가가 취소된 것으로 본다.",
-    questionRefs: [
-      { year: 2019, questionNo: 59 },
-      { year: 2020, questionNo: 64 },
-      { year: 2021, questionNo: 63 },
-      { year: 2025, questionNo: 61 },
-    ],
-  },
-  {
-    slug: "maintenance-implementation-methods",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "정비사업 시행방법의 옳고 그름(주거환경개선사업·재개발사업)",
-    titleEn: "Correct Implementation Methods by Project Type",
-    definition:
-      "주거환경개선사업은 환지로 공급하는 방법을 사용할 수 있지만 인가받은 관리처분계획에 따라 오피스텔을 건설해 공급하는 방법은 허용되지 않으며, 재개발사업은 관리처분계획에 따라 건축물을 건설해 공급하는 방법이 허용된다.",
-    intuition:
-      "정비사업 시행방법을 사업 종류별로 나열한 지문에서, 실제 법령에 없는 방법(주거환경개선사업의 오피스텔 건설·공급)을 끼워 넣어 오답을 만드는 패턴을 확인하는 카드다.",
-    keyPoints: [
-      "주거환경개선사업은 사업시행자가 정비기반시설을 새로 설치하고 토지등소유자가 스스로 주택을 개량하는 방법, 환지로 공급하는 방법, 관리처분계획에 따라 주택 및 부대·복리시설을 건설하여 공급하는 방법을 사용할 수 있지만, 오피스텔을 건설하여 공급하는 방법은 허용되지 않는다.",
-      "재개발사업은 정비구역에서 인가받은 관리처분계획에 따라 건축물을 건설하여 공급하는 방법과 환지로 공급하는 방법을 모두 사용할 수 있다.",
-    ],
-    pitfalls:
-      "주거환경개선사업에도 오피스텔 건설·공급 방법이 포함된다고 오해하기 쉽지만, 오피스텔 건설은 주거환경개선사업의 법정 시행방법에 포함되지 않는다.",
-    example:
-      "주거환경개선사업의 사업시행자가 정비구역에서 환지로 공급하는 방법으로 사업을 시행하는 것은 도시정비법령상 허용된다.",
-    questionRefs: [{ year: 2018, questionNo: 64 }],
-  },
-  {
-    slug: "maintenance-common-utility-cost",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "정비사업 비용부담과 공동구 설치·관리비용",
-    titleEn: "Project Cost Burden and Common Utility Tunnel Expenses",
-    definition:
-      "정비사업비는 원칙적으로 사업시행자가 부담하되 국유·공유재산은 사업시행자 등에게 수의계약으로 우선 매각될 수 있고, 시장·군수등은 공원·공공공지·공동구·공용주차장 등 정비계획에 따라 설치되는 도시·군계획시설의 건설비용을 부담할 수 있으며, 공동구 점용예정자는 설치비용 부담금을 공사 착수 전에 3분의 1 이상 납부해야 하고 관리비용은 매년 부과·징수한다.",
-    intuition:
-      "비용부담 문제는 '누가 부담하는지(원칙: 사업시행자, 예외: 지자체 부담 가능 시설)'와 '공동구 설치·관리비용의 구체적 절차(선납비율, 부과주기)'로 나뉜다.",
-    keyPoints: [
-      "정비사업비는 원칙적으로 사업시행자가 부담하며, 지방자치단체는 시장·군수등이 아닌 사업시행자가 시행하는 정비사업 비용에 대해 융자 알선뿐 아니라 예산 범위에서 보조·융자할 수도 있다.",
-      "정비구역의 국유·공유재산은 사업시행자 또는 점유자·사용자에게 다른 사람에 우선하여 수의계약으로 매각될 수 있으며, 시장·군수등이 아닌 사업시행자는 부과금·연체료 체납자가 있으면 시장·군수등에게 부과·징수를 위탁할 수 있다.",
-      "시장·군수등이 아닌 사업시행자가 시행하는 정비사업의 정비계획에 따라 설치되는 도시·군계획시설 중 공원, 공공공지, 공동구, 공용주차장의 건설비용은 시장·군수등이 부담할 수 있다.",
-      "공동구점용예정자가 부담할 설치비용의 부담비율은 공동구 점용예정면적비율을 고려하여 시장·군수등이 정하며, 보상비용도 설치비용에 포함되고, 부담금 납부통지를 받은 공동구점용예정자는 공사 착수 전에 부담금의 3분의 1 이상을 납부해야 하며, 관리비용은 매년(반기별이 아님) 부과하고 필요한 경우 분할하여 분기별로 납부하게 할 수 있다.",
-    ],
-    pitfalls:
-      "공동구 설치비용의 부담비율 기준을 '권리지분비율'로 착각하기 쉽지만 실제로는 점용예정면적비율이며, 공동구 관리비용의 부과주기를 반기별로 잘못 기억하기 쉬운데 실제로는 매년 부과한다.",
-    example:
-      "시장·군수등이 아닌 사업시행자가 시행하는 정비사업의 정비계획에 따라 설치되는 공원·공공공지·공동구·공용주차장의 건설에 드는 비용은 시장·군수등이 부담할 수 있다.",
-    questionRefs: [
-      { year: 2019, questionNo: 60 },
-      { year: 2022, questionNo: 64 },
-      { year: 2023, questionNo: 62 },
-    ],
-  },
-  {
-    slug: "maintenance-housing-supply-general",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "정비사업 임대주택의 공급과 인수",
-    titleEn: "Supply and Acquisition of Rental Housing in Maintenance Projects",
-    definition:
-      "사업시행자는 정비사업 시행으로 임대주택을 건설하는 경우 공급대상자에게 공급하고 남은 주택은 공급대상자 외의 자에게도 공급할 수 있으며, 국토교통부장관은 조합이 요청하더라도 임대주택 인수 의무가 없고 시·도지사가 우선 인수 대상이며, 종전 주택의 주거전용면적이 60㎡를 넘지 않는 경우에도 일정 요건을 충족하면 2주택 공급이 가능할 수 있다.",
-    intuition:
-      "이 카드는 '누가 임대주택을 인수해야 하는지(시·도지사 우선, 국토교통부장관은 임의적)'와 '남은 주택의 처리(공급대상자 외에도 공급 가능)'를 중심으로 정리하면 된다.",
-    keyPoints: [
-      "사업시행자는 정비사업 시행으로 임대주택을 건설하는 경우, 공급대상자에게 주택을 공급하고 남은 주택이 있으면 공급대상자 외의 자에게도 공급할 수 있다.",
-      "국토교통부장관은 조합이 임대주택 인수를 요청하더라도 반드시 인수해야 하는 것은 아니며, 재개발임대주택의 인수는 원칙적으로 시·도지사가 우선한다.",
-      "시·도지사의 요청이 있더라도 국토교통부장관이 인수한 임대주택을 토지임대부 분양주택으로 반드시 전환·공급해야 하는 것은 아니다.",
-      "관리처분계획상 분양대상자별 종전 주택의 주거전용면적이 60㎡를 넘지 않더라도, 분양대상자가 세대원 전원이 무주택자인 경우 등 법정 요건을 충족하면 2주택 공급이 가능한 경우가 있다.",
-    ],
-    pitfalls:
-      "국토교통부장관을 임대주택 인수의 1순위 의무자로 오해하기 쉽지만, 실제로는 시·도지사가 우선 인수 대상이고 국토교통부장관의 인수·전환은 의무가 아니라 재량적 성격이 강하다.",
-    example:
-      "사업시행자는 정비사업의 시행으로 임대주택을 건설하는 경우 공급대상자에게 주택을 공급하고 남은 주택에 대하여 공급대상자 외의 자에게 공급할 수 있다.",
-    questionRefs: [{ year: 2017, questionNo: 61 }],
-  },
-  {
-    slug: "maintenance-subscription-announcement",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "분양공고의 필수 기재사항",
-    titleEn: "Required Content of Subscription Announcements",
-    definition:
-      "분양공고에는 분양신청자격, 분양신청방법, 분양신청기간 및 장소, 분양대상 대지 또는 건축물의 내역 등이 포함되어야 하지만, 분양대상자별 분담금의 추산액은 분양공고가 아니라 개별 통지사항에 해당한다.",
-    intuition:
-      "분양공고는 '불특정 다수에게 알리는 일반 정보'만 담고, 분양대상자별 분담금 추산액처럼 개인별로 다른 금액 정보는 개별 통지사항으로 분리된다는 원칙을 기억하면 된다.",
-    keyPoints: [
-      "분양공고에는 분양신청자격, 분양신청방법, 분양신청기간 및 장소, 분양대상 대지 또는 건축물의 내역이 포함되어야 한다.",
-      "분양대상자별 분담금의 추산액은 분양공고의 필수 기재사항이 아니라, 토지등소유자 개별 통지사항에 해당한다.",
-    ],
-    pitfalls:
-      "분담금 추산액도 공고사항으로 착각하기 쉽지만, 개인별 금액 정보는 공고가 아니라 개별 통지로 전달된다는 점이 이 문제의 핵심 함정이다.",
-    example:
-      "분양공고에는 분양신청자격, 분양신청방법, 분양신청기간 및 장소, 분양대상 대지 또는 건축물의 내역이 포함되어야 하지만, 분양대상자별 분담금의 추산액은 포함되지 않는다.",
-    questionRefs: [{ year: 2019, questionNo: 61 }],
-  },
-  {
-    slug: "maintenance-loss-compensation-negotiation",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "손실보상 협의 대상 토지등소유자",
-    titleEn: "Landowners Subject to Loss Compensation Negotiation",
-    definition:
-      "사업시행자는 관리처분계획 인가·고시 다음 날부터 정해진 기간 이내에 분양신청기간 내 분양신청을 하지 않은 자, 관리처분계획에 따라 분양대상에서 제외된 자와 손실보상 협의를 해야 하지만, 분양신청기간 종료 후에 분양신청을 철회한 자는 이 협의 대상에 포함되지 않는다.",
-    intuition:
-      "손실보상 협의 대상은 '애초에 분양을 신청하지 않았거나 분양대상에서 제외된 자'로 한정되며, 신청 후 스스로 철회한 자는 다른 절차(별도 처리)로 다뤄진다는 점이 핵심이다.",
-    keyPoints: [
-      "손실보상 협의 대상에는 분양신청기간 내에 분양신청을 하지 않은 자, 인가된 관리처분계획에 따라 분양대상에서 제외된 자가 포함된다.",
-      "분양신청기간 종료 후에 분양신청을 철회한 자는 이 손실보상 협의의 대상으로 명시되어 있지 않다.",
-    ],
-    pitfalls:
-      "분양신청을 철회한 자도 신청을 하지 않은 자와 동일하게 취급된다고 오해하기 쉽지만, 철회자는 이 협의 대상 목록에서 제외된다는 점을 구분해야 한다.",
-    example:
-      "분양신청기간 내에 분양신청을 하지 아니한 자와 관리처분계획에 따라 분양대상에서 제외된 자는 사업시행자와의 손실보상 협의 대상이 된다.",
-    questionRefs: [{ year: 2024, questionNo: 64 }],
-  },
-  {
-    slug: "maintenance-temporary-housing",
-    parentSlug: "maintenance-association-direct-implementation",
-    chapterKo: "도시정비법",
-    category: "도시정비법",
-    subcategory: "조합·주민대표회의",
-    titleKo: "임시거주시설의 설치 의무",
-    titleEn: "Obligation to Provide Temporary Housing",
-    definition:
-      "사업시행자는 주거환경개선사업 및 재개발사업의 시행으로 철거되는 주택의 소유자 또는 세입자에게 정비구역 안팎의 임대주택 등 시설에 임시로 거주하게 하거나 주택자금 융자 알선 등 임시거주에 상응하는 조치를 해야 하며, 이 임시거주에 상응하는 조치는 정비구역이 속한 특별자치시·특별자치도·시·군·구 외의 지역에도 할 수 있다.",
-    intuition:
-      "임시거주시설 조치는 재건축사업이 아니라 '주거환경개선사업'과 '재개발사업'에만 적용되는 사업시행자의 의무라는 점이 핵심 포인트다.",
-    keyPoints: [
-      "사업시행자의 임시거주시설 설치·임시거주 상응조치 의무는 주거환경개선사업 및 재개발사업의 시행으로 철거되는 주택의 소유자·세입자에게 적용되며, 재건축사업에는 이 의무가 적용되지 않는다.",
-      "사업시행자는 해당 정비구역 안과 밖에 위치한 임대주택 등의 시설에 임시로 거주하게 하거나, 주택자금의 융자를 알선하는 등 임시거주에 상응하는 조치를 해야 한다.",
-    ],
-    pitfalls:
-      "재건축사업에도 임시거주시설 설치의무가 적용된다고 착각하기 쉽지만, 이 의무는 주거환경개선사업과 재개발사업에만 적용된다.",
-    example:
-      "사업시행자는 주거환경개선사업 및 재개발사업의 시행으로 철거되는 주택의 소유자 또는 세입자에게 해당 정비구역 안과 밖에 위치한 임대주택 등의 시설에 임시로 거주하게 할 수 있다.",
-    questionRefs: [{ year: 2025, questionNo: 63 }],
-  },
-
   // ───────── 농지법 ─────────
   {
     slug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
     titleKo: "농지·농업인의 정의",
@@ -3942,10 +4377,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "farmland-entrusted-management-reasons",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "소유 농지의 위탁경영이 가능한 사유",
     titleEn: "Grounds for Entrusted Management of Owned Farmland",
     definition:
@@ -3972,10 +4408,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "farmland-lease-rules",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "농지 임대차의 대항력과 임대 가능 요건",
     titleEn: "Enforceability and Eligibility Requirements for Farmland Leases",
     definition:
@@ -4001,10 +4438,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "farmland-acquisition-certificate-exemption",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "농지취득자격증명 발급 예외 사유",
     titleEn: "Exemptions from the Farmland Acquisition Certificate Requirement",
     definition:
@@ -4019,14 +4457,17 @@ const concepts: Concept[] = [
       "주말·체험영농 목적의 취득도 예외적으로 증명이 면제된다고 착각하기 쉽지만, 이는 자발적 취득이므로 증명 발급이 필요하다.",
     example:
       "시효의 완성으로 농지를 취득하는 경우, 공유 농지의 분할로 농지를 취득하는 경우, 국가나 지방자치단체가 농지를 소유하는 경우에는 농지취득자격증명을 발급받지 아니하고도 농지를 취득할 수 있다.",
-    questionRefs: [{ year: 2021, questionNo: 79 }],
+    questionRefs: [
+      { year: 2021, questionNo: 79 },
+    ],
   },
   {
     slug: "farmland-ownership-exception",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "자경하지 않아도 농지를 소유할 수 있는 예외",
     titleEn: "Exceptions to the Self-Cultivation Requirement for Farmland Ownership",
     definition:
@@ -4042,14 +4483,17 @@ const concepts: Concept[] = [
       "주말·체험영농 예외가 농업진흥지역 안팎을 가리지 않고 적용된다고 착각하기 쉽지만, 반드시 진흥지역 '외'의 농지에만 적용된다.",
     example:
       "8년 이상 농업경영을 하던 사람이 이농한 후에도 이농 당시 소유 농지 중 1만제곱미터를 계속 소유하면서 농업경영에 이용되도록 하는 것은 자경하지 않아도 농지를 소유할 수 있는 예외에 해당한다.",
-    questionRefs: [{ year: 2022, questionNo: 79 }],
+    questionRefs: [
+      { year: 2022, questionNo: 79 },
+    ],
   },
   {
     slug: "agricultural-promotion-area-designation",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "농업진흥지역의 지정 가능 지역",
     titleEn: "Areas Eligible for Agricultural Promotion Area Designation",
     definition:
@@ -4064,14 +4508,17 @@ const concepts: Concept[] = [
       "특별시 전체에서 농업진흥지역 지정이 불가능하다고 확대 해석하기 쉽지만, 지정할 수 없는 것은 '특별시의 녹지지역'뿐이며 특별시의 관리지역에는 지정할 수 있다.",
     example:
       "농업진흥지역은 특별시의 녹지지역에는 지정할 수 없지만, 특별시의 관리지역이나 광역시의 관리지역·농림지역에는 지정할 수 있다.",
-    questionRefs: [{ year: 2020, questionNo: 79 }],
+    questionRefs: [
+      { year: 2020, questionNo: 79 },
+    ],
   },
   {
     slug: "idle-farmland-proxy-cultivator",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "유휴농지 대리경작자의 지정과 해지",
     titleEn: "Designation and Termination of Proxy Cultivators for Idle Farmland",
     definition:
@@ -4089,14 +4536,17 @@ const concepts: Concept[] = [
       "대리경작자 지정이 신청에 의해서만 가능하다고 착각하기 쉽지만, 시장·군수·구청장의 직권 지정도 가능하다.",
     example:
       "대리경작자가 경작을 게을리하는 경우에는 대리경작 기간이 끝나기 전이라도 대리경작자 지정을 해지할 수 있다.",
-    questionRefs: [{ year: 2021, questionNo: 80 }],
+    questionRefs: [
+      { year: 2021, questionNo: 80 },
+    ],
   },
   {
     slug: "farmland-register-management",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "농지대장의 작성·변경신청·보존",
     titleEn: "Preparation, Modification, and Retention of the Farmland Register",
     definition:
@@ -4114,14 +4564,17 @@ const concepts: Concept[] = [
       "농지대장의 보존기간을 변경신청 기한(60일)과 혼동하거나 10년으로 착각하기 쉽지만, 정확한 보존기간은 5년이다.",
     example:
       "농지소유자 또는 임차인은 농지의 임대차계약이 체결된 경우 그 날부터 60일 이내에 시·구·읍·면의 장에게 농지대장의 변경을 신청하여야 한다.",
-    questionRefs: [{ year: 2022, questionNo: 80 }],
+    questionRefs: [
+      { year: 2022, questionNo: 80 },
+    ],
   },
   {
     slug: "farmland-conversion-rules",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "농지의 전용에 해당하는 경우와 해당하지 않는 경우",
     titleEn: "Cases Constituting or Not Constituting Farmland Conversion",
     definition:
@@ -4145,10 +4598,11 @@ const concepts: Concept[] = [
   },
   {
     slug: "farmland-temporary-use-report",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "농지의 타용도 일시사용신고 대상 용도",
     titleEn: "Reportable Temporary Non-Farm Uses of Farmland",
     definition:
@@ -4163,14 +4617,17 @@ const concepts: Concept[] = [
       "태양광 발전설비 설치도 일시적 이용이라는 이유로 일시사용신고 대상이라고 착각하기 쉽지만, 이는 신고 대상 용도 목록에 포함되지 않는다.",
     example:
       "지역축제장으로 사용하거나 해당 농지에서 허용되는 주목적사업을 위하여 현장 사무소를 설치하는 경우에는 6개월 이내의 범위에서 농지의 타용도 일시사용신고를 할 수 있다.",
-    questionRefs: [{ year: 2024, questionNo: 79 }],
+    questionRefs: [
+      { year: 2024, questionNo: 79 },
+    ],
   },
   {
     slug: "farmland-improvement-report-exemption",
-    parentSlug: "farmland-entrustment-standard",
     chapterKo: "농지법",
+    sectionKo: "농지의 소유·이용",
     category: "농지법",
     subcategory: "위탁경영·농지개량",
+    parentSlug: "farmland-entrustment-standard",
     titleKo: "농지개량행위(성토) 신고 면제 기준",
     titleEn: "Exemption Criteria for Farmland Improvement (Fill) Reporting",
     definition:
@@ -4184,7 +4641,9 @@ const concepts: Concept[] = [
       "면적·높이 기준 중 하나만 충족해도 신고가 면제된다고 착각하기 쉽지만, 두 기준(면적 1천㎡ 이하, 높이 50cm 이내)을 모두 충족해야 신고가 면제된다.",
     example:
       "성토가 이루어지는 해당 필지의 총면적이 1천제곱미터 이하이고, 최근 1년간 성토한 높이를 합산한 것이 50센티미터 이내인 성토는 농지개량행위의 신고를 하지 않아도 된다.",
-    questionRefs: [{ year: 2025, questionNo: 80 }],
+    questionRefs: [
+      { year: 2025, questionNo: 80 },
+    ],
   },
 ];
 
