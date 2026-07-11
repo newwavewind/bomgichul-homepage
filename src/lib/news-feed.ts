@@ -172,7 +172,13 @@ function toDateString(value: string | undefined): string | null {
   if (!value) return null;
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return null;
-  return d.toISOString().slice(0, 10);
+  // RSS pubDate는 UTC 기준 → 화면/일자칩은 한국 날짜로 맞춤
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(d);
 }
 
 /** 한국 시간 기준 YYYY-MM-DD */
@@ -244,7 +250,7 @@ function isRelevant(item: NewsFeedItem): boolean {
   return KEYWORD_RE.test(`${item.title} ${item.summary}`);
 }
 
-function isRecent(publishedAt: string, withinDays = 3): boolean {
+function isRecent(publishedAt: string, withinDays = 5): boolean {
   const d = new Date(`${publishedAt}T00:00:00+09:00`);
   if (Number.isNaN(d.getTime())) return false;
   const cutoff = Date.now() - withinDays * 24 * 60 * 60 * 1000;
