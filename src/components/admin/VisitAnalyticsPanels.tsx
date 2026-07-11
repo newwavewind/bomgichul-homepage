@@ -1,159 +1,116 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { DailyVisitTrendPoint } from "@/lib/site-visits";
 
-const WEEKDAY_LABELS = ["일", "월", "화", "수", "목", "금", "토"];
+const TREND_WINDOW = 7;
 
-type VisitDateCalendarProps = {
+type VisitTrendChartProps = {
   selectedDate: string;
-  year: number;
-  month: number;
-  dayCounts: Record<string, number>;
+  points: DailyVisitTrendPoint[];
 };
 
 function dateKey(year: number, month: number, day: number): string {
   return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
-export function VisitDateCalendar({
-  selectedDate,
-  year,
-  month,
-  dayCounts,
-}: VisitDateCalendarProps) {
+function addDays(key: string, delta: number): string {
+  const [y, m, d] = key.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d + delta));
+  return dateKey(dt.getUTCFullYear(), dt.getUTCMonth() + 1, dt.getUTCDate());
+}
+
+function emptyPoint(date: string): DailyVisitTrendPoint {
+  return {
+    date,
+    pageViews: 0,
+    uniqueVisitors: 0,
+    anonymousVisitors: 0,
+    localVisitors: 0,
+    loggedInVisits: 0,
+  };
+}
+
+export function VisitTrendChart({ selectedDate, points }: VisitTrendChartProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const pointMap = useMemo(
+    () => new Map(points.map((p) => [p.date, p])),
+    [points]
+  );
 
-  const cells = useMemo(() => {
-    const firstWeekday = new Date(year, month - 1, 1).getDay();
-    const daysInMonth = new Date(year, month, 0).getDate();
-    const items: Array<{ day: number | null; key: string | null }> = [];
+  const [windowEnd, setWindowEnd] = useState(selectedDate);
 
-    for (let i = 0; i < firstWeekday; i++) {
-      items.push({ day: null, key: null });
+  useEffect(() => {
+    setWindowEnd(selectedDate);
+  }, [selectedDate]);
+
+  const windowPoints = useMemo(() => {
+    const end = windowEnd;
+    const start = addDays(end, -(TREND_WINDOW - 1));
+    const list: DailyVisitTrendPoint[] = [];
+    let cursor = start;
+    while (cursor <= end) {
+      list.push(pointMap.get(cursor) ?? emptyPoint(cursor));
+      cursor = addDays(cursor, 1);
     }
-    for (let day = 1; day <= daysInMonth; day++) {
-      items.push({ day, key: dateKey(year, month, day) });
-    }
-    return items;
-  }, [year, month]);
+    return list;
+  }, [windowEnd, pointMap]);
 
-  const goTo = (nextDate: string, nextYear: number, nextMonth: number) => {
+  const maxVisitors = Math.max(1, ...windowPoints.map((p) => p.uniqueVisitors));
+  const chartHeight = 88;
+  const windowStart = windowPoints[0]?.date ?? selectedDate;
+  const rangeLabel = `${windowStart.slice(5).replace("-", "/")} – ${windowEnd
+    .slice(5)
+    .replace("-", "/")}`;
+
+  const selectDay = (key: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("date", nextDate);
-    params.set("month", `${nextYear}-${String(nextMonth).padStart(2, "0")}`);
+    params.set("date", key);
+    params.delete("month");
     router.push(`/admin/visits?${params.toString()}`);
   };
 
-  const shiftMonth = (delta: number) => {
-    const d = new Date(year, month - 1 + delta, 1);
-    const nextYear = d.getFullYear();
-    const nextMonth = d.getMonth() + 1;
-    const day = Math.min(
-      Number(selectedDate.split("-")[2]) || 1,
-      new Date(nextYear, nextMonth, 0).getDate()
-    );
-    goTo(dateKey(nextYear, nextMonth, day), nextYear, nextMonth);
+  const shiftWindow = (deltaWeeks: number) => {
+    setWindowEnd(addDays(windowEnd, deltaWeeks * TREND_WINDOW));
   };
 
   return (
     <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-3 shadow-[var(--shadow-card)] sm:p-4">
-      <div className="mb-3 flex items-center justify-between gap-2 sm:mb-4">
+      <div className="mb-3 flex items-center justify-between gap-2">
         <button
           type="button"
-          onClick={() => shiftMonth(-1)}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-mist font-display text-body-sm text-ink hover:bg-snow sm:h-auto sm:w-auto sm:px-3 sm:py-1.5"
-          aria-label="이전 달"
+          onClick={() => shiftWindow(-1)}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-mist font-display text-body-sm text-ink hover:bg-snow"
+          aria-label="이전 7일"
         >
           ←
         </button>
-        <p className="font-display text-body font-semibold text-ink sm:text-heading-sm">
-          {year}년 {month}월
-        </p>
+        <div className="min-w-0 text-center">
+          <p className="font-display text-[11px] font-medium uppercase tracking-wide text-fog">
+            방문자 추이
+          </p>
+          <p className="font-display text-[13px] text-smoke sm:text-body-sm">
+            {rangeLabel} · 순 방문자 (KST)
+          </p>
+        </div>
         <button
           type="button"
-          onClick={() => shiftMonth(1)}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-mist font-display text-body-sm text-ink hover:bg-snow sm:h-auto sm:w-auto sm:px-3 sm:py-1.5"
-          aria-label="다음 달"
+          onClick={() => shiftWindow(1)}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-mist font-display text-body-sm text-ink hover:bg-snow"
+          aria-label="다음 7일"
         >
           →
         </button>
       </div>
 
-      <div className="grid grid-cols-7 gap-0.5 text-center sm:gap-1">
-        {WEEKDAY_LABELS.map((label) => (
-          <div
-            key={label}
-            className="py-1 font-display text-[10px] font-medium text-fog sm:text-[11px]"
-          >
-            {label}
-          </div>
-        ))}
-        {cells.map((cell, index) => {
-          if (!cell.day || !cell.key) {
-            return <div key={`empty-${index}`} className="min-h-[40px] sm:aspect-square" />;
-          }
-
-          const count = dayCounts[cell.key] ?? 0;
-          const isSelected = cell.key === selectedDate;
-
-          return (
-            <button
-              key={cell.key}
-              type="button"
-              onClick={() => goTo(cell.key!, year, month)}
-              className={`flex min-h-[40px] flex-col items-center justify-center rounded-md border font-display transition-colors sm:aspect-square sm:rounded-lg ${
-                isSelected
-                  ? "border-electric-blue bg-electric-blue/10 text-ink"
-                  : count === 0
-                    ? "border-transparent text-fog hover:border-mist hover:bg-snow"
-                    : "border-transparent text-ink hover:border-mist hover:bg-snow"
-              }`}
-              aria-label={`${cell.day}일, 방문자 ${count}명`}
-              aria-pressed={isSelected}
-            >
-              <span className="text-[13px] font-medium sm:text-body-sm">{cell.day}</span>
-              {count > 0 ? (
-                <span className="text-[9px] font-semibold text-electric-blue sm:text-[10px]">
-                  {count}
-                </span>
-              ) : (
-                <span className="text-[9px] text-transparent sm:text-[10px]">0</span>
-              )}
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-type VisitTrendChartProps = {
-  points: DailyVisitTrendPoint[];
-  selectedDate: string;
-};
-
-export function VisitTrendChart({ points, selectedDate }: VisitTrendChartProps) {
-  const maxVisitors = Math.max(1, ...points.map((p) => p.uniqueVisitors));
-  const chartHeight = 72;
-
-  return (
-    <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-3 shadow-[var(--shadow-card)] sm:p-4">
-      <p className="mb-1 font-display text-[11px] font-medium uppercase tracking-wide text-fog sm:text-[12px]">
-        방문자 추이
-      </p>
-      <p className="mb-3 font-display text-[13px] text-smoke sm:mb-4 sm:text-body-sm">
-        최근 {points.length}일 · 순 방문자 (KST)
-      </p>
-
       <div
-        className="flex items-end gap-0.5 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] sm:gap-1 sm:pb-2"
+        className="flex h-[148px] items-end justify-between gap-1 sm:gap-2"
         role="img"
-        aria-label="일별 순 방문자 추이"
+        aria-label={`${windowStart}부터 ${windowEnd}까지 일별 순 방문자 추이`}
       >
-        {points.map((point) => {
+        {windowPoints.map((point) => {
           const barHeight =
             point.uniqueVisitors > 0
               ? Math.max(8, Math.round((point.uniqueVisitors / maxVisitors) * chartHeight))
@@ -162,16 +119,19 @@ export function VisitTrendChart({ points, selectedDate }: VisitTrendChartProps) 
           const [, m, d] = point.date.split("-");
 
           return (
-            <div
+            <button
               key={point.date}
-              className="flex w-8 shrink-0 flex-col items-center gap-0.5 sm:w-auto sm:min-w-[28px] sm:flex-1"
+              type="button"
+              onClick={() => selectDay(point.date)}
+              className="flex min-w-0 flex-1 flex-col items-center gap-0.5 rounded-md px-0.5 py-1 transition-colors hover:bg-snow"
               title={`${point.date}: 순 방문자 ${point.uniqueVisitors}명 · 페이지뷰 ${point.pageViews}`}
+              aria-pressed={isSelected}
             >
               <span className="min-h-[12px] font-display text-[9px] text-fog sm:text-[10px]">
                 {point.uniqueVisitors > 0 ? point.uniqueVisitors : ""}
               </span>
               <div
-                className={`w-full max-w-[28px] rounded-t-sm transition-colors sm:max-w-[32px] sm:rounded-t-md ${
+                className={`w-full max-w-[36px] rounded-t-sm transition-colors sm:rounded-t-md ${
                   isSelected ? "bg-electric-blue" : "bg-electric-blue/35"
                 }`}
                 style={{ height: `${barHeight}px` }}
@@ -183,7 +143,7 @@ export function VisitTrendChart({ points, selectedDate }: VisitTrendChartProps) 
               >
                 {Number(m)}/{Number(d)}
               </span>
-            </div>
+            </button>
           );
         })}
       </div>

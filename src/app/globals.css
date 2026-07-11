@@ -205,3 +205,49 @@ body {
 .sticker-float {
   animation: float-sticker 4s ease-in-out infinite;
 }
+
+/* AI provider color dots (GPT / Gemini / Claude) */
+.ai-provider-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+.ai-provider-dot--chatgpt {
+  background-color: #10a37f;
+}
+.ai-provider-dot--gemini {
+  background: linear-gradient(90deg, #4285f4 0%, #9168c0 100%);
+}
+.ai-provider-dot--claude {
+  background-color: #d97757;
+}
+
+/* Exam AI dropdown + speech-bubble hint (app ConceptsScreen parity) */
+.exam-ai__hint::before,
+.exam-ai__hint::after {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  right: 100%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.exam-ai__hint::before {
+  border-width: 6px 8px 6px 0;
+  border-color: transparent color-mix(in srgb, var(--color-burnt) 16%, transparent) transparent
+    transparent;
+}
+.exam-ai__hint::after {
+  margin-right: -1px;
+  border-width: 5px 7px 5px 0;
+  border-color: transparent var(--color-paper) transparent transparent;
+}
+
+@media (max-width: 480px) {
+  .exam-ai__hint::before,
+  .exam-ai__hint::after {
+    display: none;
+  }
+}

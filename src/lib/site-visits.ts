@@ -8,6 +8,7 @@ export const KST_TIMEZONE = "Asia/Seoul";
 const SKIP_PREFIXES = [
   "/_next",
   "/api",
+  "/admin",
   "/brand",
   "/favicon",
   "/icon",
@@ -143,11 +144,13 @@ export function addKstDays(dateKey: string, days: number): string {
 
 function aggregateDayStats(
   dateKey: string,
-  rows: VisitAggregateRow[]
+  rows: VisitAggregateRow[],
+  options?: { excludeLocal?: boolean }
 ): SiteVisitDayStats {
-  const uniqueVisitors = new Set(rows.map((r) => r.visitor_id));
+  const scoped = options?.excludeLocal ? rows.filter((r) => !r.is_local) : rows;
+  const uniqueVisitors = new Set(scoped.map((r) => r.visitor_id));
   const anonymousVisitors = new Set(
-    rows.filter((r) => !r.user_id).map((r) => r.visitor_id)
+    scoped.filter((r) => !r.user_id).map((r) => r.visitor_id)
   );
   const localVisitors = new Set(
     rows.filter((r) => r.is_local).map((r) => r.visitor_id)
@@ -155,11 +158,11 @@ function aggregateDayStats(
 
   return {
     date: dateKey,
-    pageViews: rows.length,
+    pageViews: scoped.length,
     uniqueVisitors: uniqueVisitors.size,
     anonymousVisitors: anonymousVisitors.size,
     localVisitors: localVisitors.size,
-    loggedInVisits: rows.filter((r) => r.user_id).length,
+    loggedInVisits: scoped.filter((r) => r.user_id).length,
   };
 }
 
@@ -199,8 +202,10 @@ export async function recordSiteVisit(input: {
 
 export async function getAdminVisitStats(): Promise<SiteVisitStats> {
   const today = toKstDateKey();
-  const dayStats = await getAdminVisitStatsForDate(today);
-  const trend = await getAdminDailyVisitTrend(addKstDays(today, -6), today);
+  const dayStats = await getAdminVisitStatsForDate(today, { excludeLocal: true });
+  const trend = await getAdminDailyVisitTrend(addKstDays(today, -6), today, {
+    excludeLocal: true,
+  });
 
   return {
     visitsToday: dayStats.pageViews,
@@ -212,7 +217,8 @@ export async function getAdminVisitStats(): Promise<SiteVisitStats> {
 }
 
 export async function getAdminVisitStatsForDate(
-  dateKey: string
+  dateKey: string,
+  options?: { excludeLocal?: boolean }
 ): Promise<SiteVisitDayStats> {
   const empty: SiteVisitDayStats = {
     date: dateKey,
@@ -233,12 +239,13 @@ export async function getAdminVisitStatsForDate(
     .gte("created_at", start)
     .lt("created_at", end);
 
-  return aggregateDayStats(dateKey, data ?? []);
+  return aggregateDayStats(dateKey, data ?? [], options);
 }
 
 export async function getAdminDailyVisitTrend(
   fromDateKey: string,
-  toDateKey: string
+  toDateKey: string,
+  options?: { excludeLocal?: boolean }
 ): Promise<DailyVisitTrendPoint[]> {
   const admin = adminOrNull();
   if (!admin) return [];
@@ -257,7 +264,7 @@ export async function getAdminDailyVisitTrend(
   let cursor = fromDateKey;
 
   while (cursor <= toDateKey) {
-    points.push(aggregateDayStats(cursor, grouped.get(cursor) ?? []));
+    points.push(aggregateDayStats(cursor, grouped.get(cursor) ?? [], options));
     cursor = addKstDays(cursor, 1);
   }
 

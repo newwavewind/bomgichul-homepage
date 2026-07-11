@@ -15,26 +15,23 @@ export function BackLink({
       href={href}
       className={
         emphasized
-          ? "group mb-4 inline-flex items-center gap-1.5 rounded-[var(--radius-buttons)] border border-electric-blue/30 bg-ice px-3.5 py-2 font-display text-body-sm font-semibold text-electric-blue transition-colors hover:border-electric-blue/50 hover:bg-ice/80"
-          : "group -ml-3 mb-4 inline-flex items-center gap-1.5 rounded-[var(--radius-buttons)] border border-transparent px-3 py-1.5 font-display text-body-sm font-medium text-smoke transition-colors hover:border-mist hover:bg-snow hover:text-ink"
+          ? "group mb-5 inline-flex items-center gap-2.5 font-display text-body-sm font-semibold text-electric-blue transition-colors hover:text-burnt"
+          : "group mb-5 inline-flex items-center gap-2.5 font-display text-body-sm font-medium text-smoke transition-colors hover:text-ink"
       }
     >
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 14 14"
-        fill="none"
-        className="shrink-0 transition-transform group-hover:-translate-x-0.5"
+      <span
+        aria-hidden
+        className={
+          emphasized
+            ? "inline-grid size-8 shrink-0 place-items-center rounded-full border-[1.5px] border-electric-blue/40 bg-paper text-electric-blue transition-colors group-hover:border-electric-blue group-hover:bg-ice"
+            : "inline-grid size-8 shrink-0 place-items-center rounded-full border-[1.5px] border-carbon bg-paper text-ink transition-colors group-hover:bg-snow"
+        }
       >
-        <path
-          d="M8.5 3L4.5 7L8.5 11"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-      {children}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </span>
+      <span className="underline-offset-4 group-hover:underline">{children}</span>
     </Link>
   );
 }

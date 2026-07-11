@@ -67,7 +67,15 @@ export default async function AdminDashboardPage() {
                     <p className="mt-0.5 font-display text-[12px] text-smoke">{s.email ?? "이메일 없음"}</p>
                   </div>
                   <time className="font-display text-[12px] text-fog">
-                    {new Date(s.createdAt).toLocaleString("ko-KR")}
+                    {new Date(s.createdAt).toLocaleString("ko-KR", {
+                      timeZone: "Asia/Seoul",
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: false,
+                    })}
                   </time>
                 </li>
               ))}

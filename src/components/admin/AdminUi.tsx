@@ -1,21 +1,27 @@
+const KST = "Asia/Seoul";
+
 export function formatDateTime(iso: string | null): string {
   if (!iso) return "—";
   return new Date(iso).toLocaleString("ko-KR", {
+    timeZone: KST,
     year: "numeric",
     month: "short",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
+    hour12: false,
   });
 }
 
 export function formatDateTimeShort(iso: string | null): string {
   if (!iso) return "—";
   return new Date(iso).toLocaleString("ko-KR", {
+    timeZone: KST,
     month: "short",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
+    hour12: false,
   });
 }
 
