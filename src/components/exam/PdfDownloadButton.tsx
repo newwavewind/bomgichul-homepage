@@ -23,7 +23,7 @@ export function PdfDownloadButton({
       <a
         href={`/api/exam-pdf/${subject}/${year}`}
         onClick={() => trackEvent("exam_pdf_download", { subject, year })}
-        className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+        className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
       >
         ⬇ PDF 다운로드
       </a>
@@ -38,12 +38,12 @@ export function PdfDownloadButton({
           setShowUpsell((v) => !v);
           trackEvent("exam_pdf_upsell_click", { subject, year });
         }}
-        className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+        className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
       >
         ⬇ PDF 다운로드
       </button>
       {showUpsell && (
-        <div className="mt-3 max-w-md rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice/40 p-4">
+        <div className="mt-3 max-w-md rounded-[var(--radius-cards)] border border-carbon bg-ice/40 p-4">
           <p className="font-display text-body-sm font-semibold text-ink">
             🎁 PDF 다운로드는 프리미엄 전용이에요
           </p>

@@ -44,7 +44,7 @@ export function PrimaryButton({
 }: PrimaryButtonProps) {
   const styles = `
     inline-flex items-center justify-center gap-2
-    rounded-[var(--radius-buttons)] border-[1.5px] border-carbon
+    rounded-[var(--radius-buttons)] border border-carbon
     bg-paper ${sizeStyles[size]} font-display text-body-sm font-medium text-ink
     shadow-[var(--shadow-button)]
     transition-colors hover:bg-snow
@@ -77,7 +77,7 @@ export function SecondaryButton({
 }: Omit<PrimaryButtonProps, "size">) {
   const styles = `
     inline-flex items-center justify-center gap-2
-    rounded-[var(--radius-buttons)] border-[1.5px] border-carbon
+    rounded-[var(--radius-buttons)] border border-carbon
     bg-carbon px-5 py-2 font-display text-body-sm font-medium text-paper
     shadow-[var(--shadow-button)]
     transition-opacity hover:opacity-90
@@ -123,7 +123,7 @@ export function OutlineButton({
     transition-colors
     ${
       active
-        ? "border-[1.5px] border-carbon bg-snow"
+        ? "border border-carbon bg-snow"
         : "border border-transparent hover:border-mist hover:bg-snow"
     }
     ${className}

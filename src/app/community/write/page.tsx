@@ -9,6 +9,7 @@ import { FeatureCard } from "@/components/ui/Card";
 import { Input, Textarea } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
+import { BackLink } from "@/components/ui/BackLink";
 import type { PostCategory } from "@/types/database";
 
 export default function WritePage() {
@@ -64,12 +65,7 @@ export default function WritePage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <Link
-        href="/community"
-        className="mb-8 inline-block font-display text-body-sm text-fog transition-colors hover:text-ink"
-      >
-        ← 목록으로
-      </Link>
+      <BackLink href="/community">목록으로</BackLink>
 
       <EyebrowLabel className="mb-2">새 글 작성</EyebrowLabel>
       <SectionHeading as="h1" className="mb-8">

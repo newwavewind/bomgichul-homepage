@@ -9,6 +9,7 @@ import type {
   DmMessage,
   OnlineUser,
 } from "@/types/database";
+import { formatKstChatTime } from "@/lib/datetime";
 
 type ChatUser = {
   id: string;
@@ -18,22 +19,7 @@ type ChatUser = {
 type View = "list" | "online" | "thread";
 
 function formatChatTime(iso: string): string {
-  const date = new Date(iso);
-  const now = new Date();
-  const isToday =
-    date.getFullYear() === now.getFullYear() &&
-    date.getMonth() === now.getMonth() &&
-    date.getDate() === now.getDate();
-
-  if (isToday) {
-    return date.toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
-  }
-  return date.toLocaleDateString("ko-KR", {
-    month: "short",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  return formatKstChatTime(iso);
 }
 
 function Avatar({ nickname }: { nickname: string }) {

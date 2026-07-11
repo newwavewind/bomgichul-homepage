@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BackLink } from "@/components/ui/BackLink";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
@@ -70,12 +71,7 @@ export default async function DailyReviewPage({ params }: ReviewPageProps) {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <Link
-          href={`/exam/${subject}`}
-          className="mb-4 inline-block font-display text-body-sm text-fog transition-colors hover:text-ink"
-        >
-          ← {label} 과목으로
-        </Link>
+        <BackLink href={`/exam/${subject}`}>{label} 과목으로</BackLink>
 
         <div className="mb-8">
           <EyebrowLabel className="mb-2">오늘의 복습 · 프리미엄</EyebrowLabel>
@@ -91,7 +87,7 @@ export default async function DailyReviewPage({ params }: ReviewPageProps) {
         </div>
 
         {!user ? (
-          <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-8 text-center">
+          <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-8 text-center">
             <p className="font-display text-body text-smoke">로그인 후 이용할 수 있어요.</p>
             <Link href="/login" className="mt-4 inline-block font-display text-body-sm font-medium text-electric-blue">
               로그인하기 →

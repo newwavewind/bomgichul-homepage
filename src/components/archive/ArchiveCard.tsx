@@ -4,20 +4,11 @@ import {
   ARCHIVE_RESOURCE_TYPE_MAP,
   ARCHIVE_SUBJECT_MAP,
 } from "@/lib/constants";
+import { formatKstRelative } from "@/lib/datetime";
 import { formatFileSize, getFileIcon } from "@/lib/storage";
 
 interface ArchiveCardProps {
   post: ArchiveListItem;
-}
-
-function formatDate(dateStr: string) {
-  const date = new Date(dateStr);
-  const now = new Date();
-  const diff = now.getTime() - date.getTime();
-  const days = Math.floor(diff / 86400000);
-  if (days < 1) return "오늘";
-  if (days < 7) return `${days}일 전`;
-  return date.toLocaleDateString("ko-KR");
 }
 
 export function ArchiveCard({ post }: ArchiveCardProps) {
@@ -64,7 +55,7 @@ export function ArchiveCard({ post }: ArchiveCardProps) {
       <div className="hidden shrink-0 text-right font-display text-body-sm text-fog sm:block">
         <p>{post.profiles?.nickname ?? "익명"}</p>
         <p className="mt-0.5">조회 {post.view_count}</p>
-        <p className="mt-0.5">{formatDate(post.created_at)}</p>
+        <p className="mt-0.5">{formatKstRelative(post.created_at)}</p>
       </div>
     </Link>
   );

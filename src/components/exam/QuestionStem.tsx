@@ -51,7 +51,7 @@ export function QuestionStem({
           className="mb-4 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink"
         />
       )}
-      <div className="mb-8 max-w-3xl rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-surface px-5 py-4">
+      <div className="mb-8 max-w-3xl rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 py-4">
         {boxLines.map((line, i) => {
           const trimmed = line.trim();
           const isSubItem =

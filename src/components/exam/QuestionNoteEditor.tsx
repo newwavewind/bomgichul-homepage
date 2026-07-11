@@ -71,7 +71,7 @@ export function QuestionNoteEditor({
   };
 
   return (
-    <div className="mt-4 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 py-4">
+    <div className="mt-4 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
       <Textarea
         id={`note-${subject}-${year}-${questionNo}`}
         label="나만의 메모"

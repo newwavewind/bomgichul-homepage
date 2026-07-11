@@ -187,7 +187,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
         />
 
         {!accessible && (
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice px-5 py-4">
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border border-carbon bg-ice px-5 py-4">
             <p className="font-display text-body-sm text-ink">
               전체 해설은 프리미엄 해제 후 이 페이지에서 볼 수 있어요. 이미 구매하셨다면{" "}
               <Link href={`/exam/${subject}#unlock`} className="font-medium underline">
@@ -223,9 +223,9 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           {prev ? (
             <Link
               href={appendReturnTo(`/exam/${subject}/${year}/${prev.questionNo}`, returnTo ?? undefined)}
-              className="group flex flex-1 items-center gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 py-4 shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+              className="group flex flex-1 items-center gap-3 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4 shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
             >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-[1.5px] border-carbon font-display text-body font-bold text-ink transition-colors group-hover:bg-carbon group-hover:text-paper">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-carbon font-display text-body font-bold text-ink transition-colors group-hover:bg-carbon group-hover:text-paper">
                 ←
               </span>
               <span className="flex flex-col">
@@ -243,7 +243,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           {next ? (
             <Link
               href={appendReturnTo(`/exam/${subject}/${year}/${next.questionNo}`, returnTo ?? undefined)}
-              className="group flex flex-1 items-center justify-end gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 py-4 text-right shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+              className="group flex flex-1 items-center justify-end gap-3 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4 text-right shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
             >
               <span className="flex flex-col items-end">
                 <span className="font-display text-[11px] font-semibold uppercase tracking-wide text-fog">
@@ -253,7 +253,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
                   {next.questionNo}번
                 </span>
               </span>
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-[1.5px] border-carbon font-display text-body font-bold text-ink transition-colors group-hover:bg-carbon group-hover:text-paper">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-carbon font-display text-body font-bold text-ink transition-colors group-hover:bg-carbon group-hover:text-paper">
                 →
               </span>
             </Link>

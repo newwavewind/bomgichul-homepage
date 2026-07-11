@@ -362,12 +362,9 @@
   color: var(--hp-cx-teal);
 }
 
-.hp-cx .hp-cx-pager__btn--prev {
-  justify-content: flex-start;
-}
-
+.hp-cx .hp-cx-pager__btn--prev,
 .hp-cx .hp-cx-pager__btn--next {
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .hp-cx .hp-cx-pager__btn--disabled {

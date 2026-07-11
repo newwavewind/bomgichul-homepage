@@ -1,4 +1,5 @@
 import type { MockExamSession } from "@/types/database";
+import { formatKstDateTimeShort } from "@/lib/datetime";
 
 function formatElapsed(seconds: number): string {
   const m = Math.floor(seconds / 60)
@@ -9,12 +10,7 @@ function formatElapsed(seconds: number): string {
 }
 
 function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString("ko-KR", {
-    month: "short",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  return formatKstDateTimeShort(iso);
 }
 
 export function MockExamHistory({ sessions }: { sessions: MockExamSession[] }) {
@@ -27,7 +23,7 @@ export function MockExamHistory({ sessions }: { sessions: MockExamSession[] }) {
   const latestRate = Math.round((latest.correct / latest.total) * 100);
 
   return (
-    <div className="mb-8 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice px-5 py-4">
+    <div className="mb-8 rounded-[var(--radius-cards)] border border-carbon bg-ice px-5 py-4">
       <p className="font-display text-body-sm font-semibold text-ink">시험 모드 기록</p>
       <p className="mt-1 font-display text-body-sm text-smoke">
         최근 {latest.correct}/{latest.total} ({latestRate}%) · {formatElapsed(latest.elapsed_seconds)}

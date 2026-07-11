@@ -4,6 +4,7 @@ import { getAdminVisitStats } from "@/lib/site-visits";
 import { AdminStatCard } from "@/components/admin/AdminUi";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
+import { formatKstDateTime } from "@/lib/datetime";
 
 export default async function AdminDashboardPage() {
   const [overview, signups, visitStats] = await Promise.all([
@@ -67,15 +68,7 @@ export default async function AdminDashboardPage() {
                     <p className="mt-0.5 font-display text-[12px] text-smoke">{s.email ?? "이메일 없음"}</p>
                   </div>
                   <time className="font-display text-[12px] text-fog">
-                    {new Date(s.createdAt).toLocaleString("ko-KR", {
-                      timeZone: "Asia/Seoul",
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      hour12: false,
-                    })}
+                    {formatKstDateTime(s.createdAt)}
                   </time>
                 </li>
               ))}

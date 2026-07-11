@@ -13,7 +13,7 @@ export function PremiumFeatureLocked({
   description: string;
 }) {
   return (
-    <div className="mx-auto max-w-xl rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-paper p-8 text-center shadow-[var(--shadow-card)]">
+    <div className="mx-auto max-w-xl rounded-[var(--radius-largecards)] border border-carbon bg-paper p-8 text-center shadow-[var(--shadow-card)]">
       <p className="font-display text-heading-sm font-bold text-ink">
         🔒 {featureLabel}은 {subjectLabel} 프리미엄 전용이에요
       </p>

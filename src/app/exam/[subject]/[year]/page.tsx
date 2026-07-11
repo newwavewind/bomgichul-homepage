@@ -73,7 +73,7 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <BackLink href={`/exam/${subject}`}>{label} 목록으로</BackLink>
+        <BackLink href={`/exam/${subject}`}>{label} 과목으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
           <Link href="/study#exam" className="hover:text-ink">
@@ -98,7 +98,7 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
           <div className="mt-6 flex flex-wrap items-start gap-3">
             <Link
               href={`/exam/${subject}/${year}/mock`}
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
             >
               📝 시험 모드
             </Link>
@@ -114,7 +114,7 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
         {unlocked && <MockExamHistory sessions={mockSessions} />}
 
         {!free && (
-          <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice px-5 py-4">
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border border-carbon bg-ice px-5 py-4">
             <p className="font-display text-body-sm text-ink">
               {year}년 기출은 프리미엄 전용이에요. 코드를 등록하거나 모바일 앱에서 구매하면 이
               페이지에서 전체 해설을 볼 수 있어요.{" "}

@@ -7,21 +7,9 @@ import {
   USER_WRITABLE_CATEGORIES,
 } from "@/lib/constants";
 import { PrimaryButton } from "@/components/ui/Button";
+import { formatKstRelative } from "@/lib/datetime";
 
 const writableValues = new Set(USER_WRITABLE_CATEGORIES.map((c) => c.value));
-
-function formatDate(dateStr: string) {
-  const date = new Date(dateStr);
-  const now = new Date();
-  const diff = now.getTime() - date.getTime();
-  const hours = Math.floor(diff / 3600000);
-  const days = Math.floor(diff / 86400000);
-
-  if (hours < 1) return "방금 전";
-  if (hours < 24) return `${hours}시간 전`;
-  if (days < 7) return `${days}일 전`;
-  return date.toLocaleDateString("ko-KR");
-}
 
 export async function HomeCommunityPreview() {
   const { data: posts } = await getPosts({ page: 1, sort: "latest" });
@@ -62,7 +50,7 @@ export async function HomeCommunityPreview() {
             {post.profiles?.nickname ?? "익명"}
           </span>
           <span className="shrink-0 font-display text-[12px] text-fog">
-            {formatDate(post.created_at)}
+            {formatKstRelative(post.created_at)}
           </span>
         </Link>
       ))}

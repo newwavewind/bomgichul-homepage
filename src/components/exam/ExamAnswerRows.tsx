@@ -78,11 +78,11 @@ export function StatementRows({
       {items.map((item) => (
         <div
           key={item.key}
-          className="rounded-[var(--radius-buttons)] border-[1.5px] border-mist bg-surface px-4 py-3"
+          className="rounded-[var(--radius-buttons)] border border-mist bg-surface px-4 py-3"
         >
           <div className="flex items-start gap-3">
             <span
-              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border-[1.5px] border-carbon font-display text-body-sm font-bold ${
+              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border border-carbon font-display text-body-sm font-bold ${
                 revealed ? "visible" : "invisible"
               } ${item.answer === "O" ? "bg-[#6366f1] text-paper" : "bg-[#ef4444] text-paper"}`}
             >
@@ -134,7 +134,7 @@ export function ChoiceRows({
           >
             <div className="mb-2 flex items-start gap-3">
               <span
-                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border-[1.5px] border-carbon font-display text-body-sm font-bold ${
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border border-carbon font-display text-body-sm font-bold ${
                   revealed ? "visible" : "invisible"
                 } ${item.answer === "O" ? "bg-[#6366f1] text-paper" : "bg-[#ef4444] text-paper"}`}
               >

@@ -111,89 +111,38 @@ function NavDropdown({ href, label, children }: NavGroupLink) {
 }
 
 function MobileNavGroup({
-  href,
   label,
   children,
   onNavigate,
 }: NavGroupLink & { onNavigate: () => void }) {
   const [expanded, setExpanded] = useState(false);
 
-  if (!href) {
-    return (
-      <div onClick={(e) => e.stopPropagation()}>
-        <button
-          type="button"
-          onClick={() => setExpanded((prev) => !prev)}
-          className="flex w-full items-center justify-between rounded-[var(--radius-buttons)] px-3.5 py-2 font-display text-body-sm font-medium text-ink transition-colors hover:bg-snow"
-          aria-expanded={expanded}
-        >
-          {label}
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            aria-hidden
-            className={`transition-transform ${expanded ? "rotate-180" : ""}`}
-          >
-            <path
-              d="M3 4.5L6 7.5L9 4.5"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-        {expanded && (
-          <div className="ml-3 mt-1 flex flex-col gap-1 border-l border-mist pl-3">
-            {children.map((child) => (
-              <NavLink
-                key={child.href}
-                href={child.href}
-                label={child.label}
-                className="w-full justify-start"
-                onNavigate={onNavigate}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  }
-
   return (
-    <div>
-      <div className="flex items-center gap-1">
-        <NavLink href={href} label={label} className="flex-1 justify-start" onNavigate={onNavigate} />
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            setExpanded((prev) => !prev);
-          }}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-buttons)] border border-mist"
-          aria-expanded={expanded}
-          aria-label={`${label} 하위 메뉴`}
+    <div onClick={(e) => e.stopPropagation()}>
+      <button
+        type="button"
+        onClick={() => setExpanded((prev) => !prev)}
+        className="flex w-full items-center justify-between rounded-[var(--radius-buttons)] px-3.5 py-2 font-display text-body-sm font-medium text-ink transition-colors hover:bg-snow"
+        aria-expanded={expanded}
+      >
+        {label}
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          aria-hidden
+          className={`transition-transform ${expanded ? "rotate-180" : ""}`}
         >
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            aria-hidden
-            className={`transition-transform ${expanded ? "rotate-180" : ""}`}
-          >
-            <path
-              d="M3 4.5L6 7.5L9 4.5"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-      </div>
+          <path
+            d="M3 4.5L6 7.5L9 4.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
       {expanded && (
         <div className="ml-3 mt-1 flex flex-col gap-1 border-l border-mist pl-3">
           {children.map((child) => (

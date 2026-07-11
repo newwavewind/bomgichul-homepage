@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { BackLink } from "@/components/ui/BackLink";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Suspense } from "react";
@@ -66,12 +66,7 @@ export default async function RandomPracticePage({ params, searchParams }: Rando
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <Link
-          href={`/exam/${subject}`}
-          className="mb-4 inline-block font-display text-body-sm text-fog transition-colors hover:text-ink"
-        >
-          ← {label} 과목으로
-        </Link>
+        <BackLink href={`/exam/${subject}`}>{label} 과목으로</BackLink>
 
         <div className="mb-8">
           <EyebrowLabel className="mb-2">랜덤 문제 · 프리미엄</EyebrowLabel>
@@ -93,7 +88,7 @@ export default async function RandomPracticePage({ params, searchParams }: Rando
             </Suspense>
 
             {questions.length === 0 ? (
-              <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-8 text-center">
+              <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-8 text-center">
                 <p className="font-display text-body text-smoke">
                   선택한 조건에 맞는 문제가 없어요. 필터를 조정해 보세요.
                 </p>

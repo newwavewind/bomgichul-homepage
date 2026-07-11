@@ -11,7 +11,7 @@ export function SubjectFreeEventBanner({ subject }: { subject: ExamSubject }) {
 
   return (
     <div
-      className="relative overflow-hidden rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-gradient-to-br from-[#eef2ff] via-ice to-[#f0fdf4] px-5 py-4 shadow-[var(--shadow-card)]"
+      className="relative overflow-hidden rounded-[var(--radius-cards)] border border-carbon bg-gradient-to-br from-[#eef2ff] via-ice to-[#f0fdf4] px-5 py-4 shadow-[var(--shadow-card)]"
       role="status"
     >
       <div className="pointer-events-none absolute -right-6 -top-6 text-5xl opacity-20" aria-hidden>

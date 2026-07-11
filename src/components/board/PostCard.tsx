@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { PostCategory } from "@/types/database";
 import { CATEGORY_MAP, CATEGORY_BADGE_CLASS, CATEGORY_EMOJI } from "@/lib/constants";
+import { formatKstRelative } from "@/lib/datetime";
 import { PremiumBadge } from "@/components/ui/PremiumBadge";
 
 interface PostCardProps {
@@ -11,21 +12,6 @@ interface PostCardProps {
   authorBadge?: string | null;
   viewCount: number;
   createdAt: string;
-}
-
-function formatDate(dateStr: string) {
-  const date = new Date(dateStr);
-  const now = new Date();
-  const diff = now.getTime() - date.getTime();
-  const minutes = Math.floor(diff / 60000);
-  const hours = Math.floor(diff / 3600000);
-  const days = Math.floor(diff / 86400000);
-
-  if (minutes < 1) return "방금 전";
-  if (minutes < 60) return `${minutes}분 전`;
-  if (hours < 24) return `${hours}시간 전`;
-  if (days < 7) return `${days}일 전`;
-  return date.toLocaleDateString("ko-KR");
 }
 
 export function PostCard({
@@ -61,7 +47,7 @@ export function PostCard({
           {authorBadge && <PremiumBadge label={authorBadge} />}
         </span>
         <span>조회 {viewCount}</span>
-        <span>{formatDate(createdAt)}</span>
+        <span>{formatKstRelative(createdAt)}</span>
       </div>
     </Link>
   );

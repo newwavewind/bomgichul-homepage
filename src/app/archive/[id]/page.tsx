@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getArchivePost } from "@/lib/archive";
@@ -14,7 +13,9 @@ import { AttachmentListServer } from "@/components/archive/AttachmentList";
 import { CommentForm } from "@/components/board/CommentForm";
 import { CommentItem } from "@/components/board/CommentItem";
 import { PostActions } from "@/components/board/PostActions";
+import { BackLink } from "@/components/ui/BackLink";
 import { absoluteUrl, truncateDescription } from "@/lib/seo";
+import { formatKstDate } from "@/lib/datetime";
 
 interface ArchiveDetailPageProps {
   params: Promise<{ id: string }>;
@@ -66,9 +67,7 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <Link href="/archive" className="mb-8 inline-block font-display text-body-sm text-fog hover:text-ink">
-        ← 자료실로
-      </Link>
+      <BackLink href="/archive">자료실로</BackLink>
 
       <ElevatedCard className="p-6 md:p-8">
         <div className="mb-4 flex items-center justify-between gap-4">
@@ -99,7 +98,7 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
         <div className="mb-6 flex items-center gap-3 border-b border-mist/60 pb-6 font-display text-body-sm text-fog">
           <span>{post.profiles?.nickname ?? "익명"}</span>
           <span>·</span>
-          <span>{new Date(post.created_at).toLocaleDateString("ko-KR")}</span>
+          <span>{formatKstDate(post.created_at)}</span>
           <span>·</span>
           <span>조회 {post.view_count + 1}</span>
         </div>

@@ -92,8 +92,9 @@ export default function StudyHubPage() {
             <FloatingStickers className="absolute inset-0 opacity-80" />
             <div className="relative">
               <p className="mx-auto max-w-md font-display text-body text-smoke">
+                <span className="whitespace-nowrap">질문은 봄기출이 작성합니다.</span>
+                <br />
                 앱을 설치해 기출을 풀고, 막히는 순간은 AI 질문으로 이어 가세요.
-                공부는 당신이, 질문은 봄기출이.
               </p>
               <AppStoreButtons className="mt-6 justify-center" />
             </div>

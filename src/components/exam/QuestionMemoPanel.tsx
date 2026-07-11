@@ -9,14 +9,10 @@ import { Textarea } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
 import type { ExamSubject } from "@/lib/exam-questions";
 import type { PublicQuestionMemo } from "@/types/database";
+import { formatKstDateTimeShort } from "@/lib/datetime";
 
 function formatMemoDate(iso: string): string {
-  return new Date(iso).toLocaleString("ko-KR", {
-    month: "short",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  return formatKstDateTimeShort(iso);
 }
 
 function LoginHint({ href, action }: { href: string; action: string }) {
@@ -216,7 +212,7 @@ export function QuestionMemoPanel({
   };
 
   return (
-    <div className="mt-4 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 py-4">
+    <div className="mt-4 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
       <div className="mb-4">
         <h2 className="font-display text-body font-semibold text-ink">나만의 메모</h2>
         <p className="mt-1 font-display text-body-sm text-smoke">

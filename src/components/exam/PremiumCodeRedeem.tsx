@@ -35,7 +35,7 @@ export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRede
 
   if (unlocked) {
     return (
-      <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-ice/50 px-5 py-4">
+      <div className="rounded-[var(--radius-cards)] border border-carbon bg-ice/50 px-5 py-4">
         <p className="font-display text-body-sm font-semibold text-ink">
           ✅ {label} 프리미엄이 해제되어 있어요. 전체 연도의 해설을 볼 수 있어요.
         </p>
@@ -98,7 +98,7 @@ export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRede
   };
 
   return (
-    <div className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 py-4">
+    <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
       <p className="font-display text-body-sm font-semibold text-ink">
         모바일 앱에서 구매한 PC 학습 코드가 있으신가요?
       </p>

@@ -41,6 +41,7 @@ export function ExamAnswerList({
   aiContext,
   initialRevealed = false,
   selectedChoice,
+  onRevealed,
 }: {
   items: ExamQuestionItem[];
   correctChoice: string;
@@ -61,6 +62,7 @@ export function ExamAnswerList({
   initialRevealed?: boolean;
   /** 사용자가 실제로 고른 선택지 — 채점된 결과에서 선택 표시에 사용 */
   selectedChoice?: string;
+  onRevealed?: () => void;
 }) {
   const [revealed, setRevealed] = useState(initialRevealed);
   const [attemptResult, setAttemptResult] = useState<AttemptResult | null>(
@@ -157,6 +159,7 @@ export function ExamAnswerList({
           type="button"
           onClick={() => {
             setRevealed(true);
+            onRevealed?.();
             trackEvent("exam_answer_reveal", {});
             window.dispatchEvent(
               new CustomEvent("exam:answer_revealed", {
@@ -164,7 +167,7 @@ export function ExamAnswerList({
               })
             );
           }}
-          className="mt-4 flex w-full items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper py-3 font-display text-body font-semibold text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded-[var(--radius-buttons)] border border-carbon bg-paper py-3 font-display text-body font-semibold text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
         >
           정답 확인
         </button>
@@ -177,7 +180,7 @@ export function ExamAnswerList({
             type="button"
             onClick={() => recordAttempt("correct")}
             disabled={savingAttempt}
-            className={`rounded-[var(--radius-buttons)] border-[1.5px] border-carbon px-3.5 py-1.5 font-display text-body-sm font-medium transition-colors disabled:opacity-60 ${
+            className={`rounded-[var(--radius-buttons)] border border-carbon px-3.5 py-1.5 font-display text-body-sm font-medium transition-colors disabled:opacity-60 ${
               attemptResult === "correct"
                 ? "bg-[#6366f1] text-paper"
                 : "bg-paper text-ink hover:bg-snow"
@@ -189,7 +192,7 @@ export function ExamAnswerList({
             type="button"
             onClick={() => recordAttempt("wrong")}
             disabled={savingAttempt}
-            className={`rounded-[var(--radius-buttons)] border-[1.5px] border-carbon px-3.5 py-1.5 font-display text-body-sm font-medium transition-colors disabled:opacity-60 ${
+            className={`rounded-[var(--radius-buttons)] border border-carbon px-3.5 py-1.5 font-display text-body-sm font-medium transition-colors disabled:opacity-60 ${
               attemptResult === "wrong"
                 ? "bg-[#ef4444] text-paper"
                 : "bg-paper text-ink hover:bg-snow"

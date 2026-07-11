@@ -27,6 +27,7 @@
   --color-burnt: #115e59;
   --color-sky: #475569;
   --color-cream: #f8fafc;
+  --color-ios-blue: #007aff;
 
   --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-handwritten: var(--font-caveat), cursive;
@@ -106,6 +107,8 @@
   --color-burnt: #115e59;
   --color-sky: #475569;
   --color-cream: #f8fafc;
+  /* iOS system blue — 뒤로가기 등 네이티브형 컨트롤 */
+  --color-ios-blue: #007aff;
 }
 
 body {

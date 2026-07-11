@@ -3,14 +3,12 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
-import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
 import { BackLink } from "@/components/ui/BackLink";
 import {
   EXAM_SUBJECTS,
   ARCHIVE_SUBJECT_MAP,
   SUBJECT_LANDING_INFO,
-  PC_APP_URL,
   SITE_NAME,
 } from "@/lib/constants";
 import {
@@ -98,32 +96,29 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
             연도를 선택해 문항별 정답과 해설을 확인하세요.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <SecondaryButton href={`/subjects/${subject}`}>
-              {label} 자료실 보기
-            </SecondaryButton>
-            <a
-              href={PC_APP_URL}
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
-            >
-              PC앱에서 목차별·개념카드 학습
-            </a>
             <Link
               href={`/exam/${subject}/random`}
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border border-carbon bg-[#6366f1] px-5 py-2 font-display text-body-sm font-medium text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90"
             >
               🎲 {unlocked ? "랜덤 문제" : "랜덤 문제"}
             </Link>
             <Link
               href={`/exam/${subject}/wrong`}
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
             >
               📕 오답노트 연습
             </Link>
             <Link
               href={`/exam/${subject}/review`}
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
             >
               📅 오늘의 복습
+            </Link>
+            <Link
+              href={`/exam/${subject}/bookmarks`}
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+            >
+              ★ 북마크{subjectBookmarkCount > 0 ? ` (${subjectBookmarkCount})` : ""}
             </Link>
             <ReviewPdfButton
               subject={subject}

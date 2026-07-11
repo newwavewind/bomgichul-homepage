@@ -1,7 +1,7 @@
 export function CheckBadge({ label, value }: { label: string; value?: string }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border-[1.5px] border-carbon bg-electric-blue">
+      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border border-carbon bg-electric-blue">
         <svg width="9" height="9" viewBox="0 0 8 8" fill="none">
           <path
             d="M1.5 4L3.5 6L6.5 2"
@@ -31,7 +31,7 @@ export function Tag({ children, active = false, className = "" }: TagProps) {
     <span
       className={`
         inline-flex items-center rounded-[var(--radius-tags)]
-        border-[1.5px] border-carbon px-4 py-1.5
+        border border-carbon px-4 py-1.5
         font-display text-body-sm font-medium
         ${active ? "bg-carbon text-paper" : "bg-paper text-ink"}
         ${className}

@@ -14,6 +14,7 @@ import { FeatureCard } from "@/components/ui/Card";
 import { Input, Textarea } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
+import { BackLink } from "@/components/ui/BackLink";
 import { FileUpload } from "@/components/archive/FileUpload";
 import type { ResourceType } from "@/types/database";
 
@@ -105,9 +106,7 @@ export default function ArchiveUploadPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <Link href="/archive" className="mb-8 inline-block font-display text-body-sm text-fog hover:text-ink">
-        ← 자료실로
-      </Link>
+      <BackLink href="/archive">자료실로</BackLink>
 
       <EyebrowLabel className="mb-2">자료 등록</EyebrowLabel>
       <SectionHeading as="h1" className="mb-8">

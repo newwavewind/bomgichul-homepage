@@ -84,7 +84,7 @@ export function MockExamRunner({
   return (
     <div className={submitted ? "" : "pb-24"}>
       {submitted && (
-        <div className="mb-8 rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-paper p-6 text-center shadow-[var(--shadow-card)]">
+        <div className="mb-8 rounded-[var(--radius-largecards)] border border-carbon bg-paper p-6 text-center shadow-[var(--shadow-card)]">
           <p className="font-display text-body-sm text-smoke">{year}년 시험 모드 결과</p>
           <p className="mt-2 font-display text-heading-sm font-bold text-ink">
             {total}문제 중 <span className="text-[#6366f1]">{correctCount}개</span> 정답
@@ -115,7 +115,7 @@ export function MockExamRunner({
           return (
             <div
               key={q.questionNo}
-              className="rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-5"
+              className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-5"
             >
               <div className="mb-2 flex items-center justify-between gap-3">
                 <span className="font-display text-body font-bold text-ink">{q.questionNo}번</span>
@@ -134,7 +134,7 @@ export function MockExamRunner({
                 )}
               </div>
 
-              <QuestionStem stem={q.stem} />
+              <QuestionStem stem={q.stem} questionNo={q.questionNo} />
 
               {!submitted ? (
                 isStatementComposite ? (
@@ -143,7 +143,7 @@ export function MockExamRunner({
                       {q.items.map((item) => (
                         <div
                           key={item.key}
-                          className="rounded-[var(--radius-buttons)] border-[1.5px] border-mist bg-surface px-4 py-2.5 font-display text-body-sm text-ink"
+                          className="rounded-[var(--radius-buttons)] border border-mist bg-surface px-4 py-2.5 font-display text-body-sm text-ink"
                         >
                           <span className="font-semibold">{item.label}</span> {item.text}
                         </div>
@@ -174,7 +174,7 @@ export function MockExamRunner({
                             onClick={() =>
                               setAnswers((a) => ({ ...a, [q.questionNo]: String(choice.no) }))
                             }
-                            className={`flex w-full items-start gap-2 rounded-[var(--radius-buttons)] border-[1.5px] px-4 py-2.5 text-left font-display text-body-sm transition-colors ${
+                            className={`flex w-full items-start gap-2 rounded-[var(--radius-buttons)] border px-4 py-2.5 text-left font-display text-body-sm transition-colors ${
                               selected === String(choice.no)
                                 ? "border-carbon bg-snow text-ink"
                                 : "border-mist text-ink hover:bg-snow"
@@ -194,7 +194,7 @@ export function MockExamRunner({
                         key={item.key}
                         type="button"
                         onClick={() => setAnswers((a) => ({ ...a, [q.questionNo]: item.key }))}
-                        className={`flex w-full items-start gap-2 rounded-[var(--radius-buttons)] border-[1.5px] px-4 py-2.5 text-left font-display text-body-sm transition-colors ${
+                        className={`flex w-full items-start gap-2 rounded-[var(--radius-buttons)] border px-4 py-2.5 text-left font-display text-body-sm transition-colors ${
                           selected === item.key
                             ? "border-carbon bg-snow text-ink"
                             : "border-mist text-ink hover:bg-snow"

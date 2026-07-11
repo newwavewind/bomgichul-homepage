@@ -17,7 +17,7 @@ export function FeatureCard({ children, className = "", tint = "none" }: Feature
   return (
     <div
       className={`
-        rounded-[var(--radius-cards)] border-[1.5px] border-carbon/90
+        rounded-[var(--radius-cards)] border border-carbon/90
         p-[var(--card-padding)] shadow-[var(--shadow-card)]
         ${tintStyles[tint]} ${className}
       `}
@@ -31,7 +31,7 @@ export function ElevatedCard({ children, className = "" }: { children: React.Rea
   return (
     <div
       className={`
-        rounded-[var(--radius-cards)] border-[1.5px] border-carbon
+        rounded-[var(--radius-cards)] border border-carbon
         bg-paper shadow-[var(--shadow-card)] ${className}
       `}
     >
@@ -44,7 +44,7 @@ export function LargePanel({ children, className = "" }: { children: React.React
   return (
     <div
       className={`
-        rounded-[var(--radius-largecards)] border-[1.5px] border-carbon
+        rounded-[var(--radius-largecards)] border border-carbon
         bg-surface px-8 py-16 shadow-[var(--shadow-card)]
         md:px-12 md:py-20 ${className}
       `}
@@ -58,7 +58,7 @@ export function TintedAccentCard({ children, className = "" }: { children: React
   return (
     <div
       className={`
-        rounded-[var(--radius-largecards)] border-[1.5px] border-carbon
+        rounded-[var(--radius-largecards)] border border-carbon
         bg-ice p-8 shadow-[var(--shadow-card)] md:p-12 ${className}
       `}
     >

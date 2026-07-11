@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import { FeatureCard } from "@/components/ui/Card";
 import { TextButton } from "@/components/ui/Button";
 import { PremiumBadge } from "@/components/ui/PremiumBadge";
+import { formatKstDate } from "@/lib/datetime";
 import type { Comment } from "@/types/database";
 
 interface CommentItemProps {
@@ -38,7 +39,7 @@ export function CommentItem({ comment, currentUserId, authorBadge }: CommentItem
             {authorBadge && <PremiumBadge label={authorBadge} />}
           </span>
           <span className="text-fog">
-            {new Date(comment.created_at).toLocaleDateString("ko-KR")}
+            {formatKstDate(comment.created_at)}
           </span>
         </div>
         {canDelete && (
