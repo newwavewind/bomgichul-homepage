@@ -327,3 +327,60 @@
   font-size: 0.75rem;
   color: var(--hp-cx-muted);
 }
+
+.hp-cx .hp-cx-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.hp-cx .hp-cx-pager__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid color-mix(in srgb, #cbd5e1 90%, transparent);
+  border-radius: 0.85rem;
+  background: #fff;
+  box-shadow: 0 1px 0 color-mix(in srgb, #0f172a 4%, transparent);
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: var(--hp-cx-ink);
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.hp-cx a.hp-cx-pager__btn:hover {
+  border-color: color-mix(in srgb, var(--hp-cx-teal) 35%, transparent);
+  background: color-mix(in srgb, var(--hp-cx-teal) 6%, #fff);
+  color: var(--hp-cx-teal);
+}
+
+.hp-cx .hp-cx-pager__btn--prev {
+  justify-content: flex-start;
+}
+
+.hp-cx .hp-cx-pager__btn--next {
+  justify-content: flex-end;
+}
+
+.hp-cx .hp-cx-pager__btn--disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hp-cx .hp-cx-pager__arrow {
+  font-size: 0.9375rem;
+  line-height: 1;
+  color: var(--hp-cx-teal);
+}
+
+.hp-cx .hp-cx-pager__label {
+  letter-spacing: -0.02em;
+}

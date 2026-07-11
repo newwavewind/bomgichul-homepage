@@ -248,26 +248,42 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           </section>
         </article>
 
-        <div className="mt-6 flex items-center justify-between">
+        <nav className="hp-cx-pager" aria-label="이전·다음 개념">
           {prev ? (
             <Link
               href={`/concepts/${subject}/${prev.slug}`}
-              className="font-display text-body-sm text-smoke hover:text-ink"
+              className="hp-cx-pager__btn hp-cx-pager__btn--prev"
+              aria-label={`이전: ${prev.titleKo}`}
             >
-              ← {prev.titleKo}
+              <span className="hp-cx-pager__arrow" aria-hidden>
+                ←
+              </span>
+              <span className="hp-cx-pager__label">이전</span>
             </Link>
           ) : (
-            <span />
+            <span className="hp-cx-pager__btn hp-cx-pager__btn--disabled" aria-hidden>
+              <span className="hp-cx-pager__arrow">←</span>
+              <span className="hp-cx-pager__label">이전</span>
+            </span>
           )}
-          {next && (
+          {next ? (
             <Link
               href={`/concepts/${subject}/${next.slug}`}
-              className="font-display text-body-sm text-smoke hover:text-ink"
+              className="hp-cx-pager__btn hp-cx-pager__btn--next"
+              aria-label={`다음: ${next.titleKo}`}
             >
-              {next.titleKo} →
+              <span className="hp-cx-pager__label">다음</span>
+              <span className="hp-cx-pager__arrow" aria-hidden>
+                →
+              </span>
             </Link>
+          ) : (
+            <span className="hp-cx-pager__btn hp-cx-pager__btn--disabled" aria-hidden>
+              <span className="hp-cx-pager__label">다음</span>
+              <span className="hp-cx-pager__arrow">→</span>
+            </span>
           )}
-        </div>
+        </nav>
       </div>
     </div>
   );
