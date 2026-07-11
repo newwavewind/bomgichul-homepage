@@ -5,9 +5,6 @@ import { createClient } from "@/lib/supabase/client";
 import { FeatureCard, TintedAccentCard } from "@/components/ui/Card";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
-import { BrandLockup } from "@/components/ui/BrandLockup";
-import { CheckBadge } from "@/components/ui/Tag";
-import { BrandLogo } from "@/components/illustrations/BrandLogo";
 import { SITE_IDENTITY, SITE_PLATFORM, SITE_TAGLINE } from "@/lib/constants";
 
 function GoogleIcon() {
@@ -121,31 +118,11 @@ export default function LoginPage() {
 
   return (
     <div className="px-4 py-12 md:py-16">
-      <div className="mx-auto grid max-w-4xl gap-8 lg:grid-cols-2">
-        <div className="hidden lg:block">
-          <BrandLogo size="lg" className="mb-6" />
-          <BrandLockup variant="section" className="mb-6" />
-          <SectionHeading as="h1" className="mb-4 text-heading-sm">
-            공인중개사 수험생과 함께 성장하세요
-          </SectionHeading>
-          <p className="mb-8 font-display text-body text-smoke">
-            Google 계정으로 바로 로그인하고, {SITE_IDENTITY}와 학습 앱을
-            이용하세요.
-          </p>
-          <div className="space-y-4">
-            <CheckBadge label="AI 질문" value="자동 작성" />
-            <CheckBadge label="수험생 커뮤니티" value="5 카테고리" />
-            <CheckBadge label="가입" value="무료" />
-          </div>
-        </div>
-
+      <div className="mx-auto max-w-md">
         <FeatureCard tint="paper" className="border border-mist/60">
           <div className="mb-8 text-center">
-            <div className="mb-4 flex justify-center">
-              <BrandLogo size="md" />
-            </div>
             <EyebrowLabel className="mb-2">{SITE_IDENTITY}</EyebrowLabel>
-            <SectionHeading as="h2" className="text-heading-sm">
+            <SectionHeading as="h1" className="text-heading-sm">
               로그인
             </SectionHeading>
             <p className="mt-3 font-display text-body-sm text-smoke">
