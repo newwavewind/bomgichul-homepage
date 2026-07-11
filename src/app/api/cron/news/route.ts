@@ -60,11 +60,16 @@ export async function GET(request: Request) {
 
   rows = rows
     .filter((row) => !recentUrls.has(row.source_url))
-    .map((row) => ({
-      ...row,
-      // 날짜 칩 = 수집한 아침(한국 날짜). RSS 원문 날짜와 무관하게 매일 새 탭이 생기게 함
-      published_at: digestDate,
-    }));
+    .map((row) => {
+      const summary = (row.summary || "").trim() || row.title.trim();
+      return {
+        ...row,
+        summary,
+        // 날짜 칩 = 수집한 아침(한국 날짜). RSS 원문 날짜와 무관하게 매일 새 탭이 생기게 함
+        published_at: digestDate,
+      };
+    })
+    .filter((row) => row.title.trim().length > 0 && row.summary.trim().length > 0);
 
   if (rows.length === 0) {
     return NextResponse.json({
