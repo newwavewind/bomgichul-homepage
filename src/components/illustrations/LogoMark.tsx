@@ -2,7 +2,6 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
-import { SITE_NAME } from "@/lib/constants";
 
 const BETA_HINT =
   "지금은 베타 버전이에요. 다듬는 중이라 아직 미완인 부분이 있지만, 업데이트는 계속됩니다.";
@@ -31,7 +30,9 @@ export function LogoMark() {
   return (
     <div className="flex items-center gap-2">
       <Link href="/study" className="transition-opacity hover:opacity-80">
-        <span className="font-display text-body font-semibold text-ink">{SITE_NAME}</span>
+        <span className="font-display text-body font-semibold text-ink">
+          봄기출 공인중개사
+        </span>
       </Link>
 
       <div ref={wrapRef} className="group relative">

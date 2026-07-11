@@ -271,7 +271,7 @@ export const NAV_LINKS: NavLinkItem[] = [
   { href: "/study", label: "학습" },
   {
     href: "/community",
-    label: "수험생 커뮤니티",
+    label: "커뮤니티",
     children: [
       { href: "/community", label: "게시판" },
       { href: "/community?category=law_update", label: "법령정보" },

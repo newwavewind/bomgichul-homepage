@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { BrandLogo } from "@/components/illustrations/BrandLogo";
 import { SITE_NAME, NAV_LINKS, flattenNavLinks, SITE_IDENTITY, ARCHIVE_SUBJECTS } from "@/lib/constants";
 
 function NavItem({
@@ -30,7 +29,6 @@ export function Footer() {
     <footer className="mt-auto border-t border-mist bg-snow">
       <div className="mx-auto flex max-w-[var(--page-max-width)] flex-col gap-3 px-4 py-5 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex min-w-0 items-center gap-2">
-          <BrandLogo size="xs" />
           <div>
             <p className="font-display text-[13px] font-medium text-ink">
               {SITE_NAME}
