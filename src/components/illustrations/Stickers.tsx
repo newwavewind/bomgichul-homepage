@@ -88,9 +88,6 @@ export function FloatingStickers({ className = "" }: { className?: string }) {
       <div className="absolute -right-2 top-8 rotate-[14deg] md:-right-6">
         <Heart />
       </div>
-      <div className="absolute -bottom-4 left-1/3 rotate-[8deg]">
-        <Sparkle />
-      </div>
     </div>
   );
 }

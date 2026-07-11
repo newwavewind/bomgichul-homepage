@@ -134,7 +134,7 @@ export default function LoginPage() {
           </p>
           <div className="space-y-4">
             <CheckBadge label="AI 질문" value="자동 작성" />
-            <CheckBadge label="공인중개사 커뮤니티" value="5 카테고리" />
+            <CheckBadge label="수험생 커뮤니티" value="5 카테고리" />
             <CheckBadge label="가입" value="무료" />
           </div>
         </div>

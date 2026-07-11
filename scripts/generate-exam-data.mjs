@@ -112,10 +112,14 @@ for (const [subject, dir] of Object.entries(SUBJECT_EXAM_DIRS)) {
         label: c.label,
         text: c.text,
         isCorrect: Boolean(c.is_correct),
+        ...(c.explanation ? { explanation: c.explanation } : {}),
         ...(c.left != null ? { left: c.left } : {}),
         ...(c.middle != null ? { middle: c.middle } : {}),
         ...(c.right != null ? { right: c.right } : {}),
       })),
+      ...(q.explanation_summary
+        ? { explanationSummary: q.explanation_summary }
+        : {}),
       ...(q.composite_layout ? { compositeLayout: q.composite_layout } : {}),
       ...(q.table_header?.length ? { tableHeader: q.table_header } : {}),
       free: freeYears.has(q.year),

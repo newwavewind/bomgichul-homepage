@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import {
-  EyebrowLabel,
   SectionHeading,
   ElectricHighlight,
   HandCaption,
 } from "@/components/ui/Typography";
 import { BrandLockup } from "@/components/ui/BrandLockup";
-import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { PrimaryButton, SecondaryButton, OutlineButton } from "@/components/ui/Button";
-import { FeatureCard, LargePanel, TintedAccentCard } from "@/components/ui/Card";
+import { FeatureCard, LargePanel } from "@/components/ui/Card";
 import { Tag, CheckBadge } from "@/components/ui/Tag";
 import { FloatingStickers } from "@/components/illustrations/Stickers";
 import { DDayStrip } from "@/components/home/DDayStrip";
@@ -45,7 +43,7 @@ export default function HomePage() {
             <p className="max-w-md font-display text-body-lg text-smoke">
               공인중개사 기출을 풀다 막히는 순간, AI에게 물을 질문까지 만들어
               드립니다. <ElectricHighlight underline>봄기출</ElectricHighlight>은
-              공인중개사 수험생을 위한 학습 앱과 커뮤니티입니다.
+              공인중개사 수험생을 위한 학습 앱과 수험생 커뮤니티입니다.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <PrimaryButton
@@ -60,7 +58,7 @@ export default function HomePage() {
                 event="cta_click"
                 eventParams={{ location: "hero", label: "community" }}
               >
-                공인중개사 커뮤니티
+                수험생 커뮤니티
               </SecondaryButton>
               <OutlineButton
                 href="/#features"
@@ -157,7 +155,7 @@ export default function HomePage() {
           <FloatingStickers className="absolute -top-4 right-4 z-10 hidden md:block" />
           <LargePanel>
             <div className="mx-auto max-w-2xl text-center">
-              <HandCaption className="mb-3">공인중개사 커뮤니티</HandCaption>
+              <HandCaption className="mb-3">공인중개사 수험생 커뮤니티</HandCaption>
               <h2 className="font-display text-heading font-semibold text-ink">
                 앱으로 공부하고, 여기서 정보를 나눠요
               </h2>
@@ -185,7 +183,7 @@ export default function HomePage() {
                   event="cta_click"
                   eventParams={{ location: "community_panel", label: "community" }}
                 >
-                  공인중개사 커뮤니티
+                  수험생 커뮤니티
                 </PrimaryButton>
                 <SecondaryButton
                   href="/archive"
@@ -197,38 +195,6 @@ export default function HomePage() {
               </div>
             </div>
           </LargePanel>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="section-gap px-4">
-        <div className="mx-auto max-w-[var(--page-max-width)]">
-          <TintedAccentCard className="relative overflow-hidden text-center">
-            <FloatingStickers className="absolute inset-0 opacity-80" />
-            <div className="relative">
-              <p className="mx-auto mt-4 max-w-md font-display text-body text-smoke">
-                앱을 설치해 기출을 풀고, 홈페이지 커뮤니티에 가입해 수험 정보를
-                나눠보세요. 공부는 당신이, 질문은 봄기출이.
-              </p>
-              <AppStoreButtons className="mt-6 justify-center" />
-              <div className="mt-4 flex flex-wrap justify-center gap-3">
-                <PrimaryButton
-                  href="/login"
-                  event="cta_click"
-                  eventParams={{ location: "final_cta", label: "signup" }}
-                >
-                  커뮤니티 가입
-                </PrimaryButton>
-                <SecondaryButton
-                  href="/community"
-                  event="cta_click"
-                  eventParams={{ location: "final_cta", label: "community" }}
-                >
-                  게시판 둘러보기
-                </SecondaryButton>
-              </div>
-            </div>
-          </TintedAccentCard>
         </div>
       </section>
     </>

@@ -70,3 +70,4 @@ bomgichulhomepage.code-workspace
 
 # Supabase CLI local state
 supabase/.temp/
+.env*

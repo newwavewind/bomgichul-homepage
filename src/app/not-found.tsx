@@ -13,7 +13,7 @@ export default function NotFound() {
       </p>
       <div className="flex gap-3">
         <PrimaryButton href="/">홈으로</PrimaryButton>
-        <PrimaryButton href="/community">커뮤니티</PrimaryButton>
+        <PrimaryButton href="/community">수험생 커뮤니티</PrimaryButton>
       </div>
     </div>
   );

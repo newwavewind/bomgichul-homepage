@@ -71,6 +71,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 옳으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -121,6 +122,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -171,6 +173,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -221,6 +224,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -271,6 +275,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -345,6 +350,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 옳으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -395,6 +401,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -445,6 +452,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -495,6 +503,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -545,6 +554,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -595,6 +605,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -645,6 +656,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -719,6 +731,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄷ,ㄹ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -769,6 +782,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "○ [O] 비선호시설(1km이내)의 유무는 토지 확인·설명서의 기재사항이다. ○ [X] 일조량 등 환경조건은 주거용 건축물 확인·설명서의 기재사항이며, 토지 확인·설명서의 기재사항이 아니다. ○ [X] 관리주체의 유형에 관한 사항은 공동주택 등의 확인·설명서 기재사항이며, 토지 확인·설명서의 기재사항이 아니다. ○ [O] 공법상 이용제한 및 거래규제에 관한 사항은 토지 확인·설명서의 기재사항이다. ○ [O] 접근성 등 입지조건은 토지 확인·설명서의 기재사항이다.",
     "free": false
   },
   {
@@ -819,6 +833,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -869,6 +884,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "공인중개사 자격취소처분을 받아 자격증을 반납하고자 하는 자의 반납기한(ㄱ)은 7일이고, 거래정보사업자로 지정받은 자가 운영규정을 정하여 승인받아야 하는 기한(ㄴ)은 지정받은 날부터 3개월이며, 손해배상을 한 개업공인중개사가 보증을 다시 갖추어야 하는 기한(ㄷ)은 15일이다.",
     "free": false
   },
   {
@@ -919,6 +935,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -969,6 +986,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -1019,6 +1037,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -1069,6 +1088,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -1143,6 +1163,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -1193,6 +1214,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "甲의 A(부정등록, 공소제기)는 지급대상이며 단독 신고·고발이므로 50만원, 乙의 C(부정등록, 무죄판결이나 이미 공소제기가 전제된 사건이므로 지급대상)도 단독 신고이므로 50만원, D(등록증 대여, 기소유예, 甲乙 공동고발이며 배분 합의가 없으므로 균등배분)는 각 25만원씩, E(무등록중개업, 유죄판결)는 乙이 최초로 신고하였으므로 乙에게만 50만원이 귀속되고 이후에 신고한 甲에게는 지급되지 않는다.",
     "free": false
   },
   {
@@ -1243,6 +1265,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -1317,6 +1340,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄷ이 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -1391,6 +1415,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄷ,ㄹ이 금지행위에 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -1441,6 +1466,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1491,6 +1517,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "○ [O] 분사무소설치의 신고를 하는 자는 수수료납부 대상이다. ○ [O] 중개사무소의 개설등록을 신청하는 자는 수수료납부 대상이다. ○ [X] 중개사무소의 휴업을 신고하는 자는 수수료납부 대상이 아니다. ○ [O] 중개사무소등록증의 재교부를 신청하는 자는 수수료납부 대상이다. ○ [X] 공인중개사 자격시험에 합격하여 공인중개사자격증을 처음으로 교부받는 자는 수수료납부 대상이 아니며, 재교부의 경우에만 수수료가 부과된다.",
     "free": false
   },
   {
@@ -1541,6 +1568,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1591,6 +1619,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "매매의 경우 거래금액 6천만원의 0.5%인 30만원이 중개보수 최고한도액이다. 임대차의 경우 환산보증금은 보증금 1,500만원 + 월차임 30만원×100 = 4,500만원으로 5천만원 미만이 되므로, 다시 보증금 1,500만원 + 월차임 30만원×70 = 3,600만원으로 재계산하며, 이 금액의 0.5%인 18만원이 중개보수 최고한도액이다. 두 금액의 차이는 30만원-18만원=12만원(120,000원)이다.",
     "free": false
   },
   {
@@ -1641,6 +1670,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -1691,6 +1721,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1765,6 +1796,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄴ,ㄹ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -1815,6 +1847,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -1865,6 +1898,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -1915,6 +1949,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -1965,6 +2000,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2015,6 +2051,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2065,6 +2102,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "최저매각가격 2억원의 10분의 1인 보증금액은 2천만원이다. 차순위매수신고를 하려면 그 신고액이 최고가매수신고액에서 그 보증금을 뺀 금액(2억 5천만원-2천만원=2억 3천만원)을 넘어야 한다.",
     "free": false
   },
   {
@@ -2115,6 +2153,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2189,6 +2228,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ,ㄹ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -2239,6 +2279,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -2313,6 +2354,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 금지행위에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -2363,6 +2405,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2413,6 +2456,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2463,6 +2507,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -2537,6 +2582,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄷ,ㄹ이 틀린 설명이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -2611,6 +2657,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄴ,ㄷ,ㄹ이 중개대상물에 포함되지 않으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -2661,6 +2708,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2735,6 +2783,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -2785,6 +2834,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -2835,6 +2885,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2885,6 +2936,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -2935,6 +2987,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -2985,6 +3038,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3035,6 +3089,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -3085,6 +3140,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3159,6 +3215,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 미리 신고해야 하는 사유이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -3209,6 +3266,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -3259,6 +3317,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3309,6 +3368,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -3376,6 +3436,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ이 금지된 행위이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -3426,6 +3487,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3476,6 +3538,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3526,6 +3589,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -3600,6 +3664,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄷ,ㄹ이 자격정지사유에 해당하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -3674,6 +3739,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ,ㄷ이 1년 이하 징역 또는 1천만원 이하 벌금에 해당하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -3748,6 +3814,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ,ㄷ이 옳은 설명이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -3798,6 +3865,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3848,6 +3916,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -3898,6 +3967,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3948,6 +4018,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -4022,6 +4093,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄷ,ㄹ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -4072,6 +4144,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4122,6 +4195,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -4172,6 +4246,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4222,6 +4297,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -4272,6 +4348,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -4346,6 +4423,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 거래신고 대상이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -4396,6 +4474,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -4446,6 +4525,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -4496,6 +4576,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -4570,6 +4651,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ,ㄹ이 중개대상물에 해당하므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -4620,6 +4702,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -4694,6 +4777,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄷ,ㄹ이 결격사유에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -4744,6 +4828,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -4794,6 +4879,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4868,6 +4954,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 명할 수 있는 조치에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -4918,6 +5005,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4968,6 +5056,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -5018,6 +5107,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5099,6 +5189,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄴ,ㄹ,ㅁ이 겸업범위에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -5149,6 +5240,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5199,6 +5291,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -5249,6 +5342,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5299,6 +5393,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5349,6 +5444,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5399,6 +5495,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5480,6 +5577,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄷ,ㄹ,ㅁ이 틀린 설명이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -5530,6 +5628,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5580,6 +5679,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -5630,6 +5730,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5680,6 +5781,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -5730,6 +5832,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5804,6 +5907,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄴ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -5854,6 +5958,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5928,6 +6033,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄹ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -5978,6 +6084,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6028,6 +6135,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6102,6 +6210,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄴ만 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -6152,6 +6261,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -6202,6 +6312,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -6252,6 +6363,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -6302,6 +6414,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -6352,6 +6465,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6402,6 +6516,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -6476,6 +6591,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ,ㄷ이 모두 해당하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -6526,6 +6642,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -6576,6 +6693,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -6626,6 +6744,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6676,6 +6795,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6726,6 +6846,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6776,6 +6897,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6826,6 +6948,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -6900,6 +7023,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 중개대상물에 해당하지 않으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -6950,6 +7074,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7000,6 +7125,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -7050,6 +7176,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -7100,6 +7227,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7174,6 +7302,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 겸업범위에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -7224,6 +7353,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -7298,6 +7428,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ,ㄹ이 명시사항에 해당하므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -7348,6 +7479,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -7398,6 +7530,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -7448,6 +7581,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -7498,6 +7632,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -7548,6 +7683,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7622,6 +7758,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 공개해야 하는 것은 ㄹ뿐이므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -7696,6 +7833,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ,ㄹ이 조례에 따른 수수료 납부 대상이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -7770,6 +7908,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄴ,ㄷ이 매수 의뢰시 기재사항이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -7820,6 +7959,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -7870,6 +8010,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7920,6 +8061,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -7970,6 +8112,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -8020,6 +8163,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -8070,6 +8214,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -8120,6 +8265,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8170,6 +8316,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -8258,6 +8405,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄹ,ㅂ이 매수할 자로 지정될 수 있으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -8308,6 +8456,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -8358,6 +8507,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -8432,6 +8582,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ,ㄴ이 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -8482,6 +8633,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -8532,6 +8684,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -8582,6 +8735,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -8632,6 +8786,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8706,6 +8861,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄴ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -8756,6 +8912,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -8806,6 +8963,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -8856,6 +9014,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -8906,6 +9065,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -8956,6 +9116,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -9006,6 +9167,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -9080,6 +9242,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄴ,ㄷ이 결격사유에 해당하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -9154,6 +9317,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄴ이 중개대상에 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -9204,6 +9368,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -9285,6 +9450,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄴ,ㅁ이 겸업범위에 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -9335,6 +9501,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -9385,6 +9552,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -9435,6 +9603,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9485,6 +9654,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -9535,6 +9705,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -9585,6 +9756,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9635,6 +9807,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9685,6 +9858,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -9735,6 +9909,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9785,6 +9960,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9835,6 +10011,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -9885,6 +10062,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -9935,6 +10113,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -10016,6 +10195,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ,ㄹ,ㅁ이 지정취소 사유이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -10066,6 +10246,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -10147,6 +10328,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄴ,ㄷ이 바르게 연결되었으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -10197,6 +10379,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "부동산거래정보망의 가입·이용신청을 한 개업공인중개사의 수가 500명 이상이고 2개 이상의 특별시·광역시·도 및 특별자치도에서 각각 30인 이상의 개업공인중개사가 가입·이용신청을 하였을 것, 정보처리기사 1명 이상을 확보할 것, 공인중개사 1명 이상을 확보할 것(ㄱ:개업공인중개사, ㄴ:2, ㄷ:30, ㄹ:1).",
     "free": false
   },
   {
@@ -10271,6 +10454,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 옳게 구분되었으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -10352,6 +10536,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ,ㄷ,ㄹ이 벌금부과대상이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -10402,6 +10587,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -10476,6 +10662,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -10526,6 +10713,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -10576,6 +10764,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -10643,6 +10832,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -10693,6 +10883,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -10743,6 +10934,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -10793,6 +10985,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -10843,6 +11036,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -10893,6 +11087,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10943,6 +11138,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10993,6 +11189,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -11074,6 +11271,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ,ㅁ이 공통 기재사항이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -11148,6 +11346,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄷ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -11198,6 +11397,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -11248,6 +11448,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -11322,6 +11523,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ, ㄴ이 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -11389,6 +11591,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄷ만 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -11439,6 +11642,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -11489,6 +11693,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -11539,6 +11744,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -11589,6 +11795,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -11639,6 +11846,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -11706,6 +11914,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄴ만 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -11756,6 +11965,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -11830,6 +12040,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ,ㄷ이 공통사항이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -11880,6 +12091,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -11954,6 +12166,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄹ이 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -12004,6 +12217,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -12054,6 +12268,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -12128,6 +12343,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄴ,ㄷ이 틀린 내용이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -12178,6 +12394,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -12252,6 +12469,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ,ㄷ이 간판 철거 사유이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -12302,6 +12520,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -12352,6 +12571,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -12419,6 +12639,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -12469,6 +12690,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -12536,6 +12758,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ 모두 자격취소 사유이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -12586,6 +12809,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -12660,6 +12884,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 등록취소 사유이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -12710,6 +12935,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -12760,6 +12986,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -12810,6 +13037,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -12884,6 +13112,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 업무정지 사유이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -12934,6 +13163,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -12984,6 +13214,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -13058,6 +13289,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ,ㄷ이 포상금 지급대상이므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -13108,6 +13340,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -13175,6 +13408,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(복수정답: ①,④) ①,④·정답 채점 당시 ㄱ,ㄷ에 해당하는 ④(ㄱ,ㄷ)와 함께 ①(ㄱ)도 복수정답으로 인정되었다.",
     "free": false
   },
   {
@@ -13225,6 +13459,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -13275,6 +13510,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -13349,6 +13585,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ,ㄹ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -13399,6 +13636,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -13449,6 +13687,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -13499,6 +13738,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(전항정답: ①②③④⑤ 모두 인정) 전항정답·이 문항은 출제 오류로 모든 선택지가 정답으로 인정되어 전항정답 처리되었다.",
     "free": false
   },
   {
@@ -13549,6 +13789,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -13623,6 +13864,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ,ㄴ이 중개대상물에 해당하므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -13697,6 +13939,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 심의사항에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -13747,6 +13990,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -13814,6 +14058,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 결격사유가 있으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -13864,6 +14109,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -13914,6 +14160,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -13964,6 +14211,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -14014,6 +14262,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -14081,6 +14330,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -14131,6 +14381,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -14181,6 +14432,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -14231,6 +14483,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -14305,6 +14558,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 지정취소 사유에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -14355,6 +14609,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -14405,6 +14660,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -14455,6 +14711,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -14529,6 +14786,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ,ㄹ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -14596,6 +14854,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ이 기준에 부합하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -14663,6 +14922,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄴ만 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -14713,6 +14973,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -14763,6 +15024,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -14837,6 +15099,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ,ㄹ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -14887,6 +15150,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -14937,6 +15201,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -14987,6 +15252,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -15068,6 +15334,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ,ㅁ 모두 외국인등에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -15093,7 +15360,7 @@
         "label": "②",
         "text": "1개",
         "answer": "O",
-        "explanation": "옳은 지문은 1개이다."
+        "explanation": "옳다. 제시된 4개 지문 중 옳은 것의 개수를 묻는 문제이다. 옳은 지문이 1개이므로 정답은 ②(1개)이다."
       },
       {
         "key": "3",
@@ -15118,6 +15385,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "제시된 4개 지문 중 옳은 것의 개수를 묻는 문제이다. 옳은 지문이 1개이므로 정답은 ②(1개)이다.",
     "free": false
   },
   {
@@ -15185,6 +15453,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -15235,6 +15504,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -15302,6 +15572,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -15352,6 +15623,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -15426,6 +15698,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ,ㄴ이 제외·생략 가능하므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -15476,6 +15749,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -15543,6 +15817,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -15593,6 +15868,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -15643,6 +15919,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -15717,6 +15994,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ,ㄷ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -15767,6 +16045,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -15817,6 +16096,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -15884,6 +16164,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ이 금지행위에 해당하므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -15934,6 +16215,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -15984,6 +16266,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -16034,6 +16317,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -16084,6 +16368,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -16158,6 +16443,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄴ,ㄷ이 중개대상물에 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -16208,6 +16494,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -16258,6 +16545,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -16325,6 +16613,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄴ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -16375,6 +16664,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -16425,6 +16715,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -16475,6 +16766,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -16525,6 +16817,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -16575,6 +16868,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -16625,6 +16919,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -16675,6 +16970,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -16725,6 +17021,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -16799,6 +17096,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄷ이 예치명의자가 될 수 있으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -16849,6 +17147,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -16899,6 +17198,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -16973,6 +17273,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ,ㄹ이 금지되는 행위이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -17047,6 +17348,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 6개월 기준에 해당하므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -17097,6 +17399,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -17147,6 +17450,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -17197,6 +17501,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -17264,6 +17569,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄴ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -17314,6 +17620,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -17364,6 +17671,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -17431,6 +17739,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -17481,6 +17790,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -17531,6 +17841,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -17581,6 +17892,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -17631,6 +17943,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -17698,6 +18011,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -17765,6 +18079,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ이 틀린 것이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -17815,6 +18130,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -17882,6 +18198,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ이 틀린 것이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -17949,6 +18266,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 틀린 것이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -17999,6 +18317,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -18066,6 +18385,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -18116,6 +18436,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제2조의2)",
     "free": true
   },
   {
@@ -18166,6 +18487,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제14조)",
     "free": true
   },
   {
@@ -18216,6 +18538,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제21조)",
     "free": true
   },
   {
@@ -18283,6 +18606,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(공인중개사법 제25조·제34조, 시행령 제28조)",
     "free": true
   },
   {
@@ -18333,6 +18657,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제15조)",
     "free": true
   },
   {
@@ -18383,6 +18708,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 시행령 제33조)",
     "free": true
   },
   {
@@ -18457,6 +18783,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(공인중개사의 매수신청대리인 등록 등에 관한 규칙 제2조)",
     "free": true
   },
   {
@@ -18531,6 +18858,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(공인중개사법 제17조)",
     "free": true
   },
   {
@@ -18581,6 +18909,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제9조·제10조)",
     "free": true
   },
   {
@@ -18631,6 +18960,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제23조)",
     "free": true
   },
   {
@@ -18681,6 +19011,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제24조)",
     "free": true
   },
   {
@@ -18731,6 +19062,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제31조)",
     "free": true
   },
   {
@@ -18805,6 +19137,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(공인중개사법 제33조 제2항)",
     "free": true
   },
   {
@@ -18855,6 +19188,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제48조·제49조)",
     "free": true
   },
   {
@@ -18905,6 +19239,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제32조)",
     "free": true
   },
   {
@@ -18955,6 +19290,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 시행규칙 별표4)",
     "free": true
   },
   {
@@ -19005,6 +19341,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제38조)",
     "free": true
   },
   {
@@ -19055,6 +19392,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 제42조)",
     "free": true
   },
   {
@@ -19129,6 +19467,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(공인중개사법 제26조)",
     "free": true
   },
   {
@@ -19179,6 +19518,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사법 시행규칙 별지 서식)",
     "free": true
   },
   {
@@ -19253,6 +19593,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(공인중개사법 제41조)",
     "free": true
   },
   {
@@ -19303,6 +19644,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산 거래신고 등에 관한 법률 제10조)",
     "free": true
   },
   {
@@ -19353,6 +19695,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산 거래신고 등에 관한 법률 시행령 제3조)",
     "free": true
   },
   {
@@ -19403,6 +19746,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산 거래신고 등에 관한 법률 제6조의2)",
     "free": true
   },
   {
@@ -19453,6 +19797,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산 거래신고 등에 관한 법률 제3조·제3조의2)",
     "free": true
   },
   {
@@ -19503,6 +19848,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산 거래신고 등에 관한 법률 제8조)",
     "free": true
   },
   {
@@ -19570,6 +19916,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(부동산 거래신고 등에 관한 법률 제14조)",
     "free": true
   },
   {
@@ -19620,6 +19967,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산 거래신고 등에 관한 법률 제3조)",
     "free": true
   },
   {
@@ -19670,6 +20018,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(주택임대차보호법 제3조·제3조의5, 민사집행법)",
     "free": true
   },
   {
@@ -19720,6 +20069,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(민사집행법 제83조·제92조)",
     "free": true
   },
   {
@@ -19770,6 +20120,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공인중개사의 매수신청대리인 등록 등에 관한 규칙)",
     "free": true
   },
   {
@@ -19820,6 +20171,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(집합건물의 소유 및 관리에 관한 법률 제10조·제20조)",
     "free": true
   },
   {
@@ -19894,6 +20246,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(민법 제643조, 판례)",
     "free": true
   },
   {
@@ -19968,6 +20321,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(주택임대차보호법 제3조의3, 민사집행법 제292조)",
     "free": true
   },
   {
@@ -20035,6 +20389,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(민법 제263조·제264조, 판례)",
     "free": true
   },
   {
@@ -20085,6 +20440,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산 실권리자명의 등기에 관한 법률 제4조, 판례)",
     "free": true
   },
   {
@@ -20135,6 +20491,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(주택임대차보호법 제6조의3)",
     "free": true
   },
   {
@@ -20185,6 +20542,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(상가건물 임대차보호법 제3조·제4조·제5조)",
     "free": true
   },
   {
@@ -20252,6 +20610,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(분묘기지권 관련 판례)",
     "free": true
   },
   {
@@ -20302,6 +20661,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(장사 등에 관한 법률 제14조·제19조)",
     "free": true
   },
   {
@@ -20352,6 +20712,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -20419,6 +20780,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄱ, ㄴ)",
     "free": true
   },
   {
@@ -20469,6 +20831,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -20519,6 +20882,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -20586,6 +20950,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄱ, ㄷ)",
     "free": true
   },
   {
@@ -20653,6 +21018,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄱ, ㄴ)",
     "free": true
   },
   {
@@ -20703,6 +21069,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -20770,6 +21137,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(ㄱ, ㄴ, ㄷ)",
     "free": true
   },
   {
@@ -20820,6 +21188,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -20870,6 +21239,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -20937,6 +21307,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄱ, ㄴ)",
     "free": true
   },
   {
@@ -20987,6 +21358,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -21037,6 +21409,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -21104,6 +21477,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄴ, ㄷ)",
     "free": true
   },
   {
@@ -21171,6 +21545,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(ㄱ, ㄴ, ㄷ)",
     "free": true
   },
   {
@@ -21221,6 +21596,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -21288,6 +21664,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(ㄱ, ㄴ, ㄷ)",
     "free": true
   },
   {
@@ -21355,6 +21732,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄱ, ㄴ)",
     "free": true
   },
   {
@@ -21405,6 +21783,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -21455,6 +21834,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -21522,6 +21902,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄷ)",
     "free": true
   },
   {
@@ -21589,6 +21970,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄱ, ㄷ)",
     "free": true
   },
   {
@@ -21639,6 +22021,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -21689,6 +22072,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -21739,6 +22123,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -21789,6 +22174,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -21839,6 +22225,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -21906,6 +22293,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄷ)",
     "free": true
   },
   {
@@ -21956,6 +22344,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -22006,6 +22395,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -22056,6 +22446,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": true
   },
   {
@@ -22106,6 +22497,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -22180,6 +22572,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄱ, ㄴ, ㄹ)",
     "free": true
   },
   {
@@ -22230,6 +22623,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "전용면적 85제곱미터 이하이면서 상·하수도 시설을 갖춘 전용입식 부엌, 전용수세식 화장실 및 목욕시설을 갖춘 「건축법 시행령」상 오피스텔의 중개보수는 매매·교환의 경우 거래금액의 \"1천분의 5\", 임대차 등의 경우 거래금액의 \"1천분의 4\" 범위에서 결정한다. 위 요건을 충족하지 못하는 오피스텔은 거래금액의 1천분의 9 이내에서 당사자간 협의로 정한다. (시행규칙 제20조 제4항)",
     "free": true
   },
   {
@@ -22280,6 +22674,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -22330,6 +22725,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -22397,6 +22793,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄷ)",
     "free": true
   },
   {
@@ -22447,6 +22844,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -22497,6 +22895,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": true
   },
   {
@@ -22564,6 +22963,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄷ)",
     "free": true
   }
 ]

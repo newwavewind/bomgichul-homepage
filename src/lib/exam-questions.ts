@@ -21,6 +21,7 @@ export interface ExamComboChoice {
   label: string;
   text: string;
   isCorrect: boolean;
+  explanation?: string;
   left?: string;
   right?: string;
   middle?: string;
@@ -39,6 +40,8 @@ export interface ExamQuestion {
   items: ExamQuestionItem[];
   comboChoices: ExamComboChoice[];
   free: boolean;
+  /** 문항 전체 해설 요약(계산·근거). SEO·상세에 보기별 해설과 함께 노출 */
+  explanationSummary?: string;
   compositeLayout?: "table" | "statements";
   tableHeader?: string[];
 }

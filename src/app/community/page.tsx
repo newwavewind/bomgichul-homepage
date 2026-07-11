@@ -31,11 +31,11 @@ export async function generateMetadata({
   const category = (params.category as CommunityListFilter) || "all";
   const search = params.q?.trim() ?? "";
 
-  let title = "공인중개사 커뮤니티";
+  let title = "공인중개사 수험생 커뮤니티";
   if (category === "best") {
-    title = "베스트 글 | 공인중개사 커뮤니티";
+    title = "베스트 글 | 공인중개사 수험생 커뮤니티";
   } else if (category !== "all") {
-    title = `${CATEGORY_MAP[category]} | 공인중개사 커뮤니티`;
+    title = `${CATEGORY_MAP[category]} | 공인중개사 수험생 커뮤니티`;
   }
   if (page > 1) title = `${title} ${page}페이지`;
 
@@ -73,8 +73,8 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <EyebrowLabel className="mb-2">공인중개사 수험생 커뮤니티</EyebrowLabel>
-            <SectionHeading as="h1">공인중개사 커뮤니티</SectionHeading>
+            <EyebrowLabel className="mb-2">함께 공부하는 사람들</EyebrowLabel>
+            <SectionHeading as="h1">공인중개사 수험생 커뮤니티</SectionHeading>
             <p className="mt-2 font-display text-body-sm text-smoke">
               {category === "best"
                 ? `조회 ${BEST_POST_MIN_VIEWS}회 이상 인기 글 · 총 ${total}개`

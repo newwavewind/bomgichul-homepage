@@ -79,12 +79,12 @@ export default function OnboardingPage() {
           <div className="mb-4 flex justify-center">
             <BrandLogo size="md" />
           </div>
-          <EyebrowLabel className="mb-2">공인중개사 커뮤니티</EyebrowLabel>
+          <EyebrowLabel className="mb-2">공인중개사 수험생 커뮤니티</EyebrowLabel>
           <SectionHeading as="h1" className="text-heading-sm">
             아이디 만들기
           </SectionHeading>
           <p className="mt-3 font-display text-body-sm text-smoke">
-            실명·이메일은 공개되지 않습니다. 공인중개사 커뮤니티·수험일기·자료실에서는
+            실명·이메일은 공개되지 않습니다. 수험생 커뮤니티·수험일기·자료실에서는
             아이디로만 활동합니다.
           </p>
         </div>

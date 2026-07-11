@@ -47,6 +47,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -97,6 +98,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -147,6 +149,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "경계점좌표등록부에 등록하는 지역에서는 토지의 면적을 제곱미터 이하 한 자리 단위(0.1㎡ 단위)로 결정한다.",
     "free": false
   },
   {
@@ -197,6 +200,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -247,6 +251,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -297,6 +302,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -347,6 +353,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -397,6 +404,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -447,6 +455,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -497,6 +506,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -547,6 +557,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -597,6 +608,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -647,6 +659,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "甲의 소유권이전등기청구권보전 가등기(2016.3.4.) 이후에 마쳐진 등기 중 본등기 내용과 저촉되는 등기는 직권말소 대상이 되나, 가등기 이전의 선순위 권리나 가등기상 권리 자체를 목적으로 한 처분등기는 말소되지 않는다.",
     "free": false
   },
   {
@@ -697,6 +710,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -747,6 +761,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -797,6 +812,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -847,6 +863,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -897,6 +914,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -947,6 +965,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -1028,6 +1047,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ,ㄷ이 해당하므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -1102,6 +1122,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 옳으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -1152,6 +1173,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -1202,6 +1224,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1252,6 +1275,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -1312,6 +1336,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄴ,ㄷ,ㄹ,ㅁ이 지목의 종류에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -1362,6 +1387,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "지적기준점의 설치가 필요 없는 경우로서 측량기간과 측량검사기간을 합쳐 정한 때에는 그 기간의 4분의 3을 측량기간으로, 4분의 1을 측량검사기간으로 본다.",
     "free": false
   },
   {
@@ -1412,6 +1438,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -1462,6 +1489,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -1512,6 +1540,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "지적소관청은 축척변경을 하려면 축척변경 시행지역의 토지소유자 3분의 2 이상(ㄱ)의 동의를 받아 축척변경위원회의 의결을 거친 후 시·도지사 또는 대도시 시장(ㄴ)의 승인을 받아야 하고, 축척변경 시행지역의 토지소유자 또는 점유자는 시행공고일부터 30일(ㄷ) 이내에 시행공고일 현재 점유하고 있는 경계에 경계점표지를 설치하여야 한다.",
     "free": false
   },
   {
@@ -1562,6 +1591,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1612,6 +1642,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -1693,6 +1724,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ,ㄷ이 해당하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -1743,6 +1775,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -1793,6 +1826,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -1843,6 +1877,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1893,6 +1928,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(전항정답: ①②③④⑤ 모두 인정) 전항정답·이 문항은 출제 오류로 모든 선택지가 정답으로 인정되어 전항정답 처리되었다.",
     "free": false
   },
   {
@@ -1943,6 +1979,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -1993,6 +2030,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -2043,6 +2081,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2093,6 +2132,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2174,6 +2214,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄴ,ㄹ이 틀린 설명이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -2224,6 +2265,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -2274,6 +2316,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2355,6 +2398,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄴ,ㄹ이 해당하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -2405,6 +2449,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2455,6 +2500,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -2505,6 +2551,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2555,6 +2602,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -2622,6 +2670,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 연결이 틀린 것은 ㄴ,ㄷ,ㅁ이므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -2672,6 +2721,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -2722,6 +2772,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2782,6 +2833,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄷ,ㄹ,ㅁ이 지적도의 축척에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -2832,6 +2884,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -2882,6 +2935,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2932,6 +2986,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -2982,6 +3037,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3032,6 +3088,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3082,6 +3139,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -3163,6 +3221,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄴ,ㄷ,ㄹ,ㅁ이 공통 등록사항이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -3213,6 +3272,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3287,6 +3347,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄴ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -3337,6 +3398,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -3387,6 +3449,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3461,6 +3524,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ,ㄴ이 각하사유이므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -3511,6 +3575,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3592,6 +3657,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㅁ이 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -3642,6 +3708,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3692,6 +3759,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -3742,6 +3810,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -3792,6 +3861,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -3842,6 +3912,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3892,6 +3963,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -3942,6 +4014,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -3992,6 +4065,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4042,6 +4116,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -4092,6 +4167,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -4159,6 +4235,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -4209,6 +4286,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -4283,6 +4361,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄹ이 직권 정정사유이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -4333,6 +4412,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -4383,6 +4463,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4457,6 +4538,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 지적측량을 실시하여야 하는 경우이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -4507,6 +4589,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -4557,6 +4640,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -4607,6 +4691,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -4688,6 +4773,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ,ㅁ 모두 각하사유이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -4738,6 +4824,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -4788,6 +4875,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4838,6 +4926,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -4919,6 +5008,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄹ,ㅁ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -4969,6 +5059,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -5019,6 +5110,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5069,6 +5161,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5119,6 +5212,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -5169,6 +5263,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5219,6 +5314,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5269,6 +5365,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -5319,6 +5416,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5369,6 +5467,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -5419,6 +5518,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5469,6 +5569,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5519,6 +5620,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5569,6 +5671,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5619,6 +5722,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5669,6 +5773,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "도시개발사업 등의 사업시행자는 그 사업의 착수·변경 및 완료 사실을 지적소관청에 신고하여야 하며(ㄱ:지적소관청), 그 신고는 사유가 발생한 날부터 15일 이내에 하여야 한다(ㄴ:15일).",
     "free": false
   },
   {
@@ -5719,6 +5824,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "지적소관청은 등록사항 정정 대상토지에 대한 대장을 열람하게 하거나 등본을 발급하는 때에는 \"등록사항 정정 대상토지\"라고 적은 부분을 흑백의 반전으로 표시하거나 붉은색으로 적어야 한다(ㄱ:등록사항 정정 대상토지, ㄴ:붉은색).",
     "free": false
   },
   {
@@ -5769,6 +5875,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5819,6 +5926,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5893,6 +6001,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄷ,ㄹ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -5943,6 +6052,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -6017,6 +6127,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ,ㄷ이 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -6084,6 +6195,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄷ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -6151,6 +6263,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄴ,ㄷ이 옳으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -6201,6 +6314,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -6251,6 +6365,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6301,6 +6416,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6375,6 +6491,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ,ㄹ이 틀렸으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -6425,6 +6542,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -6475,6 +6593,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -6525,6 +6644,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6575,6 +6695,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6625,6 +6746,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6706,6 +6828,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄷ,ㄹ이 임야도의 축척이므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -6756,6 +6879,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6837,6 +6961,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ,ㅁ 모두 등록사항이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -6887,6 +7012,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -6937,6 +7063,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -7018,6 +7145,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ,ㅁ 모두 공통 등록사항이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -7092,6 +7220,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄹ이 의뢰 대상이 아니므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -7142,6 +7271,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "축척변경위원회는 5명 이상 10명 이하의 위원으로 구성하되, 위원의 2분의 1 이상을 토지소유자로 하여야 한다. 그 축척변경 시행지역의 토지소유자가 5명 이하일 때에는 토지소유자 전원을 위원으로 위촉하여야 한다. 위원장은 위원 중에서 지적소관청이 지명한다(ㄱ:5명, ㄴ:5명, ㄷ:지적소관청).",
     "free": false
   },
   {
@@ -7192,6 +7322,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -7266,6 +7397,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ,ㄷ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -7316,6 +7448,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -7390,6 +7523,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄴ,ㄹ이 단독신청 대상이므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -7440,6 +7574,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7521,6 +7656,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄷ,ㄹ,ㅁ이 검인 대상이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -7595,6 +7731,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄴ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -7645,6 +7782,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7695,6 +7833,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -7745,6 +7884,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -7819,6 +7959,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄷ,ㄹ이 등기사항이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -7869,6 +8010,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -7919,6 +8061,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -7993,6 +8136,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄴ,ㄷ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -8043,6 +8187,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8093,6 +8238,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -8111,38 +8257,39 @@
         "label": "①",
         "text": "ㄱ: 시·군·구, ㄴ: 읍·면·동",
         "answer": "O",
-        "explanation": "토지이동현황 조사계획은 시·군·구별로 수립하되, 부득이한 사유가 있는 때에는 읍·면·동별로 수립할 수 있다. ㄱ:시·군·구, ㄴ:읍·면·동."
+        "explanation": "옳다. 조사계획은 시·군·구별로 수립(ㄱ)하고, 부득이하면 읍·면·동별(ㄴ)로 수립할 수 있다."
       },
       {
         "key": "2",
         "label": "②",
         "text": "ㄱ: 시·군·구, ㄴ: 시·도",
         "answer": "X",
-        "explanation": "ㄱ,ㄴ이 순서가 바뀌어 있어 틀렸다."
+        "explanation": "틀림. ㄴ을 시·도로 두면 법령상 하위 단위(읍·면·동)와 다르다. 정답은 ㄱ 시·군·구, ㄴ 읍·면·동."
       },
       {
         "key": "3",
         "label": "③",
         "text": "ㄱ: 읍·면·동, ㄴ: 시·군·구",
         "answer": "X",
-        "explanation": "ㄱ,ㄴ이 순서가 바뀌어 있어 틀렸다."
+        "explanation": "틀림. ㄱ·ㄴ이 바뀌어 있다. 원칙은 시·군·구, 예외는 읍·면·동이다."
       },
       {
         "key": "4",
         "label": "④",
         "text": "ㄱ: 읍·면·동, ㄴ: 시·도",
         "answer": "X",
-        "explanation": "ㄱ,ㄴ이 순서가 바뀌어 있어 틀렸다."
+        "explanation": "틀림. ㄱ을 읍·면·동, ㄴ을 시·도로 두면 원칙·예외 모두 틀리다."
       },
       {
         "key": "5",
         "label": "⑤",
         "text": "ㄱ: 시·도, ㄴ: 시·군·구",
         "answer": "X",
-        "explanation": "ㄱ,ㄴ이 실제 규정과 다르다."
+        "explanation": "틀림. ㄱ을 시·도로 두면 원칙(시·군·구)과 다르다."
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "토지이동현황 조사계획은 시·군·구별로 수립하되, 부득이한 사유가 있으면 읍·면·동별로 수립할 수 있다. 따라서 ㄱ=시·군·구, ㄴ=읍·면·동이 정답이다.",
     "free": false
   },
   {
@@ -8193,6 +8340,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -8243,6 +8391,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -8293,6 +8442,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8343,6 +8493,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -8393,6 +8544,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -8443,6 +8595,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -8493,6 +8646,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -8543,6 +8697,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -8593,6 +8748,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8643,6 +8799,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -8717,6 +8874,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ,ㄹ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -8767,6 +8925,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -8817,6 +8976,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8867,6 +9027,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -8917,6 +9078,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8967,6 +9129,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -9017,6 +9180,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -9067,6 +9231,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -9117,6 +9282,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -9167,6 +9333,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9217,6 +9384,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9267,6 +9435,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -9317,6 +9486,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9367,6 +9537,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -9417,6 +9588,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -9498,6 +9670,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ,ㄷ,ㄹ이 공통 등록사항이므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -9548,6 +9721,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -9598,6 +9772,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -9648,6 +9823,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9722,6 +9898,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄴ,ㄷ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -9772,6 +9949,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -9822,6 +10000,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -9872,6 +10051,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -9922,6 +10102,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -9996,6 +10177,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ,ㄷ이 등기할 수 없는 것이므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -10046,6 +10228,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -10120,6 +10303,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄴ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -10170,6 +10354,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -10220,6 +10405,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10270,6 +10456,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -10320,6 +10507,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -10394,6 +10582,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ,ㄹ이 해당하므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -10444,6 +10633,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -10494,6 +10684,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -10544,6 +10735,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10594,6 +10786,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 제89조)",
     "free": true
   },
   {
@@ -10644,6 +10837,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 시행령 제58조·제59조)",
     "free": true
   },
   {
@@ -10694,6 +10888,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 제65조)",
     "free": true
   },
   {
@@ -10761,6 +10956,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(공간정보관리법 시행령 제56조)",
     "free": true
   },
   {
@@ -10811,6 +11007,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "o 분할 후 각 필지의 면적합계가 분할 전 면적보다 많은 경우에는 구하려는 (끝자리의 다음 숫자가 작은 것)부터 순차적으로 버려서 정하되, 분할 전 면적에 증감이 없도록 할 것 o 분할 후 각 필지의 면적합계가 분할 전 면적보다 적은 경우에는 구하려는 (끝자리의 다음 숫자가 큰 것)부터 순차적으로 올려서 정하되, 분할 전 면적에 증감이 없도록 할 것 (공간정보관리법 시행령 제60조)",
     "free": true
   },
   {
@@ -10861,6 +11058,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 제80조)",
     "free": true
   },
   {
@@ -10911,6 +11109,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 시행령 제82조)",
     "free": true
   },
   {
@@ -10961,6 +11160,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 시행령 제58조)",
     "free": true
   },
   {
@@ -11011,6 +11211,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "지적도의 축척은 1/500, 1/600, 1/1000, 1/1200, 1/2400, 1/3000, 1/6000이며, 임야도의 축척은 1/3000, 1/6000이다. 두 지적공부에 공통으로 존재하는 축척은 1/3000과 1/6000이다. (공간정보관리법 시행규칙 제69조)",
     "free": true
   },
   {
@@ -11061,6 +11262,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 시행규칙 제68조·제71조)",
     "free": true
   },
   {
@@ -11135,6 +11337,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(공간정보관리법 시행규칙 제73조)",
     "free": true
   },
   {
@@ -11185,6 +11388,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 제83조·제84조)",
     "free": true
   },
   {
@@ -11235,6 +11439,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제70조·제72조·제74조·제75조)",
     "free": true
   },
   {
@@ -11285,6 +11490,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제23조)",
     "free": true
   },
   {
@@ -11335,6 +11541,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제24조·제50조)",
     "free": true
   },
   {
@@ -11409,6 +11616,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(부동산등기법 제29조)",
     "free": true
   },
   {
@@ -11476,6 +11684,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(부동산등기법, 판례)",
     "free": true
   },
   {
@@ -11526,6 +11735,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제52조·제78조, 판례)",
     "free": true
   },
   {
@@ -11576,6 +11786,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제53조, 민법 제590조)",
     "free": true
   },
   {
@@ -11643,6 +11854,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(부동산등기법 제74조, 주택임대차보호법 제3조의3)",
     "free": true
   },
   {
@@ -11710,6 +11922,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(부동산등기법 제78조, 부동산등기규칙 제133조)",
     "free": true
   },
   {
@@ -11760,6 +11973,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "가등기에 의한 본등기가 되면, 본등기와 저촉되는(양립할 수 없는) 중간처분등기만 직권말소 대상이 된다. (부동산등기법 제92조)",
     "free": true
   },
   {
@@ -11810,6 +12024,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제22조·제29조·제96조)",
     "free": true
   },
   {
@@ -11860,6 +12075,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제91조, 판례)",
     "free": true
   },
   {
@@ -11910,6 +12126,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -11960,6 +12177,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 시행령 제58조)",
     "free": true
   },
   {
@@ -12010,6 +12228,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 제76조의2 이하)",
     "free": true
   },
   {
@@ -12060,6 +12279,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "축척 600분의 1인 지역 및 경계점좌표등록부 시행지역에서는 1필지의 면적을 제곱미터 이하 한 자리 단위(0.1㎡)까지 등록한다. 이때 0.1㎡ 미만의 끝수가 0.05㎡ 미만이면 버리고, 0.05㎡를 초과하면 올리며, 0.05㎡인 경우에는 앞자리 숫자가 0 또는 짝수이면 버리고 홀수이면 올린다. 928.651㎡ → 0.1㎡ 단위 끝수는 0.051㎡로 0.05㎡를 초과하므로 올림 → 928.7㎡. (공간정보관리법 시행령 제60조)",
     "free": true
   },
   {
@@ -12110,6 +12330,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 시행령 제83조)",
     "free": true
   },
   {
@@ -12160,6 +12381,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 제87조의2)",
     "free": true
   },
   {
@@ -12210,6 +12432,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 제83조·제84조)",
     "free": true
   },
   {
@@ -12260,6 +12483,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 제65조, 지상경계의 구분 등에 관한 규정)",
     "free": true
   },
   {
@@ -12310,6 +12534,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "o (ㄱ: 시·도지사)로부터 지적측량 적부심사청구를 회부받은 지방지적위원회는 그 심사청구를 회부받은 날부터 (ㄴ: 60일) 이내에 심의·의결하여야 한다. 다만, 부득이한 경우에는 그 심의기간을 해당 지적위원회의 의결을 거쳐 30일 이내에서 한 번만 연장할 수 있다. o (ㄷ: 시·도지사)은(는) 지방지적위원회의 의결서를 받은 날부터 (ㄹ: 7일) 이내에 지적측량 적부심사 청구인 및 이해관계인에게 그 의결서를 통지하여야 한다. (공간정보관리법 제29조)",
     "free": true
   },
   {
@@ -12384,6 +12609,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(공간정보관리법 시행령 제63조·제64조)",
     "free": true
   },
   {
@@ -12465,6 +12691,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(공간정보관리법 시행령 제82조)",
     "free": true
   },
   {
@@ -12515,6 +12742,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(공간정보관리법 제28조·시행령 제20조)",
     "free": true
   },
   {
@@ -12565,6 +12793,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제23조)",
     "free": true
   },
   {
@@ -12646,6 +12875,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "합필하려는 토지에 소유권·지상권·전세권·임차권 및 승역지에 하는 지역권의 등기가 있는 경우에는 그 등기가 있는 상태 그대로 합필할 수 있다. 그 외의 등기(저당권, 가등기담보권, 가압류 등)가 있으면 원칙적으로 합필할 수 없으나, 예외적으로 합필하려는 모든 토지에 등기원인 및 그 연월일과 접수번호가 모두 동일한 저당권의 등기가 있는 경우에는 합필할 수 있다. (부동산등기법 제38조·부동산등기규칙 제60조)",
     "free": true
   },
   {
@@ -12696,6 +12926,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제24조, 대법원 판례)",
     "free": true
   },
   {
@@ -12746,6 +12977,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제23조, 민법상 조합의 법적 성질)",
     "free": true
   },
   {
@@ -12796,6 +13028,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제52조)",
     "free": true
   },
   {
@@ -12870,6 +13103,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(부동산등기법 제64조·제66조)",
     "free": true
   },
   {
@@ -12920,6 +13154,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "승역지의 등기기록에 지역권설정등기를 할 때에는 지역권설정의 목적, 범위, 요역지, 등기원인 및 그 연월일을 기록한다. \"지역권자\"는 요역지의 소유자에게 당연히 귀속되는 것이어서 별도로 기록하지 않는다(요역지 등기기록을 통해 파악된다). (부동산등기법 제70조)",
     "free": true
   },
   {
@@ -12970,6 +13205,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제74조)",
     "free": true
   },
   {
@@ -13020,6 +13256,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제24조·제28조)",
     "free": true
   },
   {
@@ -13070,6 +13307,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(부동산등기법 제84조·제85조, 신탁법 제50조)",
     "free": true
   },
   {
@@ -13120,6 +13358,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "지상권설정등기청구권보전 가등기에 의해 지상권설정의 본등기가 된 경우, 가등기 후 본등기 전에 마쳐진 중간처분등기 중 본등기(지상권)와 \"양립할 수 없는\" 등기만 직권말소 대상이 된다. 저당권·압류·가압류·가처분·소유권이전 등 처분제한이나 담보물권·소유권 관련 등기는 용익물권인 지상권과 양립 가능하여 말소되지 않는다. 반면 동일 부분에 대한 \"토지임차권설정등기\"는 지상권과 동일한 용익권으로서 양립할 수 없어 직권말소 대상이 된다. (부동산등기법 제92조)",
     "free": true
   },
   {
@@ -13194,6 +13433,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "(부동산등기법 제107조·제108조)",
     "free": true
   }
 ]

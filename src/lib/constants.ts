@@ -5,7 +5,7 @@ export const SITE_URL = "https://www.bomgichul.com";
 /** 핵심 슬로건 */
 export const SITE_TAGLINE = "질문은 봄기출이 작성합니다.";
 /** 커뮤니티 아이덴티티 */
-export const SITE_IDENTITY = "공인중개사 커뮤니티";
+export const SITE_IDENTITY = "공인중개사 수험생 커뮤니티";
 /** 플랫폼 포지셔닝 */
 export const SITE_PLATFORM = "공인중개사 AI 학습 플랫폼";
 /** 전체 브랜딩 문구 */
@@ -207,9 +207,9 @@ export const FAQ_ITEMS = [
       "10년치 기출 해설을 분석해 「시험이 실제로 묻는 쟁점」 단위로 O/X 선지를 주제별로 모았습니다. 교재 목차가 아니라 출제 패턴 기준으로 정리된 카드입니다.",
   },
   {
-    question: "커뮤니티는 어떻게 이용하나요?",
+    question: "수험생 커뮤니티는 어떻게 이용하나요?",
     answer:
-      "홈페이지 커뮤니티에서 자유게시판, 질문, 자료공유, 수험정보, 합격후기 카테고리로 글을 작성할 수 있습니다. 기출 PDF·노트·요약 자료는 자료실에서 등록하고 다운로드할 수 있어요. 게시글은 누구나 볼 수 있고, 글쓰기·댓글·자료 업로드는 로그인 후 이용 가능합니다.",
+      "공인중개사 수험생 커뮤니티에서 자유게시판, 질문, 자료공유, 수험정보, 합격후기 카테고리로 글을 작성할 수 있습니다. 기출 PDF·노트·요약 자료는 자료실에서 등록하고 다운로드할 수 있어요. 게시글은 누구나 볼 수 있고, 글쓰기·댓글·자료 업로드는 로그인 후 이용 가능합니다.",
   },
   {
     question: "자료실에는 어떤 자료를 올릴 수 있나요?",
@@ -268,12 +268,10 @@ export function flattenNavLinks(links: NavLinkItem[]): NavChildLink[] {
 }
 
 export const NAV_LINKS: NavLinkItem[] = [
-  { href: "/", label: "홈" },
-  { href: PC_APP_URL, label: "PC앱" },
   { href: "/study", label: "학습" },
   {
     href: "/community",
-    label: "커뮤니티",
+    label: "수험생 커뮤니티",
     children: [
       { href: "/community", label: "게시판" },
       { href: "/community?category=law_update", label: "법령정보" },
@@ -283,6 +281,7 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/faq", label: "FAQ" },
     ],
   },
+  { href: PC_APP_URL, label: "PC앱" },
 ];
 
 /** 공인중개사 시험 일정 (한국산업인력공단·Q-Net 공고 기준) */

@@ -47,6 +47,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -97,6 +98,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "도시·군기본계획 입안일부터 5년(ㄱ) 이내에 토지적성평가를 실시한 경우 등에는 토지적성평가 또는 재해취약성분석을 하지 아니할 수 있고, 시장 또는 군수는 5년(ㄴ)마다 관할 구역의 도시·군기본계획에 대하여 그 타당성 여부를 재검토하여 정비하여야 한다.",
     "free": false
   },
   {
@@ -147,6 +149,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -197,6 +200,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -247,6 +251,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "완화 후 건폐율은 원래 건폐율에 [1+(공공시설 등의 부지로 제공하는 면적/원래의 대지면적)]을 곱하여 산정한다. 60% × [1+(100/400)] = 60% × 1.25 = 75%이다.",
     "free": false
   },
   {
@@ -297,6 +302,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -347,6 +353,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -397,6 +404,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -447,6 +455,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -497,6 +506,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -547,6 +557,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -614,6 +625,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄷ만 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -664,6 +676,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -714,6 +727,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -764,6 +778,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -814,6 +829,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "환지 전 토지에 대한 권리를 조성되는 토지에 이전하는 방식은 평면 환지(ㄱ)이고, 환지 전 토지나 건축물에 대한 권리를 구분건축물에 이전하는 방식은 입체 환지(ㄴ)이다.",
     "free": false
   },
   {
@@ -864,6 +880,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -914,6 +931,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "평균 토지부담률 = [보류지 면적-(무상귀속 토지면적+시행자 소유 토지면적)] / [환지계획구역 면적-(무상귀속 토지면적+시행자 소유 토지면적)] × 100 = [106,500-(20,000+10,000)] / [200,000-(20,000+10,000)] × 100 = 76,500/170,000×100 = 45%이다.",
     "free": false
   },
   {
@@ -964,6 +982,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -1014,6 +1033,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1064,6 +1084,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1114,6 +1135,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -1121,7 +1143,7 @@
     "year": 2016,
     "round": 27,
     "questionNo": 63,
-    "stem": "도시 및 주거환경정비법령상 사업시행인가를 받은 정비사업의 공사완료에 따른 조치 등에 관한 다음 절차를 진행순서에 따라 옳게 나열한 것은?(단, 관리처분계획 인가를 받은 사업이고, 공사의 전부 완료를 전제로 함)",
+    "stem": "도시 및 주거환경정비법령상 사업시행인가를 받은 정비사업의 공사완료에 따른 조치 등에 관한 다음 절차를 진행순서에 따라 옳게 나열한 것은?(단, 관리처분계획 인가를 받은 사업이고, 공사의 전부 완료를 전제로 함)\nㄱ. 준공인가\nㄴ. 관리처분계획에 정한 사항을 분양받을 자에게 통지\nㄷ. 토지의 분할절차\nㄹ. 대지 또는 건축물의 소유권 이전고시",
     "category": "도시정비법",
     "subcategory": "기본계획·정비구역",
     "questionType": "correct",
@@ -1132,7 +1154,7 @@
         "label": "①",
         "text": "ㄱ-ㄷ-ㄴ-ㄹ",
         "answer": "O",
-        "explanation": "ㄱ-ㄷ-ㄴ-ㄹ의 순서가 옳다."
+        "explanation": "옳다. 공사 완료 후 준공인가(ㄱ)를 받고, 필요한 경우 토지의 분할절차(ㄷ)를 거친 후, 관리처분계획에 정한 사항을 분양받을 자에게 통지(ㄴ)하고, 대지 또는 건축물의 소유권 이전고시(ㄹ)를 하는 순서로 진행된다."
       },
       {
         "key": "2",
@@ -1164,6 +1186,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "공사 완료 후 준공인가(ㄱ)를 받고, 필요한 경우 토지의 분할절차(ㄷ)를 거친 후, 관리처분계획에 정한 사항을 분양받을 자에게 통지(ㄴ)하고, 대지 또는 건축물의 소유권 이전고시(ㄹ)를 하는 순서로 진행된다.",
     "free": false
   },
   {
@@ -1214,6 +1237,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -1264,6 +1288,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -1314,6 +1339,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1364,6 +1390,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -1414,6 +1441,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "리모델링 기본계획을 수립하거나 변경하려면 14일(ㄱ) 이상 주민에게 공람하고, 지방의회는 의견제시를 요청받은 날부터 30일(ㄴ) 이내에 의견을 제시하여야 한다.",
     "free": false
   },
   {
@@ -1464,6 +1492,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -1514,6 +1543,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -1564,6 +1594,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -1631,6 +1662,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ 모두 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -1681,6 +1713,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -1731,6 +1764,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "층수가 63층이고 높이가 190m인 건축물은 초고층건축물(ㄱ)에 해당하며, 이러한 건축물에는 피난안전구역을 지상층으로부터 최대 30개 층(ㄴ)마다 1개소(ㄷ) 이상 설치하여야 한다.",
     "free": false
   },
   {
@@ -1805,6 +1839,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄷ,ㄹ이 주요구조부에 해당하지 않으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -1855,6 +1890,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -1905,6 +1941,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -1955,6 +1992,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2005,6 +2043,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2055,6 +2094,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -2105,6 +2145,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -2155,6 +2196,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -2205,6 +2247,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2255,6 +2298,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -2305,6 +2349,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2355,6 +2400,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -2405,6 +2451,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2455,6 +2502,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -2505,6 +2553,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -2555,6 +2604,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2605,6 +2655,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -2655,6 +2706,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "법정 상한 기준 용적률은 제3종일반주거지역 300%, 일반공업지역 350%, 준공업지역 400%, 준주거지역 500%이다.",
     "free": false
   },
   {
@@ -2705,6 +2757,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -2755,6 +2808,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -2829,6 +2883,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄴ이 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -2879,6 +2934,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -2929,6 +2985,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -2979,6 +3036,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3029,6 +3087,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -3079,6 +3138,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3129,6 +3189,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3179,6 +3240,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -3246,6 +3308,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ 모두 옳으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -3296,6 +3359,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -3346,6 +3410,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3396,6 +3461,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3446,6 +3512,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -3496,6 +3563,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -3546,6 +3614,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "투기과열지구 지정 기준상 직전 2개월간(ㄱ:2) 청약경쟁률이 5대 1(ㄴ:5)을 초과하였거나 국민주택규모 이하 주택의 청약경쟁률이 10대 1을 초과한 곳, 또는 주택의 분양계획이 직전월보다 30%(ㄷ:30) 이상 감소한 곳이 지정 대상이 된다.",
     "free": false
   },
   {
@@ -3596,6 +3665,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -3646,6 +3716,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3713,6 +3784,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ이 해당하므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -3763,6 +3835,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -3813,6 +3886,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -3863,6 +3937,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -3913,6 +3988,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -3963,6 +4039,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -4044,6 +4121,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ,ㄹ,ㅁ이 해당하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -4094,6 +4172,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "유휴농지의 대리경작자는 수확량의 100분의 10을 토지사용료로 지급하여야 하고(ㄱ:10), 농업진흥지역 밖의 농지를 무허가 전용한 자는 해당 토지가액의 100분의 50에 해당하는 금액 이하의 벌금에 처하며(ㄴ:50), 처분명령 불이행시 해당 농지의 토지가액의 100분의 20에 해당하는 이행강제금을 부과한다(ㄷ:20).",
     "free": false
   },
   {
@@ -4144,6 +4223,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -4211,6 +4291,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ 모두 도시·군계획사업에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -4261,6 +4342,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -4311,6 +4393,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -4361,6 +4444,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -4411,6 +4495,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -4461,6 +4546,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -4511,6 +4597,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -4561,6 +4648,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4611,6 +4699,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -4661,6 +4750,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -4711,6 +4801,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4761,6 +4852,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(전항정답: ①②③④⑤ 모두 인정) 전항정답·이 문항은 출제 오류로 모든 선택지가 정답으로 인정되어 전항정답 처리되었다.",
     "free": false
   },
   {
@@ -4811,6 +4903,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -4861,6 +4954,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -4911,6 +5005,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -4961,6 +5056,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5011,6 +5107,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5061,6 +5158,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5111,6 +5209,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -5161,6 +5260,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -5211,6 +5311,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -5261,6 +5362,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5311,6 +5413,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -5378,6 +5481,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -5445,6 +5549,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄹ,ㅁ이 '주택'에 해당하지 않으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -5495,6 +5600,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5545,6 +5651,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -5595,6 +5702,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -5645,6 +5753,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -5695,6 +5804,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5745,6 +5855,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -5795,6 +5906,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5845,6 +5957,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -5895,6 +6008,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -5945,6 +6059,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -5995,6 +6110,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6002,7 +6118,7 @@
     "year": 2018,
     "round": 29,
     "questionNo": 77,
-    "stem": "건축법령상 이행강제금을 산정하기 위하여 위반 내용(ㄱ. 용적률을 초과하여 건축한 경우, ㄴ. 건폐율을 초과하여 건축한 경우, ㄷ. 신고를 하지 아니하고 건축한 경우, ㄹ. 허가를 받지 아니하고 건축한 경우)에 따라 곱하는 비율을 높은 순서대로 나열한 것은?(단, 조례는 고려하지 않음)",
+    "stem": "건축법령상 이행강제금을 산정하기 위하여 위반 내용에 따라 곱하는 비율을 높은 순서대로 나열한 것은?(단, 조례는 고려하지 않음)\nㄱ. 용적률을 초과하여 건축한 경우\nㄴ. 건폐율을 초과하여 건축한 경우\nㄷ. 신고를 하지 아니하고 건축한 경우\nㄹ. 허가를 받지 아니하고 건축한 경우",
     "category": "건축법",
     "subcategory": "허가·사전결정",
     "questionType": "correct",
@@ -6013,38 +6129,39 @@
         "label": "①",
         "text": "ㄱ-ㄴ-ㄹ-ㄷ",
         "answer": "X",
-        "explanation": "순서가 올바르지 않다."
+        "explanation": "틀림. ㄱ(용적률90%)-ㄴ(건폐율80%)-ㄹ(허가없이100%)-ㄷ(신고70%)이면 허가 없이(100%)가 뒤로 밀린다. 정답은 ㄹ-ㄱ-ㄴ-ㄷ."
       },
       {
         "key": "2",
         "label": "②",
         "text": "ㄱ-ㄹ-ㄷ-ㄴ",
         "answer": "X",
-        "explanation": "순서가 올바르지 않다."
+        "explanation": "틀림. ㄱ(90%)을 맨 앞에 두면 더 높은 ㄹ(허가 없이 100%)보다 앞에 오게 된다."
       },
       {
         "key": "3",
         "label": "③",
         "text": "ㄴ-ㄱ-ㄹ-ㄷ",
         "answer": "X",
-        "explanation": "순서가 올바르지 않다."
+        "explanation": "틀림. ㄴ(건폐율80%)을 ㄱ(용적률90%)보다 앞에 두면 비율 순서가 바뀐다."
       },
       {
         "key": "4",
         "label": "④",
         "text": "ㄹ-ㄱ-ㄴ-ㄷ",
         "answer": "O",
-        "explanation": "허가를 받지 아니하고 건축한 경우(100분의 100) - 용적률을 초과하여 건축한 경우(100분의 90) - 건폐율을 초과하여 건축한 경우(100분의 80) - 신고를 하지 아니하고 건축한 경우(100분의 70) 순으로 비율이 높다."
+        "explanation": "옳다. 허가 없이(ㄹ·100%) → 용적률 초과(ㄱ·90%) → 건폐율 초과(ㄴ·80%) → 신고 없이(ㄷ·70%) 순(ㄹ-ㄱ-ㄴ-ㄷ)."
       },
       {
         "key": "5",
         "label": "⑤",
         "text": "ㄹ-ㄷ-ㄴ-ㄱ",
         "answer": "X",
-        "explanation": "순서가 올바르지 않다."
+        "explanation": "틀림. ㄷ(신고70%)을 ㄱ·ㄴ보다 앞에 두면 가장 낮은 비율이 앞에 오게 된다. 정답은 ㄹ-ㄱ-ㄴ-ㄷ."
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "건축법상 이행강제금에 곱하는 비율(높은 순): ㄹ 허가 없이 건축 100% → ㄱ 용적률 초과 90% → ㄴ 건폐율 초과 80% → ㄷ 신고 없이 건축 70%. 따라서 ㄹ-ㄱ-ㄴ-ㄷ이 정답이다.",
     "free": false
   },
   {
@@ -6095,6 +6212,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -6145,6 +6263,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -6195,6 +6314,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6245,6 +6365,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6295,6 +6416,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -6345,6 +6467,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6395,6 +6518,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -6445,6 +6569,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -6519,6 +6644,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 지원 가능한 사업이므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -6569,6 +6695,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6619,6 +6746,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -6669,6 +6797,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -6743,6 +6872,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 바르게 연결된 것은 ㄱ뿐이므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -6793,6 +6923,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6843,6 +6974,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6893,6 +7025,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -6943,6 +7076,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -6993,6 +7127,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -7067,6 +7202,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 대행 범위에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -7117,6 +7253,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -7167,6 +7304,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -7217,6 +7355,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -7267,6 +7406,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -7317,6 +7457,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7367,6 +7508,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7417,6 +7559,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7467,6 +7610,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -7517,6 +7661,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -7567,6 +7712,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -7634,6 +7780,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 심의를 거쳐야 하는 것은 ㄴ,ㄷ이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -7684,6 +7831,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -7734,6 +7882,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -7784,6 +7933,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -7834,6 +7984,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -7908,6 +8059,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄴ,ㄹ이 의제되므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -7958,6 +8110,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -8008,6 +8161,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8058,6 +8212,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -8132,6 +8287,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 건축법의 적용을 받지 않으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -8182,6 +8338,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -8232,6 +8389,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -8299,6 +8457,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 농지에 해당하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -8366,6 +8525,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 위탁경영을 할 수 없는 경우는 ㄱ,ㄴ이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -8416,6 +8576,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -8466,6 +8627,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -8516,6 +8678,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -8566,6 +8729,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -8633,6 +8797,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄷ이 청문 대상이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -8683,6 +8848,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8757,6 +8923,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄴ,ㄹ이 해당하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -8807,6 +8974,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -8874,6 +9042,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄴ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -8924,6 +9093,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -8991,6 +9161,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -9041,6 +9212,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -9091,6 +9263,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9141,6 +9314,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -9191,6 +9365,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -9241,6 +9416,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "도시개발구역이 지정·고시된 날부터 2년이 되는 날까지 개발계획을 수립·고시하지 아니하는 경우 그 2년이 되는 날에 해제되며, 면적이 330만제곱미터 이상인 경우에는 5년으로 한다(ㄱ:2). 개발계획을 수립·고시한 날부터 3년이 되는 날까지 실시계획 인가를 신청하지 아니하는 경우 그 3년이 되는 날에 해제되며, 면적이 330만제곱미터 이상인 경우에는 5년으로 한다(ㄴ:3, ㄷ:5).",
     "free": false
   },
   {
@@ -9291,6 +9467,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -9358,6 +9535,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -9425,6 +9603,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄴ,ㄷ이 틀렸으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -9475,6 +9654,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -9525,6 +9705,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "재개발사업의 추진위원회가 조합을 설립하려면 토지등소유자의 4분의 3 이상 및 토지면적의 2분의 1 이상의 토지소유자의 동의를 받아야 한다(ㄱ:4분의 3, ㄴ:2분의 1). 재건축사업의 추진위원회가 조합을 설립하려는 경우 주택단지가 아닌 지역이 포함된 때에는 그 토지 또는 건축물 소유자의 4분의 3 이상 및 토지면적의 3분의 2 이상의 동의를 받아야 한다(ㄷ:4분의 3, ㄹ:3분의 2).",
     "free": false
   },
   {
@@ -9575,6 +9756,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9625,6 +9807,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9675,6 +9858,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -9725,6 +9909,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -9775,6 +9960,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -9825,6 +10011,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -9892,6 +10079,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄷ만 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -9942,6 +10130,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -10009,6 +10198,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄴ,ㄷ이 옳으므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -10076,6 +10266,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -10126,6 +10317,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10176,6 +10368,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -10226,6 +10419,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10276,6 +10470,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -10326,6 +10521,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -10376,6 +10572,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -10443,6 +10640,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 옳으므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -10493,6 +10691,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10543,6 +10742,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -10593,6 +10793,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -10643,6 +10844,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10693,6 +10895,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10743,6 +10946,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -10793,6 +10997,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -10843,6 +11048,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -10893,6 +11099,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -10943,6 +11150,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -10993,6 +11201,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -11043,6 +11252,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -11093,6 +11303,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -11100,7 +11311,7 @@
     "year": 2021,
     "round": 32,
     "questionNo": 52,
-    "stem": "국토의 계획 및 이용에 관한 법령상 용도지역별 용적률의 최대한도가 큰 순서대로 나열한 것은?(단, 조례 기타 강화·완화조건은 고려하지 않음, ㄱ. 근린상업지역 ㄴ. 준공업지역 ㄷ. 준주거지역 ㄹ. 보전녹지지역 ㅁ. 계획관리지역)",
+    "stem": "국토의 계획 및 이용에 관한 법령상 용도지역별 용적률의 최대한도가 큰 순서대로 나열한 것은?(단, 조례 기타 강화·완화조건은 고려하지 않음)\nㄱ. 근린상업지역\nㄴ. 준공업지역\nㄷ. 준주거지역\nㄹ. 보전녹지지역\nㅁ. 계획관리지역",
     "category": "국토계획법",
     "subcategory": "건폐율·용적률",
     "questionType": "correct",
@@ -11111,38 +11322,39 @@
         "label": "①",
         "text": "ㄱ-ㄴ-ㄷ-ㄹ-ㅁ",
         "answer": "X",
-        "explanation": "ㄱ-ㄴ-ㄷ-ㄹ-ㅁ 순서는 옳지 않다."
+        "explanation": "틀림. ㄱ(근린상업 1300%)-ㄴ(준공업 400%)-ㄷ(준주거 500%) 순이면 준주거가 준공업보다 뒤에 와 순서가 바뀐다. 정답은 ㄱ-ㄷ-ㄴ-ㅁ-ㄹ."
       },
       {
         "key": "2",
         "label": "②",
         "text": "ㄱ-ㄷ-ㄴ-ㅁ-ㄹ",
         "answer": "O",
-        "explanation": "근린상업지역(1300%) - 준주거지역(500%) - 준공업지역(400%) - 계획관리지역(100%) - 보전녹지지역(80%) 순으로, ㄱ-ㄷ-ㄴ-ㅁ-ㄹ이 옳은 순서이다."
+        "explanation": "옳다. 근린상업 1300% → 준주거 500% → 준공업 400% → 계획관리 100% → 보전녹지 80% 순(ㄱ-ㄷ-ㄴ-ㅁ-ㄹ)."
       },
       {
         "key": "3",
         "label": "③",
         "text": "ㄴ-ㅁ-ㄱ-ㄹ-ㄷ",
         "answer": "X",
-        "explanation": "ㄴ-ㅁ-ㄱ-ㄹ-ㄷ 순서는 옳지 않다."
+        "explanation": "틀림. ㄴ(준공업 400%)을 맨 앞에 두면 더 큰 근린상업·준주거보다 앞에 오게 된다."
       },
       {
         "key": "4",
         "label": "④",
         "text": "ㄷ-ㄱ-ㄹ-ㄴ-ㅁ",
         "answer": "X",
-        "explanation": "ㄷ-ㄱ-ㄹ-ㄴ-ㅁ 순서는 옳지 않다."
+        "explanation": "틀림. ㄷ(준주거 500%)을 ㄱ(근린상업 1300%)보다 앞에 두면 가장 큰 근린상업이 뒤로 밀린다."
       },
       {
         "key": "5",
         "label": "⑤",
         "text": "ㄷ-ㄴ-ㄱ-ㅁ-ㄹ",
         "answer": "X",
-        "explanation": "ㄷ-ㄴ-ㄱ-ㅁ-ㄹ 순서는 옳지 않다."
+        "explanation": "틀림. ㄷ-ㄴ 순은 맞을 수 있으나 ㄱ(근린상업)과 ㅁ·ㄹ 배치가 어긋난다. 정답은 ㄱ-ㄷ-ㄴ-ㅁ-ㄹ."
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "국토계획법 시행령상 용적률 최대한도: ㄱ 근린상업지역 1300%, ㄷ 준주거지역 500%, ㄴ 준공업지역 400%, ㅁ 계획관리지역 100%, ㄹ 보전녹지지역 80%. 따라서 큰 순서대로 ㄱ-ㄷ-ㄴ-ㅁ-ㄹ이다.",
     "free": false
   },
   {
@@ -11217,6 +11429,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ,ㄷ이 지정권자이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -11267,6 +11480,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -11317,6 +11531,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -11367,6 +11582,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -11417,6 +11633,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -11463,10 +11680,11 @@
         "label": "⑤",
         "text": "10억원",
         "answer": "O",
-        "explanation": "벌금의 상한액은 10억원이다."
+        "explanation": "옳다. 도시개발법령상 도시개발구역 지정권자가 속한 기관에 종사하는 자로부터 제공받은 미공개정보를 지정 목적 외로 사용하여 재산상 이익을 얻은 자는 5년 이하의 징역 또는 그 이익액의 3배에서 5배에 해당하는 금액의 벌금에 처하되, 그 벌금의 상한액은 10억원을 넘지 못하도록 규정되어 있다."
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "도시개발법령상 도시개발구역 지정권자가 속한 기관에 종사하는 자로부터 제공받은 미공개정보를 지정 목적 외로 사용하여 재산상 이익을 얻은 자는 5년 이하의 징역 또는 그 이익액의 3배에서 5배에 해당하는 금액의 벌금에 처하되, 그 벌금의 상한액은 10억원을 넘지 못하도록 규정되어 있다.",
     "free": false
   },
   {
@@ -11517,6 +11735,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -11591,6 +11810,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ,ㄹ이 대행할 수 없는 사항이므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -11641,6 +11861,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -11691,6 +11912,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -11741,6 +11963,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -11791,6 +12014,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -11841,6 +12065,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -11891,6 +12116,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -11958,6 +12184,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄷ만 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -12008,6 +12235,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -12058,6 +12286,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -12132,6 +12361,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 해당하므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -12206,6 +12436,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄷ,ㄹ이 해당하므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -12256,6 +12487,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -12306,6 +12538,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -12356,6 +12589,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -12406,6 +12640,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -12473,6 +12708,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ 모두 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -12523,6 +12759,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -12573,6 +12810,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -12623,6 +12861,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -12673,6 +12912,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -12723,6 +12963,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -12773,6 +13014,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -12823,6 +13065,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -12873,6 +13116,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -12923,6 +13167,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -12973,6 +13218,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -13023,6 +13269,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -13073,6 +13320,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -13147,6 +13395,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄹ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -13197,6 +13446,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -13247,6 +13497,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -13297,6 +13548,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -13347,6 +13599,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -13397,6 +13650,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -13447,6 +13701,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -13497,6 +13752,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -13547,6 +13803,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -13597,6 +13854,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -13647,6 +13905,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -13697,6 +13956,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -13747,6 +14007,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -13797,6 +14058,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -13847,6 +14109,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -13921,6 +14184,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ,ㄹ 모두 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -13995,6 +14259,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄱ,ㄴ,ㄹ이 옳으므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -14045,6 +14310,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -14095,6 +14361,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -14145,6 +14412,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -14212,6 +14480,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -14262,6 +14531,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -14312,6 +14582,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -14362,6 +14633,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -14412,6 +14684,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -14462,6 +14735,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -14512,6 +14786,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -14586,6 +14861,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄷ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -14636,6 +14912,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -14710,6 +14987,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄷ,ㄹ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -14760,6 +15038,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -14810,6 +15089,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -14860,6 +15140,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -14910,6 +15191,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -14991,6 +15273,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 복합용도지구는 일반주거지역, 일반공업지역, 계획관리지역에 지정할 수 있다. ㄷ,ㄹ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -15041,6 +15324,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -15091,6 +15375,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -15141,6 +15426,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -15191,6 +15477,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -15241,6 +15528,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -15291,6 +15579,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -15358,6 +15647,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "⑤·정답 ㄱ,ㄴ,ㄷ 모두 시·군·구도시계획위원회의 업무에 해당하므로 정답은 ⑤이다.",
     "free": false
   },
   {
@@ -15408,6 +15698,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -15458,6 +15749,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -15508,6 +15800,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -15558,6 +15851,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -15632,6 +15926,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄹ이 옳으므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -15682,6 +15977,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -15732,6 +16028,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -15782,6 +16079,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -15832,6 +16130,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -15906,6 +16205,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "①·정답 ㄱ만 분양신청 통지와 분양공고에 공통으로 포함되므로 정답은 ①이다.",
     "free": false
   },
   {
@@ -15956,6 +16256,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -16006,6 +16307,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -16056,6 +16358,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -16106,6 +16409,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -16156,6 +16460,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -16206,6 +16511,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -16280,6 +16586,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "②·정답 ㄱ,ㄴ,ㄹ이 광고에 포함되어야 하므로 정답은 ②이다.",
     "free": false
   },
   {
@@ -16354,6 +16661,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "④·정답 ㄴ,ㄷ,ㄹ이 허가·신고형 세대구분형 공동주택의 요건이므로 정답은 ④이다.",
     "free": false
   },
   {
@@ -16404,6 +16712,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -16454,6 +16763,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -16504,6 +16814,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -16554,6 +16865,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -16604,6 +16916,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -16654,6 +16967,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": false
   },
   {
@@ -16721,6 +17035,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "③·정답 ㄱ,ㄷ이 옳으므로 정답은 ③이다.",
     "free": false
   },
   {
@@ -16771,6 +17086,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": false
   },
   {
@@ -16821,6 +17137,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": false
   },
   {
@@ -16871,6 +17188,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -16921,6 +17239,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": false
   },
   {
@@ -16971,6 +17290,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": false
   },
   {
@@ -17021,6 +17341,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제2조)",
     "free": true
   },
   {
@@ -17071,6 +17392,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제39조의2)",
     "free": true
   },
   {
@@ -17121,6 +17443,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제18조·제19조·제24조·제26조)",
     "free": true
   },
   {
@@ -17171,6 +17494,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제30조·제31조)",
     "free": true
   },
   {
@@ -17245,6 +17569,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(국토계획법 제37조의2)",
     "free": true
   },
   {
@@ -17295,6 +17620,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제47조·제48조·제44조의2)",
     "free": true
   },
   {
@@ -17345,6 +17671,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제56조 이하)",
     "free": true
   },
   {
@@ -17395,6 +17722,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제36조·제42조)",
     "free": true
   },
   {
@@ -17445,6 +17773,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제67조 이하)",
     "free": true
   },
   {
@@ -17495,6 +17824,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 시행령 제31조)",
     "free": true
   },
   {
@@ -17545,6 +17875,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제66조)",
     "free": true
   },
   {
@@ -17595,6 +17926,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(국토계획법 제75조의3)",
     "free": true
   },
   {
@@ -17645,6 +17977,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(도시개발법 시행령 제6조)",
     "free": true
   },
   {
@@ -17695,6 +18028,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(도시개발법 제11조)",
     "free": true
   },
   {
@@ -17745,6 +18079,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(도시개발법 시행령 제5조)",
     "free": true
   },
   {
@@ -17795,6 +18130,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(도시개발법 제32조·제34조·제41조)",
     "free": true
   },
   {
@@ -17845,6 +18181,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(도시개발법 제13조·제38조)",
     "free": true
   },
   {
@@ -17919,6 +18256,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(도시개발법 제21조)",
     "free": true
   },
   {
@@ -17969,6 +18307,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(도시 및 주거환경정비법 제2조)",
     "free": true
   },
   {
@@ -18019,6 +18358,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정비계획의 입안권자는 「주택법」에 따른 국민주택규모의 주택이 전체 세대수의 100분의 (90) 이하에서 대통령령으로 정하는 범위, 공공임대주택 및 민간임대주택이 전체 세대수 또는 전체 연면적의 100분의 (30) 이하에서 대통령령으로 정하는 범위를 정비계획에 반영하여야 한다. (도시 및 주거환경정비법 시행령 제9조)",
     "free": true
   },
   {
@@ -18069,6 +18409,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(도시 및 주거환경정비법 제23조)",
     "free": true
   },
   {
@@ -18119,6 +18460,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(도시 및 주거환경정비법 제16조·제35조)",
     "free": true
   },
   {
@@ -18169,6 +18511,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(도시 및 주거환경정비법 제116조 이하)",
     "free": true
   },
   {
@@ -18236,6 +18579,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(도시 및 주거환경정비법 제73조)",
     "free": true
   },
   {
@@ -18286,6 +18630,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(주택법 제2조)",
     "free": true
   },
   {
@@ -18336,6 +18681,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(주택법 제15조·제16조)",
     "free": true
   },
   {
@@ -18386,6 +18732,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "수직증축형 리모델링의 대상이 되는 기존 건축물의 층수가 (15)층 이상인 경우: (3)개층. 기존 건축물의 층수가 (14)층 이하인 경우: (2)개층. (주택법 시행령 제13조)",
     "free": true
   },
   {
@@ -18436,6 +18783,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(주택법 제15조의2·제39조·제41조의2)",
     "free": true
   },
   {
@@ -18486,6 +18834,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(주택법 제48조의2)",
     "free": true
   },
   {
@@ -18536,6 +18885,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(주택법 제56조)",
     "free": true
   },
   {
@@ -18610,6 +18960,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(주택법 제54조·제57조·제60조·제65조)",
     "free": true
   },
   {
@@ -18660,6 +19011,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(건축법 시행령 제3조의2)",
     "free": true
   },
   {
@@ -18710,6 +19062,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(건축법 시행령 제27조)",
     "free": true
   },
   {
@@ -18760,6 +19113,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(건축법 제43조)",
     "free": true
   },
   {
@@ -18810,6 +19164,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(건축법 제13조의2)",
     "free": true
   },
   {
@@ -18860,6 +19215,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(건축법 제18조)",
     "free": true
   },
   {
@@ -18910,6 +19266,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "대통령령으로 정하는 용도 및 규모의 건축물의 벽, 반자, 지붕 등 내부의 (마감재료)는 (방화)에 지장이 없는 재료로 하되, 「실내공기질 관리법」에 따른 (실내공기질) 유지기준 및 권고기준을 고려하여야 한다. (건축법 제52조)",
     "free": true
   },
   {
@@ -18960,6 +19317,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(건축법 제48조의3, 시행령 제32조)",
     "free": true
   },
   {
@@ -19010,6 +19368,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "(농지법 제36조)",
     "free": true
   },
   {
@@ -19077,6 +19436,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(농지법 시행규칙 제3조)",
     "free": true
   },
   {
@@ -19127,6 +19487,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -19177,6 +19538,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "기반시설의 설치·정비·개량에 관한 사항을 제안하는 경우에는 대상 토지 면적의 5분의 4 이상의 동의가 필요하고, 지구단위계획구역의 지정·변경 및 지구단위계획의 수립·변경에 관한 사항을 제안하는 경우에는 대상 토지 면적의 3분의 2 이상의 동의가 필요하다(국·공유지 제외). 따라서 기반시설을 제안하는 甲은 5분의 4 이상, 지구단위계획구역 지정을 제안하는 乙은 3분의 2 이상의 동의를 받아야 한다. (국토계획법 시행령 제19조의2)",
     "free": true
   },
   {
@@ -19227,6 +19589,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": true
   },
   {
@@ -19277,6 +19640,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -19358,6 +19722,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "(ㄴ, ㄷ) 공동구에 수용하여야 하는 시설 중 전선로·통신선로·수도관·열수송관·중수도관은 공동구협의회의 심의 없이 의무적으로 수용하는 시설이나, 가스관과 하수도관은 공동구협의회의 심의를 거쳐 수용할 수 있는 시설이다. (국토계획법 시행령 제35조의3)",
     "free": true
   },
   {
@@ -19408,6 +19773,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -19458,6 +19824,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -19508,6 +19875,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "도시혁신구역에서는 다른 법률의 규정에도 불구하고 「도시공원 및 녹지 등에 관한 법률」에 따른 도시공원 또는 녹지 확보기준, 「문화예술진흥법」에 따른 건축물에 대한 미술작품의 설치, 「주차장법」에 따른 부설주차장의 설치, 「학교용지 확보 등에 관한 특례법」에 따른 학교용지의 조성·개발 기준 등을 도시혁신계획으로 따로 정할 수 있다. (국토계획법 제83조의3)",
     "free": true
   },
   {
@@ -19558,6 +19926,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -19608,6 +19977,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -19658,6 +20028,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -19665,7 +20036,7 @@
     "year": 2025,
     "round": 36,
     "questionNo": 52,
-    "stem": "국토의 계획 및 이용에 관한 법령상 용도지역별 용적률의 최대한도가 큰 순서대로 나열한 것은?(단, 조례, 기타 강화·완화조건은 고려하지 않음)",
+    "stem": "국토의 계획 및 이용에 관한 법령상 용도지역별 용적률의 최대한도가 큰 순서대로 나열한 것은?(단, 조례, 기타 강화·완화조건은 고려하지 않음)\nㄱ. 준주거지역\nㄴ. 일반공업지역\nㄷ. 준공업지역\nㄹ. 생산녹지지역",
     "category": "국토계획법",
     "subcategory": "건폐율·용적률",
     "questionType": "correct",
@@ -19676,38 +20047,39 @@
         "label": "①",
         "text": "ㄱ-ㄴ-ㄷ-ㄹ",
         "answer": "X",
-        "explanation": "ㄱ-ㄴ-ㄷ-ㄹ은 순서가 틀렸다(ㄴ과 ㄷ의 순서가 바뀌어야 함)."
+        "explanation": "틀림. ㄱ(준주거 500%)-ㄴ(일반공업 350%)-ㄷ(준공업 400%)-ㄹ(생산녹지 100%)은 ㄴ과 ㄷ의 순서가 바뀌었다. 준공업(400%)이 일반공업(350%)보다 크므로 ㄱ-ㄷ-ㄴ-ㄹ이 맞다."
       },
       {
         "key": "2",
         "label": "②",
         "text": "ㄱ-ㄷ-ㄴ-ㄹ",
         "answer": "O",
-        "explanation": "ㄱ-ㄷ-ㄴ-ㄹ 순서가 옳다."
+        "explanation": "옳다. 용적률 최대한도는 ㄱ 준주거 500% → ㄷ 준공업 400% → ㄴ 일반공업 350% → ㄹ 생산녹지 100% 순이다. (국토계획법 시행령 제85조)"
       },
       {
         "key": "3",
         "label": "③",
         "text": "ㄴ-ㄷ-ㄱ-ㄹ",
         "answer": "X",
-        "explanation": "ㄴ-ㄷ-ㄱ-ㄹ은 순서가 틀렸다."
+        "explanation": "틀림. ㄴ(일반공업 350%)을 맨 앞에 두면 가장 큰 준주거(ㄱ 500%)·준공업(ㄷ 400%)보다 앞에 오게 되어 순서가 맞지 않다."
       },
       {
         "key": "4",
         "label": "④",
         "text": "ㄷ-ㄱ-ㄹ-ㄴ",
         "answer": "X",
-        "explanation": "ㄷ-ㄱ-ㄹ-ㄴ은 순서가 틀렸다."
+        "explanation": "틀림. ㄷ(준공업 400%)을 ㄱ(준주거 500%)보다 앞에 두면 용적률이 더 큰 준주거지역이 뒤로 밀려 순서가 틀리다."
       },
       {
         "key": "5",
         "label": "⑤",
         "text": "ㄷ-ㄹ-ㄱ-ㄴ",
         "answer": "X",
-        "explanation": "ㄷ-ㄹ-ㄱ-ㄴ은 순서가 틀렸다. (국토계획법 시행령 제85조)"
+        "explanation": "틀림. ㄷ(준공업 400%)-ㄹ(생산녹지 100%)을 앞에 두면 ㄱ(준주거 500%)·ㄴ(일반공업 350%)의 상대 순서가 어긋난다. (국토계획법 시행령 제85조)"
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "국토계획법 시행령상 용적률 최대한도(전국 공통 상한): ㄱ 준주거지역 500%, ㄷ 준공업지역 400%, ㄴ 일반공업지역 350%, ㄹ 생산녹지지역 100%. 따라서 큰 순서대로 ㄱ-ㄷ-ㄴ-ㄹ이다.",
     "free": true
   },
   {
@@ -19758,6 +20130,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -19790,7 +20163,7 @@
         "label": "ㄷ.",
         "text": "「한국철도공사법」에 따른 한국철도공사",
         "answer": "O",
-        "explanation": "한국철도공사도 제안할 수 있다."
+        "explanation": "옳다. 「한국공항공사법」에 따른 한국공항공사, 「지방공기업법」에 따라 설립된 지방공사, 「한국철도공사법」에 따른 한국철도공사는 모두 도시개발사업의 시행자가 될 수 있는 공공기관·정부출연기관 등에 해당하며, 이러한 시행자가 될 수 있는 자는 특별자치도지사·시장·군수 또는 구청장에게 도시개발구역의 지정을 제안할 수 있다. (도시개발법 제11조)"
       }
     ],
     "comboChoices": [
@@ -19825,6 +20198,7 @@
         "isCorrect": true
       }
     ],
+    "explanationSummary": "「한국공항공사법」에 따른 한국공항공사, 「지방공기업법」에 따라 설립된 지방공사, 「한국철도공사법」에 따른 한국철도공사는 모두 도시개발사업의 시행자가 될 수 있는 공공기관·정부출연기관 등에 해당하며, 이러한 시행자가 될 수 있는 자는 특별자치도지사·시장·군수 또는 구청장에게 도시개발구역의 지정을 제안할 수 있다. (도시개발법 제11조)",
     "free": true
   },
   {
@@ -19875,6 +20249,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "o 조합을 설립하려면 도시개발구역의 토지 소유자 \"7명\" 이상이 정관을 작성하여 지정권자에게 조합 설립의 인가를 받아야 한다. (도시개발법 제13조) o 의결권을 가진 조합원의 수가 \"50인\" 이상인 조합은 총회의 권한을 대행하게 하기 위하여 대의원회를 둘 수 있다. (도시개발법 제14조) o 조합의 설립인가를 받은 조합의 대표자는 설립인가를 받은 날부터 \"30일\" 이내에 주된 사무소의 소재지에서 설립등기를 하여야 한다. (도시개발법 제13조 제3항) 【정답】 ② ㄱ: 7, ㄴ: 50, ㄷ: 30",
     "free": true
   },
   {
@@ -19925,6 +20300,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -19975,6 +20351,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -20025,6 +20402,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -20075,6 +20453,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -20125,6 +20504,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -20175,6 +20555,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": true
   },
   {
@@ -20225,6 +20606,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -20275,6 +20657,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "o 사업시행자는 주거환경개선사업 및 ( 재개발 )사업의 시행으로 철거되는 주택의 소유자 또는 세입자에게 임시거주에 상응하는 조치를 하여야 한다. 재건축사업은 대상이 아니다. o 사업시행자는 정비사업의 공사를 완료한 때에는 완료한 날부터 ( 30 )일 이내에 임시거주시설을 철거하고 원상회복하여야 한다. (도시정비법 제61조) 【정답】 ④ ㄱ: 재개발, ㄴ: 30",
     "free": true
   },
   {
@@ -20325,6 +20708,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -20375,6 +20759,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "주택단지 전체를 리모델링하는 경우에는 주택단지 전체 구분소유자 및 의결권의 각 ( 75 )퍼센트 이상의 동의와 각 동별 구분소유자 및 의결권의 각 ( 50 )퍼센트 이상의 동의를 받아야 하며, 동을 리모델링하는 경우에는 그 동의 구분소유자 및 의결권의 각 ( 75 )퍼센트 이상의 동의를 받아야 한다. (주택법 시행령 제75조 별표4) 【정답】 ④ ㄱ: 75, ㄴ: 50, ㄷ: 75",
     "free": true
   },
   {
@@ -20425,6 +20810,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ③입니다.",
     "free": true
   },
   {
@@ -20475,6 +20861,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ②입니다.",
     "free": true
   },
   {
@@ -20549,6 +20936,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "정답은 ②입니다.",
     "free": true
   },
   {
@@ -20599,6 +20987,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ⑤입니다.",
     "free": true
   },
   {
@@ -20649,6 +21038,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -20699,6 +21089,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -20773,6 +21164,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "정답은 ②입니다.",
     "free": true
   },
   {
@@ -20823,6 +21215,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "자연환경이나 수질을 보호하기 위하여 도지사가 지정·공고한 구역 안에서 건축하는 3층 이상 또는 연면적 1천제곱미터 이상인 위락시설·숙박시설· 공동주택·제2종 근린생활시설(일반음식점) 등 일정 용도의 건축물은 시장·군수가 건축허가를 하기 전에 미리 도지사의 승인을 받아야 한다. \"공장\"은 이 승인 대상 용도로 열거되어 있지 않다. (건축법 제11조 제2항)",
     "free": true
   },
   {
@@ -20873,6 +21266,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ④입니다.",
     "free": true
   },
   {
@@ -20923,6 +21317,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "피난층 또는 지상으로 통하는 직통계단을 2개소 이상 설치하여야 하는 경우는 용도별로 해당 용도로 쓰는 바닥면적(거실 면적) 합계 기준이 다르다. 장례시설·종교집회장 등은 300제곱미터 이상, 문화·집회시설 (공연장 등)은 300제곱미터 이상, 숙박시설로서 3층 이상의 층은 200제곱미터 이상이 기준이다.",
     "free": true
   },
   {
@@ -20941,7 +21336,7 @@
         "label": "①",
         "text": "도시·군관리계획 등의 토지이용계획",
         "answer": "O",
-        "explanation": "토지이용계획은 고려사항이다."
+        "explanation": "옳다. 허가권자가 가로구역을 단위로 하여 건축물의 높이를 지정·공고할 때 고려하여야 할 사항은 도시·군관리계획 등의 토지이용계획, 해당 가로구역이 접하는 도로의 너비, 해당 가로구역의 상·하수도 등 간선시설의 수용능력, 도시미관 및 경관계획, 해당 도시의 장래 발전계획 등이다. \"해당 가로구역이 접하는 도로의 교통량\"은 고려사항으로 열거되어 있지 않다(\"도로의 너비\"가 고려사항이다). (건축법 제60조)"
       },
       {
         "key": "2",
@@ -20973,6 +21368,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "허가권자가 가로구역을 단위로 하여 건축물의 높이를 지정·공고할 때 고려하여야 할 사항은 도시·군관리계획 등의 토지이용계획, 해당 가로구역이 접하는 도로의 너비, 해당 가로구역의 상·하수도 등 간선시설의 수용능력, 도시미관 및 경관계획, 해당 도시의 장래 발전계획 등이다. \"해당 가로구역이 접하는 도로의 교통량\"은 고려사항으로 열거되어 있지 않다(\"도로의 너비\"가 고려사항이다). (건축법 제60조)",
     "free": true
   },
   {
@@ -21023,6 +21419,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "정답은 ①입니다.",
     "free": true
   },
   {
@@ -21073,6 +21470,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "건축법의 적용을 받지 않는 건축물로는 고속도로 통행료 징수시설, 철도의 선로 부지에 있는 운전보안시설·철도 선로의 위나 아래를 가로지르는 보행 시설·플랫폼·해당 철도 또는 궤도사업용 급수·급탄 및 급유시설, 「하천법」에 따른 하천구역 내의 수문조작실, 「문화유산의 보존 및 활용에 관한 법률」에 따른 임시지정문화유산 등이 있다. \"이동이 쉬운 컨테이너를 이용한 임시숙소\"는 건축법 적용 제외 대상으로 열거되어 있지 않다(오히려 \"이동이 쉬운 컨테이너를 이용한 간이창고\"가 적용 제외 대상이다).",
     "free": true
   },
   {
@@ -21147,6 +21545,7 @@
         "isCorrect": false
       }
     ],
+    "explanationSummary": "농지 소유자가 3월 이상 국외여행 중인 경우, 「병역법」에 따라 징집 또는 소집된 경우, 부상으로 3월 이상의 치료가 필요한 경우, 농업법인이 청산 중인 경우 등에는 소유 농지를 위탁경영할 수 있다. \"6개월간 국내 여행 중인 경우\"는 위탁경영 사유로 규정되어 있지 않다(국외여행의 경우만 해당하며, 그마저도 3월 이상이어야 한다). (농지법 제9조)",
     "free": true
   },
   {
@@ -21197,6 +21596,7 @@
       }
     ],
     "comboChoices": [],
+    "explanationSummary": "o 면적(성토가 이루어지는 해당 필지의 총면적) ( 1 )천제곱미터 이하인 농지에 대한 성토 o 높이(최근 1년간 성토한 높이를 합산한 것) ( 50 )센티미터 이내의 성토 농지법령상 농지개량행위(성토·절토 등)를 하려는 자는 원칙적으로 사전에 시장·군수·구청장에게 신고하여야 하나, 면적 1,000제곱미터 이하이고 높이(또는 깊이) 50센티미터 이내인 경미한 행위는 신고 대상에서 제외된다. (농지법 제41조의3, 시행령) 【정답】 ① ㄱ: 1, ㄴ: 50",
     "free": true
   }
 ]

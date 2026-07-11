@@ -21,17 +21,23 @@ export function QuestionStem({ stem }: { stem: string }) {
       <div className="mb-8 max-w-3xl rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-surface px-5 py-4">
         {boxLines.map((line, i) => {
           const trimmed = line.trim();
-          const isSubItem = trimmed.startsWith("-") || /^[가-힣]\.\s/.test(trimmed);
+          const isSubItem =
+            trimmed.startsWith("-") ||
+            /^[가-힣]\.\s/.test(trimmed) ||
+            /^[ㄱ-ㅎ]\.\s/.test(trimmed);
           const isNote = trimmed.startsWith("※");
+          const isJamoItem = /^[ㄱ-ㅎ]\.\s/.test(trimmed);
           return (
             <p
               key={i}
               className={`font-display leading-relaxed ${
-                isSubItem
-                  ? "ml-4 mt-1 text-body-sm text-smoke"
-                  : isNote
-                    ? "mt-2 text-body-sm text-smoke"
-                    : "mt-2 text-body text-ink first:mt-0"
+                isJamoItem
+                  ? "mt-1.5 text-body text-ink first:mt-0"
+                  : isSubItem
+                    ? "ml-4 mt-1 text-body-sm text-smoke"
+                    : isNote
+                      ? "mt-2 text-body-sm text-smoke"
+                      : "mt-2 text-body text-ink first:mt-0"
               }`}
             >
               {trimmed}

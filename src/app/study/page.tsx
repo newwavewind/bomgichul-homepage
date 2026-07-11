@@ -1,8 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui/Typography";
-import { FeatureCard } from "@/components/ui/Card";
+import { FeatureCard, TintedAccentCard } from "@/components/ui/Card";
 import { Tag } from "@/components/ui/Tag";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
+import { FloatingStickers } from "@/components/illustrations/Stickers";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SUBJECT_LANDING_INFO, SITE_NAME } from "@/lib/constants";
 import { absoluteUrl } from "@/lib/seo";
 import { getConceptsForSubject } from "@/lib/concepts";
@@ -83,6 +85,19 @@ export default function StudyHubPage() {
               );
             })}
           </div>
+        </section>
+
+        <section aria-label="앱 설치 안내">
+          <TintedAccentCard className="relative overflow-hidden !bg-snow text-center">
+            <FloatingStickers className="absolute inset-0 opacity-80" />
+            <div className="relative">
+              <p className="mx-auto max-w-md font-display text-body text-smoke">
+                앱을 설치해 기출을 풀고, 막히는 순간은 AI 질문으로 이어 가세요.
+                공부는 당신이, 질문은 봄기출이.
+              </p>
+              <AppStoreButtons className="mt-6 justify-center" />
+            </div>
+          </TintedAccentCard>
         </section>
       </div>
     </div>
