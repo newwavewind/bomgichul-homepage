@@ -1803,11 +1803,7 @@
       }
     ],
     "compositeLayout": "table",
-    "free": true,
-    "tableHeader": [
-      "마케팅 활동",
-      "4P 전략"
-    ]
+    "free": true
   },
   {
     "subject": "realestate",
@@ -5606,11 +5602,7 @@
       }
     ],
     "compositeLayout": "table",
-    "free": true,
-    "tableHeader": [
-      "(가)",
-      "(나)"
-    ]
+    "free": true
   },
   {
     "subject": "realestate",

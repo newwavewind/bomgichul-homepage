@@ -8266,8 +8266,8 @@
     "round": 30,
     "questionNo": 29,
     "stem": "부동산 거래신고 등에 관한 법령상 신고포상금에 관한 설명으로 옳은 것은?",
-    "category": "보칙",
-    "subcategory": "수수료·포상금·신고센터",
+    "category": "부동산거래신고",
+    "subcategory": "거래신고",
     "questionType": "correct",
     "correctChoice": "5",
     "items": [
@@ -9943,8 +9943,8 @@
     "round": 31,
     "questionNo": 20,
     "stem": "공인중개사법령상 거래정보사업자의 지정취소 사유에 해당하는 것을 모두 고른 것은?",
-    "category": "보칙",
-    "subcategory": "수수료·포상금·신고센터",
+    "category": "중개계약·정보망",
+    "subcategory": "부동산거래정보망",
     "questionType": "composite",
     "correctChoice": "4",
     "items": [
@@ -13558,7 +13558,7 @@
     "questionNo": 2,
     "stem": "공인중개사법령상 중개대상물에 해당하는 것을 모두 고른 것은?(다툼이 있으면 판례에 따름)",
     "category": "총칙",
-    "subcategory": "용어정의",
+    "subcategory": "중개대상물",
     "questionType": "composite",
     "correctChoice": "1",
     "items": [
@@ -16093,7 +16093,7 @@
     "questionNo": 6,
     "stem": "공인중개사법령상 중개대상물에 해당하는 것을 모두 고른 것은?(다툼이 있으면 판례에 따름)",
     "category": "총칙",
-    "subcategory": "용어정의",
+    "subcategory": "중개대상물",
     "questionType": "composite",
     "correctChoice": "2",
     "items": [
@@ -17706,8 +17706,8 @@
     "round": 34,
     "questionNo": 35,
     "stem": "부동산 거래신고 등에 관한 법령상 포상금의 지급에 관한 설명으로 틀린 것을 모두 고른 것은?",
-    "category": "보칙",
-    "subcategory": "수수료·포상금·신고센터",
+    "category": "부동산거래신고",
+    "subcategory": "거래신고",
     "questionType": "composite",
     "correctChoice": "4",
     "items": [

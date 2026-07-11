@@ -124,6 +124,12 @@ describe("extractStatementsFromQuestions", () => {
       "재산세의 과세기준일은 매년 6월 1일이며, 7월 1일이 아니다."
     );
     expect(result.every((s) => !s.text.includes("매년 7월 1일이다"))).toBe(true);
+    const corrected = result.find((s) =>
+      s.text.includes("재산세의 과세기준일은 매년 6월 1일")
+    );
+    expect(corrected?.modified).toBe(true);
+    const plainO = result.find((s) => s.text.includes("분납하게 할 수 있다"));
+    expect(plainO?.modified).toBe(false);
   });
 
   it("filters unrelated statements when questionRefs are absent", () => {

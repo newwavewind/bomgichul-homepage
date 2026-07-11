@@ -57,7 +57,7 @@ export default function StudyHubPage() {
 
         <section id="concepts">
           <SectionHeading as="h2" className="mb-6">
-            개념 목록
+            기출 all-in-one
           </SectionHeading>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {EXAM_SUBJECTS.map((s) => {
@@ -76,7 +76,7 @@ export default function StudyHubPage() {
                       {label}
                     </h3>
                     <p className="font-display text-body-sm text-smoke">
-                      핵심 개념 {total}개
+                      기출 해설 주제 {total}개
                     </p>
                   </FeatureCard>
                 </Link>

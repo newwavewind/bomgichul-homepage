@@ -5,6 +5,8 @@ export interface ConceptStatement {
   text: string;
   year: number;
   questionNo: number;
+  /** 틀린 선지·짧은 O 선지를 해설로 고친 경우 */
+  modified?: boolean;
 }
 
 function normalizeText(text: string): string {
@@ -117,21 +119,25 @@ export function correctStatementFromExplanation(
   return null;
 }
 
-function statementTextFromItem(item: ExamQuestionItem): string | null {
+function statementTextFromItem(
+  item: ExamQuestionItem
+): { text: string; modified: boolean } | null {
   if (item.answer === "O") {
     const text = normalizeText(item.text);
     // 선지가 너무 짧아 문맥이 없으면 해설을 옳은 문장으로 쓴다.
     if (text.length < 25) {
       const fromExpl = correctStatementFromExplanation(item.explanation, item.text);
-      if (fromExpl && fromExpl.length >= 25) return fromExpl;
+      if (fromExpl && fromExpl.length >= 25) {
+        return { text: fromExpl, modified: fromExpl !== text };
+      }
     }
-    return isMeaningfulStatement(text) ? text : null;
+    return isMeaningfulStatement(text) ? { text, modified: false } : null;
   }
 
   const corrected = correctStatementFromExplanation(item.explanation, item.text);
   // 해설에서 뽑은 문장은 단편을 피하기 위해 더 길게 요구
   if (!corrected || corrected.length < 25) return null;
-  return corrected;
+  return { text: corrected, modified: true };
 }
 
 /**
@@ -146,9 +152,13 @@ export function extractStatementsFromQuestions(
 
   for (const q of questions) {
     for (const item of q.items) {
-      const text = statementTextFromItem(item);
-      if (!text) continue;
-      if (!isStatementRelevantToConcept(item.text, concept) && !isStatementRelevantToConcept(text, concept)) {
+      const extracted = statementTextFromItem(item);
+      if (!extracted) continue;
+      const { text, modified } = extracted;
+      if (
+        !isStatementRelevantToConcept(item.text, concept) &&
+        !isStatementRelevantToConcept(text, concept)
+      ) {
         continue;
       }
 
@@ -159,6 +169,7 @@ export function extractStatementsFromQuestions(
         text,
         year: q.year,
         questionNo: q.questionNo,
+        modified: Boolean(modified),
       });
     }
   }
