@@ -1,22 +1,55 @@
 import { parseQuestionStem } from "@/lib/exam-stem";
 
-export function QuestionStem({ stem }: { stem: string }) {
+function StemHeading({
+  questionNo,
+  text,
+  className,
+}: {
+  questionNo?: number;
+  text: string;
+  className: string;
+}) {
+  if (questionNo == null) {
+    return <h1 className={className}>{text}</h1>;
+  }
+
+  return (
+    <h1 className={`flex gap-x-2 ${className}`}>
+      <span className="shrink-0 select-none tabular-nums">{questionNo}.</span>
+      <span className="min-w-0 flex-1 whitespace-pre-line">{text}</span>
+    </h1>
+  );
+}
+
+export function QuestionStem({
+  stem,
+  questionNo,
+}: {
+  stem: string;
+  questionNo?: number;
+}) {
   const { intro, boxLines } = parseQuestionStem(stem);
+  const headingClass =
+    "mb-8 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink";
 
   if (boxLines.length === 0) {
     return (
-      <p className="mb-8 max-w-3xl whitespace-pre-line font-display text-body-lg leading-relaxed text-ink">
-        {stem}
-      </p>
+      <StemHeading
+        questionNo={questionNo}
+        text={stem}
+        className={`${headingClass} whitespace-pre-line`}
+      />
     );
   }
 
   return (
     <>
-      {intro && (
-        <p className="mb-4 max-w-3xl whitespace-pre-line font-display text-body-lg leading-relaxed text-ink">
-          {intro}
-        </p>
+      {(intro || questionNo != null) && (
+        <StemHeading
+          questionNo={questionNo}
+          text={intro}
+          className="mb-4 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink"
+        />
       )}
       <div className="mb-8 max-w-3xl rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-surface px-5 py-4">
         {boxLines.map((line, i) => {

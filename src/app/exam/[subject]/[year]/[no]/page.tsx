@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
+import { EyebrowLabel } from "@/components/ui/Typography";
 import { PrimaryButton } from "@/components/ui/Button";
 import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
 import { Tag } from "@/components/ui/Tag";
@@ -138,20 +138,16 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           / {questionNo}번
         </p>
 
-        <div className="mb-6 flex flex-wrap items-center gap-2">
-          <EyebrowLabel>
-            {info.round} · {label}
-          </EyebrowLabel>
-          <Tag className="!px-2.5 !py-0.5 !text-[12px]">
-            제{question.round}회 · {year}년
-          </Tag>
-          <Tag className="!px-2.5 !py-0.5 !text-[12px]">{question.category}</Tag>
-        </div>
-
-        <div className="mb-2 flex flex-wrap items-center justify-between gap-3">
-          <SectionHeading as="h1" className="mb-0">
-            {year}년 {label} {questionNo}번
-          </SectionHeading>
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <EyebrowLabel>
+              {info.round} · {label}
+            </EyebrowLabel>
+            <Tag className="!px-2.5 !py-0.5 !text-[12px]">
+              제{question.round}회 · {year}년
+            </Tag>
+            <Tag className="!px-2.5 !py-0.5 !text-[12px]">{question.category}</Tag>
+          </div>
           <BookmarkButton
             subject={subject}
             year={year}
@@ -160,7 +156,8 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
             initialBookmarked={bookmarked}
           />
         </div>
-        <QuestionStem stem={question.stem} />
+
+        <QuestionStem stem={question.stem} questionNo={questionNo} />
 
         <ExamAnswerList
           items={question.items}
