@@ -12,6 +12,14 @@ import {
   getAllConceptParams,
   type ConceptStatement,
 } from "@/lib/concepts";
+import {
+  buildPitfallCards,
+  getConceptEnhancement,
+} from "@/lib/concept-enhancements";
+import {
+  ConceptPitfallCards,
+  ConceptVisualGuide,
+} from "@/components/concepts/ConceptVisualEnhancements";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl } from "@/lib/seo";
 import { appendReturnTo } from "@/lib/return-to";
@@ -131,6 +139,8 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const questions = getConceptQuestions(subject, concept);
   const statements = getConceptStatements(subject, concept);
+  const enhancement = getConceptEnhancement(concept);
+  const pitfallCards = buildPitfallCards(concept, questions);
   const returnTo = `/concepts/${subject}/${slug}`;
   const parent = concept.parentSlug ? getConcept(subject, concept.parentSlug) : undefined;
   const siblingConcepts = getConceptsForSubject(subject);
@@ -140,7 +150,8 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
     currentIndex >= 0 && currentIndex < siblingConcepts.length - 1
       ? siblingConcepts[currentIndex + 1]
       : undefined;
-  const relatedIndex = statements.length > 0 ? 6 : 5;
+  const statementsIndex = enhancement ? 6 : 5;
+  const relatedIndex = statements.length > 0 ? statementsIndex + 1 : statementsIndex;
 
   return (
     <div className="hp-cx px-4 py-8 md:py-12">
@@ -193,13 +204,15 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
             </ol>
           </SectionBlock>
           <SectionBlock label="함정 포인트" index={4}>
-            {concept.pitfalls}
+            <ConceptPitfallCards cards={pitfallCards} fallback={concept.pitfalls} />
           </SectionBlock>
         </article>
 
+        <ConceptVisualGuide guide={enhancement} />
+
         {statements.length > 0 && (
           <article className="hp-cx-card">
-            <SectionBlock label="기출 지문" index={5}>
+            <SectionBlock label="기출 지문" index={statementsIndex}>
               <StatementList
                 statements={statements}
                 subject={subject}
