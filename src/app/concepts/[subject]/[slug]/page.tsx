@@ -16,10 +16,8 @@ import {
   buildPitfallCards,
   getConceptEnhancement,
 } from "@/lib/concept-enhancements";
-import {
-  ConceptPitfallCards,
-  ConceptVisualGuide,
-} from "@/components/concepts/ConceptVisualEnhancements";
+import { ConceptPitfallCards } from "@/components/concepts/ConceptVisualEnhancements";
+import { ConceptVisualGuide } from "@/components/concepts/ConceptKindGuides";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl } from "@/lib/seo";
 import { appendReturnTo } from "@/lib/return-to";
@@ -208,7 +206,9 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           </SectionBlock>
         </article>
 
-        <ConceptVisualGuide guide={enhancement} />
+        <div className="concepts-screen hp-cx-kind-host">
+          <ConceptVisualGuide guide={enhancement} />
+        </div>
 
         {statements.length > 0 && (
           <article className="hp-cx-card">

@@ -995,3 +995,11 @@
     animation: none;
   }
 }
+
+/* homepage host for ported Kind UI */
+.hp-cx-kind-host.concepts-screen {
+  margin-top: 0.25rem;
+}
+.hp-cx-kind-host .cx-card.cx-visual-card {
+  margin: 0;
+}

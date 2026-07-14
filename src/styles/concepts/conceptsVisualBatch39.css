@@ -1,0 +1,4 @@
+.cx-b39-note{padding:14px 16px;border-radius:14px;background:#fff1d5;color:#6f4c0b;font-weight:700;margin:12px 0}.cx-b39-note.is-alert{background:#fce9e7;color:#8c3b34}
+.cx-fine-router{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}.cx-fine-router section{padding:13px;border-radius:16px;background:#eef5f8;display:grid;gap:6px}.cx-fine-router strong{color:#16778a;font-size:.8rem}.cx-fine-router span{padding:6px 8px;border-radius:8px;background:#fff;font-size:.7rem}
+.cx-easement-extra.is-alert-tone{background:#f9ecec;color:#a1423a}
+@media(max-width:700px){.cx-fine-router{grid-template-columns:1fr}}
