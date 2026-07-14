@@ -49,6 +49,7 @@ export function Footer() {
             </NavItem>
           ))}
           <NavItem href="/login">로그인</NavItem>
+          <NavItem href="/privacy">개인정보처리방침</NavItem>
         </nav>
       </div>
       <div className="border-t border-mist/70">

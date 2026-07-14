@@ -19,6 +19,12 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     priority: 0.8,
   },
   {
+    url: `${SITE_URL}/privacy`,
+    lastModified: new Date(),
+    changeFrequency: "yearly",
+    priority: 0.3,
+  },
+  {
     url: `${SITE_URL}/community`,
     lastModified: new Date(),
     changeFrequency: "daily",
