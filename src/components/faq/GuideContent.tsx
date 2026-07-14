@@ -1,312 +1,462 @@
-import { HandCaption, SectionHeading } from "@/components/ui/Typography";
+import Link from "next/link";
+import { HandCaption, SectionHeading, ElectricHighlight } from "@/components/ui/Typography";
 import { FeatureCard, ElevatedCard } from "@/components/ui/Card";
 import { PrimaryButton, SecondaryButton, OutlineButton } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
-import { EXAM_SUBJECTS, PC_APP_URL, APP_LINKS } from "@/lib/constants";
+import { APP_LINKS, EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, PC_APP_URL } from "@/lib/constants";
+import {
+  StudyHubVisual,
+  ConceptsVisual,
+  ExamVisual,
+  CommunityVisual,
+  ArchiveVisual,
+  DiaryVisual,
+  NewsVisual,
+  PremiumVisual,
+} from "@/components/faq/DocsVisuals";
 
-const WHY_POINTS = [
-  {
-    icon: "🤖",
-    title: "AI에게 물어볼 질문까지 대신 준비",
-    description:
-      "AI는 답을 잘하지만 무엇을 물어야 할지 막막할 때가 있어요. 지문·보기·해설을 바탕으로 GPT·Gemini·Claude에 바로 붙여넣을 질문을 자동으로 만들어 드립니다.",
-  },
-  {
-    icon: "📚",
-    title: "10년치 기출, 문항 단위 해설",
-    description:
-      "2016~2025년 공인중개사 1·2차 전 과목 기출문제를 연도·문항 단위로 정리해, 정답 확인과 동시에 해설을 바로 볼 수 있어요.",
-  },
-  {
-    icon: "🎁",
-    title: "일단 무료로 충분히 체험",
-    description:
-      "로그인 없이 오늘의 기출 O/X를 바로 풀어볼 수 있고, 부동산학개론은 전 연도가 출시 이벤트로 무료 공개 중이에요. 나머지 5과목도 최근 2개년(2024·2025)은 기본 무료입니다.",
-  },
-  {
-    icon: "💬",
-    title: "같은 시험을 준비하는 사람들과 함께",
-    description:
-      "수험생 커뮤니티·자료실에서 정보를 나누고, 우측 하단 채팅으로 지금 접속 중인 수험생과 1:1로 바로 이야기할 수 있어요.",
-  },
+const TOC = [
+  { href: "#home", label: "1. 학습 홈" },
+  { href: "#concepts", label: "2. 기출 all-in-one" },
+  { href: "#exam", label: "3. 기출문제" },
+  { href: "#community", label: "4. 커뮤니티" },
+  { href: "#archive", label: "5. 자료실" },
+  { href: "#diary", label: "6. 수험일기" },
+  { href: "#news", label: "7. 뉴스" },
+  { href: "#account", label: "8. 로그인·프로필" },
+  { href: "#premium", label: "9. 무료·프리미엄" },
+  { href: "#apps", label: "10. 앱·PC앱" },
 ];
 
-const FEATURES = [
-  {
-    icon: "✏️",
-    tag: "학습",
-    title: "기출문제 O/X 학습",
-    description:
-      "연도·과목별 기출문제를 문항 단위로 풀고, 정답 확인 시 해설과 AI 질문 버튼이 함께 열려요.",
-    href: "/exam",
-    cta: "기출문제 보러가기",
-  },
-  {
-    icon: "⏱️",
-    tag: "시험모드",
-    title: "시험 모드",
-    description:
-      "해당 연도 전체 문항을 실전처럼 한 번에 풀고 제출하면 일괄 채점·해설을 확인해요. 최근 2개년은 무료로 풀어볼 수 있고, 점수 기록 저장은 해당 과목 프리미엄 해제 후 가능해요.",
-    href: "/exam",
-    cta: "과목 선택하기",
-  },
-  {
-    icon: "🎲",
-    tag: "프리미엄",
-    title: "랜덤 문제 연습",
-    description: "연도·단원 필터와 문항 수를 골라, 전체 기출 중 원하는 범위를 무작위로 연습해요.",
-    href: "/exam",
-    cta: "과목 선택하기",
-  },
-  {
-    icon: "❌",
-    tag: "프리미엄",
-    title: "오답노트 연습",
-    description: "틀렸다고 표시한 문제만 모아 반복 연습하고 바로 해설을 확인해요.",
-    href: "/exam",
-    cta: "과목 선택하기",
-  },
-  {
-    icon: "🔁",
-    tag: "프리미엄",
-    title: "오늘의 복습",
-    description: "오답·북마크·약점 단원·D-day를 반영해 매일 맞춤 복습 큐를 받아요.",
-    href: "/exam",
-    cta: "과목 선택하기",
-  },
-  {
-    icon: "🧠",
-    tag: "AI",
-    title: "AI 질문 (GPT·Gemini·Claude)",
-    description: "지문·보기·해설을 담은 질문을 자동으로 만들어, 버튼 한 번으로 AI에게 물어봐요.",
-    href: "/exam",
-    cta: "과목 선택하기",
-  },
-  {
-    icon: "📄",
-    tag: "프리미엄",
-    title: "PDF 다운로드",
-    description: "연도별 전체 문항과 해설이 담긴 PDF를 내려받아 오프라인으로 학습해요.",
-    href: "/exam",
-    cta: "과목 선택하기",
-  },
-  {
-    icon: "📒",
-    tag: "프리미엄",
-    title: "복습 PDF",
-    description: "내가 북마크·메모로 남긴 문제만 모아 나만의 복습 PDF로 만들어요.",
-    href: "/exam",
-    cta: "과목 선택하기",
-  },
-  {
-    icon: "📊",
-    tag: "내 프로필",
-    title: "학습 통계",
-    description: "해제한 과목별 단원 정답률 그래프와 연도별 정답률 히트맵을 확인해요.",
-    href: "/profile",
-    cta: "내 프로필 보기",
-  },
-  {
-    icon: "📝",
-    tag: "기출",
-    title: "문제별 메모",
-    description: "각 문항 페이지에 누구나 볼 수 있는 메모를 남기고, 헷갈린 포인트를 함께 정리해요.",
-    href: "/exam",
-    cta: "과목 선택하기",
-  },
-  {
-    icon: "⭐",
-    tag: "학습",
-    title: "북마크",
-    description: "다시 보고 싶은 문제를 별표로 저장하고, 내 프로필에서 모아 볼 수 있어요.",
-    href: "/profile",
-    cta: "내 프로필 보기",
-  },
-  {
-    icon: "💬",
-    tag: "커뮤니티",
-    title: "게시판 & 자료실",
-    description: "자유게시판·질문·자료공유·수험정보·합격후기 글을 나누고, 기출·노트·요약 파일을 올리고 받아요.",
-    href: "/community",
-    cta: "커뮤니티 보기",
-  },
-  {
-    icon: "🗨️",
-    tag: "실시간",
-    title: "1:1 채팅",
-    description: "화면 우측 하단 채팅 버튼으로 지금 접속 중인 수험생에게 실시간 DM을 보낼 수 있어요.",
-    href: "/community",
-    cta: "커뮤니티 보기",
-  },
-  {
-    icon: "📔",
-    tag: "매일",
-    title: "수험일기",
-    description: "시험일까지 D-day를 기준으로 다른 수험생의 공개 일기를 읽고, 오늘의 내 일기를 남겨요.",
-    href: "/diary",
-    cta: "수험일기 보기",
-  },
-];
-
-const STEPS = [
-  {
-    title: "모바일 앱에서 과목 구매",
-    description:
-      "iOS·Android 앱스토어에서 「봄기출 공인중개사」를 설치하고, 앱 안에서 원하는 과목의 프리미엄을 구매해요. 프리미엄 코드는 모바일 앱 구매에서만 발급되며, PC앱에서는 구매할 수 없어요. 과목별로 따로 구매합니다.",
-  },
-  {
-    title: "구매 완료 시 발급되는 PC 학습 코드 확인",
-    description: "구매가 끝나면 앱에서 「BOM-XXXX-XXXX」 형태의 PC 학습 코드가 발급돼요.",
-  },
-  {
-    title: "이 홈페이지에 로그인",
-    description:
-      "코드는 등록하는 순간 현재 로그인한 계정에 귀속됩니다. 한 번 등록한 코드는 다른 계정에 다시 등록할 수 없으니, 반드시 사용할 계정으로 로그인한 뒤 등록하세요.",
-  },
-  {
-    title: "과목 페이지 하단 「코드 등록」에 입력",
-    description:
-      "기출문제 과목 페이지(예: 부동산학개론, 민법)로 이동해 아래로 스크롤하면 코드 등록 칸이 있어요. 코드를 입력하고 등록 버튼을 누르면 끝!",
-  },
-  {
-    title: "그 과목의 전체 기능이 바로 열려요",
-    description:
-      "전체 연도(2016~2025) 해설, AI 질문, 랜덤 문제, 오답노트, 오늘의 복습, PDF 다운로드, 학습 통계까지 등록한 과목에서 모두 이용할 수 있어요.",
-  },
-];
-
-function StepNumber({ n }: { n: number }) {
+function DocsSection({
+  id,
+  step,
+  eyebrow,
+  title,
+  children,
+  visual,
+  reverse = false,
+}: {
+  id: string;
+  step: string;
+  eyebrow: string;
+  title: string;
+  children: React.ReactNode;
+  visual: React.ReactNode;
+  reverse?: boolean;
+}) {
   return (
-    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--radius-icons)] border-[1.5px] border-carbon bg-electric-blue font-display text-body-sm font-bold text-paper">
-      {n}
-    </span>
+    <section id={id} className="scroll-mt-28 border-t border-mist pt-14">
+      <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <p className="mb-2 font-display text-[12px] font-semibold tracking-[0.08em] text-electric-blue">
+            {step} · {eyebrow}
+          </p>
+          <SectionHeading as="h2">{title}</SectionHeading>
+        </div>
+      </div>
+      <div
+        className={`grid items-start gap-8 lg:grid-cols-2 ${
+          reverse ? "lg:[&>*:first-child]:order-2" : ""
+        }`}
+      >
+        <div className="space-y-4 font-display text-body text-smoke">{children}</div>
+        <div className="lg:sticky lg:top-28">{visual}</div>
+      </div>
+    </section>
+  );
+}
+
+function StepList({ items }: { items: string[] }) {
+  return (
+    <ol className="space-y-2.5">
+      {items.map((item, index) => (
+        <li key={item} className="flex gap-3">
+          <span className="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full border border-carbon bg-paper font-display text-[11px] font-bold text-ink">
+            {index + 1}
+          </span>
+          <span className="font-display text-body-sm leading-relaxed text-ink">{item}</span>
+        </li>
+      ))}
+    </ol>
   );
 }
 
 export function GuideContent() {
   return (
-    <>
-      <section className="mb-16">
-        <div className="mb-8 max-w-xl">
-          <HandCaption className="mb-2">왜 봄기출인가요</HandCaption>
-          <SectionHeading as="h2">공부는 당신이, 질문은 봄기출이</SectionHeading>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {WHY_POINTS.map((point, i) => (
-            <FeatureCard key={point.title} tint={(["ice", "lavender", "snow", "none"] as const)[i % 4]}>
-              <div className="mb-3 text-2xl">{point.icon}</div>
-              <h3 className="mb-2 font-display text-subheading font-semibold text-ink">{point.title}</h3>
-              <p className="font-display text-body-sm leading-relaxed text-smoke">{point.description}</p>
-            </FeatureCard>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-16">
-        <div className="mb-8 max-w-xl">
-          <HandCaption className="mb-2">무료 vs 프리미엄</HandCaption>
-          <SectionHeading as="h2">어디까지 무료로 되나요?</SectionHeading>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2">
-          <ElevatedCard className="p-6">
-            <Tag className="mb-4">무료로 되는 것</Tag>
-            <ul className="space-y-2.5 font-display text-body-sm leading-relaxed text-ink">
-              <li>· 로그인 없이 「오늘의 기출 O/X」 바로 체험</li>
-              <li>· 부동산학개론 2016~2025년 전 연도 기출·해설·랜덤·AI 질문 (출시 이벤트)</li>
-              <li>
-                · 나머지 5과목(민법·공인중개사법·부동산공시법·부동산세법·부동산공법)의 2024·2025년 기출
-                해설 + 시험 모드
-              </li>
-            </ul>
-          </ElevatedCard>
-          <ElevatedCard className="p-6">
-            <Tag className="mb-4">과목별 프리미엄 구매 시</Tag>
-            <ul className="space-y-2.5 font-display text-body-sm leading-relaxed text-ink">
-              <li>· 해당 과목 2016~2025년 전체 연도 문항 해설</li>
-              <li>· 랜덤 문제, 오답노트 연습, 오늘의 복습</li>
-              <li>· 과목별 학습 통계와 정답률 확인</li>
-              <li>· 연도별 PDF 다운로드, 북마크·메모 모음 복습 PDF</li>
-            </ul>
-          </ElevatedCard>
-        </div>
-        <p className="mt-4 font-display text-body-sm text-fog">
-          프리미엄은 과목 단위로 구매해요. 예를 들어 민법만 구매하면 민법만 전체 이용할 수 있고, 다른
-          과목은 그대로 무료 범위만 적용됩니다. 모바일 앱의 무료·프리미엄 범위는 스토어 앱 기준이며, 이
-          홈페이지와 다를 수 있어요.
+    <div className="space-y-4">
+      <section className="mb-10 rounded-[var(--radius-largecards)] border border-carbon bg-snow px-5 py-6 shadow-[var(--shadow-card)] md:px-8 md:py-8">
+        <HandCaption className="mb-2">이용 안내서</HandCaption>
+        <SectionHeading as="h2" className="mb-3">
+          홈페이지 기능을 한눈에
+        </SectionHeading>
+        <p className="max-w-2xl font-display text-body text-smoke">
+          이 페이지는 <ElectricHighlight>봄기출 홈페이지</ElectricHighlight>에 있는 기능을
+          하나씩 설명하는 가이드예요. 마케팅 문구가 아니라, 지금 실제로 눌러볼 수 있는
+          화면 기준으로 적어 두었습니다.
         </p>
-      </section>
-
-      <section id="code" className="mb-16 scroll-mt-24">
-        <div className="mb-8 max-w-xl">
-          <HandCaption className="mb-2">가장 많이 물어보는 것</HandCaption>
-          <SectionHeading as="h2">프리미엄 코드, 어떻게 받고 등록하나요?</SectionHeading>
-          <p className="mt-3 font-display text-body-sm text-smoke">
-            결제는 모바일 앱에서, 코드 등록은 이 홈페이지에서 — 한 번만 등록해두면 이후로는 그냥
-            로그인해서 쓰면 됩니다.
-          </p>
-        </div>
-        <ElevatedCard className="p-6 md:p-8">
-          <ol className="space-y-6">
-            {STEPS.map((step, i) => (
-              <li key={step.title} className="flex gap-4">
-                <StepNumber n={i + 1} />
-                <div>
-                  <p className="font-display text-body font-semibold text-ink">{step.title}</p>
-                  <p className="mt-1 font-display text-body-sm leading-relaxed text-smoke">{step.description}</p>
-                </div>
-              </li>
+        <nav aria-label="목차" className="mt-6">
+          <div className="flex flex-wrap gap-2">
+            {TOC.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-full border border-carbon/40 bg-paper px-3 py-1.5 font-display text-[12px] font-medium text-ink transition-colors hover:border-carbon hover:bg-snow"
+              >
+                {item.label}
+              </a>
             ))}
-          </ol>
-        </ElevatedCard>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <PrimaryButton href={APP_LINKS.android}>Google Play에서 구매하기</PrimaryButton>
-          <SecondaryButton href={APP_LINKS.ios}>App Store에서 구매하기</SecondaryButton>
-        </div>
+          </div>
+        </nav>
       </section>
 
-      <section className="mb-16">
-        <div className="mb-8 max-w-xl">
-          <HandCaption className="mb-2">기능 하나씩</HandCaption>
-          <SectionHeading as="h2">봄기출 홈페이지 기능 전체 보기</SectionHeading>
+      <DocsSection
+        id="home"
+        step="01"
+        eyebrow="시작"
+        title="학습 홈에서 과목을 고릅니다"
+        visual={<StudyHubVisual />}
+      >
+        <p>
+          사이트에 들어오면 바로 <strong className="text-ink">학습 홈</strong>이 보여요.
+          주소는 <code className="rounded bg-mist/60 px-1.5 py-0.5 text-[13px]">/</code> 또는{" "}
+          <code className="rounded bg-mist/60 px-1.5 py-0.5 text-[13px]">/study</code> 입니다.
+        </p>
+        <p>화면은 크게 두 덩어리예요.</p>
+        <ul className="list-disc space-y-1.5 pl-5 font-display text-body-sm text-ink">
+          <li>
+            <strong>기출 all-in-one</strong> — 주제별 개념과 기출 지문을 이어서 공부
+          </li>
+          <li>
+            <strong>기출문제</strong> — 연도·문항 단위로 O/X 풀기
+          </li>
+        </ul>
+        <p className="font-display text-body-sm">
+          아래에는 앱 설치 안내가 있어요. 로그인 없이도 과목을 눌러 들어갈 수 있습니다.
+        </p>
+        <OutlineButton href="/" className="!px-4 !py-2">
+          학습 홈 열기
+        </OutlineButton>
+      </DocsSection>
+
+      <DocsSection
+        id="concepts"
+        step="02"
+        eyebrow="개념"
+        title="기출 all-in-one으로 주제를 따라갑니다"
+        visual={<ConceptsVisual />}
+        reverse
+      >
+        <p>
+          과목을 고르면 PART · CHAPTER 같은 목차로 개념이 정리되어 있어요. 한 개념을 열면
+          이런 순서로 읽으면 됩니다.
+        </p>
+        <StepList
+          items={[
+            "개념 정리 — 한 줄 정의",
+            "이해하기 — 직관적으로 받아들이는 설명",
+            "핵심 포인트 · 함정 포인트 — 시험에서 자주 틀리는 지점",
+            "한눈에 학습맵 / 시각 가이드 — 도표로 구조 잡기",
+            "기출 지문 · 관련 기출 — 실제 문제로 바로 이어가기",
+          ]}
+        />
+        <p className="font-display text-body-sm">
+          「수정」 표시가 있는 지문은 원문과 표현이 조금 다듬어진 버전이에요. 개념
+          공부용으로 읽기 쉽게 정리한 것입니다.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {EXAM_SUBJECTS.slice(0, 3).map((s) => (
+            <Link
+              key={s.value}
+              href={`/concepts/${s.value}`}
+              className="rounded-full border border-carbon/40 bg-lavender/60 px-3 py-1.5 font-display text-[12px] font-medium text-ink hover:border-carbon"
+            >
+              {ARCHIVE_SUBJECT_MAP[s.value]}
+            </Link>
+          ))}
+          <OutlineButton href="/#concepts" className="!px-3 !py-1.5 !text-[12px]">
+            전체 과목
+          </OutlineButton>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map((feature, i) => (
-            <FeatureCard key={feature.title} tint={(["none", "ice", "lavender", "snow"] as const)[i % 4]}>
-              <div className="mb-3 flex items-center justify-between gap-2">
-                <span className="text-2xl">{feature.icon}</span>
-                <Tag className="!px-2.5 !py-0.5 !text-[12px]">{feature.tag}</Tag>
-              </div>
-              <h3 className="mb-2 font-display text-subheading font-semibold text-ink">{feature.title}</h3>
-              <p className="mb-4 font-display text-body-sm leading-relaxed text-smoke">{feature.description}</p>
-              <OutlineButton href={feature.href} className="!px-0 !text-electric-blue hover:!bg-transparent">
-                {feature.cta} →
-              </OutlineButton>
+      </DocsSection>
+
+      <DocsSection
+        id="exam"
+        step="03"
+        eyebrow="문제 풀이"
+        title="기출문제는 연도 → 문항으로 풉니다"
+        visual={<ExamVisual />}
+      >
+        <p>
+          과목을 고르면 연도 목록이 나와요. 연도를 누르면 문항 목록, 문항을 누르면 O/X로
+          풀어볼 수 있습니다.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[
+            {
+              title: "정답 · 해설",
+              body: "O/X를 고르면 바로 해설이 열려요.",
+            },
+            {
+              title: "AI에게 묻기",
+              body: "GPT · Gemini · Claude에 붙여넣을 질문을 만들어 줍니다.",
+            },
+            {
+              title: "시험 모드",
+              body: "그해 문항을 한 번에 풀고 제출하면 일괄 채점됩니다.",
+            },
+            {
+              title: "랜덤 · 오답 · 복습",
+              body: "로그인·프리미엄이 필요한 연습 메뉴도 과목 페이지에 모여 있어요.",
+            },
+          ].map((card) => (
+            <FeatureCard key={card.title} tint="snow" className="!p-3.5">
+              <p className="font-display text-[13px] font-semibold text-ink">{card.title}</p>
+              <p className="mt-1 font-display text-[12px] leading-relaxed text-smoke">
+                {card.body}
+              </p>
             </FeatureCard>
           ))}
         </div>
+        <p className="font-display text-body-sm">
+          과목별 기출 목록은 학습 홈의 <strong className="text-ink">기출문제</strong> 카드에서
+          들어가면 됩니다.
+        </p>
+        <OutlineButton href="/#exam" className="!px-4 !py-2">
+          기출문제 과목 보기
+        </OutlineButton>
+      </DocsSection>
+
+      <DocsSection
+        id="community"
+        step="04"
+        eyebrow="함께 공부"
+        title="커뮤니티에서 질문하고 정보를 나눠요"
+        visual={<CommunityVisual />}
+        reverse
+      >
+        <p>
+          자유 · 질문 · 자료공유 · 수험정보 · 법령정보 · 합격후기 카테고리가 있어요. 글은
+          누구나 읽을 수 있고, <strong className="text-ink">글쓰기·댓글은 로그인</strong> 후
+          이용합니다.
+        </p>
+        <StepList
+          items={[
+            "상단 「커뮤니티」를 누릅니다",
+            "카테고리·검색으로 글을 찾습니다",
+            "질문이 있으면 「질문」에 남겨 보세요",
+          ]}
+        />
+        <div className="flex flex-wrap gap-2">
+          <PrimaryButton href="/community" className="!px-4 !py-2">
+            커뮤니티 가기
+          </PrimaryButton>
+          <OutlineButton href="/community/write" className="!px-4 !py-2">
+            글쓰기
+          </OutlineButton>
+        </div>
+      </DocsSection>
+
+      <DocsSection
+        id="archive"
+        step="05"
+        eyebrow="파일"
+        title="자료실에서 파일을 받고 올려요"
+        visual={<ArchiveVisual />}
+      >
+        <p>
+          기출 · 노트 · 요약 등 파일을 과목별로 모아 둔 공간이에요. 다운로드는 로그인 없이
+          가능하고, <strong className="text-ink">자료 올리기는 로그인</strong>이 필요합니다.
+        </p>
+        <p className="font-display text-body-sm">
+          PDF · 문서 · 이미지 · CSV · MP4를 올릴 수 있어요. (일반 파일은 대체로 20MB, 영상은
+          더 큰 용량까지)
+        </p>
+        <OutlineButton href="/archive" className="!px-4 !py-2">
+          자료실 열기
+        </OutlineButton>
+      </DocsSection>
+
+      <DocsSection
+        id="diary"
+        step="06"
+        eyebrow="기록"
+        title="수험일기로 D-day와 하루를 남겨요"
+        visual={<DiaryVisual />}
+        reverse
+      >
+        <p>
+          시험까지 남은 날짜(D-day)를 보며, 다른 수험생의 공개 일기를 읽을 수 있어요. 내
+          하루 기록은 로그인 후 남길 수 있습니다.
+        </p>
+        <OutlineButton href="/diary" className="!px-4 !py-2">
+          수험일기 보기
+        </OutlineButton>
+      </DocsSection>
+
+      <DocsSection
+        id="news"
+        step="07"
+        eyebrow="소식"
+        title="뉴스로 날짜별 이슈를 훑어요"
+        visual={<NewsVisual />}
+      >
+        <p>
+          공인중개사와 관련한 소식을 날짜 줄로 넘겨 가며 읽을 수 있어요. 따로 로그인할
+          필요는 없습니다.
+        </p>
+        <OutlineButton href="/news" className="!px-4 !py-2">
+          뉴스 보기
+        </OutlineButton>
+      </DocsSection>
+
+      <DocsSection
+        id="account"
+        step="08"
+        eyebrow="계정"
+        title="로그인은 구글로, 프로필에서 내 공부를 봐요"
+        visual={
+          <FeatureCard tint="snow" className="mx-auto max-w-sm !p-5">
+            <Tag className="mb-3 !text-[11px]">계정</Tag>
+            <p className="font-display text-subheading font-semibold text-ink">Google 로그인</p>
+            <p className="mt-2 font-display text-body-sm text-smoke">
+              로그인 → 아이디(닉네임) 설정 → 프로필에서 북마크·오답·내 글 확인
+            </p>
+            <div className="mt-4 space-y-2">
+              {["로그인", "아이디 설정", "프로필 · 알림"].map((row) => (
+                <div
+                  key={row}
+                  className="rounded-lg border border-mist bg-paper px-3 py-2 font-display text-[12px] text-ink"
+                >
+                  {row}
+                </div>
+              ))}
+            </div>
+          </FeatureCard>
+        }
+      >
+        <StepList
+          items={[
+            "상단 「로그인」에서 Google로 접속합니다",
+            "처음이면 닉네임을 정하는 온보딩이 나와요",
+            "프로필에서 북마크·오답·내가 쓴 글을 봅니다",
+            "알림은 댓글 등 소식용이에요",
+          ]}
+        />
+        <p className="font-display text-body-sm">
+          우측 하단 채팅은 닉네임이 있는 계정에서, 접속 중인 수험생과 짧게 대화할 때
+          씁니다.
+        </p>
+        <OutlineButton href="/login" className="!px-4 !py-2">
+          로그인
+        </OutlineButton>
+      </DocsSection>
+
+      <DocsSection
+        id="premium"
+        step="09"
+        eyebrow="이용 범위"
+        title="무료로 되는 것과 프리미엄"
+        visual={<PremiumVisual />}
+        reverse
+      >
+        <div className="grid gap-3 sm:grid-cols-2">
+          <ElevatedCard className="!p-4">
+            <Tag className="mb-2 !bg-electric-blue/10 !text-[11px]">무료</Tag>
+            <ul className="space-y-1.5 font-display text-[13px] text-ink">
+              <li>· 기출 all-in-one 개념</li>
+              <li>· 부동산학개론 기출 전 연도</li>
+              <li>· 다른 5과목 최근 2개년(2024–2025)</li>
+              <li>· 커뮤니티·자료실·뉴스 읽기</li>
+            </ul>
+          </ElevatedCard>
+          <ElevatedCard className="!border-carbon !bg-carbon !p-4 text-paper">
+            <Tag className="mb-2 !border-paper/30 !bg-paper/10 !text-[11px] !text-paper">
+              프리미엄
+            </Tag>
+            <ul className="space-y-1.5 font-display text-[13px] text-paper/95">
+              <li>· 과거 연도 전체 해설·AI</li>
+              <li>· 랜덤 · 오답 · 복습 연습</li>
+              <li>· 연도/복습 PDF</li>
+              <li>· PC앱에서도 같은 권한</li>
+            </ul>
+          </ElevatedCard>
+        </div>
+        <p className="font-display text-body-sm">
+          프리미엄은 <strong className="text-ink">모바일 앱에서 과목별로 구매</strong>하고,
+          받은 코드를 홈페이지 해당 과목 기출 페이지 하단「코드 등록」에 넣으면 됩니다.
+          등록한 Google 계정으로 홈페이지와 PC앱이 함께 풀려요.
+        </p>
+        <OutlineButton href="/exam/civillaw#unlock" className="!px-4 !py-2">
+          민법에서 코드 등록 위치 보기
+        </OutlineButton>
+      </DocsSection>
+
+      <section id="apps" className="scroll-mt-28 border-t border-mist pt-14">
+        <p className="mb-2 font-display text-[12px] font-semibold tracking-[0.08em] text-electric-blue">
+          10 · 앱
+        </p>
+        <SectionHeading as="h2" className="mb-4">
+          모바일 앱과 PC앱
+        </SectionHeading>
+        <div className="grid gap-4 md:grid-cols-2">
+          <FeatureCard tint="ice">
+            <Tag className="mb-3 !text-[11px]">모바일</Tag>
+            <p className="font-display text-subheading font-semibold text-ink">봄기출 공인중개사</p>
+            <p className="mt-2 font-display text-body-sm text-smoke">
+              앱스토어·플레이스토어에서 설치해요. 인앱 결제(프리미엄)도 여기서 진행합니다.
+              앱 전용으로 더 많은 학습 모드가 있어요.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a
+                href={APP_LINKS.ios}
+                className="rounded-full border border-carbon bg-paper px-3 py-1.5 font-display text-[12px] font-medium text-ink"
+                target="_blank"
+                rel="noreferrer"
+              >
+                App Store
+              </a>
+              <a
+                href={APP_LINKS.android}
+                className="rounded-full border border-carbon bg-paper px-3 py-1.5 font-display text-[12px] font-medium text-ink"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Google Play
+              </a>
+            </div>
+          </FeatureCard>
+          <FeatureCard tint="lavender">
+            <Tag className="mb-3 !text-[11px]">PC</Tag>
+            <p className="font-display text-subheading font-semibold text-ink">PC앱</p>
+            <p className="mt-2 font-display text-body-sm text-smoke">
+              큰 화면에서 학습할 때는 PC앱을 쓰세요. 홈페이지에서 등록한 프리미엄이 그대로
+              이어집니다.
+            </p>
+            <a
+              href={PC_APP_URL}
+              className="mt-4 inline-flex rounded-full border border-carbon bg-paper px-3 py-1.5 font-display text-[12px] font-medium text-ink"
+              target="_blank"
+              rel="noreferrer"
+            >
+              app.bomgichul.com
+            </a>
+          </FeatureCard>
+        </div>
       </section>
 
-      <section className="mb-16">
-        <div className="mb-8 max-w-xl">
-          <HandCaption className="mb-2">과목 바로가기</HandCaption>
-          <SectionHeading as="h2">공부할 과목을 선택하세요</SectionHeading>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {EXAM_SUBJECTS.map((s) => (
-            <Tag key={s.value}>
-              <a href={`/exam/${s.value}`}>{s.label}</a>
-            </Tag>
-          ))}
-        </div>
-        <p className="mt-6 font-display text-body-sm text-smoke">
-          개념카드·빈칸 채우기·용어집·출제 통계 히트맵은 모바일 앱과{" "}
-          <a href={PC_APP_URL} className="text-electric-blue underline">
-            PC앱
-          </a>{" "}
-          전용 기능이에요. 이 홈페이지에서 코드를 등록한 계정으로 PC앱에 로그인하면 그대로 이용할 수
-          있습니다.
+      <ElevatedCard className="mt-12 p-6 text-center md:p-8">
+        <SectionHeading as="h2" className="mb-3">
+          바로 시작해 볼까요?
+        </SectionHeading>
+        <p className="mx-auto max-w-md font-display text-body-sm text-smoke">
+          먼저 학습 홈에서 기출 all-in-one 한 과목만 열어봐도 충분해요.
         </p>
-      </section>
-    </>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <PrimaryButton href="/">학습 홈으로</PrimaryButton>
+          <SecondaryButton href="/community">커뮤니티</SecondaryButton>
+        </div>
+      </ElevatedCard>
+    </div>
   );
 }
