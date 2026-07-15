@@ -81,7 +81,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   if (conceptReturn && !user) {
     const examPath = appendReturnTo(
       `/exam/${subject}/${yearParam}/${noParam}`,
-      returnTo
+      returnTo ?? undefined
     );
     redirect(`/login?next=${encodeURIComponent(examPath)}`);
   }
