@@ -45,6 +45,13 @@ export function formatConceptReads(reads: number): string {
   return reads > 0 ? `${reads}회독` : "미학습";
 }
 
+export function countStudiedConcepts(
+  progress: ConceptReadProgress,
+  slugs: string[]
+): number {
+  return slugs.reduce((n, slug) => n + (getConceptReadCount(progress, slug) > 0 ? 1 : 0), 0);
+}
+
 export function incrementConceptRead(
   userId: string,
   subjectId: string,

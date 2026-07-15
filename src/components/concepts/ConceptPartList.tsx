@@ -1,8 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Concept } from "@/lib/concepts";
+import {
+  formatConceptReads,
+  getConceptReadCount,
+  loadConceptReads,
+  type ConceptReadProgress,
+} from "@/lib/concept-reads";
 
 export interface ConceptSectionGroup {
   section: string;
@@ -19,14 +25,32 @@ interface ConceptPartListProps {
   subject: string;
   groups: ConceptPartGroup[];
   questionCounts: Record<string, number>;
+  userId?: string | null;
 }
 
 export function ConceptPartList({
   subject,
   groups,
   questionCounts,
+  userId = null,
 }: ConceptPartListProps) {
   const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
+  const [progress, setProgress] = useState<ConceptReadProgress>({});
+
+  useEffect(() => {
+    if (!userId) {
+      setProgress({});
+      return;
+    }
+    setProgress(loadConceptReads(userId, subject));
+    const refresh = () => setProgress(loadConceptReads(userId, subject));
+    window.addEventListener("focus", refresh);
+    document.addEventListener("visibilitychange", refresh);
+    return () => {
+      window.removeEventListener("focus", refresh);
+      document.removeEventListener("visibilitychange", refresh);
+    };
+  }, [userId, subject]);
 
   const toggle = (chapter: string) => {
     setExpanded((prev) => {
@@ -42,6 +66,14 @@ export function ConceptPartList({
       {groups.map((group, partIndex) => {
         const open = expanded.has(group.chapter);
         const count = group.sections.reduce((n, s) => n + s.items.length, 0);
+        const readInPart = userId
+          ? group.sections.reduce(
+              (n, s) =>
+                n +
+                s.items.filter((c) => getConceptReadCount(progress, c.slug) > 0).length,
+              0
+            )
+          : 0;
         return (
           <section key={group.chapter} className="hp-cx-part">
             <button
@@ -54,6 +86,11 @@ export function ConceptPartList({
                 제{partIndex + 1}편 {group.chapter}
               </span>
               <span className="hp-cx-part__right">
+                {userId ? (
+                  <span className="hp-cx-part__reads">
+                    {readInPart}/{count}
+                  </span>
+                ) : null}
                 <span className="hp-cx-part__count">{count}</span>
                 <span aria-hidden>{open ? "▴" : "▾"}</span>
               </span>
@@ -70,13 +107,16 @@ export function ConceptPartList({
                       {section.items.map((concept) => {
                         const isChild = Boolean(concept.parentSlug);
                         const qCount = questionCounts[concept.slug] ?? 0;
+                        const reads = userId
+                          ? getConceptReadCount(progress, concept.slug)
+                          : 0;
                         return (
                           <li key={concept.slug}>
                             <Link
                               href={`/concepts/${subject}/${concept.slug}`}
                               className={`hp-cx-concept-row${
                                 isChild ? " hp-cx-concept-row--child" : ""
-                              }`}
+                              }${reads > 0 ? " hp-cx-concept-row--read" : ""}`}
                             >
                               <div className="min-w-0">
                                 <p className="hp-cx-concept-row__meta">
@@ -94,8 +134,19 @@ export function ConceptPartList({
                                   {concept.titleKo}
                                 </h3>
                               </div>
-                              <span className="hp-cx-concept-row__count">
-                                {qCount}문항
+                              <span className="hp-cx-concept-row__meta-right">
+                                {userId ? (
+                                  <span
+                                    className={`hp-cx-concept-row__reads${
+                                      reads > 0 ? " is-done" : ""
+                                    }`}
+                                  >
+                                    {formatConceptReads(reads)}
+                                  </span>
+                                ) : null}
+                                <span className="hp-cx-concept-row__count">
+                                  {qCount}문항
+                                </span>
                               </span>
                             </Link>
                           </li>

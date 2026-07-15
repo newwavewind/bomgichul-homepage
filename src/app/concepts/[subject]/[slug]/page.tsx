@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
+import { SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
 import { ARCHIVE_SUBJECT_MAP, EXAM_SUBJECTS, SITE_NAME } from "@/lib/constants";
 import {
@@ -23,10 +23,12 @@ import {
 } from "@/components/concepts/ConceptExamLinks";
 import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
 import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
+import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
+import { buildConceptDetailAiPrompt } from "@/lib/ai-links";
 import "../../concepts-ui.css";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
@@ -117,6 +119,17 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
   const statementsIndex = enhancement ? 6 : 5;
   const relatedIndex = statements.length > 0 ? statementsIndex + 1 : statementsIndex;
   const communityIndex = relatedIndex + 1;
+  const aiPrompt = buildConceptDetailAiPrompt({
+    subjectLabel: label,
+    titleKo: concept.titleKo,
+    chapterKo: concept.chapterKo,
+    sectionKo: concept.sectionKo,
+    category: concept.category,
+    definition: concept.definition,
+    intuition: concept.intuition,
+    keyPoints: concept.keyPoints,
+    pitfalls: concept.pitfalls,
+  });
 
   return (
     <div className="hp-cx px-4 py-8 md:py-12">
@@ -134,12 +147,12 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
         </p>
 
         <div className="mb-8">
-          <EyebrowLabel className="mb-2">
+          <p className="mb-2 font-display text-eyebrow font-semibold text-ios-blue">
             {concept.category} · {questions.length}문항 등장
-          </EyebrowLabel>
+          </p>
           {parent && (
             <p className="mb-2 font-display text-body-sm text-fog">
-              <span className="mr-1.5 inline-flex items-center rounded-full border border-electric-blue/40 px-1.5 py-0.5 font-display text-[10px] font-semibold text-electric-blue">
+              <span className="mr-1.5 inline-flex items-center rounded-full border border-ios-blue/40 px-1.5 py-0.5 font-display text-[10px] font-semibold text-ios-blue">
                 하위개념
               </span>
               <Link href={`/concepts/${subject}/${parent.slug}`} className="hover:text-ink">
@@ -148,7 +161,17 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
               의 하위개념이에요
             </p>
           )}
-          <SectionHeading as="h1">{concept.titleKo}</SectionHeading>
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-2">
+            <SectionHeading as="h1" className="w-auto max-w-full shrink">
+              {concept.titleKo}
+            </SectionHeading>
+            <ConceptAiButtons
+              prompt={aiPrompt}
+              isLoggedIn={isLoggedIn}
+              returnTo={returnTo}
+              subject={subject}
+            />
+          </div>
           <p className="mt-2 font-display text-body-sm text-smoke">
             {label} · {concept.subcategory}
           </p>

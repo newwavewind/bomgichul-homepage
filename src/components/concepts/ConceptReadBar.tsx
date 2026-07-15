@@ -123,11 +123,9 @@ export function ConceptReadBar({
             {isLoggedIn ? formatConceptReads(reads) : "미학습"}
           </span>
           <p className="hp-cx-read-bar__hint">
-            {studied
-              ? "이 개념을 다시 읽었다면 회독을 눌러 주세요."
-              : "읽고 나면 회독 완료를 눌러 주세요."}
+            {studied ? "다시 읽었다면 회독 +1" : "읽고 나면 회독 완료"}
+            {!isLoggedIn ? <span className="hp-cx-read-bar__note"> · 로그인 후 이용</span> : null}
           </p>
-          <p className="hp-cx-read-bar__note">로그인 후 이용 가능</p>
         </div>
         <div className="hp-cx-read-bar__actions">
           {studied ? (

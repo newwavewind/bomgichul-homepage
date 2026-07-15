@@ -102,6 +102,45 @@ export function buildExamItemAiPrompt({
   return lines.filter(Boolean).join("\n\n").slice(0, 6000);
 }
 
+export interface ConceptDetailPromptInput {
+  subjectLabel: string;
+  titleKo: string;
+  chapterKo?: string | null;
+  sectionKo?: string | null;
+  category?: string | null;
+  definition?: string | null;
+  intuition?: string | null;
+  keyPoints?: string[] | null;
+  pitfalls?: string | null;
+}
+
+export function buildConceptDetailAiPrompt({
+  subjectLabel,
+  titleKo,
+  chapterKo,
+  sectionKo,
+  category,
+  definition,
+  intuition,
+  keyPoints,
+  pitfalls,
+}: ConceptDetailPromptInput): string {
+  const unit = [chapterKo, sectionKo, category].filter(Boolean).join(" · ");
+  const points = (keyPoints || []).map((p) => `· ${p}`).join("\n");
+  const lines = [
+    `공인중개사 ${subjectLabel || ""} 시험 범위의 개념 「${titleKo || ""}」을(를) 더 깊이 설명해 주세요.`,
+    "",
+    "다음을 포함해 주세요: 핵심 정의 보강, 관련 조문·판례(해당 시), 기출에서 자주 나오는 O/X 포인트, 헷갈리기 쉬운 유사 개념과의 차이.",
+    unit ? `【단원】 ${unit}` : "",
+    definition ? `【개념 정리】\n${definition}` : "",
+    intuition ? `【이해하기】\n${intuition}` : "",
+    points ? `【핵심 포인트】\n${points}` : "",
+    pitfalls ? `【함정 포인트】\n${pitfalls}` : "",
+  ].filter(Boolean);
+
+  return lines.join("\n\n").slice(0, 6000);
+}
+
 export async function copyText(text: string): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text);

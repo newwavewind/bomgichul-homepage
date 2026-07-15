@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
+import { SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
 import { ConceptPartList } from "@/components/concepts/ConceptPartList";
+import { ConceptStudySchedule } from "@/components/concepts/ConceptStudySchedule";
 import {
   EXAM_SUBJECTS,
   ARCHIVE_SUBJECT_MAP,
@@ -17,6 +18,7 @@ import {
 } from "@/lib/concepts";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl } from "@/lib/seo";
+import { getUser } from "@/lib/auth";
 import "../concepts-ui.css";
 
 interface SectionGroup {
@@ -139,6 +141,8 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
   const questionCounts = Object.fromEntries(
     concepts.map((c) => [c.slug, getConceptQuestionCount(subject, c)])
   );
+  const user = await getUser();
+  const returnTo = `/concepts/${subject}`;
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -153,9 +157,11 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
         </p>
 
         <div className="mb-8">
-          <EyebrowLabel className="mb-2">개념 · 공인중개사 {info.round}</EyebrowLabel>
+          <p className="mb-2 font-display text-eyebrow font-semibold text-ios-blue">
+            개념 · 공인중개사 {info.round}
+          </p>
           <SectionHeading as="h1">
-            <span className="text-electric-blue">기출</span> all-in-one
+            <span className="text-ios-blue">기출</span> all-in-one
           </SectionHeading>
           <p className="mt-3 max-w-2xl font-display text-body text-smoke">
             {label} 기출 해설에서 뽑은 핵심 개념을 목차 순서로 정리했습니다.
@@ -165,10 +171,26 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
           </p>
         </div>
 
+        <div className="hp-cx mb-6">
+          <ConceptStudySchedule
+            subject={subject}
+            userId={user?.id ?? null}
+            returnTo={returnTo}
+            concepts={concepts.map((c) => ({
+              slug: c.slug,
+              titleKo: c.titleKo,
+              category: c.category,
+              chapterKo: c.chapterKo,
+              parentSlug: c.parentSlug,
+            }))}
+          />
+        </div>
+
         <ConceptPartList
           subject={subject}
           groups={groups}
           questionCounts={questionCounts}
+          userId={user?.id ?? null}
         />
       </div>
     </div>
