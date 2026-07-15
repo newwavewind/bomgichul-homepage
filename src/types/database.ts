@@ -141,6 +141,32 @@ export interface PublicMemoComment {
   author: Pick<Profile, "nickname" | "avatar_url">;
 }
 
+export interface ConceptCommunityComment {
+  id: string;
+  post_id: string;
+  user_id: string;
+  content: string;
+  created_at: string;
+  author: Pick<Profile, "nickname" | "avatar_url">;
+}
+
+export interface ConceptCommunityPost {
+  id: string;
+  user_id: string;
+  subject: string;
+  concept_slug: string;
+  content: string;
+  view_count: number;
+  created_at: string;
+  updated_at: string;
+  author: Pick<Profile, "nickname" | "avatar_url">;
+  like_count: number;
+  liked_by_viewer: boolean;
+  recommend_count: number;
+  recommended_by_viewer: boolean;
+  comments: ConceptCommunityComment[];
+}
+
 export interface DmMessage {
   id: string;
   conversation_id: string;

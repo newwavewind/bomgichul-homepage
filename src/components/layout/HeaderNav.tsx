@@ -232,7 +232,10 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
                 </form>
               </>
             ) : (
-              <OutlineButton href="/login">로그인</OutlineButton>
+              <>
+                <OutlineButton href="/login">로그인</OutlineButton>
+                <PrimaryButton href="/signup">회원가입</PrimaryButton>
+              </>
             )}
           </div>
 
@@ -300,9 +303,14 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
                   </form>
                 </>
               ) : (
-                <OutlineButton href="/login" className="w-full justify-start">
-                  로그인
-                </OutlineButton>
+                <>
+                  <OutlineButton href="/login" className="w-full justify-start">
+                    로그인
+                  </OutlineButton>
+                  <PrimaryButton href="/signup" className="w-full justify-start">
+                    회원가입
+                  </PrimaryButton>
+                </>
               )}
               <PrimaryButton href="/community/write" className="mt-2 w-full">
                 글쓰기

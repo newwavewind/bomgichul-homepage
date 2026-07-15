@@ -10,7 +10,6 @@ import {
   getConceptQuestions,
   getConceptStatements,
   getAllConceptParams,
-  type ConceptStatement,
 } from "@/lib/concepts";
 import {
   buildPitfallCards,
@@ -18,9 +17,16 @@ import {
 } from "@/lib/concept-enhancements";
 import { ConceptPitfallCards } from "@/components/concepts/ConceptVisualEnhancements";
 import { ConceptVisualGuide } from "@/components/concepts/ConceptKindGuides";
+import {
+  ConceptRelatedExamList,
+  ConceptStatementList,
+} from "@/components/concepts/ConceptExamLinks";
+import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
+import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl } from "@/lib/seo";
-import { appendReturnTo } from "@/lib/return-to";
+import { getUser } from "@/lib/auth";
+import { getConceptCommunityPosts } from "@/lib/concept-community";
 import "../../concepts-ui.css";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
@@ -84,49 +90,6 @@ function SectionBlock({
   );
 }
 
-function StatementList({
-  statements,
-  subject,
-  returnTo,
-}: {
-  statements: ConceptStatement[];
-  subject: string;
-  returnTo: string;
-}) {
-  if (statements.length === 0) return null;
-
-  return (
-    <ul className="hp-cx-statements">
-      {statements.map((statement, i) => (
-        <li key={`${statement.year}-${statement.questionNo}-${i}`}>
-          <Link
-            href={appendReturnTo(
-              `/exam/${subject}/${statement.year}/${statement.questionNo}`,
-              returnTo
-            )}
-            className="hp-cx-statement"
-          >
-            <span className="hp-cx-statement__num" aria-hidden>
-              {i + 1}
-            </span>
-            <span className="hp-cx-statement__body">
-              <span className="hp-cx-statement__text">
-                {statement.text}
-                {statement.modified ? (
-                  <span className="hp-cx-statement__modified">수정</span>
-                ) : null}
-              </span>
-              <span className="hp-cx-statement__meta">
-                {statement.year}년 · {statement.questionNo}번 →
-              </span>
-            </span>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export default async function ConceptDetailPage({ params }: ConceptDetailPageProps) {
   const { subject, slug } = await params;
   if (!isValidSubject(subject)) notFound();
@@ -139,7 +102,10 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
   const statements = getConceptStatements(subject, concept);
   const enhancement = getConceptEnhancement(concept);
   const pitfallCards = buildPitfallCards(concept, questions);
+  const user = await getUser();
+  const isLoggedIn = Boolean(user);
   const returnTo = `/concepts/${subject}/${slug}`;
+  const communityPosts = await getConceptCommunityPosts(subject, slug, user?.id ?? null);
   const parent = concept.parentSlug ? getConcept(subject, concept.parentSlug) : undefined;
   const siblingConcepts = getConceptsForSubject(subject);
   const currentIndex = siblingConcepts.findIndex((c) => c.slug === slug);
@@ -150,6 +116,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
       : undefined;
   const statementsIndex = enhancement ? 6 : 5;
   const relatedIndex = statements.length > 0 ? statementsIndex + 1 : statementsIndex;
+  const communityIndex = relatedIndex + 1;
 
   return (
     <div className="hp-cx px-4 py-8 md:py-12">
@@ -187,6 +154,14 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           </p>
         </div>
 
+        <ConceptReadBar
+          subject={subject}
+          slug={slug}
+          isLoggedIn={isLoggedIn}
+          userId={user?.id ?? null}
+          returnTo={returnTo}
+        />
+
         <article className="hp-cx-card">
           <SectionBlock label="개념 정리" index={1}>
             {concept.definition}
@@ -213,10 +188,11 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
         {statements.length > 0 && (
           <article className="hp-cx-card">
             <SectionBlock label="기출 지문" index={statementsIndex}>
-              <StatementList
+              <ConceptStatementList
                 statements={statements}
                 subject={subject}
                 returnTo={returnTo}
+                isLoggedIn={isLoggedIn}
               />
             </SectionBlock>
           </article>
@@ -234,32 +210,24 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
               <span className="hp-cx-questions-count">{questions.length}문항</span>
             </div>
             <div className="hp-cx-section__body">
-              {questions.length === 0 ? (
-                <p className="font-display text-body-sm text-smoke">
-                  연결된 기출문제가 아직 없어요.
-                </p>
-              ) : (
-                <div className="hp-cx-related-list">
-                  {questions.map((q) => (
-                    <Link
-                      key={`${q.year}-${q.questionNo}`}
-                      href={appendReturnTo(
-                        `/exam/${subject}/${q.year}/${q.questionNo}`,
-                        returnTo
-                      )}
-                      className="hp-cx-question-row"
-                    >
-                      <span>
-                        {q.year}년 · {q.questionNo}번
-                      </span>
-                      <span className="hp-cx-question-row__go">문제 보기 →</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <ConceptRelatedExamList
+                questions={questions}
+                subject={subject}
+                returnTo={returnTo}
+                isLoggedIn={isLoggedIn}
+              />
             </div>
           </section>
         </article>
+
+        <ConceptCommunityPanel
+          subject={subject}
+          conceptSlug={slug}
+          sectionIndex={communityIndex}
+          userId={user?.id ?? null}
+          initialPosts={communityPosts}
+          returnTo={returnTo}
+        />
 
         <nav className="hp-cx-pager" aria-label="이전·다음 개념">
           {prev ? (

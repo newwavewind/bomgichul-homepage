@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { EyebrowLabel } from "@/components/ui/Typography";
 import { PrimaryButton } from "@/components/ui/Button";
@@ -76,6 +76,16 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
 
   const returnTo = isValidReturnTo(from) ? from : null;
   const conceptReturn = returnTo ? parseConceptReturnTo(returnTo) : null;
+
+  const user = await getUser();
+  if (conceptReturn && !user) {
+    const examPath = appendReturnTo(
+      `/exam/${subject}/${yearParam}/${noParam}`,
+      returnTo
+    );
+    redirect(`/login?next=${encodeURIComponent(examPath)}`);
+  }
+
   const returnConcept =
     conceptReturn && isValidSubject(conceptReturn.subject)
       ? getConcept(conceptReturn.subject, conceptReturn.slug)
@@ -93,7 +103,6 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   const prev = index > 0 ? yearQuestions[index - 1] : null;
   const next = index >= 0 && index < yearQuestions.length - 1 ? yearQuestions[index + 1] : null;
 
-  const user = await getUser();
   const bookmarked = user ? await isQuestionBookmarked(user.id, subject, year, questionNo) : false;
   const attemptResult = user ? await getAttemptResult(user.id, subject, year, questionNo) : null;
   const publicMemos = await getPublicMemosForQuestion(subject, year, questionNo, user?.id);

@@ -3,10 +3,10 @@ import { GoogleAuthCard } from "@/components/auth/GoogleAuthCard";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "로그인",
-  description: `${SITE_NAME}에 Google 계정으로 로그인하세요.`,
+  title: "회원가입",
+  description: `${SITE_NAME}에 Google 계정으로 무료 회원가입하세요.`,
 };
 
-export default function LoginPage() {
-  return <GoogleAuthCard mode="login" />;
+export default function SignupPage() {
+  return <GoogleAuthCard mode="signup" />;
 }

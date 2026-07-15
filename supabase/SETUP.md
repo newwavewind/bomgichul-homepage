@@ -36,15 +36,24 @@ Dashboard → **Authentication** → **URL Configuration**
 
 | 항목 | 값 |
 |------|-----|
-| Site URL | `https://bomgichul-homepage.vercel.app` |
+| Site URL | `https://www.bomgichul.com` |
 | Redirect URLs | 아래 모두 추가 |
 
 ```
 http://localhost:3000/auth/callback
+https://www.bomgichul.com/auth/callback
+https://bomgichul.com/auth/callback
 https://bomgichul-homepage.vercel.app/auth/callback
 ```
 
 Email provider가 꺼져 있으면 **Authentication → Providers → Email** 활성화.
+
+### Google 로그인에 `*.supabase.co` 난수 주소가 보일 때
+
+Google이 OAuth 콜백 호스트를 그대로 보여 줍니다.  
+`auth.bomgichul.com` Custom Domain으로 바꾸는 절차는 **[`CUSTOM_DOMAIN.md`](./CUSTOM_DOMAIN.md)** 참고.
+
+> Org가 Free면 Custom Domain을 켤 수 없습니다. Pro + Custom Domains 애드온이 필요합니다.
 
 ## 5. 환경 변수
 
