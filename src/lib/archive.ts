@@ -38,7 +38,7 @@ export async function getArchivePosts({
   let query = supabase
     .from("posts")
     .select(
-      "id, author_id, category, title, view_count, subject, resource_type, created_at, profiles(nickname), post_attachments(id, file_name, file_size, mime_type)",
+      "id, author_id, category, title, view_count, subject, resource_type, created_at, profiles:profiles!posts_author_id_fkey(nickname), post_attachments(id, file_name, file_size, mime_type)",
       { count: "planned" }
     )
     .eq("category", "resource");
@@ -101,7 +101,7 @@ export async function getArchivePost(id: string): Promise<Post | null> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("posts")
-    .select("*, profiles(nickname, avatar_url), post_attachments(*)")
+    .select("*, profiles:profiles!posts_author_id_fkey(nickname, avatar_url), post_attachments(*)")
     .eq("id", id)
     .eq("category", "resource")
     .single();

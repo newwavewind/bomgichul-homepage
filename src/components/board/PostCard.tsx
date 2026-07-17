@@ -3,6 +3,8 @@ import type { PostCategory } from "@/types/database";
 import { CATEGORY_MAP, CATEGORY_BADGE_CLASS, CATEGORY_EMOJI } from "@/lib/constants";
 import { formatKstRelative } from "@/lib/datetime";
 import { PremiumBadge } from "@/components/ui/PremiumBadge";
+import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
+import type { OceanRank } from "@/lib/ocean-ranks";
 
 interface PostCardProps {
   id: string;
@@ -10,6 +12,7 @@ interface PostCardProps {
   category: PostCategory;
   authorName: string;
   authorBadge?: string | null;
+  authorRank?: OceanRank;
   viewCount: number;
   createdAt: string;
 }
@@ -20,6 +23,7 @@ export function PostCard({
   category,
   authorName,
   authorBadge,
+  authorRank,
   viewCount,
   createdAt,
 }: PostCardProps) {
@@ -44,6 +48,7 @@ export function PostCard({
       <div className="hidden shrink-0 items-center gap-4 font-display text-body-sm text-fog sm:flex">
         <span className="flex items-center gap-1.5">
           {authorName}
+          {authorRank && <OceanRankBadge rank={authorRank} />}
           {authorBadge && <PremiumBadge label={authorBadge} />}
         </span>
         <span>조회 {viewCount}</span>

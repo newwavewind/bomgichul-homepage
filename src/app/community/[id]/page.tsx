@@ -12,6 +12,9 @@ import { PremiumBadge } from "@/components/ui/PremiumBadge";
 import { BackLink } from "@/components/ui/BackLink";
 import { absoluteUrl, truncateDescription } from "@/lib/seo";
 import { formatKstDateLong } from "@/lib/datetime";
+import { getCommunityLikeState, getUserActivityScores } from "@/lib/activity";
+import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
+import { CommunityLikeButton } from "@/components/board/CommunityLikeButton";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -60,10 +63,16 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
 
   await incrementViewCount(id);
   const comments = await getComments(id);
-  const authorBadges = await getPremiumBadgesForUsers([
+  const authorIds = [
     post.author_id,
     ...comments.map((c) => c.author_id),
+  ];
+  const [authorBadges, authorActivity, likeState] = await Promise.all([
+    getPremiumBadgesForUsers(authorIds),
+    getUserActivityScores(authorIds),
+    getCommunityLikeState(id, comments.map((comment) => comment.id), user?.id),
   ]);
+  const loginHref = `/login?next=${encodeURIComponent(`/community/${id}`)}`;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
@@ -89,6 +98,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
         <div className="mb-8 flex items-center gap-3 border-b border-mist/60 pb-6 font-display text-body-sm text-fog">
           <span className="flex items-center gap-1.5">
             {post.profiles?.nickname ?? "익명"}
+            <OceanRankBadge rank={authorActivity[post.author_id].rank} />
             {authorBadges[post.author_id] && (
               <PremiumBadge label={authorBadges[post.author_id]} />
             )}
@@ -97,6 +107,15 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
           <span>{formatKstDateLong(post.created_at)}</span>
           <span>·</span>
           <span>조회 {post.view_count + 1}</span>
+          <CommunityLikeButton
+            targetType="post"
+            targetId={post.id}
+            authorId={post.author_id}
+            currentUserId={user?.id}
+            initialCount={likeState.post.count}
+            initialLiked={likeState.post.likedByViewer}
+            loginHref={loginHref}
+          />
         </div>
 
         <div className="whitespace-pre-wrap font-display text-body leading-relaxed text-ink">
@@ -121,6 +140,10 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
                 comment={comment}
                 currentUserId={user?.id}
                 authorBadge={authorBadges[comment.author_id]}
+                authorRank={authorActivity[comment.author_id].rank}
+                likeCount={likeState.comments[comment.id]?.count}
+                likedByViewer={likeState.comments[comment.id]?.likedByViewer}
+                loginHref={loginHref}
               />
             ))}
           </div>

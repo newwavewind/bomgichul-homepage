@@ -13,6 +13,7 @@ import type { CommunityListFilter } from "@/types/database";
 import type { SortOption } from "@/lib/constants";
 import { BEST_POST_MIN_VIEWS, CATEGORY_MAP } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
+import { getUserActivityScores } from "@/lib/activity";
 
 interface CommunityPageProps {
   searchParams: Promise<{
@@ -67,6 +68,7 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
     sort,
   });
   const authorBadges = await getPremiumBadgesForUsers(posts.map((p) => p.author_id));
+  const authorActivity = await getUserActivityScores(posts.map((p) => p.author_id));
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -130,6 +132,7 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
                 category={post.category}
                 authorName={post.profiles?.nickname ?? "익명"}
                 authorBadge={authorBadges[post.author_id]}
+                authorRank={authorActivity[post.author_id]?.rank}
                 viewCount={post.view_count}
                 createdAt={post.created_at}
               />

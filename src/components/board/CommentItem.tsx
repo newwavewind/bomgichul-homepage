@@ -6,16 +6,31 @@ import { createClient } from "@/lib/supabase/client";
 import { FeatureCard } from "@/components/ui/Card";
 import { TextButton } from "@/components/ui/Button";
 import { PremiumBadge } from "@/components/ui/PremiumBadge";
+import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
+import { CommunityLikeButton } from "@/components/board/CommunityLikeButton";
 import { formatKstDate } from "@/lib/datetime";
 import type { Comment } from "@/types/database";
+import type { OceanRank } from "@/lib/ocean-ranks";
 
 interface CommentItemProps {
   comment: Comment;
   currentUserId?: string | null;
   authorBadge?: string | null;
+  authorRank?: OceanRank;
+  likeCount?: number;
+  likedByViewer?: boolean;
+  loginHref?: string;
 }
 
-export function CommentItem({ comment, currentUserId, authorBadge }: CommentItemProps) {
+export function CommentItem({
+  comment,
+  currentUserId,
+  authorBadge,
+  authorRank,
+  likeCount = 0,
+  likedByViewer = false,
+  loginHref = "/login",
+}: CommentItemProps) {
   const router = useRouter();
   const [deleting, setDeleting] = useState(false);
 
@@ -36,6 +51,7 @@ export function CommentItem({ comment, currentUserId, authorBadge }: CommentItem
         <div className="flex items-center gap-3 font-display text-body-sm">
           <span className="flex items-center gap-1.5 font-medium text-ink">
             {comment.profiles?.nickname ?? "익명"}
+            {authorRank && <OceanRankBadge rank={authorRank} />}
             {authorBadge && <PremiumBadge label={authorBadge} />}
           </span>
           <span className="text-fog">
@@ -51,6 +67,17 @@ export function CommentItem({ comment, currentUserId, authorBadge }: CommentItem
       <p className="whitespace-pre-wrap font-display text-body-sm leading-relaxed text-smoke">
         {comment.content}
       </p>
+      <div className="mt-4 flex justify-end">
+        <CommunityLikeButton
+          targetType="comment"
+          targetId={comment.id}
+          authorId={comment.author_id}
+          currentUserId={currentUserId}
+          initialCount={likeCount}
+          initialLiked={likedByViewer}
+          loginHref={loginHref}
+        />
+      </div>
     </FeatureCard>
   );
 }

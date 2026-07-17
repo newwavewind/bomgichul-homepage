@@ -3,10 +3,13 @@ import { formatDDay, formatKoreanDate } from "@/lib/exam";
 import { ElevatedCard } from "@/components/ui/Card";
 import type { DiaryYearGroup } from "@/lib/diary";
 import type { StudyDiary } from "@/types/database";
+import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
+import type { UserActivityScore } from "@/lib/activity";
 
 interface PublicDiaryFeedProps {
   days: number;
   groups: DiaryYearGroup[];
+  authorActivity: Record<string, UserActivityScore>;
 }
 
 function moodEmoji(mood: StudyDiary["mood"]) {
@@ -14,7 +17,7 @@ function moodEmoji(mood: StudyDiary["mood"]) {
   return DIARY_MOODS.find((m) => m.value === mood)?.emoji;
 }
 
-export function PublicDiaryFeed({ days, groups }: PublicDiaryFeedProps) {
+export function PublicDiaryFeed({ days, groups, authorActivity }: PublicDiaryFeedProps) {
   if (groups.length === 0) {
     return (
       <ElevatedCard className="px-5 py-10 text-center">
@@ -58,6 +61,9 @@ export function PublicDiaryFeed({ days, groups }: PublicDiaryFeedProps) {
                   <span className="font-display text-body-sm font-semibold text-ink">
                     {diary.profiles?.nickname ?? "익명"}
                   </span>
+                  {authorActivity[diary.author_id] && (
+                    <OceanRankBadge rank={authorActivity[diary.author_id].rank} />
+                  )}
                   <time className="font-display text-[12px] text-fog">
                     {formatKoreanDate(diary.diary_date)}
                   </time>

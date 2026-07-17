@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    localPatterns: [
+      { pathname: "/**", search: "" },
+      { pathname: "/ranks/**", search: "?v=2" },
+    ],
+  },
   // Prefer webpack for local preview: nested large trees + Turbopack watch can
   // hit EMFILE and make every route resolve as 404.
   turbopack: {},

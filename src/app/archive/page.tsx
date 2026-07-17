@@ -14,6 +14,7 @@ import {
   ARCHIVE_SUBJECT_MAP,
 } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
+import { getUserActivityScores } from "@/lib/activity";
 
 interface ArchivePageProps {
   searchParams: Promise<{
@@ -73,6 +74,7 @@ export default async function ArchivePage({ searchParams }: ArchivePageProps) {
     resourceType,
     subject,
   });
+  const authorActivity = await getUserActivityScores(posts.map((post) => post.author_id));
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -115,7 +117,13 @@ export default async function ArchivePage({ searchParams }: ArchivePageProps) {
               <PrimaryButton href="/archive/new">자료 올리기</PrimaryButton>
             </div>
           ) : (
-            posts.map((post) => <ArchiveCard key={post.id} post={post} />)
+            posts.map((post) => (
+              <ArchiveCard
+                key={post.id}
+                post={post}
+                authorRank={authorActivity[post.author_id]?.rank}
+              />
+            ))
           )}
         </ElevatedCard>
 

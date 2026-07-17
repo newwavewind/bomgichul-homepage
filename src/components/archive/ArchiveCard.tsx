@@ -6,12 +6,15 @@ import {
 } from "@/lib/constants";
 import { formatKstRelative } from "@/lib/datetime";
 import { formatFileSize, getFileIcon } from "@/lib/storage";
+import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
+import type { OceanRank } from "@/lib/ocean-ranks";
 
 interface ArchiveCardProps {
   post: ArchiveListItem;
+  authorRank?: OceanRank;
 }
 
-export function ArchiveCard({ post }: ArchiveCardProps) {
+export function ArchiveCard({ post, authorRank }: ArchiveCardProps) {
   const attachments = post.post_attachments ?? [];
   const firstFile = attachments[0];
 
@@ -53,7 +56,10 @@ export function ArchiveCard({ post }: ArchiveCardProps) {
       </div>
 
       <div className="hidden shrink-0 text-right font-display text-body-sm text-fog sm:block">
-        <p>{post.profiles?.nickname ?? "익명"}</p>
+        <p className="flex items-center justify-end gap-1">
+          {post.profiles?.nickname ?? "익명"}
+          {authorRank && <OceanRankBadge rank={authorRank} />}
+        </p>
         <p className="mt-0.5">조회 {post.view_count}</p>
         <p className="mt-0.5">{formatKstRelative(post.created_at)}</p>
       </div>

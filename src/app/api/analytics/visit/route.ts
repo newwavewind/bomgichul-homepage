@@ -55,15 +55,19 @@ export async function POST(request: NextRequest) {
   const host = request.headers.get("host");
   const clientIp = getClientIp(request);
 
-  await recordSiteVisit({
-    visitorId,
-    userId: user?.id ?? null,
-    path,
-    referrer: body.referrer?.trim() || request.headers.get("referer"),
-    isLocal: isLocalHost(host),
-    clientHost: host,
-    clientIp,
-  });
+  await Promise.all([
+    recordSiteVisit({
+      visitorId,
+      userId: user?.id ?? null,
+      path,
+      referrer: body.referrer?.trim() || request.headers.get("referer"),
+      isLocal: isLocalHost(host),
+      clientHost: host,
+      clientIp,
+    }),
+    // 페이지 방문 요청에 합쳐 별도 브라우저 왕복 없이 하루 1회만 기록합니다.
+    user ? supabase.rpc("record_daily_login") : Promise.resolve(),
+  ]);
 
   const response = new NextResponse(null, { status: 204 });
   if (needsCookie) {

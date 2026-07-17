@@ -16,6 +16,9 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard, FeatureCard } from "@/components/ui/Card";
 import { PremiumBadge } from "@/components/ui/PremiumBadge";
 import { ARCHIVE_SUBJECT_MAP, EXAM_SUBJECTS } from "@/lib/constants";
+import { getUserActivityScores } from "@/lib/activity";
+import { OCEAN_RANKS } from "@/lib/ocean-ranks";
+import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 
 export default async function ProfilePage() {
   const user = await getUser();
@@ -35,6 +38,9 @@ export default async function ProfilePage() {
     .filter((q): q is NonNullable<typeof q> => Boolean(q));
   const wrongQuestions = await getWrongQuestionsForUser(user.id);
   const myBadge = await getPremiumBadgeForUser(user.id);
+  const activityMap = await getUserActivityScores([user.id]);
+  const activity = activityMap[user.id];
+  const nextRank = OCEAN_RANKS[activity.rank.level] ?? null;
   const unlockedSubjects = await getUnlockedSubjects(user.id);
 
   const analyticsPanels = await Promise.all(
@@ -60,6 +66,7 @@ export default async function ProfilePage() {
             <p className="font-display text-[12px] text-fog">아이디</p>
             <p className="flex items-center gap-2 font-display text-subheading font-semibold text-ink">
               {user.nickname}
+              <OceanRankBadge rank={activity.rank} size="md" />
               {myBadge && <PremiumBadge label={myBadge} />}
             </p>
             <p className="mt-1 font-display text-[12px] text-fog">
@@ -68,6 +75,56 @@ export default async function ProfilePage() {
           </div>
         </div>
         <UsernameForm currentUsername={user.nickname} />
+        <div className="mt-6 border-t border-mist pt-5">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <p className="font-display text-[12px] text-fog">바다 레벨 활동 점수</p>
+              <p className="mt-1 font-display text-subheading font-semibold text-ink">
+                {activity.score.toLocaleString("ko-KR")}점
+              </p>
+            </div>
+            <Link href="/ranks" className="font-display text-[12px] font-semibold text-electric-blue hover:underline">
+              전체 레벨 보기 →
+            </Link>
+          </div>
+          {nextRank && (
+            <div className="mt-4">
+              <div className="mb-2 flex items-center justify-between font-display text-[11px] text-fog">
+                <span>다음 레벨 {nextRank.name}</span>
+                <span>{Math.max(0, nextRank.minScore - activity.score).toLocaleString("ko-KR")}점 남음</span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-mist">
+                <div
+                  className="h-full rounded-full bg-electric-blue"
+                  style={{
+                    width: `${Math.min(
+                      100,
+                      Math.max(
+                        0,
+                        ((activity.score - activity.rank.minScore) /
+                          (nextRank.minScore - activity.rank.minScore)) *
+                          100
+                      )
+                    )}%`,
+                  }}
+                />
+              </div>
+            </div>
+          )}
+          <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {[
+              ["일일 로그인", activity.loginDays],
+              ["게시글", activity.postCount],
+              ["댓글", activity.commentCount],
+              ["받은 좋아요", activity.likesReceived],
+            ].map(([label, value]) => (
+              <div key={String(label)} className="rounded-[12px] bg-snow px-3 py-3 text-center">
+                <p className="font-display text-[11px] text-fog">{label}</p>
+                <p className="mt-1 font-display text-body font-semibold text-ink">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </FeatureCard>
 
       <div className="mb-6">
@@ -217,6 +274,7 @@ export default async function ProfilePage() {
               title={post.title}
               category={post.category}
               authorName={user.nickname}
+              authorRank={activity.rank}
               viewCount={post.view_count}
               createdAt={post.created_at}
             />

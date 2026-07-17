@@ -276,6 +276,7 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/community?category=law_update", label: "법령정보" },
       { href: "/archive", label: "자료실" },
       { href: "/diary", label: "수험일기" },
+      { href: "/ranks", label: "바다 레벨" },
       { href: "/news", label: "뉴스" },
       { href: "/faq", label: "FAQ" },
     ],

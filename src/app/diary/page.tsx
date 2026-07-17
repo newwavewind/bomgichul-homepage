@@ -19,6 +19,7 @@ import { PublicDiaryFeed } from "@/components/diary/PublicDiaryFeed";
 import { TodayDiaryForm, DiaryLoginPrompt } from "@/components/diary/TodayDiaryForm";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { buildPageMetadata } from "@/lib/seo";
+import { getUserActivityScores } from "@/lib/activity";
 
 interface DiaryPageProps {
   searchParams: Promise<{ d?: string }>;
@@ -65,6 +66,9 @@ export default async function DiaryPage({ searchParams }: DiaryPageProps) {
   const streak = user ? await getUserDiaryStreak(user.id) : 0;
   const diaries = await getDiariesByDDay(selectedDDay);
   const yearGroups = groupDiariesByExamYear(diaries);
+  const authorActivity = await getUserActivityScores(
+    diaries.map((diary) => diary.author_id)
+  );
   const isTodayDDay = selectedDDay === todayDDay;
 
   return (
@@ -112,7 +116,11 @@ export default async function DiaryPage({ searchParams }: DiaryPageProps) {
           </p>
         )}
 
-        <PublicDiaryFeed days={selectedDDay} groups={yearGroups} />
+        <PublicDiaryFeed
+          days={selectedDDay}
+          groups={yearGroups}
+          authorActivity={authorActivity}
+        />
       </div>
     </div>
   );

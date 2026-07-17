@@ -63,6 +63,8 @@ export async function GET(request: NextRequest) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (!error) {
+      // 로그인 성공 당일의 활동 점수를 즉시 반영합니다.
+      await supabase.rpc("record_daily_login");
       response.cookies.set("auth_next", "", { path: "/", maxAge: 0 });
       // 아이디 미설정 시 middleware가 /onboarding으로 보냅니다.
       return response;

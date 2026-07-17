@@ -16,6 +16,9 @@ import { PostActions } from "@/components/board/PostActions";
 import { BackLink } from "@/components/ui/BackLink";
 import { absoluteUrl, truncateDescription } from "@/lib/seo";
 import { formatKstDate } from "@/lib/datetime";
+import { getCommunityLikeState, getUserActivityScores } from "@/lib/activity";
+import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
+import { CommunityLikeButton } from "@/components/board/CommunityLikeButton";
 
 interface ArchiveDetailPageProps {
   params: Promise<{ id: string }>;
@@ -64,6 +67,12 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
   await incrementViewCount(id);
   const comments = await getComments(id);
   const attachments = post.post_attachments ?? [];
+  const authorIds = [post.author_id, ...comments.map((comment) => comment.author_id)];
+  const [authorActivity, likeState] = await Promise.all([
+    getUserActivityScores(authorIds),
+    getCommunityLikeState(id, comments.map((comment) => comment.id), user?.id),
+  ]);
+  const loginHref = `/login?next=${encodeURIComponent(`/archive/${id}`)}`;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
@@ -96,11 +105,23 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
         <h1 className="mb-4 font-display text-heading-sm font-semibold text-ink">{post.title}</h1>
 
         <div className="mb-6 flex items-center gap-3 border-b border-mist/60 pb-6 font-display text-body-sm text-fog">
-          <span>{post.profiles?.nickname ?? "익명"}</span>
+          <span className="flex items-center gap-1">
+            {post.profiles?.nickname ?? "익명"}
+            <OceanRankBadge rank={authorActivity[post.author_id].rank} />
+          </span>
           <span>·</span>
           <span>{formatKstDate(post.created_at)}</span>
           <span>·</span>
           <span>조회 {post.view_count + 1}</span>
+          <CommunityLikeButton
+            targetType="post"
+            targetId={post.id}
+            authorId={post.author_id}
+            currentUserId={user?.id}
+            initialCount={likeState.post.count}
+            initialLiked={likeState.post.likedByViewer}
+            loginHref={loginHref}
+          />
         </div>
 
         <div className="whitespace-pre-wrap font-display text-body leading-relaxed text-ink">
@@ -117,11 +138,19 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
         {comments.length > 0 && (
           <div className="mb-6 space-y-3">
             {comments.map((c) => (
-              <CommentItem key={c.id} comment={c} currentUserId={user?.id} />
+              <CommentItem
+                key={c.id}
+                comment={c}
+                currentUserId={user?.id}
+                authorRank={authorActivity[c.author_id].rank}
+                likeCount={likeState.comments[c.id]?.count}
+                likedByViewer={likeState.comments[c.id]?.likedByViewer}
+                loginHref={loginHref}
+              />
             ))}
           </div>
         )}
-        <CommentForm postId={id} userId={user?.id} />
+        <CommentForm postId={id} postAuthorId={post.author_id} userId={user?.id} />
       </section>
     </div>
   );

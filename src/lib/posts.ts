@@ -39,7 +39,7 @@ export async function getPosts({
   let query = supabase
     .from("posts")
     .select(
-      "id, author_id, category, title, view_count, created_at, profiles(nickname)",
+      "id, author_id, category, title, view_count, created_at, profiles:profiles!posts_author_id_fkey(nickname)",
       { count: "planned" }
     );
 
@@ -108,7 +108,7 @@ export async function getPost(id: string): Promise<Post | null> {
   // 첨부 포함 조회
   const withFiles = await supabase
     .from("posts")
-    .select("*, profiles(nickname, avatar_url), post_attachments(*)")
+    .select("*, profiles:profiles!posts_author_id_fkey(nickname, avatar_url), post_attachments(*)")
     .eq("id", id)
     .maybeSingle();
 
@@ -119,7 +119,7 @@ export async function getPost(id: string): Promise<Post | null> {
   // 관계 조회 실패 시 본문만이라도 표시 (로그인 없이 피드백/오류글 열람)
   const basic = await supabase
     .from("posts")
-    .select("*, profiles(nickname, avatar_url)")
+    .select("*, profiles:profiles!posts_author_id_fkey(nickname, avatar_url)")
     .eq("id", id)
     .maybeSingle();
 
@@ -152,7 +152,7 @@ export async function getComments(postId: string) {
   const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("comments")
-    .select("*, profiles(nickname, avatar_url)")
+    .select("*, profiles:profiles!comments_author_id_fkey(nickname, avatar_url)")
     .eq("post_id", postId)
     .order("created_at", { ascending: true });
 

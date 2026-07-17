@@ -42,6 +42,12 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     changeFrequency: "weekly",
     priority: 0.8,
   },
+  {
+    url: `${SITE_URL}/ranks`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
   ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all" && s.value !== "other").map(
     (s) => ({
       url: `${SITE_URL}/subjects/${s.value}`,

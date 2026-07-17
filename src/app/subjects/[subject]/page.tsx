@@ -15,6 +15,7 @@ import {
 } from "@/lib/constants";
 import type { ArchiveSubject } from "@/lib/constants";
 import { absoluteUrl } from "@/lib/seo";
+import { getUserActivityScores } from "@/lib/activity";
 
 const VALID_SUBJECTS = ARCHIVE_SUBJECTS.map((s) => s.value).filter(
   (v): v is Exclude<ArchiveSubject, "all"> => v !== "all"
@@ -62,6 +63,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const info = SUBJECT_LANDING_INFO[subject];
   const { data: posts, total } = await getArchivePosts({ subject, sort: "latest" });
+  const authorActivity = await getUserActivityScores(posts.map((post) => post.author_id));
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -106,7 +108,13 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
               <PrimaryButton href="/archive/new">자료 올리기</PrimaryButton>
             </div>
           ) : (
-            posts.map((post) => <ArchiveCard key={post.id} post={post} />)
+            posts.map((post) => (
+              <ArchiveCard
+                key={post.id}
+                post={post}
+                authorRank={authorActivity[post.author_id]?.rank}
+              />
+            ))
           )}
         </ElevatedCard>
       </div>

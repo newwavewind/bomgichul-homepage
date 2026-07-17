@@ -28,14 +28,14 @@ export function LogoMark() {
   }, [open]);
 
   return (
-    <div className="flex items-center gap-2">
+    <div ref={wrapRef} className="relative flex items-center gap-2">
       <Link href="/study" className="transition-opacity hover:opacity-80">
         <span className="font-display text-body font-semibold text-ink">
           봄기출 공인중개사
         </span>
       </Link>
 
-      <div ref={wrapRef} className="group relative">
+      <div className="group">
         <button
           type="button"
           aria-describedby={tipId}
@@ -58,7 +58,7 @@ export function LogoMark() {
           {BETA_HINT}
           <span
             aria-hidden
-            className="absolute -top-1.5 left-3 size-3 rotate-45 border-l border-t border-carbon/10 bg-carbon"
+            className="absolute -top-1.5 left-[8.65rem] size-3 rotate-45 border-l border-t border-carbon/10 bg-carbon"
           />
         </p>
       </div>
