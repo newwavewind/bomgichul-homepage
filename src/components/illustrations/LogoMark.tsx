@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 const BETA_HINT =
@@ -29,7 +30,17 @@ export function LogoMark() {
 
   return (
     <div ref={wrapRef} className="relative flex items-center gap-2">
-      <Link href="/study" className="transition-opacity hover:opacity-80">
+      <Link
+        href="/study"
+        className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+      >
+        <Image
+          src="/brand/whale-mark.png"
+          alt=""
+          width={36}
+          height={36}
+          className="size-9 shrink-0 object-contain"
+        />
         <span className="font-display text-body font-semibold text-ink">
           봄기출
         </span>

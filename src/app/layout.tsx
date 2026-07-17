@@ -37,6 +37,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: absoluteUrl("/"),
   },
+  icons: {
+    shortcut: `${SITE_URL}/favicon.ico`,
+    apple: [
+      {
+        url: `${SITE_URL}/apple-icon`,
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
