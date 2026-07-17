@@ -1,10 +1,18 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-/** 홈화면·검색용 Apple 터치 아이콘 */
-export default function AppleIcon() {
+/** 홈 화면용 흰수염고래 Apple 터치 아이콘 */
+export default async function AppleIcon() {
+  const whaleData = await readFile(
+    join(process.cwd(), "public/brand/whale-favicon-master.png"),
+    "base64"
+  );
+  const whaleSrc = `data:image/png;base64,${whaleData}`;
+
   return new ImageResponse(
     (
       <div
@@ -14,15 +22,12 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#007aff",
+          overflow: "hidden",
           borderRadius: 40,
-          color: "#ffffff",
-          fontSize: 96,
-          fontWeight: 800,
-          letterSpacing: "-0.06em",
+          background: "#061427",
         }}
       >
-        봄
+        <img src={whaleSrc} alt="" width={180} height={180} />
       </div>
     ),
     { ...size }
