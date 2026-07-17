@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { StudyHub } from "@/components/study/StudyHub";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "공인중개사 기출문제 해설",
-  description:
-    "공인중개사 기출문제 해설과 과목별 핵심 개념을 한곳에서 선택해 학습하세요.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   path: "/",
 });
 

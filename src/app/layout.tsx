@@ -44,15 +44,20 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "ko_KR",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "봄기출 | 기출 학습의 모든것",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-  },
-  icons: {
-    icon: "/brand/logo.png",
-    apple: "/brand/logo.png",
+    images: ["/twitter-image"],
   },
   verification: {
     ...(process.env.GOOGLE_SITE_VERIFICATION

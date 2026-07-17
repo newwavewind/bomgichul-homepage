@@ -31,7 +31,7 @@ export function LogoMark() {
     <div ref={wrapRef} className="relative flex items-center gap-2">
       <Link href="/study" className="transition-opacity hover:opacity-80">
         <span className="font-display text-body font-semibold text-ink">
-          봄기출 공인중개사
+          봄기출
         </span>
       </Link>
 

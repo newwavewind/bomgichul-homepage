@@ -5,15 +5,15 @@ export const SITE_URL = "https://www.bomgichul.com";
 /** 핵심 슬로건 */
 export const SITE_TAGLINE = "질문은 봄기출이 작성합니다.";
 /** 커뮤니티 아이덴티티 */
-export const SITE_IDENTITY = "공인중개사 수험생 커뮤니티";
+export const SITE_IDENTITY = "수험생 커뮤니티";
 /** 플랫폼 포지셔닝 */
-export const SITE_PLATFORM = "공인중개사 AI 학습 플랫폼";
+export const SITE_PLATFORM = "기출 AI 학습 플랫폼";
 /** 전체 브랜딩 문구 */
 export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE}`;
 /** SEO / Open Graph / Twitter 기본 제목 */
-export const SITE_TITLE = "봄기출 | 공인중개사 기출문제 해설";
+export const SITE_TITLE = "봄기출 | 기출 학습의 모든것";
 export const SITE_DESCRIPTION =
-  "공인중개사 1·2차 기출문제 O/X와 문항별 해설, AI 질문, 수험생 커뮤니티·자료실. 부동산학개론·민법·공인중개사법 등 전 과목 2016~2025년 기출을 연도·문항 단위로 확인하세요.";
+  "기출 학습의 모든것. 기출문제 O/X·해설, 기출 all-in-one 개념, AI 질문, 수험생 커뮤니티·자료실까지 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";

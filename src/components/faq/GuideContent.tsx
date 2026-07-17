@@ -402,7 +402,7 @@ export function GuideContent() {
         <div className="grid gap-4 md:grid-cols-2">
           <FeatureCard tint="ice">
             <Tag className="mb-3 !text-[11px]">모바일</Tag>
-            <p className="font-display text-subheading font-semibold text-ink">봄기출 공인중개사</p>
+            <p className="font-display text-subheading font-semibold text-ink">봄기출</p>
             <p className="mt-2 font-display text-body-sm text-smoke">
               앱스토어·플레이스토어에서 설치해요. 인앱 결제(프리미엄)도 여기서 진행합니다.
               앱 전용으로 더 많은 학습 모드가 있어요.

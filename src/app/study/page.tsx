@@ -6,7 +6,7 @@ import { absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "학습",
   description:
-    "공인중개사 기출문제 해설과 과목별 핵심 개념을 한곳에서 선택해 학습하세요.",
+    "기출문제 해설과 과목별 핵심 개념을 한곳에서 선택해 학습하세요.",
   alternates: { canonical: absoluteUrl("/") },
   openGraph: {
     title: `학습 | ${SITE_NAME}`,
