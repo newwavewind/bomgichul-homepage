@@ -7,10 +7,12 @@ import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { USER_WRITABLE_CATEGORIES } from "@/lib/constants";
 import { FeatureCard } from "@/components/ui/Card";
-import { Input, Textarea } from "@/components/ui/Input";
+import { Input } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
+import { RichTextEditor } from "@/components/editor/RichTextEditor";
+import { sanitizeConceptCommunityHtml } from "@/lib/concept-community-html";
 import type { Post, PostCategory } from "@/types/database";
 
 interface EditPageProps {
@@ -21,8 +23,11 @@ export default function EditPage({ params }: EditPageProps) {
   const router = useRouter();
   const [postId, setPostId] = useState<string>("");
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [contentHtml, setContentHtml] = useState("");
+  const [contentPlain, setContentPlain] = useState("");
+  const [initialHtml, setInitialHtml] = useState("");
   const [category, setCategory] = useState<PostCategory>("question");
+  const [userId, setUserId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,6 +46,7 @@ export default function EditPage({ params }: EditPageProps) {
           router.push("/login");
           return;
         }
+        setUserId(user.id);
 
         supabase
           .from("posts")
@@ -58,7 +64,8 @@ export default function EditPage({ params }: EditPageProps) {
               return;
             }
             setTitle(post.title);
-            setContent(post.content);
+            setInitialHtml(post.content);
+            setContentHtml(post.content);
             setCategory(post.category);
             setLoading(false);
           });
@@ -66,16 +73,23 @@ export default function EditPage({ params }: EditPageProps) {
     });
   }, [params, router]);
 
+  const canSubmit =
+    title.trim().length > 0 &&
+    (contentPlain.trim().length > 0 || contentHtml.includes("<img"));
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!canSubmit) return;
     setSaving(true);
     setError(null);
 
     try {
       const supabase = createClient();
+      const html = sanitizeConceptCommunityHtml(contentHtml).trim();
+      const content = html || contentPlain.trim();
       const { error: updateError } = await supabase
         .from("posts")
-        .update({ title, content, category })
+        .update({ title: title.trim(), content, category })
         .eq("id", postId);
 
       if (updateError) {
@@ -142,14 +156,20 @@ export default function EditPage({ params }: EditPageProps) {
             required
           />
 
-          <Textarea
-            id="content"
-            label="내용"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-            rows={12}
-          />
+          <div>
+            <label className="mb-3 block font-display text-body-sm font-medium text-ink">
+              내용
+            </label>
+            <RichTextEditor
+              userId={userId}
+              initialHtml={initialHtml}
+              placeholder="내용을 입력하세요"
+              onHtmlChange={(html, plain) => {
+                setContentHtml(html);
+                setContentPlain(plain);
+              }}
+            />
+          </div>
 
           {error && <p className="font-display text-body-sm text-coral">{error}</p>}
 
@@ -160,7 +180,7 @@ export default function EditPage({ params }: EditPageProps) {
             >
               취소
             </Link>
-            <PrimaryButton type="submit" disabled={saving}>
+            <PrimaryButton type="submit" disabled={saving || !canSubmit}>
               {saving ? "저장 중..." : "저장하기"}
             </PrimaryButton>
           </div>

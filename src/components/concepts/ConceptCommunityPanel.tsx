@@ -328,6 +328,9 @@ export function ConceptCommunityPanel({
   const [saving, setSaving] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
   const [resetToken, setResetToken] = useState(0);
+  const [status, setStatus] = useState<{ tone: "ok" | "err"; text: string } | null>(
+    null
+  );
   const loginHref = `/login?next=${encodeURIComponent(returnTo)}`;
 
   const handlePost = async () => {
@@ -342,6 +345,7 @@ export function ConceptCommunityPanel({
 
     if (!isSupabaseConfigured()) return;
     setSaving(true);
+    setStatus(null);
     const supabase = createClient();
     const { error } = await supabase.from("concept_community_posts").insert({
       user_id: userId,
@@ -349,10 +353,19 @@ export function ConceptCommunityPanel({
       concept_slug: conceptSlug,
       content: html || plain,
     });
-    if (!error) {
+    if (error) {
+      setStatus({
+        tone: "err",
+        text: "등록에 실패했어요. 잠시 후 다시 시도해 주세요.",
+      });
+    } else {
       setContentHtml("");
       setContentPlain("");
       setResetToken((n) => n + 1);
+      setStatus({
+        tone: "ok",
+        text: "등록됐어요. 바다 레벨 +3점이 반영됩니다.",
+      });
       router.refresh();
     }
     setSaving(false);
@@ -381,7 +394,17 @@ export function ConceptCommunityPanel({
                 setContentPlain(plain);
               }}
             />
-            <div className="mt-3 flex justify-end">
+            <div className="mt-3 flex items-center justify-end gap-3">
+              {status ? (
+                <p
+                  className={`font-display text-[12px] ${
+                    status.tone === "ok" ? "text-[#0f766e]" : "text-burnt"
+                  }`}
+                  role="status"
+                >
+                  {status.text}
+                </p>
+              ) : null}
               <PrimaryButton
                 size="sm"
                 onClick={handlePost}

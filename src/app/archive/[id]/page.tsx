@@ -104,24 +104,31 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
 
         <h1 className="mb-4 font-display text-heading-sm font-semibold text-ink">{post.title}</h1>
 
-        <div className="mb-6 flex items-center gap-3 border-b border-mist/60 pb-6 font-display text-body-sm text-fog">
-          <span className="flex items-center gap-1">
-            {post.profiles?.nickname ?? "익명"}
+        <div className="mb-6 flex flex-col gap-2.5 border-b border-mist/60 pb-6 font-display text-body-sm text-fog">
+          <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+            <span className="max-w-[11rem] truncate font-medium text-ink sm:max-w-[16rem]">
+              {post.profiles?.nickname ?? "익명"}
+            </span>
             <OceanRankBadge rank={authorActivity[post.author_id].rank} />
-          </span>
-          <span>·</span>
-          <span>{formatKstDate(post.created_at)}</span>
-          <span>·</span>
-          <span>조회 {post.view_count + 1}</span>
-          <CommunityLikeButton
-            targetType="post"
-            targetId={post.id}
-            authorId={post.author_id}
-            currentUserId={user?.id}
-            initialCount={likeState.post.count}
-            initialLiked={likeState.post.likedByViewer}
-            loginHref={loginHref}
-          />
+          </div>
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+            <span className="whitespace-nowrap">{formatKstDate(post.created_at)}</span>
+            <span className="text-ash" aria-hidden>
+              ·
+            </span>
+            <span className="whitespace-nowrap">조회 {post.view_count + 1}</span>
+            <div className="ml-auto shrink-0">
+              <CommunityLikeButton
+                targetType="post"
+                targetId={post.id}
+                authorId={post.author_id}
+                currentUserId={user?.id}
+                initialCount={likeState.post.count}
+                initialLiked={likeState.post.likedByViewer}
+                loginHref={loginHref}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="whitespace-pre-wrap font-display text-body leading-relaxed text-ink">

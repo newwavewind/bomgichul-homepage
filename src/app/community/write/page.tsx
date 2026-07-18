@@ -1,27 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { USER_WRITABLE_CATEGORIES } from "@/lib/constants";
 import { FeatureCard } from "@/components/ui/Card";
-import { Input, Textarea } from "@/components/ui/Input";
+import { Input } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
+import { RichTextEditor } from "@/components/editor/RichTextEditor";
+import { sanitizeConceptCommunityHtml } from "@/lib/concept-community-html";
 import type { PostCategory } from "@/types/database";
 
 export default function WritePage() {
   const router = useRouter();
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [contentHtml, setContentHtml] = useState("");
+  const [contentPlain, setContentPlain] = useState("");
   const [category, setCategory] = useState<PostCategory>("free");
+  const [userId, setUserId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    if (!isSupabaseConfigured()) return;
+    const supabase = createClient();
+    void supabase.auth.getUser().then(({ data: { user } }) => {
+      setUserId(user?.id ?? null);
+    });
+  }, []);
+
+  const canSubmit =
+    title.trim().length > 0 &&
+    (contentPlain.trim().length > 0 || contentHtml.includes("<img"));
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!canSubmit) return;
     setLoading(true);
     setError(null);
 
@@ -37,11 +55,14 @@ export default function WritePage() {
         return;
       }
 
+      const html = sanitizeConceptCommunityHtml(contentHtml).trim();
+      const content = html || contentPlain.trim();
+
       const { data, error: insertError } = await supabase
         .from("posts")
         .insert({
           author_id: user.id,
-          title,
+          title: title.trim(),
           content,
           category,
         })
@@ -87,9 +108,10 @@ export default function WritePage() {
                   className={`
                     rounded-[var(--radius-tags)] px-4 py-1.5
                     font-display text-body-sm font-medium transition-colors
-                    ${category === cat.value
-                      ? "bg-midnight text-paper"
-                      : "bg-paper text-ink hover:bg-snow"
+                    ${
+                      category === cat.value
+                        ? "bg-midnight text-paper"
+                        : "bg-paper text-ink hover:bg-snow"
                     }
                   `}
                 >
@@ -109,15 +131,20 @@ export default function WritePage() {
             placeholder="제목을 입력하세요"
           />
 
-          <Textarea
-            id="content"
-            label="내용"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-            rows={12}
-            placeholder="내용을 입력하세요"
-          />
+          <div>
+            <label className="mb-3 block font-display text-body-sm font-medium text-ink">
+              내용
+            </label>
+            <RichTextEditor
+              userId={userId}
+              placeholder="내용을 입력하세요. 굵게·크기·글꼴·색·사진으로 정리할 수 있어요."
+              onRequireLogin={() => router.push("/login?next=/community/write")}
+              onHtmlChange={(html, plain) => {
+                setContentHtml(html);
+                setContentPlain(plain);
+              }}
+            />
+          </div>
 
           {error && (
             <p className="font-display text-body-sm text-coral">{error}</p>
@@ -130,7 +157,7 @@ export default function WritePage() {
             >
               취소
             </Link>
-            <PrimaryButton type="submit" disabled={loading}>
+            <PrimaryButton type="submit" disabled={loading || !canSubmit}>
               {loading ? "등록 중..." : "등록하기"}
             </PrimaryButton>
           </div>

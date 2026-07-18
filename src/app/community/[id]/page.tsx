@@ -15,6 +15,7 @@ import { formatKstDateLong } from "@/lib/datetime";
 import { getCommunityLikeState, getUserActivityScores } from "@/lib/activity";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 import { CommunityLikeButton } from "@/components/board/CommunityLikeButton";
+import { RichTextBody } from "@/components/editor/RichTextBody";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -95,32 +96,37 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
           {post.title}
         </h1>
 
-        <div className="mb-8 flex items-center gap-3 border-b border-mist/60 pb-6 font-display text-body-sm text-fog">
-          <span className="flex items-center gap-1.5">
-            {post.profiles?.nickname ?? "익명"}
+        <div className="mb-8 flex flex-col gap-2.5 border-b border-mist/60 pb-6 font-display text-body-sm text-fog">
+          <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+            <span className="max-w-[11rem] truncate font-medium text-ink sm:max-w-[16rem]">
+              {post.profiles?.nickname ?? "익명"}
+            </span>
             <OceanRankBadge rank={authorActivity[post.author_id].rank} />
             {authorBadges[post.author_id] && (
               <PremiumBadge label={authorBadges[post.author_id]} />
             )}
-          </span>
-          <span>·</span>
-          <span>{formatKstDateLong(post.created_at)}</span>
-          <span>·</span>
-          <span>조회 {post.view_count + 1}</span>
-          <CommunityLikeButton
-            targetType="post"
-            targetId={post.id}
-            authorId={post.author_id}
-            currentUserId={user?.id}
-            initialCount={likeState.post.count}
-            initialLiked={likeState.post.likedByViewer}
-            loginHref={loginHref}
-          />
+          </div>
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+            <span className="whitespace-nowrap">{formatKstDateLong(post.created_at)}</span>
+            <span className="text-ash" aria-hidden>
+              ·
+            </span>
+            <span className="whitespace-nowrap">조회 {post.view_count + 1}</span>
+            <div className="ml-auto shrink-0">
+              <CommunityLikeButton
+                targetType="post"
+                targetId={post.id}
+                authorId={post.author_id}
+                currentUserId={user?.id}
+                initialCount={likeState.post.count}
+                initialLiked={likeState.post.likedByViewer}
+                loginHref={loginHref}
+              />
+            </div>
+          </div>
         </div>
 
-        <div className="whitespace-pre-wrap font-display text-body leading-relaxed text-ink">
-          {post.content}
-        </div>
+        <RichTextBody content={post.content} />
       </ElevatedCard>
 
       <section className="mt-10">

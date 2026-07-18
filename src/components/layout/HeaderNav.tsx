@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { LogoMark } from "@/components/illustrations/LogoMark";
 import { PrimaryButton, OutlineButton, TextButton } from "@/components/ui/Button";
+import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 import { NAV_LINKS, isNavGroup, navGroupKey, type NavGroupLink } from "@/lib/constants";
+import type { OceanRank } from "@/lib/ocean-ranks";
 
 interface HeaderNavProps {
   user?: {
@@ -12,6 +14,7 @@ interface HeaderNavProps {
     nickname: string;
     usernameSet: boolean;
     isAdmin?: boolean;
+    oceanRank?: OceanRank | null;
   } | null;
   unreadCount?: number;
 }
@@ -47,66 +50,69 @@ function NavLink({
   );
 }
 
-function NavDropdown({ href, label, children }: NavGroupLink) {
-  const [open, setOpen] = useState(false);
+function NavDropdown({ label, children }: NavGroupLink) {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
 
-  const trigger = (
-    <>
-      {label}
-      <svg
-        width="12"
-        height="12"
-        viewBox="0 0 12 12"
-        fill="none"
-        aria-hidden
-        className={`transition-transform ${open ? "rotate-180" : ""}`}
-      >
-        <path
-          d="M3 4.5L6 7.5L9 4.5"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </>
-  );
+  useEffect(() => {
+    const root = detailsRef.current;
+    if (!root) return;
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (!root.open) return;
+      if (!root.contains(event.target as Node)) {
+        root.open = false;
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") root.open = false;
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
 
   return (
-    <div
-      className="relative shrink-0"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
-      {href ? (
-        <OutlineButton href={href} className="shrink-0 gap-1 whitespace-nowrap">
-          {trigger}
-        </OutlineButton>
-      ) : (
-        <OutlineButton
-          className="shrink-0 gap-1 whitespace-nowrap"
-          onClick={() => setOpen((prev) => !prev)}
+    <details ref={detailsRef} className="group relative shrink-0">
+      <summary className="inline-flex shrink-0 cursor-pointer list-none items-center justify-center gap-1 whitespace-nowrap rounded-[var(--radius-buttons)] border border-transparent px-3.5 py-2 font-display text-body-sm font-medium text-ink transition-colors hover:border-mist hover:bg-snow marker:content-none [&::-webkit-details-marker]:hidden group-open:border-carbon group-open:bg-snow">
+        {label}
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          aria-hidden
+          className="transition-transform group-open:rotate-180"
         >
-          {trigger}
-        </OutlineButton>
-      )}
-      {open && (
-        <div className="absolute left-0 top-full z-50 min-w-[9rem] pt-1">
-          <div className="flex flex-col rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper py-1 shadow-[var(--shadow-card)]">
-            {children.map((child) => (
-              <Link
-                key={child.href}
-                href={child.href}
-                className="block px-3.5 py-2 font-display text-body-sm font-medium text-ink transition-colors hover:bg-snow"
-                onClick={() => setOpen(false)}
-              >
-                {child.label}
-              </Link>
-            ))}
-          </div>
+          <path
+            d="M3 4.5L6 7.5L9 4.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </summary>
+      <div className="absolute left-0 top-full z-[60] min-w-[10rem] pt-1">
+        <div className="flex flex-col rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper py-1 shadow-[var(--shadow-card)]">
+          {children.map((child) => (
+            <Link
+              key={child.href}
+              href={child.href}
+              className="block px-3.5 py-2 font-display text-body-sm font-medium text-ink transition-colors hover:bg-snow"
+              onClick={() => {
+                if (detailsRef.current) detailsRef.current.open = false;
+              }}
+            >
+              {child.label}
+            </Link>
+          ))}
         </div>
-      )}
-    </div>
+      </div>
+    </details>
   );
 }
 
@@ -224,8 +230,14 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
                   <OutlineButton href="/admin">관리자</OutlineButton>
                 )}
                 <NotificationBell unreadCount={unread} />
-                <OutlineButton href={user.usernameSet ? "/profile" : "/onboarding"}>
+                <OutlineButton
+                  href={user.usernameSet ? "/profile" : "/onboarding"}
+                  className="gap-1.5"
+                >
                   {user.usernameSet ? user.nickname : "아이디 설정"}
+                  {user.usernameSet && user.oceanRank ? (
+                    <OceanRankBadge rank={user.oceanRank} variant="icon" />
+                  ) : null}
                 </OutlineButton>
                 <form action="/auth/signout" method="post">
                   <TextButton type="submit">로그아웃</TextButton>
@@ -289,9 +301,12 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
                   </OutlineButton>
                   <OutlineButton
                     href={user.usernameSet ? "/profile" : "/onboarding"}
-                    className="w-full justify-start"
+                    className="w-full justify-start gap-1.5"
                   >
                     {user.usernameSet ? user.nickname : "아이디 설정"}
+                    {user.usernameSet && user.oceanRank ? (
+                      <OceanRankBadge rank={user.oceanRank} variant="icon" />
+                    ) : null}
                   </OutlineButton>
                   <form action="/auth/signout" method="post">
                     <button

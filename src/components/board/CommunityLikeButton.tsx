@@ -68,7 +68,7 @@ export function CommunityLikeButton({
   };
 
   return (
-    <span className="inline-flex flex-col items-start gap-1">
+    <span className="inline-flex shrink-0 flex-col items-start gap-1">
       <button
         type="button"
         onClick={toggleLike}
@@ -76,7 +76,7 @@ export function CommunityLikeButton({
         title={isOwnContent ? "내 글과 댓글에는 좋아요를 누를 수 없어요" : "좋아요"}
         aria-pressed={liked}
         aria-describedby={errorMessage ? `like-error-${targetType}-${targetId}` : undefined}
-        className={`inline-flex min-h-8 items-center gap-1.5 rounded-full border px-3 py-1 font-display text-[12px] font-semibold transition-colors ${
+        className={`inline-flex min-h-8 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-3 py-1 font-display text-[12px] font-semibold transition-colors ${
           liked
             ? "border-[#f4a8b8] bg-[#fff1f4] text-[#be3658]"
             : "border-mist bg-paper text-fog hover:border-[#f4a8b8] hover:text-[#be3658]"

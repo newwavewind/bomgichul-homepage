@@ -65,6 +65,12 @@ function sanitizeStyle(style: string): string {
     if (prop === "color") {
       const color = normalizeHexColor(value);
       if (color) parts.push(`color:${color}`);
+      continue;
+    }
+
+    if (prop === "font-family") {
+      const family = sanitizeFontFamily(value);
+      if (family) parts.push(`font-family:${family}`);
     }
   }
   return parts.join(";");
@@ -164,3 +170,64 @@ export const COMMUNITY_FONT_SIZES = [
   { label: "보통", value: "16px" },
   { label: "크게", value: "20px" },
 ] as const;
+
+/** 커뮤니티·모두의 개념 글꼴 — 한국어 웹에서 자주 쓰는 8종 */
+export const COMMUNITY_FONTS = [
+  {
+    label: "프리텐다드",
+    value: '"Pretendard", "Apple SD Gothic Neo", sans-serif',
+    sample: "Pretendard",
+  },
+  {
+    label: "노토 산스",
+    value: '"Noto Sans KR", sans-serif',
+    sample: "Noto Sans KR",
+  },
+  {
+    label: "노토 세리프",
+    value: '"Noto Serif KR", serif',
+    sample: "Noto Serif KR",
+  },
+  {
+    label: "IBM 플렉스",
+    value: '"IBM Plex Sans KR", sans-serif',
+    sample: "IBM Plex Sans KR",
+  },
+  {
+    label: "블랙한산스",
+    value: '"Black Han Sans", sans-serif',
+    sample: "Black Han Sans",
+  },
+  {
+    label: "도현",
+    value: '"Do Hyeon", sans-serif',
+    sample: "Do Hyeon",
+  },
+  {
+    label: "주아",
+    value: '"Jua", sans-serif',
+    sample: "Jua",
+  },
+  {
+    label: "고운돋움",
+    value: '"Gowun Dodum", sans-serif',
+    sample: "Gowun Dodum",
+  },
+] as const;
+
+const ALLOWED_FONT_SAMPLES = new Set(
+  COMMUNITY_FONTS.map((font) => font.sample.toLowerCase())
+);
+
+function sanitizeFontFamily(value: string): string | null {
+  const normalized = value.replace(/\s+/g, " ").trim().toLowerCase();
+  const match = COMMUNITY_FONTS.find((font) => {
+    const sample = font.sample.toLowerCase();
+    return (
+      ALLOWED_FONT_SAMPLES.has(sample) &&
+      (normalized.includes(sample) ||
+        normalized === font.value.replace(/\s+/g, " ").trim().toLowerCase())
+    );
+  });
+  return match ? match.value : null;
+}

@@ -73,6 +73,16 @@ export function CategoryFilter({ current }: CategoryFilterProps) {
 
   return (
     <div className="flex flex-wrap items-center gap-2">
+      <Link
+        href="/ranks"
+        className="rounded-[var(--radius-tags)] border border-[#7dd3e8] bg-[#e8f8fc] px-4 py-1.5 font-display text-body-sm font-semibold text-[#0e7490] transition-colors hover:border-[#22b8d8] hover:bg-[#d5f3fa]"
+        title="활동 점수로 성장하는 20단계 바다 레벨"
+      >
+        🌊 바다 레벨
+      </Link>
+
+      <span className="mx-0.5 h-4 w-px bg-mist" aria-hidden />
+
       <FilterChip
         value="all"
         label="전체"
