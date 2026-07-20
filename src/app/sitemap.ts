@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { ARCHIVE_SUBJECTS, EXAM_SUBJECTS, SITE_URL } from "@/lib/constants";
+import { getAllConceptParams } from "@/lib/concepts";
 import { getAllExamParams, getExamYearParams } from "@/lib/exam-questions";
 
 /** 검색 노출 대상 정적 공개 페이지 */
@@ -48,6 +49,12 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     changeFrequency: "monthly",
     priority: 0.7,
   },
+  {
+    url: `${SITE_URL}/news`,
+    lastModified: new Date(),
+    changeFrequency: "daily",
+    priority: 0.8,
+  },
   ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all" && s.value !== "other").map(
     (s) => ({
       url: `${SITE_URL}/subjects/${s.value}`,
@@ -89,6 +96,27 @@ function getExamUrls(): MetadataRoute.Sitemap {
   return [...hubUrl, ...subjectUrls, ...yearUrls, ...questionUrls];
 }
 
+/** 기출 all-in-one 개념(/concepts) — 정적 데이터 순회 */
+function getConceptUrls(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  const subjectUrls: MetadataRoute.Sitemap = EXAM_SUBJECTS.map((s) => ({
+    url: `${SITE_URL}/concepts/${s.value}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  const detailUrls: MetadataRoute.Sitemap = getAllConceptParams().map(({ subject, slug }) => ({
+    url: `${SITE_URL}/concepts/${subject}/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...subjectUrls, ...detailUrls];
+}
+
 async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
   if (!isSupabaseConfigured()) return [];
 
@@ -113,5 +141,5 @@ async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const contentUrls = await getPublicContentUrls();
-  return [...STATIC_PAGES, ...getExamUrls(), ...contentUrls];
+  return [...STATIC_PAGES, ...getConceptUrls(), ...getExamUrls(), ...contentUrls];
 }

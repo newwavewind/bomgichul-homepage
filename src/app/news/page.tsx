@@ -3,17 +3,8 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { NewsDateStrip } from "@/components/news/NewsDateStrip";
 import { NewsList } from "@/components/news/NewsList";
 import { getNewsItems } from "@/lib/news";
-import { SITE_NAME } from "@/lib/constants";
+import { buildPageMetadata } from "@/lib/seo";
 import type { NewsItem } from "@/types/database";
-
-export const metadata: Metadata = {
-  title: "뉴스",
-  description: "공인중개사 시험·정책·중개업 관련 뉴스를 매일 아침 모아드려요.",
-  openGraph: {
-    title: `뉴스 | ${SITE_NAME}`,
-    description: "공인중개사 시험·정책·중개업 관련 뉴스를 매일 아침 모아드려요.",
-  },
-};
 
 interface NewsPageProps {
   searchParams: Promise<{ date?: string }>;
@@ -32,6 +23,29 @@ function resolveSelectedDate(
   if (dates.length === 0) return null;
   if (requested && dates.includes(requested)) return requested;
   return dates[0] ?? null;
+}
+
+export async function generateMetadata({
+  searchParams,
+}: NewsPageProps): Promise<Metadata> {
+  const { date } = await searchParams;
+  const items = await getNewsItems(100);
+  const dates = collectNewsDates(items);
+  const latestDate = dates[0] ?? null;
+  const selectedDate = resolveSelectedDate(dates, date);
+
+  const title =
+    selectedDate && selectedDate !== latestDate
+      ? `${selectedDate} 뉴스`
+      : "공인중개사 뉴스";
+
+  return buildPageMetadata({
+    title,
+    description: "공인중개사 시험·정책·중개업 관련 뉴스를 매일 아침 모아드려요.",
+    path: "/news",
+    canonicalParams:
+      selectedDate && selectedDate !== latestDate ? { date: selectedDate } : undefined,
+  });
 }
 
 export default async function NewsPage({ searchParams }: NewsPageProps) {
