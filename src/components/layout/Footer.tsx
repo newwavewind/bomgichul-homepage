@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { SITE_NAME, NAV_LINKS, flattenNavLinks, SITE_IDENTITY, ARCHIVE_SUBJECTS } from "@/lib/constants";
+import {
+  SITE_NAME,
+  NAV_LINKS,
+  flattenNavLinks,
+  SITE_IDENTITY,
+  ARCHIVE_SUBJECTS,
+  EXAM_SUBJECTS,
+  ARCHIVE_SUBJECT_MAP,
+} from "@/lib/constants";
+import type { ExamSubject } from "@/lib/exam-questions";
 
 function NavItem({
   href,
@@ -51,6 +60,20 @@ export function Footer() {
           <NavItem href="/login">로그인</NavItem>
           <NavItem href="/privacy">개인정보처리방침</NavItem>
         </nav>
+      </div>
+      <div className="border-t border-mist/70">
+        <div className="mx-auto flex max-w-[var(--page-max-width)] flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3">
+          <span className="font-display text-[12px] text-fog">기출 all-in-one</span>
+          {EXAM_SUBJECTS.map((s) => (
+            <Link
+              key={`concept-${s.value}`}
+              href={`/concepts/${s.value}`}
+              className="font-display text-[12px] text-fog transition-colors hover:text-ink"
+            >
+              {ARCHIVE_SUBJECT_MAP[s.value as ExamSubject]}
+            </Link>
+          ))}
+        </div>
       </div>
       <div className="border-t border-mist/70">
         <div className="mx-auto flex max-w-[var(--page-max-width)] flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3">

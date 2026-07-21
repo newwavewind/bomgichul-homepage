@@ -86,3 +86,16 @@ export function getAllConceptParams(): { subject: ExamSubject; slug: string }[] 
     getConceptsForSubject(subject).map((c) => ({ subject, slug: c.slug }))
   );
 }
+
+/** 기출 문항의 category·subcategory에 맞는 개념(기출 all-in-one)을 찾습니다. */
+export function findConceptForExamQuestion(
+  subject: ExamSubject,
+  category: string,
+  subcategory: string
+): Concept | undefined {
+  const matches = getConceptsForSubject(subject).filter(
+    (concept) => concept.category === category && concept.subcategory === subcategory
+  );
+  if (matches.length === 0) return undefined;
+  return matches.find((concept) => !concept.parentSlug) ?? matches[0];
+}

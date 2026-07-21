@@ -136,7 +136,6 @@ export function RandomPracticeRunner({
         <ExamQuestionSeoExplanations
           question={question}
           subjectLabel={subjectLabel}
-          unlocked={aiUnlocked}
         />
       )}
 

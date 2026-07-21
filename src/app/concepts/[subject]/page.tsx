@@ -17,7 +17,7 @@ import {
   type Concept,
 } from "@/lib/concepts";
 import type { ExamSubject } from "@/lib/exam-questions";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptItemListJsonLd } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
 import "../concepts-ui.css";
 
@@ -144,8 +144,29 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
   const user = await getUser();
   const returnTo = `/concepts/${subject}`;
 
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "기출 all-in-one", path: "/study#concepts" },
+    { name: label, path: `/concepts/${subject}` },
+  ]);
+  const itemListJsonLd = buildConceptItemListJsonLd({
+    subjectLabel: label,
+    path: `/concepts/${subject}`,
+    items: concepts.map((concept) => ({
+      name: concept.titleKo,
+      path: `/concepts/${subject}/${concept.slug}`,
+    })),
+  });
+
   return (
     <div className="px-4 py-8 md:py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <BackLink href="/study#concepts">과목 목록으로</BackLink>
 

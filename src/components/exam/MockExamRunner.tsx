@@ -247,7 +247,6 @@ export function MockExamRunner({
                   <ExamQuestionSeoExplanations
                     question={q}
                     subjectLabel={ARCHIVE_SUBJECT_MAP[q.subject]}
-                    unlocked={aiUnlocked}
                   />
                 </>
               )}

@@ -135,7 +135,11 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
           {post.content}
         </div>
 
-        <AttachmentListServer attachments={attachments} />
+        <AttachmentListServer
+          attachments={attachments}
+          currentUserId={user?.id ?? null}
+          loginHref={loginHref}
+        />
       </ElevatedCard>
 
       <section className="mt-10">

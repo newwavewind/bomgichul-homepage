@@ -2,8 +2,6 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { EyebrowLabel } from "@/components/ui/Typography";
-import { PrimaryButton } from "@/components/ui/Button";
-import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
 import { Tag } from "@/components/ui/Tag";
 import { BackLink } from "@/components/ui/BackLink";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
@@ -16,7 +14,7 @@ import {
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
-import { getConcept } from "@/lib/concepts";
+import { findConceptForExamQuestion, getConcept } from "@/lib/concepts";
 import { appendReturnTo, isValidReturnTo, parseConceptReturnTo } from "@/lib/return-to";
 import { getUser } from "@/lib/auth";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
@@ -109,6 +107,11 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   const subjectUnlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const accessible = question.free || subjectUnlocked;
   const seoRevealId = `seo-explanations-${subject}-${year}-${questionNo}`;
+  const relatedConcept = findConceptForExamQuestion(
+    subject,
+    question.category,
+    question.subcategory
+  );
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "기출문제 해설", path: "/exam" },
@@ -156,6 +159,14 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
               제{question.round}회 · {year}년
             </Tag>
             <Tag className="!px-2.5 !py-0.5 !text-[12px]">{question.category}</Tag>
+            {relatedConcept ? (
+              <Link
+                href={`/concepts/${subject}/${relatedConcept.slug}`}
+                className="inline-flex items-center rounded-[var(--radius-tags)] border border-ios-blue/30 bg-ios-blue/[0.08] px-2.5 py-0.5 font-display text-[12px] font-medium text-ios-blue transition-colors hover:bg-ios-blue/[0.14]"
+              >
+                기출 all-in-one: {relatedConcept.titleKo}
+              </Link>
+            ) : null}
           </div>
           <BookmarkButton
             subject={subject}
@@ -195,22 +206,6 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           }}
         />
 
-        {!accessible && (
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border border-carbon bg-ice px-5 py-4">
-            <p className="font-display text-body-sm text-ink">
-              전체 해설은 프리미엄 해제 후 이 페이지에서 볼 수 있어요. 이미 구매하셨다면{" "}
-              <Link href={`/exam/${subject}#unlock`} className="font-medium underline">
-                코드를 등록
-              </Link>
-              해 보세요.
-            </p>
-            <div className="flex flex-wrap items-center gap-2">
-              <PrimaryButton href={`/exam/${subject}#unlock`}>코드 등록</PrimaryButton>
-              <StorePurchaseLinks size="sm" />
-            </div>
-          </div>
-        )}
-
         <div
           id={seoRevealId}
           className="max-h-0 overflow-hidden transition-[max-height] duration-300"
@@ -218,7 +213,6 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           <ExamQuestionSeoExplanations
             question={question}
             subjectLabel={label}
-            unlocked={accessible}
           />
         </div>
         <ExamSeoRevealGate

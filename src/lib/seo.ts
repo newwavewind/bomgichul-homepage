@@ -109,3 +109,59 @@ export function buildBreadcrumbJsonLd(items: BreadcrumbItem[]) {
     })),
   };
 }
+
+export function buildConceptLearningResourceJsonLd({
+  title,
+  description,
+  path,
+  subjectLabel,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  subjectLabel: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    name: title,
+    description: truncateDescription(description, 500),
+    url: absoluteUrl(path),
+    inLanguage: "ko-KR",
+    learningResourceType: "Concept",
+    educationalLevel: "Professional certification",
+    about: {
+      "@type": "Thing",
+      name: `공인중개사 ${subjectLabel}`,
+    },
+    provider: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  };
+}
+
+export function buildConceptItemListJsonLd({
+  subjectLabel,
+  path,
+  items,
+}: {
+  subjectLabel: string;
+  path: string;
+  items: { name: string; path: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${subjectLabel} 기출 all-in-one 개념`,
+    url: absoluteUrl(path),
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: absoluteUrl(item.path),
+    })),
+  };
+}

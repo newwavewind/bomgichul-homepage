@@ -3,9 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
-import { PrimaryButton } from "@/components/ui/Button";
 import { BackLink } from "@/components/ui/BackLink";
-import { StorePurchaseLinks } from "@/components/exam/StorePurchaseLinks";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
   getExamYearParams,
@@ -66,7 +64,6 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
 
   const user = await getUser();
   const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
-  const free = questions[0].free || unlocked;
   const mockSessions =
     user && unlocked ? await getMockExamSessions(user.id, subject, year) : [];
 
@@ -106,28 +103,12 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
               subject={subject}
               subjectLabel={label}
               year={year}
-              unlocked={unlocked}
+              canDownload={Boolean(user)}
             />
           </div>
         </div>
 
         {unlocked && <MockExamHistory sessions={mockSessions} />}
-
-        {!free && (
-          <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-cards)] border border-carbon bg-ice px-5 py-4">
-            <p className="font-display text-body-sm text-ink">
-              {year}년 기출은 프리미엄 전용이에요. 코드를 등록하거나 모바일 앱에서 구매하면 이
-              페이지에서 전체 해설을 볼 수 있어요.{" "}
-              <Link href={`/exam/${subject}#unlock`} className="font-medium underline">
-                코드 등록
-              </Link>
-            </p>
-            <div className="flex flex-wrap items-center gap-2">
-              <PrimaryButton href={`/exam/${subject}#unlock`}>코드 등록</PrimaryButton>
-              <StorePurchaseLinks size="sm" />
-            </div>
-          </div>
-        )}
 
         <ElevatedCard className="overflow-hidden">
           {questions.map((q) => (

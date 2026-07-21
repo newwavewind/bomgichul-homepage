@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { PostAttachment } from "@/types/database";
 import { formatFileSize, getFileIcon, getPublicFileUrl } from "@/lib/storage";
 
@@ -45,45 +46,77 @@ export function AttachmentList({ attachments }: AttachmentListProps) {
 
 interface AttachmentListServerProps {
   attachments: PostAttachment[];
+  currentUserId?: string | null;
+  loginHref: string;
 }
 
-export function AttachmentListServer({ attachments }: AttachmentListServerProps) {
+export function AttachmentListServer({
+  attachments,
+  currentUserId,
+  loginHref,
+}: AttachmentListServerProps) {
   if (attachments.length === 0) return null;
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+  const canDownload = Boolean(currentUserId);
 
   return (
     <div className="mt-6 rounded-[var(--radius-cards)] border border-mist/60 bg-surface p-5">
       <h3 className="mb-4 font-display text-body font-semibold text-ink">
         첨부 파일 ({attachments.length})
       </h3>
+      {!canDownload ? (
+        <p className="mb-4 font-display text-body-sm text-smoke">
+          다운로드는 로그인 후 이용할 수 있어요.
+        </p>
+      ) : null}
       <ul className="space-y-2">
         {attachments.map((file) => {
-          const url = supabaseUrl
+          const downloadUrl = supabaseUrl
             ? `${supabaseUrl}/storage/v1/object/public/archive/${file.file_path}`
             : "#";
+          const rowClassName =
+            "flex items-center gap-3 rounded-[var(--radius-cards)] bg-paper px-4 py-3 transition-colors hover:bg-snow";
+
           return (
             <li key={file.id}>
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                download={file.file_name}
-                className="flex items-center gap-3 rounded-[var(--radius-cards)] bg-paper px-4 py-3 transition-colors hover:bg-snow"
-              >
-                <span className="text-2xl">{getFileIcon(file.mime_type)}</span>
-                <div className="min-w-0 flex-1">
-                  <p className="truncate font-display text-body-sm font-medium text-ink">
-                    {file.file_name}
-                  </p>
-                  <p className="font-display text-[12px] text-fog">
-                    {formatFileSize(file.file_size)}
-                  </p>
-                </div>
-                <span className="shrink-0 font-display text-body-sm font-medium text-electric-blue">
-                  다운로드 ↓
-                </span>
-              </a>
+              {canDownload ? (
+                <a
+                  href={downloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download={file.file_name}
+                  className={rowClassName}
+                >
+                  <span className="text-2xl">{getFileIcon(file.mime_type)}</span>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate font-display text-body-sm font-medium text-ink">
+                      {file.file_name}
+                    </p>
+                    <p className="font-display text-[12px] text-fog">
+                      {formatFileSize(file.file_size)}
+                    </p>
+                  </div>
+                  <span className="shrink-0 font-display text-body-sm font-medium text-electric-blue">
+                    다운로드 ↓
+                  </span>
+                </a>
+              ) : (
+                <Link href={loginHref} className={rowClassName}>
+                  <span className="text-2xl">{getFileIcon(file.mime_type)}</span>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate font-display text-body-sm font-medium text-ink">
+                      {file.file_name}
+                    </p>
+                    <p className="font-display text-[12px] text-fog">
+                      {formatFileSize(file.file_size)}
+                    </p>
+                  </div>
+                  <span className="shrink-0 font-display text-body-sm font-medium text-electric-blue">
+                    다운로드 ↓
+                  </span>
+                </Link>
+              )}
             </li>
           );
         })}

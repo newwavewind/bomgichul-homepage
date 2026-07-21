@@ -31,5 +31,5 @@
     "**/*.mts",
     "**/*.js"
   ],
-  "exclude": ["node_modules", "ox-quiz-app", ".claude"]
+  "exclude": ["node_modules", "ox-quiz-app", ".claude", "scripts"]
 }

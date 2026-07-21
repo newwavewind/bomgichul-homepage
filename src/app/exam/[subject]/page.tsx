@@ -2,8 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
-import { ElevatedCard } from "@/components/ui/Card";
-import { Tag } from "@/components/ui/Tag";
 import { BackLink } from "@/components/ui/BackLink";
 import {
   EXAM_SUBJECTS,
@@ -21,7 +19,6 @@ import { getNotesForSubject } from "@/lib/notes";
 import { getUser } from "@/lib/auth";
 import { isSubjectUnlocked } from "@/lib/premium";
 import { PremiumCodeRedeem } from "@/components/exam/PremiumCodeRedeem";
-import { SubjectFreeEventBanner } from "@/components/exam/SubjectFreeEventBanner";
 import { ReviewPdfButton } from "@/components/exam/ReviewPdfButton";
 import { isSubjectFreeEventActive } from "@/lib/promotions";
 import { absoluteUrl } from "@/lib/seo";
@@ -127,38 +124,69 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
               bookmarkCount={subjectBookmarkCount}
               noteCount={notes.length}
             />
+            <Link
+              href={`/concepts/${subject}`}
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+            >
+              📘 기출 all-in-one
+            </Link>
           </div>
         </div>
 
-        <div id="unlock" className="mb-8 scroll-mt-24 space-y-4">
-          <SubjectFreeEventBanner subject={subject} />
-          {!freeEventActive && (
+        {!freeEventActive && (
+          <div id="unlock" className="mb-8 scroll-mt-24 space-y-4">
             <PremiumCodeRedeem subject={subject} userId={user?.id ?? null} unlocked={unlocked} />
-          )}
-        </div>
+          </div>
+        )}
 
-        <ElevatedCard className="overflow-hidden">
-          {years.map((year) => {
-            const questions = getExamQuestionsForYear(subject, year);
-            const originallyFree = questions[0]?.free ?? false;
-            const accessible = originallyFree || unlocked;
-            const tagLabel = originallyFree ? "무료" : unlocked ? "해제됨" : "프리미엄";
-            return (
-              <Link
-                key={year}
-                href={`/exam/${subject}/${year}`}
-                className="flex items-center justify-between gap-3 border-b border-mist/60 px-5 py-4 transition-colors last:border-b-0 hover:bg-snow"
-              >
-                <span className="font-display text-body font-medium text-ink">
-                  {year}년 기출 ({questions.length}문항)
-                </span>
-                <Tag className={!accessible ? "!border-fog !text-fog" : ""}>
-                  {tagLabel}
-                </Tag>
-              </Link>
-            );
-          })}
-        </ElevatedCard>
+        <div className="space-y-2">
+          <p className="px-1 font-display text-[13px] font-semibold uppercase tracking-[0.04em] text-fog">
+            연도별 기출
+          </p>
+          <div className="overflow-hidden rounded-2xl bg-paper shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] ring-1 ring-black/[0.05]">
+            {years.map((year, index) => {
+              const questions = getExamQuestionsForYear(subject, year);
+              const round = questions[0]?.round;
+              const isLast = index === years.length - 1;
+
+              return (
+                <Link
+                  key={year}
+                  href={`/exam/${subject}/${year}`}
+                  className={`group flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-black/[0.03] active:bg-black/[0.05] sm:px-5 sm:py-4 ${
+                    !isLast ? "border-b border-mist/50" : ""
+                  }`}
+                >
+                  <span className="min-w-0 flex-1 font-display text-[17px] font-semibold leading-tight tracking-[-0.02em] text-ink">
+                    {year}년 기출
+                  </span>
+                  {round != null ? (
+                    <span className="shrink-0 font-display text-[15px] text-fog">
+                      제{round}회
+                    </span>
+                  ) : null}
+                  <span
+                    aria-hidden
+                    className="shrink-0 text-fog/70 transition-transform group-hover:translate-x-0.5"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );

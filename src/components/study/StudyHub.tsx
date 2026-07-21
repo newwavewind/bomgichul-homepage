@@ -79,7 +79,7 @@ export function StudyHub() {
             <FloatingStickers className="absolute inset-0 opacity-80" />
             <div className="relative">
               <p className="mx-auto max-w-md font-display text-body text-smoke">
-                <span className="whitespace-nowrap">질문은 봄기출이 작성합니다.</span>
+                <span className="whitespace-nowrap">기출 학습의 모든 것</span>
                 <br />
                 앱을 설치해 기출을 풀고, 막히는 순간은 AI 질문으로 이어 가세요.
               </p>

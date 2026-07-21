@@ -25,7 +25,7 @@ import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
 import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
 import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
 import type { ExamSubject } from "@/lib/exam-questions";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { buildConceptDetailAiPrompt } from "@/lib/ai-links";
@@ -131,8 +131,29 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
     pitfalls: concept.pitfalls,
   });
 
+  const conceptPath = `/concepts/${subject}/${slug}`;
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "기출 all-in-one", path: "/study#concepts" },
+    { name: label, path: `/concepts/${subject}` },
+    { name: concept.titleKo, path: conceptPath },
+  ]);
+  const learningResourceJsonLd = buildConceptLearningResourceJsonLd({
+    title: concept.titleKo,
+    description: concept.definition,
+    path: conceptPath,
+    subjectLabel: label,
+  });
+
   return (
     <div className="hp-cx px-4 py-8 md:py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(learningResourceJsonLd) }}
+      />
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <BackLink href={`/concepts/${subject}`}>{label} 개념 목록으로</BackLink>
 
