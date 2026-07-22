@@ -1129,9 +1129,20 @@
 
 .hp-cx .hp-cx-community-post__author {
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--hp-cx-ink);
+}
+
+.hp-cx .hp-cx-community-post__author-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hp-cx .hp-cx-community-post__meta {
@@ -1208,13 +1219,30 @@
 
 .hp-cx .hp-cx-community-comment__author {
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--hp-cx-ink);
 }
 
-.hp-cx .hp-cx-community-comment__author span {
-  margin-left: 0.4rem;
+.hp-cx .hp-cx-community-comment__author-line {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.hp-cx .hp-cx-community-comment__author-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hp-cx .hp-cx-community-comment__date {
   font-weight: 500;
   color: #94a3b8;
 }

@@ -213,48 +213,46 @@ export function QuestionMemoPanel({
 
   return (
     <div className="mt-4 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
-      <div className="mb-4">
+      <div className="mb-3 flex items-baseline justify-between gap-3">
         <h2 className="font-display text-body font-semibold text-ink">나만의 메모</h2>
-        <p className="mt-1 font-display text-body-sm text-smoke">
-          이 문제에 남긴 메모는 누구나 볼 수 있어요. 헷갈린 포인트·암기 팁을 함께 쌓아보세요.
+        <p className="min-w-0 font-display text-[12px] text-fog">
+          누구나 볼 수 있어요 · 암기 팁을 함께 쌓아보세요
         </p>
       </div>
 
       {userId ? (
-        <div className="mb-5 rounded-[var(--radius-buttons)] border border-mist bg-surface px-4 py-4">
-          <Textarea
-            id={`public-memo-${subject}-${year}-${questionNo}`}
-            label="메모 남기기"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            rows={3}
-            placeholder="이 문제에 대한 메모를 남겨보세요 (헷갈렸던 포인트, 암기 팁 등)"
-          />
-          <div className="mt-3 flex justify-end">
-            <PrimaryButton size="sm" onClick={handlePost} disabled={saving || !content.trim()}>
-              {saving ? "등록 중..." : "메모 등록"}
-            </PrimaryButton>
+        <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end">
+          <div className="min-w-0 flex-1">
+            <Textarea
+              id={`public-memo-${subject}-${year}-${questionNo}`}
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              rows={2}
+              placeholder="메모를 남겨보세요 (헷갈린 포인트, 암기 팁 등)"
+              className="!py-2.5 text-body-sm"
+            />
           </div>
+          <PrimaryButton
+            size="sm"
+            onClick={handlePost}
+            disabled={saving || !content.trim()}
+            className="shrink-0 self-end"
+          >
+            {saving ? "등록 중..." : "등록"}
+          </PrimaryButton>
         </div>
       ) : (
-        <div className="mb-5 rounded-[var(--radius-buttons)] border border-dashed border-mist bg-surface px-4 py-4 text-center">
-          <p className="font-display text-body-sm text-smoke">
-            로그인하면 메모를 남길 수 있어요. 메모 목록은 로그인 없이 볼 수 있습니다.
-          </p>
-          <div className="mt-3">
-            <Link
-              href={loginHref}
-              className="font-display text-body-sm font-medium text-[#6366f1] hover:underline"
-            >
-              로그인하기
-            </Link>
-          </div>
+        <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-body-sm text-smoke">
+          <span>로그인하면 메모를 남길 수 있어요.</span>
+          <Link href={loginHref} className="font-medium text-[#6366f1] hover:underline">
+            로그인
+          </Link>
         </div>
       )}
 
       {initialMemos.length === 0 ? (
-        <p className="py-6 text-center font-display text-body-sm text-fog">
-          아직 남긴 메모가 없어요. 첫 메모를 남겨보세요.
+        <p className="py-4 text-center font-display text-body-sm text-fog">
+          아직 남긴 메모가 없어요.
         </p>
       ) : (
         <div>

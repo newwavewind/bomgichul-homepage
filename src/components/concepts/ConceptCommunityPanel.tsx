@@ -12,6 +12,8 @@ import type { ExamSubject } from "@/lib/exam-questions";
 import type { ConceptCommunityPost } from "@/types/database";
 import { formatKstDateTimeShort } from "@/lib/datetime";
 import { sanitizeConceptCommunityHtml } from "@/lib/concept-community-html";
+import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
+import type { OceanRank } from "@/lib/ocean-ranks";
 
 function formatDate(iso: string): string {
   return formatKstDateTimeShort(iso);
@@ -88,13 +90,17 @@ function CommunityPostCard({
   post,
   userId,
   loginHref,
+  authorRanks,
   onChanged,
 }: {
   post: ConceptCommunityPost;
   userId: string | null;
   loginHref: string;
+  authorRanks: Record<string, OceanRank>;
   onChanged: () => void;
 }) {
+  const authorRank = authorRanks[post.user_id];
+
   const [showComments, setShowComments] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [busy, setBusy] = useState(false);
@@ -193,7 +199,12 @@ function CommunityPostCard({
     <article className="hp-cx-community-post">
       <div className="hp-cx-community-post__head">
         <div className="min-w-0 flex-1">
-          <p className="hp-cx-community-post__author">{post.author.nickname}</p>
+          <p className="hp-cx-community-post__author">
+            <span className="hp-cx-community-post__author-name">
+              {post.author.nickname}
+            </span>
+            {authorRank ? <OceanRankBadge rank={authorRank} /> : null}
+          </p>
           <p className="hp-cx-community-post__meta">
             {formatDate(post.created_at)} · 조회 {viewCount}
           </p>
@@ -261,15 +272,25 @@ function CommunityPostCard({
           {post.comments.length === 0 ? (
             <p className="hp-cx-community-empty">아직 댓글이 없어요.</p>
           ) : (
-            post.comments.map((comment) => (
-              <div key={comment.id} className="hp-cx-community-comment">
-                <p className="hp-cx-community-comment__author">
-                  {comment.author.nickname}
-                  <span>{formatDate(comment.created_at)}</span>
-                </p>
-                <p className="hp-cx-community-comment__body">{comment.content}</p>
-              </div>
-            ))
+            post.comments.map((comment) => {
+              const commentRank = authorRanks[comment.user_id];
+              return (
+                <div key={comment.id} className="hp-cx-community-comment">
+                  <p className="hp-cx-community-comment__author">
+                    <span className="hp-cx-community-comment__author-line">
+                      <span className="hp-cx-community-comment__author-name">
+                        {comment.author.nickname}
+                      </span>
+                      {commentRank ? <OceanRankBadge rank={commentRank} /> : null}
+                    </span>
+                    <span className="hp-cx-community-comment__date">
+                      {formatDate(comment.created_at)}
+                    </span>
+                  </p>
+                  <p className="hp-cx-community-comment__body">{comment.content}</p>
+                </div>
+              );
+            })
           )}
 
           {userId ? (
@@ -313,6 +334,7 @@ export function ConceptCommunityPanel({
   sectionIndex,
   userId,
   initialPosts,
+  authorRanks,
   returnTo,
 }: {
   subject: ExamSubject;
@@ -320,6 +342,7 @@ export function ConceptCommunityPanel({
   sectionIndex: number;
   userId: string | null;
   initialPosts: ConceptCommunityPost[];
+  authorRanks: Record<string, OceanRank>;
   returnTo: string;
 }) {
   const router = useRouter();
@@ -423,6 +446,7 @@ export function ConceptCommunityPanel({
                   post={post}
                   userId={userId}
                   loginHref={loginHref}
+                  authorRanks={authorRanks}
                   onChanged={() => router.refresh()}
                 />
               ))}

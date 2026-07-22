@@ -28,6 +28,7 @@ import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
+import { getUserActivityScores } from "@/lib/activity";
 import { buildConceptDetailAiPrompt } from "@/lib/ai-links";
 import "../../concepts-ui.css";
 
@@ -108,6 +109,17 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
   const isLoggedIn = Boolean(user);
   const returnTo = `/concepts/${subject}/${slug}`;
   const communityPosts = await getConceptCommunityPosts(subject, slug, user?.id ?? null);
+  const communityAuthorIds = [
+    ...communityPosts.map((post) => post.user_id),
+    ...communityPosts.flatMap((post) => post.comments.map((comment) => comment.user_id)),
+  ];
+  const communityAuthorActivity = await getUserActivityScores(communityAuthorIds);
+  const communityAuthorRanks = Object.fromEntries(
+    Object.entries(communityAuthorActivity).map(([userId, activity]) => [
+      userId,
+      activity.rank,
+    ])
+  );
   const parent = concept.parentSlug ? getConcept(subject, concept.parentSlug) : undefined;
   const siblingConcepts = getConceptsForSubject(subject);
   const currentIndex = siblingConcepts.findIndex((c) => c.slug === slug);
@@ -270,6 +282,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           sectionIndex={communityIndex}
           userId={user?.id ?? null}
           initialPosts={communityPosts}
+          authorRanks={communityAuthorRanks}
           returnTo={returnTo}
         />
 
