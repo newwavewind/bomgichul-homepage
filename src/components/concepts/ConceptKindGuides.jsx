@@ -181,7 +181,7 @@ export function ConceptVisualGuide({ guide }) {
   if (['subscription-savings-notice-board','quality-panel-numbers-board','farmer-recognition-or-board','farmland-lease-term-board','acquisition-certificate-exemption-filter','non-cultivation-ownership-filter'].includes(guide.kind)) return <SeventySecondSixGuide guide={guide} />
   if (['promotion-area-exclusion-filter','proxy-cultivator-rules-board','farmland-register-numbers-board','conversion-exemption-filter','temp-use-report-filter','fill-report-exemption-board'].includes(guide.kind)) return <SeventyThirdSixGuide guide={guide} />
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint">
+    <article className="cx-card cx-visual-card">
       <SectionBlock label="VISUAL PLUS" index={4}>
         <h4 className="cx-guide-heading">권리취득 유형 분류도</h4>
         <p className="cx-visual-lede">{guide.summary}</p>
@@ -263,7 +263,7 @@ function TwentiethSixGuide({ guide }) {
     label = '기반시설 계획결정 여권심사'
     body = <><div className="cx-plan-passports">{guide.passports.map(x=><section className={x.pass.includes('가능')?'is-pass':'is-check'} key={x.facility}><strong>{x.facility}</strong><b>{x.pass}</b></section>)}</div><div className="cx-principle-line">{guide.principle.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwentyFirstSixGuide({ guide }) {
@@ -288,7 +288,7 @@ function TwentyFirstSixGuide({ guide }) {
     label = '정비사업 선택 지도'
     body = <><div className="cx-renewal-grid">{guide.projects.map(x=><section key={x.name}><strong>{x.name}</strong><span>기반시설 · {x.infra}</span><b>{x.stock}</b><small>{x.method}</small></section>)}</div><div className="cx-housing-counts">{guide.housingCounts.map(x=><section key={x.composition}><strong>{x.composition}</strong><b>{x.threshold}</b></section>)}</div><div className="cx-route-steps">{guide.route.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div><aside className="cx-case-note">{guide.case}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwentySecondSixGuide({ guide }) {
@@ -313,7 +313,7 @@ function TwentySecondSixGuide({ guide }) {
     label = '도시·군기본계획 통제실'
     body = <><div className="cx-plan-routes">{guide.routes.map(x=><section key={x.maker}><strong>{x.maker}</strong><div>{x.stages.map((v,i)=><span key={v}><b>{i+1}</b>{v}</span>)}</div></section>)}</div><div className="cx-plan-clocks">{guide.clocks.map(x=><section key={`${x.number}-${x.task}`}><strong>{x.number}</strong><span>{x.task}</span></section>)}</div><div className="cx-plan-hierarchy">{guide.hierarchy.map((x,i)=><span key={x} style={{'--level':i}}>{x}</span>)}</div><aside className="cx-case-note">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwentyThirdSixGuide({ guide }) {
@@ -338,7 +338,7 @@ function TwentyThirdSixGuide({ guide }) {
     label = '주민 입안제안 동의 게이트'
     body = <><div className="cx-proposal-gates">{guide.gates.map(x=><section key={x.clause}><b>{x.clause}</b><strong>{x.proposal}</strong><span>{x.consent}</span></section>)}</div><div className="cx-proposal-excluded">{guide.excluded.map(x=><span key={x}>× {x}</span>)}</div><div className="cx-consent-math"><span>{guide.calculation.whole}</span><i>− {guide.calculation.public}</i><strong>{guide.calculation.denominator}</strong><b>4/5 → {guide.calculation.fourFifths}</b><b>2/3 → {guide.calculation.twoThirds}</b></div><div className="cx-proposal-process">{guide.process.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwentyFourthSixGuide({ guide }) {
@@ -363,7 +363,7 @@ function TwentyFourthSixGuide({ guide }) {
     label = '개발행위허가 지휘통제실'
     body = <><div className="cx-development-radar">{guide.radar.map(x=><section key={x.action}><strong>{x.action}</strong><b>{x.permit}</b></section>)}</div><div className="cx-development-bypass">{guide.bypass.map(x=><section key={x.event}><strong>{x.event}</strong><b>{x.route}</b></section>)}</div><div className="cx-restriction-clock">{guide.restriction.map(x=><section key={x.phase}><strong>{x.phase}</strong><b>{x.period}</b><span>{x.review}</span></section>)}</div><div className="cx-development-process">{guide.process.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwentyFifthSixGuide({ guide }) {
@@ -388,7 +388,7 @@ function TwentyFifthSixGuide({ guide }) {
     label = '용도지역·지구·구역 3층 지도'
     body = <><div className="cx-zoning-layers">{guide.layers.map((x,i)=><section key={x.layer}><b>{3-i}F</b><strong>{x.layer}</strong><span>{x.role}</span><small>{x.overlap}</small></section>)}</div><div className="cx-zoning-switches">{guide.switches.map(x=><section key={x.event}><strong>{x.event}</strong><b>{x.route}</b></section>)}</div><div className="cx-zoning-locks">{guide.locks.map(x=><span key={x}>{x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwentySixthSixGuide({ guide }) {
@@ -413,7 +413,7 @@ function TwentySixthSixGuide({ guide }) {
     label = '건축법 6스위치 준법판'
     body = <><div className="cx-building-switches">{guide.switches.map((x,i)=><section key={x.desk}><b>{i+1}</b><strong>{x.desk}</strong><span>{x.rule}</span></section>)}</div><div className="cx-structure-objects">{guide.objects.map(x=><section key={x.object}><strong>{x.object}</strong><b>{x.threshold}</b></section>)}</div><div className="cx-enforcement-ladder">{guide.ladder.map((x,i)=><span key={x}><b>{guide.ladder.length-i}</b>{x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwentySeventhSixGuide({ guide }) {
@@ -438,7 +438,7 @@ function TwentySeventhSixGuide({ guide }) {
     label = '주택법 행정 사건파일'
     body = <><div className="cx-housing-casefiles">{guide.files.map(x=><section key={x.file}><b>{x.file}</b><strong>{x.title}</strong><span>{x.trigger}</span><small>{x.effect}</small></section>)}</div><div className="cx-housing-sanctions">{guide.sanctions.map(x=><span key={x}>× {x}</span>)}</div><div className="cx-hearing-list">{guide.hearing.map(x=><span key={x}>청문 · {x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwentyEighthSixGuide({ guide }) {
@@ -463,7 +463,7 @@ function TwentyEighthSixGuide({ guide }) {
     label = '농지 위탁경영 법정사유 게이트'
     body = <><div className="cx-farmland-allowed">{guide.allowed.map(x=><section key={x.reason}><strong>{x.reason}</strong><b>{x.threshold}</b></section>)}</div><div className="cx-farmland-denied">{guide.denied.map(x=><section key={x.case}><strong>× {x.case}</strong><span>{x.why}</span></section>)}</div><div className="cx-farmland-decision">{guide.decision.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwentyNinthSixGuide({ guide }) {
@@ -488,7 +488,7 @@ function TwentyNinthSixGuide({ guide }) {
     label = '도시개발조합 동의 설계도'
     body = <><div className="cx-association-blueprint">{guide.blueprint.map((x,i)=><section key={x.step}><b>{i+1}</b><strong>{x.step}</strong><span>{x.value}</span></section>)}</div><div className="cx-public-land-rule">{guide.landRule.map(x=><section key={x.scene}><strong>{x.scene}</strong><b>{x.publicLand}</b><span>{x.denominator}</span></section>)}</div><aside className="cx-association-memory">{guide.memory}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtiethSixGuide({ guide }) {
@@ -513,7 +513,7 @@ function ThirtiethSixGuide({ guide }) {
     label = '정비계획·구역지정 절차 레일'
     body = <><div className="cx-maintenance-rail">{guide.rail.map((x,i)=><section key={x.station}><b>{i+1}</b><strong>{x.station}</strong><span>{x.detail}</span></section>)}</div><div className="cx-maintenance-clocks">{guide.clocks.map(x=><section key={x.task}><strong>{x.task}</strong><b>{x.period}</b></section>)}</div><div className="cx-integrated-tags">{guide.integrated.map(x=><span key={x}>✓ {x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtyFirstSixGuide({ guide }) {
@@ -538,7 +538,7 @@ function ThirtyFirstSixGuide({ guide }) {
     label = '농지취득자격증명 1,000㎡·7일 게이트'
     body = <><div className="cx-farmland-area"><section><strong>세대원 A</strong><b>{guide.area.a}</b></section><i>+</i><section><strong>세대원 B</strong><b>{guide.area.b}</b></section><i>=</i><section className="is-total"><strong>세대 합계</strong><b>{guide.area.total}</b><span>{guide.area.verdict}</span></section></div><div className="cx-farmland-clocks">{guide.clocks.map(x=><section key={x.type}><strong>{x.type}</strong><b>{x.days}</b><span>{x.note}</span></section>)}</div><div className="cx-farmland-route">{guide.route.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtySecondSixGuide({ guide }) {
@@ -563,7 +563,7 @@ function ThirtySecondSixGuide({ guide }) {
     label = '투기과열·조정대상 쌍둥이 레이더'
     body = <><div className="cx-regulated-radars">{guide.areas.map(x=><section key={x.name}><header><strong>{x.name}</strong><b>{x.actor}</b></header><div>{x.tests.map(v=><span key={v}>• {v}</span>)}</div><footer>{x.review}</footer></section>)}</div><div className="cx-radar-numbers">{guide.numbers.map(x=><section key={x.signal}><strong>{x.signal}</strong><b>{x.value}</b></section>)}</div><aside className="cx-radar-memory">{guide.memory}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtyThirdSixGuide({ guide }) {
@@ -588,7 +588,7 @@ function ThirtyThirdSixGuide({ guide }) {
     label = '일반·전속중개계약서 겹쳐보기'
     body = <><div className="cx-form-overlay"><section><strong>두 서식 공통</strong>{guide.common.map(x=><span key={x}>✓ {x}</span>)}</section><section className="is-exclusive"><strong>전속계약 추가</strong>{guide.exclusive.map(x=><span key={x.duty}><b>{x.clock}</b>{x.duty}</span>)}</section></div><div className="cx-form-penalties">{guide.penalties.map(x=><section key={x.case}><strong>{x.case}</strong><b>{x.cost}</b></section>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b33"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b33"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtyFourthSixGuide({ guide }) {
@@ -613,7 +613,7 @@ function ThirtyFourthSixGuide({ guide }) {
     label = '금지행위 대상·처벌 격자'
     body = <><div className="cx-prohibition-grid">{guide.columns.map(c=><section key={c.title}><header><strong>{c.title}</strong><b>{c.tag}</b></header>{c.items.map(it=><span key={it}>{it}</span>)}</section>)}</div><aside className="cx-b34-note">{guide.extra}</aside><aside className="cx-b34-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b34"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b34"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtyFifthSixGuide({ guide }) {
@@ -638,7 +638,7 @@ function ThirtyFifthSixGuide({ guide }) {
     label = '지구단위계획 규칙판'
     body = <><div className="cx-dup-board"><section><strong>결정권자</strong><span>{guide.decide}</span></section><section><strong>지정 가능 구역</strong>{guide.zones.map(z=><span key={z}>{z}</span>)}</section></div><div className="cx-dup-mandatory"><strong>의무 지정</strong><span>{guide.mandatory.trigger}</span><b>{guide.mandatory.rule}</b></div><div className="cx-dup-relax"><strong>{guide.relax.item}</strong><b>{guide.relax.value}</b></div><aside className="cx-b35-note is-alert">{guide.trap}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b35"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b35"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtySixthSixGuide({ guide }) {
@@ -663,7 +663,7 @@ function ThirtySixthSixGuide({ guide }) {
     label = '도시혁신구역 특례 목록'
     body = <><div className="cx-uio-list">{guide.overrides.map(o=><span key={o}>{o}</span>)}</div><div className="cx-uio-not">{guide.notOverride}</div><aside className="cx-b36-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b36"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b36"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtySeventhSixGuide({ guide }) {
@@ -688,7 +688,7 @@ function ThirtySeventhSixGuide({ guide }) {
     label = '종부세 기준일 앵커'
     body = <><div className="cx-anchor-date">{guide.anchor}</div><div className="cx-easement-extra">{guide.rule}</div><div className="cx-easement-extra">{guide.exclusion}</div><aside className="cx-b37-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b37"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b37"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtyEighthSixGuide({ guide }) {
@@ -713,7 +713,7 @@ function ThirtyEighthSixGuide({ guide }) {
     label = '청산 절차 순서 시계'
     body = <><div className="cx-handoff-line">{guide.sequence.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div><div className="cx-easement-extra">{guide.order}</div><aside className="cx-b38-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b38"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b38"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirtyNinthSixGuide({ guide }) {
@@ -738,7 +738,7 @@ function ThirtyNinthSixGuide({ guide }) {
     label = '예치명의자 자격 게이트'
     body = <><div className="cx-fence-row"><section className="is-in"><strong>예치명의자 가능</strong>{guide.eligible.map(x=><span key={x}>{x}</span>)}</section><section className="is-out"><strong>예치명의자 불가</strong>{guide.ineligible.map(x=><span key={x}>{x}</span>)}</section></div><aside className="cx-b39-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b39"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b39"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortiethSixGuide({ guide }) {
@@ -763,7 +763,7 @@ function FortiethSixGuide({ guide }) {
     label = '국외자산 납세의무 울타리'
     body = <><div className="cx-anchor-date">{guide.liability}</div><div className="cx-fence-row"><section className="is-out"><strong>적용 안됨</strong><span>{guide.excluded}</span></section><section className="is-in"><strong>준용됨</strong><span>{guide.included}</span></section></div><aside className="cx-b40-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b40"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b40"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortyFirstSixGuide({ guide }) {
@@ -788,7 +788,7 @@ function FortyFirstSixGuide({ guide }) {
     label = '시장개입 직접·간접 분류'
     body = <><div className="cx-fence-row"><section className="is-in"><strong>직접개입</strong>{guide.direct.map(x=><span key={x}>{x}</span>)}</section><section className="is-out"><strong>간접개입</strong>{guide.indirect.map(x=><span key={x}>{x}</span>)}</section></div><div className="cx-uio-list">{guide.causes.map(x=><span key={x}>{x}</span>)}</div><aside className="cx-b41-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b41"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b41"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortySecondSixGuide({ guide }) {
@@ -813,7 +813,7 @@ function FortySecondSixGuide({ guide }) {
     label = '비율임대차 계산 단계'
     body = <><div className="cx-handoff-line">{guide.steps.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div><div className="cx-anchor-date">{guide.example}</div><aside className="cx-b42-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b42"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b42"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortyThirdSixGuide({ guide }) {
@@ -838,7 +838,7 @@ function FortyThirdSixGuide({ guide }) {
     label = '겸업 허용·금지 목록'
     body = <><div className="cx-fence-row"><section className="is-in"><strong>겸업 가능</strong>{guide.allowed.map(x=><span key={x}>{x}</span>)}</section><section className="is-out"><strong>겸업 불가</strong>{guide.denied.map(x=><span key={x}>{x}</span>)}</section></div><aside className="cx-b43-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b43"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b43"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortyFourthSixGuide({ guide }) {
@@ -863,7 +863,7 @@ function FortyFourthSixGuide({ guide }) {
     label = '서류보존 면제 규칙'
     body = <><div className="cx-easement-extra">{guide.rule}</div><div className="cx-anchor-date">{guide.exemption}</div><aside className="cx-b44-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b44"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b44"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortyFifthSixGuide({ guide }) {
@@ -888,7 +888,7 @@ function FortyFifthSixGuide({ guide }) {
     label = '기대수익률 공식판'
     body = <><div className="cx-formula-panel">{guide.formulas.map(f=><section key={f.name}><strong>{f.name}</strong><span>{f.formula}</span></section>)}</div><div className="cx-easement-extra">{guide.rule}</div><aside className="cx-b45-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b45"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b45"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortySixthSixGuide({ guide }) {
@@ -913,7 +913,7 @@ function FortySixthSixGuide({ guide }) {
     label = '허가배제 사례 목록'
     body = <><div className="cx-uio-list">{guide.cases.map(x=><span key={x}>{x}</span>)}</div><aside className="cx-b46-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b46"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b46"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortySeventhSixGuide({ guide }) {
@@ -938,7 +938,7 @@ function FortySeventhSixGuide({ guide }) {
     label = '거래계약서 작성·보존 체크리스트'
     body = <><div className="cx-uio-list">{guide.checklist.map(x=><span key={x.item}><b>{x.item}</b> · {x.rule}</span>)}</div><aside className="cx-b47-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b47"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b47"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortyEighthSixGuide({ guide }) {
@@ -963,7 +963,7 @@ function FortyEighthSixGuide({ guide }) {
     label = '거래질서교란행위 신고 흐름도'
     body = <><div className="cx-anchor-date">{guide.example}</div><div className="cx-handoff-line">{guide.flow.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div><aside className="cx-b48-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b48"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b48"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FortyNinthSixGuide({ guide }) {
@@ -988,7 +988,7 @@ function FortyNinthSixGuide({ guide }) {
     label = '자산유동화 구조판'
     body = <><div className="cx-uio-list">{guide.structure.map(x=><span key={x.item}><b>{x.item}</b> · {x.rule}</span>)}</div><aside className="cx-b49-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b49"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b49"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftiethSixGuide({ guide }) {
@@ -1013,7 +1013,7 @@ function FiftiethSixGuide({ guide }) {
     label = '이용의무 위반 조치·예외판'
     body = <><div className="cx-uio-list">{guide.remedies.map(x=><span key={x}>✓ {x}</span>)}</div><div className="cx-easement-extra">{guide.notIncluded}</div><div className="cx-fact-qa"><section><strong>예외 허용</strong><span>{guide.exception.allowed}</span></section><section><strong>예외 아님</strong><span>{guide.exception.notAllowed}</span></section></div><aside className="cx-b50-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b50"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b50"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftyFirstSixGuide({ guide }) {
@@ -1038,7 +1038,7 @@ function FiftyFirstSixGuide({ guide }) {
     label = '토지취득방식 비교 저울'
     body = <><div className="cx-fact-qa">{guide.methods.map(x=><section key={x.name}><strong>{x.name}</strong><span>{x.desc}</span><span>{x.trait}</span></section>)}</div><div className="cx-uio-list">{guide.jointVenture.map(x=><span key={x}>{x}</span>)}</div><aside className="cx-b51-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b51"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b51"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftySecondSixGuide({ guide }) {
@@ -1063,7 +1063,7 @@ function FiftySecondSixGuide({ guide }) {
     label = '감가수정·재조달원가판'
     body = <><div className="cx-uio-list">{guide.depreciation.map(x=><span key={x.name}><b>{x.name}</b>{x.subs?` · ${x.subs}`:''}</span>)}</div><div className="cx-easement-extra">{guide.note}</div><div className="cx-easement-extra">{guide.reproductionCost}</div><aside className="cx-b52-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b52"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b52"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftyThirdSixGuide({ guide }) {
@@ -1088,7 +1088,7 @@ function FiftyThirdSixGuide({ guide }) {
     label = '주민의견 청취의무 체크판'
     body = <><div className="cx-fence-row"><section className="is-in"><strong>청취 필요</strong>{guide.required.map(x=><span key={x}>{x}</span>)}</section><section className="is-out"><strong>청취 불요</strong><span>{guide.notRequired}</span></section></div><aside className="cx-b53-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b53"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b53"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftyFourthSixGuide({ guide }) {
@@ -1113,7 +1113,7 @@ function FiftyFourthSixGuide({ guide }) {
     label = '용도지구별 건축제한 매트릭스'
     body = <><div className="cx-uio-list">{guide.rules.map(x=><span key={x.district}><b>{x.district}</b> · {x.rule}</span>)}</div><aside className="cx-b54-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b54"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b54"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftyFifthSixGuide({ guide }) {
@@ -1138,7 +1138,7 @@ function FiftyFifthSixGuide({ guide }) {
     label = '성장관리계획구역 절차·완화판'
     body = <><div className="cx-uio-list">{guide.procedure.map(x=><span key={x}>{x}</span>)}</div><div className="cx-fact-qa">{guide.relaxation.map(x=><section key={x.zone}><strong>{x.zone}</strong><span>{x.limit}</span></section>)}</div><aside className="cx-b55-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b55"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b55"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftySixthSixGuide({ guide }) {
@@ -1163,7 +1163,7 @@ function FiftySixthSixGuide({ guide }) {
     label = '도시지역 외 완화 특례판'
     body = <><div className="cx-uio-list">{guide.relax.map(x=><span key={x.item}><b>{x.item}</b> · {x.ratio}</span>)}</div><div className="cx-fact-qa"><section><strong>허용</strong><span>{guide.apartments.allowedIn}</span></section><section><strong>불허</strong><span>{guide.apartments.notAllowedIn}</span></section></div><aside className="cx-b56-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b56"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b56"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftySeventhSixGuide({ guide }) {
@@ -1188,7 +1188,7 @@ function FiftySeventhSixGuide({ guide }) {
     label = '특별건축구역 의제 필터'
     body = <><div className="cx-fence-row"><section className="is-in"><strong>의제 O</strong>{guide.deemed.map(x=><span key={x}>{x}</span>)}</section><section className="is-out"><strong>의제 X</strong>{guide.notDeemed.map(x=><span key={x}>{x}</span>)}</section></div><aside className="cx-b57-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b57"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b57"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftyEighthSixGuide({ guide }) {
@@ -1213,7 +1213,7 @@ function FiftyEighthSixGuide({ guide }) {
     label = '도시개발구역 해제 타임라인'
     body = <><div className="cx-handoff-line">{guide.timeline.map((x,i)=><span key={x.step}><b>{i+1}</b>{x.step} → {x.next}</span>)}</div><div className="cx-easement-extra">{guide.addableLater}</div><div className="cx-easement-extra">{guide.mustFromStart}</div><aside className="cx-b58-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b58"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b58"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FiftyNinthSixGuide({ guide }) {
@@ -1238,7 +1238,7 @@ function FiftyNinthSixGuide({ guide }) {
     label = '준공검사·체비지판'
     body = <><div className="cx-anchor-date">{guide.reserveLand}</div><div className="cx-fact-qa">{guide.procedure.map(x=><section key={x.who}><strong>{x.who}</strong><span>{x.rule}</span></section>)}</div><aside className="cx-b59-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b59"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b59"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtiethSixGuide({ guide }) {
@@ -1263,7 +1263,7 @@ function SixtiethSixGuide({ guide }) {
     label = '조합 임원·대의원회판'
     body = <><div className="cx-easement-extra">{guide.disqualify}</div><div className="cx-easement-extra">{guide.representation}</div><div className="cx-anchor-date">{guide.assembly.threshold} · {guide.assembly.ratio}</div><div className="cx-uio-list">{guide.cannotDelegate.map(x=><span key={x}>대행 불가: {x}</span>)}</div><aside className="cx-b60-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b60"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b60"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtyFirstSixGuide({ guide }) {
@@ -1288,7 +1288,7 @@ function SixtyFirstSixGuide({ guide }) {
     label = '환지처분 절차·효과 타임라인'
     body = <><div className="cx-handoff-line">{guide.timeline.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div><div className="cx-uio-list">{guide.effects.map(x=><span key={x}>{x}</span>)}</div><aside className="cx-b61-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b61"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b61"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtySecondSixGuide({ guide }) {
@@ -1313,7 +1313,7 @@ function SixtySecondSixGuide({ guide }) {
     label = '환지 예정지 효과판'
     body = <><div className="cx-uio-list">{guide.effects.map(x=><span key={x}>{x}</span>)}</div><aside className="cx-b62-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b62"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b62"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtyThirdSixGuide({ guide }) {
@@ -1338,7 +1338,7 @@ function SixtyThirdSixGuide({ guide }) {
     label = '청산금·비용부담 규정판'
     body = <><div className="cx-uio-list">{guide.rules.map(x=><span key={x.item}><b>{x.item}</b> · {x.rule}</span>)}</div><aside className="cx-b63-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b63"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b63"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtyFourthSixGuide({ guide }) {
@@ -1363,7 +1363,7 @@ function SixtyFourthSixGuide({ guide }) {
     label = '추진위원회 통지의무 필터'
     body = <><div className="cx-anchor-date">{guide.required}</div><div className="cx-uio-list">{guide.notRequired.map(x=><span key={x}>{x}</span>)}</div><aside className="cx-b64-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b64"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b64"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtyFifthSixGuide({ guide }) {
@@ -1388,7 +1388,7 @@ function SixtyFifthSixGuide({ guide }) {
     label = '손실보상 협의대상 필터'
     body = <><div className="cx-fence-row"><section className="is-in"><strong>협의 대상</strong>{guide.included.map(x=><span key={x}>{x}</span>)}</section><section className="is-out"><strong>대상 제외</strong><span>{guide.excluded}</span></section></div><aside className="cx-b65-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b65"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b65"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtySixthSixGuide({ guide }) {
@@ -1413,7 +1413,7 @@ function SixtySixthSixGuide({ guide }) {
     label = '특수구조 건축물 기준판'
     body = <><ConceptStudySheet guide={guide} showIntro={false} /><aside className="cx-b66-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b66"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b66"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtySeventhSixGuide({ guide }) {
@@ -1438,7 +1438,7 @@ function SixtySeventhSixGuide({ guide }) {
     label = '건축물대장 정비의무 트리거판'
     body = <><div className="cx-uio-list">{guide.triggers.map(x=><span key={x}>{x}</span>)}</div><div className="cx-easement-extra">{guide.excluded}</div><aside className="cx-b67-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b67"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b67"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtyNinthSixGuide({ guide }) {
@@ -1463,7 +1463,7 @@ function SixtyNinthSixGuide({ guide }) {
     label = '가로구역 높이제한 고려요소판'
     body = <><div className="cx-uio-list">{guide.factors.map(x=><span key={x}>{x}</span>)}</div><aside className="cx-b69-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b69"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b69"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SeventiethSixGuide({ guide }) {
@@ -1488,7 +1488,7 @@ function SeventiethSixGuide({ guide }) {
     label = '주택상환사채 발행한도판'
     body = <><div className="cx-uio-list">{guide.limits.map(x=><span key={x.item}><b>{x.item}</b> · {x.rule}</span>)}</div><aside className="cx-b70-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b70"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b70"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SeventyFirstSixGuide({ guide }) {
@@ -1513,7 +1513,7 @@ function SeventyFirstSixGuide({ guide }) {
     label = '입주예정자 사전방문 타임라인'
     body = <><div className="cx-uio-list">{guide.timeline.map(x=><span key={x.item}><b>{x.item}</b> · {x.rule}</span>)}</div><aside className="cx-b71-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b71"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b71"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SeventySecondSixGuide({ guide }) {
@@ -1538,7 +1538,7 @@ function SeventySecondSixGuide({ guide }) {
     label = '비자경 소유 예외 필터'
     body = <><div className="cx-fence-row"><section className="is-in"><strong>자경 없이 소유 가능</strong>{guide.exempt.map(x=><span key={x}>{x}</span>)}</section><section className="is-out"><strong>소유 불가</strong><span>{guide.notExempt}</span></section></div><aside className="cx-b72-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b72"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b72"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SeventyThirdSixGuide({ guide }) {
@@ -1563,7 +1563,7 @@ function SeventyThirdSixGuide({ guide }) {
     label = '성토 신고 면제 조건판'
     body = <><div className="cx-formula-board">{guide.conditions}</div><aside className="cx-b73-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b73"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b73"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixtyEighthSixGuide({ guide }) {
@@ -1588,7 +1588,7 @@ function SixtyEighthSixGuide({ guide }) {
     label = '결합건축 대상지·협정서판'
     body = <><div className="cx-fence-row"><section className="is-in"><strong>대상 지역·구역</strong>{guide.scope.in.map(x=><span key={x}>{x}</span>)}</section><section className="is-out"><strong>제외</strong><span>{guide.scope.out}</span></section></div><div className="cx-uio-list">{guide.agreementItems.required.map(x=><span key={x}>{x}</span>)}</div><div className="cx-easement-extra">기재사항 아님: {guide.agreementItems.notRequired}</div><aside className="cx-b68-note is-alert">{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-visual-card--b68"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card cx-visual-card--b68"><SectionBlock label="VISUAL PLUS" index={4} amended={guide.amended}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function NineteenthSixGuide({ guide }) {
@@ -1613,7 +1613,7 @@ function NineteenthSixGuide({ guide }) {
     label = '공동구 지하 단면도'
     body = <><div className="cx-tunnel-zones">{guide.zones.map(x=><span key={x}>{x}</span>)}</div><div className="cx-utility-tunnel"><strong>공동구</strong>{guide.tunnel.map(x=><section className={x.route.includes('심의')?'is-review':''} key={x.utility}><b>{x.utility}</b><span>{x.route}</span></section>)}</div><div className="cx-maintenance-strip">{guide.maintenance.map(x=><span key={x}>✓ {x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function EighteenthSixGuide({ guide }) {
@@ -1639,7 +1639,7 @@ function EighteenthSixGuide({ guide }) {
     const max = Math.max(...guide.meter.map(x=>x.coefficient))
     body = <><div className="cx-demand-meter">{guide.meter.map(x=><section key={x.use}><div><i style={{width:`${x.coefficient/max*100}%`}} /></div><strong>{x.use}</strong><b>{x.coefficient}</b></section>)}</div><div className="cx-exclusion-sort">{guide.excluded.map(x=><section className={x.result==='제외'?'is-out':'is-in'} key={x.facility}><strong>{x.facility}</strong><b>{x.result}</b></section>)}</div><aside className="cx-formula-board">{guide.formula}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SeventeenthSixGuide({ guide }) {
@@ -1664,7 +1664,7 @@ function SeventeenthSixGuide({ guide }) {
     label = '밀도규제·시설부담 쌍둥이 판'
     body = <><div className="cx-twin-board">{guide.twins.map(x=><section className={`is-${x.color}`} key={x.name}><strong>{x.name}</strong><small>{x.symptom}</small><b>{x.tool}</b><div>{x.process.map((v,i)=><span key={v}>{i+1}. {v}</span>)}</div></section>)}</div><div className="cx-rule-locks">{guide.locks.map(x=><span key={x}>{x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixteenthSixGuide({ guide }) {
@@ -1689,7 +1689,7 @@ function SixteenthSixGuide({ guide }) {
     label = '시설사업 시행 컨트롤 패널'
     body = <><div className="cx-facility-scope">{guide.scope.map(x=><section key={x.area}><strong>{x.area}</strong><i>→</i><b>{x.authority}</b></section>)}</div><div className="cx-access-panel">{guide.access.map(x=><section key={x.actor}><strong>{x.actor}</strong><span>{x.action}</span><b>{x.permit}</b></section>)}</div><div className="cx-private-gate"><strong>일반 민간 지정 게이트</strong>{guide.privateGate.map(x=><span key={x}>✓ {x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FifteenthSixGuide({ guide }) {
@@ -1715,7 +1715,7 @@ function FifteenthSixGuide({ guide }) {
     const top = Math.max(...guide.skyline.map(x=>x.max))
     body = <><div className="cx-far-skyline">{guide.skyline.map(x=><section key={x.zone}><div style={{height:`${Math.max(18,x.max/top*150)}px`}}><b>{x.max}%</b></div><span>{x.zone}</span></section>)}</div><aside className="cx-verdict-strip">{guide.formula}</aside><aside className="cx-exception-note"><b>주의</b>{guide.caution}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FourteenthSixGuide({ guide }) {
@@ -1741,7 +1741,7 @@ function FourteenthSixGuide({ guide }) {
     body = <><div className="cx-district-families">{guide.families.map(x=><section key={x.parent}><strong>{x.parent}</strong><div>{x.children.map(v=><span key={v}>{v}</span>)}</div></section>)}</div><div className="cx-fake-bin"><strong>존재하지 않는 가짜 명칭</strong>{guide.fakes.map(x=><span key={x}>× {x}</span>)}</div></>
   }
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint">
+    <article className="cx-card cx-visual-card">
       <SectionBlock label="VISUAL PLUS" index={4}>
         <h4 className="cx-guide-heading">{label}</h4>
         {guide.kind === 'boundary-cross-section-atlas' ? null : <p className="cx-special-lede">{guide.summary}</p>}
@@ -1774,7 +1774,7 @@ function ThirteenthSixGuide({ guide }) {
     label = '광역도시계획 수립·승인 라우터'
     body = <><div className="cx-authority-router">{guide.routes.map(x=><section key={x.area}><small>{x.area}</small><strong>{x.maker}</strong><i>→</i><b>{x.approver}</b></section>)}</div><div className="cx-finish-line">{guide.finish.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TwelfthSixGuide({ guide }) {
@@ -1799,7 +1799,7 @@ function TwelfthSixGuide({ guide }) {
     label = '건축협정 동의·인가 체계도'
     body = <><div className="cx-agreement-votes">{guide.votes.map(x=><section key={x.stage}><strong>{x.stage}</strong><b>{x.vote}</b><span>{x.next}</span></section>)}</div><div className="cx-integrated-rules"><strong>구역 통합 적용</strong>{guide.integrated.map(x=><span key={x}>{x}</span>)}<i>{guide.separate}</i></div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function EleventhSixGuide({ guide }) {
@@ -1824,7 +1824,7 @@ function EleventhSixGuide({ guide }) {
     label = '용도군 허가·신고 승강기'
     body = <><div className="cx-use-elevator"><div>{guide.floors.map(x=><span key={x.no}><b>{x.no}</b>{x.name}</span>)}</div><aside>{guide.directions.map(x=><section key={x.move}><strong>{x.move}</strong><b>{x.action}</b></section>)}</aside></div><aside className="cx-info-note">{guide.approval}</aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function TenthSixGuide({ guide }) {
@@ -1849,7 +1849,7 @@ function TenthSixGuide({ guide }) {
     label = '건축신고·가설건축물 스위치'
     body = <><div className="cx-building-switch">{guide.panels.map(x=><section key={x.title}><strong>{x.title}</strong><b>{x.rule}</b>{x.examples.map(v=><span key={v}>{v}</span>)}</section>)}</div><div className="cx-arrow-chain">{guide.timer.map((x,i)=><span key={x}>{x}{i<guide.timer.length-1?<i>→</i>:null}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function NinthSixGuide({ guide }) {
@@ -1874,7 +1874,7 @@ function NinthSixGuide({ guide }) {
     label = '건축허가·해체·제한 배전반'
     body = <><div className="cx-building-circuits">{guide.circuits.map(x=><section key={x.title}><strong>{x.title}</strong><b>{x.trigger}</b><span>{x.exception}</span><small>{x.law}</small></section>)}</div><div className="cx-arrow-chain">{guide.procedure.map((x,i)=><span key={x}>{x}{i<guide.procedure.length-1?<i>→</i>:null}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function EighthSixGuide({ guide }) {
@@ -1899,11 +1899,11 @@ function EighthSixGuide({ guide }) {
     label = '정비기본계획 세 개의 시계'
     body = <><div className="cx-plan-clocks">{guide.clocks.map(x=><section key={x.number}><b>{x.number}</b><strong>{x.title}</strong><span>{x.note}</span></section>)}</div><div className="cx-authority-strip">{guide.authority.map((x,i)=><span key={x}><b>{i+1}</b>{x}</span>)}</div><aside className="cx-special-caution"><b>경미한 변경 아님</b><span>{guide.caution}</span></aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function RuleWorkbenchGuide({ guide }) {
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}>
     <h4 className="cx-guide-heading">{guide.title}</h4>
     <p className="cx-special-lede">{guide.summary}</p>
     <div className="cx-rule-workbench">{guide.columns.map((column, index) => <section key={column.head} style={{ '--cx-delay': `${index * 90}ms` }}>
@@ -1938,7 +1938,7 @@ function SeventhSixGuide({ guide }) {
     label = '도시개발구역 지정 계기판'
     body = <><div className="cx-designators">{guide.designators.map(x=><section className={x.can?'is-can':'is-cannot'} key={x.actor}><strong>{x.actor}</strong><b>{x.can?'지정 가능':'제안만 가능'}</b><span>{x.scope}</span></section>)}</div><div className="cx-zone-sizes">{guide.sizes.map(x=><section key={x.zone}><strong>{x.zone}</strong><b>{x.minimum}</b><span>{x.note}</span></section>)}</div><div className="cx-arrow-chain">{guide.process.map((x,i)=><span key={x}>{x}{i<guide.process.length-1?<i>→</i>:null}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixthSixGuide({ guide }) {
@@ -1963,7 +1963,7 @@ function SixthSixGuide({ guide }) {
     label = '장기미집행 두 시계'
     body = <><div className="cx-expiry-clocks">{guide.clocks.map(x=><section key={x.years}><strong>{x.years}</strong><b>{x.title}</b><span>{x.effect}</span></section>)}</div><div className="cx-arrow-chain">{guide.purchaseFlow.map((x,i)=><span key={x.at}><b>{x.at}</b>{x.action}{i<guide.purchaseFlow.length-1?<i>→</i>:null}</span>)}</div><div className="cx-two-lanes">{guide.nonPurchase.map(x=><section key={x.title}><strong>{x.title}</strong><span>{x.rule}</span><small>{x.note}</small></section>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FifthSixGuide({ guide }) {
@@ -1988,7 +1988,7 @@ function FifthSixGuide({ guide }) {
     label = '도시·군관리계획 결정권 지도'
     body = <><div className="cx-authority-map">{guide.authorities.map(x=><section key={x.actor}><strong>{x.actor}</strong>{x.matters.map(m=><span key={m}>{m}</span>)}</section>)}</div><div className="cx-effective-day"><span>도시·군관리계획 결정</span><i>→ 지형도면 고시 →</i><strong>{guide.effect}</strong></div><div className="cx-two-lanes">{guide.startedWork.map(x=><section key={x.zone}><strong>{x.zone}</strong><span>{x.rule}</span><small>{x.action}</small></section>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function FourthSixGuide({ guide }) {
@@ -2013,7 +2013,7 @@ function FourthSixGuide({ guide }) {
     label = '정비사업 동의율 계기판'
     body = <><div className="cx-consent-meters">{guide.thresholds.map(x=><section key={x.type}><strong>{x.type}</strong><div><i style={{width:x.people}}/><b>인원 {x.people}</b></div><div><i style={{width:x.land}}/><b>면적 {x.land}</b></div><small>{x.note}</small></section>)}</div><div className="cx-two-lanes">{guide.routes.map(x=><section key={x.title}><strong>{x.title}</strong><span>{x.condition}</span><small>{x.result}</small></section>)}</div><div className="cx-fix-timeline">{guide.timer.map((x,i)=><span key={x}>{x}{i<guide.timer.length-1?<i>→</i>:null}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function ThirdSixGuide({ guide }) {
@@ -2038,7 +2038,7 @@ function ThirdSixGuide({ guide }) {
     label = '두 구역 처방 비교'
     body = <><div className="cx-district-table"><div className="cx-district-table__head"><b>구분</b><b>개발밀도관리구역</b><b>기반시설부담구역</b></div>{guide.comparison.map(x=><div className="cx-district-table__row" key={x.axis}><strong>{x.axis}</strong><span data-col="개발밀도관리구역">{x.density}</span><span data-col="기반시설부담구역">{x.charge}</span></div>)}</div><div className="cx-density-layout"><section><small>용적률 강화 모형</small><div><i style={{height:`${guide.densityGauge.normal}%`}}>기준 100</i><i style={{height:`${guide.densityGauge.reduced}%`}}>강화 50</i></div><p>{guide.densityGauge.note}</p></section><section><small>철거 후 신축 비용부과</small><div className="cx-building-bars"><i style={{height:`${guide.demolition.existing/10}%`}}>기존 {guide.demolition.existing}</i><i style={{height:`${guide.demolition.newBuild/10}%`}}>신축 {guide.demolition.newBuild}</i></div><b>부과 {guide.demolition.charged}㎡</b><p>{guide.demolition.note}</p></section></div><div className="cx-arrow-chain">{guide.chargeFlow.map((x,i)=><span key={x}>{x}{i<guide.chargeFlow.length-1?<i>→</i>:null}</span>)}</div><aside className="cx-special-caution"><b>자동 해제</b><span>{guide.caution}</span></aside></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function NextSixGuide({ guide }) {
@@ -2063,7 +2063,7 @@ function NextSixGuide({ guide }) {
     label = '사업계획승인 숫자 타임라인'
     body = <><div className="cx-project-numbers">{guide.milestones.map(x=><section key={x.number}><strong>{x.number}</strong><b>{x.event}</b><span>{x.base}</span></section>)}</div><div className="cx-arrow-chain">{guide.projectFlow.map((x,i)=><span key={x}>{x}{i<guide.projectFlow.length-1?<i>→</i>:null}</span>)}</div><div className="cx-extension"><section><small>연장사유</small><strong>{guide.extension.cause}</strong><b>{guide.extension.period}</b></section><section><small>연장 불가</small><strong>{guide.extension.denied}</strong></section></div><div className="cx-boundary-row">{guide.lightChanges.map(x=><span key={x}>변경승인 예외 가능 · {x}</span>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function SixSubjectGuide({ guide }) {
@@ -2088,11 +2088,11 @@ function SixSubjectGuide({ guide }) {
     label = '지역주택조합 수치 지도'
     body = <><div className="cx-land-stages">{guide.landStages.map(x=><section key={x.stage}><strong>{x.stage}</strong><div><i style={{width:`${x.use}%`}}/><b>사용권원 {x.use}%</b></div>{x.ownership?<span>소유권 {x.ownership}% 이상</span>:null}<small>{x.note}</small></section>)}</div><div className="cx-member-box"><section><small>조합원 문턱</small><strong>{guide.members.floor}</strong><b>{guide.members.minimum}</b></section><i>→</i><p>{guide.members.refill}</p></div><div className="cx-rule-list">{guide.rules.map(x=><div key={x.item}><strong>{x.item}</strong><span>{x.rule}</span></div>)}</div></>
   }
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">{label}</h4><p className="cx-special-lede">{guide.summary}</p>{body}<GuideSources sources={guide.sources}/></SectionBlock></article>
 }
 
 function RegistrationProcedureGuide({ guide }) {
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">등기절차 4관문</h4>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">등기절차 4관문</h4>
     <p className="cx-special-lede">{guide.summary}</p>
     <div className="cx-id-grid">{guide.identifiers.map(item => <section key={item.subject}><small>{item.subject}</small><strong>{item.issuer}</strong><span>{item.note}</span></section>)}</div>
     <section className="cx-public-gate"><div><small>공시의 문</small><strong>{guide.access.who}</strong><span>{guide.access.actions.join(' · ')}</span></div><p>{guide.access.rule}</p></section>
@@ -2103,7 +2103,7 @@ function RegistrationProcedureGuide({ guide }) {
 }
 
 function HousingDefinitionsGuide({ guide }) {
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">주택법 공간 분류도</h4>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">주택법 공간 분류도</h4>
     <p className="cx-special-lede">{guide.summary}</p>
     <figure className="cx-site-separators"><figcaption>하나의 주택단지를 가르는 경계</figcaption><div className="cx-site-separators__plots"><span>주택단지 A</span><i /><span>주택단지 B</span></div>{guide.separators.map(item => <div key={item.name}><strong>{item.name}</strong><span>{item.width}</span></div>)}</figure>
     <div className="cx-housing-gauge">{guide.nationalHousing.map(item => <section key={item.area}><strong>{item.area}</strong><span>{item.place}</span><i /></section>)}</div>
@@ -2114,7 +2114,7 @@ function HousingDefinitionsGuide({ guide }) {
 }
 
 function RentTheoriesGuide({ guide }) {
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">지대이론 원인 지도</h4>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">지대이론 원인 지도</h4>
     <p className="cx-special-lede">{guide.summary}</p>
     <div className="cx-rent-theories">{guide.theories.map(item => <section className={`cx-rent--${item.tone}`} key={item.name}><small>{item.scholar}</small><strong>{item.name}</strong><p>{item.cause}</p><b>{item.key}</b></section>)}</div>
     <div className="cx-rent-layout"><figure className="cx-grade-chart"><figcaption>리카도: 생산성 격차가 지대로</figcaption>{guide.grades.map(item => <div key={item.land}><span>{item.land}</span><i style={{'--rent':`${item.rent}%`}} /><strong>{item.rent}</strong><small>산출 {item.output} − 비용 {item.cost}</small></div>)}</figure><figure className="cx-distance-rent"><figcaption>튀넨: 시장에서 멀어질수록</figcaption><div className="cx-distance-rent__curve" />{guide.distance.map(item => <span key={item}>{item}</span>)}</figure></div>
@@ -2124,7 +2124,7 @@ function RentTheoriesGuide({ guide }) {
 }
 
 function UrbanModelsGuide({ guide }) {
-  return <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">도시구조 3모형</h4>
+  return <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">도시구조 3모형</h4>
     <p className="cx-special-lede">{guide.summary}</p>
     <div className="cx-urban-models">{guide.models.map(item => <section key={item.name}><div className={`cx-city cx-city--${item.type}`}>{item.type === 'nuclei' ? <><i/><i/><i/><i/></> : null}</div><small>{item.scholar}</small><strong>{item.name}</strong><b>{item.cue}</b><p>{item.explanation}</p></section>)}</div>
     <div className="cx-urban-table"><div className="cx-urban-table__head"><b>판별 질문</b><b>동심원</b><b>선형</b><b>다핵심</b></div>{guide.comparison.map(row => <div className="cx-urban-table__row" key={row.question}><strong>{row.question}</strong><span data-col="동심원">{row.rings}</span><span data-col="선형">{row.sectors}</span><span data-col="다핵심">{row.nuclei}</span></div>)}</div>
@@ -2145,7 +2145,7 @@ function GuideSources({ sources }) {
 
 function RegistrationEffectsGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">등기 효력 4관문</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">등기 효력 4관문</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <div className="cx-reg-gates">{guide.gates.map((gate, i) => <div key={gate.title} style={{ '--cx-delay': `${i * 70}ms` }}><span aria-hidden>{gate.icon}</span><small>{gate.cue}</small><strong>{gate.title}</strong><p>{gate.body}</p></div>)}</div>
       <div className="cx-reg-layout">
@@ -2161,7 +2161,7 @@ function RegistrationEffectsGuide({ guide }) {
 
 function ReturnRiskGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">수익률 문턱 그래프</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">수익률 문턱 그래프</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <div className="cx-return-formula">{guide.formula.map((item, i) => <div key={item.term} className={`cx-return-formula__${item.tone}`}><small>{item.value}</small><strong>{item.term}</strong>{i < guide.formula.length - 1 ? <i aria-hidden>{i === 0 ? '+' : '='}</i> : null}</div>)}</div>
       <div className="cx-hurdle-cases">{guide.cases.map(item => <figure key={item.verdict} className={`cx-hurdle cx-hurdle--${item.tone}`}><figcaption><strong>{item.verdict}</strong><span>{item.reason}</span></figcaption><div className="cx-hurdle__plot" aria-label={`기대수익률 ${item.expected}%, 요구수익률 ${item.required}%`}><span className="cx-hurdle__required" style={{ '--value': `${item.required * 8}%` }}><b>요구 {item.required}%</b></span><span className="cx-hurdle__expected" style={{ '--value': `${item.expected * 8}%` }}><b>기대 {item.expected}%</b></span></div></figure>)}</div>
@@ -2175,7 +2175,7 @@ function ReturnRiskGuide({ guide }) {
 
 function ShamRelationGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">통정허위표시 관계도</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">통정허위표시 관계도</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <div className="cx-sham-diagram">{guide.parties.map((party, i) => <div className={`cx-sham-party cx-sham-party--${i + 1}`} key={party.role}><span>{party.role}</span><strong>{party.label}</strong><small>{party.note}</small></div>)}{guide.relations.map((relation, i) => <div className={`cx-sham-link cx-sham-link--${i + 1}`} key={relation.title}><b>{relation.title}</b><strong>{relation.result}</strong><small>{relation.detail}</small></div>)}</div>
       <div className="cx-sham-layout"><section className="cx-sham-test"><h4>3단계 판별</h4>{guide.test.map(([number, question, answer]) => <div key={number}><span>{number}</span><p><strong>{question}</strong><small>{answer}</small></p></div>)}</section><section className="cx-sham-case"><h4>강제집행 회피 사례</h4><p>{guide.scenario}</p></section></div>
@@ -2188,7 +2188,7 @@ function ShamRelationGuide({ guide }) {
 
 function AppraisalSystemGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">감정평가 개념 체계도</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">감정평가 개념 체계도</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <section className="cx-value-standard"><div><small>원칙적 기준가치</small><strong>{guide.valueStandard.default}</strong><p>{guide.valueStandard.definition}</p></div><i aria-hidden>→</i><div><small>예외가 가능한 경우</small>{guide.valueStandard.exceptions.map(item => <span key={item}>{item}</span>)}<b>{guide.valueStandard.safeguard}</b></div></section>
       <div className="cx-appraisal-layout">
@@ -2204,7 +2204,7 @@ function AppraisalSystemGuide({ guide }) {
 function OwnershipChainGuide({ guide }) {
   const renderFlow = (flow) => <div className="cx-owner-flow">{flow.map((item, i) => <div key={`${item.party}-${item.role}`}><span>{item.party}</span><strong>{item.role}</strong><small>{item.state}</small>{i < flow.length - 1 ? <i aria-hidden>→</i> : null}</div>)}</div>
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">소유권 등기 명의 흐름</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">소유권 등기 명의 흐름</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <section className="cx-owner-case"><h4>미등기 신축건물을 매수한 경우</h4>{renderFlow(guide.buildingFlow)}<aside><b>X 바로가기</b><span>{guide.wrongShortcut}</span></aside></section>
       <section className="cx-owner-case cx-owner-case--succession"><h4>등기의무자가 사망한 경우</h4>{renderFlow(guide.successionFlow)}<p>{guide.successionNote}</p></section>
@@ -2217,7 +2217,7 @@ function OwnershipChainGuide({ guide }) {
 
 function CancellationTimerGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">취소권 이중 타이머</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">취소권 이중 타이머</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <div className="cx-cancel-clocks">{guide.clocks.map(clock => <section className={`cx-cancel-clock cx-cancel-clock--${clock.tone}`} key={clock.duration}><div><span /><b>{clock.duration}</b></div><article><small>출발점</small><strong>{clock.starts}</strong><p>{clock.meaning}</p></article></section>)}</div>
       <figure className="cx-cancel-timeline"><figcaption>두 기간은 이렇게 함께 계산한다</figcaption><div><span><b>행위</b>{guide.sample.act}</span><i /><span><b>3년 출발</b>{guide.sample.ratifiable}</span><i /><span><b>3년 만료</b>{guide.sample.threeYearEnd}</span><i /><span className="cx-cancel-timeline__late"><b>10년 만료</b>{guide.sample.tenYearEnd}</span></div><strong>{guide.sample.result}</strong></figure>
@@ -2231,7 +2231,7 @@ function CancellationTimerGuide({ guide }) {
 
 function LandVocabularyGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">토지용어 판별 지도</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">토지용어 판별 지도</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <ConceptStudySheet guide={guide} pairFirst showIntro={false} />
       <div className="cx-land-units">{guide.units.map(item => <div key={item.name}><span aria-hidden>{item.icon}</span><strong>{item.name}</strong><small>{item.axis}</small><p>{item.definition}</p></div>)}</div>
@@ -2243,7 +2243,7 @@ function LandVocabularyGuide({ guide }) {
 
 function LandCausalityGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">토지특성 인과지도</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">토지특성 인과지도</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <div className="cx-trait-map">{guide.traits.map((trait, i) => <section className={`cx-trait cx-trait--${trait.color}`} style={{'--cx-delay':`${i * 65}ms`}} key={trait.name}><header><span>{trait.name}</span><small>{trait.cue}</small></header><i aria-hidden>↓</i><div>{trait.effects.map(effect => <b key={effect}>{effect}</b>)}</div></section>)}</div>
       <div className="cx-supply-split"><section><small>{guide.supply.physical.label}</small><strong>{guide.supply.physical.value}</strong><p>{guide.supply.physical.result}</p></section><i aria-hidden>≠</i><section><small>{guide.supply.economic.label}</small><strong>{guide.supply.economic.value}</strong><p>{guide.supply.economic.result}</p></section></div>
@@ -2256,7 +2256,7 @@ function LandCausalityGuide({ guide }) {
 
 function BrokerRegistrationGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}>
       <h4 className="cx-guide-heading">개설등록 절차 지도</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <div className="cx-applicant-gate">{guide.applicants.map(item => <div className={item.allowed ? 'cx-applicant--yes' : 'cx-applicant--no'} key={item.name}><span>{item.allowed ? 'O' : 'X'}</span><strong>{item.name}</strong><small>{item.note}</small></div>)}</div>
@@ -2270,7 +2270,7 @@ function BrokerRegistrationGuide({ guide }) {
 
 function BrokerageFeeGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">중개보수 판단 회로</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">중개보수 판단 회로</h4>
       <p className="cx-special-lede">{guide.summary}</p>
       <div className="cx-fee-routing">{guide.routing.map(item => <section key={item.object}><strong>{item.object}</strong><span>{item.rule}</span><small>{item.jurisdiction}</small></section>)}</div>
       <div className="cx-fee-layout"><section className="cx-fee-decision"><h4>계산 전 4문항</h4>{guide.decision.map(([number, question, answer]) => <div key={number}><span>{number}</span><p><strong>{question}</strong><small>{answer}</small></p></div>)}</section><figure className="cx-fee-case"><figcaption>관할 조례 사례</figcaption><p>{guide.caseStudy.situation}</p><i aria-hidden>↓</i><strong>{guide.caseStudy.answer}</strong><small>{guide.caseStudy.reason}</small></figure></div>
@@ -2284,7 +2284,7 @@ function BrokerageFeeGuide({ guide }) {
 function RegistryVisualGuide({ guide }) {
   if (guide.variant === 'land-category') {
     return (
-      <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">지목 판별 지도</h4>
+      <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">지목 판별 지도</h4>
         <p className="cx-registry-lede">{guide.summary}</p>
         <div className="cx-land-grid">{guide.categories.map((item, i) => <div key={item.name} style={{ '--cx-delay': `${i * 60}ms` }}><span>{item.icon}</span><strong>{item.name}</strong><p>{item.rule}</p><small>{item.examples.join(' · ')}</small></div>)}</div>
         <div className="cx-junk-contrast"><h4>잡종지, 이름만 보고 고르면 틀린다</h4><div><section><b>잡종지 O</b>{guide.contrast.yes.map(x=><span key={x}>{x}</span>)}</section><section><b>잡종지 X</b>{guide.contrast.no.map(x=><span key={x}>{x}</span>)}</section></div></div>
@@ -2294,7 +2294,7 @@ function RegistryVisualGuide({ guide }) {
   }
   if (guide.variant === 'books') {
     return (
-      <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">지적공부 정보 지도</h4>
+      <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">지적공부 정보 지도</h4>
         <p className="cx-registry-lede">{guide.summary}</p>
         <div className="cx-books">{guide.books.map((item, i)=><div key={item.book} className={`cx-book cx-book--${item.accent}`} style={{'--cx-delay':`${i*60}ms`}}><span aria-hidden /><div><strong>{item.book}</strong><small>{item.role}</small><p>{item.items}</p></div></div>)}</div>
         <aside className="cx-coordinate-note"><span aria-hidden>⌖</span><p>{guide.coordinateNote}</p></aside>
@@ -2303,7 +2303,7 @@ function RegistryVisualGuide({ guide }) {
     )
   }
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">축척변경 절차도</h4>
+    <article className="cx-card cx-visual-card"><SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">축척변경 절차도</h4>
       <div className="cx-scale-head"><p>{guide.summary}</p><strong>{guide.consent}</strong></div>
       <div className="cx-scale-steps">{guide.steps.map((step,i)=><div key={step}><span>{i+1}</span><strong>{step}</strong>{i<guide.steps.length-1?<i aria-hidden>→</i>:null}</div>)}</div>
       <div className="cx-settlement">{guide.settlement.map(item=><div key={item.change}><span>{item.change}</span><strong>{item.money}</strong><small>{item.direction}</small></div>)}</div>
@@ -2315,7 +2315,7 @@ function RegistryVisualGuide({ guide }) {
 
 function ReportProcessGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-report-guide">
+    <article className="cx-card cx-visual-card cx-report-guide">
       <SectionBlock label="VISUAL PLUS" index={4}>
         <h4 className="cx-guide-heading">거래신고 절차 지도</h4>
         <div className="cx-report-hero"><p>{guide.summary}</p><strong><span aria-hidden>⏱</span>{guide.deadline}</strong></div>
@@ -2350,7 +2350,7 @@ function ReportProcessGuide({ guide }) {
 
 function LegalThresholdGuide({ guide }) {
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-legal-guide">
+    <article className="cx-card cx-visual-card cx-legal-guide">
       <SectionBlock label="VISUAL PLUS" index={4}>
         <h4 className="cx-guide-heading">공유물 동의 기준</h4>
         <p className="cx-legal-guide__lede">{guide.summary}</p>
@@ -2403,7 +2403,7 @@ function ConceptStudyMap({ guide }) {
   const firstYear = guide.years[0]
   const lastYear = guide.years[guide.years.length - 1]
   return (
-    <article className="cx-card cx-visual-card liquid-glass liquid-glass--tint cx-study-map-card">
+    <article className="cx-card cx-visual-card cx-study-map-card">
       <SectionBlock label="VISUAL PLUS" index={4}><h4 className="cx-guide-heading">한눈에 학습맵</h4>
         {guide.breadcrumb.length > 0 ? (
           <div className="cx-map-path" aria-label="개념 위치">
