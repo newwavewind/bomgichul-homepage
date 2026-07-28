@@ -10,7 +10,7 @@ import { CommentItem } from "@/components/board/CommentItem";
 import { PostActions } from "@/components/board/PostActions";
 import { PremiumBadge } from "@/components/ui/PremiumBadge";
 import { BackLink } from "@/components/ui/BackLink";
-import { absoluteUrl, truncateDescription } from "@/lib/seo";
+import { absoluteUrl, ROBOTS_NOINDEX, truncateDescription } from "@/lib/seo";
 import { formatKstDateLong } from "@/lib/datetime";
 import { getCommunityLikeState, getUserActivityScores } from "@/lib/activity";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
@@ -34,11 +34,13 @@ export async function generateMetadata({
   const description = truncateDescription(post.content);
   const title = post.title;
   const categoryLabel = CATEGORY_MAP[post.category] ?? post.category;
+  const isAppOnlyCategory = post.category === "bug" || post.category === "feedback";
 
   return {
     title,
     description: `${categoryLabel} · ${description}`,
     alternates: { canonical: absoluteUrl(`/community/${id}`) },
+    robots: isAppOnlyCategory ? ROBOTS_NOINDEX : undefined,
     openGraph: {
       title: `${title} | ${SITE_NAME}`,
       description,

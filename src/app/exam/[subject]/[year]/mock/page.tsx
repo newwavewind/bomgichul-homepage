@@ -25,7 +25,15 @@ export async function generateMetadata({ params }: MockExamPageProps): Promise<M
   if (!isValidSubject(subject)) return {};
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${year}년 ${label} 시험 모드`;
-  return { title, robots: ROBOTS_NOINDEX, openGraph: { title: `${title} | ${SITE_NAME}` } };
+  return {
+    title,
+    description: "연도별 시험 모드로 시간 재며 푸는 화면입니다. 로그인·학습권 전용입니다.",
+    robots: ROBOTS_NOINDEX,
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description: "연도별 시험 모드로 시간 재며 푸는 화면입니다. 로그인·학습권 전용입니다.",
+    },
+  };
 }
 
 export default async function MockExamPage({ params }: MockExamPageProps) {

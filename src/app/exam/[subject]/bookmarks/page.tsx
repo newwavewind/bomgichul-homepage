@@ -29,7 +29,15 @@ export async function generateMetadata({ params }: BookmarksPageProps): Promise<
   if (!isValidSubject(subject)) return {};
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${label} 북마크`;
-  return { title, robots: ROBOTS_NOINDEX, openGraph: { title: `${title} | ${SITE_NAME}` } };
+  return {
+    title,
+    description: "북마크한 기출문제를 모아 보는 화면입니다. 로그인·학습권 전용입니다.",
+    robots: ROBOTS_NOINDEX,
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description: "북마크한 기출문제를 모아 보는 화면입니다. 로그인·학습권 전용입니다.",
+    },
+  };
 }
 
 export default async function BookmarksPage({ params, searchParams }: BookmarksPageProps) {

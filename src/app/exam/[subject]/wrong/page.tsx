@@ -27,7 +27,15 @@ export async function generateMetadata({ params }: WrongPracticePageProps): Prom
   if (!isValidSubject(subject)) return {};
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${label} 오답노트 연습`;
-  return { title, robots: ROBOTS_NOINDEX, openGraph: { title: `${title} | ${SITE_NAME}` } };
+  return {
+    title,
+    description: "틀린 문제를 모아 다시 풀어보는 연습 화면입니다. 로그인·학습권 전용입니다.",
+    robots: ROBOTS_NOINDEX,
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description: "틀린 문제를 모아 다시 풀어보는 연습 화면입니다. 로그인·학습권 전용입니다.",
+    },
+  };
 }
 
 export default async function WrongPracticePage({ params }: WrongPracticePageProps) {

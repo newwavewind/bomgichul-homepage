@@ -10,12 +10,13 @@ import {
   ARCHIVE_SUBJECT_MAP,
   EXAM_SUBJECTS,
   PC_APP_URL,
-  SITE_NAME,
   SUBJECT_LANDING_INFO,
 } from "@/lib/constants";
 import type { ArchiveSubject } from "@/lib/constants";
-import { absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/seo";
 import { getUserActivityScores } from "@/lib/activity";
+import { getConceptsForSubject } from "@/lib/concepts";
+import { getExamYears } from "@/lib/exam-questions";
 
 const VALID_SUBJECTS = ARCHIVE_SUBJECTS.map((s) => s.value).filter(
   (v): v is Exclude<ArchiveSubject, "all"> => v !== "all"
@@ -42,18 +43,19 @@ export async function generateMetadata({
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const info = SUBJECT_LANDING_INFO[subject];
-  const title = `${label} 기출 O/X·자료`;
+  const isExamSubject = EXAM_SUBJECT_VALUES.includes(subject);
+  const title = isExamSubject
+    ? `${label} 기출·개념·자료`
+    : `${label} 학습 자료`;
+  const description = isExamSubject
+    ? `${label} 기출문제 해설, 기출 all-in-one 개념, 수험생 공유 자료를 한곳에서 확인하세요. ${info.description}`
+    : `${label} 관련 수험 자료를 모았습니다. ${info.description}`;
 
-  return {
+  return buildPageMetadata({
     title,
-    description: info.description,
-    alternates: { canonical: absoluteUrl(`/subjects/${subject}`) },
-    openGraph: {
-      title: `${title} | ${SITE_NAME}`,
-      description: info.description,
-      url: absoluteUrl(`/subjects/${subject}`),
-    },
-  };
+    description,
+    path: `/subjects/${subject}`,
+  });
 }
 
 export default async function SubjectPage({ params }: SubjectPageProps) {
@@ -64,21 +66,40 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
   const info = SUBJECT_LANDING_INFO[subject];
   const { data: posts, total } = await getArchivePosts({ subject, sort: "latest" });
   const authorActivity = await getUserActivityScores(posts.map((post) => post.author_id));
+  const isExamSubject = EXAM_SUBJECT_VALUES.includes(subject);
+  const conceptCount = isExamSubject ? getConceptsForSubject(subject as never).length : 0;
+  const examYears = isExamSubject ? getExamYears(subject as never) : [];
 
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <div className="mb-10">
           <EyebrowLabel className="mb-2">공인중개사 {info.round} 과목</EyebrowLabel>
-          <SectionHeading as="h1">{label} 기출 O/X·자료</SectionHeading>
+          <SectionHeading as="h1">
+            {isExamSubject ? `${label} 기출·개념·자료` : `${label} 학습 자료`}
+          </SectionHeading>
           <p className="mt-3 max-w-2xl font-display text-body text-smoke">
             {info.description}
           </p>
+          {isExamSubject ? (
+            <p className="mt-2 font-display text-body-sm text-fog">
+              기출 all-in-one 개념 {conceptCount}개
+              {examYears.length > 0
+                ? ` · 기출 ${examYears[examYears.length - 1]}~${examYears[0]}년`
+                : ""}
+              {total > 0 ? ` · 자료 ${total}개` : ""}
+            </p>
+          ) : null}
           <div className="mt-6 flex flex-wrap gap-3">
-            {EXAM_SUBJECT_VALUES.includes(subject) && (
-              <PrimaryButton href={`/exam/${subject}`}>
-                {label} 기출문제 해설 보기
-              </PrimaryButton>
+            {isExamSubject && (
+              <>
+                <PrimaryButton href={`/exam/${subject}`}>
+                  {label} 기출문제 해설
+                </PrimaryButton>
+                <SecondaryButton href={`/concepts/${subject}`}>
+                  {label} 기출 all-in-one
+                </SecondaryButton>
+              </>
             )}
             <SecondaryButton href={`/archive?subject=${subject}`}>
               {label} 자료실 전체보기
@@ -103,9 +124,22 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
                 아직 등록된 {label} 자료가 없어요
               </p>
               <p className="mb-6 font-display text-body-sm text-fog">
-                기출 PDF, 노트, 요약 자료를 첫 번째로 올려보세요!
+                {isExamSubject
+                  ? "기출문제 해설과 기출 all-in-one 개념은 바로 볼 수 있어요."
+                  : "기출 PDF, 노트, 요약 자료를 첫 번째로 올려보세요!"}
               </p>
-              <PrimaryButton href="/archive/new">자료 올리기</PrimaryButton>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                {isExamSubject ? (
+                  <>
+                    <PrimaryButton href={`/exam/${subject}`}>기출문제 해설</PrimaryButton>
+                    <SecondaryButton href={`/concepts/${subject}`}>
+                      기출 all-in-one
+                    </SecondaryButton>
+                  </>
+                ) : (
+                  <PrimaryButton href="/archive/new">자료 올리기</PrimaryButton>
+                )}
+              </div>
             </div>
           ) : (
             posts.map((post) => (

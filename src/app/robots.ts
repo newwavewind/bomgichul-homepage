@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: [
         "/admin/",
+        "/auth/",
         "/login",
         "/signup",
         "/onboarding",
@@ -22,6 +23,7 @@ export default function robots(): MetadataRoute.Robots {
         "/exam/*/review",
         "/exam/*/bookmarks",
         "/exam/*/*/mock",
+        "/study",
       ],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,

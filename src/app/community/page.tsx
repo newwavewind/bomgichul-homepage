@@ -45,12 +45,14 @@ export async function generateMetadata({
       ? `조회수 ${BEST_POST_MIN_VIEWS}회 이상 인기 게시글을 모았습니다. 공인중개사 수험생 질문·합격후기·수험정보를 확인하세요.`
       : "공인중개사 수험생 커뮤니티. 자유게시판, 질문, 자료공유, 수험정보, 합격후기를 나눠보세요.";
 
+  const isAppOnlyCategory = category === "bug" || category === "feedback";
+
   return buildPageMetadata({
     title,
     description,
     path: "/community",
     canonicalParams: { category: category === "all" ? undefined : category, page },
-    noIndex: Boolean(search),
+    noIndex: Boolean(search) || isAppOnlyCategory,
   });
 }
 

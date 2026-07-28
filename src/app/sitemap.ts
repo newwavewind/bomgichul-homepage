@@ -53,7 +53,7 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     url: `${SITE_URL}/news`,
     lastModified: new Date(),
     changeFrequency: "daily",
-    priority: 0.8,
+    priority: 0.4,
   },
   ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all" && s.value !== "other").map(
     (s) => ({

@@ -35,7 +35,15 @@ export async function generateMetadata({ params }: RandomPageProps): Promise<Met
   if (!isValidSubject(subject)) return {};
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${label} 랜덤 문제 연습`;
-  return { title, robots: ROBOTS_NOINDEX, openGraph: { title: `${title} | ${SITE_NAME}` } };
+  return {
+    title,
+    description: "선택한 연도·유형으로 랜덤 기출 연습을 합니다. 로그인·학습권 전용 화면입니다.",
+    robots: ROBOTS_NOINDEX,
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description: "선택한 연도·유형으로 랜덤 기출 연습을 합니다. 로그인·학습권 전용 화면입니다.",
+    },
+  };
 }
 
 export default async function RandomPracticePage({ params, searchParams }: RandomPageProps) {

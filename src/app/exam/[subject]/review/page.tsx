@@ -32,7 +32,15 @@ export async function generateMetadata({ params }: ReviewPageProps): Promise<Met
   if (!isValidSubject(subject)) return {};
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${label} 오늘의 복습`;
-  return { title, robots: ROBOTS_NOINDEX, openGraph: { title: `${title} | ${SITE_NAME}` } };
+  return {
+    title,
+    description: "학습 통계와 복습 자료를 확인하는 화면입니다. 로그인·학습권 전용입니다.",
+    robots: ROBOTS_NOINDEX,
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`,
+      description: "학습 통계와 복습 자료를 확인하는 화면입니다. 로그인·학습권 전용입니다.",
+    },
+  };
 }
 
 export default async function DailyReviewPage({ params }: ReviewPageProps) {

@@ -175,7 +175,7 @@ export function buildOrganizationJsonLd() {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: absoluteUrl("/apple-icon"),
+    logo: absoluteUrl("/brand/whale-mark.png"),
     description: SITE_DESCRIPTION,
   };
 }

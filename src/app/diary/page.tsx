@@ -46,7 +46,8 @@ export async function generateMetadata({
     description:
       "공인중개사 시험 D-day 기준으로 수험생들의 공개 일기를 읽고 오늘의 공부 기록을 남겨보세요.",
     path: "/diary",
-    canonicalParams: selectedDDay === todayDDay ? undefined : { d: selectedDDay },
+    // D-day 변형 URL은 얇은 중복이므로 항상 /diary 로 모은다.
+    noIndex: selectedDDay !== todayDDay,
   });
 }
 

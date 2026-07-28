@@ -41,10 +41,13 @@ export async function generateMetadata({
 
   return buildPageMetadata({
     title,
-    description: "공인중개사 시험·정책·중개업 관련 뉴스를 매일 아침 모아드려요.",
+    description:
+      "공인중개사 시험·정책·중개업 관련 뉴스를 날짜별로 모아 보여줍니다. 원문은 각 매체 링크로 확인하세요.",
     path: "/news",
     canonicalParams:
       selectedDate && selectedDate !== latestDate ? { date: selectedDate } : undefined,
+    // 과거 날짜 필터 URL은 본문이 얇은 목록 변형이므로 최신(/news)만 색인.
+    noIndex: Boolean(selectedDate && selectedDate !== latestDate),
   });
 }
 
