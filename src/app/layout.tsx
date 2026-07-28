@@ -12,7 +12,7 @@ import {
   SITE_URL,
   GA_MEASUREMENT_ID,
 } from "@/lib/constants";
-import { absoluteUrl, buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo";
+import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const outfit = Outfit({
