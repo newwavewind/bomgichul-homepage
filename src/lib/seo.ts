@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_NAME, SITE_URL } from "@/lib/constants";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 /** 검색 노출 제외 (로그인·관리자·연습 모드 등) */
 export const ROBOTS_NOINDEX: Metadata["robots"] = {
@@ -163,5 +163,103 @@ export function buildConceptItemListJsonLd({
       name: item.name,
       url: absoluteUrl(item.path),
     })),
+  };
+}
+
+export function buildOrganizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: absoluteUrl("/apple-icon"),
+    description: SITE_DESCRIPTION,
+  };
+}
+
+export function buildWebSiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL,
+    description: SITE_DESCRIPTION,
+    inLanguage: "ko-KR",
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/community?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
+/** 기출 문항 Quiz 구조화 데이터 — 검색에서 문제·정답 맥락 노출에 도움 */
+export function buildExamQuizJsonLd({
+  title,
+  description,
+  path,
+  subjectLabel,
+  year,
+  questionNo,
+  stem,
+  choices,
+  correctChoice,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  subjectLabel: string;
+  year: number;
+  questionNo: number;
+  stem: string;
+  choices: { label: string; text: string; key: string }[];
+  correctChoice: string;
+}) {
+  const accepted = choices.find((c) => c.key === correctChoice);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    name: title,
+    description: truncateDescription(description, 300),
+    url: absoluteUrl(path),
+    inLanguage: "ko-KR",
+    educationalLevel: "Professional certification",
+    about: {
+      "@type": "Thing",
+      name: `공인중개사 ${subjectLabel}`,
+    },
+    hasPart: {
+      "@type": "Question",
+      name: `${year}년 ${subjectLabel} ${questionNo}번`,
+      text: stem,
+      educationalAlignment: {
+        "@type": "AlignmentObject",
+        alignmentType: "educationalSubject",
+        targetName: subjectLabel,
+      },
+      acceptedAnswer: accepted
+        ? {
+            "@type": "Answer",
+            text: `${accepted.label} ${accepted.text}`.trim(),
+          }
+        : undefined,
+      suggestedAnswer: choices.map((c) => ({
+        "@type": "Answer",
+        text: `${c.label} ${c.text}`.trim(),
+      })),
+    },
+    provider: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
   };
 }

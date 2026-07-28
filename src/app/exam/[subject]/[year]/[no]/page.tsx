@@ -23,8 +23,13 @@ import { getPublicMemosForQuestion } from "@/lib/question-memos";
 import { isSubjectUnlocked } from "@/lib/premium";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
-import { ExamSeoRevealGate } from "@/components/exam/ExamSeoRevealGate";
-import { absoluteUrl, buildBreadcrumbJsonLd } from "@/lib/seo";
+import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
+import {
+  absoluteUrl,
+  buildBreadcrumbJsonLd,
+  buildExamQuizJsonLd,
+  truncateDescription,
+} from "@/lib/seo";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -52,7 +57,11 @@ export async function generateMetadata({
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const title = `${question.year}년 ${label} ${question.questionNo}번 기출문제 해설`;
-  const description = question.stem.slice(0, 120);
+  const description = truncateDescription(
+    `${question.category} · ${question.stem}${
+      question.explanationSummary ? ` ${question.explanationSummary}` : ""
+    }`
+  );
   const canonicalPath = `/exam/${subject}/${yearParam}/${question.questionNo}`;
 
   return {
@@ -63,6 +72,14 @@ export async function generateMetadata({
       title: `${title} | ${SITE_NAME}`,
       description,
       url: absoluteUrl(canonicalPath),
+      type: "article",
+      locale: "ko_KR",
+      siteName: SITE_NAME,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${SITE_NAME}`,
+      description,
     },
   };
 }
@@ -106,7 +123,6 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   const publicMemos = await getPublicMemosForQuestion(subject, year, questionNo, user?.id);
   const subjectUnlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const accessible = question.free || subjectUnlocked;
-  const seoRevealId = `seo-explanations-${subject}-${year}-${questionNo}`;
   const relatedConcept = findConceptForExamQuestion(
     subject,
     question.category,
@@ -114,17 +130,36 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   );
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: "기출문제 해설", path: "/exam" },
+    { name: "기출문제 해설", path: "/study" },
     { name: label, path: `/exam/${subject}` },
     { name: `${year}년`, path: `/exam/${subject}/${year}` },
     { name: `${questionNo}번`, path: `/exam/${subject}/${year}/${questionNo}` },
   ]);
+  const quizJsonLd = buildExamQuizJsonLd({
+    title: `${year}년 ${label} ${questionNo}번 기출문제 해설`,
+    description: question.stem,
+    path: `/exam/${subject}/${year}/${questionNo}`,
+    subjectLabel: label,
+    year,
+    questionNo,
+    stem: question.stem,
+    choices: question.items.map((item) => ({
+      label: item.label,
+      text: item.text,
+      key: item.key,
+    })),
+    correctChoice: question.correctChoice,
+  });
 
   return (
     <div className="px-4 py-8 md:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(quizJsonLd) }}
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
         {returnTo ? (
@@ -195,21 +230,17 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           initialAttemptResult={attemptResult}
         />
 
-        <div
-          id={seoRevealId}
-          className="max-h-0 overflow-hidden transition-[max-height] duration-300"
+        <ExamSeoExplanationDetails
+          subject={subject}
+          year={year}
+          questionNo={questionNo}
         >
           <ExamQuestionSeoExplanations
             question={question}
             subjectLabel={label}
+            embedded
           />
-        </div>
-        <ExamSeoRevealGate
-          targetId={seoRevealId}
-          subject={subject}
-          year={year}
-          questionNo={questionNo}
-        />
+        </ExamSeoExplanationDetails>
 
         <div className="mt-8 flex items-stretch gap-3">
           {prev ? (

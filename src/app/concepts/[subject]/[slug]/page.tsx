@@ -23,7 +23,7 @@ import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
 import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
 import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
 import type { ExamSubject } from "@/lib/exam-questions";
-import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd } from "@/lib/seo";
+import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, truncateDescription } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
@@ -54,8 +54,12 @@ export async function generateMetadata({
   if (!concept) return {};
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const title = `${concept.titleKo} | ${label} 개념`;
-  const description = concept.definition;
+  const title = `${concept.titleKo} | ${label} 기출 all-in-one`;
+  const description = truncateDescription(
+    `${label} · ${concept.titleKo}. ${concept.definition}${
+      concept.intuition ? ` ${concept.intuition}` : ""
+    }`
+  );
 
   return {
     title,
@@ -65,6 +69,14 @@ export async function generateMetadata({
       title: `${title} | ${SITE_NAME}`,
       description,
       url: absoluteUrl(`/concepts/${subject}/${slug}`),
+      type: "article",
+      locale: "ko_KR",
+      siteName: SITE_NAME,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${SITE_NAME}`,
+      description,
     },
   };
 }

@@ -14,6 +14,12 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     priority: 1,
   },
   {
+    url: `${SITE_URL}/study`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.95,
+  },
+  {
     url: `${SITE_URL}/faq`,
     lastModified: new Date(),
     changeFrequency: "monthly",
@@ -68,32 +74,30 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
 /** 기출문제 해설(/exam) — 정적 데이터 순회, Supabase 불필요 */
 function getExamUrls(): MetadataRoute.Sitemap {
   const now = new Date();
-  const hubUrl: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/exam`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-  ];
+  // /exam 허브는 /study 로 리다이렉트되므로 sitemap에는 /study 만 둔다(STATIC_PAGES).
 
   const subjectUrls: MetadataRoute.Sitemap = EXAM_SUBJECTS.map((s) => ({
     url: `${SITE_URL}/exam/${s.value}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: 0.5,
+    priority: 0.7,
   }));
 
   const yearUrls: MetadataRoute.Sitemap = getExamYearParams().map(({ subject, year }) => ({
     url: `${SITE_URL}/exam/${subject}/${year}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: 0.5,
+    priority: 0.6,
   }));
 
   const questionUrls: MetadataRoute.Sitemap = getAllExamParams().map(({ subject, year, no }) => ({
     url: `${SITE_URL}/exam/${subject}/${year}/${no}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: 0.4,
+    priority: 0.5,
   }));
 
-  return [...hubUrl, ...subjectUrls, ...yearUrls, ...questionUrls];
+  return [...subjectUrls, ...yearUrls, ...questionUrls];
 }
 
 /** 기출 all-in-one 개념(/concepts) — 정적 데이터 순회 */

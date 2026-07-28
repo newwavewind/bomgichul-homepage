@@ -7,9 +7,12 @@ import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 export function ExamQuestionSeoExplanations({
   question,
   subjectLabel,
+  embedded = false,
 }: {
   question: ExamQuestion;
   subjectLabel: string;
+  /** details 등 상위 래퍼 안에 넣을 때 바깥 여백·구분선 제거 */
+  embedded?: boolean;
 }) {
   const summary = question.explanationSummary?.trim() ?? "";
   const comboWithExpl = question.comboChoices.filter(
@@ -55,8 +58,14 @@ export function ExamQuestionSeoExplanations({
   }
 
   return (
-    <section className="mt-10 border-t border-mist/60 pt-8" aria-label="문항 해설">
-      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+    <section
+      className={
+        embedded
+          ? "pt-4"
+          : "mt-10 border-t border-mist/60 pt-8"
+      }
+      aria-label="문항 해설"
+    >      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
         <h2 className="font-display text-subheading font-semibold text-ink">
           {question.year}년 {subjectLabel} {question.questionNo}번 해설
         </h2>

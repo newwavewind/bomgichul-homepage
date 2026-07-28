@@ -12,7 +12,7 @@ import {
   SITE_URL,
   GA_MEASUREMENT_ID,
 } from "@/lib/constants";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -94,13 +94,13 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: SITE_NAME,
-              url: SITE_URL,
-              description: SITE_DESCRIPTION,
-            }),
+            __html: JSON.stringify(buildWebSiteJsonLd()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildOrganizationJsonLd()),
           }}
         />
         <Header />
