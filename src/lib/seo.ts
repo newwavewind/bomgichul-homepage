@@ -70,9 +70,12 @@ export function buildPageMetadata({
 }): Metadata {
   const canonical = buildCanonicalUrl(path, canonicalParams);
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+  const titleField: Metadata["title"] = title.includes(SITE_NAME)
+    ? { absolute: title }
+    : title;
 
   return {
-    title,
+    title: titleField,
     description,
     alternates: { canonical },
     robots: noIndex ? ROBOTS_NOINDEX_FOLLOW : robots,

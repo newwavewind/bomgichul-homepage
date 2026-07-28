@@ -128,7 +128,9 @@ async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
   const { data, error } = await supabase
     .from("posts")
     .select("id, category, updated_at")
-    .order("updated_at", { ascending: false });
+    .not("category", "in", "(bug,feedback)")
+    .order("updated_at", { ascending: false })
+    .limit(5000);
 
   if (error || !data) return [];
 

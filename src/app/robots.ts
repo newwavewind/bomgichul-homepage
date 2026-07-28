@@ -9,6 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       disallow: [
         "/admin/",
         "/login",
+        "/signup",
         "/onboarding",
         "/profile",
         "/notifications",
@@ -19,6 +20,7 @@ export default function robots(): MetadataRoute.Robots {
         "/exam/*/random",
         "/exam/*/wrong",
         "/exam/*/review",
+        "/exam/*/bookmarks",
         "/exam/*/*/mock",
       ],
     },

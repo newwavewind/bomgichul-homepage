@@ -145,7 +145,7 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
   const returnTo = `/concepts/${subject}`;
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: "기출 all-in-one", path: "/study#concepts" },
+    { name: "기출 all-in-one", path: "/study" },
     { name: label, path: `/concepts/${subject}` },
   ]);
   const itemListJsonLd = buildConceptItemListJsonLd({

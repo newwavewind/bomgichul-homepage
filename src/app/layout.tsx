@@ -34,9 +34,6 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  alternates: {
-    canonical: absoluteUrl("/"),
-  },
   icons: {
     shortcut: `${SITE_URL}/favicon.ico`,
     apple: [

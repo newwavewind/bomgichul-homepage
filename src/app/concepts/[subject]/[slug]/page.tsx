@@ -164,7 +164,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
 
   const conceptPath = `/concepts/${subject}/${slug}`;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: "기출 all-in-one", path: "/study#concepts" },
+    { name: "기출 all-in-one", path: "/study" },
     { name: label, path: `/concepts/${subject}` },
     { name: concept.titleKo, path: conceptPath },
   ]);
