@@ -193,17 +193,6 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           questionNo={questionNo}
           userId={user?.id ?? null}
           initialAttemptResult={attemptResult}
-          aiContext={{
-            subject,
-            subjectLabel: label,
-            unlocked: subjectUnlocked,
-            year: question.year,
-            round: question.round,
-            questionNo: question.questionNo,
-            category: question.category,
-            stem: question.stem,
-            correctChoice: question.correctChoice,
-          }}
         />
 
         <div

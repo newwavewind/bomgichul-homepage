@@ -15,12 +15,10 @@ export function RandomPracticeRunner({
   subject,
   questions,
   userId,
-  aiUnlocked = true,
 }: {
   subject: string;
   questions: ExamQuestion[];
   userId: string | null;
-  aiUnlocked?: boolean;
 }) {
   const [index, setIndex] = useState(0);
   const [results, setResults] = useState<Record<number, AttemptResult>>({});
@@ -119,17 +117,6 @@ export function RandomPracticeRunner({
         initialAttemptResult={null}
         onAttempt={(result) => setResults((r) => ({ ...r, [index]: result }))}
         onRevealed={() => setRevealed(true)}
-        aiContext={{
-          subject: question.subject,
-          subjectLabel,
-          unlocked: aiUnlocked,
-          year: question.year,
-          round: question.round,
-          questionNo: question.questionNo,
-          category: question.category,
-          stem: question.stem,
-          correctChoice: question.correctChoice,
-        }}
       />
 
       {revealed && (

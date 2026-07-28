@@ -66,7 +66,6 @@ export default async function MockExamPage({ params }: MockExamPageProps) {
             questions={questions}
             userId={user?.id ?? null}
             saveSession={unlocked}
-            aiUnlocked={unlocked}
           />
         ) : (
           <PremiumFeatureLocked

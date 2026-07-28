@@ -1,77 +1,15 @@
 import { ElevatedCard } from "@/components/ui/Card";
-import { ExamAiButtons } from "@/components/exam/ExamAiButtons";
 import { CorrectAnswerBadge } from "@/components/exam/CorrectAnswerBadge";
 import { SelectedAnswerBadge } from "@/components/exam/SelectedAnswerBadge";
-import { buildExamItemAiPrompt } from "@/lib/ai-links";
-import type { ExamComboChoice, ExamQuestionItem, ExamSubject } from "@/lib/exam-questions";
-
-const EXPLANATION_PREVIEW_LENGTH = 40;
-
-export interface ExamAnswerAiContext {
-  subject: ExamSubject;
-  subjectLabel: string;
-  unlocked: boolean;
-  year: number;
-  round: number;
-  questionNo: number;
-  category: string;
-  stem: string;
-  correctChoice: string;
-}
-
-function previewText(text: string): string {
-  if (text.length <= EXPLANATION_PREVIEW_LENGTH) return text;
-  return `${text.slice(0, EXPLANATION_PREVIEW_LENGTH)}…`;
-}
-
-function buildPrompt(aiContext: ExamAnswerAiContext, item: ExamQuestionItem, free: boolean) {
-  return buildExamItemAiPrompt({
-    ...aiContext,
-    item,
-    includeExplanation: free,
-  });
-}
-
-function ExplanationRow({
-  item,
-  free,
-  revealed,
-  aiContext,
-}: {
-  item: ExamQuestionItem;
-  free: boolean;
-  revealed: boolean;
-  aiContext?: ExamAnswerAiContext;
-}) {
-  const prompt = aiContext ? buildPrompt(aiContext, item, free) : "";
-
-  // 해설 전문/요약은 아래 SEO 섹션에서만 보여주고,
-  // 카드 안에서는 AI 버튼만 유지한다.
-  if (!revealed && !free) return null;
-  if (!prompt || !aiContext) return null;
-
-  return (
-    <div className="ml-10 mt-2 flex flex-wrap items-center gap-2">
-      <ExamAiButtons
-        prompt={free ? prompt : buildPrompt(aiContext, item, false)}
-        unlocked={aiContext.unlocked}
-        subject={aiContext.subject}
-        subjectLabel={aiContext.subjectLabel}
-      />
-    </div>
-  );
-}
+import type { ExamComboChoice, ExamQuestionItem } from "@/lib/exam-questions";
 
 export function StatementRows({
   items,
   revealed,
-  free,
-  aiContext,
 }: {
   items: ExamQuestionItem[];
   revealed: boolean;
-  free: boolean;
-  aiContext?: ExamAnswerAiContext;
+  free?: boolean;
 }) {
   return (
     <div className="space-y-3">
@@ -92,9 +30,6 @@ export function StatementRows({
               {item.label} {item.text}
             </p>
           </div>
-          {(free || revealed) && (
-            <ExplanationRow item={item} free={free} revealed={revealed} aiContext={aiContext} />
-          )}
         </div>
       ))}
     </div>
@@ -105,15 +40,12 @@ export function ChoiceRows({
   items,
   correctChoice,
   revealed,
-  free,
-  aiContext,
   selectedKey,
 }: {
   items: ExamQuestionItem[];
   correctChoice: string;
   revealed: boolean;
-  free: boolean;
-  aiContext?: ExamAnswerAiContext;
+  free?: boolean;
   selectedKey?: string;
 }) {
   return (
@@ -149,7 +81,6 @@ export function ChoiceRows({
                 )}
               </p>
             </div>
-            <ExplanationRow item={item} free={free} revealed={revealed} aiContext={aiContext} />
           </div>
         );
       })}

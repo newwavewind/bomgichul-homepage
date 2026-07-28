@@ -27,14 +27,12 @@ export function MockExamRunner({
   questions,
   userId,
   saveSession = false,
-  aiUnlocked = false,
 }: {
   subject: string;
   year: number;
   questions: ExamQuestion[];
   userId: string | null;
   saveSession?: boolean;
-  aiUnlocked?: boolean;
 }) {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -232,17 +230,6 @@ export function MockExamRunner({
                     initialAttemptResult={null}
                     initialRevealed
                     selectedChoice={selected}
-                    aiContext={{
-                      subject: q.subject,
-                      subjectLabel: ARCHIVE_SUBJECT_MAP[q.subject],
-                      unlocked: aiUnlocked,
-                      year: q.year,
-                      round: q.round,
-                      questionNo: q.questionNo,
-                      category: q.category,
-                      stem: q.stem,
-                      correctChoice: q.correctChoice,
-                    }}
                   />
                   <ExamQuestionSeoExplanations
                     question={q}

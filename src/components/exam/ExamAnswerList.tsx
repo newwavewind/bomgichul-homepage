@@ -6,7 +6,6 @@ import {
   ChoiceRows,
   ComboChoiceRows,
   StatementRows,
-  type ExamAnswerAiContext,
 } from "@/components/exam/ExamAnswerRows";
 import { isTableCompositeQuestion } from "@/lib/composite-exam";
 import { enrichTableCompositeQuestion } from "@/lib/realestate-table-composites";
@@ -20,8 +19,6 @@ import {
   type ExamSubject,
 } from "@/lib/exam-questions";
 import type { AttemptResult } from "@/types/database";
-
-export type { ExamAnswerAiContext };
 
 export function ExamAnswerList({
   items,
@@ -38,7 +35,6 @@ export function ExamAnswerList({
   userId,
   initialAttemptResult,
   onAttempt,
-  aiContext,
   initialRevealed = false,
   selectedChoice,
   onRevealed,
@@ -57,7 +53,6 @@ export function ExamAnswerList({
   userId: string | null;
   initialAttemptResult: AttemptResult | null;
   onAttempt?: (result: AttemptResult) => void;
-  aiContext?: ExamAnswerAiContext;
   /** 이미 채점된 결과(예: 시험 모드)를 곧바로 보여줄 때 true로 전달 */
   initialRevealed?: boolean;
   /** 사용자가 실제로 고른 선택지 — 채점된 결과에서 선택 표시에 사용 */
@@ -116,12 +111,7 @@ export function ExamAnswerList({
     <>
       {isStatementComposite ? (
         <>
-          <StatementRows
-            items={items}
-            revealed={revealed}
-            free={free}
-            aiContext={aiContext}
-          />
+          <StatementRows items={items} revealed={revealed} free={free} />
           <p className="mb-2 mt-5 font-display text-body-sm font-semibold text-smoke">선택지</p>
           {isTableComposite ? (
             <TableComboChoiceRows
@@ -149,7 +139,6 @@ export function ExamAnswerList({
           correctChoice={correctChoice}
           revealed={revealed}
           free={free}
-          aiContext={aiContext}
           selectedKey={selectedChoice}
         />
       )}
