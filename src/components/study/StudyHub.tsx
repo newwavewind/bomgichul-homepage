@@ -8,11 +8,20 @@ import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SUBJECT_LANDING_INFO } from "@/lib/
 import { getConceptsForSubject } from "@/lib/concepts";
 import { getExamQuestionsForSubject, getExamYears, type ExamSubject } from "@/lib/exam-questions";
 
-/** 학습 허브 — 홈(`/`)과 `/study`에서 같이 씁니다. */
+/** 학습 허브 — 홈(`/`) 전용. `/study`는 홈으로 영구 리다이렉트. */
 export function StudyHub() {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
+        <header className="mb-2">
+          <h1 className="font-display text-heading font-semibold tracking-tight text-ink">
+            공인중개사 기출 학습
+          </h1>
+          <p className="mt-2 max-w-2xl font-display text-body text-smoke">
+            기출 all-in-one 개념과 연도별 기출문제 해설을 과목별로 바로 시작하세요.
+          </p>
+        </header>
+
         <section id="concepts">
           <SectionHeading as="h2" className="mb-6">
             기출 all-in-one

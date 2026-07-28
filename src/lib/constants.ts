@@ -267,7 +267,7 @@ export function flattenNavLinks(links: NavLinkItem[]): NavChildLink[] {
 }
 
 export const NAV_LINKS: NavLinkItem[] = [
-  { href: "/study", label: "학습" },
+  { href: "/", label: "학습" },
   {
     href: "/community",
     label: "커뮤니티",

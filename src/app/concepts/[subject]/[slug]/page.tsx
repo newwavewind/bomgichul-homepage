@@ -164,7 +164,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
 
   const conceptPath = `/concepts/${subject}/${slug}`;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: "기출 all-in-one", path: "/study" },
+    { name: "기출 all-in-one", path: "/" },
     { name: label, path: `/concepts/${subject}` },
     { name: concept.titleKo, path: conceptPath },
   ]);
@@ -189,7 +189,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
         <BackLink href={`/concepts/${subject}`}>{label} 개념 목록으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/study#concepts" className="hover:text-ink">
+          <Link href="/#concepts" className="hover:text-ink">
             기출 all-in-one
           </Link>{" "}
           /{" "}

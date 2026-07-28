@@ -145,7 +145,7 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
   const returnTo = `/concepts/${subject}`;
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: "기출 all-in-one", path: "/study" },
+    { name: "기출 all-in-one", path: "/" },
     { name: label, path: `/concepts/${subject}` },
   ]);
   const itemListJsonLd = buildConceptItemListJsonLd({
@@ -168,10 +168,10 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <BackLink href="/study#concepts">과목 목록으로</BackLink>
+        <BackLink href="/#concepts">과목 목록으로</BackLink>
 
         <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/study#concepts" className="hover:text-ink">
+          <Link href="/#concepts" className="hover:text-ink">
             기출 all-in-one
           </Link>{" "}
           / {label}

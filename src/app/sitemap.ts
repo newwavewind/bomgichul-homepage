@@ -14,12 +14,6 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     priority: 1,
   },
   {
-    url: `${SITE_URL}/study`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: 0.95,
-  },
-  {
     url: `${SITE_URL}/faq`,
     lastModified: new Date(),
     changeFrequency: "monthly",
@@ -74,7 +68,7 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
 /** 기출문제 해설(/exam) — 정적 데이터 순회, Supabase 불필요 */
 function getExamUrls(): MetadataRoute.Sitemap {
   const now = new Date();
-  // /exam 허브는 /study 로 리다이렉트되므로 sitemap에는 /study 만 둔다(STATIC_PAGES).
+  // /exam·/concepts 허브는 / 로 영구 리다이렉트 — sitemap에는 과목·문항만.
 
   const subjectUrls: MetadataRoute.Sitemap = EXAM_SUBJECTS.map((s) => ({
     url: `${SITE_URL}/exam/${s.value}`,

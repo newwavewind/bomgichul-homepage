@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
-import { SITE_NAME } from "@/lib/constants";
-import { absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "개인정보처리방침",
   description:
     "봄기출 개인정보처리방침. 수집 항목, 이용 목적, 보유 기간, 제3자 제공, 이용자 권리 및 보호책임자를 안내합니다.",
-  alternates: { canonical: absoluteUrl("/privacy") },
-  openGraph: {
-    title: `개인정보처리방침 | ${SITE_NAME}`,
-    description: "봄기출 개인정보처리방침을 확인하세요.",
-  },
-};
+  path: "/privacy",
+});
 
 const SECTIONS: { title: string; body: string[]; bullets?: string[] }[] = [
   {

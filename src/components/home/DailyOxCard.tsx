@@ -212,7 +212,7 @@ export function DailyOxCard({
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Link
-            href="/exam"
+            href="/#exam"
             onClick={() => trackEvent("cta_click", { location: "daily_ox_result", label: "exam_hub" })}
             className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
           >

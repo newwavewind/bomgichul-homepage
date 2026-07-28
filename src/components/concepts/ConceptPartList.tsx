@@ -34,8 +34,9 @@ export function ConceptPartList({
   questionCounts,
   userId = null,
 }: ConceptPartListProps) {
-  const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
-  const [progress, setProgress] = useState<ConceptReadProgress>({});
+  const [expanded, setExpanded] = useState<Set<string>>(
+    () => new Set(groups.map((g) => g.chapter))
+  );  const [progress, setProgress] = useState<ConceptReadProgress>({});
 
   useEffect(() => {
     if (!userId) {

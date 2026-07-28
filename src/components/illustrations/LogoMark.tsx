@@ -31,12 +31,12 @@ export function LogoMark() {
   return (
     <div ref={wrapRef} className="relative flex items-center gap-2">
       <Link
-        href="/study"
+        href="/"
         className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
       >
         <Image
           src="/brand/whale-mark.png"
-          alt=""
+          alt="봄기출"
           width={36}
           height={36}
           className="size-9 shrink-0 object-contain"

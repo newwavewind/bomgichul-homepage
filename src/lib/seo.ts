@@ -226,6 +226,8 @@ export function buildExamQuizJsonLd({
   choices: { label: string; text: string; key: string }[];
   correctChoice: string;
 }) {
+  if (choices.length === 0) return null;
+
   const accepted = choices.find((c) => c.key === correctChoice);
   return {
     "@context": "https://schema.org",
@@ -248,12 +250,14 @@ export function buildExamQuizJsonLd({
         alignmentType: "educationalSubject",
         targetName: subjectLabel,
       },
-      acceptedAnswer: accepted
+      ...(accepted
         ? {
-            "@type": "Answer",
-            text: `${accepted.label} ${accepted.text}`.trim(),
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: `${accepted.label} ${accepted.text}`.trim(),
+            },
           }
-        : undefined,
+        : {}),
       suggestedAnswer: choices.map((c) => ({
         "@type": "Answer",
         text: `${c.label} ${c.text}`.trim(),

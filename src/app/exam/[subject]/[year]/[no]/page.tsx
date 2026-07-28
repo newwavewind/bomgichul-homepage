@@ -130,11 +130,23 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   );
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: "기출문제 해설", path: "/study" },
+    { name: "기출문제 해설", path: "/" },
     { name: label, path: `/exam/${subject}` },
     { name: `${year}년`, path: `/exam/${subject}/${year}` },
     { name: `${questionNo}번`, path: `/exam/${subject}/${year}/${questionNo}` },
   ]);
+  const quizChoices =
+    question.comboChoices.length > 0
+      ? question.comboChoices.map((choice) => ({
+          label: choice.label,
+          text: choice.text,
+          key: String(choice.no),
+        }))
+      : question.items.map((item) => ({
+          label: item.label,
+          text: item.text,
+          key: item.key,
+        }));
   const quizJsonLd = buildExamQuizJsonLd({
     title: `${year}년 ${label} ${questionNo}번 기출문제 해설`,
     description: question.stem,
@@ -143,11 +155,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
     year,
     questionNo,
     stem: question.stem,
-    choices: question.items.map((item) => ({
-      label: item.label,
-      text: item.text,
-      key: item.key,
-    })),
+    choices: quizChoices,
     correctChoice: question.correctChoice,
   });
 
@@ -157,10 +165,12 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(quizJsonLd) }}
-      />
+      {quizJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(quizJsonLd) }}
+        />
+      ) : null}
       <div className="mx-auto max-w-[var(--page-max-width)]">
         {returnTo ? (
           <BackLink href={returnTo} emphasized>
@@ -171,7 +181,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
         )}
 
         <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/study#exam" className="hover:text-ink">
+          <Link href="/#exam" className="hover:text-ink">
             기출문제 해설
           </Link>{" "}
           /{" "}

@@ -123,11 +123,13 @@ export function ConceptStatementList({
             </>
           );
 
+          const href = examPath(subject, statement.year, statement.questionNo, returnTo);
+
           if (isLoggedIn) {
             return (
               <li key={`${statement.year}-${statement.questionNo}-${i}`}>
                 <Link
-                  href={examPath(subject, statement.year, statement.questionNo, returnTo)}
+                  href={href}
                   className="hp-cx-statement"
                   aria-label={`${statement.year}년 ${statement.questionNo}번 기출문제 보기`}
                 >
@@ -150,13 +152,14 @@ export function ConceptStatementList({
 
           return (
             <li key={`${statement.year}-${statement.questionNo}-${i}`}>
-              <button
-                type="button"
+              <a
+                href={href}
                 className="hp-cx-statement hp-cx-statement--login"
-                aria-label={`${statement.year}년 ${statement.questionNo}번 — 로그인 안내`}
-                onClick={() =>
-                  openLoginModal(subject, statement.year, statement.questionNo, "기출 지문")
-                }
+                aria-label={`${statement.year}년 ${statement.questionNo}번 기출문제 보기`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  openLoginModal(subject, statement.year, statement.questionNo, "기출 지문");
+                }}
               >
                 <span className="hp-cx-statement__num" aria-hidden>
                   {i + 1}
@@ -170,7 +173,7 @@ export function ConceptStatementList({
                   </span>
                   <span className="hp-cx-statement__meta">{meta}</span>
                 </span>
-              </button>
+              </a>
             </li>
           );
         })}
@@ -207,34 +210,41 @@ export function ConceptRelatedExamList({
   return (
     <>
       <div className="hp-cx-related-list">
-        {questions.map((q) =>
-          isLoggedIn ? (
-            <Link
+        {questions.map((q) => {
+          const href = examPath(subject, q.year, q.questionNo, returnTo);
+          if (isLoggedIn) {
+            return (
+              <Link
+                key={`${q.year}-${q.questionNo}`}
+                href={href}
+                className="hp-cx-question-row"
+                aria-label={`${q.year}년 ${q.questionNo}번 기출문제 보기`}
+              >
+                <span>
+                  {q.year}년 · {q.questionNo}번
+                </span>
+                <span className="hp-cx-question-row__go">문제 보기 →</span>
+              </Link>
+            );
+          }
+          return (
+            <a
               key={`${q.year}-${q.questionNo}`}
-              href={examPath(subject, q.year, q.questionNo, returnTo)}
-              className="hp-cx-question-row"
-              aria-label={`${q.year}년 ${q.questionNo}번 기출문제 보기`}
-            >
-              <span>
-                {q.year}년 · {q.questionNo}번
-              </span>
-              <span className="hp-cx-question-row__go">문제 보기 →</span>
-            </Link>
-          ) : (
-            <button
-              key={`${q.year}-${q.questionNo}`}
-              type="button"
+              href={href}
               className="hp-cx-question-row hp-cx-question-row--login"
-              aria-label={`${q.year}년 ${q.questionNo}번 — 로그인 안내`}
-              onClick={() => openLoginModal(subject, q.year, q.questionNo, "관련 기출")}
+              aria-label={`${q.year}년 ${q.questionNo}번 기출문제 보기`}
+              onClick={(event) => {
+                event.preventDefault();
+                openLoginModal(subject, q.year, q.questionNo, "관련 기출");
+              }}
             >
               <span>
                 {q.year}년 · {q.questionNo}번
               </span>
               <span className="hp-cx-question-row__go">문제 보기 →</span>
-            </button>
-          )
-        )}
+            </a>
+          );
+        })}
       </div>
       <ConceptLoginRequiredModal
         open={Boolean(pending)}
