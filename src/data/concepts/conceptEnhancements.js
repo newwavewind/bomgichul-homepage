@@ -325,6 +325,12 @@ const conceptEnhancements = {
   'real-estate-classification': {
     kind: 'land-vocabulary',
     summary: '토지용어는 이름을 나열해 외우지 않고, “용도가 어디까지 바뀌는가·물과 육지의 경계에서 어떤 상태인가·법적 등록단위인가 경제적 가격단위인가”로 나누면 선명해진다.',
+    pairTitle: '헷갈리는 짝 · 이행지 vs 후보지',
+    pairFirst: true,
+    confusionPair: {
+      left: { hint: '같은 대분류 안', situation: '택지지역 내 용도 전환', marker: '이행지' },
+      right: { hint: '대분류 간', situation: '농지·임지 → 택지 등', marker: '후보지' },
+    },
     transitions: [
       { from: '주거용 택지', to: '상업용 택지', scope: '같은 택지지역 내부', answer: '이행지' },
       { from: '농지지역', to: '택지지역', scope: '용도지역 대분류 상호간', answer: '후보지' },
@@ -1868,9 +1874,18 @@ const conceptEnhancements = {
     ],
   },
   'boundary-determination-standards': {
-    kind: 'boundary-cross-section-atlas', summary: '지상경계는 평면 지도의 선을 실제 지형의 어느 점에 꽂을지 정하는 규칙이다. 높이차·제방·수면은 각각 하단, 바깥쪽 어깨, 최대 수위라는 서로 다른 단면점을 쓴다.',
-    sections: [{ terrain: '연접토지 높낮이 차', marker: '구조물 하단부', sketch: '▔▔│__' },{ terrain: '공유수면매립지 제방 편입', marker: '바깥쪽 어깨부분', sketch: '___╱▔╲≈' },{ terrain: '해면에 접하는 토지', marker: '최대만조위선', sketch: '▔▔▔≈≈' },{ terrain: '수면에 접하는 토지', marker: '최대만수위선', sketch: '▔▔▔≋≋' }],
-    buildingRule: '분할선은 원칙적으로 지상건축물을 걸치지 않게 결정 · 확정판결 등 법정 예외는 허용',
+    kind: 'boundary-cross-section-atlas', summary: '평면 지도선을 실제 지형의 어느 점에 꽂을지 정하는 규칙이다. 상황마다 결정기준점이 달라진다.',
+    criteria: [
+      { situation: '연접토지 높낮이 차', marker: '구조물 하단부' },
+      { situation: '공유수면매립지 제방 편입', marker: '바깥쪽 어깨부분' },
+      { situation: '해면에 접하는 토지', marker: '최대만조위선' },
+      { situation: '수면에 접하는 토지', marker: '최대만수위선' },
+    ],
+    waterPair: {
+      left: { hint: '바다·만', situation: '해면에 접하는 토지', marker: '최대만조위선' },
+      right: { hint: '하천·호수', situation: '수면에 접하는 토지', marker: '최대만수위선' },
+    },
+    buildingRule: '원칙적으로 분할선이 지상건축물을 걸치지 않게 결정한다. 확정판결 등 법정 예외는 허용.',
     sources: [
       { label: '공간정보관리법 제65조', note: '지상경계의 구분·등록', href: 'https://www.law.go.kr/법령/공간정보의구축및관리등에관한법률/제65조' },
       { label: '같은 법 시행령 제55조', note: '하단·어깨·최대만조·만수위 기준', href: 'https://www.law.go.kr/법령/공간정보의구축및관리등에관한법률시행령/제55조' },
@@ -4379,6 +4394,7 @@ const conceptEnhancements = {
   },
   'development-activity-permit-criteria': {
     kind: 'permit-criteria-filter', summary: '개발행위허가 기준은 "토지이용의 적합성·물리적 조건"에 관한 것이며, 자금조달계획처럼 사업 주체의 재정능력을 심사하는 사항은 다른 절차의 몫이다.',
+    criteriaLabels: { situation: '순번', marker: '허가 기준' },
     criteria: ['도시·군계획으로 수립된 경관계획에 적합할 것', '공유수면매립의 매립목적이 도시·군계획에 적합할 것', '토지분할·물건적치 행위에 입목 벌채가 수반되지 않을 것', '도시·군계획조례로 정하는 도로 너비 기준에 적합할 것'],
     notCriteria: '자금조달계획이 목적사업 실현에 적합하도록 수립되어 있을 것(도시·군계획사업 시행자 지정 등 다른 절차의 요건)',
     caution: '자금조달계획의 적정성을 개발행위허가의 일반 기준으로 착각하기 쉽다 — 이는 도시·군계획사업 시행자 지정 등 다른 절차의 요건이다.',
@@ -4696,6 +4712,7 @@ const conceptEnhancements = {
   },
   'reconstruction-safety-diagnosis': {
     kind: 'safety-diagnosis-board', summary: '안전진단은 "실시 시기", "제외 대상", "심사 항목", "결과의 처리"로 나뉘어 출제된다.',
+    criteriaLabels: { situation: '항목', marker: '진단 기준' },
     timing: '단계별 정비사업추진계획에 따라 정비예정구역별 정비계획의 수립시기가 도래하면 실시',
     exempt: '진입도로 등 기반시설 설치를 위해 불가피하게 정비구역에 포함된 것으로 인정되는 주택단지 내 건축물은 제외 가능',
     criteria: ['구조안전성', '건축마감', '설비노후도', '주거환경 적합성'],
@@ -4906,6 +4923,7 @@ const conceptEnhancements = {
   },
   'special-structure-building-exception': {
     kind: 'special-structure-criteria-board', summary: '특수구조 건축물은 "기둥 간 거리·돌출 구조 등 구조적으로 특이한 건축물"을 규제 강화 대상으로 삼는 제도이며, 무관한 규정까지 확대 적용되지 않는다.',
+    criteriaLabels: { situation: '항목', marker: '해당 요건' },
     criteria: ['한쪽 끝 고정·다른 끝 미지지 차양 등이 외벽 중심선으로부터 3m 이상 돌출', '기둥과 기둥 사이 거리(중심선 기준) 20m 이상(15m는 기준 미달)'],
     notExpanded: '안전관리 예치금 강화나 대지 조경 규정 변경 적용은 되지 않으며, 지방건축위원회 심의 신청도 건축주의 의무가 아님',
     caution: '기둥 간 거리 기준을 15m로 착각하기 쉽지만, 실제 특수구조 건축물 기준은 20m 이상이다.',

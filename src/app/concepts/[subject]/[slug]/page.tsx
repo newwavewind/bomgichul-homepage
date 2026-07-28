@@ -12,11 +12,9 @@ import {
   getAllConceptParams,
 } from "@/lib/concepts";
 import {
-  buildPitfallCards,
   getConceptEnhancement,
 } from "@/lib/concept-enhancements";
-import { ConceptPitfallCards } from "@/components/concepts/ConceptVisualEnhancements";
-import { ConceptVisualGuide } from "@/components/concepts/ConceptKindGuides";
+import { ConceptVisualGuide } from "@/components/concepts/ConceptVisualEnhancements";
 import {
   ConceptRelatedExamList,
   ConceptStatementList,
@@ -74,10 +72,12 @@ export async function generateMetadata({
 function SectionBlock({
   label,
   index,
+  badge,
   children,
 }: {
   label: string;
   index: number;
+  badge?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -87,6 +87,14 @@ function SectionBlock({
           {String(index).padStart(2, "0")}
         </span>
         <span>{label}</span>
+        {badge ? (
+          <span
+            className="hp-cx-correct-pack-badge"
+            title="O 선지와, 틀린 선지를 해설로 고친 옳은 문장만 모았습니다"
+          >
+            {badge}
+          </span>
+        ) : null}
       </h2>
       <div className="hp-cx-section__body">{children}</div>
     </section>
@@ -104,7 +112,6 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
   const questions = getConceptQuestions(subject, concept);
   const statements = getConceptStatements(subject, concept);
   const enhancement = getConceptEnhancement(concept);
-  const pitfallCards = buildPitfallCards(concept, questions);
   const user = await getUser();
   const isLoggedIn = Boolean(user);
   const returnTo = `/concepts/${subject}/${slug}`;
@@ -128,7 +135,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
     currentIndex >= 0 && currentIndex < siblingConcepts.length - 1
       ? siblingConcepts[currentIndex + 1]
       : undefined;
-  const statementsIndex = enhancement ? 6 : 5;
+  const statementsIndex = enhancement ? 5 : 4;
   const relatedIndex = statements.length > 0 ? statementsIndex + 1 : statementsIndex;
   const communityIndex = relatedIndex + 1;
   const aiPrompt = buildConceptDetailAiPrompt({
@@ -232,9 +239,6 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
               ))}
             </ol>
           </SectionBlock>
-          <SectionBlock label="함정 포인트" index={4}>
-            <ConceptPitfallCards cards={pitfallCards} fallback={concept.pitfalls} />
-          </SectionBlock>
         </article>
 
         <div className="concepts-screen hp-cx-kind-host">
@@ -243,7 +247,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
 
         {statements.length > 0 && (
           <article className="hp-cx-card">
-            <SectionBlock label="기출 지문" index={statementsIndex}>
+            <SectionBlock label="기출 지문" index={statementsIndex} badge="옳은 지문 모음">
               <ConceptStatementList
                 statements={statements}
                 subject={subject}

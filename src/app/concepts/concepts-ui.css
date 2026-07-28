@@ -567,27 +567,55 @@
 .hp-cx .hp-cx-section__label {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.625rem;
   margin: 0 0 0.55rem;
   font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--hp-cx-teal);
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: var(--hp-cx-ink);
+  letter-spacing: -0.02em;
+}
+
+.hp-cx .hp-cx-correct-pack-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+  flex-shrink: 0;
+  padding: 0.2rem 0.55rem 0.2rem 0.45rem;
+  border-radius: 999px;
+  border: 0.5px solid color-mix(in srgb, #0f766e 24%, rgba(255, 255, 255, 0.7));
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.2) 100%),
+    color-mix(in srgb, #0f766e 11%, rgba(255, 255, 255, 0.42));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  color: #0f766e;
+  font-size: 0.6875rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.hp-cx .hp-cx-correct-pack-badge::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, #0f766e 72%, transparent);
+  background: transparent;
+  box-shadow: none;
+  flex-shrink: 0;
 }
 
 .hp-cx .hp-cx-section__index {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.55rem;
-  height: 1.35rem;
-  padding: 0 0.3rem;
-  border-radius: 0.35rem;
+  flex-shrink: 0;
+  min-width: 1.375rem;
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
-  color: var(--hp-cx-teal);
-  background: color-mix(in srgb, var(--hp-cx-teal) 12%, transparent);
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  color: rgba(60, 60, 67, 0.42);
+  -webkit-font-smoothing: antialiased;
 }
 
 .hp-cx .hp-cx-section__body {
@@ -598,17 +626,34 @@
 
 .hp-cx .hp-cx-bullets {
   margin: 0;
-  padding-left: 1.35rem;
-  list-style: decimal;
+  padding: 0;
+  list-style: none;
+  counter-reset: hp-cx-bullet;
+}
+
+.hp-cx .hp-cx-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  counter-increment: hp-cx-bullet;
 }
 
 .hp-cx .hp-cx-bullets li + li {
-  margin-top: 0.4rem;
+  margin-top: 0.65rem;
 }
 
-.hp-cx .hp-cx-bullets li::marker {
-  color: var(--hp-cx-teal);
-  font-weight: 700;
+.hp-cx .hp-cx-bullets li::before {
+  content: counter(hp-cx-bullet) ".";
+  flex-shrink: 0;
+  min-width: 1.125rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  line-height: 1.65;
+  color: rgba(60, 60, 67, 0.52);
+  text-align: right;
+  -webkit-font-smoothing: antialiased;
 }
 
 .hp-cx .hp-cx-statements {
@@ -638,12 +683,14 @@
 
 .hp-cx .hp-cx-statement__num {
   flex-shrink: 0;
-  margin-top: 0.15rem;
-  min-width: 1.25rem;
+  min-width: 1.125rem;
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
-  color: var(--hp-cx-teal);
+  line-height: 1.65;
+  color: rgba(60, 60, 67, 0.52);
+  text-align: right;
+  -webkit-font-smoothing: antialiased;
 }
 
 .hp-cx .hp-cx-statement__body {
