@@ -48,7 +48,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 영속성(불소모성): 토지는 소멸하지 않으므로 자본이익과 운용이익이 동시에 발생하고, 가격 하락 시에도 매각을 미룰 수 있으며, 장기적 관리가 중요해진다. 세 가지 파생현상 모두 영속성에서 비롯된다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -99,7 +99,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 건축법령상 운전학원·정비학원은 자동차 관련 시설, 무도학원은 위락시설로 분류된다. 올바른 설명이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -150,7 +150,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 기술적 개념의 부동산은 공간·위치·환경 등 물리적·공학적 관점에서 부동산을 파악하는 것이다. 생산요소·자산·공간·자연 등 경제적 관점을 포함하는 것은 경제적 개념의 부동산이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -201,7 +201,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. A(가격탄력성) = 수요량변화율 ÷ 가격변화율 = 4% ÷ 16% = 0.25 ✓ B(교차탄력성) = 다세대주택 수요량변화율 ÷ 아파트가격변화율 = 8% ÷ 16% = 0.5 ✓ 교차탄력성 양(+)이므로 대체재 관계 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -252,7 +252,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 관찰기간이 길어질수록 소비자가 대체재를 찾거나 용도를 바꿀 시간이 충분해지므로 탄력성은 커진다. \"작아진다\"는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -303,7 +303,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 거미집이론 판별: |수요기울기 절대값| vs |공급기울기| 수렴형: |수요기울기| > |공급기울기| / 발산형: |수요기울기| < |공급기울기| / 순환형: 동일 A: |−0.8| = 0.8 vs 0.6 → 0.8 > 0.6 → 수렴형... 아니라 발산형으로 판별할 때는 공급기울기/수요기울기(절대값) 비교. 실제: 수렴형은 공급탄력성 > 수요탄력성. 기울기로는 |수요기울기| > |공급기울기| 이면 수렴형. A: |−0.8|=0.8 vs 0.6 → |수요|>|공급| → 수렴 아님... 거미집 판별 방법 재정리: 기울기의 절대값 비교에서 공급기울기 절대값 > 수요기울기 절대값이면 발산형, 작으면 수렴형, 같으면 순환형. A: 공급 0.6 vs 수요 0.8 → 0.6 < 0.8 → 수렴형? 정확한 방법: 공급의 가격탄력성 vs 수요의 가격탄력성(절대값) 비교. 탄력성 = 1/기울기(절대값)이므로: A: 공급탄력성 = 1/0.6 ≈ 1.67, 수요탄력성(절대값) = 1/0.8 = 1.25 → 공급 > 수요 → 수렴형 아님 발산형 B: 공급탄력성 = 1/0.3 ≈ 3.33, 수요탄력성(절대값) = 1/0.3 ≈ 3.33 → 동일 → 순환형 C: 공급탄력성 = 1/1.2 ≈ 0.83, 수요탄력성(절대값) = 1/0.6 ≈ 1.67 → 공급 < 수요 → 수렴형 A: 발산형, B: 순환형, C: 수렴형 → 정답 ⑤ ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -354,7 +354,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 수요가 증가할 때 공급이 탄력적일수록 공급이 더 많이 늘어나 가격 상승폭이 오히려 작아진다. 공급이 비탄력적일수록 가격이 더 크게 상승한다. \"탄력적일수록 가격이 더 크게 상승\"은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -406,7 +406,7 @@
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. B와 C만 1 초과이다. ✓ LQ = (해당 도시 X산업 고용 비중) ÷ (전국 X산업 고용 비중) 전국 X산업 비중 = 3,350 ÷ 6,250 = 0.536 A도시: X비중 = 400/1,000 = 0.4 → LQ = 0.4/0.536 ≈ 0.75 (1 미만) B도시: X비중 = 1,200/2,000 = 0.6 → LQ = 0.6/0.536 ≈ 1.12 (1 초과) ✓ C도시: X비중 = 650/1,150 ≈ 0.565 → LQ = 0.565/0.536 ≈ 1.05 (1 초과) ✓ D도시: X비중 = 1,100/2,100 ≈ 0.524 → LQ = 0.524/0.536 ≈ 0.98 (1 미만)",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -457,7 +457,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 경계지역 부근에서는 고소득층 주택이 저소득층 인접으로 인해 할인되고, 저소득층 주택은 고소득층의 (+)외부효과로 인해 할증되어 거래되는 것이 일반적이다. 설명이 반대이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -508,7 +508,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 절대지대: 토지가 사유화되어 있다는 사실 자체로 인해 토지의 비옥도나 생산력과 관계없이 최열등지에서도 발생하는 지대이다. 세 조건 모두 절대지대의 특성이다. ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -559,7 +559,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 약성 효율적 시장에서는 과거 역사적 정보가 이미 가격에 반영되어 있으므로, 과거 정보를 분석해도 초과이윤을 얻을 수 없다. \"정상이윤을 초과하는 이윤을 획득할 수 있다\"는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -610,7 +610,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. stagnation(침체) + inflation(물가상승)의 합성어로, 불황 속 물가상승을 의미한다. ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -661,7 +661,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 레일리 법칙: 인구 유인력 ∝ 인구수 / 거리² A 흡인력 = 400,000 / 10² = 400,000 / 100 = 4,000 B 흡인력 = 100,000 / 5² = 100,000 / 25 = 4,000 A : B = 4,000 : 4,000 = 1 : 1 A 유인 인구 = 50,000 × (1/2) = 25,000명 ✓ B 유인 인구 = 50,000 × (1/2) = 25,000명 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -712,7 +712,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 개발부담금 부과는 조세·부담금을 통한 간접적 시장개입수단이다. 직접적 시장개입수단은 토지수용, 공공임대주택 건설 등이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -763,7 +763,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 제2종일반주거지역은 중층 주택(아파트 등 공동주택)을 중심으로 한 양호한 주거환경 보호지역이다. \"공동주택 중심\"은 맞으나, 국토계획법상 제2종일반주거지역의 정의는 \"중층주택을 중심으로 편리한 주거환경을 조성하기 위하여 필요한 지역\"이다. 제1종일반주거지역이 저층주택 중심이고, 제2종은 중층이 맞다. 정확히는 \"공동주택 중심의 양호한\"이라는 표현보다는 \"중층주택을 중심으로 한 편리한\"이 맞다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -814,7 +814,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 도시형 생활주택은 분양가상한제 적용 제외 대상이다. 공공택지에서 공급되는 도시형 생활주택에 상한제를 적용한다는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -865,7 +865,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 준공공임대주택(현 공공지원민간임대주택의 전신)은 일반형임대사업자가 8년 이상 임대할 목적으로 취득하여 임대하는 민간임대주택이다. 올바른 설명이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -916,7 +916,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 재투자율 가정: IRR법은 중간 현금흐름이 IRR로 재투자된다고 가정(비합리적), NPV법은 요구수익률(할인율)로 재투자된다고 가정(더 합리적). \"NPV법보다 IRR법이 더 합리적\"은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1003,7 +1003,7 @@
     ],
     "explanationSummary": "정답은 전항정답(①②③④⑤ 모두 정답)입니다. ※ 이 문제는 출제 오류로 인해 모든 선택지가 정답으로 처리되었습니다. ㄱ [X] 레버리지를 활용하면 수익 변동성(위험)이 증가한다. 위험이 감소하는 것이 아니다. ㄴ [O] 자기자본수익률 계산: 부채비율 50%이면 자기자본:부채 = 2:1(자기자본 비중 2/3, 부채 비중 1/3이 아님). 부채비율 = 부채/자기자본 = 50%이면 자기자본1 부채0.5 → 총자본1.5. ROE = (총자본수익률 × 총자본 - 저당수익률 × 부채) / 자기자본 = (10%×1.5 - 8%×0.5)/1 = (15%-4%)/1 = 11%... 정확한 계산은 문제 조건에 따라 다를 수 있어 전항정답으로 처리됨. ㄷ [O] 부(-)의 레버리지(저당수익률 > 총자본수익률)일 때 부채비율을 낮추면 정(+)으로 전환 가능하다. ㄹ [O] 총자본수익률 = 저당수익률이면 부채비율 변화가 자기자본수익률에 영향을 주지 않는다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1054,7 +1054,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. NOI 산정 시 재산세(영업경비)는 차감하고, 영업소득세는 차감하지 않는다(세후현금흐름에서 차감). 올바른 설명이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1141,7 +1141,7 @@
     ],
     "explanationSummary": "정답은 ①입니다. 옳은 것: ㄱ, ㄷ → 정답 ①",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1192,7 +1192,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 부동산은 주식 등 금융상품에 비해 거래가 복잡하고 시간이 많이 소요되어 유동성(단기 현금화 가능성)이 낮다. \"가능성이 높다\"는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1243,7 +1243,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 전항정답(①②③④⑤ 모두 정답)입니다. ※ 이 문제는 출제 오류로 인해 모든 선택지가 정답으로 처리되었습니다. [참고 계산] 대출금 = 20억 × 60% = 12억원 / 자기자본 = 8억원 연간 이자 = 12억 × 5% = 6,000만원 건물 감가상각 = 8억 ÷ 20년 = 4,000만원(정액법) 과세소득 = NOI 2억 - 이자 6,000만 - 감가상각 4,000만 = 1억원 영업소득세 = 1억 × 20% = 2,000만원 세후현금흐름 = NOI 2억 - 이자 6,000만 - 세금 2,000만 = 1억 2,000만원 세후 자기자본수익률 = 1억 2,000만 ÷ 8억 = 15% 계산상 ③ 15%가 맞으나 전항정답 처리됨.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1294,7 +1294,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 고정금리 대출 실행 후 금리가 상승하면 차입자는 기존 낮은 금리 대출을 유지하는 것이 유리하므로 조기상환을 하지 않는다. 오히려 금리 하락 시 더 낮은 금리로 대환(조기상환)하는 위험이 있다. \"금리상승 시 차입자의 조기상환 위험이 커진다\"는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1345,7 +1345,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. LTV 기준: 5억 × 60% = 3억원. 기존 1억 차감 → 추가 가능 2억원. DCR 기준: NOI ÷ 부채서비스액 ≥ 2 총 부채서비스액 ≤ NOI/2 = 1억/2 = 5,000만원 총 대출가능액 × 저당상수 ≤ 5,000만원 총 대출가능액 ≤ 5,000만 ÷ 0.2 = 2억 5,000만원 기존 1억 포함이므로 추가 가능 = 2억5천 - 1억 = 1억 5천만원 LTV(2억)와 DCR(1억 5천만원) 중 작은 값 → 1억 5천만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1396,7 +1396,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 원리금균등상환: 매기 원리금 총액이 고정. 이자 감소분만큼 원금 상환분이 증가한다. 올바른 설명이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1447,7 +1447,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 자기관리 부동산투자회사의 설립 최저 자본금은 5억원 이상이다. \"3억원\"은 위탁관리 또는 기업구조조정 REITs의 설립 자본금이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1498,7 +1498,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 프로젝트 금융의 자금은 SPC(특수목적법인) 또는 에스크로 계좌를 통해 엄격히 관리되며, 건설회사나 시공회사가 자체계좌로 임의 관리하지 않는다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1549,7 +1549,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 기존대출 잔액(2년차 말) = 1억원(원금만기일시상환이므로 원금 그대로 = 1억원) 대환 비용: 조기상환수수료 = 1억 × 1% = 100만원, 취급수수료 = 1억 × 1% = 100만원 총 비용 = 200만원 연간 이자 절감액 = 1억 × (4%-3%) = 100만원/년 8년간 이자 절감액의 현재가치 = 100만원 × 7(연금현가계수) = 700만원 대환으로 인한 이익의 현재가치 = 700만 - 200만 = 500만원 = 5백만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1600,7 +1600,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 소유자가 직접 관리: 의사능력·지휘통제력 발휘, 기밀유지 유리, 안일화 가능성, 전문성 부족. 네 가지 특성 모두 직접관리에 해당한다. ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1651,7 +1651,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. BTO는 준공 후 소유권을 공공에 귀속시키고 민간이 운영권을 가지는 방식이다. 그러나 \"공공이 임차하여 사용\"하는 것은 BTL 방식이다. BTO에서 공공은 임차하지 않으며, 민간 사업자가 직접 운영하여 수익을 회수한다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1702,7 +1702,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 단독·다세대주택 밀집 지역에서 정비기반시설·공동이용시설 확충을 통해 주거환경을 보전·정비·개량하는 사업이다. ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1753,7 +1753,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 가능총소득(PGI) = 5백만 × 60호 = 3억원 유효총소득(EGI) = 3억 × (1-0.1) = 2억 7,000만원 NOI = EGI - 영업경비 = 2억 1,000만원 영업경비 = 2억 7,000만 - 2억 1,000만 = 6,000만원 영업경비비율(가능총소득 기준) = 6,000만 ÷ 3억 = 20% ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1844,7 +1844,7 @@
     ],
     "explanationSummary": "마케팅 4P 연결: ㄱ 실개천 설치→제품(product), ㄴ 중개업소 활용→유통경로(place), ㄷ 적정 분양가→가격(price), ㄹ 경품추첨→판매촉진(promotion). 따라서 ④가 정답이다.",
     "compositeLayout": "table",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1895,7 +1895,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 시장가치의 정의: \"통상적인 시장에서 충분한 기간 동안 거래를 위해 공개된 후, 정통한 당사자 간 신중하고 자발적인 거래로 성립될 가능성이 가장 높은 가액\"이다. \"한정된 시장에서 성립될 가능성이 있는 최고가액\"은 시장가치가 아닌 특수가치에 해당하며, 규칙에 규정된 정의가 아니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1946,7 +1946,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 감정평가 절차에서 지역분석을 먼저 실시한 후 개별분석을 수행하는 것이 일반적이다(거시→미시 순서). \"개별분석을 먼저\"는 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -1997,7 +1997,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 거래사례(비교방식) = 1.2억 × 50% = 0.60억 조성비용(원가방식) = 1.1억 × 20% = 0.22억 임대료(수익방식) = 1.0억 × 30% = 0.30억 감정평가액 = 0.60 + 0.22 + 0.30 = 1.12억원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2048,7 +2048,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 적산법: 기초가액 × 기대이율 + 필요제경비 = 적산임료 ✓ 임대사례비교법으로 구한 임료 = 비준임료 ✓ 수익분석법: 순수익 + 필요제경비 = 수익임료 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2099,7 +2099,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 공동주택가격의 효력: 주택시장 가격정보 제공 + 과세 등 기준으로 활용. 올바른 내용이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2150,7 +2150,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. '감정평가 의뢰'는 의뢰인이 하는 행위이지, 감정평가사가 수행하는 절차(규칙 제8조)에 포함되지 않는다. 감정평가에 관한 규칙 제8조 규정 절차: 기본적 사항의 확인 → 처리계획 수립 → 대상물건 확인 → 자료 수집 및 정리 → 자료 검토 및 가치형성요인 분석 → 감정평가방법의 선정 및 적용 → 감정평가액의 결정 및 표시",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2201,7 +2201,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 빈지(濱地)는 바다나 강물과 육지 사이에 위치한 준(準)수면 토지로, 관습상 일반인이 자유롭게 이용할 수 있는 토지이다. 침식으로 수면 아래로 잠긴 토지는 빈지가 아닌 포락지(浦落地)이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2252,7 +2252,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 행정 변화에 의한 인·허가 지연위험은 정부·행정기관의 결정에 의한 것으로, 시행사나 시공사가 스스로 관리·통제할 수 없는 외생적 위험이다. \"스스로 관리할 수 있는 위험\"이라는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2303,7 +2303,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 부증성은 토지의 물리적 양이 늘어나지 않는다는 의미이지만, 용도전환을 통한 '용도적·경제적 공급'은 가능하다. 농지를 택지로 전환하는 것이 대표적 예다. 따라서 \"용도적 공급을 더 이상 늘릴 수 없다\"는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2354,7 +2354,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 사업시설 유지·관리는 한국표준산업분류상 '사업시설 관리 및 조경 서비스업'에 해당하며, 부동산 관리업과는 다른 분류이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2405,7 +2405,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 빠른 자금회수를 원하고 구매력이 낮은 지역에서는 저가전략(침투가격전략)이 적합하다. 고가전략은 고소득·고급 시장을 대상으로 할 때 적용한다. \"고가전략을 이용한다\"는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2456,7 +2456,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 바닥면적 합계 330㎡ 이하, 3개 층 이하, 독립 주거형태 미갖춤(취사시설 없음), 학생·직장인 등 장기 거주 구조 → 다중주택의 요건이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2507,7 +2507,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 공표·비공표 모든 정보가 이미 가격에 반영된 시장은 강성(strong form) 효율적 시장이다. 준강성(semi-strong form) 효율적 시장은 공표된 정보만 반영된다. \"준강성\"에 대한 설명이 \"강성\"을 설명하고 있으므로 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2594,7 +2594,7 @@
     ],
     "explanationSummary": "정답은 ④입니다. 옳은 것: ㄱ, ㄷ, ㄹ → 정답 ④",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2645,7 +2645,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 임대료 상한(규제임대료)을 균형가격 이하로 설정하면 공급자의 수익성이 낮아져 임대주택 공급이 감소(공급 부족)하고, 수요는 초과된다. \"공급과잉\"이 아니라 공급 감소와 수요 초과(공급부족)가 나타난다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2696,7 +2696,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 공공토지의 비축에 관한 법률에 따르면 비축토지는 한국토지주택공사(LH)가 관리한다. 각 지방자치단체가 직접 관리하는 것이 아니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2747,7 +2747,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 원금균등상환: 매기 원금 = 5억 ÷ 20년 = 2,500만원 9회차 잔액(8회 상환 후) = 5억 - (2,500만 × 8) = 3억원 9회차 이자 = 3억 × 5% = 1,500만원 9회차 원리금 = 2,500만 + 1,500만 = 4,000만원 ✓ 13회차 잔액(12회 상환 후) = 5억 - (2,500만 × 12) = 2억원 13회차 이자 = 2억 × 5% = 1,000만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2798,7 +2798,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 토지공급의 가격탄력성이 0(완전비탄력적)이면 세금 전액을 공급자(토지소유자)가 부담한다. 수요자에게 전가할 수 없기 때문이다. 올바른 설명이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2849,7 +2849,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 허프모형: 각 점포 매력도 = 면적 ÷ 거리² A = 500 ÷ 25 = 20 / B = 300 ÷ 100 = 3 / C = 450 ÷ 225 = 2 A 방문확률 = 20 ÷ (20+3+2) = 20/25 = 80% ✓ 월 추정매출액 = 4,000명 × 35만원 × 80% = 11억 2,000만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2936,7 +2936,7 @@
     ],
     "explanationSummary": "정답은 ①입니다. 옳은 것: ㄱ, ㄴ → 정답 ①",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -2987,7 +2987,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 순현가(NPV) = 현금유입의 현재가치 - 현금유출의 현재가치. 올바른 정의이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3038,7 +3038,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 순영업소득(NOI) = 유효총소득(EGI) - 영업경비. 유효총소득에서 영업경비를 차감한 것이다. \"영업외수입을 더한다\"는 설명은 틀렸다. 기타수입은 이미 EGI 단계에서 반영된다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3089,7 +3089,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 다핵심이론(해리스·울만): 공업지구, 소매지구, 고급주택지구 등 여러 핵심이 있으며, 도시 성장에 따라 핵심의 수가 증가하고 특화된다. 올바른 설명이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3140,7 +3140,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 소득 10% 상승 → 수요 소득탄력성 0.6이므로 소득효과: 0.6 × 10% = +6% 전체 수요 변화 = +8%, 소득효과 = +6%이므로 가격효과 = +2% 교차탄력성 = 가격효과에 의한 수요변화율 ÷ 아파트가격 변화율 = 2% ÷ 5% = 0.4 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3191,7 +3191,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 우하향하는 직선 수요곡선에서 측정 위치(가격·수량)에 따라 탄력성이 달라진다. 상단일수록 탄력적, 하단일수록 비탄력적이다. 올바른 설명이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3242,7 +3242,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 공급이 비탄력적일수록 세금 부과 시 소비자에게의 전가가 어렵고 생산자 부담이 커져 경제적 순손실(deadweight loss)은 오히려 작아진다. 공급이 탄력적일수록 경제적 순손실이 커진다. \"비탄력적일수록 커진다\"는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3297,7 +3297,7 @@
       "공급 변화요인",
       "공급량 변화요인"
     ],
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3348,7 +3348,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 국민주택규모 이상인 주택의 리모델링에 대한 융자는 주택계정 용도에 해당하지 않는다. 주택계정은 국민주택규모(85㎡) 이하 주택 관련 지원을 원칙으로 하며, 규모 이상의 주택은 지원 대상이 아니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3403,7 +3403,7 @@
       "균형가격",
       "균형량"
     ],
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3454,7 +3454,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "민간투자사업 방식: ㄱ은 준공 후 소유권 국가 귀속·운영권 인정·국가 임차 → BTL, ㄴ은 준공 후 소유권 국가 귀속·운영권 인정 → BTO. 따라서 ㄱ=라, ㄴ=마(④)가 정답이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3505,7 +3505,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 주택담보노후연금(역모기지)은 연금 수령 기간 동안 주택에 계속 거주하면서 연금을 받는 구조로, 소유권은 사망 시 또는 계약 종료 시까지 이전되지 않는다. \"연금개시 시점에 소유권이 이전된다\"는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3556,7 +3556,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 토지선매제도는 토지거래허가구역에서 허가 신청이 있을 때 국가·지자체·LH 등이 사적 거래에 우선하여 매수할 수 있는 제도이다. 올바른 설명이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3607,7 +3607,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. LTV 기준: 5억 × 50% = 2억 5,000만원. 기대출 7,000만원 차감 → 최대 1억 8,000만원 추가 가능. DTI 기준: 연소득 6,000만원 × 40% = 2,400만원 (최대 연간 원리금 상환액) 현재 대출의 연간 원리금 = 7,000만원 × 0.1 = 700만원 추가 가능 원리금 = 2,400만 - 700만 = 1,700만원 추가 가능 대출액 = 1,700만 ÷ 0.1 = 1억 7,000만원 LTV(1억 8,000만원)와 DTI(1억 7,000만원) 중 작은 값 → 1억 7,000만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3658,7 +3658,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 부채서비스액(debt service)은 원금상환액과 이자지급액을 합산한 원리금 전체이다. \"이자를 제외한 원금만\"이라는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3709,7 +3709,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 초기투자 1억원. 1기 회수: 3,000만원 (누계 3,000만원) 2기 회수: 2,000만원 (누계 5,000만원) 3기 회수: 2,000만원 (누계 7,000만원) 3기 말까지 7,000만원 회수. 잔여 = 3,000만원. 4기 월별 균등 = 6,000만원 ÷ 12 = 500만원/월 3,000만원 회수에 필요한 개월 수 = 3,000 ÷ 500 = 6개월 3년 + 6개월 = 3년 6개월 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3760,7 +3760,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 위험조정할인율법에서 위험이 높을수록 더 높은 할인율을 적용하여 미래 소득의 현재가치를 낮춘다. \"낮은 할인율을 적용한다\"는 설명은 반대이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3811,7 +3811,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 부채비율은 지분에 대한 부채의 비율(부채 ÷ 지분)이다. 대부비율 50%이면 부채:지분 = 50:50이므로 부채비율 = 50÷50 = 100%로 맞으나, 정의 자체가 \"부채에 대한 지분의 비율\"이 아닌 \"지분에 대한 부채의 비율\"이다. 설명에서 부채비율을 \"부채에 대한 지분의 비율\"이라고 한 것이 오류이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3862,7 +3862,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 현재가치 = 1억 ÷ (1.07)^5 = 1억 ÷ 1.40255... ≈ 7,130만원 → 십만원 자리 반올림 → 7,100만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3913,7 +3913,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. DCF 분석에서 사용하는 할인율은 요구수익률 또는 지분배당률이다. 그러나 (종합)자본환원율(overall capitalization rate)은 직접환원법(소득환원법)에서 사용하는 개념으로, DCF 분석의 할인율이 아니다. 자본환원율을 DCF 분석의 요구수익률로 혼용하는 것은 개념 오류이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -3964,7 +3964,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 정액법 감가율 = (1 - 잔가율) ÷ 내용연수 = (1 - 0.1) ÷ 30 = 0.9 ÷ 30 = 0.03 = 3% ✓ 사정보정치: 정상가격 대비 20% 저가에 거래 → 거래사례를 정상가격으로 높여야 함 사정보정치 = 정상가격 ÷ 거래가격 = 1 ÷ (1-0.2) = 1 ÷ 0.8 = 1.25 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4015,7 +4015,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 표준주택은 단독주택에서만 선정한다. 공동주택(아파트, 연립, 다세대)은 별도로 공동주택가격을 공시하므로, \"단독주택 및 공동주택에서 선정\"한다는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4066,7 +4066,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 첫 번째 사례(천정 과대개량 → 선호도 하락): 각 구성요소가 균형을 이루지 못하면 전체 가치가 저하된다는 균형의 원칙(기여의 원칙)에 해당한다. 두 번째 사례(표준적 사용 확인): 부동산이 주변 환경·지역 특성에 적합하게 이용되어야 한다는 적합의 원칙에 해당한다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4117,7 +4117,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 유효총소득 = 5,000만 × (1-0.05) = 4,750만원 영업경비 = 유지관리비(150만) + 화재보험료(100만) + 개인업무비(500만) = 750만원 ※ 부채서비스액은 영업경비에 포함하지 않음 NOI = 4,750만 - 750만 = 4,000만원 (NOI에서 부채서비스액은 제외하고 순수익으로 환원) 수익가액 = NOI ÷ 환원율 = 4,000만 ÷ 0.05 = 8억원 → 단, 적산법과 병행 시 기대이율 4%를 활용하는데... ※ 수익환원법에서는 부채서비스액 제외 후: 4,500만 ÷ 0.05 = 9억원 정확한 계산: NOI = EGI - 운영경비(부채서비스 제외) = 4,750만 - (150+100+500)만 = 4,000만원. 순수익 4,500만원을 5%로 환원하면 9억원이 된다. (유지관리비+화재보험료만 포함 시: 4,750-250=4,500만. 4,500÷0.05=9억원) ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4168,7 +4168,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 건설기계는 기계·기구류로서 원가법이 주된 평가방법이다. 거래사례비교법은 토지의 주된 방법이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4219,7 +4219,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 감가수정은 재조달원가에서 감가요인(물리적·기능적·경제적 감가)을 차감하는 작업이다. \"재조달원가에 가산하여\" 가액을 적정화한다는 설명은 명백히 틀렸다. 감가이므로 차감이 맞다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4270,7 +4270,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 재조달원가 = 8,000만원 × (125/100) = 1억원 정률법 감가: 경과년수 2년, 전년대비 잔가율 70% 적산가액 = 1억 × 0.7 × 0.7 = 1억 × 0.49 = 4,900만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4321,7 +4321,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 부증성(토지면적의 불변성)으로 인해 토지공급이 늘지 않아 이용의 집약화가 이루어지고, 공급조절이 곤란하며, 희소성으로 인해 소유욕구가 증대된다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4407,7 +4407,7 @@
     ],
     "explanationSummary": "정답은 ①입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4458,7 +4458,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 건물은 토지의 정착물이지만 우리나라 민법에서 토지와 독립한 별개의 부동산으로 취급된다. \"독립된 물건으로 취급되는 것이 없다\"는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4509,7 +4509,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 공사기간이 늘어나면 금융비용·관리비 증가로 사업성에 부정적이다. 긍정적 요인은 ④ 1개뿐이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4560,7 +4560,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 대출알선은 금융서비스이며, 위탁관리형 주택임대관리업자의 법정 업무 범위에 해당하지 않는다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4611,7 +4611,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. ㄱ은 토지소유권 유지하며 수수료를 지급하는 사업위탁방식이고, ㄴ은 신탁회사가 형식적 소유권을 이전받아 개발하는 신탁개발방식이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4719,7 +4719,7 @@
       "B",
       "A와 B의 관계"
     ],
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4770,7 +4770,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 수요의 가격탄력성이 완전탄력적이면 가격 변화와 관계없이 수요량이 고정되는 것이 아니라, 미세한 가격 변화에도 수요량이 무한히 변한다. 가격 변화에 관계없이 수요량이 고정되는 것은 완전비탄력적이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4821,7 +4821,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 수요가 증가할 때 공급이 탄력적일수록 공급이 더 많이 늘어나므로 균형가격 상승폭이 오히려 작아진다. 탄력적 공급일수록 균형가격은 덜 오른다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4872,7 +4872,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 가격 5% 상승에 따른 수요량 변화: -0.6 × 5% = -3%. 전체 수요량 변화는 -1%이므로, 소득 효과 = -1% - (-3%) = +2%. 소득탄력성 0.5이므로 소득변화율 = 2% ÷ 0.5 = 4% 증가.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4923,7 +4923,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 대체재인 단독주택 가격 상승 → 상대적으로 아파트가 저렴해짐 → 아파트 수요 증가 → 수요곡선 우측 이동. 옳은 설명이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -4974,7 +4974,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 절대지대(마르크스)는 토지 자체의 생산성과 관계없이, 토지가 개인에 의해 독점적으로 소유되는 사실만으로 발생하는 지대이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5025,7 +5025,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 해리스와 울만이 주장. 집적이익·불이익, 특별 교통편익 필요 기능 등을 고려한 복수의 핵심을 가진 이론이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5076,7 +5076,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 완전정보의 가치(EVPI) = 0.5 × (6억500만 - 3억250만) ÷ 1.1² = 0.5 × 3억250만 ÷ 1.21 = 0.5 × 2억5,000만 = 1억2,500만원.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5127,7 +5127,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 레일리의 소매인력법칙: 두 도시가 소비자에게 미치는 영향력은 인구(크기)에 비례하고, 거리의 제곱에 반비례한다. \"크기에 반비례\"한다는 설명은 완전히 반대이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5178,7 +5178,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 강성(strong form) 효율적 시장에서는 내부정보를 포함한 모든 정보가 이미 가격에 반영되어 있으므로 어떤 정보를 이용해도 초과이윤을 얻을 수 없다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5229,7 +5229,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 부동산경기와 일반경기는 주기와 진폭이 일치하지 않으며, 규칙적·반복적으로 순환하지도 않는다. 부동산경기는 일반경기보다 느리게 반응하고 진폭도 다르다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5316,7 +5316,7 @@
     ],
     "explanationSummary": "정답은 ②입니다. 현행 제도는 ㄱ, ㄷ이므로 정답 ②이다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5367,7 +5367,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 재화의 동질성은 완전경쟁시장의 조건이며, 시장실패의 원인이 아니다. 오히려 이질성(부동산의 개별성)이 부동산 시장의 불완전성을 높이는 요인이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5418,7 +5418,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 국세(국가가 부과) + 보유과세(보유 중 부과) + 누진세율(과세표준 구간별 누진) 모두 해당한다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5469,7 +5469,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 개별공시지가는 시장·군수·구청장이 결정·공시한다. 국토교통부장관이 공시하는 것은 표준지공시지가이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5520,7 +5520,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 공공임대주택은 국가·지방자치단체의 재정 지원과 국민주택기금 등 외부재원을 활용하여 건설된다. 자체자금만으로 건설한다는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5571,7 +5571,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 요구수익률 = 무위험률 + 위험프리미엄. 무위험률이 하락하면 요구수익률도 하락한다. \"상승시키는 요인\"이라는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5622,7 +5622,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. ㄱ: NOI 3천만 + 자본이득(10억×2%=2천만) = 5천만. 자기자본 10억. ROE = 5%. ㄴ: 차입금 5억, 이자 5억×4%=2천만. 지분 5억. 순수익 = 3천만 - 2천만(이자) = 1천만. 자본이득 = 2천만. 합계 3천만. ROE = 3천만 ÷ 5억 = 6%.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5727,7 +5727,7 @@
     ],
     "explanationSummary": "NOI = 유효총소득(기타소득 포함) − 영업경비(재산세 포함)이므로 ㄱ 기타소득·ㅁ 재산세가 필요하다. 세전지분복귀액 = 매도가격 − 매도비용 − 미상환저당잔금이므로 ㄴ·ㄹ은 복귀액 산정용이지 NOI 산정 요소가 아니다. 취득세·양도소득세는 NOI·세전복귀액 산정에 해당하지 않는다. 정답은 ㄱ·ㅁ(②).",
     "compositeLayout": "table",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5778,7 +5778,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 현재가격이 매년 일정 비율로 상승하는 경우, 미래가격 = 현재가격 × (1+r)^n, 이는 일시불의 미래가치계수(FVIF)를 이용하는 계산이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5829,7 +5829,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 부채 활용(레버리지)에 따라 발생하는 이자 부담·채무불이행 위험을 금융위험(financial risk)이라 한다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5880,7 +5880,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. EGI = 총투자액 ÷ EGI승수 = 15억 ÷ 6 = 2.5억 NOI = EGI × (1-0.4) = 2.5억 × 0.6 = 1.5억 순소득승수 = 15억 ÷ 1.5억 = 10 ✓ 채무불이행률 = (부채서비스액 + 영업경비) ÷ EGI = (0.6억+1억) ÷ 2.5억 = 64% ✓ 세후현금흐름 = 1.5억-0.6억(부채서비스)-0.1억(세금) = 0.8억 세후현금흐름승수 = 지분투자액 ÷ 세후현금흐름 = 4억 ÷ 0.8억 = 5 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -5973,7 +5973,7 @@
     ],
     "explanationSummary": "정답은 ②입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6059,7 +6059,7 @@
     ],
     "explanationSummary": "정답은 ②입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6110,7 +6110,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 부동산투자회사는 현물출자에 의한 설립이 허용되지 않고, 반드시 현금(금전)으로만 출자하여 설립해야 한다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6161,7 +6161,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 일정 요건을 갖춘 프로젝트 회사(SPC)는 법인세 감면 혜택을 받을 수 있다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6212,7 +6212,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 주식 발행을 통해 투자자로부터 자본을 조달하는 지분금융이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6263,7 +6263,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 연간 원리금 = 4억 × 0.087 = 34,800,000원 1회차 이자 = 4억 × 6% = 24,000,000원 / 1회차 원금 = 10,800,000원 2회차 잔액 = 400,000,000 - 10,800,000 = 389,200,000원 2회차 이자 = 389,200,000 × 6% = 23,352,000원 / 2회차 원금 = 34,800,000 - 23,352,000 = 11,448,000원 ✓ 3회차 잔액 = 389,200,000 - 11,448,000 = 377,752,000원 3회차 이자 = 377,752,000 × 6% = 22,665,120원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6314,7 +6314,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 인근지역은 부동산의 이용이 동질적이고 가치형성요인 중 지역요인을 공유하는 지역이다. 개별요인이 아닌 지역요인을 공유하는 것이다. \"개별요인\"이라고 한 것이 오류이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6365,7 +6365,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 1.05(가로 5% 우세) × 0.97(고객유동성 3% 열세) × 1.00(형상 동일) × 1.04(행정규제 4% 우세) = 1.05 × 0.97 × 1.04 = 1.0185 × 1.04 ≈ 1.059",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6451,7 +6451,7 @@
     ],
     "explanationSummary": "정답은 ①입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6502,7 +6502,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 원가방식은 비용성의 원리 기반. 비교방식에는 공시지가기준법이 포함됨. 수익성 원리 기반은 수익방식이다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6553,7 +6553,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 재조달원가(기준시점) = 3억 × 1.05² = 330,750,000원 정액법 감가: 경과년수 2년, 내용년수 50년, 잔존가치 없음 적산가액 = 330,750,000 × (1 - 2/50) = 330,750,000 × 0.96 = 317,520,000원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6604,7 +6604,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 거래사례 단가 = 300,000,000 ÷ 100㎡ = 3,000,000원/㎡ 시점수정(×1.04) × 지역요인(×1.00) × 개별요인(×0.95) 대상토지 단가 = 3,000,000 × 1.04 × 1.00 × 0.95 = 2,964,000원/㎡ 총 평가액 = 2,964,000 × 120㎡ = 355,680,000원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6720,7 +6720,7 @@
       "경제적 개념",
       "물리적(기술적) 개념"
     ],
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6771,7 +6771,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. ○ 부동산관리의 의의를 높게 한다 → 영속성: 오래 지속되기 때문에 관리가 중요 ○ 장기투자를 통해 자본이득과 소득이득 → 영속성: 소멸하지 않아 장기보유 가능 ○ 부동산활동에서 장기배려 → 영속성: 장기적 관점에서 계획 필요",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6822,7 +6822,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6873,7 +6873,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6924,7 +6924,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -6975,7 +6975,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7026,7 +7026,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7077,7 +7077,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7128,7 +7128,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7179,7 +7179,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 수평 공급곡선(P=상수): 가격이 고정되어 있고 수량이 가격에 무한대로 반응 → 완전탄력적 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7230,7 +7230,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 완전탄력적 수요가 증가하면 균형가격과 균형거래량이 모두 증가하며, 가격이 불변이라는 설명은 틀렸다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7314,7 +7314,7 @@
     ],
     "explanationSummary": "정답은 ③입니다. ㄱ 튀넨의 이론을 도시 내부에 적용 → 버제스의 동심원이론(가) ✓ (튀넨의 농업 입지 원리를 도시 내부 토지이용에 적용) ㄴ 공간적 중심지 규모에 따라 상권 규모가 달라짐 → 크리스탈러의 중심지이론(다) ✓ ㄷ 최대 이익을 위한 매출액 확보 입지 → 넬슨의 소매입지이론(라) ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7365,7 +7365,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7444,7 +7444,7 @@
     ],
     "explanationSummary": "정답은 ⑤입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7495,7 +7495,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7546,7 +7546,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. LQ = (지역 산업 고용/지역 전체 고용) / (전국 산업 고용/전국 전체 고용) A지역 X산업(ㄱ): LQ = (100/200) / (240/400) = 0.5 / 0.6 = 0.833 → 0.83 ✓ B지역 Y산업(ㄴ): LQ = (60/200) / (160/400) = 0.3 / 0.4 = 0.75 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7597,7 +7597,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7648,7 +7648,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7699,7 +7699,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7750,7 +7750,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7801,7 +7801,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7852,7 +7852,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7903,7 +7903,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -7989,7 +7989,7 @@
     ],
     "explanationSummary": "정답은 ④입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8040,7 +8040,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8091,7 +8091,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8142,7 +8142,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8193,7 +8193,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8244,7 +8244,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. OER(유효총소득 기준)=영업경비÷EGI=1,000÷1,500≈0.667이며 0.8이 아니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8295,7 +8295,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8346,7 +8346,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8397,7 +8397,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. PV: 1년차: 3,000 × 0.95 = 2,850만원 2년차: 3,100 × 0.90 = 2,790만원 3년차: 3,200 × 0.85 = 2,720만원 합계: 2,850 + 2,790 + 2,720 = 8,360만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8448,7 +8448,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8499,7 +8499,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8550,7 +8550,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8601,7 +8601,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8652,7 +8652,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. NOI: 7,200 - 700 = 6,500만원 수익가액 = NOI / 환원율 = 6,500 / 0.10 = 65,000만원 = 6억 5천만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8703,7 +8703,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8754,7 +8754,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 비교 표준지 선택: 대상 토지(일반상업지역, 상업용)와 용도지역·이용상황이 동일한 표준지 기호 2(일반상업지역, 상업용) 선택. 표준지 2 공시지가: 2,000,000원/㎡ 시점수정(상업지역 5% 상승): × 1.05 지역요인: × 1.00 (인근지역) 개별요인(기호 2 대비 가로조건 10% 우세): × 1.10 기타요인: × 1.00 (보정 없음) 가액 = 2,000,000 × 1.05 × 1.00 × 1.10 × 1.00 = 2,000,000 × 1.155 = 2,310,000원/㎡ ✓ 비교 표준지가 아님.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8805,7 +8805,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8856,7 +8856,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8907,7 +8907,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -8993,7 +8993,7 @@
     ],
     "explanationSummary": "정답은 ③입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9093,7 +9093,7 @@
     ],
     "explanationSummary": "정답은 ③입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9144,7 +9144,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9195,7 +9195,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9246,7 +9246,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9297,7 +9297,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 공급곡선 기울기(ㄴ): Qs₁ = 30+P → P = Qs-30, 기울기 = 1 Qs₂ = 30+2P → P = (Qs-30)/2, 기울기 = 1/2 기울기 변화: 1 → 1/2, 즉 1/2 감소 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9348,7 +9348,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. ㅇ 가계 자산: 특정 시점의 양 → 저량(stock) ㅇ 노동자 소득: 일정 기간 동안 벌어들인 양 → 유량(flow) ✓ ㅇ 가계 소비: 일정 기간 동안 사용하는 양 → 유량(flow) ✓ ㅇ 통화량: 특정 시점에 유통되는 화폐의 양 → 저량(stock) ㅇ 자본총량: 특정 시점의 자본 합계 → 저량(stock) ㅇ 신규주택 공급량: 일정 기간 동안 새로 공급된 양 → 유량(flow) ✓ 유량 변수: 소득, 소비, 신규주택 공급량 = 3개 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9399,7 +9399,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9450,7 +9450,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9501,7 +9501,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9602,7 +9602,7 @@
     ],
     "explanationSummary": "정답은 ②입니다. 직접개입: ㄱ, ㄴ, ㅂ → ②번 ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9688,7 +9688,7 @@
     ],
     "explanationSummary": "정답은 ④입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9739,7 +9739,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9790,7 +9790,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9876,7 +9876,7 @@
     ],
     "explanationSummary": "정답은 ④입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -9927,7 +9927,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10021,7 +10021,7 @@
     ],
     "explanationSummary": "정답은 ③입니다. 수요 감소 요인: ㄴ, ㅁ → ③번 ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10072,7 +10072,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10123,7 +10123,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10174,7 +10174,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10261,7 +10261,7 @@
     ],
     "explanationSummary": "정답은 ③입니다. ㄴ 공인중개사제도: 1983년 (부동산중개업법) ㄷ 부동산실명제: 1995년 (부동산 실권리자명의 등기에 관한 법률) ㄱ 자산유동화제도: 1998년 (자산유동화에 관한 법률) ㄹ 부동산거래신고제: 2006년 (부동산 거래신고 등에 관한 법률) 도입 순서: ㄴ(1983) → ㄷ(1995) → ㄱ(1998) → ㄹ(2006) → ③번 ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10348,7 +10348,7 @@
     ],
     "explanationSummary": "정답은 ①입니다. 현재 시행 중: ㄱ, ㄷ → ①번 ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10399,7 +10399,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10492,7 +10492,7 @@
     ],
     "explanationSummary": "정답은 ②입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10543,7 +10543,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 현금유출 PV (유입의 80%): 1년차: 800 × 0.95 = 760만원 2년차: 960 × 0.90 = 864만원 총 PV(유출) = 1,624만원 PI = PV(유입) / PV(유출) = 2,030 / 1,624 = 1.25 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10594,7 +10594,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10645,7 +10645,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 총 매출액 - 손익분기점 = 초과 매출액 30,000 - 손익분기점 = 10,000 → 손익분기점 = 20,000만원 = 2억원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10696,7 +10696,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10747,7 +10747,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 2회차 초 잔액 = 4억 - 1,000만원 = 39,000만원 2회차 이자 = 39,000 × 6.5% = 2,535만원 2회차 원금 = 3,600 - 2,535 = 1,065만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10841,7 +10841,7 @@
     ],
     "explanationSummary": "정답은 ②입니다. 지분금융: ㄱ, ㄷ → ②번 ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10892,7 +10892,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -10943,7 +10943,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 두 기준 중 더 제약적인 것: LTV 1억 < DTI 1억 5,000만원 → 최대 추가대출 = 1억원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11037,7 +11037,7 @@
     ],
     "explanationSummary": "정답은 ③입니다. 생략 가능: ㄱ, ㄴ, ㄷ, ㅁ → ③번 ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11088,7 +11088,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11139,7 +11139,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11190,7 +11190,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 경과연수 = 2020.9.1 - 2018.9.1 = 2년 잔가율 = 10% → 감가 대상 = 90% 정액법 연간 감가율 = 90% / 40년 = 2.25%/년 2년간 감가액 = 6,600만원 × 2.25% × 2 = 6,600만원 × 4.5% = 297만원 적산가액 = 6,600 - 297 = 6,303만원 = 63,030,000원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11241,7 +11241,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 사정보정: 정상 거래 → × 1.00 시점수정: 상업지역 5% 상승 → × 1.05 지역요인: 인근지역 → × 1.00 개별요인: 3% 우세 → × 1.03 ㎡당 비준가액 = 2,000,000 × 1.00 × 1.05 × 1.00 × 1.03 = 2,000,000 × 1.0815 = 2,163,000원/㎡ 총 비준가액 = 2,163,000 × 110㎡ = 237,930,000원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11292,7 +11292,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11343,7 +11343,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11394,7 +11394,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11480,7 +11480,7 @@
     ],
     "explanationSummary": "정답은 ④입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11531,7 +11531,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11582,7 +11582,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11633,7 +11633,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 거미집이론 판별: |수요곡선 기울기| vs |공급곡선 기울기| (P–Q 도표, X=수량·Y=가격) - |수요 기울기| > |공급 기울기| → 발산형 - |수요 기울기| < |공급 기울기| → 수렴형 - 같으면 → 순환형 A주택시장: Qd = 200 - P, Qs = 100 + 4P Qd → P = 200 - Q → |수요 기울기| = 1 Qs → P = (1/4)Q - 25 → |공급 기울기| = 1/4 1 > 1/4 → 수요가 더 가파름 → A 발산형 B주택시장: Qd = 500 - 2P, Qs = 200 + (1/2)P Qd → P = 250 - (1/2)Q → |수요 기울기| = 1/2 Qs → P = 2Q - 400 → |공급 기울기| = 2 1/2 < 2 → B 수렴형 → A 발산형, B 수렴형 → ④",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11684,7 +11684,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11735,7 +11735,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 수요자수 2배 → 시장수요량 2배: 새 Qd = 2(-2P+240) = -4P+480 새 균형: -4P+480 = P-60 → 5P=540 → P=108, Q=48 균형가격 차액 = 108 - 100 = 8만원... 아니다 다시 계산. 기존 균형: -2P+240 = P-60 → 300=3P → P=100 수요자 2배: 총수요 = -4P+480 새 균형: -4P+480 = P-60 → 540=5P → P=108 차액 = 108-100 = 8만원 → ①번이 아닌데... 다시 확인: 문제 수요함수 Qd = -2P+240, 공급함수 Qs = P-60 기존 균형: P=100, Q=40 ✓ 수요자 2배: 개별수요 Qd_i = -2P+240이면 시장수요(n명) = n × 개별수요 기존 n명 → 2n명으로 증가 기존 시장수요가 이미 시장수요이므로 2배하면: 새 Qd = 2(-2P+240) = -4P+480 새 균형: -4P+480 = P-60 → 5P=540 → P=108 차액 = 8만원 그런데 정답이 ①(24만원)이라면... 문제 원문에서 수요함수를 다르게 읽어야 할 수도 있음. Qd = -P/2 + 240? 또는 다른 형식? PDF 원문: Qd = -2P + 240, Qs = P - 60 으로 읽었는데, 실제 정답 ①(24만원)에 맞추면: 기존 균형: P=100 새 균형: P=124 → 차액 24만원 새 Qd = -4P+480이면: -4P+480=P-60 → 540=5P → P=108 (8만원) 새 Qd = -2(P-120)+240 이런 형식이 아닌가? 정답이 ①(24만원)으로 확정되어 있으므로 그에 따라 기술:",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11786,7 +11786,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. ㅇ 건설노동자 임금 상승: 생산비 증가 → 공급 감소 → 가격 상승 [하락 X] ㅇ 대체주택 수요 감소: 대체재 수요 감소 → 아파트 수요 감소 → 가격 하락 [하락 ✓] ㅇ 가구 실질소득 증가: 정상재이므로 수요 증가 → 가격 상승 [하락 X] ㅇ 아파트건설업체수 증가: 공급 증가 → 가격 하락 [하락 ✓] ㅇ 건설용 토지가격 상승: 생산비 증가 → 공급 감소 → 가격 상승 [하락 X] ㅇ 아파트 선호도 감소: 수요 감소 → 가격 하락 [하락 ✓] 가격 하락 요인: 대체주택 수요 감소, 건설업체수 증가, 선호도 감소 = 3개 해당재 수요 증가)로 해석할 수도 있음. 이 경우 가격 하락 요인: 아파트건설업체수 증가, 아파트 선호도 감소 = 2개 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11837,7 +11837,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11888,7 +11888,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -11939,7 +11939,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12023,7 +12023,7 @@
     ],
     "explanationSummary": "효율적 시장은 누적 적용: 약형(A)은 과거정보(ㄱ), 준강형(B)은 ㄱ+공표정보(ㄴ), 강형(C)은 ㄱ+ㄴ+미공표정보(ㄷ). 정답 ② A-(ㄱ), B-(ㄱ,ㄴ), C-(ㄱ,ㄴ,ㄷ).",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12074,7 +12074,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12125,7 +12125,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12176,7 +12176,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12227,7 +12227,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12278,7 +12278,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12329,7 +12329,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. PV = 120 × 3.50 + 1,420 × 0.60 = 420 + 852 = 1,272... 아니다 1∼7년 모두 120만원 + 7년차에 추가 1,300만원 PV(1∼7년 연금 120) = 120 × 3.50 = 420만원 PV(7년차 일시불 1,300) = 1,300 × 0.60 = 780만원 PV(7년차 120은 이미 연금에 포함) 총 PV = 420 + 780 = 1,200만원 NPV = 1,200 - 1,100 = 100만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12380,7 +12380,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12431,7 +12431,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12482,7 +12482,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②, ④ (복수 정답)입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12533,7 +12533,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12584,7 +12584,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 계산 (할인율 5%): A: NPV = 6,825/1.05 - 3,800 = 6,500 - 3,800 = 2,700만원 PI = 6,500/3,800 = 1.71 B: NPV = 2,940/1.05 - 1,250 = 2,800 - 1,250 = 1,550만원 PI = 2,800/1,250 = 2.24 C: NPV = 4,725/1.05 - 1,800 = 4,500 - 1,800 = 2,700만원 PI = 4,500/1,800 = 2.50",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12677,7 +12677,7 @@
     ],
     "explanationSummary": "정답은 ③입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12728,7 +12728,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. LQ 공식: (지역 산업 고용/지역 전체 고용) / (전국 산업 고용/전국 전체 고용) A지역 (전체 90명, 전국 190명): X: (30/90)/(80/190) = 0.333/0.421 = 0.79 < 1 → 비기반 Y: (30/90)/(60/190) = 0.333/0.316 = 1.055 > 1 → 기반 ✓ Z: (30/90)/(50/190) = 0.333/0.263 = 1.27 > 1 → 기반 ✓ A지역 기반산업: Y, Z → 2개 B지역 (전체 100명, 전국 190명): X: (50/100)/(80/190) = 0.50/0.421 = 1.19 > 1 → 기반 ✓ Y: (30/100)/(60/190) = 0.30/0.316 = 0.95 < 1 → 비기반 Z: (20/100)/(50/190) = 0.20/0.263 = 0.76 < 1 → 비기반 (문제에 주어진 값 확인) B지역 기반산업: X → 1개 → A: 2개, B: 1개 → ⑤번 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12779,7 +12779,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. 3회차 초 잔액 = 6억 - (2회 × 2,000만원) = 6억 - 4,000만원 = 56,000만원 3회차 이자 = 56,000 × 4% = 2,240만원 3회차 원리금 = 2,000 + 2,240 = 4,240만원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12873,7 +12873,7 @@
     ],
     "explanationSummary": "정답은 ②입니다. 메자닌금융: 선순위 부채와 지분 사이의 중간 위험·수익 단계의 금융.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12924,7 +12924,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -12975,7 +12975,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13059,7 +13059,7 @@
     ],
     "explanationSummary": "정답은 ④입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13110,7 +13110,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13161,7 +13161,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13212,7 +13212,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13263,7 +13263,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13314,7 +13314,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13365,7 +13365,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13416,7 +13416,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13467,7 +13467,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13518,7 +13518,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 시산가액 = 10,000,000 × 1.05 × 1.00 × 0.88 × 1.50 = 10,000,000 × 1.386 = 13,860,000원/㎡ ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13569,7 +13569,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13620,7 +13620,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13671,7 +13671,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13765,7 +13765,7 @@
     ],
     "explanationSummary": "정답은 ④입니다. 공급 감소 요인: ㄱ, ㄴ, ㄹ → ④번 ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13816,7 +13816,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13867,7 +13867,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13918,7 +13918,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -13969,7 +13969,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14020,7 +14020,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14118,7 +14118,7 @@
     ],
     "explanationSummary": "정답은 전원정답(①②③④⑤ 모두 정답)입니다. ㄱ~ㅁ 모두 옳은 설명이나 선지 구성상 오류로 판정됨.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14169,7 +14169,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14220,7 +14220,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. (55%: 개발 안 될 때 투자를 회피함으로써 얻는 이익)",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14271,7 +14271,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14322,7 +14322,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. Ba + Bb = 1이고 Ba = (1/4)Bb → (1/4)Bb + Bb = 1 → (5/4)Bb = 1 → Bb = 0.8, Ba = 0.2 A도시: 10억 × 0.2 = 2억원 ✓ B도시: 10억 × 0.8 = 8억원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14408,7 +14408,7 @@
     ],
     "explanationSummary": "정답은 ⑤입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14497,7 +14497,7 @@
       }
     ],
     "explanationSummary": "국토계획법상 용도지역은 도시지역·관리지역·농림지역·자연환경보전지역으로 나뉘고, 도시지역은 주거지역·상업지역·공업지역·녹지지역으로 구분된다. 따라서 ㄹ(녹지지역)만 해당한다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14548,7 +14548,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14599,7 +14599,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14685,7 +14685,7 @@
     ],
     "explanationSummary": "정답은 ②입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14736,7 +14736,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 4층, 바닥면적 600㎡(660㎡ 이하), 8세대, 취사시설 있음 → 공동주택으로 분류",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14787,7 +14787,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14838,7 +14838,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14889,7 +14889,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14940,7 +14940,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -14991,7 +14991,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15042,7 +15042,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. ㄱ) 타인자본 40% 활용: 대출 = 8,000만원, 자기자본 = 12,000만원 이자 = 8,000 × 5% = 400만원 세전현금수지 = 700 - 400 = 300만원 매각가 20,600만원 - 대출상환 8,000만원 = 12,600만원 자본이득 = 12,600 - 12,000 = 600만원 총수익 = 300 + 600 = 900만원 수익률 = 900 / 12,000 = 7.5% ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15093,7 +15093,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15144,7 +15144,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15195,7 +15195,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15279,7 +15279,7 @@
     ],
     "explanationSummary": "duration(짧은→긴): 원금균등(ㄱ, 초기 원금 많이 상환) → 원리금균등(ㄴ) → 만기일시(ㄷ, 원금 만기 일시상환). 정답 ①.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15330,7 +15330,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15381,7 +15381,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15432,7 +15432,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15483,7 +15483,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15576,7 +15576,7 @@
     ],
     "explanationSummary": "정답은 ④입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15627,7 +15627,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15678,7 +15678,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 물리적 투자결합법 종합환원율: = 토지비율 × 토지환원율 + 건물비율 × 건물환원율 = 0.6 × 5% + 0.4 × 10% = 3% + 4% = 7% 수익가액 = NOI / 종합환원율 = 38,500,000 / 0.07 = 550,000,000원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15729,7 +15729,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15780,7 +15780,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 사정보정: × 0.9 시점수정: 주거지역(제2종일반주거지역) 5% 상승 → × 1.05 지역요인: × 1.00 (동일) 개별요인: 5% 열세 → × 0.95 ㎡당 비준가액 = 4,000,000 × 0.9 × 1.05 × 1.00 × 0.95 = 4,000,000 × 0.89775 = 3,591,000원/㎡ 총 비준가액 = 3,591,000 × 150㎡ = 538,650,000원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15831,7 +15831,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15882,7 +15882,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -15933,7 +15933,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16024,7 +16024,7 @@
     ],
     "explanationSummary": "정답은 ④입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16075,7 +16075,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16126,7 +16126,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16177,7 +16177,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16228,7 +16228,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16279,7 +16279,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16330,7 +16330,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16381,7 +16381,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16432,7 +16432,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. LQ 공식: (Xi/Xt) / (Ni/Nt) (Xi=X지역 해당산업, Xt=X지역 전체, Ni=전지역 해당산업, Nt=전지역 전체) A산업: (30/320) / (80/540) = 0.09375/0.14815 = 0.63 < 1 → 비기반 B산업: (50/320) / (90/540) = 0.15625/0.16667 = 0.94 < 1 → 비기반 C산업: (60/320) / (110/540) = 0.1875/0.2037 = 0.92 < 1 → 비기반 D산업: (100/320) / (120/540) = 0.3125/0.2222 = 1.41 > 1 → 기반산업 ✓ E산업: (80/320) / (140/540) = 0.25/0.2593 = 0.96 < 1 → 비기반 기반산업(LQ>1): D산업만 → 1개",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16483,7 +16483,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다. 총 월 소비액 = 10,000명 × 30만원 = 30억원 마찰계수 = 2 (올바른 값): 효용A = 750/5² = 30, 효용B = 2500/10² = 25, 효용C = 500/5² = 20 합계 = 75 P(A) = 30/75 = 0.4 → A 월 매출 = 30억 × 0.4 = 12억원 마찰계수 = 1 (잘못된 값): 효용A = 750/5¹ = 150, 효용B = 2500/10¹ = 250, 효용C = 500/5¹ = 100 합계 = 500 P(A) = 150/500 = 0.3 → A 월 매출 = 30억 × 0.3 = 9억원 차이 = 12억 - 9억 = 3억원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16534,7 +16534,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16585,7 +16585,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16697,7 +16697,7 @@
     ],
     "explanationSummary": "정답은 전원정답(①②③④⑤ 모두 정답)입니다. 객관적으로 가장 옳은 내용을 포함하는 ③이 정답에 가깝다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16812,7 +16812,7 @@
     ],
     "explanationSummary": "정답은 ②입니다. 시행되지 않는 것: ㄱ, ㄷ, ㅇ → ② ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16863,7 +16863,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -16914,7 +16914,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17008,7 +17008,7 @@
     ],
     "explanationSummary": "정답은 ③입니다. 틀린 것: ㄱ, ㄹ, ㅁ → ③번 ✓",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17074,7 +17074,7 @@
       "ㄱ",
       "ㄴ"
     ],
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17160,7 +17160,7 @@
     ],
     "explanationSummary": "정답은 ④입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17211,7 +17211,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다. PGI: 5,000만원 공실: 5,000 × 10% = 500만원 EGI: 4,500만원 영업경비: 4,500 × 28% = 1,260만원 NOI: 4,500 - 1,260 = 3,240만원 DCR = NOI / DS = 3,240 / 3,000 = 1.08 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17262,7 +17262,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다. 세후현금흐름승수 = 지분투자액 / ATCF = 36,000 / 3,600 = 10 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17313,7 +17313,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17364,7 +17364,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ③입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17415,7 +17415,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17466,7 +17466,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 전원정답(①②③④⑤ 모두 정답)입니다. 각 선지의 내용이 명확한 정오(正誤) 판단이 어려운 문제로 정답 없이 전원 처리되었으므로 앱 적용 시 모든 보기를 [O]로 처리한다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17517,7 +17517,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17568,7 +17568,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17619,7 +17619,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17712,7 +17712,7 @@
     ],
     "explanationSummary": "정답은 ②입니다.",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17817,7 +17817,7 @@
     ],
     "explanationSummary": "정답은 ⑤입니다. 자기관리방식: ㄱ(소유자 직접 통제), ㄷ(기밀·보안 유리) 위탁관리방식: ㄴ(전문성·효율성), ㄹ(고도화 대응), ㅁ(대형건물 유용), ㅂ(소유·경영 분리)",
     "compositeLayout": "statements",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17868,7 +17868,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17919,7 +17919,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. BOT(Build-Operate-Transfer): - ㄱ 준공 후(b): 시설이 완공된 후부터 소유권 인정 - ㄴ 사업시행자(c): 일정기간 동안 민간 사업시행자가 소유권 보유 - ㄷ 시설소유권(e): 기간 만료 후 귀속되는 것 - ㄹ 국가 또는 지방자치단체(d): 소유권이 귀속되는 주체",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -17970,7 +17970,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ④입니다. 비교표준지 선택: 대상토지(일반상업지역, 상업용)와 용도지역·이용상황 모두 동일한 표준지 기호 2(일반상업지역, 상업용) 선택. 표준지 2 공시지가: 8,000,000원/㎡ 시점수정(상업지역 5% 상승): × 1.05 지역요인: × 1.00 (인근지역) 개별요인(기호 2 대비 3% 열세): × 0.97 기타요인(50% 증액): × 1.50 시산가액 = 8,000,000 × 1.05 × 1.00 × 0.97 × 1.50 = 8,000,000 × 1.52775 = 12,222,000원/㎡ ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -18021,7 +18021,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 경과연수 = 2023.10.28 - 2015.10.28 = 8년 정액법 감가율 = 1/50 × 8 = 0.16 감가누계액 = 450,000,000 × 0.16 = 72,000,000원 시산가액 = 450,000,000 - 72,000,000 = 378,000,000원 ✓",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -18072,7 +18072,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ⑤입니다. 주된 감정평가방법 분류: - 상표권: 수익환원법 ✓ - 임대료: 임대사례비교법 ✗ - 저작권: 수익환원법 ✓ - 특허권: 수익환원법 ✓ - 과수원: 거래사례비교법 ✗ - 기업가치: 수익환원법 ✓ - 광업재단: 수익환원법 ✓ - 실용신안권: 수익환원법 ✓ 수익환원법인 것: 상표권, 저작권, 특허권, 기업가치, 광업재단, 실용신안권 6개가 수익환원법이라는 분석도 있었으나 공식 정답은 ⑤(5개).",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -18123,7 +18123,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -18174,7 +18174,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ②입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
@@ -18225,7 +18225,7 @@
     ],
     "comboChoices": [],
     "explanationSummary": "정답은 ①입니다.",
-    "free": true
+    "free": false
   },
   {
     "subject": "realestate",
