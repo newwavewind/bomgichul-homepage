@@ -29,11 +29,33 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
   title: {
     default: SITE_TITLE,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  keywords: [
+    "봄기출",
+    "기출문제",
+    "공무원 기출문제",
+    "9급 공무원",
+    "국가직 기출문제",
+    "지방직 기출문제",
+    "공인중개사 기출문제",
+    "공인중개사 시험",
+    "무료 기출문제",
+  ],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "education",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
+  },
   icons: {
     shortcut: `${SITE_URL}/favicon.ico`,
     apple: [

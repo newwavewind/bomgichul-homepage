@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPublicServiceExamSessions, getPublicServiceSubject } from "@/lib/public-service-content";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildBreadcrumbJsonLd, buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ subject: string }> };
 
@@ -17,13 +17,18 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
   const { subject: subjectId } = await params;
   const data = getPublicServiceSubject(subjectId);
   if (!data) notFound();
+  const path = `/public-service/exam/${subjectId}`;
+  const description = `${data.subject.label} 국가직·지방직 기출 ${data.exams.length}문항과 정답 해설`;
   const sessions = getPublicServiceExamSessions(subjectId);
   const sessionsBySource = sessions.reduce<Map<string, typeof sessions>>((groups, session) => {
     groups.set(session.sourceCode, [...(groups.get(session.sourceCode) ?? []), session]);
     return groups;
   }, new Map());
   return (
-    <div className="px-4 py-8 md:py-12"><div className="mx-auto max-w-[var(--page-max-width)]">
+    <div className="px-4 py-8 md:py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildPublicServiceLearningResourceJsonLd({ name: `${data.subject.label} 국가직·지방직 기출문제`, description, path, learningResourceType: "Quiz" })) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbJsonLd([{ name: "홈", path: "/" }, { name: "공무원", path: "/public-service" }, { name: `${data.subject.label} 기출문제`, path }])) }} />
+      <div className="mx-auto max-w-[var(--page-max-width)]">
       <Link href="/public-service" className="font-display text-body-sm text-fog hover:text-ink">← 공무원 과목</Link>
       <header className="mt-6 border-b border-mist pb-8">
         <p className="font-display text-[13px] font-semibold text-electric-blue">{data.subject.track} · 기출문제</p>
@@ -56,6 +61,7 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
           ))}
         </div>
       </section>
-    </div></div>
+      </div>
+    </div>
   );
 }

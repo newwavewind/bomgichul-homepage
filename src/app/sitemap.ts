@@ -45,6 +45,12 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     priority: 0.9,
   },
   {
+    url: `${SITE_URL}/public-service/community`,
+    lastModified: new Date(),
+    changeFrequency: "daily",
+    priority: 0.8,
+  },
+  {
     url: `${SITE_URL}/archive`,
     lastModified: new Date(),
     changeFrequency: "daily",
@@ -157,7 +163,7 @@ async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("posts")
-    .select("id, category, updated_at")
+    .select("id, category, community_scope, updated_at")
     .not("category", "in", "(bug,feedback)")
     .order("updated_at", { ascending: false })
     .limit(5000);
@@ -168,6 +174,8 @@ async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
     url:
       post.category === "resource"
         ? `${SITE_URL}/archive/${post.id}`
+        : post.community_scope === "public_service"
+          ? `${SITE_URL}/public-service/community/${post.id}`
         : `${SITE_URL}/community/${post.id}`,
     lastModified: new Date(post.updated_at),
     changeFrequency: "weekly" as const,

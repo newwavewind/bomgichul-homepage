@@ -204,6 +204,74 @@ export function buildWebSiteJsonLd() {
   };
 }
 
+export function buildPlatformHomeJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "공무원·공인중개사 기출 학습",
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    inLanguage: "ko-KR",
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      name: "봄기출 시험별 학습",
+      numberOfItems: 2,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "9급 공무원 국가직·지방직 기출 학습",
+          url: absoluteUrl("/public-service"),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "공인중개사 1·2차 기출 학습",
+          url: absoluteUrl("/real-estate"),
+        },
+      ],
+    },
+  };
+}
+
+export function buildPublicServiceLearningResourceJsonLd({
+  name,
+  description,
+  path,
+  learningResourceType,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  learningResourceType: "Course" | "Concept" | "Quiz";
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    name,
+    description: truncateDescription(description, 500),
+    url: absoluteUrl(path),
+    inLanguage: "ko-KR",
+    learningResourceType,
+    educationalLevel: "9급 공무원 시험",
+    about: {
+      "@type": "Thing",
+      name: "9급 공무원 국가직·지방직 시험",
+    },
+    isAccessibleForFree: true,
+    provider: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  };
+}
+
 /** 기출 문항 Quiz 구조화 데이터 — 검색에서 문제·정답 맥락 노출에 도움 */
 export function buildExamQuizJsonLd({
   title,

@@ -28,8 +28,11 @@ export function PlatformHome() {
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
         <header className="mx-auto max-w-3xl text-center">
           <h1 className="font-display text-heading font-semibold tracking-tight text-ink md:text-heading-lg">
-            준비하는 시험을 선택하세요
+            공무원·공인중개사 기출 학습
           </h1>
+          <p className="sr-only">
+            국가직·지방직 9급 공무원과 공인중개사 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
+          </p>
         </header>
 
         <section className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
