@@ -1,78 +1,21 @@
-"use client";
-
-import { useEffect, useId, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
-const BETA_HINT =
-  "지금은 베타 버전이에요. 다듬는 중이라 아직 미완인 부분이 있지만, 업데이트는 계속됩니다.";
-
 export function LogoMark() {
-  const [open, setOpen] = useState(false);
-  const tipId = useId();
-  const wrapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const onPointerDown = (e: PointerEvent) => {
-      if (!wrapRef.current?.contains(e.target as Node)) setOpen(false);
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("pointerdown", onPointerDown);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("pointerdown", onPointerDown);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open]);
-
   return (
-    <div ref={wrapRef} className="relative flex items-center gap-2">
-      <Link
-        href="/"
-        className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
-      >
-        <Image
-          src="/brand/whale-mark.png"
-          alt="봄기출"
-          width={36}
-          height={36}
-          className="size-9 shrink-0 object-contain"
-        />
-        <span className="font-display text-body font-semibold text-ink">
-          봄기출
-        </span>
-      </Link>
-
-      <div className="group">
-        <button
-          type="button"
-          aria-describedby={tipId}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-5 items-center rounded-full border border-ios-blue/30 bg-ios-blue/[0.1] px-1.5 font-display text-[10px] font-semibold uppercase tracking-[0.06em] text-ios-blue transition-colors hover:border-ios-blue/45 hover:bg-ios-blue/[0.16]"
-        >
-          Beta
-        </button>
-
-        <p
-          id={tipId}
-          role="tooltip"
-          className={`pointer-events-none absolute left-0 top-[calc(100%+0.5rem)] z-50 w-[min(16.5rem,calc(100vw-2.5rem))] rounded-[var(--radius-cards)] border border-carbon/10 bg-carbon px-3 py-2.5 font-display text-[12px] font-medium leading-relaxed text-paper shadow-[var(--shadow-card)] transition-[opacity,transform] duration-150 ${
-            open
-              ? "visible translate-y-0 opacity-100"
-              : "invisible -translate-y-0.5 opacity-0 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
-          }`}
-        >
-          {BETA_HINT}
-          <span
-            aria-hidden
-            className="absolute -top-1.5 left-[8.65rem] size-3 rotate-45 border-l border-t border-carbon/10 bg-carbon"
-          />
-        </p>
-      </div>
-    </div>
+    <Link
+      href="/"
+      className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+    >
+      <span className="flex size-9 shrink-0 items-center justify-center rounded-[11px] bg-[#e8f0ff] shadow-[inset_0_0_0_1px_rgba(29,78,216,0.14)]" aria-hidden>
+        <svg width="27" height="27" viewBox="0 0 27 27" fill="none">
+          <path d="M4.25 7.2C7.55 6.7 10.25 7.45 13.5 9.7V21.65C10.3 19.4 7.55 18.65 4.25 19.2V7.2Z" fill="white" stroke="#1D4ED8" strokeWidth="1.45" strokeLinejoin="round" />
+          <path d="M22.75 7.2C19.45 6.7 16.75 7.45 13.5 9.7V21.65C16.7 19.4 19.45 18.65 22.75 19.2V7.2Z" fill="white" stroke="#1D4ED8" strokeWidth="1.45" strokeLinejoin="round" />
+          <path d="M13.5 9.45C13.25 6.25 15.2 3.95 18.45 3.7C18.55 6.75 16.75 8.75 13.5 9.45Z" fill="#20A486" />
+          <path d="M13.5 9.45C12.95 7.25 11.45 5.9 9.2 5.75C9.25 7.9 10.75 9.15 13.5 9.45Z" fill="#66C8A7" />
+          <path d="M13.5 9.5V21.65" stroke="#1D4ED8" strokeWidth="1.25" strokeLinecap="round" />
+        </svg>
+      </span>
+      <span className="font-display text-body font-semibold text-ink">봄기출</span>
+    </Link>
   );
 }

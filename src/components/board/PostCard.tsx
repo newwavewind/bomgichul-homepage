@@ -15,6 +15,7 @@ interface PostCardProps {
   authorRank?: OceanRank;
   viewCount: number;
   createdAt: string;
+  baseHref?: string;
 }
 
 export function PostCard({
@@ -26,10 +27,11 @@ export function PostCard({
   authorRank,
   viewCount,
   createdAt,
+  baseHref = "/community",
 }: PostCardProps) {
   return (
     <Link
-      href={`/community/${id}`}
+      href={`${baseHref}/${id}`}
       className="flex items-center gap-4 border-b border-mist/60 px-6 py-5 transition-colors last:border-b-0 hover:bg-snow"
     >
       <span

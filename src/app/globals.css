@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  /* Neutral slate + teal — gender-neutral study platform */
-  --color-ink: #1e293b;
-  --color-carbon: #0f172a;
-  --color-midnight: #0f172a;
+  /* Blue + teal learning palette — avoid black UI accents */
+  --color-ink: #243b53;
+  --color-carbon: #1d4ed8;
+  --color-midnight: #1e40af;
   --color-smoke: #475569;
   --color-fog: #64748b;
   --color-ash: #94a3b8;
@@ -75,16 +75,16 @@
   --radius-icons: 999px;
 
   --shadow-subtle: rgba(15, 23, 42, 0.08) 0px 1px 2px 0px;
-  --shadow-button: rgba(15, 23, 42, 0.12) 0px 1px 2px 0px;
+  --shadow-button: rgba(29, 78, 216, 0.14) 0px 1px 2px 0px;
   --shadow-elevated: rgba(15, 23, 42, 0.06) 0px 2px 20px 0px;
   --shadow-subtle-3: rgba(15, 23, 42, 0.06) 0px 2px 8px 0px;
   --shadow-card: rgba(15, 23, 42, 0.06) 0px 2px 20px 0px;
 }
 
 @theme inline {
-  --color-ink: #1e293b;
-  --color-carbon: #0f172a;
-  --color-midnight: #0f172a;
+  --color-ink: #243b53;
+  --color-carbon: #1d4ed8;
+  --color-midnight: #1e40af;
   --color-smoke: #475569;
   --color-fog: #64748b;
   --color-ash: #94a3b8;

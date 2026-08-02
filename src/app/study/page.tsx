@@ -1,6 +1,6 @@
 import { permanentRedirect } from "next/navigation";
 
-/** 학습 허브는 홈(`/`)과 동일 — soft-duplicate 방지 */
+/** 기존 학습 허브 주소는 공인중개사 학습 홈으로 유지 */
 export default function StudyHubPage() {
-  permanentRedirect("/");
+  permanentRedirect("/real-estate");
 }

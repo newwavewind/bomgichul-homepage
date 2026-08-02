@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { StudyHub } from "@/components/study/StudyHub";
+import { PlatformHome } from "@/components/platform/PlatformHome";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -9,7 +9,7 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/",
 });
 
-/** 홈 = 학습 허브 (구 랜딩 제거) */
+/** 종합학습 플랫폼 홈 — 시험 종류를 선택하는 첫 화면 */
 export default function HomePage() {
-  return <StudyHub />;
+  return <PlatformHome />;
 }

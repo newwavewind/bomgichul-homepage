@@ -11,6 +11,7 @@ export type PostCategory =
 
 /** 커뮤니티 목록 필터 (베스트는 DB 카테고리가 아닌 가상 필터) */
 export type CommunityListFilter = PostCategory | "all" | "best";
+export type CommunityScope = "real_estate" | "public_service";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 
@@ -36,6 +37,7 @@ export interface Post {
   id: string;
   author_id: string;
   category: PostCategory;
+  community_scope: CommunityScope;
   title: string;
   content: string;
   view_count: number;
@@ -52,6 +54,7 @@ export interface PostListItem {
   id: string;
   author_id: string;
   category: PostCategory;
+  community_scope: CommunityScope;
   title: string;
   view_count: number;
   created_at: string;

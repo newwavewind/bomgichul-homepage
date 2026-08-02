@@ -13,9 +13,9 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
 import { RichTextEditor } from "@/components/editor/RichTextEditor";
 import { sanitizeConceptCommunityHtml } from "@/lib/concept-community-html";
-import type { PostCategory } from "@/types/database";
+import type { CommunityScope, PostCategory } from "@/types/database";
 
-export default function WritePage() {
+export function CommunityWritePage({ scope = "real_estate" }: { scope?: CommunityScope }) {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [contentHtml, setContentHtml] = useState("");
@@ -24,6 +24,7 @@ export default function WritePage() {
   const [userId, setUserId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const baseHref = scope === "public_service" ? "/public-service/community" : "/community";
 
   useEffect(() => {
     if (!isSupabaseConfigured()) return;
@@ -65,6 +66,7 @@ export default function WritePage() {
           title: title.trim(),
           content,
           category,
+          community_scope: scope,
         })
         .select("id")
         .single();
@@ -75,7 +77,7 @@ export default function WritePage() {
         return;
       }
 
-      router.push(`/community/${data.id}`);
+      router.push(`${baseHref}/${data.id}`);
     } catch {
       setError("Supabase 연결이 필요합니다. .env.local을 확인해주세요.");
       setLoading(false);
@@ -86,7 +88,7 @@ export default function WritePage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <BackLink href="/community">목록으로</BackLink>
+      <BackLink href={baseHref}>목록으로</BackLink>
 
       <EyebrowLabel className="mb-2">새 글 작성</EyebrowLabel>
       <SectionHeading as="h1" className="mb-8">
@@ -138,7 +140,7 @@ export default function WritePage() {
             <RichTextEditor
               userId={userId}
               placeholder="내용을 입력하세요. 굵게·크기·글꼴·색·사진으로 정리할 수 있어요."
-              onRequireLogin={() => router.push("/login?next=/community/write")}
+              onRequireLogin={() => router.push(`/login?next=${baseHref}/write`)}
               onHtmlChange={(html, plain) => {
                 setContentHtml(html);
                 setContentPlain(plain);
@@ -152,7 +154,7 @@ export default function WritePage() {
 
           <div className="flex justify-end gap-3 pt-2">
             <Link
-              href="/community"
+              href={baseHref}
               className="rounded-[var(--radius-buttons)] px-5 py-2.5 font-display text-body-sm font-medium text-fog transition-colors hover:text-ink"
             >
               취소
@@ -165,4 +167,8 @@ export default function WritePage() {
       </FeatureCard>
     </div>
   );
+}
+
+export default function WritePage() {
+  return <CommunityWritePage />;
 }

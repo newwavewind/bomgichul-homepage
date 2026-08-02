@@ -9,7 +9,7 @@ import { SearchBar, SortSelect } from "@/components/board/SearchBar";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
-import type { CommunityListFilter } from "@/types/database";
+import type { CommunityListFilter, CommunityScope } from "@/types/database";
 import type { SortOption } from "@/lib/constants";
 import { BEST_POST_MIN_VIEWS, CATEGORY_MAP } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
@@ -56,7 +56,10 @@ export async function generateMetadata({
   });
 }
 
-export default async function CommunityPage({ searchParams }: CommunityPageProps) {
+export async function CommunityBoard({
+  searchParams,
+  scope = "real_estate",
+}: CommunityPageProps & { scope?: CommunityScope }) {
   const params = await searchParams;
   const page = Math.max(1, Number(params.page) || 1);
   const category = (params.category as CommunityListFilter) || "all";
@@ -68,7 +71,10 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
     category,
     search,
     sort,
+    scope,
   });
+  const isPublicService = scope === "public_service";
+  const baseHref = isPublicService ? "/public-service/community" : "/community";
   const authorBadges = await getPremiumBadgesForUsers(posts.map((p) => p.author_id));
   const authorActivity = await getUserActivityScores(posts.map((p) => p.author_id));
 
@@ -78,7 +84,7 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <EyebrowLabel className="mb-2">함께 공부하는 사람들</EyebrowLabel>
-            <SectionHeading as="h1">공인중개사 수험생 커뮤니티</SectionHeading>
+            <SectionHeading as="h1">{isPublicService ? "공무원 수험생 커뮤니티" : "공인중개사 수험생 커뮤니티"}</SectionHeading>
             <p className="mt-2 font-display text-body-sm text-smoke">
               {category === "best"
                 ? `조회 ${BEST_POST_MIN_VIEWS}회 이상 인기 글 · 총 ${total}개`
@@ -86,7 +92,7 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
               {search && ` · "${search}" 검색 결과`}
             </p>
           </div>
-          <PrimaryButton href="/community/write">글쓰기</PrimaryButton>
+          <PrimaryButton href={`${baseHref}/write`}>글쓰기</PrimaryButton>
         </div>
 
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -122,7 +128,7 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
                     : "첫 번째 글을 작성해보세요!"}
               </p>
               <div className="mt-6">
-                <PrimaryButton href="/community/write">글쓰기</PrimaryButton>
+                <PrimaryButton href={`${baseHref}/write`}>글쓰기</PrimaryButton>
               </div>
             </div>
           ) : (
@@ -137,6 +143,7 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
                 authorRank={authorActivity[post.author_id]?.rank}
                 viewCount={post.view_count}
                 createdAt={post.created_at}
+                baseHref={baseHref}
               />
             ))
           )}
@@ -152,4 +159,8 @@ export default async function CommunityPage({ searchParams }: CommunityPageProps
       </div>
     </div>
   );
+}
+
+export default async function CommunityPage(props: CommunityPageProps) {
+  return <CommunityBoard {...props} />;
 }

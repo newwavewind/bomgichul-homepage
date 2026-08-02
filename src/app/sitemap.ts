@@ -4,6 +4,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { ARCHIVE_SUBJECTS, EXAM_SUBJECTS, SITE_URL } from "@/lib/constants";
 import { getAllConceptParams } from "@/lib/concepts";
 import { getAllExamParams, getExamYearParams } from "@/lib/exam-questions";
+import { PUBLIC_SERVICE_SUBJECT_IDS, getPublicServiceExamSessions, getPublicServiceSubject } from "@/lib/public-service-content";
 
 /** 검색 노출 대상 정적 공개 페이지 */
 const STATIC_PAGES: MetadataRoute.Sitemap = [
@@ -12,6 +13,18 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 1,
+  },
+  {
+    url: `${SITE_URL}/real-estate`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${SITE_URL}/public-service`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
   },
   {
     url: `${SITE_URL}/faq`,
@@ -115,6 +128,29 @@ function getConceptUrls(): MetadataRoute.Sitemap {
   return [...subjectUrls, ...detailUrls];
 }
 
+function getPublicServiceUrls(): MetadataRoute.Sitemap {
+  const now = new Date();
+  const urls: MetadataRoute.Sitemap = [];
+  for (const subjectId of PUBLIC_SERVICE_SUBJECT_IDS) {
+    const subject = getPublicServiceSubject(subjectId);
+    if (!subject) continue;
+    urls.push(
+      { url: `${SITE_URL}/public-service/concepts/${subjectId}`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+      { url: `${SITE_URL}/public-service/exam/${subjectId}`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    );
+    for (const concept of subject.concepts) {
+      urls.push({ url: `${SITE_URL}/public-service/concepts/${subjectId}/${concept.slug}`, lastModified: now, changeFrequency: "monthly", priority: 0.6 });
+    }
+    for (const session of getPublicServiceExamSessions(subjectId)) {
+      urls.push({ url: `${SITE_URL}/public-service/exam/${subjectId}/${session.year}/${session.sourceCode}`, lastModified: now, changeFrequency: "monthly", priority: 0.6 });
+    }
+    for (const exam of subject.exams) {
+      urls.push({ url: `${SITE_URL}/public-service/exam/${subjectId}/${exam.year}/${exam.sourceCode}/${exam.questionNo}`, lastModified: now, changeFrequency: "monthly", priority: 0.5 });
+    }
+  }
+  return urls;
+}
+
 async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
   if (!isSupabaseConfigured()) return [];
 
@@ -141,5 +177,5 @@ async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const contentUrls = await getPublicContentUrls();
-  return [...STATIC_PAGES, ...getConceptUrls(), ...getExamUrls(), ...contentUrls];
+  return [...STATIC_PAGES, ...getConceptUrls(), ...getExamUrls(), ...getPublicServiceUrls(), ...contentUrls];
 }

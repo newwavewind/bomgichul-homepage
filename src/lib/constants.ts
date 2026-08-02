@@ -11,9 +11,9 @@ export const SITE_PLATFORM = "기출 AI 학습 플랫폼";
 /** 전체 브랜딩 문구 */
 export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE}`;
 /** SEO / Open Graph / Twitter 기본 제목 */
-export const SITE_TITLE = "봄기출 | 기출 학습의 모든것";
+export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
 export const SITE_DESCRIPTION =
-  "기출 학습의 모든것. 기출문제 O/X·해설, 기출 all-in-one 개념, AI 질문, 수험생 커뮤니티·자료실까지 한곳에서.";
+  "공무원·공인중개사부터 시작하는 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
@@ -236,6 +236,7 @@ export type SortOption = (typeof SORT_OPTIONS)[number]["value"];
 
 /** 봄기출 PC앱 (ox-quiz-app 웹 배포) */
 export const PC_APP_URL = "https://app.bomgichul.com";
+export const PUBLIC_SERVICE_PC_APP_URL = "https://ox-admin-quiz-app.vercel.app";
 
 export type NavChildLink = { href: string; label: string };
 
@@ -267,7 +268,14 @@ export function flattenNavLinks(links: NavLinkItem[]): NavChildLink[] {
 }
 
 export const NAV_LINKS: NavLinkItem[] = [
-  { href: "/", label: "학습" },
+  { href: "/", label: "시험 선택" },
+  {
+    label: "학습",
+    children: [
+      { href: "/public-service", label: "공무원" },
+      { href: "/real-estate", label: "공인중개사" },
+    ],
+  },
   {
     href: "/community",
     label: "커뮤니티",
@@ -281,7 +289,7 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/faq", label: "FAQ" },
     ],
   },
-  { href: PC_APP_URL, label: "PC앱" },
+  { href: PC_APP_URL, label: "공인중개사 PC앱" },
 ];
 
 /** 공인중개사 시험 일정 (한국산업인력공단·Q-Net 공고 기준) */

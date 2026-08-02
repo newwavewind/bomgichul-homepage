@@ -2,7 +2,7 @@ import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import type { SortOption } from "@/lib/constants";
-import type { PaginatedResult, Post, PostListItem, CommunityListFilter } from "@/types/database";
+import type { PaginatedResult, Post, PostListItem, CommunityListFilter, CommunityScope } from "@/types/database";
 import { BEST_BOARD_CATEGORIES, BEST_POST_MIN_VIEWS } from "@/lib/constants";
 
 const emptyPaginated = (page: number): PaginatedResult<PostListItem> => ({
@@ -19,6 +19,7 @@ interface GetPostsOptions {
   search?: string;
   sort?: SortOption;
   authorId?: string;
+  scope?: CommunityScope;
 }
 
 export async function getPosts({
@@ -27,6 +28,7 @@ export async function getPosts({
   search = "",
   sort = "latest",
   authorId,
+  scope = "real_estate",
 }: GetPostsOptions = {}): Promise<PaginatedResult<PostListItem>> {
   if (!isSupabaseConfigured()) {
     return emptyPaginated(page);
@@ -39,9 +41,11 @@ export async function getPosts({
   let query = supabase
     .from("posts")
     .select(
-      "id, author_id, category, title, view_count, created_at, profiles:profiles!posts_author_id_fkey(nickname)",
+      "id, author_id, category, community_scope, title, view_count, created_at, profiles:profiles!posts_author_id_fkey(nickname)",
       { count: "planned" }
     );
+
+  query = query.eq("community_scope", scope);
 
   if (category === "best") {
     query = query
@@ -84,6 +88,7 @@ export async function getPosts({
       id: row.id,
       author_id: row.author_id,
       category: row.category,
+      community_scope: row.community_scope as CommunityScope,
       title: row.title,
       view_count: row.view_count,
       created_at: row.created_at,

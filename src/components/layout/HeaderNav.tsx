@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LogoMark } from "@/components/illustrations/LogoMark";
 import { PrimaryButton, OutlineButton, TextButton } from "@/components/ui/Button";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
-import { NAV_LINKS, isNavGroup, navGroupKey, type NavGroupLink } from "@/lib/constants";
+import { NAV_LINKS, PC_APP_URL, PUBLIC_SERVICE_PC_APP_URL, isNavGroup, navGroupKey, type NavGroupLink } from "@/lib/constants";
 import type { OceanRank } from "@/lib/ocean-ranks";
 
 interface HeaderNavProps {
@@ -167,12 +168,40 @@ function MobileNavGroup({
 }
 
 export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
+  const pathname = usePathname();
+  const isPublicService = pathname.startsWith("/public-service");
+  const isExamSelection = pathname === "/";
+  const scopedNavLinks = NAV_LINKS.filter((link) => {
+    if ((isPublicService || isExamSelection) && "href" in link && link.href === PC_APP_URL) return false;
+    if (isExamSelection && isNavGroup(link) && link.label === "학습") return false;
+    return true;
+  }).concat(isPublicService ? [{ href: PUBLIC_SERVICE_PC_APP_URL, label: "공무원 PC앱" }] : []);
+  const navLinks = scopedNavLinks.map((link) => {
+    if (isExamSelection && isNavGroup(link) && link.label === "커뮤니티") {
+      return {
+        label: "커뮤니티",
+        children: [
+          { href: "/public-service/community", label: "공무원 커뮤니티" },
+          { href: "/community", label: "공인중개사 커뮤니티" },
+        ],
+      };
+    }
+    if (!isPublicService || !isNavGroup(link) || link.label !== "커뮤니티") return link;
+    return {
+      href: "/public-service/community",
+      label: "커뮤니티",
+      children: [
+        { href: "/public-service/community", label: "공무원 게시판" },
+        { href: "/public-service/community?category=question", label: "공무원 질문" },
+        { href: "/public-service/community?category=info", label: "공무원 수험정보" },
+      ],
+    };
+  });
   const [mobileOpen, setMobileOpen] = useState(false);
   const [unread, setUnread] = useState(unreadCount);
 
   useEffect(() => {
     if (!user) {
-      setUnread(0);
       return;
     }
 
@@ -214,7 +243,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
             className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:flex"
             aria-label="주요 메뉴"
           >
-            {NAV_LINKS.map((link) =>
+            {navLinks.map((link) =>
               isNavGroup(link) ? (
                 <NavDropdown key={navGroupKey(link)} {...link} />
               ) : (
@@ -260,7 +289,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
               aria-expanded={mobileOpen}
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-                <path d="M3 5H17M3 10H17M3 15H17" stroke="#171717" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M3 5H17M3 10H17M3 15H17" stroke="#1d4ed8" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </button>
           </div>
@@ -269,7 +298,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
         {mobileOpen && (
           <div className="mt-2 rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper p-4 shadow-[var(--shadow-card)] xl:hidden">
             <nav className="flex flex-col gap-1" onClick={() => setMobileOpen(false)}>
-              {NAV_LINKS.map((link) =>
+              {navLinks.map((link) =>
                 isNavGroup(link) ? (
                   <MobileNavGroup
                     key={navGroupKey(link)}
@@ -327,7 +356,7 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
                   </PrimaryButton>
                 </>
               )}
-              <PrimaryButton href="/community/write" className="mt-2 w-full">
+              <PrimaryButton href={isPublicService ? "/public-service/community/write" : "/community/write"} className="mt-2 w-full">
                 글쓰기
               </PrimaryButton>
             </nav>
