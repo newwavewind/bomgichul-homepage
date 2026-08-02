@@ -57,6 +57,7 @@ export interface PostListItem {
   community_scope: CommunityScope;
   title: string;
   view_count: number;
+  comment_count: number;
   created_at: string;
   profiles?: Pick<Profile, "nickname">;
 }

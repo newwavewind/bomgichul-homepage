@@ -276,6 +276,7 @@ export default async function ProfilePage() {
               authorName={user.nickname}
               authorRank={activity.rank}
               viewCount={post.view_count}
+              commentCount={post.comment_count}
               createdAt={post.created_at}
             />
           ))

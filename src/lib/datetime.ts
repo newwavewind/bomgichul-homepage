@@ -93,7 +93,10 @@ export function isSameKstDay(a: Date, b: Date = new Date()): boolean {
 }
 
 /** 상대 시간 + 오래된 항목은 KST 날짜 */
-export function formatKstRelative(iso: string | Date | null | undefined): string {
+export function formatKstRelative(
+  iso: string | Date | null | undefined,
+  options: { includeYear?: boolean } = {}
+): string {
   if (!iso) return "—";
   const date = typeof iso === "string" ? new Date(iso) : iso;
   if (Number.isNaN(date.getTime())) return "—";
@@ -107,6 +110,13 @@ export function formatKstRelative(iso: string | Date | null | undefined): string
   if (minutes < 60) return `${minutes}분 전`;
   if (hours < 24) return `${hours}시간 전`;
   if (days < 7) return `${days}일 전`;
+  if (options.includeYear === false) {
+    return date.toLocaleDateString("ko-KR", {
+      timeZone: KST,
+      month: "long",
+      day: "numeric",
+    });
+  }
   return formatKstDate(date);
 }
 

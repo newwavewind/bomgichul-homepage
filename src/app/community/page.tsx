@@ -142,6 +142,7 @@ export async function CommunityBoard({
                 authorBadge={authorBadges[post.author_id]}
                 authorRank={authorActivity[post.author_id]?.rank}
                 viewCount={post.view_count}
+                commentCount={post.comment_count}
                 createdAt={post.created_at}
                 baseHref={baseHref}
               />

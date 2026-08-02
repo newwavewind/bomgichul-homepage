@@ -41,7 +41,7 @@ export async function getPosts({
   let query = supabase
     .from("posts")
     .select(
-      "id, author_id, category, community_scope, title, view_count, created_at, profiles:profiles!posts_author_id_fkey(nickname)",
+      "id, author_id, category, community_scope, title, view_count, created_at, profiles:profiles!posts_author_id_fkey(nickname), comments(count)",
       { count: "planned" }
     );
 
@@ -91,6 +91,7 @@ export async function getPosts({
       community_scope: row.community_scope as CommunityScope,
       title: row.title,
       view_count: row.view_count,
+      comment_count: row.comments?.[0]?.count ?? 0,
       created_at: row.created_at,
       profiles: profile ? { nickname: profile.nickname } : undefined,
     } satisfies PostListItem;
