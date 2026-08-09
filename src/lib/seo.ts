@@ -47,6 +47,8 @@ export function buildCanonicalUrl(
 export function truncateDescription(text: string, max = 160): string {
   const trimmed = text
     .replace(/<[^>]+>/g, " ")
+    .replace(/\*\*|__/g, "")
+    .replace(/`+/g, "")
     .replace(/\s+/g, " ")
     .trim();
   if (trimmed.length <= max) return trimmed;
@@ -74,9 +76,13 @@ export function buildExamPageDescription({
     correctItem?.explanation?.trim() ||
     items?.find((item) => item.explanation?.trim())?.explanation?.trim() ||
     "정답과 선지별 해설을 제공합니다.";
+  const answerText =
+    answerLabel && !explanation.includes(`정답은 ${answerLabel}`)
+      ? `정답은 ${answerLabel}입니다.`
+      : "";
 
   return truncateDescription(
-    [category ? `${category} ·` : "", stem, answerLabel ? `정답은 ${answerLabel}입니다.` : "", explanation]
+    [category ? `${category} ·` : "", stem, answerText, explanation]
       .filter(Boolean)
       .join(" "),
   );
