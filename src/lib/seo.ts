@@ -185,6 +185,7 @@ export function buildWebSiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE_NAME,
+    alternateName: ["봄기출", "Bomgichul"],
     url: SITE_URL,
     description: SITE_DESCRIPTION,
     inLanguage: "ko-KR",

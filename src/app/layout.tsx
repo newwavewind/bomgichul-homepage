@@ -35,6 +35,22 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  alternates: {
+    types: {
+      "application/rss+xml": `${SITE_URL}/rss.xml`,
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   keywords: [
     "봄기출",
     "기출문제",

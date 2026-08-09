@@ -14,92 +14,77 @@ import type { CommunityScope } from "@/types/database";
 const STATIC_PAGES: MetadataRoute.Sitemap = [
   {
     url: SITE_URL,
-    lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 1,
   },
   {
     url: `${SITE_URL}/real-estate`,
-    lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.9,
   },
   {
     url: `${SITE_URL}/public-service`,
-    lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.9,
   },
   {
     url: `${SITE_URL}/police`,
-    lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.9,
   },
   {
     url: `${SITE_URL}/housing`,
-    lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.9,
   },
   {
     url: `${SITE_URL}/faq`,
-    lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.8,
   },
   {
     url: `${SITE_URL}/privacy`,
-    lastModified: new Date(),
     changeFrequency: "yearly",
     priority: 0.3,
   },
   {
     url: `${SITE_URL}/community`,
-    lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.9,
   },
   {
     url: `${SITE_URL}/public-service/community`,
-    lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.8,
   },
   {
     url: `${SITE_URL}/police/community`,
-    lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.8,
   },
   {
     url: `${SITE_URL}/housing/community`,
-    lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.8,
   },
   {
     url: `${SITE_URL}/archive`,
-    lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.9,
   },
   {
     url: `${SITE_URL}/ranks`,
-    lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.7,
   },
   {
     url: `${SITE_URL}/news`,
-    lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.4,
   },
   ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all" && s.value !== "other").map(
     (s) => ({
       url: `${SITE_URL}/subjects/${s.value}`,
-      lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
     })
@@ -108,26 +93,22 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
 
 /** 기출문제 해설(/exam) — 정적 데이터 순회, Supabase 불필요 */
 function getExamUrls(): MetadataRoute.Sitemap {
-  const now = new Date();
   // /exam·/concepts 허브는 / 로 영구 리다이렉트 — sitemap에는 과목·문항만.
 
   const subjectUrls: MetadataRoute.Sitemap = EXAM_SUBJECTS.map((s) => ({
     url: `${SITE_URL}/exam/${s.value}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
   const yearUrls: MetadataRoute.Sitemap = getExamYearParams().map(({ subject, year }) => ({
     url: `${SITE_URL}/exam/${subject}/${year}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
   const questionUrls: MetadataRoute.Sitemap = getAllExamParams().map(({ subject, year, no }) => ({
     url: `${SITE_URL}/exam/${subject}/${year}/${no}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.5,
   }));
@@ -137,18 +118,14 @@ function getExamUrls(): MetadataRoute.Sitemap {
 
 /** 기출 all-in-one 개념(/concepts) — 정적 데이터 순회 */
 function getConceptUrls(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   const subjectUrls: MetadataRoute.Sitemap = EXAM_SUBJECTS.map((s) => ({
     url: `${SITE_URL}/concepts/${s.value}`,
-    lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
   const detailUrls: MetadataRoute.Sitemap = getAllConceptParams().map(({ subject, slug }) => ({
     url: `${SITE_URL}/concepts/${subject}/${slug}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -162,19 +139,17 @@ function getNamespacedTrackUrls(
   getSubject: (id: string) => { concepts: { slug: string }[]; exams: { year: number; sourceCode: string; questionNo: number }[] } | null,
   getSessions: (id: string) => { year: number; sourceCode: string }[],
 ): MetadataRoute.Sitemap {
-  const now = new Date();
   const urls: MetadataRoute.Sitemap = [];
   for (const subjectId of subjectIds) {
     const subject = getSubject(subjectId);
     if (!subject) continue;
     urls.push(
-      { url: `${SITE_URL}${basePath}/concepts/${subjectId}`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-      { url: `${SITE_URL}${basePath}/exam/${subjectId}`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+      { url: `${SITE_URL}${basePath}/concepts/${subjectId}`, changeFrequency: "weekly", priority: 0.7 },
+      { url: `${SITE_URL}${basePath}/exam/${subjectId}`, changeFrequency: "weekly", priority: 0.7 },
     );
     for (const concept of subject.concepts) {
       urls.push({
         url: `${SITE_URL}${basePath}/concepts/${subjectId}/${concept.slug}`,
-        lastModified: now,
         changeFrequency: "monthly",
         priority: 0.6,
       });
@@ -182,7 +157,6 @@ function getNamespacedTrackUrls(
     for (const session of getSessions(subjectId)) {
       urls.push({
         url: `${SITE_URL}${basePath}/exam/${subjectId}/${session.year}/${session.sourceCode}`,
-        lastModified: now,
         changeFrequency: "monthly",
         priority: 0.6,
       });
@@ -190,7 +164,6 @@ function getNamespacedTrackUrls(
     for (const exam of subject.exams) {
       urls.push({
         url: `${SITE_URL}${basePath}/exam/${subjectId}/${exam.year}/${exam.sourceCode}/${exam.questionNo}`,
-        lastModified: now,
         changeFrequency: "monthly",
         priority: 0.5,
       });
