@@ -19,7 +19,13 @@ import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
 import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
-import { buildBreadcrumbJsonLd, buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
+import {
+  buildBreadcrumbJsonLd,
+  buildExamPageDescription,
+  buildExamQuizJsonLd,
+  buildPageMetadata,
+  buildPublicServiceLearningResourceJsonLd,
+} from "@/lib/seo";
 import type { ExamTrackConfig, ExamTrackExam, ExamTrackSubjectContent } from "./types";
 import "@/app/concepts/concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
@@ -399,8 +405,14 @@ export function trackExamDetailMetadata(
   const exam = api.getExam(subjectId, Number(year), source, Number(no));
   if (!data || !exam) return {};
   return buildPageMetadata({
-    title: `${year}년 ${source} ${data.subject.label} ${no}번`,
-    description: exam.stem,
+    title: `${year}년 ${source} ${data.subject.label} ${no}번 기출문제 해설`,
+    description: buildExamPageDescription({
+      category: exam.category,
+      stem: exam.stem,
+      correctChoice: exam.correctChoice,
+      explanationSummary: exam.explanationSummary,
+      items: exam.items,
+    }),
     path: `${track.basePath}/exam/${subjectId}/${year}/${source}/${no}`,
   });
 }
@@ -446,8 +458,44 @@ export async function TrackExamDetailPage({
     exam.questionNo,
     user?.id,
   );
+  const title = `${year}년 ${source} ${data.subject.label} ${exam.questionNo}번 기출문제 해설`;
+  const canonicalPath = `${track.basePath}/exam/${subjectId}/${year}/${source}/${exam.questionNo}`;
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "홈", path: "/" },
+    { name: track.label, path: track.basePath },
+    { name: data.subject.label, path: `${track.basePath}/exam/${subjectId}` },
+    { name: `${year}년 ${source}`, path: `${track.basePath}/exam/${subjectId}/${year}/${source}` },
+    { name: `${exam.questionNo}번`, path: canonicalPath },
+  ]);
+  const quizJsonLd = buildExamQuizJsonLd({
+    title,
+    description: exam.stem,
+    path: canonicalPath,
+    subjectLabel: data.subject.label,
+    year: exam.year,
+    questionNo: exam.questionNo,
+    stem: exam.stem,
+    choices: exam.items.map((item) => ({
+      label: item.label || item.key,
+      text: item.text,
+      key: item.key,
+    })),
+    correctChoice: String(exam.correctChoice ?? ""),
+    educationalLevel: track.educationalLevel,
+    aboutName: `${track.aboutName} ${data.subject.label}`,
+  });
   return (
     <div className="px-4 py-8 md:py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {quizJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(quizJsonLd) }}
+        />
+      ) : null}
       <article className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-3">
           <BackLink href={listBase}>{year}년 {source} 목록</BackLink>

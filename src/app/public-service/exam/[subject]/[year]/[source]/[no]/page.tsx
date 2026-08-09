@@ -12,7 +12,12 @@ import { getAttemptResult } from "@/lib/attempts";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
 import { getPublicServiceExam, getPublicServiceSubject } from "@/lib/public-service-content";
-import { buildPageMetadata } from "@/lib/seo";
+import {
+  buildBreadcrumbJsonLd,
+  buildExamPageDescription,
+  buildExamQuizJsonLd,
+  buildPageMetadata,
+} from "@/lib/seo";
 
 type Props = { params: Promise<{ subject: string; year: string; source: string; no: string }> };
 
@@ -23,8 +28,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const exam = getPublicServiceExam(subjectId, Number(year), source, Number(no));
   if (!data || !exam) return {};
   return buildPageMetadata({
-    title: `${year}년 ${source} ${data.subject.label} ${no}번`,
-    description: exam.stem,
+    title: `${year}년 ${source} ${data.subject.label} ${no}번 기출문제 해설`,
+    description: buildExamPageDescription({
+      category: exam.category,
+      stem: exam.stem,
+      correctChoice: exam.correctChoice,
+      explanationSummary: exam.explanationSummary,
+      items: exam.items,
+    }),
     path: `/public-service/exam/${subjectId}/${year}/${source}/${no}`,
   });
 }
@@ -58,9 +69,45 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
     exam.questionNo,
     user?.id,
   );
+  const title = `${year}년 ${source} ${data.subject.label} ${exam.questionNo}번 기출문제 해설`;
+  const canonicalPath = `/public-service/exam/${subjectId}/${year}/${source}/${exam.questionNo}`;
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "홈", path: "/" },
+    { name: "공무원", path: "/public-service" },
+    { name: data.subject.label, path: `/public-service/exam/${subjectId}` },
+    { name: `${year}년 ${source}`, path: `/public-service/exam/${subjectId}/${year}/${source}` },
+    { name: `${exam.questionNo}번`, path: canonicalPath },
+  ]);
+  const quizJsonLd = buildExamQuizJsonLd({
+    title,
+    description: exam.stem,
+    path: canonicalPath,
+    subjectLabel: data.subject.label,
+    year: exam.year,
+    questionNo: exam.questionNo,
+    stem: exam.stem,
+    choices: exam.items.map((item) => ({
+      label: item.label || item.key,
+      text: item.text,
+      key: item.key,
+    })),
+    correctChoice: String(exam.correctChoice ?? ""),
+    educationalLevel: "9급 공무원 시험",
+    aboutName: `9급 공무원 ${data.subject.label}`,
+  });
 
   return (
     <div className="px-4 py-8 md:py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {quizJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(quizJsonLd) }}
+        />
+      ) : null}
       <article className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-3">
           <BackLink href={listBase}>{year}년 {source} 목록</BackLink>

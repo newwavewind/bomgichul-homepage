@@ -53,6 +53,35 @@ export function truncateDescription(text: string, max = 160): string {
   return `${trimmed.slice(0, max - 1)}…`;
 }
 
+export function buildExamPageDescription({
+  category,
+  stem,
+  correctChoice,
+  explanationSummary,
+  items,
+}: {
+  category?: string;
+  stem: string;
+  correctChoice?: number;
+  explanationSummary?: string;
+  items?: { key: string; label?: string; explanation?: string }[];
+}): string {
+  const correctKey = correctChoice == null ? null : String(correctChoice);
+  const correctItem = correctKey ? items?.find((item) => item.key === correctKey) : undefined;
+  const answerLabel = correctItem?.label || (correctChoice == null ? "" : `${correctChoice}번`);
+  const explanation =
+    explanationSummary?.trim() ||
+    correctItem?.explanation?.trim() ||
+    items?.find((item) => item.explanation?.trim())?.explanation?.trim() ||
+    "정답과 선지별 해설을 제공합니다.";
+
+  return truncateDescription(
+    [category ? `${category} ·` : "", stem, answerLabel ? `정답은 ${answerLabel}입니다.` : "", explanation]
+      .filter(Boolean)
+      .join(" "),
+  );
+}
+
 export function buildPageMetadata({
   title,
   description,
@@ -292,6 +321,8 @@ export function buildExamQuizJsonLd({
   stem,
   choices,
   correctChoice,
+  educationalLevel = "Professional certification",
+  aboutName,
 }: {
   title: string;
   description: string;
@@ -302,6 +333,8 @@ export function buildExamQuizJsonLd({
   stem: string;
   choices: { label: string; text: string; key: string }[];
   correctChoice: string;
+  educationalLevel?: string;
+  aboutName?: string;
 }) {
   if (choices.length === 0) return null;
 
@@ -313,10 +346,10 @@ export function buildExamQuizJsonLd({
     description: truncateDescription(description, 300),
     url: absoluteUrl(path),
     inLanguage: "ko-KR",
-    educationalLevel: "Professional certification",
+    educationalLevel,
     about: {
       "@type": "Thing",
-      name: `공인중개사 ${subjectLabel}`,
+      name: aboutName || `공인중개사 ${subjectLabel}`,
     },
     hasPart: {
       "@type": "Question",
