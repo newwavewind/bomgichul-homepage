@@ -82,11 +82,13 @@ export function ConceptStudySchedule({
   concepts,
   userId,
   returnTo,
+  basePath = "/concepts",
 }: {
   subject: string;
   concepts: StudyScheduleConcept[];
   userId: string | null;
   returnTo: string;
+  basePath?: string;
 }) {
   const [progress, setProgress] = useState<ConceptReadProgress>({});
   const [filter, setFilter] = useState<FilterKey>("unread");
@@ -165,7 +167,7 @@ export function ConceptStudySchedule({
 
         {!isLoggedIn ? (
           <div className="hp-cx-schedule__login">
-            <p>로그인하면 회독 기록이 저장됩니다.</p>
+            <p>로그인하고 읽은 개념을 표시하면 과목별 회독 진도가 자동으로 쌓여요.</p>
             <button
               type="button"
               className="hp-cx-schedule__login-btn"
@@ -200,7 +202,7 @@ export function ConceptStudySchedule({
           </div>
         )}
 
-        <ul className="hp-cx-schedule__list">
+        {isLoggedIn ? <ul className="hp-cx-schedule__list">
           {visible.length === 0 ? (
             <li className="hp-cx-schedule__empty">
               {filter === "read"
@@ -216,7 +218,7 @@ export function ConceptStudySchedule({
               return (
                 <li key={concept.slug}>
                   <Link
-                    href={`/concepts/${subject}/${concept.slug}`}
+                    href={`${basePath}/${concept.slug}`}
                     className={`hp-cx-schedule__row${isNext ? " is-next" : ""}`}
                   >
                     <span className="hp-cx-schedule__row-title">
@@ -231,9 +233,9 @@ export function ConceptStudySchedule({
               );
             })
           )}
-        </ul>
+        </ul> : null}
 
-        {filtered.length > visible.length ? (
+        {isLoggedIn && filtered.length > visible.length ? (
           <p className="hp-cx-schedule__more">
             외 {filtered.length - visible.length}개 · 아래 목차에서 이어보기
           </p>

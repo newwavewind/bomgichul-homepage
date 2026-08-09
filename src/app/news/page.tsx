@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CommunityHubNav } from "@/components/community/CommunityHubNav";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { NewsDateStrip } from "@/components/news/NewsDateStrip";
 import { NewsList } from "@/components/news/NewsList";
@@ -61,6 +62,8 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
             시험·자격증·중개업·부동산 정책 관련 뉴스를 매일 아침 모아드려요.
           </p>
         </div>
+
+        <CommunityHubNav scope="real_estate" />
 
         <NewsDateStrip dates={dates} selected={selectedDate} />
         <NewsList items={filteredItems} selectedDate={selectedDate} />

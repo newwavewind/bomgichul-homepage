@@ -4,41 +4,13 @@ import type { ExamTrackConfig, ExamTrackManifestItem } from "@/lib/exam-track/ty
 export function ExamTrackHub({
   track,
   subjects,
-  meta,
 }: {
   track: ExamTrackConfig;
   subjects: ExamTrackManifestItem[];
-  meta: { subjectLabel: string; examLabel: string; yearLabel: string };
 }) {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
-        <header className="space-y-5">
-          <div>
-            <p className="mb-2 font-display text-[13px] font-semibold tracking-[0.04em] text-electric-blue">
-              {track.eyebrow}
-            </p>
-            <h1 className="font-display text-heading font-semibold tracking-tight text-ink md:text-heading-lg">
-              {track.hubTitle}
-            </h1>
-            <p className="mt-3 max-w-2xl font-display text-body text-smoke">{track.hubDescription}</p>
-          </div>
-          <dl className="flex flex-wrap gap-x-6 gap-y-2 font-display text-body-sm text-fog">
-            <div className="flex items-baseline gap-1.5">
-              <dt>과목</dt>
-              <dd className="font-semibold text-ink">{meta.subjectLabel}</dd>
-            </div>
-            <div className="flex items-baseline gap-1.5">
-              <dt>기출</dt>
-              <dd className="font-semibold text-ink">{meta.examLabel}</dd>
-            </div>
-            <div className="flex items-baseline gap-1.5">
-              <dt>연도</dt>
-              <dd className="font-semibold text-ink">{meta.yearLabel}</dd>
-            </div>
-          </dl>
-        </header>
-
         <ExamTrackSubjectBrowser track={track} subjects={subjects} />
 
         <section className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-carbon px-6 py-8 text-paper md:px-9">

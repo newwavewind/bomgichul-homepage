@@ -5,7 +5,7 @@ import type { QuestionBookmark } from "@/types/database";
 
 export async function isQuestionBookmarked(
   userId: string,
-  subject: ExamSubject,
+  subject: string,
   year: number,
   questionNo: number
 ): Promise<boolean> {

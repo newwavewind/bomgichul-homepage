@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPublicServiceSubject } from "@/lib/public-service-content";
+import { BackLink } from "@/components/ui/BackLink";
 import { buildBreadcrumbJsonLd, buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
+import "@/app/concepts/concepts-ui.css";
+import "@/styles/concepts/conceptsEbook.css";
 
 type Props = { params: Promise<{ subject: string }> };
 
@@ -25,16 +28,13 @@ export default async function PublicServiceConceptListPage({ params }: Props) {
     groups.set(key, [...(groups.get(key) ?? []), concept]);
   }
   return (
-    <div className="px-4 py-8 md:py-12">
+    <div className="hp-cx px-4 py-8 md:py-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildPublicServiceLearningResourceJsonLd({ name: `${data.subject.label} 기출 핵심 개념`, description, path, learningResourceType: "Concept" })) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBreadcrumbJsonLd([{ name: "홈", path: "/" }, { name: "공무원", path: "/public-service" }, { name: `${data.subject.label} 핵심 개념`, path }])) }} />
       <div className="mx-auto max-w-[var(--page-max-width)]">
-      <Link href="/public-service" className="font-display text-body-sm text-fog hover:text-ink">← 공무원 과목</Link>
+      <BackLink href="/public-service">공무원 과목</BackLink>
       <header className="mt-6 border-b border-mist pb-8">
-        <p className="font-display text-[13px] font-semibold text-electric-blue">{data.subject.track} · 기출 all-in-one</p>
-        <h1 className="mt-2 font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
-        <p className="mt-3 font-display text-body text-smoke">기출 논점을 기본서 목차 순서로 정리한 공개 개념 {data.concepts.length}개입니다.</p>
-        <Link href={`/public-service/exam/${subjectId}`} className="mt-5 inline-flex rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink">기출문제 보기 →</Link>
+        <h1 className="font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
       </header>
       <div className="mt-10 space-y-10">{[...groups.entries()].map(([group, concepts]) => (
         <section key={group}><h2 className="mb-4 font-display text-subheading font-semibold text-ink">{group}</h2>

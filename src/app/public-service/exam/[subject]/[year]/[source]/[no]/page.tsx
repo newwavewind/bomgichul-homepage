@@ -4,8 +4,12 @@ import { notFound } from "next/navigation";
 import { PublicServiceQuestion } from "@/components/public-service/PublicServiceQuestion";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
+import { BackLink } from "@/components/ui/BackLink";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
+import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { getUser } from "@/lib/auth";
+import { getAttemptResult } from "@/lib/attempts";
+import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
 import { getPublicServiceExam, getPublicServiceSubject } from "@/lib/public-service-content";
 import { buildPageMetadata } from "@/lib/seo";
@@ -40,6 +44,13 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
   const listBase = `/public-service/exam/${subjectId}/${year}/${encodeURIComponent(source)}`;
   const detailPath = `${listBase}/${exam.questionNo}`;
   const user = await getUser();
+  const storageSubject = `public_service:${subjectId}:${source}`;
+  const [bookmarked, initialAttemptResult] = user
+    ? await Promise.all([
+        isQuestionBookmarked(user.id, storageSubject, exam.year, exam.questionNo),
+        getAttemptResult(user.id, storageSubject, exam.year, exam.questionNo),
+      ])
+    : [false, null];
   const memoSubject = examMemoSubjectKey("public_service", subjectId, source);
   const publicMemos = await getPublicMemosForQuestion(
     memoSubject,
@@ -51,9 +62,10 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
   return (
     <div className="px-4 py-8 md:py-12">
       <article className="mx-auto max-w-4xl">
-        <Link href={listBase} className="font-display text-body-sm text-fog hover:text-ink">
-          ← {year}년 {source} 목록
-        </Link>
+        <div className="flex items-start justify-between gap-3">
+          <BackLink href={listBase}>{year}년 {source} 목록</BackLink>
+          <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} userId={user?.id ?? null} initialBookmarked={bookmarked} loginNext={detailPath} />
+        </div>
         <ExamQuestionJumpBar
           questionNos={session.map((item) => item.questionNo)}
           current={exam.questionNo}
@@ -61,6 +73,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
         />
         <header className="mt-4 rounded-2xl border border-mist bg-paper p-5 md:p-6">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
             <p className="font-display text-[13px] font-semibold text-electric-blue">
               {data.subject.label} · {year}년 {source}
             </p>
@@ -74,13 +87,14 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
                 {exam.subcategory}
               </span>
             ) : null}
+            </div>
           </div>
           <div className="mt-5">
             <QuestionStem stem={exam.stem} questionNo={exam.questionNo} />
           </div>
         </header>
         <div className="mt-6">
-          <PublicServiceQuestion exam={exam} subjectLabel={data.subject.label} />
+          <PublicServiceQuestion exam={exam} subjectLabel={data.subject.label} userId={user?.id ?? null} storageSubject={storageSubject} initialAttemptResult={initialAttemptResult} />
         </div>
         <nav className="mt-8 grid grid-cols-2 gap-3">
           {previous ? (

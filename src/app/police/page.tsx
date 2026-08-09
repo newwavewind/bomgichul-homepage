@@ -27,15 +27,7 @@ export default function Page() {
           })),
         }}
       />
-      <ExamTrackHub
-        track={POLICE_TRACK}
-        subjects={subjects}
-        meta={{
-          subjectLabel: "3개",
-          examLabel: "회차별(1·2차)",
-          yearLabel: "2022~2026",
-        }}
-      />
+      <ExamTrackHub track={POLICE_TRACK} subjects={subjects} />
     </>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
@@ -31,34 +30,12 @@ export function PremiumCodeRedeem({ subject, userId, unlocked }: PremiumCodeRede
   const [error, setError] = useState<string | null>(null);
   const [unlockedSubjectLabel, setUnlockedSubjectLabel] = useState<string | null>(null);
 
-  const label = ARCHIVE_SUBJECT_MAP[subject];
-
   if (unlocked) {
-    return (
-      <div className="rounded-[var(--radius-cards)] border border-carbon bg-ice/50 px-5 py-4">
-        <p className="font-display text-body-sm font-semibold text-ink">
-          ✅ {label} 프리미엄이 해제되어 있어요. 전체 연도의 해설을 볼 수 있어요.
-        </p>
-      </div>
-    );
+    return null;
   }
 
   if (!userId) {
-    return (
-      <div className="rounded-[var(--radius-cards)] border border-dashed border-mist bg-surface px-5 py-4">
-        <p className="font-display text-body-sm text-smoke">
-          모바일 앱에서 {label} 프리미엄을 구매하셨나요? 로그인하면 발급받은 PC 학습 코드를 이 홈페이지에서 등록해 전체 해설을 볼 수 있어요.
-        </p>
-        <div className="mt-3">
-          <Link
-            href={`/login?next=/exam/${subject}`}
-            className="font-display text-body-sm font-medium text-[#6366f1] hover:underline"
-          >
-            로그인하기
-          </Link>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   const handleSubmit = async (e: React.FormEvent) => {

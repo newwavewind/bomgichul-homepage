@@ -9,18 +9,24 @@ import {
 } from "@/lib/exam-track/community";
 import type { CommunityScope } from "@/types/database";
 
-const TABS = [
+const BASE_TABS = [
   { id: "board", label: "게시판" },
   { id: "archive", label: "자료실" },
   { id: "faq", label: "FAQ" },
 ] as const;
 
-type TabId = (typeof TABS)[number]["id"];
+type TabId = "board" | "archive" | "news" | "faq";
 
 function activeTab(pathname: string, scope: CommunityScope): TabId {
   const archive = archiveBaseHref(scope);
   const faq = faqBaseHref(scope);
   if (pathname === archive || pathname.startsWith(`${archive}/`)) return "archive";
+  if (
+    scope === "real_estate" &&
+    (pathname === "/news" || pathname.startsWith("/news/"))
+  ) {
+    return "news";
+  }
   if (pathname === faq || pathname.startsWith(`${faq}/`)) return "faq";
   return "board";
 }
@@ -28,9 +34,19 @@ function activeTab(pathname: string, scope: CommunityScope): TabId {
 export function CommunityHubNav({ scope }: { scope: CommunityScope }) {
   const pathname = usePathname() ?? "";
   const current = activeTab(pathname, scope);
+  const tabs =
+    scope === "real_estate"
+      ? [
+          BASE_TABS[0],
+          BASE_TABS[1],
+          { id: "news" as const, label: "뉴스" },
+          BASE_TABS[2],
+        ]
+      : BASE_TABS;
   const hrefs: Record<TabId, string> = {
     board: communityBaseHref(scope),
     archive: archiveBaseHref(scope),
+    news: "/news",
     faq: faqBaseHref(scope),
   };
 
@@ -39,7 +55,7 @@ export function CommunityHubNav({ scope }: { scope: CommunityScope }) {
       aria-label="커뮤니티 메뉴"
       className="mb-8 flex gap-1 rounded-2xl border border-[#007AFF]/15 bg-gradient-to-r from-[#E8F1FF]/80 to-[#F7FAFC] p-1.5"
     >
-      {TABS.map((tab) => {
+      {tabs.map((tab) => {
         const active = current === tab.id;
         return (
           <Link

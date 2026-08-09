@@ -5,7 +5,7 @@ import type { AttemptResult } from "@/types/database";
 
 export async function getAttemptResult(
   userId: string,
-  subject: ExamSubject,
+  subject: string,
   year: number,
   questionNo: number
 ): Promise<AttemptResult | null> {

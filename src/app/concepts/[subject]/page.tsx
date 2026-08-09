@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui/Typography";
@@ -7,7 +6,6 @@ import { ConceptPartList } from "@/components/concepts/ConceptPartList";
 import {
   EXAM_SUBJECTS,
   ARCHIVE_SUBJECT_MAP,
-  SUBJECT_LANDING_INFO,
   SITE_NAME,
 } from "@/lib/constants";
 import {
@@ -135,7 +133,6 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
   if (!isValidSubject(subject)) notFound();
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const info = SUBJECT_LANDING_INFO[subject];
   const concepts = getConceptsForSubject(subject);
   const groups = groupByPartAndSection(concepts);
   const questionCounts = Object.fromEntries(
@@ -169,26 +166,10 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <BackLink href="/#concepts">과목 목록으로</BackLink>
 
-        <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/#concepts" className="hover:text-ink">
-            기출 all-in-one
-          </Link>{" "}
-          / {label}
-        </p>
-
         <div className="mb-8">
-          <p className="mb-2 font-display text-eyebrow font-semibold text-ios-blue">
-            개념 · 공인중개사 {info.round}
-          </p>
           <SectionHeading as="h1">
             <span className="text-ios-blue">기출</span> all-in-one
           </SectionHeading>
-          <p className="mt-3 max-w-2xl font-display text-body text-smoke">
-            {label} 기출 해설에서 뽑은 핵심 개념을 목차 순서로 정리했습니다.
-          </p>
-          <p className="mt-2 font-display text-body-sm text-fog">
-            개념 {concepts.length}개 · 대단원 {groups.length}개
-          </p>
         </div>
 
         <ConceptPartList

@@ -27,15 +27,7 @@ export default function Page() {
           })),
         }}
       />
-      <ExamTrackHub
-        track={HOUSING_TRACK}
-        subjects={subjects}
-        meta={{
-          subjectLabel: "5개",
-          examLabel: "1차·2차",
-          yearLabel: "2020~2025",
-        }}
-      />
+      <ExamTrackHub track={HOUSING_TRACK} subjects={subjects} />
     </>
   );
 }

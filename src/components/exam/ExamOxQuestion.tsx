@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { plainStudyText } from "@/lib/study-text";
 
 export type ExamOxItem = {
   key: string;
@@ -25,18 +26,30 @@ export function ExamOxQuestion({
   correctChoice,
   explanationSummary,
   comboChoices = [],
+  initialAttemptResult = null,
+  onAttempt,
 }: {
   examId: string;
   items: ExamOxItem[];
   correctChoice?: number;
   explanationSummary?: string;
   comboChoices?: ExamOxCombo[];
+  initialAttemptResult?: "correct" | "wrong" | null;
+  onAttempt?: (result: "correct" | "wrong") => void | Promise<void>;
 }) {
   const isComposite = comboChoices.length > 0;
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
   const isCorrect =
     selected !== null && correctChoice !== undefined && selected === correctChoice;
+
+  const toggleReveal = () => {
+    const next = !revealed;
+    setRevealed(next);
+    if (next && selected !== null && correctChoice !== undefined) {
+      void onAttempt?.(selected === correctChoice ? "correct" : "wrong");
+    }
+  };
 
   return (
     <div className="space-y-4">
@@ -52,7 +65,7 @@ export function ExamOxQuestion({
                   {item.label ?? item.key}
                 </span>
                 <span className="flex-1 font-system text-[15px] leading-7 text-ink">
-                  {item.text}
+                  {plainStudyText(item.text)}
                 </span>
                 {revealed && item.answer ? (
                   <span
@@ -84,7 +97,7 @@ export function ExamOxQuestion({
                   <div className="flex gap-3">
                     <span className="font-display font-semibold text-ink">{choice.label}</span>
                     <span className="flex-1 font-system text-[15px] leading-7 text-ink">
-                      {choice.text}
+                      {plainStudyText(choice.text)}
                     </span>
                   </div>
                 </button>
@@ -113,7 +126,7 @@ export function ExamOxQuestion({
                     {item.label ?? choice}
                   </span>
                   <span className="flex-1 font-system text-[15px] leading-7 text-ink">
-                    {item.text}
+                    {plainStudyText(item.text)}
                   </span>
                   {revealed && item.answer ? (
                     <span
@@ -134,7 +147,7 @@ export function ExamOxQuestion({
       <button
         type="button"
         disabled={selected === null && !revealed}
-        onClick={() => setRevealed((value) => !value)}
+        onClick={toggleReveal}
         className="w-full rounded-2xl bg-carbon px-5 py-4 font-display text-body-sm font-semibold text-paper disabled:cursor-not-allowed disabled:opacity-35"
       >
         {revealed ? "해설 접기" : "정답·해설 보기"}
@@ -144,13 +157,13 @@ export function ExamOxQuestion({
         <div className="space-y-4">
           <div
             className={`rounded-2xl border px-5 py-4 ${
-              isCorrect
+              (selected === null ? initialAttemptResult === "correct" : isCorrect)
                 ? "border-[#6366f1]/30 bg-[#6366f1]/5"
                 : "border-[#ef4444]/30 bg-[#ef4444]/5"
             }`}
           >
             <p className="font-display text-body-sm font-semibold text-ink">
-              {isCorrect ? "정답입니다." : `정답은 ${correctChoice ?? "?"}번입니다.`}
+              {(selected === null ? initialAttemptResult === "correct" : isCorrect) ? "정답입니다." : `정답은 ${correctChoice ?? "?"}번입니다.`}
             </p>
           </div>
           <section
@@ -178,7 +191,7 @@ export function ExamOxQuestion({
                   </div>
                   {item.explanation ? (
                     <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                      {item.explanation}
+                      {plainStudyText(item.explanation)}
                     </p>
                   ) : null}
                 </div>
@@ -188,7 +201,7 @@ export function ExamOxQuestion({
                     <div key={`combo-expl-${examId}-${choice.no}`} className="py-4 last:pb-0">
                       <div className="flex items-center gap-2 font-display text-body-sm font-semibold text-ink">
                         <span>
-                          {choice.label} {choice.text}
+                          {choice.label} {plainStudyText(choice.text)}
                         </span>
                         <span
                           className={
@@ -200,7 +213,7 @@ export function ExamOxQuestion({
                       </div>
                       {choice.explanation ? (
                         <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                          {choice.explanation}
+                          {plainStudyText(choice.explanation)}
                         </p>
                       ) : null}
                     </div>
@@ -211,7 +224,7 @@ export function ExamOxQuestion({
             !comboChoices.some((c) => c.explanation) &&
             explanationSummary ? (
               <p className="font-system text-[14px] leading-6 text-smoke">
-                {explanationSummary}
+                {plainStudyText(explanationSummary)}
               </p>
             ) : null}
             {explanationSummary &&
@@ -220,7 +233,7 @@ export function ExamOxQuestion({
               <div className="mt-4 border-t border-mist pt-4">
                 <p className="font-display text-body-sm font-semibold text-ink">해설 요약</p>
                 <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                  {explanationSummary}
+                  {plainStudyText(explanationSummary)}
                 </p>
               </div>
             ) : null}

@@ -227,8 +227,6 @@ export function ConceptVisualGuide({ guide }) {
           </figure>
         </div>
 
-        <aside className="cx-caution"><strong>시험 함정</strong><span>{guide.caution}</span></aside>
-
         <div className="cx-sources">
           <span className="cx-sources__title">법령 근거</span>
           {guide.sources.map((source) => (
@@ -1912,7 +1910,6 @@ function RuleWorkbenchGuide({ guide }) {
       <div>{column.items.map(item => <span key={item}>{item}</span>)}</div>
     </section>)}</div>
     <div className="cx-rule-steps">{guide.steps.map((step, index) => <span key={step}><b>{index + 1}</b>{step}{index < guide.steps.length - 1 ? <i>→</i> : null}</span>)}</div>
-    <aside className="cx-special-caution"><b>시험 함정</b><span>{guide.caution}</span></aside>
     <GuideSources sources={guide.sources}/>
   </SectionBlock></article>
 }

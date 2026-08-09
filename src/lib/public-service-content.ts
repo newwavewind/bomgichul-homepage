@@ -38,6 +38,7 @@ export interface PublicServiceExamItem {
   text: string;
   answer?: "O" | "X" | string;
   explanation?: string;
+  taxonomy_unit_id?: string;
 }
 
 export interface PublicServiceExam {

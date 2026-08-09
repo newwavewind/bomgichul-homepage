@@ -8,7 +8,6 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { Textarea } from "@/components/ui/Input";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import { ConceptCommunityEditor } from "@/components/concepts/ConceptCommunityEditor";
-import type { ExamSubject } from "@/lib/exam-questions";
 import type { ConceptCommunityPost } from "@/types/database";
 import { formatKstDateTimeShort } from "@/lib/datetime";
 import { sanitizeConceptCommunityHtml } from "@/lib/concept-community-html";
@@ -221,7 +220,7 @@ function CommunityPostCard({
         ) : null}
       </div>
 
-      <p
+      <div
         className="hp-cx-community-post__body"
         dangerouslySetInnerHTML={{
           __html: sanitizeConceptCommunityHtml(post.content),
@@ -337,7 +336,7 @@ export function ConceptCommunityPanel({
   authorRanks,
   returnTo,
 }: {
-  subject: ExamSubject;
+  subject: string;
   conceptSlug: string;
   sectionIndex: number;
   userId: string | null;

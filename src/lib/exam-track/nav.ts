@@ -21,7 +21,9 @@ export function isCommunitySectionPath(
     pathname === archive ||
     pathname.startsWith(`${archive}/`) ||
     pathname === faq ||
-    pathname.startsWith(`${faq}/`)
+    pathname.startsWith(`${faq}/`) ||
+    (scope === "real_estate" &&
+      (pathname === "/news" || pathname.startsWith("/news/")))
   );
 }
 
@@ -112,14 +114,10 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
 
 function toolsForScope(scope: CommunityScope): NavTool[] {
   const hub = trackHubHref(scope);
-  const tools: NavTool[] = [
+  return [
     { href: hub, label: "학습 홈" },
     { href: communityBaseHref(scope), label: "커뮤니티" },
   ];
-  if (scope === "real_estate") {
-    tools.push({ href: "/news", label: "뉴스" });
-  }
-  return tools;
 }
 
 /** RE 전용 경로인지 (다른 시험 접두 없음) */

@@ -7,6 +7,10 @@ import {
   type PublicServiceExam,
 } from "@/lib/public-service-content";
 import { buildPageMetadata } from "@/lib/seo";
+import { getUser } from "@/lib/auth";
+import { getConceptCommunityPosts } from "@/lib/concept-community";
+import { getUserActivityScores } from "@/lib/activity";
+import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
 
 type Props = { params: Promise<{ subject: string; slug: string }> };
 
@@ -47,6 +51,20 @@ export default async function PublicServiceConceptDetailPage({ params }: Props) 
   const next =
     index >= 0 && index < data.concepts.length - 1 ? data.concepts[index + 1] : null;
   const listHref = `/public-service/concepts/${subjectId}`;
+  const subjectKey = `public_service:${subjectId}`;
+  const user = await getUser();
+  const communityPosts = await getConceptCommunityPosts(subjectKey, slug, user?.id ?? null);
+  const authorIds = [...communityPosts.map((post) => post.user_id), ...communityPosts.flatMap((post) => post.comments.map((comment) => comment.user_id))];
+  const activity = await getUserActivityScores(authorIds);
+  const authorRanks = Object.fromEntries(Object.entries(activity).map(([id, value]) => [id, value.rank]));
+  const hrefFor = (exam: PublicServiceExam) => `/public-service/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}`;
+  const tagged = data.exams.flatMap((exam) => exam.items.filter((item) => item.taxonomy_unit_id === slug).map((item) => ({ exam, item })));
+  const candidates = tagged.length > 0 ? tagged : linkedExams.flatMap((exam) => exam.items.map((item) => ({ exam, item })));
+  const seen = new Set<string>();
+  const statements: TrackConceptStatement[] = candidates
+    .filter(({ item }) => item.text.trim().length > 8 && (item.answer === "O" || item.answer === "X"))
+    .filter(({ item }) => (seen.has(item.text.trim()) ? false : (seen.add(item.text.trim()), true)))
+    .map(({ exam, item }, index) => ({ id: `${exam.id}:${item.key}:${index}`, text: item.text, answer: item.answer, explanation: item.explanation, sourceLabel: `${exam.year}년 ${exam.sourceCode} ${exam.questionNo}번`, href: hrefFor(exam) }));
 
   return (
     <TrackConceptDetailView
@@ -54,13 +72,16 @@ export default async function PublicServiceConceptDetailPage({ params }: Props) 
       listHref={listHref}
       concept={concept}
       linkedExams={linkedExams}
-      examHrefFor={(exam) =>
-        `/public-service/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}`
-      }
+      examHrefFor={(exam) => `/public-service/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}`}
       prev={prev}
       next={next}
       prevHref={prev ? `${listHref}/${prev.slug}` : null}
       nextHref={next ? `${listHref}/${next.slug}` : null}
+      subjectKey={subjectKey}
+      userId={user?.id ?? null}
+      initialPosts={communityPosts}
+      authorRanks={authorRanks}
+      statements={statements}
     />
   );
 }

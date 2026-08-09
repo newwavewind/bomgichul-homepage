@@ -157,7 +157,7 @@
   justify-content: center;
   min-height: 1.7rem;
   padding: 0.2rem 0.5rem;
-  border: 0;
+  border: 0 !important;
   border-radius: 999px;
   background: transparent;
   color: var(--hp-cx-muted);
@@ -655,13 +655,16 @@
 
 .hp-cx .hp-cx-statement__num {
   flex-shrink: 0;
-  min-width: 1.125rem;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  box-sizing: border-box;
+  padding-left: 0.4rem;
   font-size: 0.8125rem;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
   line-height: 1.65;
   color: rgba(60, 60, 67, 0.52);
-  text-align: right;
+  text-align: left;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1959,6 +1962,12 @@
   margin-top: 0.25rem;
 }
 
+/* The ported concepts host paints a square page background behind the rounded
+   VISUAL PLUS card. Keep the host transparent so its corners cannot protrude. */
+#cx-sec-visual.hp-cx-kind-host.concepts-screen {
+  background: transparent !important;
+}
+
 /* 개정 반영 배지 — Apple sky (코랄 금지) */
 .hp-cx .cx-amend-badge {
   display: inline-flex;
@@ -1979,5 +1988,10 @@
 }
 
 .hp-cx-kind-host .cx-card.cx-visual-card {
-  margin: 0;
+  margin: 0 0 1.25rem;
+  border: 0 !important;
+  background-clip: border-box !important;
+  box-shadow: inset 0 0 0 1px rgba(70, 62, 48, 0.22) !important;
+  contain: paint;
+  clip-path: none;
 }

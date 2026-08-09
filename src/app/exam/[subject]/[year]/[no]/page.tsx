@@ -5,7 +5,6 @@ import { BackLink } from "@/components/ui/BackLink";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
-import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
@@ -20,7 +19,6 @@ import { appendReturnTo, isValidReturnTo, parseConceptReturnTo } from "@/lib/ret
 import { getUser } from "@/lib/auth";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { getPublicMemosForQuestion } from "@/lib/question-memos";
-import { isSubjectUnlocked } from "@/lib/premium";
 import {
   absoluteUrl,
   buildBreadcrumbJsonLd,
@@ -116,8 +114,6 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
 
   const bookmarked = user ? await isQuestionBookmarked(user.id, subject, year, questionNo) : false;
   const publicMemos = await getPublicMemosForQuestion(subject, year, questionNo, user?.id);
-  const subjectUnlocked = await isSubjectUnlocked(user?.id ?? null, subject);
-  const accessible = question.free || subjectUnlocked;
   const listBase = `/exam/${subject}/${year}`;
   const detailPath = appendReturnTo(`${listBase}/${questionNo}`, returnTo ?? undefined);
 
@@ -164,15 +160,22 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
         />
       ) : null}
       <article className="mx-auto max-w-4xl">
-        {returnTo ? (
-          <BackLink href={returnTo} emphasized>
-            {returnConcept ? `${returnConcept.titleKo}으로 돌아가기` : "개념으로 돌아가기"}
-          </BackLink>
-        ) : (
-          <Link href={listBase} className="font-display text-body-sm text-fog hover:text-ink">
-            ← {year}년 문항 목록
-          </Link>
-        )}
+        <div className="flex items-start justify-between gap-3">
+          {returnTo ? (
+            <BackLink href={returnTo} emphasized>
+              {returnConcept ? `${returnConcept.titleKo}으로 돌아가기` : "개념으로 돌아가기"}
+            </BackLink>
+          ) : (
+            <BackLink href={listBase}>{year}년 문항 목록</BackLink>
+          )}
+          <BookmarkButton
+            subject={subject}
+            year={year}
+            questionNo={questionNo}
+            userId={user?.id ?? null}
+            initialBookmarked={bookmarked}
+          />
+        </div>
 
         <ExamQuestionJumpBar
           questionNos={yearQuestions.map((q) => q.questionNo)}
@@ -181,7 +184,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
         />
 
         <header className="mt-4 rounded-2xl border border-mist bg-paper p-5 md:p-6">
-          <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1.5">
               <p className="font-display text-[13px] font-semibold text-electric-blue">
                 {label} · {year}년 제{question.round}회
@@ -197,13 +200,6 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
                 </span>
               ) : null}
             </div>
-            <BookmarkButton
-              subject={subject}
-              year={year}
-              questionNo={questionNo}
-              userId={user?.id ?? null}
-              initialBookmarked={bookmarked}
-            />
           </div>
           <div className="mt-5">
             <QuestionStem stem={question.stem} questionNo={questionNo} />
@@ -211,22 +207,13 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
         </header>
 
         <div className="mt-6">
-          {accessible ? (
-            <ExamOxQuestion
-              examId={`${subject}-${year}-${questionNo}`}
-              items={question.items}
-              correctChoice={Number(question.correctChoice)}
-              explanationSummary={question.explanationSummary}
-              comboChoices={question.comboChoices}
-            />
-          ) : (
-            <PremiumFeatureLocked
-              subject={subject}
-              subjectLabel={label}
-              featureLabel="전체 해설"
-              description={`${year}년 ${questionNo}번 문항의 정답·해설은 프리미엄에서 확인할 수 있어요.`}
-            />
-          )}
+          <ExamOxQuestion
+            examId={`${subject}-${year}-${questionNo}`}
+            items={question.items}
+            correctChoice={Number(question.correctChoice)}
+            explanationSummary={question.explanationSummary}
+            comboChoices={question.comboChoices}
+          />
         </div>
 
         <nav className="mt-8 grid grid-cols-2 gap-3">

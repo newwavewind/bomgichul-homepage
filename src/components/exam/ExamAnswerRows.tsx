@@ -2,6 +2,7 @@ import { ElevatedCard } from "@/components/ui/Card";
 import { CorrectAnswerBadge } from "@/components/exam/CorrectAnswerBadge";
 import { SelectedAnswerBadge } from "@/components/exam/SelectedAnswerBadge";
 import type { ExamComboChoice, ExamQuestionItem } from "@/lib/exam-questions";
+import { plainStudyText } from "@/lib/study-text";
 
 export function StatementRows({
   items,
@@ -27,7 +28,7 @@ export function StatementRows({
               {item.answer}
             </span>
             <p className="flex-1 font-display text-body font-medium text-ink">
-              {item.label} {item.text}
+              {item.label} {plainStudyText(item.text)}
             </p>
           </div>
         </div>
@@ -73,7 +74,7 @@ export function ChoiceRows({
                 {item.answer}
               </span>
               <p className="flex-1 font-display text-body font-medium text-ink">
-                {item.label} {item.text}
+                {item.label} {plainStudyText(item.text)}
                 {isSelected ? (
                   <SelectedAnswerBadge correct={isCorrectChoice} className="ml-2" />
                 ) : (
@@ -116,7 +117,7 @@ export function ComboChoiceRows({
             }`}
           >
             <p className="font-display text-body font-medium text-ink">
-              {choice.label} {choice.text}
+              {choice.label} {plainStudyText(choice.text)}
               {isSelected ? (
                 <SelectedAnswerBadge correct={isCorrectChoice} className="ml-2" />
               ) : (

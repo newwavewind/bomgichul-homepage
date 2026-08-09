@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
+import { BackLink } from "@/components/ui/BackLink";
+import { ExamQuestionListCard } from "@/components/exam/ExamQuestionListCard";
 import { getPublicServiceSubject } from "@/lib/public-service-content";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -24,12 +25,10 @@ export default async function PublicServiceExamSessionPage({ params }: Props) {
   if (!exams.length) notFound();
   return (
     <div className="px-4 py-8 md:py-12"><div className="mx-auto max-w-4xl">
-      <Link href={`/public-service/exam/${subjectId}`} className="font-display text-body-sm text-fog hover:text-ink">← {data.subject.label} 기출 목록</Link>
-      <header className="mt-6 border-b border-mist pb-8"><p className="font-display text-[13px] font-semibold text-electric-blue">{data.subject.label}</p><h1 className="mt-2 font-display text-heading font-semibold text-ink">{year}년 9급 {source}</h1><p className="mt-3 font-display text-body text-smoke">원문 {exams.length}문항 · 선지별 O/X 해설</p></header>
+      <BackLink href={`/public-service/exam/${subjectId}`}>{data.subject.label} 기출 목록</BackLink>
+      <header className="mt-6 border-b border-mist pb-8"><h1 className="font-display text-heading font-semibold text-ink">{year}년 9급 {source}</h1></header>
       <div className="mt-8 grid gap-3 sm:grid-cols-2">{exams.map((exam) => (
-        <Link key={exam.id} href={`/public-service/exam/${subjectId}/${year}/${source}/${exam.questionNo}`} className="rounded-2xl border border-mist bg-paper p-5 hover:border-carbon">
-          <div className="flex items-start gap-3"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-snow font-display font-semibold text-ink">{exam.questionNo}</span><div><p className="line-clamp-2 font-system text-[15px] leading-6 text-ink">{exam.stem}</p><p className="mt-2 font-display text-[12px] text-fog">{exam.category} · {exam.subcategory}</p></div></div>
-        </Link>
+        <ExamQuestionListCard key={exam.id} href={`/public-service/exam/${subjectId}/${year}/${source}/${exam.questionNo}`} questionNo={exam.questionNo} stem={exam.stem} category={exam.category} subcategory={exam.subcategory} />
       ))}</div>
       <SimpleAppInstallStrip scope="public_service" />
     </div></div>

@@ -1,16 +1,28 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import type { ReactNode } from "react";
 import { ExamTrackQuestion } from "@/components/exam-track/ExamTrackQuestion";
 import { TrackConceptDetailView } from "@/components/exam-track/TrackConceptDetailView";
+import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
+import { TrackLearningTools } from "@/components/exam-track/TrackLearningTools";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
+import { ExamSessionCard } from "@/components/exam/ExamSessionCard";
+import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
+import { ExamQuestionListCard } from "@/components/exam/ExamQuestionListCard";
+import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import { QuestionStem } from "@/components/exam/QuestionStem";
+import { BackLink } from "@/components/ui/BackLink";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { getUser } from "@/lib/auth";
+import { getAttemptResult } from "@/lib/attempts";
+import { isQuestionBookmarked } from "@/lib/bookmarks";
+import { getConceptCommunityPosts } from "@/lib/concept-community";
+import { getUserActivityScores } from "@/lib/activity";
 import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
 import { buildBreadcrumbJsonLd, buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 import type { ExamTrackConfig, ExamTrackExam, ExamTrackSubjectContent } from "./types";
+import "@/app/concepts/concepts-ui.css";
+import "@/styles/concepts/conceptsEbook.css";
 
 type TrackApi = {
   getSubject: (subjectId: string) => ExamTrackSubjectContent | null;
@@ -30,6 +42,34 @@ type TrackApi = {
   getLinkedExams: (subjectId: string, conceptSlug: string, limit?: number) => (ExamTrackExam | undefined)[];
 };
 
+function buildTrackConceptStatements(
+  conceptSlug: string,
+  allExams: ExamTrackExam[],
+  linkedExams: ExamTrackExam[],
+  hrefFor: (exam: ExamTrackExam) => string,
+): TrackConceptStatement[] {
+  const preciselyTagged = allExams.flatMap((exam) =>
+    exam.items
+      .filter((item) => item.taxonomy_unit_id === conceptSlug)
+      .map((item) => ({ exam, item })),
+  );
+  const candidates = preciselyTagged.length > 0
+    ? preciselyTagged
+    : linkedExams.flatMap((exam) => exam.items.map((item) => ({ exam, item })));
+  const seen = new Set<string>();
+  return candidates
+    .filter(({ item }) => item.text.trim().length > 8 && (item.answer === "O" || item.answer === "X"))
+    .filter(({ item }) => (seen.has(item.text.trim()) ? false : (seen.add(item.text.trim()), true)))
+    .map(({ exam, item }, index) => ({
+      id: `${exam.id}:${item.key}:${index}`,
+      text: item.text,
+      answer: item.answer,
+      explanation: item.explanation,
+      sourceLabel: `${exam.year}년 ${exam.sourceCode} ${exam.questionNo}번`,
+      href: hrefFor(exam),
+    }));
+}
+
 export function trackConceptListMetadata(track: ExamTrackConfig, api: TrackApi, subjectId: string) {
   const data = api.getSubject(subjectId);
   if (!data) return {};
@@ -40,7 +80,7 @@ export function trackConceptListMetadata(track: ExamTrackConfig, api: TrackApi, 
   });
 }
 
-export function TrackConceptListPage({
+export async function TrackConceptListPage({
   track,
   api,
   subjectId,
@@ -59,7 +99,7 @@ export function TrackConceptListPage({
     groups.set(key, [...(groups.get(key) ?? []), concept]);
   }
   return (
-    <div className="px-4 py-8 md:py-12">
+    <div className="hp-cx px-4 py-8 md:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -88,23 +128,9 @@ export function TrackConceptListPage({
         }}
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <Link href={track.basePath} className="font-display text-body-sm text-fog hover:text-ink">
-          ← {track.shortLabel} 과목
-        </Link>
+        <BackLink href={track.basePath}>{track.shortLabel} 과목</BackLink>
         <header className="mt-6 border-b border-mist pb-8">
-          <p className="font-display text-[13px] font-semibold text-electric-blue">
-            {data.subject.track} · 기출 all-in-one
-          </p>
-          <h1 className="mt-2 font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
-          <p className="mt-3 font-display text-body text-smoke">
-            기출 논점을 정리한 공개 개념 {data.concepts.length}개입니다.
-          </p>
-          <Link
-            href={`${track.basePath}/exam/${subjectId}`}
-            className="mt-5 inline-flex rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink"
-          >
-            기출문제 보기 →
-          </Link>
+          <h1 className="font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
         </header>
         <div className="mt-10 space-y-10">
           {[...groups.entries()].map(([group, concepts]) => (
@@ -153,7 +179,7 @@ export function trackConceptDetailMetadata(
   });
 }
 
-export function TrackConceptDetailPage({
+export async function TrackConceptDetailPage({
   track,
   api,
   subjectId,
@@ -173,19 +199,30 @@ export function TrackConceptDetailPage({
   const next =
     index >= 0 && index < data.concepts.length - 1 ? data.concepts[index + 1] : null;
   const listHref = `${track.basePath}/concepts/${subjectId}`;
+  const subjectKey = `${track.communityScope}:${subjectId}`;
+  const user = await getUser();
+  const communityPosts = await getConceptCommunityPosts(subjectKey, slug, user?.id ?? null);
+  const authorIds = [...communityPosts.map((post) => post.user_id), ...communityPosts.flatMap((post) => post.comments.map((comment) => comment.user_id))];
+  const activity = await getUserActivityScores(authorIds);
+  const authorRanks = Object.fromEntries(Object.entries(activity).map(([id, value]) => [id, value.rank]));
+  const hrefFor = (exam: ExamTrackExam) => `${track.basePath}/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}`;
+  const statements = buildTrackConceptStatements(slug, data.exams, linkedExams, hrefFor);
   return (
     <TrackConceptDetailView
       subjectLabel={data.subject.label}
       listHref={listHref}
       concept={concept}
       linkedExams={linkedExams}
-      examHrefFor={(exam) =>
-        `${track.basePath}/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}`
-      }
+      examHrefFor={(exam) => `${track.basePath}/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}`}
       prev={prev}
       next={next}
       prevHref={prev ? `${listHref}/${prev.slug}` : null}
       nextHref={next ? `${listHref}/${next.slug}` : null}
+      subjectKey={subjectKey}
+      userId={user?.id ?? null}
+      initialPosts={communityPosts}
+      authorRanks={authorRanks}
+      statements={statements}
     />
   );
 }
@@ -200,7 +237,7 @@ export function trackExamSubjectMetadata(track: ExamTrackConfig, api: TrackApi, 
   });
 }
 
-export function TrackExamSubjectPage({
+export async function TrackExamSubjectPage({
   track,
   api,
   subjectId,
@@ -214,8 +251,13 @@ export function TrackExamSubjectPage({
   const path = `${track.basePath}/exam/${subjectId}`;
   const description = `${data.subject.label} 기출 ${data.exams.length}문항과 정답 해설`;
   const sessions = api.getExamSessions(subjectId);
-  const sessionsBySource = sessions.reduce<Map<string, typeof sessions>>((groups, session) => {
-    groups.set(session.sourceCode, [...(groups.get(session.sourceCode) ?? []), session]);
+  const user = await getUser();
+  const housingFirstStage = new Set(["accounting", "facilities", "civil-law"]);
+  const sessionsByGroup = sessions.reduce<Map<string, typeof sessions>>((groups, session) => {
+    const groupLabel = track.id === "housing"
+      ? housingFirstStage.has(subjectId) ? "1차" : "2차"
+      : session.sourceCode;
+    groups.set(groupLabel, [...(groups.get(groupLabel) ?? []), session]);
     return groups;
   }, new Map());
   return (
@@ -248,59 +290,30 @@ export function TrackExamSubjectPage({
         }}
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <Link href={track.basePath} className="font-display text-body-sm text-fog hover:text-ink">
-          ← {track.shortLabel} 과목
-        </Link>
+        <BackLink href={track.basePath}>{track.shortLabel} 과목</BackLink>
         <header className="mt-6 border-b border-mist pb-8">
-          <p className="font-display text-[13px] font-semibold text-electric-blue">
-            {data.subject.track} · 기출문제
-          </p>
-          <h1 className="mt-2 font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
-          <p className="mt-3 font-display text-body text-smoke">
-            {data.years.at(-1)}~{data.years[0]}년 · 원문 {data.exams.length}문항
-          </p>
+          <h1 className="font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
         </header>
+        <TrackLearningTools
+          scope={track.communityScope}
+          subjectId={subjectId}
+          basePath={track.basePath}
+          exams={data.exams}
+          userId={user?.id ?? null}
+        />
         <section className="mt-10">
-          <h2 className="mb-5 font-display text-subheading font-semibold text-ink">시험별 기출</h2>
-          <div className={`grid gap-6 ${sessionsBySource.size > 1 ? "lg:grid-cols-2" : "max-w-2xl"}`}>
-            {[...sessionsBySource.entries()].map(([sourceCode, sourceSessions]) => (
-              <section
-                key={sourceCode}
-                className="rounded-[var(--radius-largecards)] border border-mist bg-snow/60 p-4 md:p-5"
-              >
-                <div className="mb-4 flex items-center justify-between border-b border-mist pb-4">
-                  <div>
-                    <p className="font-display text-[12px] font-semibold text-electric-blue">
-                      {track.sessionEyebrow}
-                    </p>
-                    <h3 className="mt-1 font-display text-[24px] font-semibold text-ink">{sourceCode}</h3>
-                  </div>
-                  <span className="rounded-full bg-paper px-3 py-1 font-display text-[12px] text-fog">
-                    {sourceSessions.length}개 연도
-                  </span>
-                </div>
-                <div className="space-y-3">
-                  {sourceSessions.map((session) => (
-                    <Link
-                      key={`${session.year}-${session.sourceCode}`}
-                      href={`${track.basePath}/exam/${subjectId}/${session.year}/${session.sourceCode}`}
-                      className="flex items-center justify-between gap-4 rounded-2xl border-[1.5px] border-carbon bg-paper p-5 shadow-[var(--shadow-subtle)] transition-transform hover:-translate-y-0.5"
-                    >
-                      <div>
-                        <h4 className="font-display text-[21px] font-semibold text-ink">
-                          {session.year}년
-                        </h4>
-                        <p className="mt-1 font-display text-body-sm text-smoke">
-                          {session.count}문항 · 해설 포함
-                        </p>
-                      </div>
-                      <span className="font-display text-body text-fog" aria-hidden>
-                        →
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </section>
+          <div className={`grid gap-6 ${sessionsByGroup.size > 1 ? "lg:grid-cols-2" : "max-w-2xl"}`}>
+            {[...sessionsByGroup.entries()].map(([groupLabel, groupSessions]) => (
+              <ExamSessionGroup key={groupLabel} title={groupLabel}>
+                {groupSessions.map((session) => (
+                  <ExamSessionCard
+                    key={`${session.year}-${session.sourceCode}`}
+                    href={`${track.basePath}/exam/${subjectId}/${session.year}/${session.sourceCode}`}
+                    year={session.year}
+                    questionCount={session.count}
+                  />
+                ))}
+              </ExamSessionGroup>
             ))}
           </div>
         </section>
@@ -348,38 +361,24 @@ export function TrackExamSessionPage({
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-4xl">
-        <Link
-          href={`${track.basePath}/exam/${subjectId}`}
-          className="font-display text-body-sm text-fog hover:text-ink"
-        >
-          ← {data.subject.label} 기출 목록
-        </Link>
+        <BackLink href={`${track.basePath}/exam/${subjectId}`}>
+          {data.subject.label} 기출 목록
+        </BackLink>
         <header className="mt-6 border-b border-mist pb-8">
-          <p className="font-display text-[13px] font-semibold text-electric-blue">{data.subject.label}</p>
-          <h1 className="mt-2 font-display text-heading font-semibold text-ink">
+          <h1 className="font-display text-heading font-semibold text-ink">
             {year}년 {source}
           </h1>
-          <p className="mt-3 font-display text-body text-smoke">원문 {exams.length}문항 · 선지별 O/X 해설</p>
         </header>
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
           {exams.map((exam) => (
-            <Link
+            <ExamQuestionListCard
               key={exam.id}
               href={`${track.basePath}/exam/${subjectId}/${year}/${source}/${exam.questionNo}`}
-              className="rounded-2xl border border-mist bg-paper p-5 hover:border-carbon"
-            >
-              <div className="flex items-start gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-snow font-display font-semibold text-ink">
-                  {exam.questionNo}
-                </span>
-                <div>
-                  <p className="line-clamp-2 font-system text-[15px] leading-6 text-ink">{exam.stem}</p>
-                  <p className="mt-2 font-display text-[12px] text-fog">
-                    {exam.category} · {exam.subcategory}
-                  </p>
-                </div>
-              </div>
-            </Link>
+              questionNo={exam.questionNo}
+              stem={exam.stem}
+              category={exam.category}
+              subcategory={exam.subcategory}
+            />
           ))}
         </div>
         <SimpleAppInstallStrip scope={track.communityScope} />
@@ -433,6 +432,13 @@ export async function TrackExamDetailPage({
   const listBase = `${track.basePath}/exam/${subjectId}/${year}/${encodeURIComponent(source)}`;
   const detailPath = `${listBase}/${exam.questionNo}`;
   const user = await getUser();
+  const storageSubject = `${track.communityScope}:${subjectId}:${source}`;
+  const [bookmarked, initialAttemptResult] = user
+    ? await Promise.all([
+        isQuestionBookmarked(user.id, storageSubject, exam.year, exam.questionNo),
+        getAttemptResult(user.id, storageSubject, exam.year, exam.questionNo),
+      ])
+    : [false, null];
   const memoSubject = examMemoSubjectKey(track.communityScope, subjectId, source);
   const publicMemos = await getPublicMemosForQuestion(
     memoSubject,
@@ -443,12 +449,10 @@ export async function TrackExamDetailPage({
   return (
     <div className="px-4 py-8 md:py-12">
       <article className="mx-auto max-w-4xl">
-        <Link
-          href={listBase}
-          className="font-display text-body-sm text-fog hover:text-ink"
-        >
-          ← {year}년 {source} 목록
-        </Link>
+        <div className="flex items-start justify-between gap-3">
+          <BackLink href={listBase}>{year}년 {source} 목록</BackLink>
+          <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} userId={user?.id ?? null} initialBookmarked={bookmarked} loginNext={detailPath} />
+        </div>
         <ExamQuestionJumpBar
           questionNos={session.map((item) => item.questionNo)}
           current={exam.questionNo}
@@ -456,6 +460,7 @@ export async function TrackExamDetailPage({
         />
         <header className="mt-4 rounded-2xl border border-mist bg-paper p-5 md:p-6">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
             <p className="font-display text-[13px] font-semibold text-electric-blue">
               {data.subject.label} · {year}년 {source}
             </p>
@@ -469,13 +474,14 @@ export async function TrackExamDetailPage({
                 {exam.subcategory}
               </span>
             ) : null}
+            </div>
           </div>
           <div className="mt-5">
             <QuestionStem stem={exam.stem} questionNo={exam.questionNo} />
           </div>
         </header>
         <div className="mt-6">
-          <ExamTrackQuestion exam={exam} subjectLabel={data.subject.label} />
+          <ExamTrackQuestion exam={exam} subjectLabel={data.subject.label} userId={user?.id ?? null} storageSubject={storageSubject} initialAttemptResult={initialAttemptResult} />
         </div>
         <nav className="mt-8 grid grid-cols-2 gap-3">
           {previous ? (

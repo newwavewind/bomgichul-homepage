@@ -85,7 +85,7 @@ function AppStoreBadge({
 }) {
   const styles = `
     inline-flex items-center gap-3 rounded-[var(--radius-buttons)]
-    min-w-[168px] border border-carbon ${badgePadding[size]}
+    w-[168px] justify-center border border-carbon ${badgePadding[size]}
     font-display shadow-[var(--shadow-button)] transition-colors
     ${
       disabled
@@ -144,7 +144,7 @@ function GooglePlayBadge({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center rounded-[var(--radius-buttons)] border border-carbon bg-paper px-3.5 py-2 shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+      className="inline-flex w-[168px] items-center justify-center rounded-[var(--radius-buttons)] border border-carbon bg-paper px-3.5 py-2 shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
       aria-label="Google Play에서 봄기출 앱 다운로드"
       onClick={() => trackEvent("app_store_click", { store: "android" })}
     >

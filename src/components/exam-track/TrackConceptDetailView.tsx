@@ -1,6 +1,12 @@
 import Link from "next/link";
-import { ConceptDetailToc } from "@/components/concepts/ConceptDetailToc";
-import type { ConceptTocItem } from "@/lib/concepts/conceptDetailToc";
+import { BackLink } from "@/components/ui/BackLink";
+import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
+import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
+import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
+import { TrackConceptStatements, type TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
+import { buildConceptDetailAiPrompt } from "@/lib/ai-links";
+import type { ConceptCommunityPost } from "@/types/database";
+import type { OceanRank } from "@/lib/ocean-ranks";
 import type { ExamTrackConcept } from "@/lib/exam-track/types";
 import type { PublicServiceConcept, PublicServiceExam } from "@/lib/public-service-content";
 import "@/app/concepts/concepts-ui.css";
@@ -8,6 +14,10 @@ import "@/styles/concepts/conceptsEbook.css";
 
 type ConceptLike = ExamTrackConcept | PublicServiceConcept;
 type ExamLike = Pick<PublicServiceExam, "id" | "year" | "sourceCode" | "questionNo">;
+
+function plainConceptText(text: string): string {
+  return text.replace(/\*\*/g, "");
+}
 
 function SectionBlock({
   label,
@@ -33,52 +43,18 @@ function SectionBlock({
   );
 }
 
-function buildTrackToc(concept: ConceptLike, relatedCount: number): {
-  tocItems: ConceptTocItem[];
-  relatedIndex: number;
-} {
-  const tocItems: ConceptTocItem[] = [
-    { id: "cx-sec-definition", label: "01", title: "개념 정리" },
-  ];
+function getRelatedSectionIndex(concept: ConceptLike): number {
   let n = 2;
   if (concept.intuition?.trim()) {
-    tocItems.push({
-      id: "cx-sec-intuition",
-      label: String(n).padStart(2, "0"),
-      title: "이해하기",
-    });
     n += 1;
   }
   if (concept.keyPoints?.length) {
-    tocItems.push({
-      id: "cx-sec-keypoints",
-      label: String(n).padStart(2, "0"),
-      title: "핵심 포인트",
-    });
-    n += 1;
-  }
-  if (concept.pitfalls?.trim() || concept.pitfallCards?.length) {
-    tocItems.push({
-      id: "cx-sec-pitfalls",
-      label: String(n).padStart(2, "0"),
-      title: "시험 함정",
-    });
     n += 1;
   }
   if (concept.example?.trim()) {
-    tocItems.push({
-      id: "cx-sec-example",
-      label: String(n).padStart(2, "0"),
-      title: "한 줄 예시",
-    });
     n += 1;
   }
-  tocItems.push({
-    id: "cx-sec-related",
-    label: relatedCount > 0 ? "기출" : String(n).padStart(2, "0"),
-    title: "관련 기출",
-  });
-  return { tocItems, relatedIndex: n };
+  return n;
 }
 
 export function TrackConceptDetailView({
@@ -91,6 +67,11 @@ export function TrackConceptDetailView({
   next,
   prevHref,
   nextHref,
+  subjectKey,
+  userId,
+  initialPosts = [],
+  authorRanks = {},
+  statements = [],
 }: {
   subjectLabel: string;
   listHref: string;
@@ -101,89 +82,86 @@ export function TrackConceptDetailView({
   next?: ConceptLike | null;
   prevHref?: string | null;
   nextHref?: string | null;
+  subjectKey: string;
+  userId: string | null;
+  initialPosts?: ConceptCommunityPost[];
+  authorRanks?: Record<string, OceanRank>;
+  statements?: TrackConceptStatement[];
 }) {
-  const { tocItems, relatedIndex } = buildTrackToc(concept, linkedExams.length);
+  const relatedIndex = getRelatedSectionIndex(concept);
+  const relatedSectionIndex = relatedIndex + (statements.length > 0 ? 1 : 0);
   let sectionIndex = 1;
+  const returnTo = `${listHref}/${concept.slug}`;
+  const aiPrompt = buildConceptDetailAiPrompt({
+    subjectLabel,
+    titleKo: concept.titleKo,
+    chapterKo: concept.chapterKo,
+    sectionKo: concept.sectionKo,
+    category: concept.category,
+    definition: concept.definition,
+    intuition: concept.intuition,
+    keyPoints: concept.keyPoints ?? [],
+    pitfalls: concept.pitfalls,
+  });
 
   return (
     <div className="hp-cx px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <Link href={listHref} className="font-display text-body-sm text-fog hover:text-ink">
-          ← {subjectLabel} 개념 목록
-        </Link>
+        <BackLink href={listHref} emphasized>
+          {concept.chapterKo || concept.category}
+        </BackLink>
 
-        <div className="mb-6 mt-5">
-          <p className="mb-2 font-display text-eyebrow font-semibold text-[#007AFF]">
-            {concept.chapterKo || concept.category}
-            {concept.sectionKo || concept.subcategory
-              ? ` · ${concept.sectionKo || concept.subcategory}`
-              : ""}
-          </p>
-          <h1 className="font-display text-heading font-semibold tracking-tight text-ink md:text-heading-lg">
-            {concept.titleKo}
-          </h1>
+        <div className="mb-6">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <h1 className="font-display text-heading font-semibold tracking-tight text-ink md:text-heading-lg">{concept.titleKo}</h1>
+            <ConceptAiButtons prompt={aiPrompt} isLoggedIn={Boolean(userId)} returnTo={returnTo} subject={subjectKey} />
+          </div>
           {concept.titleEn ? (
             <p className="mt-2 font-display text-body-sm text-smoke">{concept.titleEn}</p>
           ) : null}
         </div>
 
-        <ConceptDetailToc items={tocItems} />
+        <ConceptReadBar subject={subjectKey} slug={concept.slug} isLoggedIn={Boolean(userId)} userId={userId} returnTo={returnTo} />
 
         <article className="hp-cx-card">
           <SectionBlock id="cx-sec-definition" label="개념 정리" index={sectionIndex++}>
-            {concept.definition}
+            {plainConceptText(concept.definition)}
           </SectionBlock>
           {concept.intuition?.trim() ? (
             <SectionBlock id="cx-sec-intuition" label="이해하기" index={sectionIndex++}>
-              {concept.intuition}
+              {plainConceptText(concept.intuition)}
             </SectionBlock>
           ) : null}
           {concept.keyPoints?.length ? (
             <SectionBlock id="cx-sec-keypoints" label="핵심 포인트" index={sectionIndex++}>
               <ol className="hp-cx-bullets">
                 {concept.keyPoints.map((point, i) => (
-                  <li key={i}>{point}</li>
+                  <li key={i}>{plainConceptText(point)}</li>
                 ))}
               </ol>
             </SectionBlock>
           ) : null}
-          {concept.pitfalls?.trim() || concept.pitfallCards?.length ? (
-            <SectionBlock id="cx-sec-pitfalls" label="시험 함정" index={sectionIndex++}>
-              {concept.pitfalls?.trim() ? (
-                <aside className="hp-cx-caution">{concept.pitfalls}</aside>
-              ) : null}
-              {concept.pitfallCards?.length ? (
-                <div className={concept.pitfalls?.trim() ? "mt-4 space-y-3" : "space-y-3"}>
-                  {concept.pitfallCards.map((card, index) => (
-                    <div
-                      key={index}
-                      className="rounded-xl border border-[rgba(70,62,48,0.18)] bg-white/70 p-4"
-                    >
-                      <p className="font-system text-[14px] leading-6 text-[#b45309]">
-                        ✕ {card.wrong}
-                      </p>
-                      <p className="mt-3 border-t border-[rgba(70,62,48,0.12)] pt-3 font-system text-[14px] leading-6 text-[#0066D6]">
-                        ○ {card.correct}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              ) : null}
-            </SectionBlock>
-          ) : null}
           {concept.example?.trim() ? (
             <SectionBlock id="cx-sec-example" label="한 줄 예시" index={sectionIndex++}>
-              <aside className="hp-cx-map-summary">{concept.example}</aside>
+              <aside className="hp-cx-map-summary">{plainConceptText(concept.example)}</aside>
             </SectionBlock>
           ) : null}
         </article>
+
+        {statements.length > 0 ? (
+          <article className="hp-cx-card">
+            <SectionBlock label="기출 지문" index={relatedIndex}>
+              <TrackConceptStatements statements={statements} />
+            </SectionBlock>
+          </article>
+        ) : null}
 
         <article id="cx-sec-related" className="hp-cx-card">
           <section className="hp-cx-section">
             <div className="hp-cx-questions-head">
               <h2 className="hp-cx-section__label">
                 <span className="hp-cx-section__index" aria-hidden>
-                  {String(relatedIndex).padStart(2, "0")}
+                  {String(relatedSectionIndex).padStart(2, "0")}
                 </span>
                 <span>관련 기출</span>
               </h2>
@@ -195,7 +173,7 @@ export function TrackConceptDetailView({
               ) : (
                 <div className="hp-cx-related-list">
                   {linkedExams.map((exam) => (
-                    <Link key={exam.id} href={examHrefFor(exam)} className="hp-cx-question-row">
+                    <Link key={exam.id} href={userId ? examHrefFor(exam) : `/login?next=${encodeURIComponent(examHrefFor(exam))}`} className="hp-cx-question-row">
                       <span>
                         {exam.year}년 {exam.sourceCode} {exam.questionNo}번
                       </span>
@@ -207,6 +185,8 @@ export function TrackConceptDetailView({
             </div>
           </section>
         </article>
+
+        <ConceptCommunityPanel subject={subjectKey} conceptSlug={concept.slug} sectionIndex={relatedSectionIndex + 1} userId={userId} initialPosts={initialPosts} authorRanks={authorRanks} returnTo={returnTo} />
 
         <nav className="hp-cx-pager" aria-label="이전·다음 개념">
           {prev && prevHref ? (

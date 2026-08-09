@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
+import { SectionHeading } from "@/components/ui/Typography";
 import { ARCHIVE_SUBJECT_MAP, EXAM_SUBJECTS, SITE_NAME } from "@/lib/constants";
 import {
   getConcept,
@@ -22,8 +22,6 @@ import {
 import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
 import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
 import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
-import { ConceptDetailToc } from "@/components/concepts/ConceptDetailToc";
-import { buildConceptDetailTocItems } from "@/lib/concepts/conceptDetailToc";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, truncateDescription } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
@@ -34,6 +32,10 @@ import "../../concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
+
+function plainConceptText(text: string): string {
+  return text.replace(/\*\*/g, "");
+}
 
 function isValidSubject(value: string): value is ExamSubject {
   return (VALID_SUBJECTS as string[]).includes(value);
@@ -152,22 +154,12 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
     currentIndex >= 0 && currentIndex < siblingConcepts.length - 1
       ? siblingConcepts[currentIndex + 1]
       : undefined;
-  const hasPitfalls = Boolean(concept.pitfalls?.trim());
   const hasExample = Boolean(concept.example?.trim());
-  const pitfallsIndex = hasPitfalls ? 4 : null;
-  const exampleIndex = hasExample ? 4 + (hasPitfalls ? 1 : 0) : null;
-  const afterCore = 4 + (hasPitfalls ? 1 : 0) + (hasExample ? 1 : 0);
+  const exampleIndex = hasExample ? 4 : null;
+  const afterCore = 4 + (hasExample ? 1 : 0);
   const statementsIndex = enhancement ? afterCore + 1 : afterCore;
   const relatedIndex = statements.length > 0 ? statementsIndex + 1 : statementsIndex;
   const communityIndex = relatedIndex + 1;
-  const tocItems = buildConceptDetailTocItems({
-    hasPitfalls,
-    hasExample,
-    hasVisual: Boolean(enhancement),
-    hasStatements: statements.length > 0,
-    pitfallsIndex,
-    exampleIndex,
-  });
   const aiPrompt = buildConceptDetailAiPrompt({
     subjectLabel: label,
     titleKo: concept.titleKo,
@@ -204,22 +196,11 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
         dangerouslySetInnerHTML={{ __html: JSON.stringify(learningResourceJsonLd) }}
       />
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <BackLink href={`/concepts/${subject}`}>{label} 개념 목록으로</BackLink>
-
-        <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/#concepts" className="hover:text-ink">
-            기출 all-in-one
-          </Link>{" "}
-          /{" "}
-          <Link href={`/concepts/${subject}`} className="hover:text-ink">
-            {label}
-          </Link>
-        </p>
+        <BackLink href={`/concepts/${subject}`} emphasized>
+          {concept.chapterKo || concept.category}
+        </BackLink>
 
         <div className="mb-8">
-          <p className="mb-2 font-display text-eyebrow font-semibold text-ios-blue">
-            {concept.category} · {questions.length}문항 등장
-          </p>
           {parent && (
             <p className="mb-2 font-display text-body-sm text-fog">
               <span className="mr-1.5 inline-flex items-center rounded-full border border-ios-blue/40 px-1.5 py-0.5 font-display text-[10px] font-semibold text-ios-blue">
@@ -260,30 +241,23 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           returnTo={returnTo}
         />
 
-        <ConceptDetailToc items={tocItems} />
-
         <article className="hp-cx-card">
           <SectionBlock id="cx-sec-definition" label="개념 정리" index={1}>
-            {concept.definition}
+            {plainConceptText(concept.definition)}
           </SectionBlock>
           <SectionBlock id="cx-sec-intuition" label="이해하기" index={2}>
-            {concept.intuition}
+            {plainConceptText(concept.intuition)}
           </SectionBlock>
           <SectionBlock id="cx-sec-keypoints" label="핵심 포인트" index={3}>
             <ol className="hp-cx-bullets">
               {concept.keyPoints.map((point, i) => (
-                <li key={i}>{point}</li>
+                <li key={i}>{plainConceptText(point)}</li>
               ))}
             </ol>
           </SectionBlock>
-          {hasPitfalls && pitfallsIndex != null ? (
-            <SectionBlock id="cx-sec-pitfalls" label="시험 함정" index={pitfallsIndex}>
-              <aside className="hp-cx-caution">{concept.pitfalls}</aside>
-            </SectionBlock>
-          ) : null}
           {hasExample && exampleIndex != null ? (
             <SectionBlock id="cx-sec-example" label="한 줄 예시" index={exampleIndex}>
-              <aside className="hp-cx-map-summary">{concept.example}</aside>
+              <aside className="hp-cx-map-summary">{plainConceptText(concept.example)}</aside>
             </SectionBlock>
           ) : null}
         </article>

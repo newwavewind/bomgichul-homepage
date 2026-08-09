@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
-import { ElevatedCard } from "@/components/ui/Card";
+import { SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
+import { ExamQuestionListCard } from "@/components/exam/ExamQuestionListCard";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
   getExamYearParams,
@@ -72,25 +72,10 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <BackLink href={`/exam/${subject}`}>{label} 과목으로</BackLink>
 
-        <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/#exam" className="hover:text-ink">
-            기출문제 해설
-          </Link>{" "}
-          /{" "}
-          <Link href={`/exam/${subject}`} className="hover:text-ink">
-            {label}
-          </Link>{" "}
-          / {year}년
-        </p>
-
         <div className="mb-10">
-          <EyebrowLabel className="mb-2">{year}년 기출</EyebrowLabel>
           <SectionHeading as="h1">
             {year}년 {label} 기출문제 해설
           </SectionHeading>
-          <p className="mt-3 max-w-2xl font-display text-body text-smoke">
-            문항을 선택하면 정답과 해설을 볼 수 있어요.
-          </p>
 
           <div className="mt-6 flex flex-wrap items-start gap-3">
             <Link
@@ -101,7 +86,6 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
             </Link>
             <PdfDownloadButton
               subject={subject}
-              subjectLabel={label}
               year={year}
               canDownload={Boolean(user)}
             />
@@ -110,22 +94,18 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
 
         {unlocked && <MockExamHistory sessions={mockSessions} />}
 
-        <ElevatedCard className="overflow-hidden">
+        <div className="grid gap-3 sm:grid-cols-2">
           {questions.map((q) => (
-            <Link
+            <ExamQuestionListCard
               key={q.questionNo}
               href={`/exam/${subject}/${year}/${q.questionNo}`}
-              className="flex items-center gap-3 border-b border-mist/60 px-5 py-3.5 transition-colors last:border-b-0 hover:bg-snow"
-            >
-              <span className="shrink-0 font-display text-body-sm font-semibold text-electric-blue">
-                {q.questionNo}번
-              </span>
-              <span className="min-w-0 flex-1 truncate font-display text-body-sm text-ink">
-                {q.stem}
-              </span>
-            </Link>
+              questionNo={q.questionNo}
+              stem={q.stem}
+              category={q.category}
+              subcategory={q.subcategory}
+            />
           ))}
-        </ElevatedCard>
+        </div>
       </div>
     </div>
   );

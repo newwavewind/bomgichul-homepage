@@ -7,13 +7,6 @@ export function PublicServiceHub() {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
-        <header>
-          <p className="mb-2 font-display text-[13px] font-semibold tracking-[0.04em] text-electric-blue">봄기출 · 공무원</p>
-          <h1 className="font-display text-heading font-semibold tracking-tight text-ink md:text-heading-lg">
-            공무원 기출 학습의 모든 것
-          </h1>
-        </header>
-
         <PublicServiceSubjectBrowser subjects={subjects} />
 
         <section

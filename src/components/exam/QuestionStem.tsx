@@ -1,4 +1,5 @@
 import { parseQuestionStem } from "@/lib/exam-stem";
+import { plainStudyText } from "@/lib/study-text";
 
 function StemHeading({
   questionNo,
@@ -28,7 +29,8 @@ export function QuestionStem({
   stem: string;
   questionNo?: number;
 }) {
-  const { intro, boxLines } = parseQuestionStem(stem);
+  const cleanStem = plainStudyText(stem);
+  const { intro, boxLines } = parseQuestionStem(cleanStem);
   const headingClass =
     "mb-8 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink";
 
@@ -36,7 +38,7 @@ export function QuestionStem({
     return (
       <StemHeading
         questionNo={questionNo}
-        text={stem}
+        text={cleanStem}
         className={`${headingClass} whitespace-pre-line`}
       />
     );

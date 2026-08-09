@@ -1,5 +1,6 @@
 import type { ExamQuestion } from "@/lib/exam-questions";
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
+import { plainStudyText } from "@/lib/study-text";
 
 const REVISION_MARKER_RE = /【\s*개정반영\s*】|\[\s*개정반영\s*\]/;
 
@@ -51,9 +52,9 @@ export function ExamQuestionSeoExplanations({
     for (const choice of comboWithExpl) {
       blocksForCopy.push(
         [
-          `${choice.label} ${choice.text}`,
+          `${choice.label} ${plainStudyText(choice.text)}`,
           choice.isCorrect ? "정답: O" : "정답: X",
-          `해설: ${choice.explanation!}`,
+          `해설: ${plainStudyText(choice.explanation!)}`,
         ].join("\n")
       );
     }
@@ -61,9 +62,9 @@ export function ExamQuestionSeoExplanations({
     for (const item of itemsWithExpl) {
       blocksForCopy.push(
         [
-          `${item.label} ${item.text}`,
+          `${item.label} ${plainStudyText(item.text)}`,
           `정답: ${item.answer}`,
-          `해설: ${item.explanation}`,
+          `해설: ${plainStudyText(item.explanation ?? "")}`,
         ].join("\n")
       );
     }
@@ -100,7 +101,7 @@ export function ExamQuestionSeoExplanations({
         <div className="mb-6 rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3">
           <p className="font-display text-body-sm font-medium text-ink">해설 요약</p>
           <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke whitespace-pre-wrap">
-            {summary}
+            {plainStudyText(summary)}
           </p>
         </div>
       ) : null}
@@ -113,13 +114,13 @@ export function ExamQuestionSeoExplanations({
               className="rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3"
             >
               <p className="font-display text-body-sm font-medium text-ink">
-                {choice.label} {choice.text}
+                {choice.label} {plainStudyText(choice.text)}
               </p>
               <p className="mt-1 font-display text-body-sm text-smoke">
                 {choice.isCorrect ? "정답" : "오답"}
               </p>
               <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                {choice.explanation}
+                {plainStudyText(choice.explanation ?? "")}
               </p>
             </li>
           ))}
@@ -132,13 +133,13 @@ export function ExamQuestionSeoExplanations({
               className="rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3"
             >
               <p className="font-display text-body-sm font-medium text-ink">
-                {item.label} {item.text}
+                {item.label} {plainStudyText(item.text)}
               </p>
               <p className="mt-1 font-display text-body-sm text-smoke">
                 정답: {item.answer}
               </p>
               <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                {item.explanation}
+                {plainStudyText(item.explanation ?? "")}
               </p>
             </li>
           ))}

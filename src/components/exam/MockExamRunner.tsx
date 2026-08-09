@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { QuestionStem } from "@/components/exam/QuestionStem";
+import { plainStudyText } from "@/lib/study-text";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
 import { TableComboChoiceRows } from "@/components/exam/TableComboChoiceRows";
@@ -143,7 +144,8 @@ export function MockExamRunner({
                           key={item.key}
                           className="rounded-[var(--radius-buttons)] border border-mist bg-surface px-4 py-2.5 font-display text-body-sm text-ink"
                         >
-                          <span className="font-semibold">{item.label}</span> {item.text}
+                          <span className="font-semibold">{item.label}</span>{" "}
+                          {plainStudyText(item.text)}
                         </div>
                       ))}
                     </div>
@@ -179,7 +181,7 @@ export function MockExamRunner({
                             }`}
                           >
                             <span className="font-semibold">{choice.label}</span>
-                            <span>{choice.text}</span>
+                            <span>{plainStudyText(choice.text)}</span>
                           </button>
                         ))
                       )}
@@ -199,7 +201,7 @@ export function MockExamRunner({
                         }`}
                       >
                         <span className="font-semibold">{item.label}</span>
-                        <span>{item.text}</span>
+                        <span>{plainStudyText(item.text)}</span>
                       </button>
                     ))}
                   </div>
@@ -210,7 +212,7 @@ export function MockExamRunner({
                     내 답:{" "}
                     <span className="font-medium text-ink">
                       {selectedItem
-                        ? `${selectedItem.label} ${selectedItem.text}`
+                        ? `${selectedItem.label} ${plainStudyText(selectedItem.text)}`
                         : "미응답"}
                     </span>
                   </p>

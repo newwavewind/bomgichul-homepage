@@ -1,8 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
-import { SectionHeading } from "@/components/ui/Typography";
 import { Tag } from "@/components/ui/Tag";
 import type { ExamTrackConfig, ExamTrackManifestItem } from "@/lib/exam-track/types";
 
@@ -56,52 +55,16 @@ export function ExamTrackSubjectBrowser({
       const key = subject.track || "과목";
       grouped.set(key, [...(grouped.get(key) ?? []), subject]);
     }
-    return [...grouped.entries()];
+    return [...grouped.entries()].sort(([a], [b]) =>
+      a.localeCompare(b, "ko", { numeric: true }),
+    );
   }, [subjects]);
-
-  const [mode, setMode] = useState<"group" | "subject">(tracks.length > 1 ? "group" : "subject");
-
-  const sortedSubjects = useMemo(
-    () => [...subjects].sort((a, b) => a.label.localeCompare(b.label, "ko")),
-    [subjects],
-  );
 
   return (
     <section id={`${track.id}-subjects`}>
-      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <SectionHeading as="h2">기출 학습 선택</SectionHeading>
-          <p className="mt-2 font-display text-body-sm text-fog">과목별 개념과 공개 기출을 선택하세요.</p>
-        </div>
-        {tracks.length > 1 ? (
-          <div
-            className="inline-grid w-fit grid-cols-2 rounded-full border border-mist bg-paper p-1 shadow-[var(--shadow-button)]"
-            aria-label="과목 보기 방식"
-          >
-            {(
-              [
-                ["group", "차수별"],
-                ["subject", "과목별"],
-              ] as const
-            ).map(([value, label]) => (
-              <button
-                key={value}
-                type="button"
-                onClick={() => setMode(value)}
-                className={`rounded-full px-5 py-2 font-display text-body-sm font-semibold transition-colors ${
-                  mode === value ? "bg-carbon text-paper" : "text-smoke hover:bg-snow hover:text-ink"
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        ) : null}
-      </div>
-
-      {mode === "subject" || tracks.length <= 1 ? (
+      {tracks.length <= 1 ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {sortedSubjects.map((subject, index) => (
+          {(tracks[0]?.[1] ?? subjects).map((subject, index) => (
             <SubjectCard key={subject.id} track={track} subject={subject} index={index} />
           ))}
         </div>

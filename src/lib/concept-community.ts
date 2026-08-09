@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
-import type { ExamSubject } from "@/lib/exam-questions";
 import type { ConceptCommunityComment, ConceptCommunityPost } from "@/types/database";
 
 type ProfileSnippet = { nickname: string; avatar_url: string | null };
@@ -37,7 +36,7 @@ function pickProfile(
 }
 
 export async function getConceptCommunityPosts(
-  subject: ExamSubject,
+  subject: string,
   conceptSlug: string,
   viewerUserId?: string | null
 ): Promise<ConceptCommunityPost[]> {
