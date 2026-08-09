@@ -5,6 +5,29 @@ import type { CommunityScope } from "@/types/database";
 
 export const revalidate = 900;
 
+const FALLBACK_ITEMS = [
+  {
+    title: "공인중개사 기출 학습",
+    link: `${SITE_URL}/real-estate`,
+    description: "공인중개사 과목별 핵심 개념과 연도별 공개 기출문제를 학습하세요.",
+  },
+  {
+    title: "공무원 기출 학습",
+    link: `${SITE_URL}/public-service`,
+    description: "공무원 시험 과목별 핵심 개념과 연도별 공개 기출문제를 학습하세요.",
+  },
+  {
+    title: "경찰공무원 기출 학습",
+    link: `${SITE_URL}/police`,
+    description: "경찰공무원 시험 과목별 핵심 개념과 연도별 공개 기출문제를 학습하세요.",
+  },
+  {
+    title: "주택관리사 기출 학습",
+    link: `${SITE_URL}/housing`,
+    description: "주택관리사 과목별 핵심 개념과 연도별 공개 기출문제를 학습하세요.",
+  },
+] as const;
+
 function escapeXml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
@@ -16,23 +39,36 @@ function escapeXml(value: string): string {
 
 export async function GET() {
   const { data } = await getPosts({ scope: "all", page: 1, sort: "latest" });
-  const items = data
+  const publishedPosts = data
     .filter((post) => post.category !== "bug" && post.category !== "feedback")
-    .map((post) => {
+  const publishedAt = new Date().toUTCString();
+  const feedItems = publishedPosts.length > 0
+    ? publishedPosts.map((post) => {
       const scope = isValidCommunityScope(post.community_scope)
         ? (post.community_scope as CommunityScope)
         : "real_estate";
       const link = `${SITE_URL}${communityBaseHref(scope)}/${post.id}`;
-      return [
-        "<item>",
-        `<title>${escapeXml(post.title)}</title>`,
-        `<link>${escapeXml(link)}</link>`,
-        `<guid isPermaLink="true">${escapeXml(link)}</guid>`,
-        `<pubDate>${new Date(post.created_at).toUTCString()}</pubDate>`,
-        `<description>${escapeXml(post.title)}</description>`,
-        "</item>",
-      ].join("");
+      return {
+        title: post.title,
+        link,
+        description: post.title,
+        pubDate: new Date(post.created_at).toUTCString(),
+      };
     })
+    : FALLBACK_ITEMS.map((item) => ({ ...item, pubDate: publishedAt }));
+
+  const items = feedItems
+    .map((item) =>
+      [
+        "<item>",
+        `<title>${escapeXml(item.title)}</title>`,
+        `<link>${escapeXml(item.link)}</link>`,
+        `<guid isPermaLink="true">${escapeXml(item.link)}</guid>`,
+        `<pubDate>${item.pubDate}</pubDate>`,
+        `<description>${escapeXml(item.description)}</description>`,
+        "</item>",
+      ].join("")
+    )
     .join("");
 
   const xml = [
