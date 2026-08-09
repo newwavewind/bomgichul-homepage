@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { uploadArchiveFiles } from "@/lib/storage";
 import {
   ARCHIVE_RESOURCE_TYPES,
-  ARCHIVE_SUBJECTS,
+  archiveSubjectsForScope,
+  defaultArchiveSubject,
 } from "@/lib/constants";
 import { FeatureCard } from "@/components/ui/Card";
 import { Input, Textarea } from "@/components/ui/Input";
@@ -16,7 +17,17 @@ import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
 import { FileUpload } from "@/components/archive/FileUpload";
-import type { Post, PostAttachment, ResourceType } from "@/types/database";
+import {
+  archiveBaseHref,
+  isValidCommunityScope,
+  scopeFromPathname,
+} from "@/lib/exam-track/community";
+import type {
+  CommunityScope,
+  Post,
+  PostAttachment,
+  ResourceType,
+} from "@/types/database";
 
 interface EditPageProps {
   params: Promise<{ id: string }>;
@@ -24,11 +35,15 @@ interface EditPageProps {
 
 export default function ArchiveEditPage({ params }: EditPageProps) {
   const router = useRouter();
+  const pathname = usePathname();
+  const routeScope = scopeFromPathname(pathname);
   const [postId, setPostId] = useState("");
+  const [scope, setScope] = useState<CommunityScope>(routeScope);
+  const baseHref = archiveBaseHref(scope);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [resourceType, setResourceType] = useState<ResourceType>("note");
-  const [subject, setSubject] = useState("realestate");
+  const [subject, setSubject] = useState(defaultArchiveSubject(routeScope));
   const [existingAttachments, setExistingAttachments] = useState<PostAttachment[]>([]);
   const [newFiles, setNewFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState(true);
@@ -58,24 +73,29 @@ export default function ArchiveEditPage({ params }: EditPageProps) {
           .single()
           .then(({ data, error: fetchError }) => {
             if (fetchError || !data) {
-              router.push("/archive");
+              router.push(archiveBaseHref(routeScope));
               return;
             }
             const post = data as Post;
+            const postScope = isValidCommunityScope(post.community_scope)
+              ? post.community_scope
+              : "real_estate";
+            const postBase = archiveBaseHref(postScope);
             if (post.author_id !== user.id) {
-              router.push(`/archive/${id}`);
+              router.push(`${postBase}/${id}`);
               return;
             }
+            setScope(postScope);
             setTitle(post.title);
             setContent(post.content);
             setResourceType((post.resource_type as ResourceType) ?? "note");
-            setSubject(post.subject ?? "realestate");
+            setSubject(post.subject ?? defaultArchiveSubject(postScope));
             setExistingAttachments(post.post_attachments ?? []);
             setLoading(false);
           });
       });
     });
-  }, [params, router]);
+  }, [params, router, routeScope]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -138,7 +158,7 @@ export default function ArchiveEditPage({ params }: EditPageProps) {
         }
       }
 
-      router.push(`/archive/${postId}`);
+      router.push(`${baseHref}/${postId}`);
       router.refresh();
     } catch {
       setError("수정에 실패했습니다.");
@@ -148,7 +168,10 @@ export default function ArchiveEditPage({ params }: EditPageProps) {
   };
 
   const typeOptions = ARCHIVE_RESOURCE_TYPES.filter((t) => t.value !== "all");
-  const subjectOptions = ARCHIVE_SUBJECTS.filter((s) => s.value !== "all");
+  const subjectOptions = useMemo(
+    () => archiveSubjectsForScope(scope).filter((s) => s.value !== "all"),
+    [scope],
+  );
 
   if (loading) {
     return (
@@ -160,7 +183,7 @@ export default function ArchiveEditPage({ params }: EditPageProps) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <BackLink href={`/archive/${postId}`}>돌아가기</BackLink>
+      <BackLink href={`${baseHref}/${postId}`}>돌아가기</BackLink>
 
       <EyebrowLabel className="mb-2">자료 수정</EyebrowLabel>
       <SectionHeading as="h1" className="mb-8">
@@ -243,7 +266,7 @@ export default function ArchiveEditPage({ params }: EditPageProps) {
 
           <div className="flex justify-end gap-3">
             <Link
-              href={`/archive/${postId}`}
+              href={`${baseHref}/${postId}`}
               className="rounded-[var(--radius-buttons)] px-5 py-2.5 font-display text-body-sm text-fog"
             >
               취소

@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { getArchivePost } from "@/lib/archive";
 import { getComments, incrementViewCount } from "@/lib/posts";
@@ -19,9 +19,18 @@ import { formatKstDate } from "@/lib/datetime";
 import { getCommunityLikeState, getUserActivityScores } from "@/lib/activity";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 import { CommunityLikeButton } from "@/components/board/CommunityLikeButton";
+import {
+  archiveBaseHref,
+  isValidCommunityScope,
+} from "@/lib/exam-track/community";
+import type { CommunityScope } from "@/types/database";
 
 interface ArchiveDetailPageProps {
   params: Promise<{ id: string }>;
+}
+
+function scopeFromPost(scope: string | null | undefined): CommunityScope {
+  return isValidCommunityScope(scope) ? scope : "real_estate";
 }
 
 export async function generateMetadata({
@@ -37,15 +46,16 @@ export async function generateMetadata({
     ? ARCHIVE_RESOURCE_TYPE_MAP[post.resource_type]
     : null;
   const prefix = [subjectLabel, typeLabel].filter(Boolean).join(" ");
+  const base = archiveBaseHref(scopeFromPost(post.community_scope));
 
   return {
     title: post.title,
     description: prefix ? `${prefix} · ${description}` : description,
-    alternates: { canonical: absoluteUrl(`/archive/${id}`) },
+    alternates: { canonical: absoluteUrl(`${base}/${id}`) },
     openGraph: {
       title: `${post.title} | ${SITE_NAME}`,
       description,
-      url: absoluteUrl(`/archive/${id}`),
+      url: absoluteUrl(`${base}/${id}`),
       siteName: SITE_NAME,
       locale: "ko_KR",
       type: "article",
@@ -58,11 +68,20 @@ export async function generateMetadata({
   };
 }
 
-export default async function ArchiveDetailPage({ params }: ArchiveDetailPageProps) {
+export async function ArchivePostDetailPage({
+  params,
+  expectedScope,
+}: ArchiveDetailPageProps & { expectedScope?: CommunityScope }) {
   const { id } = await params;
   const [post, user] = await Promise.all([getArchivePost(id), getUser()]);
 
   if (!post) notFound();
+
+  const postScope = scopeFromPost(post.community_scope);
+  const base = archiveBaseHref(postScope);
+  if (expectedScope && expectedScope !== postScope) {
+    redirect(`${base}/${id}`);
+  }
 
   await incrementViewCount(id);
   const comments = await getComments(id);
@@ -70,13 +89,18 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
   const authorIds = [post.author_id, ...comments.map((comment) => comment.author_id)];
   const [authorActivity, likeState] = await Promise.all([
     getUserActivityScores(authorIds),
-    getCommunityLikeState(id, comments.map((comment) => comment.id), user?.id),
+    getCommunityLikeState(
+      id,
+      comments.map((comment) => comment.id),
+      user?.id,
+    ),
   ]);
-  const loginHref = `/login?next=${encodeURIComponent(`/archive/${id}`)}`;
+  const detailHref = `${base}/${id}`;
+  const loginHref = `/login?next=${encodeURIComponent(detailHref)}`;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <BackLink href="/archive">자료실로</BackLink>
+      <BackLink href={base}>자료실로</BackLink>
 
       <ElevatedCard className="p-6 md:p-8">
         <div className="mb-4 flex items-center justify-between gap-4">
@@ -97,12 +121,14 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
             authorId={post.author_id}
             currentUserId={user?.id}
             isAdmin={user?.isAdmin}
-            listPath="/archive"
-            editPath={`/archive/${post.id}/edit`}
+            listPath={base}
+            editPath={`${base}/${post.id}/edit`}
           />
         </div>
 
-        <h1 className="mb-4 font-display text-heading-sm font-semibold text-ink">{post.title}</h1>
+        <h1 className="mb-4 font-display text-heading-sm font-semibold text-ink">
+          {post.title}
+        </h1>
 
         <div className="mb-6 flex flex-col gap-2.5 border-b border-mist/60 pb-6 font-display text-body-sm text-fog">
           <div className="flex min-w-0 flex-wrap items-center gap-1.5">
@@ -165,4 +191,8 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
       </section>
     </div>
   );
+}
+
+export default async function ArchiveDetailPage(props: ArchiveDetailPageProps) {
+  return <ArchivePostDetailPage {...props} expectedScope="real_estate" />;
 }

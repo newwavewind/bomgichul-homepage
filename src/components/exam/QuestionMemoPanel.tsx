@@ -7,7 +7,6 @@ import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { Textarea } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
-import type { ExamSubject } from "@/lib/exam-questions";
 import type { PublicQuestionMemo } from "@/types/database";
 import { formatKstDateTimeShort } from "@/lib/datetime";
 
@@ -180,17 +179,22 @@ export function QuestionMemoPanel({
   questionNo,
   userId,
   initialMemos,
+  loginNext,
 }: {
-  subject: ExamSubject;
+  subject: string;
   year: number;
   questionNo: number;
   userId: string | null;
   initialMemos: PublicQuestionMemo[];
+  /** 로그인 후 돌아올 경로. 없으면 공인중개사 /exam/... 경로 */
+  loginNext?: string;
 }) {
   const router = useRouter();
   const [content, setContent] = useState("");
   const [saving, setSaving] = useState(false);
-  const loginHref = `/login?next=/exam/${subject}/${year}/${questionNo}`;
+  const loginHref = `/login?next=${encodeURIComponent(
+    loginNext ?? `/exam/${subject}/${year}/${questionNo}`,
+  )}`;
 
   const handlePost = async () => {
     const trimmed = content.trim();

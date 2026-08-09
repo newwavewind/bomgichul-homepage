@@ -22,6 +22,8 @@ import {
 import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
 import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
 import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
+import { ConceptDetailToc } from "@/components/concepts/ConceptDetailToc";
+import { buildConceptDetailTocItems } from "@/lib/concepts/conceptDetailToc";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, truncateDescription } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
@@ -29,6 +31,7 @@ import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
 import { buildConceptDetailAiPrompt } from "@/lib/ai-links";
 import "../../concepts-ui.css";
+import "@/styles/concepts/conceptsEbook.css";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -58,7 +61,7 @@ export async function generateMetadata({
   const description = truncateDescription(
     `${label} · ${concept.titleKo}. ${concept.definition}${
       concept.intuition ? ` ${concept.intuition}` : ""
-    }`
+    }${concept.pitfalls ? ` 함정: ${concept.pitfalls}` : ""}`
   );
 
   return {
@@ -85,15 +88,17 @@ function SectionBlock({
   label,
   index,
   badge,
+  id,
   children,
 }: {
   label: string;
   index: number;
   badge?: string;
+  id?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="hp-cx-section">
+    <section className="hp-cx-section" id={id}>
       <h2 className="hp-cx-section__label">
         <span className="hp-cx-section__index" aria-hidden>
           {String(index).padStart(2, "0")}
@@ -147,9 +152,22 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
     currentIndex >= 0 && currentIndex < siblingConcepts.length - 1
       ? siblingConcepts[currentIndex + 1]
       : undefined;
-  const statementsIndex = enhancement ? 5 : 4;
+  const hasPitfalls = Boolean(concept.pitfalls?.trim());
+  const hasExample = Boolean(concept.example?.trim());
+  const pitfallsIndex = hasPitfalls ? 4 : null;
+  const exampleIndex = hasExample ? 4 + (hasPitfalls ? 1 : 0) : null;
+  const afterCore = 4 + (hasPitfalls ? 1 : 0) + (hasExample ? 1 : 0);
+  const statementsIndex = enhancement ? afterCore + 1 : afterCore;
   const relatedIndex = statements.length > 0 ? statementsIndex + 1 : statementsIndex;
   const communityIndex = relatedIndex + 1;
+  const tocItems = buildConceptDetailTocItems({
+    hasPitfalls,
+    hasExample,
+    hasVisual: Boolean(enhancement),
+    hasStatements: statements.length > 0,
+    pitfallsIndex,
+    exampleIndex,
+  });
   const aiPrompt = buildConceptDetailAiPrompt({
     subjectLabel: label,
     titleKo: concept.titleKo,
@@ -217,6 +235,11 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
             <SectionHeading as="h1" className="w-auto max-w-full shrink">
               {concept.titleKo}
             </SectionHeading>
+            {concept.amendmentNotice ? (
+              <span className="cx-amend-badge" title={concept.amendmentNotice}>
+                개정 반영
+              </span>
+            ) : null}
             <ConceptAiButtons
               prompt={aiPrompt}
               isLoggedIn={isLoggedIn}
@@ -237,28 +260,42 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           returnTo={returnTo}
         />
 
+        <ConceptDetailToc items={tocItems} />
+
         <article className="hp-cx-card">
-          <SectionBlock label="개념 정리" index={1}>
+          <SectionBlock id="cx-sec-definition" label="개념 정리" index={1}>
             {concept.definition}
           </SectionBlock>
-          <SectionBlock label="이해하기" index={2}>
+          <SectionBlock id="cx-sec-intuition" label="이해하기" index={2}>
             {concept.intuition}
           </SectionBlock>
-          <SectionBlock label="핵심 포인트" index={3}>
+          <SectionBlock id="cx-sec-keypoints" label="핵심 포인트" index={3}>
             <ol className="hp-cx-bullets">
               {concept.keyPoints.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}
             </ol>
           </SectionBlock>
+          {hasPitfalls && pitfallsIndex != null ? (
+            <SectionBlock id="cx-sec-pitfalls" label="시험 함정" index={pitfallsIndex}>
+              <aside className="hp-cx-caution">{concept.pitfalls}</aside>
+            </SectionBlock>
+          ) : null}
+          {hasExample && exampleIndex != null ? (
+            <SectionBlock id="cx-sec-example" label="한 줄 예시" index={exampleIndex}>
+              <aside className="hp-cx-map-summary">{concept.example}</aside>
+            </SectionBlock>
+          ) : null}
         </article>
 
-        <div className="concepts-screen hp-cx-kind-host">
-          <ConceptVisualGuide guide={enhancement} />
-        </div>
+        {enhancement ? (
+          <div id="cx-sec-visual" className="concepts-screen hp-cx-kind-host cx-toc-anchor">
+            <ConceptVisualGuide guide={enhancement} />
+          </div>
+        ) : null}
 
         {statements.length > 0 && (
-          <article className="hp-cx-card">
+          <article id="cx-sec-statements" className="hp-cx-card">
             <SectionBlock label="기출 지문" index={statementsIndex} badge="옳은 지문 모음">
               <ConceptStatementList
                 statements={statements}
@@ -270,7 +307,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           </article>
         )}
 
-        <article className="hp-cx-card">
+        <article id="cx-sec-related" className="hp-cx-card">
           <section className="hp-cx-section">
             <div className="hp-cx-questions-head">
               <h2 className="hp-cx-section__label">

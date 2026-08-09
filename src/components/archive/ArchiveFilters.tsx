@@ -4,7 +4,13 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ARCHIVE_RESOURCE_TYPES, ARCHIVE_SUBJECTS } from "@/lib/constants";
 
-export function ArchiveFilters() {
+type SubjectOption = { value: string; label: string };
+
+export function ArchiveFilters({
+  subjects = [...ARCHIVE_SUBJECTS],
+}: {
+  subjects?: SubjectOption[];
+}) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -46,7 +52,7 @@ export function ArchiveFilters() {
       <div>
         <p className="mb-2 font-display text-body-sm font-medium text-ink">과목</p>
         <div className="flex flex-wrap gap-2">
-          {ARCHIVE_SUBJECTS.map((s) => (
+          {subjects.map((s) => (
             <Link
               key={s.value}
               href={buildHref("subject", s.value)}

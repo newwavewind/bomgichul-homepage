@@ -18,6 +18,7 @@ import { PremiumBadge } from "@/components/ui/PremiumBadge";
 import { ARCHIVE_SUBJECT_MAP, EXAM_SUBJECTS } from "@/lib/constants";
 import { getUserActivityScores } from "@/lib/activity";
 import { OCEAN_RANKS } from "@/lib/ocean-ranks";
+import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 
 export default async function ProfilePage() {
@@ -31,7 +32,7 @@ export default async function ProfilePage() {
     redirect("/onboarding");
   }
 
-  const { data: myPosts } = await getPosts({ authorId: user.id, page: 1 });
+  const { data: myPosts } = await getPosts({ authorId: user.id, page: 1, scope: "all" });
   const bookmarks = await getBookmarksForUser(user.id);
   const bookmarkedQuestions = bookmarks
     .map((b) => getExamQuestion(b.subject as ExamSubject, b.year, b.question_no))
@@ -253,8 +254,8 @@ export default async function ProfilePage() {
         <h2 className="font-display text-subheading font-semibold text-ink">
           내가 쓴 글 ({myPosts.length})
         </h2>
-        <PrimaryButton href="/community/write" size="sm">
-          새 글쓰기
+        <PrimaryButton href="/" size="sm">
+          시험 선택
         </PrimaryButton>
       </div>
 
@@ -264,31 +265,34 @@ export default async function ProfilePage() {
             <p className="mb-2 font-display text-body text-smoke">
               아직 작성한 글이 없어요
             </p>
-            <PrimaryButton href="/community/write">첫 글 작성하기</PrimaryButton>
+            <PrimaryButton href="/">시험 선택 후 글쓰기</PrimaryButton>
           </div>
         ) : (
-          myPosts.map((post) => (
-            <PostCard
-              key={post.id}
-              id={post.id}
-              title={post.title}
-              category={post.category}
-              authorName={user.nickname}
-              authorRank={activity.rank}
-              viewCount={post.view_count}
-              commentCount={post.comment_count}
-              createdAt={post.created_at}
-            />
-          ))
+          myPosts.map((post) => {
+            const scope = isValidCommunityScope(post.community_scope)
+              ? post.community_scope
+              : "real_estate";
+            return (
+              <PostCard
+                key={post.id}
+                id={post.id}
+                title={post.title}
+                category={post.category}
+                authorName={user.nickname}
+                authorRank={activity.rank}
+                viewCount={post.view_count}
+                commentCount={post.comment_count}
+                createdAt={post.created_at}
+                baseHref={communityBaseHref(scope)}
+              />
+            );
+          })
         )}
       </ElevatedCard>
 
       <div className="mt-6 text-center">
-        <Link
-          href="/community"
-          className="font-display text-body-sm text-fog hover:text-ink"
-        >
-          커뮤니티로 돌아가기 →
+        <Link href="/" className="font-display text-body-sm text-fog hover:text-ink">
+          시험 선택으로 돌아가기 →
         </Link>
       </div>
     </div>

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "constitution",
+    "label": "헌법",
+    "track": "순경 공채",
+    "conceptCount": 35,
+    "examCount": 180,
+    "years": [
+      2026,
+      2025,
+      2024,
+      2023,
+      2022
+    ],
+    "sources": [
+      "1차",
+      "2차"
+    ]
+  },
+  {
+    "id": "criminal-law",
+    "label": "형사법",
+    "track": "순경 공채",
+    "conceptCount": 47,
+    "examCount": 360,
+    "years": [
+      2026,
+      2025,
+      2024,
+      2023,
+      2022
+    ],
+    "sources": [
+      "1차",
+      "2차"
+    ]
+  },
+  {
+    "id": "police-science",
+    "label": "경찰학",
+    "track": "순경 공채",
+    "conceptCount": 32,
+    "examCount": 360,
+    "years": [
+      2026,
+      2025,
+      2024,
+      2023,
+      2022
+    ],
+    "sources": [
+      "1차",
+      "2차"
+    ]
+  }
+]

@@ -4,6 +4,7 @@ import { AdminTable, formatDateTime } from "@/components/admin/AdminUi";
 import { AdminPostDeleteButton } from "@/components/admin/AdminPostDeleteButton";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
+import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 
 export default async function AdminReportsPage() {
   const posts = await getAdminPosts({ category: "reports", limit: 100 });
@@ -26,23 +27,29 @@ export default async function AdminReportsPage() {
           </p>
         ) : (
           <AdminTable
-            headers={["유형", "제목", "작성자", "조회", "등록일", ""]}
-            rows={posts.map((p) => [
-              p.categoryLabel,
-              p.title,
-              p.authorNickname,
-              String(p.viewCount),
-              formatDateTime(p.createdAt),
-              <span key={`actions-${p.id}`} className="inline-flex items-center gap-3">
-                <Link
-                  href={`/community/${p.id}`}
-                  className="font-medium text-electric-blue hover:underline"
-                >
-                  보기
-                </Link>
-                <AdminPostDeleteButton postId={p.id} />
-              </span>,
-            ])}
+            headers={["트랙", "유형", "제목", "작성자", "조회", "등록일", ""]}
+            rows={posts.map((p) => {
+              const scope = isValidCommunityScope(p.communityScope)
+                ? p.communityScope
+                : "real_estate";
+              return [
+                scope,
+                p.categoryLabel,
+                p.title,
+                p.authorNickname,
+                String(p.viewCount),
+                formatDateTime(p.createdAt),
+                <span key={`actions-${p.id}`} className="inline-flex items-center gap-3">
+                  <Link
+                    href={`${communityBaseHref(scope)}/${p.id}`}
+                    className="font-medium text-electric-blue hover:underline"
+                  >
+                    보기
+                  </Link>
+                  <AdminPostDeleteButton postId={p.id} />
+                </span>,
+              ];
+            })}
           />
         )}
       </ElevatedCard>

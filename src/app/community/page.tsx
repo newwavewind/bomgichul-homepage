@@ -9,11 +9,14 @@ import { SearchBar, SortSelect } from "@/components/board/SearchBar";
 import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import type { CommunityListFilter, CommunityScope } from "@/types/database";
 import type { SortOption } from "@/lib/constants";
-import { BEST_POST_MIN_VIEWS, CATEGORY_MAP } from "@/lib/constants";
+import { BEST_POST_MIN_VIEWS, CATEGORY_MAP, appStoreLinksForScope } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
 import { getUserActivityScores } from "@/lib/activity";
+import { communityBaseHref, communityTitle } from "@/lib/exam-track/community";
+import { CommunityHubNav } from "@/components/community/CommunityHubNav";
 
 interface CommunityPageProps {
   searchParams: Promise<{
@@ -73,8 +76,8 @@ export async function CommunityBoard({
     sort,
     scope,
   });
-  const isPublicService = scope === "public_service";
-  const baseHref = isPublicService ? "/public-service/community" : "/community";
+  const baseHref = communityBaseHref(scope);
+  const boardTitle = communityTitle(scope);
   const authorBadges = await getPremiumBadgesForUsers(posts.map((p) => p.author_id));
   const authorActivity = await getUserActivityScores(posts.map((p) => p.author_id));
 
@@ -84,7 +87,7 @@ export async function CommunityBoard({
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <EyebrowLabel className="mb-2">함께 공부하는 사람들</EyebrowLabel>
-            <SectionHeading as="h1">{isPublicService ? "공무원 수험생 커뮤니티" : "공인중개사 수험생 커뮤니티"}</SectionHeading>
+            <SectionHeading as="h1">{boardTitle}</SectionHeading>
             <p className="mt-2 font-display text-body-sm text-smoke">
               {category === "best"
                 ? `조회 ${BEST_POST_MIN_VIEWS}회 이상 인기 글 · 총 ${total}개`
@@ -95,19 +98,21 @@ export async function CommunityBoard({
           <PrimaryButton href={`${baseHref}/write`}>글쓰기</PrimaryButton>
         </div>
 
+        <CommunityHubNav scope={scope} />
+
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <Suspense fallback={null}>
-            <SearchBar defaultValue={search} />
+            <SearchBar defaultValue={search} basePath={baseHref} />
           </Suspense>
           {category !== "best" && (
             <Suspense fallback={null}>
-              <SortSelect current={sort} />
+              <SortSelect current={sort} basePath={baseHref} />
             </Suspense>
           )}
         </div>
 
         <div className="mb-8">
-          <CategoryFilter current={category} />
+          <CategoryFilter current={category} baseHref={baseHref} />
         </div>
 
         <ElevatedCard className="overflow-hidden">
@@ -156,7 +161,22 @@ export async function CommunityBoard({
           category={category}
           search={search}
           sort={sort}
+          baseHref={baseHref}
         />
+
+        <section
+          aria-label="앱 설치 안내"
+          className="mt-12 flex flex-col items-center gap-4 border-t border-mist pt-10 text-center"
+        >
+          <p className="font-display text-body-sm text-smoke">
+            앱에서 기출을 풀고, 막히면 AI 질문으로 이어 가세요.
+          </p>
+          <AppStoreButtons
+            className="justify-center"
+            size="sm"
+            links={appStoreLinksForScope(scope)}
+          />
+        </section>
       </div>
     </div>
   );

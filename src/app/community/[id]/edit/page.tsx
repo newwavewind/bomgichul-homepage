@@ -13,15 +13,21 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
 import { RichTextEditor } from "@/components/editor/RichTextEditor";
 import { sanitizeConceptCommunityHtml } from "@/lib/concept-community-html";
-import type { Post, PostCategory } from "@/types/database";
+import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
+import type { CommunityScope, Post, PostCategory } from "@/types/database";
 
 interface EditPageProps {
   params: Promise<{ id: string }>;
 }
 
+function scopeFromPost(scope: string | null | undefined): CommunityScope {
+  return isValidCommunityScope(scope) ? scope : "real_estate";
+}
+
 export default function EditPage({ params }: EditPageProps) {
   const router = useRouter();
   const [postId, setPostId] = useState<string>("");
+  const [postHref, setPostHref] = useState("/community");
   const [title, setTitle] = useState("");
   const [contentHtml, setContentHtml] = useState("");
   const [contentPlain, setContentPlain] = useState("");
@@ -55,12 +61,14 @@ export default function EditPage({ params }: EditPageProps) {
           .single()
           .then(({ data, error: fetchError }) => {
             if (fetchError || !data) {
-              router.push("/community");
+              router.push("/");
               return;
             }
             const post = data as Post;
+            const detail = `${communityBaseHref(scopeFromPost(post.community_scope))}/${id}`;
+            setPostHref(detail);
             if (post.author_id !== user.id) {
-              router.push(`/community/${id}`);
+              router.push(detail);
               return;
             }
             setTitle(post.title);
@@ -95,7 +103,7 @@ export default function EditPage({ params }: EditPageProps) {
       if (updateError) {
         setError(updateError.message);
       } else {
-        router.push(`/community/${postId}`);
+        router.push(postHref);
         router.refresh();
       }
     } catch {
@@ -117,7 +125,7 @@ export default function EditPage({ params }: EditPageProps) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <BackLink href={`/community/${postId}`}>돌아가기</BackLink>
+      <BackLink href={postHref}>돌아가기</BackLink>
 
       <EyebrowLabel className="mb-2">게시글 수정</EyebrowLabel>
       <SectionHeading as="h1" className="mb-8 text-heading-sm">
@@ -175,7 +183,7 @@ export default function EditPage({ params }: EditPageProps) {
 
           <div className="flex justify-end gap-3">
             <Link
-              href={`/community/${postId}`}
+              href={postHref}
               className="rounded-[var(--radius-buttons)] px-5 py-2.5 font-display text-body-sm text-fog"
             >
               취소

@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import type { SortOption } from "@/lib/constants";
-import type { PaginatedResult, Post, ArchiveListItem } from "@/types/database";
+import type { CommunityScope, PaginatedResult, Post, ArchiveListItem } from "@/types/database";
 
 const emptyPaginated = (page: number): PaginatedResult<ArchiveListItem> => ({
   data: [],
@@ -18,6 +18,7 @@ interface GetArchiveOptions {
   sort?: SortOption;
   resourceType?: string;
   subject?: string;
+  scope?: CommunityScope;
 }
 
 export async function getArchivePosts({
@@ -26,6 +27,7 @@ export async function getArchivePosts({
   sort = "latest",
   resourceType = "all",
   subject = "all",
+  scope = "real_estate",
 }: GetArchiveOptions = {}): Promise<PaginatedResult<ArchiveListItem>> {
   if (!isSupabaseConfigured()) {
     return emptyPaginated(page);
@@ -41,7 +43,8 @@ export async function getArchivePosts({
       "id, author_id, category, title, view_count, subject, resource_type, created_at, profiles:profiles!posts_author_id_fkey(nickname), post_attachments(id, file_name, file_size, mime_type)",
       { count: "planned" }
     )
-    .eq("category", "resource");
+    .eq("category", "resource")
+    .eq("community_scope", scope);
 
   if (resourceType !== "all") {
     query = query.eq("resource_type", resourceType);

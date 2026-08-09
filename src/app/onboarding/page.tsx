@@ -64,7 +64,7 @@ export default function OnboardingPage() {
         return;
       }
 
-      router.replace("/community");
+      router.replace("/");
       router.refresh();
     } catch {
       setError("아이디 저장에 실패했습니다. 다시 시도해주세요.");
@@ -84,7 +84,7 @@ export default function OnboardingPage() {
             아이디 만들기
           </SectionHeading>
           <p className="mt-3 font-display text-body-sm text-smoke">
-            실명·이메일은 공개되지 않습니다. 수험생 커뮤니티·수험일기·자료실에서는
+            실명·이메일은 공개되지 않습니다. 수험생 커뮤니티·자료실에서는
             아이디로만 활동합니다.
           </p>
         </div>

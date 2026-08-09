@@ -4,7 +4,7 @@ import { getSupabaseEnv } from "@/lib/supabase/env";
 
 function safeNextPath(next: string | null): string {
   if (!next || !next.startsWith("/") || next.startsWith("//")) {
-    return "/community";
+    return "/";
   }
   return next;
 }
@@ -22,7 +22,7 @@ function readNextFromRequest(request: NextRequest) {
     }
   }
 
-  return "/community";
+  return "/";
 }
 
 export async function GET(request: NextRequest) {

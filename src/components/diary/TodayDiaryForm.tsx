@@ -4,20 +4,26 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
-import { getExamCountdown, getKSTDateString } from "@/lib/exam";
+import { getExamCountdownForScope, getKSTDateString } from "@/lib/exam";
 import { DIARY_MOODS } from "@/lib/constants";
 import { FeatureCard } from "@/components/ui/Card";
 import { Input, Textarea } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
-import type { DiaryMood, StudyDiary } from "@/types/database";
+import type { CommunityScope, DiaryMood, StudyDiary } from "@/types/database";
 
 interface TodayDiaryFormProps {
   todayDiary: StudyDiary | null;
   todayLabel: string;
   streak?: number;
+  scope?: CommunityScope;
 }
 
-export function TodayDiaryForm({ todayDiary, todayLabel, streak = 0 }: TodayDiaryFormProps) {
+export function TodayDiaryForm({
+  todayDiary,
+  todayLabel,
+  streak = 0,
+  scope = "real_estate",
+}: TodayDiaryFormProps) {
   const router = useRouter();
   const [content, setContent] = useState(todayDiary?.content ?? "");
   const [mood, setMood] = useState<DiaryMood | null>(
@@ -64,19 +70,20 @@ export function TodayDiaryForm({ todayDiary, todayLabel, streak = 0 }: TodayDiar
         : 0;
 
       const diaryDate = getKSTDateString();
-      const { days: daysUntilExam } = getExamCountdown(diaryDate);
+      const { days: daysUntilExam } = getExamCountdownForScope(scope, diaryDate);
 
       const { error: upsertError } = await supabase.from("study_diaries").upsert(
         {
           author_id: user.id,
           diary_date: diaryDate,
           days_until_exam: daysUntilExam,
+          community_scope: scope,
           content: trimmed,
           mood,
           study_minutes: Number.isFinite(studyMinutes) ? studyMinutes : 0,
           is_public: isPublic,
         },
-        { onConflict: "author_id,diary_date" }
+        { onConflict: "author_id,diary_date,community_scope" },
       );
 
       if (upsertError) {
@@ -192,7 +199,11 @@ export function TodayDiaryForm({ todayDiary, todayLabel, streak = 0 }: TodayDiar
   );
 }
 
-export function DiaryLoginPrompt() {
+export function DiaryLoginPrompt({
+  loginNext = "/diary",
+}: {
+  loginNext?: string;
+}) {
   return (
     <FeatureCard tint="ice" className="text-center">
       <p className="mb-2 font-display text-subheading font-semibold text-ink">
@@ -201,7 +212,9 @@ export function DiaryLoginPrompt() {
       <p className="mb-6 font-display text-body-sm text-smoke">
         오늘 쓴 일기는 같은 D-day에 공개됩니다. 내년·후년 수험생도 볼 수 있어요.
       </p>
-      <PrimaryButton href="/login?next=/diary">로그인하기</PrimaryButton>
+      <PrimaryButton href={`/login?next=${encodeURIComponent(loginNext)}`}>
+        로그인하기
+      </PrimaryButton>
     </FeatureCard>
   );
 }

@@ -1,6 +1,23 @@
 import type { ExamQuestion } from "@/lib/exam-questions";
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 
+const REVISION_MARKER_RE = /【\s*개정반영\s*】|\[\s*개정반영\s*\]/;
+
+function hasRevisionMarker(text: string | null | undefined) {
+  return typeof text === "string" && REVISION_MARKER_RE.test(text);
+}
+
+function RevisionBadge() {
+  return (
+    <span
+      className="inline-flex shrink-0 items-center rounded-full border border-[#007AFF]/55 bg-[#007AFF]/14 px-2.5 py-0.5 text-[0.6875rem] font-extrabold tracking-tight text-[#0066D6]"
+      title="법령 개정이 반영된 해설입니다"
+    >
+      개정반영
+    </span>
+  );
+}
+
 /**
  * 해설을 서버 HTML에 포함해 검색엔진이 본문을 색인할 수 있게 합니다.
  */
@@ -21,6 +38,10 @@ export function ExamQuestionSeoExplanations({
   const itemsWithExpl = question.items.filter(
     (item) => (item.explanation ?? "").trim().length > 0
   );
+  const showRevisionBadge =
+    hasRevisionMarker(summary) ||
+    comboWithExpl.some((c) => hasRevisionMarker(c.explanation)) ||
+    itemsWithExpl.some((item) => hasRevisionMarker(item.explanation));
 
   const blocksForCopy: string[] = [];
   if (summary) {
@@ -66,9 +87,12 @@ export function ExamQuestionSeoExplanations({
       }
       aria-label="문항 해설"
     >      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-        <h2 className="font-display text-subheading font-semibold text-ink">
-          {question.year}년 {subjectLabel} {question.questionNo}번 해설
-        </h2>
+        <div className="flex min-w-0 flex-wrap items-center gap-2">
+          <h2 className="font-display text-subheading font-semibold text-ink">
+            {question.year}년 {subjectLabel} {question.questionNo}번 해설
+          </h2>
+          {showRevisionBadge ? <RevisionBadge /> : null}
+        </div>
         <CopyToClipboardButton text={copyText} label="해설 복사" event="exam_explanation_copy" />
       </div>
 

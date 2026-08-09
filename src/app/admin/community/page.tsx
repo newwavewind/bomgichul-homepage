@@ -4,6 +4,7 @@ import { AdminTable, formatDateTime } from "@/components/admin/AdminUi";
 import { AdminPostDeleteButton } from "@/components/admin/AdminPostDeleteButton";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
+import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 
 export default async function AdminCommunityPage() {
   const posts = await getAdminPosts({ limit: 80 });
@@ -24,25 +25,31 @@ export default async function AdminCommunityPage() {
           <p className="px-6 py-12 text-center font-display text-body-sm text-fog">게시글 없음</p>
         ) : (
           <AdminTable
-            headers={["카테고리", "제목", "작성자", "조회", "등록일", ""]}
-            rows={posts.map((p) => [
-              p.categoryLabel,
-              <span key={p.id} className="line-clamp-1 max-w-xs">
-                {p.title}
-              </span>,
-              p.authorNickname,
-              String(p.viewCount),
-              formatDateTime(p.createdAt),
-              <span key={`actions-${p.id}`} className="inline-flex items-center gap-3">
-                <Link
-                  href={`/community/${p.id}`}
-                  className="font-medium text-electric-blue hover:underline"
-                >
-                  보기
-                </Link>
-                <AdminPostDeleteButton postId={p.id} />
-              </span>,
-            ])}
+            headers={["트랙", "카테고리", "제목", "작성자", "조회", "등록일", ""]}
+            rows={posts.map((p) => {
+              const scope = isValidCommunityScope(p.communityScope)
+                ? p.communityScope
+                : "real_estate";
+              return [
+                scope,
+                p.categoryLabel,
+                <span key={p.id} className="line-clamp-1 max-w-xs">
+                  {p.title}
+                </span>,
+                p.authorNickname,
+                String(p.viewCount),
+                formatDateTime(p.createdAt),
+                <span key={`actions-${p.id}`} className="inline-flex items-center gap-3">
+                  <Link
+                    href={`${communityBaseHref(scope)}/${p.id}`}
+                    className="font-medium text-electric-blue hover:underline"
+                  >
+                    보기
+                  </Link>
+                  <AdminPostDeleteButton postId={p.id} />
+                </span>,
+              ];
+            })}
           />
         )}
       </ElevatedCard>

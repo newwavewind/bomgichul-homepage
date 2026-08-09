@@ -1,29 +1,26 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
-import { EyebrowLabel } from "@/components/ui/Typography";
-import { Tag } from "@/components/ui/Tag";
 import { BackLink } from "@/components/ui/BackLink";
-import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
+import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
+import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
+import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { QuestionStem } from "@/components/exam/QuestionStem";
-import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SUBJECT_LANDING_INFO, SITE_NAME } from "@/lib/constants";
+import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
+import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
   getAllExamParams,
   getExamQuestion,
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
-import { findConceptForExamQuestion, getConcept } from "@/lib/concepts";
+import { getConcept } from "@/lib/concepts";
 import { appendReturnTo, isValidReturnTo, parseConceptReturnTo } from "@/lib/return-to";
 import { getUser } from "@/lib/auth";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
-import { getAttemptResult } from "@/lib/attempts";
 import { getPublicMemosForQuestion } from "@/lib/question-memos";
 import { isSubjectUnlocked } from "@/lib/premium";
-import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
-import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
-import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
 import {
   absoluteUrl,
   buildBreadcrumbJsonLd,
@@ -112,22 +109,17 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   if (!question) notFound();
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const info = SUBJECT_LANDING_INFO[subject];
   const yearQuestions = getExamQuestionsForYear(subject, year);
   const index = yearQuestions.findIndex((q) => q.questionNo === questionNo);
   const prev = index > 0 ? yearQuestions[index - 1] : null;
   const next = index >= 0 && index < yearQuestions.length - 1 ? yearQuestions[index + 1] : null;
 
   const bookmarked = user ? await isQuestionBookmarked(user.id, subject, year, questionNo) : false;
-  const attemptResult = user ? await getAttemptResult(user.id, subject, year, questionNo) : null;
   const publicMemos = await getPublicMemosForQuestion(subject, year, questionNo, user?.id);
   const subjectUnlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const accessible = question.free || subjectUnlocked;
-  const relatedConcept = findConceptForExamQuestion(
-    subject,
-    question.category,
-    question.subcategory
-  );
+  const listBase = `/exam/${subject}/${year}`;
+  const detailPath = appendReturnTo(`${listBase}/${questionNo}`, returnTo ?? undefined);
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "기출문제 해설", path: "/" },
@@ -171,138 +163,104 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           dangerouslySetInnerHTML={{ __html: JSON.stringify(quizJsonLd) }}
         />
       ) : null}
-      <div className="mx-auto max-w-[var(--page-max-width)]">
+      <article className="mx-auto max-w-4xl">
         {returnTo ? (
           <BackLink href={returnTo} emphasized>
             {returnConcept ? `${returnConcept.titleKo}으로 돌아가기` : "개념으로 돌아가기"}
           </BackLink>
         ) : (
-          <BackLink href={`/exam/${subject}/${year}`}>{year}년 문항 목록으로</BackLink>
+          <Link href={listBase} className="font-display text-body-sm text-fog hover:text-ink">
+            ← {year}년 문항 목록
+          </Link>
         )}
 
-        <p className="mb-4 font-display text-body-sm text-fog">
-          <Link href="/#exam" className="hover:text-ink">
-            기출문제 해설
-          </Link>{" "}
-          /{" "}
-          <Link href={`/exam/${subject}`} className="hover:text-ink">
-            {label}
-          </Link>{" "}
-          /{" "}
-          <Link href={`/exam/${subject}/${year}`} className="hover:text-ink">
-            {year}년
-          </Link>{" "}
-          / {questionNo}번
-        </p>
+        <ExamQuestionJumpBar
+          questionNos={yearQuestions.map((q) => q.questionNo)}
+          current={questionNo}
+          hrefBase={listBase}
+        />
 
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
-          <div className="flex flex-wrap items-center gap-2">
-            <EyebrowLabel>
-              {info.round} · {label}
-            </EyebrowLabel>
-            <Tag className="!px-2.5 !py-0.5 !text-[12px]">
-              제{question.round}회 · {year}년
-            </Tag>
-            <Tag className="!px-2.5 !py-0.5 !text-[12px]">{question.category}</Tag>
-            {relatedConcept ? (
-              <Link
-                href={`/concepts/${subject}/${relatedConcept.slug}`}
-                className="inline-flex items-center rounded-[var(--radius-tags)] border border-ios-blue/30 bg-ios-blue/[0.08] px-2.5 py-0.5 font-display text-[12px] font-medium text-ios-blue transition-colors hover:bg-ios-blue/[0.14]"
-              >
-                기출 all-in-one: {relatedConcept.titleKo}
-              </Link>
-            ) : null}
+        <header className="mt-4 rounded-2xl border border-mist bg-paper p-5 md:p-6">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1.5">
+              <p className="font-display text-[13px] font-semibold text-electric-blue">
+                {label} · {year}년 제{question.round}회
+              </p>
+              {question.category ? (
+                <span className="rounded-full bg-snow px-2.5 py-0.5 font-display text-[12px] text-smoke">
+                  {question.category}
+                </span>
+              ) : null}
+              {question.subcategory && question.subcategory !== question.category ? (
+                <span className="rounded-full bg-snow px-2.5 py-0.5 font-display text-[12px] text-smoke">
+                  {question.subcategory}
+                </span>
+              ) : null}
+            </div>
+            <BookmarkButton
+              subject={subject}
+              year={year}
+              questionNo={questionNo}
+              userId={user?.id ?? null}
+              initialBookmarked={bookmarked}
+            />
           </div>
-          <BookmarkButton
+          <div className="mt-5">
+            <QuestionStem stem={question.stem} questionNo={questionNo} />
+          </div>
+        </header>
+
+        <div className="mt-6">
+          {accessible ? (
+            <ExamOxQuestion
+              examId={`${subject}-${year}-${questionNo}`}
+              items={question.items}
+              correctChoice={Number(question.correctChoice)}
+              explanationSummary={question.explanationSummary}
+              comboChoices={question.comboChoices}
+            />
+          ) : (
+            <PremiumFeatureLocked
+              subject={subject}
+              subjectLabel={label}
+              featureLabel="전체 해설"
+              description={`${year}년 ${questionNo}번 문항의 정답·해설은 프리미엄에서 확인할 수 있어요.`}
+            />
+          )}
+        </div>
+
+        <nav className="mt-8 grid grid-cols-2 gap-3">
+          {prev ? (
+            <Link
+              href={appendReturnTo(`${listBase}/${prev.questionNo}`, returnTo ?? undefined)}
+              className="rounded-2xl border border-mist px-4 py-3 font-display text-body-sm hover:border-carbon"
+            >
+              ← {prev.questionNo}번
+            </Link>
+          ) : (
+            <span />
+          )}
+          {next ? (
+            <Link
+              href={appendReturnTo(`${listBase}/${next.questionNo}`, returnTo ?? undefined)}
+              className="rounded-2xl border border-mist px-4 py-3 text-right font-display text-body-sm hover:border-carbon"
+            >
+              {next.questionNo}번 →
+            </Link>
+          ) : null}
+        </nav>
+
+        <div className="mt-8">
+          <QuestionMemoPanel
             subject={subject}
             year={year}
             questionNo={questionNo}
             userId={user?.id ?? null}
-            initialBookmarked={bookmarked}
+            initialMemos={publicMemos}
+            loginNext={detailPath}
           />
         </div>
-
-        <QuestionStem stem={question.stem} questionNo={questionNo} />
-
-        <ExamAnswerList
-          items={question.items}
-          correctChoice={question.correctChoice}
-          questionType={question.questionType}
-          comboChoices={question.comboChoices}
-          compositeLayout={question.compositeLayout}
-          tableHeader={question.tableHeader}
-          stem={question.stem}
-          free={accessible}
-          subject={subject}
-          year={year}
-          questionNo={questionNo}
-          userId={user?.id ?? null}
-          initialAttemptResult={attemptResult}
-        />
-
-        <ExamSeoExplanationDetails
-          subject={subject}
-          year={year}
-          questionNo={questionNo}
-        >
-          <ExamQuestionSeoExplanations
-            question={question}
-            subjectLabel={label}
-            embedded
-          />
-        </ExamSeoExplanationDetails>
-
-        <div className="mt-8 flex items-stretch gap-3">
-          {prev ? (
-            <Link
-              href={appendReturnTo(`/exam/${subject}/${year}/${prev.questionNo}`, returnTo ?? undefined)}
-              className="group flex flex-1 items-center gap-3 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4 shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
-            >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-carbon font-display text-body font-bold text-ink transition-colors group-hover:bg-carbon group-hover:text-paper">
-                ←
-              </span>
-              <span className="flex flex-col">
-                <span className="font-display text-[11px] font-semibold uppercase tracking-wide text-fog">
-                  이전 문제
-                </span>
-                <span className="font-display text-body-sm font-bold text-ink">
-                  {prev.questionNo}번
-                </span>
-              </span>
-            </Link>
-          ) : (
-            <div className="flex-1" />
-          )}
-          {next ? (
-            <Link
-              href={appendReturnTo(`/exam/${subject}/${year}/${next.questionNo}`, returnTo ?? undefined)}
-              className="group flex flex-1 items-center justify-end gap-3 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4 text-right shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
-            >
-              <span className="flex flex-col items-end">
-                <span className="font-display text-[11px] font-semibold uppercase tracking-wide text-fog">
-                  다음 문제
-                </span>
-                <span className="font-display text-body-sm font-bold text-ink">
-                  {next.questionNo}번
-                </span>
-              </span>
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-carbon font-display text-body font-bold text-ink transition-colors group-hover:bg-carbon group-hover:text-paper">
-                →
-              </span>
-            </Link>
-          ) : (
-            <div className="flex-1" />
-          )}
-        </div>
-
-        <QuestionMemoPanel
-          subject={subject}
-          year={year}
-          questionNo={questionNo}
-          userId={user?.id ?? null}
-          initialMemos={publicMemos}
-        />
-      </div>
+      </article>
     </div>
   );
 }

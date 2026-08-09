@@ -1,7 +1,21 @@
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
-import type { ExamSubject } from "@/lib/exam-questions";
-import type { PublicMemoComment, PublicQuestionMemo } from "@/types/database";
+import type {
+  CommunityScope,
+  PublicMemoComment,
+  PublicQuestionMemo,
+} from "@/types/database";
+
+/** 트랙별 메모 키가 서로 겹치지 않도록 (회차·출처 포함) */
+export function examMemoSubjectKey(
+  scope: CommunityScope,
+  subjectId: string,
+  sourceCode?: string,
+): string {
+  if (scope === "real_estate") return subjectId;
+  const source = (sourceCode ?? "").trim();
+  return source ? `${scope}:${subjectId}:${source}` : `${scope}:${subjectId}`;
+}
 
 type ProfileSnippet = { nickname: string; avatar_url: string | null };
 
@@ -36,7 +50,7 @@ function pickProfile(
 }
 
 export async function getPublicMemosForQuestion(
-  subject: ExamSubject,
+  subject: string,
   year: number,
   questionNo: number,
   viewerUserId?: string | null

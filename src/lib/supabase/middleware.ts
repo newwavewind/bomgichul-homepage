@@ -76,7 +76,7 @@ export async function updateSession(request: NextRequest) {
 
     if (profile?.username_set) {
       const redirectUrl = request.nextUrl.clone();
-      redirectUrl.pathname = "/community";
+      redirectUrl.pathname = "/";
       redirectUrl.search = "";
       return NextResponse.redirect(redirectUrl);
     }

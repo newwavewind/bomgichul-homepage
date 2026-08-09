@@ -19,6 +19,24 @@ const exams = [
     accent: "from-[#e8faf5] to-[#f4fbf8]",
     cta: "공인중개사 학습 시작",
   },
+  {
+    href: "/police",
+    eyebrow: "순경 공채",
+    title: "경찰공무원",
+    description: "헌법·형사법·경찰학 기출을 회차별로 이어 공부하세요.",
+    meta: "3개 과목 · 2022~2026",
+    accent: "from-[#eef2ff] to-[#f7f8ff]",
+    cta: "경찰 학습 시작",
+  },
+  {
+    href: "/housing",
+    eyebrow: "주택관리사보",
+    title: "주택관리사",
+    description: "1·2차 전 과목 기출과 개념을 한곳에서 학습하세요.",
+    meta: "5개 과목 · 2020~2025",
+    accent: "from-[#fff4e8] to-[#fffaf4]",
+    cta: "주택관리사 학습 시작",
+  },
 ] as const;
 
 export function PlatformHome() {
@@ -26,9 +44,9 @@ export function PlatformHome() {
     <div className="relative overflow-hidden px-4 py-10 md:py-16">
       <div className="pointer-events-none absolute left-1/2 top-0 h-[28rem] w-[68rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(15,118,110,0.09),transparent_65%)]" />
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
-        <h1 className="sr-only">공무원·공인중개사 기출 학습</h1>
+        <h1 className="sr-only">공무원·공인중개사·경찰·주택관리사 기출 학습</h1>
         <p className="sr-only">
-          국가직·지방직 9급 공무원과 공인중개사 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
+          9급 공무원, 공인중개사, 경찰공무원, 주택관리사 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
         </p>
 
         <section className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
@@ -36,7 +54,7 @@ export function PlatformHome() {
             <Link
               key={exam.href}
               href={exam.href}
-              className={`group relative min-h-[320px] overflow-hidden rounded-[28px] border-[1.5px] border-carbon bg-gradient-to-br ${exam.accent} p-7 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-9`}
+              className={`group flex min-h-[300px] flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon bg-gradient-to-br ${exam.accent} p-7 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-9`}
             >
               <div>
                 <p className="font-display text-[13px] font-semibold tracking-[0.04em] text-fog">
@@ -48,9 +66,13 @@ export function PlatformHome() {
               </div>
               <p className="mt-8 max-w-sm font-display text-body text-smoke">{exam.description}</p>
               <p className="mt-3 font-display text-body-sm font-semibold text-ink">{exam.meta}</p>
-              <div className="absolute bottom-7 left-7 right-7 flex items-center justify-between rounded-2xl bg-carbon px-5 py-3.5 text-paper md:bottom-9 md:left-9 md:right-9">
-                <span className="font-display text-body-sm font-semibold">{exam.cta}</span>
-                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+              <div className="mt-auto pt-8">
+                <div className="flex items-center justify-between rounded-2xl bg-carbon px-5 py-3.5 text-paper">
+                  <span className="font-display text-body-sm font-semibold">{exam.cta}</span>
+                  <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
+                </div>
               </div>
             </Link>
           ))}

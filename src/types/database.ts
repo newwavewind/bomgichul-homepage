@@ -11,7 +11,7 @@ export type PostCategory =
 
 /** 커뮤니티 목록 필터 (베스트는 DB 카테고리가 아닌 가상 필터) */
 export type CommunityListFilter = PostCategory | "all" | "best";
-export type CommunityScope = "real_estate" | "public_service";
+export type CommunityScope = "real_estate" | "public_service" | "police" | "housing";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 
@@ -218,7 +218,7 @@ export interface Notification {
   read_at: string | null;
   created_at: string;
   actor?: Pick<Profile, "nickname" | "avatar_url">;
-  post?: Pick<Post, "title">;
+  post?: Pick<Post, "title" | "community_scope">;
 }
 
 export interface PaginatedResult<T> {
@@ -236,6 +236,7 @@ export interface StudyDiary {
   author_id: string;
   diary_date: string;
   days_until_exam: number;
+  community_scope: CommunityScope;
   content: string;
   mood: DiaryMood | null;
   study_minutes: number;

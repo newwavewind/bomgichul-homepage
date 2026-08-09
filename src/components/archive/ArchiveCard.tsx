@@ -12,15 +12,16 @@ import type { OceanRank } from "@/lib/ocean-ranks";
 interface ArchiveCardProps {
   post: ArchiveListItem;
   authorRank?: OceanRank;
+  baseHref?: string;
 }
 
-export function ArchiveCard({ post, authorRank }: ArchiveCardProps) {
+export function ArchiveCard({ post, authorRank, baseHref = "/archive" }: ArchiveCardProps) {
   const attachments = post.post_attachments ?? [];
   const firstFile = attachments[0];
 
   return (
     <Link
-      href={`/archive/${post.id}`}
+      href={`${baseHref}/${post.id}`}
       className="flex items-start gap-4 border-b border-mist/60 px-6 py-5 transition-colors last:border-b-0 hover:bg-snow"
     >
       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--radius-cards)] bg-surface text-2xl">

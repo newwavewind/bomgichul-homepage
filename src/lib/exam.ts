@@ -1,6 +1,41 @@
 import { BROKER_EXAM_SCHEDULE } from "@/lib/constants";
+import type { CommunityScope } from "@/types/database";
 
 const KST = "Asia/Seoul";
+
+/** 트랙별 다음 시험일 (D-day 기준). 공고가 바뀌면 여기만 갱신. */
+const TRACK_EXAM_SCHEDULE: Record<
+  Exclude<CommunityScope, "real_estate">,
+  {
+    label: string;
+    examDate: string;
+    registrationStart: string;
+    note: string;
+    examName: string;
+  }
+> = {
+  public_service: {
+    label: "2026년 국가직 9급",
+    examDate: "2026-04-04",
+    registrationStart: "2026-02-01",
+    note: "필기 일정은 인사혁신처·사이버국가고시센터 공고를 확인하세요",
+    examName: "공무원 공개경쟁채용시험",
+  },
+  police: {
+    label: "2026년 순경 공채",
+    examDate: "2026-09-05",
+    registrationStart: "2026-07-01",
+    note: "필기 일정은 경찰청·나라일터 공고를 확인하세요",
+    examName: "경찰공무원 순경 공개채용",
+  },
+  housing: {
+    label: "2026년 주택관리사보",
+    examDate: "2026-07-11",
+    registrationStart: "2026-05-01",
+    note: "1·2차 일정은 Q-Net 공고를 확인하세요",
+    examName: "주택관리사보 자격시험",
+  },
+};
 
 /** KST 기준 YYYY-MM-DD */
 export function getKSTDateString(date = new Date()): string {
@@ -10,6 +45,24 @@ export function getKSTDateString(date = new Date()): string {
 function parseDateOnly(iso: string): Date {
   const [y, m, d] = iso.split("-").map(Number);
   return new Date(y, m - 1, d);
+}
+
+function addYearsToIsoDate(iso: string, years: number): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${y + years}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+}
+
+/** 지난 시험일이면 같은 월·일로 다음 회차(연도)까지 밀어 올린다 */
+export function bumpExamDateToUpcoming(
+  examDate: string,
+  fromDate = getKSTDateString(),
+): string {
+  let next = examDate;
+  // 안전장치: 최대 10년
+  for (let i = 0; i < 10 && next < fromDate; i += 1) {
+    next = addYearsToIsoDate(next, 1);
+  }
+  return next;
 }
 
 /** 시험일까지 남은 일수 (시험 당일 = 0, 이후 = 음수) */
@@ -26,6 +79,12 @@ export function formatDDay(days: number): string {
   return `D+${Math.abs(days)}`;
 }
 
+/** 남은 일수용 라벨 — 카운트다운 UI에서는 항상 D- / D-Day만 쓴다 */
+export function formatCountdownLabel(days: number): string {
+  if (days > 0) return `D-${days}`;
+  return "D-Day";
+}
+
 export function formatKoreanDate(iso: string): string {
   const [y, m, d] = iso.split("-").map(Number);
   const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
@@ -36,17 +95,62 @@ export function formatKoreanDate(iso: string): string {
 export function getNextBrokerExam(fromDate = getKSTDateString()) {
   const upcoming = BROKER_EXAM_SCHEDULE.filter((exam) => exam.examDate >= fromDate);
   if (upcoming.length > 0) return upcoming[0];
-  return BROKER_EXAM_SCHEDULE[BROKER_EXAM_SCHEDULE.length - 1];
+
+  const last = BROKER_EXAM_SCHEDULE[BROKER_EXAM_SCHEDULE.length - 1];
+  const examDate = bumpExamDateToUpcoming(last.examDate, fromDate);
+  const year = Number(examDate.slice(0, 4));
+  const yearsAhead = year - last.year;
+  return {
+    ...last,
+    year,
+    round: last.round + yearsAhead,
+    label: `${year}년 제${last.round + yearsAhead}회`,
+    examDate,
+    registrationStart: bumpExamDateToUpcoming(last.registrationStart, fromDate),
+    registrationEnd: bumpExamDateToUpcoming(last.registrationEnd, fromDate),
+    resultDate: bumpExamDateToUpcoming(last.resultDate, fromDate),
+  };
 }
 
 export function getExamCountdown(fromDate = getKSTDateString()) {
   const exam = getNextBrokerExam(fromDate);
-  const days = getDaysUntilExam(exam.examDate, fromDate);
+  const days = Math.max(0, getDaysUntilExam(exam.examDate, fromDate));
   return {
     exam,
     days,
-    label: formatDDay(days),
+    label: formatCountdownLabel(days),
     formattedDate: formatKoreanDate(exam.examDate),
+    examName: "공인중개사 자격시험",
+  };
+}
+
+export function getExamCountdownForScope(
+  scope: CommunityScope = "real_estate",
+  fromDate = getKSTDateString(),
+) {
+  if (scope === "real_estate") {
+    return getExamCountdown(fromDate);
+  }
+  const base = TRACK_EXAM_SCHEDULE[scope];
+  const examDate = bumpExamDateToUpcoming(base.examDate, fromDate);
+  const year = Number(examDate.slice(0, 4));
+  const registrationStart = bumpExamDateToUpcoming(base.registrationStart, fromDate);
+  const days = Math.max(0, getDaysUntilExam(examDate, fromDate));
+  return {
+    exam: {
+      ...base,
+      label: base.label.replace(/^\d{4}년/, `${year}년`),
+      examDate,
+      registrationStart,
+      year,
+      round: 0,
+      registrationEnd: registrationStart,
+      resultDate: examDate,
+    },
+    days,
+    label: formatCountdownLabel(days),
+    formattedDate: formatKoreanDate(examDate),
+    examName: base.examName,
   };
 }
 

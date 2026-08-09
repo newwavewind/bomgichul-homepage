@@ -7,6 +7,7 @@ interface ArchivePaginationProps {
   sort?: string;
   type?: string;
   subject?: string;
+  baseHref?: string;
 }
 
 export function ArchivePagination({
@@ -16,6 +17,7 @@ export function ArchivePagination({
   sort,
   type,
   subject,
+  baseHref = "/archive",
 }: ArchivePaginationProps) {
   if (totalPages <= 1) return null;
 
@@ -27,7 +29,7 @@ export function ArchivePagination({
     if (type && type !== "all") params.set("type", type);
     if (subject && subject !== "all") params.set("subject", subject);
     const qs = params.toString();
-    return `/archive${qs ? `?${qs}` : ""}`;
+    return `${baseHref}${qs ? `?${qs}` : ""}`;
   };
 
   const pages: (number | "...")[] = [];

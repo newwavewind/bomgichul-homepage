@@ -6,6 +6,7 @@ interface PaginationProps {
   category?: string;
   search?: string;
   sort?: string;
+  baseHref?: string;
 }
 
 export function Pagination({
@@ -14,6 +15,7 @@ export function Pagination({
   category,
   search,
   sort,
+  baseHref = "/community",
 }: PaginationProps) {
   if (totalPages <= 1) return null;
 
@@ -24,7 +26,7 @@ export function Pagination({
     if (search) params.set("q", search);
     if (sort && sort !== "latest") params.set("sort", sort);
     const qs = params.toString();
-    return `/community${qs ? `?${qs}` : ""}`;
+    return `${baseHref}${qs ? `?${qs}` : ""}`;
   };
 
   const pages: (number | "...")[] = [];

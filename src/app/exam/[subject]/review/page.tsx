@@ -88,7 +88,7 @@ export default async function DailyReviewPage({ params }: ReviewPageProps) {
             오답·북마크·약점 단원을 반영해 오늘 풀 문제 {questions.length || 10}개를 추천해요.
             {daysUntilExam != null && (
               <span className="mt-1 block text-body-sm">
-                수험일기 D-{daysUntilExam} 기준으로 구성했어요.
+                시험 D-{daysUntilExam} 기준으로 구성했어요.
               </span>
             )}
           </p>

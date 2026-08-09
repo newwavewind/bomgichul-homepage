@@ -19,7 +19,8 @@ interface GetPostsOptions {
   search?: string;
   sort?: SortOption;
   authorId?: string;
-  scope?: CommunityScope;
+  /** `"all"`이면 시험 트랙 구분 없이 조회 (프로필 등) */
+  scope?: CommunityScope | "all";
 }
 
 export async function getPosts({
@@ -45,7 +46,9 @@ export async function getPosts({
       { count: "planned" }
     );
 
-  query = query.eq("community_scope", scope);
+  if (scope !== "all") {
+    query = query.eq("community_scope", scope);
+  }
 
   if (category === "best") {
     query = query

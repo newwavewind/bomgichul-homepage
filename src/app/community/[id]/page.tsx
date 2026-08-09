@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { getPost, getComments, incrementViewCount } from "@/lib/posts";
 import { getUser } from "@/lib/auth";
@@ -16,12 +16,18 @@ import { getCommunityLikeState, getUserActivityScores } from "@/lib/activity";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 import { CommunityLikeButton } from "@/components/board/CommunityLikeButton";
 import { RichTextBody } from "@/components/editor/RichTextBody";
+import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
+import type { CommunityScope } from "@/types/database";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 interface PostDetailPageProps {
   params: Promise<{ id: string }>;
+}
+
+function scopeFromPost(scope: string | null | undefined): CommunityScope {
+  return isValidCommunityScope(scope) ? scope : "real_estate";
 }
 
 export async function generateMetadata({
@@ -35,16 +41,17 @@ export async function generateMetadata({
   const title = post.title;
   const categoryLabel = CATEGORY_MAP[post.category] ?? post.category;
   const isAppOnlyCategory = post.category === "bug" || post.category === "feedback";
+  const canonicalPath = `${communityBaseHref(scopeFromPost(post.community_scope))}/${id}`;
 
   return {
     title,
     description: `${categoryLabel} · ${description}`,
-    alternates: { canonical: absoluteUrl(`/community/${id}`) },
+    alternates: { canonical: absoluteUrl(canonicalPath) },
     robots: isAppOnlyCategory ? ROBOTS_NOINDEX : undefined,
     openGraph: {
       title: `${title} | ${SITE_NAME}`,
       description,
-      url: absoluteUrl(`/community/${id}`),
+      url: absoluteUrl(canonicalPath),
       siteName: SITE_NAME,
       locale: "ko_KR",
       type: "article",
@@ -57,12 +64,27 @@ export async function generateMetadata({
   };
 }
 
-export default async function PostDetailPage({ params }: PostDetailPageProps) {
+/** 트랙 접두 경로(`/police/community/...` 등)와 공인중개사 `/community/...`가 공유 */
+export async function CommunityPostDetailPage({
+  params,
+  expectedScope,
+}: PostDetailPageProps & { expectedScope?: CommunityScope }) {
   const { id } = await params;
   const post = await getPost(id);
   const user = await getUser();
 
   if (!post) notFound();
+
+  const postScope = scopeFromPost(post.community_scope);
+  const canonicalHref = `${communityBaseHref(postScope)}/${id}`;
+
+  if (expectedScope) {
+    if (postScope !== expectedScope) {
+      redirect(canonicalHref);
+    }
+  } else if (postScope !== "real_estate") {
+    redirect(canonicalHref);
+  }
 
   await incrementViewCount(id);
   const comments = await getComments(id);
@@ -75,11 +97,13 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
     getUserActivityScores(authorIds),
     getCommunityLikeState(id, comments.map((comment) => comment.id), user?.id),
   ]);
-  const loginHref = `/login?next=${encodeURIComponent(`/community/${id}`)}`;
+  const boardHref = communityBaseHref(scopeFromPost(post.community_scope));
+  const postHref = `${boardHref}/${id}`;
+  const loginHref = `/login?next=${encodeURIComponent(postHref)}`;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <BackLink href="/community">목록으로</BackLink>
+      <BackLink href={boardHref}>목록으로</BackLink>
 
       <ElevatedCard className="p-6 md:p-8">
         <div className="mb-4 flex items-center justify-between gap-4">
@@ -91,6 +115,8 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
             authorId={post.author_id}
             currentUserId={user?.id}
             isAdmin={user?.isAdmin}
+            listPath={boardHref}
+            editPath={`${boardHref}/${id}/edit`}
           />
         </div>
 
@@ -161,8 +187,13 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
           postId={post.id}
           postAuthorId={post.author_id}
           userId={user?.id}
+          loginHref={loginHref}
         />
       </section>
     </div>
   );
+}
+
+export default async function PostDetailPage(props: PostDetailPageProps) {
+  return <CommunityPostDetailPage {...props} />;
 }

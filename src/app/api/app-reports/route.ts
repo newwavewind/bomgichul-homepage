@@ -4,6 +4,9 @@ import {
   ensureAppReportAuthorId,
 } from "@/lib/supabase/admin";
 
+import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
+import type { CommunityScope } from "@/types/database";
+
 type ReportType = "error" | "feedback";
 
 const TYPE_TO_CATEGORY: Record<ReportType, "bug" | "feedback"> = {
@@ -27,6 +30,7 @@ export async function POST(request: Request) {
     const type = body?.type as ReportType;
     const title = String(body?.title ?? "").trim();
     const content = String(body?.content ?? "").trim();
+    const requestedScope = body?.communityScope;
 
     if (type !== "error" && type !== "feedback") {
       return json({ error: "type은 error 또는 feedback 이어야 합니다." }, 400);
@@ -37,6 +41,12 @@ export async function POST(request: Request) {
     if (!content || content.length > 8000) {
       return json({ error: "내용은 1~8000자로 입력해주세요." }, 400);
     }
+    if (!isValidCommunityScope(requestedScope)) {
+      return json({
+        error: "communityScope는 real_estate | public_service | police | housing 중 하나여야 합니다.",
+      }, 400);
+    }
+    const communityScope: CommunityScope = requestedScope;
 
     const authorId = await ensureAppReportAuthorId();
     const admin = createAdminClient();
@@ -47,6 +57,7 @@ export async function POST(request: Request) {
       .insert({
         author_id: authorId,
         category,
+        community_scope: communityScope,
         title,
         content,
       })
@@ -57,10 +68,12 @@ export async function POST(request: Request) {
       return json({ error: error.message }, 500);
     }
 
+    const communityPath = communityBaseHref(communityScope);
+
     return json({
       ok: true,
       id: data.id,
-      url: `/community/${data.id}`,
+      url: `${communityPath}/${data.id}`,
     });
   } catch (err) {
     const message =

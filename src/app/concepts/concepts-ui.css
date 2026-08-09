@@ -1,10 +1,11 @@
 /* 공인중개사 앱 ConceptsScreen 톤을 웹 개념 목록·상세에 맞춤 */
+/* ebook 무광 종이는 conceptsEbook.css 가 .hp-cx / .concepts-screen 에서 덮는다 */
 
 .hp-cx {
   --hp-cx-teal: #007aff;
-  --hp-cx-ink: #1e293b;
-  --hp-cx-muted: #64748b;
-  --hp-cx-border: #e2e8f0;
+  --hp-cx-ink: #35322c;
+  --hp-cx-muted: #6b645a;
+  --hp-cx-border: rgba(70, 62, 48, 0.22);
   --hp-cx-amber: #b45309;
 }
 
@@ -18,6 +19,60 @@
   border: 1px solid color-mix(in srgb, var(--hp-cx-border) 90%, transparent);
   border-radius: 0.75rem;
   background: color-mix(in srgb, var(--hp-cx-teal) 4%, #fff);
+}
+
+/* 개념 상세 스티키 목차 */
+.hp-cx .hp-cx-detail-toc {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  margin: 0 0 1rem;
+  padding: 0.4rem 0 0.5rem;
+  background: color-mix(in srgb, #e8e5de 94%, transparent);
+}
+
+.hp-cx .hp-cx-detail-toc__bar {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.hp-cx .hp-cx-detail-toc__bar::-webkit-scrollbar {
+  display: none;
+}
+
+.hp-cx .hp-cx-detail-toc__chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.85rem;
+  padding: 0.28rem 0.62rem;
+  border: 1px solid rgba(70, 62, 48, 0.2);
+  border-radius: 999px;
+  background: #f4f2ec;
+  color: #6b645a;
+  font: inherit;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.hp-cx .hp-cx-detail-toc__chip.is-active {
+  background: #007aff;
+  border-color: #007aff;
+  color: #fff;
+}
+
+.hp-cx .hp-cx-section[id],
+.hp-cx .cx-toc-anchor,
+.hp-cx article[id^="cx-sec-"] {
+  scroll-margin-top: 3.5rem;
 }
 
 .hp-cx .hp-cx-read-bar__status {
@@ -119,109 +174,82 @@
 
 .hp-cx .hp-cx-schedule {
   margin-bottom: 0.15rem;
-  padding: 1rem 1.05rem 0.85rem;
-  border: 1px solid color-mix(in srgb, var(--hp-cx-border) 90%, transparent);
-  border-radius: 1rem;
-  background:
-    linear-gradient(
-      165deg,
-      color-mix(in srgb, var(--hp-cx-teal) 7%, #fff) 0%,
-      #fff 52%
-    );
+  padding: 0.85rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .hp-cx .hp-cx-schedule__head {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: space-between;
   gap: 0.75rem;
 }
 
-.hp-cx .hp-cx-schedule__eyebrow {
-  margin: 0;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--hp-cx-teal);
-}
-
 .hp-cx .hp-cx-schedule__title {
-  margin: 0.15rem 0 0;
-  font-size: 1.05rem;
+  margin: 0;
+  font-size: 1rem;
   font-weight: 800;
   color: var(--hp-cx-ink);
   letter-spacing: -0.02em;
 }
 
-.hp-cx .hp-cx-schedule__pct {
+.hp-cx .hp-cx-schedule__count {
   margin: 0;
-  font-size: 1.35rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--hp-cx-teal);
-  letter-spacing: -0.03em;
-}
-
-.hp-cx .hp-cx-schedule__summary {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.25rem 0.35rem;
-  margin-top: 0.65rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  font-weight: 650;
   color: var(--hp-cx-muted);
+  letter-spacing: -0.02em;
 }
 
-.hp-cx .hp-cx-schedule__summary strong {
-  color: var(--hp-cx-ink);
-  font-weight: 750;
+.hp-cx .hp-cx-schedule__count strong {
+  color: var(--hp-cx-teal);
+  font-weight: 800;
 }
 
-.hp-cx .hp-cx-schedule__dot {
+.hp-cx .hp-cx-schedule__count span {
+  margin: 0 0.12rem;
   opacity: 0.55;
 }
 
 .hp-cx .hp-cx-schedule__bar {
-  height: 0.45rem;
-  margin-top: 0.7rem;
+  height: 0.3rem;
+  margin-top: 0.55rem;
   overflow: hidden;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--hp-cx-border) 75%, #fff);
+  background: color-mix(in srgb, var(--hp-cx-border) 70%, #fff);
 }
 
 .hp-cx .hp-cx-schedule__bar > span {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--hp-cx-teal) 75%, #0056b3),
-    var(--hp-cx-teal)
-  );
+  background: var(--hp-cx-teal);
   transition: width 0.25s ease;
 }
 
 .hp-cx .hp-cx-schedule__login {
-  margin-top: 0.85rem;
-  padding: 0.75rem 0.85rem;
-  border-radius: 0.75rem;
-  background: color-mix(in srgb, var(--hp-cx-teal) 6%, #fff);
-  border: 1px dashed color-mix(in srgb, var(--hp-cx-teal) 28%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.7rem;
 }
 
 .hp-cx .hp-cx-schedule__login p {
   margin: 0;
   font-size: 0.8125rem;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--hp-cx-muted);
 }
 
 .hp-cx .hp-cx-schedule__login-btn {
-  margin-top: 0.55rem;
-  padding: 0.4rem 0.75rem;
+  padding: 0.3rem 0.7rem;
   border: 1px solid color-mix(in srgb, var(--hp-cx-teal) 35%, transparent);
   border-radius: 999px;
-  background: #fff;
+  background: transparent;
   color: var(--hp-cx-teal);
   font: inherit;
   font-size: 0.75rem;
@@ -231,20 +259,15 @@
 
 .hp-cx .hp-cx-schedule__filters {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.9rem;
+  gap: 0.15rem;
+  margin-top: 0.7rem;
 }
 
 .hp-cx .hp-cx-schedule__filter {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  min-height: 2rem;
-  padding: 0.25rem 0.7rem;
-  border: 1px solid color-mix(in srgb, var(--hp-cx-border) 95%, transparent);
-  border-radius: 999px;
-  background: #fff;
+  padding: 0.2rem 0.55rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: transparent;
   color: var(--hp-cx-muted);
   font: inherit;
   font-size: 0.75rem;
@@ -252,73 +275,27 @@
   cursor: pointer;
 }
 
-.hp-cx .hp-cx-schedule__filter em {
-  font-style: normal;
-  color: var(--hp-cx-ink);
-}
-
 .hp-cx .hp-cx-schedule__filter.is-active {
-  border-color: color-mix(in srgb, var(--hp-cx-teal) 40%, transparent);
-  background: color-mix(in srgb, var(--hp-cx-teal) 12%, #fff);
+  background: color-mix(in srgb, var(--hp-cx-teal) 10%, #fff);
   color: var(--hp-cx-teal);
-}
-
-.hp-cx .hp-cx-schedule__filter.is-active em {
-  color: var(--hp-cx-teal);
-}
-
-.hp-cx .hp-cx-schedule__next {
-  display: grid;
-  gap: 0.15rem;
-  margin-top: 0.85rem;
-  padding: 0.75rem 0.85rem;
-  border-radius: 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--hp-cx-teal) 28%, transparent);
-  background: color-mix(in srgb, var(--hp-cx-teal) 8%, #fff);
-  text-decoration: none;
-  color: inherit;
-}
-
-.hp-cx .hp-cx-schedule__next:hover {
-  border-color: color-mix(in srgb, var(--hp-cx-teal) 45%, transparent);
-}
-
-.hp-cx .hp-cx-schedule__next-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--hp-cx-teal);
-}
-
-.hp-cx .hp-cx-schedule__next-title {
-  font-size: 0.9rem;
-  font-weight: 750;
-  color: var(--hp-cx-ink);
-  letter-spacing: -0.02em;
-}
-
-.hp-cx .hp-cx-schedule__next-go {
-  margin-top: 0.15rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--hp-cx-muted);
 }
 
 .hp-cx .hp-cx-schedule__list {
-  margin: 0.75rem 0 0;
+  margin: 0.55rem 0 0;
   padding: 0;
   list-style: none;
-  max-height: 18rem;
+  max-height: 15rem;
   overflow: auto;
-  border-top: 1px solid color-mix(in srgb, var(--hp-cx-border) 80%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--hp-cx-border) 75%, transparent);
 }
 
 .hp-cx .hp-cx-schedule__row {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.65rem 0.15rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--hp-cx-border) 70%, transparent);
+  padding: 0.55rem 0.1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--hp-cx-border) 55%, transparent);
   text-decoration: none;
   color: inherit;
 }
@@ -331,51 +308,46 @@
   color: var(--hp-cx-teal);
 }
 
-.hp-cx .hp-cx-schedule__row-body {
-  display: grid;
-  gap: 0.1rem;
-  min-width: 0;
-}
-
-.hp-cx .hp-cx-schedule__row-meta {
-  font-size: 0.68rem;
-  color: var(--hp-cx-muted);
-}
-
 .hp-cx .hp-cx-schedule__row-title {
-  font-size: 0.84rem;
-  font-weight: 700;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem;
+  min-width: 0;
+  font-size: 0.875rem;
+  font-weight: 650;
   color: var(--hp-cx-ink);
   letter-spacing: -0.01em;
+  line-height: 1.35;
 }
 
-.hp-cx .hp-cx-schedule__badge {
-  flex-shrink: 0;
-  padding: 0.18rem 0.5rem;
-  border-radius: 999px;
-  font-size: 0.68rem;
+.hp-cx .hp-cx-schedule__row.is-next .hp-cx-schedule__row-title {
   font-weight: 750;
 }
 
-.hp-cx .hp-cx-schedule__badge.is-todo {
-  color: var(--hp-cx-muted);
-  background: color-mix(in srgb, var(--hp-cx-border) 55%, #fff);
+.hp-cx .hp-cx-schedule__next-mark {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--hp-cx-teal);
 }
 
-.hp-cx .hp-cx-schedule__badge.is-done {
+.hp-cx .hp-cx-schedule__status {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
   color: var(--hp-cx-teal);
-  background: color-mix(in srgb, var(--hp-cx-teal) 12%, #fff);
 }
 
 .hp-cx .hp-cx-schedule__empty {
-  padding: 0.9rem 0.15rem;
+  padding: 0.85rem 0.1rem;
   font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--hp-cx-muted);
 }
 
 .hp-cx .hp-cx-schedule__more {
-  margin: 0.45rem 0 0;
+  margin: 0.4rem 0 0;
   font-size: 0.72rem;
   color: var(--hp-cx-muted);
 }
@@ -1662,20 +1634,25 @@
 }
 
 .hp-cx .hp-cx-caution {
-  display: flex;
-  gap: 0.65rem;
-  align-items: flex-start;
-  margin-top: 0.8rem;
-  padding: 0.75rem;
-  border-radius: 0.75rem;
-  color: #7c2d12;
-  background: #fff7ed;
-  border-left: 4px solid #f97316;
-  font-size: 0.74rem;
-  line-height: 1.5;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--hp-cx-ink);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.65;
 }
 
-.hp-cx .hp-cx-caution strong { flex: 0 0 auto; }
+.hp-cx .hp-cx-caution strong {
+  display: inline;
+  flex: none;
+  margin-right: 0.35em;
+  color: inherit;
+  font-weight: 650;
+}
 
 .hp-cx .hp-cx-sources {
   display: grid;
@@ -1729,18 +1706,19 @@
 }
 
 .hp-cx .hp-cx-map-summary {
-  display: flex;
-  gap: 0.55rem;
+  display: block;
   margin: 0;
-  padding: 0.8rem 0.9rem;
-  border-radius: 0.75rem;
-  color: #164e63;
-  background: linear-gradient(120deg, #ecfeff, #f0fdfa);
-  font-weight: 650;
-  line-height: 1.55;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--hp-cx-ink);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.65;
 }
 
-.hp-cx .hp-cx-map-summary > span { flex: 0 0 auto; }
+.hp-cx .hp-cx-map-summary > span { display: none; }
 
 .hp-cx .hp-cx-rule-grid {
   display: grid;
@@ -1980,6 +1958,26 @@
 .hp-cx-kind-host.concepts-screen {
   margin-top: 0.25rem;
 }
+
+/* 개정 반영 배지 — Apple sky (코랄 금지) */
+.hp-cx .cx-amend-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, #007AFF 12%, transparent);
+  color: #007AFF;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.hp-cx .cx-amend-badge::before {
+  content: '⟳';
+  font-weight: 700;
+}
+
 .hp-cx-kind-host .cx-card.cx-visual-card {
   margin: 0;
 }

@@ -4,30 +4,45 @@ import { ElevatedCard } from "@/components/ui/Card";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import { FAQAccordion } from "@/components/ui/FAQ";
 import { GuideContent } from "@/components/faq/GuideContent";
-import { FAQ_ITEMS } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
+import {
+  communityBaseHref,
+  communityScopeLabel,
+  faqTitle,
+  trackHubHref,
+} from "@/lib/exam-track/community";
+import { faqDescription, faqItemsForScope } from "@/lib/exam-track/faq";
+import { CommunityHubNav } from "@/components/community/CommunityHubNav";
+import type { CommunityScope } from "@/types/database";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "이용 안내",
-  description:
-    "봄기출 홈페이지 이용 안내. 학습 홈, 기출 all-in-one, 기출문제, 커뮤니티, 자료실, 무료·프리미엄을 쉽게 설명합니다.",
+  description: faqDescription("real_estate"),
   path: "/faq",
 });
 
-const faqStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
+export async function FaqBoard({
+  scope = "real_estate",
+}: {
+  scope?: CommunityScope;
+}) {
+  const items = faqItemsForScope(scope);
+  const label = communityScopeLabel(scope);
+  const hub = trackHubHref(scope);
+  const community = communityBaseHref(scope);
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 
-export default function FaqPage() {
   return (
     <div className="px-4 py-8 md:py-12">
       <script
@@ -37,18 +52,21 @@ export default function FaqPage() {
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <div className="mb-12 max-w-2xl">
           <EyebrowLabel className="mb-2">DOCS</EyebrowLabel>
-          <SectionHeading as="h1">봄기출 홈페이지 이용 안내</SectionHeading>
+          <SectionHeading as="h1">{faqTitle(scope)}</SectionHeading>
           <p className="mt-4 font-display text-body text-smoke">
-            예전 FAQ는 지웠습니다. 지금 사이트에 있는 기능을 기준으로, 화면을 따라가며
-            하나씩 설명하는 버전으로 다시 썼어요.
+            {label} 학습 홈부터 기출 all-in-one, 기출문제, 커뮤니티까지 — 지금
+            사이트에 있는 기능을 화면 순서대로 안내합니다.
+            {scope === "real_estate" ? " 뉴스·프리미엄 안내도 포함합니다." : ""}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <PrimaryButton href="/">학습 홈 열기</PrimaryButton>
+            <PrimaryButton href={hub}>학습 홈 열기</PrimaryButton>
             <OutlineButton href="#faq">짧은 질문만 보기</OutlineButton>
           </div>
         </div>
 
-        <GuideContent />
+        <CommunityHubNav scope={scope} />
+
+        <GuideContent scope={scope} />
 
         <section id="faq" className="mt-16 scroll-mt-24">
           <div className="mb-8 max-w-xl">
@@ -59,7 +77,7 @@ export default function FaqPage() {
             </p>
           </div>
           <div className="mx-auto max-w-2xl rounded-[var(--radius-cards)] border-[1.5px] border-carbon bg-paper px-5 shadow-[var(--shadow-card)] md:px-8">
-            <FAQAccordion items={FAQ_ITEMS} />
+            <FAQAccordion items={items} />
           </div>
         </section>
 
@@ -68,13 +86,20 @@ export default function FaqPage() {
             더 궁금한 점이 있나요?
           </SectionHeading>
           <p className="mx-auto max-w-md font-display text-body-sm text-smoke">
-            커뮤니티 「질문」에 남겨 주세요. 다른 수험생과 함께 답을 찾아볼 수 있어요.
+            {label} 커뮤니티 「질문」에 남겨 주세요. 다른 수험생과 함께 답을
+            찾아볼 수 있어요.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <PrimaryButton href="/community?category=question">커뮤니티에 질문하기</PrimaryButton>
+            <PrimaryButton href={`${community}?category=question`}>
+              {label} 커뮤니티에서 질문하기
+            </PrimaryButton>
           </div>
         </ElevatedCard>
       </div>
     </div>
   );
+}
+
+export default async function FaqPage() {
+  return <FaqBoard scope="real_estate" />;
 }

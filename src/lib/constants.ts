@@ -13,12 +13,12 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사부터 시작하는 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·주택관리사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
 
-/** 앱 스토어 링크 (ox-quiz-app 기준) */
+/** 앱 스토어 링크 — 공인중개사(기본) */
 export const APP_LINKS = {
   /** Google Play — 봄기출 공인중개사 */
   android:
@@ -26,6 +26,39 @@ export const APP_LINKS = {
   /** App Store — 봄기출 공인중개사 */
   ios: "https://apps.apple.com/kr/app/id6784651251",
 } as const;
+
+export type AppStoreLinks = {
+  android: string;
+  ios: string | null;
+};
+
+/** 시험별 스토어 링크 (공인중개사 외 FAQ·안내에서 사용) */
+export function appStoreLinksForScope(
+  scope: "real_estate" | "public_service" | "police" | "housing",
+): AppStoreLinks {
+  switch (scope) {
+    case "police":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.police",
+        ios: "https://apps.apple.com/kr/app/id6798675892",
+      };
+    case "public_service":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.publicofficial",
+        ios: "https://apps.apple.com/kr/app/id6790764010",
+      };
+    case "housing":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.housing",
+        ios: null,
+      };
+    default:
+      return { android: APP_LINKS.android, ios: APP_LINKS.ios };
+  }
+}
 
 export const POSTS_PER_PAGE = 10;
 
@@ -39,7 +72,7 @@ export const CATEGORIES: {
   { value: "question", label: "질문", description: "공부 관련 질문" },
   { value: "resource", label: "자료공유", description: "기출, 노트, 팁 공유" },
   { value: "info", label: "수험정보", description: "시험 일정, 공고 등" },
-  { value: "law_update", label: "법령정보", description: "부동산 관련 법령 개정 소식" },
+  { value: "law_update", label: "법령정보", description: "시험 관련 법령·제도 개정 소식" },
   { value: "review", label: "합격후기", description: "합격 수기, 공부법 공유" },
   { value: "bug", label: "오류신고", description: "앱 문항·기능 오류 제보" },
   { value: "feedback", label: "피드백", description: "앱 개선 의견" },
@@ -199,12 +232,12 @@ export const FAQ_ITEMS = [
   {
     question: "무엇을 무료로 쓸 수 있나요?",
     answer:
-      "기출 all-in-one 개념은 열어볼 수 있고, 부동산학개론 기출은 전 연도가 무료입니다. 나머지 5과목 기출은 최근 2개년(2024·2025)이 기본 무료예요. 커뮤니티·자료실·뉴스·수험일기 읽기도 로그인 없이 가능합니다.",
+      "기출 all-in-one 개념은 열어볼 수 있고, 부동산학개론 기출은 전 연도가 무료입니다. 나머지 5과목 기출은 최근 2개년(2024·2025)이 기본 무료예요. 커뮤니티·자료실·뉴스 읽기도 로그인 없이 가능합니다.",
   },
   {
     question: "로그인하면 뭐가 달라지나요?",
     answer:
-      "커뮤니티·자료실 글쓰기, 수험일기 작성, 북마크·풀이 기록·오답 저장, 알림, 프리미엄 코드 등록을 쓸 수 있어요. Google 계정만 있으면 됩니다.",
+      "커뮤니티·자료실 글쓰기, 북마크·풀이 기록·오답 저장, 알림, 프리미엄 코드 등록을 쓸 수 있어요. Google 계정만 있으면 됩니다.",
   },
   {
     question: "프리미엄은 어디서 사고 코드는 어디에 넣나요?",
@@ -274,6 +307,8 @@ export const NAV_LINKS: NavLinkItem[] = [
     children: [
       { href: "/public-service", label: "공무원" },
       { href: "/real-estate", label: "공인중개사" },
+      { href: "/police", label: "경찰공무원" },
+      { href: "/housing", label: "주택관리사" },
     ],
   },
   {
@@ -283,10 +318,9 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/community", label: "게시판" },
       { href: "/community?category=law_update", label: "법령정보" },
       { href: "/archive", label: "자료실" },
-      { href: "/diary", label: "수험일기" },
+      { href: "/faq", label: "FAQ" },
       { href: "/ranks", label: "바다 레벨" },
       { href: "/news", label: "뉴스" },
-      { href: "/faq", label: "FAQ" },
     ],
   },
   { href: PC_APP_URL, label: "공인중개사 PC앱" },
@@ -343,6 +377,36 @@ export const ARCHIVE_SUBJECTS = [
 
 export type ArchiveSubject = (typeof ARCHIVE_SUBJECTS)[number]["value"];
 
+export const ARCHIVE_SUBJECTS_POLICE = [
+  { value: "all", label: "전체 과목" },
+  { value: "constitution", label: "헌법" },
+  { value: "criminal-law", label: "형사법" },
+  { value: "police-science", label: "경찰학" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_HOUSING = [
+  { value: "all", label: "전체 과목" },
+  { value: "accounting", label: "회계원리" },
+  { value: "facilities", label: "공동주택시설개론" },
+  { value: "civil-law", label: "민법" },
+  { value: "housing-law", label: "주택관리관계법규" },
+  { value: "housing-admin", label: "공동주택관리실무" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_PUBLIC_SERVICE = [
+  { value: "all", label: "전체 과목" },
+  { value: "hangjunghak", label: "행정학개론" },
+  { value: "haengjeongbeop", label: "행정법총론" },
+  { value: "hyeongbeop", label: "형법" },
+  { value: "hyeongso", label: "형사소송법" },
+  { value: "sebeop", label: "세법개론" },
+  { value: "bokji", label: "사회복지학개론" },
+  { value: "sobang", label: "소방학개론" },
+  { value: "other", label: "기타" },
+] as const;
+
 export const ARCHIVE_RESOURCE_TYPE_MAP: Record<string, string> = {
   past_exam: "기출",
   note: "노트",
@@ -350,9 +414,38 @@ export const ARCHIVE_RESOURCE_TYPE_MAP: Record<string, string> = {
   other: "기타",
 };
 
-export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries(
-  ARCHIVE_SUBJECTS.filter((s) => s.value !== "all").map((s) => [s.value, s.label])
-);
+export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
+  ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_POLICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_HOUSING.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_PUBLIC_SERVICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+]);
+
+export function archiveSubjectsForScope(scope: string) {
+  switch (scope) {
+    case "police":
+      return [...ARCHIVE_SUBJECTS_POLICE];
+    case "housing":
+      return [...ARCHIVE_SUBJECTS_HOUSING];
+    case "public_service":
+      return [...ARCHIVE_SUBJECTS_PUBLIC_SERVICE];
+    default:
+      return [...ARCHIVE_SUBJECTS];
+  }
+}
+
+export function defaultArchiveSubject(scope: string) {
+  switch (scope) {
+    case "police":
+      return "constitution";
+    case "housing":
+      return "accounting";
+    case "public_service":
+      return "hangjunghak";
+    default:
+      return "realestate";
+  }
+}
 
 /** 기출문제 해설 페이지(/exam)에서 다루는 실제 시험 과목 — ARCHIVE_SUBJECTS 중 "all"/"other" 제외 */
 export const EXAM_SUBJECTS = ARCHIVE_SUBJECTS.filter(

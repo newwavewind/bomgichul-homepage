@@ -41,14 +41,6 @@ export function StudyHub() {
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
         <header className="mb-2 space-y-5">
-          <Link href="/" className="group inline-flex items-center gap-2.5 rounded-full border border-mist bg-paper py-2 pl-2 pr-4 font-display text-body-sm font-semibold text-ink shadow-[var(--shadow-button)] transition-all hover:-translate-y-0.5 hover:border-carbon hover:bg-snow">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-carbon text-paper transition-transform group-hover:-translate-x-0.5" aria-hidden>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M11.5 7H2.5M6 3.5L2.5 7L6 10.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-            시험 다시 선택
-          </Link>
           <DDayStrip />
           <div>
             <p className="mb-2 font-display text-[13px] font-semibold tracking-[0.04em] text-electric-blue">

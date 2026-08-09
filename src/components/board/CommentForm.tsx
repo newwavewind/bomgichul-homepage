@@ -11,9 +11,15 @@ interface CommentFormProps {
   postId: string;
   postAuthorId?: string | null;
   userId?: string | null;
+  loginHref?: string;
 }
 
-export function CommentForm({ postId, postAuthorId, userId }: CommentFormProps) {
+export function CommentForm({
+  postId,
+  postAuthorId,
+  userId,
+  loginHref = "/login",
+}: CommentFormProps) {
   const router = useRouter();
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,7 +32,7 @@ export function CommentForm({ postId, postAuthorId, userId }: CommentFormProps) 
           댓글 작성은 로그인 후 이용할 수 있어요.
         </p>
         <div className="mt-4">
-          <PrimaryButton href="/login">로그인하기</PrimaryButton>
+          <PrimaryButton href={loginHref}>로그인하기</PrimaryButton>
         </div>
       </div>
     );

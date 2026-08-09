@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { uploadArchiveFiles } from "@/lib/storage";
 import {
   ARCHIVE_RESOURCE_TYPES,
-  ARCHIVE_SUBJECTS,
+  archiveSubjectsForScope,
+  defaultArchiveSubject,
 } from "@/lib/constants";
 import { FeatureCard } from "@/components/ui/Card";
 import { Input, Textarea } from "@/components/ui/Input";
@@ -16,14 +17,26 @@ import { PrimaryButton } from "@/components/ui/Button";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
 import { FileUpload } from "@/components/archive/FileUpload";
+import {
+  archiveBaseHref,
+  scopeFromPathname,
+} from "@/lib/exam-track/community";
 import type { ResourceType } from "@/types/database";
 
 export default function ArchiveUploadPage() {
   const router = useRouter();
+  const pathname = usePathname();
+  const scope = scopeFromPathname(pathname);
+  const baseHref = archiveBaseHref(scope);
+  const subjectOptions = useMemo(
+    () => archiveSubjectsForScope(scope).filter((s) => s.value !== "all"),
+    [scope],
+  );
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [resourceType, setResourceType] = useState<ResourceType>("note");
-  const [subject, setSubject] = useState("realestate");
+  const [subject, setSubject] = useState(defaultArchiveSubject(scope));
   const [files, setFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,7 +54,9 @@ export default function ArchiveUploadPage() {
 
     try {
       const supabase = createClient();
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
 
       if (!user) {
         setError("로그인이 필요합니다.");
@@ -56,6 +71,7 @@ export default function ArchiveUploadPage() {
           title,
           content,
           category: "resource",
+          community_scope: scope,
           resource_type: resourceType,
           subject,
         })
@@ -78,7 +94,7 @@ export default function ArchiveUploadPage() {
               file_path: f.path,
               file_size: f.size,
               mime_type: f.mime,
-            }))
+            })),
           );
 
           if (attachError) {
@@ -93,7 +109,7 @@ export default function ArchiveUploadPage() {
         }
       }
 
-      router.push(`/archive/${post.id}`);
+      router.push(`${baseHref}/${post.id}`);
       router.refresh();
     } catch {
       setError("등록 중 오류가 발생했습니다.");
@@ -102,11 +118,10 @@ export default function ArchiveUploadPage() {
   };
 
   const typeOptions = ARCHIVE_RESOURCE_TYPES.filter((t) => t.value !== "all");
-  const subjectOptions = ARCHIVE_SUBJECTS.filter((s) => s.value !== "all");
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <BackLink href="/archive">자료실로</BackLink>
+      <BackLink href={baseHref}>자료실로</BackLink>
 
       <EyebrowLabel className="mb-2">자료 등록</EyebrowLabel>
       <SectionHeading as="h1" className="mb-8">
@@ -141,7 +156,9 @@ export default function ArchiveUploadPage() {
               className="w-full rounded-[var(--radius-input)] border border-mist bg-paper px-4 py-3 font-display text-body text-ink outline-none focus:border-electric-blue"
             >
               {subjectOptions.map((s) => (
-                <option key={s.value} value={s.value}>{s.label}</option>
+                <option key={s.value} value={s.value}>
+                  {s.label}
+                </option>
               ))}
             </select>
           </div>
@@ -152,7 +169,7 @@ export default function ArchiveUploadPage() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            placeholder="예: 2024 부동산학개론 기출 정리 PDF"
+            placeholder="예: 기출 정리 PDF"
           />
 
           <Textarea
@@ -170,7 +187,10 @@ export default function ArchiveUploadPage() {
           {error && <p className="font-display text-body-sm text-coral">{error}</p>}
 
           <div className="flex justify-end gap-3 pt-2">
-            <Link href="/archive" className="rounded-[var(--radius-buttons)] px-5 py-2.5 font-display text-body-sm text-fog">
+            <Link
+              href={baseHref}
+              className="rounded-[var(--radius-buttons)] px-5 py-2.5 font-display text-body-sm text-fog"
+            >
               취소
             </Link>
             <PrimaryButton type="submit" disabled={loading}>

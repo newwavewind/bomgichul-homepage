@@ -1,4 +1,5 @@
-const CONCEPT_RETURN_PATTERN = /^\/concepts\/([^/]+)\/([^/?#]+)$/;
+const CONCEPT_RETURN_PATTERN =
+  /^\/(?:(?:public-service|police|housing)\/)?concepts\/([^/]+)\/([^/?#]+)$/;
 
 /** 개념 상세 등 내부 페이지로의 복귀 경로인지 검증한다. */
 export function isValidReturnTo(path: string | undefined | null): path is string {

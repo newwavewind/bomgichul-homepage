@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { getPublicServiceExamSessions, getPublicServiceSubject } from "@/lib/public-service-content";
 import { buildBreadcrumbJsonLd, buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 
@@ -34,7 +35,6 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
         <p className="font-display text-[13px] font-semibold text-electric-blue">{data.subject.track} · 기출문제</p>
         <h1 className="mt-2 font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
         <p className="mt-3 font-display text-body text-smoke">{data.years.at(-1)}~{data.years[0]}년 · 원문 {data.exams.length}문항</p>
-        <Link href={`/public-service/concepts/${subjectId}`} className="mt-5 inline-flex rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink">기출 all-in-one 보기 →</Link>
       </header>
       <section className="mt-10">
         <h2 className="mb-5 font-display text-subheading font-semibold text-ink">시험별 기출</h2>
@@ -61,6 +61,7 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
           ))}
         </div>
       </section>
+      <SimpleAppInstallStrip scope="public_service" />
       </div>
     </div>
   );

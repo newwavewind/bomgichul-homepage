@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { getPublicServiceSubject } from "@/lib/public-service-content";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -30,6 +31,7 @@ export default async function PublicServiceExamSessionPage({ params }: Props) {
           <div className="flex items-start gap-3"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-snow font-display font-semibold text-ink">{exam.questionNo}</span><div><p className="line-clamp-2 font-system text-[15px] leading-6 text-ink">{exam.stem}</p><p className="mt-2 font-display text-[12px] text-fog">{exam.category} · {exam.subcategory}</p></div></div>
         </Link>
       ))}</div>
+      <SimpleAppInstallStrip scope="public_service" />
     </div></div>
   );
 }

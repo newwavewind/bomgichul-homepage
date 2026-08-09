@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getUser } from "@/lib/auth";
 import { getNotificationsForUser, markAllNotificationsRead } from "@/lib/notifications";
 import { formatKstRelative } from "@/lib/datetime";
+import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
 
@@ -30,39 +31,42 @@ export default async function NotificationsPage() {
             <p className="font-display text-body text-smoke">아직 알림이 없어요</p>
           </div>
         ) : (
-          notifications.map((n) => (
-            <Link
-              key={n.id}
-              href={`/community/${n.post_id}`}
-              className="flex items-start gap-3 border-b border-mist/60 px-5 py-4 transition-colors last:border-b-0 hover:bg-snow"
-            >
-              {!n.read_at && (
-                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#6366f1]" />
-              )}
-              <div>
-                <p className="font-display text-body-sm text-ink">
-                  <span className="font-semibold">{n.actor?.nickname ?? "익명"}</span>
-                  님이{" "}
-                  <span className="font-medium">
-                    &lsquo;{n.post?.title ?? "게시글"}&rsquo;
-                  </span>{" "}
-                  글에 댓글을 남겼어요
-                </p>
-                <p className="mt-1 font-display text-[12px] text-fog">
-                  {timeAgo(n.created_at)}
-                </p>
-              </div>
-            </Link>
-          ))
+          notifications.map((n) => {
+            const scope = isValidCommunityScope(n.post?.community_scope)
+              ? n.post.community_scope
+              : "real_estate";
+            const href = `${communityBaseHref(scope)}/${n.post_id}`;
+            return (
+              <Link
+                key={n.id}
+                href={href}
+                className="flex items-start gap-3 border-b border-mist/60 px-5 py-4 transition-colors last:border-b-0 hover:bg-snow"
+              >
+                {!n.read_at && (
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#6366f1]" />
+                )}
+                <div>
+                  <p className="font-display text-body-sm text-ink">
+                    <span className="font-semibold">{n.actor?.nickname ?? "익명"}</span>
+                    님이{" "}
+                    <span className="font-medium">
+                      &lsquo;{n.post?.title ?? "게시글"}&rsquo;
+                    </span>{" "}
+                    글에 댓글을 남겼어요
+                  </p>
+                  <p className="mt-1 font-display text-[12px] text-fog">
+                    {timeAgo(n.created_at)}
+                  </p>
+                </div>
+              </Link>
+            );
+          })
         )}
       </ElevatedCard>
 
       <div className="mt-6 text-center">
-        <Link
-          href="/community"
-          className="font-display text-body-sm text-fog hover:text-ink"
-        >
-          커뮤니티로 돌아가기 →
+        <Link href="/" className="font-display text-body-sm text-fog hover:text-ink">
+          시험 선택으로 돌아가기 →
         </Link>
       </div>
     </div>

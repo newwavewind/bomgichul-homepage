@@ -6,9 +6,14 @@ import { formatDDay, clampDDay, DDAY_MIN, DDAY_MAX } from "@/lib/exam";
 interface DDayNavigatorProps {
   days: number;
   entryCount: number;
+  baseHref?: string;
 }
 
-export function DDayNavigator({ days, entryCount }: DDayNavigatorProps) {
+export function DDayNavigator({
+  days,
+  entryCount,
+  baseHref = "/diary",
+}: DDayNavigatorProps) {
   const current = clampDDay(days);
   const prev = current < DDAY_MAX ? current + 1 : null;
   const next = current > DDAY_MIN ? current - 1 : null;
@@ -18,7 +23,7 @@ export function DDayNavigator({ days, entryCount }: DDayNavigatorProps) {
       <div className="flex items-center justify-between gap-3">
         {prev != null ? (
           <Link
-            href={`/diary?d=${prev}`}
+            href={`${baseHref}?d=${prev}`}
             className="flex min-w-[72px] flex-col items-start rounded-[var(--radius-buttons)] border border-mist px-3 py-2 transition-colors hover:bg-snow"
             aria-label={`${formatDDay(prev)}로 이동`}
           >
@@ -45,7 +50,7 @@ export function DDayNavigator({ days, entryCount }: DDayNavigatorProps) {
 
         {next != null ? (
           <Link
-            href={`/diary?d=${next}`}
+            href={`${baseHref}?d=${next}`}
             className="flex min-w-[72px] flex-col items-end rounded-[var(--radius-buttons)] border border-mist px-3 py-2 transition-colors hover:bg-snow"
             aria-label={`${formatDDay(next)}로 이동`}
           >
@@ -63,7 +68,7 @@ export function DDayNavigator({ days, entryCount }: DDayNavigatorProps) {
         {[300, 200, 100, 50, 30, 7, 0].map((jump) => (
           <Link
             key={jump}
-            href={`/diary?d=${jump}`}
+            href={`${baseHref}?d=${jump}`}
             className={`rounded-[var(--radius-tags)] border px-2.5 py-1 font-display text-[12px] font-medium transition-colors ${
               current === jump
                 ? "border-carbon bg-carbon text-paper"

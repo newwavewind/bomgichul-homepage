@@ -1,11 +1,13 @@
 "use client";
 
-import { APP_LINKS } from "@/lib/constants";
+import { APP_LINKS, type AppStoreLinks } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 
 interface AppStoreButtonsProps {
   className?: string;
   size?: "default" | "sm";
+  /** 시험별 스토어 링크. 없으면 공인중개사(기본) */
+  links?: AppStoreLinks;
 }
 
 function AppleIcon({ className = "shrink-0" }: { className?: string }) {
@@ -154,15 +156,17 @@ function GooglePlayBadge({
 export function AppStoreButtons({
   className = "",
   size = "default",
+  links,
 }: AppStoreButtonsProps) {
+  const store = links ?? { android: APP_LINKS.android, ios: APP_LINKS.ios };
   return (
     <div className={`flex flex-wrap items-center gap-3 ${className}`}>
       <AppStoreBadge
-        href={APP_LINKS.ios ?? undefined}
-        disabled={!APP_LINKS.ios}
+        href={store.ios ?? undefined}
+        disabled={!store.ios}
         size={size}
       />
-      <GooglePlayBadge href={APP_LINKS.android} size={size} />
+      <GooglePlayBadge href={store.android} size={size} />
     </div>
   );
 }

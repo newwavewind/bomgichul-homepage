@@ -34,6 +34,8 @@ export interface Concept {
   questionRefs?: { year: number; questionNo: number }[];
   /** 이 개념이 다른 개념(부모)의 하위개념일 때, 부모 개념의 slug를 지정한다. */
   parentSlug?: string;
+  /** 법령 개정·제도 폐지 등이 반영된 개념임을 알리는 짧은 안내(상세 상단 배지). */
+  amendmentNotice?: string;
 }
 
 const CONCEPTS_BY_SUBJECT: Record<ExamSubject, Concept[]> = {

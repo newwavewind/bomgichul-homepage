@@ -9,6 +9,7 @@ import {
 
 interface CategoryFilterProps {
   current: CommunityListFilter;
+  baseHref?: string;
 }
 
 const appOnlyValues = new Set(APP_ONLY_CATEGORIES.map((c) => c.value));
@@ -26,6 +27,7 @@ function FilterChip({
   isActive,
   muted = false,
   emoji,
+  baseHref = "/community",
 }: {
   value: CommunityListFilter;
   label: string;
@@ -33,9 +35,9 @@ function FilterChip({
   isActive: boolean;
   muted?: boolean;
   emoji?: string;
+  baseHref?: string;
 }) {
-  const href =
-    value === "all" ? "/community" : `/community?category=${value}`;
+  const href = value === "all" ? baseHref : `${baseHref}?category=${value}`;
 
   return (
     <Link
@@ -62,7 +64,7 @@ function FilterChip({
   );
 }
 
-export function CategoryFilter({ current }: CategoryFilterProps) {
+export function CategoryFilter({ current, baseHref = "/community" }: CategoryFilterProps) {
   const freeCategory = CATEGORIES.find((c) => c.value === "free");
   const mainCategories = CATEGORIES.filter(
     (c) =>
@@ -88,6 +90,7 @@ export function CategoryFilter({ current }: CategoryFilterProps) {
         label="전체"
         description="모든 게시글"
         isActive={current === "all"}
+        baseHref={baseHref}
       />
       {freeCategory && (
         <FilterChip
@@ -95,6 +98,7 @@ export function CategoryFilter({ current }: CategoryFilterProps) {
           label={freeCategory.label}
           description={freeCategory.description}
           isActive={current === freeCategory.value}
+          baseHref={baseHref}
         />
       )}
       <FilterChip
@@ -103,6 +107,7 @@ export function CategoryFilter({ current }: CategoryFilterProps) {
         description={BEST_FILTER.description}
         isActive={current === "best"}
         emoji="🔥"
+        baseHref={baseHref}
       />
 
       {mainCategories.map((cat) => (
@@ -112,6 +117,7 @@ export function CategoryFilter({ current }: CategoryFilterProps) {
           label={cat.label}
           description={cat.description}
           isActive={current === cat.value}
+          baseHref={baseHref}
         />
       ))}
 
@@ -125,6 +131,7 @@ export function CategoryFilter({ current }: CategoryFilterProps) {
           description={cat.description}
           isActive={current === cat.value}
           muted
+          baseHref={baseHref}
         />
       ))}
     </div>

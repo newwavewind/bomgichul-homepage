@@ -2,10 +2,13 @@ import { createClient } from "@/lib/supabase/server";
 import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { getExamYearFromDiary, getKSTDateString } from "@/lib/exam";
-import type { StudyDiary } from "@/types/database";
+import type { CommunityScope, StudyDiary } from "@/types/database";
 
 /** 오늘/어제부터 거슬러 연속으로 일기를 쓴 날수 */
-export async function getUserDiaryStreak(userId: string): Promise<number> {
+export async function getUserDiaryStreak(
+  userId: string,
+  scope: CommunityScope = "real_estate",
+): Promise<number> {
   if (!isSupabaseConfigured()) return 0;
 
   const supabase = await createClient();
@@ -13,6 +16,7 @@ export async function getUserDiaryStreak(userId: string): Promise<number> {
     .from("study_diaries")
     .select("diary_date")
     .eq("author_id", userId)
+    .eq("community_scope", scope)
     .order("diary_date", { ascending: false })
     .limit(400);
 
@@ -24,7 +28,7 @@ export async function getUserDiaryStreak(userId: string): Promise<number> {
 
   const cursorKey = () =>
     `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(
-      cursor.getDate()
+      cursor.getDate(),
     ).padStart(2, "0")}`;
 
   let streak = 0;
@@ -51,7 +55,10 @@ export type DiaryYearGroup = {
   diaries: PublicDiary[];
 };
 
-export async function getTodayDiary(userId: string): Promise<StudyDiary | null> {
+export async function getTodayDiary(
+  userId: string,
+  scope: CommunityScope = "real_estate",
+): Promise<StudyDiary | null> {
   if (!isSupabaseConfigured()) return null;
 
   const supabase = await createClient();
@@ -62,6 +69,7 @@ export async function getTodayDiary(userId: string): Promise<StudyDiary | null> 
     .select("*")
     .eq("author_id", userId)
     .eq("diary_date", today)
+    .eq("community_scope", scope)
     .maybeSingle();
 
   if (error || !data) return null;
@@ -70,7 +78,8 @@ export async function getTodayDiary(userId: string): Promise<StudyDiary | null> 
 
 /** 특정 D-day에 쓴 모든 공개 일기 (연도 무관, 매년 누적) */
 export async function getDiariesByDDay(
-  daysUntilExam: number
+  daysUntilExam: number,
+  scope: CommunityScope = "real_estate",
 ): Promise<PublicDiary[]> {
   if (!isSupabaseConfigured()) return [];
 
@@ -79,6 +88,7 @@ export async function getDiariesByDDay(
     .from("study_diaries")
     .select("*, profiles(nickname, avatar_url)")
     .eq("days_until_exam", daysUntilExam)
+    .eq("community_scope", scope)
     .order("diary_date", { ascending: false })
     .order("created_at", { ascending: false })
     .limit(200);

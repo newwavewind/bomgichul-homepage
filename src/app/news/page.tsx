@@ -2,18 +2,11 @@ import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { NewsDateStrip } from "@/components/news/NewsDateStrip";
 import { NewsList } from "@/components/news/NewsList";
-import { getNewsItems } from "@/lib/news";
+import { getNewsDates, getNewsItemsForDate } from "@/lib/news";
 import { buildPageMetadata } from "@/lib/seo";
-import type { NewsItem } from "@/types/database";
 
 interface NewsPageProps {
   searchParams: Promise<{ date?: string }>;
-}
-
-function collectNewsDates(items: NewsItem[]): string[] {
-  return [...new Set(items.map((item) => item.published_at))].sort((a, b) =>
-    b.localeCompare(a)
-  );
 }
 
 function resolveSelectedDate(
@@ -29,8 +22,7 @@ export async function generateMetadata({
   searchParams,
 }: NewsPageProps): Promise<Metadata> {
   const { date } = await searchParams;
-  const items = await getNewsItems(100);
-  const dates = collectNewsDates(items);
+  const dates = await getNewsDates();
   const latestDate = dates[0] ?? null;
   const selectedDate = resolveSelectedDate(dates, date);
 
@@ -53,12 +45,11 @@ export async function generateMetadata({
 
 export default async function NewsPage({ searchParams }: NewsPageProps) {
   const { date } = await searchParams;
-  const items = await getNewsItems(100);
-  const dates = collectNewsDates(items);
+  const dates = await getNewsDates();
   const selectedDate = resolveSelectedDate(dates, date);
   const filteredItems = selectedDate
-    ? items.filter((item) => item.published_at === selectedDate)
-    : items;
+    ? await getNewsItemsForDate(selectedDate)
+    : [];
 
   return (
     <div className="px-4 py-8 md:py-12">

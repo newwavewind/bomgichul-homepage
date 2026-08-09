@@ -14,6 +14,7 @@ import { BackLink } from "@/components/ui/BackLink";
 import { RichTextEditor } from "@/components/editor/RichTextEditor";
 import { sanitizeConceptCommunityHtml } from "@/lib/concept-community-html";
 import type { CommunityScope, PostCategory } from "@/types/database";
+import { communityBaseHref } from "@/lib/exam-track/community";
 
 export function CommunityWritePage({ scope = "real_estate" }: { scope?: CommunityScope }) {
   const router = useRouter();
@@ -24,7 +25,7 @@ export function CommunityWritePage({ scope = "real_estate" }: { scope?: Communit
   const [userId, setUserId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const baseHref = scope === "public_service" ? "/public-service/community" : "/community";
+  const baseHref = communityBaseHref(scope);
 
   useEffect(() => {
     if (!isSupabaseConfigured()) return;

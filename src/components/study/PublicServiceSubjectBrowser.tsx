@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { SectionHeading } from "@/components/ui/Typography";
 import { Tag } from "@/components/ui/Tag";
 
 interface PublicServiceSubject {
@@ -72,11 +71,7 @@ export function PublicServiceSubjectBrowser({ subjects }: { subjects: PublicServ
 
   return (
     <section id="public-service-subjects">
-      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <SectionHeading as="h2">기출 학습 선택</SectionHeading>
-          <p className="mt-2 font-display text-body-sm text-fog">과목 전체 또는 직렬별 구성을 한눈에 확인하세요.</p>
-        </div>
+      <div className="mb-6">
         <div className="inline-grid w-fit grid-cols-2 rounded-full border border-mist bg-paper p-1 shadow-[var(--shadow-button)]" aria-label="과목 보기 방식">
           {([['track', '직렬별'], ['subject', '과목별']] as const).map(([value, label]) => (
             <button key={value} type="button" onClick={() => setMode(value)} className={`rounded-full px-5 py-2 font-display text-body-sm font-semibold transition-colors ${mode === value ? "bg-carbon text-paper" : "text-smoke hover:bg-snow hover:text-ink"}`}>

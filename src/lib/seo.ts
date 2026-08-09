@@ -193,14 +193,6 @@ export function buildWebSiteJsonLd() {
       name: SITE_NAME,
       url: SITE_URL,
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${SITE_URL}/community?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
@@ -208,7 +200,7 @@ export function buildPlatformHomeJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "공무원·공인중개사 기출 학습",
+    name: "공무원·공인중개사·경찰·주택관리사 기출 학습",
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     inLanguage: "ko-KR",
@@ -220,7 +212,7 @@ export function buildPlatformHomeJsonLd() {
     mainEntity: {
       "@type": "ItemList",
       name: "봄기출 시험별 학습",
-      numberOfItems: 2,
+      numberOfItems: 4,
       itemListElement: [
         {
           "@type": "ListItem",
@@ -234,6 +226,18 @@ export function buildPlatformHomeJsonLd() {
           name: "공인중개사 1·2차 기출 학습",
           url: absoluteUrl("/real-estate"),
         },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "경찰공무원 순경 공채 기출 학습",
+          url: absoluteUrl("/police"),
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: "주택관리사보 기출 학습",
+          url: absoluteUrl("/housing"),
+        },
       ],
     },
   };
@@ -244,11 +248,15 @@ export function buildPublicServiceLearningResourceJsonLd({
   description,
   path,
   learningResourceType,
+  educationalLevel = "9급 공무원 시험",
+  aboutName = "9급 공무원 국가직·지방직 시험",
 }: {
   name: string;
   description: string;
   path: string;
   learningResourceType: "Course" | "Concept" | "Quiz";
+  educationalLevel?: string;
+  aboutName?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -258,10 +266,10 @@ export function buildPublicServiceLearningResourceJsonLd({
     url: absoluteUrl(path),
     inLanguage: "ko-KR",
     learningResourceType,
-    educationalLevel: "9급 공무원 시험",
+    educationalLevel,
     about: {
       "@type": "Thing",
-      name: "9급 공무원 국가직·지방직 시험",
+      name: aboutName,
     },
     isAccessibleForFree: true,
     provider: {

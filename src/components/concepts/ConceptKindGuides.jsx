@@ -3,6 +3,7 @@
 /** Ported from ox-quiz-app ConceptsScreen Kind UI (기출 올인원). */
 
 import '@/styles/concepts/conceptsScreen.css'
+import '@/styles/concepts/conceptsEbook.css'
 import '@/styles/concepts/conceptStudySheet.css'
 import '@/styles/concepts/conceptsVisualBatch17.css'
 import '@/styles/concepts/conceptsVisualBatch18.css'
@@ -64,9 +65,9 @@ import '@/styles/concepts/conceptsVisualBatch73.css'
 import { ConceptStudySheet } from './ConceptStudySheet.jsx'
 
 
-function SectionBlock({ label, index = null, amended = false, badge = null, children }) {
+function SectionBlock({ label, index = null, amended = false, badge = null, id = null, children }) {
   return (
-    <section className="cx-section">
+    <section className="cx-section" id={id || undefined}>
       <h3 className="cx-section__label">
         {index != null ? (
           <span className="cx-section__index" aria-hidden>

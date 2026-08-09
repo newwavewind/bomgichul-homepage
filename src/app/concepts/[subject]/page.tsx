@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
 import { ConceptPartList } from "@/components/concepts/ConceptPartList";
-import { ConceptStudySchedule } from "@/components/concepts/ConceptStudySchedule";
 import {
   EXAM_SUBJECTS,
   ARCHIVE_SUBJECT_MAP,
@@ -20,6 +19,7 @@ import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptItemListJsonLd } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
 import "../concepts-ui.css";
+import "@/styles/concepts/conceptsEbook.css";
 
 interface SectionGroup {
   section: string;
@@ -142,7 +142,6 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
     concepts.map((c) => [c.slug, getConceptQuestionCount(subject, c)])
   );
   const user = await getUser();
-  const returnTo = `/concepts/${subject}`;
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "기출 all-in-one", path: "/" },
@@ -190,21 +189,6 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
           <p className="mt-2 font-display text-body-sm text-fog">
             개념 {concepts.length}개 · 대단원 {groups.length}개
           </p>
-        </div>
-
-        <div className="hp-cx mb-6">
-          <ConceptStudySchedule
-            subject={subject}
-            userId={user?.id ?? null}
-            returnTo={returnTo}
-            concepts={concepts.map((c) => ({
-              slug: c.slug,
-              titleKo: c.titleKo,
-              category: c.category,
-              chapterKo: c.chapterKo,
-              parentSlug: c.parentSlug,
-            }))}
-          />
         </div>
 
         <ConceptPartList

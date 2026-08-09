@@ -1,5 +1,130 @@
 /** FAQ docs용 화면 미리보기 일러스트 — 실제 UI 톤을 단순화한 SVG/마크업 */
 
+import type { CommunityScope } from "@/types/database";
+
+type VisualScope = CommunityScope;
+
+const HUB_COPY: Record<
+  VisualScope,
+  { allInOne: string[]; exam: string[] }
+> = {
+  real_estate: {
+    allInOne: ["민법", "부동산학개론", "공인중개사법", "부동산공법"],
+    exam: ["민법", "부동산세법"],
+  },
+  public_service: {
+    allInOne: ["행정학개론", "행정법총론", "형법", "세법개론"],
+    exam: ["행정학개론", "행정법총론"],
+  },
+  police: {
+    allInOne: ["헌법", "형사법", "경찰학"],
+    exam: ["헌법", "형사법"],
+  },
+  housing: {
+    allInOne: ["회계원리", "민법", "주택관리관계법규", "공동주택관리실무"],
+    exam: ["회계원리", "민법"],
+  },
+};
+
+const CONCEPT_COPY: Record<
+  VisualScope,
+  { crumb: string; title: string }
+> = {
+  real_estate: { crumb: "민법 · 권리의 변동", title: "권리취득의 유형" },
+  public_service: { crumb: "행정학개론 · 조직론", title: "관료제의 특징" },
+  police: { crumb: "경찰 · 헌법 · 기본권", title: "기본권의 제한" },
+  housing: { crumb: "회계원리 · 재무제표", title: "대차대조표의 구조" },
+};
+
+const EXAM_COPY: Record<
+  VisualScope,
+  { subject: string; stem: string }
+> = {
+  real_estate: {
+    subject: "민법",
+    stem: "다음 중 권리의 변동에 관한 설명으로 옳은 것은?",
+  },
+  public_service: {
+    subject: "행정학개론",
+    stem: "다음 중 관료제에 관한 설명으로 옳은 것은?",
+  },
+  police: {
+    subject: "헌법",
+    stem: "다음 중 기본권의 제한에 관한 설명으로 옳은 것은?",
+  },
+  housing: {
+    subject: "회계원리",
+    stem: "다음 중 대차대조표에 관한 설명으로 옳은 것은?",
+  },
+};
+
+const COMMUNITY_COPY: Record<
+  VisualScope,
+  { cats: string[]; posts: { title: string; meta: string }[] }
+> = {
+  real_estate: {
+    cats: ["전체", "질문", "자료공유", "법령정보"],
+    posts: [
+      { title: "취득시효 자주점유 추정이 헷갈려요", meta: "질문 · 댓글 8" },
+      { title: "2025 민법 오답 정리 공유합니다", meta: "자료공유 · 다운 42" },
+    ],
+  },
+  public_service: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "행정법 하자 있는 행정행위가 헷갈려요", meta: "질문 · 댓글 5" },
+      { title: "2025 행정학 요약 노트 올립니다", meta: "수험정보 · 댓글 12" },
+    ],
+  },
+  police: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "형소법 영장주의 예외가 헷갈려요", meta: "질문 · 댓글 6" },
+      { title: "경찰학 조직 파트 정리 공유", meta: "수험정보 · 댓글 9" },
+    ],
+  },
+  housing: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "공동주택관리법 관리주체 구분이 헷갈려요", meta: "질문 · 댓글 4" },
+      { title: "시설개론 설비 체크리스트 공유", meta: "수험정보 · 댓글 7" },
+    ],
+  },
+};
+
+const ARCHIVE_COPY: Record<
+  VisualScope,
+  { type: string; name: string; size: string }[]
+> = {
+  real_estate: [
+    { type: "PDF", name: "민법 연도별 기출 모아보기", size: "2.4MB" },
+    { type: "노트", name: "공법 용도지역 한눈에", size: "780KB" },
+    { type: "요약", name: "세법 취득세 체크리스트", size: "410KB" },
+  ],
+  public_service: [
+    { type: "PDF", name: "행정학 연도별 기출 모아보기", size: "2.1MB" },
+    { type: "노트", name: "행정법 총론 요약", size: "640KB" },
+    { type: "요약", name: "형법 구성요건 체크", size: "390KB" },
+  ],
+  police: [
+    { type: "PDF", name: "헌법 연도별 기출 모아보기", size: "1.9MB" },
+    { type: "노트", name: "형사법 수사 절차 한눈에", size: "720KB" },
+    { type: "요약", name: "경찰학 조직·인사 요약", size: "450KB" },
+  ],
+  housing: [
+    { type: "PDF", name: "회계원리 기출 모아보기", size: "2.0MB" },
+    { type: "노트", name: "주택관리관계법규 요약", size: "680KB" },
+    { type: "요약", name: "시설개론 설비 체크", size: "430KB" },
+  ],
+};
+
+const DIARY_COPY: Record<VisualScope, string> = {
+  real_estate: "민법 계약해제 정리",
+  public_service: "행정법 하자·무효 정리",
+  police: "헌법 기본권 제한 정리",
+  housing: "회계 분개 연습 정리",
+};
+
 function PhoneFrame({
   children,
   caption,
@@ -33,14 +158,21 @@ function PhoneFrame({
   );
 }
 
-export function StudyHubVisual() {
+export function StudyHubVisual({ scope = "real_estate" }: { scope?: VisualScope }) {
+  const copy = HUB_COPY[scope];
+  // 경찰은 과목 3개 — 네 칸이면 헌법이 중복되므로 앞 3개 + 안내 칸
+  const allInOne =
+    scope === "police"
+      ? ["헌법", "형사법", "경찰학"]
+      : copy.allInOne;
+
   return (
     <PhoneFrame caption="학습 홈" tint="snow">
       <div className="space-y-3">
         <div>
           <p className="mb-2 font-display text-[12px] font-semibold text-ink">기출 all-in-one</p>
           <div className="grid grid-cols-2 gap-2">
-            {["민법", "부동산학개론", "공인중개사법", "부동산공법"].map((label) => (
+            {allInOne.map((label) => (
               <div
                 key={label}
                 className="rounded-xl border border-carbon/40 bg-lavender px-2.5 py-2.5"
@@ -51,12 +183,17 @@ export function StudyHubVisual() {
                 <p className="mt-1.5 font-display text-[12px] font-semibold text-ink">{label}</p>
               </div>
             ))}
+            {scope === "police" && (
+              <div className="rounded-xl border border-dashed border-carbon/30 bg-paper px-2.5 py-2.5">
+                <p className="font-display text-[11px] font-medium text-smoke">순경 공채 3과목</p>
+              </div>
+            )}
           </div>
         </div>
         <div>
           <p className="mb-2 font-display text-[12px] font-semibold text-ink">기출문제</p>
           <div className="grid grid-cols-2 gap-2">
-            {["민법", "부동산세법"].map((label) => (
+            {copy.exam.map((label) => (
               <div key={label} className="rounded-xl border border-carbon/40 bg-ice px-2.5 py-2.5">
                 <p className="font-display text-[12px] font-semibold text-ink">{label}</p>
                 <p className="mt-1 font-display text-[10px] text-smoke">연도별 · O/X</p>
@@ -69,13 +206,14 @@ export function StudyHubVisual() {
   );
 }
 
-export function ConceptsVisual() {
+export function ConceptsVisual({ scope = "real_estate" }: { scope?: VisualScope }) {
+  const copy = CONCEPT_COPY[scope];
   return (
     <PhoneFrame caption="기출 all-in-one · 개념 상세" tint="lavender">
       <div className="space-y-2.5 rounded-xl border border-carbon/30 bg-paper p-3">
-        <p className="font-display text-[11px] text-smoke">민법 · 권리의 변동</p>
+        <p className="font-display text-[11px] text-smoke">{copy.crumb}</p>
         <p className="font-display text-[15px] font-semibold leading-snug text-ink">
-          권리취득의 유형
+          {copy.title}
         </p>
         <div className="space-y-2">
           {["개념 정리", "이해하기", "핵심 포인트", "한눈에 학습맵"].map((label, i) => (
@@ -99,19 +237,18 @@ export function ConceptsVisual() {
   );
 }
 
-export function ExamVisual() {
+export function ExamVisual({ scope = "real_estate" }: { scope?: VisualScope }) {
+  const copy = EXAM_COPY[scope];
   return (
     <PhoneFrame caption="기출문제 · 문항" tint="ice">
       <div className="space-y-3 rounded-xl border border-carbon/30 bg-paper p-3">
         <div className="flex items-center justify-between">
           <p className="font-display text-[12px] font-semibold text-ink">2025년 · 12번</p>
           <span className="rounded-full border border-carbon/30 bg-snow px-2 py-0.5 font-display text-[10px] text-smoke">
-            민법
+            {copy.subject}
           </span>
         </div>
-        <p className="font-display text-[12px] leading-relaxed text-ink">
-          다음 중 권리의 변동에 관한 설명으로 옳은 것은?
-        </p>
+        <p className="font-display text-[12px] leading-relaxed text-ink">{copy.stem}</p>
         <div className="grid grid-cols-2 gap-2">
           <button
             type="button"
@@ -146,12 +283,13 @@ export function ExamVisual() {
   );
 }
 
-export function CommunityVisual() {
+export function CommunityVisual({ scope = "real_estate" }: { scope?: VisualScope }) {
+  const copy = COMMUNITY_COPY[scope];
   return (
     <PhoneFrame caption="커뮤니티" tint="snow">
       <div className="space-y-2">
         <div className="flex flex-wrap gap-1.5">
-          {["전체", "질문", "자료공유", "법령정보"].map((cat, i) => (
+          {copy.cats.map((cat, i) => (
             <span
               key={cat}
               className={`rounded-full border px-2 py-0.5 font-display text-[10px] ${
@@ -164,10 +302,7 @@ export function CommunityVisual() {
             </span>
           ))}
         </div>
-        {[
-          { title: "취득시효 자주점유 추정이 헷갈려요", meta: "질문 · 댓글 8" },
-          { title: "2025 민법 오답 정리 공유합니다", meta: "자료공유 · 다운 42" },
-        ].map((post) => (
+        {copy.posts.map((post) => (
           <div key={post.title} className="rounded-xl border border-carbon/30 bg-paper px-3 py-2.5">
             <p className="font-display text-[12px] font-semibold text-ink">{post.title}</p>
             <p className="mt-1 font-display text-[10px] text-smoke">{post.meta}</p>
@@ -178,15 +313,12 @@ export function CommunityVisual() {
   );
 }
 
-export function ArchiveVisual() {
+export function ArchiveVisual({ scope = "real_estate" }: { scope?: VisualScope }) {
+  const files = ARCHIVE_COPY[scope];
   return (
     <PhoneFrame caption="자료실" tint="paper">
       <div className="space-y-2">
-        {[
-          { type: "PDF", name: "민법 연도별 기출 모아보기", size: "2.4MB" },
-          { type: "노트", name: "공법 용도지역 한눈에", size: "780KB" },
-          { type: "요약", name: "세법 취득세 체크리스트", size: "410KB" },
-        ].map((file) => (
+        {files.map((file) => (
           <div
             key={file.name}
             className="flex items-center gap-2.5 rounded-xl border border-carbon/30 bg-snow px-2.5 py-2.5"
@@ -208,7 +340,7 @@ export function ArchiveVisual() {
   );
 }
 
-export function DiaryVisual() {
+export function DiaryVisual({ scope = "real_estate" }: { scope?: VisualScope }) {
   return (
     <PhoneFrame caption="수험일기" tint="lavender">
       <div className="space-y-3">
@@ -218,7 +350,9 @@ export function DiaryVisual() {
         </div>
         <div className="rounded-xl border border-carbon/30 bg-paper px-3 py-2.5">
           <p className="font-display text-[11px] text-smoke">오늘의 기록</p>
-          <p className="mt-1 font-display text-[13px] font-semibold text-ink">민법 계약해제 정리</p>
+          <p className="mt-1 font-display text-[13px] font-semibold text-ink">
+            {DIARY_COPY[scope]}
+          </p>
           <div className="mt-2 h-1.5 w-full rounded-full bg-mist" />
           <div className="mt-1 h-1.5 w-2/3 rounded-full bg-mist" />
         </div>

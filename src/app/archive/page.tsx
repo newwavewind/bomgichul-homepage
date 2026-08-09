@@ -12,9 +12,17 @@ import type { SortOption } from "@/lib/constants";
 import {
   ARCHIVE_RESOURCE_TYPE_MAP,
   ARCHIVE_SUBJECT_MAP,
+  archiveSubjectsForScope,
 } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
 import { getUserActivityScores } from "@/lib/activity";
+import {
+  archiveBaseHref,
+  archiveEyebrow,
+  archiveTitle,
+} from "@/lib/exam-track/community";
+import { CommunityHubNav } from "@/components/community/CommunityHubNav";
+import type { CommunityScope } from "@/types/database";
 
 interface ArchivePageProps {
   searchParams: Promise<{
@@ -35,7 +43,7 @@ export async function generateMetadata({
   const resourceType = params.type ?? "all";
   const subject = params.subject ?? "all";
 
-  let title = "공인중개사 자료실";
+  let title = archiveTitle("real_estate");
   if (resourceType !== "all") {
     title = `${ARCHIVE_RESOURCE_TYPE_MAP[resourceType] ?? resourceType} 자료`;
   }
@@ -59,13 +67,18 @@ export async function generateMetadata({
   });
 }
 
-export default async function ArchivePage({ searchParams }: ArchivePageProps) {
+export async function ArchiveBoard({
+  searchParams,
+  scope = "real_estate",
+}: ArchivePageProps & { scope?: CommunityScope }) {
   const params = await searchParams;
   const page = Math.max(1, Number(params.page) || 1);
   const search = params.q ?? "";
   const sort = (params.sort as SortOption) || "latest";
   const resourceType = params.type ?? "all";
   const subject = params.subject ?? "all";
+  const baseHref = archiveBaseHref(scope);
+  const subjects = archiveSubjectsForScope(scope);
 
   const { data: posts, totalPages, total } = await getArchivePosts({
     page,
@@ -73,6 +86,7 @@ export default async function ArchivePage({ searchParams }: ArchivePageProps) {
     sort,
     resourceType,
     subject,
+    scope,
   });
   const authorActivity = await getUserActivityScores(posts.map((post) => post.author_id));
 
@@ -81,27 +95,29 @@ export default async function ArchivePage({ searchParams }: ArchivePageProps) {
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <EyebrowLabel className="mb-2">공인중개사 수험 자료 공유</EyebrowLabel>
-            <SectionHeading as="h1">자료실</SectionHeading>
+            <EyebrowLabel className="mb-2">{archiveEyebrow(scope)}</EyebrowLabel>
+            <SectionHeading as="h1">{archiveTitle(scope)}</SectionHeading>
             <p className="mt-2 font-display text-body-sm text-smoke">
-              공인중개사 기출, 노트, 요약 자료를 올리고 다운로드하세요 · 총 {total}개
+              기출, 노트, 요약 자료를 올리고 다운로드하세요 · 총 {total}개
             </p>
           </div>
-          <PrimaryButton href="/archive/new">자료 올리기</PrimaryButton>
+          <PrimaryButton href={`${baseHref}/new`}>자료 올리기</PrimaryButton>
         </div>
+
+        <CommunityHubNav scope={scope} />
 
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <Suspense fallback={null}>
-            <SearchBar defaultValue={search} placeholder="자료 검색..." basePath="/archive" />
+            <SearchBar defaultValue={search} placeholder="자료 검색..." basePath={baseHref} />
           </Suspense>
           <Suspense fallback={null}>
-            <SortSelect current={sort} basePath="/archive" />
+            <SortSelect current={sort} basePath={baseHref} />
           </Suspense>
         </div>
 
         <div className="mb-8">
           <Suspense fallback={null}>
-            <ArchiveFilters />
+            <ArchiveFilters subjects={subjects} />
           </Suspense>
         </div>
 
@@ -114,7 +130,7 @@ export default async function ArchivePage({ searchParams }: ArchivePageProps) {
               <p className="mb-6 font-display text-body-sm text-fog">
                 기출 PDF, 노트, 요약 자료를 첫 번째로 올려보세요!
               </p>
-              <PrimaryButton href="/archive/new">자료 올리기</PrimaryButton>
+              <PrimaryButton href={`${baseHref}/new`}>자료 올리기</PrimaryButton>
             </div>
           ) : (
             posts.map((post) => (
@@ -122,6 +138,7 @@ export default async function ArchivePage({ searchParams }: ArchivePageProps) {
                 key={post.id}
                 post={post}
                 authorRank={authorActivity[post.author_id]?.rank}
+                baseHref={baseHref}
               />
             ))
           )}
@@ -134,8 +151,13 @@ export default async function ArchivePage({ searchParams }: ArchivePageProps) {
           sort={sort}
           type={resourceType}
           subject={subject}
+          baseHref={baseHref}
         />
       </div>
     </div>
   );
+}
+
+export default async function ArchivePage(props: ArchivePageProps) {
+  return <ArchiveBoard {...props} scope="real_estate" />;
 }

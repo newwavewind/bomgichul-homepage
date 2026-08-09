@@ -142,6 +142,7 @@ export type AdminPostRow = {
   title: string;
   category: PostCategory;
   categoryLabel: string;
+  communityScope: string;
   authorNickname: string;
   viewCount: number;
   createdAt: string;
@@ -156,7 +157,7 @@ export async function getAdminPosts(options: {
 
   let query = admin
     .from("posts")
-    .select("id, title, category, view_count, created_at, profiles:author_id(nickname)")
+    .select("id, title, category, community_scope, view_count, created_at, profiles:author_id(nickname)")
     .order("created_at", { ascending: false })
     .limit(options.limit ?? 50);
 
@@ -177,6 +178,7 @@ export async function getAdminPosts(options: {
       title: row.title,
       category,
       categoryLabel: CATEGORY_MAP[category] ?? category,
+      communityScope: row.community_scope ?? "real_estate",
       authorNickname: profile?.nickname ?? "익명",
       viewCount: row.view_count,
       createdAt: row.created_at,

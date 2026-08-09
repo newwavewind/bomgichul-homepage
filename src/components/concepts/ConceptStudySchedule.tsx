@@ -123,11 +123,6 @@ export function ConceptStudySchedule({
   const unread = Math.max(0, total - studied);
   const percent = total > 0 ? Math.round((studied / total) * 100) : 0;
 
-  const nextConcept = useMemo(() => {
-    if (!isLoggedIn) return concepts[0] ?? null;
-    return concepts.find((c) => getConceptReadCount(progress, c.slug) === 0) ?? null;
-  }, [concepts, progress, isLoggedIn]);
-
   const filtered = useMemo(() => {
     if (!isLoggedIn || filter === "all") return concepts;
     if (filter === "read") {
@@ -136,39 +131,25 @@ export function ConceptStudySchedule({
     return concepts.filter((c) => getConceptReadCount(progress, c.slug) === 0);
   }, [concepts, progress, filter, isLoggedIn]);
 
-  const filters: { key: FilterKey; label: string; count: number }[] = [
-    { key: "unread", label: "미회독", count: unread },
-    { key: "read", label: "회독함", count: studied },
-    { key: "all", label: "전체", count: total },
+  const filters: { key: FilterKey; label: string }[] = [
+    { key: "unread", label: "미회독" },
+    { key: "read", label: "회독" },
+    { key: "all", label: "전체" },
   ];
+
+  const visible = filtered.slice(0, 10);
+  const showStatus = filter === "all" || filter === "read";
 
   return (
     <>
-      <section className="hp-cx-schedule" aria-label="학습 스케줄">
+      <section className="hp-cx-schedule" aria-label="회독 진도">
         <div className="hp-cx-schedule__head">
-          <div>
-            <p className="hp-cx-schedule__eyebrow">학습 스케줄</p>
-            <h2 className="hp-cx-schedule__title">회독 진도</h2>
-          </div>
-          <p className="hp-cx-schedule__pct" aria-hidden>
-            {percent}%
+          <h2 className="hp-cx-schedule__title">회독 진도</h2>
+          <p className="hp-cx-schedule__count">
+            <strong>{studied}</strong>
+            <span aria-hidden>/</span>
+            {total}
           </p>
-        </div>
-
-        <div className="hp-cx-schedule__summary">
-          <span>
-            회독 <strong>{studied}</strong>
-          </span>
-          <span className="hp-cx-schedule__dot" aria-hidden>
-            ·
-          </span>
-          <span>
-            미회독 <strong>{unread}</strong>
-          </span>
-          <span className="hp-cx-schedule__dot" aria-hidden>
-            ·
-          </span>
-          <span>개념 {total}개</span>
         </div>
 
         <div
@@ -177,83 +158,74 @@ export function ConceptStudySchedule({
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={percent}
-          aria-label={`회독 ${percent}%`}
+          aria-label={`회독 ${studied} / ${total}`}
         >
           <span style={{ width: `${percent}%` }} />
         </div>
 
         {!isLoggedIn ? (
           <div className="hp-cx-schedule__login">
-            <p>로그인하면 회독한 개념과 아직 안 본 개념을 나눠 보여 드려요.</p>
-            <button type="button" className="hp-cx-schedule__login-btn" onClick={() => setLoginOpen(true)}>
-              로그인하고 스케줄 보기
+            <p>로그인하면 회독 기록이 저장됩니다.</p>
+            <button
+              type="button"
+              className="hp-cx-schedule__login-btn"
+              onClick={() => setLoginOpen(true)}
+            >
+              로그인
             </button>
           </div>
-        ) : null}
-
-        <div className="hp-cx-schedule__filters" role="tablist" aria-label="회독 필터">
-          {filters.map((item) => (
-            <button
-              key={item.key}
-              type="button"
-              role="tab"
-              aria-selected={filter === item.key}
-              className={
-                filter === item.key
-                  ? "hp-cx-schedule__filter is-active"
-                  : "hp-cx-schedule__filter"
-              }
-              onClick={() => setFilter(item.key)}
-            >
-              {item.label}
-              <em>{item.count}</em>
-            </button>
-          ))}
-        </div>
-
-        {nextConcept && filter === "unread" ? (
-          <Link
-            href={`/concepts/${subject}/${nextConcept.slug}`}
-            className="hp-cx-schedule__next"
-          >
-            <span className="hp-cx-schedule__next-label">다음에 볼 개념</span>
-            <span className="hp-cx-schedule__next-title">{nextConcept.titleKo}</span>
-            <span className="hp-cx-schedule__next-go">바로 보기 →</span>
-          </Link>
-        ) : null}
+        ) : (
+          <div className="hp-cx-schedule__filters" role="tablist" aria-label="회독 필터">
+            {filters.map((item) => (
+              <button
+                key={item.key}
+                type="button"
+                role="tab"
+                aria-selected={filter === item.key}
+                className={
+                  filter === item.key
+                    ? "hp-cx-schedule__filter is-active"
+                    : "hp-cx-schedule__filter"
+                }
+                onClick={() => setFilter(item.key)}
+              >
+                {item.label}
+                {item.key === "unread"
+                  ? ` ${unread}`
+                  : item.key === "read"
+                    ? ` ${studied}`
+                    : ""}
+              </button>
+            ))}
+          </div>
+        )}
 
         <ul className="hp-cx-schedule__list">
-          {filtered.length === 0 ? (
+          {visible.length === 0 ? (
             <li className="hp-cx-schedule__empty">
               {filter === "read"
-                ? "아직 회독한 개념이 없어요. 개념을 읽고 회독 완료를 눌러 주세요."
+                ? "아직 회독한 개념이 없어요."
                 : filter === "unread"
-                  ? "미회독 개념이 없어요. 전부 회독했거나 다음에 볼 개념이 없습니다."
+                  ? "미회독 개념이 없어요."
                   : "표시할 개념이 없어요."}
             </li>
           ) : (
-            filtered.slice(0, 12).map((concept) => {
+            visible.map((concept, index) => {
               const reads = isLoggedIn ? getConceptReadCount(progress, concept.slug) : 0;
+              const isNext = filter === "unread" && index === 0;
               return (
                 <li key={concept.slug}>
                   <Link
                     href={`/concepts/${subject}/${concept.slug}`}
-                    className="hp-cx-schedule__row"
+                    className={`hp-cx-schedule__row${isNext ? " is-next" : ""}`}
                   >
-                    <span className="hp-cx-schedule__row-body">
-                      <span className="hp-cx-schedule__row-meta">
-                        {concept.chapterKo || concept.category}
-                        {concept.parentSlug ? " · 하위" : ""}
-                      </span>
-                      <span className="hp-cx-schedule__row-title">{concept.titleKo}</span>
+                    <span className="hp-cx-schedule__row-title">
+                      {isNext ? <span className="hp-cx-schedule__next-mark">다음</span> : null}
+                      {concept.titleKo}
                     </span>
-                    <span
-                      className={`hp-cx-schedule__badge${
-                        reads > 0 ? " is-done" : " is-todo"
-                      }`}
-                    >
-                      {formatConceptReads(reads)}
-                    </span>
+                    {showStatus && reads > 0 ? (
+                      <span className="hp-cx-schedule__status">{formatConceptReads(reads)}</span>
+                    ) : null}
                   </Link>
                 </li>
               );
@@ -261,9 +233,9 @@ export function ConceptStudySchedule({
           )}
         </ul>
 
-        {filtered.length > 12 ? (
+        {filtered.length > visible.length ? (
           <p className="hp-cx-schedule__more">
-            외 {filtered.length - 12}개 · 아래 목차에서도 확인하세요
+            외 {filtered.length - visible.length}개 · 아래 목차에서 이어보기
           </p>
         ) : null}
       </section>

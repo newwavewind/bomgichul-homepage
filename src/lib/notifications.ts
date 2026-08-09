@@ -22,7 +22,7 @@ export async function getNotificationsForUser(userId: string): Promise<Notificat
   const { data } = await supabase
     .from("notifications")
     .select(
-      "*, actor:profiles!notifications_actor_id_fkey(nickname, avatar_url), post:posts!notifications_post_id_fkey(title)"
+      "*, actor:profiles!notifications_actor_id_fkey(nickname, avatar_url), post:posts!notifications_post_id_fkey(title, community_scope)"
     )
     .eq("recipient_id", userId)
     .order("created_at", { ascending: false })

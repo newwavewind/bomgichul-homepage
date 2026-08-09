@@ -79,7 +79,7 @@ export function GoogleAuthCard({
 
     try {
       const supabase = createClient();
-      const next = readAuthNext(isSignup ? "/onboarding" : "/community");
+      const next = readAuthNext(isSignup ? "/onboarding" : "/");
 
       document.cookie = `auth_next=${encodeURIComponent(next)}; path=/; max-age=600; samesite=lax`;
 
@@ -132,7 +132,7 @@ export function GoogleAuthCard({
                 <>
                   Google 계정으로 간편하게 시작하세요.
                   <br />
-                  커뮤니티·기출 학습·수험일기를 한곳에서 이용할 수 있어요.
+                  커뮤니티·기출 학습을 한곳에서 이용할 수 있어요.
                 </>
               ) : (
                 <>

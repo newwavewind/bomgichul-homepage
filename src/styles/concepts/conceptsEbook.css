@@ -1,0 +1,984 @@
+/**
+ * 기출 올인원 — E-Book(eink) 무광 종이 읽기 톤.
+ * liquid-glass 클래스는 JSX에 남겨 두고, 여기서 유리/blur/그림자를 종이 결로 덮는다.
+ * 토큰은 studySurfaces.css 의 eink 결을 따른다.
+ * index.css 리퀴드 규칙과 같은/높은 특이도 + !important 로 덮는다.
+ */
+
+.concepts-screen,
+.concepts-screen.concept-cards-d4 {
+  --cx-ebook-page: #e8e5de;
+  --cx-ebook-surface: #f4f2ec;
+  /* 지문 칩: page(#e8e5de)보다 밝게, surface 쪽 따뜻한 종이 */
+  --cx-ebook-chip: color-mix(in srgb, var(--cx-ebook-surface) 82%, #fff);
+  --cx-ebook-ink: #35322c;
+  --cx-ebook-muted: #6b645a;
+  --cx-ebook-line: rgba(70, 62, 48, 0.22);
+  --cx-ebook-radius: 0.7rem;
+  --ink: var(--cx-ebook-ink);
+  --muted: var(--cx-ebook-muted);
+  --card: var(--cx-ebook-surface);
+  --border: var(--cx-ebook-line);
+  background-color: var(--cx-ebook-page) !important;
+  color: var(--cx-ebook-ink);
+}
+
+.concepts-screen .cc-d4-inner--page-head {
+  color: var(--cx-ebook-ink);
+}
+
+/* ── 공통: 리퀴드 유리 → 무광 종이 (index.css 와 동일 특이도) ── */
+.concepts-screen .cx-card.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-visual-card.liquid-glass.liquid-glass--tint,
+.concepts-screen article.cx-card.liquid-glass.liquid-glass--tint,
+.concepts-screen article.cx-visual-card.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-read-bar.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-ai-trigger.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-ai-menu.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-ai-menu__item.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-section__index.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-pitfall-card.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-pitfall-card__context.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-pitfall-card__wrong.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-pitfall-card__correct.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-statement.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-question-row.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-pager__btn.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-read-mark.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-read-reset.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-read-badge.liquid-glass.liquid-glass--tint,
+.concepts-screen .cc-d4-header-card.liquid-glass.liquid-glass--tint,
+.concepts-screen .subject-switch-trigger.liquid-glass.liquid-glass--tint,
+.concepts-screen .cc-d4-header-metric.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-part.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-part__head.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-part__count.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-lock.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-chapter-no.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-concept-row.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-concept-row__no.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-concept-row__branch.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-concept-row__reads.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-card,
+.concepts-screen .cx-visual-card,
+.concepts-screen .cx-part,
+.concepts-screen .cx-read-bar,
+.concepts-screen .cx-statement,
+.concepts-screen .cx-question-row,
+.concepts-screen .cx-pager__btn {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-card.liquid-glass.liquid-glass--tint::before,
+.concepts-screen .cx-visual-card.liquid-glass.liquid-glass--tint::before,
+.concepts-screen article.cx-visual-card.liquid-glass.liquid-glass--tint::before,
+.concepts-screen .cx-read-bar.liquid-glass.liquid-glass--tint::before,
+.concepts-screen .cx-ai-trigger.liquid-glass.liquid-glass--tint::before,
+.concepts-screen .cx-ai-menu.liquid-glass.liquid-glass--tint::before,
+.concepts-screen .cx-part.liquid-glass.liquid-glass--tint::before,
+.concepts-screen .liquid-glass::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* 카드·PART·VISUAL 셸 */
+.concepts-screen .cx-card.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-visual-card.liquid-glass.liquid-glass--tint,
+.concepts-screen article.cx-card.liquid-glass.liquid-glass--tint,
+.concepts-screen article.cx-visual-card.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-part.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-card,
+.concepts-screen .cx-visual-card,
+.concepts-screen .cx-part {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: var(--cx-ebook-radius) !important;
+  overflow: hidden;
+}
+
+.concepts-screen .cx-part__head,
+.concepts-screen .cx-part__head.liquid-glass.liquid-glass--tint {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--cx-ebook-ink) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.concepts-screen .cx-part__head--open {
+  border-bottom: 1px solid var(--cx-ebook-line) !important;
+}
+
+.concepts-screen .cx-part__count.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-lock.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-chapter-no.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-part__count,
+.concepts-screen .cx-lock,
+.concepts-screen .cx-chapter-no {
+  background: color-mix(in srgb, var(--cx-ebook-page) 70%, transparent) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 999px !important;
+  color: var(--cx-ebook-muted) !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-concept-row.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-concept-row {
+  background: transparent !important;
+  border-color: transparent !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--cx-ebook-line) 55%, transparent) !important;
+  border-radius: 0 !important;
+  color: var(--cx-ebook-ink) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.concepts-screen .cx-concept-row:last-child {
+  border-bottom: 0 !important;
+}
+
+.concepts-screen .cx-concept-row__no.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-concept-row__branch.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-concept-row__no,
+.concepts-screen .cx-concept-row__branch {
+  background: color-mix(in srgb, var(--cx-ebook-page) 80%, transparent) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  color: var(--cx-ebook-muted) !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-concept-row__reads {
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--cx-ebook-muted) !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-concept-row__reads--done {
+  color: #0066d6 !important;
+}
+
+/* 상세 회독 바 */
+.concepts-screen .cx-read-bar.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-read-bar {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: var(--cx-ebook-radius) !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-read-badge.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-read-reset.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-read-badge,
+.concepts-screen .cx-read-reset {
+  background: var(--cx-ebook-page) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 999px !important;
+  color: var(--cx-ebook-ink) !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-read-badge--done.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-read-badge--done {
+  background: color-mix(in srgb, #007aff 12%, var(--cx-ebook-surface)) !important;
+  border-color: color-mix(in srgb, #007aff 35%, var(--cx-ebook-line)) !important;
+  color: #0066d6 !important;
+}
+
+.concepts-screen .cx-read-mark.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-read-mark {
+  background: #007aff !important;
+  border: 1px solid #007aff !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* 섹션·본문 */
+.concepts-screen .cx-section {
+  border-bottom-color: color-mix(in srgb, var(--cx-ebook-line) 70%, transparent);
+}
+
+.concepts-screen .cx-section__label {
+  color: var(--cx-ebook-ink);
+}
+
+.concepts-screen .cx-section__index.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-section__index {
+  background: var(--cx-ebook-page) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  color: var(--cx-ebook-muted) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.concepts-screen .cx-section__body {
+  color: var(--cx-ebook-ink);
+  font-size: 0.9375rem;
+  line-height: 1.72;
+}
+
+.concepts-screen .cx-bullets {
+  line-height: 1.7;
+}
+
+.concepts-screen .cx-bullets li {
+  color: var(--cx-ebook-ink);
+}
+
+.concepts-screen .cx-caution,
+.concepts-screen .cx-map-summary {
+  color: var(--cx-ebook-ink) !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 기출 지문·관련 기출: 동일 밝은 칩 (page보다 surface 쪽) */
+.concepts-screen .cx-statement.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-question-row.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-statement,
+.concepts-screen .cx-question-row {
+  background: var(--cx-ebook-chip) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 0.55rem !important;
+  color: var(--cx-ebook-ink) !important;
+  box-shadow: none !important;
+}
+
+/* 관련 기출: 목록 border-top·음수 마진이 칩 테두리와 겹쳐 이중선처럼 보이던 것만 정리 */
+.concepts-screen .cx-related-exams-list {
+  margin: 0.35rem 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.concepts-screen .cx-related-exams-list .cx-question-row.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-related-exams-list .cx-question-row,
+#root .ds-concepts-screen .cx-related-exams-list .cx-question-row.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-related-exams-list .cx-question-row {
+  margin: 0 !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 0.55rem !important;
+  background: var(--cx-ebook-chip) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+  isolation: auto !important;
+  overflow: hidden;
+}
+
+.concepts-screen .cx-related-exams-list .cx-question-row.liquid-glass.liquid-glass--tint:last-child,
+.concepts-screen .cx-related-exams-list .cx-question-row:last-child,
+#root .ds-concepts-screen .cx-related-exams-list .cx-question-row.liquid-glass.liquid-glass--tint:last-child {
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid var(--cx-ebook-line) !important;
+}
+
+.concepts-screen .cx-pager__btn.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-pager__btn {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 0.55rem !important;
+  color: var(--cx-ebook-ink) !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-ai-trigger.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-ai-trigger {
+  background: var(--cx-ebook-page) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  color: var(--cx-ebook-ink) !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-ai-menu.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-ai-menu {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-ai-menu__item.liquid-glass.liquid-glass--tint,
+.concepts-screen .cx-ai-menu__item {
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--cx-ebook-ink) !important;
+  box-shadow: none !important;
+}
+
+/* VISUAL PLUS 바깥 셸 — 안쪽 컬러 패널은 conceptsScreen 유지 */
+.concepts-screen article.cx-visual-card.liquid-glass.liquid-glass--tint {
+  background: var(--cx-ebook-surface) !important;
+  background-image: none !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: var(--cx-ebook-radius) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.concepts-screen .cx-visual-card .cx-guide-heading,
+.concepts-screen .cx-visual-card .cx-special-lede,
+.concepts-screen .cx-visual-card .cx-visual-lede {
+  color: var(--cx-ebook-ink);
+}
+
+.concepts-screen .cx-special-lede,
+.concepts-screen .cx-visual-lede {
+  background: var(--cx-ebook-page) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 0.55rem !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.concepts-screen .cc-d4-badge {
+  background: var(--cx-ebook-page);
+  color: var(--cx-ebook-muted);
+}
+
+.concepts-screen .cc-d4-header-card.liquid-glass.liquid-glass--tint,
+.concepts-screen .subject-switch-trigger.liquid-glass.liquid-glass--tint {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* pitfall 내부 톤 — 유리 대신 무광, 초록 배지 제거 */
+.concepts-screen .cx-pitfall-card.liquid-glass.liquid-glass--tint {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cx-pitfall-card__correct.liquid-glass.liquid-glass--tint {
+  background: color-mix(in srgb, #007aff 10%, var(--cx-ebook-page)) !important;
+  color: #0066d6 !important;
+}
+
+/* ── 다크: 빛나지 않는 무광 ── */
+html.dark .concepts-screen,
+html.dark .concepts-screen.concept-cards-d4 {
+  --cx-ebook-page: #1a1916;
+  --cx-ebook-surface: #22211e;
+  --cx-ebook-chip: color-mix(in srgb, var(--cx-ebook-surface) 88%, #2e2d2a);
+  --cx-ebook-ink: #e8e4dc;
+  --cx-ebook-muted: #a39e94;
+  --cx-ebook-line: rgba(240, 236, 226, 0.16);
+  background-color: var(--cx-ebook-page) !important;
+  color: var(--cx-ebook-ink);
+}
+
+html.dark .concepts-screen .cx-card.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-visual-card.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen article.cx-visual-card.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-part.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-read-bar.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-ai-menu.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-pager__btn.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-read-reset.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-pitfall-card.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cc-d4-header-card.liquid-glass.liquid-glass--tint {
+  background: var(--cx-ebook-surface) !important;
+  border-color: var(--cx-ebook-line) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+html.dark .concepts-screen .cx-statement.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-question-row.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-statement,
+html.dark .concepts-screen .cx-question-row {
+  background: var(--cx-ebook-chip) !important;
+  border-color: var(--cx-ebook-line) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+html.dark .concepts-screen .cx-read-mark.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-read-mark {
+  background: #0a84ff !important;
+  border-color: #0a84ff !important;
+  color: #fff !important;
+}
+
+html.dark .concepts-screen .cx-ai-trigger.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-read-badge--done.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cx-section__index.liquid-glass.liquid-glass--tint {
+  background: color-mix(in srgb, #0a84ff 18%, var(--cx-ebook-surface)) !important;
+  border-color: color-mix(in srgb, #0a84ff 35%, var(--cx-ebook-line)) !important;
+  color: #5ac8fa !important;
+}
+
+html.dark .concepts-screen .cx-caution,
+html.dark .concepts-screen .cx-map-summary {
+  color: var(--cx-ebook-ink) !important;
+  background: transparent !important;
+}
+
+html.dark .concepts-screen .cx-pitfall-card__correct.liquid-glass.liquid-glass--tint {
+  background: color-mix(in srgb, #0a84ff 14%, var(--cx-ebook-page)) !important;
+  color: #5ac8fa !important;
+}
+
+/*
+ * index.css / designSystemV1 의 #root .ds-concepts-screen … 특이도를 맞춘다.
+ * (ID 선택자가 없으면 리퀴드 blur·그림자가 이긴다.)
+ */
+#root .ds-concepts-screen.concepts-screen,
+#root .ds-concepts-screen.concept-cards-d4,
+#root .ds-concepts-screen {
+  --cx-ebook-page: #e8e5de;
+  --cx-ebook-surface: #f4f2ec;
+  --cx-ebook-chip: color-mix(in srgb, var(--cx-ebook-surface) 82%, #fff);
+  --cx-ebook-ink: #35322c;
+  --cx-ebook-muted: #6b645a;
+  --cx-ebook-line: rgba(70, 62, 48, 0.22);
+  --cx-ebook-radius: 0.7rem;
+  --ink: var(--cx-ebook-ink);
+  --muted: var(--cx-ebook-muted);
+  --card: var(--cx-ebook-surface);
+  --border: var(--cx-ebook-line);
+  background-color: var(--cx-ebook-page) !important;
+  color: var(--cx-ebook-ink);
+}
+
+#root .ds-concepts-screen .cx-card.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-visual-card.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen article.cx-visual-card.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-read-bar.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-ai-trigger.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-ai-menu.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-statement.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-question-row.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-pager__btn.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-read-mark.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-read-reset.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-read-badge.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cc-d4-header-card.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .subject-switch-trigger.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cc-d4-header-metric.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-part.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-part__head.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-part__count.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-lock.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-chapter-no.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-concept-row.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-concept-row__no.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-concept-row__branch.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-concept-row__reads.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-section__index.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-pitfall-card.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-part,
+#root .ds-concepts-screen .cx-card,
+#root .ds-concepts-screen .cx-visual-card {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+#root .ds-concepts-screen .cx-part.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-card.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen article.cx-visual-card.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-part,
+#root .ds-concepts-screen .cx-card,
+#root .ds-concepts-screen .cx-visual-card {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: var(--cx-ebook-radius) !important;
+}
+
+#root .ds-concepts-screen .cx-part__head.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-part__head {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--cx-ebook-ink) !important;
+}
+
+#root .ds-concepts-screen .cx-part__head--open.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-part__head--open {
+  background: transparent !important;
+  border-bottom: 1px solid var(--cx-ebook-line) !important;
+}
+
+#root .ds-concepts-screen .cx-part__count.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-lock.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-chapter-no.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-part__count,
+#root .ds-concepts-screen .cx-lock,
+#root .ds-concepts-screen .cx-chapter-no {
+  background: color-mix(in srgb, var(--cx-ebook-page) 70%, transparent) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 999px !important;
+  color: var(--cx-ebook-muted) !important;
+  box-shadow: none !important;
+}
+
+#root .ds-concepts-screen .cx-concept-row.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-concept-row {
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-color: transparent !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--cx-ebook-line) 55%, transparent) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+#root .ds-concepts-screen .cx-read-bar.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-read-bar {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: var(--cx-ebook-radius) !important;
+  box-shadow: none !important;
+}
+
+#root .ds-concepts-screen .cx-read-mark.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-read-mark {
+  background: #007aff !important;
+  border-color: #007aff !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+#root .ds-concepts-screen .cx-read-badge--done.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-read-badge--done {
+  background: color-mix(in srgb, #007aff 12%, var(--cx-ebook-surface)) !important;
+  border-color: color-mix(in srgb, #007aff 35%, var(--cx-ebook-line)) !important;
+  color: #0066d6 !important;
+}
+
+#root .ds-concepts-screen .cx-statement.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-question-row.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cx-statement,
+#root .ds-concepts-screen .cx-question-row {
+  background: var(--cx-ebook-chip) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 0.55rem !important;
+  box-shadow: none !important;
+}
+
+#root .ds-concepts-screen .cx-related-exams-list {
+  margin: 0.35rem 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+#root .ds-concepts-screen .cx-pager__btn.liquid-glass.liquid-glass--tint {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 0.55rem !important;
+  box-shadow: none !important;
+}
+
+#root .ds-concepts-screen .cx-section__index.liquid-glass.liquid-glass--tint {
+  background: var(--cx-ebook-page) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  color: var(--cx-ebook-muted) !important;
+  box-shadow: none !important;
+}
+
+#root .ds-concepts-screen .cx-section-block {
+  background: transparent !important;
+}
+
+#root .ds-concepts-screen .cx-caution,
+#root .ds-concepts-screen .cx-map-summary {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--cx-ebook-ink) !important;
+}
+
+html.dark #root .ds-concepts-screen.concepts-screen,
+html.dark #root .ds-concepts-screen.concept-cards-d4,
+html.dark #root .ds-concepts-screen {
+  --cx-ebook-page: #1a1916;
+  --cx-ebook-surface: #22211e;
+  --cx-ebook-chip: color-mix(in srgb, var(--cx-ebook-surface) 88%, #2e2d2a);
+  --cx-ebook-ink: #e8e4dc;
+  --cx-ebook-muted: #a39e94;
+  --cx-ebook-line: rgba(240, 236, 226, 0.16);
+  background-color: var(--cx-ebook-page) !important;
+  color: var(--cx-ebook-ink);
+}
+
+html.dark #root .ds-concepts-screen .cx-part.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cx-card.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen article.cx-visual-card.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cx-read-bar.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cx-ai-menu.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cx-pager__btn.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cc-d4-header-card.liquid-glass.liquid-glass--tint {
+  background: var(--cx-ebook-surface) !important;
+  border-color: var(--cx-ebook-line) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+html.dark #root .ds-concepts-screen .cx-statement.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cx-question-row.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cx-statement,
+html.dark #root .ds-concepts-screen .cx-question-row {
+  background: var(--cx-ebook-chip) !important;
+  border-color: var(--cx-ebook-line) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+html.dark #root .ds-concepts-screen .cx-read-mark.liquid-glass.liquid-glass--tint {
+  background: #0a84ff !important;
+  border-color: #0a84ff !important;
+  color: #fff !important;
+}
+
+html.dark #root .ds-concepts-screen .cx-ai-trigger.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cx-read-badge--done.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cx-section__index.liquid-glass.liquid-glass--tint {
+  background: color-mix(in srgb, #0a84ff 18%, var(--cx-ebook-surface)) !important;
+  border-color: color-mix(in srgb, #0a84ff 35%, var(--cx-ebook-line)) !important;
+  color: #5ac8fa !important;
+}
+
+/* ── 홈페이지 .hp-cx (목록·상세) — 동일 ebook 토큰 ── */
+.hp-cx {
+  --cx-ebook-page: #e8e5de;
+  --cx-ebook-surface: #f4f2ec;
+  --cx-ebook-chip: color-mix(in srgb, var(--cx-ebook-surface) 82%, #fff);
+  --cx-ebook-ink: #35322c;
+  --cx-ebook-muted: #6b645a;
+  --cx-ebook-line: rgba(70, 62, 48, 0.22);
+  --cx-ebook-radius: 0.7rem;
+  --hp-cx-teal: #007aff;
+  --hp-cx-ink: var(--cx-ebook-ink);
+  --hp-cx-muted: var(--cx-ebook-muted);
+  --hp-cx-border: var(--cx-ebook-line);
+  --hp-cx-card-bg: var(--cx-ebook-surface);
+  color: var(--cx-ebook-ink);
+}
+
+.hp-cx .hp-cx-part,
+.hp-cx .hp-cx-card,
+.hp-cx .hp-cx-schedule,
+.hp-cx .hp-cx-read-bar {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: var(--cx-ebook-radius) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+.hp-cx .hp-cx-part__head {
+  background: transparent !important;
+  color: var(--cx-ebook-ink) !important;
+}
+
+.hp-cx .hp-cx-part__head--open {
+  border-bottom: 1px solid var(--cx-ebook-line) !important;
+}
+
+.hp-cx .hp-cx-part__count,
+.hp-cx .hp-cx-chapter-no {
+  background: color-mix(in srgb, var(--cx-ebook-page) 70%, transparent) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  color: var(--cx-ebook-muted) !important;
+  box-shadow: none !important;
+}
+
+.hp-cx .hp-cx-concept-row {
+  border-bottom-color: color-mix(in srgb, var(--cx-ebook-line) 55%, transparent) !important;
+  color: var(--cx-ebook-ink) !important;
+}
+
+.hp-cx .hp-cx-concept-row:hover {
+  background: color-mix(in srgb, #007aff 5%, transparent) !important;
+}
+
+.hp-cx .hp-cx-concept-row__title {
+  color: var(--cx-ebook-ink) !important;
+}
+
+.hp-cx .hp-cx-concept-row__reads.is-done,
+.hp-cx .hp-cx-part__reads {
+  color: #0066d6 !important;
+}
+
+.hp-cx .hp-cx-read-badge--todo {
+  background: var(--cx-ebook-page) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  color: var(--cx-ebook-muted) !important;
+}
+
+.hp-cx .hp-cx-read-badge--done {
+  background: color-mix(in srgb, #007aff 12%, var(--cx-ebook-surface)) !important;
+  border-color: color-mix(in srgb, #007aff 35%, var(--cx-ebook-line)) !important;
+  color: #0066d6 !important;
+}
+
+.hp-cx .hp-cx-read-mark {
+  background: #007aff !important;
+  border-color: #007aff !important;
+  color: #fff !important;
+}
+
+.hp-cx .hp-cx-read-reset {
+  background: var(--cx-ebook-page) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  color: var(--cx-ebook-ink) !important;
+}
+
+.hp-cx .hp-cx-section__body {
+  color: var(--cx-ebook-ink);
+  font-size: 0.9375rem;
+  line-height: 1.72;
+}
+
+.hp-cx .hp-cx-bullets li {
+  color: var(--cx-ebook-ink);
+  line-height: 1.7;
+}
+
+.hp-cx .hp-cx-caution,
+.hp-cx .hp-cx-map-summary {
+  color: var(--cx-ebook-ink) !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.hp-cx .hp-cx-statement,
+.hp-cx .hp-cx-question-row {
+  background: var(--cx-ebook-chip) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 0.55rem !important;
+  box-shadow: none !important;
+  color: var(--cx-ebook-ink) !important;
+}
+
+/* 관련 기출: 목록 border-top·음수 마진 ↔ 칩 테두리 겹침만 정리 (톤 유지) */
+.hp-cx .hp-cx-related-list {
+  margin: 0.35rem 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.hp-cx .hp-cx-related-list .hp-cx-question-row {
+  margin: 0 !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 0.55rem !important;
+  background: var(--cx-ebook-chip) !important;
+  box-shadow: none !important;
+}
+
+.hp-cx .hp-cx-related-list a:last-child .hp-cx-question-row,
+.hp-cx .hp-cx-related-list > .hp-cx-question-row:last-child {
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid var(--cx-ebook-line) !important;
+}
+
+.hp-cx .hp-cx-pager__btn {
+  background: var(--cx-ebook-surface) !important;
+  border: 1px solid var(--cx-ebook-line) !important;
+  border-radius: 0.55rem !important;
+  box-shadow: none !important;
+  color: var(--cx-ebook-ink) !important;
+}
+
+.hp-cx .hp-cx-correct-pack-badge {
+  border: 1px solid color-mix(in srgb, #007aff 28%, transparent) !important;
+  background: color-mix(in srgb, #007aff 10%, var(--cx-ebook-surface)) !important;
+  box-shadow: none !important;
+  color: #0066d6 !important;
+}
+
+.hp-cx .hp-cx-correct-pack-badge::before {
+  border-color: color-mix(in srgb, #007aff 72%, transparent) !important;
+}
+
+.hp-cx .hp-cx-schedule__filter.is-active {
+  background: color-mix(in srgb, #007aff 12%, var(--cx-ebook-surface)) !important;
+  color: #0066d6 !important;
+}
+
+.hp-cx .hp-cx-schedule__bar {
+  background: color-mix(in srgb, var(--cx-ebook-line) 40%, var(--cx-ebook-page)) !important;
+}
+
+.hp-cx .hp-cx-schedule__bar > span {
+  background: #007aff !important;
+}
+
+.hp-cx-login-modal__panel {
+  background: var(--cx-ebook-surface, #f4f2ec) !important;
+  border: 1px solid rgba(70, 62, 48, 0.22) !important;
+  box-shadow: none !important;
+}
+
+html.dark .hp-cx {
+  --cx-ebook-page: #1a1916;
+  --cx-ebook-surface: #22211e;
+  --cx-ebook-chip: color-mix(in srgb, var(--cx-ebook-surface) 88%, #2e2d2a);
+  --cx-ebook-ink: #e8e4dc;
+  --cx-ebook-muted: #a39e94;
+  --cx-ebook-line: rgba(240, 236, 226, 0.16);
+  --hp-cx-ink: var(--cx-ebook-ink);
+  --hp-cx-muted: var(--cx-ebook-muted);
+  --hp-cx-border: var(--cx-ebook-line);
+  --hp-cx-card-bg: var(--cx-ebook-surface);
+  color: var(--cx-ebook-ink);
+}
+
+html.dark .hp-cx :is(
+  .hp-cx-part,
+  .hp-cx-card,
+  .hp-cx-schedule,
+  .hp-cx-read-bar,
+  .hp-cx-pager__btn
+) {
+  background: var(--cx-ebook-surface) !important;
+  border-color: var(--cx-ebook-line) !important;
+  box-shadow: none !important;
+}
+
+html.dark .hp-cx .hp-cx-statement,
+html.dark .hp-cx .hp-cx-question-row {
+  background: var(--cx-ebook-chip) !important;
+  border-color: var(--cx-ebook-line) !important;
+  box-shadow: none !important;
+}
+
+html.dark .hp-cx .hp-cx-read-mark {
+  background: #0a84ff !important;
+  border-color: #0a84ff !important;
+  color: #fff !important;
+}
+
+/* 목록 상단: 과목 변경 레일 + 헤더 카드 톤 통일
+ * — 셸은 같은 종이면, 강조는 Apple 하늘색만 (코랄 제거)
+ */
+.concepts-screen .sh-d4-subject-switch-rail .subject-switch-trigger,
+.concepts-screen .subject-switch-trigger.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .subject-switch-trigger.liquid-glass.liquid-glass--tint,
+.concepts-screen .cc-d4-header-card.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cc-d4-header-card.liquid-glass.liquid-glass--tint {
+  --sst-cta-bg: #007aff;
+  --sst-cta-fg: #fff;
+  --sst-ink: var(--cx-ebook-ink, #35322c);
+  background: var(--cx-ebook-surface, #f4f2ec) !important;
+  border: 1px solid var(--cx-ebook-line, rgba(70, 62, 48, 0.22)) !important;
+  border-radius: var(--cx-ebook-radius, 0.7rem) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-image: none !important;
+}
+
+.concepts-screen .subject-switch-trigger__label,
+#root .ds-concepts-screen .subject-switch-trigger__label {
+  color: var(--cx-ebook-ink, #35322c) !important;
+}
+
+.concepts-screen .subject-switch-trigger__cta,
+#root .ds-concepts-screen .subject-switch-trigger__cta {
+  background: #007aff !important;
+  color: #fff !important;
+  border-radius: 0.55rem !important;
+  box-shadow: none !important;
+}
+
+.concepts-screen .cc-d4-header-metric,
+.concepts-screen .cc-d4-header-metric.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cc-d4-header-metric.liquid-glass.liquid-glass--tint {
+  background: var(--cx-ebook-page, #e8e5de) !important;
+  border: 1px solid var(--cx-ebook-line, rgba(70, 62, 48, 0.22)) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  color: var(--cx-ebook-ink, #35322c);
+}
+
+.concepts-screen .cc-d4-header-metric--accent,
+.concepts-screen .cc-d4-header-metric--accent.liquid-glass.liquid-glass--tint,
+#root .ds-concepts-screen .cc-d4-header-metric--accent.liquid-glass.liquid-glass--tint {
+  background: color-mix(in srgb, #007aff 12%, var(--cx-ebook-surface, #f4f2ec)) !important;
+  border-color: color-mix(in srgb, #007aff 32%, var(--cx-ebook-line, rgba(70, 62, 48, 0.22))) !important;
+}
+
+.concepts-screen .cc-d4-header-metric--accent .cc-d4-header-metric__value,
+#root .ds-concepts-screen .cc-d4-header-metric--accent .cc-d4-header-metric__value {
+  color: #0066d6 !important;
+}
+
+.concepts-screen .cc-d4-header-metric--accent .cc-d4-header-metric__label,
+#root .ds-concepts-screen .cc-d4-header-metric--accent .cc-d4-header-metric__label {
+  color: #007aff !important;
+}
+
+.concepts-screen .cc-d4-subhead,
+#root .ds-concepts-screen .cc-d4-subhead {
+  color: var(--cx-ebook-muted, #6b645a) !important;
+}
+
+html.dark .concepts-screen .subject-switch-trigger.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .subject-switch-trigger.liquid-glass.liquid-glass--tint,
+html.dark .concepts-screen .cc-d4-header-card.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cc-d4-header-card.liquid-glass.liquid-glass--tint {
+  --sst-cta-bg: #0a84ff;
+  --sst-ink: var(--cx-ebook-ink, #e8e4dc);
+  background: var(--cx-ebook-surface, #22211e) !important;
+  border-color: var(--cx-ebook-line, rgba(240, 236, 226, 0.16)) !important;
+}
+
+html.dark .concepts-screen .subject-switch-trigger__cta,
+html.dark #root .ds-concepts-screen .subject-switch-trigger__cta {
+  background: #0a84ff !important;
+}
+
+html.dark .concepts-screen .cc-d4-header-metric--accent,
+html.dark .concepts-screen .cc-d4-header-metric--accent.liquid-glass.liquid-glass--tint,
+html.dark #root .ds-concepts-screen .cc-d4-header-metric--accent.liquid-glass.liquid-glass--tint {
+  background: color-mix(in srgb, #0a84ff 18%, var(--cx-ebook-surface, #22211e)) !important;
+  border-color: color-mix(in srgb, #0a84ff 35%, var(--cx-ebook-line)) !important;
+}
+
+html.dark .concepts-screen .cc-d4-header-metric--accent .cc-d4-header-metric__value,
+html.dark #root .ds-concepts-screen .cc-d4-header-metric--accent .cc-d4-header-metric__value,
+html.dark .concepts-screen .cc-d4-header-metric--accent .cc-d4-header-metric__label,
+html.dark #root .ds-concepts-screen .cc-d4-header-metric--accent .cc-d4-header-metric__label {
+  color: #5ac8fa !important;
+}
