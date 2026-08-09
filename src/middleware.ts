@@ -1,7 +1,18 @@
-import { type NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
 
 export async function middleware(request: NextRequest) {
+  let pathname = request.nextUrl.pathname;
+  try {
+    pathname = decodeURIComponent(pathname);
+  } catch {
+    // Keep the original pathname when a malformed escape sequence is supplied.
+  }
+
+  if (pathname === "/diary-수험일기") {
+    return NextResponse.redirect(new URL("/diary", request.url), 308);
+  }
+
   return await updateSession(request);
 }
 
