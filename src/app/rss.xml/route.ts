@@ -1,9 +1,11 @@
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
 import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
-import { getPosts } from "@/lib/posts";
+import { getPost, getPosts } from "@/lib/posts";
 import type { CommunityScope } from "@/types/database";
 
 export const revalidate = 900;
+
+const FALLBACK_PUBLISHED_AT = "Sun, 09 Aug 2026 14:57:16 GMT";
 
 const FALLBACK_ITEMS = [
   {
@@ -40,10 +42,12 @@ function escapeXml(value: string): string {
 export async function GET() {
   const { data } = await getPosts({ scope: "all", page: 1, sort: "latest" });
   const publishedPosts = data
-    .filter((post) => post.category !== "bug" && post.category !== "feedback")
-  const publishedAt = new Date().toUTCString();
+    .filter((post) => post.category !== "bug" && post.category !== "feedback");
+  const detailedPosts = await Promise.all(
+    publishedPosts.map(async (post) => ({ post, detail: await getPost(post.id) })),
+  );
   const feedItems = publishedPosts.length > 0
-    ? publishedPosts.map((post) => {
+    ? detailedPosts.map(({ post, detail }) => {
       const scope = isValidCommunityScope(post.community_scope)
         ? (post.community_scope as CommunityScope)
         : "real_estate";
@@ -51,11 +55,12 @@ export async function GET() {
       return {
         title: post.title,
         link,
-        description: post.title,
+        description: detail?.content?.trim() || post.title,
         pubDate: new Date(post.created_at).toUTCString(),
       };
     })
-    : FALLBACK_ITEMS.map((item) => ({ ...item, pubDate: publishedAt }));
+    : FALLBACK_ITEMS.map((item) => ({ ...item, pubDate: FALLBACK_PUBLISHED_AT }));
+  const lastBuildDate = feedItems[0]?.pubDate ?? FALLBACK_PUBLISHED_AT;
 
   const items = feedItems
     .map((item) =>
@@ -79,7 +84,7 @@ export async function GET() {
     `<link>${SITE_URL}</link>`,
     `<description>${SITE_DESCRIPTION}</description>`,
     "<language>ko-KR</language>",
-    `<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`,
+    `<lastBuildDate>${lastBuildDate}</lastBuildDate>`,
     items,
     "</channel>",
     "</rss>",

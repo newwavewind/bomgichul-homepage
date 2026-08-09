@@ -130,6 +130,7 @@ export function ConceptStatementList({
               <li key={`${statement.year}-${statement.questionNo}-${i}`}>
                 <Link
                   href={href}
+                  rel="nofollow"
                   className="hp-cx-statement"
                   aria-label={`${statement.year}년 ${statement.questionNo}번 기출문제 보기`}
                 >
@@ -154,6 +155,7 @@ export function ConceptStatementList({
             <li key={`${statement.year}-${statement.questionNo}-${i}`}>
               <a
                 href={href}
+                rel="nofollow"
                 className="hp-cx-statement hp-cx-statement--login"
                 aria-label={`${statement.year}년 ${statement.questionNo}번 기출문제 보기`}
                 onClick={(event) => {
@@ -217,6 +219,7 @@ export function ConceptRelatedExamList({
               <Link
                 key={`${q.year}-${q.questionNo}`}
                 href={href}
+                rel="nofollow"
                 className="hp-cx-question-row"
                 aria-label={`${q.year}년 ${q.questionNo}번 기출문제 보기`}
               >
@@ -231,6 +234,7 @@ export function ConceptRelatedExamList({
             <a
               key={`${q.year}-${q.questionNo}`}
               href={href}
+              rel="nofollow"
               className="hp-cx-question-row hp-cx-question-row--login"
               aria-label={`${q.year}년 ${q.questionNo}번 기출문제 보기`}
               onClick={(event) => {

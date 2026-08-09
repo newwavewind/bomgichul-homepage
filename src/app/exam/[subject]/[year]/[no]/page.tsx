@@ -220,6 +220,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           {prev ? (
             <Link
               href={appendReturnTo(`${listBase}/${prev.questionNo}`, returnTo ?? undefined)}
+              rel={returnTo ? "nofollow" : undefined}
               className="rounded-2xl border border-mist px-4 py-3 font-display text-body-sm hover:border-carbon"
             >
               ← {prev.questionNo}번
@@ -230,6 +231,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           {next ? (
             <Link
               href={appendReturnTo(`${listBase}/${next.questionNo}`, returnTo ?? undefined)}
+              rel={returnTo ? "nofollow" : undefined}
               className="rounded-2xl border border-mist px-4 py-3 text-right font-display text-body-sm hover:border-carbon"
             >
               {next.questionNo}번 →

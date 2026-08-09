@@ -75,7 +75,7 @@ export function trackConceptListMetadata(track: ExamTrackConfig, api: TrackApi, 
   if (!data) return {};
   return buildPageMetadata({
     title: `${data.subject.label} 기출 all-in-one`,
-    description: `${data.subject.label} 핵심 개념 ${data.concepts.length}개`,
+    description: `${track.label} ${data.subject.label} 시험에 필요한 핵심 개념 ${data.concepts.length}개를 기출 해설 중심으로 정리했습니다. 단원별 개념과 관련 기출문제를 무료로 학습하세요.`,
     path: `${track.basePath}/concepts/${subjectId}`,
   });
 }
@@ -232,7 +232,7 @@ export function trackExamSubjectMetadata(track: ExamTrackConfig, api: TrackApi, 
   if (!data) return {};
   return buildPageMetadata({
     title: `${data.subject.label} 기출문제`,
-    description: `${data.subject.label} 기출 ${data.exams.length}문항`,
+    description: `${track.label} ${data.subject.label} 기출문제 ${data.exams.length}문항을 연도·회차별로 제공합니다. 정답과 선지별 해설을 확인하고 무료로 반복 학습하세요.`,
     path: `${track.basePath}/exam/${subjectId}`,
   });
 }

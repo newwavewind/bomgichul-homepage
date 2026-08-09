@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject: subjectId } = await params;
   const data = getPublicServiceSubject(subjectId);
   if (!data) return {};
-  return buildPageMetadata({ title: `${data.subject.label} 기출문제`, description: `${data.subject.label} 국가직·지방직 기출 ${data.exams.length}문항`, path: `/public-service/exam/${subjectId}` });
+  return buildPageMetadata({ title: `${data.subject.label} 기출문제`, description: `9급 공무원 ${data.subject.label} 국가직·지방직 기출문제 ${data.exams.length}문항을 연도별로 제공합니다. 정답과 선지별 해설을 확인하고 무료로 반복 학습하세요.`, path: `/public-service/exam/${subjectId}` });
 }
 
 export default async function PublicServiceExamSubjectPage({ params }: Props) {
