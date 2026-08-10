@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
@@ -38,6 +39,9 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
       <BackLink href="/public-service">공무원 과목</BackLink>
       <header className="mt-6 border-b border-mist pb-8">
         <h1 className="font-display text-heading font-semibold text-ink">9급 공무원 {data.subject.label} 기출문제</h1>
+        <Link href={`/public-service/concepts/${subjectId}`} className="mt-3 inline-flex items-center gap-1 font-display text-body-sm font-semibold text-ios-blue hover:underline">
+          9급 공무원 {data.subject.label} 기출 올인원 →
+        </Link>
       </header>
       <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} userId={user?.id ?? null} />
       <section className="mt-10">

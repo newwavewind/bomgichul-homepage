@@ -23,7 +23,7 @@ import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
 import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
 import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
 import type { ExamSubject } from "@/lib/exam-questions";
-import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, truncateDescription } from "@/lib/seo";
+import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, conceptSeoTitle, truncateDescription } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
@@ -59,7 +59,7 @@ export async function generateMetadata({
   if (!concept) return {};
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const title = `${concept.titleKo} | ${label} 기출 올인원`;
+  const title = `${conceptSeoTitle(concept.titleKo, concept.sectionKo)} | 공인중개사 ${label} 기출 올인원`;
   const description = truncateDescription(
     `${label} · ${concept.titleKo}. ${concept.definition}${
       concept.intuition ? ` ${concept.intuition}` : ""

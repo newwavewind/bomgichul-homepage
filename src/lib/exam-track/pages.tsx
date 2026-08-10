@@ -35,6 +35,8 @@ import {
   buildExamQuizJsonLd,
   buildPageMetadata,
   buildPublicServiceLearningResourceJsonLd,
+  conceptSeoTitle,
+  truncateDescription,
 } from "@/lib/seo";
 import type { ExamTrackConfig, ExamTrackExam, ExamTrackSubjectContent } from "./types";
 import { findTrackConceptsForExamQuestion } from "./concept-matches";
@@ -92,7 +94,7 @@ export function trackConceptListMetadata(track: ExamTrackConfig, api: TrackApi, 
   const data = api.getSubject(subjectId);
   if (!data) return {};
   return buildPageMetadata({
-    title: `${data.subject.label} 기출 올인원`,
+    title: `${track.label} ${data.subject.label} 기출 올인원`,
     description: `${track.label} ${data.subject.label} 시험에 필요한 핵심 개념 ${data.concepts.length}개를 기출 해설 중심으로 정리했습니다. 단원별 개념과 관련 기출문제를 무료로 학습하세요.`,
     path: `${track.basePath}/concepts/${subjectId}`,
   });
@@ -148,7 +150,12 @@ export async function TrackConceptListPage({
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <BackLink href={track.basePath}>{track.shortLabel} 과목</BackLink>
         <header className="mt-6 border-b border-mist pb-8">
-          <h1 className="font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
+          <h1 className="font-display text-heading font-semibold text-ink">
+            {track.label} {data.subject.label} 기출 올인원
+          </h1>
+          <Link href={`${track.basePath}/exam/${subjectId}`} className="mt-3 inline-flex items-center gap-1 font-display text-body-sm font-semibold text-ios-blue hover:underline">
+            {track.label} {data.subject.label} 기출문제 →
+          </Link>
         </header>
         <div className="mt-10 space-y-10">
           {[...groups.entries()].map(([group, concepts]) => (
@@ -191,8 +198,10 @@ export function trackConceptDetailMetadata(
   const concept = api.getConcept(subjectId, slug);
   if (!data || !concept) return {};
   return buildPageMetadata({
-    title: `${concept.titleKo} | ${data.subject.label}`,
-    description: concept.definition.slice(0, 150),
+    title: `${conceptSeoTitle(concept.titleKo, concept.sectionKo)} | ${track.label} ${data.subject.label} 기출 올인원`,
+    description: truncateDescription(
+      `${track.label} ${data.subject.label} · ${concept.titleKo}. ${concept.definition}`,
+    ),
     path: `${track.basePath}/concepts/${subjectId}/${slug}`,
   });
 }
@@ -313,6 +322,9 @@ export async function TrackExamSubjectPage({
           <h1 className="font-display text-heading font-semibold text-ink">
             {track.label} {data.subject.label} 기출문제
           </h1>
+          <Link href={`${track.basePath}/concepts/${subjectId}`} className="mt-3 inline-flex items-center gap-1 font-display text-body-sm font-semibold text-ios-blue hover:underline">
+            {track.label} {data.subject.label} 기출 올인원 →
+          </Link>
         </header>
         <TrackLearningTools
           scope={track.communityScope}

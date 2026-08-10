@@ -6,7 +6,7 @@ import {
   getPublicServiceSubject,
   type PublicServiceExam,
 } from "@/lib/public-service-content";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildPageMetadata, conceptSeoTitle, truncateDescription } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
@@ -21,8 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const concept = getPublicServiceConcept(subjectId, slug);
   if (!data || !concept) return {};
   return buildPageMetadata({
-    title: `${concept.titleKo} | ${data.subject.label}`,
-    description: concept.definition.slice(0, 150),
+    title: `${conceptSeoTitle(concept.titleKo, concept.sectionKo)} | 9급 공무원 ${data.subject.label} 기출 올인원`,
+    description: truncateDescription(
+      `9급 공무원 ${data.subject.label} · ${concept.titleKo}. ${concept.definition}`,
+    ),
     path: `/public-service/concepts/${subjectId}/${slug}`,
   });
 }

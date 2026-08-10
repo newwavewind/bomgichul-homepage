@@ -55,6 +55,17 @@ export function truncateDescription(text: string, max = 160): string {
   return `${trimmed.slice(0, max - 1)}…`;
 }
 
+/**
+ * 개념 제목이 「개념」·「의의」처럼 일반명사뿐이면 검색어가 되지 못한다.
+ * 그럴 때만 단원명(sectionKo)을 앞에 붙여 무엇에 관한 개념인지 드러낸다.
+ * 이미 긴 제목이나 단원명을 품은 제목은 그대로 둔다 — 덧붙이면 title 만 길어진다.
+ */
+export function conceptSeoTitle(titleKo: string, sectionKo?: string): string {
+  const section = sectionKo?.trim();
+  if (!section || titleKo.length > 10 || titleKo.includes(section)) return titleKo;
+  return `${section} ${titleKo}`;
+}
+
 export function buildExamPageDescription({
   category,
   stem,

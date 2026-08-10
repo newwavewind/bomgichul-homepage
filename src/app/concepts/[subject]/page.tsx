@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui/Typography";
@@ -113,7 +114,7 @@ export async function generateMetadata({
   if (!isValidSubject(subject)) return {};
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const title = `${label} 기출 올인원`;
+  const title = `공인중개사 ${label} 기출 올인원`;
   const description = `${label} 기출 해설에서 뽑은 핵심 개념을 목차 순서로 정리했습니다.`;
 
   return {
@@ -168,8 +169,11 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
 
         <div className="mb-8">
           <SectionHeading as="h1">
-            <span className="text-ios-blue">기출</span> 올인원
+            공인중개사 {label} <span className="text-ios-blue">기출</span> 올인원
           </SectionHeading>
+          <Link href={`/exam/${subject}`} className="mt-3 inline-flex items-center gap-1 font-display text-body-sm font-semibold text-ios-blue hover:underline">
+            공인중개사 {label} 기출문제 →
+          </Link>
         </div>
 
         <ConceptPartList
