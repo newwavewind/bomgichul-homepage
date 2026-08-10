@@ -7,6 +7,7 @@ export function PublicServiceHub() {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
+        <h1 className="font-display text-heading font-semibold text-ink">9급 공무원 기출문제</h1>
         <PublicServiceSubjectBrowser subjects={subjects} />
 
         <section

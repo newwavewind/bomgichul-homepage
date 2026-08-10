@@ -29,16 +29,16 @@ function trackFaq(scope: Exclude<CommunityScope, "real_estate">): FaqItem[] {
   return [
     {
       question: "홈페이지에서 가장 먼저 뭘 하면 되나요?",
-      answer: `${label} 학습 홈(${hub})에서 「기출 all-in-one」이나 「기출문제」 중 한 과목을 고르면 됩니다. 로그인 없이도 공개 범위까지 바로 볼 수 있어요.`,
+      answer: `${label} 학습 홈(${hub})에서 「기출 올인원」이나 「기출문제」 중 한 과목을 고르면 됩니다. 로그인 없이도 공개 범위까지 바로 볼 수 있어요.`,
     },
     {
-      question: "기출 all-in-one과 기출문제는 어떻게 다른가요?",
+      question: "기출 올인원과 기출문제는 어떻게 다른가요?",
       answer:
-        "기출 all-in-one은 주제(개념) 단위로 정리·학습맵·기출 지문을 보는 곳이고, 기출문제는 연도·문항 단위로 O/X를 푸는 곳입니다. 같은 과목을 두 방식으로 이어 공부할 수 있어요.",
+        "기출 올인원은 주제(개념) 단위로 정리·학습맵·기출 지문을 보는 곳이고, 기출문제는 연도·문항 단위로 O/X를 푸는 곳입니다. 같은 과목을 두 방식으로 이어 공부할 수 있어요.",
     },
     {
       question: "무엇을 무료로 쓸 수 있나요?",
-      answer: `${label} 기출 all-in-one 개념과 공개 기출, 커뮤니티·자료실 읽기는 로그인 없이 가능합니다. 앱 전용 기능·전체 해설 범위는 앱 안내를 확인해 주세요.`,
+      answer: `${label} 기출 올인원 개념과 공개 기출, 커뮤니티·자료실 읽기는 로그인 없이 가능합니다. 앱 전용 기능·전체 해설 범위는 앱 안내를 확인해 주세요.`,
     },
     ...SHARED_TAIL,
     {
@@ -56,7 +56,7 @@ export function faqItemsForScope(scope: CommunityScope): FaqItem[] {
 export function faqDescription(scope: CommunityScope): string {
   const label = communityScopeLabel(scope);
   if (scope === "real_estate") {
-    return "봄기출 공인중개사 홈페이지 이용 안내. 학습 홈, 기출 all-in-one, 기출문제, 커뮤니티, 자료실, 무료·프리미엄을 쉽게 설명합니다.";
+    return "봄기출 공인중개사 홈페이지 이용 안내. 학습 홈, 기출 올인원, 기출문제, 커뮤니티, 자료실, 무료·프리미엄을 쉽게 설명합니다.";
   }
-  return `봄기출 ${label} 이용 안내. 학습 홈, 기출 all-in-one, 기출문제, 커뮤니티, 자료실을 쉽게 설명합니다.`;
+  return `봄기출 ${label} 이용 안내. 학습 홈, 기출 올인원, 기출문제, 커뮤니티, 자료실을 쉽게 설명합니다.`;
 }

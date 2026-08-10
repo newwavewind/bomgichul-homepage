@@ -29,7 +29,7 @@ import {
 function tocForScope(scope: CommunityScope) {
   const base = [
     { href: "#home", label: "1. 학습 홈" },
-    { href: "#concepts", label: "2. 기출 all-in-one" },
+    { href: "#concepts", label: "2. 기출 올인원" },
     { href: "#exam", label: "3. 기출문제" },
     { href: "#community", label: "4. 커뮤니티" },
     { href: "#archive", label: "5. 자료실" },
@@ -168,7 +168,7 @@ export function GuideContent({
         <p>화면은 크게 두 덩어리예요.</p>
         <ul className="list-disc space-y-1.5 pl-5 font-display text-body-sm text-ink">
           <li>
-            <strong>기출 all-in-one</strong> — 주제별 개념과 기출 지문을 이어서 공부
+            <strong>기출 올인원</strong> — 주제별 개념과 기출 지문을 이어서 공부
           </li>
           <li>
             <strong>기출문제</strong> — 연도·문항 단위로 O/X 풀기
@@ -186,7 +186,7 @@ export function GuideContent({
         id="concepts"
         step="02"
         eyebrow="개념"
-        title="기출 all-in-one으로 주제를 따라갑니다"
+        title="기출 올인원으로 주제를 따라갑니다"
         visual={<ConceptsVisual key={`concepts-${scope}`} scope={scope} />}
         reverse
       >
@@ -400,7 +400,7 @@ export function GuideContent({
             <ElevatedCard className="!p-4">
               <Tag className="mb-2 !bg-electric-blue/10 !text-[11px]">무료</Tag>
               <ul className="space-y-1.5 font-display text-[13px] text-ink">
-                <li>· 기출 all-in-one 개념</li>
+                <li>· 기출 올인원 개념</li>
                 <li>· 부동산학개론 기출 전 연도</li>
                 <li>· 다른 5과목 최근 2개년(2024–2025)</li>
                 <li>· 커뮤니티·자료실·뉴스 읽기</li>
@@ -492,7 +492,7 @@ export function GuideContent({
           바로 시작해 볼까요?
         </SectionHeading>
         <p className="mx-auto max-w-md font-display text-body-sm text-smoke">
-          먼저 {label} 학습 홈에서 기출 all-in-one 한 과목만 열어봐도 충분해요.
+          먼저 {label} 학습 홈에서 기출 올인원 한 과목만 열어봐도 충분해요.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <PrimaryButton href={hub}>{label} 학습 홈</PrimaryButton>

@@ -22,20 +22,24 @@ export type ExamOxCombo = {
 /** 공무원형 기출 상세 UI (공인중개사·경찰·주택관리사 공통) */
 export function ExamOxQuestion({
   examId,
+  revealEvent,
   items,
   correctChoice,
   explanationSummary,
   comboChoices = [],
   initialAttemptResult = null,
   onAttempt,
+  renderExplanation = true,
 }: {
   examId: string;
+  revealEvent?: { subject: string; year: number; questionNo: number };
   items: ExamOxItem[];
   correctChoice?: number;
   explanationSummary?: string;
   comboChoices?: ExamOxCombo[];
   initialAttemptResult?: "correct" | "wrong" | null;
   onAttempt?: (result: "correct" | "wrong") => void | Promise<void>;
+  renderExplanation?: boolean;
 }) {
   const isComposite = comboChoices.length > 0;
   const [selected, setSelected] = useState<number | null>(null);
@@ -48,6 +52,11 @@ export function ExamOxQuestion({
     setRevealed(next);
     if (next && selected !== null && correctChoice !== undefined) {
       void onAttempt?.(selected === correctChoice ? "correct" : "wrong");
+    }
+    if (next && revealEvent) {
+      window.dispatchEvent(
+        new CustomEvent("exam:answer_revealed", { detail: revealEvent })
+      );
     }
   };
 
@@ -166,7 +175,7 @@ export function ExamOxQuestion({
               {(selected === null ? initialAttemptResult === "correct" : isCorrect) ? "정답입니다." : `정답은 ${correctChoice ?? "?"}번입니다.`}
             </p>
           </div>
-          <section
+          {renderExplanation ? <section
             className="rounded-2xl border border-mist bg-paper px-5 py-5"
             aria-label="선지별 해설"
           >
@@ -237,7 +246,7 @@ export function ExamOxQuestion({
                 </p>
               </div>
             ) : null}
-          </section>
+          </section> : null}
         </div>
       ) : null}
     </div>

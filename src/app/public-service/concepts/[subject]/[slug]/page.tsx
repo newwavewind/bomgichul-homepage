@@ -11,6 +11,7 @@ import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
 import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
+import { findTrackConceptsForExamQuestion } from "@/lib/exam-track/concept-matches";
 
 type Props = { params: Promise<{ subject: string; slug: string }> };
 
@@ -32,18 +33,12 @@ export default async function PublicServiceConceptDetailPage({ params }: Props) 
   const concept = getPublicServiceConcept(subjectId, slug);
   if (!data || !concept) notFound();
 
-  const linkedExams = (concept.questionRefs ?? [])
-    .map((ref) =>
-      ref.examId
-        ? data.exams.find((exam) => exam.id === ref.examId)
-        : data.exams.find(
-            (exam) =>
-              exam.year === ref.year &&
-              exam.sourceCode === ref.sourceCode &&
-              exam.questionNo === ref.questionNo,
-          ),
+  const linkedExams = data.exams
+    .filter((exam) =>
+      findTrackConceptsForExamQuestion(data, exam).some(
+        (matched) => matched.slug === concept.slug,
+      ),
     )
-    .filter((exam): exam is PublicServiceExam => Boolean(exam))
     .slice(0, 12);
 
   const index = data.concepts.findIndex((item) => item.slug === slug);

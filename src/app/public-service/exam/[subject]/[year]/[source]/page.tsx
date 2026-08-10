@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const source = decodeURIComponent(encodedSource);
   const data = getPublicServiceSubject(subjectId);
   if (!data) return {};
-  return buildPageMetadata({ title: `${year}년 ${source} ${data.subject.label}`, description: `${year}년 9급 ${source} ${data.subject.label} 기출문제와 해설`, path: `/public-service/exam/${subjectId}/${year}/${source}` });
+  return buildPageMetadata({ title: `${year}년 9급 공무원 ${source} ${data.subject.label} 기출문제`, description: `${year}년 9급 ${source} ${data.subject.label} 기출문제와 해설`, path: `/public-service/exam/${subjectId}/${year}/${source}` });
 }
 
 export default async function PublicServiceExamSessionPage({ params }: Props) {

@@ -113,7 +113,7 @@ export async function generateMetadata({
   if (!isValidSubject(subject)) return {};
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const title = `${label} 기출 all-in-one`;
+  const title = `${label} 기출 올인원`;
   const description = `${label} 기출 해설에서 뽑은 핵심 개념을 목차 순서로 정리했습니다.`;
 
   return {
@@ -168,7 +168,7 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
 
         <div className="mb-8">
           <SectionHeading as="h1">
-            <span className="text-ios-blue">기출</span> all-in-one
+            <span className="text-ios-blue">기출</span> 올인원
           </SectionHeading>
         </div>
 

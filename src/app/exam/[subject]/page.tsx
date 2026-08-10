@@ -46,8 +46,8 @@ export async function generateMetadata({
   if (!isValidSubject(subject)) return {};
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const title = `${label} 기출문제 해설 | 연도별`;
-  const description = `${label} 2016~2025년 기출문제를 연도별로 모아뒀습니다. 문항을 선택해 정답과 해설을 확인하세요.`;
+  const title = `공인중개사 ${label} 기출문제`;
+  const description = `공인중개사 ${label} 2016~2025년 기출문제를 연도별로 제공합니다. 문항을 선택해 정답과 선지별 해설을 확인하세요.`;
 
   return {
     title,
@@ -82,7 +82,7 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
         <BackLink href="/#exam">과목 목록으로</BackLink>
 
         <header className="border-b border-mist pb-8">
-          <SectionHeading as="h1">{label}</SectionHeading>
+          <SectionHeading as="h1">공인중개사 {label} 기출문제</SectionHeading>
         </header>
 
         <section className="mb-10 mt-10 pt-8">

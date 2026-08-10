@@ -1,6 +1,43 @@
-import type { ExamQuestion } from "@/lib/exam-questions";
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 import { plainStudyText } from "@/lib/study-text";
+
+type SeoExplanationQuestion = {
+  year: number;
+  questionNo: number;
+  correctChoice?: string | number;
+  explanationSummary?: string;
+  items: {
+    key: string;
+    label?: string;
+    text: string;
+    answer?: string;
+    explanation?: string;
+  }[];
+  comboChoices?: {
+    no: number;
+    label: string;
+    text: string;
+    isCorrect?: boolean;
+    explanation?: string;
+  }[];
+};
+
+export function hasExamQuestionSeoExplanations(question: SeoExplanationQuestion) {
+  return Boolean(
+    String(question.correctChoice ?? "").trim() ||
+    question.explanationSummary?.trim() ||
+    question.items.some(
+      (item) =>
+        (item.answer ?? "").trim() ||
+        (item.explanation ?? "").trim()
+    ) ||
+    (question.comboChoices ?? []).some(
+      (choice) =>
+        typeof choice.isCorrect === "boolean" ||
+        (choice.explanation ?? "").trim()
+    )
+  );
+}
 
 const REVISION_MARKER_RE = /【\s*개정반영\s*】|\[\s*개정반영\s*\]/;
 
@@ -27,57 +64,74 @@ export function ExamQuestionSeoExplanations({
   subjectLabel,
   embedded = false,
 }: {
-  question: ExamQuestion;
+  question: SeoExplanationQuestion;
   subjectLabel: string;
   /** details 등 상위 래퍼 안에 넣을 때 바깥 여백·구분선 제거 */
   embedded?: boolean;
 }) {
   const summary = question.explanationSummary?.trim() ?? "";
-  const comboWithExpl = question.comboChoices.filter(
-    (c) => (c.explanation ?? "").trim().length > 0
+  const comboChoices = question.comboChoices ?? [];
+  const comboWithAnswerOrExpl = comboChoices.filter(
+    (choice) =>
+      typeof choice.isCorrect === "boolean" ||
+      (choice.explanation ?? "").trim().length > 0
   );
-  const itemsWithExpl = question.items.filter(
-    (item) => (item.explanation ?? "").trim().length > 0
+  const itemsWithAnswerOrExpl = question.items.filter(
+    (item) =>
+      (item.answer ?? "").trim().length > 0 ||
+      (item.explanation ?? "").trim().length > 0
   );
   const showRevisionBadge =
     hasRevisionMarker(summary) ||
-    comboWithExpl.some((c) => hasRevisionMarker(c.explanation)) ||
-    itemsWithExpl.some((item) => hasRevisionMarker(item.explanation));
+    comboWithAnswerOrExpl.some((c) => hasRevisionMarker(c.explanation)) ||
+    itemsWithAnswerOrExpl.some((item) => hasRevisionMarker(item.explanation));
 
   const blocksForCopy: string[] = [];
   if (summary) {
     blocksForCopy.push(`해설 요약\n${summary}`);
   }
-  if (comboWithExpl.length > 0) {
-    for (const choice of comboWithExpl) {
+  const correctChoice = String(question.correctChoice ?? "").trim();
+  if (correctChoice) {
+    blocksForCopy.push(`정답\n${correctChoice}번`);
+  }
+  if (comboWithAnswerOrExpl.length > 0) {
+    for (const choice of comboWithAnswerOrExpl) {
       blocksForCopy.push(
         [
           `${choice.label} ${plainStudyText(choice.text)}`,
-          choice.isCorrect ? "정답: O" : "정답: X",
-          `해설: ${plainStudyText(choice.explanation!)}`,
-        ].join("\n")
+          typeof choice.isCorrect === "boolean"
+            ? choice.isCorrect
+              ? "정답: O"
+              : "정답: X"
+            : "",
+          choice.explanation
+            ? `해설: ${plainStudyText(choice.explanation)}`
+            : "",
+        ].filter(Boolean).join("\n")
       );
     }
   } else {
-    for (const item of itemsWithExpl) {
+    for (const item of itemsWithAnswerOrExpl) {
       blocksForCopy.push(
         [
-          `${item.label} ${plainStudyText(item.text)}`,
-          `정답: ${item.answer}`,
-          `해설: ${plainStudyText(item.explanation ?? "")}`,
-        ].join("\n")
+          `${item.label ?? item.key} ${plainStudyText(item.text)}`,
+          item.answer ? `정답: ${item.answer}` : "",
+          item.explanation
+            ? `해설: ${plainStudyText(item.explanation)}`
+            : "",
+        ].filter(Boolean).join("\n")
       );
     }
+  }
+
+  if (!hasExamQuestionSeoExplanations(question)) {
+    return null;
   }
 
   const copyText = [
     `${question.year}년 ${subjectLabel} ${question.questionNo}번 해설`,
     ...blocksForCopy,
   ].join("\n\n");
-
-  if (!summary && comboWithExpl.length === 0 && itemsWithExpl.length === 0) {
-    return null;
-  }
 
   return (
     <section
@@ -87,7 +141,8 @@ export function ExamQuestionSeoExplanations({
           : "mt-10 border-t border-mist/60 pt-8"
       }
       aria-label="문항 해설"
-    >      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+    >
+      <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
         <div className="flex min-w-0 flex-wrap items-center gap-2">
           <h2 className="font-display text-subheading font-semibold text-ink">
             {question.year}년 {subjectLabel} {question.questionNo}번 해설
@@ -97,18 +152,26 @@ export function ExamQuestionSeoExplanations({
         <CopyToClipboardButton text={copyText} label="해설 복사" event="exam_explanation_copy" />
       </div>
 
+      {correctChoice ? (
+        <div className="mb-4 rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3">
+          <p className="font-display text-body-sm font-semibold text-ink">
+            정답: {correctChoice}번
+          </p>
+        </div>
+      ) : null}
+
       {summary ? (
         <div className="mb-6 rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3">
           <p className="font-display text-body-sm font-medium text-ink">해설 요약</p>
-          <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke whitespace-pre-wrap">
+          <p className="mt-2 whitespace-pre-wrap font-display text-body-sm leading-relaxed text-smoke">
             {plainStudyText(summary)}
           </p>
         </div>
       ) : null}
 
-      {comboWithExpl.length > 0 ? (
+      {comboWithAnswerOrExpl.length > 0 ? (
         <ol className="space-y-4">
-          {comboWithExpl.map((choice) => (
+          {comboWithAnswerOrExpl.map((choice) => (
             <li
               key={choice.no}
               className="rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3"
@@ -116,35 +179,43 @@ export function ExamQuestionSeoExplanations({
               <p className="font-display text-body-sm font-medium text-ink">
                 {choice.label} {plainStudyText(choice.text)}
               </p>
-              <p className="mt-1 font-display text-body-sm text-smoke">
-                {choice.isCorrect ? "정답" : "오답"}
-              </p>
-              <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                {plainStudyText(choice.explanation ?? "")}
-              </p>
+              {typeof choice.isCorrect === "boolean" ? (
+                <p className="mt-1 font-display text-body-sm text-smoke">
+                  {choice.isCorrect ? "정답: O" : "정답: X"}
+                </p>
+              ) : null}
+              {choice.explanation ? (
+                <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
+                  {plainStudyText(choice.explanation)}
+                </p>
+              ) : null}
             </li>
           ))}
         </ol>
-      ) : (
+      ) : itemsWithAnswerOrExpl.length > 0 ? (
         <ol className="space-y-4">
-          {itemsWithExpl.map((item) => (
+          {itemsWithAnswerOrExpl.map((item) => (
             <li
               key={item.key}
               className="rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3"
             >
               <p className="font-display text-body-sm font-medium text-ink">
-                {item.label} {plainStudyText(item.text)}
+                {item.label ?? item.key} {plainStudyText(item.text)}
               </p>
-              <p className="mt-1 font-display text-body-sm text-smoke">
-                정답: {item.answer}
-              </p>
-              <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                {plainStudyText(item.explanation ?? "")}
-              </p>
+              {item.answer ? (
+                <p className="mt-1 font-display text-body-sm text-smoke">
+                  정답: {item.answer}
+                </p>
+              ) : null}
+              {item.explanation ? (
+                <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
+                  {plainStudyText(item.explanation)}
+                </p>
+              ) : null}
             </li>
           ))}
         </ol>
-      )}
+      ) : null}
     </section>
   );
 }

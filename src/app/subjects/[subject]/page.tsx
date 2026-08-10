@@ -48,7 +48,7 @@ export async function generateMetadata({
     ? `${label} 기출·개념·자료`
     : `${label} 학습 자료`;
   const description = isExamSubject
-    ? `${label} 기출문제 해설, 기출 all-in-one 개념, 수험생 공유 자료를 한곳에서 확인하세요. ${info.description}`
+    ? `${label} 기출문제 해설, 기출 올인원 개념, 수험생 공유 자료를 한곳에서 확인하세요. ${info.description}`
     : `${label} 관련 수험 자료를 모았습니다. ${info.description}`;
 
   return buildPageMetadata({
@@ -83,7 +83,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
           </p>
           {isExamSubject ? (
             <p className="mt-2 font-display text-body-sm text-fog">
-              기출 all-in-one 개념 {conceptCount}개
+              기출 올인원 개념 {conceptCount}개
               {examYears.length > 0
                 ? ` · 기출 ${examYears[examYears.length - 1]}~${examYears[0]}년`
                 : ""}
@@ -97,7 +97,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
                   {label} 기출문제 해설
                 </PrimaryButton>
                 <SecondaryButton href={`/concepts/${subject}`}>
-                  {label} 기출 all-in-one
+                  {label} 기출 올인원
                 </SecondaryButton>
               </>
             )}
@@ -125,7 +125,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
               </p>
               <p className="mb-6 font-display text-body-sm text-fog">
                 {isExamSubject
-                  ? "기출문제 해설과 기출 all-in-one 개념은 바로 볼 수 있어요."
+                  ? "기출문제 해설과 기출 올인원 개념은 바로 볼 수 있어요."
                   : "기출 PDF, 노트, 요약 자료를 첫 번째로 올려보세요!"}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
@@ -133,7 +133,7 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
                   <>
                     <PrimaryButton href={`/exam/${subject}`}>기출문제 해설</PrimaryButton>
                     <SecondaryButton href={`/concepts/${subject}`}>
-                      기출 all-in-one
+                      기출 올인원
                     </SecondaryButton>
                   </>
                 ) : (

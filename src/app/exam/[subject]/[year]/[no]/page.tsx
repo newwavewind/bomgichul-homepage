@@ -4,6 +4,12 @@ import type { Metadata } from "next";
 import { BackLink } from "@/components/ui/BackLink";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
+import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
+import {
+  ExamQuestionSeoExplanations,
+  hasExamQuestionSeoExplanations,
+} from "@/components/exam/ExamQuestionSeoExplanations";
+import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
@@ -14,7 +20,7 @@ import {
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
-import { getConcept } from "@/lib/concepts";
+import { findConceptsForExamQuestion, getConcept } from "@/lib/concepts";
 import { appendReturnTo, isValidReturnTo, parseConceptReturnTo } from "@/lib/return-to";
 import { getUser } from "@/lib/auth";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
@@ -51,7 +57,7 @@ export async function generateMetadata({
   if (!question) return {};
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const title = `${question.year}년 ${label} ${question.questionNo}번 기출문제 해설`;
+  const title = `${question.year}년 공인중개사 ${label} ${question.questionNo}번 기출문제 해설`;
   const description = truncateDescription(
     `${question.category} · ${question.stem}${
       question.explanationSummary ? ` ${question.explanationSummary}` : ""
@@ -105,6 +111,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   const questionNo = Number(noParam);
   const question = getExamQuestion(subject, year, questionNo);
   if (!question) notFound();
+  const relatedConcepts = findConceptsForExamQuestion(subject, question);
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const yearQuestions = getExamQuestionsForYear(subject, year);
@@ -209,10 +216,30 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
         <div className="mt-6">
           <ExamOxQuestion
             examId={`${subject}-${year}-${questionNo}`}
+            revealEvent={{ subject, year, questionNo }}
             items={question.items}
             correctChoice={Number(question.correctChoice)}
             explanationSummary={question.explanationSummary}
             comboChoices={question.comboChoices}
+            renderExplanation={false}
+          />
+          {hasExamQuestionSeoExplanations(question) ? <ExamSeoExplanationDetails
+            subject={subject}
+            year={year}
+            questionNo={questionNo}
+          >
+            <ExamQuestionSeoExplanations
+              question={question}
+              subjectLabel={label}
+              embedded
+            />
+          </ExamSeoExplanationDetails> : null}
+          <QuestionConceptLinks
+            concepts={relatedConcepts.map((concept) => ({
+              slug: concept.slug,
+              titleKo: concept.titleKo,
+              href: `/concepts/${subject}/${concept.slug}`,
+            }))}
           />
         </div>
 

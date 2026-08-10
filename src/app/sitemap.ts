@@ -8,6 +8,10 @@ import { PUBLIC_SERVICE_SUBJECT_IDS, getPublicServiceExamSessions, getPublicServ
 import { POLICE_SUBJECT_IDS, getPoliceExamSessions, getPoliceSubject } from "@/lib/police-content";
 import { HOUSING_SUBJECT_IDS, getHousingExamSessions, getHousingSubject } from "@/lib/housing-content";
 import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
+import { isRenderableExam } from "@/lib/exam-track/exam-render";
+import type { ExamTrackExam } from "@/lib/exam-track/types";
+
+type ExamRenderCheck = Pick<ExamTrackExam, "kind" | "stem" | "prompt" | "blanks">;
 import type { CommunityScope } from "@/types/database";
 
 /** 검색 노출 대상 정적 공개 페이지 */
@@ -136,7 +140,10 @@ function getConceptUrls(): MetadataRoute.Sitemap {
 function getNamespacedTrackUrls(
   basePath: string,
   subjectIds: string[],
-  getSubject: (id: string) => { concepts: { slug: string }[]; exams: { year: number; sourceCode: string; questionNo: number }[] } | null,
+  getSubject: (id: string) => {
+    concepts: { slug: string }[];
+    exams: (ExamRenderCheck & { year: number; sourceCode: string; questionNo: number })[];
+  } | null,
   getSessions: (id: string) => { year: number; sourceCode: string }[],
 ): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = [];
@@ -162,6 +169,8 @@ function getNamespacedTrackUrls(
       });
     }
     for (const exam of subject.exams) {
+      // 상세 라우트가 404 로 처리하는 레코드는 sitemap 에도 싣지 않는다 (같은 helper 사용).
+      if (!isRenderableExam(exam)) continue;
       urls.push({
         url: `${SITE_URL}${basePath}/exam/${subjectId}/${exam.year}/${exam.sourceCode}/${exam.questionNo}`,
         changeFrequency: "monthly",

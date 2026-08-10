@@ -7,6 +7,7 @@ import { QuestionStem } from "@/components/exam/QuestionStem";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
+import { examRenderKind } from "@/lib/exam-track/exam-render";
 
 type Mode = "random" | "wrong" | "review" | "bookmarks" | "mock" | "stats";
 type Attempt = { subject: string; year: number; question_no: number; result: "correct" | "wrong" };
@@ -49,7 +50,7 @@ export function TrackLearningTools({
   scope,
   subjectId,
   basePath,
-  exams,
+  exams: allExams,
   userId,
 }: {
   scope: "public_service" | "police" | "housing";
@@ -89,6 +90,8 @@ export function TrackLearningTools({
 
   const pool = useMemo(() => {
     if (!mode) return [];
+    // 선택지를 고르는 도구라 객관식만 담는다. 주관식(단답형)은 상세 페이지에서만 본다.
+    const exams = allExams.filter((exam) => examRenderKind(exam) === "objective");
     if (mode === "wrong") return exams.filter((exam) => attemptMap.get(examKey(exam)) === "wrong");
     if (mode === "bookmarks") return exams.filter((exam) => bookmarkSet.has(examKey(exam)));
     if (mode === "review") {
@@ -102,7 +105,7 @@ export function TrackLearningTools({
     }
     if (mode === "random") return seededDaily(exams, `${Date.now()}:${prefix}`, 10);
     return [];
-  }, [attemptMap, bookmarkSet, exams, mode, prefix, today]);
+  }, [allExams, attemptMap, bookmarkSet, mode, prefix, today]);
 
   const current = pool[index] ?? null;
   const selectMode = (next: Mode) => { setMode(next); setIndex(0); };
@@ -163,7 +166,7 @@ export function TrackLearningTools({
       {userId && current ? (
         <div className="mt-6 rounded-[var(--radius-largecards)] border border-mist bg-paper p-5 md:p-7">
           <div className="mb-4 flex items-center justify-between gap-3 font-display text-body-sm text-fog"><span>{index + 1} / {pool.length} · {current.year}년 {current.sourceCode}</span><button type="button" onClick={() => void toggleBookmark(current)} className="font-semibold text-ios-blue">{bookmarkSet.has(examKey(current)) ? "★ 북마크됨" : "☆ 북마크"}</button></div>
-          <QuestionStem stem={current.stem} questionNo={current.questionNo} />
+          <QuestionStem stem={current.stem ?? ""} questionNo={current.questionNo} />
           <div className="mt-5"><ExamOxQuestion key={`${mode}:${examKey(current)}`} examId={current.id} items={current.items} correctChoice={current.correctChoice} explanationSummary={current.explanationSummary} initialAttemptResult={attemptMap.get(examKey(current)) ?? null} onAttempt={(result) => saveAttempt(current, result)} /></div>
           <div className="mt-5 flex justify-end"><button type="button" onClick={() => setIndex((value) => Math.min(value + 1, pool.length - 1))} disabled={index >= pool.length - 1} className="rounded-full bg-carbon px-5 py-2.5 font-display text-body-sm font-semibold text-paper disabled:opacity-30">다음 문제 →</button></div>
         </div>

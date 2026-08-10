@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PublicServiceQuestion } from "@/components/public-service/PublicServiceQuestion";
+import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
+import {
+  ExamQuestionSeoExplanations,
+  hasExamQuestionSeoExplanations,
+} from "@/components/exam/ExamQuestionSeoExplanations";
+import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import { BackLink } from "@/components/ui/BackLink";
@@ -12,6 +18,7 @@ import { getAttemptResult } from "@/lib/attempts";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
 import { getPublicServiceExam, getPublicServiceSubject } from "@/lib/public-service-content";
+import { findTrackConceptsForExamQuestion } from "@/lib/exam-track/concept-matches";
 import {
   buildBreadcrumbJsonLd,
   buildExamPageDescription,
@@ -28,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const exam = getPublicServiceExam(subjectId, Number(year), source, Number(no));
   if (!data || !exam) return {};
   return buildPageMetadata({
-    title: `${year}년 ${source} ${data.subject.label} ${no}번 기출문제 해설`,
+    title: `${year}년 9급 공무원 ${source} ${data.subject.label} ${no}번 기출문제 해설`,
     description: buildExamPageDescription({
       category: exam.category,
       stem: exam.stem,
@@ -95,6 +102,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
     educationalLevel: "9급 공무원 시험",
     aboutName: `9급 공무원 ${data.subject.label}`,
   });
+  const relatedConcepts = findTrackConceptsForExamQuestion(data, exam);
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -141,7 +149,32 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
           </div>
         </header>
         <div className="mt-6">
-          <PublicServiceQuestion exam={exam} subjectLabel={data.subject.label} userId={user?.id ?? null} storageSubject={storageSubject} initialAttemptResult={initialAttemptResult} />
+          <PublicServiceQuestion
+            exam={exam}
+            subjectLabel={data.subject.label}
+            userId={user?.id ?? null}
+            storageSubject={storageSubject}
+            revealSubject={storageSubject}
+            initialAttemptResult={initialAttemptResult}
+          />
+          {hasExamQuestionSeoExplanations({ ...exam, comboChoices: [] }) ? <ExamSeoExplanationDetails
+            subject={storageSubject}
+            year={exam.year}
+            questionNo={exam.questionNo}
+          >
+            <ExamQuestionSeoExplanations
+              question={{ ...exam, comboChoices: [] }}
+              subjectLabel={data.subject.label}
+              embedded
+            />
+          </ExamSeoExplanationDetails> : null}
+          <QuestionConceptLinks
+            concepts={relatedConcepts.map((concept) => ({
+              slug: concept.slug,
+              titleKo: concept.titleKo,
+              href: `/public-service/concepts/${subjectId}/${concept.slug}`,
+            }))}
+          />
         </div>
         <nav className="mt-8 grid grid-cols-2 gap-3">
           {previous ? (

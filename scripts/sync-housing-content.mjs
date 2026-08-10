@@ -31,12 +31,27 @@ for (const subject of subjects) {
     for (const question of questions) {
       const round = Number(question.round);
       const sourceCode = Number.isFinite(round) && round > 0 ? `제${round}회` : "본시험";
+      // 2차 주관식(단답형)은 stem·items 대신 prompt·passage·blanks 를 쓴다.
+      // 이 필드를 옮기지 않으면 빈 껍데기 레코드가 되어 상세 페이지가 렌더되지 않는다.
+      const subjective = question.kind === "subjective";
       exams.push({
         id: question.id,
         year: question.year,
         sourceCode,
         source: question.source,
         questionNo: question.question_no,
+        kind: question.kind,
+        prompt: subjective ? question.prompt : undefined,
+        passage: subjective ? question.passage : undefined,
+        blanks: subjective
+          ? (question.blanks || []).map((blank) => ({
+              label: blank.label,
+              answer: blank.answer,
+              type: blank.type,
+            }))
+          : undefined,
+        explanation: subjective ? question.explanation : undefined,
+        legalSources: subjective ? question.sources : undefined,
         stem: question.stem,
         questionType: question.question_type,
         correctChoice: question.correct_choice,

@@ -173,7 +173,7 @@ export function TrackConceptDetailView({
               ) : (
                 <div className="hp-cx-related-list">
                   {linkedExams.map((exam) => (
-                    <Link key={exam.id} href={userId ? examHrefFor(exam) : `/login?next=${encodeURIComponent(examHrefFor(exam))}`} className="hp-cx-question-row">
+                    <Link key={exam.id} href={examHrefFor(exam)} className="hp-cx-question-row">
                       <span>
                         {exam.year}년 {exam.sourceCode} {exam.questionNo}번
                       </span>

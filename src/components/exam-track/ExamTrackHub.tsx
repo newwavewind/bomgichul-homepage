@@ -11,6 +11,7 @@ export function ExamTrackHub({
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
+        <h1 className="font-display text-heading font-semibold text-ink">{track.label} 기출문제</h1>
         <ExamTrackSubjectBrowser track={track} subjects={subjects} />
 
         <section className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-carbon px-6 py-8 text-paper md:px-9">

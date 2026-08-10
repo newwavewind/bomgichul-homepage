@@ -1,4 +1,5 @@
 import type { ExamTrackSubjectContent } from "./types";
+import { findTrackConceptsForExamQuestion } from "./concept-matches";
 
 export function createTrackContent(contentBySubject: Record<string, ExamTrackSubjectContent>) {
   const subjectIds = Object.keys(contentBySubject);
@@ -40,26 +41,11 @@ export function createTrackContent(contentBySubject: Record<string, ExamTrackSub
     const concept = getConcept(subjectId, conceptSlug);
     if (!subject || !concept) return [];
 
-    const fromRefs = (concept.questionRefs ?? [])
-      .map((ref) =>
-        ref.examId
-          ? subject.exams.find((exam) => exam.id === ref.examId)
-          : subject.exams.find(
-              (exam) =>
-                exam.year === ref.year &&
-                (!ref.sourceCode || exam.sourceCode === ref.sourceCode) &&
-                exam.questionNo === ref.questionNo,
-            ),
-      )
-      .filter(Boolean);
-
-    if (fromRefs.length) return fromRefs.slice(0, limit);
-
     return subject.exams
-      .filter(
-        (exam) =>
-          exam.category === concept.category &&
-          (!concept.subcategory || exam.subcategory === concept.subcategory),
+      .filter((exam) =>
+        findTrackConceptsForExamQuestion(subject, exam).some(
+          (matched) => matched.slug === concept.slug,
+        ),
       )
       .slice(0, limit);
   }

@@ -46,7 +46,7 @@ function SubjectCard({ subject, index, badge }: { subject: PublicServiceSubject;
       <h3 className="font-display text-subheading font-semibold text-ink">{subject.label}</h3>
       <p className="mt-2 font-display text-body-sm text-smoke">개념 {subject.conceptCount}개 · 기출 {subject.examCount}문항</p>
       <div className="mt-6 grid grid-cols-2 gap-2">
-        <Link href={`/public-service/concepts/${subject.id}`} className="rounded-xl border border-carbon/40 bg-[#e8f0ff] px-3 py-3 text-center font-display text-[13px] font-semibold text-carbon transition-colors hover:border-carbon hover:bg-[#dbe8ff]">all-in-one</Link>
+        <Link href={`/public-service/concepts/${subject.id}`} className="rounded-xl border border-carbon/40 bg-[#e8f0ff] px-3 py-3 text-center font-display text-[13px] font-semibold text-carbon transition-colors hover:border-carbon hover:bg-[#dbe8ff]">올인원</Link>
         <Link href={`/public-service/exam/${subject.id}`} className="rounded-xl bg-carbon px-3 py-3 text-center font-display text-[13px] font-semibold text-paper hover:opacity-90">기출문제</Link>
       </div>
     </article>

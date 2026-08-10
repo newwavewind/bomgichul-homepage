@@ -5,12 +5,22 @@ import { TrackConceptDetailView } from "@/components/exam-track/TrackConceptDeta
 import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
 import { TrackLearningTools } from "@/components/exam-track/TrackLearningTools";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
+import {
+  ExamQuestionSeoExplanations,
+  hasExamQuestionSeoExplanations,
+} from "@/components/exam/ExamQuestionSeoExplanations";
+import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
 import { ExamSessionCard } from "@/components/exam/ExamSessionCard";
 import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
 import { ExamQuestionListCard } from "@/components/exam/ExamQuestionListCard";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import { QuestionStem } from "@/components/exam/QuestionStem";
+import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
+import {
+  SubjectiveAnswer,
+  SubjectivePassage,
+} from "@/components/exam-track/ExamSubjectiveQuestion";
 import { BackLink } from "@/components/ui/BackLink";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { getUser } from "@/lib/auth";
@@ -27,6 +37,8 @@ import {
   buildPublicServiceLearningResourceJsonLd,
 } from "@/lib/seo";
 import type { ExamTrackConfig, ExamTrackExam, ExamTrackSubjectContent } from "./types";
+import { findTrackConceptsForExamQuestion } from "./concept-matches";
+import { examRenderKind } from "./exam-render";
 import "@/app/concepts/concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
 
@@ -80,7 +92,7 @@ export function trackConceptListMetadata(track: ExamTrackConfig, api: TrackApi, 
   const data = api.getSubject(subjectId);
   if (!data) return {};
   return buildPageMetadata({
-    title: `${data.subject.label} 기출 all-in-one`,
+    title: `${data.subject.label} 기출 올인원`,
     description: `${track.label} ${data.subject.label} 시험에 필요한 핵심 개념 ${data.concepts.length}개를 기출 해설 중심으로 정리했습니다. 단원별 개념과 관련 기출문제를 무료로 학습하세요.`,
     path: `${track.basePath}/concepts/${subjectId}`,
   });
@@ -237,7 +249,7 @@ export function trackExamSubjectMetadata(track: ExamTrackConfig, api: TrackApi, 
   const data = api.getSubject(subjectId);
   if (!data) return {};
   return buildPageMetadata({
-    title: `${data.subject.label} 기출문제`,
+    title: `${track.label} ${data.subject.label} 기출문제`,
     description: `${track.label} ${data.subject.label} 기출문제 ${data.exams.length}문항을 연도·회차별로 제공합니다. 정답과 선지별 해설을 확인하고 무료로 반복 학습하세요.`,
     path: `${track.basePath}/exam/${subjectId}`,
   });
@@ -298,7 +310,9 @@ export async function TrackExamSubjectPage({
       <div className="mx-auto max-w-[var(--page-max-width)]">
         <BackLink href={track.basePath}>{track.shortLabel} 과목</BackLink>
         <header className="mt-6 border-b border-mist pb-8">
-          <h1 className="font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
+          <h1 className="font-display text-heading font-semibold text-ink">
+            {track.label} {data.subject.label} 기출문제
+          </h1>
         </header>
         <TrackLearningTools
           scope={track.communityScope}
@@ -339,7 +353,7 @@ export function trackExamSessionMetadata(
   const data = api.getSubject(subjectId);
   if (!data) return {};
   return buildPageMetadata({
-    title: `${year}년 ${source} ${data.subject.label}`,
+    title: `${year}년 ${track.label} ${source} ${data.subject.label} 기출문제`,
     description: `${year}년 ${source} ${data.subject.label} 기출문제와 해설`,
     path: `${track.basePath}/exam/${subjectId}/${year}/${source}`,
   });
@@ -381,7 +395,7 @@ export function TrackExamSessionPage({
               key={exam.id}
               href={`${track.basePath}/exam/${subjectId}/${year}/${source}/${exam.questionNo}`}
               questionNo={exam.questionNo}
-              stem={exam.stem}
+              stem={exam.stem ?? exam.prompt ?? ""}
               category={exam.category}
               subcategory={exam.subcategory}
             />
@@ -403,14 +417,20 @@ export function trackExamDetailMetadata(
 ) {
   const data = api.getSubject(subjectId);
   const exam = api.getExam(subjectId, Number(year), source, Number(no));
-  if (!data || !exam) return {};
+  const kind = examRenderKind(exam);
+  if (!data || !exam || !kind) return {};
+  const subjective = kind === "subjective";
   return buildPageMetadata({
-    title: `${year}년 ${source} ${data.subject.label} ${no}번 기출문제 해설`,
+    title: `${year}년 ${track.label} ${source} ${data.subject.label} ${no}번 기출문제 해설`,
     description: buildExamPageDescription({
       category: exam.category,
-      stem: exam.stem,
+      stem: subjective ? [exam.prompt, exam.passage].filter(Boolean).join(" ") : exam.stem ?? "",
       correctChoice: exam.correctChoice,
-      explanationSummary: exam.explanationSummary,
+      explanationSummary: subjective
+        ? (exam.blanks ?? [])
+            .map((blank) => `${blank.label} ${blank.answer}`)
+            .join(", ")
+        : exam.explanationSummary,
       items: exam.items,
     }),
     path: `${track.basePath}/exam/${subjectId}/${year}/${source}/${no}`,
@@ -434,7 +454,10 @@ export async function TrackExamDetailPage({
 }) {
   const data = api.getSubject(subjectId);
   const exam = api.getExam(subjectId, Number(year), source, Number(no));
-  if (!data || !exam) notFound();
+  // 보여 줄 본문이 없는 레코드는 500 대신 404 — sitemap 도 같은 규칙으로 제외한다.
+  const renderKind = examRenderKind(exam);
+  if (!data || !exam || !renderKind) notFound();
+  const isSubjective = renderKind === "subjective";
   const session = data.exams
     .filter((item) => item.year === Number(year) && item.sourceCode === source)
     .sort((a, b) => a.questionNo - b.questionNo);
@@ -467,14 +490,17 @@ export async function TrackExamDetailPage({
     { name: `${year}년 ${source}`, path: `${track.basePath}/exam/${subjectId}/${year}/${source}` },
     { name: `${exam.questionNo}번`, path: canonicalPath },
   ]);
+  const questionText = isSubjective
+    ? [exam.prompt, exam.passage].filter(Boolean).join("\n")
+    : exam.stem ?? "";
   const quizJsonLd = buildExamQuizJsonLd({
     title,
-    description: exam.stem,
+    description: questionText,
     path: canonicalPath,
     subjectLabel: data.subject.label,
     year: exam.year,
     questionNo: exam.questionNo,
-    stem: exam.stem,
+    stem: questionText,
     choices: exam.items.map((item) => ({
       label: item.label || item.key,
       text: item.text,
@@ -484,6 +510,7 @@ export async function TrackExamDetailPage({
     educationalLevel: track.educationalLevel,
     aboutName: `${track.aboutName} ${data.subject.label}`,
   });
+  const relatedConcepts = findTrackConceptsForExamQuestion(data, exam);
   return (
     <div className="px-4 py-8 md:py-12">
       <script
@@ -525,11 +552,61 @@ export async function TrackExamDetailPage({
             </div>
           </div>
           <div className="mt-5">
-            <QuestionStem stem={exam.stem} questionNo={exam.questionNo} />
+            <QuestionStem
+              stem={(isSubjective ? exam.prompt : exam.stem) ?? ""}
+              questionNo={exam.questionNo}
+            />
           </div>
         </header>
         <div className="mt-6">
-          <ExamTrackQuestion exam={exam} subjectLabel={data.subject.label} userId={user?.id ?? null} storageSubject={storageSubject} initialAttemptResult={initialAttemptResult} />
+          {isSubjective ? (
+            <>
+              <SubjectivePassage passage={exam.passage} />
+              <ExamSeoExplanationDetails
+                subject={storageSubject}
+                year={exam.year}
+                questionNo={exam.questionNo}
+              >
+                <SubjectiveAnswer
+                  year={exam.year}
+                  questionNo={exam.questionNo}
+                  subjectLabel={data.subject.label}
+                  blanks={exam.blanks}
+                  explanation={exam.explanation}
+                  legalSources={exam.legalSources}
+                />
+              </ExamSeoExplanationDetails>
+            </>
+          ) : (
+            <>
+              <ExamTrackQuestion
+                exam={exam}
+                subjectLabel={data.subject.label}
+                userId={user?.id ?? null}
+                storageSubject={storageSubject}
+                revealSubject={storageSubject}
+                initialAttemptResult={initialAttemptResult}
+              />
+              {hasExamQuestionSeoExplanations({ ...exam, comboChoices: [] }) ? <ExamSeoExplanationDetails
+                subject={storageSubject}
+                year={exam.year}
+                questionNo={exam.questionNo}
+              >
+                <ExamQuestionSeoExplanations
+                  question={{ ...exam, comboChoices: [] }}
+                  subjectLabel={data.subject.label}
+                  embedded
+                />
+              </ExamSeoExplanationDetails> : null}
+            </>
+          )}
+          <QuestionConceptLinks
+            concepts={relatedConcepts.map((concept) => ({
+              slug: concept.slug,
+              titleKo: concept.titleKo,
+              href: `${track.basePath}/concepts/${subjectId}/${concept.slug}`,
+            }))}
+          />
         </div>
         <nav className="mt-8 grid grid-cols-2 gap-3">
           {previous ? (

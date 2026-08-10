@@ -7,11 +7,13 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 export function ExamTrackQuestion({
   exam,
+  revealSubject,
   userId = null,
   storageSubject,
   initialAttemptResult = null,
 }: {
   exam: ExamTrackExam;
+  revealSubject?: string;
   subjectLabel?: string;
   userId?: string | null;
   storageSubject?: string;
@@ -28,11 +30,17 @@ export function ExamTrackQuestion({
   return (
     <ExamOxQuestion
       examId={exam.id}
+      revealEvent={revealSubject ? {
+        subject: revealSubject,
+        year: exam.year,
+        questionNo: exam.questionNo,
+      } : undefined}
       items={exam.items}
       correctChoice={exam.correctChoice}
       explanationSummary={exam.explanationSummary}
       initialAttemptResult={initialAttemptResult}
       onAttempt={saveAttempt}
+      renderExplanation={!revealSubject}
     />
   );
 }

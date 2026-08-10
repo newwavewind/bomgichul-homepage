@@ -170,7 +170,7 @@ export function StudyHubVisual({ scope = "real_estate" }: { scope?: VisualScope 
     <PhoneFrame caption="학습 홈" tint="snow">
       <div className="space-y-3">
         <div>
-          <p className="mb-2 font-display text-[12px] font-semibold text-ink">기출 all-in-one</p>
+          <p className="mb-2 font-display text-[12px] font-semibold text-ink">기출 올인원</p>
           <div className="grid grid-cols-2 gap-2">
             {allInOne.map((label) => (
               <div
@@ -209,7 +209,7 @@ export function StudyHubVisual({ scope = "real_estate" }: { scope?: VisualScope 
 export function ConceptsVisual({ scope = "real_estate" }: { scope?: VisualScope }) {
   const copy = CONCEPT_COPY[scope];
   return (
-    <PhoneFrame caption="기출 all-in-one · 개념 상세" tint="lavender">
+    <PhoneFrame caption="기출 올인원 · 개념 상세" tint="lavender">
       <div className="space-y-2.5 rounded-xl border border-carbon/30 bg-paper p-3">
         <p className="font-display text-[11px] text-smoke">{copy.crumb}</p>
         <p className="font-display text-[15px] font-semibold leading-snug text-ink">
@@ -399,7 +399,7 @@ export function PremiumVisual() {
           <ul className="mt-2 space-y-1.5 font-display text-[11px] text-ink">
             <li>· 부동산학개론 전 연도</li>
             <li>· 나머지 과목 2024–2025년</li>
-            <li>· 기출 all-in-one 개념</li>
+            <li>· 기출 올인원 개념</li>
           </ul>
         </div>
         <div className="rounded-xl border border-carbon bg-carbon p-3 text-paper">

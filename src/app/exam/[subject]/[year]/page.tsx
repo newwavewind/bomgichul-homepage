@@ -38,7 +38,7 @@ export async function generateMetadata({
   if (!isValidSubject(subject)) return {};
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const title = `${year}년 ${label} 기출문제 해설`;
+  const title = `${year}년 공인중개사 ${label} 기출문제`;
   const description = `${year}년 공인중개사 ${label} 기출문제 전체 문항의 정답과 해설을 확인하세요.`;
 
   return {

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject: subjectId } = await params;
   const data = getPublicServiceSubject(subjectId);
   if (!data) return {};
-  return buildPageMetadata({ title: `${data.subject.label} 기출문제`, description: `9급 공무원 ${data.subject.label} 국가직·지방직 기출문제 ${data.exams.length}문항을 연도별로 제공합니다. 정답과 선지별 해설을 확인하고 무료로 반복 학습하세요.`, path: `/public-service/exam/${subjectId}` });
+  return buildPageMetadata({ title: `9급 공무원 ${data.subject.label} 기출문제`, description: `9급 공무원 ${data.subject.label} 국가직·지방직 기출문제 ${data.exams.length}문항을 연도별로 제공합니다. 정답과 선지별 해설을 확인하고 무료로 반복 학습하세요.`, path: `/public-service/exam/${subjectId}` });
 }
 
 export default async function PublicServiceExamSubjectPage({ params }: Props) {
@@ -37,7 +37,7 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
       <div className="mx-auto max-w-[var(--page-max-width)]">
       <BackLink href="/public-service">공무원 과목</BackLink>
       <header className="mt-6 border-b border-mist pb-8">
-        <h1 className="font-display text-heading font-semibold text-ink">{data.subject.label}</h1>
+        <h1 className="font-display text-heading font-semibold text-ink">9급 공무원 {data.subject.label} 기출문제</h1>
       </header>
       <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} userId={user?.id ?? null} />
       <section className="mt-10">

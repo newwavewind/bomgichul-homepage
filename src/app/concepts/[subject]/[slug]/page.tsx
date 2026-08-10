@@ -59,7 +59,7 @@ export async function generateMetadata({
   if (!concept) return {};
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
-  const title = `${concept.titleKo} | ${label} 기출 all-in-one`;
+  const title = `${concept.titleKo} | ${label} 기출 올인원`;
   const description = truncateDescription(
     `${label} · ${concept.titleKo}. ${concept.definition}${
       concept.intuition ? ` ${concept.intuition}` : ""

@@ -29,7 +29,7 @@ function SubjectCard({
           href={`${track.basePath}/concepts/${subject.id}`}
           className="rounded-xl border border-carbon/40 bg-[#e8f0ff] px-3 py-3 text-center font-display text-[13px] font-semibold text-carbon transition-colors hover:border-carbon hover:bg-[#dbe8ff]"
         >
-          all-in-one
+          올인원
         </Link>
         <Link
           href={`${track.basePath}/exam/${subject.id}`}

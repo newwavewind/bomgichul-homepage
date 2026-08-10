@@ -21,9 +21,10 @@ export function StudyHub() {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
+        <h1 className="font-display text-heading font-semibold text-ink">공인중개사 기출문제</h1>
         <section id="concepts">
           <SectionHeading as="h2" className="mb-6">
-            기출 all-in-one
+            기출 올인원
           </SectionHeading>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {EXAM_SUBJECTS.map((s) => {

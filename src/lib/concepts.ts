@@ -101,3 +101,17 @@ export function findConceptForExamQuestion(
   if (matches.length === 0) return undefined;
   return matches.find((concept) => !concept.parentSlug) ?? matches[0];
 }
+
+/** 명시적 questionRefs를 우선하고, refs가 없는 개념만 기존 분류 매칭을 적용합니다. */
+export function findConceptsForExamQuestion(
+  subject: ExamSubject,
+  question: Pick<ExamQuestion, "year" | "questionNo" | "category" | "subcategory">
+): Concept[] {
+  return getConceptsForSubject(subject).filter((concept) =>
+    concept.questionRefs
+      ? concept.questionRefs.some(
+          (ref) => ref.year === question.year && ref.questionNo === question.questionNo
+        )
+      : concept.category === question.category && concept.subcategory === question.subcategory
+  );
+}
