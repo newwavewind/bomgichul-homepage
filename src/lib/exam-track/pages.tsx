@@ -591,6 +591,7 @@ export async function TrackExamDetailPage({
                 subject={storageSubject}
                 year={exam.year}
                 questionNo={exam.questionNo}
+                externallyToggled
               >
                 <ExamQuestionSeoExplanations
                   question={{ ...exam, comboChoices: [] }}

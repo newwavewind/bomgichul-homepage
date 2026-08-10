@@ -53,9 +53,13 @@ export function ExamOxQuestion({
     if (next && selected !== null && correctChoice !== undefined) {
       void onAttempt?.(selected === correctChoice ? "correct" : "wrong");
     }
-    if (next && revealEvent) {
+    // 아래 해설 details 를 같은 버튼으로 여닫는다 — 열 때만 알리면 「해설 접기」를
+    // 눌러도 해설이 남아 버린다.
+    if (revealEvent) {
       window.dispatchEvent(
-        new CustomEvent("exam:answer_revealed", { detail: revealEvent })
+        new CustomEvent("exam:answer_revealed", {
+          detail: { ...revealEvent, open: next },
+        })
       );
     }
   };

@@ -227,6 +227,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
             subject={subject}
             year={year}
             questionNo={questionNo}
+            externallyToggled
           >
             <ExamQuestionSeoExplanations
               question={question}

@@ -161,6 +161,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
             subject={storageSubject}
             year={exam.year}
             questionNo={exam.questionNo}
+            externallyToggled
           >
             <ExamQuestionSeoExplanations
               question={{ ...exam, comboChoices: [] }}
