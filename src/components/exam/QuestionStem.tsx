@@ -22,6 +22,26 @@ function StemHeading({
   );
 }
 
+/**
+ * 보기 줄을 상자 단위로 묶는다. 「< 보기 1 >」·「< 보기 2 >」처럼 이름이 둘이면
+ * 상자도 둘이다 — 시험지가 그렇게 생겼고, 한 상자에 몰아넣으면 어디까지가
+ * 1번 묶음인지 읽는 사람이 세어야 한다.
+ */
+function toBoxGroups(boxLines: string[]): { label: string | null; lines: string[] }[] {
+  const groups: { label: string | null; lines: string[] }[] = [];
+  for (const line of boxLines) {
+    const trimmed = line.trim();
+    if (BOX_LABEL_AT_START.test(trimmed)) {
+      // 꺾쇠는 남기고 안쪽 공백만 고른다 — `<보기 1>` 과 `< 보기 1 >` 이 섞여 있다.
+      groups.push({ label: `< ${trimmed.replace(/^<\s*|\s*>$/g, "").replace(/\s+/g, " ")} >`, lines: [] });
+      continue;
+    }
+    if (groups.length === 0) groups.push({ label: null, lines: [] });
+    groups[groups.length - 1].lines.push(trimmed);
+  }
+  return groups.filter((group) => group.lines.length > 0);
+}
+
 export function QuestionStem({
   stem,
   questionNo,
@@ -53,48 +73,46 @@ export function QuestionStem({
           className="mb-4 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink"
         />
       )}
-      <div className="mb-8 max-w-3xl rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 py-4">
-        {boxLines.map((line, i) => {
-          const trimmed = line.trim();
-          /*
-           * 「< 보기 >」는 내용이 아니라 상자의 이름이다. 본문과 같은 크기로 흘리면
-           * 첫 항목처럼 읽히므로 상자 머리로 세운다. <보기 1>·<보기 2>처럼 한 상자
-           * 안에서 묶음이 갈릴 때도 같은 자리에 선다.
-           */
-          if (BOX_LABEL_AT_START.test(trimmed)) {
-            return (
-              <p
-                key={i}
-                className="mt-4 text-center font-display text-[12px] font-semibold tracking-wide text-smoke first:mt-0"
-              >
-                {trimmed.replace(/^<\s*|\s*>$/g, "").replace(/\s+/g, " ")}
-              </p>
-            );
-          }
-          const isSubItem =
-            trimmed.startsWith("-") ||
-            /^[가-힣]\.\s/.test(trimmed) ||
-            /^[ㄱ-ㅎ]\.\s/.test(trimmed);
-          const isNote = trimmed.startsWith("※");
-          const isJamoItem = /^[ㄱ-ㅎ]\.\s/.test(trimmed);
-          return (
-            <p
-              key={i}
-              className={`font-display leading-relaxed ${
-                isJamoItem
-                  ? "mt-1.5 text-body text-ink first:mt-0"
-                  : isSubItem
-                    ? "ml-4 mt-1 text-body-sm text-smoke"
-                    : isNote
-                      ? "mt-2 text-body-sm text-smoke"
-                      : "mt-2 text-body text-ink first:mt-0"
-              }`}
-            >
-              {trimmed}
+      {toBoxGroups(boxLines).map((group, gi) => (
+        <div key={gi} className="mb-8 max-w-3xl last:mb-8">
+          {/*
+            시험지처럼 「< 보기 >」는 상자 밖 위에 세운다. 상자 안에 넣으면 첫 항목처럼
+            읽히고, 꺾쇠를 떼면 그냥 낱말이 되어 이름인 줄 모른다.
+          */}
+          {group.label ? (
+            <p className="mb-1.5 text-center font-display text-body-sm font-medium text-smoke">
+              {group.label}
             </p>
-          );
-        })}
-      </div>
+          ) : null}
+          <div className="rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 py-4">
+            {group.lines.map((line, i) => {
+              const trimmed = line.trim();
+              const isSubItem =
+                trimmed.startsWith("-") ||
+                /^[가-힣]\.\s/.test(trimmed) ||
+                /^[ㄱ-ㅎ]\.\s/.test(trimmed);
+              const isNote = trimmed.startsWith("※");
+              const isJamoItem = /^[ㄱ-ㅎ]\.\s/.test(trimmed);
+              return (
+                <p
+                  key={i}
+                  className={`font-display leading-relaxed ${
+                    isJamoItem
+                      ? "mt-1.5 text-body text-ink first:mt-0"
+                      : isSubItem
+                        ? "ml-4 mt-1 text-body-sm text-smoke"
+                        : isNote
+                          ? "mt-2 text-body-sm text-smoke"
+                          : "mt-2 text-body text-ink first:mt-0"
+                  }`}
+                >
+                  {trimmed}
+                </p>
+              );
+            })}
+          </div>
+        </div>
+      ))}
     </>
   );
 }
