@@ -27,7 +27,7 @@ function StemHeading({
  * 상자도 둘이다 — 시험지가 그렇게 생겼고, 한 상자에 몰아넣으면 어디까지가
  * 1번 묶음인지 읽는 사람이 세어야 한다.
  */
-function toBoxGroups(boxLines: string[]): { label: string | null; lines: string[] }[] {
+export function toBoxGroups(boxLines: string[]): { label: string | null; lines: string[] }[] {
   const groups: { label: string | null; lines: string[] }[] = [];
   for (const line of boxLines) {
     const trimmed = line.trim();
@@ -45,14 +45,30 @@ function toBoxGroups(boxLines: string[]): { label: string | null; lines: string[
 export function QuestionStem({
   stem,
   questionNo,
+  /**
+   * 보기 상자를 여기서 그리지 않는다. 「모두 몇 개인가」 문항처럼 도입부와 ㉠~㉤ 이
+   * 한 문장으로 이어질 때는 지문 바로 위(ExamOxQuestion)에서 함께 그려야 끊겨 보이지 않는다.
+   */
+  renderBox = true,
 }: {
   stem: string;
   questionNo?: number;
+  renderBox?: boolean;
 }) {
   const cleanStem = plainStudyText(stem);
   const { intro, boxLines } = parseQuestionStem(cleanStem);
   const headingClass =
     "mb-8 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink";
+
+  if (!renderBox && boxLines.length > 0) {
+    return (
+      <StemHeading
+        questionNo={questionNo}
+        text={intro}
+        className={`${headingClass} whitespace-pre-line`}
+      />
+    );
+  }
 
   if (boxLines.length === 0) {
     return (

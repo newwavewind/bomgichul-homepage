@@ -27,6 +27,8 @@ export function ExamOxQuestion({
   correctChoice,
   explanationSummary,
   comboChoices = [],
+  passageLead = [],
+  passageLabel,
   initialAttemptResult = null,
   onAttempt,
   renderExplanation = true,
@@ -37,6 +39,9 @@ export function ExamOxQuestion({
   correctChoice?: number;
   explanationSummary?: string;
   comboChoices?: ExamOxCombo[];
+  /** 보기 상자에서 ㉠ 앞에 놓인 도입부. 지문과 한 문장으로 이어지는 자리다. */
+  passageLead?: string[];
+  passageLabel?: string;
   initialAttemptResult?: "correct" | "wrong" | null;
   onAttempt?: (result: "correct" | "wrong") => void | Promise<void>;
   renderExplanation?: boolean;
@@ -68,12 +73,25 @@ export function ExamOxQuestion({
     <div className="space-y-4">
       {isComposite ? (
         <div className="space-y-3">
-          {items.map((item) => (
-            <div
-              key={`${examId}-stmt-${item.key}`}
-              className="rounded-2xl border border-mist bg-surface px-4 py-3"
-            >
-              <div className="flex gap-3">
+          {/*
+            보기는 시험지처럼 **상자 하나**다. 도입부와 ㉠~㉤ 이 「…행하여지고 있어,
+            ㉠타인의 생명…」처럼 한 문장으로 이어지는 문항이 있어, 도입부를 위쪽에
+            따로 떼어 두면 그 상자가 쉼표에서 끊겨 문장이 잘린 것처럼 읽힌다.
+            그래서 도입부와 지문을 같은 상자에 담고, O/X 는 각 줄 끝에 붙인다.
+          */}
+          {passageLabel ? (
+            <p className="text-center font-display text-body-sm font-medium text-smoke">
+              {passageLabel}
+            </p>
+          ) : null}
+          <div className="space-y-2.5 rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 py-4">
+            {passageLead.map((line, i) => (
+              <p key={`${examId}-lead-${i}`} className="font-system text-[15px] leading-7 text-ink">
+                {plainStudyText(line)}
+              </p>
+            ))}
+            {items.map((item) => (
+              <div key={`${examId}-stmt-${item.key}`} className="flex gap-3">
                 <span className="font-display font-semibold text-ink">
                   {item.label ?? item.key}
                 </span>
@@ -90,8 +108,8 @@ export function ExamOxQuestion({
                   </span>
                 ) : null}
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
           <p className="pt-1 font-display text-body-sm font-semibold text-smoke">선택지</p>
           <div className="space-y-3">
             {comboChoices.map((choice) => {

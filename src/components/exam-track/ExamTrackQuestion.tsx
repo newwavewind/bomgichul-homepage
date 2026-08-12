@@ -12,6 +12,8 @@ export function ExamTrackQuestion({
   userId = null,
   storageSubject,
   initialAttemptResult = null,
+  passageLead = [],
+  passageLabel,
 }: {
   exam: ExamTrackExam;
   revealSubject?: string;
@@ -19,6 +21,8 @@ export function ExamTrackQuestion({
   userId?: string | null;
   storageSubject?: string;
   initialAttemptResult?: "correct" | "wrong" | null;
+  passageLead?: string[];
+  passageLabel?: string;
 }) {
   const saveAttempt = async (result: "correct" | "wrong") => {
     if (!userId || !storageSubject || !isSupabaseConfigured()) return;
@@ -39,6 +43,8 @@ export function ExamTrackQuestion({
       items={exam.items}
       correctChoice={exam.correctChoice}
       comboChoices={toExamOxCombos(exam.comboChoices, exam.correctChoice)}
+      passageLead={passageLead}
+      passageLabel={passageLabel}
       explanationSummary={exam.explanationSummary}
       initialAttemptResult={initialAttemptResult}
       onAttempt={saveAttempt}

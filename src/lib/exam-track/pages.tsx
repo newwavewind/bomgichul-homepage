@@ -15,7 +15,7 @@ import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
 import { ExamQuestionListCard } from "@/components/exam/ExamQuestionListCard";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
-import { QuestionStem } from "@/components/exam/QuestionStem";
+import { QuestionStem, toBoxGroups } from "@/components/exam/QuestionStem";
 import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
 import {
   SubjectiveAnswer,
@@ -25,6 +25,8 @@ import { BackLink } from "@/components/ui/BackLink";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { getUser } from "@/lib/auth";
 import { toExamOxCombos } from "@/lib/exam-track/combo-choices";
+import { parseQuestionStem } from "@/lib/exam-stem";
+import { plainStudyText } from "@/lib/study-text";
 import { getAttemptResult } from "@/lib/attempts";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
@@ -530,6 +532,20 @@ export async function TrackExamDetailPage({
    * 값을 쓰도록 맞춘다.
    */
   const seoQuestion = { ...exam, comboChoices: toExamOxCombos(exam.comboChoices, exam.correctChoice) };
+  /*
+   * 「모두 몇 개인가」 문항의 보기 상자는 지문(㉠~㉤)과 한 문장으로 이어진다.
+   * 도입부만 지문 위에 따로 상자로 두면 쉼표에서 끊겨 문장이 잘린 것처럼 읽히므로,
+   * 그 상자를 지문 바로 위로 내려 함께 그린다. 지문이 선지 자리에 오는 다른 유형
+   * (comboChoices 가 없는 문항)은 그대로 둔다.
+   */
+  const passageGroups = seoQuestion.comboChoices.length > 0
+    ? toBoxGroups(parseQuestionStem(plainStudyText(exam.stem ?? "")).boxLines)
+    : [];
+  const passageLead = passageGroups.flatMap(group => group.lines);
+  // 도입부가 없는 문항(20·33번처럼 ㉠부터 바로 시작)은 상자 이름도 없다.
+  // 발문이 「아래 <보기>에서」라고 가리키면 그 이름을 세워 준다.
+  const passageLabel = passageGroups.find(group => group.label)?.label
+    ?? (seoQuestion.comboChoices.length > 0 && /<\s*보\s?기[^>]*>/.test(exam.stem ?? "") ? "< 보기 >" : undefined);
   return (
     <div className="px-4 py-8 md:py-12">
       <script
@@ -574,6 +590,7 @@ export async function TrackExamDetailPage({
             <QuestionStem
               stem={(isSubjective ? exam.prompt : exam.stem) ?? ""}
               questionNo={exam.questionNo}
+              renderBox={passageLead.length === 0}
             />
           </div>
         </header>
@@ -600,6 +617,8 @@ export async function TrackExamDetailPage({
             <>
               <ExamTrackQuestion
                 exam={exam}
+                passageLead={passageLead}
+                passageLabel={passageLabel}
                 subjectLabel={data.subject.label}
                 userId={user?.id ?? null}
                 storageSubject={storageSubject}
