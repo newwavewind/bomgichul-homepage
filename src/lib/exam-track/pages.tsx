@@ -24,6 +24,7 @@ import {
 import { BackLink } from "@/components/ui/BackLink";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { getUser } from "@/lib/auth";
+import { toExamOxCombos } from "@/lib/exam-track/combo-choices";
 import { getAttemptResult } from "@/lib/attempts";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
@@ -523,6 +524,12 @@ export async function TrackExamDetailPage({
     aboutName: `${track.aboutName} ${data.subject.label}`,
   });
   const relatedConcepts = findTrackConceptsForExamQuestion(data, exam);
+  /*
+   * 「모두 몇 개인가」 유형의 선택지. 트랙마다 데이터 모양이 달라 예전에는 빈 배열로
+   * 넘겼는데, 그러면 해설에서 ①~④ 중 무엇이 정답인지 적히지 않는다. 화면 쪽과 같은
+   * 값을 쓰도록 맞춘다.
+   */
+  const seoQuestion = { ...exam, comboChoices: toExamOxCombos(exam.comboChoices, exam.correctChoice) };
   return (
     <div className="px-4 py-8 md:py-12">
       <script
@@ -599,14 +606,14 @@ export async function TrackExamDetailPage({
                 revealSubject={storageSubject}
                 initialAttemptResult={initialAttemptResult}
               />
-              {hasExamQuestionSeoExplanations({ ...exam, comboChoices: [] }) ? <ExamSeoExplanationDetails
+              {hasExamQuestionSeoExplanations(seoQuestion) ? <ExamSeoExplanationDetails
                 subject={storageSubject}
                 year={exam.year}
                 questionNo={exam.questionNo}
                 externallyToggled
               >
                 <ExamQuestionSeoExplanations
-                  question={{ ...exam, comboChoices: [] }}
+                  question={seoQuestion}
                   subjectLabel={data.subject.label}
                   embedded
                 />

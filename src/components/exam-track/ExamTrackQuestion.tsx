@@ -1,6 +1,7 @@
 "use client";
 
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
+import { toExamOxCombos } from "@/lib/exam-track/combo-choices";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
@@ -37,6 +38,7 @@ export function ExamTrackQuestion({
       } : undefined}
       items={exam.items}
       correctChoice={exam.correctChoice}
+      comboChoices={toExamOxCombos(exam.comboChoices, exam.correctChoice)}
       explanationSummary={exam.explanationSummary}
       initialAttemptResult={initialAttemptResult}
       onAttempt={saveAttempt}
