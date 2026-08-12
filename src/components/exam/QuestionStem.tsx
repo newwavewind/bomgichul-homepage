@@ -1,4 +1,4 @@
-import { parseQuestionStem } from "@/lib/exam-stem";
+import { BOX_LABEL_AT_START, parseQuestionStem } from "@/lib/exam-stem";
 import { plainStudyText } from "@/lib/study-text";
 
 function StemHeading({
@@ -56,6 +56,21 @@ export function QuestionStem({
       <div className="mb-8 max-w-3xl rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 py-4">
         {boxLines.map((line, i) => {
           const trimmed = line.trim();
+          /*
+           * 「< 보기 >」는 내용이 아니라 상자의 이름이다. 본문과 같은 크기로 흘리면
+           * 첫 항목처럼 읽히므로 상자 머리로 세운다. <보기 1>·<보기 2>처럼 한 상자
+           * 안에서 묶음이 갈릴 때도 같은 자리에 선다.
+           */
+          if (BOX_LABEL_AT_START.test(trimmed)) {
+            return (
+              <p
+                key={i}
+                className="mt-4 text-center font-display text-[12px] font-semibold tracking-wide text-smoke first:mt-0"
+              >
+                {trimmed.replace(/^<\s*|\s*>$/g, "").replace(/\s+/g, " ")}
+              </p>
+            );
+          }
           const isSubItem =
             trimmed.startsWith("-") ||
             /^[가-힣]\.\s/.test(trimmed) ||

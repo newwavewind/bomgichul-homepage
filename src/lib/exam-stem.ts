@@ -7,6 +7,10 @@ const CIRCLE_AT_START = /^[ㅇ○]\s/;
 const LOWER_O_AT_START = /^o\s+(?=[가-힣「(ㄱ-ㅎ])/i;
 /** 시험지 보기 상자 — ㄱ. ㄴ. ㄷ. ㄹ. … */
 const JAMO_ITEM_AT_START = /^[ㄱ-ㅎ]\.\s+/;
+/** 시험지 보기 상자 — ㉠ ㉡ ㉢ … / ㉮ ㉯ … (경찰·공무원 기출이 가장 많이 쓰는 표기) */
+const CIRCLED_ITEM_AT_START = /^[㉠-㉿]\s*\S/;
+/** 상자 이름 줄 — 「< 보기 >」·「<보기 1>」 */
+export const BOX_LABEL_AT_START = /^<\s*보\s?기[^>]*>$/;
 const CIRCLE_SPLIT = /(?=[ㅇ○]\s)/;
 const INLINE_O_SPLIT = /\s+o\s+(?=[가-힣「(ㄱ-ㅎ])/i;
 const INLINE_JAMO_ITEM_SPLIT = /(?=[ㄱ-ㅎ]\.\s+)/;
@@ -117,7 +121,9 @@ function isBoxStartLine(line: string): boolean {
   return (
     CIRCLE_AT_START.test(trimmed) ||
     LOWER_O_AT_START.test(trimmed) ||
-    JAMO_ITEM_AT_START.test(trimmed)
+    JAMO_ITEM_AT_START.test(trimmed) ||
+    CIRCLED_ITEM_AT_START.test(trimmed) ||
+    BOX_LABEL_AT_START.test(trimmed)
   );
 }
 
