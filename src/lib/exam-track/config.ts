@@ -32,10 +32,27 @@ export const HOUSING_TRACK: ExamTrackConfig = {
   aboutName: "주택관리사보 1·2차 시험",
 };
 
-export const EXAM_TRACKS = [POLICE_TRACK, HOUSING_TRACK] as const;
+export const SOCIAL_WORKER_TRACK: ExamTrackConfig = {
+  id: "social_worker",
+  label: "사회복지사 1급",
+  shortLabel: "사회복지사",
+  basePath: "/social-worker",
+  eyebrow: "봄기출 · 사회복지사 1급",
+  hubTitle: "사회복지사 1급 기출 학습의 모든 것",
+  hubDescription:
+    "사회복지사 1급 8개 영역의 10개년 기출과 핵심 개념을 과목별·회차별로 학습하세요.",
+  communityScope: "social_worker",
+  communityTitle: "사회복지사 1급 수험생 커뮤니티",
+  sessionEyebrow: "사회복지사 1급 국가시험 기출",
+  educationalLevel: "사회복지사 1급 국가시험",
+  aboutName: "사회복지사 1급 국가시험",
+};
+
+export const EXAM_TRACKS = [POLICE_TRACK, HOUSING_TRACK, SOCIAL_WORKER_TRACK] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/police")) return POLICE_TRACK;
   if (pathname.startsWith("/housing")) return HOUSING_TRACK;
+  if (pathname.startsWith("/social-worker")) return SOCIAL_WORKER_TRACK;
   return null;
 }

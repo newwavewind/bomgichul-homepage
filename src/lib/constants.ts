@@ -13,7 +13,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·주택관리사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·주택관리사·사회복지사 1급 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
@@ -34,7 +34,7 @@ export type AppStoreLinks = {
 
 /** 시험별 스토어 링크 (공인중개사 외 FAQ·안내에서 사용) */
 export function appStoreLinksForScope(
-  scope: "real_estate" | "public_service" | "police" | "housing",
+  scope: "real_estate" | "public_service" | "police" | "housing" | "social_worker",
 ): AppStoreLinks {
   switch (scope) {
     case "police":
@@ -53,6 +53,11 @@ export function appStoreLinksForScope(
       return {
         android:
           "https://play.google.com/store/apps/details?id=com.sanghyun.housing",
+        ios: null,
+      };
+    case "social_worker":
+      return {
+        android: "https://play.google.com/store/apps/details?id=com.sanghyun.socialworker",
         ios: null,
       };
     default:
@@ -309,6 +314,7 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/real-estate", label: "공인중개사" },
       { href: "/police", label: "경찰공무원" },
       { href: "/housing", label: "주택관리사" },
+      { href: "/social-worker", label: "사회복지사 1급" },
     ],
   },
   {

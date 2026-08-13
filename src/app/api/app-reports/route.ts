@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     }
     if (!isValidCommunityScope(requestedScope)) {
       return json({
-        error: "communityScope는 real_estate | public_service | police | housing 중 하나여야 합니다.",
+        error: "communityScope는 real_estate | public_service | police | housing | social_worker 중 하나여야 합니다.",
       }, 400);
     }
     const communityScope: CommunityScope = requestedScope;

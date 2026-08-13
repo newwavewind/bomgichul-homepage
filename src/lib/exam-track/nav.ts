@@ -69,6 +69,17 @@ const HOUSING_SUBJECTS: { id: string; label: string }[] = [
   { id: "housing-admin", label: "관리실무" },
 ];
 
+const SOCIAL_WORKER_SUBJECTS: { id: string; label: string }[] = [
+  { id: "human-behavior", label: "인간행동" },
+  { id: "research", label: "조사론" },
+  { id: "practice", label: "실천론" },
+  { id: "practice-skills", label: "실천기술론" },
+  { id: "community", label: "지역사회" },
+  { id: "policy", label: "정책론" },
+  { id: "administration", label: "행정론" },
+  { id: "law", label: "법제론" },
+];
+
 /** 헤더에 바로 보이는 공무원 주요 과목 (나머지는 학습 홈에서) */
 const PUBLIC_SERVICE_SUBJECTS: { id: string; label: string }[] = [
   { id: "hangjunghak", label: "행정학" },
@@ -103,7 +114,9 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
       ? POLICE_SUBJECTS
       : scope === "housing"
         ? HOUSING_SUBJECTS
-        : PUBLIC_SERVICE_SUBJECTS;
+        : scope === "social_worker"
+          ? SOCIAL_WORKER_SUBJECTS
+          : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -124,6 +137,7 @@ function toolsForScope(scope: CommunityScope): NavTool[] {
 function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/police")) return false;
   if (pathname.startsWith("/housing")) return false;
+  if (pathname.startsWith("/social-worker")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -162,6 +176,17 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("housing"),
       subjects: subjectsForScope("housing"),
       tools: toolsForScope("housing"),
+    };
+  }
+  if (path.startsWith("/social-worker")) {
+    return {
+      mode: "track",
+      scope: "social_worker",
+      label: communityScopeLabel("social_worker"),
+      shortLabel: "복지사",
+      hubHref: trackHubHref("social_worker"),
+      subjects: subjectsForScope("social_worker"),
+      tools: toolsForScope("social_worker"),
     };
   }
   if (path.startsWith("/public-service")) {

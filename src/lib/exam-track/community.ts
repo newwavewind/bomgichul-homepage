@@ -1,5 +1,5 @@
 import type { CommunityScope } from "@/types/database";
-import { HOUSING_TRACK, POLICE_TRACK } from "./config";
+import { HOUSING_TRACK, POLICE_TRACK, SOCIAL_WORKER_TRACK } from "./config";
 
 export type { CommunityScope };
 
@@ -11,6 +11,8 @@ export function communityScopeLabel(scope: CommunityScope): string {
       return "경찰공무원";
     case "housing":
       return "주택관리사";
+    case "social_worker":
+      return "사회복지사 1급";
     default:
       return "공인중개사";
   }
@@ -24,6 +26,8 @@ export function trackHubHref(scope: CommunityScope): string {
       return POLICE_TRACK.basePath;
     case "housing":
       return HOUSING_TRACK.basePath;
+    case "social_worker":
+      return SOCIAL_WORKER_TRACK.basePath;
     default:
       return "/real-estate";
   }
@@ -37,6 +41,8 @@ export function communityBaseHref(scope: CommunityScope): string {
       return `${POLICE_TRACK.basePath}/community`;
     case "housing":
       return `${HOUSING_TRACK.basePath}/community`;
+    case "social_worker":
+      return `${SOCIAL_WORKER_TRACK.basePath}/community`;
     default:
       return "/community";
   }
@@ -50,6 +56,8 @@ export function archiveBaseHref(scope: CommunityScope): string {
       return `${POLICE_TRACK.basePath}/archive`;
     case "housing":
       return `${HOUSING_TRACK.basePath}/archive`;
+    case "social_worker":
+      return `${SOCIAL_WORKER_TRACK.basePath}/archive`;
     default:
       return "/archive";
   }
@@ -63,6 +71,8 @@ export function diaryBaseHref(scope: CommunityScope): string {
       return `${POLICE_TRACK.basePath}/diary`;
     case "housing":
       return `${HOUSING_TRACK.basePath}/diary`;
+    case "social_worker":
+      return `${SOCIAL_WORKER_TRACK.basePath}/diary`;
     default:
       return "/diary";
   }
@@ -76,6 +86,8 @@ export function faqBaseHref(scope: CommunityScope): string {
       return `${POLICE_TRACK.basePath}/faq`;
     case "housing":
       return `${HOUSING_TRACK.basePath}/faq`;
+    case "social_worker":
+      return `${SOCIAL_WORKER_TRACK.basePath}/faq`;
     default:
       return "/faq";
   }
@@ -89,6 +101,8 @@ export function communityTitle(scope: CommunityScope): string {
       return POLICE_TRACK.communityTitle;
     case "housing":
       return HOUSING_TRACK.communityTitle;
+    case "social_worker":
+      return SOCIAL_WORKER_TRACK.communityTitle;
     default:
       return "공인중개사 수험생 커뮤니티";
   }
@@ -102,6 +116,8 @@ export function archiveTitle(scope: CommunityScope): string {
       return "경찰공무원 자료실";
     case "housing":
       return "주택관리사 자료실";
+    case "social_worker":
+      return "사회복지사 1급 자료실";
     default:
       return "공인중개사 자료실";
   }
@@ -115,6 +131,8 @@ export function archiveEyebrow(scope: CommunityScope): string {
       return "경찰공무원 수험 자료 공유";
     case "housing":
       return "주택관리사 수험 자료 공유";
+    case "social_worker":
+      return "사회복지사 1급 수험 자료 공유";
     default:
       return "공인중개사 수험 자료 공유";
   }
@@ -137,7 +155,8 @@ export function isValidCommunityScope(value: string | null | undefined): value i
     value === "real_estate" ||
     value === "public_service" ||
     value === "police" ||
-    value === "housing"
+    value === "housing" ||
+    value === "social_worker"
   );
 }
 
@@ -145,6 +164,7 @@ export function scopeFromPathname(pathname: string | null | undefined): Communit
   if (!pathname) return "real_estate";
   if (pathname.startsWith("/police")) return "police";
   if (pathname.startsWith("/housing")) return "housing";
+  if (pathname.startsWith("/social-worker")) return "social_worker";
   if (pathname.startsWith("/public-service")) return "public_service";
   return "real_estate";
 }

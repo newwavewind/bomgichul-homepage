@@ -7,6 +7,7 @@ import { getAllExamParams, getExamYearParams } from "@/lib/exam-questions";
 import { PUBLIC_SERVICE_SUBJECT_IDS, getPublicServiceExamSessions, getPublicServiceSubject } from "@/lib/public-service-content";
 import { POLICE_SUBJECT_IDS, getPoliceExamSessions, getPoliceSubject } from "@/lib/police-content";
 import { HOUSING_SUBJECT_IDS, getHousingExamSessions, getHousingSubject } from "@/lib/housing-content";
+import { SOCIAL_WORKER_SUBJECT_IDS, getSocialWorkerExamSessions, getSocialWorkerSubject } from "@/lib/social-worker-content";
 import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 import { isRenderableExam } from "@/lib/exam-track/exam-render";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
@@ -42,6 +43,11 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     priority: 0.9,
   },
   {
+    url: `${SITE_URL}/social-worker`,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
     url: `${SITE_URL}/faq`,
     changeFrequency: "monthly",
     priority: 0.8,
@@ -68,6 +74,11 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
   },
   {
     url: `${SITE_URL}/housing/community`,
+    changeFrequency: "daily",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/social-worker/community`,
     changeFrequency: "daily",
     priority: 0.8,
   },
@@ -198,6 +209,15 @@ function getHousingUrls(): MetadataRoute.Sitemap {
   return getNamespacedTrackUrls("/housing", HOUSING_SUBJECT_IDS, getHousingSubject, getHousingExamSessions);
 }
 
+function getSocialWorkerUrls(): MetadataRoute.Sitemap {
+  return getNamespacedTrackUrls(
+    "/social-worker",
+    SOCIAL_WORKER_SUBJECT_IDS,
+    getSocialWorkerSubject,
+    getSocialWorkerExamSessions,
+  );
+}
+
 async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
   if (!isSupabaseConfigured()) return [];
 
@@ -236,6 +256,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...getPublicServiceUrls(),
     ...getPoliceUrls(),
     ...getHousingUrls(),
+    ...getSocialWorkerUrls(),
     ...contentUrls,
   ];
 }

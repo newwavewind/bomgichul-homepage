@@ -24,6 +24,10 @@ const HUB_COPY: Record<
     allInOne: ["회계원리", "민법", "주택관리관계법규", "공동주택관리실무"],
     exam: ["회계원리", "민법"],
   },
+  social_worker: {
+    allInOne: ["인간행동과 사회환경", "사회복지조사론", "사회복지실천론", "사회복지정책론"],
+    exam: ["인간행동과 사회환경", "사회복지조사론"],
+  },
 };
 
 const CONCEPT_COPY: Record<
@@ -34,6 +38,7 @@ const CONCEPT_COPY: Record<
   public_service: { crumb: "행정학개론 · 조직론", title: "관료제의 특징" },
   police: { crumb: "경찰 · 헌법 · 기본권", title: "기본권의 제한" },
   housing: { crumb: "회계원리 · 재무제표", title: "대차대조표의 구조" },
+  social_worker: { crumb: "인간행동 · 발달", title: "인간발달의 원리" },
 };
 
 const EXAM_COPY: Record<
@@ -55,6 +60,10 @@ const EXAM_COPY: Record<
   housing: {
     subject: "회계원리",
     stem: "다음 중 대차대조표에 관한 설명으로 옳은 것은?",
+  },
+  social_worker: {
+    subject: "인간행동과 사회환경",
+    stem: "다음 중 인간발달에 관한 설명으로 옳은 것은?",
   },
 };
 
@@ -90,6 +99,13 @@ const COMMUNITY_COPY: Record<
       { title: "시설개론 설비 체크리스트 공유", meta: "수험정보 · 댓글 7" },
     ],
   },
+  social_worker: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "발달이론 단계 구분이 헷갈려요", meta: "질문 · 댓글 5" },
+      { title: "사회복지법제 핵심 요약 공유", meta: "수험정보 · 댓글 8" },
+    ],
+  },
 };
 
 const ARCHIVE_COPY: Record<
@@ -116,6 +132,11 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "주택관리관계법규 요약", size: "680KB" },
     { type: "요약", name: "시설개론 설비 체크", size: "430KB" },
   ],
+  social_worker: [
+    { type: "PDF", name: "사회복지사 1급 기출 모아보기", size: "2.3MB" },
+    { type: "노트", name: "인간행동 발달이론 요약", size: "690KB" },
+    { type: "요약", name: "사회복지법제 체크", size: "440KB" },
+  ],
 };
 
 const DIARY_COPY: Record<VisualScope, string> = {
@@ -123,6 +144,7 @@ const DIARY_COPY: Record<VisualScope, string> = {
   public_service: "행정법 하자·무효 정리",
   police: "헌법 기본권 제한 정리",
   housing: "회계 분개 연습 정리",
+  social_worker: "인간발달 이론 비교 정리",
 };
 
 function PhoneFrame({

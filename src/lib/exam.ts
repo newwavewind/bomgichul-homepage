@@ -35,6 +35,13 @@ const TRACK_EXAM_SCHEDULE: Record<
     note: "1·2차 일정은 Q-Net 공고를 확인하세요",
     examName: "주택관리사보 자격시험",
   },
+  social_worker: {
+    label: "2026년 제24회 사회복지사 1급",
+    examDate: "2026-01-17",
+    registrationStart: "2025-12-01",
+    note: "다음 회차 일정은 한국산업인력공단 Q-Net 공고를 확인하세요",
+    examName: "사회복지사 1급 국가시험",
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

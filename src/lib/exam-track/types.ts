@@ -85,14 +85,14 @@ export interface ExamTrackManifestItem {
 }
 
 export interface ExamTrackConfig {
-  id: "police" | "housing";
+  id: "police" | "housing" | "social_worker";
   label: string;
   shortLabel: string;
   basePath: string;
   eyebrow: string;
   hubTitle: string;
   hubDescription: string;
-  communityScope: "police" | "housing";
+  communityScope: "police" | "housing" | "social_worker";
   communityTitle: string;
   sessionEyebrow: string;
   educationalLevel: string;
