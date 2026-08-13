@@ -74,6 +74,33 @@ describe("parseQuestionStem", () => {
       "ㄹ. 생산녹지지역",
     ]);
   });
+
+  it("restores multiple numbered 보기 boxes flattened by OCR", () => {
+    const result = parseQuestionStem(
+      [
+        "두 보기의 연결이 가장 적절한 것은?",
+        "<보기 1>",
+        "주요대상가. 범죄자 나. 우범자 다. 일반대중",
+        "<보기 2>",
+        "예방전략 및 내용",
+        "㉠ 상습범 대책 ㉡ 잠재적 범죄자 개입 ㉢ 환경 개선",
+      ].join("\n")
+    );
+
+    expect(result.intro).toBe("두 보기의 연결이 가장 적절한 것은?");
+    expect(result.boxLines).toEqual([
+      "<보기 1>",
+      "주요대상",
+      "가. 범죄자",
+      "나. 우범자",
+      "다. 일반대중",
+      "<보기 2>",
+      "예방전략 및 내용",
+      "㉠ 상습범 대책",
+      "㉡ 잠재적 범죄자 개입",
+      "㉢ 환경 개선",
+    ]);
+  });
 });
 
 describe("stemNeedsConditionBox", () => {

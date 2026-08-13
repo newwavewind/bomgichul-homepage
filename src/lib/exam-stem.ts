@@ -14,6 +14,8 @@ export const BOX_LABEL_AT_START = /^<\s*보\s?기[^>]*>$/;
 const CIRCLE_SPLIT = /(?=[ㅇ○]\s)/;
 const INLINE_O_SPLIT = /\s+o\s+(?=[가-힣「(ㄱ-ㅎ])/i;
 const INLINE_JAMO_ITEM_SPLIT = /(?=[ㄱ-ㅎ]\.\s+)/;
+const INLINE_CIRCLED_ITEM_SPLIT = /(?=[㉠-㉿]\s*)/;
+const INLINE_KOREAN_ITEM = /[가-하]\.\s*/g;
 
 function isDisclaimerProse(text: string): boolean {
   const t = text.trim();
@@ -73,6 +75,36 @@ function splitJamoItemBullets(text: string): string[] {
     .map((s) => s.trim())
     .filter((s) => JAMO_ITEM_AT_START.test(s))
     .map(normalizeBulletLine);
+}
+
+function splitCircledItemBullets(text: string): string[] {
+  const matches = [...text.matchAll(/[㉠-㉿]\s*/g)];
+  if (matches.length < 2) return [];
+  return text
+    .split(INLINE_CIRCLED_ITEM_SPLIT)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+/**
+ * OCR 원문은 표 머리와 항목을 `주요대상가. 범죄자 나. 우범자`처럼 한 줄에 붙여 둔다.
+ * 항목 표지가 둘 이상일 때만 나눠 일반 문장 속 `가.`를 잘못 자르는 일을 피한다.
+ */
+function splitKoreanLetterItems(text: string): string[] {
+  const matches = [...text.matchAll(INLINE_KOREAN_ITEM)];
+  if (matches.length < 2) return [];
+
+  const parts: string[] = [];
+  const firstIndex = matches[0].index ?? 0;
+  const heading = text.slice(0, firstIndex).trim();
+  if (heading) parts.push(heading);
+
+  for (let index = 0; index < matches.length; index += 1) {
+    const start = matches[index].index ?? 0;
+    const end = matches[index + 1]?.index ?? text.length;
+    parts.push(text.slice(start, end).trim().replace(/^([가-하])\.\s*/, "$1. "));
+  }
+  return parts;
 }
 
 function extractInlineBullets(bulletText: string): string[] {
@@ -141,9 +173,15 @@ function parseMultilineStem(stem: string): ParsedQuestionStem | null {
     .filter((line) => line.trim().length > 0)
     .flatMap((line) => {
       const trimmed = line.trim();
+      // `㉠ A ㉡ B`처럼 한 줄로 평탄화된 보기 항목을 원래 행으로 복원한다.
+      const circledParts = splitCircledItemBullets(trimmed);
+      if (circledParts.length >= 2) return circledParts;
       // "ㄱ. A   ㄴ. B"처럼 한 줄에 여러 항목이면 분리
       const jamoParts = splitJamoItemBullets(trimmed);
       if (jamoParts.length >= 2) return jamoParts;
+      // `주요대상가. 범죄자 나. 우범자`처럼 표 머리까지 붙은 행을 복원한다.
+      const koreanParts = splitKoreanLetterItems(trimmed);
+      if (koreanParts.length >= 2) return koreanParts;
       return [normalizeBulletLine(trimmed)];
     });
 
