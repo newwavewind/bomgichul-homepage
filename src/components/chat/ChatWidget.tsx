@@ -971,17 +971,18 @@ export function ChatWidget({
       setSearchResults([]);
       return;
     }
-    const blocked = new Set(friends.map((friend) => friendProfile(friend).id));
-    blocked.add(user.id);
-    const { data } = await createClient()
+    const { data, error: profileSearchError } = await createClient()
       .from("profiles")
       .select("id,nickname,avatar_url")
       .ilike("nickname", `%${query}%`)
       .eq("username_set", true)
       .limit(20);
-    setSearchResults(
-      (data ?? []).filter((profile) => !blocked.has(profile.id)),
-    );
+    if (profileSearchError) {
+      setError(`친구 검색 실패: ${profileSearchError.message}`);
+      setSearchResults([]);
+      return;
+    }
+    setSearchResults((data ?? []).filter((profile) => profile.id !== user.id));
   };
 
   const sendFriendRequest = async (profile: ProfileRow) => {
@@ -1284,11 +1285,11 @@ export function ChatWidget({
             <div className="grid grid-cols-3 border-b border-mist">
               {(
                 [
-                  ["list", "대화"],
                   [
                     "friends",
                     `친구${incomingRequests.length ? ` ${incomingRequests.length}` : ""}`,
                   ],
+                  ["list", "대화"],
                   ["online", `접속 ${onlineUsers.length}`],
                 ] as const
               ).map(([key, label]) => (
@@ -1446,15 +1447,14 @@ export function ChatWidget({
                   <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
                     {profile.nickname}
                   </p>
-                  <button
-                    onClick={() => void sendFriendRequest(profile)}
-                    className="text-[11px] font-semibold text-[#007AFF]"
-                  >
-                    바로 추가
-                  </button>
+                  {acceptedFriends.some((friend) => friendProfile(friend).id === profile.id) ? (
+                    <button onClick={() => void startDirectChat(profile)} className="text-[11px] font-semibold text-[#007AFF]">메시지</button>
+                  ) : (
+                    <button onClick={() => void sendFriendRequest(profile)} className="text-[11px] font-semibold text-[#007AFF]">바로 추가</button>
+                  )}
                 </div>
               ))}
-              {acceptedFriends.map((friend) => {
+              {acceptedFriends.filter(() => !searchQuery.trim()).map((friend) => {
                 const profile = friendProfile(friend);
                 return (
                   <div
