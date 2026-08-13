@@ -31,7 +31,7 @@ export async function getUser() {
     nickname: usernameSet ? (profile?.nickname ?? "익명") : "",
     usernameSet,
     isAdmin,
-    avatar_url: null as string | null,
+    avatar_url: profile?.avatar_url ?? null,
   };
 }
 

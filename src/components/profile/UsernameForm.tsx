@@ -59,7 +59,6 @@ export function UsernameForm({ currentUsername }: UsernameFormProps) {
         .update({
           nickname: value,
           username_set: true,
-          avatar_url: null,
         })
         .eq("id", user.id);
 

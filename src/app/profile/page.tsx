@@ -20,6 +20,7 @@ import { getUserActivityScores } from "@/lib/activity";
 import { OCEAN_RANKS } from "@/lib/ocean-ranks";
 import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
+import { AvatarUploader } from "@/components/profile/AvatarUploader";
 
 export default async function ProfilePage() {
   const user = await getUser();
@@ -60,9 +61,7 @@ export default async function ProfilePage() {
 
       <FeatureCard className="mb-8 border-[1.5px] border-carbon">
         <div className="flex items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-[var(--radius-icons)] border-[1.5px] border-carbon bg-snow font-display text-heading-sm font-semibold text-ink">
-            {user.nickname.charAt(0).toUpperCase()}
-          </div>
+          <AvatarUploader userId={user.id} nickname={user.nickname} avatarUrl={user.avatar_url} />
           <div>
             <p className="font-display text-[12px] text-fog">아이디</p>
             <p className="flex items-center gap-2 font-display text-subheading font-semibold text-ink">

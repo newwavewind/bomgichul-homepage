@@ -10,7 +10,7 @@ export async function ChatShell() {
 
   return (
     <ChatWidget
-      user={{ id: user.id, nickname: user.nickname }}
+      user={{ id: user.id, nickname: user.nickname, avatar_url: user.avatar_url }}
       initialConversations={conversations}
     />
   );

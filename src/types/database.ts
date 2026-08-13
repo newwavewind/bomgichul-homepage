@@ -11,7 +11,8 @@ export type PostCategory =
 
 /** 커뮤니티 목록 필터 (베스트는 DB 카테고리가 아닌 가상 필터) */
 export type CommunityListFilter = PostCategory | "all" | "best";
-export type CommunityScope = "real_estate" | "public_service" | "police" | "housing";
+export type CommunityScope =
+  "real_estate" | "public_service" | "police" | "housing";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 
@@ -178,11 +179,51 @@ export interface DmMessage {
   content: string;
   created_at: string;
   author: Pick<Profile, "nickname" | "avatar_url">;
+  attachments: DmAttachment[];
+  reply_to_id: string | null;
+  edited_at: string | null;
+  deleted_at: string | null;
+  reply_to?: Pick<DmMessage, "id" | "content" | "sender_id"> | null;
+  reactions: DmReaction[];
+}
+
+export interface DmReaction {
+  message_id: string;
+  user_id: string;
+  emoji: "👍" | "❤️" | "😂" | "🔥" | "👏" | "😮";
+}
+
+export interface DmAttachment {
+  id: string;
+  message_id: string;
+  conversation_id: string;
+  uploader_id: string;
+  kind: "image" | "video" | "file";
+  file_name: string;
+  file_path: string;
+  file_size: number;
+  mime_type: string;
+  width: number | null;
+  height: number | null;
+  duration_seconds: number | null;
+  signed_url?: string;
+}
+
+export interface ChatMember extends Pick<
+  Profile,
+  "id" | "nickname" | "avatar_url"
+> {
+  role: "owner" | "admin" | "member";
+  last_read_at?: string;
 }
 
 export interface DmConversationPreview {
   id: string;
-  otherUser: Pick<Profile, "id" | "nickname" | "avatar_url">;
+  title: string;
+  isGroup: boolean;
+  avatar_url: string | null;
+  members: ChatMember[];
+  otherUser: Pick<Profile, "id" | "nickname" | "avatar_url"> | null;
   lastMessage: {
     id: string;
     conversation_id: string;
@@ -192,11 +233,27 @@ export interface DmConversationPreview {
   } | null;
   unreadCount: number;
   updatedAt: string;
+  pinned_message_id?: string | null;
+  slow_mode_seconds?: number;
+  study_dday?: string | null;
+  study_goal?: string | null;
+}
+
+export interface Friendship {
+  id: string;
+  requester_id: string;
+  addressee_id: string;
+  status: "pending" | "accepted";
+  created_at: string;
+  accepted_at: string | null;
+  requester?: Pick<Profile, "id" | "nickname" | "avatar_url">;
+  addressee?: Pick<Profile, "id" | "nickname" | "avatar_url">;
 }
 
 export interface OnlineUser {
   user_id: string;
   nickname: string;
+  avatar_url?: string | null;
 }
 
 export interface DailyQuizResult {
