@@ -13,6 +13,7 @@ import type {
   OnlineUser,
 } from "@/types/database";
 import { formatKstChatTime } from "@/lib/datetime";
+import { ChatProfileModal } from "@/components/chat/ChatProfileModal";
 
 type ChatUser = {
   id: string;
@@ -84,10 +85,12 @@ function Avatar({
   nickname,
   url,
   size = "md",
+  onOpen,
 }: {
   nickname: string;
   url?: string | null;
   size?: "sm" | "md" | "lg";
+  onOpen?: () => void;
 }) {
   const sizeClass =
     size === "lg"
@@ -97,6 +100,10 @@ function Avatar({
         : "h-9 w-9 text-body-sm";
   return (
     <span
+      onClick={(event) => { if (onOpen) { event.stopPropagation(); onOpen(); } }}
+      onKeyDown={(event) => { if (onOpen && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); event.stopPropagation(); onOpen(); } }}
+      role={onOpen ? "button" : undefined}
+      tabIndex={onOpen ? 0 : undefined}
       className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-carbon bg-ice font-display font-bold text-ink ${sizeClass}`}
     >
       {url ? (
@@ -194,12 +201,12 @@ function MessageBubble({
                   href={attachment.signed_url}
                   target="_blank"
                   rel="noreferrer"
-                  className="block bg-black/5"
+                  className="flex min-h-20 items-center justify-center overflow-hidden bg-black/5"
                 >
                   <img
                     src={attachment.signed_url}
                     alt={attachment.file_name}
-                    className="max-h-72 w-full object-cover"
+                    className="h-auto max-h-72 max-w-full object-contain"
                     loading="lazy"
                   />
                 </a>
@@ -353,10 +360,12 @@ export function ChatWidget({
   const [loading, setLoading] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [profileId, setProfileId] = useState<string | null>(null);
   const presenceChannelRef = useRef<RealtimeChannel | null>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dragDepthRef = useRef(0);
+  const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
 
   const unreadTotal = useMemo(
     () => conversations.reduce((sum, item) => sum + item.unreadCount, 0),
@@ -389,7 +398,7 @@ export function ChatWidget({
     const supabase = createClient();
     const { data: memberships } = await supabase
       .from("dm_conversation_members")
-      .select("conversation_id,last_read_at")
+      .select("conversation_id,last_read_at,pinned_at")
       .eq("user_id", user.id);
     if (!memberships?.length) {
       setConversations([]);
@@ -399,6 +408,7 @@ export function ChatWidget({
     const lastRead = Object.fromEntries(
       memberships.map((item) => [item.conversation_id, item.last_read_at]),
     );
+    const pinnedById = Object.fromEntries(memberships.map((item) => [item.conversation_id, item.pinned_at]));
     const [memberResult, messageResult, conversationResult] = await Promise.all(
       [
         supabase
@@ -415,7 +425,7 @@ export function ChatWidget({
         supabase
           .from("dm_conversations")
           .select(
-            "id,title,is_group,avatar_url,updated_at,pinned_message_id,slow_mode_seconds,study_dday,study_goal",
+            "id,title,is_group,is_self,avatar_url,updated_at,pinned_message_id,slow_mode_seconds,study_dday,study_goal",
           )
           .in("id", ids),
       ],
@@ -441,6 +451,7 @@ export function ChatWidget({
           ...row,
           title: null,
           is_group: false,
+          is_self: false,
           avatar_url: null,
           pinned_message_id: null,
           slow_mode_seconds: 0,
@@ -473,17 +484,19 @@ export function ChatWidget({
             };
           });
         const other = members.find((member) => member.id !== user.id) ?? null;
-        if (!row.is_group && !other) return null;
+        if (!row.is_group && !row.is_self && !other) return null;
         const last = lastByConversation.get(row.id) ?? null;
         return {
           id: row.id,
-          title: row.is_group
+          title: row.is_self ? "나와의 채팅" : row.is_group
             ? row.title || "그룹 채팅"
             : other?.nickname || "대화",
           isGroup: Boolean(row.is_group),
           avatar_url: row.avatar_url ?? other?.avatar_url ?? null,
           members,
           otherUser: other,
+          isSelf: Boolean(row.is_self),
+          pinnedAt: pinnedById[row.id] ?? null,
           lastMessage: last,
           unreadCount:
             last &&
@@ -499,7 +512,7 @@ export function ChatWidget({
         };
       })
       .filter((item): item is DmConversationPreview => Boolean(item))
-      .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+      .sort((a, b) => (b.pinnedAt ? 1 : 0) - (a.pinnedAt ? 1 : 0) || b.updatedAt.localeCompare(a.updatedAt));
     setConversations(next);
     setActiveConversation((current) =>
       current ? (next.find((item) => item.id === current.id) ?? current) : null,
@@ -667,6 +680,21 @@ export function ChatWidget({
     },
     [conversations, openThread, refreshConversations, user],
   );
+
+  const openSelfChat = async () => {
+    setError(null);
+    const { data, error: rpcError } = await createClient().rpc("get_or_create_self_conversation");
+    if (rpcError || !data) { setError(rpcError?.message ?? "나와의 채팅을 열 수 없습니다."); return; }
+    await refreshConversations();
+    const conversation = conversations.find((item) => item.id === data) ?? ({ id:data as string,title:"나와의 채팅",isGroup:false,isSelf:true,avatar_url:user.avatar_url,members:[{...user,role:"owner"}],otherUser:null,lastMessage:null,unreadCount:0,updatedAt:"",pinnedAt:null } as DmConversationPreview);
+    await openThread(conversation);
+  };
+
+  const toggleConversationPin = async (conversation: DmConversationPreview) => {
+    const nextPinnedAt = conversation.pinnedAt ? null : new Date().toISOString();
+    const { error: pinError } = await createClient().rpc("set_dm_conversation_pin", { p_conversation_id: conversation.id, p_pinned: !conversation.pinnedAt });
+    if (pinError) setError(pinError.message); else setConversations((items) => items.map((item) => item.id === conversation.id ? {...item,pinnedAt:nextPinnedAt} : item).sort((a,b)=>(b.pinnedAt?1:0)-(a.pinnedAt?1:0)||b.updatedAt.localeCompare(a.updatedAt)));
+  };
 
   const validateFiles = (files: File[]) => {
     if (files.length > MAX_FILES) return "한 번에 최대 6개까지 보낼 수 있어요.";
@@ -959,11 +987,16 @@ export function ChatWidget({
   const sendFriendRequest = async (profile: ProfileRow) => {
     const { error: requestError } = await createClient()
       .from("friendships")
-      .insert({ requester_id: user.id, addressee_id: profile.id });
+      .insert({
+        requester_id: user.id,
+        addressee_id: profile.id,
+        status: "accepted",
+        accepted_at: new Date().toISOString(),
+      });
     if (requestError)
       setError(
         requestError.code === "23505"
-          ? "이미 친구 관계 또는 요청이 있어요."
+          ? "이미 친구로 추가된 사용자예요."
           : requestError.message,
       );
     else {
@@ -1126,6 +1159,19 @@ export function ChatWidget({
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
+          onTouchStart={(event) => {
+            const touch = event.touches[0];
+            swipeStartRef.current = touch ? { x: touch.clientX, y: touch.clientY } : null;
+          }}
+          onTouchEnd={(event) => {
+            const start = swipeStartRef.current;
+            const touch = event.changedTouches[0];
+            swipeStartRef.current = null;
+            if (!start || !touch) return;
+            const distanceX = touch.clientX - start.x;
+            const distanceY = Math.abs(touch.clientY - start.y);
+            if (distanceX > 80 && distanceY < 70) setOpen(false);
+          }}
         >
           {view === "thread" && isDraggingFiles ? (
             <div className="pointer-events-none absolute inset-3 z-[80] flex items-center justify-center rounded-[24px] border-2 border-dashed border-[#7c83b5] bg-white/85 p-6 text-center shadow-2xl backdrop-blur-md">
@@ -1194,18 +1240,41 @@ export function ChatWidget({
               </>
             ) : null}
             {view === "list" ? (
-              <button
-                type="button"
-                onClick={() => setView("new-group")}
-                className="rounded-full bg-[#007AFF]/10 px-2.5 py-1 font-display text-[11px] font-semibold text-[#0066D6]"
-              >
-                + 그룹
-              </button>
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => setProfileId(user.id)}
+                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
+                >
+                  내 프로필
+                </button>
+                <button
+                  type="button"
+                  onClick={() => void openSelfChat()}
+                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
+                >
+                  나와의 채팅
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setView("friends")}
+                  className="rounded-full bg-[#007AFF]/10 px-2.5 py-1.5 font-display text-[11px] font-semibold text-[#0066D6]"
+                >
+                  + 친구
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setView("new-group")}
+                  className="rounded-full bg-[#007AFF]/10 px-2.5 py-1.5 font-display text-[11px] font-semibold text-[#0066D6]"
+                >
+                  + 그룹
+                </button>
+              </div>
             ) : null}
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="text-fog"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xl text-fog transition-colors hover:bg-black/5 active:bg-black/10"
               aria-label="닫기"
             >
               ✕
@@ -1261,11 +1330,13 @@ export function ChatWidget({
                     <Avatar
                       nickname={conversation.title}
                       url={conversation.avatar_url}
+                      onOpen={conversation.otherUser ? () => setProfileId(conversation.otherUser!.id) : undefined}
                     />
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between gap-2">
                         <p className="truncate font-display text-body-sm font-semibold text-ink">
                           {conversation.title}
+                          {conversation.pinnedAt ? <span className="ml-1 text-[10px]" title="상단 고정">📌</span> : null}
                           {conversation.isGroup ? (
                             <span className="ml-1 text-[10px] font-normal text-fog">
                               {conversation.members.length}명
@@ -1289,6 +1360,16 @@ export function ChatWidget({
                         {conversation.unreadCount}
                       </span>
                     ) : null}
+                    <span
+                      role="button"
+                      tabIndex={0}
+                      aria-label={conversation.pinnedAt ? "채팅방 고정 해제" : "채팅방 상단 고정"}
+                      onClick={(event) => { event.stopPropagation(); void toggleConversationPin(conversation); }}
+                      onKeyDown={(event) => { if(event.key==="Enter"||event.key===" "){event.preventDefault();event.stopPropagation();void toggleConversationPin(conversation);} }}
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm text-fog hover:bg-ice"
+                    >
+                      {conversation.pinnedAt ? "📌" : "⋮"}
+                    </span>
                   </button>
                 ))
               ) : (
@@ -1360,6 +1441,7 @@ export function ChatWidget({
                   <Avatar
                     nickname={profile.nickname}
                     url={profile.avatar_url}
+                    onOpen={() => setProfileId(profile.id)}
                   />
                   <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
                     {profile.nickname}
@@ -1368,7 +1450,7 @@ export function ChatWidget({
                     onClick={() => void sendFriendRequest(profile)}
                     className="text-[11px] font-semibold text-[#007AFF]"
                   >
-                    친구 추가
+                    바로 추가
                   </button>
                 </div>
               ))}
@@ -1382,6 +1464,7 @@ export function ChatWidget({
                     <Avatar
                       nickname={profile.nickname}
                       url={profile.avatar_url}
+                      onOpen={() => setProfileId(profile.id)}
                     />
                     <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
                       {profile.nickname}
@@ -1424,6 +1507,7 @@ export function ChatWidget({
                       <Avatar
                         nickname={online.nickname}
                         url={online.avatar_url}
+                        onOpen={() => setProfileId(online.user_id)}
                       />
                       <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-emerald-500" />
                     </div>
@@ -1792,7 +1876,7 @@ export function ChatWidget({
                     onChange={(event) => setDraft(event.target.value)}
                     rows={2}
                     placeholder="메시지를 입력하세요"
-                    className="max-h-28 min-h-11 min-w-0 flex-1 resize-none rounded-[20px] border border-white bg-white/90 px-4 py-2.5 text-[13px] shadow-inner outline-none focus:ring-2 focus:ring-[#007AFF]/20"
+                    className="max-h-28 min-h-11 min-w-0 flex-1 resize-none rounded-[20px] border border-white bg-white/90 px-4 py-2.5 text-base shadow-inner outline-none focus:ring-2 focus:ring-[#007AFF]/20 sm:text-[13px]"
                     onKeyDown={(event) => {
                       if (event.key === "Enter" && !event.shiftKey) {
                         event.preventDefault();
@@ -1820,6 +1904,7 @@ export function ChatWidget({
           ) : null}
         </div>
       ) : null}
+      {profileId ? <ChatProfileModal profileId={profileId} myUserId={user.id} onClose={() => setProfileId(null)} /> : null}
     </>
   );
 }

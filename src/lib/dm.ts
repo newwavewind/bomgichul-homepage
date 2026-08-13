@@ -41,7 +41,7 @@ export async function getDmConversations(
   const supabase = await createClient();
   const { data: memberships, error: memberError } = await supabase
     .from("dm_conversation_members")
-    .select("conversation_id, last_read_at")
+    .select("conversation_id, last_read_at, pinned_at")
     .eq("user_id", userId);
 
   if (memberError || !memberships?.length) return [];
@@ -50,6 +50,7 @@ export async function getDmConversations(
   const lastReadByConv = Object.fromEntries(
     memberships.map((m) => [m.conversation_id, m.last_read_at]),
   );
+  const pinnedByConv = Object.fromEntries(memberships.map((m) => [m.conversation_id, m.pinned_at]));
 
   const [memberResult, messageResult, conversationResult] = await Promise.all([
     supabase
@@ -65,7 +66,7 @@ export async function getDmConversations(
       .order("created_at", { ascending: false }),
     supabase
       .from("dm_conversations")
-      .select("id, title, is_group, avatar_url, updated_at")
+      .select("id, title, is_group, is_self, avatar_url, updated_at")
       .in("id", convIds),
   ]);
 
@@ -110,13 +111,13 @@ export async function getDmConversations(
   );
 
   const previews: DmConversationPreview[] = convIds
-    .map((conversationId) => {
+    .map((conversationId): DmConversationPreview | null => {
       const convMembers = ((members ?? []) as MemberRow[]).filter(
         (m) => m.conversation_id === conversationId,
       );
       const other = convMembers.find((m) => m.user_id !== userId);
       const conversation = conversationById[conversationId];
-      if (!conversation || (!conversation.is_group && !other)) return null;
+      if (!conversation || (!conversation.is_group && !conversation.is_self && !other)) return null;
 
       const chatMembers: ChatMember[] = convMembers.map((member) => ({
         id: member.user_id,
@@ -138,7 +139,7 @@ export async function getDmConversations(
 
       return {
         id: conversationId,
-        title: conversation.is_group
+        title: conversation.is_self ? "나와의 채팅" : conversation.is_group
           ? conversation.title || "그룹 채팅"
           : (otherProfile?.nickname ?? "대화"),
         isGroup: Boolean(conversation.is_group),
@@ -146,6 +147,8 @@ export async function getDmConversations(
         members: chatMembers,
         otherUser:
           other && otherProfile ? { id: other.user_id, ...otherProfile } : null,
+        isSelf: Boolean(conversation.is_self),
+        pinnedAt: pinnedByConv[conversationId] ?? null,
         lastMessage,
         unreadCount,
         updatedAt:
@@ -153,7 +156,7 @@ export async function getDmConversations(
       };
     })
     .filter((row): row is DmConversationPreview => row !== null)
-    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+    .sort((a, b) => (b.pinnedAt ? 1 : 0) - (a.pinnedAt ? 1 : 0) || b.updatedAt.localeCompare(a.updatedAt));
 
   return previews;
 }

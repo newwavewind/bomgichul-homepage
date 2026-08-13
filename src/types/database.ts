@@ -224,6 +224,8 @@ export interface DmConversationPreview {
   avatar_url: string | null;
   members: ChatMember[];
   otherUser: Pick<Profile, "id" | "nickname" | "avatar_url"> | null;
+  isSelf?: boolean;
+  pinnedAt?: string | null;
   lastMessage: {
     id: string;
     conversation_id: string;
