@@ -310,12 +310,14 @@ export function ChatWidget({
   const [studyTitle, setStudyTitle] = useState("");
   const [studyKind, setStudyKind] = useState("notice");
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [isDraggingFiles, setIsDraggingFiles] = useState(false);
   const [loading, setLoading] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const presenceChannelRef = useRef<RealtimeChannel | null>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const dragDepthRef = useRef(0);
 
   const unreadTotal = useMemo(
     () => conversations.reduce((sum, item) => sum + item.unreadCount, 0),
@@ -642,6 +644,49 @@ export function ChatWidget({
         return `${file.name}: 일반 파일은 100MB까지 가능해요.`;
     }
     return null;
+  };
+
+  const queueFiles = (files: File[]) => {
+    if (!files.length) return;
+    const nextFiles = [...selectedFiles, ...files];
+    const validation = validateFiles(nextFiles);
+    if (validation) {
+      setError(validation);
+      return;
+    }
+    setError(null);
+    setSelectedFiles(nextFiles);
+  };
+
+  const isFileDrag = (event: React.DragEvent) =>
+    Array.from(event.dataTransfer.types).includes("Files");
+
+  const handleDragEnter = (event: React.DragEvent) => {
+    if (view !== "thread" || !isFileDrag(event)) return;
+    event.preventDefault();
+    dragDepthRef.current += 1;
+    setIsDraggingFiles(true);
+  };
+
+  const handleDragOver = (event: React.DragEvent) => {
+    if (view !== "thread" || !isFileDrag(event)) return;
+    event.preventDefault();
+    event.dataTransfer.dropEffect = "copy";
+  };
+
+  const handleDragLeave = (event: React.DragEvent) => {
+    if (view !== "thread" || !isFileDrag(event)) return;
+    event.preventDefault();
+    dragDepthRef.current = Math.max(0, dragDepthRef.current - 1);
+    if (dragDepthRef.current === 0) setIsDraggingFiles(false);
+  };
+
+  const handleDrop = (event: React.DragEvent) => {
+    if (view !== "thread" || !isFileDrag(event)) return;
+    event.preventDefault();
+    dragDepthRef.current = 0;
+    setIsDraggingFiles(false);
+    queueFiles(Array.from(event.dataTransfer.files));
   };
 
   const sendMessage = async () => {
@@ -984,7 +1029,28 @@ export function ChatWidget({
         ) : null}
       </button>
       {open ? (
-        <div className="fixed inset-0 z-[60] flex flex-col overflow-hidden bg-[radial-gradient(circle_at_top_right,#dbeafe_0,#f8fafc_38%,#fff_75%)] shadow-2xl sm:inset-auto sm:bottom-24 sm:right-5 sm:h-[min(82vh,760px)] sm:w-[min(94vw,720px)] sm:rounded-[30px] sm:border sm:border-white/80">
+        <div
+          className="fixed inset-0 z-[60] flex flex-col overflow-hidden bg-[radial-gradient(circle_at_top_right,#dbeafe_0,#f8fafc_38%,#fff_75%)] shadow-2xl sm:inset-auto sm:bottom-24 sm:right-5 sm:h-[min(82vh,760px)] sm:w-[min(94vw,720px)] sm:rounded-[30px] sm:border sm:border-white/80"
+          onDragEnter={handleDragEnter}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+        >
+          {view === "thread" && isDraggingFiles ? (
+            <div className="pointer-events-none absolute inset-3 z-[80] flex items-center justify-center rounded-[24px] border-2 border-dashed border-[#7c83b5] bg-white/85 p-6 text-center shadow-2xl backdrop-blur-md">
+              <div>
+                <span className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e9eaf8] text-2xl">
+                  ⇩
+                </span>
+                <p className="font-display text-base font-semibold text-[#30344a]">
+                  여기에 놓아 첨부하기
+                </p>
+                <p className="mt-1 text-xs text-[#777c99]">
+                  사진·동영상·문서, 한 번에 최대 6개
+                </p>
+              </div>
+            </div>
+          ) : null}
           <div className="flex items-center gap-2 border-b border-white/70 bg-white/65 px-4 py-3 backdrop-blur-2xl">
             {view !== "list" && view !== "friends" && view !== "online" ? (
               <button
@@ -1626,9 +1692,7 @@ export function ChatWidget({
                     className="hidden"
                     onChange={(event) => {
                       const files = [...(event.target.files ?? [])];
-                      const validation = validateFiles(files);
-                      if (validation) setError(validation);
-                      else setSelectedFiles(files);
+                      queueFiles(files);
                       event.target.value = "";
                     }}
                   />
