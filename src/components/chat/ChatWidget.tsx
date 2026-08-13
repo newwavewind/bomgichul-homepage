@@ -14,7 +14,12 @@ import type {
 } from "@/types/database";
 import { formatKstChatTime } from "@/lib/datetime";
 
-type ChatUser = { id: string; nickname: string; avatar_url: string | null };
+type ChatUser = {
+  id: string;
+  nickname: string;
+  avatar_url: string | null;
+  isAdmin: boolean;
+};
 type View =
   | "list"
   | "friends"
@@ -27,8 +32,8 @@ type View =
 type ProfileRow = { id: string; nickname: string; avatar_url: string | null };
 type FriendRow = Friendship & { requester: ProfileRow; addressee: ProfileRow };
 
-const MAX_IMAGE_BYTES = 25 * 1024 * 1024;
-const MAX_VIDEO_BYTES = 250 * 1024 * 1024;
+const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
+const MAX_VIDEO_BYTES = 100 * 1024 * 1024;
 const MAX_FILES = 6;
 const IMAGE_TYPES = new Set([
   "image/jpeg",
@@ -39,8 +44,41 @@ const IMAGE_TYPES = new Set([
   "image/heif",
 ]);
 const VIDEO_TYPES = new Set(["video/mp4", "video/webm", "video/quicktime"]);
-const MAX_FILE_BYTES = 100 * 1024 * 1024;
+const MAX_FILE_BYTES = 30 * 1024 * 1024;
+const IMAGE_OPTIMIZE_THRESHOLD = 2 * 1024 * 1024;
+const IMAGE_MAX_EDGE = 2560;
 const REACTIONS = ["👍", "❤️", "😂", "🔥", "👏", "😮"] as const;
+
+async function optimizeChatImage(file: File): Promise<File> {
+  if (
+    !["image/jpeg", "image/png", "image/webp"].includes(file.type) ||
+    file.size < IMAGE_OPTIMIZE_THRESHOLD
+  )
+    return file;
+
+  try {
+    const bitmap = await createImageBitmap(file);
+    const scale = Math.min(1, IMAGE_MAX_EDGE / Math.max(bitmap.width, bitmap.height));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+    canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+    const context = canvas.getContext("2d");
+    if (!context) return file;
+    context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    bitmap.close();
+    const blob = await new Promise<Blob | null>((resolve) =>
+      canvas.toBlob(resolve, "image/webp", 0.88),
+    );
+    if (!blob || blob.size >= file.size) return file;
+    const baseName = file.name.replace(/\.[^.]+$/, "") || "photo";
+    return new File([blob], `${baseName}.webp`, {
+      type: "image/webp",
+      lastModified: file.lastModified,
+    });
+  } catch {
+    return file;
+  }
+}
 
 function Avatar({
   nickname,
@@ -310,6 +348,7 @@ export function ChatWidget({
   const [studyTitle, setStudyTitle] = useState("");
   const [studyKind, setStudyKind] = useState("notice");
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [preparingFiles, setPreparingFiles] = useState(false);
   const [isDraggingFiles, setIsDraggingFiles] = useState(false);
   const [loading, setLoading] = useState(false);
   const [sending, setSending] = useState(false);
@@ -632,30 +671,37 @@ export function ChatWidget({
   const validateFiles = (files: File[]) => {
     if (files.length > MAX_FILES) return "한 번에 최대 6개까지 보낼 수 있어요.";
     for (const file of files) {
-      if (IMAGE_TYPES.has(file.type) && file.size > MAX_IMAGE_BYTES)
-        return `${file.name}: 사진은 파일당 25MB까지 가능해요.`;
-      if (VIDEO_TYPES.has(file.type) && file.size > MAX_VIDEO_BYTES)
-        return `${file.name}: 동영상은 파일당 250MB까지 가능해요.`;
+      if (!user.isAdmin && IMAGE_TYPES.has(file.type) && file.size > MAX_IMAGE_BYTES)
+        return `${file.name}: 최적화 후에도 10MB를 넘습니다.`;
+      if (!user.isAdmin && VIDEO_TYPES.has(file.type) && file.size > MAX_VIDEO_BYTES)
+        return `${file.name}: 동영상은 파일당 100MB까지 가능해요.`;
       if (
+        !user.isAdmin &&
         !IMAGE_TYPES.has(file.type) &&
         !VIDEO_TYPES.has(file.type) &&
         file.size > MAX_FILE_BYTES
       )
-        return `${file.name}: 일반 파일은 100MB까지 가능해요.`;
+        return `${file.name}: 일반 파일은 30MB까지 가능해요.`;
     }
     return null;
   };
 
-  const queueFiles = (files: File[]) => {
+  const queueFiles = async (files: File[]) => {
     if (!files.length) return;
-    const nextFiles = [...selectedFiles, ...files];
-    const validation = validateFiles(nextFiles);
-    if (validation) {
-      setError(validation);
-      return;
+    setPreparingFiles(true);
+    try {
+      const optimizedFiles = await Promise.all(files.map(optimizeChatImage));
+      const nextFiles = [...selectedFiles, ...optimizedFiles];
+      const validation = validateFiles(nextFiles);
+      if (validation) {
+        setError(validation);
+        return;
+      }
+      setError(null);
+      setSelectedFiles(nextFiles);
+    } finally {
+      setPreparingFiles(false);
     }
-    setError(null);
-    setSelectedFiles(nextFiles);
   };
 
   const isFileDrag = (event: React.DragEvent) =>
@@ -686,14 +732,15 @@ export function ChatWidget({
     event.preventDefault();
     dragDepthRef.current = 0;
     setIsDraggingFiles(false);
-    queueFiles(Array.from(event.dataTransfer.files));
+    void queueFiles(Array.from(event.dataTransfer.files));
   };
 
   const sendMessage = async () => {
     if (
       (!draft.trim() && selectedFiles.length === 0) ||
       !activeConversation ||
-      sending
+      sending ||
+      preparingFiles
     )
       return;
     const validation = validateFiles(selectedFiles);
@@ -704,6 +751,42 @@ export function ChatWidget({
     setSending(true);
     setError(null);
     const supabase = createClient();
+    const reservations: Array<{
+      id: string;
+      path: string;
+      file: File;
+    }> = [];
+
+    for (const file of selectedFiles) {
+      const { data, error: reservationError } = await supabase.rpc(
+        "reserve_chat_upload",
+        {
+          p_conversation_id: activeConversation.id,
+          p_file_name: file.name,
+          p_file_size: file.size,
+          p_mime_type: file.type || "application/octet-stream",
+        },
+      );
+      const reservation = Array.isArray(data) ? data[0] : null;
+      if (reservationError || !reservation) {
+        await Promise.all(
+          reservations.map((item) =>
+            supabase.rpc("cancel_chat_upload", {
+              p_reservation_id: item.id,
+            }),
+          ),
+        );
+        setError(reservationError?.message ?? "첨부 용량을 확인할 수 없습니다.");
+        setSending(false);
+        return;
+      }
+      reservations.push({
+        id: reservation.reservation_id as string,
+        path: reservation.file_path as string,
+        file,
+      });
+    }
+
     const { data: message, error: insertError } = await supabase
       .from("dm_messages")
       .insert({
@@ -715,40 +798,38 @@ export function ChatWidget({
       .select("id")
       .single();
     if (insertError || !message) {
+      await Promise.all(
+        reservations.map((item) =>
+          supabase.rpc("cancel_chat_upload", { p_reservation_id: item.id }),
+        ),
+      );
       setError(insertError?.message ?? "메시지를 보낼 수 없습니다.");
       setSending(false);
       return;
     }
-    for (const file of selectedFiles) {
-      const safeName = file.name
-        .normalize("NFKC")
-        .replace(/[^a-zA-Z0-9._-]/g, "_")
-        .slice(-100);
-      const path = `${activeConversation.id}/${user.id}/${crypto.randomUUID()}-${safeName}`;
+    for (const reservation of reservations) {
+      const { file, path } = reservation;
       const { error: uploadError } = await supabase.storage
         .from("chat-media")
         .upload(path, file, { contentType: file.type, cacheControl: "3600" });
       if (uploadError) {
+        await supabase.rpc("cancel_chat_upload", {
+          p_reservation_id: reservation.id,
+        });
         setError(`${file.name} 업로드 실패: ${uploadError.message}`);
         continue;
       }
-      const { error: metaError } = await supabase
-        .from("dm_message_attachments")
-        .insert({
-          message_id: message.id,
-          conversation_id: activeConversation.id,
-          uploader_id: user.id,
-          kind: IMAGE_TYPES.has(file.type)
-            ? "image"
-            : VIDEO_TYPES.has(file.type)
-              ? "video"
-              : "file",
-          file_name: file.name,
-          file_path: path,
-          file_size: file.size,
-          mime_type: file.type || "application/octet-stream",
+      const { error: metaError } = await supabase.rpc("complete_chat_upload", {
+        p_reservation_id: reservation.id,
+        p_message_id: message.id,
+      });
+      if (metaError) {
+        await supabase.storage.from("chat-media").remove([path]);
+        await supabase.rpc("cancel_chat_upload", {
+          p_reservation_id: reservation.id,
         });
-      if (metaError) setError(`${file.name} 연결 실패: ${metaError.message}`);
+        setError(`${file.name} 연결 실패: ${metaError.message}`);
+      }
     }
     setDraft("");
     setReplyTo(null);
@@ -790,7 +871,17 @@ export function ChatWidget({
 
   const deleteMessage = async (message: DmMessage) => {
     if (!window.confirm("이 메시지를 삭제할까요?")) return;
-    const { error: deleteError } = await createClient().rpc(
+    const supabase = createClient();
+    if (message.attachments.length) {
+      const { error: storageError } = await supabase.storage
+        .from("chat-media")
+        .remove(message.attachments.map((attachment) => attachment.file_path));
+      if (storageError) {
+        setError(`첨부파일 정리 실패: ${storageError.message}`);
+        return;
+      }
+    }
+    const { error: deleteError } = await supabase.rpc(
       "delete_dm_message",
       { p_message_id: message.id },
     );
@@ -1679,7 +1770,7 @@ export function ChatWidget({
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    disabled={sending}
+                    disabled={sending || preparingFiles}
                     className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#007AFF] to-[#7c3aed] text-xl text-white shadow-md"
                     aria-label="사진 동영상 또는 파일 첨부"
                   >
@@ -1692,7 +1783,7 @@ export function ChatWidget({
                     className="hidden"
                     onChange={(event) => {
                       const files = [...(event.target.files ?? [])];
-                      queueFiles(files);
+                      void queueFiles(files);
                       event.target.value = "";
                     }}
                   />
@@ -1712,15 +1803,17 @@ export function ChatWidget({
                   <button
                     type="submit"
                     disabled={
-                      sending || (!draft.trim() && !selectedFiles.length)
+                      sending ||
+                      preparingFiles ||
+                      (!draft.trim() && !selectedFiles.length)
                     }
                     className="rounded-full bg-carbon px-4 py-2.5 text-[12px] font-semibold text-white shadow-md disabled:opacity-40"
                   >
-                    {sending ? "전송 중" : "전송"}
+                    {preparingFiles ? "준비 중" : sending ? "전송 중" : "전송"}
                   </button>
                 </div>
                 <p className="mt-1.5 text-center text-[9px] text-fog">
-                  사진 25MB · 동영상 250MB · 문서 100MB · 최대 6개
+                  사진 10MB · 동영상 100MB · 문서 30MB · 한 번에 최대 6개
                 </p>
               </form>
             </>
