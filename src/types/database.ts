@@ -271,13 +271,20 @@ export interface Notification {
   id: string;
   recipient_id: string;
   actor_id: string;
-  post_id: string;
+  post_id: string | null;
   comment_id: string | null;
-  type: "comment";
+  memo_id: string | null;
+  memo_comment_id: string | null;
+  type: "comment" | "memo_comment";
   read_at: string | null;
   created_at: string;
   actor?: Pick<Profile, "nickname" | "avatar_url">;
   post?: Pick<Post, "title" | "community_scope">;
+  memo?: {
+    subject: string;
+    year: number;
+    question_no: number;
+  };
 }
 
 export interface PaginatedResult<T> {

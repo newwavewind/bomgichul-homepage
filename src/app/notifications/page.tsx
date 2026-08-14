@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getUser } from "@/lib/auth";
-import { getNotificationsForUser, markAllNotificationsRead } from "@/lib/notifications";
+import {
+  getNotificationsForUser,
+  markAllNotificationsRead,
+  notificationHref,
+} from "@/lib/notifications";
 import { formatKstRelative } from "@/lib/datetime";
-import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
 
@@ -28,14 +31,14 @@ export default async function NotificationsPage() {
       <ElevatedCard className="overflow-hidden">
         {notifications.length === 0 ? (
           <div className="px-6 py-16 text-center">
-            <p className="font-display text-body text-smoke">아직 알림이 없어요</p>
+            <p className="font-display text-body text-smoke">
+              아직 알림이 없어요
+            </p>
           </div>
         ) : (
           notifications.map((n) => {
-            const scope = isValidCommunityScope(n.post?.community_scope)
-              ? n.post.community_scope
-              : "real_estate";
-            const href = `${communityBaseHref(scope)}/${n.post_id}`;
+            const href = notificationHref(n);
+            const isMemoComment = n.type === "memo_comment";
             return (
               <Link
                 key={n.id}
@@ -47,12 +50,20 @@ export default async function NotificationsPage() {
                 )}
                 <div>
                   <p className="font-display text-body-sm text-ink">
-                    <span className="font-semibold">{n.actor?.nickname ?? "익명"}</span>
+                    <span className="font-semibold">
+                      {n.actor?.nickname ?? "익명"}
+                    </span>
                     님이{" "}
                     <span className="font-medium">
-                      &lsquo;{n.post?.title ?? "게시글"}&rsquo;
+                      &lsquo;
+                      {isMemoComment
+                        ? `${n.memo?.year ?? ""}년 ${n.memo?.question_no ?? ""}번 공개 메모`
+                        : (n.post?.title ?? "게시글")}
+                      &rsquo;
                     </span>{" "}
-                    글에 댓글을 남겼어요
+                    {isMemoComment
+                      ? "에 답글을 남겼어요"
+                      : "글에 댓글을 남겼어요"}
                   </p>
                   <p className="mt-1 font-display text-[12px] text-fog">
                     {timeAgo(n.created_at)}
@@ -65,7 +76,10 @@ export default async function NotificationsPage() {
       </ElevatedCard>
 
       <div className="mt-6 text-center">
-        <Link href="/" className="font-display text-body-sm text-fog hover:text-ink">
+        <Link
+          href="/"
+          className="font-display text-body-sm text-fog hover:text-ink"
+        >
           시험 선택으로 돌아가기 →
         </Link>
       </div>
