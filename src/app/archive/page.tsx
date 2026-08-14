@@ -76,9 +76,12 @@ export async function ArchiveBoard({
   const search = params.q ?? "";
   const sort = (params.sort as SortOption) || "latest";
   const resourceType = params.type ?? "all";
-  const subject = params.subject ?? "all";
+  const requestedSubject = params.subject ?? "all";
   const baseHref = archiveBaseHref(scope);
   const subjects = archiveSubjectsForScope(scope);
+  const subject = subjects.some((option) => option.value === requestedSubject)
+    ? requestedSubject
+    : "all";
 
   const { data: posts, totalPages, total } = await getArchivePosts({
     page,

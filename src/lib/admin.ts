@@ -148,6 +148,42 @@ export type AdminPostRow = {
   createdAt: string;
 };
 
+export type AdminPublicMemoRow = {
+  id: string;
+  subject: string;
+  year: number;
+  questionNo: number;
+  content: string;
+  authorNickname: string;
+  createdAt: string;
+};
+
+export async function getAdminPublicMemos(limit = 100): Promise<AdminPublicMemoRow[]> {
+  const admin = adminOrNull();
+  if (!admin) return [];
+
+  const { data } = await admin
+    .from("question_public_memos")
+    .select("id, subject, year, question_no, content, created_at, profiles:user_id(nickname)")
+    .order("created_at", { ascending: false })
+    .limit(limit);
+
+  if (!data) return [];
+
+  return data.map((row) => {
+    const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
+    return {
+      id: row.id,
+      subject: row.subject,
+      year: row.year,
+      questionNo: row.question_no,
+      content: row.content,
+      authorNickname: profile?.nickname ?? "익명",
+      createdAt: row.created_at,
+    };
+  });
+}
+
 export async function getAdminPosts(options: {
   category?: PostCategory | "reports";
   limit?: number;

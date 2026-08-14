@@ -15,10 +15,16 @@ export function ArchiveFilters({
   const searchParams = useSearchParams();
 
   const currentType = searchParams.get("type") ?? "all";
-  const currentSubject = searchParams.get("subject") ?? "all";
+  const requestedSubject = searchParams.get("subject") ?? "all";
+  const currentSubject = subjects.some((subject) => subject.value === requestedSubject)
+    ? requestedSubject
+    : "all";
 
   const buildHref = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
+    if (!subjects.some((subject) => subject.value === params.get("subject"))) {
+      params.delete("subject");
+    }
     if (value === "all") {
       params.delete(key);
     } else {

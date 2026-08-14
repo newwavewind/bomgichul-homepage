@@ -21,13 +21,13 @@ export default async function AdminDashboardPage() {
         </SectionHeading>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <AdminStatCard label="전체 회원" value={overview.totalUsers} hint={`아이디 설정 완료 ${overview.usersWithUsername}명`} />
-          <AdminStatCard label="게시글" value={overview.totalPosts} hint={`최근 7일 ${overview.postsLast7Days}건`} />
+          <AdminStatCard href="/admin/community" label="게시글" value={overview.totalPosts} hint={`최근 7일 ${overview.postsLast7Days}건`} />
           <AdminStatCard
             label="오류·피드백"
             value={overview.openReports}
             hint="앱 제보·피드백 글"
           />
-          <AdminStatCard label="공개 메모" value={overview.publicMemos} hint="기출 문항 메모" />
+          <AdminStatCard href="/admin/memos" label="공개 메모" value={overview.publicMemos} hint="기출 문항 메모" />
           <AdminStatCard label="DM 메시지" value={overview.dmMessages} hint="누적 1:1 채팅" />
           <AdminStatCard label="모의고사 기록" value={overview.mockExamSessions} />
           <AdminStatCard label="일일 퀴즈 참여" value={overview.dailyQuizUsers} hint="누적 기록 수" />

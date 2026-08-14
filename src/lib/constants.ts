@@ -413,6 +413,19 @@ export const ARCHIVE_SUBJECTS_PUBLIC_SERVICE = [
   { value: "other", label: "기타" },
 ] as const;
 
+export const ARCHIVE_SUBJECTS_SOCIAL_WORKER = [
+  { value: "all", label: "전체 과목" },
+  { value: "human-behavior", label: "인간행동과 사회환경" },
+  { value: "research", label: "사회복지조사론" },
+  { value: "practice", label: "사회복지실천론" },
+  { value: "practice-skills", label: "사회복지실천기술론" },
+  { value: "community", label: "지역사회복지론" },
+  { value: "policy", label: "사회복지정책론" },
+  { value: "administration", label: "사회복지행정론" },
+  { value: "law", label: "사회복지법제론" },
+  { value: "other", label: "기타" },
+] as const;
+
 export const ARCHIVE_RESOURCE_TYPE_MAP: Record<string, string> = {
   past_exam: "기출",
   note: "노트",
@@ -425,6 +438,7 @@ export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
   ...ARCHIVE_SUBJECTS_POLICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_HOUSING.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_PUBLIC_SERVICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_SOCIAL_WORKER.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
 ]);
 
 export function archiveSubjectsForScope(scope: string) {
@@ -435,6 +449,8 @@ export function archiveSubjectsForScope(scope: string) {
       return [...ARCHIVE_SUBJECTS_HOUSING];
     case "public_service":
       return [...ARCHIVE_SUBJECTS_PUBLIC_SERVICE];
+    case "social_worker":
+      return [...ARCHIVE_SUBJECTS_SOCIAL_WORKER];
     default:
       return [...ARCHIVE_SUBJECTS];
   }
@@ -448,6 +464,8 @@ export function defaultArchiveSubject(scope: string) {
       return "accounting";
     case "public_service":
       return "hangjunghak";
+    case "social_worker":
+      return "human-behavior";
     default:
       return "realestate";
   }
