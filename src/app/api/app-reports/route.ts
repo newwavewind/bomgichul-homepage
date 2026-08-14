@@ -41,12 +41,14 @@ export async function POST(request: Request) {
     if (!content || content.length > 8000) {
       return json({ error: "내용은 1~8000자로 입력해주세요." }, 400);
     }
-    if (!isValidCommunityScope(requestedScope)) {
+    // 2026-08-09 이전에 배포된 공인중개사 앱은 communityScope를 보내지 않는다.
+    // 서버에서 기존 형식을 계속 받아 주면 앱을 다시 배포하지 않아도 피드백이 복구된다.
+    if (requestedScope != null && !isValidCommunityScope(requestedScope)) {
       return json({
         error: "communityScope는 real_estate | public_service | police | housing | social_worker 중 하나여야 합니다.",
       }, 400);
     }
-    const communityScope: CommunityScope = requestedScope;
+    const communityScope: CommunityScope = requestedScope ?? "real_estate";
 
     const authorId = await ensureAppReportAuthorId();
     const admin = createAdminClient();

@@ -110,7 +110,9 @@ function AccountCluster({
         href={user.usernameSet ? "/profile" : "/onboarding"}
         className="flex max-w-[7.5rem] items-center gap-1 truncate rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[13px] font-medium text-ink shadow-[inset_0_0_0_1px_rgba(15,23,42,0.06)] hover:bg-white"
       >
-        <span className="truncate">{user.usernameSet ? user.nickname : "아이디"}</span>
+        <span className="truncate">
+          {user.usernameSet ? user.nickname : "아이디"}
+        </span>
         {user.usernameSet && user.oceanRank ? (
           <OceanRankBadge rank={user.oceanRank} variant="icon" />
         ) : null}
@@ -147,7 +149,13 @@ function HomeHeader({
           aria-expanded={moreOpen}
           onClick={() => setMoreOpen((v) => !v)}
         >
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden
+          >
             <path
               d="M3 5H17M3 10H17M3 15H17"
               stroke="#007AFF"
@@ -210,7 +218,8 @@ function TrackHeader({
                   tool.href === communityHref
                     ? isCommunitySectionPath(pathname, ctx.scope)
                     : pathname === tool.href ||
-                      (tool.href !== ctx.hubHref && pathname.startsWith(tool.href));
+                      (tool.href !== ctx.hubHref &&
+                        pathname.startsWith(tool.href));
                 return (
                   <Link
                     key={tool.href}
@@ -266,8 +275,12 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
     };
 
     void fetchUnread();
+    const intervalId = window.setInterval(fetchUnread, 30_000);
+    window.addEventListener("focus", fetchUnread);
     return () => {
       cancelled = true;
+      window.clearInterval(intervalId);
+      window.removeEventListener("focus", fetchUnread);
       controller.abort();
     };
   }, [user]);

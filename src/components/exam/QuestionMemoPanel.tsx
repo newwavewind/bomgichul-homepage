@@ -36,7 +36,6 @@ function MemoCard({
   loginHref: string;
   onChanged: () => void;
 }) {
-  const [showComments, setShowComments] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [busy, setBusy] = useState(false);
 
@@ -72,13 +71,15 @@ function MemoCard({
       content: trimmed,
     });
     setCommentText("");
-    setShowComments(true);
     setBusy(false);
     onChanged();
   };
 
   return (
-    <article className="border-b border-mist/60 py-4 last:border-b-0">
+    <article
+      id={`memo-${memo.id}`}
+      className="scroll-mt-24 border-b border-mist/60 py-4 last:border-b-0"
+    >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <p className="font-display text-body-sm font-semibold text-ink">
@@ -92,7 +93,13 @@ function MemoCard({
           type="button"
           onClick={() => (userId ? toggleLike() : undefined)}
           disabled={busy}
-          title={userId ? (memo.liked_by_viewer ? "좋아요 취소" : "좋아요") : "로그인 후 좋아요"}
+          title={
+            userId
+              ? memo.liked_by_viewer
+                ? "좋아요 취소"
+                : "좋아요"
+              : "로그인 후 좋아요"
+          }
           className={`inline-flex shrink-0 items-center gap-1 rounded-full border px-2.5 py-1 font-display text-[12px] font-medium transition-colors ${
             memo.liked_by_viewer
               ? "border-[#6366f1] bg-[#6366f1]/10 text-[#6366f1]"
@@ -107,62 +114,55 @@ function MemoCard({
         {memo.content}
       </p>
 
-      <div className="mt-3">
-        <button
-          type="button"
-          onClick={() => setShowComments((v) => !v)}
-          className="font-display text-[12px] font-medium text-smoke hover:text-ink"
-        >
-          💬 댓글 {memo.comments.length > 0 ? memo.comments.length : ""}{" "}
-          {showComments ? "접기" : "보기"}
-        </button>
+      <div className="mt-3 font-display text-[12px] font-medium text-smoke">
+        💬 댓글 {memo.comments.length}
       </div>
 
-      {showComments && (
-        <div className="mt-3 space-y-3 rounded-[var(--radius-buttons)] bg-surface px-3 py-3">
-          {memo.comments.length === 0 ? (
-            <p className="font-display text-[12px] text-fog">아직 댓글이 없어요.</p>
-          ) : (
-            memo.comments.map((comment) => (
-              <div key={comment.id}>
-                <p className="font-display text-[12px] font-semibold text-ink">
-                  {comment.author.nickname}
-                  <span className="ml-2 font-normal text-fog">
-                    {formatMemoDate(comment.created_at)}
-                  </span>
-                </p>
-                <p className="mt-1 whitespace-pre-wrap font-display text-[12px] leading-relaxed text-smoke">
-                  {comment.content}
-                </p>
-              </div>
-            ))
-          )}
-
-          {userId ? (
-            <div className="space-y-2 border-t border-mist/60 pt-3">
-              <Textarea
-                id={`memo-comment-${memo.id}`}
-                label="댓글"
-                value={commentText}
-                onChange={(e) => setCommentText(e.target.value)}
-                rows={2}
-                placeholder="댓글을 남겨보세요"
-              />
-              <div className="flex justify-end">
-                <PrimaryButton
-                  size="sm"
-                  onClick={submitComment}
-                  disabled={busy || !commentText.trim()}
-                >
-                  댓글 등록
-                </PrimaryButton>
-              </div>
+      <div className="mt-3 space-y-3 rounded-[var(--radius-buttons)] bg-surface px-3 py-3">
+        {memo.comments.length === 0 ? (
+          <p className="font-display text-[12px] text-fog">
+            아직 댓글이 없어요.
+          </p>
+        ) : (
+          memo.comments.map((comment) => (
+            <div key={comment.id}>
+              <p className="font-display text-[12px] font-semibold text-ink">
+                {comment.author.nickname}
+                <span className="ml-2 font-normal text-fog">
+                  {formatMemoDate(comment.created_at)}
+                </span>
+              </p>
+              <p className="mt-1 whitespace-pre-wrap font-display text-[12px] leading-relaxed text-smoke">
+                {comment.content}
+              </p>
             </div>
-          ) : (
-            <LoginHint href={loginHref} action="댓글을 남기려면" />
-          )}
-        </div>
-      )}
+          ))
+        )}
+
+        {userId ? (
+          <div className="space-y-2 border-t border-mist/60 pt-3">
+            <Textarea
+              id={`memo-comment-${memo.id}`}
+              label="댓글"
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+              rows={2}
+              placeholder="댓글을 남겨보세요"
+            />
+            <div className="flex justify-end">
+              <PrimaryButton
+                size="sm"
+                onClick={submitComment}
+                disabled={busy || !commentText.trim()}
+              >
+                댓글 등록
+              </PrimaryButton>
+            </div>
+          </div>
+        ) : (
+          <LoginHint href={loginHref} action="댓글을 남기려면" />
+        )}
+      </div>
 
       {!userId && memo.like_count === 0 && memo.comments.length === 0 && (
         <div className="mt-2">
@@ -218,7 +218,9 @@ export function QuestionMemoPanel({
   return (
     <div className="mt-4 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
       <div className="mb-3 flex items-baseline justify-between gap-3">
-        <h2 className="font-display text-body font-semibold text-ink">나만의 메모</h2>
+        <h2 className="font-display text-body font-semibold text-ink">
+          나만의 메모
+        </h2>
         <p className="min-w-0 font-display text-[12px] text-fog">
           누구나 볼 수 있어요 · 암기 팁을 함께 쌓아보세요
         </p>
@@ -248,7 +250,10 @@ export function QuestionMemoPanel({
       ) : (
         <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-body-sm text-smoke">
           <span>로그인하면 메모를 남길 수 있어요.</span>
-          <Link href={loginHref} className="font-medium text-[#6366f1] hover:underline">
+          <Link
+            href={loginHref}
+            className="font-medium text-[#6366f1] hover:underline"
+          >
             로그인
           </Link>
         </div>
