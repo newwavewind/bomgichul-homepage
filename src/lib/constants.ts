@@ -27,20 +27,29 @@ export const APP_LINKS = {
   ios: "https://apps.apple.com/kr/app/id6784651251",
 } as const;
 
+/** null 은 「아직 그 스토어에 없음」 — 화면에서는 「출시 예정」으로 보인다. */
 export type AppStoreLinks = {
-  android: string;
+  android: string | null;
   ios: string | null;
 };
 
-/** 시험별 스토어 링크 (공인중개사 외 FAQ·안내에서 사용) */
+/**
+ * 시험별 스토어 링크.
+ *
+ * 2026-08-18 기준 실제 등록 상태를 그대로 적었다(App Store 는 iTunes lookup,
+ * Google Play 는 스토어 페이지 응답으로 확인).
+ *   · App Store — 5개 전부 출시
+ *   · Google Play — 공인중개사·공무원만 출시. 경찰·주택관리사·사회복지사는 404.
+ * 없는 곳을 링크로 걸면 사용자가 눌렀을 때 「찾을 수 없는 페이지」로 떨어지므로
+ * null 로 두어 「출시 예정」이 보이게 한다. 스토어에 올라가면 여기만 채우면 된다.
+ */
 export function appStoreLinksForScope(
   scope: "real_estate" | "public_service" | "police" | "housing" | "social_worker",
 ): AppStoreLinks {
   switch (scope) {
     case "police":
       return {
-        android:
-          "https://play.google.com/store/apps/details?id=com.sanghyun.police",
+        android: null,
         ios: "https://apps.apple.com/kr/app/id6798675892",
       };
     case "public_service":
@@ -51,14 +60,13 @@ export function appStoreLinksForScope(
       };
     case "housing":
       return {
-        android:
-          "https://play.google.com/store/apps/details?id=com.sanghyun.housing",
-        ios: null,
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6799456199",
       };
     case "social_worker":
       return {
-        android: "https://play.google.com/store/apps/details?id=com.sanghyun.socialworker",
-        ios: null,
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6801141200",
       };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };

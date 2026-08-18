@@ -133,18 +133,39 @@ function AppStoreBadge({
 function GooglePlayBadge({
   href,
   size,
+  disabled = false,
 }: {
-  href: string;
+  href?: string;
   size: "default" | "sm";
+  disabled?: boolean;
 }) {
   const logoHeight = size === "sm" ? 32 : 40;
+  const base =
+    "inline-flex w-[168px] items-center justify-center rounded-[var(--radius-buttons)] border px-3.5 py-2 transition-colors";
+
+  // 아직 Play 스토어에 없는 시험 — 눌러도 404 로 떨어지므로 링크를 걸지 않는다.
+  if (disabled || !href) {
+    return (
+      <span
+        className={`${base} cursor-default border-mist bg-snow opacity-60`}
+        aria-disabled="true"
+      >
+        <span className="flex items-center gap-2">
+          <GooglePlayMark height={logoHeight} />
+          <span className="font-display text-[11px] font-semibold text-fog">
+            출시 예정
+          </span>
+        </span>
+      </span>
+    );
+  }
 
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex w-[168px] items-center justify-center rounded-[var(--radius-buttons)] border border-carbon bg-paper px-3.5 py-2 shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+      className={`${base} border-carbon bg-paper shadow-[var(--shadow-button)] hover:bg-snow`}
       aria-label="Google Play에서 봄기출 앱 다운로드"
       onClick={() => trackEvent("app_store_click", { store: "android" })}
     >
@@ -166,7 +187,11 @@ export function AppStoreButtons({
         disabled={!store.ios}
         size={size}
       />
-      <GooglePlayBadge href={store.android} size={size} />
+      <GooglePlayBadge
+        href={store.android ?? undefined}
+        disabled={!store.android}
+        size={size}
+      />
     </div>
   );
 }

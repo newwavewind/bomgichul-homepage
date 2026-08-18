@@ -452,14 +452,20 @@ export function GuideContent({
                   App Store
                 </a>
               ) : null}
-              <a
-                href={storeLinks.android}
-                className="rounded-full border border-carbon bg-paper px-3 py-1.5 font-display text-[12px] font-medium text-ink"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Google Play
-              </a>
+              {storeLinks.android ? (
+                <a
+                  href={storeLinks.android}
+                  className="rounded-full border border-carbon bg-paper px-3 py-1.5 font-display text-[12px] font-medium text-ink"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Google Play
+                </a>
+              ) : (
+                <span className="rounded-full border border-mist bg-snow px-3 py-1.5 font-display text-[12px] font-medium text-fog">
+                  Google Play 출시 예정
+                </span>
+              )}
             </div>
           </FeatureCard>
           {isRE && (
