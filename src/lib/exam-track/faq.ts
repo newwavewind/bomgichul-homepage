@@ -56,7 +56,7 @@ export function faqItemsForScope(scope: CommunityScope): FaqItem[] {
 export function faqDescription(scope: CommunityScope): string {
   const label = communityScopeLabel(scope);
   if (scope === "real_estate") {
-    return "봄기출 공인중개사 홈페이지 이용 안내. 학습 홈, 기출 올인원, 기출문제, 커뮤니티, 자료실, 무료·프리미엄을 쉽게 설명합니다.";
+    return "봄기출 공인중개사 홈페이지 이용 안내. 학습 홈, 기출 올인원, 기출문제, 커뮤니티, 자료실, 이용 범위를 쉽게 설명합니다.";
   }
   return `봄기출 ${label} 이용 안내. 학습 홈, 기출 올인원, 기출문제, 커뮤니티, 자료실을 쉽게 설명합니다.`;
 }

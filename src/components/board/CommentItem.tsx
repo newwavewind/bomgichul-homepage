@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { FeatureCard } from "@/components/ui/Card";
 import { TextButton } from "@/components/ui/Button";
-import { PremiumBadge } from "@/components/ui/PremiumBadge";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 import { CommunityLikeButton } from "@/components/board/CommunityLikeButton";
 import { formatKstDate } from "@/lib/datetime";
@@ -15,7 +14,6 @@ import type { OceanRank } from "@/lib/ocean-ranks";
 interface CommentItemProps {
   comment: Comment;
   currentUserId?: string | null;
-  authorBadge?: string | null;
   authorRank?: OceanRank;
   likeCount?: number;
   likedByViewer?: boolean;
@@ -25,7 +23,6 @@ interface CommentItemProps {
 export function CommentItem({
   comment,
   currentUserId,
-  authorBadge,
   authorRank,
   likeCount = 0,
   likedByViewer = false,
@@ -52,7 +49,6 @@ export function CommentItem({
           <span className="flex items-center gap-1.5 font-medium text-ink">
             {comment.profiles?.nickname ?? "익명"}
             {authorRank && <OceanRankBadge rank={authorRank} />}
-            {authorBadge && <PremiumBadge label={authorBadge} />}
           </span>
           <span className="text-fog">
             {formatKstDate(comment.created_at)}

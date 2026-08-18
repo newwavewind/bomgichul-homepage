@@ -414,23 +414,24 @@ export function NewsVisual() {
 
 export function PremiumVisual() {
   return (
-    <PhoneFrame caption="코드 등록 · 프리미엄" tint="snow">
+    <PhoneFrame caption="이용 범위" tint="snow">
       <div className="space-y-3">
         <div className="rounded-xl border border-carbon/40 bg-paper p-3">
-          <p className="font-display text-[11px] font-semibold text-smoke">무료로 바로</p>
+          <p className="font-display text-[11px] font-semibold text-smoke">홈페이지 — 전부 무료</p>
           <ul className="mt-2 space-y-1.5 font-display text-[11px] text-ink">
-            <li>· 부동산학개론 전 연도</li>
-            <li>· 나머지 과목 2024–2025년</li>
+            <li>· 6과목 기출 전 연도 해설</li>
             <li>· 기출 올인원 개념</li>
+            <li>· 랜덤 · 오답 · 복습 · 시험 모드</li>
+            <li>· 북마크 · 복습 PDF</li>
           </ul>
         </div>
         <div className="rounded-xl border border-carbon bg-carbon p-3 text-paper">
-          <p className="font-display text-[11px] font-semibold opacity-80">프리미엄 코드</p>
-          <p className="mt-2 rounded-lg border border-paper/20 bg-paper/10 px-2 py-2 text-center font-display text-[13px] tracking-wider">
-            BOM-····-····
+          <p className="font-display text-[11px] font-semibold opacity-80">유료</p>
+          <p className="mt-2 rounded-lg border border-paper/20 bg-paper/10 px-2 py-2 text-center font-display text-[12px]">
+            PC앱 · 모바일 앱
           </p>
           <p className="mt-2 font-display text-[10px] opacity-80">
-            앱에서 구매 → 과목 페이지에서 등록
+            과목별로 구매해서 이용
           </p>
         </div>
       </div>

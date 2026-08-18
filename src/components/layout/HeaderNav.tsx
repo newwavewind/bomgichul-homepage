@@ -215,21 +215,34 @@ function TrackHeader({
               {ctx.tools.map((tool) => {
                 const communityHref = communityBaseHref(ctx.scope);
                 const active =
-                  tool.href === communityHref
-                    ? isCommunitySectionPath(pathname, ctx.scope)
-                    : pathname === tool.href ||
-                      (tool.href !== ctx.hubHref &&
-                        pathname.startsWith(tool.href));
+                  tool.external
+                    ? false
+                    : tool.href === communityHref
+                      ? isCommunitySectionPath(pathname, ctx.scope)
+                      : pathname === tool.href ||
+                        (tool.href !== ctx.hubHref &&
+                          pathname.startsWith(tool.href));
+                const className = `shrink-0 rounded-lg px-2 py-1.5 font-display text-[13px] font-medium transition-colors sm:px-2.5 ${
+                  active
+                    ? "bg-[#007AFF]/12 text-[#0066D6]"
+                    : "text-slate-600 hover:bg-white/70 hover:text-ink"
+                }`;
+                // PC앱은 다른 사이트라 Link 로 넘기면 클라이언트 라우팅이 걸린다.
+                if (tool.external) {
+                  return (
+                    <a
+                      key={tool.href}
+                      href={tool.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={className}
+                    >
+                      {tool.label}
+                    </a>
+                  );
+                }
                 return (
-                  <Link
-                    key={tool.href}
-                    href={tool.href}
-                    className={`shrink-0 rounded-lg px-2 py-1.5 font-display text-[13px] font-medium transition-colors sm:px-2.5 ${
-                      active
-                        ? "bg-[#007AFF]/12 text-[#0066D6]"
-                        : "text-slate-600 hover:bg-white/70 hover:text-ink"
-                    }`}
-                  >
+                  <Link key={tool.href} href={tool.href} className={className}>
                     {tool.label}
                   </Link>
                 );

@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { PostCategory } from "@/types/database";
 import { CATEGORY_MAP, CATEGORY_BADGE_CLASS, CATEGORY_EMOJI } from "@/lib/constants";
 import { formatKstRelative } from "@/lib/datetime";
-import { PremiumBadge } from "@/components/ui/PremiumBadge";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 import type { OceanRank } from "@/lib/ocean-ranks";
 
@@ -11,7 +10,6 @@ interface PostCardProps {
   title: string;
   category: PostCategory;
   authorName: string;
-  authorBadge?: string | null;
   authorRank?: OceanRank;
   viewCount: number;
   commentCount: number;
@@ -24,7 +22,6 @@ export function PostCard({
   title,
   category,
   authorName,
-  authorBadge,
   authorRank,
   viewCount,
   commentCount,
@@ -64,7 +61,6 @@ export function PostCard({
         <span className="flex items-center gap-1.5">
           {authorName}
           {authorRank && <OceanRankBadge rank={authorRank} />}
-          {authorBadge && <PremiumBadge label={authorBadge} />}
         </span>
         <span>조회 {viewCount}</span>
         <span>{formatKstRelative(createdAt, { includeYear: false })}</span>

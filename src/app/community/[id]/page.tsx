@@ -2,13 +2,11 @@ import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { getPost, getComments, incrementViewCount } from "@/lib/posts";
 import { getUser } from "@/lib/auth";
-import { getPremiumBadgesForUsers } from "@/lib/badges";
 import { CATEGORY_MAP, SITE_NAME } from "@/lib/constants";
 import { ElevatedCard } from "@/components/ui/Card";
 import { CommentForm } from "@/components/board/CommentForm";
 import { CommentItem } from "@/components/board/CommentItem";
 import { PostActions } from "@/components/board/PostActions";
-import { PremiumBadge } from "@/components/ui/PremiumBadge";
 import { BackLink } from "@/components/ui/BackLink";
 import { absoluteUrl, ROBOTS_NOINDEX, truncateDescription } from "@/lib/seo";
 import { formatKstDateLong } from "@/lib/datetime";
@@ -92,8 +90,7 @@ export async function CommunityPostDetailPage({
     post.author_id,
     ...comments.map((c) => c.author_id),
   ];
-  const [authorBadges, authorActivity, likeState] = await Promise.all([
-    getPremiumBadgesForUsers(authorIds),
+  const [authorActivity, likeState] = await Promise.all([
     getUserActivityScores(authorIds),
     getCommunityLikeState(id, comments.map((comment) => comment.id), user?.id),
   ]);
@@ -130,9 +127,6 @@ export async function CommunityPostDetailPage({
               {post.profiles?.nickname ?? "익명"}
             </span>
             <OceanRankBadge rank={authorActivity[post.author_id].rank} />
-            {authorBadges[post.author_id] && (
-              <PremiumBadge label={authorBadges[post.author_id]} />
-            )}
           </div>
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
             <span className="whitespace-nowrap">{formatKstDateLong(post.created_at)}</span>
@@ -173,7 +167,6 @@ export async function CommunityPostDetailPage({
                 key={comment.id}
                 comment={comment}
                 currentUserId={user?.id}
-                authorBadge={authorBadges[comment.author_id]}
                 authorRank={authorActivity[comment.author_id].rank}
                 likeCount={likeState.comments[comment.id]?.count}
                 likedByViewer={likeState.comments[comment.id]?.likedByViewer}

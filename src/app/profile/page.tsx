@@ -43,7 +43,7 @@ export default async function ProfilePage() {
   const activityMap = await getUserActivityScores([user.id]);
   const activity = activityMap[user.id];
   const nextRank = OCEAN_RANKS[activity.rank.level] ?? null;
-  const unlockedSubjects = await getUnlockedSubjects(user.id);
+  const unlockedSubjects = await getUnlockedSubjects();
 
   const analyticsPanels = await Promise.all(
     [...unlockedSubjects].map(async (subject) => {
@@ -128,7 +128,7 @@ export default async function ProfilePage() {
       </FeatureCard>
 
       <div className="mb-6">
-        <h2 className="font-display text-subheading font-semibold text-ink">프리미엄 학습 분석</h2>
+        <h2 className="font-display text-subheading font-semibold text-ink">학습 분석</h2>
         <p className="mt-1 font-display text-body-sm text-smoke">
           과목별 단원 약점과 연도별 정답률을 확인할 수 있어요.
         </p>

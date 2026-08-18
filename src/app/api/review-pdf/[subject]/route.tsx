@@ -9,7 +9,6 @@ import {
 import { getUser } from "@/lib/auth";
 import { getBookmarksForUser } from "@/lib/bookmarks";
 import { getNotesForSubject } from "@/lib/notes";
-import { isSubjectUnlocked } from "@/lib/premium";
 
 export const runtime = "nodejs";
 
@@ -65,14 +64,6 @@ export async function GET(_request: NextRequest, { params }: ReviewPdfParams) {
   const user = await getUser();
   if (!user) {
     return NextResponse.json({ error: "로그인이 필요해요." }, { status: 401 });
-  }
-
-  const unlocked = await isSubjectUnlocked(user.id, subject);
-  if (!unlocked) {
-    return NextResponse.json(
-      { error: "이 과목의 프리미엄을 해제한 계정만 PDF를 받을 수 있어요." },
-      { status: 403 }
-    );
   }
 
   const [bookmarks, notes] = await Promise.all([

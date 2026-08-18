@@ -104,12 +104,17 @@ export default async function SubjectPage({ params }: SubjectPageProps) {
             <SecondaryButton href={`/archive?subject=${subject}`}>
               {label} 자료실 전체보기
             </SecondaryButton>
-            <a
-              href={PC_APP_URL}
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
-            >
-              PC앱에서 학습하기
-            </a>
+            {/* PC앱은 공인중개사 기출 과목에만 있다 */}
+            {isExamSubject && (
+              <a
+                href={PC_APP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-buttons)] border-[1.5px] border-carbon bg-paper px-5 py-2 font-display text-body-sm font-medium text-ink shadow-[var(--shadow-button)] transition-colors hover:bg-snow"
+              >
+                PC앱에서 학습하기
+              </a>
+            )}
           </div>
         </div>
 

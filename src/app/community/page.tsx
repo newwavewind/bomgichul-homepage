@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getPosts } from "@/lib/posts";
-import { getPremiumBadgesForUsers } from "@/lib/badges";
 import { PostCard } from "@/components/board/PostCard";
 import { CategoryFilter } from "@/components/board/CategoryFilter";
 import { Pagination } from "@/components/board/Pagination";
@@ -78,7 +77,6 @@ export async function CommunityBoard({
   });
   const baseHref = communityBaseHref(scope);
   const boardTitle = communityTitle(scope);
-  const authorBadges = await getPremiumBadgesForUsers(posts.map((p) => p.author_id));
   const authorActivity = await getUserActivityScores(posts.map((p) => p.author_id));
 
   return (
@@ -144,7 +142,6 @@ export async function CommunityBoard({
                 title={post.title}
                 category={post.category}
                 authorName={post.profiles?.nickname ?? "익명"}
-                authorBadge={authorBadges[post.author_id]}
                 authorRank={authorActivity[post.author_id]?.rank}
                 viewCount={post.view_count}
                 commentCount={post.comment_count}

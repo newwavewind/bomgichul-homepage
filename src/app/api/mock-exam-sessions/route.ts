@@ -3,7 +3,6 @@ import { EXAM_SUBJECTS } from "@/lib/constants";
 import { saveMockExamSession } from "@/lib/mock-exam-sessions";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { getUser } from "@/lib/auth";
-import { isSubjectUnlocked } from "@/lib/premium";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -39,11 +38,6 @@ export async function POST(request: NextRequest) {
     elapsedSeconds < 0
   ) {
     return NextResponse.json({ error: "잘못된 요청이에요." }, { status: 400 });
-  }
-
-  const unlocked = await isSubjectUnlocked(user.id, subject);
-  if (!unlocked) {
-    return NextResponse.json({ error: "프리미엄 과목만 기록할 수 있어요." }, { status: 403 });
   }
 
   const session = await saveMockExamSession({

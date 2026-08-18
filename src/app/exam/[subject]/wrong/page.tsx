@@ -4,13 +4,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { RandomPracticeRunner } from "@/components/exam/RandomPracticeRunner";
-import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import { ROBOTS_NOINDEX } from "@/lib/seo";
 import { shuffleQuestions, type ExamSubject } from "@/lib/exam-questions";
 import { getWrongQuestionsForSubject } from "@/lib/attempts";
 import { getUser } from "@/lib/auth";
-import { isSubjectUnlocked } from "@/lib/premium";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -44,7 +42,6 @@ export default async function WrongPracticePage({ params }: WrongPracticePagePro
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const user = await getUser();
-  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const wrongQuestions = user ? await getWrongQuestionsForSubject(user.id, subject) : [];
   const questions = shuffleQuestions(wrongQuestions);
 
@@ -54,7 +51,7 @@ export default async function WrongPracticePage({ params }: WrongPracticePagePro
         <BackLink href={`/exam/${subject}`}>{label} 과목으로</BackLink>
 
         <div className="mb-8">
-          <EyebrowLabel className="mb-2">오답노트 · 프리미엄</EyebrowLabel>
+          <EyebrowLabel className="mb-2">오답노트</EyebrowLabel>
           <SectionHeading as="h1">{label} 오답노트 연습</SectionHeading>
           <p className="mt-3 max-w-2xl font-display text-body text-smoke">
             틀렸다고 표시한 문제만 모아 다시 풀어봅니다.
@@ -68,32 +65,23 @@ export default async function WrongPracticePage({ params }: WrongPracticePagePro
               로그인하기 →
             </Link>
           </div>
-        ) : unlocked ? (
-          questions.length === 0 ? (
-            <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-8 text-center">
-              <p className="font-display text-body text-smoke">
-                {label}에서 틀렸다고 표시한 문제가 없어요.
-              </p>
-              <Link
-                href={`/exam/${subject}/random`}
-                className="mt-4 inline-block font-display text-body-sm font-medium text-electric-blue"
-              >
-                랜덤 문제 풀러 가기 →
-              </Link>
-            </div>
-          ) : (
-            <RandomPracticeRunner
-              subject={subject}
-              questions={questions}
-              userId={user.id}
-            />
-          )
+        ) : questions.length === 0 ? (
+          <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-8 text-center">
+            <p className="font-display text-body text-smoke">
+              {label}에서 틀렸다고 표시한 문제가 없어요.
+            </p>
+            <Link
+              href={`/exam/${subject}/random`}
+              className="mt-4 inline-block font-display text-body-sm font-medium text-electric-blue"
+            >
+              랜덤 문제 풀러 가기 →
+            </Link>
+          </div>
         ) : (
-          <PremiumFeatureLocked
+          <RandomPracticeRunner
             subject={subject}
-            subjectLabel={label}
-            featureLabel="오답노트 연습"
-            description="틀렸다고 표시한 문제만 골라 반복 연습하고, 전체 해설을 바로 확인할 수 있어요."
+            questions={questions}
+            userId={user.id}
           />
         )}
       </div>

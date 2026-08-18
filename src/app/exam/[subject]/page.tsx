@@ -17,8 +17,6 @@ import {
 import { getBookmarksForUser } from "@/lib/bookmarks";
 import { getNotesForSubject } from "@/lib/notes";
 import { getUser } from "@/lib/auth";
-import { isSubjectUnlocked } from "@/lib/premium";
-import { PremiumCodeRedeem } from "@/components/exam/PremiumCodeRedeem";
 import { ReviewPdfButton } from "@/components/exam/ReviewPdfButton";
 import { ExamSessionCard } from "@/components/exam/ExamSessionCard";
 import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
@@ -69,7 +67,6 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
   const subjectRound = SUBJECT_LANDING_INFO[subject].round;
   const years = getExamYears(subject);
   const user = await getUser();
-  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const [bookmarks, notes] = user
     ? await Promise.all([getBookmarksForUser(user.id), getNotesForSubject(user.id, subject)])
     : [[], []];
@@ -93,7 +90,6 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
             <ReviewPdfButton
               subject={subject}
               subjectLabel={label}
-              unlocked={unlocked}
               bookmarkCount={subjectBookmarkCount}
               noteCount={notes.length}
               toolbar
@@ -104,7 +100,7 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
               href={`/exam/${subject}/random`}
               className="rounded-2xl border border-mist bg-paper px-3 py-3 text-center font-display text-body-sm font-semibold text-ink hover:border-carbon"
             >
-              🎲 {unlocked ? "랜덤 문제" : "랜덤 문제"}
+              🎲 랜덤 문제
             </Link>
             <Link
               href={`/exam/${subject}/wrong`}
@@ -126,12 +122,6 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
             </Link>
           </div>
         </section>
-
-        {!freeEventActive && !unlocked && user && (
-          <div id="unlock" className="mb-8 scroll-mt-24 space-y-4">
-            <PremiumCodeRedeem subject={subject} userId={user?.id ?? null} unlocked={unlocked} />
-          </div>
-        )}
 
         <div className="max-w-2xl">
           <ExamSessionGroup title={subjectRound}>

@@ -39,7 +39,7 @@ function tocForScope(scope: CommunityScope) {
       ...base,
       { href: "#news", label: "6. 뉴스" },
       { href: "#account", label: "7. 로그인·프로필" },
-      { href: "#premium", label: "8. 무료·프리미엄" },
+      { href: "#premium", label: "8. 이용 범위" },
       { href: "#apps", label: "9. 앱·PC앱" },
     ];
   }
@@ -256,7 +256,7 @@ export function GuideContent({
             },
             {
               title: "랜덤 · 오답 · 복습",
-              body: "로그인·프리미엄이 필요한 연습 메뉴도 과목 페이지에 모여 있어요.",
+              body: "랜덤·오답·복습 같은 연습 메뉴도 과목 페이지에 모여 있어요.",
             },
           ].map((card) => (
             <FeatureCard key={card.title} tint="snow" className="!p-3.5">
@@ -392,7 +392,7 @@ export function GuideContent({
           id="premium"
           step="08"
           eyebrow="이용 범위"
-          title="무료로 되는 것과 프리미엄"
+          title="홈페이지는 전부 무료"
           visual={<PremiumVisual />}
           reverse
         >
@@ -400,32 +400,28 @@ export function GuideContent({
             <ElevatedCard className="!p-4">
               <Tag className="mb-2 !bg-electric-blue/10 !text-[11px]">무료</Tag>
               <ul className="space-y-1.5 font-display text-[13px] text-ink">
+                <li>· 6과목 기출 전 연도 해설</li>
                 <li>· 기출 올인원 개념</li>
-                <li>· 부동산학개론 기출 전 연도</li>
-                <li>· 다른 5과목 최근 2개년(2024–2025)</li>
-                <li>· 커뮤니티·자료실·뉴스 읽기</li>
+                <li>· 랜덤 · 오답 · 복습 · 시험 모드</li>
+                <li>· 북마크 · 복습 PDF</li>
+                <li>· 커뮤니티 · 자료실 · 뉴스</li>
               </ul>
             </ElevatedCard>
             <ElevatedCard className="!border-carbon !bg-carbon !p-4 text-paper">
               <Tag className="mb-2 !border-paper/30 !bg-paper/10 !text-[11px] !text-paper">
-                프리미엄
+                유료
               </Tag>
               <ul className="space-y-1.5 font-display text-[13px] text-paper/95">
-                <li>· 과거 연도 전체 해설·AI</li>
-                <li>· 랜덤 · 오답 · 복습 연습</li>
-                <li>· 연도/복습 PDF</li>
-                <li>· PC앱에서도 같은 권한</li>
+                <li>· PC앱(app.bomgichul.com)</li>
+                <li>· 모바일 앱</li>
               </ul>
             </ElevatedCard>
           </div>
           <p className="font-display text-body-sm">
-            프리미엄은 <strong className="text-ink">모바일 앱에서 과목별로 구매</strong>하고,
-            받은 코드를 홈페이지 해당 과목 기출 페이지 하단「코드 등록」에 넣으면 됩니다.
-            등록한 Google 계정으로 홈페이지와 PC앱이 함께 풀려요.
+            이 홈페이지는 <strong className="text-ink">모든 과목과 모든 기능이 무료</strong>입니다.
+            로그인만 하면 북마크·오답노트처럼 기록이 남는 기능까지 다 쓸 수 있어요.
+            과목을 구매해야 하는 것은 PC앱과 모바일 앱뿐입니다.
           </p>
-          <OutlineButton href="/exam/civillaw#unlock" className="!px-4 !py-2">
-            민법에서 코드 등록 위치 보기
-          </OutlineButton>
         </DocsSection>
       )}
 
@@ -471,8 +467,7 @@ export function GuideContent({
               <Tag className="mb-3 !text-[11px]">PC</Tag>
               <p className="font-display text-subheading font-semibold text-ink">PC앱</p>
               <p className="mt-2 font-display text-body-sm text-smoke">
-                큰 화면에서 학습할 때는 PC앱을 쓰세요. 홈페이지에서 등록한 프리미엄이 그대로
-                이어집니다.
+                큰 화면에서 학습할 때 쓰는 별도 앱입니다. 과목별로 구매해야 이용할 수 있어요.
               </p>
               <a
                 href={PC_APP_URL}

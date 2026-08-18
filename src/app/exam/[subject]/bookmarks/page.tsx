@@ -5,13 +5,11 @@ import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
 import { RandomPracticeRunner } from "@/components/exam/RandomPracticeRunner";
-import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import { ROBOTS_NOINDEX } from "@/lib/seo";
 import { shuffleQuestions, type ExamSubject } from "@/lib/exam-questions";
 import { getBookmarkedQuestionsForSubject } from "@/lib/bookmarks";
 import { getUser } from "@/lib/auth";
-import { isSubjectUnlocked } from "@/lib/premium";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -47,7 +45,6 @@ export default async function BookmarksPage({ params, searchParams }: BookmarksP
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const user = await getUser();
-  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
   const bookmarked = user ? await getBookmarkedQuestionsForSubject(user.id, subject) : [];
   const practiceMode = mode === "practice";
   const practiceQuestions = practiceMode ? shuffleQuestions(bookmarked) : [];
@@ -58,7 +55,7 @@ export default async function BookmarksPage({ params, searchParams }: BookmarksP
         <BackLink href={`/exam/${subject}`}>{label} 과목으로</BackLink>
 
         <div className="mb-8">
-          <EyebrowLabel className="mb-2">북마크 · 프리미엄</EyebrowLabel>
+          <EyebrowLabel className="mb-2">북마크</EyebrowLabel>
           <SectionHeading as="h1">{label} 북마크</SectionHeading>
           <p className="mt-3 max-w-2xl font-display text-body text-smoke">
             별표로 저장한 문제를 모아 보고, 다시 풀어볼 수 있어요.
@@ -75,20 +72,19 @@ export default async function BookmarksPage({ params, searchParams }: BookmarksP
               로그인하기 →
             </Link>
           </div>
-        ) : unlocked ? (
-          bookmarked.length === 0 ? (
-            <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-8 text-center">
-              <p className="font-display text-body text-smoke">
-                {label}에서 북마크한 문제가 없어요.
-              </p>
-              <Link
-                href={`/exam/${subject}`}
-                className="mt-4 inline-block font-display text-body-sm font-medium text-electric-blue"
-              >
-                기출 목록으로 →
-              </Link>
-            </div>
-          ) : practiceMode ? (
+        ) : bookmarked.length === 0 ? (
+          <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-8 text-center">
+            <p className="font-display text-body text-smoke">
+              {label}에서 북마크한 문제가 없어요.
+            </p>
+            <Link
+              href={`/exam/${subject}`}
+              className="mt-4 inline-block font-display text-body-sm font-medium text-electric-blue"
+            >
+              기출 목록으로 →
+            </Link>
+          </div>
+        ) : practiceMode ? (
             <>
               <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
                 <p className="font-display text-body-sm text-smoke">
@@ -138,14 +134,6 @@ export default async function BookmarksPage({ params, searchParams }: BookmarksP
                 ))}
               </ElevatedCard>
             </>
-          )
-        ) : (
-          <PremiumFeatureLocked
-            subject={subject}
-            subjectLabel={label}
-            featureLabel="북마크"
-            description="별표로 저장한 문제를 한곳에 모아 보고, 다시 풀어볼 수 있어요."
-          />
         )}
       </div>
     </div>

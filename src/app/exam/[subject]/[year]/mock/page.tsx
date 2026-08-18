@@ -2,13 +2,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { MockExamRunner } from "@/components/exam/MockExamRunner";
-import { PremiumFeatureLocked } from "@/components/exam/PremiumFeatureLocked";
 import { BackLink } from "@/components/ui/BackLink";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import { ROBOTS_NOINDEX } from "@/lib/seo";
 import { getExamQuestionsForYear, type ExamSubject } from "@/lib/exam-questions";
 import { getUser } from "@/lib/auth";
-import { isSubjectUnlocked } from "@/lib/premium";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -46,9 +44,6 @@ export default async function MockExamPage({ params }: MockExamPageProps) {
   if (questions.length === 0) notFound();
 
   const user = await getUser();
-  const unlocked = await isSubjectUnlocked(user?.id ?? null, subject);
-  const yearIsFree = questions[0]?.free ?? false;
-  const accessible = unlocked || yearIsFree;
 
   return (
     <div className="px-4 py-8 md:py-12">
@@ -56,9 +51,7 @@ export default async function MockExamPage({ params }: MockExamPageProps) {
         <BackLink href={`/exam/${subject}/${year}`}>{year}년 문항 목록으로</BackLink>
 
         <div className="mb-8">
-          <EyebrowLabel className="mb-2">
-            시험 모드{yearIsFree ? " · 무료" : " · 프리미엄"}
-          </EyebrowLabel>
+          <EyebrowLabel className="mb-2">시험 모드</EyebrowLabel>
           <SectionHeading as="h1">
             {year}년 {label} 시험 모드
           </SectionHeading>
@@ -67,22 +60,13 @@ export default async function MockExamPage({ params }: MockExamPageProps) {
           </p>
         </div>
 
-        {accessible ? (
-          <MockExamRunner
-            subject={subject}
-            year={year}
-            questions={questions}
-            userId={user?.id ?? null}
-            saveSession={unlocked}
-          />
-        ) : (
-          <PremiumFeatureLocked
-            subject={subject}
-            subjectLabel={label}
-            featureLabel="시험 모드"
-            description={`${year}년 ${questions.length}문항 전체를 시간 재며 풀고, 제출하면 한 번에 채점·해설까지 확인할 수 있어요.`}
-          />
-        )}
+        <MockExamRunner
+          subject={subject}
+          year={year}
+          questions={questions}
+          userId={user?.id ?? null}
+          saveSession
+        />
       </div>
     </div>
   );

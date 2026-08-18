@@ -1,5 +1,5 @@
 import type { CommunityScope } from "@/types/database";
-import { EXAM_SUBJECTS } from "@/lib/constants";
+import { EXAM_SUBJECTS, PC_APP_URL } from "@/lib/constants";
 import {
   archiveBaseHref,
   communityBaseHref,
@@ -37,6 +37,8 @@ export type NavSubject = {
 export type NavTool = {
   href: string;
   label: string;
+  /** 외부 사이트(PC앱 등) — 새 탭으로 연다 */
+  external?: boolean;
 };
 
 export type TrackNavContext = {
@@ -127,10 +129,15 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
 
 function toolsForScope(scope: CommunityScope): NavTool[] {
   const hub = trackHubHref(scope);
-  return [
+  const tools: NavTool[] = [
     { href: hub, label: "학습 홈" },
     { href: communityBaseHref(scope), label: "커뮤니티" },
   ];
+  // PC앱은 공인중개사만 있다. 다른 시험 화면이나 시험 선택 홈에서는 띄우지 않는다.
+  if (scope === "real_estate") {
+    tools.push({ href: PC_APP_URL, label: "PC앱", external: true });
+  }
+  return tools;
 }
 
 /** RE 전용 경로인지 (다른 시험 접두 없음) */

@@ -56,7 +56,7 @@ export async function FaqBoard({
           <p className="mt-4 font-display text-body text-smoke">
             {label} 학습 홈부터 기출 올인원, 기출문제, 커뮤니티까지 — 지금
             사이트에 있는 기능을 화면 순서대로 안내합니다.
-            {scope === "real_estate" ? " 뉴스·프리미엄 안내도 포함합니다." : ""}
+            {scope === "real_estate" ? " 뉴스와 이용 범위 안내도 포함합니다." : ""}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <PrimaryButton href={hub}>학습 홈 열기</PrimaryButton>

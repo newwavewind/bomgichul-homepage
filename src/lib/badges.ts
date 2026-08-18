@@ -23,7 +23,7 @@ function computeBadgeLabel(subjects: Set<ExamSubject>): string | null {
 }
 
 /**
- * 여러 사용자의 프리미엄 배지를 한 번에 조회한다 (커뮤니티 목록/상세용).
+ * 여러 사용자의 구매 인증 배지를 한 번에 조회한다 (현재는 프로필에서만 쓴다).
  * user_entitlements는 본인 것만 SELECT 가능한 RLS라, 다른 사용자의 배지를
  * 보여주려면 서비스 롤(admin client)로 조회해야 한다. 서비스 롤 키가 없으면
  * (로컬 개발 등) 조용히 빈 배지 목록을 반환한다 — 배지가 안 보일 뿐 페이지는
