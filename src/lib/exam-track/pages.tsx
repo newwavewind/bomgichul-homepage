@@ -186,6 +186,7 @@ export async function TrackConceptListPage({
             </section>
           ))}
         </div>
+        <SimpleAppInstallStrip scope={track.communityScope} />
       </div>
     </div>
   );
@@ -238,6 +239,7 @@ export async function TrackConceptDetailPage({
   const hrefFor = (exam: ExamTrackExam) => `${track.basePath}/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}`;
   const statements = buildTrackConceptStatements(slug, data.exams, linkedExams, hrefFor);
   return (
+    <>
     <TrackConceptDetailView
       subjectLabel={data.subject.label}
       listHref={listHref}
@@ -254,6 +256,12 @@ export async function TrackConceptDetailPage({
       authorRanks={authorRanks}
       statements={statements}
     />
+    <div className="px-4 pb-8">
+      <div className="mx-auto max-w-[var(--page-max-width)]">
+        <SimpleAppInstallStrip scope={track.communityScope} />
+      </div>
+    </div>
+    </>
   );
 }
 

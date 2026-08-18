@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPublicServiceSubject } from "@/lib/public-service-content";
 import { BackLink } from "@/components/ui/BackLink";
+import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { buildBreadcrumbJsonLd, buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 import "@/app/concepts/concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
@@ -50,6 +51,7 @@ export default async function PublicServiceConceptListPage({ params }: Props) {
           ))}</div>
         </section>
       ))}</div>
+        <SimpleAppInstallStrip scope="public_service" />
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
 import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
+import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { findTrackConceptsForExamQuestion } from "@/lib/exam-track/concept-matches";
 
 type Props = { params: Promise<{ subject: string; slug: string }> };
@@ -64,6 +65,7 @@ export default async function PublicServiceConceptDetailPage({ params }: Props) 
     .map(({ exam, item }, index) => ({ id: `${exam.id}:${item.key}:${index}`, text: item.text, answer: item.answer, explanation: item.explanation, sourceLabel: `${exam.year}년 ${exam.sourceCode} ${exam.questionNo}번`, href: hrefFor(exam) }));
 
   return (
+    <>
     <TrackConceptDetailView
       subjectLabel={data.subject.label}
       listHref={listHref}
@@ -80,5 +82,11 @@ export default async function PublicServiceConceptDetailPage({ params }: Props) 
       authorRanks={authorRanks}
       statements={statements}
     />
+    <div className="px-4 pb-8">
+      <div className="mx-auto max-w-[var(--page-max-width)]">
+        <SimpleAppInstallStrip scope="public_service" />
+      </div>
+    </div>
+    </>
   );
 }

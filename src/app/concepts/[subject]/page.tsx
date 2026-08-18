@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui/Typography";
 import { BackLink } from "@/components/ui/BackLink";
 import { ConceptPartList } from "@/components/concepts/ConceptPartList";
+import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import {
   EXAM_SUBJECTS,
   ARCHIVE_SUBJECT_MAP,
@@ -182,6 +183,7 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
           questionCounts={questionCounts}
           userId={user?.id ?? null}
         />
+        <SimpleAppInstallStrip scope="real_estate" />
       </div>
     </div>
   );

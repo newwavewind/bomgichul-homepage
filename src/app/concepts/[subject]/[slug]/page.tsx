@@ -22,6 +22,7 @@ import {
 import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
 import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
 import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
+import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, conceptSeoTitle, truncateDescription } from "@/lib/seo";
 import { getUser } from "@/lib/auth";
@@ -349,6 +350,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
             </span>
           )}
         </nav>
+        <SimpleAppInstallStrip scope="real_estate" />
       </div>
     </div>
   );
