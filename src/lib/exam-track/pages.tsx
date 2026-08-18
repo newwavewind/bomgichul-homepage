@@ -677,6 +677,7 @@ export async function TrackExamDetailPage({
             loginNext={detailPath}
           />
         </div>
+        <SimpleAppInstallStrip scope={track.communityScope} />
       </article>
     </div>
   );

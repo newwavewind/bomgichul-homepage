@@ -13,6 +13,7 @@ import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import { BackLink } from "@/components/ui/BackLink";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
+import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { getUser } from "@/lib/auth";
 import { getAttemptResult } from "@/lib/attempts";
 import { isQuestionBookmarked } from "@/lib/bookmarks";
@@ -207,6 +208,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
             loginNext={detailPath}
           />
         </div>
+        <SimpleAppInstallStrip scope="public_service" />
       </article>
     </div>
   );

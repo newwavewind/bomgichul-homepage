@@ -13,6 +13,7 @@ import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationD
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
+import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
   getAllExamParams,
@@ -277,6 +278,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
             loginNext={detailPath}
           />
         </div>
+        <SimpleAppInstallStrip scope="real_estate" />
       </article>
     </div>
   );
