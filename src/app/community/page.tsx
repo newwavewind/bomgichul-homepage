@@ -166,7 +166,7 @@ export async function CommunityBoard({
           className="mt-12 flex flex-col items-center gap-4 border-t border-mist pt-10 text-center"
         >
           <p className="font-display text-body-sm text-smoke">
-            앱에서 기출을 풀고, 막히면 AI 질문으로 이어 가세요.
+            앱에서 특별한 모든 기능을 이용하세요. 기출 학습의 모든 것
           </p>
           <AppStoreButtons
             className="justify-center"

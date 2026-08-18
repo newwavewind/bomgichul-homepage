@@ -4,7 +4,7 @@ import type { CommunityScope } from "@/types/database";
 
 export function SimpleAppInstallStrip({
   scope,
-  message = "앱에서 기출을 풀고, 막히면 AI 질문으로 이어 가세요.",
+  message = "앱에서 특별한 모든 기능을 이용하세요. 기출 학습의 모든 것",
 }: {
   scope: CommunityScope;
   message?: string;
