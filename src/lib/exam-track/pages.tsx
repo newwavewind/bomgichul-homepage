@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ExamTrackQuestion } from "@/components/exam-track/ExamTrackQuestion";
+import { HistoryOxQuestion } from "@/components/history/HistoryOxQuestion";
 import { TrackConceptDetailView } from "@/components/exam-track/TrackConceptDetailView";
 import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
 import { TrackLearningTools } from "@/components/exam-track/TrackLearningTools";
@@ -623,16 +624,22 @@ export async function TrackExamDetailPage({
             </>
           ) : (
             <>
-              <ExamTrackQuestion
-                exam={exam}
-                passageLead={passageLead}
-                passageLabel={passageLabel}
-                subjectLabel={data.subject.label}
-                userId={user?.id ?? null}
-                storageSubject={storageSubject}
-                revealSubject={storageSubject}
-                initialAttemptResult={initialAttemptResult}
-              />
+              {/* 한국사는 선지마다 O/X 를 매겨 한 번에 채점한다 — 이 시험만의 방식이라
+                  다른 트랙의 문항 화면은 그대로 둔다. */}
+              {track.id === "history" ? (
+                <HistoryOxQuestion exam={exam} />
+              ) : (
+                <ExamTrackQuestion
+                  exam={exam}
+                  passageLead={passageLead}
+                  passageLabel={passageLabel}
+                  subjectLabel={data.subject.label}
+                  userId={user?.id ?? null}
+                  storageSubject={storageSubject}
+                  revealSubject={storageSubject}
+                  initialAttemptResult={initialAttemptResult}
+                />
+              )}
               {hasExamQuestionSeoExplanations(seoQuestion) ? <ExamSeoExplanationDetails
                 subject={storageSubject}
                 year={exam.year}

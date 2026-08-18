@@ -28,6 +28,10 @@ const HUB_COPY: Record<
     allInOne: ["인간행동과 사회환경", "사회복지조사론", "사회복지실천론", "사회복지정책론"],
     exam: ["인간행동과 사회환경", "사회복지조사론"],
   },
+  history: {
+    allInOne: ["한국사 심화"],
+    exam: ["한국사 심화"],
+  },
 };
 
 const CONCEPT_COPY: Record<
@@ -39,6 +43,7 @@ const CONCEPT_COPY: Record<
   police: { crumb: "경찰 · 헌법 · 기본권", title: "기본권의 제한" },
   housing: { crumb: "회계원리 · 재무제표", title: "대차대조표의 구조" },
   social_worker: { crumb: "인간행동 · 발달", title: "인간발달의 원리" },
+  history: { crumb: "한국사 심화 · 고려", title: "무신정변과 최씨 정권" },
 };
 
 const EXAM_COPY: Record<
@@ -64,6 +69,10 @@ const EXAM_COPY: Record<
   social_worker: {
     subject: "인간행동과 사회환경",
     stem: "다음 중 인간발달에 관한 설명으로 옳은 것은?",
+  },
+  history: {
+    subject: "한국사 심화",
+    stem: "(가) 시대의 생활 모습으로 가장 적절한 것은?",
   },
 };
 
@@ -106,6 +115,13 @@ const COMMUNITY_COPY: Record<
       { title: "사회복지법제 핵심 요약 공유", meta: "수험정보 · 댓글 8" },
     ],
   },
+  history: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "고려 무신정권 순서가 자꾸 헷갈려요", meta: "질문 · 댓글 6" },
+      { title: "80회 심화 대비 연표 정리 공유", meta: "수험정보 · 댓글 11" },
+    ],
+  },
 };
 
 const ARCHIVE_COPY: Record<
@@ -137,6 +153,11 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "인간행동 발달이론 요약", size: "690KB" },
     { type: "요약", name: "사회복지법제 체크", size: "440KB" },
   ],
+  history: [
+    { type: "PDF", name: "한국사 심화 75~79회 기출", size: "3.1MB" },
+    { type: "노트", name: "시대별 핵심 연표", size: "820KB" },
+    { type: "요약", name: "왕조별 정책 비교", size: "510KB" },
+  ],
 };
 
 const DIARY_COPY: Record<VisualScope, string> = {
@@ -145,6 +166,7 @@ const DIARY_COPY: Record<VisualScope, string> = {
   police: "헌법 기본권 제한 정리",
   housing: "회계 분개 연습 정리",
   social_worker: "인간발달 이론 비교 정리",
+  history: "고려 무신정권 연표 정리",
 };
 
 function PhoneFrame({

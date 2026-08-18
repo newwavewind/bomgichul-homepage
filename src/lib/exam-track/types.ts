@@ -38,12 +38,46 @@ export interface ExamTrackExamBlank {
   type?: string;
 }
 
+/**
+ * 한국사능력검정의 「핵심 개념」 카드.
+ *
+ * 문항마다 한 장씩 붙는 독립 카드다. 다른 시험의 개념(ExamTrackConcept)이 단원 단위로
+ * 따로 존재하는 것과 달리, 이쪽은 그 문항이 묻는 것을 그 자리에서 풀어 준다.
+ * 블록 유형은 앱과 같다 — p(문단) · stack(카드) · timeline(연표) · compare(대조) · callout(강조).
+ * 표(table)는 모바일에서 읽기 어려워 앱에서 이미 걷어냈으므로 여기에도 없다.
+ */
+export type HistoryConceptBlock =
+  | { 유형: "p"; 글: string }
+  | { 유형: "callout"; 글: string }
+  | { 유형: "timeline"; 사건: { 때: string; 일: string }[] }
+  | { 유형: "compare"; 묶음: { 이름: string; 항목: string[] }[] }
+  | { 유형: "stack"; 카드: { 이름: string; 행: { 라벨: string; 값: string }[] }[] };
+
+export interface HistoryConceptNote {
+  제목: string;
+  블록: HistoryConceptBlock[];
+}
+
+/** 문항에 딸린 자료 이미지 (한국사 사료·지도·사진) */
+export interface ExamTrackMaterial {
+  image: string;
+  width?: number;
+  height?: number;
+}
+
 export interface ExamTrackExam {
   id: string;
   year: number;
   sourceCode: string;
   source?: string;
   questionNo: number;
+  /** 한국사 — 문항 자료 이미지 */
+  material?: ExamTrackMaterial;
+  /** 한국사 — 문항별 핵심 개념 카드 */
+  concept?: HistoryConceptNote;
+  /** 한국사 — 회차·배점 */
+  round?: number;
+  points?: number;
   /** 주택관리사 2차는 객관식(objective)과 단답형 주관식(subjective)이 한 회차에 섞여 있다. */
   kind?: "objective" | "subjective";
   /** 주관식 전용 — 객관식의 stem/items 자리를 대신한다 */
@@ -85,14 +119,14 @@ export interface ExamTrackManifestItem {
 }
 
 export interface ExamTrackConfig {
-  id: "police" | "housing" | "social_worker";
+  id: "police" | "housing" | "social_worker" | "history";
   label: string;
   shortLabel: string;
   basePath: string;
   eyebrow: string;
   hubTitle: string;
   hubDescription: string;
-  communityScope: "police" | "housing" | "social_worker";
+  communityScope: "police" | "housing" | "social_worker" | "history";
   communityTitle: string;
   sessionEyebrow: string;
   educationalLevel: string;

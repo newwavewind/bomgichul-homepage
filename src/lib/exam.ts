@@ -42,6 +42,15 @@ const TRACK_EXAM_SCHEDULE: Record<
     note: "다음 회차 일정은 한국산업인력공단 Q-Net 공고를 확인하세요",
     examName: "사회복지사 1급 국가시험",
   },
+  // 국사편찬위원회 공고(historyexam.go.kr) 기준. 한국사는 한 해에 여러 번 치르므로
+  // 회차가 지나면 다음 회차 날짜로 직접 갱신해야 한다 — 연 단위로 미는 자동 보정과는 맞지 않는다.
+  history: {
+    label: "2026년 제80회 한국사능력검정",
+    examDate: "2026-10-17",
+    registrationStart: "2026-09-15",
+    note: "다음 회차 일정은 국사편찬위원회 공고를 확인하세요",
+    examName: "한국사능력검정시험",
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

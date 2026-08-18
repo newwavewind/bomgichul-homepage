@@ -48,11 +48,28 @@ export const SOCIAL_WORKER_TRACK: ExamTrackConfig = {
   aboutName: "사회복지사 1급 국가시험",
 };
 
-export const EXAM_TRACKS = [POLICE_TRACK, HOUSING_TRACK, SOCIAL_WORKER_TRACK] as const;
+export const HISTORY_TRACK: ExamTrackConfig = {
+  id: "history",
+  label: "한국사능력검정",
+  shortLabel: "한국사",
+  basePath: "/history",
+  eyebrow: "봄기출 · 한국사능력검정",
+  hubTitle: "한국사능력검정 기출 학습의 모든 것",
+  hubDescription:
+    "심화 최근 5회차 250문항을 선지마다 해설과 함께 봅니다. 문항마다 그 시대를 통째로 정리한 핵심 개념 카드가 붙어 있어, 문제를 풀고 바로 개념을 굳힐 수 있습니다.",
+  communityScope: "history",
+  communityTitle: "한국사능력검정 수험생 커뮤니티",
+  sessionEyebrow: "한국사능력검정 심화 기출",
+  educationalLevel: "한국사능력검정시험 심화",
+  aboutName: "한국사능력검정시험 심화",
+};
+
+export const EXAM_TRACKS = [POLICE_TRACK, HOUSING_TRACK, SOCIAL_WORKER_TRACK, HISTORY_TRACK] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/police")) return POLICE_TRACK;
   if (pathname.startsWith("/housing")) return HOUSING_TRACK;
   if (pathname.startsWith("/social-worker")) return SOCIAL_WORKER_TRACK;
+  if (pathname.startsWith("/history")) return HISTORY_TRACK;
   return null;
 }

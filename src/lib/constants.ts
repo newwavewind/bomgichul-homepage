@@ -13,7 +13,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·주택관리사·사회복지사 1급 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
@@ -40,11 +40,12 @@ export type AppStoreLinks = {
  * Google Play 는 스토어 페이지 응답으로 확인).
  *   · App Store — 5개 전부 출시
  *   · Google Play — 공인중개사·공무원만 출시. 경찰·주택관리사·사회복지사는 404.
+ *   · 한국사 — 아직 앱 자체가 스토어에 없다.
  * 없는 곳을 링크로 걸면 사용자가 눌렀을 때 「찾을 수 없는 페이지」로 떨어지므로
  * null 로 두어 「출시 예정」이 보이게 한다. 스토어에 올라가면 여기만 채우면 된다.
  */
 export function appStoreLinksForScope(
-  scope: "real_estate" | "public_service" | "police" | "housing" | "social_worker",
+  scope: "real_estate" | "public_service" | "police" | "housing" | "social_worker" | "history",
 ): AppStoreLinks {
   switch (scope) {
     case "police":
@@ -68,6 +69,9 @@ export function appStoreLinksForScope(
         android: null,
         ios: "https://apps.apple.com/kr/app/id6801141200",
       };
+    // 한국사 앱은 아직 어느 스토어에도 없다(2026-08-19 확인). 출시하면 여기만 채우면 된다.
+    case "history":
+      return { android: null, ios: null };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };
   }

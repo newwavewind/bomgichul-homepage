@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ExamTrackSubjectBrowser } from "@/components/exam-track/ExamTrackSubjectBrowser";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { appStoreLinksForScope } from "@/lib/constants";
@@ -14,6 +15,31 @@ export function ExamTrackHub({
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
         <h1 className="font-display text-heading font-semibold text-ink">{track.label} 기출문제</h1>
+
+        {/* 핵심 개념 모아보기는 한국사에만 있다 — 문항마다 개념 카드가 붙는 시험이라
+            그것만 이어 읽으면 개념서가 되기 때문이다. */}
+        {track.id === "history" ? (
+          <Link
+            href="/history/concepts"
+            className="flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-lavender px-5 py-4 transition-colors hover:bg-lavender/70 md:px-6"
+          >
+            <span>
+              <span className="block font-display text-[12px] font-semibold tracking-[0.05em] text-ios-blue">
+                한국사 전용
+              </span>
+              <span className="mt-1 block font-display text-subheading font-semibold text-ink">
+                핵심 개념 모아보기
+              </span>
+              <span className="mt-1 block font-display text-body-sm text-smoke">
+                문항마다 붙는 개념 카드 250장을 회차·시대별로 골라 이어 읽어요.
+              </span>
+            </span>
+            <span className="shrink-0 rounded-full border border-carbon bg-paper px-4 py-2 font-display text-body-sm font-semibold text-ink">
+              열기 →
+            </span>
+          </Link>
+        ) : null}
+
         <ExamTrackSubjectBrowser track={track} subjects={subjects} />
 
         <section className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-carbon px-6 py-8 text-paper md:px-9">

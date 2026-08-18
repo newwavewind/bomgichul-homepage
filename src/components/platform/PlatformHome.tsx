@@ -46,6 +46,15 @@ const exams = [
     accent: "from-[#fff0f5] to-[#fff8fb]",
     cta: "사회복지사 학습 시작",
   },
+  {
+    href: "/history",
+    eyebrow: "국가공인 · 심화",
+    title: "한국사능력검정",
+    description: "문항마다 그 시대를 통째로 정리한 핵심 개념 카드가 함께 붙습니다.",
+    meta: "심화 · 75~79회 · 250문항",
+    accent: "from-[#f0f7ff] to-[#f8fbff]",
+    cta: "한국사 학습 시작",
+  },
 ] as const;
 
 export function PlatformHome() {
@@ -53,9 +62,9 @@ export function PlatformHome() {
     <div className="relative overflow-hidden px-4 py-10 md:py-16">
       <div className="pointer-events-none absolute left-1/2 top-0 h-[28rem] w-[68rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(15,118,110,0.09),transparent_65%)]" />
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
-        <h1 className="sr-only">공무원·공인중개사·경찰·주택관리사·사회복지사 1급 기출 학습</h1>
+        <h1 className="sr-only">공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정 기출 학습</h1>
         <p className="sr-only">
-          9급 공무원, 공인중개사, 경찰공무원, 주택관리사, 사회복지사 1급 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
+          9급 공무원, 공인중개사, 경찰공무원, 주택관리사, 사회복지사 1급, 한국사능력검정 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
         </p>
 
         <section className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
