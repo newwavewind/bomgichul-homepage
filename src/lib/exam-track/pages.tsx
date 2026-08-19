@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ExamTrackQuestion } from "@/components/exam-track/ExamTrackQuestion";
-import { HistoryOxQuestion } from "@/components/history/HistoryOxQuestion";
 import { EnglishPassageNotes } from "@/components/english/EnglishPassageNotes";
+import { ExamMaterialFigure } from "@/components/exam/ExamMaterialFigure";
+import { HistoryConceptNote } from "@/components/history/HistoryConceptNote";
 import { TrackConceptDetailView } from "@/components/exam-track/TrackConceptDetailView";
 import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
 import { TrackLearningTools } from "@/components/exam-track/TrackLearningTools";
@@ -629,25 +630,32 @@ export async function TrackExamDetailPage({
             </>
           ) : (
             <>
-              {/* 한국사는 선지마다 O/X 를 매겨 한 번에 채점한다 — 이 시험만의 방식이라
-                  다른 트랙의 문항 화면은 그대로 둔다. */}
-              {track.id === "history" ? (
-                <HistoryOxQuestion exam={exam} />
-              ) : (
-                <ExamTrackQuestion
-                  exam={exam}
-                  passageLead={passageLead}
-                  passageLabel={passageLabel}
-                  subjectLabel={data.subject.label}
-                  userId={user?.id ?? null}
-                  storageSubject={storageSubject}
-                  revealSubject={storageSubject}
-                  initialAttemptResult={initialAttemptResult}
-                />
-              )}
+              {/* 자료 그림 — 한국사는 「밑줄 그은 (가) 시대」처럼 이것을 봐야만
+                  풀리는 문항이 대부분이다. 예전에는 한국사 전용 화면 안에서만
+                  그렸는데, 그 화면을 걷어낼 때 그림까지 함께 사라졌다. */}
+              <ExamMaterialFigure material={exam.material} questionNo={exam.questionNo} />
+              {/* 전 과목이 같은 방식으로 푼다 — 하나를 고르고 「정답 확인」.
+                  한국사만 선지마다 O/X 를 매기게 해 두었는데, 앱을 열어 재어
+                  보니 앱도 그렇게 하지 않았다. 한 번 고르면 될 것을 다섯 번
+                  눌러야 해서 불편하기만 했다. */}
+              <ExamTrackQuestion
+                exam={exam}
+                passageLead={passageLead}
+                passageLabel={passageLabel}
+                subjectLabel={data.subject.label}
+                userId={user?.id ?? null}
+                storageSubject={storageSubject}
+                revealSubject={storageSubject}
+                initialAttemptResult={initialAttemptResult}
+              />
               {/* 영어는 선지 해설만으로 끝나지 않는다 — 지문 해석과 그 문항에서
                   챙길 어휘를 같은 자리에 붙인다. 다른 트랙에는 이 자료가 없다. */}
               {track.id === "english" ? <EnglishPassageNotes exam={exam} /> : null}
+              {/* 한국사의 핵심 개념 카드 — 선지 해설이 「왜 이 선지가 참·거짓인가」를
+                  답한다면, 이 카드는 「이 문항을 풀려면 무엇을 알아야 했는가」를
+                  답한다. 늘 펼쳐 두고 서버에서 그린다 — 채점해야만 나오게 하면
+                  크롤러가 이 본문을 영영 못 읽는다. */}
+              {exam.concept ? <HistoryConceptNote concept={exam.concept} /> : null}
               {hasExamQuestionSeoExplanations(seoQuestion) ? <ExamSeoExplanationDetails
                 subject={storageSubject}
                 year={exam.year}

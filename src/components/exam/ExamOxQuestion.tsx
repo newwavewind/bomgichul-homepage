@@ -52,18 +52,24 @@ export function ExamOxQuestion({
   const isCorrect =
     selected !== null && correctChoice !== undefined && selected === correctChoice;
 
-  const toggleReveal = () => {
-    const next = !revealed;
-    setRevealed(next);
-    if (next && selected !== null && correctChoice !== undefined) {
+  /**
+   * 채점은 한 번뿐이고 되돌리지 않는다.
+   *
+   * 예전에는 같은 단추가 「정답 확인 ↔ 해설 접기」로 오갔는데, 접을 이유가
+   * 없다 — 답을 본 뒤에 다시 가리면 이미 본 것이 안 보이게 될 뿐이고, 그
+   * 상태에서 할 수 있는 일도 없다. 앱에도 그 단추는 없다.
+   */
+  const reveal = () => {
+    if (revealed) return;
+    setRevealed(true);
+    if (selected !== null && correctChoice !== undefined) {
       void onAttempt?.(selected === correctChoice ? "correct" : "wrong");
     }
-    // 아래 해설 details 를 같은 버튼으로 여닫는다 — 열 때만 알리면 「해설 접기」를
-    // 눌러도 해설이 남아 버린다.
+    // 아래 해설 details 를 함께 연다
     if (revealEvent) {
       window.dispatchEvent(
         new CustomEvent("exam:answer_revealed", {
-          detail: { ...revealEvent, open: next },
+          detail: { ...revealEvent, open: true },
         })
       );
     }
@@ -141,16 +147,31 @@ export function ExamOxQuestion({
           {items.map((item, index) => {
             const choice = Number(item.key || index + 1);
             const selectedItem = selected === choice;
+            // 채점 뒤에는 고른 자리와 정답만 남기고 나머지는 물러선다.
+            // 앱이 하던 것이다 — 다섯 줄이 같은 무게로 남아 있으면 어디를
+            // 봐야 하는지 눈이 다시 헤맨다.
+            const muted = revealed && !selectedItem && choice !== correctChoice;
+            const isAnswer = revealed && choice === correctChoice;
             return (
               <button
                 key={`${examId}-${item.key}`}
                 type="button"
-                onClick={() => !revealed && setSelected(choice)}
+                // 고른 번호를 한 번 더 누르면 바로 채점한다 — 아래 단추까지
+                // 손을 내리지 않아도 되게 앱이 두었던 길이다.
+                onClick={() => {
+                  if (revealed) return;
+                  if (selectedItem) reveal();
+                  else setSelected(choice);
+                }}
                 className={`w-full rounded-2xl border px-4 py-4 text-left transition-colors ${
-                  selectedItem
-                    ? "border-carbon bg-snow"
-                    : "border-mist bg-paper hover:border-ash"
-                }`}
+                  isAnswer
+                    ? "border-[#6366f1] bg-[#6366f1]/[0.06]"
+                    : selectedItem
+                      ? revealed
+                        ? "border-[#ef4444] bg-[#ef4444]/[0.05]"
+                        : "border-carbon bg-snow study-pick-tap-again"
+                      : "border-mist bg-paper hover:border-ash"
+                } ${muted ? "opacity-45" : ""}`}
               >
                 <div className="flex gap-3">
                   <span className="font-display font-semibold text-ink">
@@ -175,14 +196,24 @@ export function ExamOxQuestion({
         </div>
       )}
 
-      <button
-        type="button"
-        disabled={selected === null && !revealed}
-        onClick={toggleReveal}
-        className="w-full rounded-2xl bg-carbon px-5 py-4 font-display text-body-sm font-semibold text-paper disabled:cursor-not-allowed disabled:opacity-35"
-      >
-        {revealed ? "해설 접기" : "정답·해설 보기"}
-      </button>
+      {/* 고른 뒤 한 번 더 누르면 채점된다는 것을 알린다. 알리지 않으면
+          아무도 두 번 누르지 않는다 — 앱이 선지 아래에 두던 안내다. */}
+      {/* 채점 전에만 남는다 — 채점하고 나면 안내도 단추도 할 일이 없다 */}
+      {!revealed ? (
+        <>
+          <p className="text-center font-system text-[13px] text-fog">
+            번호를 고른 뒤 한 번 더 누르거나 아래 「정답 확인」을 누르세요
+          </p>
+          <button
+            type="button"
+            disabled={selected === null}
+            onClick={reveal}
+            className="w-full rounded-2xl bg-carbon px-5 py-4 font-display text-body-sm font-semibold text-paper disabled:cursor-not-allowed disabled:opacity-35"
+          >
+            정답 확인
+          </button>
+        </>
+      ) : null}
 
       {revealed ? (
         <div className="space-y-4">
