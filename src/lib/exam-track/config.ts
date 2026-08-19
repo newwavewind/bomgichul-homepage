@@ -64,12 +64,40 @@ export const HISTORY_TRACK: ExamTrackConfig = {
   aboutName: "한국사능력검정시험 심화",
 };
 
-export const EXAM_TRACKS = [POLICE_TRACK, HOUSING_TRACK, SOCIAL_WORKER_TRACK, HISTORY_TRACK] as const;
+/*
+ * 9급 영어는 공무원 트랙 안의 한 과목으로 넣을 수도 있었다(그 트랙은 이미
+ * 2017~2026년 국가직·지방직 구조를 똑같이 쓴다). 별도 트랙으로 세운 것은
+ * 앱이 「봄기출 공무원영어」라는 독립 상품으로 나가 있기 때문이다.
+ */
+export const ENGLISH_TRACK: ExamTrackConfig = {
+  id: "english",
+  label: "공무원 영어",
+  shortLabel: "영어",
+  basePath: "/english",
+  eyebrow: "봄기출 · 공무원 영어",
+  hubTitle: "9급 공무원 영어 기출 학습의 모든 것",
+  hubDescription:
+    "국가직·지방직 9급 영어 기출을 2017년부터 2026년까지, 20회차 400문항 담았습니다. 선지마다 왜 맞고 틀리는지 적었고, 지문 해석과 그 문항에서 챙길 어휘를 함께 봅니다.",
+  communityScope: "english",
+  communityTitle: "공무원 영어 수험생 커뮤니티",
+  sessionEyebrow: "9급 공무원 영어 기출",
+  educationalLevel: "9급 공무원 공개경쟁채용시험 영어",
+  aboutName: "9급 공무원 공개경쟁채용시험 영어",
+};
+
+export const EXAM_TRACKS = [
+  POLICE_TRACK,
+  HOUSING_TRACK,
+  SOCIAL_WORKER_TRACK,
+  HISTORY_TRACK,
+  ENGLISH_TRACK,
+] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/police")) return POLICE_TRACK;
   if (pathname.startsWith("/housing")) return HOUSING_TRACK;
   if (pathname.startsWith("/social-worker")) return SOCIAL_WORKER_TRACK;
   if (pathname.startsWith("/history")) return HISTORY_TRACK;
+  if (pathname.startsWith("/english")) return ENGLISH_TRACK;
   return null;
 }

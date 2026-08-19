@@ -29,6 +29,8 @@ export interface ExamTrackExamItem {
   answer?: "O" | "X" | string;
   explanation?: string;
   taxonomy_unit_id?: string;
+  /** 공무원 영어 — 그 선지 낱말의 뜻 */
+  translation?: string;
 }
 
 /** 주관식(단답형) 문항의 빈칸 하나 — 지문의 ( ㄱ ) 자리와 그 정답 */
@@ -96,6 +98,27 @@ export interface ExamTrackExam {
   explanationSummary?: string;
   items: ExamTrackExamItem[];
   comboChoices?: unknown[];
+  /**
+   * 공무원 영어 전용 — 지문 해석과 그 문항에서 챙길 어휘.
+   *
+   * 영어 기출에서 이 둘은 곁다리가 아니다. 선지 해설만 읽으면 「왜 답이
+   * 이건지」는 알아도 지문이 무슨 말이었는지는 끝내 모른 채 넘어간다.
+   */
+  translation?: string;
+  vocab?: ExamTrackVocabEntry[];
+  /** 안내문·도표처럼 글이 아닌 지문을 글로 옮겨 둔 것 */
+  passageText?: string;
+}
+
+/** 공무원 영어 — 문항에 딸린 어휘 한 항목 */
+export interface ExamTrackVocabEntry {
+  term: string;
+  meaning: string;
+  level?: string;
+  kind?: string;
+  otherMeanings?: string;
+  example?: string;
+  exampleTranslation?: string;
 }
 
 export interface ExamTrackSubjectContent {
@@ -119,14 +142,14 @@ export interface ExamTrackManifestItem {
 }
 
 export interface ExamTrackConfig {
-  id: "police" | "housing" | "social_worker" | "history";
+  id: "police" | "housing" | "social_worker" | "history" | "english";
   label: string;
   shortLabel: string;
   basePath: string;
   eyebrow: string;
   hubTitle: string;
   hubDescription: string;
-  communityScope: "police" | "housing" | "social_worker" | "history";
+  communityScope: "police" | "housing" | "social_worker" | "history" | "english";
   communityTitle: string;
   sessionEyebrow: string;
   educationalLevel: string;

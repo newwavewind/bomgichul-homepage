@@ -1,5 +1,5 @@
 import type { CommunityScope } from "@/types/database";
-import { HISTORY_TRACK, HOUSING_TRACK, POLICE_TRACK, SOCIAL_WORKER_TRACK } from "./config";
+import { ENGLISH_TRACK, HISTORY_TRACK, HOUSING_TRACK, POLICE_TRACK, SOCIAL_WORKER_TRACK } from "./config";
 
 export type { CommunityScope };
 
@@ -15,6 +15,8 @@ export function communityScopeLabel(scope: CommunityScope): string {
       return "사회복지사 1급";
     case "history":
       return "한국사능력검정";
+    case "english":
+      return "공무원 영어";
     default:
       return "공인중개사";
   }
@@ -32,6 +34,8 @@ export function trackHubHref(scope: CommunityScope): string {
       return SOCIAL_WORKER_TRACK.basePath;
     case "history":
       return HISTORY_TRACK.basePath;
+    case "english":
+      return ENGLISH_TRACK.basePath;
     default:
       return "/real-estate";
   }
@@ -49,6 +53,8 @@ export function communityBaseHref(scope: CommunityScope): string {
       return `${SOCIAL_WORKER_TRACK.basePath}/community`;
     case "history":
       return `${HISTORY_TRACK.basePath}/community`;
+    case "english":
+      return `${ENGLISH_TRACK.basePath}/community`;
     default:
       return "/community";
   }
@@ -66,6 +72,8 @@ export function archiveBaseHref(scope: CommunityScope): string {
       return `${SOCIAL_WORKER_TRACK.basePath}/archive`;
     case "history":
       return `${HISTORY_TRACK.basePath}/archive`;
+    case "english":
+      return `${ENGLISH_TRACK.basePath}/archive`;
     default:
       return "/archive";
   }
@@ -83,6 +91,8 @@ export function diaryBaseHref(scope: CommunityScope): string {
       return `${SOCIAL_WORKER_TRACK.basePath}/diary`;
     case "history":
       return `${HISTORY_TRACK.basePath}/diary`;
+    case "english":
+      return `${ENGLISH_TRACK.basePath}/diary`;
     default:
       return "/diary";
   }
@@ -100,6 +110,8 @@ export function faqBaseHref(scope: CommunityScope): string {
       return `${SOCIAL_WORKER_TRACK.basePath}/faq`;
     case "history":
       return `${HISTORY_TRACK.basePath}/faq`;
+    case "english":
+      return `${ENGLISH_TRACK.basePath}/faq`;
     default:
       return "/faq";
   }
@@ -117,6 +129,8 @@ export function communityTitle(scope: CommunityScope): string {
       return SOCIAL_WORKER_TRACK.communityTitle;
     case "history":
       return HISTORY_TRACK.communityTitle;
+    case "english":
+      return ENGLISH_TRACK.communityTitle;
     default:
       return "공인중개사 수험생 커뮤니티";
   }
@@ -134,6 +148,8 @@ export function archiveTitle(scope: CommunityScope): string {
       return "사회복지사 1급 자료실";
     case "history":
       return "한국사능력검정 자료실";
+    case "english":
+      return "공무원 영어 자료실";
     default:
       return "공인중개사 자료실";
   }
@@ -151,6 +167,8 @@ export function archiveEyebrow(scope: CommunityScope): string {
       return "사회복지사 1급 수험 자료 공유";
     case "history":
       return "한국사능력검정 수험 자료 공유";
+    case "english":
+      return "공무원 영어 수험 자료 공유";
     default:
       return "공인중개사 수험 자료 공유";
   }

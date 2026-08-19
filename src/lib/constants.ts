@@ -13,7 +13,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
@@ -45,7 +45,14 @@ export type AppStoreLinks = {
  * null 로 두어 「출시 예정」이 보이게 한다. 스토어에 올라가면 여기만 채우면 된다.
  */
 export function appStoreLinksForScope(
-  scope: "real_estate" | "public_service" | "police" | "housing" | "social_worker" | "history",
+  scope:
+    | "real_estate"
+    | "public_service"
+    | "police"
+    | "housing"
+    | "social_worker"
+    | "history"
+    | "english",
 ): AppStoreLinks {
   switch (scope) {
     case "police":
@@ -71,6 +78,10 @@ export function appStoreLinksForScope(
       };
     // 한국사 앱은 아직 어느 스토어에도 없다(2026-08-19 확인). 출시하면 여기만 채우면 된다.
     case "history":
+      return { android: null, ios: null };
+    // 공무원영어 앱은 App Store 심사 대기 중이고 Google Play 에는 아직 없다
+    // (2026-08-20 확인). 승인되면 여기에 링크만 채우면 된다.
+    case "english":
       return { android: null, ios: null };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };

@@ -51,6 +51,15 @@ const TRACK_EXAM_SCHEDULE: Record<
     note: "다음 회차 일정은 국사편찬위원회 공고를 확인하세요",
     examName: "한국사능력검정시험",
   },
+  // 영어는 9급 공채의 한 과목이라 일정이 public_service 와 같다. 그래도 값을
+  // 따로 적어 둔다 — 참조로 묶어 두면 한쪽 일정만 바뀔 때 조용히 어긋난다.
+  english: {
+    label: "2026년 국가직 9급",
+    examDate: "2026-04-04",
+    registrationStart: "2026-02-01",
+    note: "필기 일정은 인사혁신처·사이버국가고시센터 공고를 확인하세요",
+    examName: "공무원 공개경쟁채용시험",
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

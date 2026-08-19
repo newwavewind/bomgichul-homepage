@@ -32,6 +32,10 @@ const HUB_COPY: Record<
     allInOne: ["한국사 심화"],
     exam: ["한국사 심화"],
   },
+  english: {
+    allInOne: ["9급 영어"],
+    exam: ["9급 영어"],
+  },
 };
 
 const CONCEPT_COPY: Record<
@@ -44,6 +48,7 @@ const CONCEPT_COPY: Record<
   housing: { crumb: "회계원리 · 재무제표", title: "대차대조표의 구조" },
   social_worker: { crumb: "인간행동 · 발달", title: "인간발달의 원리" },
   history: { crumb: "한국사 심화 · 고려", title: "무신정변과 최씨 정권" },
+  english: { crumb: "9급 영어 · 문법", title: "주어–동사 수일치" },
 };
 
 const EXAM_COPY: Record<
@@ -73,6 +78,10 @@ const EXAM_COPY: Record<
   history: {
     subject: "한국사 심화",
     stem: "(가) 시대의 생활 모습으로 가장 적절한 것은?",
+  },
+  english: {
+    subject: "9급 영어",
+    stem: "밑줄 친 부분에 들어갈 말로 가장 적절한 것을 고르시오.",
   },
 };
 
@@ -122,6 +131,14 @@ const COMMUNITY_COPY: Record<
       { title: "80회 심화 대비 연표 정리 공유", meta: "수험정보 · 댓글 11" },
     ],
   },
+  english: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "독해 시간이 늘 모자랍니다", meta: "질문 · 댓글 9" },
+      { title: "2026 국가직 어휘 체감 난도", meta: "수험정보 · 댓글 14" },
+      { title: "생활영어 표현은 어떻게 외우세요?", meta: "질문 · 댓글 7" },
+    ],
+  },
 };
 
 const ARCHIVE_COPY: Record<
@@ -158,6 +175,11 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "시대별 핵심 연표", size: "820KB" },
     { type: "요약", name: "왕조별 정책 비교", size: "510KB" },
   ],
+  english: [
+    { type: "PDF", name: "9급 영어 2017~2026 기출", size: "4.2MB" },
+    { type: "노트", name: "기출 빈출 어휘 정리", size: "760KB" },
+    { type: "요약", name: "문법 포인트 한 장 정리", size: "480KB" },
+  ],
 };
 
 const DIARY_COPY: Record<VisualScope, string> = {
@@ -167,6 +189,7 @@ const DIARY_COPY: Record<VisualScope, string> = {
   housing: "회계 분개 연습 정리",
   social_worker: "인간발달 이론 비교 정리",
   history: "고려 무신정권 연표 정리",
+  english: "기출 빈출 어휘 정리",
 };
 
 function PhoneFrame({

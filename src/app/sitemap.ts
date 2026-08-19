@@ -8,6 +8,8 @@ import { PUBLIC_SERVICE_SUBJECT_IDS, getPublicServiceExamSessions, getPublicServ
 import { POLICE_SUBJECT_IDS, getPoliceExamSessions, getPoliceSubject } from "@/lib/police-content";
 import { HOUSING_SUBJECT_IDS, getHousingExamSessions, getHousingSubject } from "@/lib/housing-content";
 import { SOCIAL_WORKER_SUBJECT_IDS, getSocialWorkerExamSessions, getSocialWorkerSubject } from "@/lib/social-worker-content";
+import { ENGLISH_SUBJECT_IDS, getEnglishExamSessions, getEnglishSubject } from "@/lib/english-content";
+import { HISTORY_SUBJECT_IDS, getHistoryExamSessions, getHistorySubject } from "@/lib/history-content";
 import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 import { isRenderableExam } from "@/lib/exam-track/exam-render";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
@@ -48,6 +50,16 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     priority: 0.9,
   },
   {
+    url: `${SITE_URL}/history`,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: `${SITE_URL}/english`,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
     url: `${SITE_URL}/faq`,
     changeFrequency: "monthly",
     priority: 0.8,
@@ -79,6 +91,16 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
   },
   {
     url: `${SITE_URL}/social-worker/community`,
+    changeFrequency: "daily",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/history/community`,
+    changeFrequency: "daily",
+    priority: 0.8,
+  },
+  {
+    url: `${SITE_URL}/english/community`,
     changeFrequency: "daily",
     priority: 0.8,
   },
@@ -209,6 +231,14 @@ function getHousingUrls(): MetadataRoute.Sitemap {
   return getNamespacedTrackUrls("/housing", HOUSING_SUBJECT_IDS, getHousingSubject, getHousingExamSessions);
 }
 
+function getHistoryUrls(): MetadataRoute.Sitemap {
+  return getNamespacedTrackUrls("/history", HISTORY_SUBJECT_IDS, getHistorySubject, getHistoryExamSessions);
+}
+
+function getEnglishUrls(): MetadataRoute.Sitemap {
+  return getNamespacedTrackUrls("/english", ENGLISH_SUBJECT_IDS, getEnglishSubject, getEnglishExamSessions);
+}
+
 function getSocialWorkerUrls(): MetadataRoute.Sitemap {
   return getNamespacedTrackUrls(
     "/social-worker",
@@ -257,6 +287,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...getPoliceUrls(),
     ...getHousingUrls(),
     ...getSocialWorkerUrls(),
+    ...getHistoryUrls(),
+    ...getEnglishUrls(),
     ...contentUrls,
   ];
 }

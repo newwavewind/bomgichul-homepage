@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ExamTrackQuestion } from "@/components/exam-track/ExamTrackQuestion";
 import { HistoryOxQuestion } from "@/components/history/HistoryOxQuestion";
+import { EnglishPassageNotes } from "@/components/english/EnglishPassageNotes";
 import { TrackConceptDetailView } from "@/components/exam-track/TrackConceptDetailView";
 import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
 import { TrackLearningTools } from "@/components/exam-track/TrackLearningTools";
@@ -334,9 +335,13 @@ export async function TrackExamSubjectPage({
           <h1 className="font-display text-heading font-semibold text-ink">
             {track.label} {data.subject.label} 기출문제
           </h1>
-          <Link href={`${track.basePath}/concepts/${subjectId}`} className="mt-3 inline-flex items-center gap-1 font-display text-body-sm font-semibold text-ios-blue hover:underline">
-            {track.label} {data.subject.label} 기출 올인원 →
-          </Link>
+          {/* 개념을 실은 트랙에서만 내건다. 예전에는 무조건 걸려 있어서, 개념이
+              비어 있는 트랙(한국사·영어)에서는 눌러도 404 로 떨어졌다. */}
+          {data.concepts.length > 0 ? (
+            <Link href={`${track.basePath}/concepts/${subjectId}`} className="mt-3 inline-flex items-center gap-1 font-display text-body-sm font-semibold text-ios-blue hover:underline">
+              {track.label} {data.subject.label} 기출 올인원 →
+            </Link>
+          ) : null}
         </header>
         <TrackLearningTools
           scope={track.communityScope}
@@ -640,6 +645,9 @@ export async function TrackExamDetailPage({
                   initialAttemptResult={initialAttemptResult}
                 />
               )}
+              {/* 영어는 선지 해설만으로 끝나지 않는다 — 지문 해석과 그 문항에서
+                  챙길 어휘를 같은 자리에 붙인다. 다른 트랙에는 이 자료가 없다. */}
+              {track.id === "english" ? <EnglishPassageNotes exam={exam} /> : null}
               {hasExamQuestionSeoExplanations(seoQuestion) ? <ExamSeoExplanationDetails
                 subject={storageSubject}
                 year={exam.year}

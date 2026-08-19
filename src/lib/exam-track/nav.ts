@@ -87,6 +87,10 @@ const HISTORY_SUBJECTS: { id: string; label: string }[] = [
   { id: "simhwa", label: "심화" },
 ];
 
+const ENGLISH_SUBJECTS: { id: string; label: string }[] = [
+  { id: "gong9", label: "9급 영어" },
+];
+
 /** 헤더에 바로 보이는 공무원 주요 과목 (나머지는 학습 홈에서) */
 const PUBLIC_SERVICE_SUBJECTS: { id: string; label: string }[] = [
   { id: "hangjunghak", label: "행정학" },
@@ -125,7 +129,9 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
           ? SOCIAL_WORKER_SUBJECTS
           : scope === "history"
             ? HISTORY_SUBJECTS
-            : PUBLIC_SERVICE_SUBJECTS;
+            : scope === "english"
+              ? ENGLISH_SUBJECTS
+              : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -153,6 +159,7 @@ function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/housing")) return false;
   if (pathname.startsWith("/social-worker")) return false;
   if (pathname.startsWith("/history")) return false;
+  if (pathname.startsWith("/english")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -213,6 +220,17 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("history"),
       subjects: subjectsForScope("history"),
       tools: toolsForScope("history"),
+    };
+  }
+  if (path.startsWith("/english")) {
+    return {
+      mode: "track",
+      scope: "english",
+      label: communityScopeLabel("english"),
+      shortLabel: "영어",
+      hubHref: trackHubHref("english"),
+      subjects: subjectsForScope("english"),
+      tools: toolsForScope("english"),
     };
   }
   if (path.startsWith("/public-service")) {

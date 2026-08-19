@@ -57,6 +57,18 @@ const exams = [
     accent: "from-[#f0ffe5] to-[#f8fff2]",
     cta: "한국사 학습 시작",
   },
+  {
+    href: "/english",
+    eyebrow: "9급 공채 · 국가직 · 지방직",
+    title: "공무원 영어",
+    description: "선지마다 왜 맞고 틀리는지 적었고, 지문 해석과 챙길 어휘가 같은 화면에 붙습니다.",
+    meta: "9급 영어 · 2017~2026 · 400문항",
+    // 앞 여섯이 31°·95°·163°·206°·226°·340° 를 쓰고 있어, 일곱 번째는 60° 규칙을
+    // 지킬 수가 없다 — 가장 벌어진 틈이 226°~340° 인데 그 한가운데도 57° 다.
+    // 그래서 규칙을 지키는 대신 최소 간격이 가장 큰 자리(283°)를 골랐다.
+    accent: "from-[#f6f0ff] to-[#fbf8ff]",
+    cta: "공무원 영어 학습 시작",
+  },
 ] as const;
 
 export function PlatformHome() {
@@ -64,9 +76,9 @@ export function PlatformHome() {
     <div className="relative overflow-hidden px-4 py-10 md:py-16">
       <div className="pointer-events-none absolute left-1/2 top-0 h-[28rem] w-[68rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(15,118,110,0.09),transparent_65%)]" />
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
-        <h1 className="sr-only">공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정 기출 학습</h1>
+        <h1 className="sr-only">공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어 기출 학습</h1>
         <p className="sr-only">
-          9급 공무원, 공인중개사, 경찰공무원, 주택관리사, 사회복지사 1급, 한국사능력검정 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
+          9급 공무원, 공인중개사, 경찰공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
         </p>
 
         <section className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
