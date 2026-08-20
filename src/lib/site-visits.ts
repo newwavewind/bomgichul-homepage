@@ -136,7 +136,6 @@ export function kstDayBounds(dateKey: string): { start: string; end: string } {
 }
 
 export function addKstDays(dateKey: string, days: number): string {
-  const [y, m, d] = dateKey.split("-").map(Number);
   const date = new Date(`${dateKey}T12:00:00+09:00`);
   date.setDate(date.getDate() + days);
   return toKstDateKey(date);
@@ -175,6 +174,31 @@ function groupRowsByKstDate(rows: VisitAggregateRow[]): Map<string, VisitAggrega
     else map.set(key, [row]);
   }
   return map;
+}
+
+async function fetchVisitAggregateRows(
+  admin: ReturnType<typeof createAdminClient>,
+  start: string,
+  end: string
+): Promise<VisitAggregateRow[]> {
+  const pageSize = 1000;
+  const rows: VisitAggregateRow[] = [];
+
+  for (let offset = 0; ; offset += pageSize) {
+    const { data, error } = await admin
+      .from("site_visits")
+      .select("visitor_id, user_id, is_local, client_host, client_ip, created_at")
+      .gte("created_at", start)
+      .lt("created_at", end)
+      .order("created_at", { ascending: true })
+      .range(offset, offset + pageSize - 1);
+
+    if (error) throw error;
+
+    const batch = data ?? [];
+    rows.push(...batch);
+    if (batch.length < pageSize) return rows;
+  }
 }
 
 export async function recordSiteVisit(input: {
@@ -233,13 +257,9 @@ export async function getAdminVisitStatsForDate(
   if (!admin) return empty;
 
   const { start, end } = kstDayBounds(dateKey);
-  const { data } = await admin
-    .from("site_visits")
-    .select("visitor_id, user_id, is_local, client_host, client_ip, created_at")
-    .gte("created_at", start)
-    .lt("created_at", end);
+  const data = await fetchVisitAggregateRows(admin, start, end);
 
-  return aggregateDayStats(dateKey, data ?? [], options);
+  return aggregateDayStats(dateKey, data, options);
 }
 
 export async function getAdminDailyVisitTrend(
@@ -253,13 +273,9 @@ export async function getAdminDailyVisitTrend(
   const { start } = kstDayBounds(fromDateKey);
   const { end } = kstDayBounds(toDateKey);
 
-  const { data } = await admin
-    .from("site_visits")
-    .select("visitor_id, user_id, is_local, client_host, client_ip, created_at")
-    .gte("created_at", start)
-    .lt("created_at", end);
+  const data = await fetchVisitAggregateRows(admin, start, end);
 
-  const grouped = groupRowsByKstDate(data ?? []);
+  const grouped = groupRowsByKstDate(data);
   const points: DailyVisitTrendPoint[] = [];
   let cursor = fromDateKey;
 

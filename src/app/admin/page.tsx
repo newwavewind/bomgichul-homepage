@@ -1,17 +1,42 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { getAdminOverview, getAdminRecentSignups } from "@/lib/admin";
 import { getAdminVisitStats } from "@/lib/site-visits";
 import { AdminStatCard } from "@/components/admin/AdminUi";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
 import { formatKstDateTime } from "@/lib/datetime";
+import { Pagination } from "@/components/board/Pagination";
+import { AdminPageSizeSelect } from "@/components/admin/AdminPageSizeSelect";
 
-export default async function AdminDashboardPage() {
+const SIGNUPS_PER_PAGE = 30;
+
+export default async function AdminDashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string; size?: string }>;
+}) {
+  const params = await searchParams;
+  const showAll = params.size === "all";
+  const requestedPage = Number.parseInt(params.page ?? "1", 10);
+  const page = showAll
+    ? 1
+    : Number.isFinite(requestedPage) && requestedPage > 0
+      ? requestedPage
+      : 1;
+
   const [overview, signups, visitStats] = await Promise.all([
     getAdminOverview(),
-    getAdminRecentSignups(8),
+    getAdminRecentSignups(
+      showAll ? null : SIGNUPS_PER_PAGE,
+      showAll ? 0 : (page - 1) * SIGNUPS_PER_PAGE
+    ),
     getAdminVisitStats(),
   ]);
+  const totalPages = showAll
+    ? 1
+    : Math.max(1, Math.ceil(signups.total / SIGNUPS_PER_PAGE));
+  if (page > totalPages) redirect(`/admin?page=${totalPages}#signups`);
 
   return (
     <div className="space-y-10">
@@ -42,18 +67,26 @@ export default async function AdminDashboardPage() {
         </div>
       </section>
 
-      <section>
-        <SectionHeading as="h2" className="mb-4 text-subheading">
-          최근 가입
-        </SectionHeading>
+      <section id="signups" className="scroll-mt-24">
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+          <SectionHeading as="h2" className="text-subheading">
+            가입자 전체
+          </SectionHeading>
+          <div className="flex flex-wrap items-center justify-end gap-3">
+            <p className="font-display text-[12px] text-fog">
+              총 {signups.total}명 · 최신 가입순
+            </p>
+            <AdminPageSizeSelect value={showAll ? "all" : "30"} />
+          </div>
+        </div>
         <ElevatedCard className="overflow-hidden">
-          {signups.length === 0 ? (
+          {signups.rows.length === 0 ? (
             <p className="px-6 py-10 text-center font-display text-body-sm text-fog">
               가입 회원이 없습니다.
             </p>
           ) : (
             <ul className="divide-y divide-mist/60">
-              {signups.map((s, i) => (
+              {signups.rows.map((s, i) => (
                 <li
                   key={`${s.email}-${i}`}
                   className="flex flex-wrap items-center justify-between gap-2 px-6 py-4"
@@ -75,6 +108,12 @@ export default async function AdminDashboardPage() {
             </ul>
           )}
         </ElevatedCard>
+        <Pagination
+          currentPage={Math.min(page, totalPages)}
+          totalPages={totalPages}
+          baseHref="/admin"
+          anchor="signups"
+        />
       </section>
 
       <section className="rounded-[var(--radius-cards)] border border-dashed border-mist bg-surface px-5 py-4">

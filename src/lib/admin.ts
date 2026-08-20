@@ -1,6 +1,4 @@
-import { redirect } from "next/navigation";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { CATEGORY_MAP } from "@/lib/constants";
 import type { PostCategory } from "@/types/database";
 
@@ -27,31 +25,12 @@ export type AdminOverview = {
   premiumUsers: number;
 };
 
-function adminOrNull() {
-  if (!isSupabaseConfigured()) return null;
-  try {
-    return createAdminClient();
-  } catch {
-    return null;
-  }
+function getAdminClient() {
+  return createAdminClient();
 }
 
 export async function getAdminOverview(): Promise<AdminOverview> {
-  const empty: AdminOverview = {
-    totalUsers: 0,
-    usersWithUsername: 0,
-    totalPosts: 0,
-    postsLast7Days: 0,
-    openReports: 0,
-    publicMemos: 0,
-    dmMessages: 0,
-    mockExamSessions: 0,
-    dailyQuizUsers: 0,
-    premiumUsers: 0,
-  };
-
-  const admin = adminOrNull();
-  if (!admin) return empty;
+  const admin = getAdminClient();
 
   const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
 
@@ -106,8 +85,7 @@ export async function getAdminOverview(): Promise<AdminOverview> {
 }
 
 export async function getAdminUsers(limit = 100): Promise<AdminUserRow[]> {
-  const admin = adminOrNull();
-  if (!admin) return [];
+  const admin = getAdminClient();
 
   const [{ data: profiles }, { data: admins }, authList] = await Promise.all([
     admin.from("profiles").select("id, nickname, username_set, created_at").order("created_at", { ascending: false }).limit(limit),
@@ -159,8 +137,7 @@ export type AdminPublicMemoRow = {
 };
 
 export async function getAdminPublicMemos(limit = 100): Promise<AdminPublicMemoRow[]> {
-  const admin = adminOrNull();
-  if (!admin) return [];
+  const admin = getAdminClient();
 
   const { data } = await admin
     .from("question_public_memos")
@@ -188,8 +165,7 @@ export async function getAdminPosts(options: {
   category?: PostCategory | "reports";
   limit?: number;
 }): Promise<AdminPostRow[]> {
-  const admin = adminOrNull();
-  if (!admin) return [];
+  const admin = getAdminClient();
 
   let query = admin
     .from("posts")
@@ -232,8 +208,7 @@ export type AdminPremiumRow = {
 };
 
 export async function getAdminPremiumEntitlements(limit = 50): Promise<AdminPremiumRow[]> {
-  const admin = adminOrNull();
-  if (!admin) return [];
+  const admin = getAdminClient();
 
   const { data } = await admin
     .from("user_entitlements")
@@ -276,21 +251,97 @@ export type AdminRecentSignup = {
   usernameSet: boolean;
 };
 
-export async function getAdminRecentSignups(limit = 10): Promise<AdminRecentSignup[]> {
-  const rows = await getAdminUsers(limit);
-  return rows.map((r) => ({
-    nickname: r.nickname,
-    email: r.email,
-    createdAt: r.createdAt,
-    usernameSet: r.usernameSet,
-  }));
+export type AdminRecentSignupPage = {
+  rows: AdminRecentSignup[];
+  total: number;
+};
+
+export async function getAdminRecentSignups(
+  limit: number | null = 30,
+  offset = 0
+): Promise<AdminRecentSignupPage> {
+  const admin = getAdminClient();
+  const from = Math.max(0, offset);
+  const pageSize = 1000;
+
+  const fetchProfiles = async () => {
+    if (limit !== null) {
+      const { count, error: countError } = await admin
+        .from("profiles")
+        .select("id", { count: "exact", head: true });
+      if (countError) throw countError;
+
+      const total = count ?? 0;
+      if (total === 0) return { profiles: [], total };
+
+      const safeFrom = Math.min(from, total - 1);
+      const to = safeFrom + Math.max(1, limit) - 1;
+      const { data, error } = await admin
+        .from("profiles")
+        .select("id, nickname, username_set, created_at")
+        .order("created_at", { ascending: false })
+        .range(safeFrom, to);
+      if (error) throw error;
+      return { profiles: data ?? [], total };
+    }
+
+    const profiles = [];
+    let total = 0;
+    for (let batchFrom = 0; ; batchFrom += pageSize) {
+      const { data, count, error } = await admin
+        .from("profiles")
+        .select("id, nickname, username_set, created_at", { count: "exact" })
+        .order("created_at", { ascending: false })
+        .range(batchFrom, batchFrom + pageSize - 1);
+      if (error) throw error;
+      const batch = data ?? [];
+      profiles.push(...batch);
+      total = count ?? profiles.length;
+      if (batch.length < pageSize) return { profiles, total };
+    }
+  };
+
+  const fetchAuthUsers = async () => {
+    const users = [];
+    for (let authPage = 1; ; authPage += 1) {
+      const result = await admin.auth.admin.listUsers({
+        page: authPage,
+        perPage: pageSize,
+      });
+      if (result.error) throw result.error;
+      const batch = result.data?.users ?? [];
+      users.push(...batch);
+      if (batch.length < pageSize) return users;
+    }
+  };
+
+  const [{ profiles, total }, authUsers] = await Promise.all([
+    fetchProfiles(),
+    fetchAuthUsers(),
+  ]);
+
+  const authById = new Map(
+    authUsers.map((user) => [user.id, user.email ?? null])
+  );
+
+  return {
+    rows: (profiles ?? []).map((profile) => ({
+      nickname: profile.nickname,
+      email: authById.get(profile.id) ?? null,
+      createdAt: profile.created_at,
+      usernameSet: Boolean(profile.username_set),
+    })),
+    total,
+  };
 }
 
 export async function deleteAdminPost(
   postId: string
 ): Promise<{ ok: true } | { ok: false; error: string }> {
-  const admin = adminOrNull();
-  if (!admin) {
+  let admin;
+  try {
+    admin = getAdminClient();
+  } catch {
     return { ok: false, error: "Supabase가 설정되지 않았습니다." };
   }
 
