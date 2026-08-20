@@ -36,7 +36,7 @@ export function ExamQuestionJumpBar({
 
   return (
     <nav
-      className="mt-4 rounded-2xl border border-mist bg-[#F3F8FF]/95 px-2.5 py-2 shadow-[var(--shadow-button)] backdrop-blur-xl"
+      className="mt-4 rounded-2xl border border-mist bg-white px-2.5 py-2 shadow-[var(--shadow-subtle)]"
       aria-label="문항 바로가기"
     >
       <div className="mb-1.5 flex items-center justify-between gap-2 px-1">
@@ -62,7 +62,7 @@ export function ExamQuestionJumpBar({
               role="listitem"
               aria-current={isCurrent ? "true" : undefined}
               aria-label={`${no}번${isCurrent ? " (현재)" : ""}`}
-              className={`inline-flex size-9 shrink-0 items-center justify-center rounded-lg font-display text-[13px] font-semibold tabular-nums transition-colors ${
+              className={`inline-flex size-11 shrink-0 items-center justify-center rounded-lg font-display text-[13px] font-semibold tabular-nums transition-colors ${
                 isCurrent
                   ? "bg-[#007AFF] text-white shadow-[0_1px_4px_rgba(0,122,255,0.35)]"
                   : "bg-white text-slate-700 ring-1 ring-slate-200/90 hover:bg-snow hover:text-ink"

@@ -19,7 +19,7 @@ export function Footer() {
         </div>
         <Link
           href="/privacy"
-          className="font-display text-[12px] text-fog transition-colors hover:text-ink"
+          className="inline-flex min-h-11 items-center font-display text-[12px] text-fog transition-colors hover:text-ink"
         >
           개인정보처리방침
         </Link>

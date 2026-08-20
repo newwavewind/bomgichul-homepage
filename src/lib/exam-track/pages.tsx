@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ExamTrackQuestion } from "@/components/exam-track/ExamTrackQuestion";
 import { EnglishPassageNotes } from "@/components/english/EnglishPassageNotes";
 import { ExamMaterialFigure } from "@/components/exam/ExamMaterialFigure";
+import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
 import { HistoryConceptNote } from "@/components/history/HistoryConceptNote";
 import { TrackConceptDetailView } from "@/components/exam-track/TrackConceptDetailView";
 import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
@@ -302,7 +303,7 @@ export async function TrackExamSubjectPage({
     return groups;
   }, new Map());
   return (
-    <div className="px-4 py-8 md:py-12">
+    <div className="bg-white px-4 py-8 md:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -409,7 +410,7 @@ export function TrackExamSessionPage({
     .sort((a, b) => a.questionNo - b.questionNo);
   if (!exams.length) notFound();
   return (
-    <div className="px-4 py-8 md:py-12">
+    <div className="bg-white px-4 py-8 md:py-12">
       <div className="mx-auto max-w-4xl">
         <BackLink href={`${track.basePath}/exam/${subjectId}`}>
           {data.subject.label} 기출 목록
@@ -562,7 +563,7 @@ export async function TrackExamDetailPage({
   const passageLabel = passageGroups.find(group => group.label)?.label
     ?? (seoQuestion.comboChoices.length > 0 && /<\s*보\s?기[^>]*>/.test(exam.stem ?? "") ? "< 보기 >" : undefined);
   return (
-    <div className="px-4 py-8 md:py-12">
+    <div className="bg-white px-4 py-8 md:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -583,7 +584,7 @@ export async function TrackExamDetailPage({
           current={exam.questionNo}
           hrefBase={listBase}
         />
-        <header className="mt-4 rounded-2xl border border-mist bg-paper p-5 md:p-6">
+        <header className="mt-4 rounded-2xl border border-mist bg-white p-5 md:p-6">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
             <p className="font-display text-[13px] font-semibold text-electric-blue">
@@ -607,6 +608,7 @@ export async function TrackExamDetailPage({
               questionNo={exam.questionNo}
               renderBox={passageLead.length === 0}
             />
+            <ExamStructuredMaterials table={exam.table} stemTail={exam.stemTail} />
           </div>
         </header>
         <div className="mt-6">

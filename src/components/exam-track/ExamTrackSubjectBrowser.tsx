@@ -30,6 +30,12 @@ function SubjectCard({
         기출 {subject.examCount}문항
       </p>
       <div className="mt-6 grid grid-cols-2 gap-2">
+        <Link
+          href={`${track.basePath}/exam/${subject.id}`}
+          className="rounded-xl bg-carbon px-3 py-3 text-center font-display text-[13px] font-semibold text-paper hover:opacity-90"
+        >
+          기출문제
+        </Link>
         {allInOneReady ? (
           <Link
             href={`${track.basePath}/concepts/${subject.id}`}
@@ -45,12 +51,6 @@ function SubjectCard({
             올인원 준비중
           </span>
         )}
-        <Link
-          href={`${track.basePath}/exam/${subject.id}`}
-          className="rounded-xl bg-carbon px-3 py-3 text-center font-display text-[13px] font-semibold text-paper hover:opacity-90"
-        >
-          기출문제
-        </Link>
       </div>
     </article>
   );

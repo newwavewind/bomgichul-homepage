@@ -21,6 +21,7 @@ import { OCEAN_RANKS } from "@/lib/ocean-ranks";
 import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 import { AvatarUploader } from "@/components/profile/AvatarUploader";
+import { DeleteAccountSection } from "@/components/profile/DeleteAccountSection";
 
 export default async function ProfilePage() {
   const user = await getUser();
@@ -294,6 +295,8 @@ export default async function ProfilePage() {
           시험 선택으로 돌아가기 →
         </Link>
       </div>
+
+      <DeleteAccountSection />
     </div>
   );
 }

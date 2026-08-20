@@ -43,7 +43,7 @@ export async function getPosts({
     .from("posts")
     .select(
       "id, author_id, category, community_scope, title, view_count, created_at, profiles:profiles!posts_author_id_fkey(nickname), comments(count)",
-      { count: "planned" }
+      { count: "exact" }
     );
 
   if (scope !== "all") {

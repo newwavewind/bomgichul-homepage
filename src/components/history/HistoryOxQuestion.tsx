@@ -223,7 +223,7 @@ function OxButton({
       disabled={graded}
       aria-label={verdict === "O" ? "맞음" : "틀림"}
       aria-pressed={picked}
-      className={`inline-grid size-9 place-items-center rounded-full border-[1.5px] font-display text-[14px] font-bold transition-colors disabled:cursor-default ${style}`}
+      className={`inline-grid size-11 place-items-center rounded-full border-[1.5px] font-display text-[14px] font-bold transition-colors disabled:cursor-default ${style}`}
     >
       {verdict}
     </button>

@@ -30,6 +30,7 @@ export interface PublicServiceConcept {
   example?: string;
   pitfallCards?: { wrong: string; correct: string }[];
   questionRefs?: { examId?: string; year: number; sourceCode?: string; questionNo: number }[];
+  sources?: { id?: string; type?: string; title: string; locator?: string; status?: string }[];
 }
 
 export interface PublicServiceExamItem {
@@ -41,12 +42,36 @@ export interface PublicServiceExamItem {
   taxonomy_unit_id?: string;
 }
 
+export type PublicServiceTableCell =
+  | string
+  | { text?: string; colSpan?: number; rowSpan?: number; align?: "left" | "center" };
+
+export interface PublicServiceExamTable {
+  caption?: string;
+  lead?: string;
+  headers?: string[];
+  headerRows?: Array<Array<string | { text?: string; colSpan?: number; rowSpan?: number }>>;
+  rows: PublicServiceTableCell[][];
+  notes?: string[];
+}
+
+export interface PublicServiceTAccount {
+  title: string;
+  debit?: [string, string][];
+  credit?: [string, string][];
+}
+
 export interface PublicServiceExam {
   id: string;
   year: number;
   sourceCode: string;
   source?: string;
   questionNo: number;
+  material?: { image: string; width?: number; height?: number; figureFirst?: boolean };
+  table?: PublicServiceExamTable | PublicServiceExamTable[];
+  stemTail?: string;
+  tAccounts?: PublicServiceTAccount[];
+  choiceHeaders?: string[];
   stem: string;
   questionType?: string;
   correctChoice?: number;

@@ -22,36 +22,6 @@ export function StudyHub() {
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
         <h1 className="font-display text-heading font-semibold text-ink">공인중개사 기출문제</h1>
-        <section id="concepts">
-          <SectionHeading as="h2" className="mb-6">
-            기출 올인원
-          </SectionHeading>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {EXAM_SUBJECTS.map((s) => {
-              const subject = s.value as ExamSubject;
-              const label = ARCHIVE_SUBJECT_MAP[subject];
-              const info = SUBJECT_LANDING_INFO[subject];
-              const total = getConceptsForSubject(subject).length;
-
-              return (
-                <Link key={`concept-${subject}`} href={`/concepts/${subject}`}>
-                  <FeatureCard tint="lavender" className="h-full transition-opacity hover:opacity-90">
-                    <div className="mb-2 flex items-center justify-between gap-2">
-                      <Tag className="!px-2.5 !py-0.5 !text-[12px]">{info.round}</Tag>
-                    </div>
-                    <h3 className="mb-2 font-display text-subheading font-semibold text-ink">
-                      {label}
-                    </h3>
-                    <p className="font-display text-body-sm text-smoke">
-                      기출 해설 주제 {total}개
-                    </p>
-                  </FeatureCard>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
         <section id="exam">
           <SectionHeading as="h2" className="mb-6">
             기출문제
@@ -75,6 +45,36 @@ export function StudyHub() {
                     </h3>
                     <p className="font-display text-body-sm text-smoke">
                       {years[years.length - 1]}~{years[0]}년 · 문항 {total}개
+                    </p>
+                  </FeatureCard>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="concepts">
+          <SectionHeading as="h2" className="mb-6">
+            기출 올인원
+          </SectionHeading>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {EXAM_SUBJECTS.map((s) => {
+              const subject = s.value as ExamSubject;
+              const label = ARCHIVE_SUBJECT_MAP[subject];
+              const info = SUBJECT_LANDING_INFO[subject];
+              const total = getConceptsForSubject(subject).length;
+
+              return (
+                <Link key={`concept-${subject}`} href={`/concepts/${subject}`}>
+                  <FeatureCard tint="lavender" className="h-full transition-opacity hover:opacity-90">
+                    <div className="mb-2 flex items-center justify-between gap-2">
+                      <Tag className="!px-2.5 !py-0.5 !text-[12px]">{info.round}</Tag>
+                    </div>
+                    <h3 className="mb-2 font-display text-subheading font-semibold text-ink">
+                      {label}
+                    </h3>
+                    <p className="font-display text-body-sm text-smoke">
+                      기출 해설 주제 {total}개
                     </p>
                   </FeatureCard>
                 </Link>

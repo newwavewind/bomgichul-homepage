@@ -22,6 +22,7 @@ import {
 import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
 import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
 import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
+import { ConceptSourcePanel } from "@/components/concepts/ConceptSourcePanel";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, conceptSeoTitle, truncateDescription } from "@/lib/seo";
@@ -240,6 +241,11 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           isLoggedIn={isLoggedIn}
           userId={user?.id ?? null}
           returnTo={returnTo}
+        />
+
+        <ConceptSourcePanel
+          examLabels={questions.map((question) => `${question.year}년 ${question.questionNo}번`)}
+          amendmentNotice={concept.amendmentNotice}
         />
 
         <article className="hp-cx-card">

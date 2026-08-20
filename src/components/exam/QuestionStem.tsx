@@ -90,17 +90,16 @@ export function QuestionStem({
         />
       )}
       {toBoxGroups(boxLines).map((group, gi) => (
-        <div key={gi} className="mb-8 max-w-3xl last:mb-8">
-          {/*
-            시험지처럼 「< 보기 >」는 상자 밖 위에 세운다. 상자 안에 넣으면 첫 항목처럼
-            읽히고, 꺾쇠를 떼면 그냥 낱말이 되어 이름인 줄 모른다.
-          */}
+        <fieldset
+          key={gi}
+          className="mb-8 min-w-0 max-w-3xl rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 pb-4 last:mb-8"
+        >
           {group.label ? (
-            <p className="mb-1.5 text-center font-display text-body-sm font-medium text-smoke">
+            <legend className="mx-auto px-3 text-center font-display text-body-sm font-medium text-smoke">
               {group.label}
-            </p>
+            </legend>
           ) : null}
-          <div className="rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 py-4">
+          <div className={group.label ? "pt-2" : "pt-4"}>
             {group.lines.map((line, i) => {
               const trimmed = line.trim();
               const isSubItem =
@@ -127,7 +126,7 @@ export function QuestionStem({
               );
             })}
           </div>
-        </div>
+        </fieldset>
       ))}
     </>
   );

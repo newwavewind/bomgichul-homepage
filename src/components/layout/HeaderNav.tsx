@@ -20,8 +20,9 @@ function useHideHeaderOnScroll() {
   const lastY = useRef(0);
 
   useEffect(() => {
-    setHidden(false);
+    const resetId = window.setTimeout(() => setHidden(false), 0);
     lastY.current = window.scrollY;
+    return () => window.clearTimeout(resetId);
   }, [pathname]);
 
   useEffect(() => {
@@ -70,15 +71,9 @@ function AccountCluster({
       <div className={`flex items-center ${compact ? "gap-1.5" : "gap-2"}`}>
         <Link
           href="/login"
-          className="rounded-full px-3 py-1.5 font-display text-[13px] font-medium text-slate-600 transition-colors hover:bg-white/70 hover:text-ink"
+          className="inline-flex min-h-11 items-center rounded-full bg-[#007AFF] px-4 font-display text-[13px] font-semibold text-white shadow-[0_1px_2px_rgba(0,122,255,0.35)] transition-transform hover:scale-[1.02] active:scale-[0.98]"
         >
-          로그인
-        </Link>
-        <Link
-          href="/signup"
-          className="rounded-full bg-[#007AFF] px-3.5 py-1.5 font-display text-[13px] font-semibold text-white shadow-[0_1px_2px_rgba(0,122,255,0.35)] transition-transform hover:scale-[1.02] active:scale-[0.98]"
-        >
-          가입
+          Google로 시작하기
         </Link>
       </div>
     );
@@ -89,14 +84,14 @@ function AccountCluster({
       {user.isAdmin ? (
         <Link
           href="/admin"
-          className="rounded-full px-2.5 py-1.5 font-display text-[12px] font-medium text-slate-500 hover:bg-white/70"
+          className="inline-flex min-h-11 items-center rounded-full px-3 font-display text-[12px] font-medium text-slate-500 hover:bg-white/70"
         >
           관리
         </Link>
       ) : null}
       <Link
         href="/notifications"
-        className="relative flex size-9 items-center justify-center rounded-full bg-white/80 font-display text-[15px] text-ink shadow-[inset_0_0_0_1px_rgba(15,23,42,0.06)] transition-colors hover:bg-white"
+        className="relative flex size-11 items-center justify-center rounded-full bg-white/80 font-display text-[15px] text-ink shadow-[inset_0_0_0_1px_rgba(15,23,42,0.06)] transition-colors hover:bg-white"
         aria-label="알림"
       >
         <span aria-hidden>🔔</span>
@@ -108,7 +103,7 @@ function AccountCluster({
       </Link>
       <Link
         href={user.usernameSet ? "/profile" : "/onboarding"}
-        className="flex max-w-[7.5rem] items-center gap-1 truncate rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[13px] font-medium text-ink shadow-[inset_0_0_0_1px_rgba(15,23,42,0.06)] hover:bg-white"
+        className="flex min-h-11 max-w-[7.5rem] items-center gap-1 truncate rounded-full bg-white/80 px-3 font-display text-[13px] font-medium text-ink shadow-[inset_0_0_0_1px_rgba(15,23,42,0.06)] hover:bg-white"
       >
         <span className="truncate">
           {user.usernameSet ? user.nickname : "아이디"}
@@ -133,13 +128,14 @@ function HomeHeader({
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-slate-200/80 bg-[#F7FAFC]/90 backdrop-blur-xl transition-transform duration-300 ease-out ${
+      className={`sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl transition-transform duration-300 ease-out ${
         hidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
       <div className="mx-auto flex max-w-[var(--page-max-width)] items-center justify-between gap-3 px-4 py-3">
         <LogoMark />
         <div className="hidden items-center gap-2 md:flex">
+          <Link href="/search" className="inline-flex min-h-11 items-center rounded-full px-3 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70">기출 검색</Link>
           <AccountCluster user={user} unread={unread} />
         </div>
         <button
@@ -203,7 +199,7 @@ function TrackHeader({
         hidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="border-b border-white/40 bg-gradient-to-b from-[#E8F1FF] via-[#F3F8FF] to-[#F8FAFC]/95 backdrop-blur-xl">
+      <div className="border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
         <div className="mx-auto max-w-[var(--page-max-width)] px-3 pt-3 sm:px-4">
           <div className="flex items-center gap-1.5 pb-2.5 sm:gap-2">
             <LogoMark />
@@ -222,7 +218,7 @@ function TrackHeader({
                       : pathname === tool.href ||
                         (tool.href !== ctx.hubHref &&
                           pathname.startsWith(tool.href));
-                const className = `shrink-0 rounded-lg px-2 py-1.5 font-display text-[13px] font-medium transition-colors sm:px-2.5 ${
+                const className = `inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium transition-colors sm:px-2.5 ${
                   active
                     ? "bg-[#007AFF]/12 text-[#0066D6]"
                     : "text-slate-600 hover:bg-white/70 hover:text-ink"

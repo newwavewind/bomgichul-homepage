@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { FeatureCard, TintedAccentCard } from "@/components/ui/Card";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
@@ -125,24 +124,19 @@ export function GoogleAuthCard({
           <div className="mb-8 text-center">
             <EyebrowLabel className="mb-2">{SITE_IDENTITY}</EyebrowLabel>
             <SectionHeading as="h1" className="text-heading-sm">
-              {isSignup ? "회원가입" : "로그인"}
+              Google로 시작하기
             </SectionHeading>
             <p className="mt-3 font-display text-body-sm text-smoke">
-              {isSignup ? (
-                <>
-                  Google 계정으로 간편하게 시작하세요.
-                  <br />
-                  커뮤니티·기출 학습을 한곳에서 이용할 수 있어요.
-                </>
-              ) : (
-                <>
-                  Google 계정으로 로그인하세요.
-                  <br />
-                  기존 회원은 바로 이어서 이용할 수 있어요.
-                </>
-              )}
+              처음이면 무료 계정이 만들어지고, 기존 회원이면 저장한 학습에서 바로 이어져요.
             </p>
           </div>
+
+          <ul className="mb-6 grid gap-2 rounded-2xl bg-surface p-4 font-display text-body-sm text-ink">
+            <li>✓ 오답·북마크를 자동으로 모아 복습</li>
+            <li>✓ 최근 푼 문제와 과목을 기기마다 이어서 학습</li>
+            <li>✓ 정답률과 연속 학습일로 공부 흐름 확인</li>
+            <li>✓ Google 계정만으로 비밀번호 없이 안전하게 시작</li>
+          </ul>
 
           {message && (
             <TintedAccentCard className="mb-5 !p-3">
@@ -156,30 +150,10 @@ export function GoogleAuthCard({
             className="w-full !bg-paper !text-ink border border-mist/80 hover:!bg-snow"
           >
             <GoogleIcon />
-            {loading
-              ? "이동 중..."
-              : isSignup
-                ? "Google로 가입하기"
-                : "Google로 로그인"}
+            {loading ? "Google로 이동 중..." : "Google로 시작하기"}
           </PrimaryButton>
 
-          <p className="mt-5 text-center font-display text-body-sm text-smoke">
-            {isSignup ? (
-              <>
-                이미 계정이 있으신가요?{" "}
-                <Link href="/login" className="font-medium text-ink underline underline-offset-2">
-                  로그인
-                </Link>
-              </>
-            ) : (
-              <>
-                아직 회원이 아니신가요?{" "}
-                <Link href="/signup" className="font-medium text-ink underline underline-offset-2">
-                  회원가입
-                </Link>
-              </>
-            )}
-          </p>
+          <p className="mt-5 text-center font-display text-[12px] leading-relaxed text-smoke">가입과 로그인은 같은 버튼을 사용해요. Google 계정 선택 후 자동으로 구분됩니다.</p>
 
           <div className="mt-6 text-center">
             <OutlineButton href="/">← 홈으로</OutlineButton>

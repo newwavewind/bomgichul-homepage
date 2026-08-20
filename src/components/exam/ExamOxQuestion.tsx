@@ -29,6 +29,7 @@ export function ExamOxQuestion({
   comboChoices = [],
   passageLead = [],
   passageLabel,
+  choiceHeaders = [],
   initialAttemptResult = null,
   onAttempt,
   renderExplanation = true,
@@ -42,6 +43,7 @@ export function ExamOxQuestion({
   /** 보기 상자에서 ㉠ 앞에 놓인 도입부. 지문과 한 문장으로 이어지는 자리다. */
   passageLead?: string[];
   passageLabel?: string;
+  choiceHeaders?: string[];
   initialAttemptResult?: "correct" | "wrong" | null;
   onAttempt?: (result: "correct" | "wrong") => void | Promise<void>;
   renderExplanation?: boolean;
@@ -85,37 +87,39 @@ export function ExamOxQuestion({
             따로 떼어 두면 그 상자가 쉼표에서 끊겨 문장이 잘린 것처럼 읽힌다.
             그래서 도입부와 지문을 같은 상자에 담고, O/X 는 각 줄 끝에 붙인다.
           */}
-          {passageLabel ? (
-            <p className="text-center font-display text-body-sm font-medium text-smoke">
-              {passageLabel}
-            </p>
-          ) : null}
-          <div className="space-y-2.5 rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 py-4">
-            {passageLead.map((line, i) => (
-              <p key={`${examId}-lead-${i}`} className="font-system text-[15px] leading-7 text-ink">
-                {plainStudyText(line)}
-              </p>
-            ))}
-            {items.map((item) => (
-              <div key={`${examId}-stmt-${item.key}`} className="flex gap-3">
-                <span className="font-display font-semibold text-ink">
-                  {item.label ?? item.key}
-                </span>
-                <span className="flex-1 font-system text-[15px] leading-7 text-ink">
-                  {plainStudyText(item.text)}
-                </span>
-                {revealed && item.answer ? (
-                  <span
-                    className={`font-display text-[13px] font-bold ${
-                      item.answer === "O" ? "text-[#6366f1]" : "text-[#ef4444]"
-                    }`}
-                  >
-                    {item.answer}
+          <fieldset className="min-w-0 rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 pb-4">
+            {passageLabel ? (
+              <legend className="mx-auto px-3 text-center font-display text-body-sm font-medium text-smoke">
+                {passageLabel}
+              </legend>
+            ) : null}
+            <div className={`space-y-2.5 ${passageLabel ? "pt-2" : "pt-4"}`}>
+              {passageLead.map((line, i) => (
+                <p key={`${examId}-lead-${i}`} className="font-system text-[15px] leading-7 text-ink">
+                  {plainStudyText(line)}
+                </p>
+              ))}
+              {items.map((item) => (
+                <div key={`${examId}-stmt-${item.key}`} className="flex gap-3">
+                  <span className="font-display font-semibold text-ink">
+                    {item.label ?? item.key}
                   </span>
-                ) : null}
-              </div>
-            ))}
-          </div>
+                  <span className="flex-1 font-system text-[15px] leading-7 text-ink">
+                    {plainStudyText(item.text)}
+                  </span>
+                  {revealed && item.answer ? (
+                    <span
+                      className={`font-display text-[13px] font-bold ${
+                        item.answer === "O" ? "text-[#6366f1]" : "text-[#ef4444]"
+                      }`}
+                    >
+                      {item.answer}
+                    </span>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </fieldset>
           <p className="pt-1 font-display text-body-sm font-semibold text-smoke">선택지</p>
           <div className="space-y-3">
             {comboChoices.map((choice) => {
@@ -144,6 +148,14 @@ export function ExamOxQuestion({
         </div>
       ) : (
         <div className="space-y-3">
+          {choiceHeaders.length >= 2 ? (
+            <div className="flex gap-3 px-4 font-display text-[12px] font-semibold text-smoke" aria-label="선택지 열 제목">
+              <span className="w-5 shrink-0" aria-hidden />
+              <div className="grid flex-1 gap-2 text-center" style={{ gridTemplateColumns: `repeat(${choiceHeaders.length}, minmax(0, 1fr))` }}>
+                {choiceHeaders.map((header, index) => <span key={index}>{header}</span>)}
+              </div>
+            </div>
+          ) : null}
           {items.map((item, index) => {
             const choice = Number(item.key || index + 1);
             const selectedItem = selected === choice;
@@ -177,9 +189,13 @@ export function ExamOxQuestion({
                   <span className="font-display font-semibold text-ink">
                     {item.label ?? choice}
                   </span>
-                  <span className="flex-1 font-system text-[15px] leading-7 text-ink">
-                    {plainStudyText(item.text)}
-                  </span>
+                  {choiceHeaders.length >= 2 && item.text.split("/").length === choiceHeaders.length ? (
+                    <span className="grid flex-1 gap-2 text-center font-system text-[15px] leading-7 text-ink" style={{ gridTemplateColumns: `repeat(${choiceHeaders.length}, minmax(0, 1fr))` }}>
+                      {item.text.split("/").map((cell, cellIndex) => <span key={cellIndex}>{plainStudyText(cell.trim())}</span>)}
+                    </span>
+                  ) : (
+                    <span className="flex-1 font-system text-[15px] leading-7 text-ink">{plainStudyText(item.text)}</span>
+                  )}
                   {revealed && item.answer ? (
                     <span
                       className={`font-display text-[13px] font-bold ${

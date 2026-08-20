@@ -1,6 +1,7 @@
 import { getUser } from "@/lib/auth";
 import { getUserActivityScores } from "@/lib/activity";
 import { HeaderNav } from "@/components/layout/HeaderNav";
+import { DailyStudyTracker } from "@/components/analytics/DailyStudyTracker";
 
 export async function Header() {
   const user = await getUser();
@@ -9,6 +10,8 @@ export async function Header() {
     : null;
 
   return (
+    <>
+    {user ? <DailyStudyTracker userId={user.id} /> : null}
     <HeaderNav
       user={
         user
@@ -22,5 +25,6 @@ export async function Header() {
           : null
       }
     />
+    </>
   );
 }

@@ -20,6 +20,7 @@ export interface ExamTrackConcept {
   example?: string;
   pitfallCards?: { wrong: string; correct: string }[];
   questionRefs?: { examId?: string; year: number; sourceCode?: string; questionNo: number }[];
+  sources?: { id?: string; type?: string; title: string; locator?: string; status?: string }[];
 }
 
 export interface ExamTrackExamItem {
@@ -67,6 +68,19 @@ export interface ExamTrackMaterial {
   height?: number;
 }
 
+export type ExamTrackTableCell =
+  | string
+  | { text?: string; colSpan?: number; rowSpan?: number; align?: "left" | "center" };
+
+export interface ExamTrackTable {
+  caption?: string;
+  lead?: string;
+  headers?: string[];
+  headerRows?: Array<Array<string | { text?: string; colSpan?: number; rowSpan?: number }>>;
+  rows: ExamTrackTableCell[][];
+  notes?: string[];
+}
+
 export interface ExamTrackExam {
   id: string;
   year: number;
@@ -75,6 +89,12 @@ export interface ExamTrackExam {
   questionNo: number;
   /** 한국사 — 문항 자료 이미지 */
   material?: ExamTrackMaterial;
+  /** 회계·법규 문항에 포함된 표 또는 복수 표 */
+  table?: ExamTrackTable | ExamTrackTable[];
+  /** 표 뒤에 이어지는 발문 */
+  stemTail?: string;
+  /** 연도·구분처럼 선택지에 공통으로 붙는 열 제목 */
+  choiceHeaders?: string[];
   /** 한국사 — 문항별 핵심 개념 카드 */
   concept?: HistoryConceptNote;
   /** 한국사 — 회차·배점 */

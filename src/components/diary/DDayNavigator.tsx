@@ -69,7 +69,7 @@ export function DDayNavigator({
           <Link
             key={jump}
             href={`${baseHref}?d=${jump}`}
-            className={`rounded-[var(--radius-tags)] border px-2.5 py-1 font-display text-[12px] font-medium transition-colors ${
+            className={`inline-flex min-h-11 items-center rounded-[var(--radius-tags)] border px-3 font-display text-[12px] font-medium transition-colors ${
               current === jump
                 ? "border-carbon bg-carbon text-paper"
                 : "border-mist text-smoke hover:border-carbon hover:text-ink"

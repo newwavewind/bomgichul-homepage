@@ -54,7 +54,7 @@ export function RandomPracticeFilters({
               key={year}
               type="button"
               onClick={() => toggle(String(year), selectedYears, setSelectedYears)}
-              className={`rounded-full border px-3 py-1 font-display text-[12px] font-medium transition-colors ${
+              className={`min-h-11 rounded-full border px-3 font-display text-[12px] font-medium transition-colors ${
                 selectedYears.includes(String(year))
                   ? "border-carbon bg-carbon text-paper"
                   : "border-mist bg-paper text-ink hover:bg-snow"
@@ -75,7 +75,7 @@ export function RandomPracticeFilters({
                 key={category}
                 type="button"
                 onClick={() => toggle(category, selectedCategories, setSelectedCategories)}
-                className={`rounded-full border px-3 py-1 font-display text-[12px] font-medium transition-colors ${
+                className={`min-h-11 rounded-full border px-3 font-display text-[12px] font-medium transition-colors ${
                   selectedCategories.includes(category)
                     ? "border-carbon bg-carbon text-paper"
                     : "border-mist bg-paper text-ink hover:bg-snow"

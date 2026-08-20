@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PersonalStudyHome } from "@/components/platform/PersonalStudyHome";
+import type { PersonalHomeData } from "@/lib/personal-home";
 
 const exams = [
   {
@@ -71,11 +73,18 @@ const exams = [
   },
 ] as const;
 
-export function PlatformHome() {
+export function PlatformHome({ user, personalHome }: { user?: { nickname: string } | null; personalHome?: PersonalHomeData | null }) {
   return (
-    <div className="relative overflow-hidden px-4 py-10 md:py-16">
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[28rem] w-[68rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(15,118,110,0.09),transparent_65%)]" />
+    <div className="relative overflow-hidden bg-white px-4 py-10 md:py-16">
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
+        {user && personalHome ? <PersonalStudyHome nickname={user.nickname} data={personalHome} /> : (
+          <section className="mx-auto mb-10 max-w-5xl text-center">
+            <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#087f6d]">기출에서 시작하는 합격 루틴</p>
+            <h1 className="mt-3 font-display text-[34px] font-semibold tracking-tight text-ink md:text-[48px]">한 번 푼 문제도, 다음 학습으로 이어지게</h1>
+            <p className="mx-auto mt-3 max-w-2xl font-display text-body text-smoke">로그인하면 오답·북마크·최근 학습이 자동으로 모이고, 연속 학습일과 함께 나만의 학습 흐름을 이어갈 수 있어요.</p>
+            <Link href="/login" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-carbon px-6 font-display text-body-sm font-semibold text-paper">Google로 시작하기</Link>
+          </section>
+        )}
         <h1 className="sr-only">공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어 기출 학습</h1>
         <p className="sr-only">
           9급 공무원, 공인중개사, 경찰공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.

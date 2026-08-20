@@ -15,7 +15,7 @@ export function PublicServiceHub() {
           className="flex flex-col items-center gap-4 border-t border-mist pt-10 text-center"
         >
           <p className="font-display text-body-sm text-smoke">
-            전체 기능은 앱에서 · 웹은 공개 기출·개념 위주예요.
+            웹에서 익힌 기출과 개념을 앱에서도 자연스럽게 이어가세요.
           </p>
           <AppStoreButtons
             size="sm"

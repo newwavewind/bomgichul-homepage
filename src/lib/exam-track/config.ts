@@ -8,7 +8,7 @@ export const POLICE_TRACK: ExamTrackConfig = {
   eyebrow: "봄기출 · 경찰공무원",
   hubTitle: "경찰공무원 기출 학습의 모든 것",
   hubDescription:
-    "순경 공채 헌법·형사법·경찰학 기출을 회차별로 확인하세요. 웹에서는 개념과 공개 기출 중심으로 제공하고, 포켓 오디오·회독 관리 등 전체 기능은 앱에서 제공합니다.",
+    "순경 공채 헌법·형사법·경찰학 기출과 핵심 개념을 웹에서 바로 학습하고, 앱의 포켓 오디오·회독 관리로 공부를 이어가세요.",
   communityScope: "police",
   communityTitle: "경찰공무원 수험생 커뮤니티",
   sessionEyebrow: "순경 공채 기출",
@@ -24,7 +24,7 @@ export const HOUSING_TRACK: ExamTrackConfig = {
   eyebrow: "봄기출 · 주택관리사",
   hubTitle: "주택관리사 기출 학습의 모든 것",
   hubDescription:
-    "주택관리사보 1·2차 전 과목 기출을 회차별로 확인하세요. 웹에서는 개념과 공개 기출 중심으로 제공하고, 앱의 학습 모드·오디오 등은 웹에 복제하지 않습니다.",
+    "주택관리사보 1·2차 전 과목 기출과 핵심 개념을 웹에서 바로 학습하고, 앱의 학습 모드·오디오로 공부를 이어가세요.",
   communityScope: "housing",
   communityTitle: "주택관리사 수험생 커뮤니티",
   sessionEyebrow: "주택관리사보 기출",

@@ -4,7 +4,7 @@ export function LogoMark() {
   return (
     <Link
       href="/"
-      className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+      className="flex min-h-11 items-center gap-1.5 transition-opacity hover:opacity-80"
     >
       <span className="flex size-9 shrink-0 items-center justify-center rounded-[11px] bg-[#e8f0ff] shadow-[inset_0_0_0_1px_rgba(29,78,216,0.14)]" aria-hidden>
         <svg width="27" height="27" viewBox="0 0 27 27" fill="none">

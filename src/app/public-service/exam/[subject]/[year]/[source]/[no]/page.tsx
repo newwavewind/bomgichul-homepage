@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PublicServiceQuestion } from "@/components/public-service/PublicServiceQuestion";
+import { PublicServiceExamMaterials } from "@/components/public-service/PublicServiceExamMaterials";
 import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
 import {
   ExamQuestionSeoExplanations,
@@ -10,6 +11,7 @@ import {
 import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
+import { ExamMaterialFigure } from "@/components/exam/ExamMaterialFigure";
 import { BackLink } from "@/components/ui/BackLink";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
@@ -106,7 +108,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
   const relatedConcepts = findTrackConceptsForExamQuestion(data, exam);
 
   return (
-    <div className="px-4 py-8 md:py-12">
+    <div className="bg-white px-4 py-8 md:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -127,7 +129,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
           current={exam.questionNo}
           hrefBase={listBase}
         />
-        <header className="mt-4 rounded-2xl border border-mist bg-paper p-5 md:p-6">
+        <header className="mt-4 rounded-2xl border border-mist bg-white p-5 md:p-6">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
             <p className="font-display text-[13px] font-semibold text-electric-blue">
@@ -148,8 +150,13 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
           <div className="mt-5">
             <QuestionStem stem={exam.stem} questionNo={exam.questionNo} />
           </div>
+          {exam.material?.figureFirst ? <ExamMaterialFigure material={exam.material} questionNo={exam.questionNo} /> : null}
+          <PublicServiceExamMaterials table={exam.table} tAccounts={exam.tAccounts} stemTail={exam.stemTail} />
         </header>
         <div className="mt-6">
+          {!exam.material?.figureFirst ? (
+            <ExamMaterialFigure material={exam.material} questionNo={exam.questionNo} />
+          ) : null}
           <PublicServiceQuestion
             exam={exam}
             subjectLabel={data.subject.label}

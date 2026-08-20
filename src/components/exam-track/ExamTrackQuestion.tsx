@@ -45,6 +45,7 @@ export function ExamTrackQuestion({
       comboChoices={toExamOxCombos(exam.comboChoices, exam.correctChoice)}
       passageLead={passageLead}
       passageLabel={passageLabel}
+      choiceHeaders={exam.choiceHeaders}
       explanationSummary={exam.explanationSummary}
       initialAttemptResult={initialAttemptResult}
       onAttempt={saveAttempt}

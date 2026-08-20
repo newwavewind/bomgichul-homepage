@@ -41,7 +41,7 @@ export async function getArchivePosts({
     .from("posts")
     .select(
       "id, author_id, category, title, view_count, subject, resource_type, created_at, profiles:profiles!posts_author_id_fkey(nickname), post_attachments(id, file_name, file_size, mime_type)",
-      { count: "planned" }
+      { count: "exact" }
     )
     .eq("category", "resource")
     .eq("community_scope", scope);

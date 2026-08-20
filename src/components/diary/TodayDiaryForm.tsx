@@ -136,7 +136,7 @@ export function TodayDiaryForm({
                 key={m.value}
                 type="button"
                 onClick={() => setMood(mood === m.value ? null : m.value)}
-                className={`rounded-[var(--radius-tags)] px-3 py-1.5 font-display text-body-sm font-medium transition-colors ${
+                className={`min-h-11 rounded-[var(--radius-tags)] px-3 font-display text-body-sm font-medium transition-colors ${
                   mood === m.value
                     ? "bg-midnight text-paper"
                     : "bg-surface text-ink hover:bg-snow"

@@ -231,6 +231,7 @@ export function QuestionMemoPanel({
           <div className="min-w-0 flex-1">
             <Textarea
               id={`public-memo-${subject}-${year}-${questionNo}`}
+              label="공개 메모 내용"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={2}

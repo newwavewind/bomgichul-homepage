@@ -169,7 +169,7 @@ export function ExamAnswerList({
             type="button"
             onClick={() => recordAttempt("correct")}
             disabled={savingAttempt}
-            className={`rounded-[var(--radius-buttons)] border border-carbon px-3.5 py-1.5 font-display text-body-sm font-medium transition-colors disabled:opacity-60 ${
+            className={`min-h-11 rounded-[var(--radius-buttons)] border border-carbon px-3.5 font-display text-body-sm font-medium transition-colors disabled:opacity-60 ${
               attemptResult === "correct"
                 ? "bg-[#6366f1] text-paper"
                 : "bg-paper text-ink hover:bg-snow"
@@ -181,7 +181,7 @@ export function ExamAnswerList({
             type="button"
             onClick={() => recordAttempt("wrong")}
             disabled={savingAttempt}
-            className={`rounded-[var(--radius-buttons)] border border-carbon px-3.5 py-1.5 font-display text-body-sm font-medium transition-colors disabled:opacity-60 ${
+            className={`min-h-11 rounded-[var(--radius-buttons)] border border-carbon px-3.5 font-display text-body-sm font-medium transition-colors disabled:opacity-60 ${
               attemptResult === "wrong"
                 ? "bg-[#ef4444] text-paper"
                 : "bg-paper text-ink hover:bg-snow"

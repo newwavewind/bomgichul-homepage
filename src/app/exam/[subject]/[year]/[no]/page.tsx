@@ -156,7 +156,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   });
 
   return (
-    <div className="px-4 py-8 md:py-12">
+    <div className="bg-white px-4 py-8 md:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -191,7 +191,7 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           hrefBase={listBase}
         />
 
-        <header className="mt-4 rounded-2xl border border-mist bg-paper p-5 md:p-6">
+        <header className="mt-4 rounded-2xl border border-mist bg-white p-5 md:p-6">
           <div className="flex flex-wrap items-center gap-2">
             <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1.5">
               <p className="font-display text-[13px] font-semibold text-electric-blue">

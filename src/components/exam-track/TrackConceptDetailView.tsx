@@ -11,6 +11,7 @@ import type { ExamTrackConcept } from "@/lib/exam-track/types";
 import type { PublicServiceConcept, PublicServiceExam } from "@/lib/public-service-content";
 import "@/app/concepts/concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
+import { ConceptSourcePanel } from "@/components/concepts/ConceptSourcePanel";
 
 type ConceptLike = ExamTrackConcept | PublicServiceConcept;
 type ExamLike = Pick<PublicServiceExam, "id" | "year" | "sourceCode" | "questionNo">;
@@ -122,6 +123,11 @@ export function TrackConceptDetailView({
         </div>
 
         <ConceptReadBar subject={subjectKey} slug={concept.slug} isLoggedIn={Boolean(userId)} userId={userId} returnTo={returnTo} />
+
+        <ConceptSourcePanel
+          sources={concept.sources}
+          examLabels={linkedExams.map((exam) => `${exam.year}년 ${exam.sourceCode} ${exam.questionNo}번`)}
+        />
 
         <article className="hp-cx-card">
           <SectionBlock id="cx-sec-definition" label="개념 정리" index={sectionIndex++}>

@@ -38,6 +38,7 @@ export function PublicServiceQuestion({
       items={exam.items}
       correctChoice={exam.correctChoice}
       explanationSummary={exam.explanationSummary}
+      choiceHeaders={exam.choiceHeaders}
       initialAttemptResult={initialAttemptResult}
       onAttempt={saveAttempt}
       renderExplanation={!revealSubject}

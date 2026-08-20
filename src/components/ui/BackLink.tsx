@@ -21,7 +21,7 @@ export function BackLink({
     >
       <span
         aria-hidden
-        className="inline-grid size-8 shrink-0 place-items-center rounded-full border border-ios-blue/25 bg-ios-blue/[0.12] text-ios-blue shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] transition-[background-color,border-color,transform] group-hover:border-ios-blue/40 group-hover:bg-ios-blue/[0.18] group-active:scale-[0.96]"
+        className="inline-grid size-11 shrink-0 place-items-center rounded-full border border-ios-blue/25 bg-ios-blue/[0.12] text-ios-blue shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] transition-[background-color,border-color,transform] group-hover:border-ios-blue/40 group-hover:bg-ios-blue/[0.18] group-active:scale-[0.96]"
       >
         <svg
           width="16"
