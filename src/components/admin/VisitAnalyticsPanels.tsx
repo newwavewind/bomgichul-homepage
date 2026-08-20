@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { DailyVisitTrendPoint } from "@/lib/site-visits";
 
@@ -29,6 +29,10 @@ function emptyPoint(date: string): DailyVisitTrendPoint {
     anonymousVisitors: 0,
     localVisitors: 0,
     loggedInVisits: 0,
+    likelyHumanVisitors: 0,
+    verifiedBotVisitors: 0,
+    suspectedBotVisitors: 0,
+    unknownVisitors: 0,
   };
 }
 
@@ -41,10 +45,6 @@ export function VisitTrendChart({ selectedDate, points }: VisitTrendChartProps) 
   );
 
   const [windowEnd, setWindowEnd] = useState(selectedDate);
-
-  useEffect(() => {
-    setWindowEnd(selectedDate);
-  }, [selectedDate]);
 
   const windowPoints = useMemo(() => {
     const end = windowEnd;
@@ -92,7 +92,7 @@ export function VisitTrendChart({ selectedDate, points }: VisitTrendChartProps) 
             방문자 추이
           </p>
           <p className="font-display text-[13px] text-smoke sm:text-body-sm">
-            {rangeLabel} · 순 방문자 (KST)
+            {rangeLabel} · 방문자 품질 추이 (KST)
           </p>
         </div>
         <button
@@ -103,6 +103,13 @@ export function VisitTrendChart({ selectedDate, points }: VisitTrendChartProps) 
         >
           →
         </button>
+      </div>
+
+      <div className="mb-2 flex flex-wrap justify-center gap-x-3 gap-y-1 font-display text-[10px] text-smoke sm:text-[11px]">
+        <span><i className="mr-1 inline-block h-2 w-2 rounded-full bg-emerald-500" />사람 추정</span>
+        <span><i className="mr-1 inline-block h-2 w-2 rounded-full bg-sky-500" />검증 봇</span>
+        <span><i className="mr-1 inline-block h-2 w-2 rounded-full bg-rose-400" />의심 자동화</span>
+        <span><i className="mr-1 inline-block h-2 w-2 rounded-full bg-slate-300" />판단 보류</span>
       </div>
 
       <div
@@ -124,18 +131,27 @@ export function VisitTrendChart({ selectedDate, points }: VisitTrendChartProps) 
               type="button"
               onClick={() => selectDay(point.date)}
               className="flex min-w-0 flex-1 flex-col items-center gap-0.5 rounded-md px-0.5 py-1 transition-colors hover:bg-snow"
-              title={`${point.date}: 순 방문자 ${point.uniqueVisitors}명 · 페이지뷰 ${point.pageViews}`}
+              title={`${point.date}: 사람 ${point.likelyHumanVisitors} · 검증 봇 ${point.verifiedBotVisitors} · 의심 ${point.suspectedBotVisitors} · 보류 ${point.unknownVisitors}`}
               aria-pressed={isSelected}
             >
               <span className="min-h-[12px] font-display text-[9px] text-fog sm:text-[10px]">
                 {point.uniqueVisitors > 0 ? point.uniqueVisitors : ""}
               </span>
               <div
-                className={`w-full max-w-[36px] rounded-t-sm transition-colors sm:rounded-t-md ${
-                  isSelected ? "bg-electric-blue" : "bg-electric-blue/35"
-                }`}
+                className={`flex w-full max-w-[36px] flex-col-reverse overflow-hidden rounded-t-sm ring-offset-1 transition-shadow sm:rounded-t-md ${isSelected ? "ring-2 ring-electric-blue" : ""}`}
                 style={{ height: `${barHeight}px` }}
-              />
+              >
+                {point.uniqueVisitors === 0 ? (
+                  <span className="h-full bg-slate-200" />
+                ) : (
+                  <>
+                    <span className="bg-emerald-500" style={{ height: `${(point.likelyHumanVisitors / point.uniqueVisitors) * 100}%` }} />
+                    <span className="bg-sky-500" style={{ height: `${(point.verifiedBotVisitors / point.uniqueVisitors) * 100}%` }} />
+                    <span className="bg-rose-400" style={{ height: `${(point.suspectedBotVisitors / point.uniqueVisitors) * 100}%` }} />
+                    <span className="bg-slate-300" style={{ height: `${(point.unknownVisitors / point.uniqueVisitors) * 100}%` }} />
+                  </>
+                )}
+              </div>
               <span
                 className={`font-display text-[9px] sm:text-[10px] ${
                   isSelected ? "font-semibold text-ink" : "text-fog"

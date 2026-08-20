@@ -47,6 +47,19 @@ export function formatClientAddress(
   return "—";
 }
 
+export type VisitClass =
+  | "likely_human"
+  | "verified_bot"
+  | "suspected_bot"
+  | "unknown";
+
+export const VISIT_CLASS_LABELS: Record<VisitClass, string> = {
+  likely_human: "사람 추정",
+  verified_bot: "검증된 검색봇",
+  suspected_bot: "의심 자동화",
+  unknown: "판단 보류",
+};
+
 export type SiteVisitRow = {
   id: string;
   visitorId: string;
@@ -57,6 +70,19 @@ export type SiteVisitRow = {
   isLocal: boolean;
   clientHost: string | null;
   clientIp: string | null;
+  sessionId: string | null;
+  userAgent: string | null;
+  browserName: string | null;
+  deviceType: string | null;
+  countryCode: string | null;
+  botClass: VisitClass;
+  botConfidence: number;
+  classificationReasons: string[];
+  verifiedBotName: string | null;
+  verifiedBotCategory: string | null;
+  engaged: boolean;
+  engagementMs: number;
+  interactionCount: number;
   createdAt: string;
 };
 
@@ -70,6 +96,16 @@ export type SiteVisitorSummary = {
   isLocal: boolean;
   clientHost: string | null;
   clientIp: string | null;
+  countryCode: string | null;
+  browserName: string | null;
+  deviceType: string | null;
+  visitClass: VisitClass;
+  confidence: number;
+  reasons: string[];
+  verifiedBotName: string | null;
+  engaged: boolean;
+  engagementMs: number;
+  interactionCount: number;
 };
 
 export type SiteVisitStats = {
@@ -87,18 +123,129 @@ export type SiteVisitDayStats = {
   anonymousVisitors: number;
   localVisitors: number;
   loggedInVisits: number;
+  likelyHumanVisitors: number;
+  verifiedBotVisitors: number;
+  suspectedBotVisitors: number;
+  unknownVisitors: number;
 };
 
 export type DailyVisitTrendPoint = SiteVisitDayStats;
 
-type VisitAggregateRow = {
+export type VisitAggregateRow = {
   visitor_id: string;
   user_id: string | null;
   is_local: boolean;
   client_host: string | null;
   client_ip: string | null;
+  ip_hash: string | null;
+  path: string;
+  bot_class: VisitClass | null;
+  bot_confidence: number | null;
+  classification_reasons: string[] | null;
+  verified_bot_name: string | null;
+  user_agent: string | null;
+  engaged: boolean | null;
+  engagement_ms: number | null;
+  interaction_count: number | null;
   created_at: string;
 };
+
+type VisitorDetailRow = VisitAggregateRow & {
+  browser_name: string | null;
+  device_type: string | null;
+  country_code: string | null;
+  profiles: { nickname: string | null } | Array<{ nickname: string | null }> | null;
+};
+
+type VisitorClassification = {
+  visitClass: VisitClass;
+  confidence: number;
+  reasons: string[];
+};
+
+const BOT_UA = /bot|crawler|spider|slurp|headless|lighthouse|facebookexternalhit|kakaotalk-scrap|naverbot|yeti/i;
+
+export function classifyVisitors(rows: VisitAggregateRow[]): Map<string, VisitorClassification> {
+  const byVisitor = new Map<string, VisitAggregateRow[]>();
+  const visitorsByIp = new Map<string, Set<string>>();
+
+  for (const row of rows) {
+    const bucket = byVisitor.get(row.visitor_id);
+    if (bucket) bucket.push(row);
+    else byVisitor.set(row.visitor_id, [row]);
+    const address = row.ip_hash || row.client_ip;
+    if (address) {
+      const ids = visitorsByIp.get(address) ?? new Set<string>();
+      ids.add(row.visitor_id);
+      visitorsByIp.set(address, ids);
+    }
+  }
+
+  const result = new Map<string, VisitorClassification>();
+  for (const [visitorId, visits] of byVisitor) {
+    const reasons = new Set<string>();
+    const verified = visits.find((v) => v.bot_class === "verified_bot");
+    if (verified) {
+      reasons.add(
+        verified.verified_bot_name
+          ? `${verified.verified_bot_name} 검증 봇`
+          : "Vercel 검증 봇"
+      );
+      result.set(visitorId, { visitClass: "verified_bot", confidence: 100, reasons: [...reasons] });
+      continue;
+    }
+
+    const explicitBot = visits.some((v) => v.bot_class === "suspected_bot");
+    const botUa = visits.some((v) => BOT_UA.test(v.user_agent ?? ""));
+    const address = visits.find((v) => v.ip_hash || v.client_ip);
+    const addressKey = address?.ip_hash || address?.client_ip || "";
+    const cookieCount = addressKey ? visitorsByIp.get(addressKey)?.size ?? 0 : 0;
+    const sorted = [...visits].sort((a, b) => a.created_at.localeCompare(b.created_at));
+    let rapidPaths = 0;
+    for (let i = 0; i < sorted.length; i += 1) {
+      const start = new Date(sorted[i].created_at).getTime();
+      const paths = new Set<string>();
+      for (let j = i; j < sorted.length; j += 1) {
+        if (new Date(sorted[j].created_at).getTime() - start > 60_000) break;
+        paths.add(sorted[j].path);
+      }
+      rapidPaths = Math.max(rapidPaths, paths.size);
+    }
+
+    if (explicitBot) reasons.add("BotID 자동화 판정");
+    if (botUa) reasons.add("자동화 User-Agent");
+    if (cookieCount >= 10) reasons.add(`같은 접속망에서 쿠키 ${cookieCount}개`);
+    if (rapidPaths >= 8) reasons.add(`1분 내 서로 다른 페이지 ${rapidPaths}개`);
+
+    if (explicitBot || botUa || cookieCount >= 10 || rapidPaths >= 8) {
+      const confidence = explicitBot ? 95 : Math.min(95, 65 + (cookieCount >= 10 ? 15 : 0) + (rapidPaths >= 8 ? 15 : 0));
+      result.set(visitorId, { visitClass: "suspected_bot", confidence, reasons: [...reasons] });
+      continue;
+    }
+
+    const loggedIn = visits.some((v) => Boolean(v.user_id));
+    const engaged = visits.some((v) => v.engaged || (v.interaction_count ?? 0) > 0 || (v.engagement_ms ?? 0) >= 10_000);
+    const verifiedHuman = visits.some((v) => v.bot_class === "likely_human");
+    if (loggedIn) reasons.add("로그인 사용자");
+    if (engaged) reasons.add("체류 또는 화면 상호작용 확인");
+    if (verifiedHuman) reasons.add("BotID 사람 판정");
+
+    if (loggedIn || engaged || verifiedHuman) {
+      result.set(visitorId, {
+        visitClass: "likely_human",
+        confidence: verifiedHuman ? 95 : loggedIn && engaged ? 90 : 75,
+        reasons: [...reasons],
+      });
+    } else {
+      result.set(visitorId, {
+        visitClass: "unknown",
+        confidence: 0,
+        reasons: [visits.length === 1 ? "상호작용 없는 1회 방문" : "판정 신호 부족"],
+      });
+    }
+  }
+  return result;
+}
 
 function adminOrNull() {
   if (!isSupabaseConfigured()) return null;
@@ -154,6 +301,9 @@ function aggregateDayStats(
   const localVisitors = new Set(
     rows.filter((r) => r.is_local).map((r) => r.visitor_id)
   );
+  const classifications = classifyVisitors(scoped);
+  const countClass = (visitClass: VisitClass) =>
+    [...classifications.values()].filter((value) => value.visitClass === visitClass).length;
 
   return {
     date: dateKey,
@@ -162,6 +312,10 @@ function aggregateDayStats(
     anonymousVisitors: anonymousVisitors.size,
     localVisitors: localVisitors.size,
     loggedInVisits: scoped.filter((r) => r.user_id).length,
+    likelyHumanVisitors: countClass("likely_human"),
+    verifiedBotVisitors: countClass("verified_bot"),
+    suspectedBotVisitors: countClass("suspected_bot"),
+    unknownVisitors: countClass("unknown"),
   };
 }
 
@@ -187,7 +341,7 @@ async function fetchVisitAggregateRows(
   for (let offset = 0; ; offset += pageSize) {
     const { data, error } = await admin
       .from("site_visits")
-      .select("visitor_id, user_id, is_local, client_host, client_ip, created_at")
+      .select("visitor_id, user_id, is_local, client_host, client_ip, ip_hash, path, bot_class, bot_confidence, classification_reasons, verified_bot_name, user_agent, engaged, engagement_ms, interaction_count, created_at")
       .gte("created_at", start)
       .lt("created_at", end)
       .order("created_at", { ascending: true })
@@ -209,19 +363,74 @@ export async function recordSiteVisit(input: {
   isLocal: boolean;
   clientHost: string | null;
   clientIp: string | null;
-}): Promise<void> {
+  sessionId: string | null;
+  userAgent: string | null;
+  browserName: string | null;
+  deviceType: string | null;
+  acceptLanguage: string | null;
+  clientHints: string | null;
+  fetchSite: string | null;
+  countryCode: string | null;
+  ipHash: string | null;
+  botClass: VisitClass;
+  botConfidence: number;
+  classificationReasons: string[];
+  verifiedBotName: string | null;
+  verifiedBotCategory: string | null;
+}): Promise<string | null> {
   const admin = adminOrNull();
-  if (!admin) return;
+  if (!admin) return null;
 
-  await admin.from("site_visits").insert({
+  const { data, error } = await admin.from("site_visits").insert({
     visitor_id: input.visitorId,
     user_id: input.userId,
     path: input.path.slice(0, 500),
     referrer: input.referrer?.slice(0, 500) ?? null,
     is_local: input.isLocal,
     client_host: input.clientHost?.slice(0, 200) ?? null,
-    client_ip: input.clientIp?.slice(0, 64) ?? null,
-  });
+    // 원본 IP는 새 기록부터 저장하지 않고 일별 해시만 사용합니다.
+    client_ip: null,
+    session_id: input.sessionId?.slice(0, 100) ?? null,
+    user_agent: input.userAgent?.slice(0, 500) ?? null,
+    browser_name: input.browserName?.slice(0, 80) ?? null,
+    device_type: input.deviceType?.slice(0, 40) ?? null,
+    accept_language: input.acceptLanguage?.slice(0, 120) ?? null,
+    client_hints: input.clientHints?.slice(0, 300) ?? null,
+    fetch_site: input.fetchSite?.slice(0, 40) ?? null,
+    country_code: input.countryCode?.slice(0, 8) ?? null,
+    ip_hash: input.ipHash,
+    bot_class: input.botClass,
+    bot_confidence: input.botConfidence,
+    classification_reasons: input.classificationReasons,
+    verified_bot_name: input.verifiedBotName?.slice(0, 120) ?? null,
+    verified_bot_category: input.verifiedBotCategory?.slice(0, 120) ?? null,
+  }).select("id").single();
+
+  if (error) {
+    console.error("site visit insert failed", error.message);
+    return null;
+  }
+  return data.id;
+}
+
+export async function updateSiteVisitEngagement(input: {
+  visitId: string;
+  visitorId: string;
+  engagementMs: number;
+  interactionCount: number;
+}): Promise<void> {
+  const admin = adminOrNull();
+  if (!admin) return;
+  const engaged = input.interactionCount > 0 || input.engagementMs >= 10_000;
+  await admin
+    .from("site_visits")
+    .update({
+      engaged,
+      engagement_ms: Math.min(Math.max(input.engagementMs, 0), 86_400_000),
+      interaction_count: Math.min(Math.max(input.interactionCount, 0), 10_000),
+    })
+    .eq("id", input.visitId)
+    .eq("visitor_id", input.visitorId);
 }
 
 export async function getAdminVisitStats(): Promise<SiteVisitStats> {
@@ -251,6 +460,10 @@ export async function getAdminVisitStatsForDate(
     anonymousVisitors: 0,
     localVisitors: 0,
     loggedInVisits: 0,
+    likelyHumanVisitors: 0,
+    verifiedBotVisitors: 0,
+    suspectedBotVisitors: 0,
+    unknownVisitors: 0,
   };
 
   const admin = adminOrNull();
@@ -322,6 +535,19 @@ export async function getAdminRecentVisitsForDate(
       is_local,
       client_host,
       client_ip,
+      session_id,
+      user_agent,
+      browser_name,
+      device_type,
+      country_code,
+      bot_class,
+      bot_confidence,
+      classification_reasons,
+      verified_bot_name,
+      verified_bot_category,
+      engaged,
+      engagement_ms,
+      interaction_count,
       created_at,
       profiles:user_id (nickname)
     `
@@ -345,6 +571,19 @@ export async function getAdminRecentVisitsForDate(
       isLocal: row.is_local,
       clientHost: row.client_host,
       clientIp: row.client_ip,
+      sessionId: row.session_id,
+      userAgent: row.user_agent,
+      browserName: row.browser_name,
+      deviceType: row.device_type,
+      countryCode: row.country_code,
+      botClass: (row.bot_class as VisitClass) ?? "unknown",
+      botConfidence: row.bot_confidence ?? 0,
+      classificationReasons: row.classification_reasons ?? [],
+      verifiedBotName: row.verified_bot_name,
+      verifiedBotCategory: row.verified_bot_category,
+      engaged: row.engaged ?? false,
+      engagementMs: row.engagement_ms ?? 0,
+      interactionCount: row.interaction_count ?? 0,
       createdAt: row.created_at,
     };
   });
@@ -366,6 +605,19 @@ export async function getAdminRecentVisits(limit = 100): Promise<SiteVisitRow[]>
       is_local,
       client_host,
       client_ip,
+      session_id,
+      user_agent,
+      browser_name,
+      device_type,
+      country_code,
+      bot_class,
+      bot_confidence,
+      classification_reasons,
+      verified_bot_name,
+      verified_bot_category,
+      engaged,
+      engagement_ms,
+      interaction_count,
       created_at,
       profiles:user_id (nickname)
     `
@@ -387,6 +639,19 @@ export async function getAdminRecentVisits(limit = 100): Promise<SiteVisitRow[]>
       isLocal: row.is_local,
       clientHost: row.client_host,
       clientIp: row.client_ip,
+      sessionId: row.session_id,
+      userAgent: row.user_agent,
+      browserName: row.browser_name,
+      deviceType: row.device_type,
+      countryCode: row.country_code,
+      botClass: (row.bot_class as VisitClass) ?? "unknown",
+      botConfidence: row.bot_confidence ?? 0,
+      classificationReasons: row.classification_reasons ?? [],
+      verifiedBotName: row.verified_bot_name,
+      verifiedBotCategory: row.verified_bot_category,
+      engaged: row.engaged ?? false,
+      engagementMs: row.engagement_ms ?? 0,
+      interactionCount: row.interaction_count ?? 0,
       createdAt: row.created_at,
     };
   });
@@ -400,28 +665,47 @@ export async function getAdminVisitorSummariesForDate(
   if (!admin) return [];
 
   const { start, end } = kstDayBounds(dateKey);
-  const { data } = await admin
-    .from("site_visits")
-    .select(
-      `
+  const data: VisitorDetailRow[] = [];
+  const pageSize = 1000;
+  for (let offset = 0; ; offset += pageSize) {
+    const { data: batch, error } = await admin
+      .from("site_visits")
+      .select(
+        `
       visitor_id,
       user_id,
       path,
       is_local,
       client_host,
       client_ip,
+      ip_hash,
+      user_agent,
+      browser_name,
+      device_type,
+      country_code,
+      bot_class,
+      bot_confidence,
+      classification_reasons,
+      verified_bot_name,
+      engaged,
+      engagement_ms,
+      interaction_count,
       created_at,
       profiles:user_id (nickname)
-    `
-    )
-    .gte("created_at", start)
-    .lt("created_at", end)
-    .order("created_at", { ascending: false })
-    .limit(2000);
-
-  if (!data) return [];
+      `
+      )
+      .gte("created_at", start)
+      .lt("created_at", end)
+      .order("created_at", { ascending: false })
+      .range(offset, offset + pageSize - 1);
+    if (error) throw error;
+    const rows = (batch ?? []) as unknown as VisitorDetailRow[];
+    data.push(...rows);
+    if (rows.length < pageSize) break;
+  }
 
   const byVisitor = new Map<string, SiteVisitorSummary>();
+  const classifications = classifyVisitors(data as unknown as VisitAggregateRow[]);
 
   for (const row of data) {
     const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
@@ -437,6 +721,16 @@ export async function getAdminVisitorSummariesForDate(
         isLocal: row.is_local,
         clientHost: row.client_host,
         clientIp: row.client_ip,
+        countryCode: row.country_code,
+        browserName: row.browser_name,
+        deviceType: row.device_type,
+        visitClass: classifications.get(row.visitor_id)?.visitClass ?? "unknown",
+        confidence: classifications.get(row.visitor_id)?.confidence ?? 0,
+        reasons: classifications.get(row.visitor_id)?.reasons ?? ["판정 신호 부족"],
+        verifiedBotName: row.verified_bot_name,
+        engaged: row.engaged ?? false,
+        engagementMs: row.engagement_ms ?? 0,
+        interactionCount: row.interaction_count ?? 0,
       });
       continue;
     }
@@ -452,6 +746,13 @@ export async function getAdminVisitorSummariesForDate(
     if (!existing.clientIp && row.client_ip) {
       existing.clientIp = row.client_ip;
     }
+    if (!existing.countryCode && row.country_code) existing.countryCode = row.country_code;
+    if (!existing.browserName && row.browser_name) existing.browserName = row.browser_name;
+    if (!existing.deviceType && row.device_type) existing.deviceType = row.device_type;
+    if (!existing.verifiedBotName && row.verified_bot_name) existing.verifiedBotName = row.verified_bot_name;
+    existing.engaged ||= row.engaged ?? false;
+    existing.engagementMs = Math.max(existing.engagementMs, row.engagement_ms ?? 0);
+    existing.interactionCount += row.interaction_count ?? 0;
   }
 
   return [...byVisitor.values()]
