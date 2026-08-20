@@ -193,7 +193,10 @@ export function isValidCommunityScope(value: string | null | undefined): value i
     value === "police" ||
     value === "housing" ||
     value === "social_worker" ||
-    value === "history"
+    value === "history" ||
+    // 영어 게시판을 여기 빠뜨리면 DB 는 받는데 API 가 400 으로 막는다.
+    // 앱은 「전송 실패」만 보여 주고 어디가 막혔는지 알 길이 없다.
+    value === "english"
   );
 }
 

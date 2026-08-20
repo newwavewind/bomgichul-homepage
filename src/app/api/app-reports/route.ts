@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     // 서버에서 기존 형식을 계속 받아 주면 앱을 다시 배포하지 않아도 피드백이 복구된다.
     if (requestedScope != null && !isValidCommunityScope(requestedScope)) {
       return json({
-        error: "communityScope는 real_estate | public_service | police | housing | social_worker 중 하나여야 합니다.",
+        error: "communityScope는 real_estate | public_service | police | housing | social_worker | history | english 중 하나여야 합니다.",
       }, 400);
     }
     const communityScope: CommunityScope = requestedScope ?? "real_estate";
