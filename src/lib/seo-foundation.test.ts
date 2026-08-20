@@ -1,8 +1,14 @@
 import { describe, expect, it } from "vitest";
 import robots from "@/app/robots";
-import sitemap, { publicContentPath } from "@/app/sitemap";
 import { SITE_URL } from "@/lib/constants";
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo";
+import {
+  buildStaticSitemapGroup,
+  publicContentPath,
+  renderSitemapIndex,
+  SITEMAP_GROUPS,
+  sitemapChildUrl,
+} from "@/lib/sitemap";
 
 describe("search engine foundations", () => {
   it("publishes one canonical host to crawlers", () => {
@@ -39,10 +45,39 @@ describe("search engine foundations", () => {
   });
 
   it("only publishes concept routes that actually exist for history and English", async () => {
-    const urls = (await sitemap()).map((entry) => entry.url);
+    const historyUrls = buildStaticSitemapGroup("history").map((entry) => entry.url);
+    const englishUrls = buildStaticSitemapGroup("english").map((entry) => entry.url);
 
-    expect(urls).toContain(`${SITE_URL}/history/concepts`);
-    expect(urls).not.toContain(`${SITE_URL}/history/concepts/simhwa`);
-    expect(urls).not.toContain(`${SITE_URL}/english/concepts/gong9`);
+    expect(historyUrls).toContain(`${SITE_URL}/history/concepts`);
+    expect(historyUrls).not.toContain(`${SITE_URL}/history/concepts/simhwa`);
+    expect(englishUrls).not.toContain(`${SITE_URL}/english/concepts/gong9`);
+  });
+
+  it("publishes a sitemap index with one independently crawlable feed per exam", () => {
+    const index = renderSitemapIndex();
+
+    expect(index).toContain("<sitemapindex");
+    for (const group of SITEMAP_GROUPS) {
+      expect(index).toContain(`<loc>${sitemapChildUrl(group)}</loc>`);
+      expect(buildStaticSitemapGroup(group).length).toBeGreaterThan(0);
+    }
+  });
+
+  it("keeps every exam URL inside its own sitemap", () => {
+    const cases = [
+      ["public-service", "/public-service/"],
+      ["police", "/police/"],
+      ["housing", "/housing/"],
+      ["social-worker", "/social-worker/"],
+      ["history", "/history/"],
+      ["english", "/english/"],
+    ] as const;
+
+    for (const [group, prefix] of cases) {
+      const urls = buildStaticSitemapGroup(group).map((entry) => entry.url);
+      const base = `${SITE_URL}${prefix.slice(0, -1)}`;
+      expect(urls.every((url) => url === base || url.startsWith(`${base}/`))).toBe(true);
+      expect(new Set(urls).size).toBe(urls.length);
+    }
   });
 });
