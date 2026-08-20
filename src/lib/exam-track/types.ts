@@ -16,11 +16,42 @@ export interface ExamTrackConcept {
   definition: string;
   intuition?: string;
   keyPoints?: string[];
-  pitfalls?: string;
+  pitfalls?: string | string[];
   example?: string;
   pitfallCards?: { wrong: string; correct: string }[];
   questionRefs?: { examId?: string; year: number; sourceCode?: string; questionNo: number }[];
-  sources?: { id?: string; type?: string; title: string; locator?: string; status?: string }[];
+  sources?: ConceptSourceValue[];
+  parentSlug?: string;
+  amendmentNotice?: string;
+  compareCard?: ConceptCompareCard;
+  deepDive?: ConceptDeepDiveItem[];
+  processFlow?: string[];
+  typologyTable?: ConceptTypologyTable;
+  spectrum?: ConceptSpectrum;
+}
+
+export type ConceptSourceValue =
+  | string
+  | { id?: string; type?: string; title?: string; name?: string; locator?: string; article?: string; status?: string; verifiedAt?: string; via?: string };
+
+export interface ConceptCompareCard {
+  title?: string;
+  left: { title: string; body: string };
+  right: { title: string; body: string };
+}
+
+export interface ConceptDeepDiveItem { title: string; body: string }
+export interface ConceptTypologyTable {
+  title?: string;
+  columns?: string[];
+  headers?: string[];
+  rows: { label: string; cells: Array<string | string[]>; tone?: string; toneLabel?: string }[];
+}
+export interface ConceptSpectrum {
+  title?: string;
+  leftLabel?: string;
+  rightLabel?: string;
+  points: Array<string | { label: string; position?: number; desc?: string }>;
 }
 
 export interface ExamTrackExamItem {

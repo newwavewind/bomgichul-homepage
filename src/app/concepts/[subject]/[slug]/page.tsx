@@ -23,6 +23,7 @@ import { ConceptReadBar } from "@/components/concepts/ConceptReadBar";
 import { ConceptCommunityPanel } from "@/components/concepts/ConceptCommunityPanel";
 import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
 import { ConceptSourcePanel } from "@/components/concepts/ConceptSourcePanel";
+import { ConceptStructureBlocks, hasConceptStructure } from "@/components/concepts/ConceptStructureBlocks";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, conceptSeoTitle, truncateDescription } from "@/lib/seo";
@@ -157,9 +158,15 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
       ? siblingConcepts[currentIndex + 1]
       : undefined;
   const hasExample = Boolean(concept.example?.trim());
+  const pitfallList = Array.isArray(concept.pitfalls)
+    ? concept.pitfalls.filter(Boolean)
+    : concept.pitfalls?.trim() ? [concept.pitfalls] : [];
+  const hasStructure = hasConceptStructure(concept);
   const exampleIndex = hasExample ? 4 : null;
-  const afterCore = 4 + (hasExample ? 1 : 0);
-  const statementsIndex = enhancement ? afterCore + 1 : afterCore;
+  const pitfallsIndex = pitfallList.length ? 4 + (hasExample ? 1 : 0) : null;
+  const afterCore = 4 + (hasExample ? 1 : 0) + (pitfallList.length ? 1 : 0);
+  const structureIndex = hasStructure ? afterCore : null;
+  const statementsIndex = afterCore + (hasStructure ? 1 : 0) + (enhancement ? 1 : 0);
   const relatedIndex = statements.length > 0 ? statementsIndex + 1 : statementsIndex;
   const communityIndex = relatedIndex + 1;
   const aiPrompt = buildConceptDetailAiPrompt({
@@ -171,7 +178,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
     definition: concept.definition,
     intuition: concept.intuition,
     keyPoints: concept.keyPoints,
-    pitfalls: concept.pitfalls,
+    pitfalls: pitfallList.join("\n"),
   });
 
   const conceptPath = `/concepts/${subject}/${slug}`;
@@ -244,6 +251,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
         />
 
         <ConceptSourcePanel
+          sources={concept.sources}
           examLabels={questions.map((question) => `${question.year}년 ${question.questionNo}번`)}
           amendmentNotice={concept.amendmentNotice}
         />
@@ -264,10 +272,25 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           </SectionBlock>
           {hasExample && exampleIndex != null ? (
             <SectionBlock id="cx-sec-example" label="한 줄 예시" index={exampleIndex}>
-              <aside className="hp-cx-map-summary">{plainConceptText(concept.example)}</aside>
+              <aside className="hp-cx-map-summary">{plainConceptText(concept.example!)}</aside>
+            </SectionBlock>
+          ) : null}
+          {pitfallList.length && pitfallsIndex != null ? (
+            <SectionBlock id="cx-sec-pitfalls" label="시험 함정" index={pitfallsIndex}>
+              <ol className="hp-cx-bullets">
+                {pitfallList.map((pitfall, index) => <li key={index}>{plainConceptText(pitfall)}</li>)}
+              </ol>
             </SectionBlock>
           ) : null}
         </article>
+
+        {hasStructure && structureIndex != null ? (
+          <article id="cx-sec-structure" className="hp-cx-card">
+            <SectionBlock label="한눈에 보기" index={structureIndex}>
+              <ConceptStructureBlocks concept={concept} />
+            </SectionBlock>
+          </article>
+        ) : null}
 
         {enhancement ? (
           <div id="cx-sec-visual" className="concepts-screen hp-cx-kind-host cx-toc-anchor">

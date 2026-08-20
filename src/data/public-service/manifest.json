@@ -70,7 +70,7 @@
     "id": "sebeop",
     "label": "세법개론",
     "track": "세무직",
-    "conceptCount": 16,
+    "conceptCount": 42,
     "examCount": 200,
     "years": [
       2026,
@@ -136,7 +136,7 @@
     "id": "hyeongso",
     "label": "형사소송법",
     "track": "검찰직",
-    "conceptCount": 37,
+    "conceptCount": 44,
     "examCount": 180,
     "years": [
       2026,
@@ -157,7 +157,7 @@
     "id": "hyeongsogaeron",
     "label": "형사소송법개론",
     "track": "교정직",
-    "conceptCount": 37,
+    "conceptCount": 44,
     "examCount": 180,
     "years": [
       2026,
@@ -178,7 +178,7 @@
     "id": "gyojeonghak",
     "label": "교정학개론",
     "track": "교정직",
-    "conceptCount": 25,
+    "conceptCount": 28,
     "examCount": 200,
     "years": [
       2026,
@@ -200,7 +200,7 @@
     "id": "gyoyukhak",
     "label": "교육학개론",
     "track": "교육행정",
-    "conceptCount": 20,
+    "conceptCount": 18,
     "examCount": 200,
     "years": [
       2026,
@@ -222,7 +222,7 @@
     "id": "gukjebeop",
     "label": "국제법개론",
     "track": "출입국관리",
-    "conceptCount": 15,
+    "conceptCount": 30,
     "examCount": 180,
     "years": [
       2026,
@@ -243,7 +243,7 @@
     "id": "nodongbeop",
     "label": "노동법개론",
     "track": "고용노동",
-    "conceptCount": 14,
+    "conceptCount": 56,
     "examCount": 160,
     "years": [
       2026,
@@ -263,7 +263,7 @@
     "id": "bokji",
     "label": "사회복지학개론",
     "track": "사회복지",
-    "conceptCount": 24,
+    "conceptCount": 23,
     "examCount": 400,
     "years": [
       2026,
@@ -286,7 +286,7 @@
     "id": "sobang",
     "label": "소방학개론",
     "track": "소방",
-    "conceptCount": 19,
+    "conceptCount": 11,
     "examCount": 200,
     "years": [
       2026,
@@ -307,7 +307,7 @@
     "id": "sobangbeop",
     "label": "소방관계법규",
     "track": "소방",
-    "conceptCount": 13,
+    "conceptCount": 53,
     "examCount": 200,
     "years": [
       2026,

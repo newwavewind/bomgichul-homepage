@@ -106,7 +106,10 @@ export function ConceptPartList({
                     </div>
                     <ul className="hp-cx-concept-list">
                       {section.items.map((concept) => {
-                        const isChild = Boolean(concept.parentSlug);
+                        const isChild = Boolean(concept.parentSlug && section.items.some((item) => item.slug === concept.parentSlug));
+                        const rowNo = isChild
+                          ? section.items.filter((item) => item.parentSlug === concept.parentSlug).findIndex((item) => item.slug === concept.slug) + 1
+                          : section.items.filter((item) => !(item.parentSlug && section.items.some((parent) => parent.slug === item.parentSlug))).findIndex((item) => item.slug === concept.slug) + 1;
                         const qCount = questionCounts[concept.slug] ?? 0;
                         const reads = userId
                           ? getConceptReadCount(progress, concept.slug)
@@ -119,7 +122,11 @@ export function ConceptPartList({
                                 isChild ? " hp-cx-concept-row--child" : ""
                               }${reads > 0 ? " hp-cx-concept-row--read" : ""}`}
                             >
-                              <div className="min-w-0">
+                              <div className="flex min-w-0 items-start gap-3">
+                                <span className={`mt-0.5 inline-flex h-7 min-w-7 items-center justify-center rounded-lg border px-1.5 font-display text-[11px] font-semibold ${isChild ? "border-mist bg-paper text-fog" : "border-ios-blue/25 bg-ios-blue/5 text-ios-blue"}`} aria-hidden>
+                                  {String(rowNo).padStart(2, "0")}
+                                </span>
+                                <div className="min-w-0">
                                 <p className="hp-cx-concept-row__meta">
                                   {isChild ? (
                                     <span className="mr-1" aria-hidden>
@@ -134,6 +141,7 @@ export function ConceptPartList({
                                 <h3 className="hp-cx-concept-row__title">
                                   {concept.titleKo}
                                 </h3>
+                                </div>
                               </div>
                               <span className="hp-cx-concept-row__meta-right">
                                 {userId ? (

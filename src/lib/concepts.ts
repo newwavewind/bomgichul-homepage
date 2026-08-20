@@ -20,12 +20,12 @@ export interface Concept {
   category: string;
   subcategory: string;
   titleKo: string;
-  titleEn: string;
+  titleEn?: string;
   definition: string;
   intuition: string;
   keyPoints: string[];
-  pitfalls: string;
-  example: string;
+  pitfalls?: string | string[];
+  example?: string;
   /**
    * 같은 category+subcategory를 공유하는 다른 개념과 문항을 정확히 나누고 싶을 때,
    * 이 개념에 실제로 속하는 문항만 정확히 지정한다. 지정하면 category+subcategory 매칭 대신
@@ -36,6 +36,12 @@ export interface Concept {
   parentSlug?: string;
   /** 법령 개정·제도 폐지 등이 반영된 개념임을 알리는 짧은 안내(상세 상단 배지). */
   amendmentNotice?: string;
+  sources?: import("@/lib/exam-track/types").ConceptSourceValue[];
+  compareCard?: import("@/lib/exam-track/types").ConceptCompareCard;
+  deepDive?: import("@/lib/exam-track/types").ConceptDeepDiveItem[];
+  processFlow?: string[];
+  typologyTable?: import("@/lib/exam-track/types").ConceptTypologyTable;
+  spectrum?: import("@/lib/exam-track/types").ConceptSpectrum;
 }
 
 const CONCEPTS_BY_SUBJECT: Record<ExamSubject, Concept[]> = {

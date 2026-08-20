@@ -46,8 +46,11 @@ export function buildConceptSearchTerms(concept: Concept): string[] {
     }
   }
 
-  for (const match of concept.pitfalls.match(/[가-힣]{4,}/g) ?? []) {
-    add(match);
+  const pitfalls = Array.isArray(concept.pitfalls)
+    ? concept.pitfalls
+    : concept.pitfalls ? [concept.pitfalls] : [];
+  for (const pitfall of pitfalls) {
+    for (const match of pitfall.match(/[가-힣]{4,}/g) ?? []) add(match);
   }
 
   const sub = concept.subcategory.replace(/\s+/g, "");

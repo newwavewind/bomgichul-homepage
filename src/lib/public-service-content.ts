@@ -26,11 +26,18 @@ export interface PublicServiceConcept {
   definition: string;
   intuition?: string;
   keyPoints?: string[];
-  pitfalls?: string;
+  pitfalls?: string | string[];
   example?: string;
   pitfallCards?: { wrong: string; correct: string }[];
   questionRefs?: { examId?: string; year: number; sourceCode?: string; questionNo: number }[];
-  sources?: { id?: string; type?: string; title: string; locator?: string; status?: string }[];
+  sources?: import("@/lib/exam-track/types").ConceptSourceValue[];
+  parentSlug?: string;
+  amendmentNotice?: string;
+  compareCard?: import("@/lib/exam-track/types").ConceptCompareCard;
+  deepDive?: import("@/lib/exam-track/types").ConceptDeepDiveItem[];
+  processFlow?: string[];
+  typologyTable?: import("@/lib/exam-track/types").ConceptTypologyTable;
+  spectrum?: import("@/lib/exam-track/types").ConceptSpectrum;
 }
 
 export interface PublicServiceExamItem {

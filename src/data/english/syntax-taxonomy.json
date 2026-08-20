@@ -1,0 +1,213 @@
+{
+ "_설명": "9급 어법·영작 65문항을 먼저 읽고, 시험이 실제로 묻는 자리에서 거꾸로 세운 분류다. 문법책 목차를 옮기면 한 번도 나온 적 없는 칸이 생기고 매년 나오는 자리가 한 줄로 눌린다.",
+ "groups": [
+  {
+   "id": "skeleton",
+   "no": 1,
+   "name": "문장의 뼈대",
+   "hint": "누가 무엇을 했는가 — 모든 문장의 바닥",
+   "units": [
+    {
+     "id": "sk-sv",
+     "name": "SV · SVC",
+     "desc": "주어와 동사, 그리고 보어. 보어 자리에 오는 것은 형용사이지 부사가 아니다."
+    },
+    {
+     "id": "sk-svo",
+     "name": "SVO · SVOO",
+     "desc": "목적어를 하나 또는 둘 받는 자리. 전치사가 필요한 동사와 아닌 동사가 갈린다."
+    },
+    {
+     "id": "sk-svoc",
+     "name": "SVOC",
+     "desc": "목적격보어. make·find·keep 뒤의 형태가 원형인지 분사인지가 관건."
+    },
+    {
+     "id": "sk-vt",
+     "name": "자동사 · 타동사",
+     "desc": "contact to me·discuss about 처럼 전치사를 잘못 붙이는 자리."
+    },
+    {
+     "id": "sk-agree",
+     "name": "주어–동사 수일치",
+     "desc": "the number of / one of / 주어와 동사 사이에 낀 수식어구."
+    }
+   ]
+  },
+  {
+   "id": "verb",
+   "no": 2,
+   "name": "동사의 꼴",
+   "hint": "시제 · 태 · 조동사 — 매년 나온다",
+   "units": [
+    {
+     "id": "v-tense",
+     "name": "시제",
+     "desc": "현재완료와 과거의 갈림, 대과거, since·ago·until 과의 짝."
+    },
+    {
+     "id": "v-passive",
+     "name": "수동태",
+     "desc": "자동사는 수동이 될 수 없다. 구동사의 수동은 전치사를 남긴다."
+    },
+    {
+     "id": "v-modal",
+     "name": "조동사 + have p.p.",
+     "desc": "should have p.p.(했어야 했는데) · cannot have p.p."
+    },
+    {
+     "id": "v-subjunctive",
+     "name": "주장·명령·제안·요구 that절",
+     "desc": "insist·recommend·demand 뒤 that절은 (should) + 동사원형."
+    }
+   ]
+  },
+  {
+   "id": "verbal",
+   "no": 3,
+   "name": "준동사",
+   "hint": "to부정사 · 동명사 · 분사 — 매년 나온다",
+   "units": [
+    {
+     "id": "vb-to",
+     "name": "to부정사",
+     "desc": "명사·형용사·부사 세 용법. 의미상 주어와 부정 위치."
+    },
+    {
+     "id": "vb-ing",
+     "name": "동명사",
+     "desc": "전치사 to + -ing, be busy -ing, It is no use -ing."
+    },
+    {
+     "id": "vb-participle",
+     "name": "분사",
+     "desc": "현재분사와 과거분사, 감정 동사(exciting/excited)의 방향."
+    },
+    {
+     "id": "vb-partcl",
+     "name": "분사구문",
+     "desc": "생략된 주어가 주절과 같은가. 완료분사구문·독립분사구문·with 분사구문."
+    }
+   ]
+  },
+  {
+   "id": "link",
+   "no": 4,
+   "name": "연결",
+   "hint": "관계사 · 접속사 · 명사절 — 매년 나온다",
+   "units": [
+    {
+     "id": "ln-rel",
+     "name": "관계대명사",
+     "desc": "선행사와 격. 뒤 문장에서 무엇이 비어 있는지를 본다."
+    },
+    {
+     "id": "ln-what",
+     "name": "관계대명사 what",
+     "desc": "선행사를 품은 절. 앞에 선행사가 있으면 what 을 쓸 수 없다."
+    },
+    {
+     "id": "ln-relwhere",
+     "name": "관계부사 · 전치사+관계대명사",
+     "desc": "뒤 문장이 완전하면 관계부사, 빠진 자리가 있으면 관계대명사."
+    },
+    {
+     "id": "ln-noun",
+     "name": "명사절",
+     "desc": "that · whether · 의문사절이 주어·목적어·보어 자리에 들어간다."
+    },
+    {
+     "id": "ln-conj",
+     "name": "접속사와 전치사",
+     "desc": "despite/because of 뒤에는 명사, although/because 뒤에는 절."
+    },
+    {
+     "id": "ln-compound",
+     "name": "복합관계사",
+     "desc": "whoever·whatever·however. 절 안에서의 격으로 정한다."
+    },
+    {
+     "id": "ln-appos",
+     "name": "동격",
+     "desc": "명사 뒤의 that절·of -ing 가 그 명사를 되풀어 설명한다."
+    }
+   ]
+  },
+  {
+   "id": "compare",
+   "no": 5,
+   "name": "비교 · 병렬 · 자리바꿈",
+   "hint": "형태를 맞추고 순서를 뒤집는 자리",
+   "units": [
+    {
+     "id": "cp-comp",
+     "name": "비교급 · 최상급",
+     "desc": "than any other, 배수 비교, 비교 대상의 격 맞추기."
+    },
+    {
+     "id": "cp-thethe",
+     "name": "the 비교급, the 비교급",
+     "desc": "「~할수록 더 ~하다」. 두 절 모두 the + 비교급으로 시작한다."
+    },
+    {
+     "id": "cp-parallel",
+     "name": "병치",
+     "desc": "and·or·but·not only A but also B 로 이어진 것끼리 품사와 형태를 맞춘다."
+    },
+    {
+     "id": "cp-invert",
+     "name": "도치",
+     "desc": "부정어·only 구가 앞에 나오면 조동사가 주어 앞으로. so/neither + 동사 + 주어."
+    },
+    {
+     "id": "cp-emph",
+     "name": "강조구문 It is ~ that",
+     "desc": "강조하는 자리를 빼도 문장이 남는다. 이것이 가주어 it 과 갈리는 잣대."
+    },
+    {
+     "id": "cp-ellipsis",
+     "name": "생략",
+     "desc": "되풀이되는 말을 지운 자리. 무엇이 지워졌는지 되살려 읽는다."
+    }
+   ]
+  },
+  {
+   "id": "special",
+   "no": 6,
+   "name": "특수 구조",
+   "hint": "가정법 · 삽입 · 관용",
+   "units": [
+    {
+     "id": "sp-if",
+     "name": "가정법",
+     "desc": "if 생략 도치(Were it not for, Had I known), 혼합 가정법, as if."
+    },
+    {
+     "id": "sp-it",
+     "name": "가주어 · 가목적어 it",
+     "desc": "It ~ to부정사 / that절, find it + 형용사 + to부정사."
+    },
+    {
+     "id": "sp-neg",
+     "name": "부정구문",
+     "desc": "cannot ~ too, by no means, no sooner ~ than, 부분부정."
+    },
+    {
+     "id": "sp-insert",
+     "name": "삽입 · 동격 콤마",
+     "desc": "콤마·줄표로 끼워 넣은 말. 걷어 내도 문장이 성립한다."
+    },
+    {
+     "id": "sp-causative",
+     "name": "사역 · 지각동사",
+     "desc": "make·have·let + 목적어 + 원형, see·hear + 목적어 + -ing/p.p."
+    },
+    {
+     "id": "sp-idiom",
+     "name": "관용 구문",
+     "desc": "A is to B what C is to D, have no choice but to, cannot help -ing."
+    }
+   ]
+  }
+ ]
+}

@@ -12,6 +12,7 @@ import type { PublicServiceConcept, PublicServiceExam } from "@/lib/public-servi
 import "@/app/concepts/concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
 import { ConceptSourcePanel } from "@/components/concepts/ConceptSourcePanel";
+import { ConceptStructureBlocks, hasConceptStructure } from "@/components/concepts/ConceptStructureBlocks";
 
 type ConceptLike = ExamTrackConcept | PublicServiceConcept;
 type ExamLike = Pick<PublicServiceExam, "id" | "year" | "sourceCode" | "questionNo">;
@@ -42,20 +43,6 @@ function SectionBlock({
       <div className="hp-cx-section__body">{children}</div>
     </section>
   );
-}
-
-function getRelatedSectionIndex(concept: ConceptLike): number {
-  let n = 2;
-  if (concept.intuition?.trim()) {
-    n += 1;
-  }
-  if (concept.keyPoints?.length) {
-    n += 1;
-  }
-  if (concept.example?.trim()) {
-    n += 1;
-  }
-  return n;
 }
 
 export function TrackConceptDetailView({
@@ -89,9 +76,11 @@ export function TrackConceptDetailView({
   authorRanks?: Record<string, OceanRank>;
   statements?: TrackConceptStatement[];
 }) {
-  const relatedIndex = getRelatedSectionIndex(concept);
-  const relatedSectionIndex = relatedIndex + (statements.length > 0 ? 1 : 0);
   let sectionIndex = 1;
+  const pitfallList = Array.isArray(concept.pitfalls)
+    ? concept.pitfalls.filter(Boolean)
+    : concept.pitfalls?.trim() ? [concept.pitfalls] : [];
+  const hasStructure = hasConceptStructure(concept);
   const returnTo = `${listHref}/${concept.slug}`;
   const aiPrompt = buildConceptDetailAiPrompt({
     subjectLabel,
@@ -102,7 +91,7 @@ export function TrackConceptDetailView({
     definition: concept.definition,
     intuition: concept.intuition,
     keyPoints: concept.keyPoints ?? [],
-    pitfalls: concept.pitfalls,
+    pitfalls: pitfallList.join("\n"),
   });
 
   return (
@@ -154,9 +143,23 @@ export function TrackConceptDetailView({
           ) : null}
         </article>
 
+        {pitfallList.length ? <article className="hp-cx-card">
+          <SectionBlock id="cx-sec-pitfalls" label="시험 함정" index={sectionIndex++}>
+            <ol className="hp-cx-bullets">
+              {pitfallList.map((pitfall, index) => <li key={index}>{plainConceptText(pitfall)}</li>)}
+            </ol>
+          </SectionBlock>
+        </article> : null}
+
+        {hasStructure ? <article id="cx-sec-structure" className="hp-cx-card">
+          <SectionBlock label="한눈에 보기" index={sectionIndex++}>
+            <ConceptStructureBlocks concept={concept} />
+          </SectionBlock>
+        </article> : null}
+
         {statements.length > 0 ? (
           <article className="hp-cx-card">
-            <SectionBlock label="기출 지문" index={relatedIndex}>
+            <SectionBlock label="기출 지문" index={sectionIndex++}>
               <TrackConceptStatements statements={statements} />
             </SectionBlock>
           </article>
@@ -167,7 +170,7 @@ export function TrackConceptDetailView({
             <div className="hp-cx-questions-head">
               <h2 className="hp-cx-section__label">
                 <span className="hp-cx-section__index" aria-hidden>
-                  {String(relatedSectionIndex).padStart(2, "0")}
+                  {String(sectionIndex).padStart(2, "0")}
                 </span>
                 <span>관련 기출</span>
               </h2>
@@ -192,7 +195,7 @@ export function TrackConceptDetailView({
           </section>
         </article>
 
-        <ConceptCommunityPanel subject={subjectKey} conceptSlug={concept.slug} sectionIndex={relatedSectionIndex + 1} userId={userId} initialPosts={initialPosts} authorRanks={authorRanks} returnTo={returnTo} />
+        <ConceptCommunityPanel subject={subjectKey} conceptSlug={concept.slug} sectionIndex={sectionIndex + 1} userId={userId} initialPosts={initialPosts} authorRanks={authorRanks} returnTo={returnTo} />
 
         <nav className="hp-cx-pager" aria-label="이전·다음 개념">
           {prev && prevHref ? (

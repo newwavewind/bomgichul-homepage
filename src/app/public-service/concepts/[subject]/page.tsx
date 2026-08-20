@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getPublicServiceSubject } from "@/lib/public-service-content";
 import { BackLink } from "@/components/ui/BackLink";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
+import { TrackConceptPartList, type TrackConceptPartGroup } from "@/components/exam-track/TrackConceptPartList";
 import { buildBreadcrumbJsonLd, buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 import "@/app/concepts/concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
@@ -23,10 +24,18 @@ export default async function PublicServiceConceptListPage({ params }: Props) {
   if (!data) notFound();
   const path = `/public-service/concepts/${subjectId}`;
   const description = `${data.subject.label} 기출 논점을 기본서 목차 순서로 정리한 핵심 개념 ${data.concepts.length}개`;
-  const groups = new Map<string, typeof data.concepts>();
+  const groups: TrackConceptPartGroup[] = [];
   for (const concept of data.concepts) {
-    const key = concept.chapterKo || concept.category || "핵심 개념";
-    groups.set(key, [...(groups.get(key) ?? []), concept]);
+    const chapter = concept.chapterKo || concept.category || "핵심 개념";
+    let part = groups.find((item) => item.chapter === chapter);
+    if (!part) { part = { chapter, sections: [] }; groups.push(part); }
+    const section = concept.sectionKo || concept.category || "핵심 개념";
+    let sectionGroup = part.sections.find((item) => item.section === section);
+    if (!sectionGroup) {
+      sectionGroup = { section, orderNo: String(part.sections.length + 1).padStart(2, "0"), items: [] };
+      part.sections.push(sectionGroup);
+    }
+    sectionGroup.items.push(concept);
   }
   return (
     <div className="hp-cx px-4 py-8 md:py-12">
@@ -40,17 +49,7 @@ export default async function PublicServiceConceptListPage({ params }: Props) {
           9급 공무원 {data.subject.label} 기출문제 →
         </Link>
       </header>
-      <div className="mt-10 space-y-10">{[...groups.entries()].map(([group, concepts]) => (
-        <section key={group}><h2 className="mb-4 font-display text-subheading font-semibold text-ink">{group}</h2>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{concepts.map((concept) => (
-            <Link key={concept.slug} href={`/public-service/concepts/${subjectId}/${concept.slug}`} className="rounded-2xl border border-mist bg-paper p-5 shadow-[var(--shadow-subtle)] transition-colors hover:border-carbon">
-              <p className="font-display text-[12px] text-fog">{concept.sectionKo || concept.subcategory}</p>
-              <h3 className="mt-2 font-display text-[18px] font-semibold text-ink">{concept.titleKo}</h3>
-              <p className="mt-2 line-clamp-2 font-system text-[14px] leading-6 text-smoke">{concept.definition}</p>
-            </Link>
-          ))}</div>
-        </section>
-      ))}</div>
+      <div className="mt-10"><TrackConceptPartList groups={groups} hrefBase={`/public-service/concepts/${subjectId}`} /></div>
         <SimpleAppInstallStrip scope="public_service" />
       </div>
     </div>
