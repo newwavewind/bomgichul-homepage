@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import robots from "@/app/robots";
-import { publicContentPath } from "@/app/sitemap";
+import sitemap, { publicContentPath } from "@/app/sitemap";
 import { SITE_URL } from "@/lib/constants";
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo";
 
@@ -36,5 +36,13 @@ describe("search engine foundations", () => {
         community_scope: "police",
       }),
     ).toBe("/police/community/post-id");
+  });
+
+  it("only publishes concept routes that actually exist for history and English", async () => {
+    const urls = (await sitemap()).map((entry) => entry.url);
+
+    expect(urls).toContain(`${SITE_URL}/history/concepts`);
+    expect(urls).not.toContain(`${SITE_URL}/history/concepts/simhwa`);
+    expect(urls).not.toContain(`${SITE_URL}/english/concepts/gong9`);
   });
 });

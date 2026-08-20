@@ -66,6 +66,11 @@ const STATIC_PAGES: MetadataRoute.Sitemap = [
     priority: 0.9,
   },
   {
+    url: `${SITE_URL}/history/concepts`,
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
     url: `${SITE_URL}/english`,
     changeFrequency: "weekly",
     priority: 0.9,
@@ -189,22 +194,31 @@ function getNamespacedTrackUrls(
     exams: (ExamRenderCheck & { year: number; sourceCode: string; questionNo: number })[];
   } | null,
   getSessions: (id: string) => { year: number; sourceCode: string }[],
+  { includeConcepts = true }: { includeConcepts?: boolean } = {},
 ): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = [];
   for (const subjectId of subjectIds) {
     const subject = getSubject(subjectId);
     if (!subject) continue;
-    urls.push(
-      { url: `${SITE_URL}${basePath}/concepts/${subjectId}`, changeFrequency: "weekly", priority: 0.7 },
-      { url: `${SITE_URL}${basePath}/exam/${subjectId}`, changeFrequency: "weekly", priority: 0.7 },
-    );
-    for (const concept of subject.concepts) {
+    if (includeConcepts) {
       urls.push({
-        url: `${SITE_URL}${basePath}/concepts/${subjectId}/${concept.slug}`,
-        changeFrequency: "monthly",
-        priority: 0.6,
+        url: `${SITE_URL}${basePath}/concepts/${subjectId}`,
+        changeFrequency: "weekly",
+        priority: 0.7,
       });
+      for (const concept of subject.concepts) {
+        urls.push({
+          url: `${SITE_URL}${basePath}/concepts/${subjectId}/${concept.slug}`,
+          changeFrequency: "monthly",
+          priority: 0.6,
+        });
+      }
     }
+    urls.push({
+      url: `${SITE_URL}${basePath}/exam/${subjectId}`,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    });
     for (const session of getSessions(subjectId)) {
       urls.push({
         url: `${SITE_URL}${basePath}/exam/${subjectId}/${session.year}/${session.sourceCode}`,
@@ -243,11 +257,23 @@ function getHousingUrls(): MetadataRoute.Sitemap {
 }
 
 function getHistoryUrls(): MetadataRoute.Sitemap {
-  return getNamespacedTrackUrls("/history", HISTORY_SUBJECT_IDS, getHistorySubject, getHistoryExamSessions);
+  return getNamespacedTrackUrls(
+    "/history",
+    HISTORY_SUBJECT_IDS,
+    getHistorySubject,
+    getHistoryExamSessions,
+    { includeConcepts: false },
+  );
 }
 
 function getEnglishUrls(): MetadataRoute.Sitemap {
-  return getNamespacedTrackUrls("/english", ENGLISH_SUBJECT_IDS, getEnglishSubject, getEnglishExamSessions);
+  return getNamespacedTrackUrls(
+    "/english",
+    ENGLISH_SUBJECT_IDS,
+    getEnglishSubject,
+    getEnglishExamSessions,
+    { includeConcepts: false },
+  );
 }
 
 function getSocialWorkerUrls(): MetadataRoute.Sitemap {

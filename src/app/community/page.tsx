@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import type { Metadata } from "next";
 import { getPosts } from "@/lib/posts";
 import { PostCard } from "@/components/board/PostCard";
 import { CategoryFilter } from "@/components/board/CategoryFilter";
@@ -11,51 +10,21 @@ import { ElevatedCard } from "@/components/ui/Card";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import type { CommunityListFilter, CommunityScope } from "@/types/database";
 import type { SortOption } from "@/lib/constants";
-import { BEST_POST_MIN_VIEWS, CATEGORY_MAP, appStoreLinksForScope } from "@/lib/constants";
-import { buildPageMetadata } from "@/lib/seo";
+import { BEST_POST_MIN_VIEWS, appStoreLinksForScope } from "@/lib/constants";
 import { getUserActivityScores } from "@/lib/activity";
 import { communityBaseHref, communityTitle } from "@/lib/exam-track/community";
+import {
+  buildCommunityListMetadata,
+  type CommunitySearchParams,
+} from "@/lib/exam-track/community-seo";
 import { CommunityHubNav } from "@/components/community/CommunityHubNav";
 
 interface CommunityPageProps {
-  searchParams: Promise<{
-    page?: string;
-    category?: string;
-    q?: string;
-    sort?: string;
-  }>;
+  searchParams: CommunitySearchParams;
 }
 
-export async function generateMetadata({
-  searchParams,
-}: CommunityPageProps): Promise<Metadata> {
-  const params = await searchParams;
-  const page = Math.max(1, Number(params.page) || 1);
-  const category = (params.category as CommunityListFilter) || "all";
-  const search = params.q?.trim() ?? "";
-
-  let title = "공인중개사 수험생 커뮤니티";
-  if (category === "best") {
-    title = "베스트 글 | 공인중개사 수험생 커뮤니티";
-  } else if (category !== "all") {
-    title = `${CATEGORY_MAP[category]} | 공인중개사 수험생 커뮤니티`;
-  }
-  if (page > 1) title = `${title} ${page}페이지`;
-
-  const description =
-    category === "best"
-      ? `조회수 ${BEST_POST_MIN_VIEWS}회 이상 인기 게시글을 모았습니다. 공인중개사 수험생 질문·합격후기·수험정보를 확인하세요.`
-      : "공인중개사 수험생 커뮤니티. 자유게시판, 질문, 자료공유, 수험정보, 합격후기를 나눠보세요.";
-
-  const isAppOnlyCategory = category === "bug" || category === "feedback";
-
-  return buildPageMetadata({
-    title,
-    description,
-    path: "/community",
-    canonicalParams: { category: category === "all" ? undefined : category, page },
-    noIndex: Boolean(search) || isAppOnlyCategory,
-  });
+export async function generateMetadata({ searchParams }: CommunityPageProps) {
+  return buildCommunityListMetadata({ searchParams, scope: "real_estate" });
 }
 
 export async function CommunityBoard({
@@ -65,8 +34,9 @@ export async function CommunityBoard({
   const params = await searchParams;
   const page = Math.max(1, Number(params.page) || 1);
   const category = (params.category as CommunityListFilter) || "all";
-  const search = params.q ?? "";
-  const sort = (params.sort as SortOption) || "latest";
+  const search = Array.isArray(params.q) ? params.q[0] ?? "" : params.q ?? "";
+  const sortValue = Array.isArray(params.sort) ? params.sort[0] : params.sort;
+  const sort = (sortValue as SortOption) || "latest";
 
   const { data: posts, totalPages, total } = await getPosts({
     page,

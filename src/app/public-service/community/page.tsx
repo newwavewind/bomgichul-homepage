@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import { CommunityBoard } from "@/app/community/page";
-import { buildPageMetadata } from "@/lib/seo";
+import {
+  buildCommunityListMetadata,
+  type CommunitySearchParams,
+} from "@/lib/exam-track/community-seo";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "공무원 수험생 커뮤니티",
-  description: "공무원 수험생이 과목별 질문과 수험 정보를 나누는 전용 커뮤니티입니다.",
-  path: "/public-service/community",
-});
+export function generateMetadata({ searchParams }: { searchParams: CommunitySearchParams }) {
+  return buildCommunityListMetadata({ searchParams, scope: "public_service" });
+}
 
-export default function PublicServiceCommunityPage({ searchParams }: { searchParams: Promise<{ page?: string; category?: string; q?: string; sort?: string }> }) {
+export default function PublicServiceCommunityPage({ searchParams }: { searchParams: CommunitySearchParams }) {
   return <CommunityBoard searchParams={searchParams} scope="public_service" />;
 }
