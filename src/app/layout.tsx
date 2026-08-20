@@ -12,7 +12,7 @@ import {
   SITE_URL,
   GA_MEASUREMENT_ID,
 } from "@/lib/constants";
-import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo";
+import { buildOrganizationJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -130,12 +130,6 @@ export default function RootLayout({
       className={`${outfit.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-paper text-ink">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(buildWebSiteJsonLd()),
-          }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

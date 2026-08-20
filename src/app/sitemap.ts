@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { createClient } from "@/lib/supabase/server";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { createClient } from "@supabase/supabase-js";
+import { getSupabaseEnv, isSupabaseConfigured } from "@/lib/supabase/env";
 import { ARCHIVE_SUBJECTS, EXAM_SUBJECTS, SITE_URL } from "@/lib/constants";
 import { getAllConceptParams } from "@/lib/concepts";
 import { getAllExamParams, getExamYearParams } from "@/lib/exam-questions";
@@ -10,12 +10,23 @@ import { HOUSING_SUBJECT_IDS, getHousingExamSessions, getHousingSubject } from "
 import { SOCIAL_WORKER_SUBJECT_IDS, getSocialWorkerExamSessions, getSocialWorkerSubject } from "@/lib/social-worker-content";
 import { ENGLISH_SUBJECT_IDS, getEnglishExamSessions, getEnglishSubject } from "@/lib/english-content";
 import { HISTORY_SUBJECT_IDS, getHistoryExamSessions, getHistorySubject } from "@/lib/history-content";
-import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
+import {
+  archiveBaseHref,
+  communityBaseHref,
+  isValidCommunityScope,
+} from "@/lib/exam-track/community";
 import { isRenderableExam } from "@/lib/exam-track/exam-render";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
 
 type ExamRenderCheck = Pick<ExamTrackExam, "kind" | "stem" | "prompt" | "blanks">;
 import type { CommunityScope } from "@/types/database";
+
+/**
+ * 사이트맵은 로그인 세션과 무관한 공개 문서다. 쿠키 기반 서버 클라이언트를 쓰면
+ * Next.js가 매 요청 동적 응답으로 처리하므로, 공개 anon 클라이언트로 생성하고
+ * 한 시간 단위로 재검증해 검색 로봇의 연속 요청에도 안정적으로 응답한다.
+ */
+export const revalidate = 3600;
 
 /** 검색 노출 대상 정적 공개 페이지 */
 const STATIC_PAGES: MetadataRoute.Sitemap = [
@@ -251,7 +262,14 @@ function getSocialWorkerUrls(): MetadataRoute.Sitemap {
 async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
   if (!isSupabaseConfigured()) return [];
 
-  const supabase = await createClient();
+  const { url, key } = getSupabaseEnv();
+  const supabase = createClient(url, key, {
+    auth: {
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+      persistSession: false,
+    },
+  });
   const { data, error } = await supabase
     .from("posts")
     .select("id, category, community_scope, updated_at")
@@ -262,19 +280,28 @@ async function getPublicContentUrls(): Promise<MetadataRoute.Sitemap> {
   if (error || !data) return [];
 
   return data.map((post) => {
-    const scope = isValidCommunityScope(post.community_scope)
-      ? (post.community_scope as CommunityScope)
-      : "real_estate";
     return {
-      url:
-        post.category === "resource"
-          ? `${SITE_URL}/archive/${post.id}`
-          : `${SITE_URL}${communityBaseHref(scope)}/${post.id}`,
+      url: `${SITE_URL}${publicContentPath(post)}`,
       lastModified: new Date(post.updated_at),
       changeFrequency: "weekly" as const,
       priority: 0.6,
     };
   });
+}
+
+export function publicContentPath(post: {
+  id: string;
+  category: string;
+  community_scope: string | null;
+}): string {
+  const scope = isValidCommunityScope(post.community_scope)
+    ? (post.community_scope as CommunityScope)
+    : "real_estate";
+  const base =
+    post.category === "resource"
+      ? archiveBaseHref(scope)
+      : communityBaseHref(scope);
+  return `${base}/${post.id}`;
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

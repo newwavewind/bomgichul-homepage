@@ -5,7 +5,6 @@ import {
   Text,
   View,
   StyleSheet,
-  Font,
   renderToBuffer,
 } from "@react-pdf/renderer";
 import { ARCHIVE_SUBJECT_MAP, SITE_NAME, SITE_URL } from "@/lib/constants";
@@ -14,31 +13,12 @@ import {
   isStatementCompositeQuestion,
   type ExamSubject,
 } from "@/lib/exam-questions";
-
-let fontsRegistered = false;
-
-function ensureFontsRegistered() {
-  if (fontsRegistered) return;
-  Font.register({
-    family: "NotoSansKR",
-    fonts: [
-      {
-        src: "https://fonts.gstatic.com/s/notosanskr/v39/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLQ.ttf",
-        fontWeight: "normal",
-      },
-      {
-        src: "https://fonts.gstatic.com/s/notosanskr/v39/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzg01eLQ.ttf",
-        fontWeight: "bold",
-      },
-    ],
-  });
-  fontsRegistered = true;
-}
+import { ensurePdfFontsRegistered, PDF_FONT_FAMILY } from "@/lib/pdf-fonts";
 
 const styles = StyleSheet.create({
   page: {
     padding: 36,
-    fontFamily: "NotoSansKR",
+    fontFamily: PDF_FONT_FAMILY,
     fontSize: 10,
     lineHeight: 1.5,
   },
@@ -113,7 +93,7 @@ export async function renderExamYearPdfBuffer(
     throw new Error(`no questions for ${subject} ${year}`);
   }
 
-  ensureFontsRegistered();
+  ensurePdfFontsRegistered();
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const watermarkText = getExamPdfWatermarkText();

@@ -219,6 +219,7 @@ export function buildOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
     url: SITE_URL,
     logo: absoluteUrl("/brand/whale-mark.png"),
@@ -230,15 +231,15 @@ export function buildWebSiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
     name: SITE_NAME,
-    alternateName: ["봄기출", "Bomgichul"],
+    alternateName: ["Bomgichul", "bomgichul.com"],
     url: SITE_URL,
     description: SITE_DESCRIPTION,
     inLanguage: "ko-KR",
     publisher: {
       "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
+      "@id": `${SITE_URL}/#organization`,
     },
   };
 }
@@ -253,8 +254,7 @@ export function buildPlatformHomeJsonLd() {
     inLanguage: "ko-KR",
     isPartOf: {
       "@type": "WebSite",
-      name: SITE_NAME,
-      url: SITE_URL,
+      "@id": `${SITE_URL}/#website`,
     },
     mainEntity: {
       "@type": "ItemList",

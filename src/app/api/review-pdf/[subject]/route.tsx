@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Document, Page, Text, View, StyleSheet, Font, renderToBuffer } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, renderToBuffer } from "@react-pdf/renderer";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
   getExamQuestion,
@@ -9,6 +9,7 @@ import {
 import { getUser } from "@/lib/auth";
 import { getBookmarksForUser } from "@/lib/bookmarks";
 import { getNotesForSubject } from "@/lib/notes";
+import { ensurePdfFontsRegistered, PDF_FONT_FAMILY } from "@/lib/pdf-fonts";
 
 export const runtime = "nodejs";
 
@@ -18,27 +19,8 @@ function isValidSubject(value: string): value is ExamSubject {
   return (VALID_SUBJECTS as string[]).includes(value);
 }
 
-let fontsRegistered = false;
-function ensureFontsRegistered() {
-  if (fontsRegistered) return;
-  Font.register({
-    family: "NotoSansKR",
-    fonts: [
-      {
-        src: "https://fonts.gstatic.com/s/notosanskr/v39/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzuoyeLQ.ttf",
-        fontWeight: "normal",
-      },
-      {
-        src: "https://fonts.gstatic.com/s/notosanskr/v39/PbyxFmXiEBPT4ITbgNA5Cgms3VYcOA-vvnIzzg01eLQ.ttf",
-        fontWeight: "bold",
-      },
-    ],
-  });
-  fontsRegistered = true;
-}
-
 const styles = StyleSheet.create({
-  page: { padding: 36, fontFamily: "NotoSansKR", fontSize: 10, lineHeight: 1.5 },
+  page: { padding: 36, fontFamily: PDF_FONT_FAMILY, fontSize: 10, lineHeight: 1.5 },
   title: { fontSize: 15, fontWeight: "bold", marginBottom: 2 },
   subtitle: { fontSize: 9, color: "#64748b", marginBottom: 18 },
   questionBlock: { marginBottom: 14 },
@@ -93,7 +75,7 @@ export async function GET(_request: NextRequest, { params }: ReviewPdfParams) {
     return NextResponse.json({ error: "북마크나 메모가 없어요." }, { status: 404 });
   }
 
-  ensureFontsRegistered();
+  ensurePdfFontsRegistered();
   const label = ARCHIVE_SUBJECT_MAP[subject];
 
   const doc = (
@@ -149,7 +131,8 @@ export async function GET(_request: NextRequest, { params }: ReviewPdfParams) {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename="${subject}-review.pdf"`,
-      "Cache-Control": "private, max-age=3600",
+      "Cache-Control": "private, no-store, max-age=0",
+      "Content-Length": String(buffer.length),
     },
   });
 }

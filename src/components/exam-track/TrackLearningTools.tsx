@@ -12,6 +12,7 @@ import { examRenderKind } from "@/lib/exam-track/exam-render";
 type Mode = "random" | "wrong" | "review" | "bookmarks" | "mock" | "stats";
 type Attempt = { subject: string; year: number; question_no: number; result: "correct" | "wrong" };
 type Bookmark = { subject: string; year: number; question_no: number };
+type ReviewMemo = Bookmark & { content: string };
 
 const MODE_LABELS: { id: Mode; label: string; icon: string }[] = [
   { id: "random", label: "랜덤 문제", icon: "🎲" },
@@ -62,6 +63,7 @@ export function TrackLearningTools({
   const [mode, setMode] = useState<Mode | null>(null);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
+  const [reviewMemos, setReviewMemos] = useState<ReviewMemo[]>([]);
   const [index, setIndex] = useState(0);
   const [loading, setLoading] = useState(Boolean(userId));
   const prefix = `${scope}:${subjectId}:`;
@@ -73,12 +75,14 @@ export function TrackLearningTools({
       return;
     }
     const supabase = createClient();
-    const [{ data: attemptRows }, { data: bookmarkRows }] = await Promise.all([
+    const [{ data: attemptRows }, { data: bookmarkRows }, { data: memoRows }] = await Promise.all([
       supabase.from("question_attempts").select("subject,year,question_no,result").eq("user_id", userId).like("subject", `${prefix}%`),
       supabase.from("question_bookmarks").select("subject,year,question_no").eq("user_id", userId).like("subject", `${prefix}%`),
+      supabase.from("question_public_memos").select("subject,year,question_no,content").eq("user_id", userId).like("subject", `${prefix}%`),
     ]);
     setAttempts((attemptRows ?? []) as Attempt[]);
     setBookmarks((bookmarkRows ?? []) as Bookmark[]);
+    setReviewMemos((memoRows ?? []) as ReviewMemo[]);
     setLoading(false);
   }, [prefix, userId]);
 
@@ -138,11 +142,21 @@ export function TrackLearningTools({
   const correct = attempts.filter((row) => row.result === "correct").length;
   const wrong = attempts.filter((row) => row.result === "wrong").length;
   const total = correct + wrong;
+  const reviewItemCount = bookmarks.length + reviewMemos.length;
+  const reviewPdfHref = `/api/review-pdf/track/${scope}/${subjectId}`;
 
   return (
     <section className="mt-10 pt-8" id="learning-tools">
       <div className="flex justify-end">
-        {userId ? <button type="button" onClick={() => window.print()} className="rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink">복습 PDF 저장</button> : <Link href={loginHref} className="rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink">복습 PDF 저장 · 로그인</Link>}
+        {!userId ? (
+          <Link href={loginHref} className="rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink">복습 PDF 저장 · 로그인</Link>
+        ) : loading ? (
+          <span className="rounded-full border border-mist px-4 py-2 font-display text-body-sm font-semibold text-fog">복습 PDF 준비 중…</span>
+        ) : reviewItemCount === 0 ? (
+          <span className="rounded-full border border-mist px-4 py-2 font-display text-body-sm font-semibold text-fog">복습 PDF (북마크·메모 없음)</span>
+        ) : (
+          <a href={reviewPdfHref} className="rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink">복습 PDF 저장</a>
+        )}
       </div>
       <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
         {MODE_LABELS.map((item) => (
