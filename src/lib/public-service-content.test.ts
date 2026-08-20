@@ -22,7 +22,13 @@ describe("공무원 공개 콘텐츠", () => {
       exams += subject!.exams.length;
     }
     expect(concepts).toBe(470);
-    expect(exams).toBe(3660);
+    expect(exams).toBe(3720);
+  });
+
+  it("앱에 있는 노동법·형사소송법 2020~2022 회차가 빠지지 않는다", () => {
+    expect(getPublicServiceExam("nodongbeop", 2020, "국가직", 1)?.id).toBe("노동법개론-2020-국가직-Q1");
+    expect(getPublicServiceExam("hyeongso", 2022, "국가직", 1)?.id).toBe("형사소송법-2022-국가직-Q1");
+    expect(getPublicServiceExam("hyeongsogaeron", 2022, "국가직", 1)?.id).toBe("형사소송법개론-2022-국가직-Q1");
   });
 
   it("목록에서 개념·시험·문항 상세를 다시 찾을 수 있다", () => {
