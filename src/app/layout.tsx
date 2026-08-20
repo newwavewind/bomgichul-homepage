@@ -77,6 +77,18 @@ export const metadata: Metadata = {
     email: false,
   },
   icons: {
+    icon: [
+      {
+        url: `${SITE_URL}/brand/bomgichul-search-icon.png`,
+        sizes: "1024x1024",
+        type: "image/png",
+      },
+      {
+        url: `${SITE_URL}/favicon.ico`,
+        sizes: "any",
+        type: "image/x-icon",
+      },
+    ],
     shortcut: `${SITE_URL}/favicon.ico`,
     apple: [
       {
