@@ -16,18 +16,62 @@ type SearchParams = Promise<{
   item?: string;
 }>;
 
-/** 앱이 보내는 과목 id → 사람이 읽는 이름. 모르는 id 는 그대로 보인다. */
-const SUBJECT_LABELS: Record<string, string> = {
-  civillaw: "민법",
-  "broker-law": "공인중개사법",
-  "realestate-public-law": "부동산공법",
-  "realestate-tax": "부동산세법",
-  "registry-law": "부동산공시법령",
-  realestate: "부동산학개론",
+/**
+ * 앱이 보내는 과목 id → 사람이 읽는 이름.
+ *
+ * 「broker:civillaw」처럼 앱을 앞에 달고 온다. 여섯 앱이 서로를 베껴 세워져
+ * 과목 id 가 겹치기 때문이다 — 경찰 앱에도 broker-law 가 있다.
+ */
+const APP_LABELS: Record<string, string> = {
+  broker: "공인중개사",
+  admin: "공무원",
+  police: "경찰",
+  social: "사회복지사",
+  housing: "주택관리사",
+  history: "한국사",
+  english: "공무원영어",
 };
 
+const SUBJECT_LABELS: Record<string, string> = {
+  // 공인중개사
+  "broker:civillaw": "민법",
+  "broker:broker-law": "공인중개사법",
+  "broker:realestate-public-law": "부동산공법",
+  "broker:realestate-tax": "부동산세법",
+  "broker:registry-law": "부동산공시법령",
+  "broker:realestate": "부동산학개론",
+  // 사회복지사 1급
+  "social:human-behavior": "인간행동과 사회환경",
+  "social:research": "사회복지조사론",
+  "social:practice": "사회복지실천론",
+  "social:practice-skills": "사회복지실천기술론",
+  "social:community": "지역사회복지론",
+  "social:policy": "사회복지정책론",
+  "social:administration": "사회복지행정론",
+  "social:law": "사회복지법제론",
+  // 주택관리사
+  "housing:accounting": "회계원리",
+  "housing:facilities": "공동주택시설개론",
+  "housing:civil-law": "민법",
+  "housing:housing-law": "주택관리관계법규",
+  "housing:housing-admin": "공동주택관리실무",
+  // 경찰
+  "police:heonbeop": "헌법",
+  "police:hyeongsabeop": "형사법",
+  "police:gyeongchalhak": "경찰학",
+  // 한 과목짜리
+  "history:history": "한국사 심화",
+  "english:english": "영어",
+};
+
+/** 「공인중개사 · 민법」 — 모르는 id 는 그대로 보인다 */
 function subjectLabel(id: string) {
-  return SUBJECT_LABELS[id] ?? id;
+  const known = SUBJECT_LABELS[id];
+  const [app] = id.split(":");
+  const appName = APP_LABELS[app];
+  if (known && appName) return `${appName} · ${known}`;
+  if (known) return known;
+  return id;
 }
 
 const MODEL_LABELS: Record<string, string> = {
