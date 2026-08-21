@@ -335,6 +335,148 @@ export async function getAdminRecentSignups(
   };
 }
 
+/* ─── AI 해설 모음 ─────────────────────────────────────────────────
+ * 앱에서 「바로바로 AI 해설」을 누를 때마다 생긴 해설이 쌓인다.
+ * 사람이 아니라 해설에 관한 기록이라 기기 식별자도, 사용자가 적은
+ * 꼬리질문도 담기지 않는다.
+ */
+
+export type AiExplanationGroupRow = {
+  subjectId: string;
+  examId: string | null;
+  itemKey: string | null;
+  itemText: string;
+  answer: string | null;
+  variantCount: number;
+  modelCount: number;
+  promptVersionCount: number;
+  firstAt: string;
+  lastAt: string;
+};
+
+export type AiExplanationVariantRow = {
+  id: number;
+  explanation: string;
+  model: string;
+  promptVersion: string;
+  createdAt: string;
+};
+
+export type AiExplanationOverview = {
+  total: number;
+  itemCount: number;
+  today: number;
+};
+
+export async function getAiExplanationOverview(): Promise<AiExplanationOverview> {
+  const admin = getAdminClient();
+
+  // 한국 시간 자정부터
+  const now = new Date();
+  const seoulMidnight = new Date(
+    new Date(now.getTime() + 9 * 3600 * 1000).toISOString().slice(0, 10) + "T00:00:00+09:00"
+  ).toISOString();
+
+  const [totalRes, todayRes, groupsRes] = await Promise.all([
+    admin.from("ai_explanation_log").select("id", { count: "exact", head: true }),
+    admin
+      .from("ai_explanation_log")
+      .select("id", { count: "exact", head: true })
+      .gte("created_at", seoulMidnight),
+    admin
+      .from("ai_explanation_log_groups")
+      .select("exam_id", { count: "exact", head: true }),
+  ]);
+
+  return {
+    total: totalRes.count ?? 0,
+    today: todayRes.count ?? 0,
+    itemCount: groupsRes.count ?? 0,
+  };
+}
+
+/** 판본이 많이 쌓인 보기부터 — 견주어 볼 거리가 있는 자리가 위로 온다 */
+export async function getAiExplanationGroups(options: {
+  subjectId?: string;
+  limit?: number;
+} = {}): Promise<AiExplanationGroupRow[]> {
+  const admin = getAdminClient();
+
+  let query = admin
+    .from("ai_explanation_log_groups")
+    .select(
+      "subject_id, exam_id, item_key, item_text, answer, variant_count, model_count, prompt_version_count, first_at, last_at"
+    )
+    .order("variant_count", { ascending: false })
+    .order("last_at", { ascending: false })
+    .limit(options.limit ?? 200);
+
+  if (options.subjectId) query = query.eq("subject_id", options.subjectId);
+
+  const { data } = await query;
+  if (!data) return [];
+
+  return data.map((row) => ({
+    subjectId: row.subject_id,
+    examId: row.exam_id,
+    itemKey: row.item_key,
+    itemText: row.item_text ?? "",
+    answer: row.answer,
+    variantCount: row.variant_count,
+    modelCount: row.model_count,
+    promptVersionCount: row.prompt_version_count,
+    firstAt: row.first_at,
+    lastAt: row.last_at,
+  }));
+}
+
+/** 한 보기에 쌓인 판본들 — 오래된 것부터 봐야 달라진 자취가 읽힌다 */
+export async function getAiExplanationVariants(params: {
+  subjectId: string;
+  examId: string | null;
+  itemKey: string | null;
+}): Promise<AiExplanationVariantRow[]> {
+  const admin = getAdminClient();
+
+  let query = admin
+    .from("ai_explanation_log")
+    .select("id, explanation, model, prompt_version, created_at")
+    .eq("subject_id", params.subjectId)
+    .order("id", { ascending: true })
+    .limit(100);
+
+  query = params.examId ? query.eq("exam_id", params.examId) : query.is("exam_id", null);
+  query = params.itemKey ? query.eq("item_key", params.itemKey) : query.is("item_key", null);
+
+  const { data } = await query;
+  if (!data) return [];
+
+  return data.map((row) => ({
+    id: row.id,
+    explanation: row.explanation,
+    model: row.model,
+    promptVersion: row.prompt_version,
+    createdAt: row.created_at,
+  }));
+}
+
+/** 과목 고르개에 쓸 목록 */
+export async function getAiExplanationSubjects(): Promise<{ id: string; count: number }[]> {
+  const admin = getAdminClient();
+  const { data } = await admin
+    .from("ai_explanation_log_groups")
+    .select("subject_id, variant_count");
+  if (!data) return [];
+
+  const tally = new Map<string, number>();
+  for (const row of data) {
+    tally.set(row.subject_id, (tally.get(row.subject_id) ?? 0) + row.variant_count);
+  }
+  return [...tally.entries()]
+    .map(([id, count]) => ({ id, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
 export async function deleteAdminPost(
   postId: string
 ): Promise<{ ok: true } | { ok: false; error: string }> {
