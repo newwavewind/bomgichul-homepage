@@ -21,8 +21,31 @@ function shouldSkipUsernameGate(pathname: string) {
   );
 }
 
+function hasSupabaseAuthCookie(cookies: { name: string }[]) {
+  return cookies.some(
+    (c) =>
+      c.name.includes("auth-token") ||
+      (c.name.startsWith("sb-") && (c.name.includes("token") || c.name.includes("auth")))
+  );
+}
+
 export async function updateSession(request: NextRequest) {
   if (!isSupabaseConfigured()) {
+    return NextResponse.next({ request });
+  }
+
+  const pathname = request.nextUrl.pathname;
+  const allCookies = request.cookies.getAll();
+  const hasAuth = hasSupabaseAuthCookie(allCookies);
+
+  // 인증 쿠키가 없으면 외부 네트워크 통신 없이 즉시 통과
+  if (!hasAuth) {
+    if (pathname.startsWith("/admin")) {
+      const redirectUrl = request.nextUrl.clone();
+      redirectUrl.pathname = "/login";
+      redirectUrl.searchParams.set("next", pathname);
+      return NextResponse.redirect(redirectUrl);
+    }
     return NextResponse.next({ request });
   }
 
@@ -49,8 +72,6 @@ export async function updateSession(request: NextRequest) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
-  const pathname = request.nextUrl.pathname;
 
   if (user && !shouldSkipUsernameGate(pathname)) {
     const { data: profile } = await supabase

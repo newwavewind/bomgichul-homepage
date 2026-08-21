@@ -1,39 +1,55 @@
+import { cache } from "react";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
-export async function getUser() {
+export const getUser = cache(async () => {
   if (!isSupabaseConfigured()) return null;
 
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  try {
+    const cookieStore = await cookies();
+    const allCookies = cookieStore.getAll();
+    const hasAuthCookie = allCookies.some(
+      (c) =>
+        c.name.includes("auth-token") ||
+        (c.name.startsWith("sb-") && (c.name.includes("token") || c.name.includes("auth")))
+    );
 
-  if (!user) return null;
+    if (!hasAuthCookie) return null;
 
-  const [{ data: profile }, { data: adminRow }] = await Promise.all([
-    supabase
-      .from("profiles")
-      .select("nickname, avatar_url, username_set")
-      .eq("id", user.id)
-      .single(),
-    supabase.from("admin_users").select("user_id").eq("user_id", user.id).maybeSingle(),
-  ]);
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-  const usernameSet = Boolean(profile?.username_set);
-  const isAdmin = Boolean(adminRow);
+    if (!user) return null;
 
-  return {
-    id: user.id,
-    email: user.email,
-    /** 공개 아이디 — username_set 전에는 헤더 등에 노출하지 않음 */
-    nickname: usernameSet ? (profile?.nickname ?? "익명") : "",
-    usernameSet,
-    isAdmin,
-    avatar_url: profile?.avatar_url ?? null,
-  };
-}
+    const [{ data: profile }, { data: adminRow }] = await Promise.all([
+      supabase
+        .from("profiles")
+        .select("nickname, avatar_url, username_set")
+        .eq("id", user.id)
+        .single(),
+      supabase.from("admin_users").select("user_id").eq("user_id", user.id).maybeSingle(),
+    ]);
+
+    const usernameSet = Boolean(profile?.username_set);
+    const isAdmin = Boolean(adminRow);
+
+    return {
+      id: user.id,
+      email: user.email,
+      /** 공개 아이디 — username_set 전에는 헤더 등에 노출하지 않음 */
+      nickname: usernameSet ? (profile?.nickname ?? "익명") : "",
+      usernameSet,
+      isAdmin,
+      avatar_url: profile?.avatar_url ?? null,
+    };
+  } catch {
+    return null;
+  }
+});
 
 export async function requireAdmin() {
   const user = await getUser();

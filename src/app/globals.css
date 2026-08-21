@@ -111,12 +111,32 @@
   --color-ios-blue: #007aff;
 }
 
+html,
 body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-display);
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+input,
+select,
+textarea,
+[role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: none) {
+  button:active,
+  a:active {
+    opacity: 0.88;
+  }
 }
 
 .font-display { font-family: var(--font-display); }

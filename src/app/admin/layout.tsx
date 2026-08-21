@@ -5,6 +5,8 @@ import { AdminNav } from "@/components/admin/AdminNav";
 import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ROBOTS_NOINDEX } from "@/lib/seo";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   robots: ROBOTS_NOINDEX,
   title: "관리자",

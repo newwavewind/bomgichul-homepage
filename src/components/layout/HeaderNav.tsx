@@ -18,6 +18,7 @@ function useHideHeaderOnScroll() {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
+  const ticking = useRef(false);
 
   useEffect(() => {
     const resetId = window.setTimeout(() => setHidden(false), 0);
@@ -28,16 +29,21 @@ function useHideHeaderOnScroll() {
   useEffect(() => {
     lastY.current = window.scrollY;
     const onScroll = () => {
-      const y = window.scrollY;
-      const delta = y - lastY.current;
-      if (y < 24) {
-        setHidden(false);
-      } else if (delta > 8) {
-        setHidden(true);
-      } else if (delta < -8) {
-        setHidden(false);
-      }
-      lastY.current = y;
+      if (ticking.current) return;
+      ticking.current = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const delta = y - lastY.current;
+        if (y < 24) {
+          setHidden(false);
+        } else if (delta > 8) {
+          setHidden(true);
+        } else if (delta < -8) {
+          setHidden(false);
+        }
+        lastY.current = y;
+        ticking.current = false;
+      });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -128,7 +134,7 @@ function HomeHeader({
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl transition-transform duration-300 ease-out ${
+      className={`sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl transition-transform duration-300 ease-out will-change-transform ${
         hidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
@@ -195,7 +201,7 @@ function TrackHeader({
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-transform duration-300 ease-out ${
+      className={`sticky top-0 z-50 transition-transform duration-300 ease-out will-change-transform ${
         hidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >

@@ -47,12 +47,19 @@ export function VisitTracker() {
 
     const markInteraction = () => {
       interactionCount += 1;
-      sendEngagement();
     };
 
     window.addEventListener("pointerdown", markInteraction, { passive: true });
     window.addEventListener("keydown", markInteraction, { passive: true });
     window.addEventListener("scroll", markInteraction, { passive: true, once: true });
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "hidden") {
+        sendEngagement();
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    window.addEventListener("pagehide", sendEngagement);
 
     const timer = window.setTimeout(sendEngagement, 10_000);
 
@@ -66,12 +73,13 @@ export function VisitTracker() {
         if (!response.ok || response.status === 204) return;
         const result = (await response.json()) as { visitId?: string };
         visitId = result.visitId ?? null;
-        sendEngagement();
       })
       .catch(() => undefined);
 
     return () => {
       window.clearTimeout(timer);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      window.removeEventListener("pagehide", sendEngagement);
       if (!sentEngagement && visitId && (interactionCount > 0 || performance.now() - startedAt >= 10_000)) {
         const engagementMs = Math.max(0, Math.round(performance.now() - startedAt));
         void fetch("/api/analytics/visit", {
