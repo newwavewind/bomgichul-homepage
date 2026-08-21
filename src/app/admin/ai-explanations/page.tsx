@@ -6,6 +6,7 @@ import {
   getAiExplanationVariants,
 } from "@/lib/admin";
 import { formatDateTime } from "@/components/admin/AdminUi";
+import { AiAnswerBody } from "@/components/admin/AiAnswerBody";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
 
@@ -43,7 +44,7 @@ function buildHref(params: { subject?: string; exam?: string; item?: string }) {
   return s ? `/admin/ai-explanations?${s}` : "/admin/ai-explanations";
 }
 
-/** 한 판본 — 관리자에게는 AI 가 쓴 글자 그대로가 정확하다. 마크다운을 그리지 않는다. */
+/** 한 판본 — 앱에서 보이는 그대로 그린다. 캡처해 쓸 자리라 모양이 같아야 한다. */
 function VariantCard({
   index,
   variant,
@@ -63,9 +64,10 @@ function VariantCard({
           {formatDateTime(variant.createdAt)}
         </span>
       </div>
-      <pre className="overflow-x-auto whitespace-pre-wrap break-words px-4 py-3 font-display text-[13px] leading-relaxed text-ink">
-        {variant.explanation}
-      </pre>
+      {/* 앱 화면과 비슷한 폭으로 묶는다 — 넓게 퍼지면 표와 줄바꿈이 앱과 달라 보인다 */}
+      <div className="max-w-[38rem] px-4 py-3">
+        <AiAnswerBody text={variant.explanation} />
+      </div>
     </ElevatedCard>
   );
 }
