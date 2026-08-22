@@ -1,7 +1,7 @@
 /**
- * 봄기출 일곱 앱 점검.
+ * 봄기출 앱 점검.
  *
- * 앱들이 서로를 베껴 세워져 있어, 한 곳을 고치면 여섯 곳을 따라 고쳐야 한다.
+ * 앱들이 서로를 베껴 세워져 있어, 한 곳을 고치면 나머지를 다 따라 고쳐야 한다.
  * 그러다 한 곳을 빠뜨리면 조용히 어긋난 채로 나간다. 실제로 그랬다.
  *
  *  · 다섯 앱의 외부 AI 프롬프트에 「공인중개사 기출 OX」가 박혀 있었다
@@ -31,19 +31,55 @@ import path from 'node:path'
 
 const HOME = process.env.HOME
 
-/** 앱마다 다르게 나와야 하는 값들 — 같으면 서로의 자리를 침범한다 */
-const APPS = [
-  { dir: 'ox-quiz-app', name: '공인중개사', appKey: 'broker', exam: '공인중개사', paid: true },
-  { dir: 'ox-admin-quiz-app', name: '공무원', appKey: 'admin', exam: '9급 공무원' },
-  { dir: 'policebomgichul', name: '경찰', appKey: 'police', exam: '경찰공무원' },
-  { dir: 'socialworkerbomgichul', name: '사회복지사', appKey: 'social', exam: '사회복지사 1급' },
-  { dir: 'housingbomgichul', name: '주택관리사', appKey: 'housing', exam: '주택관리사' },
-  { dir: 'historybomgichul', name: '한국사', appKey: 'history', exam: '한국사능력검정시험' },
-  { dir: 'englishbomgichul', name: '영어', appKey: 'english', exam: '9급 공무원 영어' },
-]
+/**
+ * 앱 목록은 여기 적지 않는다 — 앱은 계속 늘어난다.
+ *
+ * 목록을 손으로 적어 두면 여덟 번째 앱을 만든 날 이 파일을 고치는 것을 잊고,
+ * 그 앱만 검사 밖에 남는다. 그래서 홈 아래를 훑어 봄기출 앱을 스스로 찾는다.
+ * 앱임을 알아보는 표는 둘이다 — Capacitor 앱 id 가 com.sanghyun 으로 시작하고,
+ * src/lib/appIdentity.js 로 저를 밝힐 것.
+ *
+ * 새 앱은 appIdentity.js 만 채워 두면 처음부터 검사 대상이 된다.
+ */
+function discoverApps() {
+  const out = []
+  for (const name of fs.readdirSync(HOME)) {
+    // 백업본은 앱이 아니다 — 설정을 그대로 품고 있어 앱처럼 보인다
+    if (/\.(bak|old|orig)$|-backup$|\bcopy\b/i.test(name)) continue
+    const root = path.join(HOME, name)
+    let cap = null
+    for (const ext of ['ts', 'js', 'json']) {
+      const p = path.join(root, `capacitor.config.${ext}`)
+      if (fs.existsSync(p)) cap = fs.readFileSync(p, 'utf8')
+      if (cap) break
+    }
+    if (!cap?.includes('com.sanghyun.')) continue
 
-/** 다른 시험 이름이 남아 있으면 안 되는 파일들 */
-const OTHER_EXAMS = ['공인중개사', '주택관리사', '사회복지사', '경찰공무원', '한국사능력검정시험']
+    const idPath = path.join(root, 'src/lib/appIdentity.js')
+    if (!fs.existsSync(idPath)) {
+      out.push({ dir: name, name, missingIdentity: true })
+      continue
+    }
+    const s = fs.readFileSync(idPath, 'utf8')
+    const pick = (k) => s.match(new RegExp(`export const ${k} = '([^']*)'`))?.[1]
+    out.push({
+      dir: name,
+      name: pick('APP_NAME') ?? name,
+      appKey: pick('APP_KEY'),
+      exam: pick('EXAM_NAME'),
+      paid: /export const HAS_PURCHASE = true/.test(s),
+    })
+  }
+  return out.sort((a, b) => a.dir.localeCompare(b.dir))
+}
+
+const APPS = discoverApps()
+
+/**
+ * 다른 시험 이름이 남아 있으면 안 되는 파일들.
+ * 찾아낸 앱들의 시험 이름을 그대로 쓴다 — 앱이 늘면 여기도 저절로 는다.
+ */
+const OTHER_EXAMS = [...new Set(APPS.map((a) => a.exam).filter(Boolean))]
 
 const read = (app, rel) => {
   try {
@@ -177,8 +213,88 @@ function examScreensFor(app, subjectId) {
   return out
 }
 
+/**
+ * 앱이 몇 개든 글자 하나까지 같아야 하는 파일들.
+ *
+ * 앱마다 달라야 하는 값은 src/lib/appIdentity.js 로 빼 두었다. 그러니 아래
+ * 파일들이 서로 다르다면 둘 중 하나다 — 한 앱만 고치고 나머지를 안 고쳤거나,
+ * 앱마다 달라야 할 값이 아직 파일 안에 박혀 있거나. 어느 쪽이든 갈라진다.
+ */
+const SHARED_FILES = [
+  'components/AiAnswerBody.jsx',
+  'components/AiNotesScreen.jsx',
+  'components/AiLinkButtons.jsx',
+  'lib/aiExplainScope.js',
+  'lib/aiExplain.js',
+  'data/aiExplanationNotes.js',
+]
+
+/** 같은 파일을 앱 수만큼 거듭 읽지 않도록 */
+const fileCache = new Map()
+function readCached(app, rel) {
+  const k = `${app.dir}/${rel}`
+  if (!fileCache.has(k)) fileCache.set(k, read(app, rel))
+  return fileCache.get(k)
+}
+
 /** 검사 하나 = { id, 설명, 실행 } — 실행은 문제를 문자열 배열로 돌려준다 */
 const CHECKS = [
+  {
+    id: 'identity',
+    label: '이 앱이 저를 밝히는가',
+    run(app) {
+      if (app.missingIdentity) {
+        return ['src/lib/appIdentity.js 가 없다 — 점검 도구가 이 앱을 알아볼 수 없다']
+      }
+      const out = []
+      if (!app.appKey) out.push('APP_KEY 가 없다 — 다른 앱과 하루 한도가 섞인다')
+      if (!app.exam) out.push('EXAM_NAME 이 없다 — 외부 AI 에게 어느 시험인지 못 알린다')
+
+      // 앞머리가 겹치면 한 기기에서 서로의 한도를 깎는다
+      const twin = APPS.find((o) => o.dir !== app.dir && o.appKey && o.appKey === app.appKey)
+      if (twin) out.push(`APP_KEY '${app.appKey}' 가 ${twin.name} 과 같다`)
+
+      // 노트 저장소가 겹치면 한 기기에서 앱끼리 노트가 섞인다
+      const notes = read(app, 'lib/appIdentity.js')?.match(
+        /export const NOTES_STORAGE_KEY = '([^']+)'/,
+      )?.[1]
+      if (!notes) out.push('NOTES_STORAGE_KEY 가 없다')
+      else {
+        const same = APPS.find((o) => {
+          if (o.dir === app.dir) return false
+          return (
+            read(o, 'lib/appIdentity.js')?.includes(`NOTES_STORAGE_KEY = '${notes}'`) ?? false
+          )
+        })
+        if (same) out.push(`AI해설노트 저장소가 ${same.name} 과 같다 — 노트가 섞인다`)
+      }
+      return out
+    },
+  },
+  {
+    id: 'shared-files',
+    label: '한 벌이어야 하는 파일이 갈라지지 않았는가',
+    run(app) {
+      if (app.missingIdentity) return []
+      const out = []
+      for (const rel of SHARED_FILES) {
+        const mine = readCached(app, rel)
+        if (mine == null) continue // 없는 것은 ai-files 검사가 짚는다
+
+        // 가장 많은 앱이 가진 판본을 기준으로 삼는다
+        const counts = new Map()
+        for (const other of APPS) {
+          const s = readCached(other, rel)
+          if (s != null) counts.set(s, (counts.get(s) ?? 0) + 1)
+        }
+        const [text, n] = [...counts].sort((a, b) => b[1] - a[1])[0] ?? []
+        if (n > 1 && text !== mine) {
+          out.push(`${rel} 만 홀로 다르다 — 다른 ${n}개 앱은 같은 판본을 쓴다`)
+        }
+      }
+      return out
+    },
+  },
   {
     id: 'ai-files',
     label: 'AI 해설 파일이 다 있는가',
@@ -194,17 +310,6 @@ const CHECKS = [
         'utils/aiExplainContext.js',
       ]
       return need.filter((f) => !exists(app, f)).map((f) => `없음: ${f}`)
-    },
-  },
-  {
-    id: 'app-key',
-    label: '과목 id 앞머리가 앱마다 다른가',
-    run(app) {
-      const s = read(app, 'lib/aiExplain.js')
-      if (!s) return ['lib/aiExplain.js 없음']
-      const m = s.match(/const APP_KEY = '([^']+)'/)
-      if (!m) return ['APP_KEY 가 없다 — 다른 앱과 하루 한도가 섞인다']
-      return m[1] === app.appKey ? [] : [`APP_KEY 가 '${m[1]}' — '${app.appKey}' 여야 한다`]
     },
   },
   {
@@ -242,20 +347,6 @@ const CHECKS = [
         out.push('EXAM_NAME 상수가 없다 — 시험 이름이 하드코딩돼 있을 수 있다')
       }
       return out
-    },
-  },
-  {
-    id: 'notes-storage',
-    label: 'AI해설노트 저장소가 앱마다 다른가',
-    run(app) {
-      const s = read(app, 'data/aiExplanationNotes.js')
-      if (!s) return ['data/aiExplanationNotes.js 없음']
-      const m = s.match(/const STORAGE_KEY = '([^']+)'/)
-      if (!m) return ['STORAGE_KEY 를 못 찾음']
-      if (app.dir !== 'ox-quiz-app' && m[1] === 'ox_ai_explanation_notes_v1') {
-        return [`저장소 키가 공인중개사 것 그대로 — 앱끼리 노트가 섞인다`]
-      }
-      return []
     },
   },
   {
@@ -395,6 +486,8 @@ for (const app of APPS) {
   const found = []
   const notes = []
   for (const check of CHECKS) {
+    // 저를 밝히지 않는 앱은 그것부터 짚는다. 나머지 검사는 기준이 없어 헛돈다.
+    if (app.missingIdentity && check.id !== 'identity') continue
     const hits = check.run(app)
     if (!hits.length) continue
     if (check.info) notes.push(...hits)
@@ -423,6 +516,6 @@ for (const r of result) {
 console.log(
   problems
     ? `\n────────\n문제 ${problems}건. 위를 고치고 다시 돌린다.`
-    : `\n────────\n일곱 앱 모두 통과.`
+    : `\n────────\n${APPS.length}개 앱 모두 통과.`
 )
 process.exit(problems ? 1 : 0)
