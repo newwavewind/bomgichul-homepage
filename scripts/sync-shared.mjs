@@ -24,6 +24,8 @@ const SHARED_FILES = [
   'lib/aiExplainScope.js',
   'lib/aiExplain.js',
   'data/aiExplanationNotes.js',
+  'components/InAppAiExplanationSheet.jsx',
+  'lib/useAiExplainSubject.js',
 ]
 
 /** audit-apps 와 같은 방식으로 앱을 찾는다 */

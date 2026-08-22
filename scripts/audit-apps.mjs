@@ -227,6 +227,8 @@ const SHARED_FILES = [
   'lib/aiExplainScope.js',
   'lib/aiExplain.js',
   'data/aiExplanationNotes.js',
+  'components/InAppAiExplanationSheet.jsx',
+  'lib/useAiExplainSubject.js',
 ]
 
 /** 같은 파일을 앱 수만큼 거듭 읽지 않도록 */
@@ -314,13 +316,13 @@ const CHECKS = [
   },
   {
     id: 'scope-call',
-    label: '지금 과목을 시트에 알리는가',
+    label: '지금 과목을 알아낼 길이 있는가',
     run(app) {
-      // 공무원 앱은 셸이 달라 문항에서 바로 과목을 얻는다
-      if (app.dir === 'ox-admin-quiz-app') {
-        const sheet = read(app, 'components/InAppAiExplanationSheet.jsx')
-        return sheet?.includes('examSubjectKey(exam)') ? [] : ['시트가 과목을 얻는 자리가 없다']
-      }
+      // 길은 둘이다 — 과목 셸이 알려 주거나, 문항 id 에서 뽑거나.
+      // 어느 쪽인지는 appIdentity 가 답한다. 공무원 앱은 셸이 없어 뒤쪽이다.
+      const id = read(app, 'lib/appIdentity.js') ?? ''
+      if (/as subjectFromExam \} from/.test(id)) return []
+
       const hook = read(app, 'hooks/useSubjectPremium.js')
       if (!hook) return ['hooks/useSubjectPremium.js 없음']
 
@@ -351,14 +353,22 @@ const CHECKS = [
   },
   {
     id: 'free-tier',
-    label: '무료 앱이 구매를 권하지 않는가',
+    label: '살 것이 없는 앱이 구매를 권하지 않는가',
     run(app) {
-      if (app.paid) return []
-      const s = read(app, 'components/InAppAiExplanationSheet.jsx')
-      if (!s) return ['시트 없음']
+      // 시트는 이제 앱을 가리지 않는다. 무료 앱에서 구매 문구가 새지 않게 막는
+      // 것은 HAS_PURCHASE 하나뿐이므로, 그 가드가 제자리에 있는지 본다.
       const out = []
-      if (!s.includes('const premiumUnlocked = false')) out.push('하루 3회로 굳어 있지 않다')
-      if (s.includes('구매하시면')) out.push('살 것이 없는데 구매를 권한다')
+      const sheet = read(app, 'components/InAppAiExplanationSheet.jsx')
+      if (!sheet) out.push('시트 없음')
+      else if (sheet.includes('구매하시면') && !sheet.includes('!HAS_PURCHASE')) {
+        out.push('구매 문구가 HAS_PURCHASE 로 가려지지 않았다 — 무료 앱에서 샐 수 있다')
+      }
+
+      const hook = read(app, 'lib/useAiExplainSubject.js')
+      if (!hook) out.push('lib/useAiExplainSubject.js 없음')
+      else if (!/HAS_PURCHASE && scope\.premiumUnlocked/.test(hook)) {
+        out.push('살 것이 없는 앱에서도 유료로 풀릴 수 있다')
+      }
       return out
     },
   },
