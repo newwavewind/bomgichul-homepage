@@ -223,6 +223,8 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
             explanationSummary={question.explanationSummary}
             comboChoices={question.comboChoices}
             renderExplanation={false}
+            userId={user?.id ?? null}
+            loginNext={detailPath}
           />
           {hasExamQuestionSeoExplanations(question) ? <ExamSeoExplanationDetails
             subject={subject}

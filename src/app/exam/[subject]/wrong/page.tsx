@@ -60,9 +60,11 @@ export default async function WrongPracticePage({ params }: WrongPracticePagePro
 
         {!user ? (
           <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-8 text-center">
-            <p className="font-display text-body text-smoke">로그인 후 이용할 수 있어요.</p>
+            <p className="font-display text-body text-smoke">
+              오답노트는 무료예요. 로그인만 하면 틀린 문제만 모아 다시 풀 수 있어요.
+            </p>
             <Link href="/login" className="mt-4 inline-block font-display text-body-sm font-medium text-electric-blue">
-              로그인하기 →
+              무료로 로그인 →
             </Link>
           </div>
         ) : questions.length === 0 ? (

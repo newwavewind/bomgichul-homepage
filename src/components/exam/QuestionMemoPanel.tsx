@@ -250,12 +250,12 @@ export function QuestionMemoPanel({
         </div>
       ) : (
         <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-body-sm text-smoke">
-          <span>로그인하면 메모를 남길 수 있어요.</span>
+          <span>메모는 무료예요. 로그인만 하면 남길 수 있어요.</span>
           <Link
             href={loginHref}
             className="font-medium text-[#6366f1] hover:underline"
           >
-            로그인
+            무료로 로그인
           </Link>
         </div>
       )}

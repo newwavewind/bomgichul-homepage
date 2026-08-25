@@ -50,6 +50,7 @@ export function ExamTrackQuestion({
       initialAttemptResult={initialAttemptResult}
       onAttempt={saveAttempt}
       renderExplanation={!revealSubject}
+      userId={userId}
     />
   );
 }

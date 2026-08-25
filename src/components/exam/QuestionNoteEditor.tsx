@@ -31,14 +31,14 @@ export function QuestionNoteEditor({
     return (
       <div className="mt-4 rounded-[var(--radius-cards)] border border-dashed border-mist bg-surface px-5 py-4 text-center">
         <p className="font-display text-body-sm text-smoke">
-          로그인하면 이 문제에 나만의 메모를 남길 수 있어요.
+          메모는 무료예요. 로그인만 하면 이 문제에 나만의 메모를 남길 수 있어요.
         </p>
         <div className="mt-3">
           <Link
             href={`/login?next=/exam/${subject}/${year}/${questionNo}`}
             className="font-display text-body-sm font-medium text-[#6366f1] hover:underline"
           >
-            로그인하기
+            무료로 로그인
           </Link>
         </div>
       </div>

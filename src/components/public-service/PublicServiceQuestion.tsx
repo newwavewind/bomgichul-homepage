@@ -42,6 +42,7 @@ export function PublicServiceQuestion({
       initialAttemptResult={initialAttemptResult}
       onAttempt={saveAttempt}
       renderExplanation={!revealSubject}
+      userId={userId}
     />
   );
 }

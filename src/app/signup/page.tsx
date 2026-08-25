@@ -5,7 +5,7 @@ import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "회원가입",
-  description: `${SITE_NAME}에 Google 계정으로 무료 회원가입하세요.`,
+  description: `${SITE_NAME} 홈페이지 기능은 전부 무료입니다. Google로 가입만 하면 해설·오답노트·북마크·PDF까지 결제 없이 이용할 수 있어요.`,
 };
 
 function isLocalPreviewHost(hostHeader: string | null): boolean {

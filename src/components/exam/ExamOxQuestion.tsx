@@ -1,6 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { LoginSoftNudge } from "@/components/auth/LoginSoftNudge";
+import {
+  bumpAnonAttemptCount,
+  dismissProgressNudge,
+  shouldShowProgressNudge,
+} from "@/lib/login-nudges";
 import { plainStudyText } from "@/lib/study-text";
 
 export type ExamOxItem = {
@@ -33,6 +40,8 @@ export function ExamOxQuestion({
   initialAttemptResult = null,
   onAttempt,
   renderExplanation = true,
+  userId = null,
+  loginNext,
 }: {
   examId: string;
   revealEvent?: { subject: string; year: number; questionNo: number };
@@ -47,12 +56,29 @@ export function ExamOxQuestion({
   initialAttemptResult?: "correct" | "wrong" | null;
   onAttempt?: (result: "correct" | "wrong") => void | Promise<void>;
   renderExplanation?: boolean;
+  /** null이면 비로그인 — 진도·오답 유도 배너를 켠다 */
+  userId?: string | null;
+  loginNext?: string;
 }) {
+  const pathname = usePathname();
+  const loginHref = `/login?next=${encodeURIComponent(loginNext ?? pathname ?? "/")}`;
   const isComposite = comboChoices.length > 0;
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
+  const [showProgressNudge, setShowProgressNudge] = useState(false);
   const isCorrect =
     selected !== null && correctChoice !== undefined && selected === correctChoice;
+  const answeredWrong =
+    revealed &&
+    (selected === null
+      ? initialAttemptResult === "wrong"
+      : correctChoice !== undefined && selected !== correctChoice);
+
+  useEffect(() => {
+    if (revealed && !userId) {
+      setShowProgressNudge(shouldShowProgressNudge(false));
+    }
+  }, [revealed, userId]);
 
   /**
    * 채점은 한 번뿐이고 되돌리지 않는다.
@@ -64,6 +90,10 @@ export function ExamOxQuestion({
   const reveal = () => {
     if (revealed) return;
     setRevealed(true);
+    if (!userId) {
+      bumpAnonAttemptCount();
+      setShowProgressNudge(shouldShowProgressNudge(false));
+    }
     if (selected !== null && correctChoice !== undefined) {
       void onAttempt?.(selected === correctChoice ? "correct" : "wrong");
     }
@@ -252,6 +282,26 @@ export function ExamOxQuestion({
               {(selected === null ? initialAttemptResult === "correct" : isCorrect) ? "정답입니다." : `정답은 ${correctChoice ?? "?"}번입니다.`}
             </p>
           </div>
+          {!userId && answeredWrong ? (
+            <LoginSoftNudge
+              title="오답노트에 넣어 두기"
+              body="틀린 문항을 모아 약점만 복습할 수 있어요. 오답노트·북마크·해설 모두 무료이고, 로그인만 하면 바로 열립니다."
+              href={loginHref}
+              cta="무료로 로그인하고 저장"
+            />
+          ) : null}
+          {!userId && showProgressNudge ? (
+            <LoginSoftNudge
+              title="지금까지 푼 건 이 기기에만 남아 있어요"
+              body="오답·북마크·최근 학습이 계정에 이어지고, 다른 기기에서도 그대로입니다. 홈페이지 기능은 전부 무료예요."
+              href={loginHref}
+              cta="무료로 로그인하고 이어하기"
+              onDismiss={() => {
+                dismissProgressNudge();
+                setShowProgressNudge(false);
+              }}
+            />
+          ) : null}
           {renderExplanation ? <section
             className="rounded-2xl border border-mist bg-paper px-5 py-5"
             aria-label="선지별 해설"

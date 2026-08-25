@@ -151,18 +151,19 @@ export function GoogleAuthCard({
           <div className="mb-8 text-center">
             <EyebrowLabel className="mb-2">{SITE_IDENTITY}</EyebrowLabel>
             <SectionHeading as="h1" className="text-heading-sm">
-              Google로 시작하기
+              무료로 시작하기
             </SectionHeading>
             <p className="mt-3 font-display text-body-sm text-smoke">
-              처음이면 무료 계정이 만들어지고, 기존 회원이면 저장한 학습에서 바로 이어져요.
+              홈페이지 기능은 전부 무료입니다. Google로 로그인만 하면 결제 없이 바로 쓸 수
+              있어요.
             </p>
           </div>
 
           <ul className="mb-6 grid gap-2 rounded-2xl bg-surface p-4 font-display text-body-sm text-ink">
-            <li>✓ 오답·북마크를 자동으로 모아 복습</li>
-            <li>✓ 최근 푼 문제와 과목을 기기마다 이어서 학습</li>
-            <li>✓ 정답률과 연속 학습일로 공부 흐름 확인</li>
-            <li>✓ Google 계정만으로 비밀번호 없이 안전하게 시작</li>
+            <li>✓ 웹 기능 전부 무료 · 구독·결제 없음</li>
+            <li>✓ 해설·오답노트·북마크·랜덤·복습</li>
+            <li>✓ 복습 PDF 다운로드</li>
+            <li>✓ 기기마다 이어서 학습 · Google만으로 시작</li>
           </ul>
 
           {message && (
@@ -221,14 +222,14 @@ export function GoogleAuthCard({
               className="w-full !bg-paper !text-ink border border-mist/80 hover:!bg-snow"
             >
               <GoogleIcon />
-              {loading ? "Google로 이동 중..." : "Google로 시작하기"}
+              {loading ? "Google로 이동 중..." : "무료로 시작하기"}
             </PrimaryButton>
           )}
 
           <p className="mt-5 text-center font-display text-[12px] leading-relaxed text-smoke">
             {previewLogin
               ? "배포 사이트에서는 일반 Google 로그인이 그대로 쓰입니다."
-              : "가입과 로그인은 같은 버튼을 사용해요. Google 계정 선택 후 자동으로 구분됩니다."}
+              : "가입·로그인은 같은 버튼입니다. 홈페이지 기능은 전부 무료이며 결제가 없습니다."}
           </p>
 
           <div className="mt-6 text-center">

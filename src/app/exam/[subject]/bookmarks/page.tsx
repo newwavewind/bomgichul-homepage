@@ -64,12 +64,14 @@ export default async function BookmarksPage({ params, searchParams }: BookmarksP
 
         {!user ? (
           <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-8 text-center">
-            <p className="font-display text-body text-smoke">로그인 후 이용할 수 있어요.</p>
+            <p className="font-display text-body text-smoke">
+              북마크는 무료예요. 로그인만 하면 저장한 문제를 모아볼 수 있어요.
+            </p>
             <Link
               href="/login"
               className="mt-4 inline-block font-display text-body-sm font-medium text-electric-blue"
             >
-              로그인하기 →
+              무료로 로그인 →
             </Link>
           </div>
         ) : bookmarked.length === 0 ? (

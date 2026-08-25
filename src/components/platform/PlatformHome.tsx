@@ -83,8 +83,17 @@ export function PlatformHome({ user, personalHome }: { user?: { nickname: string
           <section className="mx-auto mb-10 max-w-5xl text-center">
             <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#087f6d]">시험을 고르고, 안내부터 확인하세요</p>
             <h1 className="mt-3 font-display text-[34px] font-semibold tracking-tight text-ink md:text-[48px]">직렬·과목·일정까지 보고 나서 기출로</h1>
-            <p className="mx-auto mt-3 max-w-2xl font-display text-body text-smoke">아래에서 시험을 고르면 시행처·과목·원서 접수를 먼저 볼 수 있어요. 로그인하면 오답·북마크·최근 학습이 자동으로 모입니다.</p>
-            <Link href="/login" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-carbon px-6 font-display text-body-sm font-semibold text-paper">Google로 시작하기</Link>
+            <p className="mx-auto mt-3 max-w-2xl font-display text-body text-smoke">
+              아래에서 시험을 고르면 시행처·과목·원서 접수를 먼저 볼 수 있어요. 홈페이지 기능은 전부
+              무료입니다. 로그인만 하면 오답노트·북마크·랜덤·복습·해설·PDF 다운로드까지 결제 없이
+              쓸 수 있어요.
+            </p>
+            <Link
+              href="/login"
+              className="mt-6 inline-flex min-h-11 items-center rounded-full bg-carbon px-6 font-display text-body-sm font-semibold text-paper"
+            >
+              무료로 시작하기
+            </Link>
           </section>
         )}
         <h1 className="sr-only">공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어 기출 학습</h1>
@@ -92,7 +101,7 @@ export function PlatformHome({ user, personalHome }: { user?: { nickname: string
           9급 공무원, 공인중개사, 경찰공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
         </p>
 
-        <ExamCalendar />
+        <ExamCalendar loggedIn={Boolean(user)} />
 
         <section className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
           {exams.map((exam) => (

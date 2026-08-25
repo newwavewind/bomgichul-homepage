@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   EXAM_CALENDAR_COLORS,
   EXAM_CALENDAR_EVENTS,
@@ -14,6 +14,14 @@ import {
   toIsoDate,
   type ExamCalendarEvent,
 } from "@/data/exam-calendar";
+import {
+  addExamReminder,
+  hasExamReminder,
+  listExamReminders,
+  removeExamReminder,
+  upcomingExamReminders,
+  type ExamReminder,
+} from "@/lib/login-nudges";
 
 const WEEKDAYS = ["일", "월", "화", "수", "목", "금", "토"] as const;
 
@@ -58,11 +66,12 @@ function examLabel(key: ExamCalendarEvent["examKey"]) {
   return EXAM_CALENDAR_LABELS[key];
 }
 
-export function ExamCalendar() {
+export function ExamCalendar({ loggedIn = false }: { loggedIn?: boolean }) {
   const todayIso = getKstTodayIso();
   const [todayY, todayM] = todayIso.split("-").map(Number);
   const [year, setYear] = useState(todayY);
   const [monthIndex0, setMonthIndex0] = useState(todayM - 1);
+  const [reminders, setReminders] = useState<ExamReminder[]>([]);
   const [selectedIso, setSelectedIso] = useState(() => {
     if (eventsOnDate(todayIso).length) return todayIso;
     const monthPrefix = todayIso.slice(0, 7);
@@ -78,6 +87,38 @@ export function ExamCalendar() {
       .sort();
     return upcoming[0] ?? todayIso;
   });
+
+  useEffect(() => {
+    setReminders(listExamReminders());
+  }, []);
+
+  useEffect(() => {
+    if (!loggedIn || typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const remindId = params.get("remind");
+    if (!remindId || hasExamReminder(remindId)) return;
+    const event = EXAM_CALENDAR_EVENTS.find((e) => e.id === remindId);
+    if (!event) return;
+    setReminders(
+      addExamReminder({
+        eventId: event.id,
+        examKey: event.examKey,
+        examLabel: examLabel(event.examKey),
+        title: event.title,
+        date: event.date,
+        href: event.href,
+      })
+    );
+    params.delete("remind");
+    const qs = params.toString();
+    const next = `${window.location.pathname}${qs ? `?${qs}` : ""}${window.location.hash || "#exam-calendar"}`;
+    window.history.replaceState({}, "", next);
+  }, [loggedIn]);
+
+  const upcoming = useMemo(
+    () => upcomingExamReminders(todayIso).slice(0, 4),
+    [todayIso, reminders]
+  );
 
   const cells = useMemo(() => buildCells(year, monthIndex0), [year, monthIndex0]);
   const monthEvents = useMemo(() => eventsInMonth(year, monthIndex0), [year, monthIndex0]);
@@ -112,9 +153,31 @@ export function ExamCalendar() {
   const disablePrev = prevMonthKey < earliest.slice(0, 7);
   const disableNext = nextMonthKey > latest.slice(0, 7);
 
+  const toggleReminder = (event: ExamCalendarEvent) => {
+    if (!loggedIn) return;
+    if (hasExamReminder(event.id)) {
+      setReminders(removeExamReminder(event.id));
+      return;
+    }
+    setReminders(
+      addExamReminder({
+        eventId: event.id,
+        examKey: event.examKey,
+        examLabel: examLabel(event.examKey),
+        title: event.title,
+        date: event.date,
+        href: event.href,
+      })
+    );
+  };
+
+  const reminderLoginHref = (eventId: string) =>
+    `/login?next=${encodeURIComponent(`/?remind=${eventId}#exam-calendar`)}`;
+
   return (
     <section
-      className="mx-auto mb-12 max-w-5xl rounded-[28px] border-[1.5px] border-carbon/15 bg-gradient-to-br from-[#e8f5ff]/50 to-[#f4f8ff]/80 p-5 shadow-[var(--shadow-card)] md:p-8"
+      id="exam-calendar"
+      className="mx-auto mb-12 max-w-5xl scroll-mt-24 rounded-[28px] border-[1.5px] border-carbon/15 bg-gradient-to-br from-[#e8f5ff]/50 to-[#f4f8ff]/80 p-5 shadow-[var(--shadow-card)] md:p-8"
       aria-label="시험 달력"
     >
       <div className="flex flex-wrap items-end justify-between gap-3">
@@ -161,6 +224,25 @@ export function ExamCalendar() {
           </button>
         </div>
       </div>
+
+      {upcoming.length > 0 ? (
+        <div className="mt-4 rounded-2xl border border-ios-blue/20 bg-paper/80 px-4 py-3">
+          <p className="font-display text-[12px] font-semibold text-fog">내가 켠 리마인드</p>
+          <ul className="mt-2 space-y-1.5">
+            {upcoming.map((r) => (
+              <li key={r.eventId} className="flex flex-wrap items-baseline justify-between gap-2">
+                <Link
+                  href={r.href}
+                  className="font-display text-[13px] font-semibold text-ink hover:underline"
+                >
+                  {r.examLabel} · {r.title}
+                </Link>
+                <span className="font-display text-[12px] text-smoke">{formatKoDate(r.date)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
 
       <div className="mt-6 overflow-hidden rounded-2xl border border-mist bg-paper">
         <div className="grid grid-cols-7 border-b border-mist bg-snow/80">
@@ -260,12 +342,32 @@ export function ExamCalendar() {
                 <p className="mt-1.5 font-display text-body-sm font-semibold text-ink">{event.title}</p>
                 <p className="mt-1 font-display text-[13px] text-smoke">{formatRange(event)}</p>
                 <p className="mt-1 font-display text-[13px] text-smoke">{event.detail}</p>
-                <Link
-                  href={event.href}
-                  className="mt-3 inline-flex font-display text-body-sm font-semibold text-[#0b5fff] underline-offset-2 hover:underline"
-                >
-                  {examLabel(event.examKey)} 안내 보기 →
-                </Link>
+                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <Link
+                    href={event.href}
+                    className="inline-flex font-display text-body-sm font-semibold text-[#0b5fff] underline-offset-2 hover:underline"
+                  >
+                    {examLabel(event.examKey)} 안내 보기 →
+                  </Link>
+                  {loggedIn ? (
+                    <button
+                      type="button"
+                      onClick={() => toggleReminder(event)}
+                      className="inline-flex font-display text-body-sm font-semibold text-ink underline-offset-2 hover:underline"
+                    >
+                      {hasExamReminder(event.id) || reminders.some((r) => r.eventId === event.id)
+                        ? "리마인드 끄기"
+                        : "이 시험 리마인드"}
+                    </button>
+                  ) : (
+                    <Link
+                      href={reminderLoginHref(event.id)}
+                      className="inline-flex font-display text-body-sm font-semibold text-ink underline-offset-2 hover:underline"
+                    >
+                      이 시험 리마인드 · 무료
+                    </Link>
+                  )}
+                </div>
               </li>
             ))}
           </ul>

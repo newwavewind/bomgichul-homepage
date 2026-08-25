@@ -32,7 +32,7 @@ export function BookmarkButton({
         className="inline-flex min-h-11 items-center gap-1 rounded-[var(--radius-buttons)] border border-carbon bg-paper px-3 font-display text-[12px] font-medium text-ink transition-colors hover:bg-snow"
       >
         <span aria-hidden>☆</span>
-        북마크
+        북마크 · 무료
       </Link>
     );
   }

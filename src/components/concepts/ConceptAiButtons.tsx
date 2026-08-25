@@ -52,13 +52,13 @@ function LoginModal({
           로그인이 필요해요
         </h3>
         <p className="hp-cx-login-modal__desc">
-          AI 해설은 로그인 후 이용할 수 있어요.
+          AI 해설은 로그인만 하면 무료로 이용할 수 있어요.
           <br />
-          회원가입·이용은 무료예요.
+          구독·결제 없이 Google로 바로 시작하세요.
         </p>
         <div className="hp-cx-login-modal__actions">
           <OutlineButton onClick={onClose}>닫기</OutlineButton>
-          <PrimaryButton href={loginHref}>로그인</PrimaryButton>
+          <PrimaryButton href={loginHref}>무료로 로그인</PrimaryButton>
         </div>
       </div>
     </div>

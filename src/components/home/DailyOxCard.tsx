@@ -204,7 +204,7 @@ export function DailyOxCard({
           )
         ) : (
           <p className="mt-3 font-display text-body-sm text-smoke">
-            로그인하면 연속 참여 기록이 저장돼요.
+            로그인하면 연속 참여 기록이 저장돼요. 홈페이지 기능은 전부 무료예요.
           </p>
         )}
         <p className="mt-3 font-display text-body-sm text-smoke">

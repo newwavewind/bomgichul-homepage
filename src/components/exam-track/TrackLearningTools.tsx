@@ -167,8 +167,11 @@ export function TrackLearningTools({
       </div>
       {!userId && mode ? (
         <div className="mt-5 rounded-2xl border border-ios-blue/25 bg-ios-blue/[0.06] p-6 text-center">
-          <p className="font-display text-body font-semibold text-ink">로그인하면 학습 기록을 저장하고 맞춤 복습을 이용할 수 있어요.</p>
-          <Link href={loginHref} className="mt-4 inline-flex rounded-full bg-ios-blue px-5 py-2.5 font-display text-body-sm font-semibold text-white">무료 로그인</Link>
+          <p className="font-display text-body font-semibold text-ink">
+            홈페이지 기능은 전부 무료예요. 로그인만 하면 학습 기록·오답노트·북마크·랜덤·복습·PDF를
+            결제 없이 쓸 수 있어요.
+          </p>
+          <Link href={loginHref} className="mt-4 inline-flex rounded-full bg-ios-blue px-5 py-2.5 font-display text-body-sm font-semibold text-white">무료로 로그인</Link>
         </div>
       ) : loading && mode ? <p className="mt-5 font-display text-body-sm text-fog">학습 기록을 불러오는 중…</p> : null}
       {userId && mode === "stats" ? (
@@ -181,7 +184,7 @@ export function TrackLearningTools({
         <div className="mt-6 rounded-[var(--radius-largecards)] border border-mist bg-paper p-5 md:p-7">
           <div className="mb-4 flex items-center justify-between gap-3 font-display text-body-sm text-fog"><span>{index + 1} / {pool.length} · {current.year}년 {current.sourceCode}</span><button type="button" onClick={() => void toggleBookmark(current)} className="font-semibold text-ios-blue">{bookmarkSet.has(examKey(current)) ? "★ 북마크됨" : "☆ 북마크"}</button></div>
           <QuestionStem stem={current.stem ?? ""} questionNo={current.questionNo} />
-          <div className="mt-5"><ExamOxQuestion key={`${mode}:${examKey(current)}`} examId={current.id} items={current.items} correctChoice={current.correctChoice} explanationSummary={current.explanationSummary} initialAttemptResult={attemptMap.get(examKey(current)) ?? null} onAttempt={(result) => saveAttempt(current, result)} /></div>
+          <div className="mt-5"><ExamOxQuestion key={`${mode}:${examKey(current)}`} examId={current.id} items={current.items} correctChoice={current.correctChoice} explanationSummary={current.explanationSummary} initialAttemptResult={attemptMap.get(examKey(current)) ?? null} onAttempt={(result) => saveAttempt(current, result)} userId={userId} /></div>
           <div className="mt-5 flex justify-end"><button type="button" onClick={() => setIndex((value) => Math.min(value + 1, pool.length - 1))} disabled={index >= pool.length - 1} className="rounded-full bg-carbon px-5 py-2.5 font-display text-body-sm font-semibold text-paper disabled:opacity-30">다음 문제 →</button></div>
         </div>
       ) : null}

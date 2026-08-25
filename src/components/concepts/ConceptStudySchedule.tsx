@@ -64,13 +64,13 @@ function LoginModal({
           로그인이 필요해요
         </h3>
         <p className="hp-cx-login-modal__desc">
-          회독·학습 스케줄을 저장하려면 로그인이 필요합니다.
+          회독·학습 스케줄 저장은 무료예요. 로그인만 하면 됩니다.
           <br />
-          회원가입·이용은 무료예요.
+          구독·결제 없이 Google로 바로 시작하세요.
         </p>
         <div className="hp-cx-login-modal__actions">
           <OutlineButton onClick={onClose}>닫기</OutlineButton>
-          <PrimaryButton href={loginHref}>로그인</PrimaryButton>
+          <PrimaryButton href={loginHref}>무료로 로그인</PrimaryButton>
         </div>
       </div>
     </div>

@@ -79,7 +79,7 @@ function AccountCluster({
           href="/login"
           className="inline-flex min-h-11 items-center rounded-full bg-[#007AFF] px-4 font-display text-[13px] font-semibold text-white shadow-[0_1px_2px_rgba(0,122,255,0.35)] transition-transform hover:scale-[1.02] active:scale-[0.98]"
         >
-          Google로 시작하기
+          무료로 시작
         </Link>
       </div>
     );
