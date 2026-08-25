@@ -17,47 +17,44 @@ const TRACK_EXAM_SCHEDULE: Record<
   public_service: {
     label: "2026년 국가직 9급",
     examDate: "2026-04-04",
-    registrationStart: "2026-02-01",
-    note: "필기 일정은 인사혁신처·사이버국가고시센터 공고를 확인하세요",
+    registrationStart: "2026-02-02",
+    note: "2026 필기 완료. 다음 일정은 인사혁신처·gongmuwon.gosi.kr 공고 확인",
     examName: "공무원 공개경쟁채용시험",
   },
   police: {
-    label: "2026년 순경 공채",
-    examDate: "2026-09-05",
-    registrationStart: "2026-07-01",
-    note: "필기 일정은 경찰청·나라일터 공고를 확인하세요",
+    label: "2026년 제2차 순경 공채 최종발표",
+    examDate: "2026-12-11",
+    registrationStart: "2026-07-10",
+    note: "제2차 필기 2026.8.22. 완료. 중앙경찰학교 공고 제2026-11호 기준",
     examName: "경찰공무원 순경 공개채용",
   },
   housing: {
-    label: "2026년 주택관리사보",
-    examDate: "2026-07-11",
-    registrationStart: "2026-05-01",
-    note: "1·2차 일정은 Q-Net 공고를 확인하세요",
+    label: "2026년 제29회 주택관리사보 2차",
+    examDate: "2026-09-19",
+    registrationStart: "2026-08-10",
+    note: "1차는 2026.6.27. 완료. Q-Net 제29회 공고 기준",
     examName: "주택관리사보 자격시험",
   },
   social_worker: {
     label: "2026년 제24회 사회복지사 1급",
     examDate: "2026-01-17",
-    registrationStart: "2025-12-01",
-    note: "다음 회차 일정은 한국산업인력공단 Q-Net 공고를 확인하세요",
+    registrationStart: "2025-12-08",
+    note: "제24회 시행 완료. 다음 회차는 Q-Net 공고 확인",
     examName: "사회복지사 1급 국가시험",
   },
-  // 국사편찬위원회 공고(historyexam.go.kr) 기준. 한국사는 한 해에 여러 번 치르므로
-  // 회차가 지나면 다음 회차 날짜로 직접 갱신해야 한다 — 연 단위로 미는 자동 보정과는 맞지 않는다.
+  // 국사편찬위원회 examSchedule 기준. 회차가 지나면 다음 회차 날짜로 직접 갱신.
   history: {
     label: "2026년 제80회 한국사능력검정",
     examDate: "2026-10-17",
     registrationStart: "2026-09-15",
-    note: "다음 회차 일정은 국사편찬위원회 공고를 확인하세요",
+    note: "심화만 시행. 다음 회차(제81회 11.28.)는 historyexam.go.kr 확인",
     examName: "한국사능력검정시험",
   },
-  // 영어는 9급 공채의 한 과목이라 일정이 public_service 와 같다. 그래도 값을
-  // 따로 적어 둔다 — 참조로 묶어 두면 한쪽 일정만 바뀔 때 조용히 어긋난다.
   english: {
     label: "2026년 국가직 9급",
     examDate: "2026-04-04",
-    registrationStart: "2026-02-01",
-    note: "필기 일정은 인사혁신처·사이버국가고시센터 공고를 확인하세요",
+    registrationStart: "2026-02-02",
+    note: "영어는 9급 필기 과목. 다음 일정은 인사혁신처·gongmuwon.gosi.kr 공고 확인",
     examName: "공무원 공개경쟁채용시험",
   },
 };

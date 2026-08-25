@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HubExamIntroLink } from "@/components/exam-intro/HubExamIntroLink";
 import { SectionHeading } from "@/components/ui/Typography";
 import { FeatureCard, TintedAccentCard } from "@/components/ui/Card";
 import { Tag } from "@/components/ui/Tag";
@@ -21,7 +22,10 @@ export function StudyHub() {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
-        <h1 className="font-display text-heading font-semibold text-ink">공인중개사 기출문제</h1>
+        <div className="space-y-3">
+          <h1 className="font-display text-heading font-semibold text-ink">공인중개사 기출문제</h1>
+          <HubExamIntroLink href="/real-estate/intro" label="공인중개사" />
+        </div>
         <section id="exam">
           <SectionHeading as="h2" className="mb-6">
             기출문제

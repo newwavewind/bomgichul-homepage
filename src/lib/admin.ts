@@ -29,6 +29,43 @@ function getAdminClient() {
   return createAdminClient();
 }
 
+type AuthUserMeta = {
+  email: string | null;
+  lastSignInAt: string | null;
+};
+
+/** Auth Admin listUsers 전체 스캔 대신, 필요한 id만 getUserById로 조회 */
+async function getAuthMetaByIds(
+  admin: ReturnType<typeof createAdminClient>,
+  ids: string[]
+): Promise<Map<string, AuthUserMeta>> {
+  const unique = [...new Set(ids.filter(Boolean))];
+  const map = new Map<string, AuthUserMeta>();
+  if (unique.length === 0) return map;
+
+  const chunkSize = 25;
+  for (let i = 0; i < unique.length; i += chunkSize) {
+    const chunk = unique.slice(i, i + chunkSize);
+    const rows = await Promise.all(
+      chunk.map(async (id) => {
+        const { data, error } = await admin.auth.admin.getUserById(id);
+        if (error || !data.user) {
+          return [id, { email: null, lastSignInAt: null }] as const;
+        }
+        return [
+          id,
+          {
+            email: data.user.email ?? null,
+            lastSignInAt: data.user.last_sign_in_at ?? null,
+          },
+        ] as const;
+      })
+    );
+    for (const [id, meta] of rows) map.set(id, meta);
+  }
+  return map;
+}
+
 export async function getAdminOverview(): Promise<AdminOverview> {
   const admin = getAdminClient();
 
@@ -87,18 +124,19 @@ export async function getAdminOverview(): Promise<AdminOverview> {
 export async function getAdminUsers(limit = 100): Promise<AdminUserRow[]> {
   const admin = getAdminClient();
 
-  const [{ data: profiles }, { data: admins }, authList] = await Promise.all([
-    admin.from("profiles").select("id, nickname, username_set, created_at").order("created_at", { ascending: false }).limit(limit),
+  const [{ data: profiles }, { data: admins }] = await Promise.all([
+    admin
+      .from("profiles")
+      .select("id, nickname, username_set, created_at")
+      .order("created_at", { ascending: false })
+      .limit(limit),
     admin.from("admin_users").select("user_id"),
-    admin.auth.admin.listUsers({ perPage: 200 }),
   ]);
 
   const adminIds = new Set((admins ?? []).map((a) => a.user_id));
-  const authById = new Map(
-    (authList.data?.users ?? []).map((u) => [
-      u.id,
-      { email: u.email ?? null, lastSignInAt: u.last_sign_in_at ?? null },
-    ])
+  const authById = await getAuthMetaByIds(
+    admin,
+    (profiles ?? []).map((p) => p.id)
   );
 
   return (profiles ?? []).map((p) => {
@@ -226,9 +264,9 @@ export async function getAdminPremiumEntitlements(limit = 50): Promise<AdminPrem
 
   if (!data) return [];
 
-  const authListRes = await admin.auth.admin.listUsers({ perPage: 200 });
-  const authById = new Map(
-    (authListRes.data?.users ?? []).map((u) => [u.id, u.email ?? null])
+  const authById = await getAuthMetaByIds(
+    admin,
+    data.map((row) => row.user_id)
   );
 
   return data.map((row) => {
@@ -236,7 +274,7 @@ export async function getAdminPremiumEntitlements(limit = 50): Promise<AdminPrem
     return {
       userId: row.user_id,
       nickname: profile?.nickname ?? "익명",
-      email: authById.get(row.user_id) ?? null,
+      email: authById.get(row.user_id)?.email ?? null,
       productType: row.product_type,
       status: row.status,
       expiresAt: row.expires_at,
@@ -301,33 +339,16 @@ export async function getAdminRecentSignups(
     }
   };
 
-  const fetchAuthUsers = async () => {
-    const users = [];
-    for (let authPage = 1; ; authPage += 1) {
-      const result = await admin.auth.admin.listUsers({
-        page: authPage,
-        perPage: pageSize,
-      });
-      if (result.error) throw result.error;
-      const batch = result.data?.users ?? [];
-      users.push(...batch);
-      if (batch.length < pageSize) return users;
-    }
-  };
-
-  const [{ profiles, total }, authUsers] = await Promise.all([
-    fetchProfiles(),
-    fetchAuthUsers(),
-  ]);
-
-  const authById = new Map(
-    authUsers.map((user) => [user.id, user.email ?? null])
+  const { profiles, total } = await fetchProfiles();
+  const authById = await getAuthMetaByIds(
+    admin,
+    profiles.map((profile) => profile.id)
   );
 
   return {
-    rows: (profiles ?? []).map((profile) => ({
+    rows: profiles.map((profile) => ({
       nickname: profile.nickname,
-      email: authById.get(profile.id) ?? null,
+      email: authById.get(profile.id)?.email ?? null,
       createdAt: profile.created_at,
       usernameSet: Boolean(profile.username_set),
     })),

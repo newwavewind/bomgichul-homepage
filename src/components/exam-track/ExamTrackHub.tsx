@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HubExamIntroLink } from "@/components/exam-intro/HubExamIntroLink";
 import { ExamTrackSubjectBrowser } from "@/components/exam-track/ExamTrackSubjectBrowser";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { appStoreLinksForScope } from "@/lib/constants";
@@ -14,7 +15,10 @@ export function ExamTrackHub({
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
-        <h1 className="font-display text-heading font-semibold text-ink">{track.label} 기출문제</h1>
+        <div className="space-y-3">
+          <h1 className="font-display text-heading font-semibold text-ink">{track.label} 기출문제</h1>
+          <HubExamIntroLink href={`${track.basePath}/intro`} label={track.label} />
+        </div>
 
         {/* 핵심 개념 모아보기는 한국사에만 있다 — 문항마다 개념 카드가 붙는 시험이라
             그것만 이어 읽으면 개념서가 되기 때문이다. */}

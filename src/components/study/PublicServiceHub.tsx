@@ -1,4 +1,5 @@
 import subjects from "@/data/public-service/manifest.json";
+import { HubExamIntroLink } from "@/components/exam-intro/HubExamIntroLink";
 import { PublicServiceSubjectBrowser } from "@/components/study/PublicServiceSubjectBrowser";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { appStoreLinksForScope } from "@/lib/constants";
@@ -7,7 +8,10 @@ export function PublicServiceHub() {
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
-        <h1 className="font-display text-heading font-semibold text-ink">9급 공무원 기출문제</h1>
+        <div className="space-y-3">
+          <h1 className="font-display text-heading font-semibold text-ink">9급 공무원 기출문제</h1>
+          <HubExamIntroLink href="/public-service/intro" label="공무원" />
+        </div>
         <PublicServiceSubjectBrowser subjects={subjects} />
 
         <section

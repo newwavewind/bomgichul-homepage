@@ -336,23 +336,46 @@ async function fetchVisitAggregateRows(
   end: string
 ): Promise<VisitAggregateRow[]> {
   const pageSize = 1000;
-  const rows: VisitAggregateRow[] = [];
+  const selectCols =
+    "visitor_id, user_id, is_local, client_host, client_ip, ip_hash, path, bot_class, bot_confidence, classification_reasons, verified_bot_name, user_agent, engaged, engagement_ms, interaction_count, created_at";
 
-  for (let offset = 0; ; offset += pageSize) {
-    const { data, error } = await admin
-      .from("site_visits")
-      .select("visitor_id, user_id, is_local, client_host, client_ip, ip_hash, path, bot_class, bot_confidence, classification_reasons, verified_bot_name, user_agent, engaged, engagement_ms, interaction_count, created_at")
-      .gte("created_at", start)
-      .lt("created_at", end)
-      .order("created_at", { ascending: true })
-      .range(offset, offset + pageSize - 1);
+  const first = await admin
+    .from("site_visits")
+    .select(selectCols, { count: "exact" })
+    .gte("created_at", start)
+    .lt("created_at", end)
+    .order("created_at", { ascending: true })
+    .range(0, pageSize - 1);
 
-    if (error) throw error;
+  if (first.error) throw first.error;
 
-    const batch = data ?? [];
-    rows.push(...batch);
-    if (batch.length < pageSize) return rows;
+  const rows: VisitAggregateRow[] = [...((first.data ?? []) as VisitAggregateRow[])];
+  const total = first.count ?? rows.length;
+  if (total <= pageSize) return rows;
+
+  const offsets: number[] = [];
+  for (let offset = pageSize; offset < total; offset += pageSize) {
+    offsets.push(offset);
   }
+
+  const batches = await Promise.all(
+    offsets.map((offset) =>
+      admin
+        .from("site_visits")
+        .select(selectCols)
+        .gte("created_at", start)
+        .lt("created_at", end)
+        .order("created_at", { ascending: true })
+        .range(offset, offset + pageSize - 1)
+    )
+  );
+
+  for (const batch of batches) {
+    if (batch.error) throw batch.error;
+    rows.push(...((batch.data ?? []) as VisitAggregateRow[]));
+  }
+
+  return rows;
 }
 
 export async function recordSiteVisit(input: {
@@ -434,18 +457,51 @@ export async function updateSiteVisitEngagement(input: {
 }
 
 export async function getAdminVisitStats(): Promise<SiteVisitStats> {
+  const empty: SiteVisitStats = {
+    visitsToday: 0,
+    uniqueVisitorsToday: 0,
+    loggedInVisitsToday: 0,
+    anonymousVisitorsToday: 0,
+    visitsLast7Days: 0,
+  };
+
+  const admin = adminOrNull();
+  if (!admin) return empty;
+
   const today = toKstDateKey();
-  const dayStats = await getAdminVisitStatsForDate(today, { excludeLocal: true });
-  const trend = await getAdminDailyVisitTrend(addKstDays(today, -6), today, {
-    excludeLocal: true,
-  });
+  const { start: todayStart, end: todayEnd } = kstDayBounds(today);
+  const weekStart = kstDayBounds(addKstDays(today, -6)).start;
+
+  // 대시보드는 봇 분류가 필요 없다. 오늘 행만 가볍게 읽고, 7일은 count만.
+  // (이전에는 7일치 전체 행을 페이지네이션으로 긁어 ~1만 건+ 왕복이 났음)
+  const [todayRes, weekCountRes] = await Promise.all([
+    admin
+      .from("site_visits")
+      .select("visitor_id, user_id, is_local")
+      .gte("created_at", todayStart)
+      .lt("created_at", todayEnd)
+      .order("created_at", { ascending: true })
+      .limit(5000),
+    admin
+      .from("site_visits")
+      .select("id", { count: "exact", head: true })
+      .gte("created_at", weekStart)
+      .lt("created_at", todayEnd)
+      .eq("is_local", false),
+  ]);
+
+  const scoped = (todayRes.data ?? []).filter((row) => !row.is_local);
+  const uniqueVisitors = new Set(scoped.map((row) => row.visitor_id));
+  const anonymousVisitors = new Set(
+    scoped.filter((row) => !row.user_id).map((row) => row.visitor_id)
+  );
 
   return {
-    visitsToday: dayStats.pageViews,
-    uniqueVisitorsToday: dayStats.uniqueVisitors,
-    loggedInVisitsToday: dayStats.loggedInVisits,
-    anonymousVisitorsToday: dayStats.anonymousVisitors,
-    visitsLast7Days: trend.reduce((sum, point) => sum + point.pageViews, 0),
+    visitsToday: scoped.length,
+    uniqueVisitorsToday: uniqueVisitors.size,
+    loggedInVisitsToday: scoped.filter((row) => row.user_id).length,
+    anonymousVisitorsToday: anonymousVisitors.size,
+    visitsLast7Days: weekCountRes.count ?? 0,
   };
 }
 

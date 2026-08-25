@@ -33,6 +33,21 @@ export const ENGLISH_SYNTAX_UNIT_MAP = new Map(
   ENGLISH_SYNTAX_GROUPS.flatMap((group) => group.units.map((unit) => [unit.id, { group, unit }] as const)),
 );
 
+/** Cards keyed by primaryTag (unit id) — avoids O(n×units) filters on the listing page. */
+export const ENGLISH_SYNTAX_CARDS_BY_UNIT: ReadonlyMap<string, EnglishSyntaxCard[]> = (() => {
+  const map = new Map<string, EnglishSyntaxCard[]>();
+  for (const card of ENGLISH_SYNTAX_CARDS) {
+    const list = map.get(card.primaryTag);
+    if (list) list.push(card);
+    else map.set(card.primaryTag, [card]);
+  }
+  return map;
+})();
+
+export function getEnglishSyntaxCardsForUnit(unitId: string): EnglishSyntaxCard[] {
+  return ENGLISH_SYNTAX_CARDS_BY_UNIT.get(unitId) ?? [];
+}
+
 export function getEnglishSyntaxCard(id: string) {
   return ENGLISH_SYNTAX_CARDS.find((card) => card.id === id) ?? null;
 }

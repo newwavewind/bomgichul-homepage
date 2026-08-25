@@ -91,6 +91,7 @@ const CORE_PAGES: MetadataRoute.Sitemap = [
 
 const REAL_ESTATE_PAGES: MetadataRoute.Sitemap = [
   page("/real-estate", "weekly", 0.9),
+  page("/real-estate/intro", "monthly", 0.85),
   page("/community", "daily", 0.9),
   page("/archive", "daily", 0.9),
   page("/diary", "daily", 0.6),
@@ -103,6 +104,7 @@ const REAL_ESTATE_PAGES: MetadataRoute.Sitemap = [
 function getTrackPublicPages(basePath: string, includeConceptHub = false): MetadataRoute.Sitemap {
   return [
     page(basePath, "weekly", 0.9),
+    page(`${basePath}/intro`, "monthly", 0.85),
     ...(includeConceptHub ? [page(`${basePath}/concepts`, "weekly", 0.8)] : []),
     page(`${basePath}/community`, "daily", 0.8),
     page(`${basePath}/archive`, "daily", 0.7),
