@@ -5,6 +5,8 @@ import { useMemo, useState } from "react";
 import {
   EXAM_CALENDAR_COLORS,
   EXAM_CALENDAR_EVENTS,
+  EXAM_CALENDAR_LABELS,
+  EXAM_CALENDAR_ORDER,
   examCalendarKindLabel,
   eventsInMonth,
   eventsOnDate,
@@ -50,6 +52,10 @@ function uniqueExamKeys(events: ExamCalendarEvent[]) {
     keys.push(event.examKey);
   }
   return keys;
+}
+
+function examLabel(key: ExamCalendarEvent["examKey"]) {
+  return EXAM_CALENDAR_LABELS[key];
 }
 
 export function ExamCalendar() {
@@ -215,23 +221,18 @@ export function ExamCalendar() {
         </div>
       </div>
 
-      {monthEvents.length > 0 ? (
-        <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-          {uniqueExamKeys(monthEvents).map((key) => {
-            const sample = monthEvents.find((e) => e.examKey === key);
-            return (
-              <li key={key} className="flex items-center gap-1.5 font-display text-[12px] text-smoke">
-                <span
-                  className="h-2 w-2 rounded-full"
-                  style={{ backgroundColor: EXAM_CALENDAR_COLORS[key] }}
-                  aria-hidden
-                />
-                {sample?.examLabel ?? key}
-              </li>
-            );
-          })}
-        </ul>
-      ) : null}
+      <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2" aria-label="시험 구분 색">
+        {EXAM_CALENDAR_ORDER.map((key) => (
+          <li key={key} className="flex items-center gap-1.5 font-display text-[12px] text-smoke">
+            <span
+              className="h-2 w-2 shrink-0 rounded-full"
+              style={{ backgroundColor: EXAM_CALENDAR_COLORS[key] }}
+              aria-hidden
+            />
+            {examLabel(key)}
+          </li>
+        ))}
+      </ul>
 
       <div className="mt-6 rounded-2xl border border-mist bg-paper px-4 py-5 md:px-6">
         <p className="font-display text-[13px] font-semibold text-fog">선택한 날</p>
@@ -253,7 +254,7 @@ export function ExamCalendar() {
                     aria-hidden
                   />
                   <span className="font-display text-[12px] font-semibold text-fog">
-                    {event.examLabel} · {examCalendarKindLabel(event.kind)}
+                    {examLabel(event.examKey)} · {examCalendarKindLabel(event.kind)}
                   </span>
                 </div>
                 <p className="mt-1.5 font-display text-body-sm font-semibold text-ink">{event.title}</p>
@@ -263,7 +264,7 @@ export function ExamCalendar() {
                   href={event.href}
                   className="mt-3 inline-flex font-display text-body-sm font-semibold text-[#0b5fff] underline-offset-2 hover:underline"
                 >
-                  {event.examLabel} 안내 보기 →
+                  {examLabel(event.examKey)} 안내 보기 →
                 </Link>
               </li>
             ))}

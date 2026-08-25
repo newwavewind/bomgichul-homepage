@@ -1,6 +1,19 @@
 import Link from "next/link";
 import type { ExamIntro } from "@/data/exam-intros/types";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
+import { appStoreLinksForScope } from "@/lib/constants";
 
+type AppStoreScope = Parameters<typeof appStoreLinksForScope>[0];
+
+const INTRO_STORE_SCOPE: Record<string, AppStoreScope> = {
+  "public-service": "public_service",
+  "real-estate": "real_estate",
+  police: "police",
+  housing: "housing",
+  "social-worker": "social_worker",
+  history: "history",
+  english: "english",
+};
 /** YYYY-MM-DD → 2026년 4월 4일 */
 function formatKoDate(iso: string): string {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(iso)) return iso;
@@ -169,22 +182,16 @@ export function ExamIntroView({ intro }: { intro: ExamIntro }) {
               <div key={group.name}>
                 <h3 className="mb-3 font-display text-[18px] font-semibold text-ink">{group.name}</h3>
                 <ul className="divide-y divide-mist rounded-2xl border border-mist bg-paper">
-                  {group.items.map((subject) => {
-                    const meta = [subject.round, subject.note].filter(Boolean).join(" · ");
-                    return (
-                      <li
-                        key={`${group.name}-${subject.name}`}
-                        className="flex flex-wrap items-baseline justify-between gap-2 px-4 py-3"
-                      >
-                        <span className="font-display text-body-sm font-semibold text-ink">
-                          {subject.name}
-                        </span>
-                        {meta ? (
-                          <span className="font-display text-[13px] text-fog">{meta}</span>
-                        ) : null}
-                      </li>
-                    );
-                  })}
+                  {group.items.map((subject) => (
+                    <li
+                      key={`${group.name}-${subject.name}`}
+                      className="px-4 py-3"
+                    >
+                      <span className="font-display text-body-sm font-semibold text-ink">
+                        {subject.name}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             ))}
@@ -359,6 +366,21 @@ export function ExamIntroView({ intro }: { intro: ExamIntro }) {
               <div className="mt-3">
                 <LinkList links={intro.relatedLinks} />
               </div>
+            </>
+          ) : null}
+          {INTRO_STORE_SCOPE[intro.id] ? (
+            <>
+              <p className="mt-6 font-display text-[13px] font-semibold tracking-[0.04em] text-fog">
+                모바일 앱
+              </p>
+              <p className="mt-1 font-display text-[13px] text-smoke">
+                App Store와 Google Play를 구분해 두었습니다. 아직 없는 스토어는 출시준비중입니다.
+              </p>
+              <AppStoreButtons
+                className="mt-3"
+                size="sm"
+                links={appStoreLinksForScope(INTRO_STORE_SCOPE[intro.id])}
+              />
             </>
           ) : null}
           <div className="mt-8">

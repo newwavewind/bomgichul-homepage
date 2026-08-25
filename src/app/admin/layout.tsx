@@ -30,6 +30,9 @@ export default async function AdminLayout({
             </SectionHeading>
             <p className="font-display text-[13px] text-smoke sm:text-body-sm">
               {user.email} · {user.nickname || "관리자"}
+              {user.id === "preview-admin" ? (
+                <span className="ml-2 text-fog">(로컬 미리보기 · 로그인 생략)</span>
+              ) : null}
             </p>
           </div>
           <p className="mt-2 font-display text-[13px] leading-relaxed text-fog sm:text-body-sm">

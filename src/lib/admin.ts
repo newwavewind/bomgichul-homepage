@@ -1,6 +1,7 @@
 import { createAdminClient } from "@/lib/supabase/admin";
 import { CATEGORY_MAP } from "@/lib/constants";
 import type { PostCategory } from "@/types/database";
+import { kstDayBounds, toKstDateKey } from "@/lib/site-visits";
 
 export type AdminUserRow = {
   id: string;
@@ -419,6 +420,8 @@ export async function getAiExplanationOverview(): Promise<AiExplanationOverview>
 /** 판본이 많이 쌓인 보기부터 — 견주어 볼 거리가 있는 자리가 위로 온다 */
 export async function getAiExplanationGroups(options: {
   subjectId?: string;
+  /** YYYY-MM-DD (KST). last_at 기준 그날만 */
+  dateKey?: string;
   limit?: number;
 } = {}): Promise<AiExplanationGroupRow[]> {
   const admin = getAdminClient();
@@ -428,11 +431,16 @@ export async function getAiExplanationGroups(options: {
     .select(
       "subject_id, exam_id, item_key, item_text, answer, variant_count, model_count, prompt_version_count, first_at, last_at"
     )
-    .order("variant_count", { ascending: false })
     .order("last_at", { ascending: false })
-    .limit(options.limit ?? 200);
+    .order("variant_count", { ascending: false })
+    .limit(options.limit ?? 400);
 
   if (options.subjectId) query = query.eq("subject_id", options.subjectId);
+
+  if (options.dateKey) {
+    const { start, end } = kstDayBounds(options.dateKey);
+    query = query.gte("last_at", start).lt("last_at", end);
+  }
 
   const { data } = await query;
   if (!data) return [];
@@ -449,6 +457,31 @@ export async function getAiExplanationGroups(options: {
     firstAt: row.first_at,
     lastAt: row.last_at,
   }));
+}
+
+/** 최근 활동이 있는 날짜(KST)와 그날 보기 수 — 미니 달력용 */
+export async function getAiExplanationDateSummaries(
+  limitDays = 120
+): Promise<{ dateKey: string; count: number }[]> {
+  const admin = getAdminClient();
+  const { data } = await admin
+    .from("ai_explanation_log_groups")
+    .select("last_at")
+    .order("last_at", { ascending: false })
+    .limit(2000);
+
+  if (!data?.length) return [];
+
+  const counts = new Map<string, number>();
+  for (const row of data) {
+    const key = toKstDateKey(new Date(row.last_at));
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+
+  return [...counts.entries()]
+    .map(([dateKey, count]) => ({ dateKey, count }))
+    .sort((a, b) => (a.dateKey < b.dateKey ? 1 : -1))
+    .slice(0, limitDays);
 }
 
 /** 한 보기에 쌓인 판본들 — 오래된 것부터 봐야 달라진 자취가 읽힌다 */

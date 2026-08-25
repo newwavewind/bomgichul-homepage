@@ -1,6 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { getSupabaseEnv, isSupabaseConfigured } from "@/lib/supabase/env";
+import { allowOpenAdminWithoutAuth } from "@/lib/dev-preview-auth";
 
 const USERNAME_SKIP_PREFIXES = [
   "/onboarding",
@@ -35,6 +36,12 @@ export async function updateSession(request: NextRequest) {
   }
 
   const pathname = request.nextUrl.pathname;
+
+  // 로컬/Cursor 미리보기: 관리자 화면은 로그인 없이 바로 연다
+  if (pathname.startsWith("/admin") && allowOpenAdminWithoutAuth(request)) {
+    return NextResponse.next({ request });
+  }
+
   const allCookies = request.cookies.getAll();
   const hasAuth = hasSupabaseAuthCookie(allCookies);
 

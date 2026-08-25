@@ -27,7 +27,7 @@ export const APP_LINKS = {
   ios: "https://apps.apple.com/kr/app/id6784651251",
 } as const;
 
-/** null 은 「아직 그 스토어에 없음」 — 화면에서는 「출시 예정」으로 보인다. */
+/** null 은 「아직 그 스토어에 없음」 — 화면에서는 「출시준비중」으로 보인다. */
 export type AppStoreLinks = {
   android: string | null;
   ios: string | null;
@@ -42,7 +42,7 @@ export type AppStoreLinks = {
  *   · Google Play — 공인중개사·공무원만 출시. 경찰·주택관리사·사회복지사는 404.
  *   · 한국사 — 아직 앱 자체가 스토어에 없다.
  * 없는 곳을 링크로 걸면 사용자가 눌렀을 때 「찾을 수 없는 페이지」로 떨어지므로
- * null 로 두어 「출시 예정」이 보이게 한다. 스토어에 올라가면 여기만 채우면 된다.
+ * null 로 두어 「출시준비중」이 보이게 한다. 스토어에 올라가면 여기만 채우면 된다.
  */
 export function appStoreLinksForScope(
   scope:

@@ -50,14 +50,30 @@ function readAuthNext(defaultNext: string) {
   return defaultNext;
 }
 
+const PREVIEW_EMAIL_KEY = "bomgichul_preview_login_email";
+
+const buttonClassName = `
+    inline-flex w-full items-center justify-center gap-2
+    rounded-[var(--radius-buttons)] border border-mist/80
+    bg-paper px-7 py-2.5 font-display text-body-sm font-medium text-ink
+    shadow-[var(--shadow-button)]
+    transition-colors hover:bg-snow
+    disabled:cursor-not-allowed disabled:opacity-50
+  `;
+
 export function GoogleAuthCard({
   mode,
+  previewLogin = false,
 }: {
   mode: "login" | "signup";
+  /** 서버가 host 로 판별 — JS/HMR 이 죽어도 미리보기 폼이 보이게 */
+  previewLogin?: boolean;
 }) {
   const isSignup = mode === "signup";
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [previewEmail, setPreviewEmail] = useState("");
+  const [nextPath, setNextPath] = useState(isSignup ? "/onboarding" : "/");
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -70,7 +86,18 @@ export function GoogleAuthCard({
           : "로그인에 실패했습니다. 다시 시도해주세요.";
       window.setTimeout(() => setMessage(nextMessage), 0);
     }
-  }, [isSignup]);
+
+    setNextPath(readAuthNext(isSignup ? "/onboarding" : "/"));
+
+    if (previewLogin) {
+      try {
+        const saved = window.localStorage.getItem(PREVIEW_EMAIL_KEY);
+        if (saved) setPreviewEmail(saved);
+      } catch {
+        // ignore
+      }
+    }
+  }, [isSignup, previewLogin]);
 
   const handleGoogleAuth = async () => {
     setLoading(true);
@@ -144,16 +171,65 @@ export function GoogleAuthCard({
             </TintedAccentCard>
           )}
 
-          <PrimaryButton
-            onClick={handleGoogleAuth}
-            disabled={loading}
-            className="w-full !bg-paper !text-ink border border-mist/80 hover:!bg-snow"
-          >
-            <GoogleIcon />
-            {loading ? "Google로 이동 중..." : "Google로 시작하기"}
-          </PrimaryButton>
+          {previewLogin ? (
+            <form
+              action="/api/dev/preview-login"
+              method="post"
+              className="space-y-3"
+              onSubmit={() => {
+                try {
+                  if (previewEmail) {
+                    window.localStorage.setItem(PREVIEW_EMAIL_KEY, previewEmail);
+                  }
+                } catch {
+                  // ignore
+                }
+              }}
+            >
+              <div className="rounded-2xl border border-dashed border-carbon/40 bg-surface/80 p-4">
+                <p className="font-display text-[12px] font-semibold text-ink">
+                  Cursor 미리보기용 로그인
+                </p>
+                <p className="mt-1 font-display text-[12px] leading-relaxed text-smoke">
+                  미리보기에서는 Google 창이 막혀요. 평소 쓰는 Google 이메일을 넣고 아래
+                  버튼을 누르면 바로 로그인됩니다.
+                </p>
+                <label className="mt-3 block">
+                  <span className="sr-only">미리보기 로그인 이메일</span>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    autoComplete="username"
+                    value={previewEmail}
+                    onChange={(e) => setPreviewEmail(e.target.value)}
+                    placeholder="you@gmail.com"
+                    className="w-full rounded-full border border-mist bg-paper px-4 py-2.5 font-display text-body-sm text-ink outline-none focus:border-carbon"
+                  />
+                </label>
+                <input type="hidden" name="next" value={nextPath} />
+              </div>
+              <button type="submit" className={buttonClassName}>
+                <GoogleIcon />
+                미리보기로 로그인
+              </button>
+            </form>
+          ) : (
+            <PrimaryButton
+              onClick={handleGoogleAuth}
+              disabled={loading}
+              className="w-full !bg-paper !text-ink border border-mist/80 hover:!bg-snow"
+            >
+              <GoogleIcon />
+              {loading ? "Google로 이동 중..." : "Google로 시작하기"}
+            </PrimaryButton>
+          )}
 
-          <p className="mt-5 text-center font-display text-[12px] leading-relaxed text-smoke">가입과 로그인은 같은 버튼을 사용해요. Google 계정 선택 후 자동으로 구분됩니다.</p>
+          <p className="mt-5 text-center font-display text-[12px] leading-relaxed text-smoke">
+            {previewLogin
+              ? "배포 사이트에서는 일반 Google 로그인이 그대로 쓰입니다."
+              : "가입과 로그인은 같은 버튼을 사용해요. Google 계정 선택 후 자동으로 구분됩니다."}
+          </p>
 
           <div className="mt-6 text-center">
             <OutlineButton href="/">← 홈으로</OutlineButton>

@@ -128,10 +128,18 @@ export function ExamOxQuestion({
                 <button
                   key={`${examId}-combo-${choice.no}`}
                   type="button"
-                  onClick={() => !revealed && setSelected(choice.no)}
+                  onClick={() => {
+                    if (revealed) return;
+                    if (selectedItem) reveal();
+                    else setSelected(choice.no);
+                  }}
                   className={`w-full rounded-2xl border px-4 py-4 text-left transition-colors ${
                     selectedItem
-                      ? "border-carbon bg-snow"
+                      ? revealed
+                        ? choice.isCorrect
+                          ? "border-[#6366f1] bg-[#6366f1]/[0.06]"
+                          : "border-[#ef4444] bg-[#ef4444]/[0.05]"
+                        : "border-carbon bg-snow study-pick-tap-again"
                       : "border-mist bg-paper hover:border-ash"
                   }`}
                 >
@@ -234,13 +242,13 @@ export function ExamOxQuestion({
       {revealed ? (
         <div className="space-y-4">
           <div
-            className={`rounded-2xl border px-5 py-4 ${
+            className={`inline-flex max-w-full rounded-lg border px-3 py-1.5 ${
               (selected === null ? initialAttemptResult === "correct" : isCorrect)
-                ? "border-[#6366f1]/30 bg-[#6366f1]/5"
-                : "border-[#ef4444]/30 bg-[#ef4444]/5"
+                ? "border-[#6366f1]/35 bg-[#6366f1]/8"
+                : "border-[#ef4444]/35 bg-[#ef4444]/8"
             }`}
           >
-            <p className="font-display text-body-sm font-semibold text-ink">
+            <p className="font-display text-[13px] font-semibold text-ink">
               {(selected === null ? initialAttemptResult === "correct" : isCorrect) ? "정답입니다." : `정답은 ${correctChoice ?? "?"}번입니다.`}
             </p>
           </div>

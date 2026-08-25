@@ -102,7 +102,7 @@ function AppStoreBadge({
           Download on the
         </span>
         <span className="block text-body-sm font-semibold">
-          {disabled ? "출시 예정" : "App Store"}
+          {disabled ? "출시준비중" : "App Store"}
         </span>
       </span>
     </>
@@ -153,7 +153,7 @@ function GooglePlayBadge({
         <span className="flex items-center gap-2">
           <GooglePlayMark height={logoHeight} />
           <span className="font-display text-[11px] font-semibold text-fog">
-            출시 예정
+            출시준비중
           </span>
         </span>
       </span>

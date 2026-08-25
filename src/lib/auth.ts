@@ -1,8 +1,12 @@
 import { cache } from "react";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
+import {
+  isLocalPreviewHostHeader,
+  PREVIEW_ADMIN_USER,
+} from "@/lib/dev-preview-auth";
 
 export const getUser = cache(async () => {
   if (!isSupabaseConfigured()) return null;
@@ -52,6 +56,11 @@ export const getUser = cache(async () => {
 });
 
 export async function requireAdmin() {
+  const headerStore = await headers();
+  if (isLocalPreviewHostHeader(headerStore.get("host"))) {
+    return PREVIEW_ADMIN_USER;
+  }
+
   const user = await getUser();
   if (!user?.isAdmin) {
     redirect("/");

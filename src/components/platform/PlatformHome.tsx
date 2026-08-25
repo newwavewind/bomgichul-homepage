@@ -6,55 +6,49 @@ import type { PersonalHomeData } from "@/lib/personal-home";
 const exams = [
   {
     href: "/public-service/intro",
+    learnHref: "/public-service",
     eyebrow: "9급 공무원",
     title: "공무원",
-    description: "직렬·과목·일정·원서 접수를 먼저 보고, 기출 학습으로 이어가세요.",
-    meta: "16개 과목 · 국가직·지방직",
     accent: "from-[#e8f5ff] to-[#f4f8ff]",
     cta: "공무원 알아보기",
   },
   {
     href: "/real-estate/intro",
+    learnHref: "/real-estate",
     eyebrow: "제37회 공인중개사",
     title: "공인중개사",
-    description: "1·2차 형식과 면제, Q-Net 일정까지 시험 안내를 확인하세요.",
-    meta: "6개 과목 · 2016~2025",
     accent: "from-[#e8faf5] to-[#f4fbf8]",
     cta: "공인중개사 알아보기",
   },
   {
     href: "/police/intro",
+    learnHref: "/police",
     eyebrow: "순경 공채",
     title: "경찰공무원",
-    description: "필기 과목과 전형 흐름, 경찰청 원서접수를 정리해 두었습니다.",
-    meta: "3개 과목 · 2022~2026",
     accent: "from-[#eef2ff] to-[#f7f8ff]",
     cta: "경찰 알아보기",
   },
   {
     href: "/housing/intro",
+    learnHref: "/housing",
     eyebrow: "주택관리사보",
     title: "주택관리사",
-    description: "1·2차 과목과 Q-Net 일정·접수를 먼저 살펴보세요.",
-    meta: "5개 과목 · 2020~2025",
     accent: "from-[#fff4e8] to-[#fffaf4]",
     cta: "주택관리사 알아보기",
   },
   {
     href: "/social-worker/intro",
+    learnHref: "/social-worker",
     eyebrow: "국가전문자격",
     title: "사회복지사 1급",
-    description: "8개 영역 과목과 국가시험 형식·접수를 안내합니다.",
-    meta: "8개 과목 · 2017~2026 · 2,000문항",
     accent: "from-[#fff0f5] to-[#fff8fb]",
     cta: "사회복지사 알아보기",
   },
   {
     href: "/history/intro",
+    learnHref: "/history",
     eyebrow: "국가공인 · 심화",
     title: "한국사능력검정",
-    description: "심화 등급과 회차 일정, 접수처를 확인한 뒤 기출로 이어가세요.",
-    meta: "심화 · 75~79회 · 250문항",
     // 앞 다섯 카드가 파랑(206°)·민트(163°)·남보라(226°)·주황(31°)·분홍(340°)을 쓰고 있어
     // 색상환에서 가장 비어 있던 연둣빛(95°)을 골랐다 — 어느 카드와도 60° 넘게 떨어진다.
     accent: "from-[#f0ffe5] to-[#f8fff2]",
@@ -62,10 +56,9 @@ const exams = [
   },
   {
     href: "/english/intro",
+    learnHref: "/english",
     eyebrow: "9급 공채 · 국가직 · 지방직",
     title: "공무원 영어",
-    description: "9급 필기 영어 과목의 위치와 채용 일정·접수를 안내합니다.",
-    meta: "9급 영어 · 2017~2026 · 400문항",
     // 앞 여섯이 31°·95°·163°·206°·226°·340° 를 쓰고 있어, 일곱 번째는 60° 규칙을
     // 지킬 수가 없다 — 가장 벌어진 틈이 226°~340° 인데 그 한가운데도 57° 다.
     // 그래서 규칙을 지키는 대신 최소 간격이 가장 큰 자리(283°)를 골랐다.
@@ -73,6 +66,14 @@ const exams = [
     cta: "공무원 영어 알아보기",
   },
 ] as const;
+
+/** 학습 시작 — 차분한 블루(대비 유지, 채도↓) */
+const learnCtaClass =
+  "group/cta flex min-h-12 flex-1 items-center justify-center gap-1 rounded-[18px] border border-black/[0.04] bg-[#3b6fd4] px-3 py-3 text-center font-display text-[14px] font-semibold tracking-tight text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_2px_8px_rgba(36,59,83,0.1)] transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-[#3463be] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_4px_12px_rgba(36,59,83,0.12)] active:translate-y-0";
+
+/** 알아보기 — 맑은 글래스 */
+const introCtaClass =
+  "group/cta flex min-h-12 flex-1 items-center justify-center gap-1 rounded-[18px] border border-black/[0.06] bg-white/70 px-3 py-3 text-center font-display text-[14px] font-semibold tracking-tight text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_2px_8px_rgba(15,23,42,0.04)] backdrop-blur-xl transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-[inset_0_1px_0_rgba(255,255,255,1),0_6px_16px_rgba(15,23,42,0.07)] active:translate-y-0";
 
 export function PlatformHome({ user, personalHome }: { user?: { nickname: string } | null; personalHome?: PersonalHomeData | null }) {
   return (
@@ -95,10 +96,9 @@ export function PlatformHome({ user, personalHome }: { user?: { nickname: string
 
         <section className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
           {exams.map((exam) => (
-            <Link
+            <article
               key={exam.href}
-              href={exam.href}
-              className={`group flex min-h-[300px] flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon bg-gradient-to-br ${exam.accent} p-7 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-9`}
+              className={`flex flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon bg-gradient-to-br ${exam.accent} p-7 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-9`}
             >
               <div>
                 <p className="font-display text-[13px] font-semibold tracking-[0.04em] text-fog">
@@ -108,17 +108,21 @@ export function PlatformHome({ user, personalHome }: { user?: { nickname: string
                   {exam.title}
                 </h2>
               </div>
-              <p className="mt-8 max-w-sm font-display text-body text-smoke">{exam.description}</p>
-              <p className="mt-3 font-display text-body-sm font-semibold text-ink">{exam.meta}</p>
-              <div className="mt-auto pt-8">
-                <div className="flex items-center justify-between rounded-2xl bg-carbon px-5 py-3.5 text-paper">
-                  <span className="font-display text-body-sm font-semibold">{exam.cta}</span>
-                  <span aria-hidden className="transition-transform group-hover:translate-x-1">
+              <div className="mt-10 flex gap-2.5">
+                <Link href={exam.learnHref} className={learnCtaClass} aria-label={`${exam.title} 학습 시작`}>
+                  학습 시작
+                  <span aria-hidden className="opacity-80 transition-transform group-hover/cta:translate-x-0.5">
                     →
                   </span>
-                </div>
+                </Link>
+                <Link href={exam.href} className={introCtaClass} aria-label={exam.cta}>
+                  알아보기
+                  <span aria-hidden className="opacity-55 transition-transform group-hover/cta:translate-x-0.5">
+                    →
+                  </span>
+                </Link>
               </div>
-            </Link>
+            </article>
           ))}
         </section>
       </div>
