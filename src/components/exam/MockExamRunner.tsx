@@ -24,7 +24,7 @@ function formatElapsed(totalSeconds: number): string {
 
 type PreparedQuestion = {
   q: ExamQuestion;
-  enriched: ReturnType<typeof enrichTableCompositeQuestion>;
+  enriched: ExamQuestion;
   isStatementComposite: boolean;
   isTableComposite: boolean;
 };
