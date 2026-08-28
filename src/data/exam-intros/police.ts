@@ -8,6 +8,8 @@ export const policeIntro: ExamIntro = {
     "중앙경찰학교 공고 제2026-11호(2026년 제2차 순경 공채) 기준으로 필기 과목, 전형 일정, 합격 결정, 응시수수료를 정리했습니다. 제2차 필기는 2026년 8월 22일 시행이 완료되었습니다.",
   hubHref: "/police",
   hubCta: "경찰 학습 시작",
+  conceptsHref: "/police/concepts/constitution",
+  conceptsCta: "헌법 올인원 보기",
   lastVerified: "2026-08-25",
   disclaimer: EXAM_INTRO_DISCLAIMER,
   administrator: {

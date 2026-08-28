@@ -44,6 +44,33 @@ export function ExamTrackHub({
           </Link>
         ) : null}
 
+        {subjects.some((s) => s.conceptCount > 0) ? (
+          <section
+            aria-label={`${track.label} 기출 올인원`}
+            className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-[#f4f8ff] px-5 py-5 md:px-6"
+          >
+            <h2 className="font-display text-subheading font-semibold text-ink">기출 올인원</h2>
+            <p className="mt-1 font-display text-body-sm text-smoke">
+              과목별 개념 허브로 바로 들어가 핵심만 이어 읽어요.
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {subjects
+                .filter((s) => s.conceptCount > 0)
+                .map((s) => (
+                  <li key={s.id}>
+                    <Link
+                      href={`${track.basePath}/concepts/${s.id}`}
+                      className="inline-flex min-h-10 items-center rounded-full border border-carbon/25 bg-paper px-3.5 font-display text-[13px] font-semibold text-ink transition-colors hover:border-carbon hover:bg-white"
+                    >
+                      {s.label}
+                      <span className="ml-1.5 text-fog">{s.conceptCount}</span>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </section>
+        ) : null}
+
         <ExamTrackSubjectBrowser track={track} subjects={subjects} />
 
         <section className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-carbon px-6 py-8 text-paper md:px-9">

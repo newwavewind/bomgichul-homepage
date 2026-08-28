@@ -7,6 +7,8 @@ const exams = [
   {
     href: "/public-service/intro",
     learnHref: "/public-service",
+    conceptsHref: "/public-service/concepts/hangjunghak",
+    conceptsLabel: "행정학 올인원",
     eyebrow: "9급 공무원",
     title: "공무원",
     accent: "from-[#e8f5ff] to-[#f4f8ff]",
@@ -15,6 +17,8 @@ const exams = [
   {
     href: "/real-estate/intro",
     learnHref: "/real-estate",
+    conceptsHref: "/concepts/broker-law",
+    conceptsLabel: "중개사법 올인원",
     eyebrow: "제37회 공인중개사",
     title: "공인중개사",
     accent: "from-[#e8faf5] to-[#f4fbf8]",
@@ -23,6 +27,8 @@ const exams = [
   {
     href: "/police/intro",
     learnHref: "/police",
+    conceptsHref: "/police/concepts/constitution",
+    conceptsLabel: "헌법 올인원",
     eyebrow: "순경 공채",
     title: "경찰공무원",
     accent: "from-[#eef2ff] to-[#f7f8ff]",
@@ -31,6 +37,8 @@ const exams = [
   {
     href: "/housing/intro",
     learnHref: "/housing",
+    conceptsHref: "/housing/concepts/accounting",
+    conceptsLabel: "회계원리 올인원",
     eyebrow: "주택관리사보",
     title: "주택관리사",
     accent: "from-[#fff4e8] to-[#fffaf4]",
@@ -39,6 +47,8 @@ const exams = [
   {
     href: "/social-worker/intro",
     learnHref: "/social-worker",
+    conceptsHref: "/social-worker/concepts/human-behavior",
+    conceptsLabel: "인간행동 올인원",
     eyebrow: "국가전문자격",
     title: "사회복지사 1급",
     accent: "from-[#fff0f5] to-[#fff8fb]",
@@ -47,6 +57,8 @@ const exams = [
   {
     href: "/history/intro",
     learnHref: "/history",
+    conceptsHref: "/history/concepts",
+    conceptsLabel: "핵심 개념 모아보기",
     eyebrow: "국가공인 · 심화",
     title: "한국사능력검정",
     // 앞 다섯 카드가 파랑(206°)·민트(163°)·남보라(226°)·주황(31°)·분홍(340°)을 쓰고 있어
@@ -57,6 +69,8 @@ const exams = [
   {
     href: "/english/intro",
     learnHref: "/english",
+    conceptsHref: "/english",
+    conceptsLabel: "영어 기출 허브",
     eyebrow: "9급 공채 · 국가직 · 지방직",
     title: "공무원 영어",
     // 앞 여섯이 31°·95°·163°·206°·226°·340° 를 쓰고 있어, 일곱 번째는 60° 규칙을
@@ -131,6 +145,15 @@ export function PlatformHome({ user, personalHome }: { user?: { nickname: string
                   </span>
                 </Link>
               </div>
+              <p className="mt-3 font-display text-[13px] text-smoke">
+                <Link
+                  href={exam.conceptsHref}
+                  className="font-semibold text-ink underline decoration-mist underline-offset-4 transition-colors hover:decoration-carbon"
+                >
+                  {exam.conceptsLabel}
+                </Link>
+                <span className="text-fog"> · 기출 올인원·과목 허브로 바로 이동</span>
+              </p>
             </article>
           ))}
         </section>

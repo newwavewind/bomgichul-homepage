@@ -8,6 +8,8 @@ export const housingIntro: ExamIntro = {
     "제29회 시행계획(국토교통부 공고 제2026-412호·한국산업인력공단 공고 제2026-046호) 기준으로 1·2차 과목, 일정, 합격 기준, 수수료를 정리했습니다.",
   hubHref: "/housing",
   hubCta: "주택관리사 학습 시작",
+  conceptsHref: "/housing/concepts/accounting",
+  conceptsCta: "회계원리 올인원 보기",
   lastVerified: "2026-08-25",
   disclaimer: EXAM_INTRO_DISCLAIMER,
   administrator: {

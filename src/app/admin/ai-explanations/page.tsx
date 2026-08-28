@@ -242,18 +242,32 @@ function chipClass(active: boolean) {
   }`;
 }
 
+/**
+ * 열쇠(`item_key`)를 그대로 보이면 영문이 나와 읽히지 않는다. 우리말로 옮겨 적는다.
+ *
+ * 개념 화면에는 자리가 둘이지만 여기 쌓이는 것은 **버튼으로 만든 정리 하나뿐**이다.
+ * 둘째 자리(`my-concept-ask`)는 사용자가 무엇을 물을지 알 수 없어 견줄 거리가 되지
+ * 못하므로 앱이 아예 보내지 않는다 — 그래서 그 이름은 여기 두지 않는다. 두면 언젠가
+ * 쌓이는 것으로 읽힌다.
+ */
+const CONCEPT_ITEM_LABEL: Record<string, string> = {
+  "my-concept": "만든 정리",
+};
+
 function GroupList({
   groups,
   date,
+  kind = "explanation",
 }: {
   groups: AiExplanationGroupRow[];
   date?: string | null;
+  kind?: AiLogKind;
 }) {
   if (groups.length === 0) {
     return (
       <ElevatedCard>
         <p className="px-6 py-12 text-center font-display text-body-sm text-fog">
-          조건에 맞는 해설이 없습니다
+          조건에 맞는 {kind === "concept" ? "개념" : "해설"}이 없습니다
         </p>
       </ElevatedCard>
     );
@@ -300,7 +314,9 @@ function GroupList({
                       <span className="flex flex-wrap items-center gap-1.5 font-display text-[12px] text-fog">
                         <span>{subjectLabel(group.subjectId)}</span>
                         {group.examId && <span>· {group.examId}</span>}
-                        {group.itemKey && <span>· {group.itemKey}</span>}
+                        {group.itemKey && (
+                          <span>· {CONCEPT_ITEM_LABEL[group.itemKey] ?? group.itemKey}</span>
+                        )}
                         {group.answer && (
                           <span className="rounded-[var(--radius-tags)] bg-snow px-1.5 font-bold text-smoke">
                             {group.answer}
@@ -448,10 +464,11 @@ export default async function AdminAiExplanationsPage({
         <p className="font-display text-body-sm leading-relaxed text-smoke">
           {kind === "concept" ? (
             <>
-              앱의 기출 올인원에서 「바로바로 AI 개념」이 만들어질 때마다 여기에 쌓입니다.
-              한 선지에 붙는 해설과 달리 <b>목차의 한 자리</b>에 붙는 글이라 따로 모읍니다.
-              사람이 아니라 글에 관한 기록이라 기기 식별자도, 사용자가 적은 꼬리질문도 담기지
-              않습니다. 날짜·과목으로 나눠 볼 수 있습니다.
+              앱의 기출 올인원에서 <b>「개념 만들기」로 만든 글</b>이 여기에 쌓입니다. 한 선지에
+              붙는 해설과 달리 <b>목차의 한 자리</b>에 붙는 글이라 따로 모읍니다. 사람이 아니라
+              글에 관한 기록이라 기기 식별자도, 사용자가 적은 꼬리질문도 담기지 않습니다 —
+              개념 화면에서 <b>직접 물어본 것</b>도 같은 까닭으로 빠집니다. 날짜·과목으로 나눠
+              볼 수 있습니다.
             </>
           ) : (
             <>
@@ -566,7 +583,7 @@ export default async function AdminAiExplanationsPage({
         )}
       </div>
 
-      <GroupList groups={groups} date={date} />
+      <GroupList groups={groups} date={date} kind={kind} />
     </div>
   );
 }

@@ -16,6 +16,8 @@ export const realEstateIntro: ExamIntro = {
     "제37회 시행계획(공고 제2026-117호) 기준으로 1·2차 과목, 시간표, 합격 기준, 응시수수료, Q-Net 원서 접수를 정리했습니다.",
   hubHref: "/real-estate",
   hubCta: "공인중개사 학습 시작",
+  conceptsHref: "/concepts/broker-law",
+  conceptsCta: "중개사법 올인원 보기",
   lastVerified: "2026-08-25",
   disclaimer: EXAM_INTRO_DISCLAIMER,
   administrator: {

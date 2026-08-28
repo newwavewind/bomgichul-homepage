@@ -32,6 +32,8 @@ export const publicServiceIntro: ExamIntro = {
     "2026년 국가직 9급 공채는 필기(2026.4.4.)까지 진행되었습니다. 인사혁신처·국가공무원채용시스템 공고 기준으로 직렬·과목·일정을 정리했습니다. 다음 연도 일정은 최신 공고를 확인하세요.",
   hubHref: "/public-service",
   hubCta: "공무원 학습 시작",
+  conceptsHref: "/public-service/concepts/hangjunghak",
+  conceptsCta: "행정학 올인원 보기",
   lastVerified: "2026-08-25",
   disclaimer: EXAM_INTRO_DISCLAIMER,
   administrator: {

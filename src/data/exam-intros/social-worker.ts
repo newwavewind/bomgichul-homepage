@@ -8,6 +8,8 @@ export const socialWorkerIntro: ExamIntro = {
     "제24회 시행계획(한국산업인력공단 공고 제2025-178호) 기준으로 8영역·3교시 구성, 합격 기준, 수수료, 서류심사를 정리했습니다. 제24회 필기는 2026년 1월 17일 시행이 완료되었습니다.",
   hubHref: "/social-worker",
   hubCta: "사회복지사 학습 시작",
+  conceptsHref: "/social-worker/concepts/human-behavior",
+  conceptsCta: "인간행동 올인원 보기",
   lastVerified: "2026-08-25",
   disclaimer: EXAM_INTRO_DISCLAIMER,
   administrator: {

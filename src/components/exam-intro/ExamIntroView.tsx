@@ -111,6 +111,14 @@ export function ExamIntroView({ intro }: { intro: ExamIntro }) {
             >
               {intro.hubCta}
             </Link>
+            {intro.conceptsHref && intro.conceptsCta ? (
+              <Link
+                href={intro.conceptsHref}
+                className="inline-flex min-h-11 items-center rounded-full border border-carbon/30 bg-[#e8f0ff] px-6 font-display text-body-sm font-semibold text-carbon hover:border-carbon"
+              >
+                {intro.conceptsCta}
+              </Link>
+            ) : null}
             <Link
               href="/"
               className="inline-flex min-h-11 items-center rounded-full border border-carbon/30 bg-paper px-6 font-display text-body-sm font-semibold text-ink hover:border-carbon"

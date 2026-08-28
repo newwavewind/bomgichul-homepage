@@ -8,6 +8,8 @@ export const historyIntro: ExamIntro = {
     "국사편찬위원회 한국사능력검정시험 누리집의 2026년 시험일정·기본 정보 기준으로 회차, 수수료, 시험 구성을 정리했습니다. 봄기출은 심화 기출을 중심으로 제공합니다.",
   hubHref: "/history",
   hubCta: "한국사 학습 시작",
+  conceptsHref: "/history/concepts",
+  conceptsCta: "핵심 개념 모아보기",
   lastVerified: "2026-08-25",
   disclaimer: EXAM_INTRO_DISCLAIMER,
   administrator: {

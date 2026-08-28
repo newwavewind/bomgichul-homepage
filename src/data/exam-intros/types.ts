@@ -38,6 +38,8 @@ export type ExamIntro = {
   summary: string;
   hubHref: string;
   hubCta: string;
+  conceptsHref?: string;
+  conceptsCta?: string;
   administrator: {
     name: string;
     description: string;
