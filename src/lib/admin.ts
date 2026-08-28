@@ -390,7 +390,33 @@ export type AiExplanationOverview = {
   today: number;
 };
 
-export async function getAiExplanationOverview(): Promise<AiExplanationOverview> {
+/**
+ * 이 표에는 두 가지가 함께 쌓인다.
+ *
+ * 학습 화면의 **AI 해설**은 한 보기(선지)에 붙는 글이고, 개념 화면의
+ * **바로바로 AI 개념**은 목차의 한 자리에 붙는 글이다. 앱이 개념을 보낼 때
+ * `exam_id` 를 `concept:{slug}` 로, `item_key` 를 `my-concept` 로 달아 보내므로
+ * 그 접두로 둘을 가를 수 있다.
+ *
+ * 섞어 놓으면 해설을 견주려는데 개념이 끼어들고, 개념을 모아 보려는데 해설이 끼어든다.
+ * 쓰임이 다른 두 글이라 화면을 갈랐다.
+ */
+export const CONCEPT_EXAM_PREFIX = "concept:";
+
+/** 어느 쪽을 볼 것인가 */
+export type AiLogKind = "explanation" | "concept";
+
+/** 개념만 / 해설만 고르는 조건을 얹는다. `exam_id` 접두 하나로 갈린다. */
+function applyKind<T extends { like: (col: string, pat: string) => T; not: (col: string, op: string, val: string) => T }>(
+  query: T,
+  kind: AiLogKind
+): T {
+  return kind === "concept"
+    ? query.like("exam_id", `${CONCEPT_EXAM_PREFIX}%`)
+    : query.not("exam_id", "like", `${CONCEPT_EXAM_PREFIX}%`);
+}
+
+export async function getAiExplanationOverview(kind: AiLogKind = "explanation"): Promise<AiExplanationOverview> {
   const admin = getAdminClient();
 
   // 한국 시간 자정부터
@@ -400,14 +426,18 @@ export async function getAiExplanationOverview(): Promise<AiExplanationOverview>
   ).toISOString();
 
   const [totalRes, todayRes, groupsRes] = await Promise.all([
-    admin.from("ai_explanation_log").select("id", { count: "exact", head: true }),
-    admin
-      .from("ai_explanation_log")
-      .select("id", { count: "exact", head: true })
-      .gte("created_at", seoulMidnight),
-    admin
-      .from("ai_explanation_log_groups")
-      .select("exam_id", { count: "exact", head: true }),
+    applyKind(admin.from("ai_explanation_log").select("id", { count: "exact", head: true }), kind),
+    applyKind(
+      admin
+        .from("ai_explanation_log")
+        .select("id", { count: "exact", head: true })
+        .gte("created_at", seoulMidnight),
+      kind
+    ),
+    applyKind(
+      admin.from("ai_explanation_log_groups").select("exam_id", { count: "exact", head: true }),
+      kind
+    ),
   ]);
 
   return {
@@ -423,6 +453,7 @@ export async function getAiExplanationGroups(options: {
   /** YYYY-MM-DD (KST). last_at 기준 그날만 */
   dateKey?: string;
   limit?: number;
+  kind?: AiLogKind;
 } = {}): Promise<AiExplanationGroupRow[]> {
   const admin = getAdminClient();
 
@@ -435,6 +466,7 @@ export async function getAiExplanationGroups(options: {
     .order("variant_count", { ascending: false })
     .limit(options.limit ?? 400);
 
+  query = applyKind(query, options.kind ?? "explanation");
   if (options.subjectId) query = query.eq("subject_id", options.subjectId);
 
   if (options.dateKey) {
@@ -461,14 +493,18 @@ export async function getAiExplanationGroups(options: {
 
 /** 최근 활동이 있는 날짜(KST)와 그날 보기 수 — 미니 달력용 */
 export async function getAiExplanationDateSummaries(
-  limitDays = 120
+  limitDays = 120,
+  kind: AiLogKind = "explanation"
 ): Promise<{ dateKey: string; count: number }[]> {
   const admin = getAdminClient();
-  const { data } = await admin
-    .from("ai_explanation_log_groups")
-    .select("last_at")
-    .order("last_at", { ascending: false })
-    .limit(2000);
+  const { data } = await applyKind(
+    admin
+      .from("ai_explanation_log_groups")
+      .select("last_at")
+      .order("last_at", { ascending: false })
+      .limit(2000),
+    kind
+  );
 
   if (!data?.length) return [];
 
@@ -515,11 +551,14 @@ export async function getAiExplanationVariants(params: {
 }
 
 /** 과목 고르개에 쓸 목록 */
-export async function getAiExplanationSubjects(): Promise<{ id: string; count: number }[]> {
+export async function getAiExplanationSubjects(
+  kind: AiLogKind = "explanation"
+): Promise<{ id: string; count: number }[]> {
   const admin = getAdminClient();
-  const { data } = await admin
-    .from("ai_explanation_log_groups")
-    .select("subject_id, variant_count");
+  const { data } = await applyKind(
+    admin.from("ai_explanation_log_groups").select("subject_id, variant_count"),
+    kind
+  );
   if (!data) return [];
 
   const tally = new Map<string, number>();

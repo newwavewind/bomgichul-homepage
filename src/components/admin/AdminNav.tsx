@@ -11,6 +11,7 @@ const ADMIN_LINKS = [
   { href: "/admin/community", label: "게시글" },
   { href: "/admin/memos", label: "공개 메모" },
   { href: "/admin/ai-explanations", label: "AI 해설" },
+  { href: "/admin/ai-concepts", label: "AI 개념" },
   { href: "/admin/premium", label: "프리미엄" },
 ] as const;
 

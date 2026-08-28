@@ -21,12 +21,12 @@ function buildCells(year: number, monthIndex0: number) {
   return cells;
 }
 
-function buildHref(params: { subject?: string; date?: string | null }) {
+function buildHref(basePath: string, params: { subject?: string; date?: string | null }) {
   const qs = new URLSearchParams();
   if (params.date) qs.set("date", params.date);
   if (params.subject) qs.set("subject", params.subject);
   const s = qs.toString();
-  return s ? `/admin/ai-explanations?${s}` : "/admin/ai-explanations";
+  return s ? `${basePath}?${s}` : basePath;
 }
 
 export function AiExplanationDateCalendar({
@@ -34,11 +34,14 @@ export function AiExplanationDateCalendar({
   subject,
   today,
   counts,
+  /** 해설 화면과 개념 화면이 같은 달력을 쓴다 — 돌아갈 곳만 다르다 */
+  basePath = "/admin/ai-explanations",
 }: {
   selectedDate: string | null;
   subject?: string;
   today: string;
   counts: Record<string, number>;
+  basePath?: string;
 }) {
   const initial = selectedDate ?? today;
   const [initY, initM] = initial.split("-").map(Number);
@@ -108,7 +111,7 @@ export function AiExplanationDateCalendar({
         </div>
         <div className="flex flex-wrap gap-1.5">
           <Link
-            href={buildHref({ subject })}
+            href={buildHref(basePath, { subject })}
             className={`rounded-[var(--radius-tags)] px-2.5 py-1 font-display text-[12px] ${
               !selectedDate ? "bg-midnight text-paper" : "bg-surface text-ink hover:bg-snow"
             }`}
@@ -116,7 +119,7 @@ export function AiExplanationDateCalendar({
             전체
           </Link>
           <Link
-            href={buildHref({ subject, date: today })}
+            href={buildHref(basePath, { subject, date: today })}
             className={`rounded-[var(--radius-tags)] px-2.5 py-1 font-display text-[12px] ${
               selectedDate === today ? "bg-midnight text-paper" : "bg-surface text-ink hover:bg-snow"
             }`}
@@ -144,7 +147,7 @@ export function AiExplanationDateCalendar({
           return (
             <Link
               key={cell.iso}
-              href={buildHref({ subject, date: cell.iso })}
+              href={buildHref(basePath, { subject, date: cell.iso })}
               aria-current={selected ? "date" : undefined}
               aria-label={`${cell.iso}${count ? ` · ${count}건` : ""}`}
               className={`relative flex min-h-10 flex-col items-center justify-center rounded-xl font-display text-[13px] transition-colors ${

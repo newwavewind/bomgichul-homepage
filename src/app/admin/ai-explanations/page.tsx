@@ -6,6 +6,7 @@ import {
   getAiExplanationSubjects,
   getAiExplanationVariants,
   type AiExplanationGroupRow,
+  type AiLogKind,
 } from "@/lib/admin";
 import { formatDateTime } from "@/components/admin/AdminUi";
 import { AiAnswerBody } from "@/components/admin/AiAnswerBody";
@@ -192,6 +193,13 @@ const MODEL_LABELS: Record<string, string> = {
   fast: "gpt-5-nano",
 };
 
+/**
+ * 링크가 어느 화면으로 돌아갈지. 해설과 개념이 같은 컴포넌트를 쓰므로,
+ * 렌더가 시작될 때 그 화면의 경로를 여기 적어 두고 buildHref 가 읽는다.
+ * 서버 컴포넌트라 한 요청이 한 번 그리고 끝나므로 값이 섞일 일은 없다.
+ */
+let 화면경로 = "/admin/ai-explanations";
+
 function buildHref(params: {
   subject?: string;
   exam?: string;
@@ -204,7 +212,7 @@ function buildHref(params: {
   if (params.exam) qs.set("exam", params.exam);
   if (params.item) qs.set("item", params.item);
   const s = qs.toString();
-  return s ? `/admin/ai-explanations?${s}` : "/admin/ai-explanations";
+  return s ? `${화면경로}?${s}` : 화면경로;
 }
 
 function groupByDate(groups: AiExplanationGroupRow[]) {
@@ -348,11 +356,20 @@ function VariantCard({
   );
 }
 
+/**
+ * 해설과 개념이 한 표에 쌓이므로 화면도 이 컴포넌트 하나로 짓고 `kind` 로 가른다.
+ * 둘로 베껴 두면 한쪽만 고쳐지는 날이 온다.
+ */
 export default async function AdminAiExplanationsPage({
   searchParams,
+  kind = "explanation",
+  basePath = "/admin/ai-explanations",
 }: {
   searchParams: SearchParams;
+  kind?: AiLogKind;
+  basePath?: string;
 }) {
+  화면경로 = basePath;
   const { subject, exam, item, date: dateParam } = await searchParams;
   const date = dateParam ? parseKstDateKey(dateParam) : null;
   const today = toKstDateKey();
@@ -399,15 +416,16 @@ export default async function AdminAiExplanationsPage({
 
   const needDateWideGroups = Boolean(date && subject);
   const [overview, allSubjects, dateSummaries, groups, dateWideGroups] = await Promise.all([
-    getAiExplanationOverview(),
-    getAiExplanationSubjects(),
-    getAiExplanationDateSummaries(120),
+    getAiExplanationOverview(kind),
+    getAiExplanationSubjects(kind),
+    getAiExplanationDateSummaries(120, kind),
     getAiExplanationGroups({
       subjectId: subject,
       dateKey: date ?? undefined,
+      kind,
     }),
     needDateWideGroups
-      ? getAiExplanationGroups({ dateKey: date! })
+      ? getAiExplanationGroups({ dateKey: date!, kind })
       : Promise.resolve(null),
   ]);
 
@@ -425,12 +443,23 @@ export default async function AdminAiExplanationsPage({
     <div className="space-y-6">
       <div>
         <SectionHeading as="h2" className="mb-2 text-subheading">
-          AI 해설 모음
+          {kind === "concept" ? "AI 개념 모음" : "AI 해설 모음"}
         </SectionHeading>
         <p className="font-display text-body-sm leading-relaxed text-smoke">
-          앱에서 「바로바로 AI 해설」이 만들어질 때마다 여기에 쌓입니다. 사람이 아니라 해설에 관한
-          기록이라 기기 식별자도, 사용자가 적은 꼬리질문도 담기지 않습니다. 날짜·과목으로 나눠
-          볼 수 있습니다.
+          {kind === "concept" ? (
+            <>
+              앱의 기출 올인원에서 「바로바로 AI 개념」이 만들어질 때마다 여기에 쌓입니다.
+              한 선지에 붙는 해설과 달리 <b>목차의 한 자리</b>에 붙는 글이라 따로 모읍니다.
+              사람이 아니라 글에 관한 기록이라 기기 식별자도, 사용자가 적은 꼬리질문도 담기지
+              않습니다. 날짜·과목으로 나눠 볼 수 있습니다.
+            </>
+          ) : (
+            <>
+              앱에서 「바로바로 AI 해설」이 만들어질 때마다 여기에 쌓입니다. 사람이 아니라 해설에
+              관한 기록이라 기기 식별자도, 사용자가 적은 꼬리질문도 담기지 않습니다. 날짜·과목으로
+              나눠 볼 수 있습니다.
+            </>
+          )}
         </p>
       </div>
 
@@ -452,6 +481,7 @@ export default async function AdminAiExplanationsPage({
       <section className="space-y-2">
         <p className="font-display text-[12px] font-semibold text-fog">날짜</p>
         <AiExplanationDateCalendar
+            basePath={basePath}
           selectedDate={date}
           subject={subject}
           today={today}
