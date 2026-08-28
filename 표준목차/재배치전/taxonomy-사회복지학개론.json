@@ -1,0 +1,766 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차 — 사회복지사 1급 8과목 표준의 장·절로 묶음",
+  "units": [
+    {
+      "order": 111,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제1장 사회복지의 개념과 가치",
+      "subcategory": "사회복지의 개념",
+      "keywords": [],
+      "unit_id": "bokji-101-1"
+    },
+    {
+      "order": 112,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제1장 사회복지의 개념과 가치",
+      "subcategory": "사회복지의 가치와 이념",
+      "keywords": [],
+      "unit_id": "bokji-101-2"
+    },
+    {
+      "order": 113,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제1장 사회복지의 개념과 가치",
+      "subcategory": "인권과 시민권",
+      "keywords": [],
+      "unit_id": "bokji-101-3"
+    },
+    {
+      "order": 114,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제1장 사회복지의 개념과 가치",
+      "subcategory": "사회문제",
+      "keywords": [],
+      "unit_id": "bokji-101-4"
+    },
+    {
+      "order": 121,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제2장 서구 사회복지의 역사",
+      "subcategory": "영국 구빈법",
+      "keywords": [],
+      "unit_id": "bokji-102-1"
+    },
+    {
+      "order": 122,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제2장 서구 사회복지의 역사",
+      "subcategory": "자선조직협회와 인보관",
+      "keywords": [],
+      "unit_id": "bokji-102-2"
+    },
+    {
+      "order": 123,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제2장 서구 사회복지의 역사",
+      "subcategory": "복지국가의 성립",
+      "keywords": [],
+      "unit_id": "bokji-102-3"
+    },
+    {
+      "order": 131,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제3장 한국 사회복지의 역사",
+      "subcategory": "한국 사회복지의 전개",
+      "keywords": [],
+      "unit_id": "bokji-103-1"
+    },
+    {
+      "order": 141,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제4장 복지국가의 이론과 유형",
+      "subcategory": "복지국가 이론",
+      "keywords": [],
+      "unit_id": "bokji-104-1"
+    },
+    {
+      "order": 142,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제4장 복지국가의 이론과 유형",
+      "subcategory": "복지국가 유형론",
+      "keywords": [],
+      "unit_id": "bokji-104-2"
+    },
+    {
+      "order": 143,
+      "category": "사회복지 개념ㆍ역사",
+      "chapter": "제4장 복지국가의 이론과 유형",
+      "subcategory": "복지국가의 재편",
+      "keywords": [],
+      "unit_id": "bokji-104-3"
+    },
+    {
+      "order": 211,
+      "category": "사회복지정책",
+      "chapter": "제1장 사회복지정책의 개요",
+      "subcategory": "정책의 가치와 목표",
+      "keywords": [],
+      "unit_id": "bokji-201-1"
+    },
+    {
+      "order": 212,
+      "category": "사회복지정책",
+      "chapter": "제1장 사회복지정책의 개요",
+      "subcategory": "국가 개입의 근거",
+      "keywords": [],
+      "unit_id": "bokji-201-2"
+    },
+    {
+      "order": 221,
+      "category": "사회복지정책",
+      "chapter": "제2장 정책 형성과정",
+      "subcategory": "정책과정",
+      "keywords": [],
+      "unit_id": "bokji-202-1"
+    },
+    {
+      "order": 222,
+      "category": "사회복지정책",
+      "chapter": "제2장 정책 형성과정",
+      "subcategory": "정책결정모형",
+      "keywords": [],
+      "unit_id": "bokji-202-2"
+    },
+    {
+      "order": 231,
+      "category": "사회복지정책",
+      "chapter": "제3장 정책 분석틀",
+      "subcategory": "분석틀과 할당",
+      "keywords": [],
+      "unit_id": "bokji-203-1"
+    },
+    {
+      "order": 232,
+      "category": "사회복지정책",
+      "chapter": "제3장 정책 분석틀",
+      "subcategory": "급여",
+      "keywords": [],
+      "unit_id": "bokji-203-2"
+    },
+    {
+      "order": 233,
+      "category": "사회복지정책",
+      "chapter": "제3장 정책 분석틀",
+      "subcategory": "재정",
+      "keywords": [],
+      "unit_id": "bokji-203-3"
+    },
+    {
+      "order": 241,
+      "category": "사회복지정책",
+      "chapter": "제4장 빈곤과 소득보장",
+      "subcategory": "빈곤과 불평등",
+      "keywords": [],
+      "unit_id": "bokji-204-1"
+    },
+    {
+      "order": 242,
+      "category": "사회복지정책",
+      "chapter": "제4장 빈곤과 소득보장",
+      "subcategory": "소득보장",
+      "keywords": [],
+      "unit_id": "bokji-204-2"
+    },
+    {
+      "order": 311,
+      "category": "사회보장ㆍ사회보험",
+      "chapter": "제1장 사회보장론 일반",
+      "subcategory": "사회보장의 개념과 체계",
+      "keywords": [],
+      "unit_id": "bokji-301-1"
+    },
+    {
+      "order": 312,
+      "category": "사회보장ㆍ사회보험",
+      "chapter": "제1장 사회보장론 일반",
+      "subcategory": "사회보험의 특성",
+      "keywords": [],
+      "unit_id": "bokji-301-2"
+    },
+    {
+      "order": 321,
+      "category": "사회보장ㆍ사회보험",
+      "chapter": "제2장 공적 연금과 건강보장",
+      "subcategory": "공적 연금",
+      "keywords": [],
+      "unit_id": "bokji-302-1"
+    },
+    {
+      "order": 322,
+      "category": "사회보장ㆍ사회보험",
+      "chapter": "제2장 공적 연금과 건강보장",
+      "subcategory": "건강보장과 장기요양",
+      "keywords": [],
+      "unit_id": "bokji-302-2"
+    },
+    {
+      "order": 331,
+      "category": "사회보장ㆍ사회보험",
+      "chapter": "제3장 공공부조",
+      "subcategory": "공공부조",
+      "keywords": [],
+      "unit_id": "bokji-303-1"
+    },
+    {
+      "order": 411,
+      "category": "인간행동과 사회환경",
+      "chapter": "제1장 인간발달의 기초",
+      "subcategory": "발달의 개념과 단계",
+      "keywords": [],
+      "unit_id": "bokji-401-1"
+    },
+    {
+      "order": 421,
+      "category": "인간행동과 사회환경",
+      "chapter": "제2장 인간행동에 관한 주요 이론",
+      "subcategory": "정신역동이론",
+      "keywords": [],
+      "unit_id": "bokji-402-1"
+    },
+    {
+      "order": 422,
+      "category": "인간행동과 사회환경",
+      "chapter": "제2장 인간행동에 관한 주요 이론",
+      "subcategory": "인지행동이론",
+      "keywords": [],
+      "unit_id": "bokji-402-2"
+    },
+    {
+      "order": 423,
+      "category": "인간행동과 사회환경",
+      "chapter": "제2장 인간행동에 관한 주요 이론",
+      "subcategory": "인본주의이론",
+      "keywords": [],
+      "unit_id": "bokji-402-3"
+    },
+    {
+      "order": 431,
+      "category": "인간행동과 사회환경",
+      "chapter": "제3장 사회환경에 관한 주요 이론",
+      "subcategory": "사회체계이론",
+      "keywords": [],
+      "unit_id": "bokji-403-1"
+    },
+    {
+      "order": 432,
+      "category": "인간행동과 사회환경",
+      "chapter": "제3장 사회환경에 관한 주요 이론",
+      "subcategory": "가족ㆍ집단체계",
+      "keywords": [],
+      "unit_id": "bokji-403-2"
+    },
+    {
+      "order": 511,
+      "category": "사회복지실천",
+      "chapter": "제1장 사회복지실천의 가치와 윤리",
+      "subcategory": "가치와 윤리",
+      "keywords": [],
+      "unit_id": "bokji-501-1"
+    },
+    {
+      "order": 512,
+      "category": "사회복지실천",
+      "chapter": "제1장 사회복지실천의 가치와 윤리",
+      "subcategory": "윤리강령과 윤리원칙",
+      "keywords": [],
+      "unit_id": "bokji-501-2"
+    },
+    {
+      "order": 513,
+      "category": "사회복지실천",
+      "chapter": "제1장 사회복지실천의 가치와 윤리",
+      "subcategory": "윤리적 갈등과 결정",
+      "keywords": [],
+      "unit_id": "bokji-501-3"
+    },
+    {
+      "order": 521,
+      "category": "사회복지실천",
+      "chapter": "제2장 실천의 관점과 모델",
+      "subcategory": "통합적 접근",
+      "keywords": [],
+      "unit_id": "bokji-502-1"
+    },
+    {
+      "order": 522,
+      "category": "사회복지실천",
+      "chapter": "제2장 실천의 관점과 모델",
+      "subcategory": "강점관점과 임파워먼트",
+      "keywords": [],
+      "unit_id": "bokji-502-2"
+    },
+    {
+      "order": 523,
+      "category": "사회복지실천",
+      "chapter": "제2장 실천의 관점과 모델",
+      "subcategory": "주요 실천모델",
+      "keywords": [],
+      "unit_id": "bokji-502-3"
+    },
+    {
+      "order": 524,
+      "category": "사회복지실천",
+      "chapter": "제2장 실천의 관점과 모델",
+      "subcategory": "사회복지사의 역할",
+      "keywords": [],
+      "unit_id": "bokji-502-4"
+    },
+    {
+      "order": 531,
+      "category": "사회복지실천",
+      "chapter": "제3장 관계와 면접",
+      "subcategory": "관계형성",
+      "keywords": [],
+      "unit_id": "bokji-503-1"
+    },
+    {
+      "order": 532,
+      "category": "사회복지실천",
+      "chapter": "제3장 관계와 면접",
+      "subcategory": "면접의 방법과 기술",
+      "keywords": [],
+      "unit_id": "bokji-503-2"
+    },
+    {
+      "order": 541,
+      "category": "사회복지실천",
+      "chapter": "제4장 실천과정과 기록",
+      "subcategory": "실천과정",
+      "keywords": [],
+      "unit_id": "bokji-504-1"
+    },
+    {
+      "order": 542,
+      "category": "사회복지실천",
+      "chapter": "제4장 실천과정과 기록",
+      "subcategory": "사정",
+      "keywords": [],
+      "unit_id": "bokji-504-2"
+    },
+    {
+      "order": 543,
+      "category": "사회복지실천",
+      "chapter": "제4장 실천과정과 기록",
+      "subcategory": "개입기술",
+      "keywords": [],
+      "unit_id": "bokji-504-3"
+    },
+    {
+      "order": 544,
+      "category": "사회복지실천",
+      "chapter": "제4장 실천과정과 기록",
+      "subcategory": "기록",
+      "keywords": [],
+      "unit_id": "bokji-504-4"
+    },
+    {
+      "order": 551,
+      "category": "사회복지실천",
+      "chapter": "제5장 사례관리와 위기개입",
+      "subcategory": "사례관리",
+      "keywords": [],
+      "unit_id": "bokji-505-1"
+    },
+    {
+      "order": 552,
+      "category": "사회복지실천",
+      "chapter": "제5장 사례관리와 위기개입",
+      "subcategory": "위기개입",
+      "keywords": [],
+      "unit_id": "bokji-505-2"
+    },
+    {
+      "order": 561,
+      "category": "사회복지실천",
+      "chapter": "제6장 집단ㆍ가족 실천",
+      "subcategory": "가족 대상 실천",
+      "keywords": [],
+      "unit_id": "bokji-506-1"
+    },
+    {
+      "order": 562,
+      "category": "사회복지실천",
+      "chapter": "제6장 집단ㆍ가족 실천",
+      "subcategory": "집단 대상 실천",
+      "keywords": [],
+      "unit_id": "bokji-506-2"
+    },
+    {
+      "order": 611,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제1장 사회복지행정과 조직",
+      "subcategory": "조직이론",
+      "keywords": [],
+      "unit_id": "bokji-601-1"
+    },
+    {
+      "order": 612,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제1장 사회복지행정과 조직",
+      "subcategory": "리더십",
+      "keywords": [],
+      "unit_id": "bokji-601-2"
+    },
+    {
+      "order": 621,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제2장 전달체계와 기획ㆍ재정",
+      "subcategory": "전달체계",
+      "keywords": [],
+      "unit_id": "bokji-602-1"
+    },
+    {
+      "order": 622,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제2장 전달체계와 기획ㆍ재정",
+      "subcategory": "기획과 의사결정",
+      "keywords": [],
+      "unit_id": "bokji-602-2"
+    },
+    {
+      "order": 623,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제2장 전달체계와 기획ㆍ재정",
+      "subcategory": "품질관리와 시설 평가",
+      "keywords": [],
+      "unit_id": "bokji-602-3"
+    },
+    {
+      "order": 624,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제2장 전달체계와 기획ㆍ재정",
+      "subcategory": "자원봉사와 정보관리",
+      "keywords": [],
+      "unit_id": "bokji-602-4"
+    },
+    {
+      "order": 631,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제3장 프로그램 평가와 논리모형",
+      "subcategory": "욕구조사",
+      "keywords": [],
+      "unit_id": "bokji-603-1"
+    },
+    {
+      "order": 632,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제3장 프로그램 평가와 논리모형",
+      "subcategory": "프로그램 평가와 논리모형",
+      "keywords": [],
+      "unit_id": "bokji-603-2"
+    },
+    {
+      "order": 641,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제4장 지역사회복지",
+      "subcategory": "지역사회의 개념과 기능",
+      "keywords": [],
+      "unit_id": "bokji-604-1"
+    },
+    {
+      "order": 642,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제4장 지역사회복지",
+      "subcategory": "지역사회복지 실천모델",
+      "keywords": [],
+      "unit_id": "bokji-604-2"
+    },
+    {
+      "order": 643,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제4장 지역사회복지",
+      "subcategory": "지역사회보장 추진체계",
+      "keywords": [],
+      "unit_id": "bokji-604-3"
+    },
+    {
+      "order": 651,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제5장 조사방법론과 조사설계",
+      "subcategory": "조사방법론과 조사과정",
+      "keywords": [],
+      "unit_id": "bokji-605-1"
+    },
+    {
+      "order": 652,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제5장 조사방법론과 조사설계",
+      "subcategory": "조사설계",
+      "keywords": [],
+      "unit_id": "bokji-605-2"
+    },
+    {
+      "order": 653,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제5장 조사방법론과 조사설계",
+      "subcategory": "단일사례설계",
+      "keywords": [],
+      "unit_id": "bokji-605-3"
+    },
+    {
+      "order": 661,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제6장 측정ㆍ표본ㆍ자료수집",
+      "subcategory": "측정과 척도",
+      "keywords": [],
+      "unit_id": "bokji-606-1"
+    },
+    {
+      "order": 662,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제6장 측정ㆍ표본ㆍ자료수집",
+      "subcategory": "신뢰도와 타당도",
+      "keywords": [],
+      "unit_id": "bokji-606-2"
+    },
+    {
+      "order": 663,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제6장 측정ㆍ표본ㆍ자료수집",
+      "subcategory": "표집",
+      "keywords": [],
+      "unit_id": "bokji-606-3"
+    },
+    {
+      "order": 664,
+      "category": "사회복지행정ㆍ조사",
+      "chapter": "제6장 측정ㆍ표본ㆍ자료수집",
+      "subcategory": "질적 연구",
+      "keywords": [],
+      "unit_id": "bokji-606-4"
+    },
+    {
+      "order": 711,
+      "category": "사회복지 분야론",
+      "chapter": "제1장 아동ㆍ청소년복지",
+      "subcategory": "아동복지",
+      "keywords": [],
+      "unit_id": "bokji-701-1"
+    },
+    {
+      "order": 712,
+      "category": "사회복지 분야론",
+      "chapter": "제1장 아동ㆍ청소년복지",
+      "subcategory": "아동의 권리와 연령 기준",
+      "keywords": [],
+      "unit_id": "bokji-701-2"
+    },
+    {
+      "order": 713,
+      "category": "사회복지 분야론",
+      "chapter": "제1장 아동ㆍ청소년복지",
+      "subcategory": "청소년복지",
+      "keywords": [],
+      "unit_id": "bokji-701-3"
+    },
+    {
+      "order": 714,
+      "category": "사회복지 분야론",
+      "chapter": "제1장 아동ㆍ청소년복지",
+      "subcategory": "학교사회복지",
+      "keywords": [],
+      "unit_id": "bokji-701-4"
+    },
+    {
+      "order": 721,
+      "category": "사회복지 분야론",
+      "chapter": "제2장 노인복지",
+      "subcategory": "노인복지",
+      "keywords": [],
+      "unit_id": "bokji-702-1"
+    },
+    {
+      "order": 722,
+      "category": "사회복지 분야론",
+      "chapter": "제2장 노인복지",
+      "subcategory": "노인복지시설",
+      "keywords": [],
+      "unit_id": "bokji-702-2"
+    },
+    {
+      "order": 731,
+      "category": "사회복지 분야론",
+      "chapter": "제3장 장애인복지",
+      "subcategory": "장애인복지의 이념과 모델",
+      "keywords": [],
+      "unit_id": "bokji-703-1"
+    },
+    {
+      "order": 732,
+      "category": "사회복지 분야론",
+      "chapter": "제3장 장애인복지",
+      "subcategory": "장애의 분류와 유형",
+      "keywords": [],
+      "unit_id": "bokji-703-2"
+    },
+    {
+      "order": 733,
+      "category": "사회복지 분야론",
+      "chapter": "제3장 장애인복지",
+      "subcategory": "장애인복지제도",
+      "keywords": [],
+      "unit_id": "bokji-703-3"
+    },
+    {
+      "order": 741,
+      "category": "사회복지 분야론",
+      "chapter": "제4장 가족복지",
+      "subcategory": "가족의 변화와 생활주기",
+      "keywords": [],
+      "unit_id": "bokji-704-1"
+    },
+    {
+      "order": 742,
+      "category": "사회복지 분야론",
+      "chapter": "제4장 가족복지",
+      "subcategory": "가족복지정책",
+      "keywords": [],
+      "unit_id": "bokji-704-2"
+    },
+    {
+      "order": 751,
+      "category": "사회복지 분야론",
+      "chapter": "제5장 정신건강복지",
+      "subcategory": "정신건강사회복지",
+      "keywords": [],
+      "unit_id": "bokji-705-1"
+    },
+    {
+      "order": 761,
+      "category": "사회복지 분야론",
+      "chapter": "제6장 사회적 경제",
+      "subcategory": "사회적 경제",
+      "keywords": [],
+      "unit_id": "bokji-706-1"
+    },
+    {
+      "order": 811,
+      "category": "사회복지법제",
+      "chapter": "제1장 사회복지법의 체계와 연혁",
+      "subcategory": "사회복지법의 체계",
+      "keywords": [],
+      "unit_id": "bokji-801-1"
+    },
+    {
+      "order": 812,
+      "category": "사회복지법제",
+      "chapter": "제1장 사회복지법의 체계와 연혁",
+      "subcategory": "사회복지법의 발달사",
+      "keywords": [],
+      "unit_id": "bokji-801-2"
+    },
+    {
+      "order": 821,
+      "category": "사회복지법제",
+      "chapter": "제2장 사회보장기본법과 급여법",
+      "subcategory": "사회보장기본법",
+      "keywords": [],
+      "unit_id": "bokji-802-1"
+    },
+    {
+      "order": 822,
+      "category": "사회복지법제",
+      "chapter": "제2장 사회보장기본법과 급여법",
+      "subcategory": "사회보장급여법",
+      "keywords": [],
+      "unit_id": "bokji-802-2"
+    },
+    {
+      "order": 831,
+      "category": "사회복지법제",
+      "chapter": "제3장 사회복지사업법",
+      "subcategory": "사회복지사업법",
+      "keywords": [],
+      "unit_id": "bokji-803-1"
+    },
+    {
+      "order": 832,
+      "category": "사회복지법제",
+      "chapter": "제3장 사회복지사업법",
+      "subcategory": "사회복지사와 시설",
+      "keywords": [],
+      "unit_id": "bokji-803-2"
+    },
+    {
+      "order": 841,
+      "category": "사회복지법제",
+      "chapter": "제4장 공공부조법",
+      "subcategory": "국민기초생활 보장법",
+      "keywords": [],
+      "unit_id": "bokji-804-1"
+    },
+    {
+      "order": 842,
+      "category": "사회복지법제",
+      "chapter": "제4장 공공부조법",
+      "subcategory": "의료급여법과 긴급복지지원법",
+      "keywords": [],
+      "unit_id": "bokji-804-2"
+    },
+    {
+      "order": 843,
+      "category": "사회복지법제",
+      "chapter": "제4장 공공부조법",
+      "subcategory": "기초연금법",
+      "keywords": [],
+      "unit_id": "bokji-804-3"
+    },
+    {
+      "order": 851,
+      "category": "사회복지법제",
+      "chapter": "제5장 사회보험법",
+      "subcategory": "공적연금법",
+      "keywords": [],
+      "unit_id": "bokji-805-1"
+    },
+    {
+      "order": 852,
+      "category": "사회복지법제",
+      "chapter": "제5장 사회보험법",
+      "subcategory": "노인장기요양보험법",
+      "keywords": [],
+      "unit_id": "bokji-805-2"
+    },
+    {
+      "order": 861,
+      "category": "사회복지법제",
+      "chapter": "제6장 사회서비스법",
+      "subcategory": "아동복지법과 아동학대처벌법",
+      "keywords": [],
+      "unit_id": "bokji-806-1"
+    },
+    {
+      "order": 862,
+      "category": "사회복지법제",
+      "chapter": "제6장 사회서비스법",
+      "subcategory": "노인복지법",
+      "keywords": [],
+      "unit_id": "bokji-806-2"
+    },
+    {
+      "order": 863,
+      "category": "사회복지법제",
+      "chapter": "제6장 사회서비스법",
+      "subcategory": "장애인복지 관련 법",
+      "keywords": [],
+      "unit_id": "bokji-806-3"
+    },
+    {
+      "order": 864,
+      "category": "사회복지법제",
+      "chapter": "제6장 사회서비스법",
+      "subcategory": "정신건강복지법",
+      "keywords": [],
+      "unit_id": "bokji-806-4"
+    },
+    {
+      "order": 865,
+      "category": "사회복지법제",
+      "chapter": "제6장 사회서비스법",
+      "subcategory": "청소년복지지원법",
+      "keywords": [],
+      "unit_id": "bokji-806-5"
+    }
+  ]
+}

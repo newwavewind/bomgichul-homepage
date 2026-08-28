@@ -1,0 +1,318 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　행정의 개관",
+      "shortLabel": "행정의 개관",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　사회복지행정의 개념과 특성",
+          "shortLabel": "사회복지행정의 개념과 특성",
+          "filters": [
+            {
+              "category": "행정의 개관",
+              "subcategory": "행정의 개념",
+              "sectionLabel": "행정의 개념"
+            },
+            {
+              "category": "행정의 개관",
+              "subcategory": "얼개",
+              "sectionLabel": "얼개"
+            }
+          ]
+        },
+        {
+          "id": "p1-c02",
+          "label": "CHAPTER 02　사회복지행정의 역사",
+          "shortLabel": "사회복지행정의 역사",
+          "filters": [
+            {
+              "category": "행정의 개관",
+              "subcategory": "역사",
+              "sectionLabel": "역사"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　조직이론과 구조",
+      "shortLabel": "조직이론과 구조",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　조직이론",
+          "shortLabel": "조직이론",
+          "filters": [
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "고전이론",
+              "sectionLabel": "고전이론"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "인간관계",
+              "sectionLabel": "인간관계"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "개방체계론",
+              "sectionLabel": "개방체계론"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "현대이론",
+              "sectionLabel": "현대이론"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "체계론",
+              "sectionLabel": "체계론"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "사람을 보는 눈",
+              "sectionLabel": "사람을 보는 눈"
+            }
+          ]
+        },
+        {
+          "id": "p2-c02",
+          "label": "CHAPTER 02　조직의 구조와 조직화",
+          "shortLabel": "조직의 구조와 조직화",
+          "filters": [
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "구조",
+              "sectionLabel": "구조"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "새로운 구조",
+              "sectionLabel": "새로운 구조"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "조직의 특성",
+              "sectionLabel": "조직의 특성"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "유형",
+              "sectionLabel": "유형"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "기구",
+              "sectionLabel": "기구"
+            },
+            {
+              "category": "조직이론과 구조",
+              "subcategory": "설계",
+              "sectionLabel": "설계"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　전달체계",
+      "shortLabel": "전달체계",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　사회복지서비스 전달체계",
+          "shortLabel": "사회복지서비스 전달체계",
+          "filters": [
+            {
+              "category": "전달체계",
+              "subcategory": "전달체계",
+              "sectionLabel": "전달체계"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　기획과 의사결정",
+      "shortLabel": "기획과 의사결정",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　기획과 의사결정",
+          "shortLabel": "기획과 의사결정",
+          "filters": [
+            {
+              "category": "기획과 의사결정",
+              "subcategory": "기획",
+              "sectionLabel": "기획"
+            },
+            {
+              "category": "기획과 의사결정",
+              "subcategory": "기획기법",
+              "sectionLabel": "기획기법"
+            },
+            {
+              "category": "기획과 의사결정",
+              "subcategory": "의사결정",
+              "sectionLabel": "의사결정"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "label": "PART 5　리더십과 인적자원",
+      "shortLabel": "리더십과 인적자원",
+      "style": "violet",
+      "chapters": [
+        {
+          "id": "p5-c01",
+          "label": "CHAPTER 01　리더십과 조직문화",
+          "shortLabel": "리더십과 조직문화",
+          "filters": [
+            {
+              "category": "리더십과 인적자원",
+              "subcategory": "리더십",
+              "sectionLabel": "리더십"
+            }
+          ]
+        },
+        {
+          "id": "p5-c02",
+          "label": "CHAPTER 02　인적자원관리",
+          "shortLabel": "인적자원관리",
+          "filters": [
+            {
+              "category": "리더십과 인적자원",
+              "subcategory": "직무",
+              "sectionLabel": "직무"
+            },
+            {
+              "category": "리더십과 인적자원",
+              "subcategory": "동기부여",
+              "sectionLabel": "동기부여"
+            },
+            {
+              "category": "리더십과 인적자원",
+              "subcategory": "슈퍼비전",
+              "sectionLabel": "슈퍼비전"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part6",
+      "label": "PART 6　재정과 정보관리",
+      "shortLabel": "재정과 정보관리",
+      "style": "cyan",
+      "chapters": [
+        {
+          "id": "p6-c01",
+          "label": "CHAPTER 01　재정관리",
+          "shortLabel": "재정관리",
+          "filters": [
+            {
+              "category": "재정과 정보관리",
+              "subcategory": "재정의 기초",
+              "sectionLabel": "재정의 기초"
+            },
+            {
+              "category": "재정과 정보관리",
+              "subcategory": "예산모형",
+              "sectionLabel": "예산모형"
+            },
+            {
+              "category": "재정과 정보관리",
+              "subcategory": "재무·회계 규칙",
+              "sectionLabel": "재무·회계 규칙"
+            }
+          ]
+        },
+        {
+          "id": "p6-c02",
+          "label": "CHAPTER 02　환경관리와 정보관리",
+          "shortLabel": "환경관리와 정보관리",
+          "filters": [
+            {
+              "category": "재정과 정보관리",
+              "subcategory": "환경의 갈래",
+              "sectionLabel": "환경의 갈래"
+            },
+            {
+              "category": "재정과 정보관리",
+              "subcategory": "대응",
+              "sectionLabel": "대응"
+            },
+            {
+              "category": "재정과 정보관리",
+              "subcategory": "정보관리",
+              "sectionLabel": "정보관리"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part7",
+      "label": "PART 7　프로그램·책임성·마케팅",
+      "shortLabel": "프로그램·책임성·마케팅",
+      "style": "indigo",
+      "chapters": [
+        {
+          "id": "p7-c01",
+          "label": "CHAPTER 01　프로그램 개발과 평가",
+          "shortLabel": "프로그램 개발과 평가",
+          "filters": [
+            {
+              "category": "프로그램·책임성·마케팅",
+              "subcategory": "평가",
+              "sectionLabel": "평가"
+            }
+          ]
+        },
+        {
+          "id": "p7-c02",
+          "label": "CHAPTER 02　책임성과 서비스 질",
+          "shortLabel": "책임성과 서비스 질",
+          "filters": [
+            {
+              "category": "프로그램·책임성·마케팅",
+              "subcategory": "책임성",
+              "sectionLabel": "책임성"
+            },
+            {
+              "category": "프로그램·책임성·마케팅",
+              "subcategory": "서비스 질",
+              "sectionLabel": "서비스 질"
+            }
+          ]
+        },
+        {
+          "id": "p7-c03",
+          "label": "CHAPTER 03　홍보와 마케팅",
+          "shortLabel": "홍보와 마케팅",
+          "filters": [
+            {
+              "category": "프로그램·책임성·마케팅",
+              "subcategory": "마케팅",
+              "sectionLabel": "마케팅"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

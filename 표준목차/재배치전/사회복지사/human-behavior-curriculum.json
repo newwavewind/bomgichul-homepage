@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "source": "봄기출 표준 목차",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　인간발달의 기초",
+      "shortLabel": "인간발달의 기초",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　인간행동·발달과 사회복지",
+          "shortLabel": "인간행동·발달과 사회복지",
+          "filters": [
+            {
+              "category": "인간발달의 기초",
+              "subcategory": "발달의 개념",
+              "sectionLabel": "발달의 개념"
+            },
+            {
+              "category": "인간발달의 기초",
+              "subcategory": "이론과 실천",
+              "sectionLabel": "이론과 실천"
+            },
+            {
+              "category": "인간발달의 기초",
+              "subcategory": "실천에의 적용",
+              "sectionLabel": "실천에의 적용"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　인간행동에 관한 주요 이론",
+      "shortLabel": "인간행동에 관한 주요 이론",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　정신역동이론",
+          "shortLabel": "정신역동이론",
+          "filters": [
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "프로이트",
+              "sectionLabel": "프로이트"
+            },
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "에릭슨",
+              "sectionLabel": "에릭슨"
+            },
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "아들러",
+              "sectionLabel": "아들러"
+            },
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "융",
+              "sectionLabel": "융"
+            }
+          ]
+        },
+        {
+          "id": "p2-c02",
+          "label": "CHAPTER 02　인지행동이론",
+          "shortLabel": "인지행동이론",
+          "filters": [
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "피아제",
+              "sectionLabel": "피아제"
+            },
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "콜버그",
+              "sectionLabel": "콜버그"
+            },
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "행동주의",
+              "sectionLabel": "행동주의"
+            },
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "반두라",
+              "sectionLabel": "반두라"
+            },
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "인지치료 계열",
+              "sectionLabel": "인지치료 계열"
+            }
+          ]
+        },
+        {
+          "id": "p2-c03",
+          "label": "CHAPTER 03　인본주의이론",
+          "shortLabel": "인본주의이론",
+          "filters": [
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "로저스",
+              "sectionLabel": "로저스"
+            },
+            {
+              "category": "인간행동에 관한 주요 이론",
+              "subcategory": "매슬로우",
+              "sectionLabel": "매슬로우"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　사회환경에 관한 주요 이론",
+      "shortLabel": "사회환경에 관한 주요 이론",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　사회체계이론",
+          "shortLabel": "사회체계이론",
+          "filters": [
+            {
+              "category": "사회환경에 관한 주요 이론",
+              "subcategory": "일반체계이론",
+              "sectionLabel": "일반체계이론"
+            },
+            {
+              "category": "사회환경에 관한 주요 이론",
+              "subcategory": "생태학적 관점",
+              "sectionLabel": "생태학적 관점"
+            },
+            {
+              "category": "사회환경에 관한 주요 이론",
+              "subcategory": "브론펜브레너",
+              "sectionLabel": "브론펜브레너"
+            }
+          ]
+        },
+        {
+          "id": "p3-c02",
+          "label": "CHAPTER 02　가족체계·집단체계",
+          "shortLabel": "가족체계·집단체계",
+          "filters": [
+            {
+              "category": "사회환경에 관한 주요 이론",
+              "subcategory": "가족",
+              "sectionLabel": "가족"
+            },
+            {
+              "category": "사회환경에 관한 주요 이론",
+              "subcategory": "집단",
+              "sectionLabel": "집단"
+            }
+          ]
+        },
+        {
+          "id": "p3-c03",
+          "label": "CHAPTER 03　조직·지역사회·문화체계",
+          "shortLabel": "조직·지역사회·문화체계",
+          "filters": [
+            {
+              "category": "사회환경에 관한 주요 이론",
+              "subcategory": "조직과 지역사회",
+              "sectionLabel": "조직과 지역사회"
+            },
+            {
+              "category": "사회환경에 관한 주요 이론",
+              "subcategory": "문화",
+              "sectionLabel": "문화"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　전 생애발달",
+      "shortLabel": "전 생애발달",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　태아기·영아기·유아기",
+          "shortLabel": "태아기·영아기·유아기",
+          "filters": [
+            {
+              "category": "전 생애발달",
+              "subcategory": "태내기",
+              "sectionLabel": "태내기"
+            },
+            {
+              "category": "전 생애발달",
+              "subcategory": "신생아기",
+              "sectionLabel": "신생아기"
+            },
+            {
+              "category": "전 생애발달",
+              "subcategory": "영아기",
+              "sectionLabel": "영아기"
+            },
+            {
+              "category": "전 생애발달",
+              "subcategory": "유아기",
+              "sectionLabel": "유아기"
+            }
+          ]
+        },
+        {
+          "id": "p4-c02",
+          "label": "CHAPTER 02　아동기",
+          "shortLabel": "아동기",
+          "filters": [
+            {
+              "category": "전 생애발달",
+              "subcategory": "아동기",
+              "sectionLabel": "아동기"
+            }
+          ]
+        },
+        {
+          "id": "p4-c03",
+          "label": "CHAPTER 03　청소년기",
+          "shortLabel": "청소년기",
+          "filters": [
+            {
+              "category": "전 생애발달",
+              "subcategory": "청소년기",
+              "sectionLabel": "청소년기"
+            }
+          ]
+        },
+        {
+          "id": "p4-c04",
+          "label": "CHAPTER 04　청년기·장년기",
+          "shortLabel": "청년기·장년기",
+          "filters": [
+            {
+              "category": "전 생애발달",
+              "subcategory": "성인기",
+              "sectionLabel": "성인기"
+            }
+          ]
+        },
+        {
+          "id": "p4-c05",
+          "label": "CHAPTER 05　노년기",
+          "shortLabel": "노년기",
+          "filters": [
+            {
+              "category": "전 생애발달",
+              "subcategory": "노년기",
+              "sectionLabel": "노년기"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

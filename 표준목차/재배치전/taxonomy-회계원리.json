@@ -1,0 +1,214 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "units": [
+    {
+      "order": 111,
+      "category": "회계의 순환과정",
+      "chapter": "제1장 회계의 기본개념과 분개",
+      "subcategory": "회계의 기본개념",
+      "keywords": [],
+      "unit_id": "hoegyewonri-101-1"
+    },
+    {
+      "order": 112,
+      "category": "회계의 순환과정",
+      "chapter": "제1장 회계의 기본개념과 분개",
+      "subcategory": "분개와 전기",
+      "keywords": [],
+      "unit_id": "hoegyewonri-101-2"
+    },
+    {
+      "order": 121,
+      "category": "회계의 순환과정",
+      "chapter": "제2장 결산과 재무제표 작성",
+      "subcategory": "시산표",
+      "keywords": [],
+      "unit_id": "hoegyewonri-102-1"
+    },
+    {
+      "order": 122,
+      "category": "회계의 순환과정",
+      "chapter": "제2장 결산과 재무제표 작성",
+      "subcategory": "결산수정분개",
+      "keywords": [],
+      "unit_id": "hoegyewonri-102-2"
+    },
+    {
+      "order": 123,
+      "category": "회계의 순환과정",
+      "chapter": "제2장 결산과 재무제표 작성",
+      "subcategory": "발생기준과 현금기준",
+      "keywords": [],
+      "unit_id": "hoegyewonri-102-3"
+    },
+    {
+      "order": 124,
+      "category": "회계의 순환과정",
+      "chapter": "제2장 결산과 재무제표 작성",
+      "subcategory": "장부마감과 재무제표 작성",
+      "keywords": [],
+      "unit_id": "hoegyewonri-102-4"
+    },
+    {
+      "order": 211,
+      "category": "재무회계",
+      "chapter": "제1장 개념체계와 재무제표 표시",
+      "subcategory": "재무보고를 위한 개념체계",
+      "keywords": [],
+      "unit_id": "hoegyewonri-201-1"
+    },
+    {
+      "order": 212,
+      "category": "재무회계",
+      "chapter": "제1장 개념체계와 재무제표 표시",
+      "subcategory": "재무정보의 질적특성",
+      "keywords": [],
+      "unit_id": "hoegyewonri-201-2"
+    },
+    {
+      "order": 213,
+      "category": "재무회계",
+      "chapter": "제1장 개념체계와 재무제표 표시",
+      "subcategory": "재무제표 표시",
+      "keywords": [],
+      "unit_id": "hoegyewonri-201-3"
+    },
+    {
+      "order": 221,
+      "category": "재무회계",
+      "chapter": "제2장 현금ㆍ매출채권과 재고자산",
+      "subcategory": "현금과 매출채권",
+      "keywords": [],
+      "unit_id": "hoegyewonri-202-1"
+    },
+    {
+      "order": 222,
+      "category": "재무회계",
+      "chapter": "제2장 현금ㆍ매출채권과 재고자산",
+      "subcategory": "재고자산",
+      "keywords": [],
+      "unit_id": "hoegyewonri-202-2"
+    },
+    {
+      "order": 231,
+      "category": "재무회계",
+      "chapter": "제3장 유형자산",
+      "subcategory": "유형자산의 취득원가",
+      "keywords": [],
+      "unit_id": "hoegyewonri-203-1"
+    },
+    {
+      "order": 232,
+      "category": "재무회계",
+      "chapter": "제3장 유형자산",
+      "subcategory": "감가상각",
+      "keywords": [],
+      "unit_id": "hoegyewonri-203-2"
+    },
+    {
+      "order": 233,
+      "category": "재무회계",
+      "chapter": "제3장 유형자산",
+      "subcategory": "유형자산의 후속측정",
+      "keywords": [],
+      "unit_id": "hoegyewonri-203-3"
+    },
+    {
+      "order": 241,
+      "category": "재무회계",
+      "chapter": "제4장 무형자산ㆍ투자부동산ㆍ금융자산",
+      "subcategory": "무형자산",
+      "keywords": [],
+      "unit_id": "hoegyewonri-204-1"
+    },
+    {
+      "order": 242,
+      "category": "재무회계",
+      "chapter": "제4장 무형자산ㆍ투자부동산ㆍ금융자산",
+      "subcategory": "투자부동산",
+      "keywords": [],
+      "unit_id": "hoegyewonri-204-2"
+    },
+    {
+      "order": 243,
+      "category": "재무회계",
+      "chapter": "제4장 무형자산ㆍ투자부동산ㆍ금융자산",
+      "subcategory": "금융자산",
+      "keywords": [],
+      "unit_id": "hoegyewonri-204-3"
+    },
+    {
+      "order": 251,
+      "category": "재무회계",
+      "chapter": "제5장 부채",
+      "subcategory": "충당부채와 우발부채",
+      "keywords": [],
+      "unit_id": "hoegyewonri-205-1"
+    },
+    {
+      "order": 252,
+      "category": "재무회계",
+      "chapter": "제5장 부채",
+      "subcategory": "사채",
+      "keywords": [],
+      "unit_id": "hoegyewonri-205-2"
+    },
+    {
+      "order": 261,
+      "category": "재무회계",
+      "chapter": "제6장 자본",
+      "subcategory": "자본거래",
+      "keywords": [],
+      "unit_id": "hoegyewonri-206-1"
+    },
+    {
+      "order": 262,
+      "category": "재무회계",
+      "chapter": "제6장 자본",
+      "subcategory": "이익잉여금과 배당",
+      "keywords": [],
+      "unit_id": "hoegyewonri-206-2"
+    },
+    {
+      "order": 271,
+      "category": "재무회계",
+      "chapter": "제7장 수익ㆍ비용과 현금흐름표",
+      "subcategory": "수익인식",
+      "keywords": [],
+      "unit_id": "hoegyewonri-207-1"
+    },
+    {
+      "order": 272,
+      "category": "재무회계",
+      "chapter": "제7장 수익ㆍ비용과 현금흐름표",
+      "subcategory": "비용과 법인세",
+      "keywords": [],
+      "unit_id": "hoegyewonri-207-2"
+    },
+    {
+      "order": 273,
+      "category": "재무회계",
+      "chapter": "제7장 수익ㆍ비용과 현금흐름표",
+      "subcategory": "현금흐름표",
+      "keywords": [],
+      "unit_id": "hoegyewonri-207-3"
+    },
+    {
+      "order": 281,
+      "category": "재무회계",
+      "chapter": "제8장 재무제표 분석과 회계변경",
+      "subcategory": "재무제표 분석",
+      "keywords": [],
+      "unit_id": "hoegyewonri-208-1"
+    },
+    {
+      "order": 282,
+      "category": "재무회계",
+      "chapter": "제8장 재무제표 분석과 회계변경",
+      "subcategory": "회계변경과 오류수정",
+      "keywords": [],
+      "unit_id": "hoegyewonri-208-2"
+    }
+  ]
+}

@@ -1,0 +1,614 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "units": [
+    {
+      "order": 111,
+      "category": "조세총론",
+      "chapter": "제1장 조세의 개념과 조세법의 원칙",
+      "subcategory": "조세법의 기본원칙",
+      "keywords": [],
+      "unit_id": "sebeop-101-1"
+    },
+    {
+      "order": 211,
+      "category": "국세기본법",
+      "chapter": "제1장 총칙",
+      "subcategory": "총칙과 용어",
+      "keywords": [],
+      "unit_id": "sebeop-201-1"
+    },
+    {
+      "order": 212,
+      "category": "국세기본법",
+      "chapter": "제1장 총칙",
+      "subcategory": "기간·기한과 서류의 송달",
+      "keywords": [],
+      "unit_id": "sebeop-201-2"
+    },
+    {
+      "order": 221,
+      "category": "국세기본법",
+      "chapter": "제2장 국세 부과와 세법 적용",
+      "subcategory": "국세부과와 세법적용의 원칙",
+      "keywords": [],
+      "unit_id": "sebeop-202-1"
+    },
+    {
+      "order": 231,
+      "category": "국세기본법",
+      "chapter": "제3장 납세의무",
+      "subcategory": "납세의무의 성립과 확정",
+      "keywords": [],
+      "unit_id": "sebeop-203-1"
+    },
+    {
+      "order": 232,
+      "category": "국세기본법",
+      "chapter": "제3장 납세의무",
+      "subcategory": "납부의무의 소멸",
+      "keywords": [],
+      "unit_id": "sebeop-203-2"
+    },
+    {
+      "order": 241,
+      "category": "국세기본법",
+      "chapter": "제4장 국세와 일반채권의 관계",
+      "subcategory": "국세우선권",
+      "keywords": [],
+      "unit_id": "sebeop-204-1"
+    },
+    {
+      "order": 242,
+      "category": "국세기본법",
+      "chapter": "제4장 국세와 일반채권의 관계",
+      "subcategory": "제2차 납세의무와 물적납세의무",
+      "keywords": [],
+      "unit_id": "sebeop-204-2"
+    },
+    {
+      "order": 251,
+      "category": "국세기본법",
+      "chapter": "제5장 과세와 가산세",
+      "subcategory": "수정신고와 경정청구",
+      "keywords": [],
+      "unit_id": "sebeop-205-1"
+    },
+    {
+      "order": 252,
+      "category": "국세기본법",
+      "chapter": "제5장 과세와 가산세",
+      "subcategory": "가산세",
+      "keywords": [],
+      "unit_id": "sebeop-205-2"
+    },
+    {
+      "order": 261,
+      "category": "국세기본법",
+      "chapter": "제6장 국세환급금",
+      "subcategory": "국세환급금",
+      "keywords": [],
+      "unit_id": "sebeop-206-1"
+    },
+    {
+      "order": 271,
+      "category": "국세기본법",
+      "chapter": "제7장 심사와 심판(불복)",
+      "subcategory": "조세불복 절차",
+      "keywords": [],
+      "unit_id": "sebeop-207-1"
+    },
+    {
+      "order": 272,
+      "category": "국세기본법",
+      "chapter": "제7장 심사와 심판(불복)",
+      "subcategory": "과세전적부심사",
+      "keywords": [],
+      "unit_id": "sebeop-207-2"
+    },
+    {
+      "order": 281,
+      "category": "국세기본법",
+      "chapter": "제8장 납세자의 권리와 세무조사",
+      "subcategory": "납세자의 권리",
+      "keywords": [],
+      "unit_id": "sebeop-208-1"
+    },
+    {
+      "order": 282,
+      "category": "국세기본법",
+      "chapter": "제8장 납세자의 권리와 세무조사",
+      "subcategory": "세무조사",
+      "keywords": [],
+      "unit_id": "sebeop-208-2"
+    },
+    {
+      "order": 283,
+      "category": "국세기본법",
+      "chapter": "제8장 납세자의 권리와 세무조사",
+      "subcategory": "재조사",
+      "keywords": [],
+      "unit_id": "sebeop-208-3"
+    },
+    {
+      "order": 311,
+      "category": "국세징수법",
+      "chapter": "제1장 총칙",
+      "subcategory": "총칙과 용어",
+      "keywords": [],
+      "unit_id": "sebeop-301-1"
+    },
+    {
+      "order": 312,
+      "category": "국세징수법",
+      "chapter": "제1장 총칙",
+      "subcategory": "납세증명서와 미납국세 열람",
+      "keywords": [],
+      "unit_id": "sebeop-301-2"
+    },
+    {
+      "order": 321,
+      "category": "국세징수법",
+      "chapter": "제2장 신고납부와 납부고지",
+      "subcategory": "납부고지와 독촉",
+      "keywords": [],
+      "unit_id": "sebeop-302-1"
+    },
+    {
+      "order": 322,
+      "category": "국세징수법",
+      "chapter": "제2장 신고납부와 납부고지",
+      "subcategory": "납부기한 연장과 납세담보",
+      "keywords": [],
+      "unit_id": "sebeop-302-2"
+    },
+    {
+      "order": 331,
+      "category": "국세징수법",
+      "chapter": "제3장 강제징수",
+      "subcategory": "강제징수 절차",
+      "keywords": [],
+      "unit_id": "sebeop-303-1"
+    },
+    {
+      "order": 332,
+      "category": "국세징수법",
+      "chapter": "제3장 강제징수",
+      "subcategory": "압류",
+      "keywords": [],
+      "unit_id": "sebeop-303-2"
+    },
+    {
+      "order": 333,
+      "category": "국세징수법",
+      "chapter": "제3장 강제징수",
+      "subcategory": "교부청구와 배분",
+      "keywords": [],
+      "unit_id": "sebeop-303-3"
+    },
+    {
+      "order": 334,
+      "category": "국세징수법",
+      "chapter": "제3장 강제징수",
+      "subcategory": "사해행위 취소",
+      "keywords": [],
+      "unit_id": "sebeop-303-4"
+    },
+    {
+      "order": 411,
+      "category": "소득세법",
+      "chapter": "제1장 총칙",
+      "subcategory": "납세의무자와 납세지",
+      "keywords": [],
+      "unit_id": "sebeop-401-1"
+    },
+    {
+      "order": 412,
+      "category": "소득세법",
+      "chapter": "제1장 총칙",
+      "subcategory": "소득의 구분과 과세방법",
+      "keywords": [],
+      "unit_id": "sebeop-401-2"
+    },
+    {
+      "order": 421,
+      "category": "소득세법",
+      "chapter": "제2장 종합소득의 소득금액",
+      "subcategory": "이자·배당소득",
+      "keywords": [],
+      "unit_id": "sebeop-402-1"
+    },
+    {
+      "order": 422,
+      "category": "소득세법",
+      "chapter": "제2장 종합소득의 소득금액",
+      "subcategory": "사업소득",
+      "keywords": [],
+      "unit_id": "sebeop-402-2"
+    },
+    {
+      "order": 423,
+      "category": "소득세법",
+      "chapter": "제2장 종합소득의 소득금액",
+      "subcategory": "근로소득",
+      "keywords": [],
+      "unit_id": "sebeop-402-3"
+    },
+    {
+      "order": 424,
+      "category": "소득세법",
+      "chapter": "제2장 종합소득의 소득금액",
+      "subcategory": "연금소득과 기타소득",
+      "keywords": [],
+      "unit_id": "sebeop-402-4"
+    },
+    {
+      "order": 425,
+      "category": "소득세법",
+      "chapter": "제2장 종합소득의 소득금액",
+      "subcategory": "비과세소득과 수입시기",
+      "keywords": [],
+      "unit_id": "sebeop-402-5"
+    },
+    {
+      "order": 431,
+      "category": "소득세법",
+      "chapter": "제3장 종합소득 과세표준과 세액",
+      "subcategory": "종합소득공제",
+      "keywords": [],
+      "unit_id": "sebeop-403-1"
+    },
+    {
+      "order": 432,
+      "category": "소득세법",
+      "chapter": "제3장 종합소득 과세표준과 세액",
+      "subcategory": "세액공제와 감면",
+      "keywords": [],
+      "unit_id": "sebeop-403-2"
+    },
+    {
+      "order": 433,
+      "category": "소득세법",
+      "chapter": "제3장 종합소득 과세표준과 세액",
+      "subcategory": "결손금과 이월결손금",
+      "keywords": [],
+      "unit_id": "sebeop-403-3"
+    },
+    {
+      "order": 441,
+      "category": "소득세법",
+      "chapter": "제4장 신고와 납부",
+      "subcategory": "확정신고와 분납",
+      "keywords": [],
+      "unit_id": "sebeop-404-1"
+    },
+    {
+      "order": 451,
+      "category": "소득세법",
+      "chapter": "제5장 원천징수",
+      "subcategory": "원천징수",
+      "keywords": [],
+      "unit_id": "sebeop-405-1"
+    },
+    {
+      "order": 461,
+      "category": "소득세법",
+      "chapter": "제6장 양도소득세",
+      "subcategory": "양도소득의 범위",
+      "keywords": [],
+      "unit_id": "sebeop-406-1"
+    },
+    {
+      "order": 462,
+      "category": "소득세법",
+      "chapter": "제6장 양도소득세",
+      "subcategory": "양도소득 과세표준과 세율",
+      "keywords": [],
+      "unit_id": "sebeop-406-2"
+    },
+    {
+      "order": 463,
+      "category": "소득세법",
+      "chapter": "제6장 양도소득세",
+      "subcategory": "1세대 1주택 비과세",
+      "keywords": [],
+      "unit_id": "sebeop-406-3"
+    },
+    {
+      "order": 511,
+      "category": "법인세법",
+      "chapter": "제1장 총칙",
+      "subcategory": "납세의무자와 사업연도",
+      "keywords": [],
+      "unit_id": "sebeop-501-1"
+    },
+    {
+      "order": 521,
+      "category": "법인세법",
+      "chapter": "제2장 세무조정과 소득처분",
+      "subcategory": "세무조정",
+      "keywords": [],
+      "unit_id": "sebeop-502-1"
+    },
+    {
+      "order": 522,
+      "category": "법인세법",
+      "chapter": "제2장 세무조정과 소득처분",
+      "subcategory": "소득처분",
+      "keywords": [],
+      "unit_id": "sebeop-502-2"
+    },
+    {
+      "order": 531,
+      "category": "법인세법",
+      "chapter": "제3장 익금과 손금",
+      "subcategory": "익금",
+      "keywords": [],
+      "unit_id": "sebeop-503-1"
+    },
+    {
+      "order": 532,
+      "category": "법인세법",
+      "chapter": "제3장 익금과 손금",
+      "subcategory": "손금",
+      "keywords": [],
+      "unit_id": "sebeop-503-2"
+    },
+    {
+      "order": 533,
+      "category": "법인세법",
+      "chapter": "제3장 익금과 손금",
+      "subcategory": "기업업무추진비와 기부금",
+      "keywords": [],
+      "unit_id": "sebeop-503-3"
+    },
+    {
+      "order": 534,
+      "category": "법인세법",
+      "chapter": "제3장 익금과 손금",
+      "subcategory": "지급이자와 업무용승용차",
+      "keywords": [],
+      "unit_id": "sebeop-503-4"
+    },
+    {
+      "order": 535,
+      "category": "법인세법",
+      "chapter": "제3장 익금과 손금",
+      "subcategory": "대손금",
+      "keywords": [],
+      "unit_id": "sebeop-503-5"
+    },
+    {
+      "order": 541,
+      "category": "법인세법",
+      "chapter": "제4장 손익의 귀속시기와 자산·부채의 평가",
+      "subcategory": "손익의 귀속시기",
+      "keywords": [],
+      "unit_id": "sebeop-504-1"
+    },
+    {
+      "order": 542,
+      "category": "법인세법",
+      "chapter": "제4장 손익의 귀속시기와 자산·부채의 평가",
+      "subcategory": "자산·부채의 평가",
+      "keywords": [],
+      "unit_id": "sebeop-504-2"
+    },
+    {
+      "order": 543,
+      "category": "법인세법",
+      "chapter": "제4장 손익의 귀속시기와 자산·부채의 평가",
+      "subcategory": "감가상각",
+      "keywords": [],
+      "unit_id": "sebeop-504-3"
+    },
+    {
+      "order": 551,
+      "category": "법인세법",
+      "chapter": "제5장 충당금과 준비금",
+      "subcategory": "대손충당금",
+      "keywords": [],
+      "unit_id": "sebeop-505-1"
+    },
+    {
+      "order": 552,
+      "category": "법인세법",
+      "chapter": "제5장 충당금과 준비금",
+      "subcategory": "준비금",
+      "keywords": [],
+      "unit_id": "sebeop-505-2"
+    },
+    {
+      "order": 561,
+      "category": "법인세법",
+      "chapter": "제6장 부당행위계산부인",
+      "subcategory": "부당행위계산부인",
+      "keywords": [],
+      "unit_id": "sebeop-506-1"
+    },
+    {
+      "order": 571,
+      "category": "법인세법",
+      "chapter": "제7장 과세표준과 세액",
+      "subcategory": "과세표준과 이월결손금",
+      "keywords": [],
+      "unit_id": "sebeop-507-1"
+    },
+    {
+      "order": 572,
+      "category": "법인세법",
+      "chapter": "제7장 과세표준과 세액",
+      "subcategory": "외국납부세액공제",
+      "keywords": [],
+      "unit_id": "sebeop-507-2"
+    },
+    {
+      "order": 581,
+      "category": "법인세법",
+      "chapter": "제8장 신고·납부와 기타",
+      "subcategory": "신고와 납부",
+      "keywords": [],
+      "unit_id": "sebeop-508-1"
+    },
+    {
+      "order": 582,
+      "category": "법인세법",
+      "chapter": "제8장 신고·납부와 기타",
+      "subcategory": "합병과 분할",
+      "keywords": [],
+      "unit_id": "sebeop-508-2"
+    },
+    {
+      "order": 611,
+      "category": "부가가치세법",
+      "chapter": "제1장 총칙",
+      "subcategory": "납세의무자와 사업자등록",
+      "keywords": [],
+      "unit_id": "sebeop-601-1"
+    },
+    {
+      "order": 612,
+      "category": "부가가치세법",
+      "chapter": "제1장 총칙",
+      "subcategory": "사업장과 납세지",
+      "keywords": [],
+      "unit_id": "sebeop-601-2"
+    },
+    {
+      "order": 621,
+      "category": "부가가치세법",
+      "chapter": "제2장 과세거래",
+      "subcategory": "재화와 용역의 공급",
+      "keywords": [],
+      "unit_id": "sebeop-602-1"
+    },
+    {
+      "order": 622,
+      "category": "부가가치세법",
+      "chapter": "제2장 과세거래",
+      "subcategory": "공급의 특례(간주공급)",
+      "keywords": [],
+      "unit_id": "sebeop-602-2"
+    },
+    {
+      "order": 623,
+      "category": "부가가치세법",
+      "chapter": "제2장 과세거래",
+      "subcategory": "공급시기",
+      "keywords": [],
+      "unit_id": "sebeop-602-3"
+    },
+    {
+      "order": 624,
+      "category": "부가가치세법",
+      "chapter": "제2장 과세거래",
+      "subcategory": "신탁 과세",
+      "keywords": [],
+      "unit_id": "sebeop-602-4"
+    },
+    {
+      "order": 631,
+      "category": "부가가치세법",
+      "chapter": "제3장 영세율과 면세",
+      "subcategory": "영세율",
+      "keywords": [],
+      "unit_id": "sebeop-603-1"
+    },
+    {
+      "order": 632,
+      "category": "부가가치세법",
+      "chapter": "제3장 영세율과 면세",
+      "subcategory": "면세",
+      "keywords": [],
+      "unit_id": "sebeop-603-2"
+    },
+    {
+      "order": 641,
+      "category": "부가가치세법",
+      "chapter": "제4장 과세표준과 세액",
+      "subcategory": "과세표준",
+      "keywords": [],
+      "unit_id": "sebeop-604-1"
+    },
+    {
+      "order": 642,
+      "category": "부가가치세법",
+      "chapter": "제4장 과세표준과 세액",
+      "subcategory": "매입세액공제",
+      "keywords": [],
+      "unit_id": "sebeop-604-2"
+    },
+    {
+      "order": 643,
+      "category": "부가가치세법",
+      "chapter": "제4장 과세표준과 세액",
+      "subcategory": "대손세액공제",
+      "keywords": [],
+      "unit_id": "sebeop-604-3"
+    },
+    {
+      "order": 651,
+      "category": "부가가치세법",
+      "chapter": "제5장 세금계산서",
+      "subcategory": "세금계산서",
+      "keywords": [],
+      "unit_id": "sebeop-605-1"
+    },
+    {
+      "order": 661,
+      "category": "부가가치세법",
+      "chapter": "제6장 신고·납부와 환급",
+      "subcategory": "신고·납부와 환급",
+      "keywords": [],
+      "unit_id": "sebeop-606-1"
+    },
+    {
+      "order": 671,
+      "category": "부가가치세법",
+      "chapter": "제7장 간이과세",
+      "subcategory": "간이과세",
+      "keywords": [],
+      "unit_id": "sebeop-607-1"
+    },
+    {
+      "order": 711,
+      "category": "재산세제",
+      "chapter": "제1장 상속세",
+      "subcategory": "상속재산과 과세표준",
+      "keywords": [],
+      "unit_id": "sebeop-701-1"
+    },
+    {
+      "order": 712,
+      "category": "재산세제",
+      "chapter": "제1장 상속세",
+      "subcategory": "상속공제",
+      "keywords": [],
+      "unit_id": "sebeop-701-2"
+    },
+    {
+      "order": 721,
+      "category": "재산세제",
+      "chapter": "제2장 증여세",
+      "subcategory": "증여의제와 증여추정",
+      "keywords": [],
+      "unit_id": "sebeop-702-1"
+    },
+    {
+      "order": 731,
+      "category": "재산세제",
+      "chapter": "제3장 종합부동산세와 납부",
+      "subcategory": "종합부동산세",
+      "keywords": [],
+      "unit_id": "sebeop-703-1"
+    },
+    {
+      "order": 732,
+      "category": "재산세제",
+      "chapter": "제3장 종합부동산세와 납부",
+      "subcategory": "물납과 연부연납",
+      "keywords": [],
+      "unit_id": "sebeop-703-2"
+    }
+  ]
+}

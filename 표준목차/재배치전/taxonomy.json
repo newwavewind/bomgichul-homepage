@@ -1,0 +1,1286 @@
+{
+  "version": 1,
+  "source": "봄기출 표준 목차",
+  "units": [
+    {
+      "order": 111,
+      "category": "인사행정론",
+      "chapter": "제1장 인사행정의 기초",
+      "subcategory": "엽관주의와 실적주의",
+      "keywords": [
+        "엽관주의의 발전 배경",
+        "실적주의의 확립",
+        "실적주의의 한계",
+        "대표관료제"
+      ],
+      "unit_id": "hangjunghak-101-1"
+    },
+    {
+      "order": 112,
+      "category": "인사행정론",
+      "chapter": "제1장 인사행정의 기초",
+      "subcategory": "직업공무원제",
+      "keywords": [],
+      "unit_id": "hangjunghak-101-2"
+    },
+    {
+      "order": 113,
+      "category": "인사행정론",
+      "chapter": "제1장 인사행정의 기초",
+      "subcategory": "대표관료제와 균형인사",
+      "keywords": [],
+      "unit_id": "hangjunghak-101-3"
+    },
+    {
+      "order": 114,
+      "category": "인사행정론",
+      "chapter": "제1장 인사행정의 기초",
+      "subcategory": "인사행정의 기반과 인적자원관리",
+      "keywords": [],
+      "unit_id": "hangjunghak-101-4"
+    },
+    {
+      "order": 121,
+      "category": "인사행정론",
+      "chapter": "제2장 공직의 분류",
+      "subcategory": "계급제와 직위분류제",
+      "keywords": [
+        "경력직과 특수경력직",
+        "계급제 vs 직위분류제",
+        "직업공무원제",
+        "개방형 인사제도"
+      ],
+      "unit_id": "hangjunghak-102-1"
+    },
+    {
+      "order": 122,
+      "category": "인사행정론",
+      "chapter": "제2장 공직의 분류",
+      "subcategory": "직무분석과 직무평가",
+      "keywords": [],
+      "unit_id": "hangjunghak-102-2"
+    },
+    {
+      "order": 123,
+      "category": "인사행정론",
+      "chapter": "제2장 공직의 분류",
+      "subcategory": "공직 분류 체계",
+      "keywords": [],
+      "unit_id": "hangjunghak-102-3"
+    },
+    {
+      "order": 124,
+      "category": "인사행정론",
+      "chapter": "제2장 공직의 분류",
+      "subcategory": "고위공무원단과 전문경력관",
+      "keywords": [],
+      "unit_id": "hangjunghak-102-4"
+    },
+    {
+      "order": 131,
+      "category": "인사행정론",
+      "chapter": "제3장 임용",
+      "subcategory": "인사이동",
+      "keywords": [
+        "신규채용",
+        "전직과 전보",
+        "시보임용제도",
+        "승진"
+      ],
+      "unit_id": "hangjunghak-103-1"
+    },
+    {
+      "order": 132,
+      "category": "인사행정론",
+      "chapter": "제3장 임용",
+      "subcategory": "신분의 변동과 소멸",
+      "keywords": [],
+      "unit_id": "hangjunghak-103-2"
+    },
+    {
+      "order": 133,
+      "category": "인사행정론",
+      "chapter": "제3장 임용",
+      "subcategory": "소청심사와 임기제공무원",
+      "keywords": [],
+      "unit_id": "hangjunghak-103-3"
+    },
+    {
+      "order": 141,
+      "category": "인사행정론",
+      "chapter": "제4장 능력발전",
+      "subcategory": "교육훈련",
+      "keywords": [
+        "도표식평정척도법",
+        "다면평가제(360도 평가)",
+        "교육훈련 방법",
+        "경력개발제도(CDP)"
+      ],
+      "unit_id": "hangjunghak-104-1"
+    },
+    {
+      "order": 142,
+      "category": "인사행정론",
+      "chapter": "제4장 능력발전",
+      "subcategory": "역량평가와 연공주의",
+      "keywords": [],
+      "unit_id": "hangjunghak-104-2"
+    },
+    {
+      "order": 151,
+      "category": "인사행정론",
+      "chapter": "제5장 사기",
+      "subcategory": "근무성적평정",
+      "keywords": [
+        "보수 수준 결정요인",
+        "보수체계",
+        "공무원 연금제도",
+        "공무원단체(공무원노동조합)"
+      ],
+      "unit_id": "hangjunghak-105-1"
+    },
+    {
+      "order": 152,
+      "category": "인사행정론",
+      "chapter": "제5장 사기",
+      "subcategory": "보수와 연금",
+      "keywords": [],
+      "unit_id": "hangjunghak-105-2"
+    },
+    {
+      "order": 153,
+      "category": "인사행정론",
+      "chapter": "제5장 사기",
+      "subcategory": "사기와 공공봉사동기",
+      "keywords": [],
+      "unit_id": "hangjunghak-105-3"
+    },
+    {
+      "order": 154,
+      "category": "인사행정론",
+      "chapter": "제5장 사기",
+      "subcategory": "유연근무제",
+      "keywords": [],
+      "unit_id": "hangjunghak-105-4"
+    },
+    {
+      "order": 161,
+      "category": "인사행정론",
+      "chapter": "제6장 공무원의 행동규범",
+      "subcategory": "공무원의 의무와 징계",
+      "keywords": [
+        "부패의 접근방법",
+        "징계의 종류",
+        "공익신고자 보호제도"
+      ],
+      "unit_id": "hangjunghak-106-1"
+    },
+    {
+      "order": 162,
+      "category": "인사행정론",
+      "chapter": "제6장 공무원의 행동규범",
+      "subcategory": "공직자윤리법",
+      "keywords": [],
+      "unit_id": "hangjunghak-106-2"
+    },
+    {
+      "order": 163,
+      "category": "인사행정론",
+      "chapter": "제6장 공무원의 행동규범",
+      "subcategory": "청탁금지법과 이해충돌 방지",
+      "keywords": [],
+      "unit_id": "hangjunghak-106-3"
+    },
+    {
+      "order": 164,
+      "category": "인사행정론",
+      "chapter": "제6장 공무원의 행동규범",
+      "subcategory": "공직부패",
+      "keywords": [
+        "공직부패의 유형"
+      ],
+      "unit_id": "hangjunghak-106-4"
+    },
+    {
+      "order": 165,
+      "category": "인사행정론",
+      "chapter": "제6장 공무원의 행동규범",
+      "subcategory": "정치적 중립",
+      "keywords": [],
+      "unit_id": "hangjunghak-106-5"
+    },
+    {
+      "order": 211,
+      "category": "행정학총론",
+      "chapter": "제1장 행정의 의의",
+      "subcategory": "정치·행정 이원론과 일원론",
+      "keywords": [
+        "정치·행정 이원론",
+        "정치·행정 일원론"
+      ],
+      "unit_id": "hangjunghak-201-1"
+    },
+    {
+      "order": 221,
+      "category": "행정학총론",
+      "chapter": "제2장 현대행정의 이해",
+      "subcategory": "시장실패와 정부실패",
+      "keywords": [
+        "시장실패 원인",
+        "정부실패 원인",
+        "규제의 유형",
+        "정부관의 변천과 정부개혁모형"
+      ],
+      "unit_id": "hangjunghak-202-1"
+    },
+    {
+      "order": 222,
+      "category": "행정학총론",
+      "chapter": "제2장 현대행정의 이해",
+      "subcategory": "정부규제",
+      "keywords": [],
+      "unit_id": "hangjunghak-202-2"
+    },
+    {
+      "order": 223,
+      "category": "행정학총론",
+      "chapter": "제2장 현대행정의 이해",
+      "subcategory": "규제정치의 유형",
+      "keywords": [],
+      "unit_id": "hangjunghak-202-3"
+    },
+    {
+      "order": 224,
+      "category": "행정학총론",
+      "chapter": "제2장 현대행정의 이해",
+      "subcategory": "정책수단",
+      "keywords": [
+        "정책수단(살라몬·베덩)"
+      ],
+      "unit_id": "hangjunghak-202-4"
+    },
+    {
+      "order": 225,
+      "category": "행정학총론",
+      "chapter": "제2장 현대행정의 이해",
+      "subcategory": "정부관과 정부조직",
+      "keywords": [],
+      "unit_id": "hangjunghak-202-5"
+    },
+    {
+      "order": 231,
+      "category": "행정학총론",
+      "chapter": "제3장 행정학의 접근방법",
+      "subcategory": "과학적 관리론과 인간관계론",
+      "keywords": [
+        "법적·제도적 접근 vs 행태론적 접근",
+        "생태론적 접근",
+        "공공선택론",
+        "주인-대리인 이론"
+      ],
+      "unit_id": "hangjunghak-203-1"
+    },
+    {
+      "order": 232,
+      "category": "행정학총론",
+      "chapter": "제3장 행정학의 접근방법",
+      "subcategory": "공공선택이론",
+      "keywords": [],
+      "unit_id": "hangjunghak-203-2"
+    },
+    {
+      "order": 233,
+      "category": "행정학총론",
+      "chapter": "제3장 행정학의 접근방법",
+      "subcategory": "신제도주의",
+      "keywords": [
+        "신제도주의 3계열"
+      ],
+      "unit_id": "hangjunghak-203-3"
+    },
+    {
+      "order": 241,
+      "category": "행정학총론",
+      "chapter": "제4장 행정학의 주요이론",
+      "subcategory": "신행정학",
+      "keywords": [
+        "고전이론의 학자·대상 구분",
+        "행정행태론과 신행정론",
+        "뉴거버넌스",
+        "행정이론 발달 순서"
+      ],
+      "unit_id": "hangjunghak-204-1"
+    },
+    {
+      "order": 242,
+      "category": "행정학총론",
+      "chapter": "제4장 행정학의 주요이론",
+      "subcategory": "신공공관리론",
+      "keywords": [
+        "신공공관리론(NPM)"
+      ],
+      "unit_id": "hangjunghak-204-2"
+    },
+    {
+      "order": 243,
+      "category": "행정학총론",
+      "chapter": "제4장 행정학의 주요이론",
+      "subcategory": "거버넌스와 신공공서비스론",
+      "keywords": [],
+      "unit_id": "hangjunghak-204-3"
+    },
+    {
+      "order": 244,
+      "category": "행정학총론",
+      "chapter": "제4장 행정학의 주요이론",
+      "subcategory": "공공가치론",
+      "keywords": [],
+      "unit_id": "hangjunghak-204-4"
+    },
+    {
+      "order": 245,
+      "category": "행정학총론",
+      "chapter": "제4장 행정학의 주요이론",
+      "subcategory": "행정이론의 전개",
+      "keywords": [],
+      "unit_id": "hangjunghak-204-5"
+    },
+    {
+      "order": 251,
+      "category": "행정학총론",
+      "chapter": "제5장 행정이 추구하는 가치",
+      "subcategory": "공익",
+      "keywords": [
+        "능률성·효과성",
+        "형평성",
+        "공익의 실체설과 과정설",
+        "롤스(Rawls)의 정의론",
+        "공리주의적 공익관"
+      ],
+      "unit_id": "hangjunghak-205-1"
+    },
+    {
+      "order": 252,
+      "category": "행정학총론",
+      "chapter": "제5장 행정이 추구하는 가치",
+      "subcategory": "사회적 형평성과 정의",
+      "keywords": [],
+      "unit_id": "hangjunghak-205-2"
+    },
+    {
+      "order": 253,
+      "category": "행정학총론",
+      "chapter": "제5장 행정이 추구하는 가치",
+      "subcategory": "행정가치의 체계",
+      "keywords": [],
+      "unit_id": "hangjunghak-205-3"
+    },
+    {
+      "order": 261,
+      "category": "행정학총론",
+      "chapter": "제6장 공공서비스 공급주체",
+      "subcategory": "공기업과 민영화",
+      "keywords": [
+        "공기업·준정부기관 유형",
+        "정부 부처 형태의 공기업",
+        "사바스(Savas)의 공공서비스 공급유형론",
+        "제3섹터·비영리민간단체"
+      ],
+      "unit_id": "hangjunghak-206-1"
+    },
+    {
+      "order": 262,
+      "category": "행정학총론",
+      "chapter": "제6장 공공서비스 공급주체",
+      "subcategory": "책임운영기관",
+      "keywords": [
+        "책임운영기관"
+      ],
+      "unit_id": "hangjunghak-206-2"
+    },
+    {
+      "order": 263,
+      "category": "행정학총론",
+      "chapter": "제6장 공공서비스 공급주체",
+      "subcategory": "민간위탁과 민간투자",
+      "keywords": [],
+      "unit_id": "hangjunghak-206-3"
+    },
+    {
+      "order": 264,
+      "category": "행정학총론",
+      "chapter": "제6장 공공서비스 공급주체",
+      "subcategory": "민원행정",
+      "keywords": [],
+      "unit_id": "hangjunghak-206-4"
+    },
+    {
+      "order": 311,
+      "category": "조직이론",
+      "chapter": "제1장 조직이론의 기초",
+      "subcategory": "조직이론의 전개",
+      "keywords": [
+        "고전적 조직이론",
+        "신고전적 조직이론(인간관계론)",
+        "현대 조직이론",
+        "조직의 원리",
+        "전자정부의 유형",
+        "지식관리시스템(KMS)",
+        "빅데이터 기반 지능형 정부",
+        "정보격차(digital divide)"
+      ],
+      "unit_id": "hangjunghak-301-1"
+    },
+    {
+      "order": 312,
+      "category": "조직이론",
+      "chapter": "제1장 조직이론의 기초",
+      "subcategory": "거시조직이론",
+      "keywords": [],
+      "unit_id": "hangjunghak-301-2"
+    },
+    {
+      "order": 313,
+      "category": "조직이론",
+      "chapter": "제1장 조직이론의 기초",
+      "subcategory": "조직목표",
+      "keywords": [],
+      "unit_id": "hangjunghak-301-3"
+    },
+    {
+      "order": 321,
+      "category": "조직이론",
+      "chapter": "제2장 조직구조론",
+      "subcategory": "조직구조의 변수",
+      "keywords": [
+        "조직구조의 3대 변수",
+        "기능구조(functional structure)",
+        "사업구조(사업부제, divisional structure)",
+        "매트릭스 구조",
+        "네트워크 구조"
+      ],
+      "unit_id": "hangjunghak-302-1"
+    },
+    {
+      "order": 322,
+      "category": "조직이론",
+      "chapter": "제2장 조직구조론",
+      "subcategory": "조직구성의 원리",
+      "keywords": [],
+      "unit_id": "hangjunghak-302-2"
+    },
+    {
+      "order": 323,
+      "category": "조직이론",
+      "chapter": "제2장 조직구조론",
+      "subcategory": "행정기관의 구성",
+      "keywords": [],
+      "unit_id": "hangjunghak-302-3"
+    },
+    {
+      "order": 331,
+      "category": "조직이론",
+      "chapter": "제3장 관료제와 탈관료제",
+      "subcategory": "베버의 관료제",
+      "keywords": [
+        "베버의 근대관료제 특징",
+        "관료제의 역기능(병리현상)",
+        "애드호크라시(adhocracy)",
+        "탈관료제 모형"
+      ],
+      "unit_id": "hangjunghak-303-1"
+    },
+    {
+      "order": 332,
+      "category": "조직이론",
+      "chapter": "제3장 관료제와 탈관료제",
+      "subcategory": "관료제의 병리",
+      "keywords": [],
+      "unit_id": "hangjunghak-303-2"
+    },
+    {
+      "order": 333,
+      "category": "조직이론",
+      "chapter": "제3장 관료제와 탈관료제",
+      "subcategory": "일선관료제",
+      "keywords": [],
+      "unit_id": "hangjunghak-303-3"
+    },
+    {
+      "order": 341,
+      "category": "조직이론",
+      "chapter": "제4장 조직의 유형",
+      "subcategory": "정부조직과 위원회",
+      "keywords": [
+        "파슨스(Parsons)의 사회적 기능 기준 분류",
+        "에치오니(Etzioni)의 순응(복종) 유형론"
+      ],
+      "unit_id": "hangjunghak-304-1"
+    },
+    {
+      "order": 342,
+      "category": "조직이론",
+      "chapter": "제4장 조직의 유형",
+      "subcategory": "민츠버그의 조직유형",
+      "keywords": [],
+      "unit_id": "hangjunghak-304-2"
+    },
+    {
+      "order": 343,
+      "category": "조직이론",
+      "chapter": "제4장 조직의 유형",
+      "subcategory": "매트릭스·팀·네트워크 조직",
+      "keywords": [],
+      "unit_id": "hangjunghak-304-3"
+    },
+    {
+      "order": 344,
+      "category": "조직이론",
+      "chapter": "제4장 조직의 유형",
+      "subcategory": "조직유형론",
+      "keywords": [
+        "민츠버그(Mintzberg)의 조직유형론"
+      ],
+      "unit_id": "hangjunghak-304-4"
+    },
+    {
+      "order": 351,
+      "category": "조직이론",
+      "chapter": "제5장 개인수준의 조직행동",
+      "subcategory": "동기이론(내용이론)",
+      "keywords": [
+        "매슬로우의 욕구단계론",
+        "브룸(Vroom)의 기대이론",
+        "애덤스(Adams)의 공정성이론",
+        "앨더퍼(Alderfer)의 ERG이론",
+        "맥클랜드(McClelland)의 성취동기이론"
+      ],
+      "unit_id": "hangjunghak-305-1"
+    },
+    {
+      "order": 352,
+      "category": "조직이론",
+      "chapter": "제5장 개인수준의 조직행동",
+      "subcategory": "동기이론(과정이론)",
+      "keywords": [],
+      "unit_id": "hangjunghak-305-2"
+    },
+    {
+      "order": 353,
+      "category": "조직이론",
+      "chapter": "제5장 개인수준의 조직행동",
+      "subcategory": "인간관과 권력",
+      "keywords": [],
+      "unit_id": "hangjunghak-305-3"
+    },
+    {
+      "order": 354,
+      "category": "조직이론",
+      "chapter": "제5장 개인수준의 조직행동",
+      "subcategory": "리더십 이론",
+      "keywords": [],
+      "unit_id": "hangjunghak-305-4"
+    },
+    {
+      "order": 355,
+      "category": "조직이론",
+      "chapter": "제5장 개인수준의 조직행동",
+      "subcategory": "변혁적·서번트 리더십",
+      "keywords": [],
+      "unit_id": "hangjunghak-305-5"
+    },
+    {
+      "order": 361,
+      "category": "조직이론",
+      "chapter": "제6장 집단수준의 조직행동",
+      "subcategory": "갈등관리",
+      "keywords": [
+        "리더십 이론의 발전",
+        "피들러(Fiedler)의 상황적합이론",
+        "갈등관리",
+        "토마스(Thomas)의 갈등관리 유형"
+      ],
+      "unit_id": "hangjunghak-306-1"
+    },
+    {
+      "order": 362,
+      "category": "조직이론",
+      "chapter": "제6장 집단수준의 조직행동",
+      "subcategory": "집단사고",
+      "keywords": [],
+      "unit_id": "hangjunghak-306-2"
+    },
+    {
+      "order": 371,
+      "category": "조직이론",
+      "chapter": "제7장 조직수준의 조직행동",
+      "subcategory": "조직문화",
+      "keywords": [
+        "조직문화의 기능",
+        "센게(Senge)의 학습조직",
+        "조직시민행동(OCB, Organizational Citizenship Behavior)",
+        "조직 목표관리(MBO)"
+      ],
+      "unit_id": "hangjunghak-307-1"
+    },
+    {
+      "order": 372,
+      "category": "조직이론",
+      "chapter": "제7장 조직수준의 조직행동",
+      "subcategory": "목표관리제(MBO)",
+      "keywords": [],
+      "unit_id": "hangjunghak-307-2"
+    },
+    {
+      "order": 381,
+      "category": "조직이론",
+      "chapter": "제8장 조직개혁론",
+      "subcategory": "총체적 품질관리(TQM)",
+      "keywords": [
+        "조직개혁에 대한 저항 원인",
+        "저항 극복 전략",
+        "총체적 품질관리(TQM)",
+        "리엔지니어링(BPR, Business Process Reengineering)"
+      ],
+      "unit_id": "hangjunghak-308-1"
+    },
+    {
+      "order": 411,
+      "category": "정책학",
+      "chapter": "제1장 정책학의 의의",
+      "subcategory": "정책학의 발달",
+      "keywords": [
+        "로위의 4대 정책유형",
+        "리플리와 프랭클린의 규제정책 세분화",
+        "정책의 구성요소",
+        "정책대상집단"
+      ],
+      "unit_id": "hangjunghak-401-1"
+    },
+    {
+      "order": 412,
+      "category": "정책학",
+      "chapter": "제1장 정책학의 의의",
+      "subcategory": "로위의 정책유형",
+      "keywords": [],
+      "unit_id": "hangjunghak-401-2"
+    },
+    {
+      "order": 413,
+      "category": "정책학",
+      "chapter": "제1장 정책학의 의의",
+      "subcategory": "리플리와 프랭클린의 정책유형",
+      "keywords": [],
+      "unit_id": "hangjunghak-401-3"
+    },
+    {
+      "order": 421,
+      "category": "정책학",
+      "chapter": "제2장 정책과정의 주도자",
+      "subcategory": "정책참여자",
+      "keywords": [
+        "무의사결정론(Bachrach & Baratz)",
+        "철의 삼각(iron triangle)",
+        "이슈네트워크(Heclo)",
+        "조합주의(corporatism)",
+        "신다원론"
+      ],
+      "unit_id": "hangjunghak-402-1"
+    },
+    {
+      "order": 422,
+      "category": "정책학",
+      "chapter": "제2장 정책과정의 주도자",
+      "subcategory": "엘리트론과 다원론",
+      "keywords": [],
+      "unit_id": "hangjunghak-402-2"
+    },
+    {
+      "order": 423,
+      "category": "정책학",
+      "chapter": "제2장 정책과정의 주도자",
+      "subcategory": "정책네트워크와 철의 삼각",
+      "keywords": [],
+      "unit_id": "hangjunghak-402-3"
+    },
+    {
+      "order": 424,
+      "category": "정책학",
+      "chapter": "제2장 정책과정의 주도자",
+      "subcategory": "정책옹호연합모형",
+      "keywords": [],
+      "unit_id": "hangjunghak-402-4"
+    },
+    {
+      "order": 431,
+      "category": "정책학",
+      "chapter": "제3장 정책의제론",
+      "subcategory": "정책의제설정 모형",
+      "keywords": [
+        "체제의제와 제도의제",
+        "외부주도형",
+        "동원형",
+        "내부접근형(내부주도형)",
+        "정책의제 설정에 영향을 미치는 요인"
+      ],
+      "unit_id": "hangjunghak-403-1"
+    },
+    {
+      "order": 432,
+      "category": "정책학",
+      "chapter": "제3장 정책의제론",
+      "subcategory": "무의사결정론",
+      "keywords": [],
+      "unit_id": "hangjunghak-403-2"
+    },
+    {
+      "order": 433,
+      "category": "정책학",
+      "chapter": "제3장 정책의제론",
+      "subcategory": "정책흐름모형",
+      "keywords": [],
+      "unit_id": "hangjunghak-403-3"
+    },
+    {
+      "order": 441,
+      "category": "정책학",
+      "chapter": "제4장 정책분석론",
+      "subcategory": "정책문제의 구조화",
+      "keywords": [
+        "순현재가치(NPV)",
+        "내부수익률(IRR)",
+        "편익비용비(B/C ratio)",
+        "정책델파이 기법",
+        "민감도 분석"
+      ],
+      "unit_id": "hangjunghak-404-1"
+    },
+    {
+      "order": 442,
+      "category": "정책학",
+      "chapter": "제4장 정책분석론",
+      "subcategory": "미래예측기법",
+      "keywords": [],
+      "unit_id": "hangjunghak-404-2"
+    },
+    {
+      "order": 443,
+      "category": "정책학",
+      "chapter": "제4장 정책분석론",
+      "subcategory": "비용·편익분석",
+      "keywords": [],
+      "unit_id": "hangjunghak-404-3"
+    },
+    {
+      "order": 444,
+      "category": "정책학",
+      "chapter": "제4장 정책분석론",
+      "subcategory": "정책분석의 기준",
+      "keywords": [],
+      "unit_id": "hangjunghak-404-4"
+    },
+    {
+      "order": 451,
+      "category": "정책학",
+      "chapter": "제5장 정책결정론",
+      "subcategory": "정책환경의 불확실성",
+      "keywords": [
+        "공식적 참여자",
+        "비공식적 참여자",
+        "정책공동체(policy community)",
+        "정책네트워크의 폐쇄성 스펙트럼"
+      ],
+      "unit_id": "hangjunghak-405-1"
+    },
+    {
+      "order": 461,
+      "category": "정책학",
+      "chapter": "제6장 정책결정모형",
+      "subcategory": "합리모형과 만족모형",
+      "keywords": [
+        "합리모형",
+        "점증모형",
+        "혼합주사모형(Etzioni)",
+        "쓰레기통모형",
+        "킹던(Kingdon)의 정책의 창 모형"
+      ],
+      "unit_id": "hangjunghak-406-1"
+    },
+    {
+      "order": 462,
+      "category": "정책학",
+      "chapter": "제6장 정책결정모형",
+      "subcategory": "점증모형과 혼합주사모형",
+      "keywords": [],
+      "unit_id": "hangjunghak-406-2"
+    },
+    {
+      "order": 463,
+      "category": "정책학",
+      "chapter": "제6장 정책결정모형",
+      "subcategory": "앨리슨 모형",
+      "keywords": [],
+      "unit_id": "hangjunghak-406-3"
+    },
+    {
+      "order": 464,
+      "category": "정책학",
+      "chapter": "제6장 정책결정모형",
+      "subcategory": "쓰레기통모형과 사이버네틱스",
+      "keywords": [],
+      "unit_id": "hangjunghak-406-4"
+    },
+    {
+      "order": 465,
+      "category": "정책학",
+      "chapter": "제6장 정책결정모형",
+      "subcategory": "조직의 의사결정",
+      "keywords": [],
+      "unit_id": "hangjunghak-406-5"
+    },
+    {
+      "order": 471,
+      "category": "정책학",
+      "chapter": "제7장 정책집행론",
+      "subcategory": "하향적 접근과 상향적 접근",
+      "keywords": [
+        "립스키(Lipsky)의 일선관료제",
+        "일선관료의 재량권 확대 요인",
+        "사바티어(Sabatier)의 통합모형",
+        "정책순응과 불응"
+      ],
+      "unit_id": "hangjunghak-407-1"
+    },
+    {
+      "order": 472,
+      "category": "정책학",
+      "chapter": "제7장 정책집행론",
+      "subcategory": "나카무라와 스몰우드의 유형",
+      "keywords": [],
+      "unit_id": "hangjunghak-407-2"
+    },
+    {
+      "order": 473,
+      "category": "정책학",
+      "chapter": "제7장 정책집행론",
+      "subcategory": "정책집행의 영향요인",
+      "keywords": [],
+      "unit_id": "hangjunghak-407-3"
+    },
+    {
+      "order": 481,
+      "category": "정책학",
+      "chapter": "제8장 정책평가론",
+      "subcategory": "정책평가의 유형과 논리모형",
+      "keywords": [
+        "외적 타당성",
+        "진실험(순수실험)",
+        "준실험",
+        "정책평가의 논리모형"
+      ],
+      "unit_id": "hangjunghak-408-1"
+    },
+    {
+      "order": 482,
+      "category": "정책학",
+      "chapter": "제8장 정책평가론",
+      "subcategory": "내적 타당성",
+      "keywords": [
+        "내적 타당성"
+      ],
+      "unit_id": "hangjunghak-408-2"
+    },
+    {
+      "order": 483,
+      "category": "정책학",
+      "chapter": "제8장 정책평가론",
+      "subcategory": "외적 타당성과 신뢰성",
+      "keywords": [],
+      "unit_id": "hangjunghak-408-3"
+    },
+    {
+      "order": 484,
+      "category": "정책학",
+      "chapter": "제8장 정책평가론",
+      "subcategory": "사회실험과 정책변수",
+      "keywords": [],
+      "unit_id": "hangjunghak-408-4"
+    },
+    {
+      "order": 485,
+      "category": "정책학",
+      "chapter": "제8장 정책평가론",
+      "subcategory": "정책변동",
+      "keywords": [],
+      "unit_id": "hangjunghak-408-5"
+    },
+    {
+      "order": 511,
+      "category": "재무행정론",
+      "chapter": "제1장 재무행정의 기초",
+      "subcategory": "예산의 원칙",
+      "keywords": [
+        "예산의 3대 구성",
+        "일반회계와 특별회계",
+        "기금의 특징",
+        "본예산·수정예산·추가경정예산"
+      ],
+      "unit_id": "hangjunghak-501-1"
+    },
+    {
+      "order": 512,
+      "category": "재무행정론",
+      "chapter": "제1장 재무행정의 기초",
+      "subcategory": "예산의 종류와 분류",
+      "keywords": [],
+      "unit_id": "hangjunghak-501-2"
+    },
+    {
+      "order": 513,
+      "category": "재무행정론",
+      "chapter": "제1장 재무행정의 기초",
+      "subcategory": "재정의 기능과 공공재원",
+      "keywords": [],
+      "unit_id": "hangjunghak-501-3"
+    },
+    {
+      "order": 514,
+      "category": "재무행정론",
+      "chapter": "제1장 재무행정의 기초",
+      "subcategory": "통합재정",
+      "keywords": [],
+      "unit_id": "hangjunghak-501-4"
+    },
+    {
+      "order": 515,
+      "category": "재무행정론",
+      "chapter": "제1장 재무행정의 기초",
+      "subcategory": "정부회계",
+      "keywords": [],
+      "unit_id": "hangjunghak-501-5"
+    },
+    {
+      "order": 521,
+      "category": "재무행정론",
+      "chapter": "제2장 예산결정이론",
+      "subcategory": "예산결정이론과 예산팽창",
+      "keywords": [
+        "점증주의(Incrementalism)",
+        "총체주의(합리주의)",
+        "계획예산제도(PPBS)",
+        "영기준예산(ZBB)",
+        "자본예산제도(Capital Budgeting)"
+      ],
+      "unit_id": "hangjunghak-502-1"
+    },
+    {
+      "order": 522,
+      "category": "재무행정론",
+      "chapter": "제2장 예산결정이론",
+      "subcategory": "품목별·성과주의 예산제도",
+      "keywords": [],
+      "unit_id": "hangjunghak-502-2"
+    },
+    {
+      "order": 523,
+      "category": "재무행정론",
+      "chapter": "제2장 예산결정이론",
+      "subcategory": "계획·영기준 예산제도",
+      "keywords": [],
+      "unit_id": "hangjunghak-502-3"
+    },
+    {
+      "order": 524,
+      "category": "재무행정론",
+      "chapter": "제2장 예산결정이론",
+      "subcategory": "예산제도의 비교",
+      "keywords": [],
+      "unit_id": "hangjunghak-502-4"
+    },
+    {
+      "order": 531,
+      "category": "재무행정론",
+      "chapter": "제3장 예산의 과정",
+      "subcategory": "예산의 편성",
+      "keywords": [
+        "예산 편성과 국회 제출",
+        "예산 집행의 신축성 확보 제도",
+        "준예산",
+        "결산"
+      ],
+      "unit_id": "hangjunghak-503-1"
+    },
+    {
+      "order": 532,
+      "category": "재무행정론",
+      "chapter": "제3장 예산의 과정",
+      "subcategory": "예산의 심의와 의결",
+      "keywords": [],
+      "unit_id": "hangjunghak-503-2"
+    },
+    {
+      "order": 533,
+      "category": "재무행정론",
+      "chapter": "제3장 예산의 과정",
+      "subcategory": "예산의 집행",
+      "keywords": [],
+      "unit_id": "hangjunghak-503-3"
+    },
+    {
+      "order": 534,
+      "category": "재무행정론",
+      "chapter": "제3장 예산의 과정",
+      "subcategory": "결산과 회계검사",
+      "keywords": [],
+      "unit_id": "hangjunghak-503-4"
+    },
+    {
+      "order": 535,
+      "category": "재무행정론",
+      "chapter": "제3장 예산의 과정",
+      "subcategory": "재정성과관리와 재정건전성",
+      "keywords": [],
+      "unit_id": "hangjunghak-503-5"
+    },
+    {
+      "order": 536,
+      "category": "재무행정론",
+      "chapter": "제3장 예산의 과정",
+      "subcategory": "예산과정의 개관",
+      "keywords": [],
+      "unit_id": "hangjunghak-503-6"
+    },
+    {
+      "order": 541,
+      "category": "재무행정론",
+      "chapter": "제4장 예산개혁론",
+      "subcategory": "성인지·온실가스감축인지 예산",
+      "keywords": [
+        "예비타당성조사",
+        "주민참여예산제도",
+        "성인지 예산제도(gender budgeting)",
+        "국가재정운용계획",
+        "재정준칙(fiscal rules)"
+      ],
+      "unit_id": "hangjunghak-504-1"
+    },
+    {
+      "order": 542,
+      "category": "재무행정론",
+      "chapter": "제4장 예산개혁론",
+      "subcategory": "조세지출예산과 프로그램예산",
+      "keywords": [],
+      "unit_id": "hangjunghak-504-2"
+    },
+    {
+      "order": 611,
+      "category": "지방행정론",
+      "chapter": "제1장 지방자치의 의의",
+      "subcategory": "지방자치의 의의와 자치권",
+      "keywords": [
+        "지방자치단체의 종류",
+        "자치권의 구성",
+        "지방자치단체의 기관구성",
+        "조례와 규칙",
+        "중앙집권과 지방분권",
+        "지방자치의 의의",
+        "신중앙집권화"
+      ],
+      "unit_id": "hangjunghak-601-1"
+    },
+    {
+      "order": 612,
+      "category": "지방행정론",
+      "chapter": "제1장 지방자치의 의의",
+      "subcategory": "지방자치단체의 사무",
+      "keywords": [],
+      "unit_id": "hangjunghak-601-2"
+    },
+    {
+      "order": 613,
+      "category": "지방행정론",
+      "chapter": "제1장 지방자치의 의의",
+      "subcategory": "주민참여제도",
+      "keywords": [],
+      "unit_id": "hangjunghak-601-3"
+    },
+    {
+      "order": 614,
+      "category": "지방행정론",
+      "chapter": "제1장 지방자치의 의의",
+      "subcategory": "주민소환과 지방선거",
+      "keywords": [],
+      "unit_id": "hangjunghak-601-4"
+    },
+    {
+      "order": 621,
+      "category": "지방행정론",
+      "chapter": "제2장 지방자치의 구조",
+      "subcategory": "지방자치계층과 지방행정제도",
+      "keywords": [
+        "지방의회의 권한",
+        "지방자치단체장의 권한",
+        "주민소환제도",
+        "주민참여예산제도"
+      ],
+      "unit_id": "hangjunghak-602-1"
+    },
+    {
+      "order": 622,
+      "category": "지방행정론",
+      "chapter": "제2장 지방자치의 구조",
+      "subcategory": "지방의회와 기관구성",
+      "keywords": [],
+      "unit_id": "hangjunghak-602-2"
+    },
+    {
+      "order": 623,
+      "category": "지방행정론",
+      "chapter": "제2장 지방자치의 구조",
+      "subcategory": "특별지방자치단체",
+      "keywords": [],
+      "unit_id": "hangjunghak-602-3"
+    },
+    {
+      "order": 624,
+      "category": "지방행정론",
+      "chapter": "제2장 지방자치의 구조",
+      "subcategory": "자치경찰제도",
+      "keywords": [],
+      "unit_id": "hangjunghak-602-4"
+    },
+    {
+      "order": 631,
+      "category": "지방행정론",
+      "chapter": "제3장 정부간관계",
+      "subcategory": "중앙과 지방의 권한배분",
+      "keywords": [
+        "라이트의 정부간관계 유형",
+        "특별지방행정기관(일선기관)",
+        "국가와 지방자치단체 간 사무배분"
+      ],
+      "unit_id": "hangjunghak-603-1"
+    },
+    {
+      "order": 632,
+      "category": "지방행정론",
+      "chapter": "제3장 정부간관계",
+      "subcategory": "정부간관계 모형",
+      "keywords": [],
+      "unit_id": "hangjunghak-603-2"
+    },
+    {
+      "order": 633,
+      "category": "지방행정론",
+      "chapter": "제3장 정부간관계",
+      "subcategory": "광역행정",
+      "keywords": [],
+      "unit_id": "hangjunghak-603-3"
+    },
+    {
+      "order": 641,
+      "category": "지방행정론",
+      "chapter": "제4장 지방재정",
+      "subcategory": "지방재정의 구조와 자주재원",
+      "keywords": [
+        "지방자치단체의 자주재원과 의존재원",
+        "지방재정자립도",
+        "지방교부세의 종류",
+        "지방채"
+      ],
+      "unit_id": "hangjunghak-604-1"
+    },
+    {
+      "order": 642,
+      "category": "지방행정론",
+      "chapter": "제4장 지방재정",
+      "subcategory": "지방세",
+      "keywords": [],
+      "unit_id": "hangjunghak-604-2"
+    },
+    {
+      "order": 643,
+      "category": "지방행정론",
+      "chapter": "제4장 지방재정",
+      "subcategory": "지방재정조정제도",
+      "keywords": [],
+      "unit_id": "hangjunghak-604-3"
+    },
+    {
+      "order": 644,
+      "category": "지방행정론",
+      "chapter": "제4장 지방재정",
+      "subcategory": "지방공기업과 재정건전성",
+      "keywords": [],
+      "unit_id": "hangjunghak-604-4"
+    },
+    {
+      "order": 711,
+      "category": "행정환류론",
+      "chapter": "제1장 행정책임",
+      "subcategory": "행정책임의 유형",
+      "keywords": [
+        "프리드리히-파이너 논쟁",
+        "행정책임의 유형",
+        "행정책임 확보의 곤란성"
+      ],
+      "unit_id": "hangjunghak-701-1"
+    },
+    {
+      "order": 721,
+      "category": "행정환류론",
+      "chapter": "제2장 행정통제",
+      "subcategory": "행정통제의 유형",
+      "keywords": [
+        "옴부즈만(Ombudsman) 제도",
+        "행정통제의 유형 확장",
+        "감사원"
+      ],
+      "unit_id": "hangjunghak-702-1"
+    },
+    {
+      "order": 722,
+      "category": "행정환류론",
+      "chapter": "제2장 행정통제",
+      "subcategory": "옴부즈만 제도",
+      "keywords": [],
+      "unit_id": "hangjunghak-702-2"
+    },
+    {
+      "order": 731,
+      "category": "행정환류론",
+      "chapter": "제3장 행정개혁",
+      "subcategory": "정부업무평가제도",
+      "keywords": [
+        "행정개혁의 특징",
+        "행정개혁에 대한 저항의 원인",
+        "신공공관리론적 행정개혁"
+      ],
+      "unit_id": "hangjunghak-703-1"
+    },
+    {
+      "order": 732,
+      "category": "행정환류론",
+      "chapter": "제3장 행정개혁",
+      "subcategory": "균형성과표(BSC)",
+      "keywords": [],
+      "unit_id": "hangjunghak-703-2"
+    },
+    {
+      "order": 733,
+      "category": "행정환류론",
+      "chapter": "제3장 행정개혁",
+      "subcategory": "전자정부",
+      "keywords": [],
+      "unit_id": "hangjunghak-703-3"
+    },
+    {
+      "order": 734,
+      "category": "행정환류론",
+      "chapter": "제3장 행정개혁",
+      "subcategory": "빅데이터와 4차 산업혁명",
+      "keywords": [],
+      "unit_id": "hangjunghak-703-4"
+    }
+  ]
+}

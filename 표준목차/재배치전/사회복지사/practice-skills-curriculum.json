@@ -1,0 +1,277 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　실천기술의 기초",
+      "shortLabel": "실천기술의 기초",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　사회복지사의 전문성",
+          "shortLabel": "사회복지사의 전문성",
+          "filters": [
+            {
+              "category": "실천기술의 기초",
+              "subcategory": "실천지식",
+              "sectionLabel": "실천지식"
+            },
+            {
+              "category": "실천기술의 기초",
+              "subcategory": "실천기술",
+              "sectionLabel": "실천기술"
+            },
+            {
+              "category": "실천기술의 기초",
+              "subcategory": "모델의 성격",
+              "sectionLabel": "모델의 성격"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　개인 대상 실천모델",
+      "shortLabel": "개인 대상 실천모델",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　정신역동모델",
+          "shortLabel": "정신역동모델",
+          "filters": [
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "정신역동모델",
+              "sectionLabel": "정신역동모델"
+            }
+          ]
+        },
+        {
+          "id": "p2-c02",
+          "label": "CHAPTER 02　심리사회모델",
+          "shortLabel": "심리사회모델",
+          "filters": [
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "심리사회모델",
+              "sectionLabel": "심리사회모델"
+            }
+          ]
+        },
+        {
+          "id": "p2-c03",
+          "label": "CHAPTER 03　인지행동모델",
+          "shortLabel": "인지행동모델",
+          "filters": [
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "인지행동모델",
+              "sectionLabel": "인지행동모델"
+            },
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "인지치료",
+              "sectionLabel": "인지치료"
+            }
+          ]
+        },
+        {
+          "id": "p2-c04",
+          "label": "CHAPTER 04　과제중심모델",
+          "shortLabel": "과제중심모델",
+          "filters": [
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "과제중심모델",
+              "sectionLabel": "과제중심모델"
+            }
+          ]
+        },
+        {
+          "id": "p2-c05",
+          "label": "CHAPTER 05　기타 실천모델",
+          "shortLabel": "기타 실천모델",
+          "filters": [
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "해결중심모델",
+              "sectionLabel": "해결중심모델"
+            },
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "위기의 이해",
+              "sectionLabel": "위기의 이해"
+            },
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "그 밖의 모델",
+              "sectionLabel": "그 밖의 모델"
+            },
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "개입",
+              "sectionLabel": "개입"
+            },
+            {
+              "category": "개인 대상 실천모델",
+              "subcategory": "개입기법",
+              "sectionLabel": "개입기법"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　가족 대상 실천",
+      "shortLabel": "가족 대상 실천",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　가족에 대한 이해",
+          "shortLabel": "가족에 대한 이해",
+          "filters": [
+            {
+              "category": "가족 대상 실천",
+              "subcategory": "가족의 이해",
+              "sectionLabel": "가족의 이해"
+            },
+            {
+              "category": "가족 대상 실천",
+              "subcategory": "체계로서의 가족",
+              "sectionLabel": "체계로서의 가족"
+            }
+          ]
+        },
+        {
+          "id": "p3-c02",
+          "label": "CHAPTER 02　가족문제 사정",
+          "shortLabel": "가족문제 사정",
+          "filters": [
+            {
+              "category": "가족 대상 실천",
+              "subcategory": "가족사정",
+              "sectionLabel": "가족사정"
+            }
+          ]
+        },
+        {
+          "id": "p3-c03",
+          "label": "CHAPTER 03　가족 대상 실천기법",
+          "shortLabel": "가족 대상 실천기법",
+          "filters": [
+            {
+              "category": "가족 대상 실천",
+              "subcategory": "다세대모델",
+              "sectionLabel": "다세대모델"
+            },
+            {
+              "category": "가족 대상 실천",
+              "subcategory": "경험적모델",
+              "sectionLabel": "경험적모델"
+            },
+            {
+              "category": "가족 대상 실천",
+              "subcategory": "전략적모델",
+              "sectionLabel": "전략적모델"
+            },
+            {
+              "category": "가족 대상 실천",
+              "subcategory": "구조적모델",
+              "sectionLabel": "구조적모델"
+            },
+            {
+              "category": "가족 대상 실천",
+              "subcategory": "가족실천",
+              "sectionLabel": "가족실천"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　집단 대상 실천",
+      "shortLabel": "집단 대상 실천",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　집단 대상 실천기법",
+          "shortLabel": "집단 대상 실천기법",
+          "filters": [
+            {
+              "category": "집단 대상 실천",
+              "subcategory": "집단의 유형",
+              "sectionLabel": "집단의 유형"
+            },
+            {
+              "category": "집단 대상 실천",
+              "subcategory": "집단사정",
+              "sectionLabel": "집단사정"
+            },
+            {
+              "category": "집단 대상 실천",
+              "subcategory": "집단역동",
+              "sectionLabel": "집단역동"
+            },
+            {
+              "category": "집단 대상 실천",
+              "subcategory": "집단의 어려움",
+              "sectionLabel": "집단의 어려움"
+            }
+          ]
+        },
+        {
+          "id": "p4-c02",
+          "label": "CHAPTER 02　집단발달단계",
+          "shortLabel": "집단발달단계",
+          "filters": [
+            {
+              "category": "집단 대상 실천",
+              "subcategory": "집단발달단계",
+              "sectionLabel": "집단발달단계"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "label": "PART 5　기록과 평가",
+      "shortLabel": "기록과 평가",
+      "style": "violet",
+      "chapters": [
+        {
+          "id": "p5-c01",
+          "label": "CHAPTER 01　사회복지실천 기록",
+          "shortLabel": "사회복지실천 기록",
+          "filters": [
+            {
+              "category": "기록과 평가",
+              "subcategory": "기록",
+              "sectionLabel": "기록"
+            }
+          ]
+        },
+        {
+          "id": "p5-c02",
+          "label": "CHAPTER 02　사회복지실천 평가",
+          "shortLabel": "사회복지실천 평가",
+          "filters": [
+            {
+              "category": "기록과 평가",
+              "subcategory": "평가",
+              "sectionLabel": "평가"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

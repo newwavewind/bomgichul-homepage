@@ -1,0 +1,1206 @@
+{
+  "version": 2,
+  "source": "사회복지사 1급 기출 2017~2026 (제15~24회) | 장 아래에 절이 없어 30문항 넘는 장이 한 칸에 뭉쳐 있었다. 나눔의집·에듀윌 기본서의 절 구성으로 갈랐고, 배치는 지문이 밝힌 주제를 먼저 믿었다. | 절이 개념 카드보다 적어(18~23 대 60) 카드 하나가 절의 스무 문항을 통째로 맡고 있었다. 개념의 주제 이름을 절로 올리고 문항을 지문이 밝힌 말로 다시 나눴다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　과학철학·패러다임",
+      "subcategory": "과학적 방법",
+      "keywords": [],
+      "unit_id": "research-101-1",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 102,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　과학철학·패러다임",
+      "subcategory": "과학철학",
+      "keywords": [],
+      "unit_id": "research-101-2",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 103,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 01　과학철학·패러다임",
+      "subcategory": "질적연구의 성격",
+      "keywords": [],
+      "unit_id": "research-101-3",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 104,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　과학철학·패러다임",
+      "subcategory": "연구윤리",
+      "keywords": [],
+      "unit_id": "research-101-4",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 105,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　과학철학·패러다임",
+      "subcategory": "개념과 변수",
+      "keywords": [],
+      "unit_id": "research-101-5",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 106,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　연구윤리",
+      "subcategory": "조사의 필요성",
+      "keywords": [],
+      "unit_id": "research-102-6",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 107,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　연구윤리",
+      "subcategory": "연구윤리",
+      "keywords": [],
+      "unit_id": "research-102-7",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 108,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　연구윤리",
+      "subcategory": "과학철학",
+      "keywords": [],
+      "unit_id": "research-102-8",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 109,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　연구윤리",
+      "subcategory": "과학적 방법",
+      "keywords": [],
+      "unit_id": "research-102-9",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 110,
+      "category": "자료수집",
+      "chapter": "CHAPTER 02　연구윤리",
+      "subcategory": "관찰",
+      "keywords": [],
+      "unit_id": "research-102-10",
+      "part": "자료수집",
+      "section": "관찰과 내용분석법"
+    },
+    {
+      "order": 111,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 03　분석단위와 오류",
+      "subcategory": "질적연구의 갈래",
+      "keywords": [],
+      "unit_id": "research-103-11",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 112,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 03　분석단위와 오류",
+      "subcategory": "분석단위",
+      "keywords": [],
+      "unit_id": "research-103-12",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 201,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　조사의 유형",
+      "subcategory": "분석단위",
+      "keywords": [],
+      "unit_id": "research-201-13",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 202,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　조사의 유형",
+      "subcategory": "시간 차원",
+      "keywords": [],
+      "unit_id": "research-201-14",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 203,
+      "category": "자료수집",
+      "chapter": "CHAPTER 01　조사의 유형",
+      "subcategory": "비반응성 자료",
+      "keywords": [],
+      "unit_id": "research-201-15",
+      "part": "자료수집",
+      "section": "관찰과 내용분석법"
+    },
+    {
+      "order": 204,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　조사의 유형",
+      "subcategory": "조사의 목적",
+      "keywords": [],
+      "unit_id": "research-201-16",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 205,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　조사의 유형",
+      "subcategory": "조사의 필요성",
+      "keywords": [],
+      "unit_id": "research-201-17",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 206,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　조사의 유형",
+      "subcategory": "과학철학",
+      "keywords": [],
+      "unit_id": "research-201-18",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 207,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 01　조사의 유형",
+      "subcategory": "기술통계",
+      "keywords": [],
+      "unit_id": "research-201-19",
+      "part": "질적연구와 분석",
+      "section": "자료분석"
+    },
+    {
+      "order": 208,
+      "category": "조사설계",
+      "chapter": "CHAPTER 02　변수와 가설",
+      "subcategory": "내적 타당도",
+      "keywords": [],
+      "unit_id": "research-202-20",
+      "part": "조사설계",
+      "section": "조사설계와 인과관계"
+    },
+    {
+      "order": 209,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　변수와 가설",
+      "subcategory": "조사의 절차",
+      "keywords": [],
+      "unit_id": "research-202-21",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 210,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 02　변수와 가설",
+      "subcategory": "분석방법의 선택",
+      "keywords": [],
+      "unit_id": "research-202-22",
+      "part": "질적연구와 분석",
+      "section": "자료분석"
+    },
+    {
+      "order": 211,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　변수와 가설",
+      "subcategory": "가설",
+      "keywords": [],
+      "unit_id": "research-202-23",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 212,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　변수와 가설",
+      "subcategory": "개념과 변수",
+      "keywords": [],
+      "unit_id": "research-202-24",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 213,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　변수와 가설",
+      "subcategory": "과학적 방법",
+      "keywords": [],
+      "unit_id": "research-202-25",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 214,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　변수와 가설",
+      "subcategory": "분석단위",
+      "keywords": [],
+      "unit_id": "research-202-26",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 215,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　변수와 가설",
+      "subcategory": "측정의 수준",
+      "keywords": [],
+      "unit_id": "research-202-27",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 216,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 02　변수와 가설",
+      "subcategory": "그 밖의 기준",
+      "keywords": [],
+      "unit_id": "research-202-28",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 301,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　측정수준·척도",
+      "subcategory": "시간 차원",
+      "keywords": [],
+      "unit_id": "research-301-29",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 302,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 01　측정수준·척도",
+      "subcategory": "분석방법의 선택",
+      "keywords": [],
+      "unit_id": "research-301-30",
+      "part": "질적연구와 분석",
+      "section": "자료분석"
+    },
+    {
+      "order": 303,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 01　측정수준·척도",
+      "subcategory": "척도의 구성",
+      "keywords": [],
+      "unit_id": "research-301-31",
+      "part": "측정과 척도",
+      "section": "척도"
+    },
+    {
+      "order": 304,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　측정수준·척도",
+      "subcategory": "개념과 변수",
+      "keywords": [],
+      "unit_id": "research-301-32",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 305,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 01　측정수준·척도",
+      "subcategory": "측정의 수준",
+      "keywords": [],
+      "unit_id": "research-301-33",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 306,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　측정수준·척도",
+      "subcategory": "조사의 절차",
+      "keywords": [],
+      "unit_id": "research-301-34",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 307,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　측정수준·척도",
+      "subcategory": "분석단위",
+      "keywords": [],
+      "unit_id": "research-301-35",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 308,
+      "category": "자료수집",
+      "chapter": "CHAPTER 01　측정수준·척도",
+      "subcategory": "설문지",
+      "keywords": [],
+      "unit_id": "research-301-36",
+      "part": "자료수집",
+      "section": "서베이(설문조사)"
+    },
+    {
+      "order": 309,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "타당도 높이기",
+      "keywords": [],
+      "unit_id": "research-302-37",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 310,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "측정오류",
+      "keywords": [],
+      "unit_id": "research-302-38",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 311,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "분석단위",
+      "keywords": [],
+      "unit_id": "research-302-39",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 312,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "신뢰도와 타당도",
+      "keywords": [],
+      "unit_id": "research-302-40",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 313,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "타당도",
+      "keywords": [],
+      "unit_id": "research-302-41",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 314,
+      "category": "자료수집",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "설문지",
+      "keywords": [],
+      "unit_id": "research-302-42",
+      "part": "자료수집",
+      "section": "서베이(설문조사)"
+    },
+    {
+      "order": 315,
+      "category": "자료수집",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "비반응성 자료",
+      "keywords": [],
+      "unit_id": "research-302-43",
+      "part": "자료수집",
+      "section": "관찰과 내용분석법"
+    },
+    {
+      "order": 316,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "개념과 변수",
+      "keywords": [],
+      "unit_id": "research-302-44",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 317,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "측정의 수준",
+      "keywords": [],
+      "unit_id": "research-302-45",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 318,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "척도의 구성",
+      "keywords": [],
+      "unit_id": "research-302-46",
+      "part": "측정과 척도",
+      "section": "척도"
+    },
+    {
+      "order": 319,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "신뢰도",
+      "keywords": [],
+      "unit_id": "research-302-47",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 320,
+      "category": "조사설계",
+      "chapter": "CHAPTER 02　신뢰도·타당도",
+      "subcategory": "외적 타당도",
+      "keywords": [],
+      "unit_id": "research-302-48",
+      "part": "조사설계",
+      "section": "조사설계와 인과관계"
+    },
+    {
+      "order": 401,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "가설",
+      "keywords": [],
+      "unit_id": "research-401-49",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 402,
+      "category": "표집",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "표집의 기초",
+      "keywords": [],
+      "unit_id": "research-401-50",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 403,
+      "category": "표집",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "표집오차",
+      "keywords": [],
+      "unit_id": "research-401-51",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 404,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "측정의 수준",
+      "keywords": [],
+      "unit_id": "research-401-52",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 405,
+      "category": "표집",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "표본의 크기",
+      "keywords": [],
+      "unit_id": "research-401-53",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 406,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "조사의 절차",
+      "keywords": [],
+      "unit_id": "research-401-54",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 407,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "그 밖의 기준",
+      "keywords": [],
+      "unit_id": "research-401-55",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 408,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "조사의 목적",
+      "keywords": [],
+      "unit_id": "research-401-56",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 409,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "시간 차원",
+      "keywords": [],
+      "unit_id": "research-401-57",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 410,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "개념과 변수",
+      "keywords": [],
+      "unit_id": "research-401-58",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 411,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 01　확률표집",
+      "subcategory": "신뢰도와 타당도",
+      "keywords": [],
+      "unit_id": "research-401-59",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 412,
+      "category": "표집",
+      "chapter": "CHAPTER 02　비확률표집",
+      "subcategory": "확률표집",
+      "keywords": [],
+      "unit_id": "research-402-60",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 413,
+      "category": "표집",
+      "chapter": "CHAPTER 02　비확률표집",
+      "subcategory": "비확률표집",
+      "keywords": [],
+      "unit_id": "research-402-61",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 414,
+      "category": "표집",
+      "chapter": "CHAPTER 02　비확률표집",
+      "subcategory": "표본의 크기",
+      "keywords": [],
+      "unit_id": "research-402-62",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 415,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　비확률표집",
+      "subcategory": "가설",
+      "keywords": [],
+      "unit_id": "research-402-63",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 416,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　비확률표집",
+      "subcategory": "척도의 구성",
+      "keywords": [],
+      "unit_id": "research-402-64",
+      "part": "측정과 척도",
+      "section": "척도"
+    },
+    {
+      "order": 417,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　비확률표집",
+      "subcategory": "분석단위",
+      "keywords": [],
+      "unit_id": "research-402-65",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 501,
+      "category": "자료수집",
+      "chapter": "CHAPTER 01　서베이·설문",
+      "subcategory": "설문지",
+      "keywords": [],
+      "unit_id": "research-501-66",
+      "part": "자료수집",
+      "section": "서베이(설문조사)"
+    },
+    {
+      "order": 502,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　서베이·설문",
+      "subcategory": "연구윤리",
+      "keywords": [],
+      "unit_id": "research-501-67",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 503,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　서베이·설문",
+      "subcategory": "조사의 절차",
+      "keywords": [],
+      "unit_id": "research-501-68",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 504,
+      "category": "자료수집",
+      "chapter": "CHAPTER 01　서베이·설문",
+      "subcategory": "서베이",
+      "keywords": [],
+      "unit_id": "research-501-69",
+      "part": "자료수집",
+      "section": "서베이(설문조사)"
+    },
+    {
+      "order": 505,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "조사의 절차",
+      "keywords": [],
+      "unit_id": "research-502-70",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 506,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "신뢰도",
+      "keywords": [],
+      "unit_id": "research-502-71",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 507,
+      "category": "자료수집",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "비반응성 자료",
+      "keywords": [],
+      "unit_id": "research-502-72",
+      "part": "자료수집",
+      "section": "관찰과 내용분석법"
+    },
+    {
+      "order": 508,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "과학적 방법",
+      "keywords": [],
+      "unit_id": "research-502-73",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 509,
+      "category": "자료수집",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "설문지",
+      "keywords": [],
+      "unit_id": "research-502-74",
+      "part": "자료수집",
+      "section": "서베이(설문조사)"
+    },
+    {
+      "order": 510,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "연구윤리",
+      "keywords": [],
+      "unit_id": "research-502-75",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 511,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "타당도",
+      "keywords": [],
+      "unit_id": "research-502-76",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 512,
+      "category": "표집",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "표본의 크기",
+      "keywords": [],
+      "unit_id": "research-502-77",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 513,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "질적연구의 갈래",
+      "keywords": [],
+      "unit_id": "research-502-78",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 514,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　관찰·내용분석·2차자료",
+      "subcategory": "분석단위",
+      "keywords": [],
+      "unit_id": "research-502-79",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 601,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "가설",
+      "keywords": [],
+      "unit_id": "research-601-80",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 602,
+      "category": "조사설계",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "내적 타당도",
+      "keywords": [],
+      "unit_id": "research-601-81",
+      "part": "조사설계",
+      "section": "조사설계와 인과관계"
+    },
+    {
+      "order": 603,
+      "category": "조사설계",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "실험설계",
+      "keywords": [],
+      "unit_id": "research-601-82",
+      "part": "조사설계",
+      "section": "조사설계의 유형"
+    },
+    {
+      "order": 604,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "시간 차원",
+      "keywords": [],
+      "unit_id": "research-601-83",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 605,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "신뢰도와 타당도",
+      "keywords": [],
+      "unit_id": "research-601-84",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 606,
+      "category": "자료수집",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "관찰",
+      "keywords": [],
+      "unit_id": "research-601-85",
+      "part": "자료수집",
+      "section": "관찰과 내용분석법"
+    },
+    {
+      "order": 607,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "엄격성",
+      "keywords": [],
+      "unit_id": "research-601-86",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 608,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "타당도 높이기",
+      "keywords": [],
+      "unit_id": "research-601-87",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 609,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "조사의 목적",
+      "keywords": [],
+      "unit_id": "research-601-88",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 610,
+      "category": "조사설계",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "외적 타당도",
+      "keywords": [],
+      "unit_id": "research-601-89",
+      "part": "조사설계",
+      "section": "조사설계와 인과관계"
+    },
+    {
+      "order": 611,
+      "category": "표집",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "비확률표집",
+      "keywords": [],
+      "unit_id": "research-601-90",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 612,
+      "category": "조사설계",
+      "chapter": "CHAPTER 01　실험설계",
+      "subcategory": "설계의 기초",
+      "keywords": [],
+      "unit_id": "research-601-91",
+      "part": "조사설계",
+      "section": "조사설계와 인과관계"
+    },
+    {
+      "order": 613,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　단일사례설계",
+      "subcategory": "분석단위",
+      "keywords": [],
+      "unit_id": "research-602-92",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 614,
+      "category": "조사설계",
+      "chapter": "CHAPTER 02　단일사례설계",
+      "subcategory": "외적 타당도",
+      "keywords": [],
+      "unit_id": "research-602-93",
+      "part": "조사설계",
+      "section": "조사설계와 인과관계"
+    },
+    {
+      "order": 615,
+      "category": "조사설계",
+      "chapter": "CHAPTER 02　단일사례설계",
+      "subcategory": "단일사례설계",
+      "keywords": [],
+      "unit_id": "research-602-94",
+      "part": "조사설계",
+      "section": "단일사례설계"
+    },
+    {
+      "order": 616,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　단일사례설계",
+      "subcategory": "가설",
+      "keywords": [],
+      "unit_id": "research-602-95",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 617,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 02　단일사례설계",
+      "subcategory": "시간 차원",
+      "keywords": [],
+      "unit_id": "research-602-96",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 618,
+      "category": "조사설계",
+      "chapter": "CHAPTER 02　단일사례설계",
+      "subcategory": "설계의 기초",
+      "keywords": [],
+      "unit_id": "research-602-97",
+      "part": "조사설계",
+      "section": "조사설계와 인과관계"
+    },
+    {
+      "order": 619,
+      "category": "조사설계",
+      "chapter": "CHAPTER 02　단일사례설계",
+      "subcategory": "내적 타당도",
+      "keywords": [],
+      "unit_id": "research-602-98",
+      "part": "조사설계",
+      "section": "조사설계와 인과관계"
+    },
+    {
+      "order": 620,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 02　단일사례설계",
+      "subcategory": "타당도",
+      "keywords": [],
+      "unit_id": "research-602-99",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 621,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 03　통계분석",
+      "subcategory": "가설",
+      "keywords": [],
+      "unit_id": "research-603-100",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 622,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 03　통계분석",
+      "subcategory": "개념과 변수",
+      "keywords": [],
+      "unit_id": "research-603-101",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 623,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 03　통계분석",
+      "subcategory": "과학적 방법",
+      "keywords": [],
+      "unit_id": "research-603-102",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 624,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 03　통계분석",
+      "subcategory": "추론통계",
+      "keywords": [],
+      "unit_id": "research-603-103",
+      "part": "질적연구와 분석",
+      "section": "자료분석"
+    },
+    {
+      "order": 625,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 03　통계분석",
+      "subcategory": "인과관계",
+      "keywords": [],
+      "unit_id": "research-603-104",
+      "part": "조사의 기초",
+      "section": "조사문제와 가설"
+    },
+    {
+      "order": 626,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "질적연구의 표집",
+      "keywords": [],
+      "unit_id": "research-604-105",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 627,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "질적연구의 갈래",
+      "keywords": [],
+      "unit_id": "research-604-106",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 628,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "조사의 목적",
+      "keywords": [],
+      "unit_id": "research-604-107",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 629,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "혼합연구",
+      "keywords": [],
+      "unit_id": "research-604-108",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 630,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "조사의 절차",
+      "keywords": [],
+      "unit_id": "research-604-109",
+      "part": "조사의 기초",
+      "section": "조사의 유형과 절차"
+    },
+    {
+      "order": 631,
+      "category": "자료수집",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "서베이",
+      "keywords": [],
+      "unit_id": "research-604-110",
+      "part": "자료수집",
+      "section": "서베이(설문조사)"
+    },
+    {
+      "order": 632,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "과학철학",
+      "keywords": [],
+      "unit_id": "research-604-111",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 633,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "그 밖의 기준",
+      "keywords": [],
+      "unit_id": "research-604-112",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 634,
+      "category": "표집",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "비확률표집",
+      "keywords": [],
+      "unit_id": "research-604-113",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 635,
+      "category": "자료수집",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "비반응성 자료",
+      "keywords": [],
+      "unit_id": "research-604-114",
+      "part": "자료수집",
+      "section": "관찰과 내용분석법"
+    },
+    {
+      "order": 636,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "엄격성",
+      "keywords": [],
+      "unit_id": "research-604-115",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 637,
+      "category": "조사의 기초",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "과학적 방법",
+      "keywords": [],
+      "unit_id": "research-604-116",
+      "part": "조사의 기초",
+      "section": "과학적 방법과 조사연구"
+    },
+    {
+      "order": 638,
+      "category": "표집",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "확률표집",
+      "keywords": [],
+      "unit_id": "research-604-117",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    },
+    {
+      "order": 639,
+      "category": "측정과 척도",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "신뢰도",
+      "keywords": [],
+      "unit_id": "research-604-118",
+      "part": "측정과 척도",
+      "section": "측정"
+    },
+    {
+      "order": 640,
+      "category": "질적연구와 분석",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "질적연구의 성격",
+      "keywords": [],
+      "unit_id": "research-604-119",
+      "part": "질적연구와 분석",
+      "section": "질적 연구방법론"
+    },
+    {
+      "order": 641,
+      "category": "표집",
+      "chapter": "CHAPTER 04　질적연구",
+      "subcategory": "표집오차",
+      "keywords": [],
+      "unit_id": "research-604-120",
+      "part": "표집",
+      "section": "표집(표본추출)"
+    }
+  ]
+}

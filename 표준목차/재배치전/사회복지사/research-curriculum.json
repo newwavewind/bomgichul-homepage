@@ -1,0 +1,350 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　조사의 기초",
+      "shortLabel": "조사의 기초",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　과학적 방법과 조사연구",
+          "shortLabel": "과학적 방법과 조사연구",
+          "filters": [
+            {
+              "category": "조사의 기초",
+              "subcategory": "과학적 방법",
+              "sectionLabel": "과학적 방법"
+            },
+            {
+              "category": "조사의 기초",
+              "subcategory": "과학철학",
+              "sectionLabel": "과학철학"
+            },
+            {
+              "category": "조사의 기초",
+              "subcategory": "조사의 필요성",
+              "sectionLabel": "조사의 필요성"
+            },
+            {
+              "category": "조사의 기초",
+              "subcategory": "연구윤리",
+              "sectionLabel": "연구윤리"
+            }
+          ]
+        },
+        {
+          "id": "p1-c02",
+          "label": "CHAPTER 02　조사의 유형과 절차",
+          "shortLabel": "조사의 유형과 절차",
+          "filters": [
+            {
+              "category": "조사의 기초",
+              "subcategory": "조사의 목적",
+              "sectionLabel": "조사의 목적"
+            },
+            {
+              "category": "조사의 기초",
+              "subcategory": "조사의 절차",
+              "sectionLabel": "조사의 절차"
+            },
+            {
+              "category": "조사의 기초",
+              "subcategory": "시간 차원",
+              "sectionLabel": "시간 차원"
+            },
+            {
+              "category": "조사의 기초",
+              "subcategory": "분석단위",
+              "sectionLabel": "분석단위"
+            }
+          ]
+        },
+        {
+          "id": "p1-c03",
+          "label": "CHAPTER 03　조사문제와 가설",
+          "shortLabel": "조사문제와 가설",
+          "filters": [
+            {
+              "category": "조사의 기초",
+              "subcategory": "가설",
+              "sectionLabel": "가설"
+            },
+            {
+              "category": "조사의 기초",
+              "subcategory": "개념과 변수",
+              "sectionLabel": "개념과 변수"
+            },
+            {
+              "category": "조사의 기초",
+              "subcategory": "인과관계",
+              "sectionLabel": "인과관계"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　조사설계",
+      "shortLabel": "조사설계",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　조사설계와 인과관계",
+          "shortLabel": "조사설계와 인과관계",
+          "filters": [
+            {
+              "category": "조사설계",
+              "subcategory": "설계의 기초",
+              "sectionLabel": "설계의 기초"
+            },
+            {
+              "category": "조사설계",
+              "subcategory": "내적 타당도",
+              "sectionLabel": "내적 타당도"
+            },
+            {
+              "category": "조사설계",
+              "subcategory": "외적 타당도",
+              "sectionLabel": "외적 타당도"
+            }
+          ]
+        },
+        {
+          "id": "p2-c02",
+          "label": "CHAPTER 02　조사설계의 유형",
+          "shortLabel": "조사설계의 유형",
+          "filters": [
+            {
+              "category": "조사설계",
+              "subcategory": "실험설계",
+              "sectionLabel": "실험설계"
+            }
+          ]
+        },
+        {
+          "id": "p2-c03",
+          "label": "CHAPTER 03　단일사례설계",
+          "shortLabel": "단일사례설계",
+          "filters": [
+            {
+              "category": "조사설계",
+              "subcategory": "단일사례설계",
+              "sectionLabel": "단일사례설계"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　측정과 척도",
+      "shortLabel": "측정과 척도",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　측정",
+          "shortLabel": "측정",
+          "filters": [
+            {
+              "category": "측정과 척도",
+              "subcategory": "측정의 수준",
+              "sectionLabel": "측정의 수준"
+            },
+            {
+              "category": "측정과 척도",
+              "subcategory": "측정오류",
+              "sectionLabel": "측정오류"
+            },
+            {
+              "category": "측정과 척도",
+              "subcategory": "신뢰도",
+              "sectionLabel": "신뢰도"
+            },
+            {
+              "category": "측정과 척도",
+              "subcategory": "타당도",
+              "sectionLabel": "타당도"
+            },
+            {
+              "category": "측정과 척도",
+              "subcategory": "신뢰도와 타당도",
+              "sectionLabel": "신뢰도와 타당도"
+            },
+            {
+              "category": "측정과 척도",
+              "subcategory": "타당도 높이기",
+              "sectionLabel": "타당도 높이기"
+            }
+          ]
+        },
+        {
+          "id": "p3-c02",
+          "label": "CHAPTER 02　척도",
+          "shortLabel": "척도",
+          "filters": [
+            {
+              "category": "측정과 척도",
+              "subcategory": "척도의 구성",
+              "sectionLabel": "척도의 구성"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　표집",
+      "shortLabel": "표집",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　표집(표본추출)",
+          "shortLabel": "표집(표본추출)",
+          "filters": [
+            {
+              "category": "표집",
+              "subcategory": "표집의 기초",
+              "sectionLabel": "표집의 기초"
+            },
+            {
+              "category": "표집",
+              "subcategory": "확률표집",
+              "sectionLabel": "확률표집"
+            },
+            {
+              "category": "표집",
+              "subcategory": "비확률표집",
+              "sectionLabel": "비확률표집"
+            },
+            {
+              "category": "표집",
+              "subcategory": "표본의 크기",
+              "sectionLabel": "표본의 크기"
+            },
+            {
+              "category": "표집",
+              "subcategory": "표집오차",
+              "sectionLabel": "표집오차"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "label": "PART 5　자료수집",
+      "shortLabel": "자료수집",
+      "style": "violet",
+      "chapters": [
+        {
+          "id": "p5-c01",
+          "label": "CHAPTER 01　서베이(설문조사)",
+          "shortLabel": "서베이(설문조사)",
+          "filters": [
+            {
+              "category": "자료수집",
+              "subcategory": "서베이",
+              "sectionLabel": "서베이"
+            },
+            {
+              "category": "자료수집",
+              "subcategory": "설문지",
+              "sectionLabel": "설문지"
+            }
+          ]
+        },
+        {
+          "id": "p5-c02",
+          "label": "CHAPTER 02　관찰과 내용분석법",
+          "shortLabel": "관찰과 내용분석법",
+          "filters": [
+            {
+              "category": "자료수집",
+              "subcategory": "관찰",
+              "sectionLabel": "관찰"
+            },
+            {
+              "category": "자료수집",
+              "subcategory": "비반응성 자료",
+              "sectionLabel": "비반응성 자료"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part6",
+      "label": "PART 6　질적연구와 분석",
+      "shortLabel": "질적연구와 분석",
+      "style": "cyan",
+      "chapters": [
+        {
+          "id": "p6-c01",
+          "label": "CHAPTER 01　자료분석",
+          "shortLabel": "자료분석",
+          "filters": [
+            {
+              "category": "질적연구와 분석",
+              "subcategory": "분석방법의 선택",
+              "sectionLabel": "분석방법의 선택"
+            },
+            {
+              "category": "질적연구와 분석",
+              "subcategory": "기술통계",
+              "sectionLabel": "기술통계"
+            },
+            {
+              "category": "질적연구와 분석",
+              "subcategory": "추론통계",
+              "sectionLabel": "추론통계"
+            }
+          ]
+        },
+        {
+          "id": "p6-c02",
+          "label": "CHAPTER 02　질적 연구방법론",
+          "shortLabel": "질적 연구방법론",
+          "filters": [
+            {
+              "category": "질적연구와 분석",
+              "subcategory": "질적연구의 성격",
+              "sectionLabel": "질적연구의 성격"
+            },
+            {
+              "category": "질적연구와 분석",
+              "subcategory": "질적연구의 갈래",
+              "sectionLabel": "질적연구의 갈래"
+            },
+            {
+              "category": "질적연구와 분석",
+              "subcategory": "질적연구의 표집",
+              "sectionLabel": "질적연구의 표집"
+            },
+            {
+              "category": "질적연구와 분석",
+              "subcategory": "엄격성",
+              "sectionLabel": "엄격성"
+            },
+            {
+              "category": "질적연구와 분석",
+              "subcategory": "그 밖의 기준",
+              "sectionLabel": "그 밖의 기준"
+            },
+            {
+              "category": "질적연구와 분석",
+              "subcategory": "혼합연구",
+              "sectionLabel": "혼합연구"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

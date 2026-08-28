@@ -1,0 +1,466 @@
+{
+  "version": 2,
+  "source": "경찰 순경 공채 기출 9회차 360문항을 분류해 만든 목차 | taxonomy 가 공인중개사 것이 딸려 온 채 남아 있었다(형사법 과목에 부동산 목차). curriculum 의 필터를 그대로 옮겨 다시 세웠다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 01　교사범·종범·간접정범",
+      "subcategory": "교사범·종범·간접정범",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-101-1",
+      "part": "형법총론 - 범죄론",
+      "section": "공범론"
+    },
+    {
+      "order": 102,
+      "category": "형법총론 - 서론",
+      "chapter": "CHAPTER 02　형법의 기본개념·죄형법정주의·적용범위",
+      "subcategory": "형법의 기본개념·죄형법정주의·적용범위",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-102-2",
+      "part": "형법총론 - 서론",
+      "section": "형법의 기본개념·죄형법정주의·적용범위"
+    },
+    {
+      "order": 103,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 03　부작위범·결과적가중범",
+      "subcategory": "부작위범·결과적가중범",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-103-3",
+      "part": "형법총론 - 범죄론",
+      "section": "특수한 범죄유형"
+    },
+    {
+      "order": 104,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 04　고의·과실",
+      "subcategory": "고의·과실",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-104-4",
+      "part": "형법총론 - 범죄론",
+      "section": "구성요건론"
+    },
+    {
+      "order": 105,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 05　법조경합·상상적경합·실체적경합·포괄일죄",
+      "subcategory": "법조경합·상상적경합·실체적경합·포괄일죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-105-5",
+      "part": "형법총론 - 범죄론",
+      "section": "죄수론"
+    },
+    {
+      "order": 106,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 06　장애미수·중지미수·불능미수·예비음모",
+      "subcategory": "장애미수·중지미수·불능미수·예비음모",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-106-6",
+      "part": "형법총론 - 범죄론",
+      "section": "미수론"
+    },
+    {
+      "order": 107,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 07　공동정범",
+      "subcategory": "공동정범",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-107-7",
+      "part": "형법총론 - 범죄론",
+      "section": "공범론"
+    },
+    {
+      "order": 108,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 08　정당방위·긴급피난·자구행위",
+      "subcategory": "정당방위·긴급피난·자구행위",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-108-8",
+      "part": "형법총론 - 범죄론",
+      "section": "위법성론"
+    },
+    {
+      "order": 109,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 09　법률의 착오",
+      "subcategory": "법률의 착오",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-109-9",
+      "part": "형법총론 - 범죄론",
+      "section": "책임론"
+    },
+    {
+      "order": 110,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 10　책임능력(심신장애·원인에서 자유로운 행위)",
+      "subcategory": "책임능력(심신장애·원인에서 자유로운 행위)",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-110-10",
+      "part": "형법총론 - 범죄론",
+      "section": "책임론"
+    },
+    {
+      "order": 111,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 11　사회상규에 위배되지 아니하는 행위",
+      "subcategory": "사회상규에 위배되지 아니하는 행위",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-111-11",
+      "part": "형법총론 - 범죄론",
+      "section": "위법성론"
+    },
+    {
+      "order": 112,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 12　범죄의 종류(계속범·상태범·즉시범 등)",
+      "subcategory": "범죄의 종류(계속범·상태범·즉시범 등)",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-112-12",
+      "part": "형법총론 - 범죄론",
+      "section": "범죄의 종류(계속범·상태범·즉시범 등)"
+    },
+    {
+      "order": 113,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 13　양벌규정·법인의 형사책임",
+      "subcategory": "양벌규정·법인의 형사책임",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-113-13",
+      "part": "형법총론 - 범죄론",
+      "section": "범죄의 기본개념"
+    },
+    {
+      "order": 114,
+      "category": "형법총론 - 형벌론",
+      "chapter": "CHAPTER 14　형의 양정·집행유예·누범",
+      "subcategory": "형의 양정·집행유예·누범",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-114-14",
+      "part": "형법총론 - 형벌론",
+      "section": "형의 양정·집행유예·누범"
+    },
+    {
+      "order": 115,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 15　기대가능성·책임조각사유",
+      "subcategory": "기대가능성·책임조각사유",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-115-15",
+      "part": "형법총론 - 범죄론",
+      "section": "책임론"
+    },
+    {
+      "order": 116,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 16　인과관계·객관적 귀속",
+      "subcategory": "인과관계·객관적 귀속",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-116-16",
+      "part": "형법총론 - 범죄론",
+      "section": "구성요건론"
+    },
+    {
+      "order": 117,
+      "category": "형법총론 - 형벌론",
+      "chapter": "CHAPTER 17　몰수·추징",
+      "subcategory": "몰수·추징",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-117-17",
+      "part": "형법총론 - 형벌론",
+      "section": "몰수·추징"
+    },
+    {
+      "order": 118,
+      "category": "형법총론 - 범죄론",
+      "chapter": "CHAPTER 18　피해자의 승낙·추정적 승낙",
+      "subcategory": "피해자의 승낙·추정적 승낙",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-118-18",
+      "part": "형법총론 - 범죄론",
+      "section": "위법성론"
+    },
+    {
+      "order": 201,
+      "category": "형법각론 - 개인적 법익",
+      "chapter": "CHAPTER 01　사기죄·공갈죄",
+      "subcategory": "사기죄·공갈죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-201-19",
+      "part": "형법각론 - 개인적 법익",
+      "section": "사기죄·공갈죄"
+    },
+    {
+      "order": 202,
+      "category": "형법각론 - 개인적 법익",
+      "chapter": "CHAPTER 02　상해·폭행·체포감금·협박",
+      "subcategory": "상해·폭행·체포감금·협박",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-202-20",
+      "part": "형법각론 - 개인적 법익",
+      "section": "상해·폭행·체포감금·협박"
+    },
+    {
+      "order": 203,
+      "category": "형법각론 - 개인적 법익",
+      "chapter": "CHAPTER 03　명예훼손죄·업무방해죄·경매입찰방해죄",
+      "subcategory": "명예훼손죄·업무방해죄·경매입찰방해죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-203-21",
+      "part": "형법각론 - 개인적 법익",
+      "section": "명예훼손죄·업무방해죄·경매입찰방해죄"
+    },
+    {
+      "order": 204,
+      "category": "형법각론 - 개인적 법익",
+      "chapter": "CHAPTER 04　약취·유인·강간과 추행의 죄",
+      "subcategory": "약취·유인·강간과 추행의 죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-204-22",
+      "part": "형법각론 - 개인적 법익",
+      "section": "약취·유인·강간과 추행의 죄"
+    },
+    {
+      "order": 205,
+      "category": "형법각론 - 개인적 법익",
+      "chapter": "CHAPTER 05　횡령죄·배임죄",
+      "subcategory": "횡령죄·배임죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-205-23",
+      "part": "형법각론 - 개인적 법익",
+      "section": "횡령죄·배임죄"
+    },
+    {
+      "order": 206,
+      "category": "형법각론 - 개인적 법익",
+      "chapter": "CHAPTER 06　주거침입죄·비밀침해죄",
+      "subcategory": "주거침입죄·비밀침해죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-206-24",
+      "part": "형법각론 - 개인적 법익",
+      "section": "주거침입죄·비밀침해죄"
+    },
+    {
+      "order": 207,
+      "category": "형법각론 - 개인적 법익",
+      "chapter": "CHAPTER 07　절도죄·강도죄",
+      "subcategory": "절도죄·강도죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-207-25",
+      "part": "형법각론 - 개인적 법익",
+      "section": "절도죄·강도죄"
+    },
+    {
+      "order": 208,
+      "category": "형법각론 - 개인적 법익",
+      "chapter": "CHAPTER 08　장물죄·손괴죄",
+      "subcategory": "장물죄·손괴죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-208-26",
+      "part": "형법각론 - 개인적 법익",
+      "section": "장물죄·손괴죄"
+    },
+    {
+      "order": 209,
+      "category": "형법각론 - 개인적 법익",
+      "chapter": "CHAPTER 09　권리행사방해죄",
+      "subcategory": "권리행사방해죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-209-27",
+      "part": "형법각론 - 개인적 법익",
+      "section": "권리행사방해죄"
+    },
+    {
+      "order": 301,
+      "category": "형법각론 - 사회적 법익",
+      "chapter": "CHAPTER 01　문서에 관한 죄",
+      "subcategory": "문서에 관한 죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-301-28",
+      "part": "형법각론 - 사회적 법익",
+      "section": "문서에 관한 죄"
+    },
+    {
+      "order": 302,
+      "category": "형법각론 - 사회적 법익",
+      "chapter": "CHAPTER 02　일반교통방해죄·부동산강제집행효용침해죄",
+      "subcategory": "일반교통방해죄·부동산강제집행효용침해죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-302-29",
+      "part": "형법각론 - 사회적 법익",
+      "section": "일반교통방해죄·부동산강제집행효용침해죄"
+    },
+    {
+      "order": 401,
+      "category": "형법각론 - 국가적 법익",
+      "chapter": "CHAPTER 01　뇌물죄",
+      "subcategory": "뇌물죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-401-30",
+      "part": "형법각론 - 국가적 법익",
+      "section": "뇌물죄"
+    },
+    {
+      "order": 402,
+      "category": "형법각론 - 국가적 법익",
+      "chapter": "CHAPTER 02　위증죄·증거인멸죄·무고죄",
+      "subcategory": "위증죄·증거인멸죄·무고죄",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-402-31",
+      "part": "형법각론 - 국가적 법익",
+      "section": "위증죄·증거인멸죄·무고죄"
+    },
+    {
+      "order": 403,
+      "category": "형법각론 - 국가적 법익",
+      "chapter": "CHAPTER 03　공무집행방해죄(위계·직권남용)",
+      "subcategory": "공무집행방해죄(위계·직권남용)",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-403-32",
+      "part": "형법각론 - 국가적 법익",
+      "section": "공무집행방해죄(위계·직권남용)"
+    },
+    {
+      "order": 501,
+      "category": "수사",
+      "chapter": "CHAPTER 01　수사의 단서(고소·불심검문·함정수사)",
+      "subcategory": "수사의 단서(고소·불심검문·함정수사)",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-501-33",
+      "part": "수사",
+      "section": "수사의 단서(고소·불심검문·함정수사)"
+    },
+    {
+      "order": 502,
+      "category": "수사",
+      "chapter": "CHAPTER 02　수사의 종결과 수사준칙",
+      "subcategory": "수사의 종결과 수사준칙",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-502-34",
+      "part": "수사",
+      "section": "수사의 종결과 수사준칙"
+    },
+    {
+      "order": 503,
+      "category": "수사",
+      "chapter": "CHAPTER 03　임의수사와 피의자신문",
+      "subcategory": "임의수사와 피의자신문",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-503-35",
+      "part": "수사",
+      "section": "임의수사와 피의자신문"
+    },
+    {
+      "order": 601,
+      "category": "강제처분",
+      "chapter": "CHAPTER 01　압수·수색·검증",
+      "subcategory": "압수·수색·검증",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-601-36",
+      "part": "강제처분",
+      "section": "압수·수색·검증"
+    },
+    {
+      "order": 602,
+      "category": "강제처분",
+      "chapter": "CHAPTER 02　체포",
+      "subcategory": "체포",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-602-37",
+      "part": "강제처분",
+      "section": "체포"
+    },
+    {
+      "order": 603,
+      "category": "강제처분",
+      "chapter": "CHAPTER 03　구속",
+      "subcategory": "구속",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-603-38",
+      "part": "강제처분",
+      "section": "구속"
+    },
+    {
+      "order": 604,
+      "category": "강제처분",
+      "chapter": "CHAPTER 04　수사상 증거보전·통신제한",
+      "subcategory": "수사상 증거보전·통신제한",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-604-39",
+      "part": "강제처분",
+      "section": "수사상 증거보전·통신제한"
+    },
+    {
+      "order": 701,
+      "category": "증거",
+      "chapter": "CHAPTER 01　전문법칙",
+      "subcategory": "전문법칙",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-701-40",
+      "part": "증거",
+      "section": "전문법칙"
+    },
+    {
+      "order": 702,
+      "category": "증거",
+      "chapter": "CHAPTER 02　증거재판주의와 증명",
+      "subcategory": "증거재판주의와 증명",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-702-41",
+      "part": "증거",
+      "section": "증거재판주의와 증명"
+    },
+    {
+      "order": 703,
+      "category": "증거",
+      "chapter": "CHAPTER 03　위법수집증거배제법칙",
+      "subcategory": "위법수집증거배제법칙",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-703-42",
+      "part": "증거",
+      "section": "위법수집증거배제법칙"
+    },
+    {
+      "order": 704,
+      "category": "증거",
+      "chapter": "CHAPTER 04　자백배제법칙과 자백보강법칙",
+      "subcategory": "자백배제법칙과 자백보강법칙",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-704-43",
+      "part": "증거",
+      "section": "자백배제법칙과 자백보강법칙"
+    },
+    {
+      "order": 705,
+      "category": "증거",
+      "chapter": "CHAPTER 05　당사자의 동의와 탄핵증거",
+      "subcategory": "당사자의 동의와 탄핵증거",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-705-44",
+      "part": "증거",
+      "section": "당사자의 동의와 탄핵증거"
+    },
+    {
+      "order": 801,
+      "category": "소송의 주체",
+      "chapter": "CHAPTER 01　변호인과 접견교통권",
+      "subcategory": "변호인과 접견교통권",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-801-45",
+      "part": "소송의 주체",
+      "section": "변호인과 접견교통권"
+    },
+    {
+      "order": 901,
+      "category": "강제처분",
+      "chapter": "CHAPTER 01　사례형 종합",
+      "subcategory": "압수·수색·검증",
+      "keywords": [],
+      "unit_id": "hyeongsabeop-901-46",
+      "part": "강제처분",
+      "section": "압수·수색·검증"
+    }
+  ]
+}

@@ -1,0 +1,533 @@
+{
+  "version": 3,
+  "source": "봄기출 표준 목차(표준/경찰/헌법.md)로 다시 세웠다. 해커스 신동욱·박문각 정인영·윤우혁 3사 대조. 3사 만장일치로 있는 「경제적 기본권」 편을 세우고 재산권·직업의 자유를 자유권에서 옮겼다.",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　헌법총론",
+      "shortLabel": "헌법총론",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　헌법의 개념·해석·개정",
+          "shortLabel": "헌법의 개념·해석·개정",
+          "filters": [
+            {
+              "category": "헌법총론",
+              "subcategory": "헌법의 개념·해석·개정",
+              "taxonomyUnitId": "heonbeop-101-1",
+              "sectionLabel": "헌법의 개념·해석·개정"
+            }
+          ]
+        },
+        {
+          "id": "p1-c02",
+          "label": "CHAPTER 02　헌법의 기본원리",
+          "shortLabel": "헌법의 기본원리",
+          "filters": [
+            {
+              "category": "헌법총론",
+              "subcategory": "헌법의 기본원리",
+              "taxonomyUnitId": "heonbeop-102-2",
+              "sectionLabel": "헌법의 기본원리"
+            }
+          ]
+        },
+        {
+          "id": "p1-c03",
+          "label": "CHAPTER 03　정당제도",
+          "shortLabel": "정당제도",
+          "filters": [
+            {
+              "category": "헌법총론",
+              "subcategory": "정당제도",
+              "taxonomyUnitId": "heonbeop-103-3",
+              "sectionLabel": "정당제도"
+            }
+          ]
+        },
+        {
+          "id": "p1-c04",
+          "label": "CHAPTER 04　선거제도·선거권",
+          "shortLabel": "선거제도·선거권",
+          "filters": [
+            {
+              "category": "헌법총론",
+              "subcategory": "선거제도·선거권",
+              "taxonomyUnitId": "heonbeop-104-4",
+              "sectionLabel": "선거제도·선거권"
+            }
+          ]
+        },
+        {
+          "id": "p1-c05",
+          "label": "CHAPTER 05　공무원제도·지방자치제도·제도적 보장",
+          "shortLabel": "공무원제도·지방자치제도·제도적 보장",
+          "filters": [
+            {
+              "category": "헌법총론",
+              "subcategory": "공무원제도·지방자치제도·제도적 보장",
+              "taxonomyUnitId": "heonbeop-105-5",
+              "sectionLabel": "공무원제도·지방자치제도·제도적 보장"
+            }
+          ]
+        },
+        {
+          "id": "p1-c06",
+          "label": "CHAPTER 06　대한민국의 국민(국적)",
+          "shortLabel": "대한민국의 국민(국적)",
+          "filters": [
+            {
+              "category": "헌법총론",
+              "subcategory": "대한민국의 국민(국적)",
+              "taxonomyUnitId": "heonbeop-106-6",
+              "sectionLabel": "대한민국의 국민(국적)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　기본권 총론",
+      "shortLabel": "기본권 총론",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　기본권의 제한과 과잉금지원칙",
+          "shortLabel": "기본권의 제한과 과잉금지원칙",
+          "filters": [
+            {
+              "category": "기본권 총론",
+              "subcategory": "기본권의 제한과 과잉금지원칙",
+              "taxonomyUnitId": "heonbeop-201-7",
+              "sectionLabel": "기본권의 제한과 과잉금지원칙"
+            }
+          ]
+        },
+        {
+          "id": "p2-c02",
+          "label": "CHAPTER 02　기본권의 주체",
+          "shortLabel": "기본권의 주체",
+          "filters": [
+            {
+              "category": "기본권 총론",
+              "subcategory": "기본권의 주체",
+              "taxonomyUnitId": "heonbeop-202-8",
+              "sectionLabel": "기본권의 주체"
+            }
+          ]
+        },
+        {
+          "id": "p2-c03",
+          "label": "CHAPTER 03　기본권 보호의무·충돌·부작위",
+          "shortLabel": "기본권 보호의무·충돌·부작위",
+          "filters": [
+            {
+              "category": "기본권 총론",
+              "subcategory": "기본권 보호의무·충돌·부작위",
+              "taxonomyUnitId": "heonbeop-203-9",
+              "sectionLabel": "기본권 보호의무·충돌·부작위"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　인간의 존엄과 평등",
+      "shortLabel": "인간의 존엄과 평등",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　인간의 존엄과 가치·행복추구권",
+          "shortLabel": "인간의 존엄과 가치·행복추구권",
+          "filters": [
+            {
+              "category": "인간의 존엄과 평등",
+              "subcategory": "인간의 존엄과 가치·행복추구권",
+              "taxonomyUnitId": "heonbeop-301-10",
+              "sectionLabel": "인간의 존엄과 가치·행복추구권"
+            }
+          ]
+        },
+        {
+          "id": "p3-c02",
+          "label": "CHAPTER 02　평등권·평등원칙",
+          "shortLabel": "평등권·평등원칙",
+          "filters": [
+            {
+              "category": "인간의 존엄과 평등",
+              "subcategory": "평등권·평등원칙",
+              "taxonomyUnitId": "heonbeop-302-11",
+              "sectionLabel": "평등권·평등원칙"
+            }
+          ]
+        },
+        {
+          "id": "p3-c03",
+          "label": "CHAPTER 03　일반적 행동자유권",
+          "shortLabel": "일반적 행동자유권",
+          "filters": [
+            {
+              "category": "인간의 존엄과 평등",
+              "subcategory": "일반적 행동자유권",
+              "taxonomyUnitId": "heonbeop-303-12",
+              "sectionLabel": "일반적 행동자유권"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　자유권적 기본권",
+      "shortLabel": "자유권적 기본권",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　신체의 자유(영장주의·적법절차)",
+          "shortLabel": "신체의 자유(영장주의·적법절차)",
+          "filters": [
+            {
+              "category": "자유권적 기본권",
+              "subcategory": "신체의 자유(영장주의·적법절차)",
+              "taxonomyUnitId": "heonbeop-401-13",
+              "sectionLabel": "신체의 자유(영장주의·적법절차)"
+            }
+          ]
+        },
+        {
+          "id": "p4-c02",
+          "label": "CHAPTER 02　표현의 자유(언론·출판)",
+          "shortLabel": "표현의 자유(언론·출판)",
+          "filters": [
+            {
+              "category": "자유권적 기본권",
+              "subcategory": "표현의 자유(언론·출판)",
+              "taxonomyUnitId": "heonbeop-402-14",
+              "sectionLabel": "표현의 자유(언론·출판)"
+            }
+          ]
+        },
+        {
+          "id": "p4-c03",
+          "label": "CHAPTER 03　학문·예술의 자유와 대학의 자치",
+          "shortLabel": "학문·예술의 자유와 대학의 자치",
+          "filters": [
+            {
+              "category": "자유권적 기본권",
+              "subcategory": "학문·예술의 자유와 대학의 자치",
+              "taxonomyUnitId": "heonbeop-403-15",
+              "sectionLabel": "학문·예술의 자유와 대학의 자치"
+            }
+          ]
+        },
+        {
+          "id": "p4-c04",
+          "label": "CHAPTER 04　양심·종교의 자유",
+          "shortLabel": "양심·종교의 자유",
+          "filters": [
+            {
+              "category": "자유권적 기본권",
+              "subcategory": "양심·종교의 자유",
+              "taxonomyUnitId": "heonbeop-404-16",
+              "sectionLabel": "양심·종교의 자유"
+            }
+          ]
+        },
+        {
+          "id": "p4-c05",
+          "label": "CHAPTER 05　집회·결사의 자유",
+          "shortLabel": "집회·결사의 자유",
+          "filters": [
+            {
+              "category": "자유권적 기본권",
+              "subcategory": "집회·결사의 자유",
+              "taxonomyUnitId": "heonbeop-405-17",
+              "sectionLabel": "집회·결사의 자유"
+            }
+          ]
+        },
+        {
+          "id": "p4-c08",
+          "label": "CHAPTER 08　사생활의 비밀과 자유·개인정보",
+          "shortLabel": "사생활의 비밀과 자유·개인정보",
+          "filters": [
+            {
+              "category": "자유권적 기본권",
+              "subcategory": "사생활의 비밀과 자유·개인정보",
+              "taxonomyUnitId": "heonbeop-408-20",
+              "sectionLabel": "사생활의 비밀과 자유·개인정보"
+            }
+          ]
+        },
+        {
+          "id": "p4-c09",
+          "label": "CHAPTER 09　변호인의 조력을 받을 권리",
+          "shortLabel": "변호인의 조력을 받을 권리",
+          "filters": [
+            {
+              "category": "자유권적 기본권",
+              "subcategory": "변호인의 조력을 받을 권리",
+              "taxonomyUnitId": "heonbeop-409-21",
+              "sectionLabel": "변호인의 조력을 받을 권리"
+            }
+          ]
+        },
+        {
+          "id": "p4-c10",
+          "label": "CHAPTER 10　거주·이전의 자유",
+          "shortLabel": "거주·이전의 자유",
+          "filters": [
+            {
+              "category": "자유권적 기본권",
+              "subcategory": "거주·이전의 자유",
+              "taxonomyUnitId": "heonbeop-410-22",
+              "sectionLabel": "거주·이전의 자유"
+            }
+          ]
+        },
+        {
+          "id": "p4-c11",
+          "label": "CHAPTER 11　통신의 자유",
+          "shortLabel": "통신의 자유",
+          "filters": [
+            {
+              "category": "자유권적 기본권",
+              "subcategory": "통신의 자유",
+              "taxonomyUnitId": "heonbeop-411-23",
+              "sectionLabel": "통신의 자유"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "label": "PART 5　경제적 기본권",
+      "shortLabel": "경제적 기본권",
+      "style": "violet",
+      "chapters": [
+        {
+          "id": "pe-c01",
+          "label": "CHAPTER 01　재산권",
+          "shortLabel": "재산권",
+          "filters": [
+            {
+              "category": "경제적 기본권",
+              "subcategory": "재산권",
+              "taxonomyUnitId": "con-e1",
+              "sectionLabel": "재산권"
+            }
+          ]
+        },
+        {
+          "id": "pe-c02",
+          "label": "CHAPTER 02　직업의 자유",
+          "shortLabel": "직업의 자유",
+          "filters": [
+            {
+              "category": "경제적 기본권",
+              "subcategory": "직업의 자유",
+              "taxonomyUnitId": "con-e2",
+              "sectionLabel": "직업의 자유"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part6",
+      "label": "PART 6　정치적 기본권",
+      "shortLabel": "정치적 기본권",
+      "style": "cyan",
+      "chapters": [
+        {
+          "id": "p5-c01",
+          "label": "CHAPTER 01　공무담임권·정치적 기본권",
+          "shortLabel": "공무담임권·정치적 기본권",
+          "filters": [
+            {
+              "category": "정치적 기본권",
+              "subcategory": "공무담임권·정치적 기본권",
+              "taxonomyUnitId": "heonbeop-501-24",
+              "sectionLabel": "공무담임권·정치적 기본권"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part7",
+      "label": "PART 7　사회권적 기본권",
+      "shortLabel": "사회권적 기본권",
+      "style": "indigo",
+      "chapters": [
+        {
+          "id": "p6-c01",
+          "label": "CHAPTER 01　인간다운 생활을 할 권리·사회보장",
+          "shortLabel": "인간다운 생활을 할 권리·사회보장",
+          "filters": [
+            {
+              "category": "사회권적 기본권",
+              "subcategory": "인간다운 생활을 할 권리·사회보장",
+              "taxonomyUnitId": "heonbeop-601-25",
+              "sectionLabel": "인간다운 생활을 할 권리·사회보장"
+            }
+          ]
+        },
+        {
+          "id": "p6-c02",
+          "label": "CHAPTER 02　근로의 권리와 근로3권",
+          "shortLabel": "근로의 권리와 근로3권",
+          "filters": [
+            {
+              "category": "사회권적 기본권",
+              "subcategory": "근로의 권리와 근로3권",
+              "taxonomyUnitId": "heonbeop-602-26",
+              "sectionLabel": "근로의 권리와 근로3권"
+            }
+          ]
+        },
+        {
+          "id": "p6-c03",
+          "label": "CHAPTER 03　교육을 받을 권리",
+          "shortLabel": "교육을 받을 권리",
+          "filters": [
+            {
+              "category": "사회권적 기본권",
+              "subcategory": "교육을 받을 권리",
+              "taxonomyUnitId": "heonbeop-603-27",
+              "sectionLabel": "교육을 받을 권리"
+            }
+          ]
+        },
+        {
+          "id": "p6-c04",
+          "label": "CHAPTER 04　혼인과 가족생활",
+          "shortLabel": "혼인과 가족생활",
+          "filters": [
+            {
+              "category": "사회권적 기본권",
+              "subcategory": "혼인과 가족생활",
+              "taxonomyUnitId": "heonbeop-604-28",
+              "sectionLabel": "혼인과 가족생활"
+            }
+          ]
+        },
+        {
+          "id": "p6-c05",
+          "label": "CHAPTER 05　환경권·보건권",
+          "shortLabel": "환경권·보건권",
+          "filters": [
+            {
+              "category": "사회권적 기본권",
+              "subcategory": "환경권·보건권",
+              "taxonomyUnitId": "heonbeop-605-29",
+              "sectionLabel": "환경권·보건권"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part8",
+      "label": "PART 8　청구권적 기본권",
+      "shortLabel": "청구권적 기본권",
+      "style": "lime",
+      "chapters": [
+        {
+          "id": "p7-c01",
+          "label": "CHAPTER 01　재판청구권",
+          "shortLabel": "재판청구권",
+          "filters": [
+            {
+              "category": "청구권적 기본권",
+              "subcategory": "재판청구권",
+              "taxonomyUnitId": "heonbeop-701-30",
+              "sectionLabel": "재판청구권"
+            }
+          ]
+        },
+        {
+          "id": "p7-c02",
+          "label": "CHAPTER 02　국가배상청구권",
+          "shortLabel": "국가배상청구권",
+          "filters": [
+            {
+              "category": "청구권적 기본권",
+              "subcategory": "국가배상청구권",
+              "taxonomyUnitId": "heonbeop-702-31",
+              "sectionLabel": "국가배상청구권"
+            }
+          ]
+        },
+        {
+          "id": "p7-c03",
+          "label": "CHAPTER 03　형사보상청구권",
+          "shortLabel": "형사보상청구권",
+          "filters": [
+            {
+              "category": "청구권적 기본권",
+              "subcategory": "형사보상청구권",
+              "taxonomyUnitId": "heonbeop-703-32",
+              "sectionLabel": "형사보상청구권"
+            }
+          ]
+        },
+        {
+          "id": "p7-c04",
+          "label": "CHAPTER 04　청원권",
+          "shortLabel": "청원권",
+          "filters": [
+            {
+              "category": "청구권적 기본권",
+              "subcategory": "청원권",
+              "taxonomyUnitId": "heonbeop-704-33",
+              "sectionLabel": "청원권"
+            }
+          ]
+        },
+        {
+          "id": "p7-c05",
+          "label": "CHAPTER 05　범죄피해자구조청구권",
+          "shortLabel": "범죄피해자구조청구권",
+          "filters": [
+            {
+              "category": "청구권적 기본권",
+              "subcategory": "범죄피해자구조청구권",
+              "taxonomyUnitId": "heonbeop-705-34",
+              "sectionLabel": "범죄피해자구조청구권"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part9",
+      "label": "PART 9　국민의 의무",
+      "shortLabel": "국민의 의무",
+      "style": "fuchsia",
+      "chapters": [
+        {
+          "id": "p8-c01",
+          "label": "CHAPTER 01　국민의 기본의무",
+          "shortLabel": "국민의 기본의무",
+          "filters": [
+            {
+              "category": "국민의 의무",
+              "subcategory": "국민의 기본의무",
+              "taxonomyUnitId": "heonbeop-801-35",
+              "sectionLabel": "국민의 기본의무"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

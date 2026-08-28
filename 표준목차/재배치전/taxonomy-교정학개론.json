@@ -1,0 +1,462 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "units": [
+    {
+      "order": 111,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제1장 교정의 기초와 행형의 역사",
+      "subcategory": "교정학의 기초와 용어",
+      "keywords": [],
+      "unit_id": "gyojeonghak-101-1"
+    },
+    {
+      "order": 112,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제1장 교정의 기초와 행형의 역사",
+      "subcategory": "구금제도와 교정시설",
+      "keywords": [],
+      "unit_id": "gyojeonghak-101-2"
+    },
+    {
+      "order": 113,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제1장 교정의 기초와 행형의 역사",
+      "subcategory": "행형의 역사",
+      "keywords": [],
+      "unit_id": "gyojeonghak-101-3"
+    },
+    {
+      "order": 114,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제1장 교정의 기초와 행형의 역사",
+      "subcategory": "교도소화와 하위문화",
+      "keywords": [],
+      "unit_id": "gyojeonghak-101-4"
+    },
+    {
+      "order": 121,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제2장 범죄원인론과 형사정책",
+      "subcategory": "고전주의와 실증주의",
+      "keywords": [],
+      "unit_id": "gyojeonghak-102-1"
+    },
+    {
+      "order": 122,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제2장 범죄원인론과 형사정책",
+      "subcategory": "생물학·심리학적 원인론",
+      "keywords": [],
+      "unit_id": "gyojeonghak-102-2"
+    },
+    {
+      "order": 123,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제2장 범죄원인론과 형사정책",
+      "subcategory": "사회구조이론",
+      "keywords": [],
+      "unit_id": "gyojeonghak-102-3"
+    },
+    {
+      "order": 124,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제2장 범죄원인론과 형사정책",
+      "subcategory": "사회과정이론",
+      "keywords": [],
+      "unit_id": "gyojeonghak-102-4"
+    },
+    {
+      "order": 125,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제2장 범죄원인론과 형사정책",
+      "subcategory": "낙인이론과 비판범죄학",
+      "keywords": [],
+      "unit_id": "gyojeonghak-102-5"
+    },
+    {
+      "order": 126,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제2장 범죄원인론과 형사정책",
+      "subcategory": "환경범죄학과 억제이론",
+      "keywords": [],
+      "unit_id": "gyojeonghak-102-6"
+    },
+    {
+      "order": 127,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제2장 범죄원인론과 형사정책",
+      "subcategory": "범죄학 이론 종합과 암수범죄",
+      "keywords": [],
+      "unit_id": "gyojeonghak-102-7"
+    },
+    {
+      "order": 128,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제2장 범죄원인론과 형사정책",
+      "subcategory": "다이버전과 비범죄화",
+      "keywords": [],
+      "unit_id": "gyojeonghak-102-8"
+    },
+    {
+      "order": 129,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제2장 범죄원인론과 형사정책",
+      "subcategory": "회복적 사법과 피해자",
+      "keywords": [],
+      "unit_id": "gyojeonghak-102-9"
+    },
+    {
+      "order": 131,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제3장 형벌론과 교정처우이론",
+      "subcategory": "형벌의 종류",
+      "keywords": [],
+      "unit_id": "gyojeonghak-103-1"
+    },
+    {
+      "order": 132,
+      "category": "제1편 교정학 총론과 형벌이념",
+      "chapter": "제3장 형벌론과 교정처우이론",
+      "subcategory": "형의 실효와 사형폐지론",
+      "keywords": [],
+      "unit_id": "gyojeonghak-103-2"
+    },
+    {
+      "order": 211,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제1장 수용과 이송",
+      "subcategory": "수용의 원칙과 독거수용",
+      "keywords": [],
+      "unit_id": "gyojeonghak-201-1"
+    },
+    {
+      "order": 212,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제1장 수용과 이송",
+      "subcategory": "교정시설과 금지물품",
+      "keywords": [],
+      "unit_id": "gyojeonghak-201-2"
+    },
+    {
+      "order": 213,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제1장 수용과 이송",
+      "subcategory": "이송과 호송",
+      "keywords": [],
+      "unit_id": "gyojeonghak-201-3"
+    },
+    {
+      "order": 214,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제1장 수용과 이송",
+      "subcategory": "위생과 의료",
+      "keywords": [],
+      "unit_id": "gyojeonghak-201-4"
+    },
+    {
+      "order": 221,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제2장 외부교통(접견·편지·전화)",
+      "subcategory": "접견",
+      "keywords": [],
+      "unit_id": "gyojeonghak-202-1"
+    },
+    {
+      "order": 222,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제2장 외부교통(접견·편지·전화)",
+      "subcategory": "편지와 전화",
+      "keywords": [],
+      "unit_id": "gyojeonghak-202-2"
+    },
+    {
+      "order": 231,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제3장 교육과 교화",
+      "subcategory": "교육과 교화프로그램",
+      "keywords": [],
+      "unit_id": "gyojeonghak-203-1"
+    },
+    {
+      "order": 232,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제3장 교육과 교화",
+      "subcategory": "문화활동과 자비구매",
+      "keywords": [],
+      "unit_id": "gyojeonghak-203-2"
+    },
+    {
+      "order": 233,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제3장 교육과 교화",
+      "subcategory": "수형자자치제",
+      "keywords": [],
+      "unit_id": "gyojeonghak-203-3"
+    },
+    {
+      "order": 241,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제4장 안전과 질서·징벌",
+      "subcategory": "안전과 질서",
+      "keywords": [],
+      "unit_id": "gyojeonghak-204-1"
+    },
+    {
+      "order": 242,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제4장 안전과 질서·징벌",
+      "subcategory": "교정장비와 무기",
+      "keywords": [],
+      "unit_id": "gyojeonghak-204-2"
+    },
+    {
+      "order": 243,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제4장 안전과 질서·징벌",
+      "subcategory": "보호실과 진정실",
+      "keywords": [],
+      "unit_id": "gyojeonghak-204-3"
+    },
+    {
+      "order": 244,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제4장 안전과 질서·징벌",
+      "subcategory": "징벌",
+      "keywords": [],
+      "unit_id": "gyojeonghak-204-4"
+    },
+    {
+      "order": 251,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제5장 석방과 권리구제",
+      "subcategory": "석방과 형의 집행",
+      "keywords": [],
+      "unit_id": "gyojeonghak-205-1"
+    },
+    {
+      "order": 252,
+      "category": "제2편 수용자 공통처우",
+      "chapter": "제5장 석방과 권리구제",
+      "subcategory": "권리구제",
+      "keywords": [],
+      "unit_id": "gyojeonghak-205-2"
+    },
+    {
+      "order": 311,
+      "category": "제3편 수용자별 처우",
+      "chapter": "제1장 특별한 보호가 필요한 수용자",
+      "subcategory": "여성·노인·장애인 수용자",
+      "keywords": [],
+      "unit_id": "gyojeonghak-301-1"
+    },
+    {
+      "order": 312,
+      "category": "제3편 수용자별 처우",
+      "chapter": "제1장 특별한 보호가 필요한 수용자",
+      "subcategory": "엄중관리대상자",
+      "keywords": [],
+      "unit_id": "gyojeonghak-301-2"
+    },
+    {
+      "order": 313,
+      "category": "제3편 수용자별 처우",
+      "chapter": "제1장 특별한 보호가 필요한 수용자",
+      "subcategory": "의료처우",
+      "keywords": [],
+      "unit_id": "gyojeonghak-301-3"
+    },
+    {
+      "order": 321,
+      "category": "제3편 수용자별 처우",
+      "chapter": "제2장 미결수용자와 사형확정자",
+      "subcategory": "미결수용자",
+      "keywords": [],
+      "unit_id": "gyojeonghak-302-1"
+    },
+    {
+      "order": 322,
+      "category": "제3편 수용자별 처우",
+      "chapter": "제2장 미결수용자와 사형확정자",
+      "subcategory": "사형확정자",
+      "keywords": [],
+      "unit_id": "gyojeonghak-302-2"
+    },
+    {
+      "order": 411,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제1장 분류심사와 경비처우급",
+      "subcategory": "수형자 분류와 처우모델",
+      "keywords": [],
+      "unit_id": "gyojeonghak-401-1"
+    },
+    {
+      "order": 412,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제1장 분류심사와 경비처우급",
+      "subcategory": "분류심사",
+      "keywords": [],
+      "unit_id": "gyojeonghak-401-2"
+    },
+    {
+      "order": 413,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제1장 분류심사와 경비처우급",
+      "subcategory": "경비처우급",
+      "keywords": [],
+      "unit_id": "gyojeonghak-401-3"
+    },
+    {
+      "order": 414,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제1장 분류심사와 경비처우급",
+      "subcategory": "누진처우",
+      "keywords": [],
+      "unit_id": "gyojeonghak-401-4"
+    },
+    {
+      "order": 415,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제1장 분류심사와 경비처우급",
+      "subcategory": "개별처우계획",
+      "keywords": [],
+      "unit_id": "gyojeonghak-401-5"
+    },
+    {
+      "order": 421,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제2장 교도작업과 직업훈련",
+      "subcategory": "교도작업 일반",
+      "keywords": [],
+      "unit_id": "gyojeonghak-402-1"
+    },
+    {
+      "order": 422,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제2장 교도작업과 직업훈련",
+      "subcategory": "외부통근작업",
+      "keywords": [],
+      "unit_id": "gyojeonghak-402-2"
+    },
+    {
+      "order": 423,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제2장 교도작업과 직업훈련",
+      "subcategory": "교도작업특별회계",
+      "keywords": [],
+      "unit_id": "gyojeonghak-402-3"
+    },
+    {
+      "order": 424,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제2장 교도작업과 직업훈련",
+      "subcategory": "직업훈련",
+      "keywords": [],
+      "unit_id": "gyojeonghak-402-4"
+    },
+    {
+      "order": 425,
+      "category": "제4편 수형자의 처우",
+      "chapter": "제2장 교도작업과 직업훈련",
+      "subcategory": "위로금과 조위금",
+      "keywords": [],
+      "unit_id": "gyojeonghak-402-5"
+    },
+    {
+      "order": 511,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제1장 사회 내 처우와 가석방",
+      "subcategory": "지역사회교정",
+      "keywords": [],
+      "unit_id": "gyojeonghak-501-1"
+    },
+    {
+      "order": 512,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제1장 사회 내 처우와 가석방",
+      "subcategory": "가석방",
+      "keywords": [],
+      "unit_id": "gyojeonghak-501-2"
+    },
+    {
+      "order": 513,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제1장 사회 내 처우와 가석방",
+      "subcategory": "보호관찰",
+      "keywords": [],
+      "unit_id": "gyojeonghak-501-3"
+    },
+    {
+      "order": 514,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제1장 사회 내 처우와 가석방",
+      "subcategory": "사회봉사·수강명령과 귀휴",
+      "keywords": [],
+      "unit_id": "gyojeonghak-501-4"
+    },
+    {
+      "order": 515,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제1장 사회 내 처우와 가석방",
+      "subcategory": "전자감독과 갱생보호",
+      "keywords": [],
+      "unit_id": "gyojeonghak-501-5"
+    },
+    {
+      "order": 521,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제2장 소년사법과 보호처분",
+      "subcategory": "소년사법의 이념과 모형",
+      "keywords": [],
+      "unit_id": "gyojeonghak-502-1"
+    },
+    {
+      "order": 522,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제2장 소년사법과 보호처분",
+      "subcategory": "소년보호사건",
+      "keywords": [],
+      "unit_id": "gyojeonghak-502-2"
+    },
+    {
+      "order": 523,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제2장 소년사법과 보호처분",
+      "subcategory": "보호처분",
+      "keywords": [],
+      "unit_id": "gyojeonghak-502-3"
+    },
+    {
+      "order": 524,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제2장 소년사법과 보호처분",
+      "subcategory": "소년 형사사건",
+      "keywords": [],
+      "unit_id": "gyojeonghak-502-4"
+    },
+    {
+      "order": 525,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제2장 소년사법과 보호처분",
+      "subcategory": "보호소년 등의 처우",
+      "keywords": [],
+      "unit_id": "gyojeonghak-502-5"
+    },
+    {
+      "order": 531,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제3장 보안처분",
+      "subcategory": "치료감호와 성충동 약물치료",
+      "keywords": [],
+      "unit_id": "gyojeonghak-503-1"
+    },
+    {
+      "order": 532,
+      "category": "제5편 사회 내 처우와 소년사법",
+      "chapter": "제3장 보안처분",
+      "subcategory": "전자장치 부착",
+      "keywords": [],
+      "unit_id": "gyojeonghak-503-2"
+    }
+  ]
+}

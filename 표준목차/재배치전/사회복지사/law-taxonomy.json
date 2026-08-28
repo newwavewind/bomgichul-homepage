@@ -1,0 +1,1026 @@
+{
+  "version": 2,
+  "source": "사회복지사 1급 기출 2017~2026 (제15~24회) | 장 아래에 절이 없어 30문항 넘는 장이 한 칸에 뭉쳐 있었다. 나눔의집·에듀윌 기본서의 절 구성으로 갈랐고, 배치는 지문이 밝힌 주제를 먼저 믿었다. | 절이 개념 카드보다 적어(18~23 대 60) 카드 하나가 절의 스무 문항을 통째로 맡고 있었다. 개념의 주제 이름을 절로 올리고 문항을 지문이 밝힌 말로 다시 나눴다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 01　법원과 체계",
+      "subcategory": "법의 기초",
+      "keywords": [],
+      "unit_id": "law-101-1",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 102,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 01　법원과 체계",
+      "subcategory": "헌법",
+      "keywords": [],
+      "unit_id": "law-101-2",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 103,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 01　법원과 체계",
+      "subcategory": "입법",
+      "keywords": [],
+      "unit_id": "law-101-3",
+      "part": "법의 개관",
+      "section": "사회복지법의 발달사"
+    },
+    {
+      "order": 104,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 01　법원과 체계",
+      "subcategory": "법원",
+      "keywords": [],
+      "unit_id": "law-101-4",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 105,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 01　법원과 체계",
+      "subcategory": "자치법규",
+      "keywords": [],
+      "unit_id": "law-101-5",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 106,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 02　판례와 권리구제",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-102-6",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 107,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 02　판례와 권리구제",
+      "subcategory": "법원",
+      "keywords": [],
+      "unit_id": "law-102-7",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 201,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 01　사회보장기본법",
+      "subcategory": "사회보장기본법",
+      "keywords": [],
+      "unit_id": "law-201-8",
+      "part": "사회보장 일반법",
+      "section": "사회보장기본법"
+    },
+    {
+      "order": 202,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 01　사회보장기본법",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-201-9",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 203,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 01　사회보장기본법",
+      "subcategory": "한부모가족지원법",
+      "keywords": [],
+      "unit_id": "law-201-10",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 204,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 02　사회보장급여법",
+      "subcategory": "사회보장기본법",
+      "keywords": [],
+      "unit_id": "law-202-11",
+      "part": "사회보장 일반법",
+      "section": "사회보장기본법"
+    },
+    {
+      "order": 205,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 02　사회보장급여법",
+      "subcategory": "사회보장급여법",
+      "keywords": [],
+      "unit_id": "law-202-12",
+      "part": "사회보장 일반법",
+      "section": "사회보장급여법"
+    },
+    {
+      "order": 206,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "총칙",
+      "keywords": [],
+      "unit_id": "law-203-13",
+      "part": "사회보장 일반법",
+      "section": "사회보장기본법"
+    },
+    {
+      "order": 207,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "사회복지법인",
+      "keywords": [],
+      "unit_id": "law-203-14",
+      "part": "사회보장 일반법",
+      "section": "사회복지사업법"
+    },
+    {
+      "order": 208,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-203-15",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 209,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "사회복지시설",
+      "keywords": [],
+      "unit_id": "law-203-16",
+      "part": "사회보장 일반법",
+      "section": "사회복지사업법"
+    },
+    {
+      "order": 210,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "산업재해보상보험법",
+      "keywords": [],
+      "unit_id": "law-203-17",
+      "part": "사회보험법",
+      "section": "산업재해보상보험법"
+    },
+    {
+      "order": 211,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "장애인복지법",
+      "keywords": [],
+      "unit_id": "law-203-18",
+      "part": "사회서비스법",
+      "section": "장애인복지법"
+    },
+    {
+      "order": 212,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "사회보장기본법",
+      "keywords": [],
+      "unit_id": "law-203-19",
+      "part": "사회보장 일반법",
+      "section": "사회보장기본법"
+    },
+    {
+      "order": 213,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "자치법규",
+      "keywords": [],
+      "unit_id": "law-203-20",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 214,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "아동복지법",
+      "keywords": [],
+      "unit_id": "law-203-21",
+      "part": "사회서비스법",
+      "section": "아동복지법"
+    },
+    {
+      "order": 215,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "그 밖의 법",
+      "keywords": [],
+      "unit_id": "law-203-22",
+      "part": "사회서비스법",
+      "section": "공동모금회법과 그 밖의 법"
+    },
+    {
+      "order": 216,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　사회복지사업법",
+      "subcategory": "한부모가족지원법",
+      "keywords": [],
+      "unit_id": "law-203-23",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 301,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 01　국민기초생활보장법",
+      "subcategory": "장애인연금법",
+      "keywords": [],
+      "unit_id": "law-301-24",
+      "part": "공공부조법",
+      "section": "장애인연금법"
+    },
+    {
+      "order": 302,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 01　국민기초생활보장법",
+      "subcategory": "노인복지법",
+      "keywords": [],
+      "unit_id": "law-301-25",
+      "part": "사회서비스법",
+      "section": "노인복지법"
+    },
+    {
+      "order": 303,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 01　국민기초생활보장법",
+      "subcategory": "사회보장기본법",
+      "keywords": [],
+      "unit_id": "law-301-26",
+      "part": "사회보장 일반법",
+      "section": "사회보장기본법"
+    },
+    {
+      "order": 304,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 01　국민기초생활보장법",
+      "subcategory": "국민기초생활 보장법",
+      "keywords": [],
+      "unit_id": "law-301-27",
+      "part": "공공부조법",
+      "section": "국민기초생활 보장법"
+    },
+    {
+      "order": 305,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 01　국민기초생활보장법",
+      "subcategory": "한부모가족지원법",
+      "keywords": [],
+      "unit_id": "law-301-28",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 306,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 01　국민기초생활보장법",
+      "subcategory": "아동복지법",
+      "keywords": [],
+      "unit_id": "law-301-29",
+      "part": "사회서비스법",
+      "section": "아동복지법"
+    },
+    {
+      "order": 307,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 01　국민기초생활보장법",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-301-30",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 308,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 02　의료급여·긴급복지",
+      "subcategory": "의료급여법",
+      "keywords": [],
+      "unit_id": "law-302-31",
+      "part": "공공부조법",
+      "section": "의료급여법"
+    },
+    {
+      "order": 309,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 02　의료급여·긴급복지",
+      "subcategory": "고용보험법",
+      "keywords": [],
+      "unit_id": "law-302-32",
+      "part": "사회보험법",
+      "section": "고용보험법"
+    },
+    {
+      "order": 310,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 02　의료급여·긴급복지",
+      "subcategory": "긴급복지지원법",
+      "keywords": [],
+      "unit_id": "law-302-33",
+      "part": "공공부조법",
+      "section": "긴급복지지원법"
+    },
+    {
+      "order": 311,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 02　의료급여·긴급복지",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-302-34",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 312,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 02　의료급여·긴급복지",
+      "subcategory": "국민기초생활 보장법",
+      "keywords": [],
+      "unit_id": "law-302-35",
+      "part": "공공부조법",
+      "section": "국민기초생활 보장법"
+    },
+    {
+      "order": 313,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 02　의료급여·긴급복지",
+      "subcategory": "사회복지시설",
+      "keywords": [],
+      "unit_id": "law-302-36",
+      "part": "사회보장 일반법",
+      "section": "사회복지사업법"
+    },
+    {
+      "order": 314,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 02　의료급여·긴급복지",
+      "subcategory": "국민건강보험법",
+      "keywords": [],
+      "unit_id": "law-302-37",
+      "part": "사회보험법",
+      "section": "국민건강보험법"
+    },
+    {
+      "order": 315,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 03　기초연금·장애인연금",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-303-38",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 316,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 03　기초연금·장애인연금",
+      "subcategory": "기초연금법",
+      "keywords": [],
+      "unit_id": "law-303-39",
+      "part": "공공부조법",
+      "section": "기초연금법"
+    },
+    {
+      "order": 317,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 03　기초연금·장애인연금",
+      "subcategory": "총칙",
+      "keywords": [],
+      "unit_id": "law-303-40",
+      "part": "사회보장 일반법",
+      "section": "사회보장기본법"
+    },
+    {
+      "order": 401,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 01　국민연금·건강보험",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-401-41",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 402,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 01　국민연금·건강보험",
+      "subcategory": "다문화가족지원법",
+      "keywords": [],
+      "unit_id": "law-401-42",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 403,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 01　국민연금·건강보험",
+      "subcategory": "헌법",
+      "keywords": [],
+      "unit_id": "law-401-43",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 404,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 01　국민연금·건강보험",
+      "subcategory": "의료급여법",
+      "keywords": [],
+      "unit_id": "law-401-44",
+      "part": "공공부조법",
+      "section": "의료급여법"
+    },
+    {
+      "order": 405,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 01　국민연금·건강보험",
+      "subcategory": "국민건강보험법",
+      "keywords": [],
+      "unit_id": "law-401-45",
+      "part": "사회보험법",
+      "section": "국민건강보험법"
+    },
+    {
+      "order": 406,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 01　국민연금·건강보험",
+      "subcategory": "산업재해보상보험법",
+      "keywords": [],
+      "unit_id": "law-401-46",
+      "part": "사회보험법",
+      "section": "산업재해보상보험법"
+    },
+    {
+      "order": 407,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 01　국민연금·건강보험",
+      "subcategory": "법의 기초",
+      "keywords": [],
+      "unit_id": "law-401-47",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 408,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 02　고용·산재보험",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-402-48",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 409,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 02　고용·산재보험",
+      "subcategory": "산업재해보상보험법",
+      "keywords": [],
+      "unit_id": "law-402-49",
+      "part": "사회보험법",
+      "section": "산업재해보상보험법"
+    },
+    {
+      "order": 410,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 02　고용·산재보험",
+      "subcategory": "고용보험법",
+      "keywords": [],
+      "unit_id": "law-402-50",
+      "part": "사회보험법",
+      "section": "고용보험법"
+    },
+    {
+      "order": 411,
+      "category": "권리성과 국제법",
+      "chapter": "CHAPTER 02　고용·산재보험",
+      "subcategory": "권리구제",
+      "keywords": [],
+      "unit_id": "law-402-51",
+      "part": "권리성과 국제법",
+      "section": "사회복지의 권리성"
+    },
+    {
+      "order": 412,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 02　고용·산재보험",
+      "subcategory": "긴급복지지원법",
+      "keywords": [],
+      "unit_id": "law-402-52",
+      "part": "공공부조법",
+      "section": "긴급복지지원법"
+    },
+    {
+      "order": 413,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 02　고용·산재보험",
+      "subcategory": "그 밖의 법",
+      "keywords": [],
+      "unit_id": "law-402-53",
+      "part": "사회서비스법",
+      "section": "공동모금회법과 그 밖의 법"
+    },
+    {
+      "order": 414,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 02　고용·산재보험",
+      "subcategory": "장애인연금법",
+      "keywords": [],
+      "unit_id": "law-402-54",
+      "part": "공공부조법",
+      "section": "장애인연금법"
+    },
+    {
+      "order": 415,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 02　고용·산재보험",
+      "subcategory": "입법",
+      "keywords": [],
+      "unit_id": "law-402-55",
+      "part": "법의 개관",
+      "section": "사회복지법의 발달사"
+    },
+    {
+      "order": 416,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 02　고용·산재보험",
+      "subcategory": "헌법",
+      "keywords": [],
+      "unit_id": "law-402-56",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 417,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　노인장기요양보험",
+      "subcategory": "아동복지법",
+      "keywords": [],
+      "unit_id": "law-403-57",
+      "part": "사회서비스법",
+      "section": "아동복지법"
+    },
+    {
+      "order": 418,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 03　노인장기요양보험",
+      "subcategory": "기초연금법",
+      "keywords": [],
+      "unit_id": "law-403-58",
+      "part": "공공부조법",
+      "section": "기초연금법"
+    },
+    {
+      "order": 419,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 03　노인장기요양보험",
+      "subcategory": "국민건강보험법",
+      "keywords": [],
+      "unit_id": "law-403-59",
+      "part": "사회보험법",
+      "section": "국민건강보험법"
+    },
+    {
+      "order": 420,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　노인장기요양보험",
+      "subcategory": "건강가정기본법",
+      "keywords": [],
+      "unit_id": "law-403-60",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 421,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 03　노인장기요양보험",
+      "subcategory": "노인장기요양보험법",
+      "keywords": [],
+      "unit_id": "law-403-61",
+      "part": "사회보험법",
+      "section": "노인장기요양보험법"
+    },
+    {
+      "order": 422,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 03　노인장기요양보험",
+      "subcategory": "입법",
+      "keywords": [],
+      "unit_id": "law-403-62",
+      "part": "법의 개관",
+      "section": "사회복지법의 발달사"
+    },
+    {
+      "order": 501,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 01　아동·청소년·영유아",
+      "subcategory": "다문화가족지원법",
+      "keywords": [],
+      "unit_id": "law-501-63",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 502,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 01　아동·청소년·영유아",
+      "subcategory": "사회보장기본법",
+      "keywords": [],
+      "unit_id": "law-501-64",
+      "part": "사회보장 일반법",
+      "section": "사회보장기본법"
+    },
+    {
+      "order": 503,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 01　아동·청소년·영유아",
+      "subcategory": "장애인복지법",
+      "keywords": [],
+      "unit_id": "law-501-65",
+      "part": "사회서비스법",
+      "section": "장애인복지법"
+    },
+    {
+      "order": 504,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 01　아동·청소년·영유아",
+      "subcategory": "헌법",
+      "keywords": [],
+      "unit_id": "law-501-66",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 505,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 01　아동·청소년·영유아",
+      "subcategory": "아동복지법",
+      "keywords": [],
+      "unit_id": "law-501-67",
+      "part": "사회서비스법",
+      "section": "아동복지법"
+    },
+    {
+      "order": 506,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "사회복지시설",
+      "keywords": [],
+      "unit_id": "law-502-68",
+      "part": "사회보장 일반법",
+      "section": "사회복지사업법"
+    },
+    {
+      "order": 507,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-502-69",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 508,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "법의 기초",
+      "keywords": [],
+      "unit_id": "law-502-70",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 509,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "그 밖의 법",
+      "keywords": [],
+      "unit_id": "law-502-71",
+      "part": "사회서비스법",
+      "section": "공동모금회법과 그 밖의 법"
+    },
+    {
+      "order": 510,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "한부모가족지원법",
+      "keywords": [],
+      "unit_id": "law-502-72",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 511,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "장애인연금법",
+      "keywords": [],
+      "unit_id": "law-502-73",
+      "part": "공공부조법",
+      "section": "장애인연금법"
+    },
+    {
+      "order": 512,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "사회복지공동모금회법",
+      "keywords": [],
+      "unit_id": "law-502-74",
+      "part": "사회서비스법",
+      "section": "공동모금회법과 그 밖의 법"
+    },
+    {
+      "order": 513,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "장애인복지법",
+      "keywords": [],
+      "unit_id": "law-502-75",
+      "part": "사회서비스법",
+      "section": "장애인복지법"
+    },
+    {
+      "order": 514,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "노인복지법",
+      "keywords": [],
+      "unit_id": "law-502-76",
+      "part": "사회서비스법",
+      "section": "노인복지법"
+    },
+    {
+      "order": 515,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "법원",
+      "keywords": [],
+      "unit_id": "law-502-77",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 516,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "정신건강복지법",
+      "keywords": [],
+      "unit_id": "law-502-78",
+      "part": "사회서비스법",
+      "section": "정신건강복지법"
+    },
+    {
+      "order": 517,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 02　노인·장애인",
+      "subcategory": "사회복지법인",
+      "keywords": [],
+      "unit_id": "law-502-79",
+      "part": "사회보장 일반법",
+      "section": "사회복지사업법"
+    },
+    {
+      "order": 518,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "헌법",
+      "keywords": [],
+      "unit_id": "law-503-80",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 519,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "장애인연금법",
+      "keywords": [],
+      "unit_id": "law-503-81",
+      "part": "공공부조법",
+      "section": "장애인연금법"
+    },
+    {
+      "order": 520,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "국민기초생활 보장법",
+      "keywords": [],
+      "unit_id": "law-503-82",
+      "part": "공공부조법",
+      "section": "국민기초생활 보장법"
+    },
+    {
+      "order": 521,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "다문화가족지원법",
+      "keywords": [],
+      "unit_id": "law-503-83",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 522,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "성폭력방지법",
+      "keywords": [],
+      "unit_id": "law-503-84",
+      "part": "사회서비스법",
+      "section": "폭력방지 관련 법"
+    },
+    {
+      "order": 523,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "가정폭력방지법",
+      "keywords": [],
+      "unit_id": "law-503-85",
+      "part": "사회서비스법",
+      "section": "폭력방지 관련 법"
+    },
+    {
+      "order": 524,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "가족·여성·정신건강",
+      "keywords": [],
+      "unit_id": "law-503-86",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 525,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "노인복지법",
+      "keywords": [],
+      "unit_id": "law-503-87",
+      "part": "사회서비스법",
+      "section": "노인복지법"
+    },
+    {
+      "order": 526,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-503-88",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 527,
+      "category": "권리성과 국제법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "권리구제",
+      "keywords": [],
+      "unit_id": "law-503-89",
+      "part": "권리성과 국제법",
+      "section": "사회복지의 권리성"
+    },
+    {
+      "order": 528,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "고용보험법",
+      "keywords": [],
+      "unit_id": "law-503-90",
+      "part": "사회보험법",
+      "section": "고용보험법"
+    },
+    {
+      "order": 529,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "건강가정기본법",
+      "keywords": [],
+      "unit_id": "law-503-91",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 530,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "정신건강복지법",
+      "keywords": [],
+      "unit_id": "law-503-92",
+      "part": "사회서비스법",
+      "section": "정신건강복지법"
+    },
+    {
+      "order": 531,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "한부모가족지원법",
+      "keywords": [],
+      "unit_id": "law-503-93",
+      "part": "사회서비스법",
+      "section": "한부모·다문화·건강가정"
+    },
+    {
+      "order": 532,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "입법",
+      "keywords": [],
+      "unit_id": "law-503-94",
+      "part": "법의 개관",
+      "section": "사회복지법의 발달사"
+    },
+    {
+      "order": 533,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "그 밖의 법",
+      "keywords": [],
+      "unit_id": "law-503-95",
+      "part": "사회서비스법",
+      "section": "공동모금회법과 그 밖의 법"
+    },
+    {
+      "order": 534,
+      "category": "공공부조법",
+      "chapter": "CHAPTER 03　가족·여성·정신건강",
+      "subcategory": "기초연금법",
+      "keywords": [],
+      "unit_id": "law-503-96",
+      "part": "공공부조법",
+      "section": "기초연금법"
+    },
+    {
+      "order": 535,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 04　기타 사회서비스법",
+      "subcategory": "그 밖의 법",
+      "keywords": [],
+      "unit_id": "law-504-97",
+      "part": "사회서비스법",
+      "section": "공동모금회법과 그 밖의 법"
+    },
+    {
+      "order": 536,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 04　기타 사회서비스법",
+      "subcategory": "사회복지공동모금회법",
+      "keywords": [],
+      "unit_id": "law-504-98",
+      "part": "사회서비스법",
+      "section": "공동모금회법과 그 밖의 법"
+    },
+    {
+      "order": 537,
+      "category": "법의 개관",
+      "chapter": "CHAPTER 04　기타 사회서비스법",
+      "subcategory": "법원",
+      "keywords": [],
+      "unit_id": "law-504-99",
+      "part": "법의 개관",
+      "section": "사회복지법의 개관"
+    },
+    {
+      "order": 538,
+      "category": "사회보험법",
+      "chapter": "CHAPTER 04　기타 사회서비스법",
+      "subcategory": "국민연금법",
+      "keywords": [],
+      "unit_id": "law-504-100",
+      "part": "사회보험법",
+      "section": "국민연금법"
+    },
+    {
+      "order": 539,
+      "category": "사회서비스법",
+      "chapter": "CHAPTER 04　기타 사회서비스법",
+      "subcategory": "노인복지법",
+      "keywords": [],
+      "unit_id": "law-504-101",
+      "part": "사회서비스법",
+      "section": "노인복지법"
+    },
+    {
+      "order": 540,
+      "category": "사회보장 일반법",
+      "chapter": "CHAPTER 04　기타 사회서비스법",
+      "subcategory": "사회보장급여법",
+      "keywords": [],
+      "unit_id": "law-504-102",
+      "part": "사회보장 일반법",
+      "section": "사회보장급여법"
+    }
+  ]
+}

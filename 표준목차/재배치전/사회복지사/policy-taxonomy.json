@@ -1,0 +1,1256 @@
+{
+  "version": 2,
+  "source": "사회복지사 1급 기출 2017~2026 (제15~24회) | 장 아래에 절이 없어 30문항 넘는 장이 한 칸에 뭉쳐 있었다. 나눔의집·에듀윌 기본서의 절 구성으로 갈랐고, 배치는 지문이 밝힌 주제를 먼저 믿었다. | 절이 개념 카드보다 적어(18~23 대 60) 카드 하나가 절의 스무 문항을 통째로 맡고 있었다. 개념의 주제 이름을 절로 올리고 문항을 지문이 밝힌 말로 다시 나눴다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "정책의 개념",
+      "keywords": [],
+      "unit_id": "policy-101-1",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 102,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-101-2",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 103,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "정책의 기능",
+      "keywords": [],
+      "unit_id": "policy-101-3",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 104,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "정부 간 재정",
+      "keywords": [],
+      "unit_id": "policy-101-4",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 105,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "새로운 문제",
+      "keywords": [],
+      "unit_id": "policy-101-5",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 106,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "국가 개입의 근거",
+      "keywords": [],
+      "unit_id": "policy-101-6",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 107,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "공적연금",
+      "keywords": [],
+      "unit_id": "policy-101-7",
+      "part": "사회보장과 사회보험",
+      "section": "공적 연금"
+    },
+    {
+      "order": 108,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "공공부조",
+      "keywords": [],
+      "unit_id": "policy-101-8",
+      "part": "빈곤과 공공부조",
+      "section": "국민기초생활보장과 그 밖의 공공부조"
+    },
+    {
+      "order": 109,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "유형화",
+      "keywords": [],
+      "unit_id": "policy-101-9",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 110,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "정책분석",
+      "keywords": [],
+      "unit_id": "policy-101-10",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 111,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 01　개념과 기능",
+      "subcategory": "빈곤",
+      "keywords": [],
+      "unit_id": "policy-101-11",
+      "part": "빈곤과 공공부조",
+      "section": "빈곤과 불평등"
+    },
+    {
+      "order": 112,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 02　가치와 이념",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-102-12",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 113,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 02　가치와 이념",
+      "subcategory": "민간재원",
+      "keywords": [],
+      "unit_id": "policy-102-13",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 114,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 02　가치와 이념",
+      "subcategory": "정책의 기능",
+      "keywords": [],
+      "unit_id": "policy-102-14",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 115,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　가치와 이념",
+      "subcategory": "공적연금",
+      "keywords": [],
+      "unit_id": "policy-102-15",
+      "part": "사회보장과 사회보험",
+      "section": "공적 연금"
+    },
+    {
+      "order": 116,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 02　가치와 이념",
+      "subcategory": "정책의 개념",
+      "keywords": [],
+      "unit_id": "policy-102-16",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 117,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 02　가치와 이념",
+      "subcategory": "효과성",
+      "keywords": [],
+      "unit_id": "policy-102-17",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 201,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 01　영국·서구",
+      "subcategory": "복지국가",
+      "keywords": [],
+      "unit_id": "policy-201-18",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 202,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　영국·서구",
+      "subcategory": "정책의 기능",
+      "keywords": [],
+      "unit_id": "policy-201-19",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 203,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 01　영국·서구",
+      "subcategory": "구빈법",
+      "keywords": [],
+      "unit_id": "policy-201-20",
+      "part": "복지국가와 역사",
+      "section": "사회복지정책의 역사적 전개"
+    },
+    {
+      "order": 204,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　영국·서구",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-201-21",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 205,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　영국·서구",
+      "subcategory": "사회보험",
+      "keywords": [],
+      "unit_id": "policy-201-22",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 206,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　영국·서구",
+      "subcategory": "발달이론",
+      "keywords": [],
+      "unit_id": "policy-201-23",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 207,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 02　한국",
+      "subcategory": "역할분담",
+      "keywords": [],
+      "unit_id": "policy-202-24",
+      "part": "정책 분석틀",
+      "section": "전달체계"
+    },
+    {
+      "order": 301,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　복지국가 이론",
+      "subcategory": "발달이론",
+      "keywords": [],
+      "unit_id": "policy-301-25",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 302,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 01　복지국가 이론",
+      "subcategory": "복지국가",
+      "keywords": [],
+      "unit_id": "policy-301-26",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 303,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　복지국가 이론",
+      "subcategory": "정책의 기능",
+      "keywords": [],
+      "unit_id": "policy-301-27",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 304,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　복지국가 이론",
+      "subcategory": "이념의 갈래",
+      "keywords": [],
+      "unit_id": "policy-301-28",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 305,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 02　복지국가 유형",
+      "subcategory": "유형화",
+      "keywords": [],
+      "unit_id": "policy-302-29",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 306,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 02　복지국가 유형",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-302-30",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 401,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "공공부조",
+      "keywords": [],
+      "unit_id": "policy-401-31",
+      "part": "빈곤과 공공부조",
+      "section": "국민기초생활보장과 그 밖의 공공부조"
+    },
+    {
+      "order": 402,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "우리나라",
+      "keywords": [],
+      "unit_id": "policy-401-32",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 403,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "정책의 개념",
+      "keywords": [],
+      "unit_id": "policy-401-33",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 404,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "유형화",
+      "keywords": [],
+      "unit_id": "policy-401-34",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 405,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "그 밖의 공공부조",
+      "keywords": [],
+      "unit_id": "policy-401-35",
+      "part": "빈곤과 공공부조",
+      "section": "국민기초생활보장과 그 밖의 공공부조"
+    },
+    {
+      "order": 406,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "민간재원",
+      "keywords": [],
+      "unit_id": "policy-401-36",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 407,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "공적연금",
+      "keywords": [],
+      "unit_id": "policy-401-37",
+      "part": "사회보장과 사회보험",
+      "section": "공적 연금"
+    },
+    {
+      "order": 408,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "정책분석",
+      "keywords": [],
+      "unit_id": "policy-401-38",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 409,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "효과성",
+      "keywords": [],
+      "unit_id": "policy-401-39",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 410,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "공공재원",
+      "keywords": [],
+      "unit_id": "policy-401-40",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 411,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "할당의 원칙",
+      "keywords": [],
+      "unit_id": "policy-401-41",
+      "part": "정책 분석틀",
+      "section": "할당"
+    },
+    {
+      "order": 412,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 01　할당",
+      "subcategory": "급여의 형태",
+      "keywords": [],
+      "unit_id": "policy-401-42",
+      "part": "정책 분석틀",
+      "section": "급여"
+    },
+    {
+      "order": 413,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 02　급여",
+      "subcategory": "급여의 형태",
+      "keywords": [],
+      "unit_id": "policy-402-43",
+      "part": "정책 분석틀",
+      "section": "급여"
+    },
+    {
+      "order": 414,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 02　급여",
+      "subcategory": "할당의 원칙",
+      "keywords": [],
+      "unit_id": "policy-402-44",
+      "part": "정책 분석틀",
+      "section": "할당"
+    },
+    {
+      "order": 415,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　급여",
+      "subcategory": "우리나라",
+      "keywords": [],
+      "unit_id": "policy-402-45",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 416,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 02　급여",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-402-46",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 417,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　급여",
+      "subcategory": "노인돌봄",
+      "keywords": [],
+      "unit_id": "policy-402-47",
+      "part": "사회보장과 사회보험",
+      "section": "국민건강보장"
+    },
+    {
+      "order": 418,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　급여",
+      "subcategory": "사회보험",
+      "keywords": [],
+      "unit_id": "policy-402-48",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 419,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　급여",
+      "subcategory": "사회보장의 기초",
+      "keywords": [],
+      "unit_id": "policy-402-49",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 420,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 03　전달체계",
+      "subcategory": "정부 간 재정",
+      "keywords": [],
+      "unit_id": "policy-403-50",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 421,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 03　전달체계",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-403-51",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 422,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 03　전달체계",
+      "subcategory": "전달체계의 기초",
+      "keywords": [],
+      "unit_id": "policy-403-52",
+      "part": "정책 분석틀",
+      "section": "전달체계"
+    },
+    {
+      "order": 423,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 03　전달체계",
+      "subcategory": "공적연금",
+      "keywords": [],
+      "unit_id": "policy-403-53",
+      "part": "사회보장과 사회보험",
+      "section": "공적 연금"
+    },
+    {
+      "order": 424,
+      "category": "정책 과정",
+      "chapter": "CHAPTER 03　전달체계",
+      "subcategory": "개선",
+      "keywords": [],
+      "unit_id": "policy-403-54",
+      "part": "정책 과정",
+      "section": "정책 형성과정"
+    },
+    {
+      "order": 425,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 03　전달체계",
+      "subcategory": "역할분담",
+      "keywords": [],
+      "unit_id": "policy-403-55",
+      "part": "정책 분석틀",
+      "section": "전달체계"
+    },
+    {
+      "order": 426,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "공공부조",
+      "keywords": [],
+      "unit_id": "policy-404-56",
+      "part": "빈곤과 공공부조",
+      "section": "국민기초생활보장과 그 밖의 공공부조"
+    },
+    {
+      "order": 427,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "우리나라",
+      "keywords": [],
+      "unit_id": "policy-404-57",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 428,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "공적연금",
+      "keywords": [],
+      "unit_id": "policy-404-58",
+      "part": "사회보장과 사회보험",
+      "section": "공적 연금"
+    },
+    {
+      "order": 429,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "복지국가",
+      "keywords": [],
+      "unit_id": "policy-404-59",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 430,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-404-60",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 431,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "건강보장",
+      "keywords": [],
+      "unit_id": "policy-404-61",
+      "part": "사회보장과 사회보험",
+      "section": "국민건강보장"
+    },
+    {
+      "order": 432,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "사회보험",
+      "keywords": [],
+      "unit_id": "policy-404-62",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 433,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "공공재원",
+      "keywords": [],
+      "unit_id": "policy-404-63",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 434,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "정부 간 재정",
+      "keywords": [],
+      "unit_id": "policy-404-64",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 435,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "국가 개입의 근거",
+      "keywords": [],
+      "unit_id": "policy-404-65",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 436,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "정책분석",
+      "keywords": [],
+      "unit_id": "policy-404-66",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 437,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "정책의 기능",
+      "keywords": [],
+      "unit_id": "policy-404-67",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 438,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "재분배",
+      "keywords": [],
+      "unit_id": "policy-404-68",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 439,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "고용",
+      "keywords": [],
+      "unit_id": "policy-404-69",
+      "part": "사회보장과 사회보험",
+      "section": "고용보험"
+    },
+    {
+      "order": 440,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "민간재원",
+      "keywords": [],
+      "unit_id": "policy-404-70",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 441,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 04　재정",
+      "subcategory": "불평등",
+      "keywords": [],
+      "unit_id": "policy-404-71",
+      "part": "빈곤과 공공부조",
+      "section": "빈곤과 불평등"
+    },
+    {
+      "order": 501,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "우리나라",
+      "keywords": [],
+      "unit_id": "policy-501-72",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 502,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "산재",
+      "keywords": [],
+      "unit_id": "policy-501-73",
+      "part": "사회보장과 사회보험",
+      "section": "산업재해보상보험"
+    },
+    {
+      "order": 503,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-501-74",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 504,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "정책의 개념",
+      "keywords": [],
+      "unit_id": "policy-501-75",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 505,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "건강보장",
+      "keywords": [],
+      "unit_id": "policy-501-76",
+      "part": "사회보장과 사회보험",
+      "section": "국민건강보장"
+    },
+    {
+      "order": 506,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "공적연금",
+      "keywords": [],
+      "unit_id": "policy-501-77",
+      "part": "사회보장과 사회보험",
+      "section": "공적 연금"
+    },
+    {
+      "order": 507,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "노인돌봄",
+      "keywords": [],
+      "unit_id": "policy-501-78",
+      "part": "사회보장과 사회보험",
+      "section": "국민건강보장"
+    },
+    {
+      "order": 508,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "새로운 문제",
+      "keywords": [],
+      "unit_id": "policy-501-79",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 509,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "유형화",
+      "keywords": [],
+      "unit_id": "policy-501-80",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 510,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "사회보장의 기초",
+      "keywords": [],
+      "unit_id": "policy-501-81",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 511,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "할당의 원칙",
+      "keywords": [],
+      "unit_id": "policy-501-82",
+      "part": "정책 분석틀",
+      "section": "할당"
+    },
+    {
+      "order": 512,
+      "category": "정책 과정",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "정책과정",
+      "keywords": [],
+      "unit_id": "policy-501-83",
+      "part": "정책 과정",
+      "section": "정책 형성과정"
+    },
+    {
+      "order": 513,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "구빈법",
+      "keywords": [],
+      "unit_id": "policy-501-84",
+      "part": "복지국가와 역사",
+      "section": "사회복지정책의 역사적 전개"
+    },
+    {
+      "order": 514,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "고용",
+      "keywords": [],
+      "unit_id": "policy-501-85",
+      "part": "사회보장과 사회보험",
+      "section": "고용보험"
+    },
+    {
+      "order": 515,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "재분배",
+      "keywords": [],
+      "unit_id": "policy-501-86",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 516,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "정부 간 재정",
+      "keywords": [],
+      "unit_id": "policy-501-87",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 517,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　사회보험",
+      "subcategory": "국가 개입의 근거",
+      "keywords": [],
+      "unit_id": "policy-501-88",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 518,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "그 밖의 공공부조",
+      "keywords": [],
+      "unit_id": "policy-502-89",
+      "part": "빈곤과 공공부조",
+      "section": "국민기초생활보장과 그 밖의 공공부조"
+    },
+    {
+      "order": 519,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "할당의 원칙",
+      "keywords": [],
+      "unit_id": "policy-502-90",
+      "part": "정책 분석틀",
+      "section": "할당"
+    },
+    {
+      "order": 520,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "재분배",
+      "keywords": [],
+      "unit_id": "policy-502-91",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 521,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "공공부조",
+      "keywords": [],
+      "unit_id": "policy-502-92",
+      "part": "빈곤과 공공부조",
+      "section": "국민기초생활보장과 그 밖의 공공부조"
+    },
+    {
+      "order": 522,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "자산조사",
+      "keywords": [],
+      "unit_id": "policy-502-93",
+      "part": "정책 분석틀",
+      "section": "할당"
+    },
+    {
+      "order": 523,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "공공재원",
+      "keywords": [],
+      "unit_id": "policy-502-94",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 524,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "급여의 형태",
+      "keywords": [],
+      "unit_id": "policy-502-95",
+      "part": "정책 분석틀",
+      "section": "급여"
+    },
+    {
+      "order": 525,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-502-96",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 526,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "공적연금",
+      "keywords": [],
+      "unit_id": "policy-502-97",
+      "part": "사회보장과 사회보험",
+      "section": "공적 연금"
+    },
+    {
+      "order": 527,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "국민기초생활보장",
+      "keywords": [],
+      "unit_id": "policy-502-98",
+      "part": "빈곤과 공공부조",
+      "section": "국민기초생활보장과 그 밖의 공공부조"
+    },
+    {
+      "order": 528,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "근로연계",
+      "keywords": [],
+      "unit_id": "policy-502-99",
+      "part": "빈곤과 공공부조",
+      "section": "국민기초생활보장과 그 밖의 공공부조"
+    },
+    {
+      "order": 529,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "정책의 기능",
+      "keywords": [],
+      "unit_id": "policy-502-100",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 530,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "사회보장의 기초",
+      "keywords": [],
+      "unit_id": "policy-502-101",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 531,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "건강보장",
+      "keywords": [],
+      "unit_id": "policy-502-102",
+      "part": "사회보장과 사회보험",
+      "section": "국민건강보장"
+    },
+    {
+      "order": 532,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "유형화",
+      "keywords": [],
+      "unit_id": "policy-502-103",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 533,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "산재",
+      "keywords": [],
+      "unit_id": "policy-502-104",
+      "part": "사회보장과 사회보험",
+      "section": "산업재해보상보험"
+    },
+    {
+      "order": 534,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "우리나라",
+      "keywords": [],
+      "unit_id": "policy-502-105",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 535,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 02　공공부조",
+      "subcategory": "복지국가",
+      "keywords": [],
+      "unit_id": "policy-502-106",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 536,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "정부 간 재정",
+      "keywords": [],
+      "unit_id": "policy-503-107",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 537,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "불평등",
+      "keywords": [],
+      "unit_id": "policy-503-108",
+      "part": "빈곤과 공공부조",
+      "section": "빈곤과 불평등"
+    },
+    {
+      "order": 538,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "정책분석",
+      "keywords": [],
+      "unit_id": "policy-503-109",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 539,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "공적연금",
+      "keywords": [],
+      "unit_id": "policy-503-110",
+      "part": "사회보장과 사회보험",
+      "section": "공적 연금"
+    },
+    {
+      "order": 540,
+      "category": "빈곤과 공공부조",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "빈곤",
+      "keywords": [],
+      "unit_id": "policy-503-111",
+      "part": "빈곤과 공공부조",
+      "section": "빈곤과 불평등"
+    },
+    {
+      "order": 541,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "가치",
+      "keywords": [],
+      "unit_id": "policy-503-112",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    },
+    {
+      "order": 542,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "새로운 문제",
+      "keywords": [],
+      "unit_id": "policy-503-113",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 543,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "구빈법",
+      "keywords": [],
+      "unit_id": "policy-503-114",
+      "part": "복지국가와 역사",
+      "section": "사회복지정책의 역사적 전개"
+    },
+    {
+      "order": 544,
+      "category": "복지국가와 역사",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "유형화",
+      "keywords": [],
+      "unit_id": "policy-503-115",
+      "part": "복지국가와 역사",
+      "section": "복지국가 유형론"
+    },
+    {
+      "order": 545,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "재분배",
+      "keywords": [],
+      "unit_id": "policy-503-116",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 546,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "사회보장의 기초",
+      "keywords": [],
+      "unit_id": "policy-503-117",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 547,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "급여의 형태",
+      "keywords": [],
+      "unit_id": "policy-503-118",
+      "part": "정책 분석틀",
+      "section": "급여"
+    },
+    {
+      "order": 548,
+      "category": "사회보장과 사회보험",
+      "chapter": "CHAPTER 03　빈곤과 불평등",
+      "subcategory": "우리나라",
+      "keywords": [],
+      "unit_id": "policy-503-119",
+      "part": "사회보장과 사회보험",
+      "section": "사회보장론 일반"
+    },
+    {
+      "order": 601,
+      "category": "정책 분석틀",
+      "chapter": "CHAPTER 01　형성·집행·평가",
+      "subcategory": "정부 간 재정",
+      "keywords": [],
+      "unit_id": "policy-601-120",
+      "part": "정책 분석틀",
+      "section": "재정"
+    },
+    {
+      "order": 602,
+      "category": "정책 과정",
+      "chapter": "CHAPTER 01　형성·집행·평가",
+      "subcategory": "정책결정 모형",
+      "keywords": [],
+      "unit_id": "policy-601-121",
+      "part": "정책 과정",
+      "section": "정책 형성과정"
+    },
+    {
+      "order": 603,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　형성·집행·평가",
+      "subcategory": "정책분석",
+      "keywords": [],
+      "unit_id": "policy-601-122",
+      "part": "정책의 이해",
+      "section": "사회복지정책 개요"
+    },
+    {
+      "order": 604,
+      "category": "정책 과정",
+      "chapter": "CHAPTER 01　형성·집행·평가",
+      "subcategory": "정책평가",
+      "keywords": [],
+      "unit_id": "policy-601-123",
+      "part": "정책 과정",
+      "section": "정책 형성과정"
+    },
+    {
+      "order": 605,
+      "category": "정책 과정",
+      "chapter": "CHAPTER 01　형성·집행·평가",
+      "subcategory": "개선",
+      "keywords": [],
+      "unit_id": "policy-601-124",
+      "part": "정책 과정",
+      "section": "정책 형성과정"
+    },
+    {
+      "order": 606,
+      "category": "정책의 이해",
+      "chapter": "CHAPTER 01　형성·집행·평가",
+      "subcategory": "발달이론",
+      "keywords": [],
+      "unit_id": "policy-601-125",
+      "part": "정책의 이해",
+      "section": "정책 관련 이론과 사상"
+    }
+  ]
+}

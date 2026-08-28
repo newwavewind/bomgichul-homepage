@@ -1,0 +1,756 @@
+{
+  "version": 2,
+  "source": "사회복지사 1급 기출 2017~2026 (제15~24회) | 절이 개념 카드보다 적어(18~23 대 60) 카드 하나가 절의 스무 문항을 통째로 맡고 있었다. 개념의 주제 이름을 절로 올리고 문항을 지문이 밝힌 말로 다시 나눴다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-101-1",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 102,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "발달의 개념",
+      "keywords": [],
+      "unit_id": "human-behavior-101-2",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 103,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "아동기",
+      "keywords": [],
+      "unit_id": "human-behavior-101-3",
+      "part": "전 생애발달",
+      "section": "아동기"
+    },
+    {
+      "order": 104,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "행동주의",
+      "keywords": [],
+      "unit_id": "human-behavior-101-4",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 105,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "피아제",
+      "keywords": [],
+      "unit_id": "human-behavior-101-5",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 106,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "실천에의 적용",
+      "keywords": [],
+      "unit_id": "human-behavior-101-6",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 107,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "프로이트",
+      "keywords": [],
+      "unit_id": "human-behavior-101-7",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 108,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "노년기",
+      "keywords": [],
+      "unit_id": "human-behavior-101-8",
+      "part": "전 생애발달",
+      "section": "노년기"
+    },
+    {
+      "order": 109,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "에릭슨",
+      "keywords": [],
+      "unit_id": "human-behavior-101-9",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 110,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 01　발달의 원리",
+      "subcategory": "브론펜브레너",
+      "keywords": [],
+      "unit_id": "human-behavior-101-10",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "사회체계이론"
+    },
+    {
+      "order": 111,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 02　태아기·영아기",
+      "subcategory": "태내기",
+      "keywords": [],
+      "unit_id": "human-behavior-102-11",
+      "part": "전 생애발달",
+      "section": "태아기·영아기·유아기"
+    },
+    {
+      "order": 112,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 02　태아기·영아기",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-102-12",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 113,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 02　태아기·영아기",
+      "subcategory": "행동주의",
+      "keywords": [],
+      "unit_id": "human-behavior-102-13",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 114,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 02　태아기·영아기",
+      "subcategory": "노년기",
+      "keywords": [],
+      "unit_id": "human-behavior-102-14",
+      "part": "전 생애발달",
+      "section": "노년기"
+    },
+    {
+      "order": 115,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 02　태아기·영아기",
+      "subcategory": "조직과 지역사회",
+      "keywords": [],
+      "unit_id": "human-behavior-102-15",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "조직·지역사회·문화체계"
+    },
+    {
+      "order": 116,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 02　태아기·영아기",
+      "subcategory": "영아기",
+      "keywords": [],
+      "unit_id": "human-behavior-102-16",
+      "part": "전 생애발달",
+      "section": "태아기·영아기·유아기"
+    },
+    {
+      "order": 117,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 02　태아기·영아기",
+      "subcategory": "발달의 개념",
+      "keywords": [],
+      "unit_id": "human-behavior-102-17",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 118,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 02　태아기·영아기",
+      "subcategory": "신생아기",
+      "keywords": [],
+      "unit_id": "human-behavior-102-18",
+      "part": "전 생애발달",
+      "section": "태아기·영아기·유아기"
+    },
+    {
+      "order": 119,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 03　유아기·아동기",
+      "subcategory": "유아기",
+      "keywords": [],
+      "unit_id": "human-behavior-103-19",
+      "part": "전 생애발달",
+      "section": "태아기·영아기·유아기"
+    },
+    {
+      "order": 120,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 03　유아기·아동기",
+      "subcategory": "아동기",
+      "keywords": [],
+      "unit_id": "human-behavior-103-20",
+      "part": "전 생애발달",
+      "section": "아동기"
+    },
+    {
+      "order": 121,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 03　유아기·아동기",
+      "subcategory": "노년기",
+      "keywords": [],
+      "unit_id": "human-behavior-103-21",
+      "part": "전 생애발달",
+      "section": "노년기"
+    },
+    {
+      "order": 122,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 04　청소년기",
+      "subcategory": "발달의 개념",
+      "keywords": [],
+      "unit_id": "human-behavior-104-22",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 123,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 04　청소년기",
+      "subcategory": "청소년기",
+      "keywords": [],
+      "unit_id": "human-behavior-104-23",
+      "part": "전 생애발달",
+      "section": "청소년기"
+    },
+    {
+      "order": 124,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 05　청년기·중년기",
+      "subcategory": "일반체계이론",
+      "keywords": [],
+      "unit_id": "human-behavior-105-24",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "사회체계이론"
+    },
+    {
+      "order": 125,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 05　청년기·중년기",
+      "subcategory": "성인기",
+      "keywords": [],
+      "unit_id": "human-behavior-105-25",
+      "part": "전 생애발달",
+      "section": "청년기·장년기"
+    },
+    {
+      "order": 126,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 05　청년기·중년기",
+      "subcategory": "청소년기",
+      "keywords": [],
+      "unit_id": "human-behavior-105-26",
+      "part": "전 생애발달",
+      "section": "청소년기"
+    },
+    {
+      "order": 127,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 05　청년기·중년기",
+      "subcategory": "융",
+      "keywords": [],
+      "unit_id": "human-behavior-105-27",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 128,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 06　노년기와 죽음",
+      "subcategory": "노년기",
+      "keywords": [],
+      "unit_id": "human-behavior-106-28",
+      "part": "전 생애발달",
+      "section": "노년기"
+    },
+    {
+      "order": 129,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 06　노년기와 죽음",
+      "subcategory": "발달의 개념",
+      "keywords": [],
+      "unit_id": "human-behavior-106-29",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 201,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　프로이트",
+      "subcategory": "프로이트",
+      "keywords": [],
+      "unit_id": "human-behavior-201-30",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 202,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 01　프로이트",
+      "subcategory": "브론펜브레너",
+      "keywords": [],
+      "unit_id": "human-behavior-201-31",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "사회체계이론"
+    },
+    {
+      "order": 203,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　프로이트",
+      "subcategory": "융",
+      "keywords": [],
+      "unit_id": "human-behavior-201-32",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 204,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　프로이트",
+      "subcategory": "반두라",
+      "keywords": [],
+      "unit_id": "human-behavior-201-33",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 205,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 01　프로이트",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-201-34",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 206,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　프로이트",
+      "subcategory": "행동주의",
+      "keywords": [],
+      "unit_id": "human-behavior-201-35",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 207,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 02　에릭슨",
+      "subcategory": "에릭슨",
+      "keywords": [],
+      "unit_id": "human-behavior-202-36",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 208,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 02　에릭슨",
+      "subcategory": "프로이트",
+      "keywords": [],
+      "unit_id": "human-behavior-202-37",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 209,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 02　에릭슨",
+      "subcategory": "아동기",
+      "keywords": [],
+      "unit_id": "human-behavior-202-38",
+      "part": "전 생애발달",
+      "section": "아동기"
+    },
+    {
+      "order": 210,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 02　에릭슨",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-202-39",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 211,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 02　에릭슨",
+      "subcategory": "발달의 개념",
+      "keywords": [],
+      "unit_id": "human-behavior-202-40",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 212,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 03　아들러",
+      "subcategory": "아들러",
+      "keywords": [],
+      "unit_id": "human-behavior-203-41",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 213,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 03　아들러",
+      "subcategory": "인지치료 계열",
+      "keywords": [],
+      "unit_id": "human-behavior-203-42",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 214,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 03　아들러",
+      "subcategory": "문화",
+      "keywords": [],
+      "unit_id": "human-behavior-203-43",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "조직·지역사회·문화체계"
+    },
+    {
+      "order": 215,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 03　아들러",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-203-44",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 216,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 04　융",
+      "subcategory": "융",
+      "keywords": [],
+      "unit_id": "human-behavior-204-45",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 301,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　피아제",
+      "subcategory": "피아제",
+      "keywords": [],
+      "unit_id": "human-behavior-301-46",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 302,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　피아제",
+      "subcategory": "콜버그",
+      "keywords": [],
+      "unit_id": "human-behavior-301-47",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 303,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 02　콜버그",
+      "subcategory": "콜버그",
+      "keywords": [],
+      "unit_id": "human-behavior-302-48",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 304,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 03　스키너·행동주의",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-303-49",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 305,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 03　스키너·행동주의",
+      "subcategory": "행동주의",
+      "keywords": [],
+      "unit_id": "human-behavior-303-50",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 306,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 03　스키너·행동주의",
+      "subcategory": "반두라",
+      "keywords": [],
+      "unit_id": "human-behavior-303-51",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 307,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 04　반두라",
+      "subcategory": "반두라",
+      "keywords": [],
+      "unit_id": "human-behavior-304-52",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 308,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 04　반두라",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-304-53",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 309,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 04　반두라",
+      "subcategory": "인지치료 계열",
+      "keywords": [],
+      "unit_id": "human-behavior-304-54",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 310,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 05　인지이론(벡·엘리스)",
+      "subcategory": "인지치료 계열",
+      "keywords": [],
+      "unit_id": "human-behavior-305-55",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인지행동이론"
+    },
+    {
+      "order": 401,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 01　로저스",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-401-56",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 402,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　로저스",
+      "subcategory": "로저스",
+      "keywords": [],
+      "unit_id": "human-behavior-401-57",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인본주의이론"
+    },
+    {
+      "order": 403,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 02　매슬로우",
+      "subcategory": "매슬로우",
+      "keywords": [],
+      "unit_id": "human-behavior-402-58",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인본주의이론"
+    },
+    {
+      "order": 404,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 02　매슬로우",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-402-59",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 501,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 01　일반체계이론",
+      "subcategory": "일반체계이론",
+      "keywords": [],
+      "unit_id": "human-behavior-501-60",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "사회체계이론"
+    },
+    {
+      "order": 502,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 01　일반체계이론",
+      "subcategory": "가족",
+      "keywords": [],
+      "unit_id": "human-behavior-501-61",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "가족체계·집단체계"
+    },
+    {
+      "order": 503,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 01　일반체계이론",
+      "subcategory": "프로이트",
+      "keywords": [],
+      "unit_id": "human-behavior-501-62",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "정신역동이론"
+    },
+    {
+      "order": 504,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 02　생태체계이론",
+      "subcategory": "생태학적 관점",
+      "keywords": [],
+      "unit_id": "human-behavior-502-63",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "사회체계이론"
+    },
+    {
+      "order": 505,
+      "category": "인간행동에 관한 주요 이론",
+      "chapter": "CHAPTER 02　생태체계이론",
+      "subcategory": "매슬로우",
+      "keywords": [],
+      "unit_id": "human-behavior-502-64",
+      "part": "인간행동에 관한 주요 이론",
+      "section": "인본주의이론"
+    },
+    {
+      "order": 506,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 02　생태체계이론",
+      "subcategory": "문화",
+      "keywords": [],
+      "unit_id": "human-behavior-502-65",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "조직·지역사회·문화체계"
+    },
+    {
+      "order": 507,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 02　생태체계이론",
+      "subcategory": "브론펜브레너",
+      "keywords": [],
+      "unit_id": "human-behavior-502-66",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "사회체계이론"
+    },
+    {
+      "order": 508,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 02　생태체계이론",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-502-67",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 509,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 02　생태체계이론",
+      "subcategory": "일반체계이론",
+      "keywords": [],
+      "unit_id": "human-behavior-502-68",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "사회체계이론"
+    },
+    {
+      "order": 510,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 03　가족·집단·조직",
+      "subcategory": "집단",
+      "keywords": [],
+      "unit_id": "human-behavior-503-69",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "가족체계·집단체계"
+    },
+    {
+      "order": 511,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 03　가족·집단·조직",
+      "subcategory": "가족",
+      "keywords": [],
+      "unit_id": "human-behavior-503-70",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "가족체계·집단체계"
+    },
+    {
+      "order": 512,
+      "category": "전 생애발달",
+      "chapter": "CHAPTER 03　가족·집단·조직",
+      "subcategory": "노년기",
+      "keywords": [],
+      "unit_id": "human-behavior-503-71",
+      "part": "전 생애발달",
+      "section": "노년기"
+    },
+    {
+      "order": 513,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 04　문화와 사회환경",
+      "subcategory": "발달의 개념",
+      "keywords": [],
+      "unit_id": "human-behavior-504-72",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 514,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 04　문화와 사회환경",
+      "subcategory": "이론과 실천",
+      "keywords": [],
+      "unit_id": "human-behavior-504-73",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 515,
+      "category": "인간발달의 기초",
+      "chapter": "CHAPTER 04　문화와 사회환경",
+      "subcategory": "실천에의 적용",
+      "keywords": [],
+      "unit_id": "human-behavior-504-74",
+      "part": "인간발달의 기초",
+      "section": "인간행동·발달과 사회복지"
+    },
+    {
+      "order": 516,
+      "category": "사회환경에 관한 주요 이론",
+      "chapter": "CHAPTER 04　문화와 사회환경",
+      "subcategory": "문화",
+      "keywords": [],
+      "unit_id": "human-behavior-504-75",
+      "part": "사회환경에 관한 주요 이론",
+      "section": "조직·지역사회·문화체계"
+    }
+  ]
+}

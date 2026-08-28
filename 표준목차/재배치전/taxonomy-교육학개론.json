@@ -1,0 +1,718 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "units": [
+    {
+      "order": 111,
+      "category": "교육철학",
+      "chapter": "제1장 교육의 개념과 분석철학",
+      "subcategory": "교육의 개념",
+      "keywords": [],
+      "unit_id": "gyoyukhak-101-1"
+    },
+    {
+      "order": 112,
+      "category": "교육철학",
+      "chapter": "제1장 교육의 개념과 분석철학",
+      "subcategory": "분석철학",
+      "keywords": [],
+      "unit_id": "gyoyukhak-101-2"
+    },
+    {
+      "order": 121,
+      "category": "교육철학",
+      "chapter": "제2장 현대 교육사조",
+      "subcategory": "실존주의",
+      "keywords": [],
+      "unit_id": "gyoyukhak-102-1"
+    },
+    {
+      "order": 122,
+      "category": "교육철학",
+      "chapter": "제2장 현대 교육사조",
+      "subcategory": "비판교육학",
+      "keywords": [],
+      "unit_id": "gyoyukhak-102-2"
+    },
+    {
+      "order": 123,
+      "category": "교육철학",
+      "chapter": "제2장 현대 교육사조",
+      "subcategory": "현대 교육사조",
+      "keywords": [],
+      "unit_id": "gyoyukhak-102-3"
+    },
+    {
+      "order": 211,
+      "category": "한국교육사",
+      "chapter": "제1장 삼국·고려의 교육",
+      "subcategory": "삼국시대의 교육",
+      "keywords": [],
+      "unit_id": "gyoyukhak-201-1"
+    },
+    {
+      "order": 212,
+      "category": "한국교육사",
+      "chapter": "제1장 삼국·고려의 교육",
+      "subcategory": "고려의 교육기관",
+      "keywords": [],
+      "unit_id": "gyoyukhak-201-2"
+    },
+    {
+      "order": 221,
+      "category": "한국교육사",
+      "chapter": "제2장 조선의 교육",
+      "subcategory": "조선의 관학",
+      "keywords": [],
+      "unit_id": "gyoyukhak-202-1"
+    },
+    {
+      "order": 222,
+      "category": "한국교육사",
+      "chapter": "제2장 조선의 교육",
+      "subcategory": "조선의 교재",
+      "keywords": [],
+      "unit_id": "gyoyukhak-202-2"
+    },
+    {
+      "order": 231,
+      "category": "한국교육사",
+      "chapter": "제3장 근대와 현대의 교육",
+      "subcategory": "개화기의 교육",
+      "keywords": [],
+      "unit_id": "gyoyukhak-203-1"
+    },
+    {
+      "order": 232,
+      "category": "한국교육사",
+      "chapter": "제3장 근대와 현대의 교육",
+      "subcategory": "일제강점기와 현대",
+      "keywords": [],
+      "unit_id": "gyoyukhak-203-2"
+    },
+    {
+      "order": 311,
+      "category": "서양교육사",
+      "chapter": "제1장 고대와 중세의 교육",
+      "subcategory": "고대의 교육사상가",
+      "keywords": [],
+      "unit_id": "gyoyukhak-301-1"
+    },
+    {
+      "order": 321,
+      "category": "서양교육사",
+      "chapter": "제2장 근대의 교육",
+      "subcategory": "실학주의와 코메니우스",
+      "keywords": [],
+      "unit_id": "gyoyukhak-302-1"
+    },
+    {
+      "order": 322,
+      "category": "서양교육사",
+      "chapter": "제2장 근대의 교육",
+      "subcategory": "자연주의와 페스탈로치",
+      "keywords": [],
+      "unit_id": "gyoyukhak-302-2"
+    },
+    {
+      "order": 323,
+      "category": "서양교육사",
+      "chapter": "제2장 근대의 교육",
+      "subcategory": "서양 교육사상가",
+      "keywords": [],
+      "unit_id": "gyoyukhak-302-3"
+    },
+    {
+      "order": 411,
+      "category": "교육심리",
+      "chapter": "제1장 발달이론",
+      "subcategory": "인지발달",
+      "keywords": [],
+      "unit_id": "gyoyukhak-401-1"
+    },
+    {
+      "order": 412,
+      "category": "교육심리",
+      "chapter": "제1장 발달이론",
+      "subcategory": "성격·정체성 발달",
+      "keywords": [],
+      "unit_id": "gyoyukhak-401-2"
+    },
+    {
+      "order": 413,
+      "category": "교육심리",
+      "chapter": "제1장 발달이론",
+      "subcategory": "도덕성 발달",
+      "keywords": [],
+      "unit_id": "gyoyukhak-401-3"
+    },
+    {
+      "order": 414,
+      "category": "교육심리",
+      "chapter": "제1장 발달이론",
+      "subcategory": "특수학습자와 영재성",
+      "keywords": [],
+      "unit_id": "gyoyukhak-401-4"
+    },
+    {
+      "order": 421,
+      "category": "교육심리",
+      "chapter": "제2장 학습이론",
+      "subcategory": "행동주의 학습이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-402-1"
+    },
+    {
+      "order": 422,
+      "category": "교육심리",
+      "chapter": "제2장 학습이론",
+      "subcategory": "사회인지 학습이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-402-2"
+    },
+    {
+      "order": 423,
+      "category": "교육심리",
+      "chapter": "제2장 학습이론",
+      "subcategory": "인지주의 학습이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-402-3"
+    },
+    {
+      "order": 424,
+      "category": "교육심리",
+      "chapter": "제2장 학습이론",
+      "subcategory": "학습이론의 비교",
+      "keywords": [],
+      "unit_id": "gyoyukhak-402-4"
+    },
+    {
+      "order": 431,
+      "category": "교육심리",
+      "chapter": "제3장 지능과 동기",
+      "subcategory": "지능이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-403-1"
+    },
+    {
+      "order": 432,
+      "category": "교육심리",
+      "chapter": "제3장 지능과 동기",
+      "subcategory": "성격과 방어기제",
+      "keywords": [],
+      "unit_id": "gyoyukhak-403-2"
+    },
+    {
+      "order": 433,
+      "category": "교육심리",
+      "chapter": "제3장 지능과 동기",
+      "subcategory": "동기이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-403-3"
+    },
+    {
+      "order": 511,
+      "category": "교육사회",
+      "chapter": "제1장 교육사회학 이론",
+      "subcategory": "기능론과 갈등론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-501-1"
+    },
+    {
+      "order": 512,
+      "category": "교육사회",
+      "chapter": "제1장 교육사회학 이론",
+      "subcategory": "재생산이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-501-2"
+    },
+    {
+      "order": 513,
+      "category": "교육사회",
+      "chapter": "제1장 교육사회학 이론",
+      "subcategory": "신교육사회학",
+      "keywords": [],
+      "unit_id": "gyoyukhak-501-3"
+    },
+    {
+      "order": 521,
+      "category": "교육사회",
+      "chapter": "제2장 교육과 사회평등",
+      "subcategory": "교육평등관",
+      "keywords": [],
+      "unit_id": "gyoyukhak-502-1"
+    },
+    {
+      "order": 522,
+      "category": "교육사회",
+      "chapter": "제2장 교육과 사회평등",
+      "subcategory": "문화자본과 사회자본",
+      "keywords": [],
+      "unit_id": "gyoyukhak-502-2"
+    },
+    {
+      "order": 523,
+      "category": "교육사회",
+      "chapter": "제2장 교육과 사회평등",
+      "subcategory": "문화실조론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-502-3"
+    },
+    {
+      "order": 531,
+      "category": "교육사회",
+      "chapter": "제3장 교육의 사회적 기능과 쟁점",
+      "subcategory": "교육의 사회적 기능",
+      "keywords": [],
+      "unit_id": "gyoyukhak-503-1"
+    },
+    {
+      "order": 532,
+      "category": "교육사회",
+      "chapter": "제3장 교육의 사회적 기능과 쟁점",
+      "subcategory": "다문화교육",
+      "keywords": [],
+      "unit_id": "gyoyukhak-503-2"
+    },
+    {
+      "order": 533,
+      "category": "교육사회",
+      "chapter": "제3장 교육의 사회적 기능과 쟁점",
+      "subcategory": "비행이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-503-3"
+    },
+    {
+      "order": 534,
+      "category": "교육사회",
+      "chapter": "제3장 교육의 사회적 기능과 쟁점",
+      "subcategory": "프레이리와 비판적 문해",
+      "keywords": [],
+      "unit_id": "gyoyukhak-503-4"
+    },
+    {
+      "order": 611,
+      "category": "교육과정",
+      "chapter": "제1장 교육과정의 이론과 개발",
+      "subcategory": "교육과정 개발이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-601-1"
+    },
+    {
+      "order": 612,
+      "category": "교육과정",
+      "chapter": "제1장 교육과정의 이론과 개발",
+      "subcategory": "타일러의 이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-601-2"
+    },
+    {
+      "order": 621,
+      "category": "교육과정",
+      "chapter": "제2장 교육과정의 유형",
+      "subcategory": "교육과정의 유형",
+      "keywords": [],
+      "unit_id": "gyoyukhak-602-1"
+    },
+    {
+      "order": 622,
+      "category": "교육과정",
+      "chapter": "제2장 교육과정의 유형",
+      "subcategory": "잠재적 교육과정",
+      "keywords": [],
+      "unit_id": "gyoyukhak-602-2"
+    },
+    {
+      "order": 631,
+      "category": "교육과정",
+      "chapter": "제3장 우리나라 교육과정",
+      "subcategory": "개정 교육과정",
+      "keywords": [],
+      "unit_id": "gyoyukhak-603-1"
+    },
+    {
+      "order": 632,
+      "category": "교육과정",
+      "chapter": "제3장 우리나라 교육과정",
+      "subcategory": "자유학기제",
+      "keywords": [],
+      "unit_id": "gyoyukhak-603-2"
+    },
+    {
+      "order": 711,
+      "category": "교육방법·공학",
+      "chapter": "제1장 교수설계와 교수이론",
+      "subcategory": "교수설계 모형",
+      "keywords": [],
+      "unit_id": "gyoyukhak-701-1"
+    },
+    {
+      "order": 712,
+      "category": "교육방법·공학",
+      "chapter": "제1장 교수설계와 교수이론",
+      "subcategory": "가네의 교수이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-701-2"
+    },
+    {
+      "order": 713,
+      "category": "교육방법·공학",
+      "chapter": "제1장 교수설계와 교수이론",
+      "subcategory": "브루너와 캐롤의 이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-701-3"
+    },
+    {
+      "order": 714,
+      "category": "교육방법·공학",
+      "chapter": "제1장 교수설계와 교수이론",
+      "subcategory": "ARCS 동기설계",
+      "keywords": [],
+      "unit_id": "gyoyukhak-701-4"
+    },
+    {
+      "order": 721,
+      "category": "교육방법·공학",
+      "chapter": "제2장 교수·학습 방법",
+      "subcategory": "협동학습",
+      "keywords": [],
+      "unit_id": "gyoyukhak-702-1"
+    },
+    {
+      "order": 722,
+      "category": "교육방법·공학",
+      "chapter": "제2장 교수·학습 방법",
+      "subcategory": "구성주의 학습",
+      "keywords": [],
+      "unit_id": "gyoyukhak-702-2"
+    },
+    {
+      "order": 723,
+      "category": "교육방법·공학",
+      "chapter": "제2장 교수·학습 방법",
+      "subcategory": "교수·학습 방법 일반",
+      "keywords": [],
+      "unit_id": "gyoyukhak-702-3"
+    },
+    {
+      "order": 731,
+      "category": "교육방법·공학",
+      "chapter": "제3장 교육공학과 매체",
+      "subcategory": "교수매체",
+      "keywords": [],
+      "unit_id": "gyoyukhak-703-1"
+    },
+    {
+      "order": 732,
+      "category": "교육방법·공학",
+      "chapter": "제3장 교육공학과 매체",
+      "subcategory": "원격교육과 이러닝",
+      "keywords": [],
+      "unit_id": "gyoyukhak-703-2"
+    },
+    {
+      "order": 733,
+      "category": "교육방법·공학",
+      "chapter": "제3장 교육공학과 매체",
+      "subcategory": "프로그램 평가",
+      "keywords": [],
+      "unit_id": "gyoyukhak-703-3"
+    },
+    {
+      "order": 811,
+      "category": "교육평가",
+      "chapter": "제1장 교육평가의 유형",
+      "subcategory": "평가의 유형",
+      "keywords": [],
+      "unit_id": "gyoyukhak-801-1"
+    },
+    {
+      "order": 812,
+      "category": "교육평가",
+      "chapter": "제1장 교육평가의 유형",
+      "subcategory": "교육목표분류",
+      "keywords": [],
+      "unit_id": "gyoyukhak-801-2"
+    },
+    {
+      "order": 821,
+      "category": "교육평가",
+      "chapter": "제2장 검사도구의 조건",
+      "subcategory": "타당도",
+      "keywords": [],
+      "unit_id": "gyoyukhak-802-1"
+    },
+    {
+      "order": 822,
+      "category": "교육평가",
+      "chapter": "제2장 검사도구의 조건",
+      "subcategory": "신뢰도",
+      "keywords": [],
+      "unit_id": "gyoyukhak-802-2"
+    },
+    {
+      "order": 823,
+      "category": "교육평가",
+      "chapter": "제2장 검사도구의 조건",
+      "subcategory": "검사도구의 조건",
+      "keywords": [],
+      "unit_id": "gyoyukhak-802-3"
+    },
+    {
+      "order": 831,
+      "category": "교육평가",
+      "chapter": "제3장 평가결과의 해석",
+      "subcategory": "표준점수와 상관",
+      "keywords": [],
+      "unit_id": "gyoyukhak-803-1"
+    },
+    {
+      "order": 832,
+      "category": "교육평가",
+      "chapter": "제3장 평가결과의 해석",
+      "subcategory": "표준화검사와 정의적 특성 측정",
+      "keywords": [],
+      "unit_id": "gyoyukhak-803-2"
+    },
+    {
+      "order": 911,
+      "category": "생활지도·상담",
+      "chapter": "제1장 생활지도의 원리와 활동",
+      "subcategory": "생활지도의 원리",
+      "keywords": [],
+      "unit_id": "gyoyukhak-901-1"
+    },
+    {
+      "order": 912,
+      "category": "생활지도·상담",
+      "chapter": "제1장 생활지도의 원리와 활동",
+      "subcategory": "생활지도의 활동",
+      "keywords": [],
+      "unit_id": "gyoyukhak-901-2"
+    },
+    {
+      "order": 921,
+      "category": "생활지도·상담",
+      "chapter": "제2장 상담이론",
+      "subcategory": "상담이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-902-1"
+    },
+    {
+      "order": 922,
+      "category": "생활지도·상담",
+      "chapter": "제2장 상담이론",
+      "subcategory": "인간중심 상담",
+      "keywords": [],
+      "unit_id": "gyoyukhak-902-2"
+    },
+    {
+      "order": 931,
+      "category": "생활지도·상담",
+      "chapter": "제3장 상담기법과 진로지도",
+      "subcategory": "상담기법",
+      "keywords": [],
+      "unit_id": "gyoyukhak-903-1"
+    },
+    {
+      "order": 932,
+      "category": "생활지도·상담",
+      "chapter": "제3장 상담기법과 진로지도",
+      "subcategory": "진로이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-903-2"
+    },
+    {
+      "order": 1011,
+      "category": "교육행정",
+      "chapter": "제1장 교육행정의 기초와 이론",
+      "subcategory": "교육행정의 개념과 원리",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1001-1"
+    },
+    {
+      "order": 1012,
+      "category": "교육행정",
+      "chapter": "제1장 교육행정의 기초와 이론",
+      "subcategory": "교육행정 이론의 전개",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1001-2"
+    },
+    {
+      "order": 1013,
+      "category": "교육행정",
+      "chapter": "제1장 교육행정의 기초와 이론",
+      "subcategory": "조직론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1001-3"
+    },
+    {
+      "order": 1014,
+      "category": "교육행정",
+      "chapter": "제1장 교육행정의 기초와 이론",
+      "subcategory": "학교풍토와 조직문화",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1001-4"
+    },
+    {
+      "order": 1021,
+      "category": "교육행정",
+      "chapter": "제2장 동기와 지도성",
+      "subcategory": "동기이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1002-1"
+    },
+    {
+      "order": 1022,
+      "category": "교육행정",
+      "chapter": "제2장 동기와 지도성",
+      "subcategory": "지도성 이론",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1002-2"
+    },
+    {
+      "order": 1031,
+      "category": "교육행정",
+      "chapter": "제3장 교육정책과 장학",
+      "subcategory": "교육정책과 의사결정",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1003-1"
+    },
+    {
+      "order": 1032,
+      "category": "교육행정",
+      "chapter": "제3장 교육정책과 장학",
+      "subcategory": "지방교육자치",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1003-2"
+    },
+    {
+      "order": 1033,
+      "category": "교육행정",
+      "chapter": "제3장 교육정책과 장학",
+      "subcategory": "학교운영위원회",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1003-3"
+    },
+    {
+      "order": 1034,
+      "category": "교육행정",
+      "chapter": "제3장 교육정책과 장학",
+      "subcategory": "장학",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1003-4"
+    },
+    {
+      "order": 1041,
+      "category": "교육행정",
+      "chapter": "제4장 교육재정과 학교회계",
+      "subcategory": "교육재정과 교육비",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1004-1"
+    },
+    {
+      "order": 1042,
+      "category": "교육행정",
+      "chapter": "제4장 교육재정과 학교회계",
+      "subcategory": "지방교육재정교부금",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1004-2"
+    },
+    {
+      "order": 1043,
+      "category": "교육행정",
+      "chapter": "제4장 교육재정과 학교회계",
+      "subcategory": "예산제도와 학교회계",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1004-3"
+    },
+    {
+      "order": 1051,
+      "category": "교육행정",
+      "chapter": "제5장 교육인사행정",
+      "subcategory": "교원의 인사와 신분",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1005-1"
+    },
+    {
+      "order": 1052,
+      "category": "교육행정",
+      "chapter": "제5장 교육인사행정",
+      "subcategory": "교원 연수",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1005-2"
+    },
+    {
+      "order": 1061,
+      "category": "교육행정",
+      "chapter": "제6장 교육법규",
+      "subcategory": "교육법규의 체계와 적용",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1006-1"
+    },
+    {
+      "order": 1062,
+      "category": "교육행정",
+      "chapter": "제6장 교육법규",
+      "subcategory": "교육기본법과 의무교육",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1006-2"
+    },
+    {
+      "order": 1063,
+      "category": "교육행정",
+      "chapter": "제6장 교육법규",
+      "subcategory": "학교폭력예방법",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1006-3"
+    },
+    {
+      "order": 1111,
+      "category": "평생교육",
+      "chapter": "제1장 평생교육의 이념과 사상",
+      "subcategory": "평생교육의 이념",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1101-1"
+    },
+    {
+      "order": 1112,
+      "category": "평생교육",
+      "chapter": "제1장 평생교육의 이념과 사상",
+      "subcategory": "학습의 형태",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1101-2"
+    },
+    {
+      "order": 1121,
+      "category": "평생교육",
+      "chapter": "제2장 평생교육법과 평생교육사",
+      "subcategory": "평생교육법",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1102-1"
+    },
+    {
+      "order": 1122,
+      "category": "평생교육",
+      "chapter": "제2장 평생교육법과 평생교육사",
+      "subcategory": "평생교육사",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1102-2"
+    },
+    {
+      "order": 1131,
+      "category": "평생교육",
+      "chapter": "제3장 평생학습 제도",
+      "subcategory": "평생교육 제도",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1103-1"
+    },
+    {
+      "order": 1132,
+      "category": "평생교육",
+      "chapter": "제3장 평생학습 제도",
+      "subcategory": "학점인정과 독학학위",
+      "keywords": [],
+      "unit_id": "gyoyukhak-1103-2"
+    }
+  ]
+}

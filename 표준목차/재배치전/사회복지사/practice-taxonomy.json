@@ -1,0 +1,1186 @@
+{
+  "version": 2,
+  "source": "사회복지사 1급 기출 2017~2026 (제15~24회) | 장 아래에 절이 없어 30문항 넘는 장이 한 칸에 뭉쳐 있었다. 나눔의집·에듀윌 기본서의 절 구성으로 갈랐고, 배치는 지문이 밝힌 주제를 먼저 믿었다. | 절이 개념 카드보다 적어(18~23 대 60) 카드 하나가 절의 스무 문항을 통째로 맡고 있었다. 개념의 주제 이름을 절로 올리고 문항을 지문이 밝힌 말로 다시 나눴다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　실천의 개념과 목적",
+      "subcategory": "이념적 배경",
+      "keywords": [],
+      "unit_id": "practice-101-1",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 102,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 01　실천의 개념과 목적",
+      "subcategory": "사회복지사의 자질",
+      "keywords": [],
+      "unit_id": "practice-101-2",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 103,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　실천의 개념과 목적",
+      "subcategory": "실천의 개념",
+      "keywords": [],
+      "unit_id": "practice-101-3",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 104,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　실천의 개념과 목적",
+      "subcategory": "실천의 구성",
+      "keywords": [],
+      "unit_id": "practice-101-4",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 105,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　실천의 개념과 목적",
+      "subcategory": "실천의 수준",
+      "keywords": [],
+      "unit_id": "practice-101-5",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 106,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 02　가치와 윤리",
+      "subcategory": "강점관점",
+      "keywords": [],
+      "unit_id": "practice-102-6",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 107,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　가치와 윤리",
+      "subcategory": "전문직의 가치",
+      "keywords": [],
+      "unit_id": "practice-102-7",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 108,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　가치와 윤리",
+      "subcategory": "윤리강령",
+      "keywords": [],
+      "unit_id": "practice-102-8",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 109,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　가치와 윤리",
+      "subcategory": "윤리적 딜레마",
+      "keywords": [],
+      "unit_id": "practice-102-9",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 110,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 02　가치와 윤리",
+      "subcategory": "사회복지사의 자질",
+      "keywords": [],
+      "unit_id": "practice-102-10",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 111,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 02　가치와 윤리",
+      "subcategory": "관계형성의 장애",
+      "keywords": [],
+      "unit_id": "practice-102-11",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 112,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　가치와 윤리",
+      "subcategory": "인권",
+      "keywords": [],
+      "unit_id": "practice-102-12",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 113,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　가치와 윤리",
+      "subcategory": "서구",
+      "keywords": [],
+      "unit_id": "practice-102-13",
+      "part": "실천의 토대",
+      "section": "역사적 발달과정"
+    },
+    {
+      "order": 201,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　역사",
+      "subcategory": "실천의 개념",
+      "keywords": [],
+      "unit_id": "practice-201-14",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 202,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　역사",
+      "subcategory": "서구",
+      "keywords": [],
+      "unit_id": "practice-201-15",
+      "part": "실천의 토대",
+      "section": "역사적 발달과정"
+    },
+    {
+      "order": 203,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 01　역사",
+      "subcategory": "이론적 기반",
+      "keywords": [],
+      "unit_id": "practice-201-16",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 204,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　역사",
+      "subcategory": "한국",
+      "keywords": [],
+      "unit_id": "practice-201-17",
+      "part": "실천의 토대",
+      "section": "역사적 발달과정"
+    },
+    {
+      "order": 205,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 01　역사",
+      "subcategory": "통합적 접근",
+      "keywords": [],
+      "unit_id": "practice-201-18",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 206,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 01　역사",
+      "subcategory": "현장의 분류",
+      "keywords": [],
+      "unit_id": "practice-201-19",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 207,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　역사",
+      "subcategory": "이념적 배경",
+      "keywords": [],
+      "unit_id": "practice-201-20",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 208,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　역사",
+      "subcategory": "인권",
+      "keywords": [],
+      "unit_id": "practice-201-21",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 209,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　역사",
+      "subcategory": "윤리강령",
+      "keywords": [],
+      "unit_id": "practice-201-22",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 210,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 02　실천현장과 역할",
+      "subcategory": "현장의 분류",
+      "keywords": [],
+      "unit_id": "practice-202-23",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 211,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 02　실천현장과 역할",
+      "subcategory": "실천현장과 역할",
+      "keywords": [],
+      "unit_id": "practice-202-24",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 212,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　실천현장과 역할",
+      "subcategory": "실천의 개념",
+      "keywords": [],
+      "unit_id": "practice-202-25",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 213,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 02　실천현장과 역할",
+      "subcategory": "사회복지사의 역할",
+      "keywords": [],
+      "unit_id": "practice-202-26",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 301,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 01　통합적 접근",
+      "subcategory": "통합적 접근",
+      "keywords": [],
+      "unit_id": "practice-301-27",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 302,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　통합적 접근",
+      "subcategory": "인권",
+      "keywords": [],
+      "unit_id": "practice-301-28",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 303,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 01　통합적 접근",
+      "subcategory": "이론적 기반",
+      "keywords": [],
+      "unit_id": "practice-301-29",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 304,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　통합적 접근",
+      "subcategory": "서구",
+      "keywords": [],
+      "unit_id": "practice-301-30",
+      "part": "실천의 토대",
+      "section": "역사적 발달과정"
+    },
+    {
+      "order": 305,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 01　통합적 접근",
+      "subcategory": "통합모델",
+      "keywords": [],
+      "unit_id": "practice-301-31",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 306,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　통합적 접근",
+      "subcategory": "실천의 개념",
+      "keywords": [],
+      "unit_id": "practice-301-32",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 307,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　통합적 접근",
+      "subcategory": "실천의 수준",
+      "keywords": [],
+      "unit_id": "practice-301-33",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 308,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 02　강점관점·임파워먼트",
+      "subcategory": "강점관점",
+      "keywords": [],
+      "unit_id": "practice-302-34",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 309,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 02　강점관점·임파워먼트",
+      "subcategory": "현장의 분류",
+      "keywords": [],
+      "unit_id": "practice-302-35",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 310,
+      "category": "실천과정",
+      "chapter": "CHAPTER 02　강점관점·임파워먼트",
+      "subcategory": "사정",
+      "keywords": [],
+      "unit_id": "practice-302-36",
+      "part": "실천과정",
+      "section": "사정"
+    },
+    {
+      "order": 311,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 03　사례관리",
+      "subcategory": "사례관리자의 역할",
+      "keywords": [],
+      "unit_id": "practice-303-37",
+      "part": "실천의 접근방법",
+      "section": "사례관리"
+    },
+    {
+      "order": 312,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 03　사례관리",
+      "subcategory": "통합적 접근",
+      "keywords": [],
+      "unit_id": "practice-303-38",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 313,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 03　사례관리",
+      "subcategory": "사례관리의 기초",
+      "keywords": [],
+      "unit_id": "practice-303-39",
+      "part": "실천의 접근방법",
+      "section": "사례관리"
+    },
+    {
+      "order": 314,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 03　사례관리",
+      "subcategory": "현장의 분류",
+      "keywords": [],
+      "unit_id": "practice-303-40",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 315,
+      "category": "실천과정",
+      "chapter": "CHAPTER 03　사례관리",
+      "subcategory": "개입",
+      "keywords": [],
+      "unit_id": "practice-303-41",
+      "part": "실천과정",
+      "section": "개입"
+    },
+    {
+      "order": 316,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 03　사례관리",
+      "subcategory": "윤리강령",
+      "keywords": [],
+      "unit_id": "practice-303-42",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 317,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 03　사례관리",
+      "subcategory": "강점관점",
+      "keywords": [],
+      "unit_id": "practice-303-43",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 318,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 03　사례관리",
+      "subcategory": "관계형성의 장애",
+      "keywords": [],
+      "unit_id": "practice-303-44",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 319,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 03　사례관리",
+      "subcategory": "그 밖의 기술",
+      "keywords": [],
+      "unit_id": "practice-303-45",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 401,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "비스텍의 원칙",
+      "keywords": [],
+      "unit_id": "practice-401-46",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 402,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "관계형성의 장애",
+      "keywords": [],
+      "unit_id": "practice-401-47",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 403,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "사회복지사의 자질",
+      "keywords": [],
+      "unit_id": "practice-401-48",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 404,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "관계형성의 요소",
+      "keywords": [],
+      "unit_id": "practice-401-49",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 405,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "전문적 관계",
+      "keywords": [],
+      "unit_id": "practice-401-50",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 406,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "통합모델",
+      "keywords": [],
+      "unit_id": "practice-401-51",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 407,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "윤리적 딜레마",
+      "keywords": [],
+      "unit_id": "practice-401-52",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 408,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "면접",
+      "keywords": [],
+      "unit_id": "practice-401-53",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 409,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "사회복지사의 역할",
+      "keywords": [],
+      "unit_id": "practice-401-54",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 410,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "인권",
+      "keywords": [],
+      "unit_id": "practice-401-55",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 411,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "질문",
+      "keywords": [],
+      "unit_id": "practice-401-56",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 412,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "실천의 구성",
+      "keywords": [],
+      "unit_id": "practice-401-57",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 413,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 01　관계론",
+      "subcategory": "이론적 기반",
+      "keywords": [],
+      "unit_id": "practice-401-58",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 414,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　면접기술",
+      "subcategory": "전문직의 가치",
+      "keywords": [],
+      "unit_id": "practice-402-59",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 415,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 02　면접기술",
+      "subcategory": "변화를 여는 기술",
+      "keywords": [],
+      "unit_id": "practice-402-60",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 416,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 02　면접기술",
+      "subcategory": "관계형성의 장애",
+      "keywords": [],
+      "unit_id": "practice-402-61",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 417,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　면접기술",
+      "subcategory": "실천의 구성",
+      "keywords": [],
+      "unit_id": "practice-402-62",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 418,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 02　면접기술",
+      "subcategory": "질문",
+      "keywords": [],
+      "unit_id": "practice-402-63",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 419,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 02　면접기술",
+      "subcategory": "면접",
+      "keywords": [],
+      "unit_id": "practice-402-64",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 420,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　면접기술",
+      "subcategory": "인권",
+      "keywords": [],
+      "unit_id": "practice-402-65",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 421,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 02　면접기술",
+      "subcategory": "듣고 보기",
+      "keywords": [],
+      "unit_id": "practice-402-66",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 501,
+      "category": "실천과정",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "접수",
+      "keywords": [],
+      "unit_id": "practice-501-67",
+      "part": "실천과정",
+      "section": "접수 및 자료수집"
+    },
+    {
+      "order": 502,
+      "category": "실천과정",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "되돌려 주기",
+      "keywords": [],
+      "unit_id": "practice-501-68",
+      "part": "실천과정",
+      "section": "종결 및 평가"
+    },
+    {
+      "order": 503,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "현장의 분류",
+      "keywords": [],
+      "unit_id": "practice-501-69",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 504,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "사례관리의 기초",
+      "keywords": [],
+      "unit_id": "practice-501-70",
+      "part": "실천의 접근방법",
+      "section": "사례관리"
+    },
+    {
+      "order": 505,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "통합모델",
+      "keywords": [],
+      "unit_id": "practice-501-71",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 506,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "면접",
+      "keywords": [],
+      "unit_id": "practice-501-72",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 507,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "관계형성의 장애",
+      "keywords": [],
+      "unit_id": "practice-501-73",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 508,
+      "category": "실천과정",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "자료수집",
+      "keywords": [],
+      "unit_id": "practice-501-74",
+      "part": "실천과정",
+      "section": "접수 및 자료수집"
+    },
+    {
+      "order": 509,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "인권",
+      "keywords": [],
+      "unit_id": "practice-501-75",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 510,
+      "category": "실천과정",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "종결",
+      "keywords": [],
+      "unit_id": "practice-501-76",
+      "part": "실천과정",
+      "section": "종결 및 평가"
+    },
+    {
+      "order": 511,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "실천의 구성",
+      "keywords": [],
+      "unit_id": "practice-501-77",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 512,
+      "category": "실천과정",
+      "chapter": "CHAPTER 01　접수와 자료수집",
+      "subcategory": "계획",
+      "keywords": [],
+      "unit_id": "practice-501-78",
+      "part": "실천과정",
+      "section": "계획수립"
+    },
+    {
+      "order": 513,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "사례관리의 과정",
+      "keywords": [],
+      "unit_id": "practice-502-79",
+      "part": "실천의 접근방법",
+      "section": "사례관리"
+    },
+    {
+      "order": 514,
+      "category": "실천과정",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "사정",
+      "keywords": [],
+      "unit_id": "practice-502-80",
+      "part": "실천과정",
+      "section": "사정"
+    },
+    {
+      "order": 515,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "면접",
+      "keywords": [],
+      "unit_id": "practice-502-81",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 516,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "이론적 기반",
+      "keywords": [],
+      "unit_id": "practice-502-82",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 517,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "실천의 개념",
+      "keywords": [],
+      "unit_id": "practice-502-83",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 518,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "사례관리의 기초",
+      "keywords": [],
+      "unit_id": "practice-502-84",
+      "part": "실천의 접근방법",
+      "section": "사례관리"
+    },
+    {
+      "order": 519,
+      "category": "실천과정",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "계획",
+      "keywords": [],
+      "unit_id": "practice-502-85",
+      "part": "실천과정",
+      "section": "계획수립"
+    },
+    {
+      "order": 520,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "서구",
+      "keywords": [],
+      "unit_id": "practice-502-86",
+      "part": "실천의 토대",
+      "section": "역사적 발달과정"
+    },
+    {
+      "order": 521,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "윤리강령",
+      "keywords": [],
+      "unit_id": "practice-502-87",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 522,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "관계형성의 요소",
+      "keywords": [],
+      "unit_id": "practice-502-88",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 523,
+      "category": "실천과정",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "자료수집",
+      "keywords": [],
+      "unit_id": "practice-502-89",
+      "part": "실천과정",
+      "section": "접수 및 자료수집"
+    },
+    {
+      "order": 524,
+      "category": "실천과정",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "종결",
+      "keywords": [],
+      "unit_id": "practice-502-90",
+      "part": "실천과정",
+      "section": "종결 및 평가"
+    },
+    {
+      "order": 525,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "사례관리자의 역할",
+      "keywords": [],
+      "unit_id": "practice-502-91",
+      "part": "실천의 접근방법",
+      "section": "사례관리"
+    },
+    {
+      "order": 526,
+      "category": "실천과정",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "개입",
+      "keywords": [],
+      "unit_id": "practice-502-92",
+      "part": "실천과정",
+      "section": "개입"
+    },
+    {
+      "order": 527,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "사회복지사의 역할",
+      "keywords": [],
+      "unit_id": "practice-502-93",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 528,
+      "category": "실천과정",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "접수",
+      "keywords": [],
+      "unit_id": "practice-502-94",
+      "part": "실천과정",
+      "section": "접수 및 자료수집"
+    },
+    {
+      "order": 529,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "통합모델",
+      "keywords": [],
+      "unit_id": "practice-502-95",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 530,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "강점관점",
+      "keywords": [],
+      "unit_id": "practice-502-96",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 531,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 02　사정",
+      "subcategory": "관계형성의 장애",
+      "keywords": [],
+      "unit_id": "practice-502-97",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 532,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 03　계획과 계약",
+      "subcategory": "사회복지사의 역할",
+      "keywords": [],
+      "unit_id": "practice-503-98",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 533,
+      "category": "실천과정",
+      "chapter": "CHAPTER 03　계획과 계약",
+      "subcategory": "계획",
+      "keywords": [],
+      "unit_id": "practice-503-99",
+      "part": "실천과정",
+      "section": "계획수립"
+    },
+    {
+      "order": 534,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 03　계획과 계약",
+      "subcategory": "실천의 개념",
+      "keywords": [],
+      "unit_id": "practice-503-100",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 535,
+      "category": "실천과정",
+      "chapter": "CHAPTER 03　계획과 계약",
+      "subcategory": "개입",
+      "keywords": [],
+      "unit_id": "practice-503-101",
+      "part": "실천과정",
+      "section": "개입"
+    },
+    {
+      "order": 536,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "통합적 접근",
+      "keywords": [],
+      "unit_id": "practice-504-102",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 537,
+      "category": "실천현장과 사회복지사",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "사회복지사의 자질",
+      "keywords": [],
+      "unit_id": "practice-504-103",
+      "part": "실천현장과 사회복지사",
+      "section": "실천현장에 대한 이해"
+    },
+    {
+      "order": 538,
+      "category": "실천과정",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "계획",
+      "keywords": [],
+      "unit_id": "practice-504-104",
+      "part": "실천과정",
+      "section": "계획수립"
+    },
+    {
+      "order": 539,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "듣고 보기",
+      "keywords": [],
+      "unit_id": "practice-504-105",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 540,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "실천의 수준",
+      "keywords": [],
+      "unit_id": "practice-504-106",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 541,
+      "category": "실천의 접근방법",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "이론적 기반",
+      "keywords": [],
+      "unit_id": "practice-504-107",
+      "part": "실천의 접근방법",
+      "section": "주요 관점 및 이론"
+    },
+    {
+      "order": 542,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "윤리적 딜레마",
+      "keywords": [],
+      "unit_id": "practice-504-108",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 543,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "인권",
+      "keywords": [],
+      "unit_id": "practice-504-109",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    },
+    {
+      "order": 544,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "변화를 여는 기술",
+      "keywords": [],
+      "unit_id": "practice-504-110",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 545,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 04　개입",
+      "subcategory": "비스텍의 원칙",
+      "keywords": [],
+      "unit_id": "practice-504-111",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 546,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 05　종결과 평가",
+      "subcategory": "한국",
+      "keywords": [],
+      "unit_id": "practice-505-112",
+      "part": "실천의 토대",
+      "section": "역사적 발달과정"
+    },
+    {
+      "order": 547,
+      "category": "실천과정",
+      "chapter": "CHAPTER 05　종결과 평가",
+      "subcategory": "종결",
+      "keywords": [],
+      "unit_id": "practice-505-113",
+      "part": "실천과정",
+      "section": "종결 및 평가"
+    },
+    {
+      "order": 548,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 05　종결과 평가",
+      "subcategory": "듣고 보기",
+      "keywords": [],
+      "unit_id": "practice-505-114",
+      "part": "관계와 면접",
+      "section": "면접의 방법과 기술"
+    },
+    {
+      "order": 549,
+      "category": "관계와 면접",
+      "chapter": "CHAPTER 05　종결과 평가",
+      "subcategory": "전문적 관계",
+      "keywords": [],
+      "unit_id": "practice-505-115",
+      "part": "관계와 면접",
+      "section": "관계형성에 대한 이해"
+    },
+    {
+      "order": 550,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 05　종결과 평가",
+      "subcategory": "실천의 개념",
+      "keywords": [],
+      "unit_id": "practice-505-116",
+      "part": "실천의 토대",
+      "section": "실천의 개념 및 정의"
+    },
+    {
+      "order": 551,
+      "category": "실천과정",
+      "chapter": "CHAPTER 06　기록",
+      "subcategory": "기록",
+      "keywords": [],
+      "unit_id": "practice-506-117",
+      "part": "실천과정",
+      "section": "종결 및 평가"
+    },
+    {
+      "order": 552,
+      "category": "실천의 토대",
+      "chapter": "CHAPTER 06　기록",
+      "subcategory": "윤리강령",
+      "keywords": [],
+      "unit_id": "practice-506-118",
+      "part": "실천의 토대",
+      "section": "가치와 윤리"
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　지역사회복지의 토대",
+      "shortLabel": "지역사회복지의 토대",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　지역사회의 개념과 유형",
+          "shortLabel": "지역사회의 개념과 유형",
+          "filters": [
+            {
+              "category": "지역사회복지의 토대",
+              "subcategory": "지역사회의 개념",
+              "sectionLabel": "지역사회의 개념"
+            },
+            {
+              "category": "지역사회복지의 토대",
+              "subcategory": "지역사회의 유형",
+              "sectionLabel": "지역사회의 유형"
+            },
+            {
+              "category": "지역사회복지의 토대",
+              "subcategory": "지역사회의 기능",
+              "sectionLabel": "지역사회의 기능"
+            },
+            {
+              "category": "지역사회복지의 토대",
+              "subcategory": "관계와 의미",
+              "sectionLabel": "관계와 의미"
+            }
+          ]
+        },
+        {
+          "id": "p1-c02",
+          "label": "CHAPTER 02　지역사회복지와 지역사회복지실천",
+          "shortLabel": "지역사회복지와 지역사회복지실천",
+          "filters": [
+            {
+              "category": "지역사회복지의 토대",
+              "subcategory": "지역사회복지",
+              "sectionLabel": "지역사회복지"
+            },
+            {
+              "category": "지역사회복지의 토대",
+              "subcategory": "거시 이론",
+              "sectionLabel": "거시 이론"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　지역사회복지의 역사",
+      "shortLabel": "지역사회복지의 역사",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　지역사회복지의 역사",
+          "shortLabel": "지역사회복지의 역사",
+          "filters": [
+            {
+              "category": "지역사회복지의 역사",
+              "subcategory": "영국",
+              "sectionLabel": "영국"
+            },
+            {
+              "category": "지역사회복지의 역사",
+              "subcategory": "미국",
+              "sectionLabel": "미국"
+            },
+            {
+              "category": "지역사회복지의 역사",
+              "subcategory": "한국",
+              "sectionLabel": "한국"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　이론과 실천모델",
+      "shortLabel": "이론과 실천모델",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　지역사회복지의 주요 이론",
+          "shortLabel": "지역사회복지의 주요 이론",
+          "filters": [
+            {
+              "category": "이론과 실천모델",
+              "subcategory": "자원과 권력",
+              "sectionLabel": "자원과 권력"
+            }
+          ]
+        },
+        {
+          "id": "p3-c02",
+          "label": "CHAPTER 02　지역사회복지 실천모델",
+          "shortLabel": "지역사회복지 실천모델",
+          "filters": [
+            {
+              "category": "이론과 실천모델",
+              "subcategory": "로스만",
+              "sectionLabel": "로스만"
+            },
+            {
+              "category": "이론과 실천모델",
+              "subcategory": "웨일과 갬블",
+              "sectionLabel": "웨일과 갬블"
+            },
+            {
+              "category": "이론과 실천모델",
+              "subcategory": "그 밖의 모델",
+              "sectionLabel": "그 밖의 모델"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　실천과정과 기술",
+      "shortLabel": "실천과정과 기술",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　지역사회복지 실천과정",
+          "shortLabel": "지역사회복지 실천과정",
+          "filters": [
+            {
+              "category": "실천과정과 기술",
+              "subcategory": "실천과정",
+              "sectionLabel": "실천과정"
+            },
+            {
+              "category": "실천과정과 기술",
+              "subcategory": "욕구사정",
+              "sectionLabel": "욕구사정"
+            }
+          ]
+        },
+        {
+          "id": "p4-c02",
+          "label": "CHAPTER 02　사회복지사의 역할",
+          "shortLabel": "사회복지사의 역할",
+          "filters": [
+            {
+              "category": "실천과정과 기술",
+              "subcategory": "사회복지사",
+              "sectionLabel": "사회복지사"
+            }
+          ]
+        },
+        {
+          "id": "p4-c03",
+          "label": "CHAPTER 03　실천기술",
+          "shortLabel": "실천기술",
+          "filters": [
+            {
+              "category": "실천과정과 기술",
+              "subcategory": "실천기술",
+              "sectionLabel": "실천기술"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "label": "PART 5　추진체계와 지역사회운동",
+      "shortLabel": "추진체계와 지역사회운동",
+      "style": "violet",
+      "chapters": [
+        {
+          "id": "p5-c01",
+          "label": "CHAPTER 01　지역사회보장계획",
+          "shortLabel": "지역사회보장계획",
+          "filters": [
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "지역사회보장계획",
+              "sectionLabel": "지역사회보장계획"
+            }
+          ]
+        },
+        {
+          "id": "p5-c02",
+          "label": "CHAPTER 02　추진체계Ⅰ 공공",
+          "shortLabel": "추진체계Ⅰ 공공",
+          "filters": [
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "지방자치",
+              "sectionLabel": "지방자치"
+            },
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "전달체계의 개편",
+              "sectionLabel": "전달체계의 개편"
+            },
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "지역사회보장협의체",
+              "sectionLabel": "지역사회보장협의체"
+            },
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "인력",
+              "sectionLabel": "인력"
+            }
+          ]
+        },
+        {
+          "id": "p5-c03",
+          "label": "CHAPTER 03　추진체계Ⅱ 민간",
+          "shortLabel": "추진체계Ⅱ 민간",
+          "filters": [
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "사회복지관",
+              "sectionLabel": "사회복지관"
+            },
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "협의회",
+              "sectionLabel": "협의회"
+            },
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "공동모금",
+              "sectionLabel": "공동모금"
+            },
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "자원봉사",
+              "sectionLabel": "자원봉사"
+            }
+          ]
+        },
+        {
+          "id": "p5-c04",
+          "label": "CHAPTER 04　지역사회복지운동",
+          "shortLabel": "지역사회복지운동",
+          "filters": [
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "주민참여",
+              "sectionLabel": "주민참여"
+            },
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "자활",
+              "sectionLabel": "자활"
+            },
+            {
+              "category": "추진체계와 지역사회운동",
+              "subcategory": "사회적경제",
+              "sectionLabel": "사회적경제"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

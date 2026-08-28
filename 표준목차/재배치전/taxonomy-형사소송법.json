@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "source": "형사소송법 체계(편-장-절) 기반 자체 설계 — 2026-07-23",
+  "units": [
+    { "category": "서론", "chapter": "형사소송법의 기초", "subcategory": "형사소송의 이념과 기본구조", "order": 101, "keywords": ["형사소송법", "적정절차", "실체적 진실", "당사자주의", "직권주의", "소송구조"], "unit_id": "hss-101" },
+    { "category": "서론", "chapter": "형사소송법의 기초", "subcategory": "소송절차의 기본원칙", "order": 102, "keywords": ["신속한 재판", "공개재판", "구두변론주의", "직접심리주의", "무죄추정"], "unit_id": "hss-102" },
+
+    { "category": "소송의 주체", "chapter": "법원", "subcategory": "관할", "order": 201, "keywords": ["관할", "토지관할", "사물관할", "관할위반", "합의부", "단독판사", "이송"], "unit_id": "hss-201" },
+    { "category": "소송의 주체", "chapter": "법원", "subcategory": "제척·기피·회피", "order": 202, "keywords": ["제척", "기피", "회피", "제17조", "제18조", "제22조", "전심재판", "통역인"], "unit_id": "hss-202" },
+    { "category": "소송의 주체", "chapter": "검사와 피고인", "subcategory": "검사·피고인", "order": 203, "keywords": ["검사", "피고인", "당사자능력", "소송능력"], "unit_id": "hss-203" },
+    { "category": "소송의 주체", "chapter": "변호인", "subcategory": "변호인과 변호권", "order": 204, "keywords": ["변호인", "국선변호인", "필요적 변호", "제33조", "변호인 참여권", "피의자신문 참여"], "unit_id": "hss-204" },
+    { "category": "소송의 주체", "chapter": "소송행위", "subcategory": "소송행위와 소송조건", "order": 205, "keywords": ["소송행위", "소송조건", "하자의 치유", "무효", "소송능력", "처벌희망 의사표시"], "unit_id": "hss-205" },
+
+    { "category": "수사", "chapter": "수사의 개시", "subcategory": "수사의 의의·단서·고소", "order": 301, "keywords": ["수사", "고소", "고발", "자수", "친고죄", "고소불가분", "반의사불벌죄"], "unit_id": "hss-301" },
+    { "category": "수사", "chapter": "임의수사", "subcategory": "임의수사와 피의자신문", "order": 302, "keywords": ["임의수사", "피의자신문", "참고인조사", "진술거부권", "임의동행"], "unit_id": "hss-302" },
+
+    { "category": "강제처분", "chapter": "대인적 강제처분", "subcategory": "체포", "order": 401, "keywords": ["체포", "체포영장", "긴급체포", "현행범체포", "긴급체포 승인", "체포통지"], "unit_id": "hss-401" },
+    { "category": "강제처분", "chapter": "대인적 강제처분", "subcategory": "구속", "order": 402, "keywords": ["구속", "구속영장", "구속기간", "구속의 통지", "이중구속"], "unit_id": "hss-402" },
+    { "category": "강제처분", "chapter": "대인적 강제처분", "subcategory": "체포·구속적부심사", "order": 403, "keywords": ["적부심사", "체포구속적부심", "보증금납입조건부 석방", "제214조의2"], "unit_id": "hss-403" },
+    { "category": "강제처분", "chapter": "대물적 강제처분", "subcategory": "압수·수색·검증", "order": 404, "keywords": ["압수", "수색", "검증", "영장 제시", "임의제출", "제216조", "제217조", "제218조", "정보저장매체", "전자정보"], "unit_id": "hss-404" },
+    { "category": "강제처분", "chapter": "대물적 강제처분", "subcategory": "수사상 감정·통신제한", "order": 405, "keywords": ["감정", "감정처분허가장", "신체검사", "혈액채취", "통신제한조치", "통신비밀보호법", "감청"], "unit_id": "hss-405" },
+
+    { "category": "공소의 제기", "chapter": "수사의 종결", "subcategory": "불기소처분·검찰항고·재정신청", "order": 501, "keywords": ["불기소", "기소유예", "검찰항고", "재정신청", "제260조", "공소제기결정"], "unit_id": "hss-501" },
+    { "category": "공소의 제기", "chapter": "공소제기", "subcategory": "공소제기와 공소시효", "order": 502, "keywords": ["공소제기", "공소장", "공소장일본주의", "공소시효", "공소권"], "unit_id": "hss-502" },
+    { "category": "공소의 제기", "chapter": "공소제기", "subcategory": "공소장변경과 심판범위", "order": 503, "keywords": ["공소장변경", "공소사실의 동일성", "심판대상", "심판범위", "축소사실"], "unit_id": "hss-503" },
+
+    { "category": "공판", "chapter": "공판절차", "subcategory": "공판절차와 공판기일", "order": 601, "keywords": ["공판절차", "공판준비", "공판기일", "공판조서", "변론", "불출석재판"], "unit_id": "hss-601" },
+    { "category": "공판", "chapter": "공판절차", "subcategory": "증거조사와 증인신문", "order": 602, "keywords": ["증거조사", "증인신문", "교호신문", "증언거부권", "감정", "검증"], "unit_id": "hss-602" },
+    { "category": "공판", "chapter": "특수한 공판절차", "subcategory": "국민참여재판", "order": 603, "keywords": ["국민참여재판", "배심원", "평결"], "unit_id": "hss-603" },
+    { "category": "공판", "chapter": "특수한 공판절차", "subcategory": "간이공판절차", "order": 604, "keywords": ["간이공판절차", "자백", "제286조의2"], "unit_id": "hss-604" },
+
+    { "category": "증거", "chapter": "증거법 총설", "subcategory": "증거재판주의와 증명", "order": 701, "keywords": ["증거재판주의", "자유심증주의", "거증책임", "엄격한 증명", "자유로운 증명", "증명력"], "unit_id": "hss-701" },
+    { "category": "증거", "chapter": "증거능력 제한", "subcategory": "위법수집증거배제법칙", "order": 702, "keywords": ["위법수집증거", "위법수집증거배제", "독수독과", "2차적 증거"], "unit_id": "hss-702" },
+    { "category": "증거", "chapter": "증거능력 제한", "subcategory": "자백배제법칙과 자백보강법칙", "order": 703, "keywords": ["자백배제법칙", "자백보강법칙", "보강증거", "임의성"], "unit_id": "hss-703" },
+    { "category": "증거", "chapter": "증거능력 제한", "subcategory": "전문법칙", "order": 704, "keywords": ["전문증거", "전문법칙", "피의자신문조서", "진술조서", "진술서", "제312조", "제313조", "제314조", "제315조", "특히 신빙할 수 있는 상태", "특신상태", "공범", "공동피고인"], "unit_id": "hss-704" },
+    { "category": "증거", "chapter": "증거능력 제한", "subcategory": "당사자의 동의와 탄핵증거", "order": 705, "keywords": ["증거동의", "제318조", "탄핵증거", "증명력을 다투기 위한 증거"], "unit_id": "hss-705" },
+
+    { "category": "재판", "chapter": "재판 총설", "subcategory": "재판의 종류와 종국재판", "order": 801, "keywords": ["재판", "판결", "결정", "명령", "유죄", "무죄", "면소", "공소기각", "관할위반"], "unit_id": "hss-801" },
+    { "category": "재판", "chapter": "재판의 효력", "subcategory": "기판력과 일사부재리", "order": 802, "keywords": ["기판력", "일사부재리", "확정판결", "기판력의 범위", "범칙금", "통고처분"], "unit_id": "hss-802" },
+
+    { "category": "상소", "chapter": "상소 총칙", "subcategory": "상소 통칙과 불이익변경금지", "order": 901, "keywords": ["상소", "상소권", "상소이익", "불이익변경금지", "일부상소"], "unit_id": "hss-901" },
+    { "category": "상소", "chapter": "상소의 종류", "subcategory": "항소", "order": 902, "keywords": ["항소", "항소이유", "항소심"], "unit_id": "hss-902" },
+    { "category": "상소", "chapter": "상소의 종류", "subcategory": "상고", "order": 903, "keywords": ["상고", "상고이유", "사후심", "직권심판", "상고심"], "unit_id": "hss-903" },
+    { "category": "상소", "chapter": "상소의 종류", "subcategory": "항고", "order": 904, "keywords": ["항고", "즉시항고", "보통항고", "재항고", "준항고"], "unit_id": "hss-904" },
+
+    { "category": "특별절차", "chapter": "특별절차", "subcategory": "약식절차와 즉결심판", "order": 1001, "keywords": ["약식명령", "약식절차", "정식재판청구", "즉결심판"], "unit_id": "hss-1001" },
+    { "category": "특별절차", "chapter": "특별절차", "subcategory": "재심과 비상상고", "order": 1002, "keywords": ["재심", "비상상고", "재심개시결정", "특별사면"], "unit_id": "hss-1002" },
+    { "category": "특별절차", "chapter": "특별절차", "subcategory": "재판의 집행과 형사보상", "order": 1003, "keywords": ["재판의 집행", "형사보상", "형의 집행"], "unit_id": "hss-1003" }
+  ]
+}

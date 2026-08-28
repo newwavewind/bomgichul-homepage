@@ -1,0 +1,354 @@
+{
+  "version": 1,
+  "source": "봄기출 표준 목차",
+  "units": [
+    {
+      "order": 10101,
+      "category": "지방세기본법",
+      "chapter": "총칙",
+      "subcategory": "용어의 정의",
+      "keywords": [],
+      "unit_id": "jibangsebeop-101-1"
+    },
+    {
+      "order": 10102,
+      "category": "지방세기본법",
+      "chapter": "총칙",
+      "subcategory": "지방세 부과 등의 원칙",
+      "keywords": [],
+      "unit_id": "jibangsebeop-101-2"
+    },
+    {
+      "order": 10103,
+      "category": "지방세기본법",
+      "chapter": "총칙",
+      "subcategory": "서류의 송달",
+      "keywords": [],
+      "unit_id": "jibangsebeop-101-3"
+    },
+    {
+      "order": 10104,
+      "category": "지방세기본법",
+      "chapter": "총칙",
+      "subcategory": "기간과 기한",
+      "keywords": [],
+      "unit_id": "jibangsebeop-101-4"
+    },
+    {
+      "order": 10201,
+      "category": "지방세기본법",
+      "chapter": "납세의무",
+      "subcategory": "납세의무의 성립과 확정",
+      "keywords": [],
+      "unit_id": "jibangsebeop-102-1"
+    },
+    {
+      "order": 10202,
+      "category": "지방세기본법",
+      "chapter": "납세의무",
+      "subcategory": "납세의무의 확장과 제2차 납세의무",
+      "keywords": [],
+      "unit_id": "jibangsebeop-102-2"
+    },
+    {
+      "order": 10203,
+      "category": "지방세기본법",
+      "chapter": "납세의무",
+      "subcategory": "부과의 제척기간",
+      "keywords": [],
+      "unit_id": "jibangsebeop-102-3"
+    },
+    {
+      "order": 10204,
+      "category": "지방세기본법",
+      "chapter": "납세의무",
+      "subcategory": "징수권의 소멸시효",
+      "keywords": [],
+      "unit_id": "jibangsebeop-102-4"
+    },
+    {
+      "order": 10301,
+      "category": "지방세기본법",
+      "chapter": "부과",
+      "subcategory": "부과",
+      "keywords": [
+        "부과"
+      ],
+      "unit_id": "jibangsebeop-103-1"
+    },
+    {
+      "order": 10401,
+      "category": "지방세기본법",
+      "chapter": "지방세와 다른 채권의 관계",
+      "subcategory": "지방세와 다른 채권의 관계",
+      "keywords": [
+        "지방세와 다른 채권의 관계"
+      ],
+      "unit_id": "jibangsebeop-104-1"
+    },
+    {
+      "order": 10501,
+      "category": "지방세기본법",
+      "chapter": "지방세환급금과 납세담보",
+      "subcategory": "지방세환급금과 납세담보",
+      "keywords": [
+        "지방세환급금과 지방세환급가산금",
+        "납세담보"
+      ],
+      "unit_id": "jibangsebeop-105-1"
+    },
+    {
+      "order": 10601,
+      "category": "지방세기본법",
+      "chapter": "납세자의 권리",
+      "subcategory": "납세자의 권리",
+      "keywords": [
+        "납세자의 권리"
+      ],
+      "unit_id": "jibangsebeop-106-1"
+    },
+    {
+      "order": 10701,
+      "category": "지방세기본법",
+      "chapter": "이의신청과 심판청구",
+      "subcategory": "이의신청과 심판청구",
+      "keywords": [
+        "이의신청과 심판청구"
+      ],
+      "unit_id": "jibangsebeop-107-1"
+    },
+    {
+      "order": 10801,
+      "category": "지방세기본법",
+      "chapter": "범칙행위 등에 대한 처벌 및 처벌절차",
+      "subcategory": "범칙행위 등에 대한 처벌 및 처벌절차",
+      "keywords": [
+        "범칙행위 처벌",
+        "범칙행위 처벌절차"
+      ],
+      "unit_id": "jibangsebeop-108-1"
+    },
+    {
+      "order": 20101,
+      "category": "지방세징수법",
+      "chapter": "징수",
+      "subcategory": "징수",
+      "keywords": [
+        "징수절차",
+        "징수유예",
+        "독촉"
+      ],
+      "unit_id": "jibangsebeop-201-1"
+    },
+    {
+      "order": 20201,
+      "category": "지방세징수법",
+      "chapter": "체납처분",
+      "subcategory": "체납처분",
+      "keywords": [
+        "체납처분의 절차",
+        "압류금지 재산",
+        "체납처분의 효력",
+        "동산과 유가증권의 압류",
+        "채권의 압류",
+        "부동산 등의 압류",
+        "무체재산권등의 압류",
+        "압류의 해제",
+        "교부청구 및 참가압류",
+        "압류재산의 매각",
+        "청산",
+        "공매등의 대행",
+        "체납처분의 중지ㆍ유예"
+      ],
+      "unit_id": "jibangsebeop-202-1"
+    },
+    {
+      "order": 30101,
+      "category": "지방세법",
+      "chapter": "총칙",
+      "subcategory": "총칙",
+      "keywords": [
+        "표준세율",
+        "납세지",
+        "징수방법",
+        "비과세"
+      ],
+      "unit_id": "jibangsebeop-301-1"
+    },
+    {
+      "order": 30201,
+      "category": "지방세법",
+      "chapter": "취득세",
+      "subcategory": "과세대상과 납세의무자",
+      "keywords": [],
+      "unit_id": "jibangsebeop-302-1"
+    },
+    {
+      "order": 30202,
+      "category": "지방세법",
+      "chapter": "취득세",
+      "subcategory": "과점주주의 간주취득",
+      "keywords": [],
+      "unit_id": "jibangsebeop-302-2"
+    },
+    {
+      "order": 30203,
+      "category": "지방세법",
+      "chapter": "취득세",
+      "subcategory": "취득세의 과세표준",
+      "keywords": [],
+      "unit_id": "jibangsebeop-302-3"
+    },
+    {
+      "order": 30204,
+      "category": "지방세법",
+      "chapter": "취득세",
+      "subcategory": "취득세의 세율과 중과",
+      "keywords": [],
+      "unit_id": "jibangsebeop-302-4"
+    },
+    {
+      "order": 30301,
+      "category": "지방세법",
+      "chapter": "등록면허세",
+      "subcategory": "등록면허세",
+      "keywords": [
+        "등록에 대한 등록면허세",
+        "면허에 대한 등록면허세"
+      ],
+      "unit_id": "jibangsebeop-303-1"
+    },
+    {
+      "order": 30401,
+      "category": "지방세법",
+      "chapter": "레저세",
+      "subcategory": "레저세",
+      "keywords": [
+        "레저세"
+      ],
+      "unit_id": "jibangsebeop-304-1"
+    },
+    {
+      "order": 30501,
+      "category": "지방세법",
+      "chapter": "담배소비세",
+      "subcategory": "담배소비세",
+      "keywords": [
+        "담배소비세"
+      ],
+      "unit_id": "jibangsebeop-305-1"
+    },
+    {
+      "order": 30601,
+      "category": "지방세법",
+      "chapter": "지방소비세",
+      "subcategory": "지방소비세",
+      "keywords": [
+        "지방소비세"
+      ],
+      "unit_id": "jibangsebeop-306-1"
+    },
+    {
+      "order": 30701,
+      "category": "지방세법",
+      "chapter": "주민세",
+      "subcategory": "주민세",
+      "keywords": [
+        "개인분",
+        "사업소분",
+        "종업원분"
+      ],
+      "unit_id": "jibangsebeop-307-1"
+    },
+    {
+      "order": 30801,
+      "category": "지방세법",
+      "chapter": "지방소득세",
+      "subcategory": "지방소득세",
+      "keywords": [
+        "거주자의 종합소득ㆍ퇴직소득에 대한 지방소득세",
+        "거주자의 양도소득에 대한 지방소득세",
+        "비거주자의 소득에 대한 지방소득세",
+        "개인지방소득에 대한 특별징수",
+        "내국법인의 각 사업연도의 소득에 대한 지방소득세",
+        "내국법인의 각 연결사업연도의 소득에 대한 지방소득세",
+        "내국법인의 청산소득에 대한 지방소득세",
+        "외국법인의 각 사업연도의 소득에 대한 지방소득세",
+        "동업기업에 대한 과세특례",
+        "법인과세 신탁재산의 각 사업연도의 소득에 대한 지방소득세",
+        "보칙"
+      ],
+      "unit_id": "jibangsebeop-308-1"
+    },
+    {
+      "order": 30901,
+      "category": "지방세법",
+      "chapter": "재산세",
+      "subcategory": "재산세",
+      "keywords": [
+        "과세표준과 세율",
+        "부과ㆍ징수"
+      ],
+      "unit_id": "jibangsebeop-309-1"
+    },
+    {
+      "order": 31001,
+      "category": "지방세법",
+      "chapter": "자동차세",
+      "subcategory": "자동차세",
+      "keywords": [
+        "자동차 소유에 대한 자동차세",
+        "자동차 주행에 대한 자동차세"
+      ],
+      "unit_id": "jibangsebeop-310-1"
+    },
+    {
+      "order": 31101,
+      "category": "지방세법",
+      "chapter": "지역자원시설세",
+      "subcategory": "지역자원시설세",
+      "keywords": [
+        "과세표준과 세율",
+        "부과ㆍ징수"
+      ],
+      "unit_id": "jibangsebeop-311-1"
+    },
+    {
+      "order": 31201,
+      "category": "지방세법",
+      "chapter": "지방교육세",
+      "subcategory": "지방교육세",
+      "keywords": [
+        "지방교육세"
+      ],
+      "unit_id": "jibangsebeop-312-1"
+    },
+    {
+      "order": 40101,
+      "category": "지방세특례제한법",
+      "chapter": "총칙 및 보칙",
+      "subcategory": "총칙 및 보칙",
+      "keywords": [
+        "총칙 및 보칙"
+      ],
+      "unit_id": "jibangsebeop-401-1"
+    },
+    {
+      "order": 40201,
+      "category": "지방세특례제한법",
+      "chapter": "감면",
+      "subcategory": "감면",
+      "keywords": [
+        "농어업을 위한 지원",
+        "사회복지를 위한 지원",
+        "교육 및 과학기술 등에 대한 지원",
+        "문화 및 관광 등에 대한 지원",
+        "기업구조 및 재무조정 등에 대한 지원",
+        "수송 및 교통에 대한 지원",
+        "국토 및 지역개발에 대한 지원",
+        "공공행정 등에 대한 지원"
+      ],
+      "unit_id": "jibangsebeop-402-1"
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　실천의 토대",
+      "shortLabel": "실천의 토대",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　실천의 개념 및 정의",
+          "shortLabel": "실천의 개념 및 정의",
+          "filters": [
+            {
+              "category": "실천의 토대",
+              "subcategory": "실천의 개념",
+              "sectionLabel": "실천의 개념"
+            },
+            {
+              "category": "실천의 토대",
+              "subcategory": "실천의 구성",
+              "sectionLabel": "실천의 구성"
+            },
+            {
+              "category": "실천의 토대",
+              "subcategory": "실천의 수준",
+              "sectionLabel": "실천의 수준"
+            },
+            {
+              "category": "실천의 토대",
+              "subcategory": "이념적 배경",
+              "sectionLabel": "이념적 배경"
+            }
+          ]
+        },
+        {
+          "id": "p1-c02",
+          "label": "CHAPTER 02　가치와 윤리",
+          "shortLabel": "가치와 윤리",
+          "filters": [
+            {
+              "category": "실천의 토대",
+              "subcategory": "전문직의 가치",
+              "sectionLabel": "전문직의 가치"
+            },
+            {
+              "category": "실천의 토대",
+              "subcategory": "윤리강령",
+              "sectionLabel": "윤리강령"
+            },
+            {
+              "category": "실천의 토대",
+              "subcategory": "윤리적 딜레마",
+              "sectionLabel": "윤리적 딜레마"
+            },
+            {
+              "category": "실천의 토대",
+              "subcategory": "인권",
+              "sectionLabel": "인권"
+            }
+          ]
+        },
+        {
+          "id": "p1-c03",
+          "label": "CHAPTER 03　역사적 발달과정",
+          "shortLabel": "역사적 발달과정",
+          "filters": [
+            {
+              "category": "실천의 토대",
+              "subcategory": "서구",
+              "sectionLabel": "서구"
+            },
+            {
+              "category": "실천의 토대",
+              "subcategory": "한국",
+              "sectionLabel": "한국"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　실천현장과 사회복지사",
+      "shortLabel": "실천현장과 사회복지사",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　실천현장에 대한 이해",
+          "shortLabel": "실천현장에 대한 이해",
+          "filters": [
+            {
+              "category": "실천현장과 사회복지사",
+              "subcategory": "현장의 분류",
+              "sectionLabel": "현장의 분류"
+            },
+            {
+              "category": "실천현장과 사회복지사",
+              "subcategory": "실천현장과 역할",
+              "sectionLabel": "실천현장과 역할"
+            },
+            {
+              "category": "실천현장과 사회복지사",
+              "subcategory": "사회복지사의 역할",
+              "sectionLabel": "사회복지사의 역할"
+            },
+            {
+              "category": "실천현장과 사회복지사",
+              "subcategory": "사회복지사의 자질",
+              "sectionLabel": "사회복지사의 자질"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　실천의 접근방법",
+      "shortLabel": "실천의 접근방법",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　주요 관점 및 이론",
+          "shortLabel": "주요 관점 및 이론",
+          "filters": [
+            {
+              "category": "실천의 접근방법",
+              "subcategory": "통합적 접근",
+              "sectionLabel": "통합적 접근"
+            },
+            {
+              "category": "실천의 접근방법",
+              "subcategory": "통합모델",
+              "sectionLabel": "통합모델"
+            },
+            {
+              "category": "실천의 접근방법",
+              "subcategory": "강점관점",
+              "sectionLabel": "강점관점"
+            },
+            {
+              "category": "실천의 접근방법",
+              "subcategory": "이론적 기반",
+              "sectionLabel": "이론적 기반"
+            }
+          ]
+        },
+        {
+          "id": "p3-c02",
+          "label": "CHAPTER 02　사례관리",
+          "shortLabel": "사례관리",
+          "filters": [
+            {
+              "category": "실천의 접근방법",
+              "subcategory": "사례관리의 기초",
+              "sectionLabel": "사례관리의 기초"
+            },
+            {
+              "category": "실천의 접근방법",
+              "subcategory": "사례관리의 과정",
+              "sectionLabel": "사례관리의 과정"
+            },
+            {
+              "category": "실천의 접근방법",
+              "subcategory": "사례관리자의 역할",
+              "sectionLabel": "사례관리자의 역할"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　관계와 면접",
+      "shortLabel": "관계와 면접",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　관계형성에 대한 이해",
+          "shortLabel": "관계형성에 대한 이해",
+          "filters": [
+            {
+              "category": "관계와 면접",
+              "subcategory": "비스텍의 원칙",
+              "sectionLabel": "비스텍의 원칙"
+            },
+            {
+              "category": "관계와 면접",
+              "subcategory": "관계형성의 요소",
+              "sectionLabel": "관계형성의 요소"
+            },
+            {
+              "category": "관계와 면접",
+              "subcategory": "관계형성의 장애",
+              "sectionLabel": "관계형성의 장애"
+            },
+            {
+              "category": "관계와 면접",
+              "subcategory": "전문적 관계",
+              "sectionLabel": "전문적 관계"
+            }
+          ]
+        },
+        {
+          "id": "p4-c02",
+          "label": "CHAPTER 02　면접의 방법과 기술",
+          "shortLabel": "면접의 방법과 기술",
+          "filters": [
+            {
+              "category": "관계와 면접",
+              "subcategory": "면접",
+              "sectionLabel": "면접"
+            },
+            {
+              "category": "관계와 면접",
+              "subcategory": "질문",
+              "sectionLabel": "질문"
+            },
+            {
+              "category": "관계와 면접",
+              "subcategory": "듣고 보기",
+              "sectionLabel": "듣고 보기"
+            },
+            {
+              "category": "관계와 면접",
+              "subcategory": "변화를 여는 기술",
+              "sectionLabel": "변화를 여는 기술"
+            },
+            {
+              "category": "관계와 면접",
+              "subcategory": "그 밖의 기술",
+              "sectionLabel": "그 밖의 기술"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "label": "PART 5　실천과정",
+      "shortLabel": "실천과정",
+      "style": "violet",
+      "chapters": [
+        {
+          "id": "p5-c01",
+          "label": "CHAPTER 01　접수 및 자료수집",
+          "shortLabel": "접수 및 자료수집",
+          "filters": [
+            {
+              "category": "실천과정",
+              "subcategory": "접수",
+              "sectionLabel": "접수"
+            },
+            {
+              "category": "실천과정",
+              "subcategory": "자료수집",
+              "sectionLabel": "자료수집"
+            }
+          ]
+        },
+        {
+          "id": "p5-c02",
+          "label": "CHAPTER 02　사정",
+          "shortLabel": "사정",
+          "filters": [
+            {
+              "category": "실천과정",
+              "subcategory": "사정",
+              "sectionLabel": "사정"
+            }
+          ]
+        },
+        {
+          "id": "p5-c03",
+          "label": "CHAPTER 03　계획수립",
+          "shortLabel": "계획수립",
+          "filters": [
+            {
+              "category": "실천과정",
+              "subcategory": "계획",
+              "sectionLabel": "계획"
+            }
+          ]
+        },
+        {
+          "id": "p5-c04",
+          "label": "CHAPTER 04　개입",
+          "shortLabel": "개입",
+          "filters": [
+            {
+              "category": "실천과정",
+              "subcategory": "개입",
+              "sectionLabel": "개입"
+            }
+          ]
+        },
+        {
+          "id": "p5-c05",
+          "label": "CHAPTER 05　종결 및 평가",
+          "shortLabel": "종결 및 평가",
+          "filters": [
+            {
+              "category": "실천과정",
+              "subcategory": "종결",
+              "sectionLabel": "종결"
+            },
+            {
+              "category": "실천과정",
+              "subcategory": "되돌려 주기",
+              "sectionLabel": "되돌려 주기"
+            },
+            {
+              "category": "실천과정",
+              "subcategory": "기록",
+              "sectionLabel": "기록"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

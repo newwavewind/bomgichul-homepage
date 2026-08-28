@@ -1,0 +1,976 @@
+{
+  "version": 2,
+  "source": "사회복지사 1급 기출 2017~2026 (제15~24회) | 장 아래에 절이 없어 30문항 넘는 장이 한 칸에 뭉쳐 있었다. 나눔의집·에듀윌 기본서의 절 구성으로 갈랐고, 배치는 지문이 밝힌 주제를 먼저 믿었다. | 절이 개념 카드보다 적어(18~23 대 60) 카드 하나가 절의 스무 문항을 통째로 맡고 있었다. 개념의 주제 이름을 절로 올리고 문항을 지문이 밝힌 말로 다시 나눴다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 01　지역사회의 개념·유형",
+      "subcategory": "지역사회의 기능",
+      "keywords": [],
+      "unit_id": "community-101-1",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 102,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 01　지역사회의 개념·유형",
+      "subcategory": "지역사회의 개념",
+      "keywords": [],
+      "unit_id": "community-101-2",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 103,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 01　지역사회의 개념·유형",
+      "subcategory": "욕구사정",
+      "keywords": [],
+      "unit_id": "community-101-3",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 104,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 01　지역사회의 개념·유형",
+      "subcategory": "미국",
+      "keywords": [],
+      "unit_id": "community-101-4",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 105,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 01　지역사회의 개념·유형",
+      "subcategory": "지역사회복지",
+      "keywords": [],
+      "unit_id": "community-101-5",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 106,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　지역사회의 개념·유형",
+      "subcategory": "사회복지관",
+      "keywords": [],
+      "unit_id": "community-101-6",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 107,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　지역사회의 개념·유형",
+      "subcategory": "지방자치",
+      "keywords": [],
+      "unit_id": "community-101-7",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅰ 공공"
+    },
+    {
+      "order": 108,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 01　지역사회의 개념·유형",
+      "subcategory": "실천기술",
+      "keywords": [],
+      "unit_id": "community-101-8",
+      "part": "실천과정과 기술",
+      "section": "실천기술"
+    },
+    {
+      "order": 109,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 02　이론",
+      "subcategory": "사회복지사",
+      "keywords": [],
+      "unit_id": "community-102-9",
+      "part": "실천과정과 기술",
+      "section": "사회복지사의 역할"
+    },
+    {
+      "order": 110,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　이론",
+      "subcategory": "관계와 의미",
+      "keywords": [],
+      "unit_id": "community-102-10",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 111,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 02　이론",
+      "subcategory": "그 밖의 모델",
+      "keywords": [],
+      "unit_id": "community-102-11",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지 실천모델"
+    },
+    {
+      "order": 112,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　이론",
+      "subcategory": "지역사회복지",
+      "keywords": [],
+      "unit_id": "community-102-12",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 113,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 02　이론",
+      "subcategory": "실천기술",
+      "keywords": [],
+      "unit_id": "community-102-13",
+      "part": "실천과정과 기술",
+      "section": "실천기술"
+    },
+    {
+      "order": 114,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　이론",
+      "subcategory": "지역사회의 개념",
+      "keywords": [],
+      "unit_id": "community-102-14",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 115,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　이론",
+      "subcategory": "거시 이론",
+      "keywords": [],
+      "unit_id": "community-102-15",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 116,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　이론",
+      "subcategory": "사회복지관",
+      "keywords": [],
+      "unit_id": "community-102-16",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 117,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 02　이론",
+      "subcategory": "자원과 권력",
+      "keywords": [],
+      "unit_id": "community-102-17",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지의 주요 이론"
+    },
+    {
+      "order": 201,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 01　영국·미국",
+      "subcategory": "영국",
+      "keywords": [],
+      "unit_id": "community-201-18",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 202,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 01　영국·미국",
+      "subcategory": "미국",
+      "keywords": [],
+      "unit_id": "community-201-19",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 203,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 01　영국·미국",
+      "subcategory": "그 밖의 모델",
+      "keywords": [],
+      "unit_id": "community-201-20",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지 실천모델"
+    },
+    {
+      "order": 204,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 02　한국",
+      "subcategory": "한국",
+      "keywords": [],
+      "unit_id": "community-202-21",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 205,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 02　한국",
+      "subcategory": "미국",
+      "keywords": [],
+      "unit_id": "community-202-22",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 206,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　한국",
+      "subcategory": "자원봉사",
+      "keywords": [],
+      "unit_id": "community-202-23",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 207,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　한국",
+      "subcategory": "지역사회복지",
+      "keywords": [],
+      "unit_id": "community-202-24",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 208,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　한국",
+      "subcategory": "전달체계의 개편",
+      "keywords": [],
+      "unit_id": "community-202-25",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅰ 공공"
+    },
+    {
+      "order": 209,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 02　한국",
+      "subcategory": "욕구사정",
+      "keywords": [],
+      "unit_id": "community-202-26",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 210,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　한국",
+      "subcategory": "지방자치",
+      "keywords": [],
+      "unit_id": "community-202-27",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅰ 공공"
+    },
+    {
+      "order": 301,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 01　실천모델",
+      "subcategory": "웨일과 갬블",
+      "keywords": [],
+      "unit_id": "community-301-28",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지 실천모델"
+    },
+    {
+      "order": 302,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 01　실천모델",
+      "subcategory": "로스만",
+      "keywords": [],
+      "unit_id": "community-301-29",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지 실천모델"
+    },
+    {
+      "order": 303,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 01　실천모델",
+      "subcategory": "지역사회복지",
+      "keywords": [],
+      "unit_id": "community-301-30",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 304,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 01　실천모델",
+      "subcategory": "실천기술",
+      "keywords": [],
+      "unit_id": "community-301-31",
+      "part": "실천과정과 기술",
+      "section": "실천기술"
+    },
+    {
+      "order": 305,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 01　실천모델",
+      "subcategory": "그 밖의 모델",
+      "keywords": [],
+      "unit_id": "community-301-32",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지 실천모델"
+    },
+    {
+      "order": 306,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 01　실천모델",
+      "subcategory": "사회복지사",
+      "keywords": [],
+      "unit_id": "community-301-33",
+      "part": "실천과정과 기술",
+      "section": "사회복지사의 역할"
+    },
+    {
+      "order": 307,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 02　실천과정",
+      "subcategory": "욕구사정",
+      "keywords": [],
+      "unit_id": "community-302-34",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 308,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　실천과정",
+      "subcategory": "지역사회의 개념",
+      "keywords": [],
+      "unit_id": "community-302-35",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 309,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 02　실천과정",
+      "subcategory": "실천과정",
+      "keywords": [],
+      "unit_id": "community-302-36",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 310,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　실천과정",
+      "subcategory": "지역사회복지",
+      "keywords": [],
+      "unit_id": "community-302-37",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 311,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　실천과정",
+      "subcategory": "관계와 의미",
+      "keywords": [],
+      "unit_id": "community-302-38",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 312,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 02　실천과정",
+      "subcategory": "자원과 권력",
+      "keywords": [],
+      "unit_id": "community-302-39",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지의 주요 이론"
+    },
+    {
+      "order": 313,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 02　실천과정",
+      "subcategory": "미국",
+      "keywords": [],
+      "unit_id": "community-302-40",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 314,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "실천기술",
+      "keywords": [],
+      "unit_id": "community-303-41",
+      "part": "실천과정과 기술",
+      "section": "실천기술"
+    },
+    {
+      "order": 315,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "지역사회복지",
+      "keywords": [],
+      "unit_id": "community-303-42",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 316,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "웨일과 갬블",
+      "keywords": [],
+      "unit_id": "community-303-43",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지 실천모델"
+    },
+    {
+      "order": 317,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "사회복지사",
+      "keywords": [],
+      "unit_id": "community-303-44",
+      "part": "실천과정과 기술",
+      "section": "사회복지사의 역할"
+    },
+    {
+      "order": 318,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "주민참여",
+      "keywords": [],
+      "unit_id": "community-303-45",
+      "part": "추진체계와 지역사회운동",
+      "section": "지역사회복지운동"
+    },
+    {
+      "order": 319,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "지역사회의 개념",
+      "keywords": [],
+      "unit_id": "community-303-46",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 320,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "영국",
+      "keywords": [],
+      "unit_id": "community-303-47",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 321,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "관계와 의미",
+      "keywords": [],
+      "unit_id": "community-303-48",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 322,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "실천과정",
+      "keywords": [],
+      "unit_id": "community-303-49",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 323,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "거시 이론",
+      "keywords": [],
+      "unit_id": "community-303-50",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 324,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "욕구사정",
+      "keywords": [],
+      "unit_id": "community-303-51",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 325,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 03　실천기술",
+      "subcategory": "미국",
+      "keywords": [],
+      "unit_id": "community-303-52",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 401,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "사회복지사",
+      "keywords": [],
+      "unit_id": "community-401-53",
+      "part": "실천과정과 기술",
+      "section": "사회복지사의 역할"
+    },
+    {
+      "order": 402,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "지방자치",
+      "keywords": [],
+      "unit_id": "community-401-54",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅰ 공공"
+    },
+    {
+      "order": 403,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "지역사회보장계획",
+      "keywords": [],
+      "unit_id": "community-401-55",
+      "part": "추진체계와 지역사회운동",
+      "section": "지역사회보장계획"
+    },
+    {
+      "order": 404,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "관계와 의미",
+      "keywords": [],
+      "unit_id": "community-401-56",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 405,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "욕구사정",
+      "keywords": [],
+      "unit_id": "community-401-57",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 406,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "주민참여",
+      "keywords": [],
+      "unit_id": "community-401-58",
+      "part": "추진체계와 지역사회운동",
+      "section": "지역사회복지운동"
+    },
+    {
+      "order": 407,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "지역사회보장협의체",
+      "keywords": [],
+      "unit_id": "community-401-59",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅰ 공공"
+    },
+    {
+      "order": 408,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "그 밖의 모델",
+      "keywords": [],
+      "unit_id": "community-401-60",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지 실천모델"
+    },
+    {
+      "order": 409,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "인력",
+      "keywords": [],
+      "unit_id": "community-401-61",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅰ 공공"
+    },
+    {
+      "order": 410,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "지역사회의 유형",
+      "keywords": [],
+      "unit_id": "community-401-62",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 411,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "실천과정",
+      "keywords": [],
+      "unit_id": "community-401-63",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 412,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "실천기술",
+      "keywords": [],
+      "unit_id": "community-401-64",
+      "part": "실천과정과 기술",
+      "section": "실천기술"
+    },
+    {
+      "order": 413,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "전달체계의 개편",
+      "keywords": [],
+      "unit_id": "community-401-65",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅰ 공공"
+    },
+    {
+      "order": 414,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "공동모금",
+      "keywords": [],
+      "unit_id": "community-401-66",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 415,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "미국",
+      "keywords": [],
+      "unit_id": "community-401-67",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 416,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "자원봉사",
+      "keywords": [],
+      "unit_id": "community-401-68",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 417,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "지역사회의 기능",
+      "keywords": [],
+      "unit_id": "community-401-69",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 418,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 01　공공 전달체계",
+      "subcategory": "웨일과 갬블",
+      "keywords": [],
+      "unit_id": "community-401-70",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지 실천모델"
+    },
+    {
+      "order": 419,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "지역사회의 기능",
+      "keywords": [],
+      "unit_id": "community-402-71",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 420,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "사회복지관",
+      "keywords": [],
+      "unit_id": "community-402-72",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 421,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "지역사회복지",
+      "keywords": [],
+      "unit_id": "community-402-73",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 422,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "주민참여",
+      "keywords": [],
+      "unit_id": "community-402-74",
+      "part": "추진체계와 지역사회운동",
+      "section": "지역사회복지운동"
+    },
+    {
+      "order": 423,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "실천기술",
+      "keywords": [],
+      "unit_id": "community-402-75",
+      "part": "실천과정과 기술",
+      "section": "실천기술"
+    },
+    {
+      "order": 424,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "지방자치",
+      "keywords": [],
+      "unit_id": "community-402-76",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅰ 공공"
+    },
+    {
+      "order": 425,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "자활",
+      "keywords": [],
+      "unit_id": "community-402-77",
+      "part": "추진체계와 지역사회운동",
+      "section": "지역사회복지운동"
+    },
+    {
+      "order": 426,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "지역사회의 개념",
+      "keywords": [],
+      "unit_id": "community-402-78",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 427,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "협의회",
+      "keywords": [],
+      "unit_id": "community-402-79",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 428,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "자원봉사",
+      "keywords": [],
+      "unit_id": "community-402-80",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 429,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "공동모금",
+      "keywords": [],
+      "unit_id": "community-402-81",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 430,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "욕구사정",
+      "keywords": [],
+      "unit_id": "community-402-82",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 431,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 02　사회복지관·협의회·모금회",
+      "subcategory": "미국",
+      "keywords": [],
+      "unit_id": "community-402-83",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 432,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 03　자활과 사회적경제",
+      "subcategory": "자활",
+      "keywords": [],
+      "unit_id": "community-403-84",
+      "part": "추진체계와 지역사회운동",
+      "section": "지역사회복지운동"
+    },
+    {
+      "order": 433,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 03　자활과 사회적경제",
+      "subcategory": "주민참여",
+      "keywords": [],
+      "unit_id": "community-403-85",
+      "part": "추진체계와 지역사회운동",
+      "section": "지역사회복지운동"
+    },
+    {
+      "order": 434,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 03　자활과 사회적경제",
+      "subcategory": "사회복지관",
+      "keywords": [],
+      "unit_id": "community-403-86",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 435,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 03　자활과 사회적경제",
+      "subcategory": "사회적경제",
+      "keywords": [],
+      "unit_id": "community-403-87",
+      "part": "추진체계와 지역사회운동",
+      "section": "지역사회복지운동"
+    },
+    {
+      "order": 436,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 03　자활과 사회적경제",
+      "subcategory": "한국",
+      "keywords": [],
+      "unit_id": "community-403-88",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 437,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 03　자활과 사회적경제",
+      "subcategory": "지역사회복지",
+      "keywords": [],
+      "unit_id": "community-403-89",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 438,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 03　자활과 사회적경제",
+      "subcategory": "공동모금",
+      "keywords": [],
+      "unit_id": "community-403-90",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅱ 민간"
+    },
+    {
+      "order": 439,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 04　주민참여와 최근 동향",
+      "subcategory": "주민참여",
+      "keywords": [],
+      "unit_id": "community-404-91",
+      "part": "추진체계와 지역사회운동",
+      "section": "지역사회복지운동"
+    },
+    {
+      "order": 440,
+      "category": "실천과정과 기술",
+      "chapter": "CHAPTER 04　주민참여와 최근 동향",
+      "subcategory": "욕구사정",
+      "keywords": [],
+      "unit_id": "community-404-92",
+      "part": "실천과정과 기술",
+      "section": "지역사회복지 실천과정"
+    },
+    {
+      "order": 441,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 04　주민참여와 최근 동향",
+      "subcategory": "지역사회복지",
+      "keywords": [],
+      "unit_id": "community-404-93",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회복지와 지역사회복지실천"
+    },
+    {
+      "order": 442,
+      "category": "추진체계와 지역사회운동",
+      "chapter": "CHAPTER 04　주민참여와 최근 동향",
+      "subcategory": "지방자치",
+      "keywords": [],
+      "unit_id": "community-404-94",
+      "part": "추진체계와 지역사회운동",
+      "section": "추진체계Ⅰ 공공"
+    },
+    {
+      "order": 443,
+      "category": "지역사회복지의 역사",
+      "chapter": "CHAPTER 04　주민참여와 최근 동향",
+      "subcategory": "미국",
+      "keywords": [],
+      "unit_id": "community-404-95",
+      "part": "지역사회복지의 역사",
+      "section": "지역사회복지의 역사"
+    },
+    {
+      "order": 444,
+      "category": "지역사회복지의 토대",
+      "chapter": "CHAPTER 04　주민참여와 최근 동향",
+      "subcategory": "지역사회의 개념",
+      "keywords": [],
+      "unit_id": "community-404-96",
+      "part": "지역사회복지의 토대",
+      "section": "지역사회의 개념과 유형"
+    },
+    {
+      "order": 445,
+      "category": "이론과 실천모델",
+      "chapter": "CHAPTER 04　주민참여와 최근 동향",
+      "subcategory": "그 밖의 모델",
+      "keywords": [],
+      "unit_id": "community-404-97",
+      "part": "이론과 실천모델",
+      "section": "지역사회복지 실천모델"
+    }
+  ]
+}

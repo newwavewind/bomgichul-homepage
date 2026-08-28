@@ -1,0 +1,1196 @@
+{
+  "version": 2,
+  "source": "사회복지사 1급 기출 2017~2026 (제15~24회) | 장 아래에 절이 없어 30문항 넘는 장이 한 칸에 뭉쳐 있었다. 나눔의집·에듀윌 기본서의 절 구성으로 갈랐고, 배치는 지문이 밝힌 주제를 먼저 믿었다. | 절이 개념 카드보다 적어(18~23 대 60) 카드 하나가 절의 스무 문항을 통째로 맡고 있었다. 개념의 주제 이름을 절로 올리고 문항을 지문이 밝힌 말로 다시 나눴다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "체계로서의 가족",
+      "keywords": [],
+      "unit_id": "practice-skills-101-1",
+      "part": "가족 대상 실천",
+      "section": "가족에 대한 이해"
+    },
+    {
+      "order": 102,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "실천기술",
+      "keywords": [],
+      "unit_id": "practice-skills-101-2",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 103,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "집단발달단계",
+      "keywords": [],
+      "unit_id": "practice-skills-101-3",
+      "part": "집단 대상 실천",
+      "section": "집단발달단계"
+    },
+    {
+      "order": 104,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "실천지식",
+      "keywords": [],
+      "unit_id": "practice-skills-101-4",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 105,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "심리사회모델",
+      "keywords": [],
+      "unit_id": "practice-skills-101-5",
+      "part": "개인 대상 실천모델",
+      "section": "심리사회모델"
+    },
+    {
+      "order": 106,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "개입기법",
+      "keywords": [],
+      "unit_id": "practice-skills-101-6",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 107,
+      "category": "기록과 평가",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "평가",
+      "keywords": [],
+      "unit_id": "practice-skills-101-7",
+      "part": "기록과 평가",
+      "section": "사회복지실천 평가"
+    },
+    {
+      "order": 108,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "정신역동모델",
+      "keywords": [],
+      "unit_id": "practice-skills-101-8",
+      "part": "개인 대상 실천모델",
+      "section": "정신역동모델"
+    },
+    {
+      "order": 109,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "과제중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-101-9",
+      "part": "개인 대상 실천모델",
+      "section": "과제중심모델"
+    },
+    {
+      "order": 110,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　전문성과 지식기반",
+      "subcategory": "경험적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-101-10",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 201,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "구조적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-201-11",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 202,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "실천기술",
+      "keywords": [],
+      "unit_id": "practice-skills-201-12",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 203,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "심리사회모델",
+      "keywords": [],
+      "unit_id": "practice-skills-201-13",
+      "part": "개인 대상 실천모델",
+      "section": "심리사회모델"
+    },
+    {
+      "order": 204,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "집단의 유형",
+      "keywords": [],
+      "unit_id": "practice-skills-201-14",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 205,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "전략적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-201-15",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 206,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "다세대모델",
+      "keywords": [],
+      "unit_id": "practice-skills-201-16",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 207,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "집단역동",
+      "keywords": [],
+      "unit_id": "practice-skills-201-17",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 208,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "정신역동모델",
+      "keywords": [],
+      "unit_id": "practice-skills-201-18",
+      "part": "개인 대상 실천모델",
+      "section": "정신역동모델"
+    },
+    {
+      "order": 209,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "해결중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-201-19",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 210,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "체계로서의 가족",
+      "keywords": [],
+      "unit_id": "practice-skills-201-20",
+      "part": "가족 대상 실천",
+      "section": "가족에 대한 이해"
+    },
+    {
+      "order": 211,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "개입기법",
+      "keywords": [],
+      "unit_id": "practice-skills-201-21",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 212,
+      "category": "기록과 평가",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "평가",
+      "keywords": [],
+      "unit_id": "practice-skills-201-22",
+      "part": "기록과 평가",
+      "section": "사회복지실천 평가"
+    },
+    {
+      "order": 213,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 01　정신역동·심리사회모델",
+      "subcategory": "기술의 자리",
+      "keywords": [],
+      "unit_id": "practice-skills-201-23",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 214,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "인지행동모델",
+      "keywords": [],
+      "unit_id": "practice-skills-202-24",
+      "part": "개인 대상 실천모델",
+      "section": "인지행동모델"
+    },
+    {
+      "order": 215,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "집단발달단계",
+      "keywords": [],
+      "unit_id": "practice-skills-202-25",
+      "part": "집단 대상 실천",
+      "section": "집단발달단계"
+    },
+    {
+      "order": 216,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "다세대모델",
+      "keywords": [],
+      "unit_id": "practice-skills-202-26",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 217,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "개입기법",
+      "keywords": [],
+      "unit_id": "practice-skills-202-27",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 218,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "모델의 성격",
+      "keywords": [],
+      "unit_id": "practice-skills-202-28",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 219,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "정신역동모델",
+      "keywords": [],
+      "unit_id": "practice-skills-202-29",
+      "part": "개인 대상 실천모델",
+      "section": "정신역동모델"
+    },
+    {
+      "order": 220,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "인지치료",
+      "keywords": [],
+      "unit_id": "practice-skills-202-30",
+      "part": "개인 대상 실천모델",
+      "section": "인지행동모델"
+    },
+    {
+      "order": 221,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "실천지식",
+      "keywords": [],
+      "unit_id": "practice-skills-202-31",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 222,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "과제중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-202-32",
+      "part": "개인 대상 실천모델",
+      "section": "과제중심모델"
+    },
+    {
+      "order": 223,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　인지행동모델",
+      "subcategory": "그 밖의 모델",
+      "keywords": [],
+      "unit_id": "practice-skills-202-33",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 224,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 03　과제중심모델",
+      "subcategory": "기술의 자리",
+      "keywords": [],
+      "unit_id": "practice-skills-203-34",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 225,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 03　과제중심모델",
+      "subcategory": "과제중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-203-35",
+      "part": "개인 대상 실천모델",
+      "section": "과제중심모델"
+    },
+    {
+      "order": 226,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 03　과제중심모델",
+      "subcategory": "해결중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-203-36",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 227,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 03　과제중심모델",
+      "subcategory": "개입기법",
+      "keywords": [],
+      "unit_id": "practice-skills-203-37",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 228,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "정신역동모델",
+      "keywords": [],
+      "unit_id": "practice-skills-204-38",
+      "part": "개인 대상 실천모델",
+      "section": "정신역동모델"
+    },
+    {
+      "order": 229,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "모델의 성격",
+      "keywords": [],
+      "unit_id": "practice-skills-204-39",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 230,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "개입",
+      "keywords": [],
+      "unit_id": "practice-skills-204-40",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 231,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "심리사회모델",
+      "keywords": [],
+      "unit_id": "practice-skills-204-41",
+      "part": "개인 대상 실천모델",
+      "section": "심리사회모델"
+    },
+    {
+      "order": 232,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "체계로서의 가족",
+      "keywords": [],
+      "unit_id": "practice-skills-204-42",
+      "part": "가족 대상 실천",
+      "section": "가족에 대한 이해"
+    },
+    {
+      "order": 233,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "위기의 이해",
+      "keywords": [],
+      "unit_id": "practice-skills-204-43",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 234,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "해결중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-204-44",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 235,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "집단발달단계",
+      "keywords": [],
+      "unit_id": "practice-skills-204-45",
+      "part": "집단 대상 실천",
+      "section": "집단발달단계"
+    },
+    {
+      "order": 236,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "다세대모델",
+      "keywords": [],
+      "unit_id": "practice-skills-204-46",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 237,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "집단의 유형",
+      "keywords": [],
+      "unit_id": "practice-skills-204-47",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 238,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 04　위기개입모델",
+      "subcategory": "전략적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-204-48",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 239,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "개입",
+      "keywords": [],
+      "unit_id": "practice-skills-205-49",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 240,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "심리사회모델",
+      "keywords": [],
+      "unit_id": "practice-skills-205-50",
+      "part": "개인 대상 실천모델",
+      "section": "심리사회모델"
+    },
+    {
+      "order": 241,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "실천기술",
+      "keywords": [],
+      "unit_id": "practice-skills-205-51",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 242,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "해결중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-205-52",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 243,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "과제중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-205-53",
+      "part": "개인 대상 실천모델",
+      "section": "과제중심모델"
+    },
+    {
+      "order": 244,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "전략적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-205-54",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 245,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "위기의 이해",
+      "keywords": [],
+      "unit_id": "practice-skills-205-55",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 246,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "정신역동모델",
+      "keywords": [],
+      "unit_id": "practice-skills-205-56",
+      "part": "개인 대상 실천모델",
+      "section": "정신역동모델"
+    },
+    {
+      "order": 247,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "집단의 유형",
+      "keywords": [],
+      "unit_id": "practice-skills-205-57",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 248,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 05　해결중심모델",
+      "subcategory": "실천지식",
+      "keywords": [],
+      "unit_id": "practice-skills-205-58",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 249,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 06　역량강화모델",
+      "subcategory": "과제중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-206-59",
+      "part": "개인 대상 실천모델",
+      "section": "과제중심모델"
+    },
+    {
+      "order": 301,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "체계로서의 가족",
+      "keywords": [],
+      "unit_id": "practice-skills-301-60",
+      "part": "가족 대상 실천",
+      "section": "가족에 대한 이해"
+    },
+    {
+      "order": 302,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "가족사정",
+      "keywords": [],
+      "unit_id": "practice-skills-301-61",
+      "part": "가족 대상 실천",
+      "section": "가족문제 사정"
+    },
+    {
+      "order": 303,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "전략적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-301-62",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 304,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "가족의 이해",
+      "keywords": [],
+      "unit_id": "practice-skills-301-63",
+      "part": "가족 대상 실천",
+      "section": "가족에 대한 이해"
+    },
+    {
+      "order": 305,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "정신역동모델",
+      "keywords": [],
+      "unit_id": "practice-skills-301-64",
+      "part": "개인 대상 실천모델",
+      "section": "정신역동모델"
+    },
+    {
+      "order": 306,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "과제중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-301-65",
+      "part": "개인 대상 실천모델",
+      "section": "과제중심모델"
+    },
+    {
+      "order": 307,
+      "category": "기록과 평가",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "기록",
+      "keywords": [],
+      "unit_id": "practice-skills-301-66",
+      "part": "기록과 평가",
+      "section": "사회복지실천 기록"
+    },
+    {
+      "order": 308,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "다세대모델",
+      "keywords": [],
+      "unit_id": "practice-skills-301-67",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 309,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "가족실천",
+      "keywords": [],
+      "unit_id": "practice-skills-301-68",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 310,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "집단역동",
+      "keywords": [],
+      "unit_id": "practice-skills-301-69",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 311,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　가족사정",
+      "subcategory": "해결중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-301-70",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 312,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "다세대모델",
+      "keywords": [],
+      "unit_id": "practice-skills-302-71",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 313,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "경험적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-302-72",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 314,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "집단발달단계",
+      "keywords": [],
+      "unit_id": "practice-skills-302-73",
+      "part": "집단 대상 실천",
+      "section": "집단발달단계"
+    },
+    {
+      "order": 315,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "전략적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-302-74",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 316,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "체계로서의 가족",
+      "keywords": [],
+      "unit_id": "practice-skills-302-75",
+      "part": "가족 대상 실천",
+      "section": "가족에 대한 이해"
+    },
+    {
+      "order": 317,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "해결중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-302-76",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 318,
+      "category": "기록과 평가",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "평가",
+      "keywords": [],
+      "unit_id": "practice-skills-302-77",
+      "part": "기록과 평가",
+      "section": "사회복지실천 평가"
+    },
+    {
+      "order": 319,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "구조적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-302-78",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 320,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "가족실천",
+      "keywords": [],
+      "unit_id": "practice-skills-302-79",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 321,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "가족의 이해",
+      "keywords": [],
+      "unit_id": "practice-skills-302-80",
+      "part": "가족 대상 실천",
+      "section": "가족에 대한 이해"
+    },
+    {
+      "order": 322,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "그 밖의 모델",
+      "keywords": [],
+      "unit_id": "practice-skills-302-81",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 323,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 02　가족치료모델",
+      "subcategory": "모델의 성격",
+      "keywords": [],
+      "unit_id": "practice-skills-302-82",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 401,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "그 밖의 모델",
+      "keywords": [],
+      "unit_id": "practice-skills-401-83",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 402,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "집단발달단계",
+      "keywords": [],
+      "unit_id": "practice-skills-401-84",
+      "part": "집단 대상 실천",
+      "section": "집단발달단계"
+    },
+    {
+      "order": 403,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "집단역동",
+      "keywords": [],
+      "unit_id": "practice-skills-401-85",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 404,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "개입기법",
+      "keywords": [],
+      "unit_id": "practice-skills-401-86",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 405,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "다세대모델",
+      "keywords": [],
+      "unit_id": "practice-skills-401-87",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 406,
+      "category": "기록과 평가",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "기록",
+      "keywords": [],
+      "unit_id": "practice-skills-401-88",
+      "part": "기록과 평가",
+      "section": "사회복지실천 기록"
+    },
+    {
+      "order": 407,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "집단사정",
+      "keywords": [],
+      "unit_id": "practice-skills-401-89",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 408,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "집단의 유형",
+      "keywords": [],
+      "unit_id": "practice-skills-401-90",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 409,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "심리사회모델",
+      "keywords": [],
+      "unit_id": "practice-skills-401-91",
+      "part": "개인 대상 실천모델",
+      "section": "심리사회모델"
+    },
+    {
+      "order": 410,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "집단의 어려움",
+      "keywords": [],
+      "unit_id": "practice-skills-401-92",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 411,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "구조적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-401-93",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 412,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "과제중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-401-94",
+      "part": "개인 대상 실천모델",
+      "section": "과제중심모델"
+    },
+    {
+      "order": 413,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "가족실천",
+      "keywords": [],
+      "unit_id": "practice-skills-401-95",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 414,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "기술의 자리",
+      "keywords": [],
+      "unit_id": "practice-skills-401-96",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 415,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "실천지식",
+      "keywords": [],
+      "unit_id": "practice-skills-401-97",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 416,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "경험적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-401-98",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 417,
+      "category": "기록과 평가",
+      "chapter": "CHAPTER 01　집단의 유형과 역동",
+      "subcategory": "평가",
+      "keywords": [],
+      "unit_id": "practice-skills-401-99",
+      "part": "기록과 평가",
+      "section": "사회복지실천 평가"
+    },
+    {
+      "order": 418,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "집단의 유형",
+      "keywords": [],
+      "unit_id": "practice-skills-402-100",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 419,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "집단사정",
+      "keywords": [],
+      "unit_id": "practice-skills-402-101",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 420,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "개입",
+      "keywords": [],
+      "unit_id": "practice-skills-402-102",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 421,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "위기의 이해",
+      "keywords": [],
+      "unit_id": "practice-skills-402-103",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 422,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "가족실천",
+      "keywords": [],
+      "unit_id": "practice-skills-402-104",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 423,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "기술의 자리",
+      "keywords": [],
+      "unit_id": "practice-skills-402-105",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 424,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "집단역동",
+      "keywords": [],
+      "unit_id": "practice-skills-402-106",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 425,
+      "category": "실천기술의 기초",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "실천지식",
+      "keywords": [],
+      "unit_id": "practice-skills-402-107",
+      "part": "실천기술의 기초",
+      "section": "사회복지사의 전문성"
+    },
+    {
+      "order": 426,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "구조적모델",
+      "keywords": [],
+      "unit_id": "practice-skills-402-108",
+      "part": "가족 대상 실천",
+      "section": "가족 대상 실천기법"
+    },
+    {
+      "order": 427,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "집단발달단계",
+      "keywords": [],
+      "unit_id": "practice-skills-402-109",
+      "part": "집단 대상 실천",
+      "section": "집단발달단계"
+    },
+    {
+      "order": 428,
+      "category": "집단 대상 실천",
+      "chapter": "CHAPTER 02　집단발달단계",
+      "subcategory": "집단의 어려움",
+      "keywords": [],
+      "unit_id": "practice-skills-402-110",
+      "part": "집단 대상 실천",
+      "section": "집단 대상 실천기법"
+    },
+    {
+      "order": 501,
+      "category": "기록과 평가",
+      "chapter": "CHAPTER 01　기록",
+      "subcategory": "기록",
+      "keywords": [],
+      "unit_id": "practice-skills-501-111",
+      "part": "기록과 평가",
+      "section": "사회복지실천 기록"
+    },
+    {
+      "order": 502,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　기록",
+      "subcategory": "개입기법",
+      "keywords": [],
+      "unit_id": "practice-skills-501-112",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 503,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 01　기록",
+      "subcategory": "심리사회모델",
+      "keywords": [],
+      "unit_id": "practice-skills-501-113",
+      "part": "개인 대상 실천모델",
+      "section": "심리사회모델"
+    },
+    {
+      "order": 504,
+      "category": "기록과 평가",
+      "chapter": "CHAPTER 02　평가",
+      "subcategory": "평가",
+      "keywords": [],
+      "unit_id": "practice-skills-502-114",
+      "part": "기록과 평가",
+      "section": "사회복지실천 평가"
+    },
+    {
+      "order": 505,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　평가",
+      "subcategory": "심리사회모델",
+      "keywords": [],
+      "unit_id": "practice-skills-502-115",
+      "part": "개인 대상 실천모델",
+      "section": "심리사회모델"
+    },
+    {
+      "order": 506,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　평가",
+      "subcategory": "과제중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-502-116",
+      "part": "개인 대상 실천모델",
+      "section": "과제중심모델"
+    },
+    {
+      "order": 507,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　평가",
+      "subcategory": "개입기법",
+      "keywords": [],
+      "unit_id": "practice-skills-502-117",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    },
+    {
+      "order": 508,
+      "category": "가족 대상 실천",
+      "chapter": "CHAPTER 02　평가",
+      "subcategory": "체계로서의 가족",
+      "keywords": [],
+      "unit_id": "practice-skills-502-118",
+      "part": "가족 대상 실천",
+      "section": "가족에 대한 이해"
+    },
+    {
+      "order": 509,
+      "category": "개인 대상 실천모델",
+      "chapter": "CHAPTER 02　평가",
+      "subcategory": "해결중심모델",
+      "keywords": [],
+      "unit_id": "practice-skills-502-119",
+      "part": "개인 대상 실천모델",
+      "section": "기타 실천모델"
+    }
+  ]
+}

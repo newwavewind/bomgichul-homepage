@@ -1,0 +1,262 @@
+{
+  "version": 2,
+  "source": "경찰 순경 공채 기출 9회차 360문항을 분류해 만든 목차 | taxonomy 가 공인중개사 것이 딸려 온 채 남아 있었다(경찰학 과목에 부동산 목차). curriculum 의 필터를 그대로 옮겨 다시 세웠다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "경찰학의 기초이론",
+      "chapter": "CHAPTER 01　경찰의 개념과 분류",
+      "subcategory": "경찰의 개념과 분류",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-101-1"
+    },
+    {
+      "order": 102,
+      "category": "경찰학의 기초이론",
+      "chapter": "CHAPTER 02　경찰의 임무·수단·관할",
+      "subcategory": "경찰의 임무·수단·관할",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-102-2"
+    },
+    {
+      "order": 103,
+      "category": "경찰학의 기초이론",
+      "chapter": "CHAPTER 03　경찰의 기본이념과 역할모델",
+      "subcategory": "경찰의 기본이념과 역할모델",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-103-3"
+    },
+    {
+      "order": 201,
+      "category": "한국경찰사와 비교경찰",
+      "chapter": "CHAPTER 01　한국경찰의 역사",
+      "subcategory": "한국경찰의 역사",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-201-4"
+    },
+    {
+      "order": 202,
+      "category": "한국경찰사와 비교경찰",
+      "chapter": "CHAPTER 02　외국경찰·비교경찰",
+      "subcategory": "외국경찰·비교경찰",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-202-5"
+    },
+    {
+      "order": 301,
+      "category": "경찰과 윤리",
+      "chapter": "CHAPTER 01　경찰윤리와 부패",
+      "subcategory": "경찰윤리와 부패",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-301-6"
+    },
+    {
+      "order": 302,
+      "category": "경찰과 윤리",
+      "chapter": "CHAPTER 02　행동강령·청탁금지법·이해충돌방지법",
+      "subcategory": "행동강령·청탁금지법·이해충돌방지법",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-302-7"
+    },
+    {
+      "order": 303,
+      "category": "경찰과 윤리",
+      "chapter": "CHAPTER 03　경찰 인권보호",
+      "subcategory": "경찰 인권보호",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-303-8"
+    },
+    {
+      "order": 401,
+      "category": "범죄학과 범죄예방",
+      "chapter": "CHAPTER 01　지역사회 경찰활동",
+      "subcategory": "지역사회 경찰활동",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-401-9"
+    },
+    {
+      "order": 402,
+      "category": "범죄학과 범죄예방",
+      "chapter": "CHAPTER 02　범죄원인론",
+      "subcategory": "범죄원인론",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-402-10"
+    },
+    {
+      "order": 403,
+      "category": "범죄학과 범죄예방",
+      "chapter": "CHAPTER 03　범죄예방이론·CPTED",
+      "subcategory": "범죄예방이론·CPTED",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-403-11"
+    },
+    {
+      "order": 404,
+      "category": "범죄학과 범죄예방",
+      "chapter": "CHAPTER 04　피해자학",
+      "subcategory": "피해자학",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-404-12"
+    },
+    {
+      "order": 501,
+      "category": "경찰행정학",
+      "chapter": "CHAPTER 01　경찰인사관리",
+      "subcategory": "경찰인사관리",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-501-13"
+    },
+    {
+      "order": 502,
+      "category": "경찰행정학",
+      "chapter": "CHAPTER 02　경찰통제와 홍보",
+      "subcategory": "경찰통제와 홍보",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-502-14"
+    },
+    {
+      "order": 503,
+      "category": "경찰행정학",
+      "chapter": "CHAPTER 03　장비·보안·문서관리",
+      "subcategory": "장비·보안·문서관리",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-503-15"
+    },
+    {
+      "order": 504,
+      "category": "경찰행정학",
+      "chapter": "CHAPTER 04　경찰조직편성의 원리",
+      "subcategory": "경찰조직편성의 원리",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-504-16"
+    },
+    {
+      "order": 505,
+      "category": "경찰행정학",
+      "chapter": "CHAPTER 05　경찰예산",
+      "subcategory": "경찰예산",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-505-17"
+    },
+    {
+      "order": 506,
+      "category": "경찰행정학",
+      "chapter": "CHAPTER 06　정책결정과 기획",
+      "subcategory": "정책결정과 기획",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-506-18"
+    },
+    {
+      "order": 601,
+      "category": "경찰행정법",
+      "chapter": "CHAPTER 01　경찰관 직무집행법",
+      "subcategory": "경찰관 직무집행법",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-601-19"
+    },
+    {
+      "order": 602,
+      "category": "경찰행정법",
+      "chapter": "CHAPTER 02　법치행정과 행정법의 일반원칙",
+      "subcategory": "법치행정과 행정법의 일반원칙",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-602-20"
+    },
+    {
+      "order": 603,
+      "category": "경찰행정법",
+      "chapter": "CHAPTER 03　경찰조직법",
+      "subcategory": "경찰조직법",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-603-21"
+    },
+    {
+      "order": 604,
+      "category": "경찰행정법",
+      "chapter": "CHAPTER 04　경찰작용법 총론(하명·허가·부관)",
+      "subcategory": "경찰작용법 총론(하명·허가·부관)",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-604-22"
+    },
+    {
+      "order": 605,
+      "category": "경찰행정법",
+      "chapter": "CHAPTER 05　행정구제(행정심판·소송·국가배상)",
+      "subcategory": "행정구제(행정심판·소송·국가배상)",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-605-23"
+    },
+    {
+      "order": 606,
+      "category": "경찰행정법",
+      "chapter": "CHAPTER 06　행정절차와 정보공개·개인정보",
+      "subcategory": "행정절차와 정보공개·개인정보",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-606-24"
+    },
+    {
+      "order": 607,
+      "category": "경찰행정법",
+      "chapter": "CHAPTER 07　행정의 실효성 확보수단",
+      "subcategory": "행정의 실효성 확보수단",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-607-25"
+    },
+    {
+      "order": 701,
+      "category": "분야별 경찰활동",
+      "chapter": "CHAPTER 01　생활안전·지역경찰",
+      "subcategory": "생활안전·지역경찰",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-701-26"
+    },
+    {
+      "order": 702,
+      "category": "분야별 경찰활동",
+      "chapter": "CHAPTER 02　여성·청소년·아동 보호",
+      "subcategory": "여성·청소년·아동 보호",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-702-27"
+    },
+    {
+      "order": 703,
+      "category": "분야별 경찰활동",
+      "chapter": "CHAPTER 03　교통경찰",
+      "subcategory": "교통경찰",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-703-28"
+    },
+    {
+      "order": 704,
+      "category": "분야별 경찰활동",
+      "chapter": "CHAPTER 04　보안경찰·외사경찰",
+      "subcategory": "보안경찰·외사경찰",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-704-29"
+    },
+    {
+      "order": 705,
+      "category": "분야별 경찰활동",
+      "chapter": "CHAPTER 05　경비경찰",
+      "subcategory": "경비경찰",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-705-30"
+    },
+    {
+      "order": 706,
+      "category": "분야별 경찰활동",
+      "chapter": "CHAPTER 06　수사경찰",
+      "subcategory": "수사경찰",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-706-31"
+    },
+    {
+      "order": 707,
+      "category": "분야별 경찰활동",
+      "chapter": "CHAPTER 07　정보경찰",
+      "subcategory": "정보경찰",
+      "keywords": [],
+      "unit_id": "gyeongchalhak-707-32"
+    }
+  ]
+}

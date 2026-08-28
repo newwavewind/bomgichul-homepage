@@ -1,0 +1,449 @@
+{
+  "version": 2,
+  "source": "노동법개론 — 편은 근로기준법(제1장 총칙 ~ 제12장 벌칙)·노동조합 및 노동관계조정법(제1장 총칙 ~ 제8장 벌칙)·최저임금법의 법제처 편제를 뼈대로 삼고, 해커스·에듀윌 노동법 기본서가 쓰는 「개별적 근로관계법 → 집단적 노사관계법」 순서로 편을 늘어놓았다. 같은 뜻인데 표현만 갈렸던 절(통상임금/평균임금/평균임금ㆍ임금 → 통상임금ㆍ평균임금 등)을 하나로 모았다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "총론ㆍ적용",
+      "subcategory": "공민권 행사",
+      "keywords": [],
+      "unit_id": "nodong-101-1",
+      "chapter": "제1장 노동법의 법원과 근로기준법 총칙"
+    },
+    {
+      "order": 102,
+      "category": "총론ㆍ적용",
+      "subcategory": "근로기준법 총설",
+      "keywords": [],
+      "unit_id": "nodong-101-2",
+      "chapter": "제1장 노동법의 법원과 근로기준법 총칙"
+    },
+    {
+      "order": 103,
+      "category": "총론ㆍ적용",
+      "subcategory": "근로자ㆍ사용자",
+      "keywords": [],
+      "unit_id": "nodong-101-3",
+      "chapter": "제1장 노동법의 법원과 근로기준법 총칙"
+    },
+    {
+      "order": 104,
+      "category": "총론ㆍ적용",
+      "subcategory": "법원(효력의 위계)",
+      "keywords": [],
+      "unit_id": "nodong-101-4",
+      "chapter": "제1장 노동법의 법원과 근로기준법 총칙"
+    },
+    {
+      "order": 105,
+      "category": "총론ㆍ적용",
+      "subcategory": "적용범위",
+      "keywords": [],
+      "unit_id": "nodong-101-5",
+      "chapter": "제1장 노동법의 법원과 근로기준법 총칙"
+    },
+    {
+      "order": 106,
+      "category": "총론ㆍ적용",
+      "subcategory": "근로감독관",
+      "keywords": [],
+      "unit_id": "nodong-102-6",
+      "chapter": "제2장 근로감독과 벌칙"
+    },
+    {
+      "order": 107,
+      "category": "총론ㆍ적용",
+      "subcategory": "기숙사",
+      "keywords": [],
+      "unit_id": "nodong-102-7",
+      "chapter": "제2장 근로감독과 벌칙"
+    },
+    {
+      "order": 108,
+      "category": "총론ㆍ적용",
+      "subcategory": "단시간근로자",
+      "keywords": [],
+      "unit_id": "nodong-102-8",
+      "chapter": "제2장 근로감독과 벌칙"
+    },
+    {
+      "order": 109,
+      "category": "총론ㆍ적용",
+      "subcategory": "벌칙",
+      "keywords": [],
+      "unit_id": "nodong-102-9",
+      "chapter": "제2장 근로감독과 벌칙"
+    },
+    {
+      "order": 110,
+      "category": "총론ㆍ적용",
+      "subcategory": "서류의 보존",
+      "keywords": [],
+      "unit_id": "nodong-102-10",
+      "chapter": "제2장 근로감독과 벌칙"
+    },
+    {
+      "order": 201,
+      "category": "근로계약ㆍ임금",
+      "subcategory": "근로계약",
+      "keywords": [],
+      "unit_id": "nodong-201-11",
+      "chapter": "제1장 근로계약"
+    },
+    {
+      "order": 202,
+      "category": "근로계약ㆍ임금",
+      "subcategory": "근로조건 위반",
+      "keywords": [],
+      "unit_id": "nodong-201-12",
+      "chapter": "제1장 근로계약"
+    },
+    {
+      "order": 203,
+      "category": "근로계약ㆍ임금",
+      "subcategory": "벌칙(반의사불벌)",
+      "keywords": [],
+      "unit_id": "nodong-201-13",
+      "chapter": "제1장 근로계약"
+    },
+    {
+      "order": 204,
+      "category": "근로계약ㆍ임금",
+      "subcategory": "금품청산ㆍ소멸시효",
+      "keywords": [],
+      "unit_id": "nodong-202-14",
+      "chapter": "제2장 임금과 재해보상"
+    },
+    {
+      "order": 205,
+      "category": "근로계약ㆍ임금",
+      "subcategory": "임금 지급의 원칙",
+      "keywords": [],
+      "unit_id": "nodong-202-15",
+      "chapter": "제2장 임금과 재해보상"
+    },
+    {
+      "order": 206,
+      "category": "근로계약ㆍ임금",
+      "subcategory": "재해보상",
+      "keywords": [],
+      "unit_id": "nodong-202-16",
+      "chapter": "제2장 임금과 재해보상"
+    },
+    {
+      "order": 207,
+      "category": "근로계약ㆍ임금",
+      "subcategory": "통상임금ㆍ임금",
+      "keywords": [],
+      "unit_id": "nodong-202-17",
+      "chapter": "제2장 임금과 재해보상"
+    },
+    {
+      "order": 208,
+      "category": "근로계약ㆍ임금",
+      "subcategory": "통상임금ㆍ평균임금",
+      "keywords": [],
+      "unit_id": "nodong-202-18",
+      "chapter": "제2장 임금과 재해보상"
+    },
+    {
+      "order": 301,
+      "category": "근로시간ㆍ휴가",
+      "subcategory": "근로시간",
+      "keywords": [],
+      "unit_id": "nodong-301-19"
+    },
+    {
+      "order": 302,
+      "category": "근로시간ㆍ휴가",
+      "subcategory": "근로자대표 서면합의",
+      "keywords": [],
+      "unit_id": "nodong-301-20"
+    },
+    {
+      "order": 303,
+      "category": "근로시간ㆍ휴가",
+      "subcategory": "선택적 근로시간제",
+      "keywords": [],
+      "unit_id": "nodong-301-21"
+    },
+    {
+      "order": 304,
+      "category": "근로시간ㆍ휴가",
+      "subcategory": "연차유급휴가",
+      "keywords": [],
+      "unit_id": "nodong-301-22"
+    },
+    {
+      "order": 305,
+      "category": "근로시간ㆍ휴가",
+      "subcategory": "재량근로",
+      "keywords": [],
+      "unit_id": "nodong-301-23"
+    },
+    {
+      "order": 306,
+      "category": "근로시간ㆍ휴가",
+      "subcategory": "탄력적 근로시간제",
+      "keywords": [],
+      "unit_id": "nodong-301-24"
+    },
+    {
+      "order": 401,
+      "category": "여성ㆍ연소자",
+      "subcategory": "갱내근로",
+      "keywords": [],
+      "unit_id": "nodong-401-25"
+    },
+    {
+      "order": 402,
+      "category": "여성ㆍ연소자",
+      "subcategory": "여성의 근로",
+      "keywords": [],
+      "unit_id": "nodong-401-26"
+    },
+    {
+      "order": 403,
+      "category": "여성ㆍ연소자",
+      "subcategory": "연소자 보호",
+      "keywords": [],
+      "unit_id": "nodong-401-27"
+    },
+    {
+      "order": 404,
+      "category": "여성ㆍ연소자",
+      "subcategory": "직장 내 괴롭힘",
+      "keywords": [],
+      "unit_id": "nodong-401-28"
+    },
+    {
+      "order": 501,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "경영상 해고",
+      "keywords": [],
+      "unit_id": "nodong-501-29"
+    },
+    {
+      "order": 502,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "근로관계의 종료",
+      "keywords": [],
+      "unit_id": "nodong-501-30"
+    },
+    {
+      "order": 503,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "부당해고 구제",
+      "keywords": [],
+      "unit_id": "nodong-501-31"
+    },
+    {
+      "order": 504,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "영업양도ㆍ근로관계 승계",
+      "keywords": [],
+      "unit_id": "nodong-501-32"
+    },
+    {
+      "order": 505,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "이행강제금",
+      "keywords": [],
+      "unit_id": "nodong-501-33"
+    },
+    {
+      "order": 506,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "인사처분(전적ㆍ전보)",
+      "keywords": [],
+      "unit_id": "nodong-501-34"
+    },
+    {
+      "order": 507,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "직위해제",
+      "keywords": [],
+      "unit_id": "nodong-501-35"
+    },
+    {
+      "order": 508,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "징계",
+      "keywords": [],
+      "unit_id": "nodong-501-36"
+    },
+    {
+      "order": 509,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "취업규칙",
+      "keywords": [],
+      "unit_id": "nodong-501-37"
+    },
+    {
+      "order": 510,
+      "category": "취업규칙ㆍ인사",
+      "subcategory": "해고",
+      "keywords": [],
+      "unit_id": "nodong-501-38"
+    },
+    {
+      "order": 601,
+      "category": "노동조합",
+      "subcategory": "균등대우",
+      "keywords": [],
+      "unit_id": "nodong-601-39"
+    },
+    {
+      "order": 602,
+      "category": "노동조합",
+      "subcategory": "근로시간면제",
+      "keywords": [],
+      "unit_id": "nodong-601-40"
+    },
+    {
+      "order": 603,
+      "category": "노동조합",
+      "subcategory": "노동조합의 운영",
+      "keywords": [],
+      "unit_id": "nodong-601-41"
+    },
+    {
+      "order": 604,
+      "category": "노동조합",
+      "subcategory": "설립신고",
+      "keywords": [],
+      "unit_id": "nodong-601-42"
+    },
+    {
+      "order": 605,
+      "category": "노동조합",
+      "subcategory": "유니언 숍",
+      "keywords": [],
+      "unit_id": "nodong-601-43"
+    },
+    {
+      "order": 606,
+      "category": "노동조합",
+      "subcategory": "총회ㆍ대의원회",
+      "keywords": [],
+      "unit_id": "nodong-601-44"
+    },
+    {
+      "order": 701,
+      "category": "단체교섭ㆍ단체협약",
+      "subcategory": "공정대표의무",
+      "keywords": [],
+      "unit_id": "nodong-701-45"
+    },
+    {
+      "order": 702,
+      "category": "단체교섭ㆍ단체협약",
+      "subcategory": "교섭단위",
+      "keywords": [],
+      "unit_id": "nodong-701-46"
+    },
+    {
+      "order": 703,
+      "category": "단체교섭ㆍ단체협약",
+      "subcategory": "교섭창구 단일화",
+      "keywords": [],
+      "unit_id": "nodong-701-47"
+    },
+    {
+      "order": 704,
+      "category": "단체교섭ㆍ단체협약",
+      "subcategory": "단체교섭",
+      "keywords": [],
+      "unit_id": "nodong-701-48"
+    },
+    {
+      "order": 705,
+      "category": "단체교섭ㆍ단체협약",
+      "subcategory": "단체교섭 당사자",
+      "keywords": [],
+      "unit_id": "nodong-701-49"
+    },
+    {
+      "order": 706,
+      "category": "단체교섭ㆍ단체협약",
+      "subcategory": "단체협약",
+      "keywords": [],
+      "unit_id": "nodong-701-50"
+    },
+    {
+      "order": 801,
+      "category": "쟁의행위ㆍ부당노동행위",
+      "subcategory": "부당노동행위",
+      "keywords": [],
+      "unit_id": "nodong-801-51"
+    },
+    {
+      "order": 802,
+      "category": "쟁의행위ㆍ부당노동행위",
+      "subcategory": "부당노동행위 구제",
+      "keywords": [],
+      "unit_id": "nodong-801-52"
+    },
+    {
+      "order": 803,
+      "category": "쟁의행위ㆍ부당노동행위",
+      "subcategory": "쟁의행위",
+      "keywords": [],
+      "unit_id": "nodong-801-53"
+    },
+    {
+      "order": 804,
+      "category": "쟁의행위ㆍ부당노동행위",
+      "subcategory": "조정ㆍ중재",
+      "keywords": [],
+      "unit_id": "nodong-801-54"
+    },
+    {
+      "order": 805,
+      "category": "쟁의행위ㆍ부당노동행위",
+      "subcategory": "직장폐쇄",
+      "keywords": [],
+      "unit_id": "nodong-801-55"
+    },
+    {
+      "order": 901,
+      "category": "기타 노동법",
+      "subcategory": "최저임금법의 적용",
+      "keywords": [],
+      "unit_id": "nodong-901-56",
+      "chapter": "제1장 최저임금법"
+    },
+    {
+      "order": 902,
+      "category": "기타 노동법",
+      "subcategory": "최저임금액과 산입범위",
+      "keywords": [],
+      "unit_id": "nodong-901-57",
+      "chapter": "제1장 최저임금법"
+    },
+    {
+      "order": 903,
+      "category": "기타 노동법",
+      "subcategory": "최저임금위원회",
+      "keywords": [],
+      "unit_id": "nodong-901-58",
+      "chapter": "제1장 최저임금법"
+    },
+    {
+      "order": 904,
+      "category": "기타 노동법",
+      "subcategory": "최저임금의 결정",
+      "keywords": [],
+      "unit_id": "nodong-901-59",
+      "chapter": "제1장 최저임금법"
+    },
+    {
+      "order": 905,
+      "category": "기타 노동법",
+      "subcategory": "최저임금의 효력과 주지",
+      "keywords": [],
+      "unit_id": "nodong-901-60",
+      "chapter": "제1장 최저임금법"
+    }
+  ]
+}

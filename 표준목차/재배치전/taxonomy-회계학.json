@@ -1,0 +1,414 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "units": [
+    {
+      "order": 10101,
+      "category": "재무회계",
+      "chapter": "제1장 재무보고를 위한 개념체계",
+      "subcategory": "재무보고를 위한 개념체계",
+      "keywords": [],
+      "unit_id": "hoegyehak-101-1"
+    },
+    {
+      "order": 10102,
+      "category": "재무회계",
+      "chapter": "제1장 재무보고를 위한 개념체계",
+      "subcategory": "재무정보의 질적특성",
+      "keywords": [],
+      "unit_id": "hoegyehak-101-2"
+    },
+    {
+      "order": 10201,
+      "category": "재무회계",
+      "chapter": "제2장 재무제표 표시",
+      "subcategory": "재무제표 표시",
+      "keywords": [],
+      "unit_id": "hoegyehak-102-1"
+    },
+    {
+      "order": 10301,
+      "category": "재무회계",
+      "chapter": "제3장 회계순환과 결산",
+      "subcategory": "회계상의 거래와 분개",
+      "keywords": [],
+      "unit_id": "hoegyehak-103-1"
+    },
+    {
+      "order": 10302,
+      "category": "재무회계",
+      "chapter": "제3장 회계순환과 결산",
+      "subcategory": "시산표",
+      "keywords": [],
+      "unit_id": "hoegyehak-103-2"
+    },
+    {
+      "order": 10303,
+      "category": "재무회계",
+      "chapter": "제3장 회계순환과 결산",
+      "subcategory": "회계등식과 재무상태의 변동",
+      "keywords": [],
+      "unit_id": "hoegyehak-103-3"
+    },
+    {
+      "order": 10304,
+      "category": "재무회계",
+      "chapter": "제3장 회계순환과 결산",
+      "subcategory": "결산정리와 기말수정분개",
+      "keywords": [],
+      "unit_id": "hoegyehak-103-4"
+    },
+    {
+      "order": 10305,
+      "category": "재무회계",
+      "chapter": "제3장 회계순환과 결산",
+      "subcategory": "발생기준과 현금기준",
+      "keywords": [],
+      "unit_id": "hoegyehak-103-5"
+    },
+    {
+      "order": 10306,
+      "category": "재무회계",
+      "chapter": "제3장 회계순환과 결산",
+      "subcategory": "총계정원장의 마감",
+      "keywords": [],
+      "unit_id": "hoegyehak-103-6"
+    },
+    {
+      "order": 10401,
+      "category": "재무회계",
+      "chapter": "제4장 현금과 매출채권",
+      "subcategory": "현금과 매출채권",
+      "keywords": [],
+      "unit_id": "hoegyehak-104-1"
+    },
+    {
+      "order": 10501,
+      "category": "재무회계",
+      "chapter": "제5장 재고자산",
+      "subcategory": "재고자산의 정의와 인식",
+      "keywords": [],
+      "unit_id": "hoegyehak-105-1"
+    },
+    {
+      "order": 10502,
+      "category": "재무회계",
+      "chapter": "제5장 재고자산",
+      "subcategory": "취득원가와 매출원가",
+      "keywords": [],
+      "unit_id": "hoegyehak-105-2"
+    },
+    {
+      "order": 10503,
+      "category": "재무회계",
+      "chapter": "제5장 재고자산",
+      "subcategory": "원가흐름의 가정",
+      "keywords": [],
+      "unit_id": "hoegyehak-105-3"
+    },
+    {
+      "order": 10504,
+      "category": "재무회계",
+      "chapter": "제5장 재고자산",
+      "subcategory": "추정에 의한 평가",
+      "keywords": [],
+      "unit_id": "hoegyehak-105-4"
+    },
+    {
+      "order": 10505,
+      "category": "재무회계",
+      "chapter": "제5장 재고자산",
+      "subcategory": "감모손실과 평가손실",
+      "keywords": [],
+      "unit_id": "hoegyehak-105-5"
+    },
+    {
+      "order": 10601,
+      "category": "재무회계",
+      "chapter": "제6장 유형자산",
+      "subcategory": "유형자산의 취득원가",
+      "keywords": [],
+      "unit_id": "hoegyehak-106-1"
+    },
+    {
+      "order": 10602,
+      "category": "재무회계",
+      "chapter": "제6장 유형자산",
+      "subcategory": "감가상각",
+      "keywords": [],
+      "unit_id": "hoegyehak-106-2"
+    },
+    {
+      "order": 10603,
+      "category": "재무회계",
+      "chapter": "제6장 유형자산",
+      "subcategory": "유형자산의 후속측정",
+      "keywords": [],
+      "unit_id": "hoegyehak-106-3"
+    },
+    {
+      "order": 10701,
+      "category": "재무회계",
+      "chapter": "제7장 무형자산과 투자부동산",
+      "subcategory": "무형자산",
+      "keywords": [],
+      "unit_id": "hoegyehak-107-1"
+    },
+    {
+      "order": 10702,
+      "category": "재무회계",
+      "chapter": "제7장 무형자산과 투자부동산",
+      "subcategory": "투자부동산",
+      "keywords": [],
+      "unit_id": "hoegyehak-107-2"
+    },
+    {
+      "order": 10801,
+      "category": "재무회계",
+      "chapter": "제8장 금융자산",
+      "subcategory": "금융자산",
+      "keywords": [],
+      "unit_id": "hoegyehak-108-1"
+    },
+    {
+      "order": 10901,
+      "category": "재무회계",
+      "chapter": "제9장 부채",
+      "subcategory": "충당부채와 우발부채",
+      "keywords": [],
+      "unit_id": "hoegyehak-109-1"
+    },
+    {
+      "order": 10902,
+      "category": "재무회계",
+      "chapter": "제9장 부채",
+      "subcategory": "사채",
+      "keywords": [],
+      "unit_id": "hoegyehak-109-2"
+    },
+    {
+      "order": 11001,
+      "category": "재무회계",
+      "chapter": "제10장 자본",
+      "subcategory": "자본거래",
+      "keywords": [],
+      "unit_id": "hoegyehak-110-1"
+    },
+    {
+      "order": 11002,
+      "category": "재무회계",
+      "chapter": "제10장 자본",
+      "subcategory": "이익잉여금과 배당",
+      "keywords": [],
+      "unit_id": "hoegyehak-110-2"
+    },
+    {
+      "order": 11101,
+      "category": "재무회계",
+      "chapter": "제11장 수익과 비용",
+      "subcategory": "수익인식",
+      "keywords": [],
+      "unit_id": "hoegyehak-111-1"
+    },
+    {
+      "order": 11102,
+      "category": "재무회계",
+      "chapter": "제11장 수익과 비용",
+      "subcategory": "비용과 법인세",
+      "keywords": [],
+      "unit_id": "hoegyehak-111-2"
+    },
+    {
+      "order": 11201,
+      "category": "재무회계",
+      "chapter": "제12장 회계변경과 오류수정",
+      "subcategory": "회계변경과 오류수정",
+      "keywords": [],
+      "unit_id": "hoegyehak-112-1"
+    },
+    {
+      "order": 11301,
+      "category": "재무회계",
+      "chapter": "제13장 현금흐름표",
+      "subcategory": "현금흐름표",
+      "keywords": [],
+      "unit_id": "hoegyehak-113-1"
+    },
+    {
+      "order": 11401,
+      "category": "재무회계",
+      "chapter": "제14장 재무제표 분석",
+      "subcategory": "재무제표 분석과 기타",
+      "keywords": [],
+      "unit_id": "hoegyehak-114-1"
+    },
+    {
+      "order": 20101,
+      "category": "원가관리회계",
+      "chapter": "제1장 원가의 흐름과 배부",
+      "subcategory": "원가의 흐름과 분류",
+      "keywords": [],
+      "unit_id": "hoegyehak-201-1"
+    },
+    {
+      "order": 20102,
+      "category": "원가관리회계",
+      "chapter": "제1장 원가의 흐름과 배부",
+      "subcategory": "제조간접원가의 배부",
+      "keywords": [],
+      "unit_id": "hoegyehak-201-2"
+    },
+    {
+      "order": 20103,
+      "category": "원가관리회계",
+      "chapter": "제1장 원가의 흐름과 배부",
+      "subcategory": "부문별 원가계산",
+      "keywords": [],
+      "unit_id": "hoegyehak-201-3"
+    },
+    {
+      "order": 20201,
+      "category": "원가관리회계",
+      "chapter": "제2장 원가계산 방법",
+      "subcategory": "개별원가계산",
+      "keywords": [],
+      "unit_id": "hoegyehak-202-1"
+    },
+    {
+      "order": 20202,
+      "category": "원가관리회계",
+      "chapter": "제2장 원가계산 방법",
+      "subcategory": "종합원가계산",
+      "keywords": [],
+      "unit_id": "hoegyehak-202-2"
+    },
+    {
+      "order": 20203,
+      "category": "원가관리회계",
+      "chapter": "제2장 원가계산 방법",
+      "subcategory": "결합원가계산",
+      "keywords": [],
+      "unit_id": "hoegyehak-202-3"
+    },
+    {
+      "order": 20204,
+      "category": "원가관리회계",
+      "chapter": "제2장 원가계산 방법",
+      "subcategory": "활동기준원가계산",
+      "keywords": [],
+      "unit_id": "hoegyehak-202-4"
+    },
+    {
+      "order": 20301,
+      "category": "원가관리회계",
+      "chapter": "제3장 원가ㆍ조업도ㆍ이익 분석",
+      "subcategory": "원가ㆍ조업도ㆍ이익 분석",
+      "keywords": [],
+      "unit_id": "hoegyehak-203-1"
+    },
+    {
+      "order": 20401,
+      "category": "원가관리회계",
+      "chapter": "제4장 표준원가와 변동원가계산",
+      "subcategory": "표준원가와 차이분석",
+      "keywords": [],
+      "unit_id": "hoegyehak-204-1"
+    },
+    {
+      "order": 20402,
+      "category": "원가관리회계",
+      "chapter": "제4장 표준원가와 변동원가계산",
+      "subcategory": "변동원가계산과 전부원가계산",
+      "keywords": [],
+      "unit_id": "hoegyehak-204-2"
+    },
+    {
+      "order": 20501,
+      "category": "원가관리회계",
+      "chapter": "제5장 단기의사결정",
+      "subcategory": "단기의사결정",
+      "keywords": [],
+      "unit_id": "hoegyehak-205-1"
+    },
+    {
+      "order": 30101,
+      "category": "정부회계",
+      "chapter": "제1장 국가회계기준",
+      "subcategory": "국가회계의 개요와 재무제표",
+      "keywords": [],
+      "unit_id": "hoegyehak-301-1"
+    },
+    {
+      "order": 30102,
+      "category": "정부회계",
+      "chapter": "제1장 국가회계기준",
+      "subcategory": "국가 재정상태표",
+      "keywords": [],
+      "unit_id": "hoegyehak-301-2"
+    },
+    {
+      "order": 30103,
+      "category": "정부회계",
+      "chapter": "제1장 국가회계기준",
+      "subcategory": "국가 재정운영표",
+      "keywords": [],
+      "unit_id": "hoegyehak-301-3"
+    },
+    {
+      "order": 30104,
+      "category": "정부회계",
+      "chapter": "제1장 국가회계기준",
+      "subcategory": "국가회계의 수익 인식",
+      "keywords": [],
+      "unit_id": "hoegyehak-301-4"
+    },
+    {
+      "order": 30105,
+      "category": "정부회계",
+      "chapter": "제1장 국가회계기준",
+      "subcategory": "국가회계의 자산·부채 평가",
+      "keywords": [],
+      "unit_id": "hoegyehak-301-5"
+    },
+    {
+      "order": 30201,
+      "category": "정부회계",
+      "chapter": "제2장 지방자치단체 회계기준",
+      "subcategory": "지방자치단체 회계의 개요",
+      "keywords": [],
+      "unit_id": "hoegyehak-302-1"
+    },
+    {
+      "order": 30202,
+      "category": "정부회계",
+      "chapter": "제2장 지방자치단체 회계기준",
+      "subcategory": "지방자치단체 재정상태표",
+      "keywords": [],
+      "unit_id": "hoegyehak-302-2"
+    },
+    {
+      "order": 30203,
+      "category": "정부회계",
+      "chapter": "제2장 지방자치단체 회계기준",
+      "subcategory": "지방자치단체 재정운영표",
+      "keywords": [],
+      "unit_id": "hoegyehak-302-3"
+    },
+    {
+      "order": 30204,
+      "category": "정부회계",
+      "chapter": "제2장 지방자치단체 회계기준",
+      "subcategory": "현금흐름표와 순자산변동표",
+      "keywords": [],
+      "unit_id": "hoegyehak-302-4"
+    },
+    {
+      "order": 30205,
+      "category": "정부회계",
+      "chapter": "제2장 지방자치단체 회계기준",
+      "subcategory": "지방자치단체의 자산·부채 평가",
+      "keywords": [],
+      "unit_id": "hoegyehak-302-5"
+    }
+  ]
+}

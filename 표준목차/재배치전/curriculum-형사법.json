@@ -1,0 +1,642 @@
+{
+  "version": 3,
+  "source": "봄기출 표준 목차(표준/경찰/형사법.md)로 다시 세웠다. 갓대환·허정·신광은 3사 대조 — 형법총론의 편은 서론/범죄론/형벌론 만장일치라 한 편에 뭉쳐 있던 146문항을 갈랐다. 3사 어디에도 없던 「사례형 종합」 칸을 없애고 14문항을 각 문항이 실제로 묻는 자리로 옮겼다 — 사례형은 편이 아니라 문제 형식이다.",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　형법총론 - 서론",
+      "shortLabel": "형법총론 - 서론",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　형법의 기본개념·죄형법정주의·적용범위",
+          "shortLabel": "형법의 기본개념·죄형법정주의·적용범위",
+          "filters": [
+            {
+              "category": "형법총론 - 서론",
+              "subcategory": "형법의 기본개념·죄형법정주의·적용범위",
+              "taxonomyUnitId": "cr-101-1",
+              "sectionLabel": "형법의 기본개념·죄형법정주의·적용범위"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　형법총론 - 범죄론",
+      "shortLabel": "형법총론 - 범죄론",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　범죄의 기본개념",
+          "shortLabel": "범죄의 기본개념",
+          "filters": [
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "양벌규정·법인의 형사책임",
+              "taxonomyUnitId": "cr-201-2",
+              "sectionLabel": "양벌규정·법인의 형사책임"
+            }
+          ]
+        },
+        {
+          "id": "p2-c02",
+          "label": "CHAPTER 02　구성요건론",
+          "shortLabel": "구성요건론",
+          "filters": [
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "고의·과실",
+              "taxonomyUnitId": "cr-202-1",
+              "sectionLabel": "고의·과실"
+            },
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "인과관계·객관적 귀속",
+              "taxonomyUnitId": "cr-202-2",
+              "sectionLabel": "인과관계·객관적 귀속"
+            }
+          ]
+        },
+        {
+          "id": "p2-c03",
+          "label": "CHAPTER 03　특수한 범죄유형",
+          "shortLabel": "특수한 범죄유형",
+          "filters": [
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "부작위범·결과적가중범",
+              "taxonomyUnitId": "cr-203-1",
+              "sectionLabel": "부작위범·결과적가중범"
+            }
+          ]
+        },
+        {
+          "id": "p2-c04",
+          "label": "CHAPTER 04　위법성론",
+          "shortLabel": "위법성론",
+          "filters": [
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "정당방위·긴급피난·자구행위",
+              "taxonomyUnitId": "cr-204-1",
+              "sectionLabel": "정당방위·긴급피난·자구행위"
+            },
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "사회상규에 위배되지 아니하는 행위",
+              "taxonomyUnitId": "cr-204-2",
+              "sectionLabel": "사회상규에 위배되지 아니하는 행위"
+            },
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "피해자의 승낙·추정적 승낙",
+              "taxonomyUnitId": "cr-204-3",
+              "sectionLabel": "피해자의 승낙·추정적 승낙"
+            }
+          ]
+        },
+        {
+          "id": "p2-c05",
+          "label": "CHAPTER 05　책임론",
+          "shortLabel": "책임론",
+          "filters": [
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "책임능력(심신장애·원인에서 자유로운 행위)",
+              "taxonomyUnitId": "cr-205-1",
+              "sectionLabel": "책임능력(심신장애·원인에서 자유로운 행위)"
+            },
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "법률의 착오",
+              "taxonomyUnitId": "cr-205-2",
+              "sectionLabel": "법률의 착오"
+            },
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "기대가능성·책임조각사유",
+              "taxonomyUnitId": "cr-205-3",
+              "sectionLabel": "기대가능성·책임조각사유"
+            }
+          ]
+        },
+        {
+          "id": "p2-c06",
+          "label": "CHAPTER 06　미수론",
+          "shortLabel": "미수론",
+          "filters": [
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "장애미수·중지미수·불능미수·예비음모",
+              "taxonomyUnitId": "cr-206-1",
+              "sectionLabel": "장애미수·중지미수·불능미수·예비음모"
+            }
+          ]
+        },
+        {
+          "id": "p2-c07",
+          "label": "CHAPTER 07　공범론",
+          "shortLabel": "공범론",
+          "filters": [
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "공동정범",
+              "taxonomyUnitId": "cr-207-1",
+              "sectionLabel": "공동정범"
+            },
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "교사범·종범·간접정범",
+              "taxonomyUnitId": "cr-207-2",
+              "sectionLabel": "교사범·종범·간접정범"
+            }
+          ]
+        },
+        {
+          "id": "p2-c08",
+          "label": "CHAPTER 08　죄수론",
+          "shortLabel": "죄수론",
+          "filters": [
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "법조경합·상상적경합·실체적경합·포괄일죄",
+              "taxonomyUnitId": "cr-208-1",
+              "sectionLabel": "법조경합·상상적경합·실체적경합·포괄일죄"
+            }
+          ]
+        },
+        {
+          "id": "p2-c09",
+          "label": "CHAPTER 09　범죄의 종류(계속범·상태범·즉시범 등)",
+          "shortLabel": "범죄의 종류(계속범·상태범·즉시범 등)",
+          "filters": [
+            {
+              "category": "형법총론 - 범죄론",
+              "subcategory": "범죄의 종류(계속범·상태범·즉시범 등)",
+              "taxonomyUnitId": "cr-209-1",
+              "sectionLabel": "범죄의 종류(계속범·상태범·즉시범 등)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　형법총론 - 형벌론",
+      "shortLabel": "형법총론 - 형벌론",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　형의 양정·집행유예·누범",
+          "shortLabel": "형의 양정·집행유예·누범",
+          "filters": [
+            {
+              "category": "형법총론 - 형벌론",
+              "subcategory": "형의 양정·집행유예·누범",
+              "taxonomyUnitId": "cr-301-1",
+              "sectionLabel": "형의 양정·집행유예·누범"
+            }
+          ]
+        },
+        {
+          "id": "p3-c02",
+          "label": "CHAPTER 02　몰수·추징",
+          "shortLabel": "몰수·추징",
+          "filters": [
+            {
+              "category": "형법총론 - 형벌론",
+              "subcategory": "몰수·추징",
+              "taxonomyUnitId": "cr-302-1",
+              "sectionLabel": "몰수·추징"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　형법각론 - 개인적 법익",
+      "shortLabel": "형법각론 - 개인적 법익",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　약취·유인·강간과 추행의 죄",
+          "shortLabel": "약취·유인·강간과 추행의 죄",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "약취·유인·강간과 추행의 죄",
+              "taxonomyUnitId": "cr-401-1",
+              "sectionLabel": "약취·유인·강간과 추행의 죄"
+            }
+          ]
+        },
+        {
+          "id": "p4-c02",
+          "label": "CHAPTER 02　명예훼손죄·업무방해죄·경매입찰방해죄",
+          "shortLabel": "명예훼손죄·업무방해죄·경매입찰방해죄",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "명예훼손죄·업무방해죄·경매입찰방해죄",
+              "taxonomyUnitId": "cr-402-1",
+              "sectionLabel": "명예훼손죄·업무방해죄·경매입찰방해죄"
+            }
+          ]
+        },
+        {
+          "id": "p4-c03",
+          "label": "CHAPTER 03　사기죄·공갈죄",
+          "shortLabel": "사기죄·공갈죄",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "사기죄·공갈죄",
+              "taxonomyUnitId": "cr-403-1",
+              "sectionLabel": "사기죄·공갈죄"
+            }
+          ]
+        },
+        {
+          "id": "p4-c04",
+          "label": "CHAPTER 04　상해·폭행·체포감금·협박",
+          "shortLabel": "상해·폭행·체포감금·협박",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "상해·폭행·체포감금·협박",
+              "taxonomyUnitId": "cr-404-1",
+              "sectionLabel": "상해·폭행·체포감금·협박"
+            }
+          ]
+        },
+        {
+          "id": "p4-c05",
+          "label": "CHAPTER 05　횡령죄·배임죄",
+          "shortLabel": "횡령죄·배임죄",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "횡령죄·배임죄",
+              "taxonomyUnitId": "cr-405-1",
+              "sectionLabel": "횡령죄·배임죄"
+            }
+          ]
+        },
+        {
+          "id": "p4-c06",
+          "label": "CHAPTER 06　주거침입죄·비밀침해죄",
+          "shortLabel": "주거침입죄·비밀침해죄",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "주거침입죄·비밀침해죄",
+              "taxonomyUnitId": "cr-406-1",
+              "sectionLabel": "주거침입죄·비밀침해죄"
+            }
+          ]
+        },
+        {
+          "id": "p4-c07",
+          "label": "CHAPTER 07　절도죄·강도죄",
+          "shortLabel": "절도죄·강도죄",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "절도죄·강도죄",
+              "taxonomyUnitId": "cr-407-1",
+              "sectionLabel": "절도죄·강도죄"
+            }
+          ]
+        },
+        {
+          "id": "p4-c08",
+          "label": "CHAPTER 08　장물죄·손괴죄",
+          "shortLabel": "장물죄·손괴죄",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "장물죄·손괴죄",
+              "taxonomyUnitId": "cr-408-1",
+              "sectionLabel": "장물죄·손괴죄"
+            }
+          ]
+        },
+        {
+          "id": "p4-c09",
+          "label": "CHAPTER 09　권리행사방해죄",
+          "shortLabel": "권리행사방해죄",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "권리행사방해죄",
+              "taxonomyUnitId": "cr-409-1",
+              "sectionLabel": "권리행사방해죄"
+            }
+          ]
+        },
+        {
+          "id": "p4-c10",
+          "label": "CHAPTER 10　살인죄·존속살해",
+          "shortLabel": "살인죄·존속살해",
+          "filters": [
+            {
+              "category": "형법각론 - 개인적 법익",
+              "subcategory": "살인죄·존속살해",
+              "taxonomyUnitId": "cr-410-1",
+              "sectionLabel": "살인죄·존속살해"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "label": "PART 5　형법각론 - 사회적 법익",
+      "shortLabel": "형법각론 - 사회적 법익",
+      "style": "violet",
+      "chapters": [
+        {
+          "id": "p5-c01",
+          "label": "CHAPTER 01　문서에 관한 죄",
+          "shortLabel": "문서에 관한 죄",
+          "filters": [
+            {
+              "category": "형법각론 - 사회적 법익",
+              "subcategory": "문서에 관한 죄",
+              "taxonomyUnitId": "cr-501-1",
+              "sectionLabel": "문서에 관한 죄"
+            }
+          ]
+        },
+        {
+          "id": "p5-c02",
+          "label": "CHAPTER 02　일반교통방해죄·부동산강제집행효용침해죄",
+          "shortLabel": "일반교통방해죄·부동산강제집행효용침해죄",
+          "filters": [
+            {
+              "category": "형법각론 - 사회적 법익",
+              "subcategory": "일반교통방해죄·부동산강제집행효용침해죄",
+              "taxonomyUnitId": "cr-502-1",
+              "sectionLabel": "일반교통방해죄·부동산강제집행효용침해죄"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part6",
+      "label": "PART 6　형법각론 - 국가적 법익",
+      "shortLabel": "형법각론 - 국가적 법익",
+      "style": "cyan",
+      "chapters": [
+        {
+          "id": "p6-c01",
+          "label": "CHAPTER 01　공무집행방해죄(위계·직권남용)",
+          "shortLabel": "공무집행방해죄(위계·직권남용)",
+          "filters": [
+            {
+              "category": "형법각론 - 국가적 법익",
+              "subcategory": "공무집행방해죄(위계·직권남용)",
+              "taxonomyUnitId": "cr-601-1",
+              "sectionLabel": "공무집행방해죄(위계·직권남용)"
+            }
+          ]
+        },
+        {
+          "id": "p6-c02",
+          "label": "CHAPTER 02　위증죄·증거인멸죄·무고죄",
+          "shortLabel": "위증죄·증거인멸죄·무고죄",
+          "filters": [
+            {
+              "category": "형법각론 - 국가적 법익",
+              "subcategory": "위증죄·증거인멸죄·무고죄",
+              "taxonomyUnitId": "cr-602-1",
+              "sectionLabel": "위증죄·증거인멸죄·무고죄"
+            }
+          ]
+        },
+        {
+          "id": "p6-c03",
+          "label": "CHAPTER 03　뇌물죄",
+          "shortLabel": "뇌물죄",
+          "filters": [
+            {
+              "category": "형법각론 - 국가적 법익",
+              "subcategory": "뇌물죄",
+              "taxonomyUnitId": "cr-603-1",
+              "sectionLabel": "뇌물죄"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part7",
+      "label": "PART 7　소송의 주체",
+      "shortLabel": "소송의 주체",
+      "style": "indigo",
+      "chapters": [
+        {
+          "id": "p7-c01",
+          "label": "CHAPTER 01　변호인과 접견교통권",
+          "shortLabel": "변호인과 접견교통권",
+          "filters": [
+            {
+              "category": "소송의 주체",
+              "subcategory": "변호인과 접견교통권",
+              "taxonomyUnitId": "cr-701-1",
+              "sectionLabel": "변호인과 접견교통권"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part8",
+      "label": "PART 8　수사",
+      "shortLabel": "수사",
+      "style": "lime",
+      "chapters": [
+        {
+          "id": "p8-c01",
+          "label": "CHAPTER 01　수사의 단서(고소·불심검문·함정수사)",
+          "shortLabel": "수사의 단서(고소·불심검문·함정수사)",
+          "filters": [
+            {
+              "category": "수사",
+              "subcategory": "수사의 단서(고소·불심검문·함정수사)",
+              "taxonomyUnitId": "cr-801-1",
+              "sectionLabel": "수사의 단서(고소·불심검문·함정수사)"
+            }
+          ]
+        },
+        {
+          "id": "p8-c02",
+          "label": "CHAPTER 02　수사의 종결과 수사준칙",
+          "shortLabel": "수사의 종결과 수사준칙",
+          "filters": [
+            {
+              "category": "수사",
+              "subcategory": "수사의 종결과 수사준칙",
+              "taxonomyUnitId": "cr-802-1",
+              "sectionLabel": "수사의 종결과 수사준칙"
+            }
+          ]
+        },
+        {
+          "id": "p8-c03",
+          "label": "CHAPTER 03　임의수사와 피의자신문",
+          "shortLabel": "임의수사와 피의자신문",
+          "filters": [
+            {
+              "category": "수사",
+              "subcategory": "임의수사와 피의자신문",
+              "taxonomyUnitId": "cr-803-1",
+              "sectionLabel": "임의수사와 피의자신문"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part9",
+      "label": "PART 9　강제처분",
+      "shortLabel": "강제처분",
+      "style": "fuchsia",
+      "chapters": [
+        {
+          "id": "p9-c01",
+          "label": "CHAPTER 01　압수·수색·검증",
+          "shortLabel": "압수·수색·검증",
+          "filters": [
+            {
+              "category": "강제처분",
+              "subcategory": "압수·수색·검증",
+              "taxonomyUnitId": "cr-901-1",
+              "sectionLabel": "압수·수색·검증"
+            }
+          ]
+        },
+        {
+          "id": "p9-c02",
+          "label": "CHAPTER 02　체포",
+          "shortLabel": "체포",
+          "filters": [
+            {
+              "category": "강제처분",
+              "subcategory": "체포",
+              "taxonomyUnitId": "cr-902-1",
+              "sectionLabel": "체포"
+            }
+          ]
+        },
+        {
+          "id": "p9-c03",
+          "label": "CHAPTER 03　구속",
+          "shortLabel": "구속",
+          "filters": [
+            {
+              "category": "강제처분",
+              "subcategory": "구속",
+              "taxonomyUnitId": "cr-903-1",
+              "sectionLabel": "구속"
+            }
+          ]
+        },
+        {
+          "id": "p9-c04",
+          "label": "CHAPTER 04　수사상 증거보전·통신제한",
+          "shortLabel": "수사상 증거보전·통신제한",
+          "filters": [
+            {
+              "category": "강제처분",
+              "subcategory": "수사상 증거보전·통신제한",
+              "taxonomyUnitId": "cr-904-1",
+              "sectionLabel": "수사상 증거보전·통신제한"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part10",
+      "label": "PART 10　증거",
+      "shortLabel": "증거",
+      "style": "teal",
+      "chapters": [
+        {
+          "id": "p10-c01",
+          "label": "CHAPTER 01　증거재판주의와 증명",
+          "shortLabel": "증거재판주의와 증명",
+          "filters": [
+            {
+              "category": "증거",
+              "subcategory": "증거재판주의와 증명",
+              "taxonomyUnitId": "cr-1001-1",
+              "sectionLabel": "증거재판주의와 증명"
+            }
+          ]
+        },
+        {
+          "id": "p10-c02",
+          "label": "CHAPTER 02　전문법칙",
+          "shortLabel": "전문법칙",
+          "filters": [
+            {
+              "category": "증거",
+              "subcategory": "전문법칙",
+              "taxonomyUnitId": "cr-1002-1",
+              "sectionLabel": "전문법칙"
+            }
+          ]
+        },
+        {
+          "id": "p10-c03",
+          "label": "CHAPTER 03　위법수집증거배제법칙",
+          "shortLabel": "위법수집증거배제법칙",
+          "filters": [
+            {
+              "category": "증거",
+              "subcategory": "위법수집증거배제법칙",
+              "taxonomyUnitId": "cr-1003-1",
+              "sectionLabel": "위법수집증거배제법칙"
+            }
+          ]
+        },
+        {
+          "id": "p10-c04",
+          "label": "CHAPTER 04　자백배제법칙과 자백보강법칙",
+          "shortLabel": "자백배제법칙과 자백보강법칙",
+          "filters": [
+            {
+              "category": "증거",
+              "subcategory": "자백배제법칙과 자백보강법칙",
+              "taxonomyUnitId": "cr-1004-1",
+              "sectionLabel": "자백배제법칙과 자백보강법칙"
+            }
+          ]
+        },
+        {
+          "id": "p10-c05",
+          "label": "CHAPTER 05　당사자의 동의와 탄핵증거",
+          "shortLabel": "당사자의 동의와 탄핵증거",
+          "filters": [
+            {
+              "category": "증거",
+              "subcategory": "당사자의 동의와 탄핵증거",
+              "taxonomyUnitId": "cr-1005-1",
+              "sectionLabel": "당사자의 동의와 탄핵증거"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

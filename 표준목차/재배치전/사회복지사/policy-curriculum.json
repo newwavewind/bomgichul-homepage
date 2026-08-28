@@ -1,0 +1,361 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　정책의 이해",
+      "shortLabel": "정책의 이해",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　사회복지정책 개요",
+          "shortLabel": "사회복지정책 개요",
+          "filters": [
+            {
+              "category": "정책의 이해",
+              "subcategory": "정책의 개념",
+              "sectionLabel": "정책의 개념"
+            },
+            {
+              "category": "정책의 이해",
+              "subcategory": "정책의 기능",
+              "sectionLabel": "정책의 기능"
+            },
+            {
+              "category": "정책의 이해",
+              "subcategory": "국가 개입의 근거",
+              "sectionLabel": "국가 개입의 근거"
+            },
+            {
+              "category": "정책의 이해",
+              "subcategory": "정책분석",
+              "sectionLabel": "정책분석"
+            },
+            {
+              "category": "정책의 이해",
+              "subcategory": "효과성",
+              "sectionLabel": "효과성"
+            }
+          ]
+        },
+        {
+          "id": "p1-c02",
+          "label": "CHAPTER 02　정책 관련 이론과 사상",
+          "shortLabel": "정책 관련 이론과 사상",
+          "filters": [
+            {
+              "category": "정책의 이해",
+              "subcategory": "가치",
+              "sectionLabel": "가치"
+            },
+            {
+              "category": "정책의 이해",
+              "subcategory": "이념의 갈래",
+              "sectionLabel": "이념의 갈래"
+            },
+            {
+              "category": "정책의 이해",
+              "subcategory": "발달이론",
+              "sectionLabel": "발달이론"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　복지국가와 역사",
+      "shortLabel": "복지국가와 역사",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　사회복지정책의 역사적 전개",
+          "shortLabel": "사회복지정책의 역사적 전개",
+          "filters": [
+            {
+              "category": "복지국가와 역사",
+              "subcategory": "구빈법",
+              "sectionLabel": "구빈법"
+            }
+          ]
+        },
+        {
+          "id": "p2-c02",
+          "label": "CHAPTER 02　복지국가 유형론",
+          "shortLabel": "복지국가 유형론",
+          "filters": [
+            {
+              "category": "복지국가와 역사",
+              "subcategory": "복지국가",
+              "sectionLabel": "복지국가"
+            },
+            {
+              "category": "복지국가와 역사",
+              "subcategory": "유형화",
+              "sectionLabel": "유형화"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　정책 과정",
+      "shortLabel": "정책 과정",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　정책 형성과정",
+          "shortLabel": "정책 형성과정",
+          "filters": [
+            {
+              "category": "정책 과정",
+              "subcategory": "정책과정",
+              "sectionLabel": "정책과정"
+            },
+            {
+              "category": "정책 과정",
+              "subcategory": "정책결정 모형",
+              "sectionLabel": "정책결정 모형"
+            },
+            {
+              "category": "정책 과정",
+              "subcategory": "정책평가",
+              "sectionLabel": "정책평가"
+            },
+            {
+              "category": "정책 과정",
+              "subcategory": "개선",
+              "sectionLabel": "개선"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　정책 분석틀",
+      "shortLabel": "정책 분석틀",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　할당",
+          "shortLabel": "할당",
+          "filters": [
+            {
+              "category": "정책 분석틀",
+              "subcategory": "할당의 원칙",
+              "sectionLabel": "할당의 원칙"
+            },
+            {
+              "category": "정책 분석틀",
+              "subcategory": "자산조사",
+              "sectionLabel": "자산조사"
+            }
+          ]
+        },
+        {
+          "id": "p4-c02",
+          "label": "CHAPTER 02　급여",
+          "shortLabel": "급여",
+          "filters": [
+            {
+              "category": "정책 분석틀",
+              "subcategory": "급여의 형태",
+              "sectionLabel": "급여의 형태"
+            }
+          ]
+        },
+        {
+          "id": "p4-c03",
+          "label": "CHAPTER 03　전달체계",
+          "shortLabel": "전달체계",
+          "filters": [
+            {
+              "category": "정책 분석틀",
+              "subcategory": "전달체계의 기초",
+              "sectionLabel": "전달체계의 기초"
+            },
+            {
+              "category": "정책 분석틀",
+              "subcategory": "역할분담",
+              "sectionLabel": "역할분담"
+            }
+          ]
+        },
+        {
+          "id": "p4-c04",
+          "label": "CHAPTER 04　재정",
+          "shortLabel": "재정",
+          "filters": [
+            {
+              "category": "정책 분석틀",
+              "subcategory": "공공재원",
+              "sectionLabel": "공공재원"
+            },
+            {
+              "category": "정책 분석틀",
+              "subcategory": "민간재원",
+              "sectionLabel": "민간재원"
+            },
+            {
+              "category": "정책 분석틀",
+              "subcategory": "정부 간 재정",
+              "sectionLabel": "정부 간 재정"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "label": "PART 5　사회보장과 사회보험",
+      "shortLabel": "사회보장과 사회보험",
+      "style": "violet",
+      "chapters": [
+        {
+          "id": "p5-c01",
+          "label": "CHAPTER 01　사회보장론 일반",
+          "shortLabel": "사회보장론 일반",
+          "filters": [
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "사회보장의 기초",
+              "sectionLabel": "사회보장의 기초"
+            },
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "사회보험",
+              "sectionLabel": "사회보험"
+            },
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "우리나라",
+              "sectionLabel": "우리나라"
+            },
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "새로운 문제",
+              "sectionLabel": "새로운 문제"
+            },
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "재분배",
+              "sectionLabel": "재분배"
+            }
+          ]
+        },
+        {
+          "id": "p5-c02",
+          "label": "CHAPTER 02　공적 연금",
+          "shortLabel": "공적 연금",
+          "filters": [
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "공적연금",
+              "sectionLabel": "공적연금"
+            }
+          ]
+        },
+        {
+          "id": "p5-c03",
+          "label": "CHAPTER 03　국민건강보장",
+          "shortLabel": "국민건강보장",
+          "filters": [
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "건강보장",
+              "sectionLabel": "건강보장"
+            },
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "노인돌봄",
+              "sectionLabel": "노인돌봄"
+            }
+          ]
+        },
+        {
+          "id": "p5-c04",
+          "label": "CHAPTER 04　산업재해보상보험",
+          "shortLabel": "산업재해보상보험",
+          "filters": [
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "산재",
+              "sectionLabel": "산재"
+            }
+          ]
+        },
+        {
+          "id": "p5-c05",
+          "label": "CHAPTER 05　고용보험",
+          "shortLabel": "고용보험",
+          "filters": [
+            {
+              "category": "사회보장과 사회보험",
+              "subcategory": "고용",
+              "sectionLabel": "고용"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part6",
+      "label": "PART 6　빈곤과 공공부조",
+      "shortLabel": "빈곤과 공공부조",
+      "style": "cyan",
+      "chapters": [
+        {
+          "id": "p6-c01",
+          "label": "CHAPTER 01　빈곤과 불평등",
+          "shortLabel": "빈곤과 불평등",
+          "filters": [
+            {
+              "category": "빈곤과 공공부조",
+              "subcategory": "빈곤",
+              "sectionLabel": "빈곤"
+            },
+            {
+              "category": "빈곤과 공공부조",
+              "subcategory": "불평등",
+              "sectionLabel": "불평등"
+            }
+          ]
+        },
+        {
+          "id": "p6-c02",
+          "label": "CHAPTER 02　국민기초생활보장과 그 밖의 공공부조",
+          "shortLabel": "국민기초생활보장과 그 밖의 공공부조",
+          "filters": [
+            {
+              "category": "빈곤과 공공부조",
+              "subcategory": "공공부조",
+              "sectionLabel": "공공부조"
+            },
+            {
+              "category": "빈곤과 공공부조",
+              "subcategory": "국민기초생활보장",
+              "sectionLabel": "국민기초생활보장"
+            },
+            {
+              "category": "빈곤과 공공부조",
+              "subcategory": "그 밖의 공공부조",
+              "sectionLabel": "그 밖의 공공부조"
+            },
+            {
+              "category": "빈곤과 공공부조",
+              "subcategory": "근로연계",
+              "sectionLabel": "근로연계"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

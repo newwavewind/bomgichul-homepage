@@ -1,0 +1,323 @@
+{
+  "version": 2,
+  "source": "관세법 — 편은 법제처 관세법 편제(제1장 총칙 ~ 제13장 보칙) 그대로. 다만 기출이 3~7문항뿐인 벌칙·조사와 처분을 「벌칙과 조사ㆍ처분」으로, 세관공무원의 자료 제출 요청 등·보칙을 하나로 묶었다(해커스 관세법 기본서의 마지막 편 구성). 법에서 「과세가격과 관세의 부과·징수」 안에 섞여 있던 세율·품목분류를 법 제3장 그대로 독립 편으로 되돌려 53문항짜리 편을 40/13으로 갈랐다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "총칙",
+      "subcategory": "과세물건과 과세표준",
+      "keywords": [],
+      "unit_id": "gwanse-101-1"
+    },
+    {
+      "order": 102,
+      "category": "총칙",
+      "subcategory": "기간과 기한, 서류의 송달",
+      "keywords": [],
+      "unit_id": "gwanse-101-2"
+    },
+    {
+      "order": 103,
+      "category": "총칙",
+      "subcategory": "납세의무자",
+      "keywords": [],
+      "unit_id": "gwanse-101-3"
+    },
+    {
+      "order": 104,
+      "category": "총칙",
+      "subcategory": "목적·정의·법 적용의 원칙",
+      "keywords": [],
+      "unit_id": "gwanse-101-4"
+    },
+    {
+      "order": 201,
+      "category": "과세가격과 관세의 부과·징수",
+      "subcategory": "과세가격 결정방법(제1~6방법)",
+      "keywords": [],
+      "unit_id": "gwanse-202-5",
+      "chapter": "제2장 과세가격의 결정"
+    },
+    {
+      "order": 202,
+      "category": "과세가격과 관세의 부과·징수",
+      "subcategory": "분할납부·월별납부",
+      "keywords": [],
+      "unit_id": "gwanse-203-6",
+      "chapter": "제3장 부과와 징수"
+    },
+    {
+      "order": 203,
+      "category": "과세가격과 관세의 부과·징수",
+      "subcategory": "수정신고·경정·관세조사",
+      "keywords": [],
+      "unit_id": "gwanse-203-7",
+      "chapter": "제3장 부과와 징수"
+    },
+    {
+      "order": 204,
+      "category": "과세가격과 관세의 부과·징수",
+      "subcategory": "신고납부·부과고지·가산세",
+      "keywords": [],
+      "unit_id": "gwanse-203-8",
+      "chapter": "제3장 부과와 징수"
+    },
+    {
+      "order": 205,
+      "category": "과세가격과 관세의 부과·징수",
+      "subcategory": "강제징수·관세의 우선순위",
+      "keywords": [],
+      "unit_id": "gwanse-204-9",
+      "chapter": "제4장 담보와 강제징수"
+    },
+    {
+      "order": 206,
+      "category": "과세가격과 관세의 부과·징수",
+      "subcategory": "관세의 부과·징수·환급",
+      "keywords": [],
+      "unit_id": "gwanse-204-10",
+      "chapter": "제4장 담보와 강제징수"
+    },
+    {
+      "order": 207,
+      "category": "과세가격과 관세의 부과·징수",
+      "subcategory": "담보의 종류와 제공",
+      "keywords": [],
+      "unit_id": "gwanse-204-11",
+      "chapter": "제4장 담보와 강제징수"
+    },
+    {
+      "order": 301,
+      "category": "세율 및 품목분류",
+      "subcategory": "관세율의 적용 순위",
+      "keywords": [],
+      "unit_id": "gwanse-301-12",
+      "chapter": "제1장 세율의 적용과 품목분류"
+    },
+    {
+      "order": 302,
+      "category": "세율 및 품목분류",
+      "subcategory": "관세율표·품목분류",
+      "keywords": [],
+      "unit_id": "gwanse-301-13",
+      "chapter": "제1장 세율의 적용과 품목분류"
+    },
+    {
+      "order": 303,
+      "category": "세율 및 품목분류",
+      "subcategory": "덤핑방지관세·상계관세",
+      "keywords": [],
+      "unit_id": "gwanse-302-14",
+      "chapter": "제2장 세율의 조정"
+    },
+    {
+      "order": 304,
+      "category": "세율 및 품목분류",
+      "subcategory": "보복관세·긴급관세·특정국물품 긴급관세",
+      "keywords": [],
+      "unit_id": "gwanse-302-15",
+      "chapter": "제2장 세율의 조정"
+    },
+    {
+      "order": 305,
+      "category": "세율 및 품목분류",
+      "subcategory": "조정관세·할당관세·계절관세·편익관세",
+      "keywords": [],
+      "unit_id": "gwanse-302-16",
+      "chapter": "제2장 세율의 조정"
+    },
+    {
+      "order": 401,
+      "category": "감면·환급 및 분할납부 등",
+      "subcategory": "관세환급금·환급청구권",
+      "keywords": [],
+      "unit_id": "gwanse-401-17"
+    },
+    {
+      "order": 402,
+      "category": "감면·환급 및 분할납부 등",
+      "subcategory": "무조건 감면·조건부 감면",
+      "keywords": [],
+      "unit_id": "gwanse-401-18"
+    },
+    {
+      "order": 403,
+      "category": "감면·환급 및 분할납부 등",
+      "subcategory": "재수출면세·재수입면세",
+      "keywords": [],
+      "unit_id": "gwanse-401-19"
+    },
+    {
+      "order": 501,
+      "category": "납세자의 권리 및 불복절차",
+      "subcategory": "납세자권리헌장·관세조사 절차",
+      "keywords": [],
+      "unit_id": "gwanse-501-20"
+    },
+    {
+      "order": 502,
+      "category": "납세자의 권리 및 불복절차",
+      "subcategory": "심사청구·심판청구·관세심사위원회",
+      "keywords": [],
+      "unit_id": "gwanse-501-21"
+    },
+    {
+      "order": 601,
+      "category": "운송수단",
+      "subcategory": "국경출입차량",
+      "keywords": [],
+      "unit_id": "gwanse-601-22"
+    },
+    {
+      "order": 602,
+      "category": "운송수단",
+      "subcategory": "국제항의 지정·출입허가",
+      "keywords": [],
+      "unit_id": "gwanse-601-23"
+    },
+    {
+      "order": 603,
+      "category": "운송수단",
+      "subcategory": "입출항절차·물품의 하역",
+      "keywords": [],
+      "unit_id": "gwanse-601-24"
+    },
+    {
+      "order": 701,
+      "category": "보세구역",
+      "subcategory": "보세구역 통칙",
+      "keywords": [],
+      "unit_id": "gwanse-701-25",
+      "chapter": "제1장 보세구역 통칙과 지정보세구역"
+    },
+    {
+      "order": 702,
+      "category": "보세구역",
+      "subcategory": "보세구역의 종류·물품의 장치",
+      "keywords": [],
+      "unit_id": "gwanse-701-26",
+      "chapter": "제1장 보세구역 통칙과 지정보세구역"
+    },
+    {
+      "order": 703,
+      "category": "보세구역",
+      "subcategory": "지정보세구역",
+      "keywords": [],
+      "unit_id": "gwanse-701-27",
+      "chapter": "제1장 보세구역 통칙과 지정보세구역"
+    },
+    {
+      "order": 704,
+      "category": "보세구역",
+      "subcategory": "특허보세구역",
+      "keywords": [],
+      "unit_id": "gwanse-702-28",
+      "chapter": "제2장 특허보세구역"
+    },
+    {
+      "order": 705,
+      "category": "보세구역",
+      "subcategory": "종합보세구역",
+      "keywords": [],
+      "unit_id": "gwanse-703-29",
+      "chapter": "제3장 종합보세구역"
+    },
+    {
+      "order": 706,
+      "category": "보세구역",
+      "subcategory": "유치·예치·매각",
+      "keywords": [],
+      "unit_id": "gwanse-704-30",
+      "chapter": "제4장 유치 및 처분"
+    },
+    {
+      "order": 801,
+      "category": "운송",
+      "subcategory": "내국운송·환적·보세운송업자 등의 등록",
+      "keywords": [],
+      "unit_id": "gwanse-801-31"
+    },
+    {
+      "order": 802,
+      "category": "운송",
+      "subcategory": "보세운송의 신고·승인",
+      "keywords": [],
+      "unit_id": "gwanse-801-32"
+    },
+    {
+      "order": 901,
+      "category": "통관",
+      "subcategory": "원산지 확인·통관의 제한",
+      "keywords": [],
+      "unit_id": "gwanse-901-33",
+      "chapter": "제1장 통관 통칙"
+    },
+    {
+      "order": 902,
+      "category": "통관",
+      "subcategory": "통관 통칙",
+      "keywords": [],
+      "unit_id": "gwanse-901-34",
+      "chapter": "제1장 통관 통칙"
+    },
+    {
+      "order": 903,
+      "category": "통관",
+      "subcategory": "통관의 보류·요건확인·의무이행",
+      "keywords": [],
+      "unit_id": "gwanse-901-35",
+      "chapter": "제1장 통관 통칙"
+    },
+    {
+      "order": 904,
+      "category": "통관",
+      "subcategory": "수출·수입 및 반송",
+      "keywords": [],
+      "unit_id": "gwanse-902-36",
+      "chapter": "제2장 수출ㆍ수입 및 반송"
+    },
+    {
+      "order": 905,
+      "category": "통관",
+      "subcategory": "우편물의 통관",
+      "keywords": [],
+      "unit_id": "gwanse-903-37",
+      "chapter": "제3장 우편물의 통관"
+    },
+    {
+      "order": 1001,
+      "category": "벌칙과 조사ㆍ처분",
+      "subcategory": "관세범 조사·통고처분·고발",
+      "keywords": [],
+      "unit_id": "gwanse-1001-38"
+    },
+    {
+      "order": 1002,
+      "category": "벌칙과 조사ㆍ처분",
+      "subcategory": "기타 범죄·양벌규정",
+      "keywords": [],
+      "unit_id": "gwanse-1001-39"
+    },
+    {
+      "order": 1003,
+      "category": "벌칙과 조사ㆍ처분",
+      "subcategory": "밀수출입죄 등",
+      "keywords": [],
+      "unit_id": "gwanse-1001-40"
+    },
+    {
+      "order": 1101,
+      "category": "보칙ㆍ세관공무원의 자료 제출 요청",
+      "subcategory": "세관설치·청문·다른 법률과의 관계",
+      "keywords": [],
+      "unit_id": "gwanse-1101-41"
+    },
+    {
+      "order": 1102,
+      "category": "보칙ㆍ세관공무원의 자료 제출 요청",
+      "subcategory": "질문·검사·과세자료 제출요청",
+      "keywords": [],
+      "unit_id": "gwanse-1101-42"
+    }
+  ]
+}

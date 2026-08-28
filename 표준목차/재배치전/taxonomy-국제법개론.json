@@ -1,0 +1,486 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "units": [
+    {
+      "order": 111,
+      "category": "제1편 국제법 총론",
+      "chapter": "제1장 서론",
+      "subcategory": "국제법의 개념과 역사",
+      "keywords": [],
+      "unit_id": "gukjebeop-101-1"
+    },
+    {
+      "order": 121,
+      "category": "제1편 국제법 총론",
+      "chapter": "제2장 국제법의 연원",
+      "subcategory": "법원의 종류",
+      "keywords": [],
+      "unit_id": "gukjebeop-102-1"
+    },
+    {
+      "order": 122,
+      "category": "제1편 국제법 총론",
+      "chapter": "제2장 국제법의 연원",
+      "subcategory": "국제관습법",
+      "keywords": [],
+      "unit_id": "gukjebeop-102-2"
+    },
+    {
+      "order": 131,
+      "category": "제1편 국제법 총론",
+      "chapter": "제3장 조약법",
+      "subcategory": "조약의 체결과 발효",
+      "keywords": [],
+      "unit_id": "gukjebeop-103-1"
+    },
+    {
+      "order": 132,
+      "category": "제1편 국제법 총론",
+      "chapter": "제3장 조약법",
+      "subcategory": "유보",
+      "keywords": [],
+      "unit_id": "gukjebeop-103-2"
+    },
+    {
+      "order": 133,
+      "category": "제1편 국제법 총론",
+      "chapter": "제3장 조약법",
+      "subcategory": "조약의 해석",
+      "keywords": [],
+      "unit_id": "gukjebeop-103-3"
+    },
+    {
+      "order": 134,
+      "category": "제1편 국제법 총론",
+      "chapter": "제3장 조약법",
+      "subcategory": "조약의 무효",
+      "keywords": [],
+      "unit_id": "gukjebeop-103-4"
+    },
+    {
+      "order": 135,
+      "category": "제1편 국제법 총론",
+      "chapter": "제3장 조약법",
+      "subcategory": "조약의 종료와 정지",
+      "keywords": [],
+      "unit_id": "gukjebeop-103-5"
+    },
+    {
+      "order": 141,
+      "category": "제1편 국제법 총론",
+      "chapter": "제4장 국제법과 국내법의 관계",
+      "subcategory": "국제법과 국내법의 관계",
+      "keywords": [],
+      "unit_id": "gukjebeop-104-1"
+    },
+    {
+      "order": 151,
+      "category": "제1편 국제법 총론",
+      "chapter": "제5장 국제법의 주체",
+      "subcategory": "국가승계",
+      "keywords": [],
+      "unit_id": "gukjebeop-105-1"
+    },
+    {
+      "order": 211,
+      "category": "제2편 국가",
+      "chapter": "제1장 승인",
+      "subcategory": "국가승인과 정부승인",
+      "keywords": [],
+      "unit_id": "gukjebeop-201-1"
+    },
+    {
+      "order": 221,
+      "category": "제2편 국가",
+      "chapter": "제2장 국가의 기본적 권리·의무",
+      "subcategory": "국가의 기본적 권리의무",
+      "keywords": [],
+      "unit_id": "gukjebeop-202-1"
+    },
+    {
+      "order": 222,
+      "category": "제2편 국가",
+      "chapter": "제2장 국가의 기본적 권리·의무",
+      "subcategory": "영토의 취득과 경계",
+      "keywords": [],
+      "unit_id": "gukjebeop-202-2"
+    },
+    {
+      "order": 231,
+      "category": "제2편 국가",
+      "chapter": "제3장 국가관할권 및 면제",
+      "subcategory": "국가관할권",
+      "keywords": [],
+      "unit_id": "gukjebeop-203-1"
+    },
+    {
+      "order": 232,
+      "category": "제2편 국가",
+      "chapter": "제3장 국가관할권 및 면제",
+      "subcategory": "국가면제(주권면제)",
+      "keywords": [],
+      "unit_id": "gukjebeop-203-2"
+    },
+    {
+      "order": 233,
+      "category": "제2편 국가",
+      "chapter": "제3장 국가관할권 및 면제",
+      "subcategory": "범죄인인도",
+      "keywords": [],
+      "unit_id": "gukjebeop-203-3"
+    },
+    {
+      "order": 241,
+      "category": "제2편 국가",
+      "chapter": "제4장 국가책임",
+      "subcategory": "국가책임의 성립",
+      "keywords": [],
+      "unit_id": "gukjebeop-204-1"
+    },
+    {
+      "order": 242,
+      "category": "제2편 국가",
+      "chapter": "제4장 국가책임",
+      "subcategory": "위법성조각사유와 대응조치",
+      "keywords": [],
+      "unit_id": "gukjebeop-204-2"
+    },
+    {
+      "order": 243,
+      "category": "제2편 국가",
+      "chapter": "제4장 국가책임",
+      "subcategory": "국가책임 판례",
+      "keywords": [],
+      "unit_id": "gukjebeop-204-3"
+    },
+    {
+      "order": 251,
+      "category": "제2편 국가",
+      "chapter": "제5장 국가의 대외기관",
+      "subcategory": "외교관계",
+      "keywords": [],
+      "unit_id": "gukjebeop-205-1"
+    },
+    {
+      "order": 252,
+      "category": "제2편 국가",
+      "chapter": "제5장 국가의 대외기관",
+      "subcategory": "외교특권과 면제",
+      "keywords": [],
+      "unit_id": "gukjebeop-205-2"
+    },
+    {
+      "order": 253,
+      "category": "제2편 국가",
+      "chapter": "제5장 국가의 대외기관",
+      "subcategory": "영사관계",
+      "keywords": [],
+      "unit_id": "gukjebeop-205-3"
+    },
+    {
+      "order": 311,
+      "category": "제3편 국제기구",
+      "chapter": "제1장 국제연합",
+      "subcategory": "국제기구의 법인격과 책임",
+      "keywords": [],
+      "unit_id": "gukjebeop-301-1"
+    },
+    {
+      "order": 312,
+      "category": "제3편 국제기구",
+      "chapter": "제1장 국제연합",
+      "subcategory": "UN의 목적과 원칙",
+      "keywords": [],
+      "unit_id": "gukjebeop-301-2"
+    },
+    {
+      "order": 313,
+      "category": "제3편 국제기구",
+      "chapter": "제1장 국제연합",
+      "subcategory": "회원국 지위",
+      "keywords": [],
+      "unit_id": "gukjebeop-301-3"
+    },
+    {
+      "order": 314,
+      "category": "제3편 국제기구",
+      "chapter": "제1장 국제연합",
+      "subcategory": "총회",
+      "keywords": [],
+      "unit_id": "gukjebeop-301-4"
+    },
+    {
+      "order": 315,
+      "category": "제3편 국제기구",
+      "chapter": "제1장 국제연합",
+      "subcategory": "안전보장이사회",
+      "keywords": [],
+      "unit_id": "gukjebeop-301-5"
+    },
+    {
+      "order": 316,
+      "category": "제3편 국제기구",
+      "chapter": "제1장 국제연합",
+      "subcategory": "전문기구와 직원",
+      "keywords": [],
+      "unit_id": "gukjebeop-301-6"
+    },
+    {
+      "order": 411,
+      "category": "제4편 개인",
+      "chapter": "제1장 국민 및 외국인",
+      "subcategory": "국적",
+      "keywords": [],
+      "unit_id": "gukjebeop-401-1"
+    },
+    {
+      "order": 412,
+      "category": "제4편 개인",
+      "chapter": "제1장 국민 및 외국인",
+      "subcategory": "외국인의 지위와 재산",
+      "keywords": [],
+      "unit_id": "gukjebeop-401-2"
+    },
+    {
+      "order": 413,
+      "category": "제4편 개인",
+      "chapter": "제1장 국민 및 외국인",
+      "subcategory": "외교적 보호",
+      "keywords": [],
+      "unit_id": "gukjebeop-401-3"
+    },
+    {
+      "order": 414,
+      "category": "제4편 개인",
+      "chapter": "제1장 국민 및 외국인",
+      "subcategory": "난민",
+      "keywords": [],
+      "unit_id": "gukjebeop-401-4"
+    },
+    {
+      "order": 421,
+      "category": "제4편 개인",
+      "chapter": "제2장 국제인권법",
+      "subcategory": "국제인권조약",
+      "keywords": [],
+      "unit_id": "gukjebeop-402-1"
+    },
+    {
+      "order": 422,
+      "category": "제4편 개인",
+      "chapter": "제2장 국제인권법",
+      "subcategory": "인권보장 절차",
+      "keywords": [],
+      "unit_id": "gukjebeop-402-2"
+    },
+    {
+      "order": 423,
+      "category": "제4편 개인",
+      "chapter": "제2장 국제인권법",
+      "subcategory": "국제인도법",
+      "keywords": [],
+      "unit_id": "gukjebeop-402-3"
+    },
+    {
+      "order": 511,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제1장 해양법",
+      "subcategory": "기선과 내수",
+      "keywords": [],
+      "unit_id": "gukjebeop-501-1"
+    },
+    {
+      "order": 512,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제1장 해양법",
+      "subcategory": "영해와 무해통항",
+      "keywords": [],
+      "unit_id": "gukjebeop-501-2"
+    },
+    {
+      "order": 513,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제1장 해양법",
+      "subcategory": "국제해협",
+      "keywords": [],
+      "unit_id": "gukjebeop-501-3"
+    },
+    {
+      "order": 514,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제1장 해양법",
+      "subcategory": "배타적 경제수역과 대륙붕",
+      "keywords": [],
+      "unit_id": "gukjebeop-501-4"
+    },
+    {
+      "order": 515,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제1장 해양법",
+      "subcategory": "공해",
+      "keywords": [],
+      "unit_id": "gukjebeop-501-5"
+    },
+    {
+      "order": 516,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제1장 해양법",
+      "subcategory": "섬과 간출지",
+      "keywords": [],
+      "unit_id": "gukjebeop-501-6"
+    },
+    {
+      "order": 521,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제2장 국제법의 객체(공역·우주·극지)",
+      "subcategory": "영공과 항공법",
+      "keywords": [],
+      "unit_id": "gukjebeop-502-1"
+    },
+    {
+      "order": 522,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제2장 국제법의 객체(공역·우주·극지)",
+      "subcategory": "우주법",
+      "keywords": [],
+      "unit_id": "gukjebeop-502-2"
+    },
+    {
+      "order": 523,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제2장 국제법의 객체(공역·우주·극지)",
+      "subcategory": "극지와 국제공역",
+      "keywords": [],
+      "unit_id": "gukjebeop-502-3"
+    },
+    {
+      "order": 531,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제3장 국제환경법",
+      "subcategory": "국제환경법의 원칙",
+      "keywords": [],
+      "unit_id": "gukjebeop-503-1"
+    },
+    {
+      "order": 532,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제3장 국제환경법",
+      "subcategory": "해양환경 보호",
+      "keywords": [],
+      "unit_id": "gukjebeop-503-2"
+    },
+    {
+      "order": 533,
+      "category": "제5편 국제법의 규율 대상",
+      "chapter": "제3장 국제환경법",
+      "subcategory": "기후변화",
+      "keywords": [],
+      "unit_id": "gukjebeop-503-3"
+    },
+    {
+      "order": 611,
+      "category": "제6편 국제분쟁해결 및 무력사용",
+      "chapter": "제1장 국제분쟁해결제도",
+      "subcategory": "평화적 해결 수단",
+      "keywords": [],
+      "unit_id": "gukjebeop-601-1"
+    },
+    {
+      "order": 612,
+      "category": "제6편 국제분쟁해결 및 무력사용",
+      "chapter": "제1장 국제분쟁해결제도",
+      "subcategory": "ICJ의 관할권",
+      "keywords": [],
+      "unit_id": "gukjebeop-601-2"
+    },
+    {
+      "order": 613,
+      "category": "제6편 국제분쟁해결 및 무력사용",
+      "chapter": "제1장 국제분쟁해결제도",
+      "subcategory": "ICJ의 구성과 절차",
+      "keywords": [],
+      "unit_id": "gukjebeop-601-3"
+    },
+    {
+      "order": 614,
+      "category": "제6편 국제분쟁해결 및 무력사용",
+      "chapter": "제1장 국제분쟁해결제도",
+      "subcategory": "권고적 의견",
+      "keywords": [],
+      "unit_id": "gukjebeop-601-4"
+    },
+    {
+      "order": 621,
+      "category": "제6편 국제분쟁해결 및 무력사용",
+      "chapter": "제2장 전쟁과 평화에 관한 법",
+      "subcategory": "무력사용 금지와 자위권",
+      "keywords": [],
+      "unit_id": "gukjebeop-602-1"
+    },
+    {
+      "order": 622,
+      "category": "제6편 국제분쟁해결 및 무력사용",
+      "chapter": "제2장 전쟁과 평화에 관한 법",
+      "subcategory": "집단안전보장과 PKO",
+      "keywords": [],
+      "unit_id": "gukjebeop-602-2"
+    },
+    {
+      "order": 623,
+      "category": "제6편 국제분쟁해결 및 무력사용",
+      "chapter": "제2장 전쟁과 평화에 관한 법",
+      "subcategory": "국제형사재판소",
+      "keywords": [],
+      "unit_id": "gukjebeop-602-3"
+    },
+    {
+      "order": 624,
+      "category": "제6편 국제분쟁해결 및 무력사용",
+      "chapter": "제2장 전쟁과 평화에 관한 법",
+      "subcategory": "군축",
+      "keywords": [],
+      "unit_id": "gukjebeop-602-4"
+    },
+    {
+      "order": 711,
+      "category": "제7편 국제경제법",
+      "chapter": "제1장 WTO와 국제통상규범",
+      "subcategory": "WTO의 성립과 구조",
+      "keywords": [],
+      "unit_id": "gukjebeop-701-1"
+    },
+    {
+      "order": 712,
+      "category": "제7편 국제경제법",
+      "chapter": "제1장 WTO와 국제통상규범",
+      "subcategory": "GATT 기본원칙",
+      "keywords": [],
+      "unit_id": "gukjebeop-701-2"
+    },
+    {
+      "order": 713,
+      "category": "제7편 국제경제법",
+      "chapter": "제1장 WTO와 국제통상규범",
+      "subcategory": "예외와 지역협정",
+      "keywords": [],
+      "unit_id": "gukjebeop-701-3"
+    },
+    {
+      "order": 714,
+      "category": "제7편 국제경제법",
+      "chapter": "제1장 WTO와 국제통상규범",
+      "subcategory": "무역구제",
+      "keywords": [],
+      "unit_id": "gukjebeop-701-4"
+    },
+    {
+      "order": 715,
+      "category": "제7편 국제경제법",
+      "chapter": "제1장 WTO와 국제통상규범",
+      "subcategory": "분쟁해결",
+      "keywords": [],
+      "unit_id": "gukjebeop-701-5"
+    }
+  ]
+}

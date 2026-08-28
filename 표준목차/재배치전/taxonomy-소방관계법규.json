@@ -1,0 +1,542 @@
+{
+  "version": 2,
+  "source": "봄기출 표준 목차",
+  "units": [
+    {
+      "order": 111,
+      "category": "소방기본법",
+      "chapter": "제1장 총칙",
+      "subcategory": "소방기관과 종합계획",
+      "keywords": [],
+      "unit_id": "sobangbeop-101-1"
+    },
+    {
+      "order": 112,
+      "category": "소방기본법",
+      "chapter": "제1장 총칙",
+      "subcategory": "소방교육과 홍보",
+      "keywords": [],
+      "unit_id": "sobangbeop-101-2"
+    },
+    {
+      "order": 113,
+      "category": "소방기본법",
+      "chapter": "제1장 총칙",
+      "subcategory": "국고보조",
+      "keywords": [],
+      "unit_id": "sobangbeop-101-3"
+    },
+    {
+      "order": 121,
+      "category": "소방기본법",
+      "chapter": "제2장 소방장비 및 소방용수시설",
+      "subcategory": "소방용수시설",
+      "keywords": [],
+      "unit_id": "sobangbeop-102-1"
+    },
+    {
+      "order": 122,
+      "category": "소방기본법",
+      "chapter": "제2장 소방장비 및 소방용수시설",
+      "subcategory": "소방자동차 전용구역",
+      "keywords": [],
+      "unit_id": "sobangbeop-102-2"
+    },
+    {
+      "order": 131,
+      "category": "소방기본법",
+      "chapter": "제3장 화재의 예방과 경계",
+      "subcategory": "화기취급의 기준",
+      "keywords": [],
+      "unit_id": "sobangbeop-103-1"
+    },
+    {
+      "order": 132,
+      "category": "소방기본법",
+      "chapter": "제3장 화재의 예방과 경계",
+      "subcategory": "화재예방강화지구",
+      "keywords": [],
+      "unit_id": "sobangbeop-103-2"
+    },
+    {
+      "order": 141,
+      "category": "소방기본법",
+      "chapter": "제4장 소방활동",
+      "subcategory": "소방활동과 소방지원활동",
+      "keywords": [],
+      "unit_id": "sobangbeop-104-1"
+    },
+    {
+      "order": 142,
+      "category": "소방기본법",
+      "chapter": "제4장 소방활동",
+      "subcategory": "강제처분과 손실보상",
+      "keywords": [],
+      "unit_id": "sobangbeop-104-2"
+    },
+    {
+      "order": 143,
+      "category": "소방기본법",
+      "chapter": "제4장 소방활동",
+      "subcategory": "소방자동차의 통행",
+      "keywords": [],
+      "unit_id": "sobangbeop-104-3"
+    },
+    {
+      "order": 151,
+      "category": "소방기본법",
+      "chapter": "제7장 의용소방대와 한국소방안전원",
+      "subcategory": "한국소방안전원",
+      "keywords": [],
+      "unit_id": "sobangbeop-105-1"
+    },
+    {
+      "order": 161,
+      "category": "소방기본법",
+      "chapter": "제8장 보칙과 벌칙",
+      "subcategory": "벌칙과 과태료",
+      "keywords": [],
+      "unit_id": "sobangbeop-106-1"
+    },
+    {
+      "order": 211,
+      "category": "화재조사법",
+      "chapter": "제2장 화재조사의 실시",
+      "subcategory": "화재조사의 실시",
+      "keywords": [],
+      "unit_id": "sobangbeop-201-1"
+    },
+    {
+      "order": 221,
+      "category": "화재조사법",
+      "chapter": "제3장 결과의 공표와 기반구축",
+      "subcategory": "화재정보와 감정기관",
+      "keywords": [],
+      "unit_id": "sobangbeop-202-1"
+    },
+    {
+      "order": 311,
+      "category": "소방시설법",
+      "chapter": "제1장 총칙",
+      "subcategory": "용어의 정의",
+      "keywords": [],
+      "unit_id": "sobangbeop-301-1"
+    },
+    {
+      "order": 312,
+      "category": "소방시설법",
+      "chapter": "제1장 총칙",
+      "subcategory": "특정소방대상물과 수용인원",
+      "keywords": [],
+      "unit_id": "sobangbeop-301-2"
+    },
+    {
+      "order": 313,
+      "category": "소방시설법",
+      "chapter": "제1장 총칙",
+      "subcategory": "기술심의위원회",
+      "keywords": [],
+      "unit_id": "sobangbeop-301-3"
+    },
+    {
+      "order": 314,
+      "category": "소방시설법",
+      "chapter": "제1장 총칙",
+      "subcategory": "행정처분과 중대위반사항",
+      "keywords": [],
+      "unit_id": "sobangbeop-301-4"
+    },
+    {
+      "order": 321,
+      "category": "소방시설법",
+      "chapter": "제2장 소방시설등의 설치·관리 및 방염",
+      "subcategory": "건축허가 동의",
+      "keywords": [],
+      "unit_id": "sobangbeop-302-1"
+    },
+    {
+      "order": 322,
+      "category": "소방시설법",
+      "chapter": "제2장 소방시설등의 설치·관리 및 방염",
+      "subcategory": "소방시설의 종류와 설치기준",
+      "keywords": [],
+      "unit_id": "sobangbeop-302-2"
+    },
+    {
+      "order": 323,
+      "category": "소방시설법",
+      "chapter": "제2장 소방시설등의 설치·관리 및 방염",
+      "subcategory": "소화설비",
+      "keywords": [],
+      "unit_id": "sobangbeop-302-3"
+    },
+    {
+      "order": 324,
+      "category": "소방시설법",
+      "chapter": "제2장 소방시설등의 설치·관리 및 방염",
+      "subcategory": "경보설비와 피난구조설비",
+      "keywords": [],
+      "unit_id": "sobangbeop-302-4"
+    },
+    {
+      "order": 325,
+      "category": "소방시설법",
+      "chapter": "제2장 소방시설등의 설치·관리 및 방염",
+      "subcategory": "소화활동설비",
+      "keywords": [],
+      "unit_id": "sobangbeop-302-5"
+    },
+    {
+      "order": 326,
+      "category": "소방시설법",
+      "chapter": "제2장 소방시설등의 설치·관리 및 방염",
+      "subcategory": "설치면제와 성능위주설계",
+      "keywords": [],
+      "unit_id": "sobangbeop-302-6"
+    },
+    {
+      "order": 327,
+      "category": "소방시설법",
+      "chapter": "제2장 소방시설등의 설치·관리 및 방염",
+      "subcategory": "임시소방시설과 주택용 소방시설",
+      "keywords": [],
+      "unit_id": "sobangbeop-302-7"
+    },
+    {
+      "order": 328,
+      "category": "소방시설법",
+      "chapter": "제2장 소방시설등의 설치·관리 및 방염",
+      "subcategory": "방염",
+      "keywords": [],
+      "unit_id": "sobangbeop-302-8"
+    },
+    {
+      "order": 331,
+      "category": "소방시설법",
+      "chapter": "제3장 소방시설등의 자체점검",
+      "subcategory": "자체점검",
+      "keywords": [],
+      "unit_id": "sobangbeop-303-1"
+    },
+    {
+      "order": 341,
+      "category": "소방시설법",
+      "chapter": "제4장 소방시설관리사 및 관리업",
+      "subcategory": "소방시설관리사와 관리업",
+      "keywords": [],
+      "unit_id": "sobangbeop-304-1"
+    },
+    {
+      "order": 351,
+      "category": "소방시설법",
+      "chapter": "제5장 소방용품의 품질관리",
+      "subcategory": "소방용품",
+      "keywords": [],
+      "unit_id": "sobangbeop-305-1"
+    },
+    {
+      "order": 411,
+      "category": "화재예방법",
+      "chapter": "제1장 총칙",
+      "subcategory": "총칙과 특수가연물",
+      "keywords": [],
+      "unit_id": "sobangbeop-401-1"
+    },
+    {
+      "order": 421,
+      "category": "화재예방법",
+      "chapter": "제2장 기본계획의 수립·시행",
+      "subcategory": "기본계획",
+      "keywords": [],
+      "unit_id": "sobangbeop-402-1"
+    },
+    {
+      "order": 431,
+      "category": "화재예방법",
+      "chapter": "제3장 화재안전조사",
+      "subcategory": "화재안전조사",
+      "keywords": [],
+      "unit_id": "sobangbeop-403-1"
+    },
+    {
+      "order": 441,
+      "category": "화재예방법",
+      "chapter": "제4장 화재의 예방조치",
+      "subcategory": "화재예방조치와 화기취급",
+      "keywords": [],
+      "unit_id": "sobangbeop-404-1"
+    },
+    {
+      "order": 442,
+      "category": "화재예방법",
+      "chapter": "제4장 화재의 예방조치",
+      "subcategory": "화재예방강화지구",
+      "keywords": [],
+      "unit_id": "sobangbeop-404-2"
+    },
+    {
+      "order": 451,
+      "category": "화재예방법",
+      "chapter": "제5장 소방대상물의 소방안전관리",
+      "subcategory": "소방안전관리대상물",
+      "keywords": [],
+      "unit_id": "sobangbeop-405-1"
+    },
+    {
+      "order": 452,
+      "category": "화재예방법",
+      "chapter": "제5장 소방대상물의 소방안전관리",
+      "subcategory": "소방안전관리자의 선임과 자격",
+      "keywords": [],
+      "unit_id": "sobangbeop-405-2"
+    },
+    {
+      "order": 453,
+      "category": "화재예방법",
+      "chapter": "제5장 소방대상물의 소방안전관리",
+      "subcategory": "소방계획서와 관리업무",
+      "keywords": [],
+      "unit_id": "sobangbeop-405-3"
+    },
+    {
+      "order": 454,
+      "category": "화재예방법",
+      "chapter": "제5장 소방대상물의 소방안전관리",
+      "subcategory": "공동 소방안전관리와 건설현장",
+      "keywords": [],
+      "unit_id": "sobangbeop-405-4"
+    },
+    {
+      "order": 455,
+      "category": "화재예방법",
+      "chapter": "제5장 소방대상물의 소방안전관리",
+      "subcategory": "교육과 훈련",
+      "keywords": [],
+      "unit_id": "sobangbeop-405-5"
+    },
+    {
+      "order": 461,
+      "category": "화재예방법",
+      "chapter": "제6장 특별관리시설물의 소방안전관리",
+      "subcategory": "화재예방안전진단",
+      "keywords": [],
+      "unit_id": "sobangbeop-406-1"
+    },
+    {
+      "order": 471,
+      "category": "화재예방법",
+      "chapter": "제7장 보칙과 벌칙",
+      "subcategory": "벌칙과 과태료",
+      "keywords": [],
+      "unit_id": "sobangbeop-407-1"
+    },
+    {
+      "order": 511,
+      "category": "소방시설공사업법",
+      "chapter": "제1장 총칙",
+      "subcategory": "용어의 정의",
+      "keywords": [],
+      "unit_id": "sobangbeop-501-1"
+    },
+    {
+      "order": 521,
+      "category": "소방시설공사업법",
+      "chapter": "제2장 소방시설업",
+      "subcategory": "소방시설업의 등록",
+      "keywords": [],
+      "unit_id": "sobangbeop-502-1"
+    },
+    {
+      "order": 522,
+      "category": "소방시설공사업법",
+      "chapter": "제2장 소방시설업",
+      "subcategory": "시공능력평가",
+      "keywords": [],
+      "unit_id": "sobangbeop-502-2"
+    },
+    {
+      "order": 523,
+      "category": "소방시설공사업법",
+      "chapter": "제2장 소방시설업",
+      "subcategory": "행정처분과 과징금",
+      "keywords": [],
+      "unit_id": "sobangbeop-502-3"
+    },
+    {
+      "order": 531,
+      "category": "소방시설공사업법",
+      "chapter": "제3장 소방시설공사등",
+      "subcategory": "착공신고와 완공검사",
+      "keywords": [],
+      "unit_id": "sobangbeop-503-1"
+    },
+    {
+      "order": 532,
+      "category": "소방시설공사업법",
+      "chapter": "제3장 소방시설공사등",
+      "subcategory": "하자보수",
+      "keywords": [],
+      "unit_id": "sobangbeop-503-2"
+    },
+    {
+      "order": 533,
+      "category": "소방시설공사업법",
+      "chapter": "제3장 소방시설공사등",
+      "subcategory": "공사감리",
+      "keywords": [],
+      "unit_id": "sobangbeop-503-3"
+    },
+    {
+      "order": 534,
+      "category": "소방시설공사업법",
+      "chapter": "제3장 소방시설공사등",
+      "subcategory": "도급",
+      "keywords": [],
+      "unit_id": "sobangbeop-503-4"
+    },
+    {
+      "order": 541,
+      "category": "소방시설공사업법",
+      "chapter": "제4장 소방기술자",
+      "subcategory": "소방기술자와 배치기준",
+      "keywords": [],
+      "unit_id": "sobangbeop-504-1"
+    },
+    {
+      "order": 551,
+      "category": "소방시설공사업법",
+      "chapter": "제5장 협회와 보칙·벌칙",
+      "subcategory": "업무의 위탁과 청문",
+      "keywords": [],
+      "unit_id": "sobangbeop-505-1"
+    },
+    {
+      "order": 552,
+      "category": "소방시설공사업법",
+      "chapter": "제5장 협회와 보칙·벌칙",
+      "subcategory": "벌칙",
+      "keywords": [],
+      "unit_id": "sobangbeop-505-2"
+    },
+    {
+      "order": 611,
+      "category": "위험물안전관리법",
+      "chapter": "제1장 총칙",
+      "subcategory": "용어의 정의",
+      "keywords": [],
+      "unit_id": "sobangbeop-601-1"
+    },
+    {
+      "order": 612,
+      "category": "위험물안전관리법",
+      "chapter": "제1장 총칙",
+      "subcategory": "위험물의 분류와 지정수량",
+      "keywords": [],
+      "unit_id": "sobangbeop-601-2"
+    },
+    {
+      "order": 613,
+      "category": "위험물안전관리법",
+      "chapter": "제1장 총칙",
+      "subcategory": "저장·취급의 기준",
+      "keywords": [],
+      "unit_id": "sobangbeop-601-3"
+    },
+    {
+      "order": 614,
+      "category": "위험물안전관리법",
+      "chapter": "제1장 총칙",
+      "subcategory": "소화설비와 경보설비",
+      "keywords": [],
+      "unit_id": "sobangbeop-601-4"
+    },
+    {
+      "order": 621,
+      "category": "위험물안전관리법",
+      "chapter": "제2장 위험물시설의 설치 및 변경",
+      "subcategory": "설치허가와 변경허가",
+      "keywords": [],
+      "unit_id": "sobangbeop-602-1"
+    },
+    {
+      "order": 622,
+      "category": "위험물안전관리법",
+      "chapter": "제2장 위험물시설의 설치 및 변경",
+      "subcategory": "제조소의 위치·구조·설비",
+      "keywords": [],
+      "unit_id": "sobangbeop-602-2"
+    },
+    {
+      "order": 623,
+      "category": "위험물안전관리법",
+      "chapter": "제2장 위험물시설의 설치 및 변경",
+      "subcategory": "옥외탱크저장소와 방유제",
+      "keywords": [],
+      "unit_id": "sobangbeop-602-3"
+    },
+    {
+      "order": 624,
+      "category": "위험물안전관리법",
+      "chapter": "제2장 위험물시설의 설치 및 변경",
+      "subcategory": "옥외저장소",
+      "keywords": [],
+      "unit_id": "sobangbeop-602-4"
+    },
+    {
+      "order": 625,
+      "category": "위험물안전관리법",
+      "chapter": "제2장 위험물시설의 설치 및 변경",
+      "subcategory": "소화난이도와 탱크시험자",
+      "keywords": [],
+      "unit_id": "sobangbeop-602-5"
+    },
+    {
+      "order": 631,
+      "category": "위험물안전관리법",
+      "chapter": "제3장 위험물시설의 안전관리",
+      "subcategory": "위험물안전관리자",
+      "keywords": [],
+      "unit_id": "sobangbeop-603-1"
+    },
+    {
+      "order": 632,
+      "category": "위험물안전관리법",
+      "chapter": "제3장 위험물시설의 안전관리",
+      "subcategory": "예방규정과 정기점검",
+      "keywords": [],
+      "unit_id": "sobangbeop-603-2"
+    },
+    {
+      "order": 633,
+      "category": "위험물안전관리법",
+      "chapter": "제3장 위험물시설의 안전관리",
+      "subcategory": "자체소방대",
+      "keywords": [],
+      "unit_id": "sobangbeop-603-3"
+    },
+    {
+      "order": 641,
+      "category": "위험물안전관리법",
+      "chapter": "제4장 위험물의 운반",
+      "subcategory": "운반과 운송",
+      "keywords": [],
+      "unit_id": "sobangbeop-604-1"
+    },
+    {
+      "order": 651,
+      "category": "위험물안전관리법",
+      "chapter": "제5장 감독 및 조치명령",
+      "subcategory": "사고조사",
+      "keywords": [],
+      "unit_id": "sobangbeop-605-1"
+    },
+    {
+      "order": 661,
+      "category": "위험물안전관리법",
+      "chapter": "제6장 보칙과 벌칙",
+      "subcategory": "벌칙",
+      "keywords": [],
+      "unit_id": "sobangbeop-606-1"
+    }
+  ]
+}

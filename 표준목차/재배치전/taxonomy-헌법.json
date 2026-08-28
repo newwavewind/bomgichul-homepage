@@ -1,0 +1,286 @@
+{
+  "version": 2,
+  "source": "경찰 순경 공채 기출 9회차 180문항을 분류해 만든 목차 | taxonomy 가 공인중개사 것이 딸려 온 채 남아 있었다(헌법 과목에 부동산 목차). curriculum 의 필터를 그대로 옮겨 다시 세웠다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "헌법총론",
+      "chapter": "CHAPTER 01　헌법의 개념·해석·개정",
+      "subcategory": "헌법의 개념·해석·개정",
+      "keywords": [],
+      "unit_id": "heonbeop-101-1"
+    },
+    {
+      "order": 102,
+      "category": "헌법총론",
+      "chapter": "CHAPTER 02　헌법의 기본원리",
+      "subcategory": "헌법의 기본원리",
+      "keywords": [],
+      "unit_id": "heonbeop-102-2"
+    },
+    {
+      "order": 103,
+      "category": "헌법총론",
+      "chapter": "CHAPTER 03　정당제도",
+      "subcategory": "정당제도",
+      "keywords": [],
+      "unit_id": "heonbeop-103-3"
+    },
+    {
+      "order": 104,
+      "category": "헌법총론",
+      "chapter": "CHAPTER 04　선거제도·선거권",
+      "subcategory": "선거제도·선거권",
+      "keywords": [],
+      "unit_id": "heonbeop-104-4"
+    },
+    {
+      "order": 105,
+      "category": "헌법총론",
+      "chapter": "CHAPTER 05　공무원제도·지방자치제도·제도적 보장",
+      "subcategory": "공무원제도·지방자치제도·제도적 보장",
+      "keywords": [],
+      "unit_id": "heonbeop-105-5"
+    },
+    {
+      "order": 106,
+      "category": "헌법총론",
+      "chapter": "CHAPTER 06　대한민국의 국민(국적)",
+      "subcategory": "대한민국의 국민(국적)",
+      "keywords": [],
+      "unit_id": "heonbeop-106-6"
+    },
+    {
+      "order": 201,
+      "category": "기본권 총론",
+      "chapter": "CHAPTER 01　기본권의 제한과 과잉금지원칙",
+      "subcategory": "기본권의 제한과 과잉금지원칙",
+      "keywords": [],
+      "unit_id": "heonbeop-201-7"
+    },
+    {
+      "order": 202,
+      "category": "기본권 총론",
+      "chapter": "CHAPTER 02　기본권의 주체",
+      "subcategory": "기본권의 주체",
+      "keywords": [],
+      "unit_id": "heonbeop-202-8"
+    },
+    {
+      "order": 203,
+      "category": "기본권 총론",
+      "chapter": "CHAPTER 03　기본권 보호의무·충돌·부작위",
+      "subcategory": "기본권 보호의무·충돌·부작위",
+      "keywords": [],
+      "unit_id": "heonbeop-203-9"
+    },
+    {
+      "order": 301,
+      "category": "인간의 존엄과 평등",
+      "chapter": "CHAPTER 01　인간의 존엄과 가치·행복추구권",
+      "subcategory": "인간의 존엄과 가치·행복추구권",
+      "keywords": [],
+      "unit_id": "heonbeop-301-10"
+    },
+    {
+      "order": 302,
+      "category": "인간의 존엄과 평등",
+      "chapter": "CHAPTER 02　평등권·평등원칙",
+      "subcategory": "평등권·평등원칙",
+      "keywords": [],
+      "unit_id": "heonbeop-302-11"
+    },
+    {
+      "order": 303,
+      "category": "인간의 존엄과 평등",
+      "chapter": "CHAPTER 03　일반적 행동자유권",
+      "subcategory": "일반적 행동자유권",
+      "keywords": [],
+      "unit_id": "heonbeop-303-12"
+    },
+    {
+      "order": 401,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 01　신체의 자유(영장주의·적법절차)",
+      "subcategory": "신체의 자유(영장주의·적법절차)",
+      "keywords": [],
+      "unit_id": "heonbeop-401-13"
+    },
+    {
+      "order": 402,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 02　표현의 자유(언론·출판)",
+      "subcategory": "표현의 자유(언론·출판)",
+      "keywords": [],
+      "unit_id": "heonbeop-402-14"
+    },
+    {
+      "order": 403,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 03　학문·예술의 자유와 대학의 자치",
+      "subcategory": "학문·예술의 자유와 대학의 자치",
+      "keywords": [],
+      "unit_id": "heonbeop-403-15"
+    },
+    {
+      "order": 404,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 04　양심·종교의 자유",
+      "subcategory": "양심·종교의 자유",
+      "keywords": [],
+      "unit_id": "heonbeop-404-16"
+    },
+    {
+      "order": 405,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 05　집회·결사의 자유",
+      "subcategory": "집회·결사의 자유",
+      "keywords": [],
+      "unit_id": "heonbeop-405-17"
+    },
+    {
+      "order": 406,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 06　직업의 자유",
+      "subcategory": "직업의 자유",
+      "keywords": [],
+      "unit_id": "heonbeop-406-18"
+    },
+    {
+      "order": 407,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 07　재산권",
+      "subcategory": "재산권",
+      "keywords": [],
+      "unit_id": "heonbeop-407-19"
+    },
+    {
+      "order": 408,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 08　사생활의 비밀과 자유·개인정보",
+      "subcategory": "사생활의 비밀과 자유·개인정보",
+      "keywords": [],
+      "unit_id": "heonbeop-408-20"
+    },
+    {
+      "order": 409,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 09　변호인의 조력을 받을 권리",
+      "subcategory": "변호인의 조력을 받을 권리",
+      "keywords": [],
+      "unit_id": "heonbeop-409-21"
+    },
+    {
+      "order": 410,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 10　거주·이전의 자유",
+      "subcategory": "거주·이전의 자유",
+      "keywords": [],
+      "unit_id": "heonbeop-410-22"
+    },
+    {
+      "order": 411,
+      "category": "자유권적 기본권",
+      "chapter": "CHAPTER 11　통신의 자유",
+      "subcategory": "통신의 자유",
+      "keywords": [],
+      "unit_id": "heonbeop-411-23"
+    },
+    {
+      "order": 501,
+      "category": "정치적 기본권",
+      "chapter": "CHAPTER 01　공무담임권·정치적 기본권",
+      "subcategory": "공무담임권·정치적 기본권",
+      "keywords": [],
+      "unit_id": "heonbeop-501-24"
+    },
+    {
+      "order": 601,
+      "category": "사회권적 기본권",
+      "chapter": "CHAPTER 01　인간다운 생활을 할 권리·사회보장",
+      "subcategory": "인간다운 생활을 할 권리·사회보장",
+      "keywords": [],
+      "unit_id": "heonbeop-601-25"
+    },
+    {
+      "order": 602,
+      "category": "사회권적 기본권",
+      "chapter": "CHAPTER 02　근로의 권리와 근로3권",
+      "subcategory": "근로의 권리와 근로3권",
+      "keywords": [],
+      "unit_id": "heonbeop-602-26"
+    },
+    {
+      "order": 603,
+      "category": "사회권적 기본권",
+      "chapter": "CHAPTER 03　교육을 받을 권리",
+      "subcategory": "교육을 받을 권리",
+      "keywords": [],
+      "unit_id": "heonbeop-603-27"
+    },
+    {
+      "order": 604,
+      "category": "사회권적 기본권",
+      "chapter": "CHAPTER 04　혼인과 가족생활",
+      "subcategory": "혼인과 가족생활",
+      "keywords": [],
+      "unit_id": "heonbeop-604-28"
+    },
+    {
+      "order": 605,
+      "category": "사회권적 기본권",
+      "chapter": "CHAPTER 05　환경권·보건권",
+      "subcategory": "환경권·보건권",
+      "keywords": [],
+      "unit_id": "heonbeop-605-29"
+    },
+    {
+      "order": 701,
+      "category": "청구권적 기본권",
+      "chapter": "CHAPTER 01　재판청구권",
+      "subcategory": "재판청구권",
+      "keywords": [],
+      "unit_id": "heonbeop-701-30"
+    },
+    {
+      "order": 702,
+      "category": "청구권적 기본권",
+      "chapter": "CHAPTER 02　국가배상청구권",
+      "subcategory": "국가배상청구권",
+      "keywords": [],
+      "unit_id": "heonbeop-702-31"
+    },
+    {
+      "order": 703,
+      "category": "청구권적 기본권",
+      "chapter": "CHAPTER 03　형사보상청구권",
+      "subcategory": "형사보상청구권",
+      "keywords": [],
+      "unit_id": "heonbeop-703-32"
+    },
+    {
+      "order": 704,
+      "category": "청구권적 기본권",
+      "chapter": "CHAPTER 04　청원권",
+      "subcategory": "청원권",
+      "keywords": [],
+      "unit_id": "heonbeop-704-33"
+    },
+    {
+      "order": 705,
+      "category": "청구권적 기본권",
+      "chapter": "CHAPTER 05　범죄피해자구조청구권",
+      "subcategory": "범죄피해자구조청구권",
+      "keywords": [],
+      "unit_id": "heonbeop-705-34"
+    },
+    {
+      "order": 801,
+      "category": "국민의 의무",
+      "chapter": "CHAPTER 01　국민의 기본의무",
+      "subcategory": "국민의 기본의무",
+      "keywords": [],
+      "unit_id": "heonbeop-801-35"
+    }
+  ]
+}

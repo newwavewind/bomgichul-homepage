@@ -1,0 +1,570 @@
+{
+  "version": 3,
+  "source": "봄기출 표준 목차(표준/경찰/경찰학.md)로 다시 세웠다. 해커스경찰 조현·장정훈·김규대 폴리 3사 대조. 해커스는 총론/각론 2편이나 총론에 117문항이 뭉쳐 규칙 2로 7편. 뭉친 절 2개(55문항)를 갈랐고, 그 안에 섞여 있던 경찰공무원법·징계·기속행위 12문항은 3사 모두 경찰행정법 소관이므로 편까지 옮겼다.",
+  "parts": [
+    {
+      "id": "part1",
+      "label": "PART 1　경찰학의 기초이론",
+      "shortLabel": "경찰학의 기초이론",
+      "style": "blue",
+      "chapters": [
+        {
+          "id": "p1-c01",
+          "label": "CHAPTER 01　경찰의 개념과 분류",
+          "shortLabel": "경찰의 개념과 분류",
+          "filters": [
+            {
+              "category": "경찰학의 기초이론",
+              "subcategory": "경찰의 개념과 분류",
+              "taxonomyUnitId": "pol-101-1",
+              "sectionLabel": "경찰의 개념과 분류"
+            }
+          ]
+        },
+        {
+          "id": "p1-c02",
+          "label": "CHAPTER 02　경찰의 임무·수단·관할",
+          "shortLabel": "경찰의 임무·수단·관할",
+          "filters": [
+            {
+              "category": "경찰학의 기초이론",
+              "subcategory": "경찰의 임무·수단·관할",
+              "taxonomyUnitId": "pol-102-1",
+              "sectionLabel": "경찰의 임무·수단·관할"
+            }
+          ]
+        },
+        {
+          "id": "p1-c03",
+          "label": "CHAPTER 03　경찰의 기본이념과 역할모델",
+          "shortLabel": "경찰의 기본이념과 역할모델",
+          "filters": [
+            {
+              "category": "경찰학의 기초이론",
+              "subcategory": "경찰의 기본이념과 역할모델",
+              "taxonomyUnitId": "pol-103-1",
+              "sectionLabel": "경찰의 기본이념과 역할모델"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "label": "PART 2　경찰과 윤리",
+      "shortLabel": "경찰과 윤리",
+      "style": "emerald",
+      "chapters": [
+        {
+          "id": "p2-c01",
+          "label": "CHAPTER 01　경찰윤리와 부패",
+          "shortLabel": "경찰윤리와 부패",
+          "filters": [
+            {
+              "category": "경찰과 윤리",
+              "subcategory": "경찰윤리와 부패",
+              "taxonomyUnitId": "pol-201-1",
+              "sectionLabel": "경찰윤리와 부패"
+            }
+          ]
+        },
+        {
+          "id": "p2-c02",
+          "label": "CHAPTER 02　행동강령·청탁금지법·이해충돌방지법",
+          "shortLabel": "행동강령·청탁금지법·이해충돌방지법",
+          "filters": [
+            {
+              "category": "경찰과 윤리",
+              "subcategory": "행동강령·청탁금지법·이해충돌방지법",
+              "taxonomyUnitId": "pol-202-1",
+              "sectionLabel": "행동강령·청탁금지법·이해충돌방지법"
+            }
+          ]
+        },
+        {
+          "id": "p2-c03",
+          "label": "CHAPTER 03　경찰 인권보호",
+          "shortLabel": "경찰 인권보호",
+          "filters": [
+            {
+              "category": "경찰과 윤리",
+              "subcategory": "경찰 인권보호",
+              "taxonomyUnitId": "pol-203-1",
+              "sectionLabel": "경찰 인권보호"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "label": "PART 3　범죄학과 범죄예방",
+      "shortLabel": "범죄학과 범죄예방",
+      "style": "amber",
+      "chapters": [
+        {
+          "id": "p3-c01",
+          "label": "CHAPTER 01　범죄원인론",
+          "shortLabel": "범죄원인론",
+          "filters": [
+            {
+              "category": "범죄학과 범죄예방",
+              "subcategory": "범죄원인론",
+              "taxonomyUnitId": "pol-301-1",
+              "sectionLabel": "범죄원인론"
+            }
+          ]
+        },
+        {
+          "id": "p3-c02",
+          "label": "CHAPTER 02　범죄예방이론·CPTED",
+          "shortLabel": "범죄예방이론·CPTED",
+          "filters": [
+            {
+              "category": "범죄학과 범죄예방",
+              "subcategory": "범죄예방이론·CPTED",
+              "taxonomyUnitId": "pol-302-1",
+              "sectionLabel": "범죄예방이론·CPTED"
+            }
+          ]
+        },
+        {
+          "id": "p3-c03",
+          "label": "CHAPTER 03　지역사회 경찰활동",
+          "shortLabel": "지역사회 경찰활동",
+          "filters": [
+            {
+              "category": "범죄학과 범죄예방",
+              "subcategory": "지역사회 경찰활동",
+              "taxonomyUnitId": "pol-303-1",
+              "sectionLabel": "지역사회 경찰활동"
+            }
+          ]
+        },
+        {
+          "id": "p3-c04",
+          "label": "CHAPTER 04　피해자학",
+          "shortLabel": "피해자학",
+          "filters": [
+            {
+              "category": "범죄학과 범죄예방",
+              "subcategory": "피해자학",
+              "taxonomyUnitId": "pol-304-1",
+              "sectionLabel": "피해자학"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "label": "PART 4　한국경찰사와 비교경찰",
+      "shortLabel": "한국경찰사와 비교경찰",
+      "style": "rose",
+      "chapters": [
+        {
+          "id": "p4-c01",
+          "label": "CHAPTER 01　한국경찰의 역사",
+          "shortLabel": "한국경찰의 역사",
+          "filters": [
+            {
+              "category": "한국경찰사와 비교경찰",
+              "subcategory": "한국경찰의 역사",
+              "taxonomyUnitId": "pol-401-1",
+              "sectionLabel": "한국경찰의 역사"
+            }
+          ]
+        },
+        {
+          "id": "p4-c02",
+          "label": "CHAPTER 02　외국경찰·비교경찰",
+          "shortLabel": "외국경찰·비교경찰",
+          "filters": [
+            {
+              "category": "한국경찰사와 비교경찰",
+              "subcategory": "외국경찰·비교경찰",
+              "taxonomyUnitId": "pol-402-1",
+              "sectionLabel": "외국경찰·비교경찰"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part5",
+      "label": "PART 5　경찰행정학",
+      "shortLabel": "경찰행정학",
+      "style": "violet",
+      "chapters": [
+        {
+          "id": "p5-c01",
+          "label": "CHAPTER 01　경찰조직관리",
+          "shortLabel": "경찰조직관리",
+          "filters": [
+            {
+              "category": "경찰행정학",
+              "subcategory": "경찰조직편성의 원리",
+              "taxonomyUnitId": "pol-501-1",
+              "sectionLabel": "경찰조직편성의 원리"
+            },
+            {
+              "category": "경찰행정학",
+              "subcategory": "관료제와 조직편성",
+              "taxonomyUnitId": "pol-501-2",
+              "sectionLabel": "관료제와 조직편성"
+            }
+          ]
+        },
+        {
+          "id": "p5-c02",
+          "label": "CHAPTER 02　경찰인사관리",
+          "shortLabel": "경찰인사관리",
+          "filters": [
+            {
+              "category": "경찰행정학",
+              "subcategory": "경찰인사관리 총설",
+              "taxonomyUnitId": "pol-502-1",
+              "sectionLabel": "경찰인사관리 총설"
+            },
+            {
+              "category": "경찰행정학",
+              "subcategory": "공직의 분류와 직업공무원제도",
+              "taxonomyUnitId": "pol-502-2",
+              "sectionLabel": "공직의 분류와 직업공무원제도"
+            },
+            {
+              "category": "경찰행정학",
+              "subcategory": "승진과 근무성적평정",
+              "taxonomyUnitId": "pol-502-3",
+              "sectionLabel": "승진과 근무성적평정"
+            }
+          ]
+        },
+        {
+          "id": "p5-c03",
+          "label": "CHAPTER 03　동기부여와 조직문화",
+          "shortLabel": "동기부여와 조직문화",
+          "filters": [
+            {
+              "category": "경찰행정학",
+              "subcategory": "동기부여이론",
+              "taxonomyUnitId": "pol-503-1",
+              "sectionLabel": "동기부여이론"
+            }
+          ]
+        },
+        {
+          "id": "p5-c04",
+          "label": "CHAPTER 04　경찰예산",
+          "shortLabel": "경찰예산",
+          "filters": [
+            {
+              "category": "경찰행정학",
+              "subcategory": "경찰예산",
+              "taxonomyUnitId": "pol-504-1",
+              "sectionLabel": "경찰예산"
+            }
+          ]
+        },
+        {
+          "id": "p5-c05",
+          "label": "CHAPTER 05　장비·보안·문서관리",
+          "shortLabel": "장비·보안·문서관리",
+          "filters": [
+            {
+              "category": "경찰행정학",
+              "subcategory": "장비·보안·문서관리",
+              "taxonomyUnitId": "pol-505-1",
+              "sectionLabel": "장비·보안·문서관리"
+            }
+          ]
+        },
+        {
+          "id": "p5-c06",
+          "label": "CHAPTER 06　경찰통제와 홍보",
+          "shortLabel": "경찰통제와 홍보",
+          "filters": [
+            {
+              "category": "경찰행정학",
+              "subcategory": "경찰통제와 홍보",
+              "taxonomyUnitId": "pol-506-1",
+              "sectionLabel": "경찰통제와 홍보"
+            }
+          ]
+        },
+        {
+          "id": "p5-c07",
+          "label": "CHAPTER 07　정책결정과 기획",
+          "shortLabel": "정책결정과 기획",
+          "filters": [
+            {
+              "category": "경찰행정학",
+              "subcategory": "정책결정과 기획",
+              "taxonomyUnitId": "pol-507-1",
+              "sectionLabel": "정책결정과 기획"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part6",
+      "label": "PART 6　경찰행정법",
+      "shortLabel": "경찰행정법",
+      "style": "cyan",
+      "chapters": [
+        {
+          "id": "p6-c01",
+          "label": "CHAPTER 01　법치행정과 행정법의 일반원칙",
+          "shortLabel": "법치행정과 행정법의 일반원칙",
+          "filters": [
+            {
+              "category": "경찰행정법",
+              "subcategory": "법치행정과 행정법의 일반원칙",
+              "taxonomyUnitId": "pol-601-1",
+              "sectionLabel": "법치행정과 행정법의 일반원칙"
+            }
+          ]
+        },
+        {
+          "id": "p6-c02",
+          "label": "CHAPTER 02　경찰조직법",
+          "shortLabel": "경찰조직법",
+          "filters": [
+            {
+              "category": "경찰행정법",
+              "subcategory": "경찰조직법",
+              "taxonomyUnitId": "pol-602-1",
+              "sectionLabel": "경찰조직법"
+            }
+          ]
+        },
+        {
+          "id": "p6-c03",
+          "label": "CHAPTER 03　경찰공무원법",
+          "shortLabel": "경찰공무원법",
+          "filters": [
+            {
+              "category": "경찰행정법",
+              "subcategory": "경찰공무원 관계의 발생·변경·소멸",
+              "taxonomyUnitId": "pol-603-1",
+              "sectionLabel": "경찰공무원 관계의 발생·변경·소멸"
+            },
+            {
+              "category": "경찰행정법",
+              "subcategory": "경찰공무원의 책임과 권익보장",
+              "taxonomyUnitId": "pol-603-2",
+              "sectionLabel": "경찰공무원의 책임과 권익보장"
+            }
+          ]
+        },
+        {
+          "id": "p6-c04",
+          "label": "CHAPTER 04　경찰작용법 총론",
+          "shortLabel": "경찰작용법 총론",
+          "filters": [
+            {
+              "category": "경찰행정법",
+              "subcategory": "경찰작용법 총론(하명·허가·부관)",
+              "taxonomyUnitId": "pol-604-1",
+              "sectionLabel": "경찰작용법 총론(하명·허가·부관)"
+            }
+          ]
+        },
+        {
+          "id": "p6-c05",
+          "label": "CHAPTER 05　경찰관 직무집행법",
+          "shortLabel": "경찰관 직무집행법",
+          "filters": [
+            {
+              "category": "경찰행정법",
+              "subcategory": "경찰관 직무집행법 총설",
+              "taxonomyUnitId": "pol-605-1",
+              "sectionLabel": "경찰관 직무집행법 총설"
+            },
+            {
+              "category": "경찰행정법",
+              "subcategory": "직무집행의 수단(보호조치·제지)",
+              "taxonomyUnitId": "pol-605-2",
+              "sectionLabel": "직무집행의 수단(보호조치·제지)"
+            },
+            {
+              "category": "경찰행정법",
+              "subcategory": "경찰장비와 장구의 사용",
+              "taxonomyUnitId": "pol-605-3",
+              "sectionLabel": "경찰장비와 장구의 사용"
+            },
+            {
+              "category": "경찰행정법",
+              "subcategory": "경찰 물리력 행사의 기준과 방법",
+              "taxonomyUnitId": "pol-605-4",
+              "sectionLabel": "경찰 물리력 행사의 기준과 방법"
+            },
+            {
+              "category": "경찰행정법",
+              "subcategory": "손실보상과 보상금",
+              "taxonomyUnitId": "pol-605-5",
+              "sectionLabel": "손실보상과 보상금"
+            },
+            {
+              "category": "경찰행정법",
+              "subcategory": "경찰관의 정보수집",
+              "taxonomyUnitId": "pol-605-6",
+              "sectionLabel": "경찰관의 정보수집"
+            },
+            {
+              "category": "경찰행정법",
+              "subcategory": "직무 수행으로 인한 형의 감면",
+              "taxonomyUnitId": "pol-605-7",
+              "sectionLabel": "직무 수행으로 인한 형의 감면"
+            },
+            {
+              "category": "경찰행정법",
+              "subcategory": "경찰착용기록장치",
+              "taxonomyUnitId": "pol-605-8",
+              "sectionLabel": "경찰착용기록장치"
+            }
+          ]
+        },
+        {
+          "id": "p6-c06",
+          "label": "CHAPTER 06　행정절차와 정보공개·개인정보",
+          "shortLabel": "행정절차와 정보공개·개인정보",
+          "filters": [
+            {
+              "category": "경찰행정법",
+              "subcategory": "행정절차와 정보공개·개인정보",
+              "taxonomyUnitId": "pol-606-1",
+              "sectionLabel": "행정절차와 정보공개·개인정보"
+            }
+          ]
+        },
+        {
+          "id": "p6-c07",
+          "label": "CHAPTER 07　행정의 실효성 확보수단",
+          "shortLabel": "행정의 실효성 확보수단",
+          "filters": [
+            {
+              "category": "경찰행정법",
+              "subcategory": "행정의 실효성 확보수단",
+              "taxonomyUnitId": "pol-607-1",
+              "sectionLabel": "행정의 실효성 확보수단"
+            }
+          ]
+        },
+        {
+          "id": "p6-c08",
+          "label": "CHAPTER 08　행정구제",
+          "shortLabel": "행정구제",
+          "filters": [
+            {
+              "category": "경찰행정법",
+              "subcategory": "행정구제(행정심판·소송·국가배상)",
+              "taxonomyUnitId": "pol-608-1",
+              "sectionLabel": "행정구제(행정심판·소송·국가배상)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part7",
+      "label": "PART 7　분야별 경찰활동",
+      "shortLabel": "분야별 경찰활동",
+      "style": "indigo",
+      "chapters": [
+        {
+          "id": "p7-c01",
+          "label": "CHAPTER 01　생활안전·지역경찰",
+          "shortLabel": "생활안전·지역경찰",
+          "filters": [
+            {
+              "category": "분야별 경찰활동",
+              "subcategory": "생활안전·지역경찰",
+              "taxonomyUnitId": "pol-701-1",
+              "sectionLabel": "생활안전·지역경찰"
+            }
+          ]
+        },
+        {
+          "id": "p7-c02",
+          "label": "CHAPTER 02　여성·청소년·아동 보호",
+          "shortLabel": "여성·청소년·아동 보호",
+          "filters": [
+            {
+              "category": "분야별 경찰활동",
+              "subcategory": "여성·청소년·아동 보호",
+              "taxonomyUnitId": "pol-702-1",
+              "sectionLabel": "여성·청소년·아동 보호"
+            }
+          ]
+        },
+        {
+          "id": "p7-c03",
+          "label": "CHAPTER 03　수사경찰",
+          "shortLabel": "수사경찰",
+          "filters": [
+            {
+              "category": "분야별 경찰활동",
+              "subcategory": "수사경찰",
+              "taxonomyUnitId": "pol-703-1",
+              "sectionLabel": "수사경찰"
+            }
+          ]
+        },
+        {
+          "id": "p7-c04",
+          "label": "CHAPTER 04　경비경찰",
+          "shortLabel": "경비경찰",
+          "filters": [
+            {
+              "category": "분야별 경찰활동",
+              "subcategory": "경비경찰",
+              "taxonomyUnitId": "pol-704-1",
+              "sectionLabel": "경비경찰"
+            }
+          ]
+        },
+        {
+          "id": "p7-c05",
+          "label": "CHAPTER 05　교통경찰",
+          "shortLabel": "교통경찰",
+          "filters": [
+            {
+              "category": "분야별 경찰활동",
+              "subcategory": "교통경찰",
+              "taxonomyUnitId": "pol-705-1",
+              "sectionLabel": "교통경찰"
+            }
+          ]
+        },
+        {
+          "id": "p7-c06",
+          "label": "CHAPTER 06　정보경찰",
+          "shortLabel": "정보경찰",
+          "filters": [
+            {
+              "category": "분야별 경찰활동",
+              "subcategory": "정보경찰",
+              "taxonomyUnitId": "pol-706-1",
+              "sectionLabel": "정보경찰"
+            }
+          ]
+        },
+        {
+          "id": "p7-c07",
+          "label": "CHAPTER 07　보안경찰·외사경찰",
+          "shortLabel": "보안경찰·외사경찰",
+          "filters": [
+            {
+              "category": "분야별 경찰활동",
+              "subcategory": "보안경찰·외사경찰",
+              "taxonomyUnitId": "pol-707-1",
+              "sectionLabel": "보안경찰·외사경찰"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

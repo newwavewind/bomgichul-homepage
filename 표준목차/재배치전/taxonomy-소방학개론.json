@@ -1,0 +1,435 @@
+{
+  "version": 2,
+  "source": "소방학개론 — 법령이 없는 이론 과목이라 해커스·에듀윌 소방학개론 기본서의 공통 편 구성(소방조직·연소·화재·소화·소방시설·위험물·재난관리)을 따랐다. 소분류가 많은 연소이론(24개)·소방시설(15개)만 기본서의 장으로 묶고, 나머지 편은 장을 두지 않았다.",
+  "units": [
+    {
+      "order": 101,
+      "category": "소방조직ㆍ역사",
+      "subcategory": "소방 역사",
+      "keywords": [],
+      "unit_id": "sobang-101-1"
+    },
+    {
+      "order": 102,
+      "category": "소방조직ㆍ역사",
+      "subcategory": "소방공무원법",
+      "keywords": [],
+      "unit_id": "sobang-101-2"
+    },
+    {
+      "order": 103,
+      "category": "소방조직ㆍ역사",
+      "subcategory": "소방신호",
+      "keywords": [],
+      "unit_id": "sobang-101-3"
+    },
+    {
+      "order": 104,
+      "category": "소방조직ㆍ역사",
+      "subcategory": "소방조직",
+      "keywords": [],
+      "unit_id": "sobang-101-4"
+    },
+    {
+      "order": 105,
+      "category": "소방조직ㆍ역사",
+      "subcategory": "소방행정",
+      "keywords": [],
+      "unit_id": "sobang-101-5"
+    },
+    {
+      "order": 106,
+      "category": "소방조직ㆍ역사",
+      "subcategory": "화재조사",
+      "keywords": [],
+      "unit_id": "sobang-101-6"
+    },
+    {
+      "order": 201,
+      "category": "연소이론",
+      "subcategory": "연소 개념",
+      "keywords": [],
+      "unit_id": "sobang-201-7",
+      "chapter": "제1장 연소의 원리"
+    },
+    {
+      "order": 202,
+      "category": "연소이론",
+      "subcategory": "연소 형태",
+      "keywords": [],
+      "unit_id": "sobang-201-8",
+      "chapter": "제1장 연소의 원리"
+    },
+    {
+      "order": 203,
+      "category": "연소이론",
+      "subcategory": "연소생성가스",
+      "keywords": [],
+      "unit_id": "sobang-201-9",
+      "chapter": "제1장 연소의 원리"
+    },
+    {
+      "order": 204,
+      "category": "연소이론",
+      "subcategory": "연소속도",
+      "keywords": [],
+      "unit_id": "sobang-201-10",
+      "chapter": "제1장 연소의 원리"
+    },
+    {
+      "order": 205,
+      "category": "연소이론",
+      "subcategory": "연소범위ㆍ위험도",
+      "keywords": [],
+      "unit_id": "sobang-202-11",
+      "chapter": "제2장 연소의 조건과 위험성"
+    },
+    {
+      "order": 206,
+      "category": "연소이론",
+      "subcategory": "인화점ㆍ발화점",
+      "keywords": [],
+      "unit_id": "sobang-202-12",
+      "chapter": "제2장 연소의 조건과 위험성"
+    },
+    {
+      "order": 207,
+      "category": "연소이론",
+      "subcategory": "자연발화",
+      "keywords": [],
+      "unit_id": "sobang-202-13",
+      "chapter": "제2장 연소의 조건과 위험성"
+    },
+    {
+      "order": 208,
+      "category": "연소이론",
+      "subcategory": "최소발화에너지ㆍ최소산소농도",
+      "keywords": [],
+      "unit_id": "sobang-202-14",
+      "chapter": "제2장 연소의 조건과 위험성"
+    },
+    {
+      "order": 209,
+      "category": "연소이론",
+      "subcategory": "열전달",
+      "keywords": [],
+      "unit_id": "sobang-203-15",
+      "chapter": "제3장 열전달과 폭발"
+    },
+    {
+      "order": 210,
+      "category": "연소이론",
+      "subcategory": "폭발",
+      "keywords": [],
+      "unit_id": "sobang-203-16",
+      "chapter": "제3장 열전달과 폭발"
+    },
+    {
+      "order": 301,
+      "category": "화재이론",
+      "subcategory": "실내화재의 진행",
+      "keywords": [],
+      "unit_id": "sobang-301-17"
+    },
+    {
+      "order": 302,
+      "category": "화재이론",
+      "subcategory": "연기와 연기유동",
+      "keywords": [],
+      "unit_id": "sobang-301-18"
+    },
+    {
+      "order": 303,
+      "category": "화재이론",
+      "subcategory": "유류화재",
+      "keywords": [],
+      "unit_id": "sobang-301-19"
+    },
+    {
+      "order": 304,
+      "category": "화재이론",
+      "subcategory": "플래시오버ㆍ백드래프트",
+      "keywords": [],
+      "unit_id": "sobang-301-20"
+    },
+    {
+      "order": 305,
+      "category": "화재이론",
+      "subcategory": "화재의 정의와 분류",
+      "keywords": [],
+      "unit_id": "sobang-301-21"
+    },
+    {
+      "order": 306,
+      "category": "화재이론",
+      "subcategory": "화재패턴",
+      "keywords": [],
+      "unit_id": "sobang-301-22"
+    },
+    {
+      "order": 307,
+      "category": "화재이론",
+      "subcategory": "화재하중ㆍ화재가혹도",
+      "keywords": [],
+      "unit_id": "sobang-301-23"
+    },
+    {
+      "order": 401,
+      "category": "소화이론",
+      "subcategory": "가스계 소화약제",
+      "keywords": [],
+      "unit_id": "sobang-401-24"
+    },
+    {
+      "order": 402,
+      "category": "소화이론",
+      "subcategory": "물소화약제",
+      "keywords": [],
+      "unit_id": "sobang-401-25"
+    },
+    {
+      "order": 403,
+      "category": "소화이론",
+      "subcategory": "분말소화약제",
+      "keywords": [],
+      "unit_id": "sobang-401-26"
+    },
+    {
+      "order": 404,
+      "category": "소화이론",
+      "subcategory": "소화방법",
+      "keywords": [],
+      "unit_id": "sobang-401-27"
+    },
+    {
+      "order": 405,
+      "category": "소화이론",
+      "subcategory": "소화약제",
+      "keywords": [],
+      "unit_id": "sobang-401-28"
+    },
+    {
+      "order": 406,
+      "category": "소화이론",
+      "subcategory": "포소화약제",
+      "keywords": [],
+      "unit_id": "sobang-401-29"
+    },
+    {
+      "order": 407,
+      "category": "소화이론",
+      "subcategory": "할로겐화합물ㆍ할론",
+      "keywords": [],
+      "unit_id": "sobang-401-30"
+    },
+    {
+      "order": 501,
+      "category": "소방시설",
+      "subcategory": "가스계 소화설비",
+      "keywords": [],
+      "unit_id": "sobang-501-31",
+      "chapter": "제1장 소화설비"
+    },
+    {
+      "order": 502,
+      "category": "소방시설",
+      "subcategory": "소화설비",
+      "keywords": [],
+      "unit_id": "sobang-501-32",
+      "chapter": "제1장 소화설비"
+    },
+    {
+      "order": 503,
+      "category": "소방시설",
+      "subcategory": "소화펌프",
+      "keywords": [],
+      "unit_id": "sobang-501-33",
+      "chapter": "제1장 소화설비"
+    },
+    {
+      "order": 504,
+      "category": "소방시설",
+      "subcategory": "스프링클러",
+      "keywords": [],
+      "unit_id": "sobang-501-34",
+      "chapter": "제1장 소화설비"
+    },
+    {
+      "order": 505,
+      "category": "소방시설",
+      "subcategory": "옥내소화전",
+      "keywords": [],
+      "unit_id": "sobang-501-35",
+      "chapter": "제1장 소화설비"
+    },
+    {
+      "order": 506,
+      "category": "소방시설",
+      "subcategory": "포소화설비",
+      "keywords": [],
+      "unit_id": "sobang-501-36",
+      "chapter": "제1장 소화설비"
+    },
+    {
+      "order": 507,
+      "category": "소방시설",
+      "subcategory": "감지기",
+      "keywords": [],
+      "unit_id": "sobang-502-37",
+      "chapter": "제2장 경보ㆍ피난설비"
+    },
+    {
+      "order": 508,
+      "category": "소방시설",
+      "subcategory": "경보설비",
+      "keywords": [],
+      "unit_id": "sobang-502-38",
+      "chapter": "제2장 경보ㆍ피난설비"
+    },
+    {
+      "order": 509,
+      "category": "소방시설",
+      "subcategory": "비상방송설비",
+      "keywords": [],
+      "unit_id": "sobang-502-39",
+      "chapter": "제2장 경보ㆍ피난설비"
+    },
+    {
+      "order": 510,
+      "category": "소방시설",
+      "subcategory": "피난구조설비",
+      "keywords": [],
+      "unit_id": "sobang-502-40",
+      "chapter": "제2장 경보ㆍ피난설비"
+    },
+    {
+      "order": 511,
+      "category": "소방시설",
+      "subcategory": "소방시설 분류",
+      "keywords": [],
+      "unit_id": "sobang-503-41",
+      "chapter": "제3장 소화활동설비와 분류"
+    },
+    {
+      "order": 512,
+      "category": "소방시설",
+      "subcategory": "소화활동설비",
+      "keywords": [],
+      "unit_id": "sobang-503-42",
+      "chapter": "제3장 소화활동설비와 분류"
+    },
+    {
+      "order": 513,
+      "category": "소방시설",
+      "subcategory": "제연설비",
+      "keywords": [],
+      "unit_id": "sobang-503-43",
+      "chapter": "제3장 소화활동설비와 분류"
+    },
+    {
+      "order": 601,
+      "category": "위험물",
+      "subcategory": "위험물 성상",
+      "keywords": [],
+      "unit_id": "sobang-601-44"
+    },
+    {
+      "order": 602,
+      "category": "위험물",
+      "subcategory": "위험물의 소화대책",
+      "keywords": [],
+      "unit_id": "sobang-601-45"
+    },
+    {
+      "order": 603,
+      "category": "위험물",
+      "subcategory": "위험물의 정의와 분류",
+      "keywords": [],
+      "unit_id": "sobang-601-46"
+    },
+    {
+      "order": 604,
+      "category": "위험물",
+      "subcategory": "제1류",
+      "keywords": [],
+      "unit_id": "sobang-601-47"
+    },
+    {
+      "order": 605,
+      "category": "위험물",
+      "subcategory": "제2류ㆍ제3류",
+      "keywords": [],
+      "unit_id": "sobang-601-48"
+    },
+    {
+      "order": 606,
+      "category": "위험물",
+      "subcategory": "제4류",
+      "keywords": [],
+      "unit_id": "sobang-601-49"
+    },
+    {
+      "order": 607,
+      "category": "위험물",
+      "subcategory": "제5류",
+      "keywords": [],
+      "unit_id": "sobang-601-50"
+    },
+    {
+      "order": 608,
+      "category": "위험물",
+      "subcategory": "제6류",
+      "keywords": [],
+      "unit_id": "sobang-601-51"
+    },
+    {
+      "order": 609,
+      "category": "위험물",
+      "subcategory": "지정수량",
+      "keywords": [],
+      "unit_id": "sobang-601-52"
+    },
+    {
+      "order": 701,
+      "category": "재난관리",
+      "subcategory": "긴급구조ㆍ응급조치",
+      "keywords": [],
+      "unit_id": "sobang-701-53"
+    },
+    {
+      "order": 702,
+      "category": "재난관리",
+      "subcategory": "재난관리 단계",
+      "keywords": [],
+      "unit_id": "sobang-701-54"
+    },
+    {
+      "order": 703,
+      "category": "재난관리",
+      "subcategory": "재난관리 방식",
+      "keywords": [],
+      "unit_id": "sobang-701-55"
+    },
+    {
+      "order": 704,
+      "category": "재난관리",
+      "subcategory": "재난안전법",
+      "keywords": [],
+      "unit_id": "sobang-701-56"
+    },
+    {
+      "order": 705,
+      "category": "재난관리",
+      "subcategory": "재난의 개념과 분류",
+      "keywords": [],
+      "unit_id": "sobang-701-57"
+    },
+    {
+      "order": 706,
+      "category": "재난관리",
+      "subcategory": "재해이론",
+      "keywords": [],
+      "unit_id": "sobang-701-58"
+    }
+  ]
+}
