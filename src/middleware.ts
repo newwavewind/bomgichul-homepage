@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
+import { getLegacySeoRedirect } from "@/lib/legacy-seo-redirects";
 
 export async function middleware(request: NextRequest) {
   let pathname = request.nextUrl.pathname;
@@ -11,6 +12,11 @@ export async function middleware(request: NextRequest) {
 
   if (pathname === "/diary-수험일기") {
     return NextResponse.redirect(new URL("/diary", request.url), 308);
+  }
+
+  const legacyDestination = getLegacySeoRedirect(pathname);
+  if (legacyDestination) {
+    return NextResponse.redirect(new URL(legacyDestination, request.url), 308);
   }
 
   return await updateSession(request);
