@@ -58,12 +58,20 @@ export function Footer() {
               © {new Date().getFullYear()} {SITE_NAME}
             </p>
           </div>
-          <Link
-            href="/privacy"
-            className="inline-flex min-h-11 items-center font-display text-[12px] text-fog transition-colors hover:text-ink"
-          >
-            개인정보처리방침
-          </Link>
+          <div className="flex flex-wrap items-center gap-x-4">
+            <Link
+              href="/terms"
+              className="inline-flex min-h-11 items-center font-display text-[12px] text-fog transition-colors hover:text-ink"
+            >
+              이용약관
+            </Link>
+            <Link
+              href="/privacy"
+              className="inline-flex min-h-11 items-center font-display text-[12px] text-fog transition-colors hover:text-ink"
+            >
+              개인정보처리방침
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

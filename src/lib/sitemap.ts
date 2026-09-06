@@ -87,6 +87,7 @@ function page(
 const CORE_PAGES: MetadataRoute.Sitemap = [
   page("/", "weekly", 1),
   page("/privacy", "yearly", 0.3),
+  page("/terms", "yearly", 0.3),
   page("/ranks", "monthly", 0.7),
   page("/news", "daily", 0.5),
 ];
