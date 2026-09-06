@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
 import type { PublicQuestionMemo } from "@/types/database";
 import { formatKstDateTimeShort } from "@/lib/datetime";
-import { useMe } from "@/lib/client-session";
+import { useMe, requestRevalidate } from "@/lib/client-session";
 
 function formatMemoDate(iso: string): string {
   return formatKstDateTimeShort(iso);
@@ -263,6 +263,8 @@ export function QuestionMemoPanel({
     });
     if (!error) {
       setContent("");
+      // 새 메모는 다른 방문자에게도 바로 보여야 한다 — 정적 캐시를 비운다.
+      requestRevalidate();
       await reload();
     }
     setSaving(false);
@@ -326,7 +328,13 @@ export function QuestionMemoPanel({
               memo={memo}
               viewer={viewer}
               loginHref={loginHref}
-              onChanged={() => void reload()}
+              onChanged={() => {
+                // 좋아요·댓글은 다른 방문자에게도 바로 보여야 한다 — 캐시를 비운다.
+                // reload 자체에는 넣지 않는다: 로그인 진입 때의 개인화 덧입힘도
+                // reload 를 타므로, 거기 두면 읽기만 해도 캐시를 비우게 된다.
+                requestRevalidate();
+                void reload();
+              }}
             />
           ))}
         </div>

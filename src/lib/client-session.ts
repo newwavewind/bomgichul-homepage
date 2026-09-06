@@ -88,3 +88,24 @@ export function useMe(): { pending: boolean; user: MeUser | null } {
   }, []);
   return state;
 }
+
+/**
+ * 방금 글·메모를 쓴 콘텐츠 페이지의 정적 캐시를 비워 달라고 알린다.
+ * 실패해도 조용히 넘어간다 — 최악은 「남에게 최대 1시간 늦게 보이는」
+ * 원래의 ISR 동작으로 되돌아가는 것뿐이다. 같은 경로 연타는 2초에 한 번만.
+ */
+const revalidateAskedAt = new Map<string, number>();
+
+export function requestRevalidate(path?: string) {
+  if (typeof window === "undefined") return;
+  const p = path ?? window.location.pathname;
+  const now = Date.now();
+  if (now - (revalidateAskedAt.get(p) ?? 0) < 2000) return;
+  revalidateAskedAt.set(p, now);
+  void fetch("/api/revalidate", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ path: p }),
+    keepalive: true,
+  }).catch(() => {});
+}

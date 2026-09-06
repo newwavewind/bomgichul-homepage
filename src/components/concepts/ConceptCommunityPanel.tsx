@@ -8,7 +8,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { Textarea } from "@/components/ui/Input";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import { ConceptCommunityEditor } from "@/components/concepts/ConceptCommunityEditor";
-import { fetchMe, useMe } from "@/lib/client-session";
+import { fetchMe, useMe, requestRevalidate } from "@/lib/client-session";
 import type { ConceptCommunityComment, ConceptCommunityPost } from "@/types/database";
 import { formatKstDateTimeShort } from "@/lib/datetime";
 import { sanitizeConceptCommunityHtml } from "@/lib/concept-community-html";
@@ -442,6 +442,9 @@ export function ConceptCommunityPanel({
   }, [selfResolve, userId, subject, conceptSlug, initialPosts]);
 
   const applyPostChange = (postId: string) => (next: ConceptCommunityPost | null) => {
+    // 좋아요·추천·댓글·삭제가 성공하면 이 페이지의 정적 캐시를 비워
+    // 다른 방문자도 다음 방문부터 바로 본다(안 비우면 최대 1시간 늦는다).
+    requestRevalidate();
     if (!selfResolve) {
       router.refresh();
       return;
@@ -515,6 +518,8 @@ export function ConceptCommunityPanel({
         tone: "ok",
         text: "등록됐어요. 바다 레벨 +3점이 반영됩니다.",
       });
+      // 새 글은 다른 방문자에게도 바로 보여야 한다 — 정적 캐시를 비운다.
+      requestRevalidate();
       if (selfResolve) {
         // 정적 페이지 — 서버 재렌더 대신 방금 등록한 글을 로컬 목록 맨 앞에 붙인다.
         mutationSeq.current += 1;
