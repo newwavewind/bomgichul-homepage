@@ -202,15 +202,28 @@ export async function getAdminPublicMemos(limit = 100): Promise<AdminPublicMemoR
 
 export async function getAdminPosts(options: {
   category?: PostCategory | "reports";
-  limit?: number;
-}): Promise<AdminPostRow[]> {
+  page?: number;
+  pageSize?: number;
+}): Promise<{
+  rows: AdminPostRow[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+}> {
+  const page = Math.max(1, options.page ?? 1);
+  const pageSize = options.pageSize ?? 30;
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
   const admin = getAdminClient();
 
   let query = admin
     .from("posts")
-    .select("id, title, category, community_scope, view_count, created_at, profiles:author_id(nickname)")
+    .select("id, title, category, community_scope, view_count, created_at, profiles:author_id(nickname)", {
+      count: "exact",
+    })
     .order("created_at", { ascending: false })
-    .limit(options.limit ?? 50);
+    .range(from, to);
 
   if (options.category === "reports") {
     query = query.in("category", ["bug", "feedback"]);
@@ -218,10 +231,15 @@ export async function getAdminPosts(options: {
     query = query.eq("category", options.category);
   }
 
-  const { data } = await query;
-  if (!data) return [];
+  const { data, count } = await query;
+  const total = count ?? 0;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
 
-  return data.map((row) => {
+  if (!data) {
+    return { rows: [], total, page, pageSize, totalPages };
+  }
+
+  const rows = data.map((row) => {
     const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
     const category = row.category as PostCategory;
     return {
@@ -235,6 +253,8 @@ export async function getAdminPosts(options: {
       createdAt: row.created_at,
     };
   });
+
+  return { rows, total, page, pageSize, totalPages };
 }
 
 export type AdminPremiumRow = {
@@ -550,7 +570,26 @@ export async function getAiExplanationVariants(params: {
   }));
 }
 
-/** 과목 고르개에 쓸 목록 */
+/**
+ * 과목 id 에서 갈래(직렬)를 뗀 앞머리 — 「admin:hangjunghak:national」 → 「admin:hangjunghak」.
+ *
+ * 공무원 앱은 한 과목을 국가직·지방직으로 갈라 팔고, AI 하루 한도도 그 단위로
+ * 센다. 그래서 과목 id 가 세 토막으로 온다. 집계는 **갈라 놓은 그대로** 세어야
+ * 어느 직렬에서 몇 건이 나왔는지 알 수 있고, 과목 하나로 합쳐 보고 싶을 때는
+ * 이 함수로 언제든 되묶으면 된다 — 반대로 미리 합쳐 두면 되돌릴 길이 없다.
+ */
+export function aiSubjectBaseId(subjectId: string): string {
+  const parts = subjectId.split(":");
+  return parts.length > 2 ? `${parts[0]}:${parts[1]}` : subjectId;
+}
+
+/**
+ * 과목 고르개에 쓸 목록.
+ *
+ * 세는 열쇠는 앱이 보낸 subject_id 그대로다 — 두 토막(`broker:civillaw`)이든
+ * 세 토막(`admin:hangjunghak:national`)이든 각각 한 줄로 선다.
+ * 과목 하나로 묶고 싶으면 `aiSubjectBaseId` 로 합치면 된다.
+ */
 export async function getAiExplanationSubjects(
   kind: AiLogKind = "explanation"
 ): Promise<{ id: string; count: number }[]> {

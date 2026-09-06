@@ -90,12 +90,10 @@ const SUBJECT_SLUG_LABELS: Record<string, string> = {
   "police-science": "경찰학",
   haengjeongbeop: "행정법총론",
   hangjunghak: "행정학개론",
-  haengjeonghak: "행정학개론",
   gyoyukhak: "교육학개론",
   nodongbeop: "노동법개론",
   gukjebeop: "국제법개론",
   bokji: "사회복지학개론",
-  sahoebokji: "사회복지학개론",
   sebeop: "세법개론",
   hoegyehak: "회계학",
   gwansebeop: "관세법개론",
@@ -105,8 +103,24 @@ const SUBJECT_SLUG_LABELS: Record<string, string> = {
   hyeongbeop: "형법",
   hyeongso: "형사소송법",
   sobang: "소방학개론",
-  sobanghak: "소방학개론",
   sobangbeop: "소방관계법규",
+  jibangsebeop: "지방세법",
+  // 공무원 앱이 예전에 쓰던 둘째 벌.
+  //
+  // 개념 화면은 registry 의 id(hyeongso)로, 학습 해설 시트는 문항 id 앞머리를
+  // 따로 로마자로 옮긴 id(hyeongsasosong)로 통을 만들어 열일곱 과목 중 여덟이
+  // 갈렸다 — 한 과목이 두 통을 받아 하루 한도를 갑절로 썼다. 앱은 이제 registry
+  // 의 id 한 벌만 보내지만, 이미 쌓인 로그가 아래 이름으로 남아 있으므로 지우지
+  // 않는다. 지우면 옛 로그가 날것으로 뜬다.
+  haengjeonghak: "행정학개론",
+  sahoebokji: "사회복지학개론",
+  sobanghak: "소방학개론",
+  hyeongsasosong: "형사소송법",
+  "hyeongsasosong-intro": "형사소송법개론",
+  "hoegye-principle": "회계원리",
+  "sobang-beopgyu": "소방관계법규",
+  // 앱이 과목을 끝내 못 알아냈을 때 몰아 두는 자리
+  etc: "과목 미상",
   "human-behavior": "인간행동과 사회환경",
   research: "사회복지조사론",
   practice: "사회복지실천론",
@@ -131,21 +145,71 @@ const SUBJECT_FULL_LABELS: Record<string, string> = {
   "english:english": "영어",
 };
 
+/**
+ * 셋째 토막 — 과목 안에서 상품이 다시 갈리는 갈래.
+ *
+ * 공무원 앱만 한 과목을 **직렬**(국가직·지방직)로 갈라 따로 판다. 하루 한도도
+ * 그 단위로 세야 해서 앱이 `admin:hangjunghak:national` 처럼 한 토막 더 붙여
+ * 보낸다. 여기 없는 갈래가 와도 화면은 그 열쇠를 그대로 보여 준다 —
+ * 「행정학개론 (newvariant)」이 「haengjeonghak:newvariant」보다 낫고,
+ * 무엇을 이름표에 더해야 하는지도 그 화면이 알려 준다.
+ */
+const SUBJECT_VARIANT_LABELS: Record<string, string> = {
+  national: "국가직",
+  local: "지방직",
+};
+
+/**
+ * 앱이 보낸 과목 id 를 토막 낸다.
+ *
+ * 두 토막(`broker:civillaw`)과 세 토막(`admin:hangjunghak:national`)이 함께 온다.
+ * 세 토막을 모르면 슬러그가 `hangjunghak:national` 이 되어 이름표를 못 찾고,
+ * 한 과목이 서로 남남인 칩 둘로 갈린다.
+ *
+ * 콜론이 셋 이상이면 **둘째 토막이 과목, 나머지가 갈래**다. 과목 슬러그에 콜론이
+ * 든 앱은 아직 없고, 있더라도 갈래를 통째로 붙여 두므로 되돌릴 수 있다.
+ */
 function parseSubjectId(id: string) {
   const parts = id.split(":");
-  if (parts.length > 1) {
-    return { app: parts[0], slug: parts.slice(1).join(":") };
+  if (parts.length === 1) return { app: "", slug: parts[0], variant: "", baseId: id };
+  if (parts.length === 2) {
+    return { app: parts[0], slug: parts[1], variant: "", baseId: id };
   }
-  return { app: "", slug: parts[0] };
+  return {
+    app: parts[0],
+    slug: parts[1],
+    variant: parts.slice(2).join(":"),
+    baseId: `${parts[0]}:${parts[1]}`,
+  };
+}
+
+/**
+ * 직렬을 뺀 과목까지만 — 「과목 하나」로 묶어 보고 싶을 때 쓰는 열쇠.
+ * 집계는 과목+직렬로 갈라 세므로, 묶는 일은 이 함수로 언제든 되돌릴 수 있다.
+ */
+function subjectBaseId(id: string) {
+  return parseSubjectId(id).baseId;
+}
+
+/** 「국가직」 — 모르는 갈래는 열쇠를 그대로 보여 준다 */
+function subjectVariantLabel(variant: string) {
+  return SUBJECT_VARIANT_LABELS[variant] ?? variant;
+}
+
+/** 직렬을 뺀 과목 이름만 */
+function subjectNameWithoutVariant(id: string) {
+  const { app, slug, baseId } = parseSubjectId(id);
+  if (SUBJECT_FULL_LABELS[baseId]) return SUBJECT_FULL_LABELS[baseId];
+  const override = app ? APP_SUBJECT_SLUG_OVERRIDES[app]?.[slug] : undefined;
+  if (override) return override;
+  return SUBJECT_SLUG_LABELS[slug] ?? SUBJECT_SLUG_LABELS[baseId] ?? slug;
 }
 
 /** 과목만 (앱 이름 없이) — 앱별 묶음 안 칩용 */
 function subjectNameOnly(id: string) {
-  if (SUBJECT_FULL_LABELS[id]) return SUBJECT_FULL_LABELS[id];
-  const { app, slug } = parseSubjectId(id);
-  const override = app ? APP_SUBJECT_SLUG_OVERRIDES[app]?.[slug] : undefined;
-  if (override) return override;
-  return SUBJECT_SLUG_LABELS[slug] ?? SUBJECT_SLUG_LABELS[id] ?? slug;
+  const { variant } = parseSubjectId(id);
+  const name = subjectNameWithoutVariant(id);
+  return variant ? `${name} (${subjectVariantLabel(variant)})` : name;
 }
 
 function subjectLabel(id: string) {
@@ -154,6 +218,42 @@ function subjectLabel(id: string) {
   const appName = app ? APP_LABELS[app] : undefined;
   if (appName) return `${appName} · ${subjectName}`;
   return subjectName || id;
+}
+
+/** 갈래를 보여 줄 차례 — 국가직을 앞에 둔다 (앱의 SOURCE_ORDER 와 같다) */
+const VARIANT_ORDER = ["national", "local"];
+
+/**
+ * 칩 차례 — **같은 과목의 직렬끼리 반드시 붙여 놓는다.**
+ *
+ * 건수만으로 줄 세우면 「행정학개론 (국가직) 40 / 형법 22 / 행정학개론 (지방직) 9」
+ * 처럼 한 과목이 멀리 떨어져, 눈으로 합쳐 보려면 목록을 훑어야 한다.
+ * 과목 덩어리(직렬 합계)로 먼저 줄 세우고 그 안에서 직렬 차례를 따른다.
+ */
+function sortSubjectChips(list: { id: string; count: number }[]) {
+  const baseTotals = new Map<string, number>();
+  for (const row of list) {
+    const base = subjectBaseId(row.id);
+    baseTotals.set(base, (baseTotals.get(base) ?? 0) + row.count);
+  }
+  const variantRank = (id: string) => {
+    const { variant } = parseSubjectId(id);
+    if (!variant) return -1; // 갈래 없는 줄(옛 두 토막)이 그 과목의 맨 앞
+    const i = VARIANT_ORDER.indexOf(variant);
+    return i === -1 ? VARIANT_ORDER.length : i;
+  };
+  return [...list].sort((a, b) => {
+    const baseA = subjectBaseId(a.id);
+    const baseB = subjectBaseId(b.id);
+    if (baseA !== baseB) {
+      const diff = (baseTotals.get(baseB) ?? 0) - (baseTotals.get(baseA) ?? 0);
+      if (diff !== 0) return diff;
+      return baseA < baseB ? -1 : 1;
+    }
+    const rank = variantRank(a.id) - variantRank(b.id);
+    if (rank !== 0) return rank;
+    return b.count - a.count;
+  });
 }
 
 function groupSubjectsByApp(subjects: { id: string; count: number }[]) {
@@ -174,7 +274,7 @@ function groupSubjectsByApp(subjects: { id: string; count: number }[]) {
     ordered.push({
       appKey: key,
       label: APP_LABELS[key],
-      subjects: list.sort((a, b) => b.count - a.count),
+      subjects: sortSubjectChips(list),
     });
     buckets.delete(key);
   }
@@ -182,7 +282,7 @@ function groupSubjectsByApp(subjects: { id: string; count: number }[]) {
     ordered.push({
       appKey: key,
       label: APP_LABELS[key] ?? "기타",
-      subjects: list.sort((a, b) => b.count - a.count),
+      subjects: sortSubjectChips(list),
     });
   }
   return ordered;

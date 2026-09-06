@@ -10,7 +10,11 @@ import { ElevatedCard } from "@/components/ui/Card";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import type { CommunityListFilter, CommunityScope } from "@/types/database";
 import type { SortOption } from "@/lib/constants";
-import { BEST_POST_MIN_VIEWS, appStoreLinksForScope } from "@/lib/constants";
+import {
+  BEST_POST_MIN_VIEWS,
+  POSTS_PER_PAGE,
+  appStoreLinksForScope,
+} from "@/lib/constants";
 import { getUserActivityScores } from "@/lib/activity";
 import { communityBaseHref, communityTitle } from "@/lib/exam-track/community";
 import {
@@ -105,31 +109,35 @@ export async function CommunityBoard({
               </div>
             </div>
           ) : (
-            posts.map((post) => (
-              <PostCard
-                key={post.id}
-                id={post.id}
-                title={post.title}
-                category={post.category}
-                authorName={post.profiles?.nickname ?? "익명"}
-                authorRank={authorActivity[post.author_id]?.rank}
-                viewCount={post.view_count}
-                commentCount={post.comment_count}
-                createdAt={post.created_at}
+            <>
+              {posts.map((post) => (
+                <PostCard
+                  key={post.id}
+                  id={post.id}
+                  title={post.title}
+                  category={post.category}
+                  authorName={post.profiles?.nickname ?? "익명"}
+                  authorRank={authorActivity[post.author_id]?.rank}
+                  viewCount={post.view_count}
+                  commentCount={post.comment_count}
+                  createdAt={post.created_at}
+                  baseHref={baseHref}
+                />
+              ))}
+              <Pagination
+                variant="embedded"
+                currentPage={page}
+                totalPages={totalPages}
+                total={total}
+                pageSize={POSTS_PER_PAGE}
+                category={category}
+                search={search}
+                sort={sort}
                 baseHref={baseHref}
               />
-            ))
+            </>
           )}
         </ElevatedCard>
-
-        <Pagination
-          currentPage={page}
-          totalPages={totalPages}
-          category={category}
-          search={search}
-          sort={sort}
-          baseHref={baseHref}
-        />
 
         <section
           aria-label="앱 설치 안내"

@@ -2,12 +2,24 @@ import Link from "next/link";
 import { getAdminPosts } from "@/lib/admin";
 import { AdminTable, formatDateTime } from "@/components/admin/AdminUi";
 import { AdminPostDeleteButton } from "@/components/admin/AdminPostDeleteButton";
+import { Pagination } from "@/components/board/Pagination";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
 import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 
-export default async function AdminCommunityPage() {
-  const posts = await getAdminPosts({ limit: 80 });
+const COMMUNITY_PER_PAGE = 30;
+
+export default async function AdminCommunityPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const params = await searchParams;
+  const page = Math.max(1, Number(params.page) || 1);
+  const { rows: posts, total, totalPages, pageSize } = await getAdminPosts({
+    page,
+    pageSize: COMMUNITY_PER_PAGE,
+  });
 
   return (
     <div className="space-y-6">
@@ -17,6 +29,7 @@ export default async function AdminCommunityPage() {
         </SectionHeading>
         <p className="font-display text-body-sm text-smoke">
           커뮤니티 전체 게시글 목록입니다. 스팸·욕설 등은 게시글에서 직접 확인 후 대응하세요.
+          {total > 0 ? ` · 총 ${total}건` : null}
         </p>
       </div>
 
@@ -24,33 +37,43 @@ export default async function AdminCommunityPage() {
         {posts.length === 0 ? (
           <p className="px-6 py-12 text-center font-display text-body-sm text-fog">게시글 없음</p>
         ) : (
-          <AdminTable
-            headers={["트랙", "카테고리", "제목", "작성자", "조회", "등록일", ""]}
-            rows={posts.map((p) => {
-              const scope = isValidCommunityScope(p.communityScope)
-                ? p.communityScope
-                : "real_estate";
-              return [
-                scope,
-                p.categoryLabel,
-                <span key={p.id} className="line-clamp-1 max-w-xs">
-                  {p.title}
-                </span>,
-                p.authorNickname,
-                String(p.viewCount),
-                formatDateTime(p.createdAt),
-                <span key={`actions-${p.id}`} className="inline-flex items-center gap-3">
-                  <Link
-                    href={`${communityBaseHref(scope)}/${p.id}`}
-                    className="font-medium text-electric-blue hover:underline"
-                  >
-                    보기
-                  </Link>
-                  <AdminPostDeleteButton postId={p.id} />
-                </span>,
-              ];
-            })}
-          />
+          <>
+            <AdminTable
+              headers={["트랙", "카테고리", "제목", "작성자", "조회", "등록일", ""]}
+              rows={posts.map((p) => {
+                const scope = isValidCommunityScope(p.communityScope)
+                  ? p.communityScope
+                  : "real_estate";
+                return [
+                  scope,
+                  p.categoryLabel,
+                  <span key={p.id} className="line-clamp-1 max-w-xs">
+                    {p.title}
+                  </span>,
+                  p.authorNickname,
+                  String(p.viewCount),
+                  formatDateTime(p.createdAt),
+                  <span key={`actions-${p.id}`} className="inline-flex items-center gap-3">
+                    <Link
+                      href={`${communityBaseHref(scope)}/${p.id}`}
+                      className="font-medium text-electric-blue hover:underline"
+                    >
+                      보기
+                    </Link>
+                    <AdminPostDeleteButton postId={p.id} />
+                  </span>,
+                ];
+              })}
+            />
+            <Pagination
+              variant="embedded"
+              currentPage={page}
+              totalPages={totalPages}
+              total={total}
+              pageSize={pageSize}
+              baseHref="/admin/community"
+            />
+          </>
         )}
       </ElevatedCard>
     </div>
