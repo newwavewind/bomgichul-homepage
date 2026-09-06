@@ -28,12 +28,9 @@ import {
 } from "@/components/exam-track/ExamSubjectiveQuestion";
 import { BackLink } from "@/components/ui/BackLink";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
-import { getUser } from "@/lib/auth";
 import { toExamOxCombos } from "@/lib/exam-track/combo-choices";
 import { parseQuestionStem } from "@/lib/exam-stem";
 import { plainStudyText } from "@/lib/study-text";
-import { getAttemptResult } from "@/lib/attempts";
-import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
 import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
@@ -69,6 +66,37 @@ type TrackApi = {
   ) => { year: number; sourceCode: string; count: number }[];
   getLinkedExams: (subjectId: string, conceptSlug: string, limit?: number) => (ExamTrackExam | undefined)[];
 };
+
+/*
+ * generateStaticParams 용 헬퍼 셋 — 전량을 미리 만들면 빌드가 1만 쪽을 사전
+ * 렌더하므로, 소량만 돌려주고 나머지는 첫 방문 때 생성·캐시한다(dynamicParams
+ * 기본값 true). 여섯 트랙 라우트가 같은 규칙을 나눠 쓴다.
+ */
+
+/** 과목 라우트 — 과목은 소수라 전부 미리 만든다. */
+export function trackSubjectStaticParams(subjectIds: string[]) {
+  return subjectIds.map((subject) => ({ subject }));
+}
+
+/** 연도·회차 라우트 — 최근 1개년만 미리 만든다. */
+export function trackSessionStaticParams(api: TrackApi, subjectIds: string[]) {
+  return subjectIds.flatMap((subject) => {
+    const sessions = api.getExamSessions(subject);
+    const latestYear = Math.max(...sessions.map((session) => session.year), 0);
+    return sessions
+      .filter((session) => session.year === latestYear)
+      .map((session) => ({ subject, year: String(session.year), source: session.sourceCode }));
+  });
+}
+
+/** 개념 상세 라우트 — 과목당 앞 10개만 미리 만든다. */
+export function trackConceptStaticParams(api: TrackApi, subjectIds: string[]) {
+  return subjectIds.flatMap((subject) =>
+    (api.getSubject(subject)?.concepts ?? [])
+      .slice(0, 10)
+      .map((concept) => ({ subject, slug: concept.slug })),
+  );
+}
 
 function buildTrackConceptStatements(
   conceptSlug: string,
@@ -222,8 +250,9 @@ export async function TrackConceptDetailPage({
     index >= 0 && index < data.concepts.length - 1 ? data.concepts[index + 1] : null;
   const listHref = `${track.basePath}/concepts/${subjectId}`;
   const subjectKey = `${track.communityScope}:${subjectId}`;
-  const user = await getUser();
-  const communityPosts = await getConceptCommunityPosts(subjectKey, slug, user?.id ?? null);
+  // 커뮤니티 글은 공개 데이터라 서버에서 그대로 그린다(SEO 본문 유지).
+  // 뷰어별 표시(내 좋아요 등)는 클라이언트 몫이므로 userId 자리는 null 이다.
+  const communityPosts = await getConceptCommunityPosts(subjectKey, slug, null);
   const authorIds = [...communityPosts.map((post) => post.user_id), ...communityPosts.flatMap((post) => post.comments.map((comment) => comment.user_id))];
   const activity = await getUserActivityScores(authorIds);
   const authorRanks = Object.fromEntries(Object.entries(activity).map(([id, value]) => [id, value.rank]));
@@ -242,7 +271,6 @@ export async function TrackConceptDetailPage({
       prevHref={prev ? `${listHref}/${prev.slug}` : null}
       nextHref={next ? `${listHref}/${next.slug}` : null}
       subjectKey={subjectKey}
-      userId={user?.id ?? null}
       initialPosts={communityPosts}
       authorRanks={authorRanks}
       statements={statements}
@@ -280,7 +308,6 @@ export async function TrackExamSubjectPage({
   const path = `${track.basePath}/exam/${subjectId}`;
   const description = `${data.subject.label} 기출 ${data.exams.length}문항과 정답 해설`;
   const sessions = api.getExamSessions(subjectId);
-  const user = await getUser();
   const housingFirstStage = new Set(["accounting", "facilities", "civil-law"]);
   const sessionsByGroup = sessions.reduce<Map<string, typeof sessions>>((groups, session) => {
     const groupLabel = track.id === "housing"
@@ -337,7 +364,6 @@ export async function TrackExamSubjectPage({
           subjectId={subjectId}
           basePath={track.basePath}
           exams={data.exams}
-          userId={user?.id ?? null}
         />
         <section className="mt-10">
           <div className={`grid gap-6 ${sessionsByGroup.size > 1 ? "lg:grid-cols-2" : "max-w-2xl"}`}>
@@ -484,20 +510,15 @@ export async function TrackExamDetailPage({
   const next = position >= 0 && position < session.length - 1 ? session[position + 1] : null;
   const listBase = `${track.basePath}/exam/${subjectId}/${year}/${encodeURIComponent(source)}`;
   const detailPath = `${listBase}/${exam.questionNo}`;
-  const user = await getUser();
   const storageSubject = `${track.communityScope}:${subjectId}:${source}`;
-  const [bookmarked, initialAttemptResult] = user
-    ? await Promise.all([
-        isQuestionBookmarked(user.id, storageSubject, exam.year, exam.questionNo),
-        getAttemptResult(user.id, storageSubject, exam.year, exam.questionNo),
-      ])
-    : [false, null];
   const memoSubject = examMemoSubjectKey(track.communityScope, subjectId, source);
+  // 공개 메모는 SEO 본문이라 서버에서 그대로 그린다. 내 북마크·풀이기록 같은
+  // 개인화는 쿠키를 걷어내려고 클라이언트(각 컴포넌트의 자체 조회)로 옮겼다.
   const publicMemos = await getPublicMemosForQuestion(
     memoSubject,
     exam.year,
     exam.questionNo,
-    user?.id,
+    null,
   );
   const title = `${year}년 ${source} ${data.subject.label} ${exam.questionNo}번 기출문제 해설`;
   const canonicalPath = `${track.basePath}/exam/${subjectId}/${year}/${source}/${exam.questionNo}`;
@@ -564,7 +585,7 @@ export async function TrackExamDetailPage({
       <article className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-3">
           <BackLink href={listBase}>{year}년 {source} 목록</BackLink>
-          <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} userId={user?.id ?? null} initialBookmarked={bookmarked} loginNext={detailPath} />
+          <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} loginNext={detailPath} />
         </div>
         <ExamQuestionJumpBar
           questionNos={session.map((item) => item.questionNo)}
@@ -632,10 +653,8 @@ export async function TrackExamDetailPage({
                 passageLead={passageLead}
                 passageLabel={passageLabel}
                 subjectLabel={data.subject.label}
-                userId={user?.id ?? null}
                 storageSubject={storageSubject}
                 revealSubject={storageSubject}
-                initialAttemptResult={initialAttemptResult}
               />
               {/* 영어는 선지 해설만으로 끝나지 않는다 — 지문 해석과 그 문항에서
                   챙길 어휘를 같은 자리에 붙인다. 다른 트랙에는 이 자료가 없다. */}
@@ -692,7 +711,6 @@ export async function TrackExamDetailPage({
             subject={memoSubject}
             year={exam.year}
             questionNo={exam.questionNo}
-            userId={user?.id ?? null}
             initialMemos={publicMemos}
             loginNext={detailPath}
           />

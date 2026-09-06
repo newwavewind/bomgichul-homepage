@@ -14,10 +14,8 @@ import {
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
-import { getBookmarksForUser } from "@/lib/bookmarks";
-import { getNotesForSubject } from "@/lib/notes";
-import { getUser } from "@/lib/auth";
 import { ReviewPdfButton } from "@/components/exam/ReviewPdfButton";
+import { SubjectBookmarkCount } from "@/components/exam/SubjectExtras";
 import { ExamSessionCard } from "@/components/exam/ExamSessionCard";
 import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
 import { isSubjectFreeEventActive } from "@/lib/promotions";
@@ -68,11 +66,8 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const subjectRound = SUBJECT_LANDING_INFO[subject].round;
   const years = getExamYears(subject);
-  const user = await getUser();
-  const [bookmarks, notes] = user
-    ? await Promise.all([getBookmarksForUser(user.id), getNotesForSubject(user.id, subject)])
-    : [[], []];
-  const subjectBookmarkCount = bookmarks.filter((b) => b.subject === subject).length;
+  // 북마크·메모 수는 클라이언트가 뒤따라 묻는다(SubjectExtras) — 서버에서
+  // getUser() 로 세면 쿠키 때문에 페이지 전체가 동적 렌더로 떨어진다.
   const freeEventActive = isSubjectFreeEventActive(subject);
 
   return (
@@ -89,13 +84,7 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
 
         <section className="mb-10 mt-10 pt-8">
           <div className="flex justify-end">
-            <ReviewPdfButton
-              subject={subject}
-              subjectLabel={label}
-              bookmarkCount={subjectBookmarkCount}
-              noteCount={notes.length}
-              toolbar
-            />
+            <ReviewPdfButton subject={subject} subjectLabel={label} toolbar />
           </div>
           <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
             <Link
@@ -120,7 +109,7 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
               href={`/exam/${subject}/bookmarks`}
               className="rounded-2xl border border-mist bg-paper px-3 py-3 text-center font-display text-body-sm font-semibold text-ink hover:border-carbon"
             >
-              ★ 북마크{subjectBookmarkCount > 0 ? ` (${subjectBookmarkCount})` : ""}
+              ★ 북마크<SubjectBookmarkCount subject={subject} />
             </Link>
           </div>
         </section>

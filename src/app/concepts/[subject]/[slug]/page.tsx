@@ -27,7 +27,6 @@ import { ConceptStructureBlocks, hasConceptStructure } from "@/components/concep
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, conceptSeoTitle, truncateDescription } from "@/lib/seo";
-import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
 import { buildConceptDetailAiPrompt } from "@/lib/ai-links";
@@ -35,6 +34,9 @@ import "../../concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
+
+// 커뮤니티 글(모두의 개념)이 실리는 페이지라 한 시간마다 다시 굽는다.
+export const revalidate = 3600;
 
 function plainConceptText(text: string): string {
   return text.replace(/\*\*/g, "");
@@ -49,7 +51,15 @@ interface ConceptDetailPageProps {
 }
 
 export function generateStaticParams() {
-  return getAllConceptParams();
+  // 전체 개념은 1,900장이 넘어 전량을 사전 렌더하면 빌드가 수직으로 늘어난다.
+  // 과목당 앞 10개만 미리 굽고, 나머지는 dynamicParams 기본값(true)에 따라
+  // 첫 방문 때 생성·캐시된다(ISR).
+  const PRERENDER_PER_SUBJECT = 10;
+  const seen: Record<string, number> = {};
+  return getAllConceptParams().filter(({ subject }) => {
+    seen[subject] = (seen[subject] ?? 0) + 1;
+    return seen[subject] <= PRERENDER_PER_SUBJECT;
+  });
 }
 
 export async function generateMetadata({
@@ -136,10 +146,10 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
   const questions = getConceptQuestions(subject, concept);
   const statements = getConceptStatements(subject, concept);
   const enhancement = getConceptEnhancement(concept);
-  const user = await getUser();
-  const isLoggedIn = Boolean(user);
   const returnTo = `/concepts/${subject}/${slug}`;
-  const communityPosts = await getConceptCommunityPosts(subject, slug, user?.id ?? null);
+  // 정적 렌더 유지 — 글 본문은 뷰어 없이 공개 데이터로 굽고, 「내 좋아요·추천」
+  // 표시는 클라이언트(ConceptCommunityPanel)가 /api/concept-community/personal 로 덧입힌다.
+  const communityPosts = await getConceptCommunityPosts(subject, slug, null);
   const communityAuthorIds = [
     ...communityPosts.map((post) => post.user_id),
     ...communityPosts.flatMap((post) => post.comments.map((comment) => comment.user_id)),
@@ -234,7 +244,6 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
             ) : null}
             <ConceptAiButtons
               prompt={aiPrompt}
-              isLoggedIn={isLoggedIn}
               returnTo={returnTo}
               subject={subject}
             />
@@ -244,13 +253,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           </p>
         </div>
 
-        <ConceptReadBar
-          subject={subject}
-          slug={slug}
-          isLoggedIn={isLoggedIn}
-          userId={user?.id ?? null}
-          returnTo={returnTo}
-        />
+        <ConceptReadBar subject={subject} slug={slug} returnTo={returnTo} />
 
         <ConceptSourcePanel
           sources={concept.sources}
@@ -303,12 +306,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
         {statements.length > 0 && (
           <article id="cx-sec-statements" className="hp-cx-card">
             <SectionBlock label="기출 지문" index={statementsIndex} badge="옳은 지문 모음">
-              <ConceptStatementList
-                statements={statements}
-                subject={subject}
-                returnTo={returnTo}
-                isLoggedIn={isLoggedIn}
-              />
+              <ConceptStatementList statements={statements} subject={subject} />
             </SectionBlock>
           </article>
         )}
@@ -325,21 +323,17 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
               <span className="hp-cx-questions-count">{questions.length}문항</span>
             </div>
             <div className="hp-cx-section__body">
-              <ConceptRelatedExamList
-                questions={questions}
-                subject={subject}
-                returnTo={returnTo}
-                isLoggedIn={isLoggedIn}
-              />
+              <ConceptRelatedExamList questions={questions} subject={subject} />
             </div>
           </section>
         </article>
 
+        {/* userId 를 내리지 않는다 — 패널이 useMe 로 스스로 알아내고,
+            좋아요·추천의 「내 것」 표시는 personal API 로 덧입힌다. */}
         <ConceptCommunityPanel
           subject={subject}
           conceptSlug={slug}
           sectionIndex={communityIndex}
-          userId={user?.id ?? null}
           initialPosts={communityPosts}
           authorRanks={communityAuthorRanks}
           returnTo={returnTo}

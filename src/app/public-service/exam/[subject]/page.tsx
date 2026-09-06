@@ -6,11 +6,15 @@ import { BackLink } from "@/components/ui/BackLink";
 import { TrackLearningTools } from "@/components/exam-track/TrackLearningTools";
 import { ExamSessionCard } from "@/components/exam/ExamSessionCard";
 import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
-import { getUser } from "@/lib/auth";
-import { getPublicServiceExamSessions, getPublicServiceSubject } from "@/lib/public-service-content";
+import { getPublicServiceExamSessions, getPublicServiceSubject, PUBLIC_SERVICE_SUBJECT_IDS } from "@/lib/public-service-content";
 import { buildBreadcrumbJsonLd, buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 
 type Props = { params: Promise<{ subject: string }> };
+
+// 과목은 소수라 전부 미리 만들어 정적으로 캐시한다.
+export function generateStaticParams() {
+  return PUBLIC_SERVICE_SUBJECT_IDS.map((subject) => ({ subject }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject: subjectId } = await params;
@@ -26,7 +30,6 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
   const path = `/public-service/exam/${subjectId}`;
   const description = `${data.subject.label} 국가직·지방직 기출 ${data.exams.length}문항과 정답 해설`;
   const sessions = getPublicServiceExamSessions(subjectId);
-  const user = await getUser();
   const sessionsBySource = sessions.reduce<Map<string, typeof sessions>>((groups, session) => {
     groups.set(session.sourceCode, [...(groups.get(session.sourceCode) ?? []), session]);
     return groups;
@@ -43,7 +46,7 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
           9급 공무원 {data.subject.label} 기출 올인원 →
         </Link>
       </header>
-      <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} userId={user?.id ?? null} />
+      <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} />
       <section className="mt-10">
         <div className={`grid gap-6 ${sessionsBySource.size > 1 ? "lg:grid-cols-2" : "max-w-2xl"}`}>
           {[...sessionsBySource.entries()].map(([sourceCode, sourceSessions]) => (

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
 import { QuestionStem } from "@/components/exam/QuestionStem";
+import { useMe } from "@/lib/client-session";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
@@ -52,24 +53,31 @@ export function TrackLearningTools({
   subjectId,
   basePath,
   exams: allExams,
-  userId,
 }: {
   scope: "public_service" | "police" | "housing" | "social_worker" | "history" | "english";
   subjectId: string;
   basePath: string;
   exams: ExamTrackExam[];
-  userId: string | null;
 }) {
+  /*
+   * 로그인 상태를 서버 프롭으로 받지 않고 스스로 알아낸다 — 페이지가 쿠키를
+   * 읽으면 과목 페이지 전체가 동적 렌더가 되어 CDN 캐시가 죽기 때문이다.
+   * pending 동안에는 로그인 안내를 그리지 않는다(로그인해 둔 사람에게
+   * 로그인 버튼이 깜빡 보이면 안 된다).
+   */
+  const { pending, user } = useMe();
+  const userId = user?.id ?? null;
   const [mode, setMode] = useState<Mode | null>(null);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
   const [reviewMemos, setReviewMemos] = useState<ReviewMemo[]>([]);
   const [index, setIndex] = useState(0);
-  const [loading, setLoading] = useState(Boolean(userId));
+  const [loading, setLoading] = useState(true);
   const prefix = `${scope}:${subjectId}:`;
   const loginHref = `/login?next=${encodeURIComponent(`${basePath}/exam/${subjectId}`)}`;
 
   const refresh = useCallback(async () => {
+    if (pending) return;
     if (!userId || !isSupabaseConfigured()) {
       setLoading(false);
       return;
@@ -84,7 +92,7 @@ export function TrackLearningTools({
     setBookmarks((bookmarkRows ?? []) as Bookmark[]);
     setReviewMemos((memoRows ?? []) as ReviewMemo[]);
     setLoading(false);
-  }, [prefix, userId]);
+  }, [pending, prefix, userId]);
 
   useEffect(() => { void refresh(); }, [refresh]);
 
@@ -148,7 +156,9 @@ export function TrackLearningTools({
   return (
     <section className="mt-10 pt-8" id="learning-tools">
       <div className="flex justify-end">
-        {!userId ? (
+        {pending ? (
+          <span className="rounded-full border border-mist px-4 py-2 font-display text-body-sm font-semibold text-fog">복습 PDF 준비 중…</span>
+        ) : !userId ? (
           <Link href={loginHref} className="rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink">복습 PDF 저장 · 로그인</Link>
         ) : loading ? (
           <span className="rounded-full border border-mist px-4 py-2 font-display text-body-sm font-semibold text-fog">복습 PDF 준비 중…</span>
@@ -165,7 +175,7 @@ export function TrackLearningTools({
           </button>
         ))}
       </div>
-      {!userId && mode ? (
+      {!pending && !userId && mode ? (
         <div className="mt-5 rounded-2xl border border-ios-blue/25 bg-ios-blue/[0.06] p-6 text-center">
           <p className="font-display text-body font-semibold text-ink">
             홈페이지 기능은 전부 무료예요. 로그인만 하면 학습 기록·오답노트·북마크·랜덤·복습·PDF를
@@ -173,7 +183,7 @@ export function TrackLearningTools({
           </p>
           <Link href={loginHref} className="mt-4 inline-flex rounded-full bg-ios-blue px-5 py-2.5 font-display text-body-sm font-semibold text-white">무료로 로그인</Link>
         </div>
-      ) : loading && mode ? <p className="mt-5 font-display text-body-sm text-fog">학습 기록을 불러오는 중…</p> : null}
+      ) : (pending || loading) && mode ? <p className="mt-5 font-display text-body-sm text-fog">학습 기록을 불러오는 중…</p> : null}
       {userId && mode === "stats" ? (
         <div className="mt-5 grid gap-3 sm:grid-cols-4">
           {[["풀이", total], ["정답", correct], ["오답", wrong], ["정답률", total ? `${Math.round(correct / total * 100)}%` : "—"]].map(([label, value]) => <div key={label} className="rounded-2xl border border-mist bg-paper p-5"><p className="font-display text-body-sm text-fog">{label}</p><p className="mt-2 font-display text-[26px] font-semibold text-ink">{value}</p></div>)}
@@ -184,7 +194,7 @@ export function TrackLearningTools({
         <div className="mt-6 rounded-[var(--radius-largecards)] border border-mist bg-paper p-5 md:p-7">
           <div className="mb-4 flex items-center justify-between gap-3 font-display text-body-sm text-fog"><span>{index + 1} / {pool.length} · {current.year}년 {current.sourceCode}</span><button type="button" onClick={() => void toggleBookmark(current)} className="font-semibold text-ios-blue">{bookmarkSet.has(examKey(current)) ? "★ 북마크됨" : "☆ 북마크"}</button></div>
           <QuestionStem stem={current.stem ?? ""} questionNo={current.questionNo} />
-          <div className="mt-5"><ExamOxQuestion key={`${mode}:${examKey(current)}`} examId={current.id} items={current.items} correctChoice={current.correctChoice} explanationSummary={current.explanationSummary} initialAttemptResult={attemptMap.get(examKey(current)) ?? null} onAttempt={(result) => saveAttempt(current, result)} userId={userId} /></div>
+          <div className="mt-5"><ExamOxQuestion key={`${mode}:${examKey(current)}`} examId={current.id} items={current.items} correctChoice={current.correctChoice} explanationSummary={current.explanationSummary} initialAttemptResult={attemptMap.get(examKey(current)) ?? null} onAttempt={(result) => saveAttempt(current, result)} /></div>
           <div className="mt-5 flex justify-end"><button type="button" onClick={() => setIndex((value) => Math.min(value + 1, pool.length - 1))} disabled={index >= pool.length - 1} className="rounded-full bg-carbon px-5 py-2.5 font-display text-body-sm font-semibold text-paper disabled:opacity-30">다음 문제 →</button></div>
         </div>
       ) : null}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPublicServiceSubject } from "@/lib/public-service-content";
+import { getPublicServiceSubject, PUBLIC_SERVICE_SUBJECT_IDS } from "@/lib/public-service-content";
 import { BackLink } from "@/components/ui/BackLink";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { TrackConceptPartList, type TrackConceptPartGroup } from "@/components/exam-track/TrackConceptPartList";
@@ -10,6 +10,11 @@ import "@/app/concepts/concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
 
 type Props = { params: Promise<{ subject: string }> };
+
+// 과목은 소수라 전부 미리 만들어 정적으로 캐시한다.
+export function generateStaticParams() {
+  return PUBLIC_SERVICE_SUBJECT_IDS.map((subject) => ({ subject }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject: subjectId } = await params;

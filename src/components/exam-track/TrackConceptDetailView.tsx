@@ -56,7 +56,6 @@ export function TrackConceptDetailView({
   prevHref,
   nextHref,
   subjectKey,
-  userId,
   initialPosts = [],
   authorRanks = {},
   statements = [],
@@ -71,7 +70,6 @@ export function TrackConceptDetailView({
   prevHref?: string | null;
   nextHref?: string | null;
   subjectKey: string;
-  userId: string | null;
   initialPosts?: ConceptCommunityPost[];
   authorRanks?: Record<string, OceanRank>;
   statements?: TrackConceptStatement[];
@@ -104,14 +102,16 @@ export function TrackConceptDetailView({
         <div className="mb-6">
           <div className="flex flex-wrap items-center gap-2.5">
             <h1 className="font-display text-heading font-semibold tracking-tight text-ink md:text-heading-lg">{concept.titleKo}</h1>
-            <ConceptAiButtons prompt={aiPrompt} isLoggedIn={Boolean(userId)} returnTo={returnTo} subject={subjectKey} />
+            {/* 로그인 여부는 각 패널이 클라이언트에서 스스로 알아낸다 —
+                서버가 쿠키를 읽으면 개념 페이지가 통째로 동적이 되기 때문이다. */}
+            <ConceptAiButtons prompt={aiPrompt} returnTo={returnTo} subject={subjectKey} />
           </div>
           {concept.titleEn ? (
             <p className="mt-2 font-display text-body-sm text-smoke">{concept.titleEn}</p>
           ) : null}
         </div>
 
-        <ConceptReadBar subject={subjectKey} slug={concept.slug} isLoggedIn={Boolean(userId)} userId={userId} returnTo={returnTo} />
+        <ConceptReadBar subject={subjectKey} slug={concept.slug} returnTo={returnTo} />
 
         <ConceptSourcePanel
           sources={concept.sources}
@@ -195,7 +195,7 @@ export function TrackConceptDetailView({
           </section>
         </article>
 
-        <ConceptCommunityPanel subject={subjectKey} conceptSlug={concept.slug} sectionIndex={sectionIndex + 1} userId={userId} initialPosts={initialPosts} authorRanks={authorRanks} returnTo={returnTo} />
+        <ConceptCommunityPanel subject={subjectKey} conceptSlug={concept.slug} sectionIndex={sectionIndex + 1} initialPosts={initialPosts} authorRanks={authorRanks} returnTo={returnTo} />
 
         <nav className="hp-cx-pager" aria-label="이전·다음 개념">
           {prev && prevHref ? (

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AiProviderTag, AiProviderTriangleDots } from "@/components/exam/AiProviderTag";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import { trackEvent } from "@/lib/analytics";
+import { fetchMe, useMe } from "@/lib/client-session";
 import { AI_SERVICES, openAiService, type AiServiceId } from "@/lib/ai-links";
 
 const USAGE_HINT =
@@ -72,7 +73,8 @@ export function ConceptAiButtons({
   subject,
 }: {
   prompt: string;
-  isLoggedIn: boolean;
+  /** 트랙 페이지(동적 렌더)만 내려준다. 정적 개념 페이지는 생략 — useMe 로 스스로 안다. */
+  isLoggedIn?: boolean;
   returnTo: string;
   subject: string;
 }) {
@@ -80,6 +82,7 @@ export function ConceptAiButtons({
   const [loginOpen, setLoginOpen] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const rootRef = useRef<HTMLSpanElement>(null);
+  const me = useMe();
   const loginHref = `/login?next=${encodeURIComponent(returnTo)}`;
 
   useEffect(() => {
@@ -92,8 +95,16 @@ export function ConceptAiButtons({
     return () => document.removeEventListener("mousedown", onDoc);
   }, [open]);
 
-  const handleTrigger = () => {
-    if (!isLoggedIn) {
+  // 버튼 겉모습은 로그인 여부와 무관해 깜빡일 것이 없다. 판별은 클릭 시점에만
+  // 필요하므로, 아직 조회 중이면 fetchMe(문서당 1회 왕복 공유)를 기다려 확정한다.
+  const resolveLoggedIn = async (): Promise<boolean> => {
+    if (isLoggedIn !== undefined) return isLoggedIn;
+    if (!me.pending) return me.user != null;
+    return (await fetchMe()).user != null;
+  };
+
+  const handleTrigger = async () => {
+    if (!(await resolveLoggedIn())) {
       setLoginOpen(true);
       trackEvent("concept_ai_login_required", { subject });
       return;
@@ -102,7 +113,7 @@ export function ConceptAiButtons({
   };
 
   const handleClick = async (serviceId: AiServiceId) => {
-    if (!isLoggedIn) {
+    if (!(await resolveLoggedIn())) {
       setLoginOpen(true);
       return;
     }

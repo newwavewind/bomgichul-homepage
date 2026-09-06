@@ -61,18 +61,26 @@ interface HeaderNavProps {
     oceanRank?: OceanRank | null;
   } | null;
   unreadCount?: number;
+  /** 로그인 흔적이 있는 첫 그림 — 「무료로 시작」이 깜빡 보이지 않게 자리만 비워 둔다 */
+  authPending?: boolean;
 }
 
 function AccountCluster({
   user,
   unread,
   compact = false,
+  authPending = false,
 }: {
   user: HeaderNavProps["user"];
   unread: number;
   compact?: boolean;
+  authPending?: boolean;
 }) {
   if (!user) {
+    if (authPending) {
+      // 로그인해 둔 사람의 첫 그림 — /api/me 응답까지 버튼 크기만큼 자리만 지킨다.
+      return <div aria-hidden className={`min-h-11 ${compact ? "w-20" : "w-24"}`} />;
+    }
     return (
       <div className={`flex items-center ${compact ? "gap-1.5" : "gap-2"}`}>
         <Link
@@ -125,9 +133,11 @@ function AccountCluster({
 function HomeHeader({
   user,
   unread,
+  authPending = false,
 }: {
   user: HeaderNavProps["user"];
   unread: number;
+  authPending?: boolean;
 }) {
   const [moreOpen, setMoreOpen] = useState(false);
   const hidden = useHideHeaderOnScroll();
@@ -142,7 +152,7 @@ function HomeHeader({
         <LogoMark />
         <div className="hidden items-center gap-2 md:flex">
           <Link href="/search" className="inline-flex min-h-11 items-center rounded-full px-3 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70">기출 검색</Link>
-          <AccountCluster user={user} unread={unread} />
+          <AccountCluster user={user} unread={unread} authPending={authPending} />
         </div>
         <button
           type="button"
@@ -170,7 +180,7 @@ function HomeHeader({
 
       {moreOpen ? (
         <div className="border-t border-slate-200/80 bg-white px-4 py-3 md:hidden">
-          <AccountCluster user={user} unread={unread} />
+          <AccountCluster user={user} unread={unread} authPending={authPending} />
           {user ? (
             <form action="/auth/signout" method="post" className="mt-2">
               <button
@@ -191,10 +201,12 @@ function TrackHeader({
   ctx,
   user,
   unread,
+  authPending = false,
 }: {
   ctx: TrackNavContext;
   user: HeaderNavProps["user"];
   unread: number;
+  authPending?: boolean;
 }) {
   const pathname = usePathname();
   const hidden = useHideHeaderOnScroll();
@@ -252,7 +264,7 @@ function TrackHeader({
             </nav>
 
             <div className="shrink-0">
-              <AccountCluster user={user} unread={unread} compact />
+              <AccountCluster user={user} unread={unread} authPending={authPending} compact />
             </div>
           </div>
         </div>
@@ -261,7 +273,7 @@ function TrackHeader({
   );
 }
 
-export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
+export function HeaderNav({ user, unreadCount = 0, authPending = false }: HeaderNavProps) {
   const pathname = usePathname();
   const ctx = resolveNavContext(pathname);
   const [unread, setUnread] = useState(unreadCount);
@@ -301,8 +313,8 @@ export function HeaderNav({ user, unreadCount = 0 }: HeaderNavProps) {
   }, [user]);
 
   if (ctx.mode === "home") {
-    return <HomeHeader user={user} unread={unread} />;
+    return <HomeHeader user={user} unread={unread} authPending={authPending} />;
   }
 
-  return <TrackHeader ctx={ctx} user={user} unread={unread} />;
+  return <TrackHeader ctx={ctx} user={user} unread={unread} authPending={authPending} />;
 }

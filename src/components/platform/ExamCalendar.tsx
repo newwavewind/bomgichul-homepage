@@ -1,5 +1,7 @@
 "use client";
 
+import { useMe } from "@/lib/client-session";
+
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -66,7 +68,11 @@ function examLabel(key: ExamCalendarEvent["examKey"]) {
   return EXAM_CALENDAR_LABELS[key];
 }
 
-export function ExamCalendar({ loggedIn = false }: { loggedIn?: boolean }) {
+export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } = {}) {
+  // 프롭이 없으면 스스로 로그인 여부를 묻는다 — 홈이 쿠키를 읽지 않게 하기 위해
+  // 서버가 더는 값을 내려주지 않는다. 판별 전(pending)은 비로그인처럼 그린다.
+  const { user: meUser } = useMe();
+  const loggedIn = loggedInProp ?? Boolean(meUser);
   const todayIso = getKstTodayIso();
   const [todayY, todayM] = todayIso.split("-").map(Number);
   const [year, setYear] = useState(todayY);

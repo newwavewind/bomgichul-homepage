@@ -17,7 +17,6 @@ import {
 } from "@/lib/concepts";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptItemListJsonLd } from "@/lib/seo";
-import { getUser } from "@/lib/auth";
 import "../concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
 
@@ -142,7 +141,6 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
   const questionCounts = Object.fromEntries(
     concepts.map((c) => [c.slug, getConceptQuestionCount(subject, c)])
   );
-  const user = await getUser();
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "기출 all-in-one", path: "/" },
@@ -179,11 +177,13 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
           </Link>
         </div>
 
+        {/* 읽음 표시의 localStorage 이름공간(userId)은 ConceptPartList 가
+            클라이언트에서 스스로 얻는다 — 서버 getUser() 는 페이지 전체를
+            동적 렌더로 떨어뜨리기 때문이다. */}
         <ConceptPartList
           subject={subject}
           groups={groups}
           questionCounts={questionCounts}
-          userId={user?.id ?? null}
         />
         <SimpleAppInstallStrip scope="real_estate" />
       </div>

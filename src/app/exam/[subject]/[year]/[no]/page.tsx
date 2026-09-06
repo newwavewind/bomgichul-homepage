@@ -1,7 +1,5 @@
-import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { BackLink } from "@/components/ui/BackLink";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
 import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
@@ -13,18 +11,19 @@ import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationD
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
+import {
+  ConceptReturnLoginGate,
+  ExamBackLink,
+  ReturnAwareNavLink,
+} from "@/components/exam/ReturnToClient";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
-  getAllExamParams,
   getExamQuestion,
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
-import { findConceptsForExamQuestion, getConcept } from "@/lib/concepts";
-import { appendReturnTo, isValidReturnTo, parseConceptReturnTo } from "@/lib/return-to";
-import { getUser } from "@/lib/auth";
-import { isQuestionBookmarked } from "@/lib/bookmarks";
+import { findConceptsForExamQuestion } from "@/lib/concepts";
 import { getPublicMemosForQuestion } from "@/lib/question-memos";
 import {
   absoluteUrl,
@@ -41,11 +40,15 @@ function isValidSubject(value: string): value is ExamSubject {
 
 interface ExamQuestionPageProps {
   params: Promise<{ subject: string; year: string; no: string }>;
-  searchParams: Promise<{ from?: string }>;
 }
 
+// 공개 메모가 실리는 페이지 — 정적(ISR)으로 캐시하되 한 시간마다 다시 굽는다.
+export const revalidate = 3600;
+
 export function generateStaticParams() {
-  return getAllExamParams();
+  // 전량(1만 쪽 남짓)을 돌려주면 빌드가 그만큼 사전 렌더한다 — 빈 배열로 두고
+  // dynamicParams 기본값(true)에 맡겨 첫 방문 때 생성·캐시되게 한다.
+  return [];
 }
 
 export async function generateMetadata({
@@ -88,27 +91,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function ExamQuestionPage({ params, searchParams }: ExamQuestionPageProps) {
+export default async function ExamQuestionPage({ params }: ExamQuestionPageProps) {
   const { subject, year: yearParam, no: noParam } = await params;
-  const { from } = await searchParams;
   if (!isValidSubject(subject)) notFound();
-
-  const returnTo = isValidReturnTo(from) ? from : null;
-  const conceptReturn = returnTo ? parseConceptReturnTo(returnTo) : null;
-
-  const user = await getUser();
-  if (conceptReturn && !user) {
-    const examPath = appendReturnTo(
-      `/exam/${subject}/${yearParam}/${noParam}`,
-      returnTo ?? undefined
-    );
-    redirect(`/login?next=${encodeURIComponent(examPath)}`);
-  }
-
-  const returnConcept =
-    conceptReturn && isValidSubject(conceptReturn.subject)
-      ? getConcept(conceptReturn.subject, conceptReturn.slug)
-      : undefined;
 
   const year = Number(yearParam);
   const questionNo = Number(noParam);
@@ -122,10 +107,15 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
   const prev = index > 0 ? yearQuestions[index - 1] : null;
   const next = index >= 0 && index < yearQuestions.length - 1 ? yearQuestions[index + 1] : null;
 
-  const bookmarked = user ? await isQuestionBookmarked(user.id, subject, year, questionNo) : false;
-  const publicMemos = await getPublicMemosForQuestion(subject, year, questionNo, user?.id);
+  // 서버는 방문자를 모른다(쿠키를 읽으면 동적 렌더로 떨어진다) — 메모 본문은
+  // 공개 데이터라 여기서 그대로 렌더해 SEO 본문으로 남기고, 「내 좋아요」 같은
+  // 개인화는 QuestionMemoPanel 이 클라이언트에서 덧입힌다.
+  const publicMemos = await getPublicMemosForQuestion(subject, year, questionNo);
   const listBase = `/exam/${subject}/${year}`;
-  const detailPath = appendReturnTo(`${listBase}/${questionNo}`, returnTo ?? undefined);
+  // 로그인 뒤 이 문항으로는 돌아오지만, ?from=(개념 복귀) 문맥은 잃는다 —
+  // 서버가 searchParams 를 읽을 수 없어서다. 개념 복귀 중 로그인이 필요한
+  // 경우는 ConceptReturnLoginGate 가 from 을 이어붙여 따로 보낸다.
+  const detailPath = `${listBase}/${questionNo}`;
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "기출문제 해설", path: "/" },
@@ -169,21 +159,15 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
           dangerouslySetInnerHTML={{ __html: JSON.stringify(quizJsonLd) }}
         />
       ) : null}
+      <ConceptReturnLoginGate />
       <article className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-3">
-          {returnTo ? (
-            <BackLink href={returnTo} emphasized>
-              {returnConcept ? `${returnConcept.titleKo}으로 돌아가기` : "개념으로 돌아가기"}
-            </BackLink>
-          ) : (
-            <BackLink href={listBase}>{year}년 문항 목록</BackLink>
-          )}
+          <ExamBackLink listBase={listBase} listLabel={`${year}년 문항 목록`} />
           <BookmarkButton
             subject={subject}
             year={year}
             questionNo={questionNo}
-            userId={user?.id ?? null}
-            initialBookmarked={bookmarked}
+            loginNext={detailPath}
           />
         </div>
 
@@ -225,7 +209,6 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
             explanationSummary={question.explanationSummary}
             comboChoices={question.comboChoices}
             renderExplanation={false}
-            userId={user?.id ?? null}
             loginNext={detailPath}
           />
           {hasExamQuestionSeoExplanations(question) ? <ExamSeoExplanationDetails
@@ -251,24 +234,22 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
 
         <nav className="mt-8 grid grid-cols-2 gap-3">
           {prev ? (
-            <Link
-              href={appendReturnTo(`${listBase}/${prev.questionNo}`, returnTo ?? undefined)}
-              rel={returnTo ? "nofollow" : undefined}
+            <ReturnAwareNavLink
+              href={`${listBase}/${prev.questionNo}`}
               className="rounded-2xl border border-mist px-4 py-3 font-display text-body-sm hover:border-carbon"
             >
               ← {prev.questionNo}번
-            </Link>
+            </ReturnAwareNavLink>
           ) : (
             <span />
           )}
           {next ? (
-            <Link
-              href={appendReturnTo(`${listBase}/${next.questionNo}`, returnTo ?? undefined)}
-              rel={returnTo ? "nofollow" : undefined}
+            <ReturnAwareNavLink
+              href={`${listBase}/${next.questionNo}`}
               className="rounded-2xl border border-mist px-4 py-3 text-right font-display text-body-sm hover:border-carbon"
             >
               {next.questionNo}번 →
-            </Link>
+            </ReturnAwareNavLink>
           ) : null}
         </nav>
 
@@ -277,7 +258,6 @@ export default async function ExamQuestionPage({ params, searchParams }: ExamQue
             subject={subject}
             year={year}
             questionNo={questionNo}
-            userId={user?.id ?? null}
             initialMemos={publicMemos}
             loginNext={detailPath}
           />

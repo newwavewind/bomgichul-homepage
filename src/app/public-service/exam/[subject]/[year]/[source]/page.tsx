@@ -3,10 +3,21 @@ import { notFound } from "next/navigation";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { BackLink } from "@/components/ui/BackLink";
 import { ExamQuestionListCard } from "@/components/exam/ExamQuestionListCard";
-import { getPublicServiceSubject } from "@/lib/public-service-content";
+import { getPublicServiceExamSessions, getPublicServiceSubject, PUBLIC_SERVICE_SUBJECT_IDS } from "@/lib/public-service-content";
 import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ subject: string; year: string; source: string }> };
+
+// 최근 1개년만 미리 만들고, 지난 연도는 첫 방문 때 생성해 캐시한다.
+export function generateStaticParams() {
+  return PUBLIC_SERVICE_SUBJECT_IDS.flatMap((subject) => {
+    const sessions = getPublicServiceExamSessions(subject);
+    const latestYear = Math.max(...sessions.map((session) => session.year), 0);
+    return sessions
+      .filter((session) => session.year === latestYear)
+      .map((session) => ({ subject, year: String(session.year), source: session.sourceCode }));
+  });
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject: subjectId, year, source: encodedSource } = await params;

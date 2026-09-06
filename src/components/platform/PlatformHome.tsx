@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ExamCalendar } from "@/components/platform/ExamCalendar";
-import { PersonalStudyHome } from "@/components/platform/PersonalStudyHome";
-import type { PersonalHomeData } from "@/lib/personal-home";
+import { PersonalHomeGate } from "@/components/platform/PersonalHomeGate";
 
 const exams = [
   {
@@ -89,11 +88,13 @@ const learnCtaClass =
 const introCtaClass =
   "group/cta flex min-h-12 flex-1 items-center justify-center gap-1 rounded-[18px] border border-black/[0.06] bg-white/70 px-3 py-3 text-center font-display text-[14px] font-semibold tracking-tight text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_2px_8px_rgba(15,23,42,0.04)] backdrop-blur-xl transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-[inset_0_1px_0_rgba(255,255,255,1),0_6px_16px_rgba(15,23,42,0.07)] active:translate-y-0";
 
-export function PlatformHome({ user, personalHome }: { user?: { nickname: string } | null; personalHome?: PersonalHomeData | null }) {
+export function PlatformHome() {
   return (
     <div className="relative overflow-hidden bg-white px-4 py-10 md:py-16">
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
-        {user && personalHome ? <PersonalStudyHome nickname={user.nickname} data={personalHome} /> : (
+        {/* 손님판은 서버가 정적으로 만들어 넘기고, 로그인 갈림만 클라이언트가 정한다 —
+            홈이 쿠키를 읽으면 첫 페이지 전체가 동적 렌더로 떨어지기 때문이다. */}
+        <PersonalHomeGate guest={(
           <section className="mx-auto mb-10 max-w-5xl text-center">
             <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#087f6d]">시험을 고르고, 안내부터 확인하세요</p>
             <h1 className="mt-3 font-display text-[34px] font-semibold tracking-tight text-ink md:text-[48px]">직렬·과목·일정까지 보고 나서 기출로</h1>
@@ -109,13 +110,13 @@ export function PlatformHome({ user, personalHome }: { user?: { nickname: string
               무료로 시작하기
             </Link>
           </section>
-        )}
+        )} />
         <h1 className="sr-only">공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어 기출 학습</h1>
         <p className="sr-only">
           9급 공무원, 공인중개사, 경찰공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
         </p>
 
-        <ExamCalendar loggedIn={Boolean(user)} />
+        <ExamCalendar />
 
         <section className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
           {exams.map((exam) => (

@@ -1,18 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { Textarea } from "@/components/ui/Input";
 import { PrimaryButton } from "@/components/ui/Button";
 import type { PublicQuestionMemo } from "@/types/database";
 import { formatKstDateTimeShort } from "@/lib/datetime";
+import { useMe } from "@/lib/client-session";
 
 function formatMemoDate(iso: string): string {
   return formatKstDateTimeShort(iso);
 }
+
+/**
+ * 방문자 상태 — pending(로그인 판정 중)을 비로그인과 갈라 둔다.
+ * 판정 중에 로그인 유도 문구를 그리면 로그인해 둔 사람에게 깜빡 보인다.
+ */
+type Viewer = { pending: boolean; userId: string | null };
 
 function LoginHint({ href, action }: { href: string; action: string }) {
   return (
@@ -27,20 +33,21 @@ function LoginHint({ href, action }: { href: string; action: string }) {
 
 function MemoCard({
   memo,
-  userId,
+  viewer,
   loginHref,
   onChanged,
 }: {
   memo: PublicQuestionMemo;
-  userId: string | null;
+  viewer: Viewer;
   loginHref: string;
   onChanged: () => void;
 }) {
   const [commentText, setCommentText] = useState("");
   const [busy, setBusy] = useState(false);
+  const resolvedAnon = !viewer.pending && !viewer.userId;
 
   const toggleLike = async () => {
-    if (!userId) return;
+    if (!viewer.userId) return;
     if (!isSupabaseConfigured() || busy) return;
     setBusy(true);
     const supabase = createClient();
@@ -49,11 +56,11 @@ function MemoCard({
         .from("question_public_memo_likes")
         .delete()
         .eq("memo_id", memo.id)
-        .eq("user_id", userId);
+        .eq("user_id", viewer.userId);
     } else {
       await supabase.from("question_public_memo_likes").insert({
         memo_id: memo.id,
-        user_id: userId,
+        user_id: viewer.userId,
       });
     }
     setBusy(false);
@@ -62,12 +69,12 @@ function MemoCard({
 
   const submitComment = async () => {
     const trimmed = commentText.trim();
-    if (!userId || !trimmed || !isSupabaseConfigured() || busy) return;
+    if (!viewer.userId || !trimmed || !isSupabaseConfigured() || busy) return;
     setBusy(true);
     const supabase = createClient();
     await supabase.from("question_public_memo_comments").insert({
       memo_id: memo.id,
-      user_id: userId,
+      user_id: viewer.userId,
       content: trimmed,
     });
     setCommentText("");
@@ -91,20 +98,22 @@ function MemoCard({
         </div>
         <button
           type="button"
-          onClick={() => (userId ? toggleLike() : undefined)}
+          onClick={() => (viewer.userId ? toggleLike() : undefined)}
           disabled={busy}
           title={
-            userId
+            viewer.userId
               ? memo.liked_by_viewer
                 ? "좋아요 취소"
                 : "좋아요"
-              : "로그인 후 좋아요"
+              : resolvedAnon
+                ? "로그인 후 좋아요"
+                : "좋아요"
           }
           className={`inline-flex shrink-0 items-center gap-1 rounded-full border px-2.5 py-1 font-display text-[12px] font-medium transition-colors ${
             memo.liked_by_viewer
               ? "border-[#6366f1] bg-[#6366f1]/10 text-[#6366f1]"
               : "border-mist bg-paper text-smoke hover:border-carbon"
-          } ${!userId ? "cursor-default opacity-80" : ""}`}
+          } ${resolvedAnon ? "cursor-default opacity-80" : ""}`}
         >
           👍 {memo.like_count}
         </button>
@@ -139,7 +148,7 @@ function MemoCard({
           ))
         )}
 
-        {userId ? (
+        {viewer.userId || viewer.pending ? (
           <div className="space-y-2 border-t border-mist/60 pt-3">
             <Textarea
               id={`memo-comment-${memo.id}`}
@@ -148,12 +157,13 @@ function MemoCard({
               onChange={(e) => setCommentText(e.target.value)}
               rows={2}
               placeholder="댓글을 남겨보세요"
+              disabled={viewer.pending}
             />
             <div className="flex justify-end">
               <PrimaryButton
                 size="sm"
                 onClick={submitComment}
-                disabled={busy || !commentText.trim()}
+                disabled={viewer.pending || busy || !commentText.trim()}
               >
                 댓글 등록
               </PrimaryButton>
@@ -164,7 +174,7 @@ function MemoCard({
         )}
       </div>
 
-      {!userId && memo.like_count === 0 && memo.comments.length === 0 && (
+      {resolvedAnon && memo.like_count === 0 && memo.comments.length === 0 && (
         <div className="mt-2">
           <LoginHint href={loginHref} action="좋아요·댓글은" />
         </div>
@@ -184,25 +194,68 @@ export function QuestionMemoPanel({
   subject: string;
   year: number;
   questionNo: number;
-  userId: string | null;
+  /**
+   * 주어지면(문자열·null) 그대로 믿는다 — 서버가 방문자를 아는 동적 페이지용.
+   * 생략하면 스스로 /api/me 로 해결한다 — 정적(ISR) 문항 페이지용.
+   */
+  userId?: string | null;
   initialMemos: PublicQuestionMemo[];
   /** 로그인 후 돌아올 경로. 없으면 공인중개사 /exam/... 경로 */
   loginNext?: string;
 }) {
-  const router = useRouter();
+  const selfResolve = userId === undefined;
+  const me = useMe();
+  const viewer: Viewer = selfResolve
+    ? { pending: me.pending, userId: me.pending ? null : (me.user?.id ?? null) }
+    : { pending: false, userId };
+  const [memos, setMemos] = useState<PublicQuestionMemo[]>(initialMemos);
+  // 이전·다음 문항으로 소프트 내비게이션하면 이 컴포넌트 인스턴스가 재사용된다 —
+  // 목록을 상태로 들고 있으므로, 문항이 바뀌면 새 문항의 초기 목록으로 되돌린다.
+  const identity = `${subject}:${year}:${questionNo}`;
+  const [prevIdentity, setPrevIdentity] = useState(identity);
+  if (prevIdentity !== identity) {
+    setPrevIdentity(identity);
+    setMemos(initialMemos);
+  }
   const [content, setContent] = useState("");
   const [saving, setSaving] = useState(false);
   const loginHref = `/login?next=${encodeURIComponent(
     loginNext ?? `/exam/${subject}/${year}/${questionNo}`,
   )}`;
 
+  /**
+   * 등록·좋아요·댓글 뒤의 새로고침. 예전에는 router.refresh() 였는데, 페이지가
+   * 정적(ISR)이 되면서 refresh 는 서버 캐시를 무효화하지 못해 방금 쓴 것이
+   * 안 보이게 됐다 — 개인화 GET 으로 목록을 통째로 다시 받아 갈아끼운다.
+   */
+  const reload = useCallback(async () => {
+    try {
+      const res = await fetch(
+        `/api/exam/my-memos?subject=${encodeURIComponent(subject)}&year=${year}&no=${questionNo}`,
+        { cache: "no-store" },
+      );
+      if (!res.ok) return;
+      const data = (await res.json()) as { memos: PublicQuestionMemo[] | null };
+      if (data.memos) setMemos(data.memos);
+    } catch {
+      /* 실패하면 지금 목록이 그대로 남는다 — 다음 조작에서 다시 시도된다 */
+    }
+  }, [subject, year, questionNo]);
+
+  // 정적 HTML 의 목록에는 「내가 좋아요한 것」이 없고(서버가 방문자를 모른다)
+  // ISR 스냅숏 이후 등록분도 빠져 있다 — 로그인 사용자는 개인화 목록으로
+  // 한 번 덧입힌다. 동적 페이지(userId 프롭이 온 경우)는 이미 개인화돼 있다.
+  useEffect(() => {
+    if (selfResolve && viewer.userId) void reload();
+  }, [selfResolve, viewer.userId, reload]);
+
   const handlePost = async () => {
     const trimmed = content.trim();
-    if (!userId || !trimmed || saving || !isSupabaseConfigured()) return;
+    if (!viewer.userId || !trimmed || saving || !isSupabaseConfigured()) return;
     setSaving(true);
     const supabase = createClient();
     const { error } = await supabase.from("question_public_memos").insert({
-      user_id: userId,
+      user_id: viewer.userId,
       subject,
       year,
       question_no: questionNo,
@@ -210,7 +263,7 @@ export function QuestionMemoPanel({
     });
     if (!error) {
       setContent("");
-      router.refresh();
+      await reload();
     }
     setSaving(false);
   };
@@ -226,7 +279,7 @@ export function QuestionMemoPanel({
         </p>
       </div>
 
-      {userId ? (
+      {viewer.userId || viewer.pending ? (
         <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1">
             <Textarea
@@ -237,12 +290,13 @@ export function QuestionMemoPanel({
               rows={2}
               placeholder="메모를 남겨보세요 (헷갈린 포인트, 암기 팁 등)"
               className="!py-2.5 text-body-sm"
+              disabled={viewer.pending}
             />
           </div>
           <PrimaryButton
             size="sm"
             onClick={handlePost}
-            disabled={saving || !content.trim()}
+            disabled={viewer.pending || saving || !content.trim()}
             className="shrink-0 self-end"
           >
             {saving ? "등록 중..." : "등록"}
@@ -260,19 +314,19 @@ export function QuestionMemoPanel({
         </div>
       )}
 
-      {initialMemos.length === 0 ? (
+      {memos.length === 0 ? (
         <p className="py-4 text-center font-display text-body-sm text-fog">
           아직 남긴 메모가 없어요.
         </p>
       ) : (
         <div>
-          {initialMemos.map((memo) => (
+          {memos.map((memo) => (
             <MemoCard
               key={memo.id}
               memo={memo}
-              userId={userId}
+              viewer={viewer}
               loginHref={loginHref}
-              onChanged={() => router.refresh()}
+              onChanged={() => void reload()}
             />
           ))}
         </div>

@@ -4,10 +4,10 @@ import { TrackConceptDetailView } from "@/components/exam-track/TrackConceptDeta
 import {
   getPublicServiceConcept,
   getPublicServiceSubject,
+  PUBLIC_SERVICE_SUBJECT_IDS,
   type PublicServiceExam,
 } from "@/lib/public-service-content";
 import { buildPageMetadata, conceptSeoTitle, truncateDescription } from "@/lib/seo";
-import { getUser } from "@/lib/auth";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
 import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
@@ -15,6 +15,19 @@ import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { findTrackConceptsForExamQuestion } from "@/lib/exam-track/concept-matches";
 
 type Props = { params: Promise<{ subject: string; slug: string }> };
+
+// 전량을 미리 만들면 빌드가 수천 쪽을 사전 렌더한다 — 과목당 앞 10개만 미리
+// 만들고, 나머지는 첫 방문 때 생성해 캐시한다(dynamicParams 기본값 true).
+export function generateStaticParams() {
+  return PUBLIC_SERVICE_SUBJECT_IDS.flatMap((subject) =>
+    (getPublicServiceSubject(subject)?.concepts ?? [])
+      .slice(0, 10)
+      .map((concept) => ({ subject, slug: concept.slug })),
+  );
+}
+
+// 커뮤니티 글이 실리는 페이지 — 한 시간마다 다시 그린다.
+export const revalidate = 3600;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject: subjectId, slug } = await params;
@@ -50,8 +63,9 @@ export default async function PublicServiceConceptDetailPage({ params }: Props) 
     index >= 0 && index < data.concepts.length - 1 ? data.concepts[index + 1] : null;
   const listHref = `/public-service/concepts/${subjectId}`;
   const subjectKey = `public_service:${subjectId}`;
-  const user = await getUser();
-  const communityPosts = await getConceptCommunityPosts(subjectKey, slug, user?.id ?? null);
+  // 커뮤니티 글은 공개 데이터라 서버에서 그대로 그린다(SEO 본문 유지).
+  // 뷰어별 표시(내 좋아요 등)는 클라이언트 몫이므로 userId 자리는 null 이다.
+  const communityPosts = await getConceptCommunityPosts(subjectKey, slug, null);
   const authorIds = [...communityPosts.map((post) => post.user_id), ...communityPosts.flatMap((post) => post.comments.map((comment) => comment.user_id))];
   const activity = await getUserActivityScores(authorIds);
   const authorRanks = Object.fromEntries(Object.entries(activity).map(([id, value]) => [id, value.rank]));
@@ -77,7 +91,6 @@ export default async function PublicServiceConceptDetailPage({ params }: Props) 
       prevHref={prev ? `${listHref}/${prev.slug}` : null}
       nextHref={next ? `${listHref}/${next.slug}` : null}
       subjectKey={subjectKey}
-      userId={user?.id ?? null}
       initialPosts={communityPosts}
       authorRanks={authorRanks}
       statements={statements}

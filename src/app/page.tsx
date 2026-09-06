@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { PlatformHome } from "@/components/platform/PlatformHome";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
-import { getUser } from "@/lib/auth";
-import { getPersonalHomeData } from "@/lib/personal-home";
 import {
   buildPageMetadata,
   buildPlatformHomeJsonLd,
@@ -17,8 +15,6 @@ export const metadata: Metadata = buildPageMetadata({
 
 /** 종합학습 플랫폼 홈 — 시험 종류를 선택하는 첫 화면 */
 export default async function HomePage() {
-  const user = await getUser();
-  const personalHome = user ? await getPersonalHomeData(user.id) : null;
   return (
     <>
       <script
@@ -29,7 +25,7 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildPlatformHomeJsonLd()) }}
       />
-      <PlatformHome user={user ? { nickname: user.nickname } : null} personalHome={personalHome} />
+      <PlatformHome />
     </>
   );
 }

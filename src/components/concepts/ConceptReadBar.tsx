@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
+import { fetchMe, useMe } from "@/lib/client-session";
 import {
   formatConceptReads,
   getConceptReadCount,
@@ -71,16 +72,24 @@ function ReadLoginModal({
 export function ConceptReadBar({
   subject,
   slug,
-  isLoggedIn,
-  userId,
+  isLoggedIn: isLoggedInProp,
+  userId: userIdProp,
   returnTo,
 }: {
   subject: string;
   slug: string;
-  isLoggedIn: boolean;
-  userId: string | null;
+  /** 트랙 페이지(동적 렌더)만 내려준다. 정적 개념 페이지는 생략 — useMe 로 스스로 안다. */
+  isLoggedIn?: boolean;
+  userId?: string | null;
   returnTo: string;
 }) {
+  const me = useMe();
+  // 프롭이 하나라도 오면 서버가 이미 알려준 것(트랙 페이지) — useMe 를 기다릴 이유가 없다.
+  const propDriven = isLoggedInProp !== undefined || userIdProp !== undefined;
+  const userId = propDriven ? (userIdProp ?? null) : (me.user?.id ?? null);
+  const isLoggedIn = propDriven ? Boolean(isLoggedInProp) : me.user != null;
+  const pending = propDriven ? false : me.pending;
+
   const [progress, setProgress] = useState<ConceptReadProgress>({});
   const [loginOpen, setLoginOpen] = useState(false);
   const loginHref = `/login?next=${encodeURIComponent(returnTo)}`;
@@ -96,22 +105,32 @@ export function ConceptReadBar({
   const reads = isLoggedIn ? getConceptReadCount(progress, slug) : 0;
   const studied = reads > 0;
 
-  const handleMark = useCallback(() => {
-    if (!isLoggedIn || !userId) {
-      setLoginOpen(true);
-      return;
-    }
-    const { progress: next } = incrementConceptRead(userId, subject, slug);
-    setProgress(next);
-  }, [isLoggedIn, userId, subject, slug]);
+  // 클릭 시점에 로그인 상태가 아직 조회 중이면 fetchMe(문서당 1회 왕복 공유)로
+  // 확정한다 — 로그인해 둔 사람에게 로그인 모달이 잘못 뜨면 안 된다.
+  const resolveUserId = useCallback(async (): Promise<string | null> => {
+    if (propDriven) return userId;
+    if (!me.pending) return userId;
+    return (await fetchMe()).user?.id ?? null;
+  }, [propDriven, userId, me.pending]);
 
-  const handleReset = useCallback(() => {
-    if (!isLoggedIn || !userId) {
+  const handleMark = useCallback(async () => {
+    const uid = await resolveUserId();
+    if (!uid) {
       setLoginOpen(true);
       return;
     }
-    setProgress(resetConceptRead(userId, subject, slug));
-  }, [isLoggedIn, userId, subject, slug]);
+    const { progress: next } = incrementConceptRead(uid, subject, slug);
+    setProgress(next);
+  }, [resolveUserId, subject, slug]);
+
+  const handleReset = useCallback(async () => {
+    const uid = await resolveUserId();
+    if (!uid) {
+      setLoginOpen(true);
+      return;
+    }
+    setProgress(resetConceptRead(uid, subject, slug));
+  }, [resolveUserId, subject, slug]);
 
   return (
     <>
@@ -124,7 +143,10 @@ export function ConceptReadBar({
           </span>
           <p className="hp-cx-read-bar__hint">
             {studied ? "다시 읽었다면 회독 +1" : "읽고 나면 회독 완료"}
-            {!isLoggedIn ? <span className="hp-cx-read-bar__note"> · 로그인 후 이용</span> : null}
+            {/* 조회가 끝나기 전에는 안 내건다 — 로그인해 둔 사람에게 깜빡이면 안 된다 */}
+            {!pending && !isLoggedIn ? (
+              <span className="hp-cx-read-bar__note"> · 로그인 후 이용</span>
+            ) : null}
           </p>
         </div>
         <div className="hp-cx-read-bar__actions">

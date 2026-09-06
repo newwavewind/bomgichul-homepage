@@ -7,6 +7,12 @@ import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ id: string }> };
 
+// 1,050장을 미리 만들면 빌드가 길어진다 — 첫 방문 때 생성해 캐시한다
+// (빈 배열이라도 있어야 정적 렌더가 된다 — 이 판 Next 규칙).
+export function generateStaticParams() {
+  return [];
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const card = getEnglishSyntaxCard(decodeURIComponent(id));

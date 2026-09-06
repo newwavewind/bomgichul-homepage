@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { ConceptCommunityComment, ConceptCommunityPost } from "@/types/database";
 
@@ -42,7 +43,10 @@ export async function getConceptCommunityPosts(
 ): Promise<ConceptCommunityPost[]> {
   if (!isSupabaseConfigured()) return [];
 
-  const supabase = await createClient();
+  // viewerUserId 가 없으면 쿠키를 읽지 않는 공개 클라이언트로 간다 — 쿠키를
+  // 읽는 순간 페이지가 통째로 동적(no-store)이 되어 정적(ISR) 렌더가 죽는다.
+  // 비로그인 방문자는 원래도 세션 없는 anon 으로 같은 공개 데이터를 읽고 있었다.
+  const supabase = viewerUserId ? await createClient() : createPublicClient();
   const { data, error } = await supabase
     .from("concept_community_posts")
     .select(

@@ -1,14 +1,16 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { BackLink } from "@/components/ui/BackLink";
 import {
-  ENGLISH_SYNTAX_CARDS,
+  EnglishSyntaxBrowser,
+  ViewTabs,
+} from "@/components/english/EnglishSyntaxBrowser";
+import {
   ENGLISH_SYNTAX_GROUPS,
-  ENGLISH_SYNTAX_UNIT_MAP,
   getEnglishSyntaxCardsForUnit,
 } from "@/lib/english-syntax";
 import { buildPageMetadata } from "@/lib/seo";
-import { getUnitNote } from "@/data/english/syntax-notes";
 import "@/app/concepts/concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
 
@@ -19,57 +21,12 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/english/concepts/gong9",
 });
 
-type SearchParams = Promise<{ view?: string; page?: string; unit?: string }>;
-
-function ViewTabs({ view }: { view: "group" | "number" }) {
-  return (
-    <nav className="my-7 flex gap-2" aria-label="구문 보기 방식">
-      <Link
-        href="/english/concepts/gong9"
-        className={`rounded-full px-4 py-2 font-display text-body-sm font-semibold ${
-          view === "group" ? "bg-ios-blue text-white" : "bg-paper text-smoke"
-        }`}
-      >
-        구문별
-      </Link>
-      <Link
-        href="/english/concepts/gong9?view=number&page=1"
-        className={`rounded-full px-4 py-2 font-display text-body-sm font-semibold ${
-          view === "number" ? "bg-ios-blue text-white" : "bg-paper text-smoke"
-        }`}
-      >
-        번호순
-      </Link>
-    </nav>
-  );
-}
-
-function CardList({
-  cards,
-}: {
-  cards: ReturnType<typeof getEnglishSyntaxCardsForUnit>;
-}) {
-  return (
-    <ul className="divide-y divide-mist">
-      {cards.map((card) => (
-        <li key={card.id}>
-          <Link
-            href={`/english/concepts/gong9/${encodeURIComponent(card.id)}`}
-            className="flex gap-3 py-3"
-          >
-            <span className="font-display text-[12px] font-semibold text-ios-blue">
-              {String(card.no).padStart(4, "0")}
-            </span>
-            <span className="font-system text-body-sm leading-6 text-ink">
-              {card.sentence}{" "}
-              <em className="not-italic text-fog">{card.seriesLabel}</em>
-            </span>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-}
+/*
+ * 이 페이지는 searchParams 를 읽지 않는다 — 읽는 순간 동적 렌더가 되어 CDN
+ * 캐시가 죽기 때문이다. 기본 화면(구문별 목차)은 여기서 정적으로 그리고,
+ * 쿼리가 붙는 화면(?unit= 단원 보기, ?view=number 번호순)은 클라이언트의
+ * EnglishSyntaxBrowser 가 useSearchParams 로 읽어 API 에서 조각을 받아 그린다.
+ */
 
 function GroupIndex() {
   return (
@@ -130,142 +87,7 @@ function GroupIndex() {
   );
 }
 
-function UnitView({ unitId }: { unitId: string }) {
-  const mapped = ENGLISH_SYNTAX_UNIT_MAP.get(unitId);
-  if (!mapped) {
-    return (
-      <div className="rounded-3xl border border-mist bg-white p-6">
-        <p className="font-display text-body text-smoke">해당 구문을 찾을 수 없어요.</p>
-        <Link
-          href="/english/concepts/gong9"
-          className="mt-4 inline-flex font-display text-body-sm font-semibold text-ios-blue"
-        >
-          ← 구문별 목록
-        </Link>
-      </div>
-    );
-  }
-
-  const { group, unit } = mapped;
-  const cards = getEnglishSyntaxCardsForUnit(unit.id);
-  const note = getUnitNote(unit.id);
-  const focuses = [...new Set(cards.flatMap((card) => card.focus ?? []))];
-
-  return (
-    <section className="rounded-3xl border border-mist bg-white p-5 shadow-[var(--shadow-subtle)]">
-      <Link
-        href="/english/concepts/gong9"
-        className="font-display text-body-sm font-semibold text-ios-blue"
-      >
-        ← 구문별 목록
-      </Link>
-      <p className="mt-4 font-display text-[12px] font-semibold text-fog">
-        {String(group.no).padStart(2, "0")} · {group.name}
-      </p>
-      <h2 className="mt-2 font-display text-subheading font-semibold text-ink">
-        {unit.name}
-      </h2>
-      <p className="mt-2 font-system text-body-sm leading-6 text-smoke">{unit.desc}</p>
-      <p className="mt-2 font-display text-body-sm text-fog">{cards.length}문장</p>
-      {note ? (
-        <div className="mt-4 rounded-2xl border border-ios-blue/15 bg-ios-blue/5 p-4">
-          <h3 className="font-display text-body font-semibold text-ink">{note.title}</h3>
-          <p className="mt-2 font-system text-body-sm leading-6 text-smoke">
-            {String(note.summary).replace(/\*\*/g, "")}
-          </p>
-        </div>
-      ) : null}
-      {focuses.length ? (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {focuses.map((focus) => (
-            <span
-              key={focus}
-              className="rounded-full border border-mist bg-white px-2.5 py-1 font-display text-[11px] text-smoke"
-            >
-              {focus}
-            </span>
-          ))}
-        </div>
-      ) : null}
-      <div className="mt-4 rounded-2xl border border-mist bg-surface px-4">
-        <CardList cards={cards} />
-      </div>
-    </section>
-  );
-}
-
-function NumberView({ page }: { page: number }) {
-  const pageSize = 50;
-  const pages = Math.ceil(ENGLISH_SYNTAX_CARDS.length / pageSize);
-  const currentPage = Math.min(Math.max(1, page), pages);
-  const shown = ENGLISH_SYNTAX_CARDS.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize,
-  );
-
-  return (
-    <div>
-      <div className="rounded-3xl border border-mist bg-white px-5 shadow-[var(--shadow-subtle)]">
-        <ul className="divide-y divide-mist">
-          {shown.map((card) => (
-            <li key={card.id}>
-              <Link
-                href={`/english/concepts/gong9/${encodeURIComponent(card.id)}`}
-                className="flex gap-4 py-4"
-              >
-                <span className="min-w-10 font-display text-body-sm font-semibold text-ios-blue">
-                  {card.no}
-                </span>
-                <span className="font-system text-body leading-7 text-ink">
-                  {card.sentence}{" "}
-                  <em className="not-italic text-[12px] text-fog">{card.seriesLabel}</em>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <nav className="mt-6 flex items-center justify-center gap-3">
-        <Link
-          aria-disabled={currentPage <= 1}
-          className={`rounded-full border px-4 py-2 font-display text-body-sm ${
-            currentPage <= 1
-              ? "pointer-events-none border-mist text-fog"
-              : "border-ios-blue text-ios-blue"
-          }`}
-          href={`/english/concepts/gong9?view=number&page=${Math.max(1, currentPage - 1)}`}
-        >
-          ← 이전
-        </Link>
-        <span className="font-display text-body-sm text-smoke">
-          {currentPage} / {pages}
-        </span>
-        <Link
-          aria-disabled={currentPage >= pages}
-          className={`rounded-full border px-4 py-2 font-display text-body-sm ${
-            currentPage >= pages
-              ? "pointer-events-none border-mist text-fog"
-              : "border-ios-blue text-ios-blue"
-          }`}
-          href={`/english/concepts/gong9?view=number&page=${Math.min(pages, currentPage + 1)}`}
-        >
-          다음 →
-        </Link>
-      </nav>
-    </div>
-  );
-}
-
-export default async function EnglishSyntaxPage({
-  searchParams,
-}: {
-  searchParams: SearchParams;
-}) {
-  const query = await searchParams;
-  const view = query.view === "number" ? "number" : "group";
-  const unitId = typeof query.unit === "string" && query.unit ? query.unit : null;
-  const page = Math.max(1, Number(query.page) || 1);
-
+export default function EnglishSyntaxPage() {
   return (
     <div className="hp-cx px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
@@ -290,14 +112,20 @@ export default async function EnglishSyntaxPage({
             </span>
           </div>
         </header>
-        <ViewTabs view={view} />
-        {view === "number" ? (
-          <NumberView page={page} />
-        ) : unitId ? (
-          <UnitView unitId={unitId} />
-        ) : (
-          <GroupIndex />
-        )}
+        {/* 정적 HTML(폴백)에도 구문별 목차 전문이 실리도록, 폴백과 children 이
+            같은 목차를 그린다 — 크롤러는 폴백을 읽는다. */}
+        <Suspense
+          fallback={
+            <>
+              <ViewTabs view="group" />
+              <GroupIndex />
+            </>
+          }
+        >
+          <EnglishSyntaxBrowser>
+            <GroupIndex />
+          </EnglishSyntaxBrowser>
+        </Suspense>
       </div>
     </div>
   );

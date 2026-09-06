@@ -16,9 +16,6 @@ import { BackLink } from "@/components/ui/BackLink";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
-import { getUser } from "@/lib/auth";
-import { getAttemptResult } from "@/lib/attempts";
-import { isQuestionBookmarked } from "@/lib/bookmarks";
 import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
 import { getPublicServiceExam, getPublicServiceSubject } from "@/lib/public-service-content";
 import { findTrackConceptsForExamQuestion } from "@/lib/exam-track/concept-matches";
@@ -30,6 +27,15 @@ import {
 } from "@/lib/seo";
 
 type Props = { params: Promise<{ subject: string; year: string; source: string; no: string }> };
+
+// 문항 페이지는 수천 쪽이라 빌드 때는 하나도 만들지 않고, 첫 방문 때 생성해
+// 캐시한다(빈 배열이라도 있어야 정적 렌더가 된다 — 이 판 Next 규칙).
+export function generateStaticParams() {
+  return [];
+}
+
+// 공개 메모가 실리는 페이지 — 한 시간마다 다시 그린다.
+export const revalidate = 3600;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject: subjectId, year, source: encodedSource, no } = await params;
@@ -64,20 +70,15 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
   const next = position >= 0 && position < session.length - 1 ? session[position + 1] : null;
   const listBase = `/public-service/exam/${subjectId}/${year}/${encodeURIComponent(source)}`;
   const detailPath = `${listBase}/${exam.questionNo}`;
-  const user = await getUser();
   const storageSubject = `public_service:${subjectId}:${source}`;
-  const [bookmarked, initialAttemptResult] = user
-    ? await Promise.all([
-        isQuestionBookmarked(user.id, storageSubject, exam.year, exam.questionNo),
-        getAttemptResult(user.id, storageSubject, exam.year, exam.questionNo),
-      ])
-    : [false, null];
   const memoSubject = examMemoSubjectKey("public_service", subjectId, source);
+  // 공개 메모는 SEO 본문이라 서버에서 그대로 그린다. 내 북마크·풀이기록 같은
+  // 개인화는 쿠키를 걷어내려고 클라이언트(각 컴포넌트의 자체 조회)로 옮겼다.
   const publicMemos = await getPublicMemosForQuestion(
     memoSubject,
     exam.year,
     exam.questionNo,
-    user?.id,
+    null,
   );
   const title = `${year}년 ${source} ${data.subject.label} ${exam.questionNo}번 기출문제 해설`;
   const canonicalPath = `/public-service/exam/${subjectId}/${year}/${source}/${exam.questionNo}`;
@@ -122,7 +123,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
       <article className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-3">
           <BackLink href={listBase}>{year}년 {source} 목록</BackLink>
-          <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} userId={user?.id ?? null} initialBookmarked={bookmarked} loginNext={detailPath} />
+          <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} loginNext={detailPath} />
         </div>
         <ExamQuestionJumpBar
           questionNos={session.map((item) => item.questionNo)}
@@ -160,10 +161,8 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
           <PublicServiceQuestion
             exam={exam}
             subjectLabel={data.subject.label}
-            userId={user?.id ?? null}
             storageSubject={storageSubject}
             revealSubject={storageSubject}
-            initialAttemptResult={initialAttemptResult}
           />
           {hasExamQuestionSeoExplanations({ ...exam, comboChoices: [] }) ? <ExamSeoExplanationDetails
             subject={storageSubject}
@@ -210,7 +209,6 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
             subject={memoSubject}
             year={exam.year}
             questionNo={exam.questionNo}
-            userId={user?.id ?? null}
             initialMemos={publicMemos}
             loginNext={detailPath}
           />

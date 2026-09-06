@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type {
   CommunityScope,
@@ -57,7 +58,10 @@ export async function getPublicMemosForQuestion(
 ): Promise<PublicQuestionMemo[]> {
   if (!isSupabaseConfigured()) return [];
 
-  const supabase = await createClient();
+  // 방문자를 모르는 호출(정적 페이지)이 쿠키(createClient)를 만지면 그 페이지가
+  // 통째로 동적 렌더로 떨어진다. 비로그인 방문자는 원래도 세션 없는 anon 으로
+  // 같은 데이터를 읽고 있었으므로(RLS 허용) 공개 클라이언트로 충분하다.
+  const supabase = viewerUserId ? await createClient() : createPublicClient();
   const { data, error } = await supabase
     .from("question_public_memos")
     .select(

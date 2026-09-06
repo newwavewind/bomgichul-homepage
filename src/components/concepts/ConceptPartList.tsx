@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useMe } from "@/lib/client-session";
 import type { Concept } from "@/lib/concepts";
 import {
   formatConceptReads,
@@ -32,8 +33,13 @@ export function ConceptPartList({
   subject,
   groups,
   questionCounts,
-  userId = null,
+  userId: userIdProp,
 }: ConceptPartListProps) {
+  // userId 프롭이 안 오면 클라이언트에서 스스로 얻는다(useMe) — 페이지가
+  // 서버 getUser() 로 넘겨 주면 쿠키 때문에 전체가 동적 렌더로 떨어진다.
+  // localStorage 읽음 표시의 이름공간으로만 쓰는 값이다.
+  const me = useMe();
+  const userId = userIdProp !== undefined ? userIdProp : (me.user?.id ?? null);
   const [expanded, setExpanded] = useState<Set<string>>(
     () => new Set(groups.map((g) => g.chapter))
   );  const [progress, setProgress] = useState<ConceptReadProgress>({});

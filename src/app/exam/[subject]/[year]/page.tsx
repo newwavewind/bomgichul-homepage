@@ -6,14 +6,12 @@ import { BackLink } from "@/components/ui/BackLink";
 import { ExamQuestionListCard } from "@/components/exam/ExamQuestionListCard";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
-  getExamYearParams,
+  getExamYears,
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
-import { getUser } from "@/lib/auth";
 import { PdfDownloadButton } from "@/components/exam/PdfDownloadButton";
-import { MockExamHistory } from "@/components/exam/MockExamHistory";
-import { getMockExamSessions } from "@/lib/mock-exam-sessions";
+import { MockExamHistoryLoader } from "@/components/exam/MockExamHistoryLoader";
 import { absoluteUrl } from "@/lib/seo";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
@@ -27,7 +25,13 @@ interface ExamYearPageProps {
 }
 
 export function generateStaticParams() {
-  return getExamYearParams();
+  // 전량(과목 6 × 연도 10 = 약 60쪽)을 빌드에 다 구울 필요는 없다 — 방문이
+  // 몰리는 최신 1개년만 사전 렌더하고, 나머지 연도는 dynamicParams 기본값
+  // (true)대로 첫 방문 때 생성·캐시된다.
+  return VALID_SUBJECTS.flatMap((subject) => {
+    const latest = getExamYears(subject)[0];
+    return latest != null ? [{ subject, year: String(latest) }] : [];
+  });
 }
 
 export async function generateMetadata({
@@ -63,9 +67,6 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
   const questions = getExamQuestionsForYear(subject, year);
   if (questions.length === 0) notFound();
 
-  const user = await getUser();
-  const mockSessions = user ? await getMockExamSessions(user.id, subject, year) : [];
-
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
@@ -83,15 +84,11 @@ export default async function ExamYearPage({ params }: ExamYearPageProps) {
             >
               📝 시험 모드
             </Link>
-            <PdfDownloadButton
-              subject={subject}
-              year={year}
-              canDownload={Boolean(user)}
-            />
+            <PdfDownloadButton subject={subject} year={year} />
           </div>
         </div>
 
-        <MockExamHistory sessions={mockSessions} />
+        <MockExamHistoryLoader subject={subject} year={year} />
 
         <div className="grid gap-3 sm:grid-cols-2">
           {questions.map((q) => (

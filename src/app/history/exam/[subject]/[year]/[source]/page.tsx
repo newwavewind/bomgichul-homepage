@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { HISTORY_TRACK } from "@/lib/exam-track/config";
-import { getHistorySubject, getHistoryConcept, getHistoryExam, getHistoryExamSessions, getHistoryLinkedExams } from "@/lib/history-content";
+import { HISTORY_SUBJECT_IDS, getHistorySubject, getHistoryConcept, getHistoryExam, getHistoryExamSessions, getHistoryLinkedExams } from "@/lib/history-content";
 import {
   TrackExamSessionPage,
   trackExamSessionMetadata,
+  trackSessionStaticParams,
 } from "@/lib/exam-track/pages";
 
 const api = {
@@ -15,6 +16,11 @@ const api = {
 };
 
 type Props = { params: Promise<{ subject: string; year: string; source: string }> };
+
+// 최근 1개년만 미리 만들고, 지난 연도는 첫 방문 때 생성해 캐시한다.
+export function generateStaticParams() {
+  return trackSessionStaticParams(api, HISTORY_SUBJECT_IDS);
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject, year, source: encodedSource } = await params;

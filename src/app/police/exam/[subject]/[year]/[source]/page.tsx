@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { POLICE_TRACK } from "@/lib/exam-track/config";
-import { getPoliceSubject, getPoliceConcept, getPoliceExam, getPoliceExamSessions, getPoliceLinkedExams } from "@/lib/police-content";
+import { POLICE_SUBJECT_IDS, getPoliceSubject, getPoliceConcept, getPoliceExam, getPoliceExamSessions, getPoliceLinkedExams } from "@/lib/police-content";
 import {
   TrackExamSessionPage,
   trackExamSessionMetadata,
+  trackSessionStaticParams,
 } from "@/lib/exam-track/pages";
 
 const api = {
@@ -15,6 +16,11 @@ const api = {
 };
 
 type Props = { params: Promise<{ subject: string; year: string; source: string }> };
+
+// 최근 1개년만 미리 만들고, 지난 연도는 첫 방문 때 생성해 캐시한다.
+export function generateStaticParams() {
+  return trackSessionStaticParams(api, POLICE_SUBJECT_IDS);
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject, year, source: encodedSource } = await params;
