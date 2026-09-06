@@ -75,7 +75,10 @@ function page(
   priority: number,
 ): SitemapEntry {
   return {
-    url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
+    // 한글 경로(한국사 「제75회」 등)를 페이지 canonical 과 같은 인코딩형으로 —
+    // sitemaps.org 규격상 URL 은 RFC-3986 이스케이프여야 하고, 원문 그대로면
+    // 사이트맵과 canonical 문자열이 갈린다(실측 8,816개가 이 상태였다).
+    url: path === "/" ? SITE_URL : encodeURI(`${SITE_URL}${path}`),
     changeFrequency,
     priority,
   };
@@ -86,7 +89,6 @@ const CORE_PAGES: MetadataRoute.Sitemap = [
   page("/privacy", "yearly", 0.3),
   page("/ranks", "monthly", 0.7),
   page("/news", "daily", 0.5),
-  page("/guide", "monthly", 0.5),
 ];
 
 const REAL_ESTATE_PAGES: MetadataRoute.Sitemap = [
@@ -94,11 +96,9 @@ const REAL_ESTATE_PAGES: MetadataRoute.Sitemap = [
   page("/real-estate/intro", "monthly", 0.85),
   page("/community", "daily", 0.9),
   page("/archive", "daily", 0.9),
-  page("/diary", "daily", 0.6),
   page("/faq", "monthly", 0.8),
-  ...ARCHIVE_SUBJECTS.filter((subject) => subject.value !== "all" && subject.value !== "other").map(
-    (subject) => page(`/subjects/${subject.value}`, "weekly", 0.7),
-  ),
+  // /subjects/* 과목 랜딩 6쪽은 사이트 어디에서도 링크하지 않는 고아라 뺐다.
+  // 내부 링크(푸터·허브)를 걸고 나서 되살릴 것.
 ];
 
 function getTrackPublicPages(basePath: string, includeConceptHub = false): MetadataRoute.Sitemap {
@@ -108,7 +108,6 @@ function getTrackPublicPages(basePath: string, includeConceptHub = false): Metad
     ...(includeConceptHub ? [page(`${basePath}/concepts`, "weekly", 0.8)] : []),
     page(`${basePath}/community`, "daily", 0.8),
     page(`${basePath}/archive`, "daily", 0.7),
-    page(`${basePath}/diary`, "daily", 0.6),
     page(`${basePath}/faq`, "monthly", 0.6),
   ];
 }
@@ -125,12 +124,10 @@ function getRealEstateExamUrls(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
     priority: 0.6,
   }));
-  const questionUrls: MetadataRoute.Sitemap = getAllExamParams().map(({ subject, year, no }) => ({
-    url: `${SITE_URL}/exam/${subject}/${year}/${no}`,
-    changeFrequency: "monthly",
-    priority: 0.5,
-  }));
-  return [...subjectUrls, ...yearUrls, ...questionUrls];
+  // 문항 단위 URL 은 사이트맵에서 뺀다. 12,990개 중 10,470개(80.6%)가 문항 페이지라
+  // 크롤 예산이 실적을 내는 개념 상세·회차 목록에 배정되지 못했다(「발견됨—미색인」 7,801).
+  // 페이지 자체와 내부 링크(회차 목록이 문항 전부에 앵커)는 그대로라 발견은 계속 된다.
+  return [...subjectUrls, ...yearUrls];
 }
 
 function getRealEstateConceptUrls(): MetadataRoute.Sitemap {
@@ -183,16 +180,7 @@ function getNamespacedTrackUrls(
         ),
       );
     }
-    for (const exam of subject.exams) {
-      if (!isRenderableExam(exam)) continue;
-      urls.push(
-        page(
-          `${basePath}/exam/${subjectId}/${exam.year}/${exam.sourceCode}/${exam.questionNo}`,
-          "monthly",
-          0.5,
-        ),
-      );
-    }
+    // 문항 단위 URL 은 넣지 않는다 — 위 getRealEstateExamUrls 의 주석과 같은 까닭.
   }
   return urls;
 }
@@ -272,7 +260,7 @@ async function getPublicContentUrls(scope: CommunityScope): Promise<MetadataRout
   let query = supabase
     .from("posts")
     .select("id, category, community_scope, updated_at")
-    .not("category", "in", "(bug,feedback)")
+    .not("category", "in", "(bug,feedback,resource)")
     .order("updated_at", { ascending: false })
     .limit(5000);
 

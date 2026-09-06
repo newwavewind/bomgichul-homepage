@@ -8,6 +8,7 @@ import {
   sanitizeConceptCommunityHtml,
 } from "@/lib/concept-community-html";
 import { uploadConceptCommunityImage } from "@/lib/concept-community-upload";
+import { RichTextFonts } from "./RichTextFonts";
 import "./rich-text-editor.css";
 
 type RichTextEditorProps = {
@@ -154,6 +155,7 @@ export function RichTextEditor({
 
   return (
     <div className="rte">
+      <RichTextFonts />
       <div className="rte-shell">
         <div className="rte-toolbar" role="toolbar" aria-label="글 서식">
           <button

@@ -33,7 +33,10 @@ export async function generateMetadata({
 }: PostDetailPageProps): Promise<Metadata> {
   const { id } = await params;
   const post = await getPost(id);
-  if (!post) return {};
+  // 없는 글은 여기(메타데이터 단계, 셸 전송 전)에서 404 를 던진다. 본문에서만 던지면
+  // 스트리밍이 시작된 뒤라 상태코드가 200 으로 나가 soft-404 가 됐다
+  // (크롤러가 200 을 받고 재방문을 되풀이한다 — 실측으로 확인한 결함).
+  if (!post) notFound();
 
   const description = truncateDescription(post.content);
   const title = post.title;
@@ -53,6 +56,8 @@ export async function generateMetadata({
       siteName: SITE_NAME,
       locale: "ko_KR",
       type: "article",
+      // 레이아웃의 og 이미지는 세그먼트 openGraph 정의에 통째로 덮인다 — 다시 넣는다.
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",

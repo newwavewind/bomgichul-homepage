@@ -123,8 +123,15 @@ export function buildPageMetadata({
   return {
     title: titleField,
     description,
-    alternates: { canonical },
-    robots: noIndex ? ROBOTS_NOINDEX_FOLLOW : robots,
+    // types 를 함께 두는 까닭: 세그먼트의 alternates 는 레이아웃 것을 통째로 대체해서,
+    // canonical 만 적으면 루트의 RSS 자동발견 링크가 전 페이지에서 사라졌다.
+    alternates: {
+      canonical,
+      types: { "application/rss+xml": absoluteUrl("/rss.xml") },
+    },
+    // robots 키는 값이 있을 때만 둔다. robots: undefined 도 「정의」로 취급되어
+    // 루트 레이아웃의 index,follow 메타를 지워 버렸다(트랙 페이지 전부에서 실측).
+    ...(noIndex ? { robots: ROBOTS_NOINDEX_FOLLOW } : robots ? { robots } : {}),
     openGraph: {
       title: fullTitle,
       description,
@@ -132,11 +139,17 @@ export function buildPageMetadata({
       siteName: SITE_NAME,
       locale: "ko_KR",
       type: "website",
+      // 세그먼트 openGraph 는 레이아웃 것을 통째로 대체한다 — 이미지를 다시 넣지
+      // 않으면 홈 말고는 공유 카드에 그림이 없다(표본 30쪽 전수에서 og:image 0건).
+      images: [
+        { url: absoluteUrl("/opengraph-image"), width: 1200, height: 630, alt: SITE_NAME },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [absoluteUrl("/twitter-image")],
     },
   };
 }
@@ -221,9 +234,24 @@ export function buildOrganizationJsonLd() {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
+    alternateName: ["Bomgichul", "봄 기출"],
     url: SITE_URL,
     logo: absoluteUrl("/brand/whale-mark.png"),
     description: SITE_DESCRIPTION,
+    // 브랜드→도메인 엔티티 대조용 자사 소유 프로필. 「봄기출」이 형태소로
+    // 봄+기출로 쪼개져 브랜드 검색 노출이 0이던 것을 되받는 신호의 하나다.
+    // 네이버 블로그·유튜브 채널이 생기면 여기에 더한다.
+    sameAs: [
+      "https://apps.apple.com/kr/app/id6784651251",
+      "https://apps.apple.com/kr/app/id6790764010",
+      "https://apps.apple.com/kr/app/id6798675892",
+      "https://apps.apple.com/kr/app/id6799456199",
+      "https://apps.apple.com/kr/app/id6801141200",
+      "https://apps.apple.com/kr/app/id6803106780",
+      "https://play.google.com/store/apps/details?id=com.sanghyun.civillaw",
+      "https://play.google.com/store/apps/details?id=com.sanghyun.publicofficial",
+      "https://play.google.com/store/apps/details?id=com.sanghyun.police",
+    ],
   };
 }
 

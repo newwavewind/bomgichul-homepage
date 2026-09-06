@@ -82,7 +82,8 @@ export function appStoreLinksForScope(
     // 공무원영어 앱은 App Store 심사 대기 중이고 Google Play 에는 아직 없다
     // (2026-08-20 확인). 승인되면 여기에 링크만 채우면 된다.
     case "english":
-      return { android: null, ios: null };
+      // iOS 는 출시 확인(2026-09-06, 스토어 등재 실측). 안드로이드는 아직.
+      return { android: null, ios: "https://apps.apple.com/kr/app/id6803106780" };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };
   }

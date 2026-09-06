@@ -1,4 +1,5 @@
 import { sanitizeConceptCommunityHtml } from "@/lib/concept-community-html";
+import { RichTextFonts } from "./RichTextFonts";
 import "./rich-text-editor.css";
 
 function looksLikeHtml(value: string): boolean {
@@ -17,9 +18,12 @@ export function RichTextBody({ content }: { content: string }) {
 
   const html = sanitizeConceptCommunityHtml(content);
   return (
-    <div
-      className="rte-body"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <>
+      <RichTextFonts />
+      <div
+        className="rte-body"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </>
   );
 }
