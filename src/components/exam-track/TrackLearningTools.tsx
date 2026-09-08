@@ -157,11 +157,11 @@ export function TrackLearningTools({
     <section className="mt-10 pt-8" id="learning-tools">
       <div className="flex justify-end">
         {pending ? (
-          <span className="rounded-full border border-mist px-4 py-2 font-display text-body-sm font-semibold text-fog">복습 PDF 준비 중…</span>
+          <span className="rounded-full border border-mist px-4 py-2 font-display text-body-sm font-semibold text-fog">📒 복습 PDF</span>
         ) : !userId ? (
           <Link href={loginHref} className="rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink">복습 PDF 저장 · 로그인</Link>
         ) : loading ? (
-          <span className="rounded-full border border-mist px-4 py-2 font-display text-body-sm font-semibold text-fog">복습 PDF 준비 중…</span>
+          <span className="rounded-full border border-mist px-4 py-2 font-display text-body-sm font-semibold text-fog">📒 복습 PDF</span>
         ) : reviewItemCount === 0 ? (
           <span className="rounded-full border border-mist px-4 py-2 font-display text-body-sm font-semibold text-fog">복습 PDF (북마크·메모 없음)</span>
         ) : (
@@ -183,7 +183,12 @@ export function TrackLearningTools({
           </p>
           <Link href={loginHref} className="mt-4 inline-flex rounded-full bg-ios-blue px-5 py-2.5 font-display text-body-sm font-semibold text-white">무료로 로그인</Link>
         </div>
-      ) : (pending || loading) && mode ? <p className="mt-5 font-display text-body-sm text-fog">학습 기록을 불러오는 중…</p> : null}
+      ) : (pending || loading) && mode ? (
+        <div className="mt-5 space-y-3" aria-busy="true" aria-label="학습 기록 불러오는 중">
+          <div className="h-24 animate-pulse rounded-2xl bg-snow" />
+          <div className="h-40 animate-pulse rounded-2xl bg-snow" />
+        </div>
+      ) : null}
       {userId && mode === "stats" ? (
         <div className="mt-5 grid gap-3 sm:grid-cols-4">
           {[["풀이", total], ["정답", correct], ["오답", wrong], ["정답률", total ? `${Math.round(correct / total * 100)}%` : "—"]].map(([label, value]) => <div key={label} className="rounded-2xl border border-mist bg-paper p-5"><p className="font-display text-body-sm text-fog">{label}</p><p className="mt-2 font-display text-[26px] font-semibold text-ink">{value}</p></div>)}

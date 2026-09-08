@@ -78,8 +78,19 @@ function AccountCluster({
 }) {
   if (!user) {
     if (authPending) {
-      // 로그인해 둔 사람의 첫 그림 — /api/me 응답까지 버튼 크기만큼 자리만 지킨다.
-      return <div aria-hidden className={`min-h-11 ${compact ? "w-20" : "w-24"}`} />;
+      // 로그인해 둔 사람의 첫 그림 — 알림·프로필 자리 스켈레톤으로 「무료로 시작」 깜빡임을 막는다.
+      return (
+        <div
+          className={`flex items-center ${compact ? "gap-1" : "gap-1.5"}`}
+          aria-hidden
+          aria-busy="true"
+        >
+          <div className="size-11 animate-pulse rounded-full bg-slate-200/70" />
+          <div
+            className={`min-h-11 animate-pulse rounded-full bg-slate-200/70 ${compact ? "w-16" : "w-20"}`}
+          />
+        </div>
+      );
     }
     return (
       <div className={`flex items-center ${compact ? "gap-1.5" : "gap-2"}`}>

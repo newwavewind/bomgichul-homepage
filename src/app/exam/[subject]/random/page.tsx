@@ -81,7 +81,14 @@ export default async function RandomPracticePage({ params, searchParams }: Rando
           </p>
         </div>
 
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={
+            <div
+              className="mb-8 h-28 w-full animate-pulse rounded-[var(--radius-cards)] bg-surface"
+              aria-hidden
+            />
+          }
+        >
           <RandomPracticeFilters
             subject={subject}
             years={years}

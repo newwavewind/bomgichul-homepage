@@ -1,9 +1,9 @@
 "use client";
 
-import { useMe } from "@/lib/client-session";
+import { useMe, useSignedInHint } from "@/lib/client-session";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import {
   EXAM_CALENDAR_COLORS,
   EXAM_CALENDAR_EVENTS,
@@ -19,10 +19,11 @@ import {
 import {
   addExamReminder,
   hasExamReminder,
-  listExamReminders,
   removeExamReminder,
+  subscribeExamReminders,
+  getExamRemindersSnapshot,
+  getExamRemindersServerSnapshot,
   upcomingExamReminders,
-  type ExamReminder,
 } from "@/lib/login-nudges";
 
 const WEEKDAYS = ["일", "월", "화", "수", "목", "금", "토"] as const;
@@ -70,14 +71,20 @@ function examLabel(key: ExamCalendarEvent["examKey"]) {
 
 export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } = {}) {
   // 프롭이 없으면 스스로 로그인 여부를 묻는다 — 홈이 쿠키를 읽지 않게 하기 위해
-  // 서버가 더는 값을 내려주지 않는다. 판별 전(pending)은 비로그인처럼 그린다.
-  const { user: meUser } = useMe();
+  // 서버가 더는 값을 내려주지 않는다. pending+힌트면 CTA 스켈레톤으로 「무료」 깜빡임을 막는다.
+  const { pending: authPending, user: meUser } = useMe();
+  const signedInHint = useSignedInHint();
   const loggedIn = loggedInProp ?? Boolean(meUser);
+  const reminderAuthPending = loggedInProp === undefined && authPending && signedInHint;
   const todayIso = getKstTodayIso();
   const [todayY, todayM] = todayIso.split("-").map(Number);
   const [year, setYear] = useState(todayY);
   const [monthIndex0, setMonthIndex0] = useState(todayM - 1);
-  const [reminders, setReminders] = useState<ExamReminder[]>([]);
+  const reminders = useSyncExternalStore(
+    subscribeExamReminders,
+    getExamRemindersSnapshot,
+    getExamRemindersServerSnapshot,
+  );
   const [selectedIso, setSelectedIso] = useState(() => {
     if (eventsOnDate(todayIso).length) return todayIso;
     const monthPrefix = todayIso.slice(0, 7);
@@ -95,26 +102,20 @@ export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } 
   });
 
   useEffect(() => {
-    setReminders(listExamReminders());
-  }, []);
-
-  useEffect(() => {
     if (!loggedIn || typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
     const remindId = params.get("remind");
     if (!remindId || hasExamReminder(remindId)) return;
     const event = EXAM_CALENDAR_EVENTS.find((e) => e.id === remindId);
     if (!event) return;
-    setReminders(
-      addExamReminder({
-        eventId: event.id,
-        examKey: event.examKey,
-        examLabel: examLabel(event.examKey),
-        title: event.title,
-        date: event.date,
-        href: event.href,
-      })
-    );
+    addExamReminder({
+      eventId: event.id,
+      examKey: event.examKey,
+      examLabel: examLabel(event.examKey),
+      title: event.title,
+      date: event.date,
+      href: event.href,
+    });
     params.delete("remind");
     const qs = params.toString();
     const next = `${window.location.pathname}${qs ? `?${qs}` : ""}${window.location.hash || "#exam-calendar"}`;
@@ -162,19 +163,17 @@ export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } 
   const toggleReminder = (event: ExamCalendarEvent) => {
     if (!loggedIn) return;
     if (hasExamReminder(event.id)) {
-      setReminders(removeExamReminder(event.id));
+      removeExamReminder(event.id);
       return;
     }
-    setReminders(
-      addExamReminder({
-        eventId: event.id,
-        examKey: event.examKey,
-        examLabel: examLabel(event.examKey),
-        title: event.title,
-        date: event.date,
-        href: event.href,
-      })
-    );
+    addExamReminder({
+      eventId: event.id,
+      examKey: event.examKey,
+      examLabel: examLabel(event.examKey),
+      title: event.title,
+      date: event.date,
+      href: event.href,
+    });
   };
 
   const reminderLoginHref = (eventId: string) =>
@@ -355,7 +354,12 @@ export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } 
                   >
                     {examLabel(event.examKey)} 안내 보기 →
                   </Link>
-                  {loggedIn ? (
+                  {reminderAuthPending ? (
+                    <span
+                      className="inline-block h-5 w-28 animate-pulse rounded bg-snow"
+                      aria-hidden
+                    />
+                  ) : loggedIn ? (
                     <button
                       type="button"
                       onClick={() => toggleReminder(event)}

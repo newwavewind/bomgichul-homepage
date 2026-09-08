@@ -110,16 +110,34 @@ export async function ArchiveBoard({
         <CommunityHubNav scope={scope} />
 
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <Suspense fallback={null}>
+          <Suspense
+            fallback={
+              <div
+                className="h-11 w-full max-w-md animate-pulse rounded-[var(--radius-buttons)] bg-surface"
+                aria-hidden
+              />
+            }
+          >
             <SearchBar defaultValue={search} placeholder="자료 검색..." basePath={baseHref} />
           </Suspense>
-          <Suspense fallback={null}>
+          <Suspense
+            fallback={
+              <div
+                className="h-10 w-28 animate-pulse rounded-[var(--radius-buttons)] bg-surface"
+                aria-hidden
+              />
+            }
+          >
             <SortSelect current={sort} basePath={baseHref} />
           </Suspense>
         </div>
 
         <div className="mb-8">
-          <Suspense fallback={null}>
+          <Suspense
+            fallback={
+              <div className="h-10 w-full max-w-xl animate-pulse rounded-[var(--radius-buttons)] bg-surface" aria-hidden />
+            }
+          >
             <ArchiveFilters subjects={subjects} />
           </Suspense>
         </div>

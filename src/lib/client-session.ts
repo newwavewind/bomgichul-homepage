@@ -1,6 +1,10 @@
 "use client";
 
-import { useEffect as reactUseEffect, useState as reactUseState } from "react";
+import {
+  useEffect as reactUseEffect,
+  useState as reactUseState,
+  useSyncExternalStore as reactUseSyncExternalStore,
+} from "react";
 
 /**
  * 클라이언트에서 로그인 상태를 한 번만 묻는다.
@@ -65,6 +69,18 @@ export function hasSignedInHint(): boolean {
   } catch {
     return false;
   }
+}
+
+/**
+ * 하이드레이션과 맞는 로그인 흔적 힌트.
+ * 서버·첫 그림은 false, 클라이언트 확정 뒤 localStorage 값을 쓴다.
+ */
+export function useSignedInHint(): boolean {
+  return reactUseSyncExternalStore(
+    () => () => {},
+    hasSignedInHint,
+    () => false,
+  );
 }
 
 /**

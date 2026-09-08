@@ -40,6 +40,44 @@ function writeJson(key: string, value: unknown) {
   }
 }
 
+const REMINDERS_EVENT = "bom-exam-reminders";
+
+function emitExamRemindersChanged() {
+  if (typeof window === "undefined") return;
+  remindersSnapshotKey = "";
+  window.dispatchEvent(new Event(REMINDERS_EVENT));
+}
+
+/** useSyncExternalStore 구독 — 같은 탭 변경 + 다른 탭 storage */
+export function subscribeExamReminders(onStoreChange: () => void) {
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener(REMINDERS_EVENT, onStoreChange);
+  window.addEventListener("storage", onStoreChange);
+  return () => {
+    window.removeEventListener(REMINDERS_EVENT, onStoreChange);
+    window.removeEventListener("storage", onStoreChange);
+  };
+}
+
+/** Object.is 안정 스냅샷 — useSyncExternalStore 가 매 배열로 무한 렌더하지 않게 */
+let remindersSnapshot: ExamReminder[] = [];
+let remindersSnapshotKey = "";
+
+export function getExamRemindersSnapshot(): ExamReminder[] {
+  const next = listExamReminders();
+  const key = JSON.stringify(next);
+  if (key === remindersSnapshotKey) return remindersSnapshot;
+  remindersSnapshotKey = key;
+  remindersSnapshot = next;
+  return remindersSnapshot;
+}
+
+const EMPTY_REMINDERS: ExamReminder[] = [];
+
+export function getExamRemindersServerSnapshot(): ExamReminder[] {
+  return EMPTY_REMINDERS;
+}
+
 export function getAnonAttemptCount(): number {
   const n = readJson<number>(ATTEMPT_KEY, 0);
   return Number.isFinite(n) && n > 0 ? Math.floor(n) : 0;
@@ -85,12 +123,14 @@ export function addExamReminder(reminder: Omit<ExamReminder, "createdAt">): Exam
     { ...reminder, createdAt: new Date().toISOString() },
   ].sort((a, b) => (a.date < b.date ? -1 : 1));
   writeJson(REMINDERS_KEY, next);
+  emitExamRemindersChanged();
   return next;
 }
 
 export function removeExamReminder(eventId: string): ExamReminder[] {
   const next = listExamReminders().filter((r) => r.eventId !== eventId);
   writeJson(REMINDERS_KEY, next);
+  emitExamRemindersChanged();
   return next;
 }
 

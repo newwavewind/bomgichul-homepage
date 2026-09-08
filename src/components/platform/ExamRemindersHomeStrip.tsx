@@ -1,9 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import { getKstTodayIso } from "@/data/exam-calendar";
-import { upcomingExamReminders, type ExamReminder } from "@/lib/login-nudges";
+import {
+  subscribeExamReminders,
+  getExamRemindersSnapshot,
+  getExamRemindersServerSnapshot,
+  upcomingExamReminders,
+} from "@/lib/login-nudges";
 
 function formatKoDate(iso: string): string {
   const [y, m, d] = iso.split("-").map(Number);
@@ -12,11 +17,16 @@ function formatKoDate(iso: string): string {
 
 /** 로그인 홈에 붙는 「내가 켠 시험 리마인드」 */
 export function ExamRemindersHomeStrip() {
-  const [rows, setRows] = useState<ExamReminder[]>([]);
-
-  useEffect(() => {
-    setRows(upcomingExamReminders(getKstTodayIso()).slice(0, 3));
-  }, []);
+  const reminders = useSyncExternalStore(
+    subscribeExamReminders,
+    getExamRemindersSnapshot,
+    getExamRemindersServerSnapshot,
+  );
+  const todayIso = getKstTodayIso();
+  const rows = useMemo(
+    () => upcomingExamReminders(todayIso).slice(0, 3),
+    [todayIso, reminders],
+  );
 
   if (rows.length === 0) return null;
 

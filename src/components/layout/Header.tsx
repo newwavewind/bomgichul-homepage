@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { HeaderNav } from "@/components/layout/HeaderNav";
 import { DailyStudyTracker } from "@/components/analytics/DailyStudyTracker";
-import { fetchMe, hasSignedInHint, invalidateMe, type MeUser } from "@/lib/client-session";
+import { fetchMe, invalidateMe, useSignedInHint, type MeUser } from "@/lib/client-session";
 import { createClient } from "@/lib/supabase/client";
 
 /**
@@ -14,17 +14,16 @@ import { createClient } from "@/lib/supabase/client";
  * 이제 본문은 정적으로 나가고, 로그인 표시만 그림이 뜬 뒤 /api/me 로 채운다.
  *
  * 로그인해 둔 사람에게 「무료로 시작」 버튼이 깜빡 보이지 않도록,
- * 지난 방문의 로그인 흔적이 있으면 응답이 올 때까지 자리만 비워 둔다.
+ * 지난 방문의 로그인 흔적이 있으면 응답이 올 때까지 계정 자리 스켈레톤을 둔다.
  */
 export function Header() {
   const [state, setState] = useState<{ pending: boolean; user: MeUser | null }>(() => ({
     pending: true,
     user: null,
   }));
-  const [hint, setHint] = useState(false);
+  const hint = useSignedInHint();
 
   useEffect(() => {
-    setHint(hasSignedInHint());
     let alive = true;
     const load = () =>
       void fetchMe().then((me) => {
