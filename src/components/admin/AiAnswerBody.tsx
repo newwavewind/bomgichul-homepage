@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * AI 답변을 앱에서 보이는 그대로 그린다.
  *
@@ -7,7 +9,70 @@
  *
  * 수평선(---)은 그리지 않고 여백으로만 받는 것도 앱과 같다.
  */
-import type { ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+
+function MermaidBlock({ code }: { code: string }) {
+  const [svg, setSvg] = useState("");
+  const [failed, setFailed] = useState(false);
+  const container = useRef<HTMLDivElement>(null);
+  const reactId = useId();
+
+  useEffect(() => {
+    let active = true;
+
+    void (async () => {
+      try {
+        const { default: mermaid } = await import("mermaid");
+        const dark = document.documentElement.classList.contains("dark");
+        const fontFamily = getComputedStyle(document.body).fontFamily || "inherit";
+        const fontSize = getComputedStyle(container.current?.parentElement ?? document.body).fontSize;
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: "strict",
+          theme: dark ? "dark" : "default",
+          fontFamily,
+          themeVariables: { fontSize },
+        });
+        const renderId = `admin-mermaid-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
+        const { svg: rendered } = await mermaid.render(renderId, code);
+        if (active) setSvg(rendered);
+      } catch {
+        if (active) setFailed(true);
+      }
+    })();
+
+    return () => {
+      active = false;
+    };
+  }, [code, reactId]);
+
+  if (failed) {
+    return (
+      <pre className="overflow-x-auto rounded-lg bg-slate-100 p-2.5 text-[11px] leading-relaxed">
+        {code}
+      </pre>
+    );
+  }
+
+  if (!svg) {
+    return (
+      <div
+        ref={container}
+        className="my-1.5 rounded-lg bg-slate-100 px-2.5 py-4 text-center text-[11px] text-slate-400"
+      >
+        그림을 그리는 중…
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={container}
+      className="ai-answer-mermaid my-1.5 overflow-x-auto"
+      dangerouslySetInnerHTML={{ __html: svg }}
+    />
+  );
+}
 
 /** **굵게** · *기울임* · `코드` 를 살린다 */
 function renderInline(text: string, keyPrefix: string): ReactNode[] {
@@ -109,8 +174,9 @@ export function AiAnswerBody({ text }: { text: string }) {
     const line = lines[i];
     const key = `n${i}`;
 
-    // ``` 코드 블록
+    // ``` 코드 블록 — mermaid는 실제 흐름도로 그린다.
     if (/^\s*```/.test(line)) {
+      const language = line.replace(/^\s*```/, "").trim().toLowerCase();
       const buf: string[] = [];
       i += 1;
       while (i < lines.length && !/^\s*```/.test(lines[i])) {
@@ -118,9 +184,14 @@ export function AiAnswerBody({ text }: { text: string }) {
         i += 1;
       }
       i += 1;
+      const code = buf.join("\n");
+      if (language === "mermaid" && code.trim()) {
+        nodes.push(<MermaidBlock key={key} code={code} />);
+        continue;
+      }
       nodes.push(
         <pre key={key} className="overflow-x-auto rounded-lg bg-slate-100 p-2.5 text-[11px] leading-relaxed">
-          {buf.join("\n")}
+          {code}
         </pre>
       );
       continue;
