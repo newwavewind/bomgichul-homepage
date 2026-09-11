@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ExamCalendar } from "@/components/platform/ExamCalendar";
+import { PastExamPdfSearch } from "@/components/platform/PastExamPdfSearch";
 import { PersonalHomeGate } from "@/components/platform/PersonalHomeGate";
 
 const exams = [
@@ -115,6 +116,8 @@ export function PlatformHome() {
         <p className="sr-only">
           9급 공무원, 공인중개사, 경찰공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
         </p>
+
+        <PastExamPdfSearch />
 
         <ExamCalendar />
 
