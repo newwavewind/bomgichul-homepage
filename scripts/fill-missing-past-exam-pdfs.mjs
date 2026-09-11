@@ -189,6 +189,29 @@ function buildJobs() {
     })
   }
 
+  // ——— 경찰 2017–2021 (수집 원본 PDF/HWP) ———
+  {
+    const root = join(HOME, 'policebomgichul/public/exam-pdfs/police')
+    for (const year of ['2017', '2018', '2019', '2020', '2021']) {
+      const dir = join(root, year)
+      if (!existsSync(dir)) continue
+      for (const name of readdirSync(dir)) {
+        const lower = name.toLowerCase()
+        if (!lower.endsWith('.pdf') && !lower.endsWith('.hwp') && !lower.endsWith('.hwpx')) continue
+        const file = join(dir, name)
+        if (!statSync(file).isFile()) continue
+        let detail = name.replace(/\.(pdf|hwp|hwpx)$/i, '').replace(/^\d{4}-/, '').replace(/-/g, ' ')
+        jobs.push({
+          scope: 'police',
+          subject: 'other',
+          title: `${TITLE_PREFIX} ${year}년 경찰공무원 · ${detail}`,
+          content: `경찰공무원(순경 공채) 기출 원본입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+          file,
+        })
+      }
+    }
+  }
+
   return jobs
 }
 
