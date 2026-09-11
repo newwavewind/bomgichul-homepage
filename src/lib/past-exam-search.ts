@@ -17,8 +17,12 @@ function publicArchiveUrl(filePath: string): string {
 }
 
 function detectKind(title: string): PastExamFileKind {
-  if (/·\s*정답/.test(title) || title.endsWith("정답")) return "answer";
-  if (/·\s*문제/.test(title) || /문제지/.test(title) || title.endsWith("문제")) return "question";
+  // 경찰·영어처럼 「· 1차 … 정답」「· 국가직 정답」형태도 잡는다
+  if (/최종정답|확정정답/.test(title)) return "answer";
+  if (/정답\s*$/.test(title) && !/문제/.test(title)) return "answer";
+  if (/문제지/.test(title) || /문제\s*$/.test(title) || /영어\s*문제/.test(title)) {
+    return "question";
+  }
   return "other";
 }
 
@@ -29,7 +33,7 @@ function kindLabel(kind: PastExamFileKind): string {
     case "answer":
       return "정답";
     default:
-      return "PDF";
+      return "파일";
   }
 }
 
@@ -37,7 +41,7 @@ function kindLabel(kind: PastExamFileKind): string {
 export function groupKeyFromTitle(title: string, scope: CommunityScope): string {
   const base = title
     .replace(PAST_EXAM_TITLE_PREFIX, "")
-    .replace(/\s*·\s*(문제지|문제|정답|해설)\s*$/u, "")
+    .replace(/\s*·\s*(문제지|문제|최종정답|확정정답|정답|해설).*$/u, "")
     .replace(/\s+/g, " ")
     .trim();
   return `${scope}|${base}`;
@@ -46,7 +50,7 @@ export function groupKeyFromTitle(title: string, scope: CommunityScope): string 
 export function displayLabelFromTitle(title: string): string {
   return title
     .replace(PAST_EXAM_TITLE_PREFIX, "")
-    .replace(/\s*·\s*(문제지|문제|정답|해설)\s*$/u, "")
+    .replace(/\s*·\s*(문제지|문제|최종정답|확정정답|정답|해설).*$/u, "")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -56,15 +60,25 @@ function extractYear(title: string): number | null {
   return m ? Number(m[1]) : null;
 }
 
+function extractRound(title: string): number | null {
+  const m = title.match(/(\d{2,3})\s*회/);
+  return m ? Number(m[1]) : null;
+}
+
 export async function searchPastExamPdfs(options: {
   q?: string;
   scope?: "all" | CommunityScope;
+  year?: number | null;
+  round?: number | null;
   limit?: number;
 }): Promise<PastExamPdfGroup[]> {
   if (!isSupabaseConfigured()) return [];
 
   const q = (options.q ?? "").trim();
   const scope = options.scope ?? "all";
+  const year = options.year && options.year >= 2000 && options.year <= 2100 ? options.year : null;
+  const round =
+    options.round && options.round >= 1 && options.round <= 200 ? options.round : null;
   const limit = Math.min(Math.max(options.limit ?? 24, 1), 48);
   const supabase = createPublicClient();
 
@@ -81,6 +95,13 @@ export async function searchPastExamPdfs(options: {
 
   if (scope !== "all") {
     query = query.eq("community_scope", scope);
+  }
+
+  // 한국사는 제목에 연도가 없고 `N회`만 있음
+  if (round) {
+    query = query.ilike("title", `%${round}회%`);
+  } else if (year) {
+    query = query.ilike("title", `%${year}년%`);
   }
 
   if (q) {
@@ -112,6 +133,7 @@ export async function searchPastExamPdfs(options: {
         scope: scopeValue,
         scopeLabel: communityScopeLabel(scopeValue),
         year: extractYear(row.title),
+        round: extractRound(row.title),
         files: [],
       };
       groups.set(key, group);
@@ -139,7 +161,10 @@ export async function searchPastExamPdfs(options: {
     }),
   }));
 
-  ordered.sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
+  ordered.sort((a, b) => {
+    if ((b.round ?? 0) !== (a.round ?? 0)) return (b.round ?? 0) - (a.round ?? 0);
+    return (b.year ?? 0) - (a.year ?? 0);
+  });
 
   return ordered.slice(0, limit);
 }

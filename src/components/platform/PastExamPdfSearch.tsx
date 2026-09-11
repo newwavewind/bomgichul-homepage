@@ -3,14 +3,16 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import {
   PAST_EXAM_SCOPE_OPTIONS,
+  PAST_EXAM_YEAR_OPTIONS,
+  PAST_EXAM_ROUND_OPTIONS,
   type PastExamPdfGroup,
 } from "@/lib/past-exam-search-shared";
 
 const SUGGESTIONS = [
-  "2025 행정법",
-  "2025 공인중개사 1차",
+  "행정법",
+  "공인중개사 1차",
   "주택관리사 1차",
-  "경찰 2025",
+  "경찰",
   "사회복지사",
   "공무원 영어 국가직",
   "한국사 심화",
@@ -18,46 +20,88 @@ const SUGGESTIONS = [
 
 type Status = "idle" | "loading" | "ready" | "error";
 
+function chipClass(active: boolean) {
+  return `rounded-xl px-3 py-1.5 font-display text-[12px] font-semibold transition-colors ${
+    active
+      ? "bg-[#007AFF] text-white"
+      : "border border-slate-200/90 bg-white text-slate-600 hover:border-[#007AFF]/35 hover:text-[#0066D6]"
+  }`;
+}
+
 export function PastExamPdfSearch() {
   const inputId = useId();
   const [query, setQuery] = useState("");
   const [debouncedQ, setDebouncedQ] = useState("");
   const [scope, setScope] = useState<(typeof PAST_EXAM_SCOPE_OPTIONS)[number]["value"]>("all");
+  const [year, setYear] = useState<number | null>(null);
+  const [round, setRound] = useState<number | null>(null);
   const [items, setItems] = useState<PastExamPdfGroup[]>([]);
   const [status, setStatus] = useState<Status>("idle");
   const abortRef = useRef<AbortController | null>(null);
+  const isHistory = scope === "history";
 
   useEffect(() => {
     const t = window.setTimeout(() => setDebouncedQ(query.trim()), 220);
     return () => window.clearTimeout(t);
   }, [query]);
 
-  const load = useCallback(async (q: string, nextScope: typeof scope) => {
-    abortRef.current?.abort();
-    const controller = new AbortController();
-    abortRef.current = controller;
-    setStatus("loading");
-    try {
-      const params = new URLSearchParams();
-      if (q) params.set("q", q);
-      if (nextScope !== "all") params.set("scope", nextScope);
-      const res = await fetch(`/api/past-exam-pdfs?${params}`, {
-        signal: controller.signal,
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      const body = (await res.json()) as { items: PastExamPdfGroup[] };
-      setItems(body.items ?? []);
-      setStatus("ready");
-    } catch (err) {
-      if ((err as Error).name === "AbortError") return;
-      setItems([]);
-      setStatus("error");
+  const selectScope = (next: typeof scope) => {
+    setScope(next);
+    if (next === "history") {
+      setYear(null);
+    } else {
+      setRound(null);
     }
-  }, []);
+  };
+
+  const load = useCallback(
+    async (
+      q: string,
+      nextScope: typeof scope,
+      nextYear: number | null,
+      nextRound: number | null,
+    ) => {
+      abortRef.current?.abort();
+      const controller = new AbortController();
+      abortRef.current = controller;
+      setStatus("loading");
+      try {
+        const params = new URLSearchParams();
+        if (q) params.set("q", q);
+        if (nextScope !== "all") params.set("scope", nextScope);
+        if (nextScope === "history") {
+          if (nextRound) params.set("round", String(nextRound));
+        } else if (nextYear) {
+          params.set("year", String(nextYear));
+        }
+        const res = await fetch(`/api/past-exam-pdfs?${params}`, {
+          signal: controller.signal,
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        const body = (await res.json()) as { items: PastExamPdfGroup[] };
+        setItems(body.items ?? []);
+        setStatus("ready");
+      } catch (err) {
+        if ((err as Error).name === "AbortError") return;
+        setItems([]);
+        setStatus("error");
+      }
+    },
+    [],
+  );
 
   useEffect(() => {
-    void load(debouncedQ, scope);
-  }, [debouncedQ, scope, load]);
+    void load(debouncedQ, scope, year, round);
+  }, [debouncedQ, scope, year, round, load]);
+
+  const emptyHint =
+    [
+      isHistory ? (round ? `${round}회` : null) : year ? `${year}년` : null,
+      scope !== "all" ? PAST_EXAM_SCOPE_OPTIONS.find((o) => o.value === scope)?.label : null,
+      debouncedQ || null,
+    ]
+      .filter(Boolean)
+      .join(" · ") || null;
 
   return (
     <section
@@ -73,7 +117,7 @@ export function PastExamPdfSearch() {
           문제·정답 바로 받기
         </h2>
         <p className="mt-1 font-display text-[13px] text-smoke">
-          공무원·공인중개사·주택관리사 등 전 시험을 한곳에서 검색하세요. 로그인 없이 받을 수 있습니다.
+          시험·연도(한국사는 회차)를 고르거나 검색해서 받으세요. 로그인 없이 받을 수 있습니다.
         </p>
       </div>
 
@@ -90,7 +134,7 @@ export function PastExamPdfSearch() {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="예: 2025 행정법, 공인중개사 1차, 주택관리사"
+            placeholder="예: 행정법, 공인중개사 1차, 79회"
             className="min-w-0 flex-1 bg-transparent font-display text-[16px] text-ink outline-none placeholder:text-fog"
             autoComplete="off"
             enterKeyHint="search"
@@ -107,25 +151,66 @@ export function PastExamPdfSearch() {
         </div>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-1.5" role="list" aria-label="시험 선택">
-        {PAST_EXAM_SCOPE_OPTIONS.map((opt) => {
-          const active = scope === opt.value;
-          return (
+      <div className="mt-3 space-y-2.5">
+        <div className="flex flex-wrap gap-1.5" role="list" aria-label="시험 선택">
+          {PAST_EXAM_SCOPE_OPTIONS.map((opt) => (
             <button
               key={opt.value}
               type="button"
               role="listitem"
-              onClick={() => setScope(opt.value)}
-              className={`rounded-full px-3 py-1.5 font-display text-[12px] font-semibold transition-colors ${
-                active
-                  ? "bg-[#007AFF] text-white"
-                  : "bg-paper/80 text-slate-600 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.08)] hover:bg-white"
-              }`}
+              onClick={() => selectScope(opt.value)}
+              className={chipClass(scope === opt.value)}
             >
               {opt.label}
             </button>
-          );
-        })}
+          ))}
+        </div>
+
+        {isHistory ? (
+          <div className="flex flex-wrap gap-1.5" role="list" aria-label="회차 선택">
+            <button
+              type="button"
+              role="listitem"
+              onClick={() => setRound(null)}
+              className={chipClass(round === null)}
+            >
+              전체 회차
+            </button>
+            {PAST_EXAM_ROUND_OPTIONS.map((r) => (
+              <button
+                key={r}
+                type="button"
+                role="listitem"
+                onClick={() => setRound(r)}
+                className={chipClass(round === r)}
+              >
+                {r}회
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-wrap gap-1.5" role="list" aria-label="연도 선택">
+            <button
+              type="button"
+              role="listitem"
+              onClick={() => setYear(null)}
+              className={chipClass(year === null)}
+            >
+              전체 연도
+            </button>
+            {PAST_EXAM_YEAR_OPTIONS.map((y) => (
+              <button
+                key={y}
+                type="button"
+                role="listitem"
+                onClick={() => setYear(y)}
+                className={chipClass(year === y)}
+              >
+                {y}년
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {!query ? (
@@ -135,7 +220,7 @@ export function PastExamPdfSearch() {
               key={hint}
               type="button"
               onClick={() => setQuery(hint)}
-              className="rounded-full bg-white/70 px-3 py-1 font-display text-[12px] font-medium text-slate-600 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.06)] hover:bg-white"
+              className="rounded-xl border border-slate-200/80 bg-white/70 px-3 py-1 font-display text-[12px] font-medium text-slate-600 hover:bg-white"
             >
               {hint}
             </button>
@@ -152,7 +237,7 @@ export function PastExamPdfSearch() {
         ) : null}
         {status === "ready" && items.length === 0 ? (
           <p className="font-display text-[13px] text-smoke">
-            {debouncedQ ? `"${debouncedQ}"에 맞는 기출 PDF가 없어요.` : "등록된 기출 PDF가 아직 없어요."}
+            {emptyHint ? `"${emptyHint}"에 맞는 기출 PDF가 없어요.` : "등록된 기출 PDF가 아직 없어요."}
           </p>
         ) : null}
 
@@ -166,7 +251,7 @@ export function PastExamPdfSearch() {
                 <div className="min-w-0">
                   <p className="font-display text-[11px] font-semibold tracking-wide text-fog">
                     {item.scopeLabel}
-                    {item.year ? ` · ${item.year}년` : ""}
+                    {item.round ? ` · ${item.round}회` : item.year ? ` · ${item.year}년` : ""}
                   </p>
                   <p className="mt-0.5 truncate font-display text-[15px] font-semibold text-ink">
                     {item.label}
@@ -180,15 +265,15 @@ export function PastExamPdfSearch() {
                       download={file.fileName}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex min-h-10 items-center rounded-full px-4 font-display text-[13px] font-semibold transition-colors ${
+                      className={`inline-flex h-9 items-center rounded-xl px-3 font-display text-[13px] font-medium transition-colors ${
                         file.kind === "question"
-                          ? "bg-[#007AFF] text-white hover:bg-[#0066D6]"
+                          ? "border border-[#007AFF]/35 bg-[#007AFF]/[0.08] text-[#0066D6] hover:bg-[#007AFF]/[0.14]"
                           : file.kind === "answer"
-                            ? "bg-slate-800 text-white hover:bg-slate-700"
-                            : "bg-surface text-ink hover:bg-snow"
+                            ? "border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                            : "border border-mist bg-surface text-ink hover:bg-snow"
                       }`}
                     >
-                      {file.kindLabel} 받기
+                      {file.kindLabel} 받기 ↓
                     </a>
                   ))}
                 </div>

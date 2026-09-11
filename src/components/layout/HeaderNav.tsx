@@ -106,9 +106,9 @@ function AccountCluster({
           aria-hidden
           aria-busy="true"
         >
-          <div className="size-11 animate-pulse rounded-full bg-slate-200/70" />
+          <div className="size-9 animate-pulse rounded-xl bg-slate-200/70" />
           <div
-            className={`min-h-11 animate-pulse rounded-full bg-slate-200/70 ${compact ? "w-16" : "w-20"}`}
+            className={`h-9 animate-pulse rounded-xl bg-slate-200/70 ${compact ? "w-14" : "w-16"}`}
           />
         </div>
       );
@@ -117,9 +117,9 @@ function AccountCluster({
       <div className={`flex items-center ${compact ? "gap-1.5" : "gap-2"}`}>
         <Link
           href="/login"
-          className="inline-flex min-h-11 items-center rounded-full bg-[#007AFF] px-4 font-display text-[13px] font-semibold text-white shadow-[0_1px_2px_rgba(0,122,255,0.35)] transition-transform hover:scale-[1.02] active:scale-[0.98]"
+          className="inline-flex h-9 items-center rounded-xl border border-slate-200/90 bg-white px-3 font-display text-[13px] font-medium text-[#0066D6] transition-colors hover:border-[#007AFF]/40 hover:bg-[#007AFF]/[0.06]"
         >
-          무료로 시작
+          로그인
         </Link>
       </div>
     );

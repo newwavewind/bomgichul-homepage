@@ -13,6 +13,19 @@ export const PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: st
   { value: "history", label: "한국사" },
 ];
 
+/** 홈 기출 PDF 연도 칩 — 최근 연도부터 */
+export const PAST_EXAM_YEAR_OPTIONS: number[] = (() => {
+  const latest = 2026;
+  const years: number[] = [];
+  for (let y = latest; y >= 2016; y -= 1) years.push(y);
+  return years;
+})();
+
+/** 한국사능력검정은 연도 대신 회차 */
+export const PAST_EXAM_ROUND_OPTIONS: number[] = [
+  79, 78, 77, 76, 75, 74, 73, 72, 71, 70,
+];
+
 export type PastExamFileKind = "question" | "answer" | "other";
 
 export type PastExamPdfFile = {
@@ -29,5 +42,6 @@ export type PastExamPdfGroup = {
   scope: CommunityScope;
   scopeLabel: string;
   year: number | null;
+  round: number | null;
   files: PastExamPdfFile[];
 };

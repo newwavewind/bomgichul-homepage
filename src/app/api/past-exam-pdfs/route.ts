@@ -18,14 +18,19 @@ export async function GET(request: Request) {
   const scope = SCOPES.has(scopeRaw as "all" | CommunityScope)
     ? (scopeRaw as "all" | CommunityScope)
     : "all";
+  const yearRaw = searchParams.get("year");
+  const yearNum = yearRaw ? Number(yearRaw) : null;
+  const year = yearNum && Number.isFinite(yearNum) ? yearNum : null;
+  const roundRaw = searchParams.get("round");
+  const roundNum = roundRaw ? Number(roundRaw) : null;
+  const round = roundNum && Number.isFinite(roundNum) ? roundNum : null;
 
-  const items = await searchPastExamPdfs({ q, scope, limit: 20 });
+  const items = await searchPastExamPdfs({ q, scope, year, round, limit: 20 });
 
   return NextResponse.json(
     { items },
     {
       headers: {
-        // 짧은 CDN 캐시 — 같은 검색어 반복에 빠르게
         "cache-control": "public, s-maxage=60, stale-while-revalidate=300",
       },
     },
