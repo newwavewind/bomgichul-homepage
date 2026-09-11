@@ -73,15 +73,37 @@ export async function getPersonalHomeData(userId: string): Promise<PersonalHomeD
   const empty: PersonalHomeData = { attemptCount: 0, wrongCount: 0, bookmarkCount: 0, accuracy: 0, streak: 0, recent: null };
   if (!isSupabaseConfigured()) return empty;
   const supabase = await createClient();
-  const [attempts, wrong, bookmarks, dates] = await Promise.all([
-    supabase.from("question_attempts").select("subject,year,question_no,result,updated_at", { count: "exact" }).eq("user_id", userId).order("updated_at", { ascending: false }).limit(1),
-    supabase.from("question_attempts").select("id", { count: "exact", head: true }).eq("user_id", userId).eq("result", "wrong"),
-    supabase.from("question_bookmarks").select("id", { count: "exact", head: true }).eq("user_id", userId),
-    supabase.from("user_daily_logins").select("login_date").eq("user_id", userId).order("login_date", { ascending: false }).limit(400),
+  // count와 최근 1건을 분리 — exact count + limit(1) 한 쿼리는 전체 스캔이 무겁다
+  const [attemptCountRes, recentRes, wrong, bookmarks, dates] = await Promise.all([
+    supabase
+      .from("question_attempts")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", userId),
+    supabase
+      .from("question_attempts")
+      .select("subject,year,question_no,updated_at")
+      .eq("user_id", userId)
+      .order("updated_at", { ascending: false })
+      .limit(1),
+    supabase
+      .from("question_attempts")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", userId)
+      .eq("result", "wrong"),
+    supabase
+      .from("question_bookmarks")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", userId),
+    supabase
+      .from("user_daily_logins")
+      .select("login_date")
+      .eq("user_id", userId)
+      .order("login_date", { ascending: false })
+      .limit(400),
   ]);
-  const attemptCount = attempts.count ?? 0;
+  const attemptCount = attemptCountRes.count ?? 0;
   const wrongCount = wrong.count ?? 0;
-  const row = attempts.data?.[0];
+  const row = recentRes.data?.[0];
   const destination = row ? resolveAttemptDestination(row.subject, row.year, row.question_no) : null;
   return {
     attemptCount,

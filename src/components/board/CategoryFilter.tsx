@@ -6,6 +6,7 @@ import {
   CATEGORY_EMOJI,
   BEST_POST_MIN_VIEWS,
 } from "@/lib/constants";
+import { communityHrefToArchive } from "@/lib/archive-filters";
 
 interface CategoryFilterProps {
   current: CommunityListFilter;
@@ -37,7 +38,13 @@ function FilterChip({
   emoji?: string;
   baseHref?: string;
 }) {
-  const href = value === "all" ? baseHref : `${baseHref}?category=${value}`;
+  // 자료공유 → 연도·과목·직렬 필터가 있는 자료실로
+  const href =
+    value === "resource"
+      ? communityHrefToArchive(baseHref)
+      : value === "all"
+        ? baseHref
+        : `${baseHref}?category=${value}`;
 
   return (
     <Link
@@ -105,7 +112,11 @@ export function CategoryFilter({ current, baseHref = "/community" }: CategoryFil
           key={cat.value}
           value={cat.value}
           label={cat.label}
-          description={cat.description}
+          description={
+            cat.value === "resource"
+              ? "연도·과목·직렬(차수)로 기출·노트 자료 보기"
+              : cat.description
+          }
           isActive={current === cat.value}
           baseHref={baseHref}
         />

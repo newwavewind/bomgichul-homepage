@@ -429,11 +429,20 @@ export const ARCHIVE_SUBJECTS_PUBLIC_SERVICE = [
   { value: "all", label: "전체 과목" },
   { value: "hangjunghak", label: "행정학개론" },
   { value: "haengjeongbeop", label: "행정법총론" },
+  { value: "gyoyukhak", label: "교육학개론" },
+  { value: "nodongbeop", label: "노동법개론" },
+  { value: "gukjebeop", label: "국제법개론" },
+  { value: "bokji", label: "사회복지학개론" },
+  { value: "sebeop", label: "세법개론" },
+  { value: "hoegyehak", label: "회계학" },
+  { value: "gwansebeop", label: "관세법개론" },
+  { value: "hoegyewonri", label: "회계원리" },
+  { value: "gyojeonghak", label: "교정학개론" },
+  { value: "hyeongsogaeron", label: "형사소송법개론" },
   { value: "hyeongbeop", label: "형법" },
   { value: "hyeongso", label: "형사소송법" },
-  { value: "sebeop", label: "세법개론" },
-  { value: "bokji", label: "사회복지학개론" },
   { value: "sobang", label: "소방학개론" },
+  { value: "sobangbeop", label: "소방관계법규" },
   { value: "other", label: "기타" },
 ] as const;
 
@@ -450,6 +459,19 @@ export const ARCHIVE_SUBJECTS_SOCIAL_WORKER = [
   { value: "other", label: "기타" },
 ] as const;
 
+export const ARCHIVE_SUBJECTS_ENGLISH = [
+  { value: "all", label: "전체 과목" },
+  { value: "english", label: "영어" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_HISTORY = [
+  { value: "all", label: "전체 과목" },
+  { value: "advanced", label: "심화" },
+  { value: "basic", label: "기본" },
+  { value: "other", label: "기타" },
+] as const;
+
 export const ARCHIVE_RESOURCE_TYPE_MAP: Record<string, string> = {
   past_exam: "기출",
   note: "노트",
@@ -463,6 +485,8 @@ export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
   ...ARCHIVE_SUBJECTS_HOUSING.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_PUBLIC_SERVICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_SOCIAL_WORKER.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_ENGLISH.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_HISTORY.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
 ]);
 
 export function archiveSubjectsForScope(scope: string) {
@@ -475,6 +499,10 @@ export function archiveSubjectsForScope(scope: string) {
       return [...ARCHIVE_SUBJECTS_PUBLIC_SERVICE];
     case "social_worker":
       return [...ARCHIVE_SUBJECTS_SOCIAL_WORKER];
+    case "english":
+      return [...ARCHIVE_SUBJECTS_ENGLISH];
+    case "history":
+      return [...ARCHIVE_SUBJECTS_HISTORY];
     default:
       return [...ARCHIVE_SUBJECTS];
   }
@@ -490,6 +518,10 @@ export function defaultArchiveSubject(scope: string) {
       return "hangjunghak";
     case "social_worker":
       return "human-behavior";
+    case "english":
+      return "english";
+    case "history":
+      return "advanced";
     default:
       return "realestate";
   }

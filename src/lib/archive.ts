@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import type { SortOption } from "@/lib/constants";
+import { archiveTracksForScope } from "@/lib/archive-filters";
 import type { CommunityScope, PaginatedResult, Post, ArchiveListItem } from "@/types/database";
 
 const emptyPaginated = (page: number): PaginatedResult<ArchiveListItem> => ({
@@ -18,6 +19,12 @@ interface GetArchiveOptions {
   sort?: SortOption;
   resourceType?: string;
   subject?: string;
+  /** 연도 (예: 2025) — 제목 `YYYY년` 매칭 */
+  year?: string;
+  /** 한국사 회차 (예: 79) — 제목 `N회` 매칭 */
+  round?: string;
+  /** 직렬·차수·교시 등 (archiveTracksForScope value) */
+  track?: string;
   scope?: CommunityScope;
 }
 
@@ -27,6 +34,9 @@ export async function getArchivePosts({
   sort = "latest",
   resourceType = "all",
   subject = "all",
+  year = "",
+  round = "",
+  track = "all",
   scope = "real_estate",
 }: GetArchiveOptions = {}): Promise<PaginatedResult<ArchiveListItem>> {
   if (!isSupabaseConfigured()) {
@@ -50,8 +60,38 @@ export async function getArchivePosts({
     query = query.eq("resource_type", resourceType);
   }
 
-  if (subject !== "all") {
+  const trackGroup = archiveTracksForScope(scope);
+  const trackOpt =
+    track !== "all" && trackGroup
+      ? trackGroup.options.find((o) => o.value === track)
+      : undefined;
+
+  // 공무원 직렬: subjectIds로 과목 묶음 필터. 개별 과목과 함께면 교집합.
+  if (trackOpt?.subjectIds?.length) {
+    if (subject !== "all") {
+      if (trackOpt.subjectIds.includes(subject)) {
+        query = query.eq("subject", subject);
+      } else {
+        // 직렬에 없는 과목 → 결과 없음
+        query = query.eq("id", "00000000-0000-0000-0000-000000000000");
+      }
+    } else {
+      query = query.in("subject", trackOpt.subjectIds);
+    }
+  } else if (subject !== "all") {
     query = query.eq("subject", subject);
+  }
+
+  if (year && /^\d{4}$/.test(year)) {
+    query = query.ilike("title", `%${year}년%`);
+  }
+
+  if (round && /^\d{1,3}$/.test(round)) {
+    query = query.ilike("title", `%${round}회%`);
+  }
+
+  if (trackOpt?.titleMatch) {
+    query = query.ilike("title", `%${trackOpt.titleMatch}%`);
   }
 
   if (search.trim()) {

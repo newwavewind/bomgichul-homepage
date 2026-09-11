@@ -31,6 +31,9 @@ interface ArchivePageProps {
     sort?: string;
     type?: string;
     subject?: string;
+    year?: string;
+    round?: string;
+    track?: string;
   }>;
 }
 
@@ -77,6 +80,9 @@ export async function ArchiveBoard({
   const sort = (params.sort as SortOption) || "latest";
   const resourceType = params.type ?? "all";
   const requestedSubject = params.subject ?? "all";
+  const year = params.year?.trim() ?? "";
+  const round = params.round?.trim() ?? "";
+  const track = params.track ?? "all";
   const baseHref = archiveBaseHref(scope);
   const subjects = archiveSubjectsForScope(scope);
   const subject = subjects.some((option) => option.value === requestedSubject)
@@ -89,6 +95,9 @@ export async function ArchiveBoard({
     sort,
     resourceType,
     subject,
+    year,
+    round,
+    track,
     scope,
   });
   const authorActivity = await getUserActivityScores(posts.map((post) => post.author_id));
@@ -101,7 +110,7 @@ export async function ArchiveBoard({
             <EyebrowLabel className="mb-2">{archiveEyebrow(scope)}</EyebrowLabel>
             <SectionHeading as="h1">{archiveTitle(scope)}</SectionHeading>
             <p className="mt-2 font-display text-body-sm text-smoke">
-              기출, 노트, 요약 자료를 올리고 다운로드하세요 · 총 {total}개
+              연도 · 과목 · 직렬(차수)로 찾아보세요 · 총 {total}개
             </p>
           </div>
           <PrimaryButton href={`${baseHref}/new`}>자료 올리기</PrimaryButton>
@@ -138,7 +147,7 @@ export async function ArchiveBoard({
               <div className="h-10 w-full max-w-xl animate-pulse rounded-[var(--radius-buttons)] bg-surface" aria-hidden />
             }
           >
-            <ArchiveFilters subjects={subjects} />
+            <ArchiveFilters subjects={subjects} scope={scope} />
           </Suspense>
         </div>
 
@@ -146,7 +155,9 @@ export async function ArchiveBoard({
           {posts.length === 0 ? (
             <div className="px-6 py-20 text-center">
               <p className="mb-2 font-display text-body text-smoke">
-                {search ? "검색 결과가 없어요" : "아직 등록된 자료가 없어요"}
+                {search || year || round || track !== "all" || subject !== "all"
+                  ? "조건에 맞는 자료가 없어요"
+                  : "아직 등록된 자료가 없어요"}
               </p>
               <p className="mb-6 font-display text-body-sm text-fog">
                 기출 PDF, 노트, 요약 자료를 첫 번째로 올려보세요!
@@ -172,6 +183,9 @@ export async function ArchiveBoard({
           sort={sort}
           type={resourceType}
           subject={subject}
+          year={year}
+          round={round}
+          track={track}
           baseHref={baseHref}
         />
       </div>

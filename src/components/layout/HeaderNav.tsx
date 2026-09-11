@@ -76,6 +76,27 @@ function AccountCluster({
   compact?: boolean;
   authPending?: boolean;
 }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onPointerDown = (event: MouseEvent) => {
+      if (!menuRef.current?.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen]);
+
   if (!user) {
     if (authPending) {
       // 로그인해 둔 사람의 첫 그림 — 알림·프로필 자리 스켈레톤으로 「무료로 시작」 깜빡임을 막는다.
@@ -104,6 +125,8 @@ function AccountCluster({
     );
   }
 
+  const profileHref = user.usernameSet ? "/profile" : "/onboarding";
+
   return (
     <div className={`flex items-center ${compact ? "gap-1" : "gap-1.5"}`}>
       {user.isAdmin ? (
@@ -126,17 +149,46 @@ function AccountCluster({
           </span>
         ) : null}
       </Link>
-      <Link
-        href={user.usernameSet ? "/profile" : "/onboarding"}
-        className="flex min-h-11 max-w-[7.5rem] items-center gap-1 truncate rounded-full bg-white/80 px-3 font-display text-[13px] font-medium text-ink shadow-[inset_0_0_0_1px_rgba(15,23,42,0.06)] hover:bg-white"
-      >
-        <span className="truncate">
-          {user.usernameSet ? user.nickname : "아이디"}
-        </span>
-        {user.usernameSet && user.oceanRank ? (
-          <OceanRankBadge rank={user.oceanRank} variant="icon" />
+      <div className="relative" ref={menuRef}>
+        <button
+          type="button"
+          className="flex min-h-11 max-w-[7.5rem] items-center gap-1 truncate rounded-full bg-white/80 px-3 font-display text-[13px] font-medium text-ink shadow-[inset_0_0_0_1px_rgba(15,23,42,0.06)] hover:bg-white"
+          aria-expanded={menuOpen}
+          aria-haspopup="menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className="truncate">
+            {user.usernameSet ? user.nickname : "아이디"}
+          </span>
+          {user.usernameSet && user.oceanRank ? (
+            <OceanRankBadge rank={user.oceanRank} variant="icon" />
+          ) : null}
+        </button>
+        {menuOpen ? (
+          <div
+            role="menu"
+            className="absolute right-0 z-50 mt-2 w-40 overflow-hidden rounded-2xl border border-slate-200/80 bg-white py-1 shadow-[0_12px_32px_rgba(15,23,42,0.12)]"
+          >
+            <Link
+              href={profileHref}
+              role="menuitem"
+              className="block px-3.5 py-2.5 font-display text-[13px] font-medium text-ink hover:bg-slate-50"
+              onClick={() => setMenuOpen(false)}
+            >
+              {user.usernameSet ? "내 프로필" : "아이디 설정"}
+            </Link>
+            <form action="/auth/signout" method="post">
+              <button
+                type="submit"
+                role="menuitem"
+                className="w-full px-3.5 py-2.5 text-left font-display text-[13px] font-medium text-slate-500 hover:bg-slate-50"
+              >
+                로그아웃
+              </button>
+            </form>
+          </div>
         ) : null}
-      </Link>
+      </div>
     </div>
   );
 }

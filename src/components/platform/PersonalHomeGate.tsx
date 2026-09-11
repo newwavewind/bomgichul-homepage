@@ -5,7 +5,7 @@ import { PersonalStudyHome } from "@/components/platform/PersonalStudyHome";
 import type { PersonalHomeData } from "@/lib/personal-home";
 import { fetchMe, useSignedInHint } from "@/lib/client-session";
 
-/** 로그인 힌트가 있을 때 /api/me·personal-home 응답까지 자리·형태를 유지 */
+/** 로그인 힌트가 있을 때 personal-home 응답까지 자리·형태를 유지 */
 function PersonalHomeSkeleton() {
   return (
     <section
@@ -36,13 +36,10 @@ function PersonalHomeSkeleton() {
 }
 
 /**
- * 홈 첫 블록의 갈림(개인 학습 현황 ↔ 손님 환영판)을 클라이언트로 옮긴 문.
+ * 홈 첫 블록의 갈림(개인 학습 현황 ↔ 손님 환영판).
  *
- * 홈이 서버에서 getUser() 를 부르면 첫 페이지 전체가 동적 렌더로 떨어진다 —
- * 정작 「봄기출」 검색으로 들어올 방문자에게 가장 빨라야 할 페이지가 가장
- * 느렸다. 손님판(guest)은 서버가 정적으로 만들어 프롭으로 넘겨주므로
- * 방문자(대다수)는 첫 그림부터 완성본을 본다. 로그인 흔적이 있는 사람에게만
- * 스켈레톤으로 자리를 지켜, 손님 환영판이 깜빡였다 바뀌는 것을 막는다.
+ * 손님판은 서버가 정적으로 넘겨 방문자 첫 그림이 빠르다.
+ * 로그인 사용자는 /api/me 를 기다리지 않고 /api/personal-home 한 번만 친다.
  */
 export function PersonalHomeGate({ guest }: { guest: ReactNode }) {
   const [state, setState] = useState<
@@ -54,13 +51,12 @@ export function PersonalHomeGate({ guest }: { guest: ReactNode }) {
 
   useEffect(() => {
     let alive = true;
-    void fetchMe().then(async (me) => {
-      if (!me.user) {
-        if (alive) setState({ status: "guest" });
-        return;
-      }
-      try {
-        const res = await fetch("/api/personal-home", { cache: "no-store" });
+
+    // 헤더 등과 세션 공유 — 학습 홈 표시는 막지 않음
+    void fetchMe();
+
+    void fetch("/api/personal-home", { cache: "no-store" })
+      .then(async (res) => {
         const body = (await res.json()) as {
           nickname: string | null;
           data: PersonalHomeData | null;
@@ -71,10 +67,11 @@ export function PersonalHomeGate({ guest }: { guest: ReactNode }) {
         } else {
           setState({ status: "guest" });
         }
-      } catch {
+      })
+      .catch(() => {
         if (alive) setState({ status: "guest" });
-      }
-    });
+      });
+
     return () => {
       alive = false;
     };

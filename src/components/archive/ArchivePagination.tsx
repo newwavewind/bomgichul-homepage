@@ -7,6 +7,9 @@ interface ArchivePaginationProps {
   sort?: string;
   type?: string;
   subject?: string;
+  year?: string;
+  round?: string;
+  track?: string;
   baseHref?: string;
 }
 
@@ -17,6 +20,9 @@ export function ArchivePagination({
   sort,
   type,
   subject,
+  year,
+  round,
+  track,
   baseHref = "/archive",
 }: ArchivePaginationProps) {
   if (totalPages <= 1) return null;
@@ -28,6 +34,9 @@ export function ArchivePagination({
     if (sort && sort !== "latest") params.set("sort", sort);
     if (type && type !== "all") params.set("type", type);
     if (subject && subject !== "all") params.set("subject", subject);
+    if (year) params.set("year", year);
+    if (round) params.set("round", round);
+    if (track && track !== "all") params.set("track", track);
     const qs = params.toString();
     return `${baseHref}${qs ? `?${qs}` : ""}`;
   };
