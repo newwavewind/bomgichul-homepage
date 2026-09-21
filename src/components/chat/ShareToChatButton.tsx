@@ -4,16 +4,27 @@ import { useCallback } from "react";
 
 export const CHAT_SHARE_STORAGE_KEY = "bomgichul.chatShare";
 
-export type ChatShareDraft = {
-  mode: "exam" | "wrong";
-  examId: string;
-  subject?: string;
-  year?: string | number;
-  questionNo?: string | number;
-  stem: string;
-  myPick?: string;
-  correctLabel?: string;
-};
+export type ChatShareDraft =
+  | {
+      mode: "exam" | "wrong";
+      examId: string;
+      subject?: string;
+      year?: string | number;
+      questionNo?: string | number;
+      stem: string;
+      myPick?: string;
+      correctLabel?: string;
+    }
+  | {
+      mode: "mock_result";
+      subject: string;
+      subjectLabel?: string;
+      year: string | number;
+      total: number;
+      correct: number;
+      elapsedSec?: number;
+      href?: string;
+    };
 
 export function writeChatShareDraft(draft: ChatShareDraft) {
   try {

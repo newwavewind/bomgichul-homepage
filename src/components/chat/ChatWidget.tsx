@@ -794,6 +794,20 @@ export function ChatWidget({
     setOpen(true);
     const draft = peekChatShareDraft();
     if (!draft) return;
+    if (draft.mode === "mock_result") {
+      try {
+        sessionStorage.setItem(
+          "bomgichul.pendingMockResult",
+          JSON.stringify(draft),
+        );
+      } catch {
+        /* ignore */
+      }
+      clearChatShareDraft();
+      setView("list");
+      notify("대화를 고른 뒤 모의고사 결과가 전송돼요.", "info");
+      return;
+    }
     setShareMode(draft.mode);
     setShareExamId(draft.examId);
     setShareStem(draft.stem);
@@ -1292,8 +1306,49 @@ export function ChatWidget({
       setPinnedListOpen(false);
       await loadMessages(conversation.id);
       void loadPinnedList(conversation.id);
+      try {
+        const raw = sessionStorage.getItem("bomgichul.pendingMockResult");
+        if (raw) {
+          sessionStorage.removeItem("bomgichul.pendingMockResult");
+          const result = JSON.parse(raw) as {
+            subject: string;
+            subjectLabel?: string;
+            year: string | number;
+            total: number;
+            correct: number;
+            elapsedSec?: number;
+            href?: string;
+          };
+          const { error: insertError } = await createClient()
+            .from("dm_messages")
+            .insert({
+              conversation_id: conversation.id,
+              sender_id: user.id,
+              content: `모의고사 결과 ${result.correct}/${result.total}`,
+              message_kind: "mock_result",
+              payload: {
+                subject: result.subject,
+                subjectLabel: result.subjectLabel,
+                year: result.year,
+                total: result.total,
+                correct: result.correct,
+                elapsedSec: result.elapsedSec,
+                href: result.href,
+              },
+              published_at: new Date().toISOString(),
+              mention_user_ids: [],
+            });
+          if (insertError) notify(insertError.message, "error");
+          else {
+            notify("모의고사 결과를 공유했어요.", "success");
+            await loadMessages(conversation.id);
+          }
+        }
+      } catch {
+        /* ignore */
+      }
     },
-    [loadMessages, loadPinnedList],
+    [loadMessages, loadPinnedList, user.id],
   );
 
   const startDirectChat = useCallback(

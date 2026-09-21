@@ -45,6 +45,8 @@ begin
 end;
 $$;
 
+drop function if exists public.list_topic_rooms();
+
 create or replace function public.list_topic_rooms()
 returns table (
   id uuid,

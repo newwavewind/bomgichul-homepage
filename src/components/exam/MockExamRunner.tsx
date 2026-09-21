@@ -324,9 +324,33 @@ export function MockExamRunner({
             소요 시간 {formatElapsed(elapsed)}
             {sessionSaved && " · 기록 저장됨"}
           </p>
-          <div className="mt-4 flex justify-center gap-3">
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
             <PrimaryButton onClick={handleRestart}>다시 풀기</PrimaryButton>
             <OutlineButton href={`/exam/${subject}/${year}`}>문항 목록으로</OutlineButton>
+            <button
+              type="button"
+              onClick={() => {
+                writeChatShareDraft({
+                  mode: "mock_result",
+                  subject,
+                  subjectLabel:
+                    ARCHIVE_SUBJECT_MAP[subject as keyof typeof ARCHIVE_SUBJECT_MAP] ??
+                    subject,
+                  year,
+                  total,
+                  correct: correctCount,
+                  elapsedSec: elapsed,
+                  href: `/exam/${subject}/${year}/mock`,
+                });
+                window.dispatchEvent(new CustomEvent("bomgichul:open-chat"));
+                const url = new URL(window.location.href);
+                url.searchParams.set("chat", "1");
+                window.history.replaceState({}, "", `${url.pathname}${url.search}`);
+              }}
+              className="rounded-full border border-[#007AFF]/30 bg-[#007AFF]/10 px-4 py-2 font-display text-[13px] font-semibold text-[#0066D6]"
+            >
+              채팅에 결과 공유
+            </button>
           </div>
         </div>
       )}
