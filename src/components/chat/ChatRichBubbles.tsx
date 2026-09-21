@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import type {
   ExamCardPayload,
   WrongSharePayload,
@@ -15,16 +16,38 @@ function metaLine(parts: Array<string | number | undefined | null>) {
   return parts.filter(Boolean).join(" · ");
 }
 
+function ViewRibbon({ count }: { count: number }) {
+  if (count <= 0) return null;
+  return (
+    <p className="mt-2 inline-flex items-center gap-1 rounded-full bg-[#007AFF]/10 px-2 py-0.5 text-[10px] font-semibold text-[#0066D6]">
+      <span aria-hidden>👁</span>
+      {count}명 열람
+    </p>
+  );
+}
+
 export function ExamCardBubble({
   payload,
   mine,
+  viewCount = 0,
+  onRecordView,
 }: {
   payload: ExamCardPayload;
   mine?: boolean;
+  viewCount?: number;
+  onRecordView?: () => void;
 }) {
   const href =
     payload.href ||
     examHref(payload.subject, payload.year, payload.questionNo);
+  const seenRef = useRef(false);
+
+  useEffect(() => {
+    if (seenRef.current || !onRecordView) return;
+    seenRef.current = true;
+    onRecordView();
+  }, [onRecordView]);
+
   const body = (
     <>
       <p className="text-[10px] font-semibold uppercase tracking-wide text-[#0066D6]">
@@ -48,6 +71,7 @@ export function ExamCardBubble({
           해설 보기 →
         </p>
       ) : null}
+      <ViewRibbon count={viewCount} />
     </>
   );
   const className = `max-w-[85%] rounded-2xl border px-3 py-2.5 transition ${
@@ -57,7 +81,11 @@ export function ExamCardBubble({
   } ${href ? "hover:border-[#007AFF]/50" : ""}`;
   if (href) {
     return (
-      <Link href={href} className={`block ${className}`}>
+      <Link
+        href={href}
+        className={`block ${className}`}
+        onClick={() => onRecordView?.()}
+      >
         {body}
       </Link>
     );
@@ -68,14 +96,26 @@ export function ExamCardBubble({
 export function WrongShareBubble({
   payload,
   mine,
+  viewCount = 0,
+  onRecordView,
 }: {
   payload: WrongSharePayload;
   mine?: boolean;
+  viewCount?: number;
+  onRecordView?: () => void;
 }) {
   const href =
     payload.href ||
     examHref(payload.subject, payload.year, payload.questionNo);
   const items = payload.items?.length ? payload.items : null;
+  const seenRef = useRef(false);
+
+  useEffect(() => {
+    if (seenRef.current || !onRecordView) return;
+    seenRef.current = true;
+    onRecordView();
+  }, [onRecordView]);
+
   return (
     <div
       className={`max-w-[90%] rounded-2xl border px-3 py-2.5 ${
@@ -105,7 +145,11 @@ export function WrongShareBubble({
             return (
               <li key={item.examId} className="rounded-xl bg-white/70 p-2">
                 {itemHref ? (
-                  <Link href={itemHref} className="block hover:opacity-90">
+                  <Link
+                    href={itemHref}
+                    className="block hover:opacity-90"
+                    onClick={() => onRecordView?.()}
+                  >
                     {row}
                   </Link>
                 ) : (
@@ -143,12 +187,14 @@ export function WrongShareBubble({
             <Link
               href={href}
               className="mt-2 inline-block text-[11px] font-semibold text-[#0066D6]"
+              onClick={() => onRecordView?.()}
             >
               해설 보기 →
             </Link>
           ) : null}
         </>
       )}
+      <ViewRibbon count={viewCount} />
     </div>
   );
 }

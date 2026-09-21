@@ -202,6 +202,7 @@ export interface DmMessage {
   deleted_at: string | null;
   reply_to?: Pick<DmMessage, "id" | "content" | "sender_id"> | null;
   reactions: DmReaction[];
+  views?: DmMessageView[];
   message_kind?: DmMessageKind;
   payload?: Record<string, unknown>;
   scheduled_for?: string | null;
@@ -214,7 +215,13 @@ export interface DmMessage {
 export interface DmReaction {
   message_id: string;
   user_id: string;
-  emoji: "👍" | "❤️" | "😂" | "🔥" | "👏" | "😮";
+  emoji: string;
+}
+
+export interface DmMessageView {
+  message_id: string;
+  user_id: string;
+  created_at?: string;
 }
 
 export interface DmAttachment {

@@ -34,6 +34,9 @@ import {
   extractMentionUserIds,
   messageMatchesKeywords,
   TOPIC_TEASERS,
+  STUDY_STICKERS,
+  SOCIAL_REACTIONS,
+  stickerLabel,
   type ExamCardPayload,
   type WrongSharePayload,
   type TimerPayload,
@@ -94,7 +97,7 @@ const VIDEO_TYPES = new Set(["video/mp4", "video/webm", "video/quicktime"]);
 const MAX_FILE_BYTES = 30 * 1024 * 1024;
 const IMAGE_OPTIMIZE_THRESHOLD = 2 * 1024 * 1024;
 const IMAGE_MAX_EDGE = 2560;
-const REACTIONS = ["👍", "❤️", "😂", "🔥", "👏", "😮"] as const;
+const REACTIONS = [...STUDY_STICKERS.map((s) => s.emoji), ...SOCIAL_REACTIONS] as const;
 
 async function optimizeChatImage(file: File): Promise<File> {
   if (
@@ -181,6 +184,7 @@ function MessageBubble({
   onPollVote,
   onPin,
   onOpenThread,
+  onRecordView,
 }: {
   message: DmMessage;
   isMine: boolean;
@@ -196,8 +200,11 @@ function MessageBubble({
   onPollVote?: (key: string) => void;
   onPin?: () => void;
   onOpenThread?: () => void;
+  onRecordView?: () => void;
 }) {
   const [actionsOpen, setActionsOpen] = useState(false);
+  const [stickerOpen, setStickerOpen] = useState(false);
+  const viewCount = message.views?.length ?? 0;
   const actionMenuRef = useRef<HTMLDivElement>(null);
   const grouped = Object.entries(
     message.reactions.reduce<Record<string, number>>(
@@ -210,17 +217,18 @@ function MessageBubble({
   );
 
   useEffect(() => {
-    if (!actionsOpen) return;
+    if (!actionsOpen && !stickerOpen) return;
 
     const closeOnOutsidePress = (event: PointerEvent) => {
       if (!actionMenuRef.current?.contains(event.target as Node)) {
         setActionsOpen(false);
+        setStickerOpen(false);
       }
     };
 
     document.addEventListener("pointerdown", closeOnOutsidePress);
     return () => document.removeEventListener("pointerdown", closeOnOutsidePress);
-  }, [actionsOpen]);
+  }, [actionsOpen, stickerOpen]);
 
   const runAction = (action: () => void) => {
     setActionsOpen(false);
@@ -250,12 +258,22 @@ function MessageBubble({
         ) : null}
         {!message.deleted_at && message.message_kind === "exam_card" && message.payload ? (
           <div className="p-2">
-            <ExamCardBubble payload={message.payload as unknown as ExamCardPayload} mine={isMine} />
+            <ExamCardBubble
+              payload={message.payload as unknown as ExamCardPayload}
+              mine={isMine}
+              viewCount={viewCount}
+              onRecordView={onRecordView}
+            />
           </div>
         ) : null}
         {!message.deleted_at && message.message_kind === "wrong_share" && message.payload ? (
           <div className="p-2">
-            <WrongShareBubble payload={message.payload as unknown as WrongSharePayload} mine={isMine} />
+            <WrongShareBubble
+              payload={message.payload as unknown as WrongSharePayload}
+              mine={isMine}
+              viewCount={viewCount}
+              onRecordView={onRecordView}
+            />
           </div>
         ) : null}
         {!message.deleted_at && message.message_kind === "timer" && message.payload ? (
@@ -401,15 +419,21 @@ function MessageBubble({
           ) : null}
           {grouped.length ? (
             <div className="mt-1.5 flex flex-wrap gap-1">
-              {grouped.map(([emoji, count]) => (
-                <button
-                  key={emoji}
-                  onClick={() => onReact(emoji)}
-                  className="rounded-full bg-white/20 px-1.5 py-0.5 text-[10px]"
-                >
-                  {emoji} {count}
-                </button>
-              ))}
+              {grouped.map(([emoji, count]) => {
+                const label = stickerLabel(emoji);
+                return (
+                  <button
+                    key={emoji}
+                    type="button"
+                    onClick={() => onReact(emoji)}
+                    className="rounded-full bg-white/70 px-1.5 py-0.5 text-[10px] font-semibold text-ink ring-1 ring-mist"
+                    title={label ?? emoji}
+                  >
+                    {emoji}
+                    {label ? ` ${label}` : ""} {count}
+                  </button>
+                );
+              })}
             </div>
           ) : null}
         </div>
@@ -457,17 +481,28 @@ function MessageBubble({
                   📌
                 </button>
               ) : null}
-              {REACTIONS.slice(0, 3).map((emoji) => (
+              {STUDY_STICKERS.slice(0, 3).map((sticker) => (
                 <button
                   type="button"
-                  key={emoji}
-                  onClick={() => runAction(() => onReact(emoji))}
+                  key={sticker.emoji}
+                  onClick={() => runAction(() => onReact(sticker.emoji))}
                   className="rounded-full px-1.5 py-1 text-xs hover:bg-ice"
-                  aria-label={`${emoji} 반응 남기기`}
+                  aria-label={`${sticker.label} 스티커`}
+                  title={sticker.label}
                 >
-                  {emoji}
+                  {sticker.emoji}
                 </button>
               ))}
+              <button
+                type="button"
+                onClick={() => {
+                  setStickerOpen(true);
+                  setActionsOpen(false);
+                }}
+                className="rounded-full px-2 py-1 text-[11px] font-semibold text-[#0066D6] hover:bg-[#007AFF]/10"
+              >
+                스티커
+              </button>
               {!isMine ? (
                 <button
                   type="button"
@@ -495,6 +530,47 @@ function MessageBubble({
                   </button>
                 </>
               ) : null}
+            </div>
+          ) : null}
+          {stickerOpen ? (
+            <div
+              className={`absolute bottom-9 z-50 w-[220px] rounded-2xl border border-mist bg-white p-2 shadow-xl ${isMine ? "left-0" : "right-0"}`}
+            >
+              <p className="mb-1.5 px-1 text-[10px] font-semibold text-fog">학습 스티커</p>
+              <div className="grid grid-cols-3 gap-1">
+                {STUDY_STICKERS.map((sticker) => (
+                  <button
+                    key={sticker.emoji}
+                    type="button"
+                    onClick={() => {
+                      setStickerOpen(false);
+                      onReact(sticker.emoji);
+                    }}
+                    className="flex flex-col items-center rounded-xl px-1 py-2 hover:bg-[#007AFF]/8"
+                  >
+                    <span className="text-lg">{sticker.emoji}</span>
+                    <span className="mt-0.5 text-[10px] font-semibold text-smoke">
+                      {sticker.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <p className="mb-1 mt-2 px-1 text-[10px] font-semibold text-fog">일반</p>
+              <div className="flex flex-wrap gap-1">
+                {SOCIAL_REACTIONS.map((emoji) => (
+                  <button
+                    key={emoji}
+                    type="button"
+                    onClick={() => {
+                      setStickerOpen(false);
+                      onReact(emoji);
+                    }}
+                    className="rounded-full px-2 py-1 text-sm hover:bg-ice"
+                  >
+                    {emoji}
+                  </button>
+                ))}
+              </div>
             </div>
           ) : null}
         </div>
@@ -858,7 +934,7 @@ export function ChatWidget({
       let { data, error: fetchError } = await supabase
         .from("dm_messages")
         .select(
-          "id,conversation_id,sender_id,content,reply_to_id,thread_root_id,edited_at,deleted_at,created_at,message_kind,payload,scheduled_for,published_at,mention_user_ids,profiles:sender_id(nickname,avatar_url),dm_message_attachments(*),dm_message_reactions(*)",
+          "id,conversation_id,sender_id,content,reply_to_id,thread_root_id,edited_at,deleted_at,created_at,message_kind,payload,scheduled_for,published_at,mention_user_ids,profiles:sender_id(nickname,avatar_url),dm_message_attachments(*),dm_message_reactions(*),dm_message_views(user_id,created_at)",
         )
         .eq("conversation_id", conversationId)
         .order("created_at", { ascending: true })
@@ -877,6 +953,7 @@ export function ChatWidget({
             ...row,
             dm_message_attachments: [],
             dm_message_reactions: [],
+            dm_message_views: [],
             reply_to_id: null,
             edited_at: null,
             deleted_at: null,
@@ -914,6 +991,17 @@ export function ChatWidget({
           },
           attachments: (row.dm_message_attachments ?? []) as DmAttachment[],
           reactions: row.dm_message_reactions ?? [],
+          views: (
+            (
+              row as unknown as {
+                dm_message_views?: Array<{ user_id: string; created_at?: string }>;
+              }
+            ).dm_message_views ?? []
+          ).map((v) => ({
+            message_id: row.id as string,
+            user_id: v.user_id,
+            created_at: v.created_at,
+          })),
           message_kind: (row as { message_kind?: DmMessage["message_kind"] }).message_kind ?? "text",
           payload: ((row as { payload?: Record<string, unknown> }).payload ?? {}) as Record<string, unknown>,
           scheduled_for: (row as { scheduled_for?: string | null }).scheduled_for ?? null,
@@ -1127,16 +1215,6 @@ export function ChatWidget({
     setSheet(null);
     if (reportError) notify(reportError.message, "error");
     else notify("신고가 접수됐어요.", "success");
-  };
-
-  const blockUser = async (targetId: string) => {
-    if (!window.confirm("이 사용자를 차단할까요?")) return;
-    const { error: blockError } = await createClient().from("user_blocks").insert({
-      blocker_id: user.id,
-      blocked_id: targetId,
-    });
-    if (blockError) setError(blockError.message);
-    else notify("차단했어요.", "success");
   };
 
   const loadBookmarks = async () => {
@@ -1662,6 +1740,36 @@ export function ChatWidget({
         .from("dm_message_reactions")
         .insert({ message_id: message.id, user_id: user.id, emoji });
     if (activeConversation) await loadMessages(activeConversation.id);
+  };
+
+  const recordMessageView = async (message: DmMessage) => {
+    if (
+      message.message_kind !== "exam_card" &&
+      message.message_kind !== "wrong_share"
+    )
+      return;
+    if (message.views?.some((v) => v.user_id === user.id)) return;
+    const { data: count, error: viewError } = await createClient().rpc(
+      "record_dm_message_view",
+      { p_message_id: message.id },
+    );
+    if (viewError) return;
+    setMessages((items) =>
+      items.map((item) => {
+        if (item.id !== message.id) return item;
+        const already = item.views?.some((v) => v.user_id === user.id);
+        if (already) return item;
+        const nextViews = [
+          ...(item.views ?? []),
+          { message_id: item.id, user_id: user.id },
+        ];
+        // keep length in sync with rpc count when available
+        if (typeof count === "number" && nextViews.length < count) {
+          return { ...item, views: nextViews };
+        }
+        return { ...item, views: nextViews };
+      }),
+    );
   };
 
   const editMessage = async (message: DmMessage) => {
@@ -2712,15 +2820,6 @@ export function ChatWidget({
                     <small className="rounded-full bg-surface px-2 py-1">
                       {member.role}
                     </small>
-                    {member.id !== user.id ? (
-                      <button
-                        type="button"
-                        onClick={() => void blockUser(member.id)}
-                        className="text-[10px] text-fog"
-                      >
-                        차단
-                      </button>
-                    ) : null}
                     {member.id !== user.id && member.role !== "owner" ? (
                       <button
                         onClick={() => void manageGroup("remove", member.id)}
@@ -2937,6 +3036,7 @@ export function ChatWidget({
                         setThreadRoot(message);
                         setView("thread-detail");
                       }}
+                      onRecordView={() => void recordMessageView(message)}
                     />
                   ))
                 ) : (

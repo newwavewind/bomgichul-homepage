@@ -73,6 +73,27 @@ export type CheckinPayload = {
   day?: string;
 };
 
+/** 학습 스티커 (인스타형 리액션 팩) */
+export const STUDY_STICKERS = [
+  { emoji: "⭕", label: "맞음" },
+  { emoji: "❌", label: "틀림" },
+  { emoji: "⚠️", label: "함정" },
+  { emoji: "📌", label: "암기" },
+  { emoji: "💡", label: "이해" },
+  { emoji: "🔄", label: "복습" },
+] as const;
+
+export const SOCIAL_REACTIONS = ["👍", "❤️", "😂", "🔥", "👏", "😮"] as const;
+
+export const ALL_CHAT_REACTIONS = [
+  ...STUDY_STICKERS.map((s) => s.emoji),
+  ...SOCIAL_REACTIONS,
+] as const;
+
+export function stickerLabel(emoji: string): string | null {
+  return STUDY_STICKERS.find((s) => s.emoji === emoji)?.label ?? null;
+}
+
 export const TOPIC_TEASERS = [
   { key: "official", label: "공식 공지", blurb: "운영 공지·업데이트" },
   { key: "civil-law", label: "민법", blurb: "조문·판례 질문 바로" },
