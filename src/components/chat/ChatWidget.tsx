@@ -4496,25 +4496,16 @@ export function ChatWidget({
                 <div className="flex items-end gap-2">
                   <button
                     type="button"
-                    onClick={() => setPlusOpen(true)}
+                    onClick={() =>
+                      recording ? stopVoice() : setPlusOpen(true)
+                    }
                     disabled={sending || preparingFiles || channelPostBlocked}
-                    className="chat-hit chat-focus flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#007AFF] text-xl text-white shadow-md"
-                    aria-label="보내기 메뉴"
-                  >
-                    ＋
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => (recording ? stopVoice() : void startVoice())}
-                    disabled={sending || preparingFiles || channelPostBlocked}
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-lg shadow-md ${
-                      recording
-                        ? "bg-rose-500 text-white"
-                        : "bg-white text-[#0066D6] ring-1 ring-[#007AFF]/30"
+                    className={`chat-hit chat-focus flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xl text-white shadow-md ${
+                      recording ? "bg-rose-500" : "bg-[#007AFF]"
                     }`}
-                    aria-label={recording ? "녹음 중지" : "음성 메시지"}
+                    aria-label={recording ? "녹음 중지" : "보내기 메뉴"}
                   >
-                    {recording ? "⏹" : "🎙"}
+                    {recording ? "⏹" : "＋"}
                   </button>
                   <input
                     ref={fileInputRef}
@@ -4534,7 +4525,9 @@ export function ChatWidget({
                     placeholder={
                       channelPostBlocked
                         ? "채널은 운영자만 글을 올릴 수 있어요"
-                        : "메시지를 입력하세요"
+                        : recording
+                          ? "녹음 중… ＋를 눌러 중지"
+                          : "메시지를 입력하세요"
                     }
                     disabled={channelPostBlocked}
                     className="max-h-28 min-h-11 min-w-0 flex-1 resize-none rounded-[20px] border border-white bg-white/90 px-4 py-2.5 text-base shadow-inner outline-none focus:ring-2 focus:ring-[#007AFF]/20 disabled:opacity-60 sm:text-[13px]"
@@ -4551,6 +4544,7 @@ export function ChatWidget({
                       sending ||
                       preparingFiles ||
                       channelPostBlocked ||
+                      recording ||
                       (!draft.trim() &&
                         !selectedFiles.length &&
                         shareMode === "none")
@@ -4574,6 +4568,10 @@ export function ChatWidget({
         onPick={(mode) => {
           if (mode === "attach") {
             fileInputRef.current?.click();
+            return;
+          }
+          if (mode === "voice") {
+            void startVoice();
             return;
           }
           if (mode === "mock-mini") {

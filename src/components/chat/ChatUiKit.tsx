@@ -259,12 +259,14 @@ export function ComposerPlusSheet({
       | "mock-mini"
       | "attach"
       | "note"
-      | "live",
+      | "live"
+      | "voice",
   ) => void;
 }) {
   if (!open) return null;
   const items = [
     { key: "attach" as const, label: "사진·파일" },
+    { key: "voice" as const, label: "음성 메시지" },
     { key: "exam" as const, label: "기출 카드" },
     { key: "wrong" as const, label: "오답 공유" },
     { key: "note" as const, label: "노트 카드" },
