@@ -4456,7 +4456,7 @@ const conceptEnhancements = {
     kind: 'implementer-change-board', summary: '시행자 변경사유는 "사업을 실제로 진행하지 못하는 상태"로 한정되며, 단순히 절차 신청이 늦은 것은 포함되지 않는다.',
     reasons: ['실시계획 인가 후 2년 이내 미착수', '행정처분으로 시행자 지정 취소', '행정처분으로 실시계획 인가 취소', '시행자의 부도로 사업목적 달성 곤란'],
     notReason: '실시계획 인가 신청을 늦게 하는 것만으로는 변경사유가 되지 않음',
-    agencies: { allowed: '국가·지방자치단체·한국부동산원·한국수자원공사·지방공사 등', notAllowed: '한국관광공사' },
+    agencies: { allowed: '국가·지방자치단체·한국수자원공사·한국관광공사·지방공사·한국철도공사 등', notAllowed: '한국부동산원' },
     caution: '실시계획 인가 신청이 늦었다는 사실만으로 시행자를 변경할 수 있다고 오해하기 쉽지만, 이는 법정 변경사유에 해당하지 않는다.',
     sources: [
       { label: '도시개발법 제11조', note: '도시개발사업의 시행자', href: 'https://www.law.go.kr/법령/도시개발법/제11조' },
@@ -5060,8 +5060,6 @@ const conceptEnhancements = {
     caution: '제57조(분할 제한)와 제58조(대지 안의 공지)를 맞바꾸기 쉽다. 배제할 수 있는 쪽은 제58조 공지이고, 도로와의 관계(제44조)·분할 제한(제57조)은 특례로도 남는다.',
     sources: [
       { label: '건축법 제73조', note: '특별건축구역 내 건축기준의 적용 특례', href: 'https://www.law.go.kr/법령/건축법/제73조' },
-    ],
-  },
     ],
   },
   'building-dispute-committee': {
