@@ -515,7 +515,34 @@ export function ChatWidget({
   openNonce?: number;
 }) {
   const [open, setOpen] = useState(false);
-  const [view, setView] = useState<View>("list");
+  const [view, setViewRaw] = useState<View>("list");
+  const [viewStack, setViewStack] = useState<View[]>([]);
+  const viewRef = useRef<View>("list");
+  viewRef.current = view;
+  const isRootTab = (v: View) => v === "list" || v === "friends" || v === "online";
+  const setView = (next: View) => {
+    const current = viewRef.current;
+    if (current === next) return;
+    if (isRootTab(current) && isRootTab(next)) {
+      setViewRaw(next);
+      return;
+    }
+    setViewStack((stack) => [...stack, current]);
+    setViewRaw(next);
+  };
+  const goBack = () => {
+    setViewStack((stack) => {
+      if (stack.length === 0) {
+        setViewRaw("list");
+        viewRef.current = "list";
+        return stack;
+      }
+      const prev = stack[stack.length - 1]!;
+      setViewRaw(prev);
+      viewRef.current = prev;
+      return stack.slice(0, -1);
+    });
+  };
   const [conversations, setConversations] = useState(initialConversations);
   const [onlineUsers, setOnlineUsers] = useState<OnlineUser[]>([]);
   const [activeConversation, setActiveConversation] =
@@ -562,7 +589,6 @@ export function ChatWidget({
   const [sharePick, setSharePick] = useState("");
   const [timerMinutes, setTimerMinutes] = useState(25);
   const [pollQuestion, setPollQuestion] = useState("");
-  const [inviteInput, setInviteInput] = useState("");
   const [bookmarkRows, setBookmarkRows] = useState<DmMessage[]>([]);
   const [nowMs, setNowMs] = useState(() => Date.now());
   const [recording, setRecording] = useState(false);
@@ -1111,37 +1137,6 @@ export function ChatWidget({
     });
     if (blockError) setError(blockError.message);
     else notify("차단했어요.", "success");
-  };
-
-  const joinByInvite = async () => {
-    const code = inviteInput.trim();
-    if (!code) return;
-    const { data, error: inviteError } = await createClient().rpc("join_dm_by_invite", {
-      p_invite_code: code,
-    });
-    if (inviteError || !data) {
-      setError(inviteError?.message ?? "초대 코드로 입장할 수 없습니다.");
-      return;
-    }
-    setInviteInput("");
-    await refreshConversations();
-    setView("list");
-    notify("초대 코드로 입장했어요.", "success");
-  };
-
-  const ensureInviteCode = async () => {
-    if (!activeConversation) return;
-    const { data, error: codeError } = await createClient().rpc("ensure_group_invite_code", {
-      p_conversation_id: activeConversation.id,
-    });
-    if (codeError) setError(codeError.message);
-    else {
-      setActiveConversation((current) =>
-        current ? { ...current, inviteCode: data as string } : current,
-      );
-      await navigator.clipboard?.writeText(String(data)).catch(() => undefined);
-      setError(`초대 코드: ${data} (복사됨)`);
-    }
   };
 
   const loadBookmarks = async () => {
@@ -2077,7 +2072,7 @@ export function ChatWidget({
           ) : null}
           <div className="chat-glass-bar flex items-center gap-2 px-4 py-3">
             {view !== "list" && view !== "friends" && view !== "online" ? (
-              <ChatBackButton onClick={() => setView("list")} />
+              <ChatBackButton onClick={goBack} />
             ) : null}
             {view === "thread" ? (
               <Avatar
@@ -2221,23 +2216,6 @@ export function ChatWidget({
                     {label}
                   </button>
                 ))}
-              </div>
-              <div className="border-b border-mist/70 px-3 py-2">
-                <div className="flex gap-2">
-                  <input
-                    value={inviteInput}
-                    onChange={(e) => setInviteInput(e.target.value)}
-                    placeholder="초대 코드로 입장"
-                    className="min-w-0 flex-1 rounded-xl border border-mist px-3 py-2 text-[12px] outline-none focus:border-[#007AFF]"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => void joinByInvite()}
-                    className="rounded-xl bg-carbon px-3 text-[12px] font-semibold text-white"
-                  >
-                    입장
-                  </button>
-                </div>
               </div>
               <div className="flex-1 overflow-y-auto">
                 {visibleConversations.length ? (
@@ -2694,13 +2672,6 @@ export function ChatWidget({
                   >
                     느린 채팅
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => void ensureInviteCode()}
-                    className="rounded-xl bg-[#007AFF]/10 px-3 py-2 text-xs font-semibold text-[#0066D6]"
-                  >
-                    초대 코드
-                  </button>
                   {activeConversation ? (
                     <>
                       <button
@@ -2720,11 +2691,6 @@ export function ChatWidget({
                     </>
                   ) : null}
                 </div>
-                {activeConversation?.inviteCode ? (
-                  <p className="mt-3 text-[12px] text-smoke">
-                    초대 코드: <b>{activeConversation.inviteCode}</b>
-                  </p>
-                ) : null}
               </div>
               <h4 className="mb-2 mt-5 text-xs font-bold text-smoke">
                 참여자 {activeConversation?.members.length}명
