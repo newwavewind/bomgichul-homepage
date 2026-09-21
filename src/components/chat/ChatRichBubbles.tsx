@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type {
   ExamCardPayload,
   WrongSharePayload,
   TimerPayload,
   PollPayload,
   MockInvitePayload,
+  MockResultPayload,
   CheckinPayload,
   ReminderPayload,
   ScheduleSharePayload,
@@ -17,7 +18,6 @@ import { examHref } from "@/lib/chat/features";
 function metaLine(parts: Array<string | number | undefined | null>) {
   return parts.filter(Boolean).join(" · ");
 }
-
 function ViewRibbon({ count }: { count: number }) {
   if (count <= 0) return null;
   return (
@@ -246,6 +246,11 @@ export function PollBubble({
   const closed =
     payload.closed ||
     (dueMs != null && nowMs != null && dueMs <= nowMs);
+  const reveal =
+    Boolean(payload.correctKey) &&
+    (closed ||
+      (payload.revealMode === "on_vote" && Boolean(myVote)) ||
+      (payload.isQuiz && closed));
   const leftLabel =
     dueMs && nowMs && !closed
       ? (() => {
@@ -260,7 +265,9 @@ export function PollBubble({
   return (
     <div className="max-w-[90%] min-w-[200px] rounded-2xl border border-mist bg-white/95 px-3 py-2.5">
       <div className="flex items-center justify-between gap-2">
-        <p className="text-[10px] font-semibold text-[#0066D6]">OX 폴</p>
+        <p className="text-[10px] font-semibold text-[#0066D6]">
+          {payload.isQuiz || payload.correctKey ? "퀴즈 폴" : "OX 폴"}
+        </p>
         {closed ? (
           <span className="rounded-full bg-slate-800 px-2 py-0.5 text-[10px] font-semibold text-white">
             마감
@@ -277,6 +284,7 @@ export function PollBubble({
           const count = tallies[opt.key] ?? 0;
           const pct = total ? Math.round((count / total) * 100) : 0;
           const selected = myVote === opt.key;
+          const isCorrect = reveal && payload.correctKey === opt.key;
           return (
             <button
               key={opt.key}
@@ -284,9 +292,11 @@ export function PollBubble({
               disabled={disabled || closed}
               onClick={() => onVote(opt.key)}
               className={`relative w-full overflow-hidden rounded-xl border px-3 py-2 text-left text-[13px] ${
-                selected
-                  ? "border-[#007AFF] bg-[#007AFF]/10 font-semibold text-[#0066D6]"
-                  : "border-mist bg-ice/60 text-ink"
+                isCorrect
+                  ? "border-[#007AFF] bg-[#007AFF]/15 font-semibold text-[#0066D6]"
+                  : selected
+                    ? "border-[#007AFF] bg-[#007AFF]/10 font-semibold text-[#0066D6]"
+                    : "border-mist bg-ice/60 text-ink"
               } ${closed || disabled ? "opacity-90" : ""}`}
             >
               <span
@@ -294,7 +304,14 @@ export function PollBubble({
                 style={{ width: `${pct}%` }}
               />
               <span className="relative flex justify-between gap-2">
-                <span>{opt.label}</span>
+                <span>
+                  {opt.label}
+                  {isCorrect ? (
+                    <span className="ml-1.5 rounded-full bg-[#007AFF] px-1.5 py-0.5 text-[9px] font-bold text-white">
+                      정답
+                    </span>
+                  ) : null}
+                </span>
                 <span className="tabular-nums text-fog">
                   {count} · {pct}%
                 </span>
@@ -306,6 +323,11 @@ export function PollBubble({
       {closed && total > 0 ? (
         <p className="mt-2 text-[11px] text-fog">총 {total}표</p>
       ) : null}
+      {reveal && payload.correctKey ? (
+        <p className="mt-1.5 text-[11px] font-semibold text-[#0066D6]">
+          정답 · {payload.correctKey}
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -313,14 +335,15 @@ export function PollBubble({
 export function MockInviteBubble({
   payload,
   mine,
+  onOpenMini,
 }: {
   payload: MockInvitePayload;
   mine?: boolean;
+  onOpenMini?: () => void;
 }) {
   return (
-    <Link
-      href={payload.href}
-      className={`block max-w-[85%] rounded-2xl border px-3 py-2.5 transition hover:border-[#007AFF]/50 ${
+    <div
+      className={`max-w-[85%] rounded-2xl border px-3 py-2.5 ${
         mine
           ? "border-[#007AFF]/30 bg-[#007AFF]/10"
           : "border-mist bg-white/90"
@@ -331,8 +354,85 @@ export function MockInviteBubble({
         {payload.label ||
           `${payload.subjectLabel || payload.subject} ${payload.year}년`}
       </p>
-      <p className="mt-1 text-[12px] text-smoke">같은 세션으로 입장해요 →</p>
-    </Link>
+      <div className="mt-2 flex flex-wrap gap-2">
+        {onOpenMini ? (
+          <button
+            type="button"
+            onClick={onOpenMini}
+            className="rounded-full bg-[#007AFF] px-3 py-1 text-[11px] font-semibold text-white"
+          >
+            채팅에서 열기
+          </button>
+        ) : null}
+        <Link
+          href={payload.href}
+          className="rounded-full border border-[#007AFF]/30 px-3 py-1 text-[11px] font-semibold text-[#0066D6]"
+        >
+          전체 화면 →
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+export function MockResultBubble({
+  payload,
+  mine,
+}: {
+  payload: MockResultPayload;
+  mine?: boolean;
+}) {
+  const pct =
+    payload.total > 0 ? Math.round((payload.correct / payload.total) * 100) : 0;
+  const elapsed =
+    payload.elapsedSec != null
+      ? `${Math.floor(payload.elapsedSec / 60)}분 ${payload.elapsedSec % 60}초`
+      : null;
+  return (
+    <div
+      className={`max-w-[85%] rounded-2xl border px-3 py-2.5 ${
+        mine
+          ? "border-[#007AFF]/30 bg-[#007AFF]/10"
+          : "border-mist bg-white/90"
+      }`}
+    >
+      <p className="text-[10px] font-semibold text-[#0066D6]">모의고사 결과</p>
+      <p className="mt-1 font-display text-[13px] font-semibold text-ink">
+        {payload.subjectLabel || payload.subject} {payload.year}년
+      </p>
+      <p className="mt-1 text-[20px] font-bold tabular-nums text-[#0066D6]">
+        {payload.correct}/{payload.total}
+        <span className="ml-1 text-[13px] font-semibold text-smoke">({pct}%)</span>
+      </p>
+      {elapsed ? <p className="mt-0.5 text-[11px] text-fog">소요 {elapsed}</p> : null}
+      {payload.href ? (
+        <Link
+          href={payload.href}
+          className="mt-2 inline-block text-[11px] font-semibold text-[#0066D6]"
+        >
+          다시 풀기 →
+        </Link>
+      ) : null}
+    </div>
+  );
+}
+
+export function SpoilerChip({ text }: { text: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={() => setOpen((v) => !v)}
+      className={`mx-0.5 inline rounded px-1.5 py-0.5 align-baseline text-[12px] font-medium transition ${
+        open
+          ? "bg-[#007AFF]/10 text-ink"
+          : "bg-slate-800 text-transparent select-none"
+      }`}
+      title={open ? "가리기" : "탭해서 보기"}
+      aria-label={open ? "스포일러 가리기" : "스포일러 보기"}
+    >
+      {open ? text : "████"}
+    </button>
   );
 }
 

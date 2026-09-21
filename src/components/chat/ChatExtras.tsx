@@ -39,13 +39,19 @@ export type StudyEventRow = {
 
 export function ChatGlobalSearch({
   onOpenConversation,
+  initialQuery = "",
 }: {
   onOpenConversation: (conversationId: string) => void;
+  initialQuery?: string;
 }) {
-  const [q, setQ] = useState("");
+  const [q, setQ] = useState(initialQuery);
   const [hits, setHits] = useState<SearchHit[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (initialQuery) setQ(initialQuery);
+  }, [initialQuery]);
 
   const run = useCallback(async () => {
     const query = q.trim();

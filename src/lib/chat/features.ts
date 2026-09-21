@@ -11,7 +11,8 @@ export type ChatMessageKind =
   | "mock_invite"
   | "checkin"
   | "schedule_share"
-  | "reminder";
+  | "reminder"
+  | "mock_result";
 
 export type ExamCardPayload = {
   examId: string;
@@ -60,6 +61,10 @@ export type PollPayload = {
   closed?: boolean;
   tallies?: Record<string, number>;
   myVote?: string;
+  /** Quiz mode: correct option key, revealed when closed (or on vote if revealMode=on_vote) */
+  correctKey?: string;
+  revealMode?: "on_close" | "on_vote";
+  isQuiz?: boolean;
 };
 
 export type MockInvitePayload = {
@@ -68,6 +73,16 @@ export type MockInvitePayload = {
   year: number | string;
   href: string;
   label?: string;
+};
+
+export type MockResultPayload = {
+  subject: string;
+  subjectLabel?: string;
+  year: number | string;
+  total: number;
+  correct: number;
+  elapsedSec?: number;
+  href?: string;
 };
 
 export type CheckinPayload = {
@@ -166,4 +181,45 @@ export function formatGoalBadge(done: number, goal: number): string {
 
 export function formatStreakBadge(streak: number): string {
   return streak > 0 ? `${streak}일 연속` : "인증 시작";
+}
+
+/** Tokenize message text for @mentions, #hashtags, and ||spoilers|| */
+export type ChatTextPart =
+  | { type: "text"; value: string }
+  | { type: "mention"; value: string }
+  | { type: "hashtag"; value: string }
+  | { type: "spoiler"; value: string };
+
+export function tokenizeChatText(content: string): ChatTextPart[] {
+  const parts: ChatTextPart[] = [];
+  const re =
+    /(\|\|[\s\S]+?\|\||@[^\s@]{1,24}|#[\w가-힣]{1,40})/g;
+  let last = 0;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(content))) {
+    if (match.index > last) {
+      parts.push({ type: "text", value: content.slice(last, match.index) });
+    }
+    const token = match[0];
+    if (token.startsWith("||") && token.endsWith("||") && token.length > 4) {
+      parts.push({ type: "spoiler", value: token.slice(2, -2) });
+    } else if (token.startsWith("@")) {
+      parts.push({ type: "mention", value: token });
+    } else if (token.startsWith("#")) {
+      parts.push({ type: "hashtag", value: token });
+    } else {
+      parts.push({ type: "text", value: token });
+    }
+    last = match.index + token.length;
+  }
+  if (last < content.length) {
+    parts.push({ type: "text", value: content.slice(last) });
+  }
+  return parts.length ? parts : [{ type: "text", value: content }];
+}
+
+export function parseGichulInlineQuery(draft: string): string | null {
+  const m = draft.match(/^@기출(?:\s+|$)(.*)$/u);
+  if (!m) return null;
+  return (m[1] ?? "").trim();
 }

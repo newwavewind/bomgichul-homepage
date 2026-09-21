@@ -249,7 +249,9 @@ export function ComposerPlusSheet({
 }: {
   open: boolean;
   onClose: () => void;
-  onPick: (mode: "exam" | "wrong" | "timer" | "poll" | "mock" | "attach") => void;
+  onPick: (
+    mode: "exam" | "wrong" | "timer" | "poll" | "mock" | "mock-mini" | "attach",
+  ) => void;
 }) {
   if (!open) return null;
   const items = [
@@ -259,6 +261,7 @@ export function ComposerPlusSheet({
     { key: "timer" as const, label: "타이머" },
     { key: "poll" as const, label: "OX 폴" },
     { key: "mock" as const, label: "모의고사 초대" },
+    { key: "mock-mini" as const, label: "모의 미니" },
   ];
   return (
     <ChatSheet title="보내기" onClose={onClose}>

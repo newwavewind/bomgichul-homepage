@@ -189,7 +189,8 @@ export type DmMessageKind =
   | "mock_invite"
   | "checkin"
   | "schedule_share"
-  | "reminder";
+  | "reminder"
+  | "mock_result";
 
 export interface DmMessage {
   id: string;
@@ -280,6 +281,7 @@ export interface DmConversationPreview {
   slow_mode_seconds?: number;
   study_dday?: string | null;
   study_goal?: string | null;
+  posting_mode?: "open" | "admin_only" | null;
 }
 
 export interface UserChatPrefs {
@@ -299,6 +301,7 @@ export interface TopicRoomRow {
   invite_code: string | null;
   member_count: number;
   joined: boolean;
+  posting_mode?: string | null;
 }
 
 export interface Friendship {

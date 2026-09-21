@@ -20,6 +20,8 @@ import {
   TimerBubble,
   PollBubble,
   MockInviteBubble,
+  MockResultBubble,
+  SpoilerChip,
   CheckinBubble,
   SystemBubble,
   ScheduleShareBubble,
@@ -40,15 +42,19 @@ import {
   STUDY_STICKERS,
   SOCIAL_REACTIONS,
   stickerLabel,
+  tokenizeChatText,
+  parseGichulInlineQuery,
   type ExamCardPayload,
   type WrongSharePayload,
   type TimerPayload,
   type PollPayload,
   type MockInvitePayload,
+  type MockResultPayload,
   type CheckinPayload,
   type ScheduleSharePayload,
   type ReminderPayload,
 } from "@/lib/chat/features";
+import { EXAM_SUBJECTS } from "@/lib/constants";
 import "@/components/chat/chat-polish.css";
 import {
   BrandChatFab,
@@ -191,6 +197,8 @@ function MessageBubble({
   onOpenThread,
   onRecordView,
   onForward,
+  onHashtag,
+  onOpenMockMini,
 }: {
   message: DmMessage;
   isMine: boolean;
@@ -208,6 +216,8 @@ function MessageBubble({
   onOpenThread?: () => void;
   onRecordView?: () => void;
   onForward?: () => void;
+  onHashtag?: (tag: string) => void;
+  onOpenMockMini?: (payload: MockInvitePayload) => void;
 }) {
   const [actionsOpen, setActionsOpen] = useState(false);
   const [stickerOpen, setStickerOpen] = useState(false);
@@ -311,6 +321,22 @@ function MessageBubble({
             <MockInviteBubble
               payload={message.payload as unknown as MockInvitePayload}
               mine={isMine}
+              onOpenMini={
+                onOpenMockMini
+                  ? () =>
+                      onOpenMockMini(
+                        message.payload as unknown as MockInvitePayload,
+                      )
+                  : undefined
+              }
+            />
+          </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "mock_result" && message.payload ? (
+          <div className="p-2">
+            <MockResultBubble
+              payload={message.payload as unknown as MockResultPayload}
+              mine={isMine}
             />
           </div>
         ) : null}
@@ -400,13 +426,31 @@ function MessageBubble({
         <div className={message.content ? "px-3.5 py-2.5" : "px-3.5 py-1.5"}>
           {!message.deleted_at && message.content ? (
             <p className="whitespace-pre-wrap break-words">
-              {message.content.split(/(@[^\s@]{1,24})/g).map((part, i) =>
-                part.startsWith("@") ? (
-                  <span key={i} className="font-semibold text-[#0066D6]">{part}</span>
-                ) : (
-                  <span key={i}>{part}</span>
-                ),
-              )}
+              {tokenizeChatText(message.content).map((part, i) => {
+                if (part.type === "mention") {
+                  return (
+                    <span key={i} className="font-semibold text-[#0066D6]">
+                      {part.value}
+                    </span>
+                  );
+                }
+                if (part.type === "hashtag") {
+                  return (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => onHashtag?.(part.value)}
+                      className="mx-0.5 font-semibold text-[#0066D6] underline-offset-2 hover:underline"
+                    >
+                      {part.value}
+                    </button>
+                  );
+                }
+                if (part.type === "spoiler") {
+                  return <SpoilerChip key={i} text={part.value} />;
+                }
+                return <span key={i}>{part.value}</span>;
+              })}
             </p>
           ) : null}
           <p
@@ -693,14 +737,36 @@ export function ChatWidget({
     | { type: "slow"; value: string }
     | { type: "forward"; message: DmMessage }
     | { type: "schedule"; title: string; dueAt: string; place: string }
+    | { type: "mock-mini"; subject: string; year: string; href: string }
   >(null);
   const [profileId, setProfileId] = useState<string | null>(null);
   const [listFilter, setListFilter] = useState<"all" | "unread" | "mention" | "archived">("all");
   const [showArchived, setShowArchived] = useState(false);
   const [shareMode, setShareMode] = useState<"none" | "exam" | "wrong" | "timer" | "poll" | "mock">("none");
   const [pollDueHours, setPollDueHours] = useState(24);
+  const [pollCorrectKey, setPollCorrectKey] = useState<"O" | "X">("O");
   const [threadRoot, setThreadRoot] = useState<DmMessage | null>(null);
   const [pinnedBanner, setPinnedBanner] = useState<DmMessage | null>(null);
+  const [pinnedList, setPinnedList] = useState<
+    Array<{
+      message_id: string;
+      content: string;
+      message_kind: string;
+      pinned_at: string;
+    }>
+  >([]);
+  const [pinnedListOpen, setPinnedListOpen] = useState(false);
+  const [gichulHits, setGichulHits] = useState<
+    Array<{
+      examId: string;
+      subject: string;
+      year: number;
+      questionNo: number;
+      stem: string;
+    }>
+  >([]);
+  const [gichulLoading, setGichulLoading] = useState(false);
+  const [globalSearchQuery, setGlobalSearchQuery] = useState("");
   const [shareExamId, setShareExamId] = useState("");
   const [shareStem, setShareStem] = useState("");
   const [shareMeta, setShareMeta] = useState("");
@@ -757,6 +823,84 @@ export function ChatWidget({
     setView("list");
   }, [forceOpen, openNonce]);
   const { rooms: topicRooms, loading: topicsLoading, join: joinTopic } = useTopicRooms(open && view === "topics");
+
+  const channelPostBlocked =
+    activeConversation?.posting_mode === "admin_only" && !user.isAdmin;
+
+  useEffect(() => {
+    const query = parseGichulInlineQuery(draft);
+    if (query === null) {
+      setGichulHits([]);
+      setGichulLoading(false);
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      void (async () => {
+        setGichulLoading(true);
+        try {
+          const tokens = query.split(/\s+/).filter(Boolean);
+          const yearToken = tokens.find((t) => /^\d{4}$/.test(t));
+          const year = yearToken ? Number(yearToken) : NaN;
+          const subjectToken = tokens.find(
+            (t) =>
+              EXAM_SUBJECTS.some(
+                (s) =>
+                  s.value === t ||
+                  s.label === t ||
+                  s.label.includes(t) ||
+                  t.includes(s.label),
+              ),
+          );
+          const subject =
+            EXAM_SUBJECTS.find(
+              (s) =>
+                s.value === subjectToken ||
+                s.label === subjectToken ||
+                (subjectToken &&
+                  (s.label.includes(subjectToken) ||
+                    subjectToken.includes(s.label))),
+            )?.value ?? "";
+          const rest = tokens
+            .filter((t) => t !== yearToken && t !== subjectToken)
+            .join(" ")
+            .toLowerCase();
+
+          if (!subject || !Number.isFinite(year)) {
+            setGichulHits([]);
+            setGichulLoading(false);
+            return;
+          }
+
+          const res = await fetch(
+            `/api/chat/share-catalog?kind=questions&subject=${encodeURIComponent(subject)}&year=${year}`,
+          );
+          const data = (await res.json()) as {
+            questions?: Array<{
+              examId: string;
+              subject: string;
+              year: number;
+              questionNo: number;
+              stem: string;
+            }>;
+          };
+          let hits = data.questions ?? [];
+          if (rest) {
+            hits = hits.filter(
+              (q) =>
+                String(q.questionNo).includes(rest) ||
+                q.stem.toLowerCase().includes(rest),
+            );
+          }
+          setGichulHits(hits.slice(0, 12));
+        } catch {
+          setGichulHits([]);
+        } finally {
+          setGichulLoading(false);
+        }
+      })();
+    }, 280);
+    return () => window.clearTimeout(timer);
+  }, [draft]);
 
   const unreadTotal = useMemo(
     () => conversations.reduce((sum, item) => sum + item.unreadCount, 0),
@@ -835,7 +979,7 @@ export function ChatWidget({
         supabase
           .from("dm_conversations")
           .select(
-            "id,title,is_group,is_self,avatar_url,updated_at,pinned_message_id,slow_mode_seconds,study_dday,study_goal,kind,topic_key,topic_label,invite_code",
+            "id,title,is_group,is_self,avatar_url,updated_at,pinned_message_id,slow_mode_seconds,study_dday,study_goal,kind,topic_key,topic_label,invite_code,posting_mode",
           )
           .in("id", ids),
       ],
@@ -871,6 +1015,7 @@ export function ChatWidget({
           topic_key: null,
           topic_label: null,
           invite_code: null,
+          posting_mode: null,
         }))
       : conversationResult.data;
     if (!conversationRows) return;
@@ -937,6 +1082,9 @@ export function ChatWidget({
           slow_mode_seconds: row.slow_mode_seconds,
           study_dday: row.study_dday,
           study_goal: row.study_goal,
+          posting_mode:
+            (row as { posting_mode?: "open" | "admin_only" | null }).posting_mode ??
+            null,
         };
       })
       .filter((item): item is DmConversationPreview => Boolean(item))
@@ -971,6 +1119,30 @@ export function ChatWidget({
       })) as FriendRow[],
     );
   }, [user.id]);
+
+  const loadPinnedList = useCallback(async (conversationId: string) => {
+    const { data, error: pinListError } = await createClient().rpc(
+      "list_dm_pinned_messages",
+      { p_conversation_id: conversationId },
+    );
+    if (pinListError) {
+      setPinnedList([]);
+      return;
+    }
+    setPinnedList(
+      ((data ?? []) as Array<{
+        message_id: string;
+        content: string;
+        message_kind: string;
+        pinned_at: string;
+      }>).map((row) => ({
+        message_id: row.message_id,
+        content: row.content,
+        message_kind: row.message_kind,
+        pinned_at: row.pinned_at,
+      })),
+    );
+  }, []);
 
   const loadMessages = useCallback(
     async (conversationId: string) => {
@@ -1097,6 +1269,7 @@ export function ChatWidget({
         }
         return current;
       });
+      void loadPinnedList(conversationId);
       setLoading(false);
       await supabase.rpc("mark_dm_conversation_read", {
         p_conversation_id: conversationId,
@@ -1108,7 +1281,7 @@ export function ChatWidget({
       );
       setTimeout(scrollToBottom, 40);
     },
-    [scrollToBottom, user.id],
+    [loadPinnedList, scrollToBottom, user.id],
   );
 
   const openThread = useCallback(
@@ -1116,9 +1289,11 @@ export function ChatWidget({
       setActiveConversation(conversation);
       setView("thread");
       setPinnedBanner(null);
+      setPinnedListOpen(false);
       await loadMessages(conversation.id);
+      void loadPinnedList(conversation.id);
     },
-    [loadMessages],
+    [loadMessages, loadPinnedList],
   );
 
   const startDirectChat = useCallback(
@@ -1345,6 +1520,9 @@ export function ChatWidget({
         kind: "topic",
         topicKey,
         topicLabel: roomMeta?.topic_label ?? null,
+        posting_mode:
+          (roomMeta?.posting_mode as DmConversationPreview["posting_mode"]) ??
+          null,
         lastMessage: null,
         unreadCount: 0,
         updatedAt: new Date().toISOString(),
@@ -1485,16 +1663,62 @@ export function ChatWidget({
 
   const pinMessage = async (message: DmMessage | null) => {
     if (!activeConversation) return;
-    const { error: pinError } = await createClient().rpc("set_dm_pinned_message", {
-      p_conversation_id: activeConversation.id,
-      p_message_id: message?.id ?? null,
-    });
+    const supabase = createClient();
+    if (!message) {
+      const primaryId =
+        activeConversation.pinned_message_id ?? pinnedList[0]?.message_id ?? null;
+      if (!primaryId) return;
+      const { error: pinError } = await supabase.rpc("remove_dm_pinned_message", {
+        p_conversation_id: activeConversation.id,
+        p_message_id: primaryId,
+      });
+      if (pinError) setError(pinError.message);
+      else {
+        await loadPinnedList(activeConversation.id);
+        setActiveConversation((c) =>
+          c
+            ? {
+                ...c,
+                pinned_message_id:
+                  pinnedList.find((p) => p.message_id !== primaryId)?.message_id ??
+                  null,
+              }
+            : c,
+        );
+        setPinnedBanner(null);
+        await refreshConversations();
+      }
+      return;
+    }
+    const alreadyPinned = pinnedList.some((p) => p.message_id === message.id);
+    const { error: pinError } = alreadyPinned
+      ? await supabase.rpc("remove_dm_pinned_message", {
+          p_conversation_id: activeConversation.id,
+          p_message_id: message.id,
+        })
+      : await supabase.rpc("add_dm_pinned_message", {
+          p_conversation_id: activeConversation.id,
+          p_message_id: message.id,
+        });
     if (pinError) setError(pinError.message);
     else {
+      await loadPinnedList(activeConversation.id);
       setActiveConversation((c) =>
-        c ? { ...c, pinned_message_id: message?.id ?? null } : c,
+        c
+          ? {
+              ...c,
+              pinned_message_id: alreadyPinned
+                ? c.pinned_message_id === message.id
+                  ? null
+                  : c.pinned_message_id
+                : c.pinned_message_id ?? message.id,
+            }
+          : c,
       );
-      setPinnedBanner(message);
+      if (!alreadyPinned) setPinnedBanner(message);
+      else if (activeConversation.pinned_message_id === message.id) {
+        setPinnedBanner(null);
+      }
       await refreshConversations();
     }
   };
@@ -1602,6 +1826,9 @@ export function ChatWidget({
             { key: "X", label: "X" },
           ],
           dueAt,
+          correctKey: pollCorrectKey,
+          isQuiz: true,
+          revealMode: "on_close",
         } satisfies PollPayload,
       };
     }
@@ -1638,6 +1865,10 @@ export function ChatWidget({
       preparingFiles
     )
       return;
+    if (activeConversation.posting_mode === "admin_only" && !user.isAdmin) {
+      notify("채널은 운영자만 글을 올릴 수 있어요", "error");
+      return;
+    }
     if (sharing && shareMode === "exam" && !shareStem.trim() && !draft.trim()) {
       setError("기출 지문을 입력해 주세요.");
       return;
@@ -3120,6 +3351,7 @@ export function ChatWidget({
                         invite_code: null,
                         member_count: 0,
                         joined: false,
+                        posting_mode: null as string | null,
                       }))
                   ).map((room) => (
                     <button
@@ -3131,6 +3363,11 @@ export function ChatWidget({
                       <span>
                         <b className="block font-display text-[13px] text-ink">
                           {room.topic_label || room.title}
+                          {room.posting_mode === "admin_only" ? (
+                            <span className="ml-1.5 rounded-full bg-[#007AFF]/10 px-1.5 py-0.5 text-[10px] font-semibold text-[#0066D6]">
+                              채널
+                            </span>
+                          ) : null}
                         </b>
                         <small className="text-[11px] text-fog">
                           {room.member_count ? `${room.member_count}명` : "공개 스터디"}
@@ -3199,6 +3436,33 @@ export function ChatWidget({
             <ChatStudyCalendar conversationId={activeConversation?.id ?? null} />
           ) : null}
 
+          {view === "global-search" ? (
+            <ChatGlobalSearch
+              initialQuery={globalSearchQuery}
+              onOpenConversation={async (id) => {
+                await refreshConversations();
+                const c = conversations.find((x) => x.id === id);
+                if (c) void openThread(c);
+                else {
+                  setActiveConversation({
+                    id,
+                    title: "대화",
+                    isGroup: false,
+                    avatar_url: null,
+                    members: [],
+                    otherUser: null,
+                    lastMessage: null,
+                    unreadCount: 0,
+                    updatedAt: "",
+                  });
+                  setView("thread");
+                  void loadMessages(id);
+                  void loadPinnedList(id);
+                }
+              }}
+            />
+          ) : null}
+
           {view === "settings" ? (
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
               <ChatPrefsBar
@@ -3238,34 +3502,108 @@ export function ChatWidget({
 
                     {view === "thread" ? (
             <>
-              {activeConversation?.pinned_message_id ||
+              {pinnedList.length > 0 ||
+              activeConversation?.pinned_message_id ||
               activeConversation?.study_dday ||
               activeConversation?.study_goal ? (
                 <div className="border-b border-[#007AFF]/20 bg-[#007AFF]/8 px-4 py-2">
-                  {activeConversation.pinned_message_id ? (
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm">📌</span>
-                      <p className="min-w-0 flex-1 truncate text-[12px] font-semibold text-ink">
-                        {(pinnedBanner ?? messages.find((m) => m.id === activeConversation.pinned_message_id))?.content
-                          || "고정된 공지"}
-                      </p>
+                  {pinnedList.length > 0 || activeConversation?.pinned_message_id ? (
+                    <div>
                       <button
                         type="button"
-                        className="text-[11px] text-fog"
-                        onClick={() => void pinMessage(null)}
+                        onClick={() => setPinnedListOpen((v) => !v)}
+                        className="flex w-full items-center gap-2 text-left"
                       >
-                        해제
+                        <span className="text-sm">📌</span>
+                        <p className="min-w-0 flex-1 truncate text-[12px] font-semibold text-ink">
+                          고정 {Math.max(pinnedList.length, activeConversation?.pinned_message_id ? 1 : 0)}
+                          {!pinnedListOpen
+                            ? ` · ${(
+                                pinnedList[0]?.content ||
+                                pinnedBanner?.content ||
+                                messages.find(
+                                  (m) =>
+                                    m.id === activeConversation?.pinned_message_id,
+                                )?.content ||
+                                "고정된 공지"
+                              ).slice(0, 40)}`
+                            : ""}
+                        </p>
+                        <span className="text-[11px] text-fog">
+                          {pinnedListOpen ? "접기" : "목록"}
+                        </span>
                       </button>
+                      {pinnedListOpen ? (
+                        <ul className="mt-1.5 space-y-1">
+                          {(pinnedList.length
+                            ? pinnedList
+                            : activeConversation?.pinned_message_id
+                              ? [
+                                  {
+                                    message_id: activeConversation.pinned_message_id,
+                                    content:
+                                      pinnedBanner?.content ||
+                                      messages.find(
+                                        (m) =>
+                                          m.id ===
+                                          activeConversation.pinned_message_id,
+                                      )?.content ||
+                                      "고정된 공지",
+                                    message_kind: "text",
+                                    pinned_at: "",
+                                  },
+                                ]
+                              : []
+                          ).map((pin) => (
+                            <li
+                              key={pin.message_id}
+                              className="flex items-center gap-2 rounded-xl bg-white/70 px-2 py-1.5"
+                            >
+                              <button
+                                type="button"
+                                className="min-w-0 flex-1 truncate text-left text-[11px] text-ink"
+                                onClick={() => {
+                                  const el = document.getElementById(
+                                    `dm-msg-${pin.message_id}`,
+                                  );
+                                  el?.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "center",
+                                  });
+                                  setPinnedListOpen(false);
+                                }}
+                              >
+                                {pin.content || pin.message_kind || "고정 메시지"}
+                              </button>
+                              <button
+                                type="button"
+                                className="shrink-0 text-[11px] text-fog"
+                                onClick={() => {
+                                  const msg =
+                                    messages.find((m) => m.id === pin.message_id) ??
+                                    ({
+                                      id: pin.message_id,
+                                      content: pin.content,
+                                    } as DmMessage);
+                                  void pinMessage(msg);
+                                }}
+                              >
+                                해제
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
                     </div>
                   ) : null}
-                  {(activeConversation.study_dday || activeConversation.study_goal) ? (
-                    <div className={`flex flex-wrap items-center gap-2 ${activeConversation.pinned_message_id ? "mt-1.5" : ""}`}>
-                      {activeConversation.study_dday ? (
+                  {(activeConversation?.study_dday || activeConversation?.study_goal) ? (
+                    <div className={`flex flex-wrap items-center gap-2 ${pinnedList.length || activeConversation?.pinned_message_id ? "mt-1.5" : ""}`}>
+                      {activeConversation?.study_dday ? (
                         <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-semibold text-[#0066D6]">
                           시험 D-day · {activeConversation.study_dday}
                         </span>
                       ) : null}
-                      {activeConversation.study_goal ? (
+                      {activeConversation?.study_goal ? (
                         <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-semibold text-smoke">
                           목표 · {activeConversation.study_goal}
                         </span>
@@ -3343,6 +3681,18 @@ export function ChatWidget({
                       }}
                       onRecordView={() => void recordMessageView(message)}
                       onForward={() => setSheet({ type: "forward", message })}
+                      onHashtag={(tag) => {
+                        setGlobalSearchQuery(tag);
+                        setView("global-search");
+                      }}
+                      onOpenMockMini={(payload) =>
+                        setSheet({
+                          type: "mock-mini",
+                          subject: String(payload.subject),
+                          year: String(payload.year),
+                          href: payload.href,
+                        })
+                      }
                     />
                   ))
                 ) : (
@@ -3438,6 +3788,23 @@ export function ChatWidget({
                       placeholder="OX 폴 질문"
                       className="w-full rounded-xl border border-mist px-3 py-2 text-[12px]"
                     />
+                    <div className="flex items-center gap-2 text-[11px] text-fog">
+                      <span className="font-semibold text-smoke">정답</span>
+                      {(["O", "X"] as const).map((key) => (
+                        <button
+                          key={key}
+                          type="button"
+                          onClick={() => setPollCorrectKey(key)}
+                          className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${
+                            pollCorrectKey === key
+                              ? "bg-[#007AFF] text-white"
+                              : "bg-white text-fog ring-1 ring-mist"
+                          }`}
+                        >
+                          {key}
+                        </button>
+                      ))}
+                    </div>
                     <label className="flex items-center gap-2 text-[11px] text-fog">
                       마감
                       <input
@@ -3452,6 +3819,27 @@ export function ChatWidget({
                     </label>
                   </div>
                 ) : null}
+                {shareMode === "mock" && shareMeta.includes("|") ? (
+                  <button
+                    type="button"
+                    className="mb-2 w-full rounded-xl border border-[#007AFF]/25 bg-[#007AFF]/5 px-3 py-2 text-left text-[12px] font-semibold text-[#0066D6]"
+                    onClick={() => {
+                      const [subject, year] = shareMeta.split("|").map((s) => s.trim());
+                      const href =
+                        subject && year
+                          ? `/exam/${subject}/${year}/mock`
+                          : shareExamId || "/exam";
+                      setSheet({
+                        type: "mock-mini",
+                        subject: subject || "civillaw",
+                        year: year || String(new Date().getFullYear()),
+                        href,
+                      });
+                    }}
+                  >
+                    채팅에서 미니로 열기
+                  </button>
+                ) : null}
                 {replyTo ? (
                   <div className="mb-2 flex items-center gap-2 rounded-xl bg-[#007AFF]/8 px-3 py-2 text-xs">
                     <span>↩</span>
@@ -3462,6 +3850,61 @@ export function ChatWidget({
                     <button type="button" onClick={() => setReplyTo(null)}>
                       ×
                     </button>
+                  </div>
+                ) : null}
+                {parseGichulInlineQuery(draft) !== null ? (
+                  <div className="mb-2 max-h-40 overflow-y-auto rounded-xl border border-[#007AFF]/25 bg-white/95 shadow-sm">
+                    <p className="border-b border-mist/70 px-3 py-1.5 text-[10px] font-semibold text-[#0066D6]">
+                      @기출 · 과목·연도 예: @기출 민법 2024
+                    </p>
+                    {gichulLoading ? (
+                      <p className="px-3 py-2 text-[11px] text-fog">검색 중…</p>
+                    ) : gichulHits.length ? (
+                      gichulHits.map((hit) => {
+                        const subjectLabel =
+                          EXAM_SUBJECTS.find((s) => s.value === hit.subject)?.label ??
+                          hit.subject;
+                        return (
+                          <button
+                            key={hit.examId}
+                            type="button"
+                            className="block w-full border-b border-mist/50 px-3 py-2 text-left last:border-0 hover:bg-[#007AFF]/5"
+                            onClick={() => {
+                              setShareMode("exam");
+                              setShareExamId(hit.examId);
+                              setShareStem(hit.stem);
+                              setShareMeta(
+                                `${subjectLabel}|${hit.year}|${hit.questionNo}`,
+                              );
+                              setDraft((prev) =>
+                                prev.replace(/^@기출(?:\s+.*)?$/u, "").trimStart(),
+                              );
+                              setGichulHits([]);
+                              notify(
+                                `${subjectLabel} ${hit.year}년 ${hit.questionNo}번 선택`,
+                                "success",
+                              );
+                            }}
+                          >
+                            <b className="text-[11px] text-ink">
+                              {subjectLabel} {hit.year} · {hit.questionNo}번
+                            </b>
+                            <p className="mt-0.5 line-clamp-2 text-[11px] text-smoke">
+                              {hit.stem}
+                            </p>
+                          </button>
+                        );
+                      })
+                    ) : (
+                      <p className="px-3 py-2 text-[11px] text-fog">
+                        과목과 연도를 입력하면 문항이 나와요.
+                      </p>
+                    )}
+                  </div>
+                ) : null}
+                {channelPostBlocked ? (
+                  <div className="mb-2 rounded-xl border border-[#007AFF]/20 bg-[#007AFF]/5 px-3 py-2 text-[12px] font-semibold text-[#0066D6]">
+                    채널은 운영자만 글을 올릴 수 있어요
                   </div>
                 ) : null}
                 {selectedFiles.length ? (
@@ -3507,7 +3950,7 @@ export function ChatWidget({
                   <button
                     type="button"
                     onClick={() => setPlusOpen(true)}
-                    disabled={sending || preparingFiles}
+                    disabled={sending || preparingFiles || channelPostBlocked}
                     className="chat-hit chat-focus flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#007AFF] text-xl text-white shadow-md"
                     aria-label="보내기 메뉴"
                   >
@@ -3516,7 +3959,7 @@ export function ChatWidget({
                   <button
                     type="button"
                     onClick={() => (recording ? stopVoice() : void startVoice())}
-                    disabled={sending || preparingFiles}
+                    disabled={sending || preparingFiles || channelPostBlocked}
                     className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-lg shadow-md ${
                       recording
                         ? "bg-rose-500 text-white"
@@ -3541,8 +3984,13 @@ export function ChatWidget({
                     value={draft}
                     onChange={(event) => setDraft(event.target.value)}
                     rows={2}
-                    placeholder="메시지를 입력하세요"
-                    className="max-h-28 min-h-11 min-w-0 flex-1 resize-none rounded-[20px] border border-white bg-white/90 px-4 py-2.5 text-base shadow-inner outline-none focus:ring-2 focus:ring-[#007AFF]/20 sm:text-[13px]"
+                    placeholder={
+                      channelPostBlocked
+                        ? "채널은 운영자만 글을 올릴 수 있어요"
+                        : "메시지를 입력하세요"
+                    }
+                    disabled={channelPostBlocked}
+                    className="max-h-28 min-h-11 min-w-0 flex-1 resize-none rounded-[20px] border border-white bg-white/90 px-4 py-2.5 text-base shadow-inner outline-none focus:ring-2 focus:ring-[#007AFF]/20 disabled:opacity-60 sm:text-[13px]"
                     onKeyDown={(event) => {
                       if (event.key === "Enter" && !event.shiftKey) {
                         event.preventDefault();
@@ -3555,6 +4003,7 @@ export function ChatWidget({
                     disabled={
                       sending ||
                       preparingFiles ||
+                      channelPostBlocked ||
                       (!draft.trim() &&
                         !selectedFiles.length &&
                         shareMode === "none")
@@ -3580,9 +4029,45 @@ export function ChatWidget({
             fileInputRef.current?.click();
             return;
           }
+          if (mode === "mock-mini") {
+            setShareMode("mock");
+            const [subject, year] = shareMeta.split("|").map((s) => s.trim());
+            if (subject && year) {
+              setSheet({
+                type: "mock-mini",
+                subject,
+                year,
+                href: `/exam/${subject}/${year}/mock`,
+              });
+            }
+            return;
+          }
           setShareMode(mode);
         }}
       />
+      {sheet?.type === "mock-mini" ? (
+        <ChatSheet title="모의고사 미니" onClose={() => setSheet(null)}>
+          <p className="mb-2 text-[12px] text-smoke">
+            {sheet.subject} · {sheet.year}년 · 풀이가 끝나면 모의고사 페이지에서
+            결과를 채팅으로 공유할 수 있어요.
+          </p>
+          <div className="mb-3 overflow-hidden rounded-2xl border border-mist bg-white">
+            <iframe
+              title="모의고사 미니"
+              src={sheet.href}
+              className="h-[52vh] w-full bg-white"
+            />
+          </div>
+          <a
+            href={sheet.href}
+            target="_blank"
+            rel="noreferrer"
+            className="chat-focus flex w-full items-center justify-center rounded-full bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+          >
+            전체 화면에서 풀기
+          </a>
+        </ChatSheet>
+      ) : null}
       {sheet?.type === "report" ? (
         <ChatSheet
             title="메시지 신고"
