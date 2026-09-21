@@ -1324,23 +1324,41 @@ export function ChatWidget({
     try {
       const id = await joinTopic(topicKey);
       await refreshConversations();
-      const preview: DmConversationPreview = {
+      const fromList = conversations.find((c) => c.id === id);
+      const roomMeta = topicRooms.find((r) => r.topic_key === topicKey);
+      const preview: DmConversationPreview = fromList ?? {
         id,
-        title: topicRooms.find((r) => r.topic_key === topicKey)?.title
-          ?? `${topicKey} 스터디방`,
+        title: roomMeta?.topic_label
+          ? `${roomMeta.topic_label} 스터디방`
+          : roomMeta?.title ?? `${topicKey} 스터디방`,
         isGroup: true,
         avatar_url: null,
-        members: [{ id: user.id, nickname: user.nickname, avatar_url: user.avatar_url, role: "member" }],
+        members: [
+          {
+            id: user.id,
+            nickname: user.nickname,
+            avatar_url: user.avatar_url,
+            role: "member",
+          },
+        ],
         otherUser: null,
         kind: "topic",
         topicKey,
+        topicLabel: roomMeta?.topic_label ?? null,
         lastMessage: null,
         unreadCount: 0,
         updatedAt: new Date().toISOString(),
       };
       await openThread(preview);
+      notify(
+        roomMeta?.joined || fromList ? "스터디방을 열었어요." : "스터디방에 입장했어요.",
+        "success",
+      );
     } catch (err) {
-      setError(err instanceof Error ? err.message : "스터디방 입장 실패");
+      const message =
+        err instanceof Error ? err.message : "스터디방 입장 실패";
+      setError(message);
+      notify(message, "error");
     }
   };
 
@@ -3117,7 +3135,7 @@ export function ChatWidget({
                         <small className="text-[11px] text-fog">
                           {room.member_count ? `${room.member_count}명` : "공개 스터디"}
                           {room.joined ? " · 참여 중" : ""}
-                          {room.gate_subject ? " · 학습권 권장" : ""}
+                          {room.gate_subject ? " · 관련 과목 있음" : ""}
                         </small>
                       </span>
                       <span className="text-[12px] font-semibold text-[#0066D6]">
