@@ -21,6 +21,7 @@ import {
   PollBubble,
 } from "@/components/chat/ChatRichBubbles";
 import { ChatPrefsBar, useChatPrefs, useTopicRooms } from "@/components/chat/ChatFeatureHooks";
+import { readChatShareDraft } from "@/components/chat/ShareToChatButton";
 import {
   extractMentionUserIds,
   messageMatchesKeywords,
@@ -416,9 +417,13 @@ function MessageBubble({
 export function ChatWidget({
   user,
   initialConversations,
+  forceOpen = false,
+  openNonce = 0,
 }: {
   user: ChatUser;
   initialConversations: DmConversationPreview[];
+  forceOpen?: boolean;
+  openNonce?: number;
 }) {
   const [open, setOpen] = useState(false);
   const [view, setView] = useState<View>("list");
@@ -466,6 +471,21 @@ export function ChatWidget({
   const dragDepthRef = useRef(0);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
   const { prefs, save: savePrefs, bumpDailyDone, goalLabel } = useChatPrefs(user.id);
+
+  useEffect(() => {
+    if (!forceOpen && openNonce === 0) return;
+    setOpen(true);
+    const draft = readChatShareDraft();
+    if (!draft) return;
+    setShareMode(draft.mode);
+    setShareExamId(draft.examId);
+    setShareStem(draft.stem);
+    setShareMeta(
+      [draft.subject, draft.year, draft.questionNo].filter(Boolean).join("|"),
+    );
+    if (draft.myPick) setSharePick(draft.myPick);
+    setView("list");
+  }, [forceOpen, openNonce]);
   const { rooms: topicRooms, loading: topicsLoading, join: joinTopic } = useTopicRooms(open && view === "topics");
 
   const unreadTotal = useMemo(

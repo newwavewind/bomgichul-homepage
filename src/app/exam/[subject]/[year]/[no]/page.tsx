@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
 import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
+import { ShareToChatButton } from "@/components/chat/ShareToChatButton";
 import {
   ExamQuestionSeoExplanations,
   hasExamQuestionSeoExplanations,
@@ -163,12 +164,22 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
       <article className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-3">
           <ExamBackLink listBase={listBase} listLabel={`${year}년 문항 목록`} />
-          <BookmarkButton
-            subject={subject}
-            year={year}
-            questionNo={questionNo}
-            loginNext={detailPath}
-          />
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            <ShareToChatButton
+              mode="exam"
+              examId={`${subject}-${year}-${questionNo}`}
+              subject={label}
+              year={year}
+              questionNo={questionNo}
+              stem={question.stem}
+            />
+            <BookmarkButton
+              subject={subject}
+              year={year}
+              questionNo={questionNo}
+              loginNext={detailPath}
+            />
+          </div>
         </div>
 
         <ExamQuestionJumpBar

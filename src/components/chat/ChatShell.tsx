@@ -32,6 +32,8 @@ export function ChatShell() {
     | { status: "guest" }
     | { status: "user"; user: MeUser; conversations: Conversations }
   >({ status: "pending" });
+  const [forceOpen, setForceOpen] = useState(false);
+  const [openNonce, setOpenNonce] = useState(0);
 
   useEffect(() => {
     let alive = true;
@@ -52,8 +54,25 @@ export function ChatShell() {
     };
   }, []);
 
+  useEffect(() => {
+    const openFromQuery = () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("chat") === "1") {
+        setForceOpen(true);
+        setOpenNonce((n) => n + 1);
+      }
+    };
+    openFromQuery();
+    const onOpen = () => {
+      setForceOpen(true);
+      setOpenNonce((n) => n + 1);
+    };
+    window.addEventListener("bomgichul:open-chat", onOpen);
+    return () => window.removeEventListener("bomgichul:open-chat", onOpen);
+  }, []);
+
   if (state.status === "pending") return <ChatFabPlaceholder />;
-  if (state.status === "guest") return <GuestChatWidget />;
+  if (state.status === "guest") return <GuestChatWidget forceOpen={forceOpen} />;
   return (
     <ChatWidget
       user={{
@@ -63,6 +82,8 @@ export function ChatShell() {
         isAdmin: state.user.isAdmin,
       }}
       initialConversations={state.conversations}
+      forceOpen={forceOpen}
+      openNonce={openNonce}
     />
   );
 }
