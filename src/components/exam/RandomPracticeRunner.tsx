@@ -98,7 +98,11 @@ export function RandomPracticeRunner({
         />
       </div>
 
-      <QuestionStem stem={question.stem} questionNo={question.questionNo} />
+      <QuestionStem
+        stem={question.stem}
+        questionNo={question.questionNo}
+        referenceTable={question.referenceTable}
+      />
 
       <ExamAnswerList
         key={`${question.year}-${question.questionNo}`}

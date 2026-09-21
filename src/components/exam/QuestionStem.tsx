@@ -42,6 +42,46 @@ export function toBoxGroups(boxLines: string[]): { label: string | null; lines: 
   return groups.filter((group) => group.lines.length > 0);
 }
 
+export type StemReferenceTable = {
+  headers: string[];
+  rows: string[][];
+};
+
+function StemReferenceTableView({ table }: { table?: StemReferenceTable | null }) {
+  if (!table?.rows?.length) return null;
+  return (
+    <div className="mb-8 max-w-3xl overflow-x-auto">
+      <table className="w-full min-w-[20rem] border-collapse font-display text-body-sm text-ink">
+        {table.headers?.length ? (
+          <thead>
+            <tr>
+              {table.headers.map((header) => (
+                <th
+                  key={header}
+                  className="border border-mist bg-snow px-3 py-2 text-center font-semibold"
+                >
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+        ) : null}
+        <tbody>
+          {table.rows.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex} className="border border-mist px-3 py-2 text-center">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export function QuestionStem({
   stem,
   questionNo,
@@ -50,10 +90,12 @@ export function QuestionStem({
    * 한 문장으로 이어질 때는 지문 바로 위(ExamOxQuestion)에서 함께 그려야 끊겨 보이지 않는다.
    */
   renderBox = true,
+  referenceTable = null,
 }: {
   stem: string;
   questionNo?: number;
   renderBox?: boolean;
+  referenceTable?: StemReferenceTable | null;
 }) {
   const cleanStem = plainStudyText(stem);
   const { intro, boxLines } = parseQuestionStem(cleanStem);
@@ -62,21 +104,27 @@ export function QuestionStem({
 
   if (!renderBox && boxLines.length > 0) {
     return (
-      <StemHeading
-        questionNo={questionNo}
-        text={intro}
-        className={`${headingClass} whitespace-pre-line`}
-      />
+      <>
+        <StemHeading
+          questionNo={questionNo}
+          text={intro}
+          className={`${headingClass} whitespace-pre-line`}
+        />
+        <StemReferenceTableView table={referenceTable} />
+      </>
     );
   }
 
   if (boxLines.length === 0) {
     return (
-      <StemHeading
-        questionNo={questionNo}
-        text={cleanStem}
-        className={`${headingClass} whitespace-pre-line`}
-      />
+      <>
+        <StemHeading
+          questionNo={questionNo}
+          text={cleanStem}
+          className={`${headingClass} whitespace-pre-line`}
+        />
+        <StemReferenceTableView table={referenceTable} />
+      </>
     );
   }
 
@@ -128,6 +176,7 @@ export function QuestionStem({
           </div>
         </fieldset>
       ))}
+      <StemReferenceTableView table={referenceTable} />
     </>
   );
 }

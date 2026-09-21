@@ -68,7 +68,11 @@ const MockQuestionCard = memo(function MockQuestionCard({
         )}
       </div>
 
-      <QuestionStem stem={q.stem} questionNo={q.questionNo} />
+      <QuestionStem
+        stem={q.stem}
+        questionNo={q.questionNo}
+        referenceTable={q.referenceTable}
+      />
 
       {!submitted ? (
         isStatementComposite ? (

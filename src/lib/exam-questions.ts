@@ -42,6 +42,11 @@ export interface ExamQuestion {
   free: boolean;
   /** 문항 전체 해설 요약(계산·근거). SEO·상세에 보기별 해설과 함께 노출 */
   explanationSummary?: string;
+  /** 지문 아래 조건표. 원본 문제지의 면적·거리 같은 표 */
+  referenceTable?: {
+    headers: string[];
+    rows: string[][];
+  };
   compositeLayout?: "table" | "statements";
   tableHeader?: string[];
 }

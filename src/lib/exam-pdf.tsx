@@ -47,6 +47,16 @@ const styles = StyleSheet.create({
   questionBlock: { marginBottom: 14 },
   questionNo: { fontSize: 11, fontWeight: "bold", marginBottom: 4 },
   stem: { fontSize: 10, marginBottom: 6 },
+  table: { marginBottom: 6 },
+  tableRow: { flexDirection: "row" },
+  tableCell: {
+    flex: 1,
+    borderWidth: 0.5,
+    borderColor: "#cbd5e1",
+    padding: 3,
+    fontSize: 9,
+    textAlign: "center",
+  },
   itemRow: { flexDirection: "row", marginBottom: 2 },
   itemBadge: { width: 18, fontWeight: "bold" },
   itemText: { flex: 1 },
@@ -116,6 +126,28 @@ export async function renderExamYearPdfBuffer(
           <View key={q.questionNo} style={styles.questionBlock} wrap={false}>
             <Text style={styles.questionNo}>{q.questionNo}번</Text>
             <Text style={styles.stem}>{q.stem}</Text>
+            {q.referenceTable?.rows?.length ? (
+              <View style={styles.table}>
+                {q.referenceTable.headers?.length ? (
+                  <View style={styles.tableRow}>
+                    {q.referenceTable.headers.map((header) => (
+                      <Text key={header} style={styles.tableCell}>
+                        {header}
+                      </Text>
+                    ))}
+                  </View>
+                ) : null}
+                {q.referenceTable.rows.map((row, rowIndex) => (
+                  <View key={rowIndex} style={styles.tableRow}>
+                    {row.map((cell, cellIndex) => (
+                      <Text key={cellIndex} style={styles.tableCell}>
+                        {cell}
+                      </Text>
+                    ))}
+                  </View>
+                ))}
+              </View>
+            ) : null}
 
             {isStatementCompositeQuestion(q) ? (
               <>

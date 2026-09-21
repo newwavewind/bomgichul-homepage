@@ -196,7 +196,11 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             </div>
           </div>
           <div className="mt-5">
-            <QuestionStem stem={question.stem} questionNo={questionNo} />
+            <QuestionStem
+              stem={question.stem}
+              questionNo={questionNo}
+              referenceTable={question.referenceTable}
+            />
           </div>
         </header>
 
