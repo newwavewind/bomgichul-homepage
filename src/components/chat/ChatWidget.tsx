@@ -71,7 +71,6 @@ type ChatUser = {
 type View =
   | "list"
   | "friends"
-  | "online"
   | "thread"
   | "new-group"
   | "search"
@@ -632,7 +631,7 @@ export function ChatWidget({
   const [viewStack, setViewStack] = useState<View[]>([]);
   const viewRef = useRef<View>("list");
   viewRef.current = view;
-  const isRootTab = (v: View) => v === "list" || v === "friends" || v === "online";
+  const isRootTab = (v: View) => v === "list" || v === "friends";
   const setView = (next: View) => {
     const current = viewRef.current;
     if (current === next) return;
@@ -789,6 +788,10 @@ export function ChatWidget({
     (friend: FriendRow) =>
       friend.requester_id === user.id ? friend.addressee : friend.requester,
     [user.id],
+  );
+  const onlineById = useMemo(
+    () => new Map(onlineUsers.map((item) => [item.user_id, item])),
+    [onlineUsers],
   );
   const scrollToBottom = useCallback(
     () => messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }),
@@ -2281,19 +2284,17 @@ export function ChatWidget({
       ? (activeConversation?.title ?? "채팅")
       : view === "friends"
         ? "친구"
-        : view === "online"
-          ? "접속 중"
-          : view === "new-group"
-            ? "새 그룹채팅"
-            : view === "topics"
-              ? "스터디방"
-              : view === "bookmarks"
-                ? "북마크"
-                : view === "settings"
-                  ? "채팅 설정"
-                  : view === "vault"
-                    ? "서랍"
-                    : view === "gallery"
+        : view === "new-group"
+          ? "새 그룹채팅"
+          : view === "topics"
+            ? "스터디방"
+            : view === "bookmarks"
+              ? "북마크"
+              : view === "settings"
+                ? "채팅 설정"
+                : view === "vault"
+                  ? "서랍"
+                  : view === "gallery"
                     ? "미디어"
                     : view === "calendar"
                       ? "스터디 일정"
@@ -2352,7 +2353,7 @@ export function ChatWidget({
             </div>
           ) : null}
           <div className="chat-glass-bar flex items-center gap-2 px-4 py-3">
-            {view !== "list" && view !== "friends" && view !== "online" ? (
+            {view !== "list" && view !== "friends" ? (
               <ChatBackButton onClick={goBack} />
             ) : null}
             {view === "thread" ? (
@@ -2438,8 +2439,8 @@ export function ChatWidget({
               ✕
             </button>
           </div>
-          {view === "list" || view === "friends" || view === "online" ? (
-            <div className="grid grid-cols-3 border-b border-mist">
+          {view === "list" || view === "friends" ? (
+            <div className="grid grid-cols-2 border-b border-mist">
               {(
                 [
                   [
@@ -2447,7 +2448,6 @@ export function ChatWidget({
                     `친구${incomingRequests.length ? ` ${incomingRequests.length}` : ""}`,
                   ],
                   ["list", "대화"],
-                  ["online", `접속 ${onlineUsers.length}`],
                 ] as const
               ).map(([key, label]) => (
                 <button
@@ -2589,7 +2589,7 @@ export function ChatWidget({
 
           {view === "friends" ? (
             <div className="flex-1 overflow-y-auto">
-              <div className="sticky top-0 border-b border-mist bg-paper p-3">
+              <div className="sticky top-0 z-10 border-b border-mist bg-paper p-3">
                 <div className="flex gap-2">
                   <input
                     value={searchQuery}
@@ -2600,7 +2600,7 @@ export function ChatWidget({
                   <button
                     type="button"
                     onClick={() => void searchProfiles()}
-                    className="rounded-xl bg-carbon px-3 text-[12px] font-semibold text-white"
+                    className="rounded-xl bg-[#007AFF] px-3 text-[12px] font-semibold text-white"
                   >
                     검색
                   </button>
@@ -2643,11 +2643,16 @@ export function ChatWidget({
                   key={profile.id}
                   className="flex items-center gap-3 border-b border-mist px-4 py-3"
                 >
-                  <Avatar
-                    nickname={profile.nickname}
-                    url={profile.avatar_url}
-                    onOpen={() => setProfileId(profile.id)}
-                  />
+                  <div className="relative">
+                    <Avatar
+                      nickname={profile.nickname}
+                      url={profile.avatar_url}
+                      onOpen={() => setProfileId(profile.id)}
+                    />
+                    {onlineById.has(profile.id) ? (
+                      <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-[#007AFF]" />
+                    ) : null}
+                  </div>
                   <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
                     {profile.nickname}
                   </p>
@@ -2660,24 +2665,71 @@ export function ChatWidget({
               ))}
               {!searchQuery.trim() ? (
                 <>
+                  <p className="px-4 pb-1 pt-3 text-[11px] font-semibold text-fog">
+                    접속 중 {onlineUsers.length}
+                  </p>
+                  {onlineUsers.length ? (
+                    onlineUsers.map((online) => (
+                      <button
+                        key={online.user_id}
+                        type="button"
+                        onClick={() =>
+                          void startDirectChat({
+                            id: online.user_id,
+                            nickname: online.nickname,
+                            avatar_url: online.avatar_url ?? null,
+                          })
+                        }
+                        className="flex w-full items-center gap-3 border-b border-mist px-4 py-3 text-left hover:bg-[#007AFF]/5"
+                      >
+                        <div className="relative">
+                          <Avatar
+                            nickname={online.nickname}
+                            url={online.avatar_url}
+                            onOpen={() => setProfileId(online.user_id)}
+                          />
+                          <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-[#007AFF]" />
+                        </div>
+                        <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
+                          {online.nickname}
+                        </p>
+                        <span className="text-[11px] font-semibold text-[#007AFF]">메시지</span>
+                      </button>
+                    ))
+                  ) : (
+                    <p className="px-4 pb-3 text-[12px] text-fog">
+                      지금 접속 중인 사용자가 없어요.
+                    </p>
+                  )}
                   {acceptedFriends.length ? (
                     <p className="px-4 pb-1 pt-3 text-[11px] font-semibold text-fog">내 친구</p>
                   ) : null}
                   {acceptedFriends.map((friend) => {
                     const profile = friendProfile(friend);
+                    const online = onlineById.has(profile.id);
                     return (
                       <div
                         key={friend.id}
                         className="flex items-center gap-3 border-b border-mist px-4 py-3"
                       >
-                        <Avatar
-                          nickname={profile.nickname}
-                          url={profile.avatar_url}
-                          onOpen={() => setProfileId(profile.id)}
-                        />
-                        <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
-                          {profile.nickname}
-                        </p>
+                        <div className="relative">
+                          <Avatar
+                            nickname={profile.nickname}
+                            url={profile.avatar_url}
+                            onOpen={() => setProfileId(profile.id)}
+                          />
+                          {online ? (
+                            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-[#007AFF]" />
+                          ) : null}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="truncate text-[13px] font-semibold">
+                            {profile.nickname}
+                          </p>
+                          {online ? (
+                            <p className="text-[10px] font-semibold text-[#007AFF]">접속 중</p>
+                          ) : null}
+                        </div>
                         <button
                           type="button"
                           onClick={() => void startDirectChat(profile)}
@@ -2693,16 +2745,22 @@ export function ChatWidget({
                     const isFriend = acceptedFriends.some(
                       (friend) => friendProfile(friend).id === profile.id,
                     );
+                    const online = onlineById.has(profile.id);
                     return (
                       <div
                         key={profile.id}
                         className="flex items-center gap-3 border-b border-mist px-4 py-3"
                       >
-                        <Avatar
-                          nickname={profile.nickname}
-                          url={profile.avatar_url}
-                          onOpen={() => setProfileId(profile.id)}
-                        />
+                        <div className="relative">
+                          <Avatar
+                            nickname={profile.nickname}
+                            url={profile.avatar_url}
+                            onOpen={() => setProfileId(profile.id)}
+                          />
+                          {online ? (
+                            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-[#007AFF]" />
+                          ) : null}
+                        </div>
                         <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
                           {profile.nickname}
                         </p>
@@ -2733,43 +2791,6 @@ export function ChatWidget({
                   ) : null}
                 </>
               ) : null}
-            </div>
-          ) : null}
-
-          {view === "online" ? (
-            <div className="flex-1 overflow-y-auto">
-              {onlineUsers.length ? (
-                onlineUsers.map((online) => (
-                  <button
-                    key={online.user_id}
-                    onClick={() =>
-                      void startDirectChat({
-                        id: online.user_id,
-                        nickname: online.nickname,
-                        avatar_url: online.avatar_url ?? null,
-                      })
-                    }
-                    className="flex w-full items-center gap-3 border-b border-mist px-4 py-3 text-left"
-                  >
-                    <div className="relative">
-                      <Avatar
-                        nickname={online.nickname}
-                        url={online.avatar_url}
-                        onOpen={() => setProfileId(online.user_id)}
-                      />
-                      <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-[#007AFF]" />
-                    </div>
-                    <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
-                      {online.nickname}
-                    </p>
-                    <span className="text-[11px] text-[#007AFF]">메시지</span>
-                  </button>
-                ))
-              ) : (
-                <p className="px-4 py-10 text-center text-[13px] text-fog">
-                  지금 접속 중인 사용자가 없어요.
-                </p>
-              )}
             </div>
           ) : null}
 
