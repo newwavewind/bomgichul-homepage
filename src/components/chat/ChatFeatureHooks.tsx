@@ -113,12 +113,12 @@ export function useTopicRooms(enabled: boolean) {
 export function ChatPrefsBar({
   goalLabel,
   keywords,
-  onSaveKeywords,
+  onOpenKeywords,
   onBumpDone,
 }: {
   goalLabel: string;
   keywords: string[];
-  onSaveKeywords: (raw: string) => void;
+  onOpenKeywords: () => void;
   onBumpDone: () => void;
 }) {
   return (
@@ -126,21 +126,15 @@ export function ChatPrefsBar({
       <button
         type="button"
         onClick={onBumpDone}
-        className="rounded-full bg-[#007AFF]/10 px-2.5 py-1 font-display text-[11px] font-semibold text-[#0066D6]"
+        className="chat-hit chat-focus rounded-full bg-[#007AFF]/10 px-2.5 py-1 font-display text-[11px] font-semibold text-[#0066D6]"
         title="오늘 푼 문항 +1"
       >
         {goalLabel}
       </button>
       <button
         type="button"
-        onClick={() => {
-          const raw = window.prompt(
-            "키워드 알림 (쉼표로 구분)",
-            keywords.join(", "),
-          );
-          if (raw != null) onSaveKeywords(raw);
-        }}
-        className="rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-fog"
+        onClick={onOpenKeywords}
+        className="chat-hit chat-focus rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-fog"
       >
         키워드 {keywords.length ? `(${keywords.length})` : ""}
       </button>

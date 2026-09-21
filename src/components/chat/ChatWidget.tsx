@@ -41,6 +41,15 @@ import {
   type MockInvitePayload,
   type CheckinPayload,
 } from "@/lib/chat/features";
+import "@/components/chat/chat-polish.css";
+import {
+  BrandChatFab,
+  ChatToast,
+  ChatSheet,
+  OverflowMenu,
+  ChatEmptyState,
+  ComposerPlusSheet,
+} from "@/components/chat/ChatUiKit";
 
 type ChatUser = {
   id: string;
@@ -227,11 +236,11 @@ function MessageBubble({
         />
       ) : null}
       <div
-        className={`max-w-[84%] overflow-hidden rounded-[18px] font-display text-[13px] leading-relaxed ${isMine ? "rounded-br-md bg-[#e9eaf8] text-[#30344a] ring-1 ring-inset ring-[#d9dbea]" : "rounded-bl-md border border-mist bg-paper text-ink"}`}
+        className={`chat-bubble-enter max-w-[84%] overflow-hidden rounded-[18px] font-display chat-body text-ink ${isMine ? "rounded-br-md bg-[var(--chat-mine)] ring-1 ring-inset ring-[var(--chat-mine-ring)]" : "rounded-bl-md border border-mist bg-paper"}`}
       >
         {message.reply_to ? (
           <div
-            className={`mx-2 mt-2 rounded-xl border-l-2 px-2.5 py-1.5 text-[11px] ${isMine ? "border-[#8b8fb8] bg-white/45 text-[#555b78]" : "border-[#007AFF] bg-[#007AFF]/5 text-smoke"}`}
+            className={`mx-2 mt-2 rounded-xl border-l-2 px-2.5 py-1.5 chat-meta ${isMine ? "border-[#007AFF]/40 bg-white/50 text-smoke" : "border-[#007AFF] bg-[#007AFF]/5 text-smoke"}`}
           >
             ↩ {message.reply_to.content || "첨부 메시지"}
           </div>
@@ -354,7 +363,7 @@ function MessageBubble({
             </p>
           ) : null}
           <p
-            className={`mt-1 text-[10px] ${isMine ? "text-[#777c99]" : "text-fog"}`}
+            className="mt-1 chat-meta"
           >
             {!isMine ? `${message.author.nickname} · ` : ""}
             {formatKstChatTime(message.created_at)}
@@ -412,7 +421,7 @@ function MessageBubble({
             onClick={() => setActionsOpen((current) => !current)}
             aria-label="메시지 메뉴"
             aria-expanded={actionsOpen}
-            className={`flex h-7 w-7 items-center justify-center rounded-full text-sm tracking-widest transition ${actionsOpen ? "bg-white text-ink shadow-sm" : "text-slate-300 hover:bg-white/70 hover:text-slate-500"}`}
+            className={`chat-hit chat-focus flex items-center justify-center rounded-full text-sm tracking-widest transition ${actionsOpen ? "bg-white text-ink shadow-sm" : "text-slate-300 hover:bg-white/70 hover:text-slate-500"}`}
           >
             ⋯
           </button>
@@ -460,7 +469,7 @@ function MessageBubble({
                 <button
                   type="button"
                   onClick={() => runAction(onReport)}
-                  className="rounded-full px-2 py-1 text-[11px] text-coral hover:bg-coral/10"
+                  className="rounded-full px-2 py-1 text-[11px] text-rose-600 hover:bg-rose-50"
                 >
                   신고
                 </button>
@@ -477,7 +486,7 @@ function MessageBubble({
                   <button
                     type="button"
                     onClick={() => runAction(onDelete)}
-                    className="rounded-full px-2 py-1 text-[11px] text-coral hover:bg-coral/10"
+                    className="rounded-full px-2 py-1 text-[11px] text-rose-600 hover:bg-rose-50"
                   >
                     삭제
                   </button>
@@ -525,6 +534,17 @@ export function ChatWidget({
   const [loading, setLoading] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [toastTone, setToastTone] = useState<"info" | "success" | "error">("info");
+  const [plusOpen, setPlusOpen] = useState(false);
+  const [sheet, setSheet] = useState<
+    | null
+    | { type: "keywords"; value: string }
+    | { type: "report"; message: DmMessage; reason: string; details: string }
+    | { type: "checkin"; note: string }
+    | { type: "edit"; message: DmMessage; value: string }
+    | { type: "rename"; value: string }
+    | { type: "slow"; value: string }
+  >(null);
   const [profileId, setProfileId] = useState<string | null>(null);
   const [listFilter, setListFilter] = useState<"all" | "unread" | "mention" | "archived">("all");
   const [showArchived, setShowArchived] = useState(false);
@@ -551,6 +571,10 @@ export function ChatWidget({
   const dragDepthRef = useRef(0);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
   const { prefs, save: savePrefs, bumpDailyDone, goalLabel } = useChatPrefs(user.id);
+  const notify = (message: string, tone: "info" | "success" | "error" = "info") => {
+    setToastTone(tone);
+    setError(message);
+  };
 
   useEffect(() => {
     if (!forceOpen && openNonce === 0) return;
@@ -1053,27 +1077,27 @@ export function ChatWidget({
   };
 
   const reportMessage = async (message: DmMessage) => {
-    const reason =
-      window.prompt(
-        "신고 사유: spam / abuse / sexual / illegal / privacy / other",
-        "spam",
-      ) ?? "";
+    setSheet({ type: "report", message, reason: "spam", details: "" });
+  };
+
+  const submitReport = async () => {
+    if (!sheet || sheet.type !== "report") return;
     const allowed = ["spam", "abuse", "sexual", "illegal", "privacy", "other"];
-    if (!allowed.includes(reason)) {
-      setError("신고 사유가 올바르지 않습니다.");
+    if (!allowed.includes(sheet.reason)) {
+      notify("신고 사유가 올바르지 않습니다.", "error");
       return;
     }
-    const details = window.prompt("상세 (선택)", "") ?? "";
     const { error: reportError } = await createClient().from("chat_reports").insert({
       reporter_id: user.id,
-      reported_user_id: message.sender_id,
-      conversation_id: message.conversation_id,
-      message_id: message.id,
-      reason,
-      details,
+      reported_user_id: sheet.message.sender_id,
+      conversation_id: sheet.message.conversation_id,
+      message_id: sheet.message.id,
+      reason: sheet.reason,
+      details: sheet.details,
     });
-    if (reportError) setError(reportError.message);
-    else setError("신고가 접수됐어요. 검토 후 조치할게요.");
+    setSheet(null);
+    if (reportError) notify(reportError.message, "error");
+    else notify("신고가 접수됐어요.", "success");
   };
 
   const blockUser = async (targetId: string) => {
@@ -1083,7 +1107,7 @@ export function ChatWidget({
       blocked_id: targetId,
     });
     if (blockError) setError(blockError.message);
-    else setError("차단했어요. 대화 목록에서 숨겨질 수 있어요.");
+    else notify("차단했어요.", "success");
   };
 
   const joinByInvite = async () => {
@@ -1099,7 +1123,7 @@ export function ChatWidget({
     setInviteInput("");
     await refreshConversations();
     setView("list");
-    setError("초대 코드로 입장했어요.");
+    notify("초대 코드로 입장했어요.", "success");
   };
 
   const ensureInviteCode = async () => {
@@ -1337,15 +1361,20 @@ export function ChatWidget({
 
   const doCheckin = async () => {
     if (!activeConversation) return;
-    const note = window.prompt("인증 한마디 (선택)", "") ?? "";
+    setSheet({ type: "checkin", note: "" });
+  };
+
+  const submitCheckin = async () => {
+    if (!activeConversation || !sheet || sheet.type !== "checkin") return;
     const { data, error: checkError } = await createClient().rpc("chat_checkin", {
       p_conversation_id: activeConversation.id,
-      p_note: note,
+      p_note: sheet.note,
     });
-    if (checkError) setError(checkError.message);
+    setSheet(null);
+    if (checkError) notify(checkError.message, "error");
     else {
       const streak = (data as { streak?: number } | null)?.streak;
-      if (streak) setError(`${streak}일 연속 인증!`);
+      if (streak) notify(`${streak}일 연속 인증!`, "success");
       await bumpDailyDone();
       await loadMessages(activeConversation.id);
     }
@@ -1652,13 +1681,17 @@ export function ChatWidget({
   };
 
   const editMessage = async (message: DmMessage) => {
-    const next = window.prompt("메시지 수정", message.content);
-    if (next == null || !next.trim()) return;
+    setSheet({ type: "edit", message, value: message.content });
+  };
+
+  const submitEdit = async () => {
+    if (!sheet || sheet.type !== "edit" || !sheet.value.trim()) return;
     const { error: editError } = await createClient().rpc("update_dm_message", {
-      p_message_id: message.id,
-      p_content: next,
+      p_message_id: sheet.message.id,
+      p_content: sheet.value,
     });
-    if (editError) setError(editError.message);
+    setSheet(null);
+    if (editError) notify(editError.message, "error");
     else if (activeConversation) await loadMessages(activeConversation.id);
   };
 
@@ -1988,22 +2021,19 @@ export function ChatWidget({
 
   return (
     <>
-      <button
-        type="button"
+      <BrandChatFab
         onClick={() => setOpen((value) => !value)}
-        className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-carbon bg-paper text-2xl shadow-[var(--shadow-card)] transition-transform hover:scale-105"
-        aria-label="채팅 열기"
-      >
-        💬
-        {unreadTotal > 0 ? (
-          <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#ef4444] px-1 font-display text-[10px] font-bold text-paper">
-            {unreadTotal > 9 ? "9+" : unreadTotal}
-          </span>
-        ) : null}
-      </button>
+        badge={
+          unreadTotal > 0 ? (
+            <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#ef4444] px-1 font-display text-[10px] font-bold text-paper">
+              {unreadTotal > 9 ? "9+" : unreadTotal}
+            </span>
+          ) : null
+        }
+      />
       {open ? (
         <div
-          className="fixed inset-0 z-[60] flex flex-col overflow-hidden bg-[radial-gradient(circle_at_top_right,#dbeafe_0,#f8fafc_38%,#fff_75%)] shadow-2xl sm:inset-auto sm:bottom-24 sm:right-5 sm:h-[min(82vh,760px)] sm:w-[min(94vw,720px)] sm:rounded-[30px] sm:border sm:border-white/80"
+          className="chat-panel chat-panel-enter fixed inset-0 z-[60] flex flex-col overflow-hidden shadow-2xl sm:inset-auto sm:bottom-24 sm:right-5 sm:h-[min(82vh,760px)] sm:w-[min(94vw,720px)] sm:rounded-[30px] sm:border sm:border-white/80"
           onDragEnter={handleDragEnter}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
@@ -2023,21 +2053,21 @@ export function ChatWidget({
           }}
         >
           {view === "thread" && isDraggingFiles ? (
-            <div className="pointer-events-none absolute inset-3 z-[80] flex items-center justify-center rounded-[24px] border-2 border-dashed border-[#7c83b5] bg-white/85 p-6 text-center shadow-2xl backdrop-blur-md">
+            <div className="pointer-events-none absolute inset-3 z-[80] flex items-center justify-center rounded-[24px] border-2 border-dashed border-[#007AFF]/50 bg-white/85 p-6 text-center shadow-2xl backdrop-blur-md">
               <div>
-                <span className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e9eaf8] text-2xl">
+                <span className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#007AFF]/10 text-2xl text-[#0066D6]">
                   ⇩
                 </span>
-                <p className="font-display text-base font-semibold text-[#30344a]">
+                <p className="font-display text-base font-semibold text-ink">
                   여기에 놓아 첨부하기
                 </p>
-                <p className="mt-1 text-xs text-[#777c99]">
+                <p className="mt-1 chat-meta">
                   사진·동영상·문서, 한 번에 최대 6개
                 </p>
               </div>
             </div>
           ) : null}
-          <div className="flex items-center gap-2 border-b border-white/70 bg-white/65 px-4 py-3 backdrop-blur-2xl">
+          <div className="chat-glass-bar flex items-center gap-2 px-4 py-3">
             {view !== "list" && view !== "friends" && view !== "online" ? (
               <button
                 type="button"
@@ -2062,62 +2092,30 @@ export function ChatWidget({
               <>
                 <button
                   type="button"
-                  onClick={() => setView("search")}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
-                  title="대화 검색"
-                >
-                  ⌕
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setView("gallery")}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
-                  title="미디어"
-                >
-                  🖼
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setView("calendar")}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
-                  title="일정"
-                >
-                  📅
-                </button>
-                <button
-                  type="button"
                   onClick={() => void doCheckin()}
-                  className="rounded-full bg-[#007AFF]/10 px-2.5 py-1.5 text-xs font-semibold text-[#0066D6]"
+                  className="chat-hit chat-focus rounded-full bg-[#007AFF]/10 px-2.5 text-xs font-semibold text-[#0066D6]"
                   title="학습 인증"
                 >
                   ✅
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setView("study")}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
-                  title="스터디 도구"
-                >
-                  🎯
-                </button>
-                {activeConversation ? (
-                  <button
-                    type="button"
-                    onClick={() => void toggleMute(activeConversation)}
-                    className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
-                    title="뮤트"
-                  >
-                    {activeConversation.mutedUntil ? "🔕" : "🔔"}
-                  </button>
-                ) : null}
-                <button
-                  type="button"
-                  onClick={() => setView("manage")}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
-                  title="방 관리"
-                >
-                  ⚙
-                </button>
+                <OverflowMenu
+                  items={[
+                    { key: "search", label: "대화 검색", onClick: () => setView("search") },
+                    { key: "gallery", label: "미디어", onClick: () => setView("gallery") },
+                    { key: "calendar", label: "일정", onClick: () => setView("calendar") },
+                    { key: "study", label: "스터디 도구", onClick: () => setView("study") },
+                    ...(activeConversation
+                      ? [
+                          {
+                            key: "mute",
+                            label: activeConversation.mutedUntil ? "알림 켜기" : "뮤트",
+                            onClick: () => void toggleMute(activeConversation),
+                          },
+                        ]
+                      : []),
+                    { key: "manage", label: "방 관리", onClick: () => setView("manage") },
+                  ]}
+                />
               </>
             ) : null}
             {view === "list" ? (
@@ -2125,69 +2123,35 @@ export function ChatWidget({
                 <button
                   type="button"
                   onClick={() => setView("topics")}
-                  className="rounded-full bg-[#007AFF]/10 px-2.5 py-1.5 font-display text-[11px] font-semibold text-[#0066D6]"
+                  className="chat-hit chat-focus rounded-full bg-[#007AFF]/10 px-2.5 font-display text-[11px] font-semibold text-[#0066D6]"
                 >
                   스터디방
                 </button>
                 <button
                   type="button"
-                  onClick={() => setView("global-search")}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
-                >
-                  검색
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setView("calendar")}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
-                >
-                  일정
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setView("bookmarks");
-                    void loadBookmarks();
-                  }}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
-                >
-                  ★
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setView("settings")}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
-                >
-                  설정
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setProfileId(user.id)}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
-                >
-                  내 프로필
-                </button>
-                <button
-                  type="button"
-                  onClick={() => void openSelfChat()}
-                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
-                >
-                  나와의 채팅
-                </button>
-                <button
-                  type="button"
                   onClick={() => setView("friends")}
-                  className="rounded-full bg-[#007AFF]/10 px-2.5 py-1.5 font-display text-[11px] font-semibold text-[#0066D6]"
+                  className="chat-hit chat-focus rounded-full bg-[#007AFF]/10 px-2.5 font-display text-[11px] font-semibold text-[#0066D6]"
                 >
                   + 친구
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setView("new-group")}
-                  className="rounded-full bg-[#007AFF]/10 px-2.5 py-1.5 font-display text-[11px] font-semibold text-[#0066D6]"
-                >
-                  + 그룹
-                </button>
+                <OverflowMenu
+                  items={[
+                    { key: "search", label: "전체 검색", onClick: () => setView("global-search") },
+                    { key: "calendar", label: "스터디 일정", onClick: () => setView("calendar") },
+                    {
+                      key: "bookmarks",
+                      label: "북마크",
+                      onClick: () => {
+                        setView("bookmarks");
+                        void loadBookmarks();
+                      },
+                    },
+                    { key: "settings", label: "채팅 설정", onClick: () => setView("settings") },
+                    { key: "profile", label: "내 프로필", onClick: () => setProfileId(user.id) },
+                    { key: "self", label: "나와의 채팅", onClick: () => void openSelfChat() },
+                    { key: "group", label: "새 그룹", onClick: () => setView("new-group") },
+                  ]}
+                />
               </div>
             ) : null}
             <button
@@ -2223,17 +2187,14 @@ export function ChatWidget({
             </div>
           ) : null}
           {error ? (
-            <div className="flex items-start gap-2 border-b border-rose-200 bg-rose-50 px-3 py-2">
-              <p className="flex-1 font-display text-[11px] text-rose-700">
-                {error}
-              </p>
-              <button
-                onClick={() => setError(null)}
-                className="text-[11px] text-rose-500"
-              >
-                ✕
-              </button>
-            </div>
+            <ChatToast
+              message={error}
+              tone={toastTone}
+              onClose={() => {
+                setError(null);
+                setToastTone("info");
+              }}
+            />
           ) : null}
 
           {view === "list" ? (
@@ -2241,13 +2202,10 @@ export function ChatWidget({
               <ChatPrefsBar
                 goalLabel={goalLabel}
                 keywords={prefs?.keyword_alerts ?? []}
-                onSaveKeywords={(raw) =>
-                  void savePrefs({
-                    keyword_alerts: raw
-                      .split(",")
-                      .map((s) => s.trim())
-                      .filter(Boolean)
-                      .slice(0, 20),
+                onOpenKeywords={() =>
+                  setSheet({
+                    type: "keywords",
+                    value: (prefs?.keyword_alerts ?? []).join(", "),
                   })
                 }
                 onBumpDone={() => void bumpDailyDone()}
@@ -2338,7 +2296,7 @@ export function ChatWidget({
                         </p>
                       </div>
                       {conversation.unreadCount ? (
-                        <span className="rounded-full bg-[#6366f1] px-1.5 py-0.5 text-[10px] font-bold text-white">
+                        <span className="rounded-full bg-[#007AFF] px-1.5 py-0.5 text-[10px] font-bold text-white">
                           {conversation.unreadCount}
                         </span>
                       ) : null}
@@ -2354,12 +2312,17 @@ export function ChatWidget({
                       </span>
                     </button>
                   ))
-                ) : (
+                ) : listFilter === "archived" ? (
                   <p className="px-4 py-12 text-center text-body-sm text-fog">
-                    {listFilter === "archived"
-                      ? "보관한 대화가 없어요."
-                      : "아직 대화가 없어요. 스터디방이나 친구와 시작해 보세요."}
+                    보관한 대화가 없어요.
                   </p>
+                ) : (
+                  <ChatEmptyState
+                    title="아직 대화가 없어요"
+                    body="스터디방에 들어가거나 친구와 대화를 시작해 보세요."
+                    actionLabel="스터디방 보기"
+                    onAction={() => setView("topics")}
+                  />
                 )}
               </div>
             </div>
@@ -2491,7 +2454,7 @@ export function ChatWidget({
                         url={online.avatar_url}
                         onOpen={() => setProfileId(online.user_id)}
                       />
-                      <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-emerald-500" />
+                      <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border border-white bg-[#007AFF]" />
                     </div>
                     <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
                       {online.nickname}
@@ -2618,7 +2581,7 @@ export function ChatWidget({
 
           {view === "study" ? (
             <div className="flex-1 overflow-y-auto p-5">
-              <div className="rounded-3xl bg-gradient-to-br from-[#007AFF] to-[#7c3aed] p-5 text-white shadow-xl">
+              <div className="rounded-3xl bg-gradient-to-br from-[#007AFF] to-[#5AC8FA] p-5 text-white shadow-xl">
                 <p className="text-xs text-white/75">STUDY ROOM</p>
                 <h3 className="mt-1 text-xl font-bold">
                   {activeConversation?.title}
@@ -2675,27 +2638,26 @@ export function ChatWidget({
                 <h3 className="font-bold">그룹 관리</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   <button
-                    onClick={() => {
-                      const name = window.prompt(
-                        "새 그룹 이름",
-                        activeConversation?.title,
-                      );
-                      if (name) void manageGroup("rename", undefined, name);
-                    }}
-                    className="rounded-xl bg-surface px-3 py-2 text-xs"
+                    type="button"
+                    onClick={() =>
+                      setSheet({
+                        type: "rename",
+                        value: activeConversation?.title ?? "",
+                      })
+                    }
+                    className="chat-hit chat-focus rounded-xl bg-surface px-3 py-2 text-xs"
                   >
                     이름 변경
                   </button>
                   <button
-                    onClick={() => {
-                      const seconds = window.prompt(
-                        "느린 채팅 초",
-                        String(activeConversation?.slow_mode_seconds ?? 0),
-                      );
-                      if (seconds)
-                        void manageGroup("slow_mode", undefined, seconds);
-                    }}
-                    className="rounded-xl bg-surface px-3 py-2 text-xs"
+                    type="button"
+                    onClick={() =>
+                      setSheet({
+                        type: "slow",
+                        value: String(activeConversation?.slow_mode_seconds ?? 0),
+                      })
+                    }
+                    className="chat-hit chat-focus rounded-xl bg-surface px-3 py-2 text-xs"
                   >
                     느린 채팅
                   </button>
@@ -2763,7 +2725,7 @@ export function ChatWidget({
                     {member.id !== user.id && member.role !== "owner" ? (
                       <button
                         onClick={() => void manageGroup("remove", member.id)}
-                        className="text-[10px] text-coral"
+                        className="text-[10px] text-rose-600"
                       >
                         내보내기
                       </button>
@@ -2800,7 +2762,7 @@ export function ChatWidget({
                       key={room.topic_key}
                       type="button"
                       onClick={() => void openTopicRoom(room.topic_key)}
-                      className="flex w-full items-center justify-between rounded-2xl border border-mist bg-white/80 px-4 py-3 text-left shadow-sm"
+                      className="chat-focus flex w-full items-center justify-between rounded-2xl border border-mist bg-white/85 px-4 py-3.5 text-left shadow-sm transition hover:border-[#007AFF]/35 hover:bg-[#007AFF]/5"
                     >
                       <span>
                         <b className="block font-display text-[13px] text-ink">
@@ -2859,13 +2821,10 @@ export function ChatWidget({
               <ChatPrefsBar
                 goalLabel={goalLabel}
                 keywords={prefs?.keyword_alerts ?? []}
-                onSaveKeywords={(raw) =>
-                  void savePrefs({
-                    keyword_alerts: raw
-                      .split(",")
-                      .map((s) => s.trim())
-                      .filter(Boolean)
-                      .slice(0, 20),
+                onOpenKeywords={() =>
+                  setSheet({
+                    type: "keywords",
+                    value: (prefs?.keyword_alerts ?? []).join(", "),
                   })
                 }
                 onBumpDone={() => void bumpDailyDone()}
@@ -2981,44 +2940,44 @@ export function ChatWidget({
                     />
                   ))
                 ) : (
-                  <p className="py-8 text-center text-[13px] text-fog">
-                    첫 메시지를 보내보세요.
-                  </p>
+                  <ChatEmptyState
+                    title="첫 메시지를 보내보세요"
+                    body="기출 카드·타이머·OX 폴도 + 버튼에서 바로 보낼 수 있어요."
+                    actionLabel="보내기 열기"
+                    onAction={() => setPlusOpen(true)}
+                  />
                 )}
                 <div ref={messagesEndRef} />
               </div>
               <form
-                className="border-t border-white/70 bg-white/70 p-3 backdrop-blur-2xl"
+                className="chat-glass-composer p-3"
                 onSubmit={(event) => {
                   event.preventDefault();
                   void sendMessage();
                 }}
               >
-                <div className="mb-2 flex flex-wrap gap-1">
-                  {(
-                    [
-                      ["none", "일반"],
-                      ["exam", "기출"],
-                      ["wrong", "오답"],
-                      ["timer", "타이머"],
-                      ["poll", "OX폴"],
-                      ["mock", "모의"],
-                    ] as const
-                  ).map(([key, label]) => (
+                {shareMode !== "none" ? (
+                  <div className="mb-2 flex items-center gap-2">
+                    <span className="rounded-full bg-[#007AFF] px-2.5 py-1 text-[10px] font-semibold text-white">
+                      {shareMode === "exam"
+                        ? "기출"
+                        : shareMode === "wrong"
+                          ? "오답"
+                          : shareMode === "timer"
+                            ? "타이머"
+                            : shareMode === "poll"
+                              ? "OX폴"
+                              : "모의"}
+                    </span>
                     <button
-                      key={key}
                       type="button"
-                      onClick={() => setShareMode(key)}
-                      className={`rounded-full px-2.5 py-1 text-[10px] font-semibold ${
-                        shareMode === key
-                          ? "bg-[#007AFF] text-white"
-                          : "bg-white text-fog"
-                      }`}
+                      onClick={() => setShareMode("none")}
+                      className="chat-meta"
                     >
-                      {label}
+                      일반으로
                     </button>
-                  ))}
-                </div>
+                  </div>
+                ) : null}
                 {shareMode === "exam" || shareMode === "wrong" ? (
                   <div className="mb-2 space-y-1.5 rounded-xl border border-mist bg-white/80 p-2">
                     <input
@@ -3159,10 +3118,10 @@ export function ChatWidget({
                 <div className="flex items-end gap-2">
                   <button
                     type="button"
-                    onClick={() => fileInputRef.current?.click()}
+                    onClick={() => setPlusOpen(true)}
                     disabled={sending || preparingFiles}
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#007AFF] to-[#7c3aed] text-xl text-white shadow-md"
-                    aria-label="사진 동영상 또는 파일 첨부"
+                    className="chat-hit chat-focus flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#007AFF] text-xl text-white shadow-md"
+                    aria-label="보내기 메뉴"
                   >
                     ＋
                   </button>
@@ -3224,6 +3183,167 @@ export function ChatWidget({
             </>
           ) : null}
         </div>
+      ) : null}
+      <ComposerPlusSheet
+        open={plusOpen}
+        onClose={() => setPlusOpen(false)}
+        onPick={(mode) => {
+          if (mode === "attach") {
+            fileInputRef.current?.click();
+            return;
+          }
+          setShareMode(mode);
+        }}
+      />
+      {sheet?.type === "report" ? (
+        <ChatSheet
+            title="메시지 신고"
+            onClose={() => setSheet(null)}
+          >
+            <label className="chat-label text-smoke">사유</label>
+            <select
+              value={sheet.reason}
+              onChange={(e) =>
+                setSheet({ ...sheet, reason: e.target.value })
+              }
+              className="mt-1 w-full rounded-xl border border-mist px-3 py-2.5 text-[13px]"
+            >
+              {[
+                ["spam", "스팸"],
+                ["abuse", "욕설·괴롭힘"],
+                ["sexual", "음란"],
+                ["illegal", "불법"],
+                ["privacy", "개인정보"],
+                ["other", "기타"],
+              ].map(([v, l]) => (
+                <option key={v} value={v}>
+                  {l}
+                </option>
+              ))}
+            </select>
+            <label className="chat-label mt-3 block text-smoke">상세 (선택)</label>
+            <textarea
+              value={sheet.details}
+              onChange={(e) =>
+                setSheet({ ...sheet, details: e.target.value })
+              }
+              rows={3}
+              className="mt-1 w-full rounded-xl border border-mist px-3 py-2.5 text-[13px]"
+            />
+            <button
+              type="button"
+              onClick={() => void submitReport()}
+              className="chat-focus mt-4 w-full rounded-full bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+            >
+              신고 접수
+            </button>
+          </ChatSheet>
+      ) : null}
+      {sheet?.type === "checkin" ? (
+        <ChatSheet title="학습 인증" onClose={() => setSheet(null)}>
+            <label className="chat-label text-smoke">한마디 (선택)</label>
+            <input
+              value={sheet.note}
+              onChange={(e) => setSheet({ ...sheet, note: e.target.value })}
+              placeholder="오늘 목표 달성!"
+              className="mt-1 w-full rounded-xl border border-mist px-3 py-2.5 text-[13px]"
+            />
+            <button
+              type="button"
+              onClick={() => void submitCheckin()}
+              className="chat-focus mt-4 w-full rounded-full bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+            >
+              인증하기
+            </button>
+          </ChatSheet>
+      ) : null}
+      {sheet?.type === "edit" ? (
+        <ChatSheet title="메시지 수정" onClose={() => setSheet(null)}>
+            <textarea
+              value={sheet.value}
+              onChange={(e) => setSheet({ ...sheet, value: e.target.value })}
+              rows={4}
+              className="w-full rounded-xl border border-mist px-3 py-2.5 text-[13px]"
+            />
+            <button
+              type="button"
+              onClick={() => void submitEdit()}
+              className="chat-focus mt-4 w-full rounded-full bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+            >
+              저장
+            </button>
+          </ChatSheet>
+      ) : null}
+      {sheet?.type === "keywords" ? (
+        <ChatSheet title="키워드 알림" onClose={() => setSheet(null)}>
+            <p className="chat-meta mb-2">쉼표로 구분해서 입력하세요.</p>
+            <input
+              value={sheet.value}
+              onChange={(e) => setSheet({ ...sheet, value: e.target.value })}
+              placeholder="민법, 등기, 취득세"
+              className="w-full rounded-xl border border-mist px-3 py-2.5 text-[13px]"
+            />
+            <button
+              type="button"
+              onClick={() => {
+                void savePrefs({
+                  keyword_alerts: sheet.value
+                    .split(",")
+                    .map((s) => s.trim())
+                    .filter(Boolean)
+                    .slice(0, 20),
+                });
+                setSheet(null);
+                notify("키워드를 저장했어요.", "success");
+              }}
+              className="chat-focus mt-4 w-full rounded-full bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+            >
+              저장
+            </button>
+          </ChatSheet>
+      ) : null}
+      {sheet?.type === "rename" ? (
+        <ChatSheet title="그룹 이름 변경" onClose={() => setSheet(null)}>
+            <input
+              value={sheet.value}
+              onChange={(e) => setSheet({ ...sheet, value: e.target.value })}
+              className="w-full rounded-xl border border-mist px-3 py-2.5 text-[13px]"
+            />
+            <button
+              type="button"
+              onClick={() => {
+                if (sheet.value.trim())
+                  void manageGroup("rename", undefined, sheet.value.trim());
+                setSheet(null);
+              }}
+              className="chat-focus mt-4 w-full rounded-full bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+            >
+              변경
+            </button>
+          </ChatSheet>
+      ) : null}
+      {sheet?.type === "slow" ? (
+        <ChatSheet title="느린 채팅" onClose={() => setSheet(null)}>
+            <p className="chat-meta mb-2">메시지 사이 최소 대기 시간(초). 0이면 해제.</p>
+            <input
+              type="number"
+              min={0}
+              max={600}
+              value={sheet.value}
+              onChange={(e) => setSheet({ ...sheet, value: e.target.value })}
+              className="w-full rounded-xl border border-mist px-3 py-2.5 text-[13px]"
+            />
+            <button
+              type="button"
+              onClick={() => {
+                void manageGroup("slow_mode", undefined, sheet.value || "0");
+                setSheet(null);
+              }}
+              className="chat-focus mt-4 w-full rounded-full bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+            >
+              적용
+            </button>
+          </ChatSheet>
       ) : null}
       {profileId ? <ChatProfileModal profileId={profileId} myUserId={user.id} onClose={() => setProfileId(null)} /> : null}
     </>

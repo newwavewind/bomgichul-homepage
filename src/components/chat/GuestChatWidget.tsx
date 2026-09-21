@@ -6,6 +6,8 @@ import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { OnlineUser } from "@/types/database";
 import { TOPIC_TEASERS } from "@/lib/chat/features";
+import "@/components/chat/chat-polish.css";
+import { BrandChatFab } from "@/components/chat/ChatUiKit";
 
 export function GuestChatWidget({
   forceOpen = false,
@@ -45,21 +47,18 @@ export function GuestChatWidget({
 
   return (
     <>
-      <button
-        type="button"
+      <BrandChatFab
         onClick={() => setOpen((value) => !value)}
-        className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-carbon bg-paper text-2xl shadow-[var(--shadow-card)] transition-transform hover:scale-105"
-        aria-label="채팅 열기"
-      >
-        💬
-        <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#007AFF] px-1 font-display text-[10px] font-bold text-white">
-          {onlineUsers.length}
-        </span>
-      </button>
+        badge={
+          <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#007AFF] px-1 font-display text-[10px] font-bold text-white">
+            {onlineUsers.length}
+          </span>
+        }
+      />
 
       {open ? (
         <section
-          className="fixed inset-0 z-[60] flex flex-col overflow-hidden bg-[radial-gradient(circle_at_top_right,#dbeafe_0,#f8fafc_38%,#fff_75%)] shadow-2xl sm:inset-auto sm:bottom-24 sm:right-5 sm:h-[min(72vh,620px)] sm:w-[min(92vw,420px)] sm:rounded-[30px] sm:border sm:border-white/80"
+          className="chat-panel chat-panel-enter fixed inset-0 z-[60] flex flex-col overflow-hidden shadow-2xl sm:inset-auto sm:bottom-24 sm:right-5 sm:h-[min(72vh,620px)] sm:w-[min(92vw,420px)] sm:rounded-[30px] sm:border sm:border-white/80"
           onTouchStart={(event) => {
             const touch = event.touches[0];
             swipeStartRef.current = touch
@@ -78,12 +77,12 @@ export function GuestChatWidget({
               setOpen(false);
           }}
         >
-          <header className="flex items-center border-b border-white/70 bg-white/70 px-4 py-3 backdrop-blur-2xl">
+          <header className="chat-glass-bar flex items-center px-4 py-3">
             <div className="min-w-0 flex-1">
               <h2 className="font-display text-body font-semibold text-ink">
                 봄기출 채팅
               </h2>
-              <p className="text-[11px] text-fog">
+              <p className="chat-meta">
                 지금 {onlineUsers.length}명이 같이 공부 중
               </p>
             </div>
@@ -91,7 +90,7 @@ export function GuestChatWidget({
               type="button"
               onClick={() => setOpen(false)}
               aria-label="닫기"
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xl text-fog transition-colors hover:bg-black/5 active:bg-black/10"
+              className="chat-hit chat-focus flex shrink-0 items-center justify-center rounded-full text-xl text-fog transition-colors hover:bg-black/5 active:bg-black/10"
             >
               ✕
             </button>
@@ -114,9 +113,7 @@ export function GuestChatWidget({
                     </span>
                   ))
                 ) : (
-                  <span className="text-xs text-fog">
-                    현재 표시할 접속자가 없어요.
-                  </span>
+                  <span className="chat-meta">현재 표시할 접속자가 없어요.</span>
                 )}
               </div>
             </div>
@@ -130,30 +127,37 @@ export function GuestChatWidget({
                   <Link
                     key={topic.key}
                     href={loginHref}
-                    className="rounded-2xl border border-mist bg-white/80 px-3 py-2.5 text-left shadow-sm"
+                    className="chat-focus rounded-2xl border border-mist bg-white/80 px-3 py-2.5 text-left shadow-sm"
                   >
                     <b className="block font-display text-[13px] text-ink">
                       {topic.label}
                     </b>
-                    <small className="text-[11px] text-fog">{topic.blurb}</small>
+                    <small className="chat-meta">{topic.blurb}</small>
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div className="mt-4 rounded-2xl bg-[#e9eaf8] p-5 text-center">
-              <span className="text-3xl">💬</span>
-              <h3 className="mt-2 font-display text-base font-semibold text-[#30344a]">
+            <div className="mt-4 rounded-2xl border border-[#007AFF]/15 bg-[#007AFF]/8 p-5 text-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/brand/whale-mark.png"
+                alt=""
+                width={48}
+                height={48}
+                className="mx-auto h-12 w-12"
+              />
+              <h3 className="mt-2 font-display text-base font-semibold text-ink">
                 로그인하고 바로 대화하기
               </h3>
-              <p className="mt-2 text-xs leading-relaxed text-[#686d89]">
+              <p className="mt-2 chat-meta leading-relaxed">
                 과목 스터디방 · 기출/오답 공유 · 타이머 · OX 폴 · @멘션
                 <br />
                 개인 대화와 기록은 로그인 후에만 볼 수 있어요.
               </p>
               <Link
                 href={loginHref}
-                className="mt-4 inline-flex rounded-full bg-[#007AFF] px-5 py-2.5 font-display text-sm font-semibold text-white"
+                className="chat-focus mt-4 inline-flex rounded-full bg-[#007AFF] px-5 py-2.5 font-display text-sm font-semibold text-white"
               >
                 로그인하고 채팅하기
               </Link>
