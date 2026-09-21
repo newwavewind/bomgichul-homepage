@@ -93,7 +93,7 @@ export async function GET(request: Request) {
       .select("id")
       .eq("conversation_id", event.conversation_id)
       .eq("message_kind", "system")
-      .contains("payload", { reminderKey: marker })
+      .filter("payload->>reminderKey", "eq", marker)
       .limit(1);
 
     if (existing?.length) continue;
