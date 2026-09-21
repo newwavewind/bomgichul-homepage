@@ -222,8 +222,8 @@ export function ChatEmptyState({
 }: {
   title: string;
   body: string;
-  actionLabel: string;
-  onAction: () => void;
+  actionLabel?: string;
+  onAction?: () => void;
 }) {
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-6 py-14 text-center">
@@ -231,13 +231,15 @@ export function ChatEmptyState({
       <p className="mt-2 max-w-[240px] font-display text-[13px] leading-relaxed text-smoke">
         {body}
       </p>
-      <button
-        type="button"
-        onClick={onAction}
-        className="chat-focus mt-5 rounded-full bg-[#007AFF] px-5 py-2.5 font-display text-[13px] font-semibold text-white"
-      >
-        {actionLabel}
-      </button>
+      {actionLabel && onAction ? (
+        <button
+          type="button"
+          onClick={onAction}
+          className="chat-focus mt-5 rounded-full bg-[#007AFF] px-5 py-2.5 font-display text-[13px] font-semibold text-white"
+        >
+          {actionLabel}
+        </button>
+      ) : null}
     </div>
   );
 }

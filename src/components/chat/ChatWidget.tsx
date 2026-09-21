@@ -995,6 +995,27 @@ export function ChatWidget({
     () => friends.filter((friend) => friend.status === "accepted"),
     [friends],
   );
+  const threadRootId = threadRoot
+    ? (threadRoot.thread_root_id ?? threadRoot.id)
+    : null;
+  const visibleMessages = useMemo(() => {
+    if (view !== "thread-detail" || !threadRootId) return messages;
+    return messages.filter(
+      (m) =>
+        m.id === threadRootId ||
+        m.thread_root_id === threadRootId ||
+        m.reply_to_id === threadRootId,
+    );
+  }, [view, threadRootId, messages]);
+  const replyCountById = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const m of messages) {
+      const root = m.thread_root_id ?? (m.reply_to_id && m.reply_to_id !== m.id ? m.reply_to_id : null);
+      if (!root) continue;
+      counts[root] = (counts[root] ?? 0) + 1;
+    }
+    return counts;
+  }, [messages]);
   const incomingRequests = useMemo(
     () =>
       friends.filter(
@@ -3984,12 +4005,28 @@ export function ChatWidget({
             </div>
           ) : null}
 
-                    {view === "thread" ? (
+                    {view === "thread" || view === "thread-detail" ? (
             <>
-              {pinnedList.length > 0 ||
+              {view === "thread-detail" && threadRoot ? (
+                <div className="border-b border-[#007AFF]/20 bg-[#007AFF]/8 px-4 py-2">
+                  <p className="text-[12px] font-semibold text-[#0066D6]">
+                    스레드
+                    {(replyCountById[threadRootId ?? ""] ?? 0) > 0
+                      ? ` · 답글 ${replyCountById[threadRootId ?? ""]}개`
+                      : " · 첫 답글을 남겨 보세요"}
+                  </p>
+                  <p className="mt-0.5 line-clamp-2 text-[11px] text-smoke">
+                    {threadRoot.content ||
+                      threadRoot.message_kind ||
+                      "원문 메시지"}
+                  </p>
+                </div>
+              ) : null}
+              {view === "thread" &&
+              (pinnedList.length > 0 ||
               activeConversation?.pinned_message_id ||
               activeConversation?.study_dday ||
-              activeConversation?.study_goal ? (
+              activeConversation?.study_goal) ? (
                 <div className="border-b border-[#007AFF]/20 bg-[#007AFF]/8 px-4 py-2">
                   {pinnedList.length > 0 || activeConversation?.pinned_message_id ? (
                     <div>
@@ -4108,8 +4145,8 @@ export function ChatWidget({
                   <p className="py-8 text-center text-[13px] text-fog">
                     불러오는 중...
                   </p>
-                ) : messages.length ? (
-                  messages.map((message) => (
+                ) : visibleMessages.length ? (
+                  visibleMessages.map((message) => (
                     <MessageBubble
                       key={message.id}
                       message={message}
@@ -4159,10 +4196,22 @@ export function ChatWidget({
                       onReport={() => void reportMessage(message)}
                       onPollVote={(key) => void votePoll(message, key)}
                       onPin={() => void pinMessage(message)}
-                      onOpenThread={() => {
-                        setThreadRoot(message);
-                        setView("thread-detail");
-                      }}
+                      onOpenThread={
+                        view === "thread" &&
+                        (replyCountById[message.id] ?? 0) > 0
+                          ? () => {
+                              const root =
+                                message.thread_root_id
+                                  ? messages.find(
+                                      (m) => m.id === message.thread_root_id,
+                                    ) ?? message
+                                  : message;
+                              setThreadRoot(root);
+                              setReplyTo(root);
+                              setView("thread-detail");
+                            }
+                          : undefined
+                      }
                       onRecordView={() => void recordMessageView(message)}
                       onForward={() => setSheet({ type: "forward", message })}
                       onQuote={
@@ -4200,10 +4249,20 @@ export function ChatWidget({
                   ))
                 ) : (
                   <ChatEmptyState
-                    title="첫 메시지를 보내보세요"
-                    body="기출 카드·타이머·OX 폴도 + 버튼에서 바로 보낼 수 있어요."
-                    actionLabel="보내기 열기"
-                    onAction={() => setPlusOpen(true)}
+                    title={
+                      view === "thread-detail"
+                        ? "스레드에 메시지가 없어요"
+                        : "첫 메시지를 보내보세요"
+                    }
+                    body={
+                      view === "thread-detail"
+                        ? "아래에서 원문에 답글을 남겨 보세요."
+                        : "기출 카드·타이머·OX 폴도 + 버튼에서 바로 보낼 수 있어요."
+                    }
+                    actionLabel={view === "thread-detail" ? undefined : "보내기 열기"}
+                    onAction={
+                      view === "thread-detail" ? undefined : () => setPlusOpen(true)
+                    }
                   />
                 )}
                 <div ref={messagesEndRef} />
