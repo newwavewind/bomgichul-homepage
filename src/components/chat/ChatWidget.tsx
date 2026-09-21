@@ -1004,8 +1004,20 @@ export function ChatWidget({
     [friends, user.id],
   );
   const friendProfile = useCallback(
-    (friend: FriendRow) =>
-      friend.requester_id === user.id ? friend.addressee : friend.requester,
+    (friend: FriendRow) => {
+      const other =
+        friend.requester_id === user.id ? friend.addressee : friend.requester;
+      return (
+        other ?? {
+          id:
+            friend.requester_id === user.id
+              ? friend.addressee_id
+              : friend.requester_id,
+          nickname: "알 수 없음",
+          avatar_url: null,
+        }
+      );
+    },
     [user.id],
   );
   const onlineById = useMemo(
@@ -2678,26 +2690,23 @@ export function ChatWidget({
   };
 
   const sendFriendRequest = async (profile: ProfileRow) => {
-    const { error: requestError } = await createClient()
-      .from("friendships")
-      .insert({
-        requester_id: user.id,
-        addressee_id: profile.id,
-        status: "accepted",
-        accepted_at: new Date().toISOString(),
-      });
-    if (requestError)
-      setError(
+    const { error: requestError } = await createClient().rpc(
+      "ensure_friendship",
+      { p_other_user_id: profile.id },
+    );
+    if (requestError) {
+      notify(
         requestError.code === "23505"
           ? "이미 친구로 추가된 사용자예요."
           : requestError.message,
-      );
-    else {
-      setSearchResults((items) =>
-        items.filter((item) => item.id !== profile.id),
+        requestError.code === "23505" ? "info" : "error",
       );
       await refreshFriends();
+      return;
     }
+    setSearchResults((items) => items.filter((item) => item.id !== profile.id));
+    await refreshFriends();
+    notify(`${profile.nickname}님을 친구로 추가했어요.`, "success");
   };
 
   const respondFriend = async (id: string, accept: boolean) => {
