@@ -1,5 +1,6 @@
 import { BOX_LABEL_AT_START, parseQuestionStem } from "@/lib/exam-stem";
 import { plainStudyText } from "@/lib/study-text";
+import type { ReactNode } from "react";
 
 function StemHeading({
   questionNo,
@@ -18,6 +19,53 @@ function StemHeading({
     <h1 className={`flex gap-x-2 ${className}`}>
       <span className="shrink-0 select-none tabular-nums">{questionNo}.</span>
       <span className="min-w-0 flex-1 whitespace-pre-line">{text}</span>
+    </h1>
+  );
+}
+
+/** 영어 등 offset 밑줄을 <u>로 얹는다. plainStudyText 이후 문자열 기준. */
+function StemWithUnderlines({
+  text,
+  underlines,
+  questionNo,
+  className,
+}: {
+  text: string;
+  underlines: [number, number][];
+  questionNo?: number;
+  className: string;
+}) {
+  const cuts = new Set<number>([0, text.length]);
+  for (const [a, b] of underlines) {
+    if (a >= 0 && a < text.length) cuts.add(a);
+    if (b > 0 && b <= text.length) cuts.add(b);
+  }
+  const points = [...cuts].sort((x, y) => x - y);
+  const nodes: ReactNode[] = [];
+  for (let i = 0; i < points.length - 1; i++) {
+    const start = points[i];
+    const end = points[i + 1];
+    if (start >= end) continue;
+    const chunk = text.slice(start, end);
+    const marked = underlines.some(([a, b]) => start >= a && end <= b);
+    nodes.push(
+      marked ? (
+        <u key={`${start}-${end}`} className="underline decoration-slate-500 underline-offset-[3px]">
+          {chunk}
+        </u>
+      ) : (
+        <span key={`${start}-${end}`}>{chunk}</span>
+      )
+    );
+  }
+  const body = <span className="whitespace-pre-line">{nodes}</span>;
+  if (questionNo == null) {
+    return <h1 className={className}>{body}</h1>;
+  }
+  return (
+    <h1 className={`flex gap-x-2 ${className}`}>
+      <span className="shrink-0 select-none tabular-nums">{questionNo}.</span>
+      <span className="min-w-0 flex-1">{body}</span>
     </h1>
   );
 }
@@ -45,6 +93,7 @@ export function toBoxGroups(boxLines: string[]): { label: string | null; lines: 
 export function QuestionStem({
   stem,
   questionNo,
+  underlines,
   /**
    * 보기 상자를 여기서 그리지 않는다. 「모두 몇 개인가」 문항처럼 도입부와 ㉠~㉤ 이
    * 한 문장으로 이어질 때는 지문 바로 위(ExamOxQuestion)에서 함께 그려야 끊겨 보이지 않는다.
@@ -53,9 +102,17 @@ export function QuestionStem({
 }: {
   stem: string;
   questionNo?: number;
+  /** 영어 밑줄 — stem 문자열(정리 전) 기준 [start, end) */
+  underlines?: [number, number][] | number[][];
   renderBox?: boolean;
 }) {
   const cleanStem = plainStudyText(stem);
+  // plainStudyText 가 길이를 바꾸면 offset 가 어긋난다 — 바뀌지 않을 때만 밑줄을 얹는다.
+  const canUnderline =
+    Array.isArray(underlines) &&
+    underlines.length > 0 &&
+    cleanStem === stem;
+  const ranges = (canUnderline ? underlines : []) as [number, number][];
   const { intro, boxLines } = parseQuestionStem(cleanStem);
   const headingClass =
     "mb-8 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink";
@@ -71,6 +128,16 @@ export function QuestionStem({
   }
 
   if (boxLines.length === 0) {
+    if (ranges.length > 0) {
+      return (
+        <StemWithUnderlines
+          text={cleanStem}
+          underlines={ranges}
+          questionNo={questionNo}
+          className={headingClass}
+        />
+      );
+    }
     return (
       <StemHeading
         questionNo={questionNo}

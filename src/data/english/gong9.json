@@ -995,6 +995,12 @@
           "exampleTranslation": "도시가 아무리 커지더라도 모든 주민이 넉넉하고 안전하며 깨끗한 물을 얻습니다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          528,
+          534
+        ]
       ]
     },
     {
@@ -1119,6 +1125,12 @@
           "exampleTranslation": "요금 인상으로 이어질 수 있는 값비싼 설비 개선",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          540,
+          546
+        ]
       ]
     },
     {
@@ -1664,6 +1676,24 @@
           "exampleTranslation": "그 시기가 중요한 까닭은 뚜렷한 유럽 문명이 나타난 때이기 때문이다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          32,
+          45
+        ],
+        [
+          177,
+          179
+        ],
+        [
+          265,
+          273
+        ],
+        [
+          287,
+          292
+        ]
       ]
     },
     {
@@ -1783,6 +1813,24 @@
           "example": "The price tag of the cultivated meat is a testament to how expensive it is.",
           "exampleTranslation": "배양육의 가격표가 그것이 얼마나 비싼지를 말해 준다."
         }
+      ],
+      "underlines": [
+        [
+          64,
+          74
+        ],
+        [
+          137,
+          144
+        ],
+        [
+          326,
+          336
+        ],
+        [
+          506,
+          514
+        ]
       ]
     },
     {
@@ -3580,6 +3628,12 @@
           "exampleTranslation": "위험하지 않은 대체 제품을 찾아보세요",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          568,
+          575
+        ]
       ]
     },
     {
@@ -3710,6 +3764,12 @@
           "exampleTranslation": "전구, 건전지, 매니큐어",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          581,
+          588
+        ]
       ]
     },
     {
@@ -4237,6 +4297,24 @@
           "exampleTranslation": "각각 저마다 장단점이 있다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          85,
+          94
+        ],
+        [
+          378,
+          382
+        ],
+        [
+          436,
+          441
+        ],
+        [
+          643,
+          649
+        ]
       ]
     },
     {
@@ -4358,6 +4436,24 @@
           "exampleTranslation": "이메일을 읽고 요약하고 답하는 일",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          51,
+          56
+        ],
+        [
+          168,
+          172
+        ],
+        [
+          348,
+          350
+        ],
+        [
+          604,
+          608
+        ]
       ]
     },
     {
@@ -6197,6 +6293,12 @@
           "exampleTranslation": "우리가 잘못한 일이 있으면 알려 주십시오.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          252,
+          258
+        ]
       ]
     },
     {
@@ -6344,6 +6446,12 @@
           "exampleTranslation": "우리 영사 업무에 대한 모든 의견을 환영합니다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          244,
+          250
+        ]
       ]
     },
     {
@@ -6756,6 +6864,24 @@
           "example": "It includes indoor gardening activities.",
           "exampleTranslation": "실내 원예 활동도 포함한다."
         }
+      ],
+      "underlines": [
+        [
+          114,
+          124
+        ],
+        [
+          156,
+          164
+        ],
+        [
+          213,
+          221
+        ],
+        [
+          305,
+          314
+        ]
       ]
     },
     {
@@ -6878,6 +7004,24 @@
           "exampleTranslation": "불은 요리 말고도 여러 방식으로 인간에게 이바지했다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          71,
+          78
+        ],
+        [
+          106,
+          117
+        ],
+        [
+          208,
+          215
+        ],
+        [
+          321,
+          329
+        ]
       ]
     },
     {
@@ -8862,6 +9006,12 @@
           "exampleTranslation": "사람은 행복하고 건강하고 넉넉한 삶을 살 수 있어야 한다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          223,
+          231
+        ]
       ]
     },
     {
@@ -8990,6 +9140,12 @@
           "exampleTranslation": "그러나 건강에 닿는 길은 공평하지 않다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          213,
+          221
+        ]
       ]
     },
     {
@@ -9260,6 +9416,12 @@
           "exampleTranslation": "독립운동 유물 15만 점이 여덟 개 전시관에 놓여 있다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          380,
+          394
+        ]
       ]
     },
     {
@@ -9500,6 +9662,24 @@
           "exampleTranslation": "우리는 로빈 후드와 무법자 일반을 도망자로 떠올린다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          39,
+          49
+        ],
+        [
+          152,
+          167
+        ],
+        [
+          235,
+          239
+        ],
+        [
+          353,
+          362
+        ]
       ]
     },
     {
@@ -9610,6 +9790,28 @@
           "exampleTranslation": "지혜의 여신 아테나",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          50,
+          70
+        ],
+        [
+          122,
+          126
+        ],
+        [
+          144,
+          146
+        ],
+        [
+          147,
+          156
+        ],
+        [
+          216,
+          220
+        ]
       ]
     },
     {
@@ -10691,6 +10893,12 @@
           "exampleTranslation": "우리는 그것을 찾기를 포기할 수밖에 없었다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          56,
+          65
+        ]
       ]
     },
     {
@@ -10800,6 +11008,12 @@
           "exampleTranslation": "출퇴근 시간 라디오의 공익 교육 캠페인",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          33,
+          40
+        ]
       ]
     },
     {
@@ -10899,6 +11113,12 @@
           "exampleTranslation": "그것들은 어느 신생 사업에나 흔한 일이다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          47,
+          56
+        ]
       ]
     },
     {
@@ -11000,6 +11220,12 @@
           "example": "She was anxious about the interview.",
           "exampleTranslation": "그녀는 면접이 불안했다."
         }
+      ],
+      "underlines": [
+        [
+          56,
+          68
+        ]
       ]
     },
     {
@@ -11122,6 +11348,24 @@
           "exampleTranslation": "옛집의 품질이 낫다는 믿음에도 불구하고 그 기초는 얕다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          27,
+          34
+        ],
+        [
+          95,
+          100
+        ],
+        [
+          193,
+          201
+        ],
+        [
+          279,
+          284
+        ]
       ]
     },
     {
@@ -13023,6 +13267,12 @@
           "example": "They obviously differ from one another.",
           "exampleTranslation": "그것들은 분명히 서로 다르다."
         }
+      ],
+      "underlines": [
+        [
+          101,
+          109
+        ]
       ]
     },
     {
@@ -13122,6 +13372,12 @@
           "exampleTranslation": "제인은 진하고 검은 차를 따랐다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          71,
+          78
+        ]
       ]
     },
     {
@@ -13227,6 +13483,12 @@
           "exampleTranslation": "총리는 삭감을 배제한 것으로 여겨진다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          69,
+          78
+        ]
       ]
     },
     {
@@ -13323,6 +13585,12 @@
           "exampleTranslation": "아빠는 네게 질문하기를 멈추지 않을 것이다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          37,
+          43
+        ]
       ]
     },
     {
@@ -13519,6 +13787,24 @@
           "exampleTranslation": "매우 복잡한 저작인 『의미의 지도』",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          42,
+          49
+        ],
+        [
+          79,
+          81
+        ],
+        [
+          137,
+          142
+        ],
+        [
+          169,
+          179
+        ]
       ]
     },
     {
@@ -15442,6 +15728,12 @@
           "exampleTranslation": "제인은 화려한 결혼식보다 작은 결혼식을 원했다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          147,
+          155
+        ]
       ]
     },
     {
@@ -15542,6 +15834,12 @@
           "example": "There was a significant rise in sales.",
           "exampleTranslation": "매출이 상당히 늘었다."
         }
+      ],
+      "underlines": [
+        [
+          34,
+          43
+        ]
       ]
     },
     {
@@ -15645,6 +15943,12 @@
           "exampleTranslation": "팬데믹 때문에 그 회사는 그 계획을 미뤄야 했다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          74,
+          82
+        ]
       ]
     },
     {
@@ -15746,6 +16050,12 @@
           "example": "The governor will announce the plan tomorrow.",
           "exampleTranslation": "주지사가 내일 그 계획을 발표할 것이다."
         }
+      ],
+      "underlines": [
+        [
+          70,
+          78
+        ]
       ]
     },
     {
@@ -15858,6 +16168,24 @@
           "exampleTranslation": "말기 장기 질환을 앓는 사람의 수명을 늘리는 것",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          76,
+          78
+        ],
+        [
+          166,
+          170
+        ],
+        [
+          297,
+          304
+        ],
+        [
+          348,
+          358
+        ]
       ]
     },
     {
@@ -17908,6 +18236,12 @@
           "exampleTranslation": "설명은 이어지는 발표에서 드리겠습니다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          83,
+          93
+        ]
       ]
     },
     {
@@ -18023,6 +18357,12 @@
           "exampleTranslation": "재채기했을 때 「실례합니다」라고 말하는 것",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          106,
+          114
+        ]
       ]
     },
     {
@@ -18130,6 +18470,12 @@
           "example": "The doctor advised them to eat more vegetables.",
           "exampleTranslation": "의사는 그들에게 채소를 더 먹으라고 권했다."
         }
+      ],
+      "underlines": [
+        [
+          55,
+          65
+        ]
       ]
     },
     {
@@ -18236,6 +18582,12 @@
           "exampleTranslation": "노예제는 19세기가 되어서야 없어졌다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          46,
+          60
+        ]
       ]
     },
     {
@@ -18456,6 +18808,24 @@
           "exampleTranslation": "그 팀이 뜻밖에 경기에서 진다",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          58,
+          66
+        ],
+        [
+          77,
+          86
+        ],
+        [
+          172,
+          176
+        ],
+        [
+          238,
+          249
+        ]
       ]
     },
     {
@@ -20365,6 +20735,12 @@
           "exampleTranslation": "여러 해 동안 형사들이 그 수수께끼를 풀려고 애써 왔다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          71,
+          78
+        ]
       ]
     },
     {
@@ -20457,6 +20833,12 @@
           "exampleTranslation": "그들의 침실 넷짜리 집은 쓸데없이 호화로워 보였다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          117,
+          124
+        ]
       ]
     },
     {
@@ -20550,6 +20932,12 @@
           "exampleTranslation": "우리는 그렇게 짧은 기간에 이미 예산을 다 써 버렸다",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          38,
+          50
+        ]
       ]
     },
     {
@@ -21097,6 +21485,24 @@
           "exampleTranslation": "볼타의 연구가 하도 화제가 되어 그는 시연 요청을 받았다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          97,
+          102
+        ],
+        [
+          231,
+          235
+        ],
+        [
+          301,
+          307
+        ],
+        [
+          443,
+          447
+        ]
       ]
     },
     {
@@ -22782,6 +23188,12 @@
           "example": "He is honest about his mistakes.",
           "exampleTranslation": "그는 자기 실수에 정직하다."
         }
+      ],
+      "underlines": [
+        [
+          56,
+          64
+        ]
       ]
     },
     {
@@ -22890,6 +23302,12 @@
           "exampleTranslation": "어떤 곳에서는 늘고 어떤 곳에서는 줄면서",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          41,
+          45
+        ]
       ]
     },
     {
@@ -22993,6 +23411,12 @@
           "example": "In spite of the rain, the game went on.",
           "exampleTranslation": "비가 왔는데도 경기는 계속되었다."
         }
+      ],
+      "underlines": [
+        [
+          61,
+          76
+        ]
       ]
     },
     {
@@ -25300,6 +25724,12 @@
           "exampleTranslation": "그러므로 사생활은 사회생활에 중심이 된다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          85,
+          104
+        ]
       ]
     },
     {
@@ -25392,6 +25822,12 @@
           "exampleTranslation": "대부분의 대중음악은 그 양식의 뿌리를 재즈에 빚지고 있다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          63,
+          72
+        ]
       ]
     },
     {
@@ -25486,6 +25922,12 @@
           "exampleTranslation": "사업을 하겠다고 학교를 그만둔 제멋대로인 십 대",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          53,
+          58
+        ]
       ]
     },
     {
@@ -26096,6 +26538,24 @@
           "exampleTranslation": "빈 땅은 흔히 공식적으로든 비공식적으로든 누군가 차지한다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          162,
+          173
+        ],
+        [
+          229,
+          237
+        ],
+        [
+          321,
+          326
+        ],
+        [
+          583,
+          593
+        ]
       ]
     },
     {
@@ -27983,6 +28443,12 @@
           "exampleTranslation": "무엇을 사느냐가 아니라 사는 행위",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          120,
+          133
+        ]
       ]
     },
     {
@@ -28452,6 +28918,12 @@
           "exampleTranslation": "그 나라의 예술 전통 속에서 자란 이들을 빼면",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          296,
+          305
+        ]
       ]
     },
     {
@@ -30461,6 +30933,12 @@
           "exampleTranslation": "솔직한 고객 후기와 가격대를 비교 사이트에서 볼 수 있다",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          92,
+          98
+        ]
       ]
     },
     {
@@ -30564,6 +31042,12 @@
           "example": "Volcanoes are generally conspicuous.",
           "exampleTranslation": "화산은 대체로 눈에 잘 띈다."
         }
+      ],
+      "underlines": [
+        [
+          164,
+          175
+        ]
       ]
     },
     {
@@ -30656,6 +31140,12 @@
           "exampleTranslation": "그는 거기 가는 길을 알려 줄 최적임자다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          105,
+          115
+        ]
       ]
     },
     {
@@ -30757,6 +31247,12 @@
           "exampleTranslation": "길을 따라 죽 수천 가지 소박한 시도가 있었다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          88,
+          102
+        ]
       ]
     },
     {
@@ -33171,6 +33667,12 @@
           "exampleTranslation": "그 참혹한 광경이 달갑지 않은 생각을 불러일으켰다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          46,
+          57
+        ]
       ]
     },
     {
@@ -33287,6 +33789,12 @@
           "example": "They calculated the total cost carefully.",
           "exampleTranslation": "그들은 총비용을 꼼꼼히 계산했다."
         }
+      ],
+      "underlines": [
+        [
+          92,
+          101
+        ]
       ]
     },
     {
@@ -33393,6 +33901,12 @@
           "exampleTranslation": "그 가해자는 따돌림받는 것이 어떤 것인지 몰랐다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          82,
+          89
+        ]
       ]
     },
     {
@@ -33604,6 +34118,12 @@
           "example": "She strongly suggested staying at home.",
           "exampleTranslation": "그녀는 집에 있자고 강하게 권했다."
         }
+      ],
+      "underlines": [
+        [
+          41,
+          56
+        ]
       ]
     },
     {
@@ -33841,6 +34361,24 @@
           "exampleTranslation": "머리와 꼬리가 다이아몬드로 덮인 채로",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          128,
+          137
+        ],
+        [
+          252,
+          256
+        ],
+        [
+          348,
+          352
+        ],
+        [
+          464,
+          471
+        ]
       ]
     },
     {
@@ -35550,6 +36088,12 @@
           "exampleTranslation": "업계에서 무슨 일이 벌어지는지에 대한 핵심 사실과 수치",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          182,
+          189
+        ]
       ]
     },
     {
@@ -35643,6 +36187,12 @@
           "exampleTranslation": "여자 1,500m 종목 은메달리스트",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          94,
+          103
+        ]
       ]
     },
     {
@@ -36196,6 +36746,24 @@
           "exampleTranslation": "동물은 인간의 생활 수준을 상당히 높일 수 있다",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          98,
+          107
+        ],
+        [
+          170,
+          179
+        ],
+        [
+          340,
+          348
+        ],
+        [
+          416,
+          418
+        ]
       ]
     },
     {
@@ -36315,6 +36883,24 @@
           "example": "Through tales of gods and supernatural beings, myths try to make sense of occurrences.",
           "exampleTranslation": "신과 초자연적 존재의 이야기를 통해 신화는 일어나는 일을 이해하려 한다."
         }
+      ],
+      "underlines": [
+        [
+          85,
+          101
+        ],
+        [
+          230,
+          241
+        ],
+        [
+          421,
+          432
+        ],
+        [
+          687,
+          698
+        ]
       ]
     },
     {
@@ -36867,6 +37453,56 @@
           "exampleTranslation": "우리 감독기관은 대형 기관에 정기적인 건전성 점검을 한다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          255,
+          310
+        ],
+        [
+          311,
+          363
+        ],
+        [
+          364,
+          388
+        ],
+        [
+          390,
+          417
+        ],
+        [
+          418,
+          468
+        ],
+        [
+          469,
+          516
+        ],
+        [
+          518,
+          521
+        ],
+        [
+          522,
+          579
+        ],
+        [
+          580,
+          603
+        ],
+        [
+          605,
+          632
+        ],
+        [
+          633,
+          691
+        ],
+        [
+          692,
+          700
+        ]
       ]
     },
     {
@@ -37126,6 +37762,12 @@
           "exampleTranslation": "미국에서 학교 교육은 모든 아이에게 의무다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          42,
+          52
+        ]
       ]
     },
     {
@@ -37224,6 +37866,12 @@
           "exampleTranslation": "그 배우는 경력에서 많은 혼란을 겪었지만 불행하다고 털어놓지 않았다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          100,
+          109
+        ]
       ]
     },
     {
@@ -38088,6 +38736,12 @@
           "exampleTranslation": "나는 이 문서들을 유물로 보게 되었다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          126,
+          135
+        ]
       ]
     },
     {
@@ -38204,6 +38858,12 @@
           "exampleTranslation": "좌석에 묶일 때의 긴장 어린 기대",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          212,
+          217
+        ]
       ]
     },
     {
@@ -38545,6 +39205,24 @@
           "exampleTranslation": "이런 사고는 경제적 어려움뿐 아니라 큰 고통과 슬픔을 낳는다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          67,
+          71
+        ],
+        [
+          167,
+          176
+        ],
+        [
+          290,
+          300
+        ],
+        [
+          381,
+          389
+        ]
       ]
     },
     {
@@ -39373,6 +40051,12 @@
           "exampleTranslation": "뇌가 아주 재미있는 것에 푹 빠져 있을 때",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          126,
+          138
+        ]
       ]
     },
     {
@@ -39485,6 +40169,16 @@
           "example": "She got inspired by the exhibition.",
           "exampleTranslation": "그녀는 그 전시에서 영감을 받았다."
         }
+      ],
+      "underlines": [
+        [
+          79,
+          83
+        ],
+        [
+          84,
+          94
+        ]
       ]
     },
     {
@@ -41086,6 +41780,24 @@
           "exampleTranslation": "세계 자연림의 80퍼센트에 이르는 손실",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          48,
+          58
+        ],
+        [
+          160,
+          167
+        ],
+        [
+          203,
+          223
+        ],
+        [
+          346,
+          355
+        ]
       ]
     },
     {
@@ -41188,6 +41900,12 @@
           "exampleTranslation": "전설적인 다큐멘터리 감독 로버트 플래허티",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          98,
+          108
+        ]
       ]
     },
     {
@@ -41815,6 +42533,24 @@
           "exampleTranslation": "그것에 대해 무언가 할 것인지 아니면 그냥 삶을 흘려보낼 것인지",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          38,
+          56
+        ],
+        [
+          376,
+          404
+        ],
+        [
+          434,
+          457
+        ],
+        [
+          618,
+          638
+        ]
       ]
     },
     {
@@ -41946,6 +42682,24 @@
           "exampleTranslation": "그가 잘 들었던 것이 글 쓰는 역량에 한몫했음이 분명하다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          111,
+          115
+        ],
+        [
+          407,
+          412
+        ],
+        [
+          514,
+          524
+        ],
+        [
+          800,
+          809
+        ]
       ]
     },
     {
@@ -42319,6 +43073,12 @@
           "exampleTranslation": "경찰은 범인의 신원을 끝내 밝혀내지 못했다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          138,
+          148
+        ]
       ]
     },
     {
@@ -42419,6 +43179,12 @@
           "example": "The work was finished in no time.",
           "exampleTranslation": "그 일은 순식간에 끝났다."
         }
+      ],
+      "underlines": [
+        [
+          138,
+          160
+        ]
       ]
     },
     {
@@ -43226,6 +43992,12 @@
           "example": "That was the chief reason for the delay.",
           "exampleTranslation": "그것이 지연의 주된 이유였다."
         }
+      ],
+      "underlines": [
+        [
+          33,
+          42
+        ]
       ]
     },
     {
@@ -43332,6 +44104,12 @@
           "exampleTranslation": "사람들이 겁을 내는 것은 드문 일이 아니다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          59,
+          72
+        ]
       ]
     },
     {
@@ -43450,6 +44228,24 @@
           "example": "she meets all the requirements mentioned in your job description",
           "exampleTranslation": "그녀는 직무 기술서에 적힌 모든 요건을 갖추었다"
         }
+      ],
+      "underlines": [
+        [
+          131,
+          155
+        ],
+        [
+          239,
+          248
+        ],
+        [
+          336,
+          344
+        ],
+        [
+          425,
+          429
+        ]
       ]
     },
     {
@@ -43659,6 +44455,12 @@
           "example": "He gave a humorous speech.",
           "exampleTranslation": "그는 재미있는 연설을 했다."
         }
+      ],
+      "underlines": [
+        [
+          77,
+          89
+        ]
       ]
     },
     {
@@ -45806,6 +46608,12 @@
           "example": "Please confirm your reservation by email.",
           "exampleTranslation": "이메일로 예약을 확인해 주세요."
         }
+      ],
+      "underlines": [
+        [
+          42,
+          50
+        ]
       ]
     },
     {
@@ -45897,6 +46705,12 @@
           "example": "The answer seemed obvious to everyone.",
           "exampleTranslation": "그 답은 모두에게 분명해 보였다."
         }
+      ],
+      "underlines": [
+        [
+          38,
+          45
+        ]
       ]
     },
     {
@@ -47021,6 +47835,12 @@
           "exampleTranslation": "우리는 그런 행동을 참지 않을 것이다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          54,
+          65
+        ]
       ]
     },
     {
@@ -47126,6 +47946,24 @@
           "exampleTranslation": "지금은 더 이상 일을 맡을 수 없다.",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          40,
+          49
+        ],
+        [
+          81,
+          88
+        ],
+        [
+          139,
+          147
+        ],
+        [
+          209,
+          219
+        ]
       ]
     },
     {
@@ -48564,6 +49402,12 @@
           "exampleTranslation": "사람들은 의료 결정을 내릴 대리인을 지정할 수 있다",
           "fromPassage": true
         }
+      ],
+      "underlines": [
+        [
+          83,
+          92
+        ]
       ]
     },
     {
@@ -48670,6 +49514,12 @@
           "example": "He is brave and confident in any situation.",
           "exampleTranslation": "그는 어떤 상황에서도 용감하고 자신이 있다."
         }
+      ],
+      "underlines": [
+        [
+          88,
+          115
+        ]
       ]
     },
     {
@@ -48766,6 +49616,12 @@
           "example": "He gave an anguished cry.",
           "exampleTranslation": "그는 괴로움에 찬 외침을 내뱉었다."
         }
+      ],
+      "underlines": [
+        [
+          36,
+          48
+        ]
       ]
     },
     {

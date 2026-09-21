@@ -614,6 +614,7 @@ export async function TrackExamDetailPage({
             <QuestionStem
               stem={(isSubjective ? exam.prompt : exam.stem) ?? ""}
               questionNo={exam.questionNo}
+              underlines={exam.underlines}
               renderBox={passageLead.length === 0}
             />
             <ExamStructuredMaterials table={exam.table} stemTail={exam.stemTail} />

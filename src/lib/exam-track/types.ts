@@ -159,6 +159,8 @@ export interface ExamTrackExam {
   vocab?: ExamTrackVocabEntry[];
   /** 안내문·도표처럼 글이 아닌 지문을 글로 옮겨 둔 것 */
   passageText?: string;
+  /** 공무원 영어 — stem 문자열 기준 밑줄 [start, end) */
+  underlines?: [number, number][] | number[][];
 }
 
 /** 공무원 영어 — 문항에 딸린 어휘 한 항목 */
