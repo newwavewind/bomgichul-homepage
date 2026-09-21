@@ -162,6 +162,7 @@ export type AdminPostRow = {
   communityScope: string;
   authorNickname: string;
   viewCount: number;
+  commentCount: number;
   createdAt: string;
 };
 
@@ -219,9 +220,10 @@ export async function getAdminPosts(options: {
 
   let query = admin
     .from("posts")
-    .select("id, title, category, community_scope, view_count, created_at, profiles:author_id(nickname)", {
-      count: "exact",
-    })
+    .select(
+      "id, title, category, community_scope, view_count, created_at, profiles:author_id(nickname), comments(count)",
+      { count: "exact" }
+    )
     .order("created_at", { ascending: false })
     .range(from, to);
 
@@ -242,6 +244,9 @@ export async function getAdminPosts(options: {
   const rows = data.map((row) => {
     const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
     const category = row.category as PostCategory;
+    const commentRel = (
+      row as { comments?: { count: number }[] | null }
+    ).comments;
     return {
       id: row.id,
       title: row.title,
@@ -250,6 +255,7 @@ export async function getAdminPosts(options: {
       communityScope: row.community_scope ?? "real_estate",
       authorNickname: profile?.nickname ?? "익명",
       viewCount: row.view_count,
+      commentCount: commentRel?.[0]?.count ?? 0,
       createdAt: row.created_at,
     };
   });
