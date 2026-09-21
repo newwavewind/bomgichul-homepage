@@ -105,7 +105,9 @@ export async function CommunityPostDetailPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 md:py-12">
-      <BackLink href={boardHref}>목록으로</BackLink>
+      <BackLink href={boardHref} preferHistory>
+        목록으로
+      </BackLink>
 
       <ElevatedCard className="p-6 md:p-8">
         <div className="mb-4 flex items-center justify-between gap-4">
