@@ -9,6 +9,7 @@ import { ROBOTS_NOINDEX } from "@/lib/seo";
 import { shuffleQuestions, type ExamSubject } from "@/lib/exam-questions";
 import { getWrongQuestionsForSubject } from "@/lib/attempts";
 import { getUser } from "@/lib/auth";
+import { ShareWrongsToChatButton } from "@/components/chat/ShareWrongsToChatButton";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
@@ -52,10 +53,28 @@ export default async function WrongPracticePage({ params }: WrongPracticePagePro
 
         <div className="mb-8">
           <EyebrowLabel className="mb-2">오답노트</EyebrowLabel>
-          <SectionHeading as="h1">{label} 오답노트 연습</SectionHeading>
-          <p className="mt-3 max-w-2xl font-display text-body text-smoke">
-            틀렸다고 표시한 문제만 모아 다시 풀어봅니다.
-          </p>
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <SectionHeading as="h1">{label} 오답노트 연습</SectionHeading>
+              <p className="mt-3 max-w-2xl font-display text-body text-smoke">
+                틀렸다고 표시한 문제만 모아 다시 풀어봅니다.
+              </p>
+            </div>
+            {user && wrongQuestions.length > 0 ? (
+              <ShareWrongsToChatButton
+                subject={subject}
+                subjectLabel={label}
+                items={wrongQuestions.slice(0, 12).map((q) => ({
+                  examId: `${subject}-${q.year}-${q.questionNo}`,
+                  subject,
+                  year: q.year,
+                  questionNo: q.questionNo,
+                  stem: q.stem,
+                  href: `/exam/${subject}/${q.year}/${q.questionNo}`,
+                }))}
+              />
+            ) : null}
+          </div>
         </div>
 
         {!user ? (

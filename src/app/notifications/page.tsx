@@ -39,6 +39,20 @@ export default async function NotificationsPage() {
           notifications.map((n) => {
             const href = notificationHref(n);
             const isMemoComment = n.type === "memo_comment";
+            const isChat =
+              n.type === "dm_mention" ||
+              n.type === "dm_message" ||
+              n.type === "friend" ||
+              n.type === "chat_system";
+            const title = isChat
+              ? n.type === "dm_mention"
+                ? "채팅에서 회원님을 멘션했어요"
+                : n.type === "friend"
+                  ? "친구 관련 알림이 있어요"
+                  : "채팅 알림이 있어요"
+              : isMemoComment
+                ? "에 답글을 남겼어요"
+                : "글에 댓글을 남겼어요";
             return (
               <Link
                 key={n.id}
@@ -46,7 +60,7 @@ export default async function NotificationsPage() {
                 className="flex items-start gap-3 border-b border-mist/60 px-5 py-4 transition-colors last:border-b-0 hover:bg-snow"
               >
                 {!n.read_at && (
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#6366f1]" />
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#007AFF]" />
                 )}
                 <div>
                   <p className="font-display text-body-sm text-ink">
@@ -54,16 +68,20 @@ export default async function NotificationsPage() {
                       {n.actor?.nickname ?? "익명"}
                     </span>
                     님이{" "}
-                    <span className="font-medium">
-                      &lsquo;
-                      {isMemoComment
-                        ? `${n.memo?.year ?? ""}년 ${n.memo?.question_no ?? ""}번 공개 메모`
-                        : (n.post?.title ?? "게시글")}
-                      &rsquo;
-                    </span>{" "}
-                    {isMemoComment
-                      ? "에 답글을 남겼어요"
-                      : "글에 댓글을 남겼어요"}
+                    {isChat ? (
+                      <span className="font-medium">{title}</span>
+                    ) : (
+                      <>
+                        <span className="font-medium">
+                          &lsquo;
+                          {isMemoComment
+                            ? `${n.memo?.year ?? ""}년 ${n.memo?.question_no ?? ""}번 공개 메모`
+                            : (n.post?.title ?? "게시글")}
+                          &rsquo;
+                        </span>{" "}
+                        {title}
+                      </>
+                    )}
                   </p>
                   <p className="mt-1 font-display text-[12px] text-fog">
                     {timeAgo(n.created_at)}

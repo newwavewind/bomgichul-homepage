@@ -61,6 +61,9 @@ export async function GET(request: Request) {
     );
   }
 
+  const { data: timersEnded } = await admin.rpc("dispatch_ended_chat_timers");
+  const { data: pollsClosed } = await admin.rpc("dispatch_closed_chat_polls");
+
   const { data: weeklyEvents, error: weeklyError } = await admin
     .from("chat_study_events")
     .select("id,conversation_id,title,body,weekday,time_of_day,recurrence")
@@ -128,6 +131,8 @@ export async function GET(request: Request) {
     ok: true,
     published: publishedCount ?? 0,
     remindersSent,
+    timersEnded: timersEnded ?? 0,
+    pollsClosed: pollsClosed ?? 0,
     kstDate: kst.date,
     weekday: kst.weekday,
   });

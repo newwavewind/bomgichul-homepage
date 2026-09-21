@@ -185,7 +185,9 @@ export type DmMessageKind =
   | "timer"
   | "poll"
   | "voice"
-  | "system";
+  | "system"
+  | "mock_invite"
+  | "checkin";
 
 export interface DmMessage {
   id: string;
@@ -206,6 +208,7 @@ export interface DmMessage {
   published_at?: string | null;
   mention_user_ids?: string[];
   bookmarked?: boolean;
+  thread_root_id?: string | null;
 }
 
 export interface DmReaction {
@@ -323,7 +326,15 @@ export interface Notification {
   comment_id: string | null;
   memo_id: string | null;
   memo_comment_id: string | null;
-  type: "comment" | "memo_comment";
+  conversation_id?: string | null;
+  dm_message_id?: string | null;
+  type:
+    | "comment"
+    | "memo_comment"
+    | "dm_mention"
+    | "dm_message"
+    | "friend"
+    | "chat_system";
   read_at: string | null;
   created_at: string;
   actor?: Pick<Profile, "nickname" | "avatar_url">;

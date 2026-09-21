@@ -13,6 +13,7 @@ import { trackEvent } from "@/lib/analytics";
 import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
 import type { ExamQuestion } from "@/lib/exam-questions";
 import { isStatementCompositeQuestion } from "@/lib/exam-questions";
+import { writeChatShareDraft } from "@/components/chat/ShareToChatButton";
 
 function formatElapsed(totalSeconds: number): string {
   const m = Math.floor(totalSeconds / 60)
@@ -283,6 +284,36 @@ export function MockExamRunner({
 
   return (
     <div className={submitted ? "" : "pb-24"}>
+      <div className="mb-4 flex justify-end">
+        <button
+          type="button"
+          onClick={() => {
+            writeChatShareDraft({
+              mode: "exam",
+              examId: `${subject}-${year}-mock`,
+              subject,
+              year,
+              stem: `${ARCHIVE_SUBJECT_MAP[subject as keyof typeof ARCHIVE_SUBJECT_MAP] ?? subject} ${year}년 모의고사 같이 풀어요`,
+            });
+            try {
+              sessionStorage.setItem(
+                "bomgichul.chatShareMeta",
+                `${subject}|${year}|`,
+              );
+              sessionStorage.setItem("bomgichul.chatShareMode", "mock");
+            } catch {
+              /* ignore */
+            }
+            window.dispatchEvent(new CustomEvent("bomgichul:open-chat"));
+            const url = new URL(window.location.href);
+            url.searchParams.set("chat", "1");
+            window.history.replaceState({}, "", `${url.pathname}${url.search}`);
+          }}
+          className="rounded-full border border-[#007AFF]/30 bg-[#007AFF]/10 px-3 py-1.5 font-display text-[12px] font-semibold text-[#0066D6]"
+        >
+          채팅으로 같이 풀기 초대
+        </button>
+      </div>
       {submitted && (
         <div className="mb-8 rounded-[var(--radius-largecards)] border border-carbon bg-paper p-6 text-center shadow-[var(--shadow-card)]">
           <p className="font-display text-body-sm text-smoke">{year}년 시험 모드 결과</p>

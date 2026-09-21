@@ -168,7 +168,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             <ShareToChatButton
               mode="exam"
               examId={`${subject}-${year}-${questionNo}`}
-              subject={label}
+              subject={subject}
               year={year}
               questionNo={questionNo}
               stem={question.stem}

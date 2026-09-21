@@ -19,9 +19,17 @@ import {
   WrongShareBubble,
   TimerBubble,
   PollBubble,
+  MockInviteBubble,
+  CheckinBubble,
+  SystemBubble,
 } from "@/components/chat/ChatRichBubbles";
 import { ChatPrefsBar, useChatPrefs, useTopicRooms } from "@/components/chat/ChatFeatureHooks";
 import { peekChatShareDraft, clearChatShareDraft } from "@/components/chat/ShareToChatButton";
+import {
+  ChatGlobalSearch,
+  ChatMediaGallery,
+  ChatStudyCalendar,
+} from "@/components/chat/ChatExtras";
 import {
   extractMentionUserIds,
   messageMatchesKeywords,
@@ -30,6 +38,8 @@ import {
   type WrongSharePayload,
   type TimerPayload,
   type PollPayload,
+  type MockInvitePayload,
+  type CheckinPayload,
 } from "@/lib/chat/features";
 
 type ChatUser = {
@@ -45,11 +55,15 @@ type View =
   | "thread"
   | "new-group"
   | "search"
+  | "global-search"
   | "study"
   | "manage"
   | "topics"
   | "bookmarks"
-  | "settings";
+  | "settings"
+  | "gallery"
+  | "calendar"
+  | "thread-detail";
 type ProfileRow = { id: string; nickname: string; avatar_url: string | null };
 type FriendRow = Friendship & { requester: ProfileRow; addressee: ProfileRow };
 
@@ -144,6 +158,7 @@ function MessageBubble({
   message,
   isMine,
   readCount,
+  readMembers,
   nowMs,
   onReply,
   onEdit,
@@ -152,10 +167,13 @@ function MessageBubble({
   onBookmark,
   onReport,
   onPollVote,
+  onPin,
+  onOpenThread,
 }: {
   message: DmMessage;
   isMine: boolean;
   readCount: number;
+  readMembers?: Array<{ nickname: string; avatar_url?: string | null }>;
   nowMs: number;
   onReply: () => void;
   onEdit: () => void;
@@ -164,6 +182,8 @@ function MessageBubble({
   onBookmark: () => void;
   onReport: () => void;
   onPollVote?: (key: string) => void;
+  onPin?: () => void;
+  onOpenThread?: () => void;
 }) {
   const [actionsOpen, setActionsOpen] = useState(false);
   const actionMenuRef = useRef<HTMLDivElement>(null);
@@ -239,8 +259,29 @@ function MessageBubble({
               tallies={(message.payload as { tallies?: Record<string, number> }).tallies ?? {}}
               onVote={(key) => onPollVote?.(key)}
               disabled={!onPollVote}
+              nowMs={nowMs}
             />
           </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "mock_invite" && message.payload ? (
+          <div className="p-2">
+            <MockInviteBubble
+              payload={message.payload as unknown as MockInvitePayload}
+              mine={isMine}
+            />
+          </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "checkin" ? (
+          <div className="p-2">
+            <CheckinBubble
+              payload={(message.payload ?? {}) as CheckinPayload}
+              content={message.content}
+              mine={isMine}
+            />
+          </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "system" ? (
+          <SystemBubble content={message.content} />
         ) : null}
         {message.deleted_at ? (
           <p className="px-4 py-3 italic opacity-65">삭제된 메시지입니다.</p>
@@ -320,6 +361,32 @@ function MessageBubble({
             {message.edited_at ? " · 수정됨" : ""}
             {isMine && readCount > 0 ? ` · ${readCount}명 읽음` : ""}
           </p>
+          {isMine && readMembers && readMembers.length > 0 ? (
+            <div className="mt-1 flex -space-x-1.5">
+              {readMembers.slice(0, 5).map((m, i) => (
+                <span
+                  key={`${m.nickname}-${i}`}
+                  title={m.nickname}
+                  className="flex h-5 w-5 items-center justify-center overflow-hidden rounded-full border border-white bg-ice text-[9px] font-bold"
+                >
+                  {m.avatar_url ? (
+                    <img src={m.avatar_url} alt="" className="h-full w-full object-cover" />
+                  ) : (
+                    m.nickname.slice(0, 1)
+                  )}
+                </span>
+              ))}
+            </div>
+          ) : null}
+          {onOpenThread ? (
+            <button
+              type="button"
+              onClick={onOpenThread}
+              className="mt-1 text-[10px] font-semibold text-[#0066D6]"
+            >
+              스레드 보기
+            </button>
+          ) : null}
           {grouped.length ? (
             <div className="mt-1.5 flex flex-wrap gap-1">
               {grouped.map(([emoji, count]) => (
@@ -368,6 +435,16 @@ function MessageBubble({
               >
                 {message.bookmarked ? "★" : "☆"}
               </button>
+              {onPin ? (
+                <button
+                  type="button"
+                  onClick={() => runAction(onPin)}
+                  className="rounded-full px-2 py-1 text-[11px] text-smoke hover:bg-ice"
+                  title="고정"
+                >
+                  📌
+                </button>
+              ) : null}
               {REACTIONS.slice(0, 3).map((emoji) => (
                 <button
                   type="button"
@@ -452,7 +529,10 @@ export function ChatWidget({
   const [listFilter, setListFilter] = useState<"all" | "unread" | "mention" | "archived">("all");
   const [showArchived, setShowArchived] = useState(false);
   const [scheduleAt, setScheduleAt] = useState("");
-  const [shareMode, setShareMode] = useState<"none" | "exam" | "wrong" | "timer" | "poll">("none");
+  const [shareMode, setShareMode] = useState<"none" | "exam" | "wrong" | "timer" | "poll" | "mock">("none");
+  const [pollDueHours, setPollDueHours] = useState(24);
+  const [threadRoot, setThreadRoot] = useState<DmMessage | null>(null);
+  const [pinnedBanner, setPinnedBanner] = useState<DmMessage | null>(null);
   const [shareExamId, setShareExamId] = useState("");
   const [shareStem, setShareStem] = useState("");
   const [shareMeta, setShareMeta] = useState("");
@@ -480,9 +560,28 @@ export function ChatWidget({
     setShareMode(draft.mode);
     setShareExamId(draft.examId);
     setShareStem(draft.stem);
-    setShareMeta(
-      [draft.subject, draft.year, draft.questionNo].filter(Boolean).join("|"),
-    );
+    let meta = [draft.subject, draft.year, draft.questionNo]
+      .filter(Boolean)
+      .join("|");
+    try {
+      const extra = sessionStorage.getItem("bomgichul.chatShareMeta");
+      if (extra) {
+        meta = extra;
+        sessionStorage.removeItem("bomgichul.chatShareMeta");
+      }
+    } catch {
+      /* ignore */
+    }
+    setShareMeta(meta);
+    try {
+      const mode = sessionStorage.getItem("bomgichul.chatShareMode");
+      if (mode === "mock") {
+        setShareMode("mock");
+        sessionStorage.removeItem("bomgichul.chatShareMode");
+      }
+    } catch {
+      /* ignore */
+    }
     if (draft.myPick) setSharePick(draft.myPick);
     setView("list");
   }, [forceOpen, openNonce]);
@@ -706,7 +805,7 @@ export function ChatWidget({
       let { data, error: fetchError } = await supabase
         .from("dm_messages")
         .select(
-          "id,conversation_id,sender_id,content,reply_to_id,edited_at,deleted_at,created_at,message_kind,payload,scheduled_for,published_at,mention_user_ids,profiles:sender_id(nickname,avatar_url),dm_message_attachments(*),dm_message_reactions(*)",
+          "id,conversation_id,sender_id,content,reply_to_id,thread_root_id,edited_at,deleted_at,created_at,message_kind,payload,scheduled_for,published_at,mention_user_ids,profiles:sender_id(nickname,avatar_url),dm_message_attachments(*),dm_message_reactions(*)",
         )
         .eq("conversation_id", conversationId)
         .order("created_at", { ascending: true })
@@ -733,6 +832,7 @@ export function ChatWidget({
             scheduled_for: null,
             published_at: row.created_at,
             mention_user_ids: [],
+            thread_root_id: null,
           })) ?? null;
         fetchError = fallback.error;
       }
@@ -766,6 +866,7 @@ export function ChatWidget({
           scheduled_for: (row as { scheduled_for?: string | null }).scheduled_for ?? null,
           published_at: (row as { published_at?: string | null }).published_at ?? null,
           mention_user_ids: (row as { mention_user_ids?: string[] }).mention_user_ids ?? [],
+          thread_root_id: (row as { thread_root_id?: string | null }).thread_root_id ?? null,
         };
       }).filter((message) => {
         if (!message.scheduled_for || message.published_at) return true;
@@ -802,6 +903,13 @@ export function ChatWidget({
           }));
       }
       setMessages(mapped);
+      setActiveConversation((current) => {
+        if (current?.id === conversationId && current.pinned_message_id) {
+          const pinned = mapped.find((m) => m.id === current.pinned_message_id) ?? null;
+          setPinnedBanner(pinned);
+        }
+        return current;
+      });
       setLoading(false);
       await supabase.rpc("mark_dm_conversation_read", {
         p_conversation_id: conversationId,
@@ -820,6 +928,7 @@ export function ChatWidget({
     async (conversation: DmConversationPreview) => {
       setActiveConversation(conversation);
       setView("thread");
+      setPinnedBanner(null);
       await loadMessages(conversation.id);
     },
     [loadMessages],
@@ -1209,35 +1318,91 @@ export function ChatWidget({
     void queueFiles(Array.from(event.dataTransfer.files));
   };
 
+
+  const pinMessage = async (message: DmMessage | null) => {
+    if (!activeConversation) return;
+    const { error: pinError } = await createClient().rpc("set_dm_pinned_message", {
+      p_conversation_id: activeConversation.id,
+      p_message_id: message?.id ?? null,
+    });
+    if (pinError) setError(pinError.message);
+    else {
+      setActiveConversation((c) =>
+        c ? { ...c, pinned_message_id: message?.id ?? null } : c,
+      );
+      setPinnedBanner(message);
+      await refreshConversations();
+    }
+  };
+
+  const doCheckin = async () => {
+    if (!activeConversation) return;
+    const note = window.prompt("인증 한마디 (선택)", "") ?? "";
+    const { data, error: checkError } = await createClient().rpc("chat_checkin", {
+      p_conversation_id: activeConversation.id,
+      p_note: note,
+    });
+    if (checkError) setError(checkError.message);
+    else {
+      const streak = (data as { streak?: number } | null)?.streak;
+      if (streak) setError(`${streak}일 연속 인증!`);
+      await bumpDailyDone();
+      await loadMessages(activeConversation.id);
+    }
+  };
+
   const buildSharePayload = () => {
     if (shareMode === "exam") {
-      const [subject, year, questionNo] = shareMeta.split("|").map((s) => s.trim());
+      const [metaSubject, year, questionNo] = shareMeta.split("|").map((s) => s.trim());
+      const idParts = (shareExamId || "").split("-");
+      const subjectSlug =
+        idParts.length >= 3 ? idParts.slice(0, -2).join("-") : metaSubject;
       return {
         kind: "exam_card" as const,
         content: draft.trim() || "기출 카드를 공유했어요.",
         payload: {
           examId: shareExamId || "manual",
-          subject: subject || undefined,
-          year: year || undefined,
-          questionNo: questionNo || undefined,
+          subject: subjectSlug || undefined,
+          subjectLabel: /[가-힣]/.test(metaSubject || "") ? metaSubject : undefined,
+          year: year || idParts.at(-2) || undefined,
+          questionNo: questionNo || idParts.at(-1) || undefined,
           stem: shareStem.trim() || draft.trim(),
           label: "같이 풀어봐요",
+          href:
+            subjectSlug && (year || idParts.at(-2)) && (questionNo || idParts.at(-1))
+              ? `/exam/${subjectSlug}/${year || idParts.at(-2)}/${questionNo || idParts.at(-1)}`
+              : undefined,
         } satisfies ExamCardPayload,
       };
     }
     if (shareMode === "wrong") {
-      const [subject, year, questionNo] = shareMeta.split("|").map((s) => s.trim());
+      const [metaSubject, year, questionNo] = shareMeta.split("|").map((s) => s.trim());
+      const idParts = (shareExamId || "").split("-");
+      const subjectSlug =
+        idParts.length >= 3 ? idParts.slice(0, -2).join("-") : metaSubject;
+      // wrong list bulk via shareStem JSON
+      let items: WrongSharePayload["items"];
+      try {
+        const parsed = JSON.parse(shareStem);
+        if (Array.isArray(parsed)) items = parsed;
+      } catch { /* single */ }
       return {
         kind: "wrong_share" as const,
-        content: draft.trim() || "오답을 공유했어요.",
+        content: draft.trim() || (items ? `오답 ${items.length}문항 공유` : "오답을 공유했어요."),
         payload: {
           examId: shareExamId || "manual",
-          subject: subject || undefined,
+          subject: subjectSlug || undefined,
+          subjectLabel: /[가-힣]/.test(metaSubject || "") ? metaSubject : undefined,
           year: year || undefined,
           questionNo: questionNo || undefined,
-          stem: shareStem.trim() || draft.trim(),
+          stem: items ? `${items.length}문항` : shareStem.trim() || draft.trim(),
           myPick: sharePick || undefined,
           correctLabel: undefined,
+          items,
+          href:
+            !items && subjectSlug && year && questionNo
+              ? `/exam/${subjectSlug}/${year}/${questionNo}`
+              : undefined,
         } satisfies WrongSharePayload,
       };
     }
@@ -1255,6 +1420,9 @@ export function ChatWidget({
     }
     if (shareMode === "poll") {
       const q = pollQuestion.trim() || draft.trim() || "OX 폴";
+      const dueAt = new Date(
+        Date.now() + Math.max(1, pollDueHours) * 60 * 60 * 1000,
+      ).toISOString();
       return {
         kind: "poll" as const,
         content: q,
@@ -1264,7 +1432,25 @@ export function ChatWidget({
             { key: "O", label: "O" },
             { key: "X", label: "X" },
           ],
+          dueAt,
         } satisfies PollPayload,
+      };
+    }
+    if (shareMode === "mock") {
+      const [subject, year] = shareMeta.split("|").map((s) => s.trim());
+      const href =
+        subject && year
+          ? `/exam/${subject}/${year}/mock`
+          : shareExamId || "/exam";
+      return {
+        kind: "mock_invite" as const,
+        content: draft.trim() || "모의고사 같이 풀어요",
+        payload: {
+          subject: subject || "civillaw",
+          year: year || new Date().getFullYear(),
+          href,
+          label: draft.trim() || undefined,
+        } satisfies MockInvitePayload,
       };
     }
     return {
@@ -1350,6 +1536,11 @@ export function ChatWidget({
       sender_id: user.id,
       content: share.content,
       reply_to_id: replyTo?.id ?? null,
+      thread_root_id:
+        threadRoot?.id ??
+        replyTo?.thread_root_id ??
+        replyTo?.id ??
+        null,
       message_kind: share.kind,
       payload: share.payload,
       mention_user_ids: mentionIds,
@@ -1387,6 +1578,7 @@ export function ChatWidget({
           title: (share.payload as PollPayload).question,
           body: "",
           options: (share.payload as PollPayload).options,
+          due_at: (share.payload as PollPayload).dueAt ?? null,
         })
         .select("id")
         .single();
@@ -1433,6 +1625,7 @@ export function ChatWidget({
     setShareMeta("");
     setSharePick("");
     setPollQuestion("");
+    setThreadRoot(null);
     clearChatShareDraft();
     await loadMessages(activeConversation.id);
     await refreshConversations();
@@ -1783,7 +1976,15 @@ export function ChatWidget({
                 ? "북마크"
                 : view === "settings"
                   ? "채팅 설정"
-                  : "메시지";
+                  : view === "gallery"
+                    ? "미디어"
+                    : view === "calendar"
+                      ? "스터디 일정"
+                      : view === "global-search"
+                        ? "전체 검색"
+                        : view === "thread-detail"
+                          ? "스레드"
+                          : "메시지";
 
   return (
     <>
@@ -1869,6 +2070,30 @@ export function ChatWidget({
                 </button>
                 <button
                   type="button"
+                  onClick={() => setView("gallery")}
+                  className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
+                  title="미디어"
+                >
+                  🖼
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setView("calendar")}
+                  className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
+                  title="일정"
+                >
+                  📅
+                </button>
+                <button
+                  type="button"
+                  onClick={() => void doCheckin()}
+                  className="rounded-full bg-[#007AFF]/10 px-2.5 py-1.5 text-xs font-semibold text-[#0066D6]"
+                  title="학습 인증"
+                >
+                  ✅
+                </button>
+                <button
+                  type="button"
                   onClick={() => setView("study")}
                   className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
                   title="스터디 도구"
@@ -1903,6 +2128,20 @@ export function ChatWidget({
                   className="rounded-full bg-[#007AFF]/10 px-2.5 py-1.5 font-display text-[11px] font-semibold text-[#0066D6]"
                 >
                   스터디방
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setView("global-search")}
+                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
+                >
+                  검색
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setView("calendar")}
+                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
+                >
+                  일정
                 </button>
                 <button
                   type="button"
@@ -2656,6 +2895,22 @@ export function ChatWidget({
 
                     {view === "thread" ? (
             <>
+              {activeConversation?.pinned_message_id ? (
+                <div className="flex items-center gap-2 border-b border-[#007AFF]/20 bg-[#007AFF]/8 px-4 py-2">
+                  <span className="text-sm">📌</span>
+                  <p className="min-w-0 flex-1 truncate text-[12px] text-ink">
+                    {(pinnedBanner ?? messages.find((m) => m.id === activeConversation.pinned_message_id))?.content
+                      || "고정된 메시지"}
+                  </p>
+                  <button
+                    type="button"
+                    className="text-[11px] text-fog"
+                    onClick={() => void pinMessage(null)}
+                  >
+                    해제
+                  </button>
+                </div>
+              ) : null}
               <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
                 {activeConversation?.isGroup ? (
                   <p className="mb-3 text-center text-[10px] text-fog">
@@ -2687,13 +2942,42 @@ export function ChatWidget({
                             ).length ?? 0)
                           : 0
                       }
-                      onReply={() => setReplyTo(message)}
+                      readMembers={
+                        message.sender_id === user.id && activeConversation?.isGroup
+                          ? activeConversation.members
+                              .filter(
+                                (member) =>
+                                  member.id !== user.id &&
+                                  Boolean(
+                                    member.last_read_at &&
+                                      member.last_read_at >= message.created_at,
+                                  ),
+                              )
+                              .map((m) => ({
+                                nickname: m.nickname,
+                                avatar_url: m.avatar_url,
+                              }))
+                          : undefined
+                      }
+                      onReply={() => {
+                        setReplyTo(message);
+                        setThreadRoot(
+                          message.thread_root_id
+                            ? messages.find((m) => m.id === message.thread_root_id) ?? message
+                            : message,
+                        );
+                      }}
                       onEdit={() => void editMessage(message)}
                       onDelete={() => void deleteMessage(message)}
                       onReact={(emoji) => void reactToMessage(message, emoji)}
                       onBookmark={() => void toggleBookmark(message)}
                       onReport={() => void reportMessage(message)}
                       onPollVote={(key) => void votePoll(message, key)}
+                      onPin={() => void pinMessage(message)}
+                      onOpenThread={() => {
+                        setThreadRoot(message);
+                        setView("thread-detail");
+                      }}
                     />
                   ))
                 ) : (
@@ -2718,6 +3002,7 @@ export function ChatWidget({
                       ["wrong", "오답"],
                       ["timer", "타이머"],
                       ["poll", "OX폴"],
+                      ["mock", "모의"],
                     ] as const
                   ).map(([key, label]) => (
                     <button
@@ -2773,10 +3058,32 @@ export function ChatWidget({
                   </div>
                 ) : null}
                 {shareMode === "poll" ? (
+                  <div className="mb-2 space-y-1.5">
+                    <input
+                      value={pollQuestion}
+                      onChange={(e) => setPollQuestion(e.target.value)}
+                      placeholder="OX 폴 질문"
+                      className="w-full rounded-xl border border-mist px-3 py-2 text-[12px]"
+                    />
+                    <label className="flex items-center gap-2 text-[11px] text-fog">
+                      마감
+                      <input
+                        type="number"
+                        min={1}
+                        max={168}
+                        value={pollDueHours}
+                        onChange={(e) => setPollDueHours(Number(e.target.value) || 24)}
+                        className="w-16 rounded-lg border border-mist px-2 py-1 text-[12px]"
+                      />
+                      시간 후
+                    </label>
+                  </div>
+                ) : null}
+                {shareMode === "mock" ? (
                   <input
-                    value={pollQuestion}
-                    onChange={(e) => setPollQuestion(e.target.value)}
-                    placeholder="OX 폴 질문"
+                    value={shareMeta}
+                    onChange={(e) => setShareMeta(e.target.value)}
+                    placeholder="과목슬러그|연도 (예: civillaw|2025)"
                     className="mb-2 w-full rounded-xl border border-mist px-3 py-2 text-[12px]"
                   />
                 ) : null}
