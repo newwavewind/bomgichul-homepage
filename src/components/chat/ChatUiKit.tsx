@@ -16,17 +16,55 @@ export function BrandChatFab({
       type="button"
       onClick={onClick}
       aria-label={ariaLabel}
-      className="chat-focus chat-hit fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-carbon bg-paper shadow-[var(--shadow-card)] transition-transform hover:scale-105"
+      className="chat-focus fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-carbon bg-paper text-2xl shadow-[var(--shadow-card)] transition-transform hover:scale-105"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/brand/whale-mark.png"
-        alt=""
-        width={28}
-        height={28}
-        className="h-7 w-7 object-contain"
-      />
+      💬
       {badge}
+    </button>
+  );
+}
+
+export function ChatBackButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="뒤로"
+      className="chat-focus flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink transition-colors hover:bg-black/[0.06] active:bg-black/[0.1]"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path
+          d="M15 18l-6-6 6-6"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  );
+}
+
+export function ChatHeaderAction({
+  children,
+  onClick,
+  primary = false,
+}: {
+  children: ReactNode;
+  onClick: () => void;
+  primary?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`chat-focus h-8 shrink-0 rounded-lg px-2.5 font-display text-[12px] font-medium transition-colors ${
+        primary
+          ? "text-[#0066D6] hover:bg-[#007AFF]/10"
+          : "text-smoke hover:bg-black/[0.05] hover:text-ink"
+      }`}
+    >
+      {children}
     </button>
   );
 }
@@ -145,11 +183,15 @@ export function OverflowMenu({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="chat-hit chat-focus flex items-center justify-center rounded-full bg-white/80 px-2.5 text-[13px] font-semibold text-ink shadow-sm"
+        className="chat-focus flex h-9 w-9 items-center justify-center rounded-full text-ink transition-colors hover:bg-black/[0.06]"
         aria-expanded={open}
         aria-label="더보기"
       >
-        ⋯
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+          <circle cx="5" cy="12" r="1.7" />
+          <circle cx="12" cy="12" r="1.7" />
+          <circle cx="19" cy="12" r="1.7" />
+        </svg>
       </button>
       {open ? (
         <div className="absolute right-0 top-11 z-50 min-w-[148px] overflow-hidden rounded-2xl border border-mist bg-white py-1 shadow-xl">
@@ -185,14 +227,6 @@ export function ChatEmptyState({
 }) {
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-6 py-14 text-center">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/brand/whale-mark.png"
-        alt=""
-        width={56}
-        height={56}
-        className="mb-4 h-14 w-14 opacity-90"
-      />
       <h3 className="font-display text-[16px] font-semibold text-ink">{title}</h3>
       <p className="mt-2 max-w-[240px] font-display text-[13px] leading-relaxed text-smoke">
         {body}

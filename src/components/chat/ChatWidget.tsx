@@ -49,7 +49,10 @@ import {
   OverflowMenu,
   ChatEmptyState,
   ComposerPlusSheet,
+  ChatBackButton,
+  ChatHeaderAction,
 } from "@/components/chat/ChatUiKit";
+import { ChatSharePicker, type PickedShare } from "@/components/chat/ChatSharePicker";
 
 type ChatUser = {
   id: string;
@@ -519,6 +522,7 @@ export function ChatWidget({
     useState<DmConversationPreview | null>(null);
   const [messages, setMessages] = useState<DmMessage[]>([]);
   const [friends, setFriends] = useState<FriendRow[]>([]);
+  const [memberDirectory, setMemberDirectory] = useState<ProfileRow[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<ProfileRow[]>([]);
   const [groupTitle, setGroupTitle] = useState("");
@@ -548,7 +552,6 @@ export function ChatWidget({
   const [profileId, setProfileId] = useState<string | null>(null);
   const [listFilter, setListFilter] = useState<"all" | "unread" | "mention" | "archived">("all");
   const [showArchived, setShowArchived] = useState(false);
-  const [scheduleAt, setScheduleAt] = useState("");
   const [shareMode, setShareMode] = useState<"none" | "exam" | "wrong" | "timer" | "poll" | "mock">("none");
   const [pollDueHours, setPollDueHours] = useState(24);
   const [threadRoot, setThreadRoot] = useState<DmMessage | null>(null);
@@ -570,7 +573,7 @@ export function ChatWidget({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dragDepthRef = useRef(0);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
-  const { prefs, save: savePrefs, bumpDailyDone, goalLabel } = useChatPrefs(user.id);
+  const { prefs, save: savePrefs, bumpDailyDone, doneToday, goalCount } = useChatPrefs(user.id);
   const notify = (message: string, tone: "info" | "success" | "error" = "info") => {
     setToastTone(tone);
     setError(message);
@@ -1551,14 +1554,6 @@ export function ChatWidget({
       share.content,
       activeConversation.members.map((m) => ({ id: m.id, nickname: m.nickname })),
     );
-    const scheduledIso = scheduleAt
-      ? new Date(scheduleAt).toISOString()
-      : null;
-    if (scheduledIso && Number.isNaN(Date.parse(scheduledIso))) {
-      setError("예약 시간이 올바르지 않습니다.");
-      setSending(false);
-      return;
-    }
 
     const insertRow: Record<string, unknown> = {
       conversation_id: activeConversation.id,
@@ -1573,13 +1568,8 @@ export function ChatWidget({
       message_kind: share.kind,
       payload: share.payload,
       mention_user_ids: mentionIds,
+      published_at: new Date().toISOString(),
     };
-    if (scheduledIso) {
-      insertRow.scheduled_for = scheduledIso;
-      insertRow.published_at = null;
-    } else {
-      insertRow.published_at = new Date().toISOString();
-    }
 
     const { data: message, error: insertError } = await supabase
       .from("dm_messages")
@@ -1647,7 +1637,6 @@ export function ChatWidget({
     setDraft("");
     setReplyTo(null);
     setSelectedFiles([]);
-    setScheduleAt("");
     setShareMode("none");
     setShareExamId("");
     setShareStem("");
@@ -1788,6 +1777,22 @@ export function ChatWidget({
     else await refreshConversations();
   };
 
+
+  const loadMemberDirectory = async () => {
+    const { data, error: dirError } = await createClient()
+      .from("profiles")
+      .select("id,nickname,avatar_url")
+      .eq("username_set", true)
+      .neq("id", user.id)
+      .order("nickname", { ascending: true })
+      .limit(200);
+    if (dirError) {
+      notify(`회원 목록 실패: ${dirError.message}`, "error");
+      return;
+    }
+    setMemberDirectory((data ?? []) as ProfileRow[]);
+  };
+
   const searchProfiles = async () => {
     const query = searchQuery.trim();
     if (query.length < 2) {
@@ -1876,8 +1881,12 @@ export function ChatWidget({
     return () => window.clearInterval(id);
   }, [open]);
   useEffect(() => {
+    if (view === "friends") void loadMemberDirectory();
+  }, [view]);
+  useEffect(() => {
     const timer = setTimeout(() => {
-      if (view === "friends") void searchProfiles();
+      if (view === "friends" && searchQuery.trim().length >= 2) void searchProfiles();
+      else if (view === "friends" && !searchQuery.trim()) setSearchResults([]);
     }, 250);
     return () => clearTimeout(timer);
   }, [searchQuery, view]);
@@ -1952,7 +1961,6 @@ export function ChatWidget({
             : "";
         new Notification(activeConversation.title, {
           body: `${prefix}${row.content || "새 첨부파일이 도착했어요."}`,
-          icon: "/brand/whale-mark.png",
         });
       }
       void loadMessages(activeConversation.id);
@@ -2069,14 +2077,7 @@ export function ChatWidget({
           ) : null}
           <div className="chat-glass-bar flex items-center gap-2 px-4 py-3">
             {view !== "list" && view !== "friends" && view !== "online" ? (
-              <button
-                type="button"
-                onClick={() => setView("list")}
-                className="text-fog"
-                aria-label="뒤로"
-              >
-                ←
-              </button>
+              <ChatBackButton onClick={() => setView("list")} />
             ) : null}
             {view === "thread" ? (
               <Avatar
@@ -2090,14 +2091,9 @@ export function ChatWidget({
             </h2>
             {view === "thread" ? (
               <>
-                <button
-                  type="button"
-                  onClick={() => void doCheckin()}
-                  className="chat-hit chat-focus rounded-full bg-[#007AFF]/10 px-2.5 text-xs font-semibold text-[#0066D6]"
-                  title="학습 인증"
-                >
-                  ✅
-                </button>
+                <ChatHeaderAction onClick={() => void doCheckin()} primary>
+                  인증
+                </ChatHeaderAction>
                 <OverflowMenu
                   items={[
                     { key: "search", label: "대화 검색", onClick: () => setView("search") },
@@ -2119,21 +2115,13 @@ export function ChatWidget({
               </>
             ) : null}
             {view === "list" ? (
-              <div className="flex flex-wrap items-center justify-end gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => setView("topics")}
-                  className="chat-hit chat-focus rounded-full bg-[#007AFF]/10 px-2.5 font-display text-[11px] font-semibold text-[#0066D6]"
-                >
+              <div className="flex flex-wrap items-center justify-end gap-0.5">
+                <ChatHeaderAction onClick={() => setView("topics")} primary>
                   스터디방
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setView("friends")}
-                  className="chat-hit chat-focus rounded-full bg-[#007AFF]/10 px-2.5 font-display text-[11px] font-semibold text-[#0066D6]"
-                >
-                  + 친구
-                </button>
+                </ChatHeaderAction>
+                <ChatHeaderAction onClick={() => setView("friends")} primary>
+                  친구
+                </ChatHeaderAction>
                 <OverflowMenu
                   items={[
                     { key: "search", label: "전체 검색", onClick: () => setView("global-search") },
@@ -2200,7 +2188,8 @@ export function ChatWidget({
           {view === "list" ? (
             <div className="flex flex-1 flex-col overflow-hidden">
               <ChatPrefsBar
-                goalLabel={goalLabel}
+                doneToday={doneToday}
+                goalCount={goalCount}
                 keywords={prefs?.keyword_alerts ?? []}
                 onOpenKeywords={() =>
                   setSheet({
@@ -2399,36 +2388,80 @@ export function ChatWidget({
                   )}
                 </div>
               ))}
-              {acceptedFriends.filter(() => !searchQuery.trim()).map((friend) => {
-                const profile = friendProfile(friend);
-                return (
-                  <div
-                    key={friend.id}
-                    className="flex items-center gap-3 border-b border-mist px-4 py-3"
-                  >
-                    <Avatar
-                      nickname={profile.nickname}
-                      url={profile.avatar_url}
-                      onOpen={() => setProfileId(profile.id)}
-                    />
-                    <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
-                      {profile.nickname}
+              {!searchQuery.trim() ? (
+                <>
+                  {acceptedFriends.length ? (
+                    <p className="px-4 pb-1 pt-3 text-[11px] font-semibold text-fog">내 친구</p>
+                  ) : null}
+                  {acceptedFriends.map((friend) => {
+                    const profile = friendProfile(friend);
+                    return (
+                      <div
+                        key={friend.id}
+                        className="flex items-center gap-3 border-b border-mist px-4 py-3"
+                      >
+                        <Avatar
+                          nickname={profile.nickname}
+                          url={profile.avatar_url}
+                          onOpen={() => setProfileId(profile.id)}
+                        />
+                        <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
+                          {profile.nickname}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => void startDirectChat(profile)}
+                          className="rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-[#0066D6] hover:bg-[#007AFF]/10"
+                        >
+                          메시지
+                        </button>
+                      </div>
+                    );
+                  })}
+                  <p className="px-4 pb-1 pt-3 text-[11px] font-semibold text-fog">전체 회원</p>
+                  {memberDirectory.map((profile) => {
+                    const isFriend = acceptedFriends.some(
+                      (friend) => friendProfile(friend).id === profile.id,
+                    );
+                    return (
+                      <div
+                        key={profile.id}
+                        className="flex items-center gap-3 border-b border-mist px-4 py-3"
+                      >
+                        <Avatar
+                          nickname={profile.nickname}
+                          url={profile.avatar_url}
+                          onOpen={() => setProfileId(profile.id)}
+                        />
+                        <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
+                          {profile.nickname}
+                        </p>
+                        {isFriend ? (
+                          <button
+                            type="button"
+                            onClick={() => void startDirectChat(profile)}
+                            className="rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-[#0066D6] hover:bg-[#007AFF]/10"
+                          >
+                            메시지
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => void sendFriendRequest(profile)}
+                            className="rounded-lg bg-[#007AFF] px-2.5 py-1.5 text-[11px] font-semibold text-white"
+                          >
+                            친구 추가
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })}
+                  {!memberDirectory.length ? (
+                    <p className="px-4 py-10 text-center text-[13px] text-fog">
+                      표시할 회원이 없어요.
                     </p>
-                    <button
-                      onClick={() => void startDirectChat(profile)}
-                      className="text-[11px] font-semibold text-[#007AFF]"
-                    >
-                      메시지
-                    </button>
-                  </div>
-                );
-              })}
-              {!incomingRequests.length &&
-              !searchResults.length &&
-              !acceptedFriends.length ? (
-                <p className="px-4 py-10 text-center text-[13px] text-fog">
-                  아이디를 검색해 친구를 추가해 보세요.
-                </p>
+                  ) : null}
+                </>
               ) : null}
             </div>
           ) : null}
@@ -2819,7 +2852,8 @@ export function ChatWidget({
           {view === "settings" ? (
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
               <ChatPrefsBar
-                goalLabel={goalLabel}
+                doneToday={doneToday}
+                goalCount={goalCount}
                 keywords={prefs?.keyword_alerts ?? []}
                 onOpenKeywords={() =>
                   setSheet({
@@ -2978,30 +3012,38 @@ export function ChatWidget({
                     </button>
                   </div>
                 ) : null}
-                {shareMode === "exam" || shareMode === "wrong" ? (
-                  <div className="mb-2 space-y-1.5 rounded-xl border border-mist bg-white/80 p-2">
-                    <input
-                      value={shareMeta}
-                      onChange={(e) => setShareMeta(e.target.value)}
-                      placeholder="과목|연도|문항 (예: 민법|2023|12)"
-                      className="w-full rounded-lg border border-mist px-2 py-1.5 text-[12px]"
+                {shareMode === "exam" || shareMode === "wrong" || shareMode === "mock" ? (
+                  <>
+                    <ChatSharePicker
+                      mode={shareMode}
+                      onPick={(picked: PickedShare) => {
+                        setShareExamId(picked.examId);
+                        setShareStem(picked.stem);
+                        setShareMeta(
+                          [picked.subjectLabel || picked.subject, picked.year, picked.questionNo]
+                            .filter((v) => v !== undefined && v !== "")
+                            .join("|"),
+                        );
+                        if (picked.mode === "mock") {
+                          setShareMeta(`${picked.subject}|${picked.year}`);
+                        }
+                        notify(
+                          picked.mode === "mock"
+                            ? `${picked.subjectLabel} ${picked.year}년 모의고사 선택`
+                            : `${picked.subjectLabel} ${picked.year}년 ${picked.questionNo}번 선택`,
+                          "success",
+                        );
+                      }}
                     />
-                    <textarea
-                      value={shareStem}
-                      onChange={(e) => setShareStem(e.target.value)}
-                      rows={3}
-                      placeholder="기출 지문"
-                      className="w-full rounded-lg border border-mist px-2 py-1.5 text-[12px]"
-                    />
-                    {shareMode === "wrong" ? (
-                      <input
-                        value={sharePick}
-                        onChange={(e) => setSharePick(e.target.value)}
-                        placeholder="내 선택 (①·②…)"
-                        className="w-full rounded-lg border border-mist px-2 py-1.5 text-[12px]"
-                      />
+                    {shareStem ? (
+                      <div className="mb-2 rounded-xl border border-[#007AFF]/20 bg-[#007AFF]/5 px-3 py-2">
+                        <p className="text-[11px] font-semibold text-[#0066D6]">
+                          선택됨 · {shareMeta || shareExamId}
+                        </p>
+                        <p className="mt-0.5 line-clamp-2 text-[12px] text-ink">{shareStem}</p>
+                      </div>
                     ) : null}
-                  </div>
+                  </>
                 ) : null}
                 {shareMode === "timer" ? (
                   <div className="mb-2 flex items-center gap-2 rounded-xl border border-mist bg-white/80 p-2">
@@ -3038,32 +3080,6 @@ export function ChatWidget({
                     </label>
                   </div>
                 ) : null}
-                {shareMode === "mock" ? (
-                  <input
-                    value={shareMeta}
-                    onChange={(e) => setShareMeta(e.target.value)}
-                    placeholder="과목슬러그|연도 (예: civillaw|2025)"
-                    className="mb-2 w-full rounded-xl border border-mist px-3 py-2 text-[12px]"
-                  />
-                ) : null}
-                <div className="mb-2 flex items-center gap-2">
-                  <label className="text-[10px] text-fog">예약</label>
-                  <input
-                    type="datetime-local"
-                    value={scheduleAt}
-                    onChange={(e) => setScheduleAt(e.target.value)}
-                    className="min-w-0 flex-1 rounded-lg border border-mist px-2 py-1.5 text-[11px]"
-                  />
-                  {scheduleAt ? (
-                    <button
-                      type="button"
-                      onClick={() => setScheduleAt("")}
-                      className="text-[11px] text-fog"
-                    >
-                      취소
-                    </button>
-                  ) : null}
-                </div>
                 {replyTo ? (
                   <div className="mb-2 flex items-center gap-2 rounded-xl bg-[#007AFF]/8 px-3 py-2 text-xs">
                     <span>↩</span>
@@ -3177,7 +3193,7 @@ export function ChatWidget({
                   </button>
                 </div>
                 <p className="mt-1.5 text-center text-[9px] text-fog">
-                  사진·동영상·문서·음성 · @닉네임 멘션 · 예약 전송 지원
+                  사진·동영상·문서·음성 · @닉네임 멘션
                 </p>
               </form>
             </>

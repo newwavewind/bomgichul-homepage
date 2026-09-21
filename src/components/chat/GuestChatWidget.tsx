@@ -90,7 +90,7 @@ export function GuestChatWidget({
               type="button"
               onClick={() => setOpen(false)}
               aria-label="닫기"
-              className="chat-hit chat-focus flex shrink-0 items-center justify-center rounded-full text-xl text-fog transition-colors hover:bg-black/5 active:bg-black/10"
+              className="chat-focus flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xl text-fog transition-colors hover:bg-black/5"
             >
               ✕
             </button>
@@ -139,14 +139,7 @@ export function GuestChatWidget({
             </div>
 
             <div className="mt-4 rounded-2xl border border-[#007AFF]/15 bg-[#007AFF]/8 p-5 text-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/brand/whale-mark.png"
-                alt=""
-                width={48}
-                height={48}
-                className="mx-auto h-12 w-12"
-              />
+              <span className="text-3xl">💬</span>
               <h3 className="mt-2 font-display text-base font-semibold text-ink">
                 로그인하고 바로 대화하기
               </h3>

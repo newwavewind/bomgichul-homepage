@@ -68,16 +68,22 @@ export function useChatPrefs(userId: string | null) {
     });
   }, [prefs, save, userId]);
 
-  const goalLabel = prefs
-    ? formatGoalBadge(
-        prefs.daily_done_on === kstDateString()
-          ? prefs.daily_done_count
-          : 0,
-        prefs.daily_goal_count,
-      )
-    : "오늘 0/40";
+  const doneToday =
+    prefs && prefs.daily_done_on === kstDateString()
+      ? prefs.daily_done_count
+      : 0;
+  const goalCount = prefs?.daily_goal_count ?? 40;
+  const goalLabel = formatGoalBadge(doneToday, goalCount);
 
-  return { prefs, refresh, save, bumpDailyDone, goalLabel };
+  return {
+    prefs,
+    refresh,
+    save,
+    bumpDailyDone,
+    goalLabel,
+    doneToday,
+    goalCount,
+  };
 }
 
 export function useTopicRooms(enabled: boolean) {
@@ -111,32 +117,50 @@ export function useTopicRooms(enabled: boolean) {
 }
 
 export function ChatPrefsBar({
-  goalLabel,
+  doneToday,
+  goalCount,
   keywords,
   onOpenKeywords,
   onBumpDone,
 }: {
-  goalLabel: string;
+  doneToday: number;
+  goalCount: number;
   keywords: string[];
   onOpenKeywords: () => void;
   onBumpDone: () => void;
 }) {
+  const pct = goalCount > 0 ? Math.min(100, Math.round((doneToday / goalCount) * 100)) : 0;
+
   return (
-    <div className="flex flex-wrap items-center gap-1.5 border-b border-mist/70 bg-white/50 px-3 py-2">
+    <div className="flex items-center gap-2 border-b border-mist/70 bg-white/50 px-3 py-2.5">
       <button
         type="button"
         onClick={onBumpDone}
-        className="chat-hit chat-focus rounded-full bg-[#007AFF]/10 px-2.5 py-1 font-display text-[11px] font-semibold text-[#0066D6]"
         title="오늘 푼 문항 +1"
+        className="chat-focus min-w-0 flex-1 rounded-xl border border-mist bg-white px-3 py-2 text-left transition-colors hover:border-[#007AFF]/35"
       >
-        {goalLabel}
+        <div className="flex items-center justify-between gap-2">
+          <span className="font-display text-[11px] font-medium text-smoke">
+            오늘 목표
+          </span>
+          <span className="font-display text-[12px] font-semibold tabular-nums text-ink">
+            {doneToday}
+            <span className="font-normal text-fog"> / {goalCount}</span>
+          </span>
+        </div>
+        <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-slate-100">
+          <div
+            className="h-full rounded-full bg-[#007AFF] transition-[width] duration-300"
+            style={{ width: `${pct}%` }}
+          />
+        </div>
       </button>
       <button
         type="button"
         onClick={onOpenKeywords}
-        className="chat-hit chat-focus rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-fog"
+        className="chat-focus shrink-0 rounded-xl border border-mist bg-white px-3 py-2 font-display text-[11px] font-medium text-smoke transition-colors hover:border-[#007AFF]/35 hover:text-ink"
       >
-        키워드 {keywords.length ? `(${keywords.length})` : ""}
+        키워드{keywords.length ? ` ${keywords.length}` : ""}
       </button>
     </div>
   );
