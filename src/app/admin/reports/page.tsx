@@ -43,6 +43,7 @@ export default async function AdminReportsPage({
           <>
             <AdminTable
               headers={["트랙", "유형", "제목", "작성자", "조회", "등록일", ""]}
+              mobilePrimaryIndex={2}
               rows={posts.map((p) => {
                 const scope = isValidCommunityScope(p.communityScope)
                   ? p.communityScope
@@ -50,7 +51,21 @@ export default async function AdminReportsPage({
                 return [
                   scope,
                   p.categoryLabel,
-                  p.title,
+                  <span
+                    key={`title-${p.id}`}
+                    className="inline-flex max-w-md items-center gap-2"
+                  >
+                    <span className="min-w-0">{p.title}</span>
+                    {p.commentCount > 0 ? (
+                      <span
+                        className="inline-flex shrink-0 items-center rounded-md bg-[#E8F2FF] px-1.5 py-0.5 font-display text-[11px] font-semibold text-[#007AFF]"
+                        aria-label={`답변 ${p.commentCount}개`}
+                        title={`답변 ${p.commentCount}개`}
+                      >
+                        답변{p.commentCount > 1 ? ` ${p.commentCount}` : ""}
+                      </span>
+                    ) : null}
+                  </span>,
                   p.authorNickname,
                   String(p.viewCount),
                   formatDateTime(p.createdAt),
