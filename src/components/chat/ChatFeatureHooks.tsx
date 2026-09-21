@@ -5,6 +5,15 @@ import { createClient } from "@/lib/supabase/client";
 import type { TopicRoomRow, UserChatPrefs } from "@/types/database";
 import { formatGoalBadge } from "@/lib/chat/features";
 
+function kstDateString(d = new Date()) {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(d);
+}
+
 const DEFAULT_PREFS: Omit<UserChatPrefs, "user_id"> = {
   keyword_alerts: [],
   daily_goal_count: 40,
@@ -50,7 +59,7 @@ export function useChatPrefs(userId: string | null) {
 
   const bumpDailyDone = useCallback(async () => {
     if (!userId || !prefs) return;
-    const today = new Date().toISOString().slice(0, 10);
+    const today = kstDateString();
     const base =
       prefs.daily_done_on === today ? prefs.daily_done_count : 0;
     await save({
@@ -61,7 +70,7 @@ export function useChatPrefs(userId: string | null) {
 
   const goalLabel = prefs
     ? formatGoalBadge(
-        prefs.daily_done_on === new Date().toISOString().slice(0, 10)
+        prefs.daily_done_on === kstDateString()
           ? prefs.daily_done_count
           : 0,
         prefs.daily_goal_count,

@@ -72,7 +72,8 @@ export function ChatShell() {
   }, []);
 
   if (state.status === "pending") return <ChatFabPlaceholder />;
-  if (state.status === "guest") return <GuestChatWidget forceOpen={forceOpen} />;
+  if (state.status === "guest")
+    return <GuestChatWidget forceOpen={forceOpen} openNonce={openNonce} />;
   return (
     <ChatWidget
       user={{

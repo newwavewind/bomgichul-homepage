@@ -7,14 +7,21 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { OnlineUser } from "@/types/database";
 import { TOPIC_TEASERS } from "@/lib/chat/features";
 
-export function GuestChatWidget({ forceOpen = false }: { forceOpen?: boolean }) {
+export function GuestChatWidget({
+  forceOpen = false,
+  openNonce = 0,
+}: {
+  forceOpen?: boolean;
+  openNonce?: number;
+}) {
   const [open, setOpen] = useState(forceOpen);
   const [onlineUsers, setOnlineUsers] = useState<OnlineUser[]>([]);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
-    if (forceOpen) setOpen(true);
-  }, [forceOpen]);
+    if (!forceOpen && openNonce === 0) return;
+    setOpen(true);
+  }, [forceOpen, openNonce]);
 
   useEffect(() => {
     if (!isSupabaseConfigured()) return;

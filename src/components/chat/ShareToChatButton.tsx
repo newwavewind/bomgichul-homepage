@@ -23,15 +23,30 @@ export function writeChatShareDraft(draft: ChatShareDraft) {
   }
 }
 
-export function readChatShareDraft(): ChatShareDraft | null {
+/** Peek without removing — keep until send/clear so Strict Mode / reopen works. */
+export function peekChatShareDraft(): ChatShareDraft | null {
   try {
     const raw = sessionStorage.getItem(CHAT_SHARE_STORAGE_KEY);
     if (!raw) return null;
-    sessionStorage.removeItem(CHAT_SHARE_STORAGE_KEY);
     return JSON.parse(raw) as ChatShareDraft;
   } catch {
     return null;
   }
+}
+
+export function clearChatShareDraft() {
+  try {
+    sessionStorage.removeItem(CHAT_SHARE_STORAGE_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+
+/** @deprecated use peek + clear */
+export function readChatShareDraft(): ChatShareDraft | null {
+  const draft = peekChatShareDraft();
+  if (draft) clearChatShareDraft();
+  return draft;
 }
 
 export function ShareToChatButton({

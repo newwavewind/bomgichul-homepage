@@ -21,7 +21,7 @@ import {
   PollBubble,
 } from "@/components/chat/ChatRichBubbles";
 import { ChatPrefsBar, useChatPrefs, useTopicRooms } from "@/components/chat/ChatFeatureHooks";
-import { readChatShareDraft } from "@/components/chat/ShareToChatButton";
+import { peekChatShareDraft, clearChatShareDraft } from "@/components/chat/ShareToChatButton";
 import {
   extractMentionUserIds,
   messageMatchesKeywords,
@@ -475,7 +475,7 @@ export function ChatWidget({
   useEffect(() => {
     if (!forceOpen && openNonce === 0) return;
     setOpen(true);
-    const draft = readChatShareDraft();
+    const draft = peekChatShareDraft();
     if (!draft) return;
     setShareMode(draft.mode);
     setShareExamId(draft.examId);
@@ -554,7 +554,9 @@ export function ChatWidget({
           .from("dm_messages")
           .select("id,conversation_id,sender_id,content,created_at,mention_user_ids,message_kind,scheduled_for,published_at")
           .in("conversation_id", ids)
-          .or("scheduled_for.is.null,published_at.not.is.null")
+          .or(
+            `scheduled_for.is.null,published_at.not.is.null,and(sender_id.eq.${user.id},published_at.is.null,scheduled_for.not.is.null)`,
+          )
           .order("created_at", { ascending: false }),
         supabase
           .from("dm_conversations")
@@ -879,12 +881,14 @@ export function ChatWidget({
     });
     if (archiveError) setError(archiveError.message);
     else {
+      const archivedAt = next ? new Date().toISOString() : null;
       setConversations((items) =>
         items.map((item) =>
-          item.id === conversation.id
-            ? { ...item, archivedAt: next ? new Date().toISOString() : null }
-            : item,
+          item.id === conversation.id ? { ...item, archivedAt } : item,
         ),
+      );
+      setActiveConversation((current) =>
+        current?.id === conversation.id ? { ...current, archivedAt } : current,
       );
     }
   };
@@ -897,17 +901,16 @@ export function ChatWidget({
     });
     if (muteError) setError(muteError.message);
     else {
+      const mutedUntil = !muted
+        ? new Date(Date.now() + 1000 * 60 * 60 * 24 * 365 * 100).toISOString()
+        : null;
       setConversations((items) =>
         items.map((item) =>
-          item.id === conversation.id
-            ? {
-                ...item,
-                mutedUntil: !muted
-                  ? new Date(Date.now() + 1000 * 60 * 60 * 24 * 365 * 100).toISOString()
-                  : null,
-              }
-            : item,
+          item.id === conversation.id ? { ...item, mutedUntil } : item,
         ),
+      );
+      setActiveConversation((current) =>
+        current?.id === conversation.id ? { ...current, mutedUntil } : current,
       );
     }
   };
@@ -1066,9 +1069,21 @@ export function ChatWidget({
     try {
       const id = await joinTopic(topicKey);
       await refreshConversations();
-      const found = conversations.find((c) => c.id === id);
-      if (found) await openThread(found);
-      else setView("list");
+      const preview: DmConversationPreview = {
+        id,
+        title: topicRooms.find((r) => r.topic_key === topicKey)?.title
+          ?? `${topicKey} 스터디방`,
+        isGroup: true,
+        avatar_url: null,
+        members: [{ id: user.id, nickname: user.nickname, avatar_url: user.avatar_url, role: "member" }],
+        otherUser: null,
+        kind: "topic",
+        topicKey,
+        lastMessage: null,
+        unreadCount: 0,
+        updatedAt: new Date().toISOString(),
+      };
+      await openThread(preview);
     } catch (err) {
       setError(err instanceof Error ? err.message : "스터디방 입장 실패");
     }
@@ -1108,40 +1123,23 @@ export function ChatWidget({
   };
 
   const votePoll = async (message: DmMessage, key: string) => {
-    const payload = (message.payload ?? {}) as PollPayload & {
-      eventId?: string;
-      tallies?: Record<string, number>;
-      myVote?: string;
-    };
-    if (!payload.eventId) {
-      setError("투표 이벤트를 찾을 수 없습니다.");
-      return;
-    }
-    const supabase = createClient();
-    const { error: voteError } = await supabase.from("chat_study_event_responses").upsert({
-      event_id: payload.eventId,
-      user_id: user.id,
-      response: key,
+    const { data, error: voteError } = await createClient().rpc("vote_chat_poll", {
+      p_message_id: message.id,
+      p_option_key: key,
     });
     if (voteError) {
       setError(voteError.message);
       return;
     }
-    const { data: responses } = await supabase
-      .from("chat_study_event_responses")
-      .select("response")
-      .eq("event_id", payload.eventId);
-    const tallies: Record<string, number> = {};
-    for (const row of responses ?? []) {
-      tallies[row.response] = (tallies[row.response] ?? 0) + 1;
+    if (data) {
+      setMessages((items) =>
+        items.map((item) =>
+          item.id === message.id
+            ? { ...item, payload: data as Record<string, unknown> }
+            : item,
+        ),
+      );
     }
-    const nextPayload = { ...payload, tallies, myVote: key };
-    await supabase.from("dm_messages").update({ payload: nextPayload }).eq("id", message.id);
-    setMessages((items) =>
-      items.map((item) =>
-        item.id === message.id ? { ...item, payload: nextPayload } : item,
-      ),
-    );
   };
 
   const validateFiles = (files: File[]) => {
@@ -1393,12 +1391,11 @@ export function ChatWidget({
         .select("id")
         .single();
       if (eventRow?.id) {
-        await supabase
-          .from("dm_messages")
-          .update({
-            payload: { ...(share.payload as object), eventId: eventRow.id, tallies: { O: 0, X: 0 } },
-          })
-          .eq("id", message.id);
+        const { error: attachError } = await supabase.rpc(
+          "attach_poll_event_to_message",
+          { p_message_id: message.id, p_event_id: eventRow.id },
+        );
+        if (attachError) setError(attachError.message);
       }
     }
 
@@ -1436,6 +1433,7 @@ export function ChatWidget({
     setShareMeta("");
     setSharePick("");
     setPollQuestion("");
+    clearChatShareDraft();
     await loadMessages(activeConversation.id);
     await refreshConversations();
     setSending(false);
@@ -1515,8 +1513,16 @@ export function ChatWidget({
       pinned: studyKind === "notice",
     };
     if (studyKind === "weekly") {
+      const kstParts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "Asia/Seoul",
+        weekday: "short",
+      }).formatToParts(new Date());
+      const wd = kstParts.find((p) => p.type === "weekday")?.value ?? "Sun";
+      const map: Record<string, number> = {
+        Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6,
+      };
       row.recurrence = "weekly";
-      row.weekday = new Date().getDay();
+      row.weekday = map[wd] ?? 0;
       row.time_of_day = "20:00";
       row.due_at = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
     }
@@ -1634,7 +1640,7 @@ export function ChatWidget({
     if (open) {
       void refreshConversations();
       void refreshFriends();
-      void createClient().rpc("publish_due_scheduled_dm_messages");
+      /* scheduled publish: /api/cron/chat (service_role) */
     }
   }, [open, refreshConversations, refreshFriends]);
 
@@ -1687,6 +1693,45 @@ export function ChatWidget({
   useEffect(() => {
     if (!open || view !== "thread" || !activeConversation) return;
     const supabase = createClient();
+    const onMessageChange = (payload: {
+      new: Record<string, unknown>;
+      eventType?: string;
+    }) => {
+      const row = payload.new as {
+        sender_id: string;
+        content: string;
+        mention_user_ids?: string[];
+        scheduled_for?: string | null;
+        published_at?: string | null;
+      };
+      const unpublished = Boolean(row.scheduled_for && !row.published_at);
+      if (unpublished && row.sender_id !== user.id) return;
+      const muted =
+        activeConversation.mutedUntil &&
+        new Date(activeConversation.mutedUntil).getTime() > Date.now();
+      const keywords = prefs?.keyword_alerts ?? [];
+      const keywordHit = messageMatchesKeywords(row.content || "", keywords);
+      const mentionHit = (row.mention_user_ids ?? []).includes(user.id);
+      const allowNotify =
+        !unpublished &&
+        !muted &&
+        row.sender_id !== user.id &&
+        document.hidden &&
+        Notification.permission === "granted";
+      if (allowNotify) {
+        const prefix = mentionHit
+          ? "@멘션 · "
+          : keywordHit
+            ? "키워드 · "
+            : "";
+        new Notification(activeConversation.title, {
+          body: `${prefix}${row.content || "새 첨부파일이 도착했어요."}`,
+          icon: "/brand/whale-mark.png",
+        });
+      }
+      void loadMessages(activeConversation.id);
+      void refreshConversations();
+    };
     const channel = supabase
       .channel(`dm:${activeConversation.id}`)
       .on(
@@ -1697,37 +1742,17 @@ export function ChatWidget({
           table: "dm_messages",
           filter: `conversation_id=eq.${activeConversation.id}`,
         },
-        (payload) => {
-          const row = payload.new as {
-            sender_id: string;
-            content: string;
-            mention_user_ids?: string[];
-          };
-          const muted =
-            activeConversation.mutedUntil &&
-            new Date(activeConversation.mutedUntil).getTime() > Date.now();
-          const keywords = prefs?.keyword_alerts ?? [];
-          const keywordHit = messageMatchesKeywords(row.content || "", keywords);
-          const mentionHit = (row.mention_user_ids ?? []).includes(user.id);
-          const allowNotify =
-            !muted &&
-            row.sender_id !== user.id &&
-            document.hidden &&
-            Notification.permission === "granted";
-          if (allowNotify) {
-            const prefix = mentionHit
-              ? "@멘션 · "
-              : keywordHit
-                ? "키워드 · "
-                : "";
-            new Notification(activeConversation.title, {
-              body: `${prefix}${row.content || "새 첨부파일이 도착했어요."}`,
-              icon: "/brand/whale-mark.png",
-            });
-          }
-          void loadMessages(activeConversation.id);
-          void refreshConversations();
+        onMessageChange,
+      )
+      .on(
+        "postgres_changes",
+        {
+          event: "UPDATE",
+          schema: "public",
+          table: "dm_messages",
+          filter: `conversation_id=eq.${activeConversation.id}`,
         },
+        onMessageChange,
       )
       .subscribe();
     return () => {
@@ -1857,7 +1882,7 @@ export function ChatWidget({
                     className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
                     title="뮤트"
                   >
-                    {activeConversation.mutedUntil ? "🔔" : "🔕"}
+                    {activeConversation.mutedUntil ? "🔕" : "🔔"}
                   </button>
                 ) : null}
                 <button
@@ -2800,7 +2825,11 @@ export function ChatWidget({
                           />
                         ) : (
                           <span>
-                            {file.type.startsWith("video/") ? "🎬" : "📄"}
+                            {file.type.startsWith("video/")
+                              ? "🎬"
+                              : file.type.startsWith("audio/")
+                                ? "🎙"
+                                : "📄"}
                             <br />
                             {file.name}
                           </span>
