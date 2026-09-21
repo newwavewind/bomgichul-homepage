@@ -1,4 +1,4 @@
--- 채팅 16기능: 토픽방·리치 메시지·예약·음성·북마크·보관·DND·멘션·초대코드
+-- 채팅 16기능: 토픽방·리치 메시지·예약·음성·북마크·보관·멘션·초대코드
 
 -- ── conversations ──
 alter table public.dm_conversations
@@ -61,11 +61,9 @@ create policy "본인 북마크 추가" on public.dm_message_bookmarks for inser
 drop policy if exists "본인 북마크 삭제" on public.dm_message_bookmarks;
 create policy "본인 북마크 삭제" on public.dm_message_bookmarks for delete using (user_id = auth.uid());
 
--- ── user chat prefs (DND, presence, keywords, daily goal) ──
+-- ── user chat prefs (keywords, daily goal) ──
 create table if not exists public.user_chat_prefs (
   user_id uuid primary key references public.profiles(id) on delete cascade,
-  dnd_until timestamptz,
-  hide_presence boolean not null default false,
   keyword_alerts text[] not null default '{}',
   daily_goal_count integer not null default 40 check (daily_goal_count between 0 and 500),
   daily_done_count integer not null default 0 check (daily_done_count >= 0),

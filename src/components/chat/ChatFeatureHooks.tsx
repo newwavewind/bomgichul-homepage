@@ -6,8 +6,6 @@ import type { TopicRoomRow, UserChatPrefs } from "@/types/database";
 import { formatGoalBadge } from "@/lib/chat/features";
 
 const DEFAULT_PREFS: Omit<UserChatPrefs, "user_id"> = {
-  dnd_until: null,
-  hide_presence: false,
   keyword_alerts: [],
   daily_goal_count: 40,
   daily_done_count: 0,
@@ -70,11 +68,7 @@ export function useChatPrefs(userId: string | null) {
       )
     : "오늘 0/40";
 
-  const dndActive = Boolean(
-    prefs?.dnd_until && new Date(prefs.dnd_until).getTime() > Date.now(),
-  );
-
-  return { prefs, refresh, save, bumpDailyDone, goalLabel, dndActive };
+  return { prefs, refresh, save, bumpDailyDone, goalLabel };
 }
 
 export function useTopicRooms(enabled: boolean) {
@@ -109,20 +103,12 @@ export function useTopicRooms(enabled: boolean) {
 
 export function ChatPrefsBar({
   goalLabel,
-  dndActive,
-  hidePresence,
   keywords,
-  onToggleDnd,
-  onTogglePresence,
   onSaveKeywords,
   onBumpDone,
 }: {
   goalLabel: string;
-  dndActive: boolean;
-  hidePresence: boolean;
   keywords: string[];
-  onToggleDnd: () => void;
-  onTogglePresence: () => void;
   onSaveKeywords: (raw: string) => void;
   onBumpDone: () => void;
 }) {
@@ -135,24 +121,6 @@ export function ChatPrefsBar({
         title="오늘 푼 문항 +1"
       >
         {goalLabel}
-      </button>
-      <button
-        type="button"
-        onClick={onToggleDnd}
-        className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${
-          dndActive ? "bg-slate-800 text-white" : "bg-white text-fog"
-        }`}
-      >
-        {dndActive ? "방해금지 ON" : "방해금지"}
-      </button>
-      <button
-        type="button"
-        onClick={onTogglePresence}
-        className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${
-          hidePresence ? "bg-slate-800 text-white" : "bg-white text-fog"
-        }`}
-      >
-        {hidePresence ? "접속 숨김" : "접속 표시"}
       </button>
       <button
         type="button"

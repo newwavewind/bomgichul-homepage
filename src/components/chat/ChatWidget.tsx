@@ -465,7 +465,7 @@ export function ChatWidget({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dragDepthRef = useRef(0);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
-  const { prefs, save: savePrefs, bumpDailyDone, goalLabel, dndActive } = useChatPrefs(user.id);
+  const { prefs, save: savePrefs, bumpDailyDone, goalLabel } = useChatPrefs(user.id);
   const { rooms: topicRooms, loading: topicsLoading, join: joinTopic } = useTopicRooms(open && view === "topics");
 
   const unreadTotal = useMemo(
@@ -1649,17 +1649,12 @@ export function ChatWidget({
       );
     });
     channel.subscribe(async (status) => {
-      if (status === "SUBSCRIBED") {
-        if (prefs?.hide_presence) {
-          await channel.untrack();
-        } else {
-          await channel.track({
-            user_id: user.id,
-            nickname: user.nickname,
-            avatar_url: user.avatar_url,
-          });
-        }
-      }
+      if (status === "SUBSCRIBED")
+        await channel.track({
+          user_id: user.id,
+          nickname: user.nickname,
+          avatar_url: user.avatar_url,
+        });
     });
     presenceChannelRef.current = channel;
     return () => {
@@ -1667,7 +1662,7 @@ export function ChatWidget({
       void supabase.removeChannel(channel);
       presenceChannelRef.current = null;
     };
-  }, [user, prefs?.hide_presence]);
+  }, [user]);
 
   useEffect(() => {
     if (!open || view !== "thread" || !activeConversation) return;
@@ -1695,7 +1690,6 @@ export function ChatWidget({
           const keywordHit = messageMatchesKeywords(row.content || "", keywords);
           const mentionHit = (row.mention_user_ids ?? []).includes(user.id);
           const allowNotify =
-            !dndActive &&
             !muted &&
             row.sender_id !== user.id &&
             document.hidden &&
@@ -1721,7 +1715,6 @@ export function ChatWidget({
     };
   }, [
     activeConversation,
-    dndActive,
     loadMessages,
     open,
     prefs?.keyword_alerts,
@@ -1963,19 +1956,7 @@ export function ChatWidget({
             <div className="flex flex-1 flex-col overflow-hidden">
               <ChatPrefsBar
                 goalLabel={goalLabel}
-                dndActive={dndActive}
-                hidePresence={Boolean(prefs?.hide_presence)}
                 keywords={prefs?.keyword_alerts ?? []}
-                onToggleDnd={() =>
-                  void savePrefs({
-                    dnd_until: dndActive
-                      ? null
-                      : new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString(),
-                  })
-                }
-                onTogglePresence={() =>
-                  void savePrefs({ hide_presence: !prefs?.hide_presence })
-                }
                 onSaveKeywords={(raw) =>
                   void savePrefs({
                     keyword_alerts: raw
@@ -2593,19 +2574,7 @@ export function ChatWidget({
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
               <ChatPrefsBar
                 goalLabel={goalLabel}
-                dndActive={dndActive}
-                hidePresence={Boolean(prefs?.hide_presence)}
                 keywords={prefs?.keyword_alerts ?? []}
-                onToggleDnd={() =>
-                  void savePrefs({
-                    dnd_until: dndActive
-                      ? null
-                      : new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString(),
-                  })
-                }
-                onTogglePresence={() =>
-                  void savePrefs({ hide_presence: !prefs?.hide_presence })
-                }
                 onSaveKeywords={(raw) =>
                   void savePrefs({
                     keyword_alerts: raw

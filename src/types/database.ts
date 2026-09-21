@@ -272,8 +272,6 @@ export interface DmConversationPreview {
 
 export interface UserChatPrefs {
   user_id: string;
-  dnd_until: string | null;
-  hide_presence: boolean;
   keyword_alerts: string[];
   daily_goal_count: number;
   daily_done_count: number;
