@@ -14,6 +14,22 @@ import type {
 } from "@/types/database";
 import { formatKstChatTime } from "@/lib/datetime";
 import { ChatProfileModal } from "@/components/chat/ChatProfileModal";
+import {
+  ExamCardBubble,
+  WrongShareBubble,
+  TimerBubble,
+  PollBubble,
+} from "@/components/chat/ChatRichBubbles";
+import { ChatPrefsBar, useChatPrefs, useTopicRooms } from "@/components/chat/ChatFeatureHooks";
+import {
+  extractMentionUserIds,
+  messageMatchesKeywords,
+  TOPIC_TEASERS,
+  type ExamCardPayload,
+  type WrongSharePayload,
+  type TimerPayload,
+  type PollPayload,
+} from "@/lib/chat/features";
 
 type ChatUser = {
   id: string;
@@ -29,7 +45,10 @@ type View =
   | "new-group"
   | "search"
   | "study"
-  | "manage";
+  | "manage"
+  | "topics"
+  | "bookmarks"
+  | "settings";
 type ProfileRow = { id: string; nickname: string; avatar_url: string | null };
 type FriendRow = Friendship & { requester: ProfileRow; addressee: ProfileRow };
 
@@ -124,18 +143,26 @@ function MessageBubble({
   message,
   isMine,
   readCount,
+  nowMs,
   onReply,
   onEdit,
   onDelete,
   onReact,
+  onBookmark,
+  onReport,
+  onPollVote,
 }: {
   message: DmMessage;
   isMine: boolean;
   readCount: number;
+  nowMs: number;
   onReply: () => void;
   onEdit: () => void;
   onDelete: () => void;
   onReact: (emoji: string) => void;
+  onBookmark: () => void;
+  onReport: () => void;
+  onPollVote?: (key: string) => void;
 }) {
   const [actionsOpen, setActionsOpen] = useState(false);
   const actionMenuRef = useRef<HTMLDivElement>(null);
@@ -188,6 +215,32 @@ function MessageBubble({
             ↩ {message.reply_to.content || "첨부 메시지"}
           </div>
         ) : null}
+        {!message.deleted_at && message.message_kind === "exam_card" && message.payload ? (
+          <div className="p-2">
+            <ExamCardBubble payload={message.payload as unknown as ExamCardPayload} mine={isMine} />
+          </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "wrong_share" && message.payload ? (
+          <div className="p-2">
+            <WrongShareBubble payload={message.payload as unknown as WrongSharePayload} mine={isMine} />
+          </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "timer" && message.payload ? (
+          <div className="p-2">
+            <TimerBubble payload={message.payload as unknown as TimerPayload} nowMs={nowMs} />
+          </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "poll" && message.payload ? (
+          <div className="p-2">
+            <PollBubble
+              payload={message.payload as unknown as PollPayload}
+              myVote={(message.payload as { myVote?: string }).myVote ?? null}
+              tallies={(message.payload as { tallies?: Record<string, number> }).tallies ?? {}}
+              onVote={(key) => onPollVote?.(key)}
+              disabled={!onPollVote}
+            />
+          </div>
+        ) : null}
         {message.deleted_at ? (
           <p className="px-4 py-3 italic opacity-65">삭제된 메시지입니다.</p>
         ) : message.attachments.length > 0 ? (
@@ -219,6 +272,11 @@ function MessageBubble({
                   preload="metadata"
                   className="max-h-72 w-full bg-black"
                 />
+              ) : attachment.kind === "audio" ? (
+                <div key={attachment.id} className="m-2 rounded-xl bg-white/20 p-3">
+                  <p className="mb-1 text-[11px] opacity-70">음성 메시지</p>
+                  <audio src={attachment.signed_url} controls preload="metadata" className="w-full" />
+                </div>
               ) : (
                 <a
                   key={attachment.id}
@@ -243,7 +301,15 @@ function MessageBubble({
         ) : null}
         <div className={message.content ? "px-3.5 py-2.5" : "px-3.5 py-1.5"}>
           {!message.deleted_at && message.content ? (
-            <p className="whitespace-pre-wrap break-words">{message.content}</p>
+            <p className="whitespace-pre-wrap break-words">
+              {message.content.split(/(@[^\s@]{1,24})/g).map((part, i) =>
+                part.startsWith("@") ? (
+                  <span key={i} className="font-semibold text-[#0066D6]">{part}</span>
+                ) : (
+                  <span key={i}>{part}</span>
+                ),
+              )}
+            </p>
           ) : null}
           <p
             className={`mt-1 text-[10px] ${isMine ? "text-[#777c99]" : "text-fog"}`}
@@ -293,6 +359,14 @@ function MessageBubble({
               >
                 ↩ 답장
               </button>
+              <button
+                type="button"
+                onClick={() => runAction(onBookmark)}
+                className="rounded-full px-2 py-1 text-[11px] text-smoke hover:bg-ice"
+                title="북마크"
+              >
+                {message.bookmarked ? "★" : "☆"}
+              </button>
               {REACTIONS.slice(0, 3).map((emoji) => (
                 <button
                   type="button"
@@ -304,6 +378,15 @@ function MessageBubble({
                   {emoji}
                 </button>
               ))}
+              {!isMine ? (
+                <button
+                  type="button"
+                  onClick={() => runAction(onReport)}
+                  className="rounded-full px-2 py-1 text-[11px] text-coral hover:bg-coral/10"
+                >
+                  신고
+                </button>
+              ) : null}
               {isMine ? (
                 <>
                   <button
@@ -361,16 +444,44 @@ export function ChatWidget({
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [profileId, setProfileId] = useState<string | null>(null);
+  const [listFilter, setListFilter] = useState<"all" | "unread" | "mention" | "archived">("all");
+  const [showArchived, setShowArchived] = useState(false);
+  const [scheduleAt, setScheduleAt] = useState("");
+  const [shareMode, setShareMode] = useState<"none" | "exam" | "wrong" | "timer" | "poll">("none");
+  const [shareExamId, setShareExamId] = useState("");
+  const [shareStem, setShareStem] = useState("");
+  const [shareMeta, setShareMeta] = useState("");
+  const [sharePick, setSharePick] = useState("");
+  const [timerMinutes, setTimerMinutes] = useState(25);
+  const [pollQuestion, setPollQuestion] = useState("");
+  const [inviteInput, setInviteInput] = useState("");
+  const [bookmarkRows, setBookmarkRows] = useState<DmMessage[]>([]);
+  const [nowMs, setNowMs] = useState(() => Date.now());
+  const [recording, setRecording] = useState(false);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
   const presenceChannelRef = useRef<RealtimeChannel | null>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dragDepthRef = useRef(0);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
+  const { prefs, save: savePrefs, bumpDailyDone, goalLabel, dndActive } = useChatPrefs(user.id);
+  const { rooms: topicRooms, loading: topicsLoading, join: joinTopic } = useTopicRooms(open && view === "topics");
 
   const unreadTotal = useMemo(
     () => conversations.reduce((sum, item) => sum + item.unreadCount, 0),
     [conversations],
   );
+  const visibleConversations = useMemo(() => {
+    return conversations.filter((c) => {
+      const archived = Boolean(c.archivedAt);
+      if (listFilter === "archived") return archived;
+      if (archived && !showArchived) return false;
+      if (listFilter === "unread") return c.unreadCount > 0;
+      if (listFilter === "mention") return Boolean(c.mentionUnread);
+      return true;
+    });
+  }, [conversations, listFilter, showArchived]);
   const acceptedFriends = useMemo(
     () => friends.filter((friend) => friend.status === "accepted"),
     [friends],
@@ -398,7 +509,7 @@ export function ChatWidget({
     const supabase = createClient();
     const { data: memberships } = await supabase
       .from("dm_conversation_members")
-      .select("conversation_id,last_read_at,pinned_at")
+      .select("conversation_id,last_read_at,pinned_at,archived_at,muted_until")
       .eq("user_id", user.id);
     if (!memberships?.length) {
       setConversations([]);
@@ -409,6 +520,8 @@ export function ChatWidget({
       memberships.map((item) => [item.conversation_id, item.last_read_at]),
     );
     const pinnedById = Object.fromEntries(memberships.map((item) => [item.conversation_id, item.pinned_at]));
+    const archivedById = Object.fromEntries(memberships.map((item) => [item.conversation_id, item.archived_at]));
+    const mutedById = Object.fromEntries(memberships.map((item) => [item.conversation_id, item.muted_until]));
     const [memberResult, messageResult, conversationResult] = await Promise.all(
       [
         supabase
@@ -419,13 +532,14 @@ export function ChatWidget({
           .in("conversation_id", ids),
         supabase
           .from("dm_messages")
-          .select("id,conversation_id,sender_id,content,created_at")
+          .select("id,conversation_id,sender_id,content,created_at,mention_user_ids,message_kind,scheduled_for,published_at")
           .in("conversation_id", ids)
+          .or("scheduled_for.is.null,published_at.not.is.null")
           .order("created_at", { ascending: false }),
         supabase
           .from("dm_conversations")
           .select(
-            "id,title,is_group,is_self,avatar_url,updated_at,pinned_message_id,slow_mode_seconds,study_dday,study_goal",
+            "id,title,is_group,is_self,avatar_url,updated_at,pinned_message_id,slow_mode_seconds,study_dday,study_goal,kind,topic_key,topic_label,invite_code",
           )
           .in("id", ids),
       ],
@@ -457,6 +571,10 @@ export function ChatWidget({
           slow_mode_seconds: 0,
           study_dday: null,
           study_goal: null,
+          kind: null,
+          topic_key: null,
+          topic_label: null,
+          invite_code: null,
         }))
       : conversationResult.data;
     if (!conversationRows) return;
@@ -486,6 +604,13 @@ export function ChatWidget({
         const other = members.find((member) => member.id !== user.id) ?? null;
         if (!row.is_group && !row.is_self && !other) return null;
         const last = lastByConversation.get(row.id) ?? null;
+        const mentionUnread = Boolean(
+          last &&
+            last.sender_id !== user.id &&
+            last.created_at > (lastRead[row.id] ?? "") &&
+            Array.isArray(last.mention_user_ids) &&
+            last.mention_user_ids.includes(user.id),
+        );
         return {
           id: row.id,
           title: row.is_self ? "나와의 채팅" : row.is_group
@@ -497,6 +622,12 @@ export function ChatWidget({
           otherUser: other,
           isSelf: Boolean(row.is_self),
           pinnedAt: pinnedById[row.id] ?? null,
+          archivedAt: archivedById[row.id] ?? null,
+          mutedUntil: mutedById[row.id] ?? null,
+          kind: (row.kind as DmConversationPreview["kind"]) ?? (row.is_self ? "self" : row.is_group ? "group" : "dm"),
+          topicKey: row.topic_key ?? null,
+          topicLabel: row.topic_label ?? null,
+          inviteCode: row.invite_code ?? null,
           lastMessage: last,
           unreadCount:
             last &&
@@ -504,6 +635,7 @@ export function ChatWidget({
             last.created_at > (lastRead[row.id] ?? "")
               ? 1
               : 0,
+          mentionUnread,
           updatedAt: row.updated_at ?? last?.created_at ?? "",
           pinned_message_id: row.pinned_message_id,
           slow_mode_seconds: row.slow_mode_seconds,
@@ -552,7 +684,7 @@ export function ChatWidget({
       let { data, error: fetchError } = await supabase
         .from("dm_messages")
         .select(
-          "id,conversation_id,sender_id,content,reply_to_id,edited_at,deleted_at,created_at,profiles:sender_id(nickname,avatar_url),dm_message_attachments(*),dm_message_reactions(*)",
+          "id,conversation_id,sender_id,content,reply_to_id,edited_at,deleted_at,created_at,message_kind,payload,scheduled_for,published_at,mention_user_ids,profiles:sender_id(nickname,avatar_url),dm_message_attachments(*),dm_message_reactions(*)",
         )
         .eq("conversation_id", conversationId)
         .order("created_at", { ascending: true })
@@ -574,6 +706,11 @@ export function ChatWidget({
             reply_to_id: null,
             edited_at: null,
             deleted_at: null,
+            message_kind: "text",
+            payload: {},
+            scheduled_for: null,
+            published_at: row.created_at,
+            mention_user_ids: [],
           })) ?? null;
         fetchError = fallback.error;
       }
@@ -602,8 +739,26 @@ export function ChatWidget({
           },
           attachments: (row.dm_message_attachments ?? []) as DmAttachment[],
           reactions: row.dm_message_reactions ?? [],
+          message_kind: (row as { message_kind?: DmMessage["message_kind"] }).message_kind ?? "text",
+          payload: ((row as { payload?: Record<string, unknown> }).payload ?? {}) as Record<string, unknown>,
+          scheduled_for: (row as { scheduled_for?: string | null }).scheduled_for ?? null,
+          published_at: (row as { published_at?: string | null }).published_at ?? null,
+          mention_user_ids: (row as { mention_user_ids?: string[] }).mention_user_ids ?? [],
         };
+      }).filter((message) => {
+        if (!message.scheduled_for || message.published_at) return true;
+        return message.sender_id === user.id;
       });
+      const messageIds = mapped.map((m) => m.id);
+      if (messageIds.length) {
+        const { data: marks } = await supabase
+          .from("dm_message_bookmarks")
+          .select("message_id")
+          .eq("user_id", user.id)
+          .in("message_id", messageIds);
+        const marked = new Set((marks ?? []).map((m) => m.message_id));
+        for (const message of mapped) message.bookmarked = marked.has(message.id);
+      }
       for (const message of mapped)
         message.reply_to =
           mapped.find((item) => item.id === message.reply_to_id) ?? null;
@@ -636,7 +791,7 @@ export function ChatWidget({
       );
       setTimeout(scrollToBottom, 40);
     },
-    [scrollToBottom],
+    [scrollToBottom, user.id],
   );
 
   const openThread = useCallback(
@@ -694,6 +849,279 @@ export function ChatWidget({
     const nextPinnedAt = conversation.pinnedAt ? null : new Date().toISOString();
     const { error: pinError } = await createClient().rpc("set_dm_conversation_pin", { p_conversation_id: conversation.id, p_pinned: !conversation.pinnedAt });
     if (pinError) setError(pinError.message); else setConversations((items) => items.map((item) => item.id === conversation.id ? {...item,pinnedAt:nextPinnedAt} : item).sort((a,b)=>(b.pinnedAt?1:0)-(a.pinnedAt?1:0)||b.updatedAt.localeCompare(a.updatedAt)));
+  };
+
+  const toggleArchive = async (conversation: DmConversationPreview) => {
+    const next = !conversation.archivedAt;
+    const { error: archiveError } = await createClient().rpc("set_dm_conversation_archived", {
+      p_conversation_id: conversation.id,
+      p_archived: next,
+    });
+    if (archiveError) setError(archiveError.message);
+    else {
+      setConversations((items) =>
+        items.map((item) =>
+          item.id === conversation.id
+            ? { ...item, archivedAt: next ? new Date().toISOString() : null }
+            : item,
+        ),
+      );
+    }
+  };
+
+  const toggleMute = async (conversation: DmConversationPreview) => {
+    const muted = Boolean(conversation.mutedUntil && new Date(conversation.mutedUntil).getTime() > Date.now());
+    const { error: muteError } = await createClient().rpc("set_dm_conversation_muted", {
+      p_conversation_id: conversation.id,
+      p_muted: !muted,
+    });
+    if (muteError) setError(muteError.message);
+    else {
+      setConversations((items) =>
+        items.map((item) =>
+          item.id === conversation.id
+            ? {
+                ...item,
+                mutedUntil: !muted
+                  ? new Date(Date.now() + 1000 * 60 * 60 * 24 * 365 * 100).toISOString()
+                  : null,
+              }
+            : item,
+        ),
+      );
+    }
+  };
+
+  const toggleBookmark = async (message: DmMessage) => {
+    const supabase = createClient();
+    if (message.bookmarked) {
+      await supabase
+        .from("dm_message_bookmarks")
+        .delete()
+        .eq("user_id", user.id)
+        .eq("message_id", message.id);
+      setMessages((items) =>
+        items.map((item) =>
+          item.id === message.id ? { ...item, bookmarked: false } : item,
+        ),
+      );
+    } else {
+      const { error: markError } = await supabase.from("dm_message_bookmarks").insert({
+        user_id: user.id,
+        message_id: message.id,
+      });
+      if (markError) setError(markError.message);
+      else
+        setMessages((items) =>
+          items.map((item) =>
+            item.id === message.id ? { ...item, bookmarked: true } : item,
+          ),
+        );
+    }
+  };
+
+  const reportMessage = async (message: DmMessage) => {
+    const reason =
+      window.prompt(
+        "신고 사유: spam / abuse / sexual / illegal / privacy / other",
+        "spam",
+      ) ?? "";
+    const allowed = ["spam", "abuse", "sexual", "illegal", "privacy", "other"];
+    if (!allowed.includes(reason)) {
+      setError("신고 사유가 올바르지 않습니다.");
+      return;
+    }
+    const details = window.prompt("상세 (선택)", "") ?? "";
+    const { error: reportError } = await createClient().from("chat_reports").insert({
+      reporter_id: user.id,
+      reported_user_id: message.sender_id,
+      conversation_id: message.conversation_id,
+      message_id: message.id,
+      reason,
+      details,
+    });
+    if (reportError) setError(reportError.message);
+    else setError("신고가 접수됐어요. 검토 후 조치할게요.");
+  };
+
+  const blockUser = async (targetId: string) => {
+    if (!window.confirm("이 사용자를 차단할까요?")) return;
+    const { error: blockError } = await createClient().from("user_blocks").insert({
+      blocker_id: user.id,
+      blocked_id: targetId,
+    });
+    if (blockError) setError(blockError.message);
+    else setError("차단했어요. 대화 목록에서 숨겨질 수 있어요.");
+  };
+
+  const joinByInvite = async () => {
+    const code = inviteInput.trim();
+    if (!code) return;
+    const { data, error: inviteError } = await createClient().rpc("join_dm_by_invite", {
+      p_invite_code: code,
+    });
+    if (inviteError || !data) {
+      setError(inviteError?.message ?? "초대 코드로 입장할 수 없습니다.");
+      return;
+    }
+    setInviteInput("");
+    await refreshConversations();
+    setView("list");
+    setError("초대 코드로 입장했어요.");
+  };
+
+  const ensureInviteCode = async () => {
+    if (!activeConversation) return;
+    const { data, error: codeError } = await createClient().rpc("ensure_group_invite_code", {
+      p_conversation_id: activeConversation.id,
+    });
+    if (codeError) setError(codeError.message);
+    else {
+      setActiveConversation((current) =>
+        current ? { ...current, inviteCode: data as string } : current,
+      );
+      await navigator.clipboard?.writeText(String(data)).catch(() => undefined);
+      setError(`초대 코드: ${data} (복사됨)`);
+    }
+  };
+
+  const loadBookmarks = async () => {
+    const supabase = createClient();
+    const { data: marks, error: markError } = await supabase
+      .from("dm_message_bookmarks")
+      .select("message_id,created_at")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false })
+      .limit(80);
+    if (markError) {
+      setError(markError.message);
+      return;
+    }
+    const ids = (marks ?? []).map((m) => m.message_id);
+    if (!ids.length) {
+      setBookmarkRows([]);
+      return;
+    }
+    const { data, error: msgError } = await supabase
+      .from("dm_messages")
+      .select(
+        "id,conversation_id,sender_id,content,created_at,message_kind,payload,profiles:sender_id(nickname,avatar_url)",
+      )
+      .in("id", ids);
+    if (msgError) {
+      setError(msgError.message);
+      return;
+    }
+    const byId = Object.fromEntries((data ?? []).map((row) => [row.id, row]));
+    setBookmarkRows(
+      ids
+        .map((id) => byId[id])
+        .filter(Boolean)
+        .map((row) => {
+          const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
+          return {
+            id: row.id,
+            conversation_id: row.conversation_id,
+            sender_id: row.sender_id,
+            content: row.content,
+            created_at: row.created_at,
+            author: {
+              nickname: profile?.nickname ?? "익명",
+              avatar_url: profile?.avatar_url ?? null,
+            },
+            attachments: [],
+            reactions: [],
+            reply_to_id: null,
+            edited_at: null,
+            deleted_at: null,
+            message_kind: row.message_kind ?? "text",
+            payload: row.payload ?? {},
+            bookmarked: true,
+          } as DmMessage;
+        }),
+    );
+  };
+
+  const openTopicRoom = async (topicKey: string) => {
+    try {
+      const id = await joinTopic(topicKey);
+      await refreshConversations();
+      const found = conversations.find((c) => c.id === id);
+      if (found) await openThread(found);
+      else setView("list");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "스터디방 입장 실패");
+    }
+  };
+
+  const startVoice = async () => {
+    if (!activeConversation || recording) return;
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream);
+      audioChunksRef.current = [];
+      recorder.ondataavailable = (event) => {
+        if (event.data.size) audioChunksRef.current.push(event.data);
+      };
+      recorder.onstop = () => {
+        stream.getTracks().forEach((t) => t.stop());
+        const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+        const file = new File([blob], `voice-${Date.now()}.webm`, {
+          type: "audio/webm",
+        });
+        void queueFiles([file]).then(() => {
+          setShareMode("none");
+        });
+      };
+      mediaRecorderRef.current = recorder;
+      recorder.start();
+      setRecording(true);
+    } catch {
+      setError("마이크 권한을 확인해 주세요.");
+    }
+  };
+
+  const stopVoice = () => {
+    mediaRecorderRef.current?.stop();
+    mediaRecorderRef.current = null;
+    setRecording(false);
+  };
+
+  const votePoll = async (message: DmMessage, key: string) => {
+    const payload = (message.payload ?? {}) as PollPayload & {
+      eventId?: string;
+      tallies?: Record<string, number>;
+      myVote?: string;
+    };
+    if (!payload.eventId) {
+      setError("투표 이벤트를 찾을 수 없습니다.");
+      return;
+    }
+    const supabase = createClient();
+    const { error: voteError } = await supabase.from("chat_study_event_responses").upsert({
+      event_id: payload.eventId,
+      user_id: user.id,
+      response: key,
+    });
+    if (voteError) {
+      setError(voteError.message);
+      return;
+    }
+    const { data: responses } = await supabase
+      .from("chat_study_event_responses")
+      .select("response")
+      .eq("event_id", payload.eventId);
+    const tallies: Record<string, number> = {};
+    for (const row of responses ?? []) {
+      tallies[row.response] = (tallies[row.response] ?? 0) + 1;
+    }
+    const nextPayload = { ...payload, tallies, myVote: key };
+    await supabase.from("dm_messages").update({ payload: nextPayload }).eq("id", message.id);
+    setMessages((items) =>
+      items.map((item) =>
+        item.id === message.id ? { ...item, payload: nextPayload } : item,
+      ),
+    );
   };
 
   const validateFiles = (files: File[]) => {
@@ -763,14 +1191,84 @@ export function ChatWidget({
     void queueFiles(Array.from(event.dataTransfer.files));
   };
 
+  const buildSharePayload = () => {
+    if (shareMode === "exam") {
+      const [subject, year, questionNo] = shareMeta.split("|").map((s) => s.trim());
+      return {
+        kind: "exam_card" as const,
+        content: draft.trim() || "기출 카드를 공유했어요.",
+        payload: {
+          examId: shareExamId || "manual",
+          subject: subject || undefined,
+          year: year || undefined,
+          questionNo: questionNo || undefined,
+          stem: shareStem.trim() || draft.trim(),
+          label: "같이 풀어봐요",
+        } satisfies ExamCardPayload,
+      };
+    }
+    if (shareMode === "wrong") {
+      const [subject, year, questionNo] = shareMeta.split("|").map((s) => s.trim());
+      return {
+        kind: "wrong_share" as const,
+        content: draft.trim() || "오답을 공유했어요.",
+        payload: {
+          examId: shareExamId || "manual",
+          subject: subject || undefined,
+          year: year || undefined,
+          questionNo: questionNo || undefined,
+          stem: shareStem.trim() || draft.trim(),
+          myPick: sharePick || undefined,
+          correctLabel: undefined,
+        } satisfies WrongSharePayload,
+      };
+    }
+    if (shareMode === "timer") {
+      const endsAt = new Date(Date.now() + timerMinutes * 60_000).toISOString();
+      return {
+        kind: "timer" as const,
+        content: draft.trim() || `${timerMinutes}분 타이머`,
+        payload: {
+          minutes: timerMinutes,
+          label: draft.trim() || undefined,
+          endsAt,
+        } satisfies TimerPayload,
+      };
+    }
+    if (shareMode === "poll") {
+      const q = pollQuestion.trim() || draft.trim() || "OX 폴";
+      return {
+        kind: "poll" as const,
+        content: q,
+        payload: {
+          question: q,
+          options: [
+            { key: "O", label: "O" },
+            { key: "X", label: "X" },
+          ],
+        } satisfies PollPayload,
+      };
+    }
+    return {
+      kind: "text" as const,
+      content: draft.trim(),
+      payload: {} as Record<string, unknown>,
+    };
+  };
+
   const sendMessage = async () => {
+    const sharing = shareMode !== "none";
     if (
-      (!draft.trim() && selectedFiles.length === 0) ||
+      (!draft.trim() && selectedFiles.length === 0 && !sharing) ||
       !activeConversation ||
       sending ||
       preparingFiles
     )
       return;
+    if (sharing && shareMode === "exam" && !shareStem.trim() && !draft.trim()) {
+      setError("기출 지문을 입력해 주세요.");
+      return;
+    }
     const validation = validateFiles(selectedFiles);
     if (validation) {
       setError(validation);
@@ -815,14 +1313,39 @@ export function ChatWidget({
       });
     }
 
+    const share = buildSharePayload();
+    const mentionIds = extractMentionUserIds(
+      share.content,
+      activeConversation.members.map((m) => ({ id: m.id, nickname: m.nickname })),
+    );
+    const scheduledIso = scheduleAt
+      ? new Date(scheduleAt).toISOString()
+      : null;
+    if (scheduledIso && Number.isNaN(Date.parse(scheduledIso))) {
+      setError("예약 시간이 올바르지 않습니다.");
+      setSending(false);
+      return;
+    }
+
+    const insertRow: Record<string, unknown> = {
+      conversation_id: activeConversation.id,
+      sender_id: user.id,
+      content: share.content,
+      reply_to_id: replyTo?.id ?? null,
+      message_kind: share.kind,
+      payload: share.payload,
+      mention_user_ids: mentionIds,
+    };
+    if (scheduledIso) {
+      insertRow.scheduled_for = scheduledIso;
+      insertRow.published_at = null;
+    } else {
+      insertRow.published_at = new Date().toISOString();
+    }
+
     const { data: message, error: insertError } = await supabase
       .from("dm_messages")
-      .insert({
-        conversation_id: activeConversation.id,
-        sender_id: user.id,
-        content: draft.trim(),
-        reply_to_id: replyTo?.id ?? null,
-      })
+      .insert(insertRow)
       .select("id")
       .single();
     if (insertError || !message) {
@@ -835,6 +1358,30 @@ export function ChatWidget({
       setSending(false);
       return;
     }
+
+    if (share.kind === "poll") {
+      const { data: eventRow } = await supabase
+        .from("chat_study_events")
+        .insert({
+          conversation_id: activeConversation.id,
+          creator_id: user.id,
+          kind: "poll",
+          title: (share.payload as PollPayload).question,
+          body: "",
+          options: (share.payload as PollPayload).options,
+        })
+        .select("id")
+        .single();
+      if (eventRow?.id) {
+        await supabase
+          .from("dm_messages")
+          .update({
+            payload: { ...(share.payload as object), eventId: eventRow.id, tallies: { O: 0, X: 0 } },
+          })
+          .eq("id", message.id);
+      }
+    }
+
     for (const reservation of reservations) {
       const { file, path } = reservation;
       const { error: uploadError } = await supabase.storage
@@ -862,6 +1409,13 @@ export function ChatWidget({
     setDraft("");
     setReplyTo(null);
     setSelectedFiles([]);
+    setScheduleAt("");
+    setShareMode("none");
+    setShareExamId("");
+    setShareStem("");
+    setShareMeta("");
+    setSharePick("");
+    setPollQuestion("");
     await loadMessages(activeConversation.id);
     await refreshConversations();
     setSending(false);
@@ -932,20 +1486,37 @@ export function ChatWidget({
 
   const createStudyTool = async () => {
     if (!activeConversation || !studyTitle.trim()) return;
+    const row: Record<string, unknown> = {
+      conversation_id: activeConversation.id,
+      creator_id: user.id,
+      kind: studyKind === "weekly" ? "weekly" : studyKind,
+      title: studyTitle.trim(),
+      body: "",
+      pinned: studyKind === "notice",
+    };
+    if (studyKind === "weekly") {
+      row.recurrence = "weekly";
+      row.weekday = new Date().getDay();
+      row.time_of_day = "20:00";
+      row.due_at = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+    }
+    if (studyKind === "poll") {
+      row.options = [
+        { key: "O", label: "O" },
+        { key: "X", label: "X" },
+      ];
+    }
     const { error: studyError } = await createClient()
       .from("chat_study_events")
-      .insert({
-        conversation_id: activeConversation.id,
-        creator_id: user.id,
-        kind: studyKind,
-        title: studyTitle.trim(),
-        body: "",
-        pinned: studyKind === "notice",
-      });
+      .insert(row);
     if (studyError) setError(studyError.message);
     else {
       setStudyTitle("");
-      setError("스터디 도구를 만들었습니다.");
+      setError(
+        studyKind === "weekly"
+          ? "주간 스터디 리마인더를 만들었어요."
+          : "스터디 도구를 만들었습니다.",
+      );
     }
   };
 
@@ -1043,8 +1614,15 @@ export function ChatWidget({
     if (open) {
       void refreshConversations();
       void refreshFriends();
+      void createClient().rpc("publish_due_scheduled_dm_messages");
     }
   }, [open, refreshConversations, refreshFriends]);
+
+  useEffect(() => {
+    if (!open) return;
+    const id = window.setInterval(() => setNowMs(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, [open]);
   useEffect(() => {
     const timer = setTimeout(() => {
       if (view === "friends") void searchProfiles();
@@ -1071,12 +1649,17 @@ export function ChatWidget({
       );
     });
     channel.subscribe(async (status) => {
-      if (status === "SUBSCRIBED")
-        await channel.track({
-          user_id: user.id,
-          nickname: user.nickname,
-          avatar_url: user.avatar_url,
-        });
+      if (status === "SUBSCRIBED") {
+        if (prefs?.hide_presence) {
+          await channel.untrack();
+        } else {
+          await channel.track({
+            user_id: user.id,
+            nickname: user.nickname,
+            avatar_url: user.avatar_url,
+          });
+        }
+      }
     });
     presenceChannelRef.current = channel;
     return () => {
@@ -1084,7 +1667,7 @@ export function ChatWidget({
       void supabase.removeChannel(channel);
       presenceChannelRef.current = null;
     };
-  }, [user]);
+  }, [user, prefs?.hide_presence]);
 
   useEffect(() => {
     if (!open || view !== "thread" || !activeConversation) return;
@@ -1100,16 +1683,34 @@ export function ChatWidget({
           filter: `conversation_id=eq.${activeConversation.id}`,
         },
         (payload) => {
-          const row = payload.new as { sender_id: string; content: string };
-          if (
+          const row = payload.new as {
+            sender_id: string;
+            content: string;
+            mention_user_ids?: string[];
+          };
+          const muted =
+            activeConversation.mutedUntil &&
+            new Date(activeConversation.mutedUntil).getTime() > Date.now();
+          const keywords = prefs?.keyword_alerts ?? [];
+          const keywordHit = messageMatchesKeywords(row.content || "", keywords);
+          const mentionHit = (row.mention_user_ids ?? []).includes(user.id);
+          const allowNotify =
+            !dndActive &&
+            !muted &&
             row.sender_id !== user.id &&
             document.hidden &&
-            Notification.permission === "granted"
-          )
+            Notification.permission === "granted";
+          if (allowNotify) {
+            const prefix = mentionHit
+              ? "@멘션 · "
+              : keywordHit
+                ? "키워드 · "
+                : "";
             new Notification(activeConversation.title, {
-              body: row.content || "새 첨부파일이 도착했어요.",
+              body: `${prefix}${row.content || "새 첨부파일이 도착했어요."}`,
               icon: "/brand/whale-mark.png",
             });
+          }
           void loadMessages(activeConversation.id);
           void refreshConversations();
         },
@@ -1120,8 +1721,10 @@ export function ChatWidget({
     };
   }, [
     activeConversation,
+    dndActive,
     loadMessages,
     open,
+    prefs?.keyword_alerts,
     refreshConversations,
     user.id,
     view,
@@ -1136,7 +1739,13 @@ export function ChatWidget({
           ? "접속 중"
           : view === "new-group"
             ? "새 그룹채팅"
-            : "메시지";
+            : view === "topics"
+              ? "스터디방"
+              : view === "bookmarks"
+                ? "북마크"
+                : view === "settings"
+                  ? "채팅 설정"
+                  : "메시지";
 
   return (
     <>
@@ -1228,20 +1837,52 @@ export function ChatWidget({
                 >
                   🎯
                 </button>
-                {activeConversation?.isGroup ? (
+                {activeConversation ? (
                   <button
                     type="button"
-                    onClick={() => setView("manage")}
+                    onClick={() => void toggleMute(activeConversation)}
                     className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
-                    title="그룹 관리"
+                    title="뮤트"
                   >
-                    ⚙
+                    {activeConversation.mutedUntil ? "🔔" : "🔕"}
                   </button>
                 ) : null}
+                <button
+                  type="button"
+                  onClick={() => setView("manage")}
+                  className="rounded-full bg-white/80 px-2.5 py-1.5 text-xs shadow-sm"
+                  title="방 관리"
+                >
+                  ⚙
+                </button>
               </>
             ) : null}
             {view === "list" ? (
-              <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center justify-end gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => setView("topics")}
+                  className="rounded-full bg-[#007AFF]/10 px-2.5 py-1.5 font-display text-[11px] font-semibold text-[#0066D6]"
+                >
+                  스터디방
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setView("bookmarks");
+                    void loadBookmarks();
+                  }}
+                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
+                >
+                  ★
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setView("settings")}
+                  className="rounded-full bg-white/80 px-2.5 py-1.5 font-display text-[11px] font-semibold text-ink shadow-sm"
+                >
+                  설정
+                </button>
                 <button
                   type="button"
                   onClick={() => setProfileId(user.id)}
@@ -1281,7 +1922,7 @@ export function ChatWidget({
               ✕
             </button>
           </div>
-          {view !== "thread" && view !== "new-group" ? (
+          {view === "list" || view === "friends" || view === "online" ? (
             <div className="grid grid-cols-3 border-b border-mist">
               {(
                 [
@@ -1319,67 +1960,143 @@ export function ChatWidget({
           ) : null}
 
           {view === "list" ? (
-            <div className="flex-1 overflow-y-auto">
-              {conversations.length ? (
-                conversations.map((conversation) => (
+            <div className="flex flex-1 flex-col overflow-hidden">
+              <ChatPrefsBar
+                goalLabel={goalLabel}
+                dndActive={dndActive}
+                hidePresence={Boolean(prefs?.hide_presence)}
+                keywords={prefs?.keyword_alerts ?? []}
+                onToggleDnd={() =>
+                  void savePrefs({
+                    dnd_until: dndActive
+                      ? null
+                      : new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString(),
+                  })
+                }
+                onTogglePresence={() =>
+                  void savePrefs({ hide_presence: !prefs?.hide_presence })
+                }
+                onSaveKeywords={(raw) =>
+                  void savePrefs({
+                    keyword_alerts: raw
+                      .split(",")
+                      .map((s) => s.trim())
+                      .filter(Boolean)
+                      .slice(0, 20),
+                  })
+                }
+                onBumpDone={() => void bumpDailyDone()}
+              />
+              <div className="flex flex-wrap gap-1.5 border-b border-mist/70 px-3 py-2">
+                {(
+                  [
+                    ["all", "전체"],
+                    ["unread", "안 읽음"],
+                    ["mention", "멘션"],
+                    ["archived", "보관"],
+                  ] as const
+                ).map(([key, label]) => (
                   <button
-                    key={conversation.id}
+                    key={key}
                     type="button"
-                    onClick={() => void openThread(conversation)}
-                    className="flex w-full items-center gap-3 border-b border-mist/70 px-4 py-3 text-left hover:bg-surface"
+                    onClick={() => setListFilter(key)}
+                    className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${
+                      listFilter === key
+                        ? "bg-[#007AFF] text-white"
+                        : "bg-white text-fog"
+                    }`}
                   >
-                    <Avatar
-                      nickname={conversation.title}
-                      url={conversation.avatar_url}
-                      onOpen={conversation.otherUser ? () => setProfileId(conversation.otherUser!.id) : undefined}
-                    />
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="truncate font-display text-body-sm font-semibold text-ink">
-                          {conversation.title}
-                          {conversation.pinnedAt ? <span className="ml-1 text-[10px]" title="상단 고정">📌</span> : null}
-                          {conversation.isGroup ? (
-                            <span className="ml-1 text-[10px] font-normal text-fog">
-                              {conversation.members.length}명
+                    {label}
+                  </button>
+                ))}
+              </div>
+              <div className="border-b border-mist/70 px-3 py-2">
+                <div className="flex gap-2">
+                  <input
+                    value={inviteInput}
+                    onChange={(e) => setInviteInput(e.target.value)}
+                    placeholder="초대 코드로 입장"
+                    className="min-w-0 flex-1 rounded-xl border border-mist px-3 py-2 text-[12px] outline-none focus:border-[#007AFF]"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => void joinByInvite()}
+                    className="rounded-xl bg-carbon px-3 text-[12px] font-semibold text-white"
+                  >
+                    입장
+                  </button>
+                </div>
+              </div>
+              <div className="flex-1 overflow-y-auto">
+                {visibleConversations.length ? (
+                  visibleConversations.map((conversation) => (
+                    <button
+                      key={conversation.id}
+                      type="button"
+                      onClick={() => void openThread(conversation)}
+                      className="flex w-full items-center gap-3 border-b border-mist/70 px-4 py-3 text-left hover:bg-surface"
+                    >
+                      <Avatar
+                        nickname={conversation.title}
+                        url={conversation.avatar_url}
+                        onOpen={conversation.otherUser ? () => setProfileId(conversation.otherUser!.id) : undefined}
+                      />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="truncate font-display text-body-sm font-semibold text-ink">
+                            {conversation.title}
+                            {conversation.kind === "topic" ? (
+                              <span className="ml-1 text-[10px] font-normal text-[#0066D6]">스터디</span>
+                            ) : null}
+                            {conversation.pinnedAt ? <span className="ml-1 text-[10px]" title="상단 고정">📌</span> : null}
+                            {conversation.mutedUntil ? <span className="ml-1 text-[10px]" title="뮤트">🔕</span> : null}
+                            {conversation.archivedAt ? <span className="ml-1 text-[10px]" title="보관">📦</span> : null}
+                            {conversation.mentionUnread ? (
+                              <span className="ml-1 text-[10px] text-[#0066D6]">@</span>
+                            ) : null}
+                            {conversation.isGroup ? (
+                              <span className="ml-1 text-[10px] font-normal text-fog">
+                                {conversation.members.length}명
+                              </span>
+                            ) : null}
+                          </p>
+                          {conversation.lastMessage ? (
+                            <span className="text-[10px] text-fog">
+                              {formatKstChatTime(
+                                conversation.lastMessage.created_at,
+                              )}
                             </span>
                           ) : null}
+                        </div>
+                        <p className="mt-0.5 truncate font-display text-[12px] text-smoke">
+                          {messagePreview(conversation.lastMessage)}
                         </p>
-                        {conversation.lastMessage ? (
-                          <span className="text-[10px] text-fog">
-                            {formatKstChatTime(
-                              conversation.lastMessage.created_at,
-                            )}
-                          </span>
-                        ) : null}
                       </div>
-                      <p className="mt-0.5 truncate font-display text-[12px] text-smoke">
-                        {messagePreview(conversation.lastMessage)}
-                      </p>
-                    </div>
-                    {conversation.unreadCount ? (
-                      <span className="rounded-full bg-[#6366f1] px-1.5 py-0.5 text-[10px] font-bold text-white">
-                        {conversation.unreadCount}
+                      {conversation.unreadCount ? (
+                        <span className="rounded-full bg-[#6366f1] px-1.5 py-0.5 text-[10px] font-bold text-white">
+                          {conversation.unreadCount}
+                        </span>
+                      ) : null}
+                      <span
+                        role="button"
+                        tabIndex={0}
+                        aria-label={conversation.pinnedAt ? "채팅방 고정 해제" : "채팅방 상단 고정"}
+                        onClick={(event) => { event.stopPropagation(); void toggleConversationPin(conversation); }}
+                        onKeyDown={(event) => { if(event.key==="Enter"||event.key===" "){event.preventDefault();event.stopPropagation();void toggleConversationPin(conversation);} }}
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm text-fog hover:bg-ice"
+                      >
+                        {conversation.pinnedAt ? "📌" : "⋮"}
                       </span>
-                    ) : null}
-                    <span
-                      role="button"
-                      tabIndex={0}
-                      aria-label={conversation.pinnedAt ? "채팅방 고정 해제" : "채팅방 상단 고정"}
-                      onClick={(event) => { event.stopPropagation(); void toggleConversationPin(conversation); }}
-                      onKeyDown={(event) => { if(event.key==="Enter"||event.key===" "){event.preventDefault();event.stopPropagation();void toggleConversationPin(conversation);} }}
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm text-fog hover:bg-ice"
-                    >
-                      {conversation.pinnedAt ? "📌" : "⋮"}
-                    </span>
-                  </button>
-                ))
-              ) : (
-                <p className="px-4 py-12 text-center text-body-sm text-fog">
-                  아직 대화가 없어요.
-                  <br />
-                  친구 또는 접속 중인 사용자와 시작해 보세요.
-                </p>
-              )}
+                    </button>
+                  ))
+                ) : (
+                  <p className="px-4 py-12 text-center text-body-sm text-fog">
+                    {listFilter === "archived"
+                      ? "보관한 대화가 없어요."
+                      : "아직 대화가 없어요. 스터디방이나 친구와 시작해 보세요."}
+                  </p>
+                )}
+              </div>
             </div>
           ) : null}
 
@@ -1645,13 +2362,15 @@ export function ChatWidget({
                   공지·일정·목표·인증·투표를 채팅방에 고정하세요.
                 </p>
               </div>
-              <div className="mt-4 grid grid-cols-5 gap-2">
+              <div className="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-7">
                 {[
                   ["notice", "📌", "공지"],
                   ["schedule", "📅", "일정"],
                   ["goal", "🎯", "목표"],
                   ["checkin", "✅", "인증"],
                   ["poll", "📊", "투표"],
+                  ["weekly", "🔁", "주간"],
+                  ["timer", "⏱", "타이머"],
                 ].map(([kind, icon, label]) => (
                   <button
                     key={kind}
@@ -1689,7 +2408,7 @@ export function ChatWidget({
             <div className="flex-1 overflow-y-auto p-5">
               <div className="rounded-3xl border border-white bg-white/75 p-5 shadow-sm">
                 <h3 className="font-bold">그룹 관리</h3>
-                <div className="mt-4 flex gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   <button
                     onClick={() => {
                       const name = window.prompt(
@@ -1715,7 +2434,37 @@ export function ChatWidget({
                   >
                     느린 채팅
                   </button>
+                  <button
+                    type="button"
+                    onClick={() => void ensureInviteCode()}
+                    className="rounded-xl bg-[#007AFF]/10 px-3 py-2 text-xs font-semibold text-[#0066D6]"
+                  >
+                    초대 코드
+                  </button>
+                  {activeConversation ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => void toggleMute(activeConversation)}
+                        className="rounded-xl bg-surface px-3 py-2 text-xs"
+                      >
+                        {activeConversation.mutedUntil ? "알림 켜기" : "뮤트"}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => void toggleArchive(activeConversation)}
+                        className="rounded-xl bg-surface px-3 py-2 text-xs"
+                      >
+                        {activeConversation.archivedAt ? "보관 해제" : "보관"}
+                      </button>
+                    </>
+                  ) : null}
                 </div>
+                {activeConversation?.inviteCode ? (
+                  <p className="mt-3 text-[12px] text-smoke">
+                    초대 코드: <b>{activeConversation.inviteCode}</b>
+                  </p>
+                ) : null}
               </div>
               <h4 className="mb-2 mt-5 text-xs font-bold text-smoke">
                 참여자 {activeConversation?.members.length}명
@@ -1737,6 +2486,15 @@ export function ChatWidget({
                     <small className="rounded-full bg-surface px-2 py-1">
                       {member.role}
                     </small>
+                    {member.id !== user.id ? (
+                      <button
+                        type="button"
+                        onClick={() => void blockUser(member.id)}
+                        className="text-[10px] text-fog"
+                      >
+                        차단
+                      </button>
+                    ) : null}
                     {member.id !== user.id && member.role !== "owner" ? (
                       <button
                         onClick={() => void manageGroup("remove", member.id)}
@@ -1751,7 +2509,138 @@ export function ChatWidget({
             </div>
           ) : null}
 
-          {view === "thread" ? (
+          {view === "topics" ? (
+            <div className="flex-1 overflow-y-auto p-4">
+              <p className="mb-3 text-[12px] text-smoke">
+                과목별 공개 스터디방에 바로 입장하세요.
+              </p>
+              {topicsLoading ? (
+                <p className="py-8 text-center text-[13px] text-fog">불러오는 중...</p>
+              ) : (
+                <div className="space-y-2">
+                  {(topicRooms.length
+                    ? topicRooms
+                    : TOPIC_TEASERS.map((t) => ({
+                        id: t.key,
+                        title: `${t.label} 스터디방`,
+                        topic_key: t.key,
+                        topic_label: t.label,
+                        gate_subject: null,
+                        invite_code: null,
+                        member_count: 0,
+                        joined: false,
+                      }))
+                  ).map((room) => (
+                    <button
+                      key={room.topic_key}
+                      type="button"
+                      onClick={() => void openTopicRoom(room.topic_key)}
+                      className="flex w-full items-center justify-between rounded-2xl border border-mist bg-white/80 px-4 py-3 text-left shadow-sm"
+                    >
+                      <span>
+                        <b className="block font-display text-[13px] text-ink">
+                          {room.topic_label || room.title}
+                        </b>
+                        <small className="text-[11px] text-fog">
+                          {room.member_count ? `${room.member_count}명` : "공개 스터디"}
+                          {room.joined ? " · 참여 중" : ""}
+                          {room.gate_subject ? " · 학습권 권장" : ""}
+                        </small>
+                      </span>
+                      <span className="text-[12px] font-semibold text-[#0066D6]">
+                        {room.joined ? "열기" : "입장"}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          ) : null}
+
+          {view === "bookmarks" ? (
+            <div className="flex-1 overflow-y-auto p-4">
+              {bookmarkRows.length ? (
+                <div className="space-y-2">
+                  {bookmarkRows.map((message) => (
+                    <button
+                      key={message.id}
+                      type="button"
+                      onClick={() => {
+                        const conv = conversations.find((c) => c.id === message.conversation_id);
+                        if (conv) void openThread(conv);
+                      }}
+                      className="block w-full rounded-2xl border border-white bg-white/80 p-3 text-left shadow-sm"
+                    >
+                      <b className="text-xs">{message.author.nickname}</b>
+                      <p className="mt-1 line-clamp-3 text-xs text-smoke">
+                        {message.content || message.message_kind}
+                      </p>
+                      <small className="text-[10px] text-fog">
+                        {formatKstChatTime(message.created_at)}
+                      </small>
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <p className="py-10 text-center text-[13px] text-fog">
+                  저장한 메시지가 없어요. 메시지 메뉴에서 ☆를 눌러 보세요.
+                </p>
+              )}
+            </div>
+          ) : null}
+
+          {view === "settings" ? (
+            <div className="flex-1 overflow-y-auto p-4 space-y-3">
+              <ChatPrefsBar
+                goalLabel={goalLabel}
+                dndActive={dndActive}
+                hidePresence={Boolean(prefs?.hide_presence)}
+                keywords={prefs?.keyword_alerts ?? []}
+                onToggleDnd={() =>
+                  void savePrefs({
+                    dnd_until: dndActive
+                      ? null
+                      : new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString(),
+                  })
+                }
+                onTogglePresence={() =>
+                  void savePrefs({ hide_presence: !prefs?.hide_presence })
+                }
+                onSaveKeywords={(raw) =>
+                  void savePrefs({
+                    keyword_alerts: raw
+                      .split(",")
+                      .map((s) => s.trim())
+                      .filter(Boolean)
+                      .slice(0, 20),
+                  })
+                }
+                onBumpDone={() => void bumpDailyDone()}
+              />
+              <div className="rounded-2xl border border-mist bg-white/80 p-4">
+                <label className="text-[12px] font-semibold text-smoke">오늘 목표 문항</label>
+                <input
+                  type="number"
+                  min={0}
+                  max={500}
+                  value={prefs?.daily_goal_count ?? 40}
+                  onChange={(e) =>
+                    void savePrefs({ daily_goal_count: Number(e.target.value) || 0 })
+                  }
+                  className="mt-2 w-full rounded-xl border border-mist px-3 py-2 text-[13px]"
+                />
+              </div>
+              <button
+                type="button"
+                onClick={() => void requestDesktopNotifications()}
+                className="w-full rounded-2xl border border-white bg-white/70 py-3 text-sm font-semibold shadow-sm"
+              >
+                🔔 새 메시지 알림 켜기
+              </button>
+            </div>
+          ) : null}
+
+                    {view === "thread" ? (
             <>
               <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
                 {activeConversation?.isGroup ? (
@@ -1771,6 +2660,7 @@ export function ChatWidget({
                       key={message.id}
                       message={message}
                       isMine={message.sender_id === user.id}
+                      nowMs={nowMs}
                       readCount={
                         message.sender_id === user.id
                           ? (activeConversation?.members.filter(
@@ -1787,6 +2677,9 @@ export function ChatWidget({
                       onEdit={() => void editMessage(message)}
                       onDelete={() => void deleteMessage(message)}
                       onReact={(emoji) => void reactToMessage(message, emoji)}
+                      onBookmark={() => void toggleBookmark(message)}
+                      onReport={() => void reportMessage(message)}
+                      onPollVote={(key) => void votePoll(message, key)}
                     />
                   ))
                 ) : (
@@ -1803,6 +2696,94 @@ export function ChatWidget({
                   void sendMessage();
                 }}
               >
+                <div className="mb-2 flex flex-wrap gap-1">
+                  {(
+                    [
+                      ["none", "일반"],
+                      ["exam", "기출"],
+                      ["wrong", "오답"],
+                      ["timer", "타이머"],
+                      ["poll", "OX폴"],
+                    ] as const
+                  ).map(([key, label]) => (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => setShareMode(key)}
+                      className={`rounded-full px-2.5 py-1 text-[10px] font-semibold ${
+                        shareMode === key
+                          ? "bg-[#007AFF] text-white"
+                          : "bg-white text-fog"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+                {shareMode === "exam" || shareMode === "wrong" ? (
+                  <div className="mb-2 space-y-1.5 rounded-xl border border-mist bg-white/80 p-2">
+                    <input
+                      value={shareMeta}
+                      onChange={(e) => setShareMeta(e.target.value)}
+                      placeholder="과목|연도|문항 (예: 민법|2023|12)"
+                      className="w-full rounded-lg border border-mist px-2 py-1.5 text-[12px]"
+                    />
+                    <textarea
+                      value={shareStem}
+                      onChange={(e) => setShareStem(e.target.value)}
+                      rows={3}
+                      placeholder="기출 지문"
+                      className="w-full rounded-lg border border-mist px-2 py-1.5 text-[12px]"
+                    />
+                    {shareMode === "wrong" ? (
+                      <input
+                        value={sharePick}
+                        onChange={(e) => setSharePick(e.target.value)}
+                        placeholder="내 선택 (①·②…)"
+                        className="w-full rounded-lg border border-mist px-2 py-1.5 text-[12px]"
+                      />
+                    ) : null}
+                  </div>
+                ) : null}
+                {shareMode === "timer" ? (
+                  <div className="mb-2 flex items-center gap-2 rounded-xl border border-mist bg-white/80 p-2">
+                    <label className="text-[11px] text-smoke">분</label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={180}
+                      value={timerMinutes}
+                      onChange={(e) => setTimerMinutes(Number(e.target.value) || 25)}
+                      className="w-20 rounded-lg border border-mist px-2 py-1.5 text-[12px]"
+                    />
+                  </div>
+                ) : null}
+                {shareMode === "poll" ? (
+                  <input
+                    value={pollQuestion}
+                    onChange={(e) => setPollQuestion(e.target.value)}
+                    placeholder="OX 폴 질문"
+                    className="mb-2 w-full rounded-xl border border-mist px-3 py-2 text-[12px]"
+                  />
+                ) : null}
+                <div className="mb-2 flex items-center gap-2">
+                  <label className="text-[10px] text-fog">예약</label>
+                  <input
+                    type="datetime-local"
+                    value={scheduleAt}
+                    onChange={(e) => setScheduleAt(e.target.value)}
+                    className="min-w-0 flex-1 rounded-lg border border-mist px-2 py-1.5 text-[11px]"
+                  />
+                  {scheduleAt ? (
+                    <button
+                      type="button"
+                      onClick={() => setScheduleAt("")}
+                      className="text-[11px] text-fog"
+                    >
+                      취소
+                    </button>
+                  ) : null}
+                </div>
                 {replyTo ? (
                   <div className="mb-2 flex items-center gap-2 rounded-xl bg-[#007AFF]/8 px-3 py-2 text-xs">
                     <span>↩</span>
@@ -1860,6 +2841,19 @@ export function ChatWidget({
                   >
                     ＋
                   </button>
+                  <button
+                    type="button"
+                    onClick={() => (recording ? stopVoice() : void startVoice())}
+                    disabled={sending || preparingFiles}
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-lg shadow-md ${
+                      recording
+                        ? "bg-rose-500 text-white"
+                        : "bg-white text-[#0066D6] ring-1 ring-[#007AFF]/30"
+                    }`}
+                    aria-label={recording ? "녹음 중지" : "음성 메시지"}
+                  >
+                    {recording ? "⏹" : "🎙"}
+                  </button>
                   <input
                     ref={fileInputRef}
                     type="file"
@@ -1889,7 +2883,9 @@ export function ChatWidget({
                     disabled={
                       sending ||
                       preparingFiles ||
-                      (!draft.trim() && !selectedFiles.length)
+                      (!draft.trim() &&
+                        !selectedFiles.length &&
+                        shareMode === "none")
                     }
                     className="rounded-full bg-carbon px-4 py-2.5 text-[12px] font-semibold text-white shadow-md disabled:opacity-40"
                   >
@@ -1897,7 +2893,7 @@ export function ChatWidget({
                   </button>
                 </div>
                 <p className="mt-1.5 text-center text-[9px] text-fog">
-                  사진 10MB · 동영상 100MB · 문서 30MB · 한 번에 최대 6개
+                  사진·동영상·문서·음성 · @닉네임 멘션 · 예약 전송 지원
                 </p>
               </form>
             </>

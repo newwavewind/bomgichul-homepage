@@ -1,0 +1,84 @@
+/** 채팅 16기능 — 공유 타입·헬퍼 */
+
+export type ChatMessageKind =
+  | "text"
+  | "exam_card"
+  | "wrong_share"
+  | "timer"
+  | "poll"
+  | "voice"
+  | "system";
+
+export type ExamCardPayload = {
+  examId: string;
+  subject?: string;
+  year?: number | string;
+  questionNo?: number | string;
+  stem: string;
+  label?: string;
+};
+
+export type WrongSharePayload = {
+  examId: string;
+  subject?: string;
+  year?: number | string;
+  questionNo?: number | string;
+  stem: string;
+  myPick?: string;
+  correctLabel?: string;
+};
+
+export type TimerPayload = {
+  minutes: number;
+  label?: string;
+  endsAt: string;
+};
+
+export type PollPayload = {
+  question: string;
+  options: Array<{ key: string; label: string }>;
+  eventId?: string;
+};
+
+export const TOPIC_TEASERS = [
+  { key: "civil-law", label: "민법", blurb: "조문·판례 질문 바로" },
+  { key: "broker-law", label: "공인중개사법", blurb: "중개실무 같이 풀기" },
+  { key: "admin-law", label: "행정법", blurb: "국가직·지방직" },
+  { key: "police", label: "경찰학", blurb: "1차·2차 스터디" },
+  { key: "english", label: "영어", blurb: "문법·독해" },
+  { key: "history", label: "한국사", blurb: "시대별 정리" },
+] as const;
+
+export function parseMentions(text: string): string[] {
+  const found = text.match(/@([^\s@]{1,24})/g) ?? [];
+  return [...new Set(found.map((m) => m.slice(1)))];
+}
+
+export function highlightMentions(text: string): string {
+  return text.replace(/@([^\s@]{1,24})/g, "⟪@$1⟫");
+}
+
+export function extractMentionUserIds(
+  text: string,
+  members: Array<{ id: string; nickname: string }>,
+): string[] {
+  const names = new Set(parseMentions(text).map((n) => n.toLowerCase()));
+  return members
+    .filter((m) => names.has(m.nickname.toLowerCase()))
+    .map((m) => m.id);
+}
+
+export function messageMatchesKeywords(
+  content: string,
+  keywords: string[],
+): boolean {
+  if (!keywords.length) return false;
+  const lower = content.toLowerCase();
+  return keywords.some((k) => k && lower.includes(k.toLowerCase()));
+}
+
+export function formatGoalBadge(done: number, goal: number): string {
+  const g = Math.max(0, goal || 40);
+  const d = Math.max(0, done || 0);
+  return `오늘 ${d}/${g}`;
+}

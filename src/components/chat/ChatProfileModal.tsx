@@ -144,6 +144,19 @@ export function ChatProfileModal({
       await s.from("profiles").update({ avatar_url: null }).eq("id", myUserId);
     await load();
   };
+  const blockUser = async () => {
+    if (isMine) return;
+    if (!window.confirm("이 사용자를 차단할까요?")) return;
+    setBusy(true);
+    setError(null);
+    const { error: blockError } = await createClient().from("user_blocks").insert({
+      blocker_id: myUserId,
+      blocked_id: profileId,
+    });
+    if (blockError) setError(blockError.message);
+    else onClose();
+    setBusy(false);
+  };
   const avatars = media.filter((x) => x.kind === "avatar");
   return (
     <div
@@ -232,6 +245,16 @@ export function ChatProfileModal({
             </button>
           )}
           {error ? <p className="mt-2 text-xs text-coral">{error}</p> : null}
+          {!isMine ? (
+            <button
+              type="button"
+              disabled={busy}
+              onClick={() => void blockUser()}
+              className="mt-4 w-full rounded-xl border border-mist bg-white px-3 py-2.5 text-sm font-semibold text-smoke"
+            >
+              이 사용자 차단
+            </button>
+          ) : null}
           <div className="mt-6 border-t border-mist pt-5 text-left">
             <h3 className="text-sm font-semibold">
               내 사진첩 <span className="text-fog">{avatars.length}/30</span>

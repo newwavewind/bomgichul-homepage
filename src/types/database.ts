@@ -178,6 +178,15 @@ export interface ConceptCommunityPost {
   comments: ConceptCommunityComment[];
 }
 
+export type DmMessageKind =
+  | "text"
+  | "exam_card"
+  | "wrong_share"
+  | "timer"
+  | "poll"
+  | "voice"
+  | "system";
+
 export interface DmMessage {
   id: string;
   conversation_id: string;
@@ -191,6 +200,12 @@ export interface DmMessage {
   deleted_at: string | null;
   reply_to?: Pick<DmMessage, "id" | "content" | "sender_id"> | null;
   reactions: DmReaction[];
+  message_kind?: DmMessageKind;
+  payload?: Record<string, unknown>;
+  scheduled_for?: string | null;
+  published_at?: string | null;
+  mention_user_ids?: string[];
+  bookmarked?: boolean;
 }
 
 export interface DmReaction {
@@ -204,7 +219,7 @@ export interface DmAttachment {
   message_id: string;
   conversation_id: string;
   uploader_id: string;
-  kind: "image" | "video" | "file";
+  kind: "image" | "video" | "file" | "audio";
   file_name: string;
   file_path: string;
   file_size: number;
@@ -232,19 +247,48 @@ export interface DmConversationPreview {
   otherUser: Pick<Profile, "id" | "nickname" | "avatar_url"> | null;
   isSelf?: boolean;
   pinnedAt?: string | null;
+  archivedAt?: string | null;
+  mutedUntil?: string | null;
+  kind?: "dm" | "group" | "self" | "topic";
+  topicKey?: string | null;
+  topicLabel?: string | null;
+  inviteCode?: string | null;
   lastMessage: {
     id: string;
     conversation_id: string;
     sender_id: string;
     content: string;
     created_at: string;
+    mention_user_ids?: string[];
   } | null;
   unreadCount: number;
+  mentionUnread?: boolean;
   updatedAt: string;
   pinned_message_id?: string | null;
   slow_mode_seconds?: number;
   study_dday?: string | null;
   study_goal?: string | null;
+}
+
+export interface UserChatPrefs {
+  user_id: string;
+  dnd_until: string | null;
+  hide_presence: boolean;
+  keyword_alerts: string[];
+  daily_goal_count: number;
+  daily_done_count: number;
+  daily_done_on: string | null;
+}
+
+export interface TopicRoomRow {
+  id: string;
+  title: string;
+  topic_key: string;
+  topic_label: string;
+  gate_subject: string | null;
+  invite_code: string | null;
+  member_count: number;
+  joined: boolean;
 }
 
 export interface Friendship {
