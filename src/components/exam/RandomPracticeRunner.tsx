@@ -104,6 +104,8 @@ export function RandomPracticeRunner({
         key={`${question.year}-${question.questionNo}`}
         items={question.items}
         correctChoice={question.correctChoice}
+        correctChoices={question.correctChoices}
+        explanationSummary={question.explanationSummary}
         questionType={question.questionType}
         comboChoices={question.comboChoices}
         compositeLayout={question.compositeLayout}

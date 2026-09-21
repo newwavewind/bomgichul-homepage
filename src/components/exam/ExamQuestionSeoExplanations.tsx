@@ -1,10 +1,12 @@
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 import { plainStudyText } from "@/lib/study-text";
+import { formatCorrectChoiceLabel } from "@/lib/correct-choices";
 
 type SeoExplanationQuestion = {
   year: number;
   questionNo: number;
   correctChoice?: string | number;
+  correctChoices?: (string | number)[];
   explanationSummary?: string;
   items: {
     key: string;
@@ -94,9 +96,9 @@ export function ExamQuestionSeoExplanations({
   if (summary) {
     blocksForCopy.push(`해설 요약\n${summary}`);
   }
-  const correctChoice = String(question.correctChoice ?? "").trim();
-  if (correctChoice) {
-    blocksForCopy.push(`정답\n${correctChoice}번`);
+  const answerLabel = formatCorrectChoiceLabel(question);
+  if (answerLabel) {
+    blocksForCopy.push(`정답\n${answerLabel}`);
   }
   for (const item of itemsWithAnswerOrExpl) {
     blocksForCopy.push(
@@ -151,10 +153,10 @@ export function ExamQuestionSeoExplanations({
         <CopyToClipboardButton text={copyText} label="해설 복사" event="exam_explanation_copy" />
       </div>
 
-      {correctChoice ? (
+      {answerLabel ? (
         <div className="mb-4 rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3">
           <p className="font-display text-body-sm font-semibold text-ink">
-            정답: {correctChoice}번
+            정답: {answerLabel}
           </p>
         </div>
       ) : null}

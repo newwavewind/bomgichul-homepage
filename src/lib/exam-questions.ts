@@ -37,6 +37,8 @@ export interface ExamQuestion {
   subcategory: string;
   questionType: "correct" | "wrong" | "composite";
   correctChoice: string;
+  /** 복수정답·전항정답 시 인정 번호. 없으면 correctChoice·summary로 추론 */
+  correctChoices?: string[];
   items: ExamQuestionItem[];
   comboChoices: ExamComboChoice[];
   free: boolean;

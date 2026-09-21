@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useMe } from "@/lib/client-session";
 import { LoginSoftNudge } from "@/components/auth/LoginSoftNudge";
@@ -10,6 +10,10 @@ import {
   shouldShowProgressNudge,
 } from "@/lib/login-nudges";
 import { plainStudyText } from "@/lib/study-text";
+import {
+  formatCorrectChoiceLabel,
+  getCorrectChoiceNos,
+} from "@/lib/correct-choices";
 
 export type ExamOxItem = {
   key: string;
@@ -33,6 +37,7 @@ export function ExamOxQuestion({
   revealEvent,
   items,
   correctChoice,
+  correctChoices,
   explanationSummary,
   comboChoices = [],
   passageLead = [],
@@ -48,6 +53,8 @@ export function ExamOxQuestion({
   revealEvent?: { subject: string; year: number; questionNo: number };
   items: ExamOxItem[];
   correctChoice?: number;
+  /** 복수정답·전항정답 */
+  correctChoices?: number[];
   explanationSummary?: string;
   comboChoices?: ExamOxCombo[];
   /** 보기 상자에서 ㉠ 앞에 놓인 도입부. 지문과 한 문장으로 이어지는 자리다. */
@@ -74,13 +81,27 @@ export function ExamOxQuestion({
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [showProgressNudge, setShowProgressNudge] = useState(false);
+  const acceptedNos = useMemo(
+    () =>
+      getCorrectChoiceNos({
+        correctChoice,
+        correctChoices,
+        explanationSummary,
+      }),
+    [correctChoice, correctChoices, explanationSummary]
+  );
+  const answerLabel = formatCorrectChoiceLabel({
+    correctChoice,
+    correctChoices,
+    explanationSummary,
+  });
   const isCorrect =
-    selected !== null && correctChoice !== undefined && selected === correctChoice;
+    selected !== null && acceptedNos.length > 0 && acceptedNos.includes(selected);
   const answeredWrong =
     revealed &&
     (selected === null
       ? initialAttemptResult === "wrong"
-      : correctChoice !== undefined && selected !== correctChoice);
+      : acceptedNos.length > 0 && !acceptedNos.includes(selected));
 
   useEffect(() => {
     if (revealed && isAnon) {
@@ -104,8 +125,8 @@ export function ExamOxQuestion({
       bumpAnonAttemptCount();
       setShowProgressNudge(shouldShowProgressNudge(false));
     }
-    if (selected !== null && correctChoice !== undefined) {
-      void onAttempt?.(selected === correctChoice ? "correct" : "wrong");
+    if (selected !== null && acceptedNos.length > 0) {
+      void onAttempt?.(acceptedNos.includes(selected) ? "correct" : "wrong");
     }
     // 아래 해설 details 를 함께 연다
     if (revealEvent) {
@@ -210,8 +231,8 @@ export function ExamOxQuestion({
             // 채점 뒤에는 고른 자리와 정답만 남기고 나머지는 물러선다.
             // 앱이 하던 것이다 — 다섯 줄이 같은 무게로 남아 있으면 어디를
             // 봐야 하는지 눈이 다시 헤맨다.
-            const muted = revealed && !selectedItem && choice !== correctChoice;
-            const isAnswer = revealed && choice === correctChoice;
+            const muted = revealed && !selectedItem && !acceptedNos.includes(choice);
+            const isAnswer = revealed && acceptedNos.includes(choice);
             return (
               <button
                 key={`${examId}-${item.key}`}
@@ -289,7 +310,7 @@ export function ExamOxQuestion({
             }`}
           >
             <p className="font-display text-[13px] font-semibold text-ink">
-              {(selected === null ? initialAttemptResult === "correct" : isCorrect) ? "정답입니다." : `정답은 ${correctChoice ?? "?"}번입니다.`}
+              {(selected === null ? initialAttemptResult === "correct" : isCorrect) ? "정답입니다." : `정답은 ${answerLabel || "?"}입니다.`}
             </p>
           </div>
           {isAnon && answeredWrong ? (

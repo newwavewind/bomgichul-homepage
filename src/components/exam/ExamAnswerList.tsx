@@ -26,10 +26,13 @@ import {
   type ExamSubject,
 } from "@/lib/exam-questions";
 import type { AttemptResult } from "@/types/database";
+import { getCorrectChoiceNos } from "@/lib/correct-choices";
 
 export function ExamAnswerList({
   items,
   correctChoice,
+  correctChoices,
+  explanationSummary,
   questionType,
   comboChoices = [],
   compositeLayout,
@@ -48,6 +51,8 @@ export function ExamAnswerList({
 }: {
   items: ExamQuestionItem[];
   correctChoice: string;
+  correctChoices?: string[];
+  explanationSummary?: string;
   questionType?: "correct" | "wrong" | "composite";
   comboChoices?: ExamComboChoice[];
   compositeLayout?: "table" | "statements";
@@ -74,6 +79,12 @@ export function ExamAnswerList({
   const [showProgressNudge, setShowProgressNudge] = useState(false);
   const pathname = usePathname();
   const loginHref = `/login?next=${encodeURIComponent(pathname ?? "/")}`;
+
+  const acceptedNos = getCorrectChoiceNos({
+    correctChoice,
+    correctChoices,
+    explanationSummary,
+  }).map(String);
 
   const enriched = enrichTableCompositeQuestion({
     year,
@@ -147,6 +158,7 @@ export function ExamAnswerList({
         <ChoiceRows
           items={items}
           correctChoice={correctChoice}
+          correctChoices={acceptedNos}
           revealed={revealed}
           free={free}
           selectedKey={selectedChoice}

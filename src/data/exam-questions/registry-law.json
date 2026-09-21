@@ -11452,7 +11452,8 @@
       }
     ],
     "comboChoices": [],
-    "explanationSummary": "(복수정답: ②,⑤) 정답은 ②입니다.",
+    "correctChoices": ["2", "5"],
+    "explanationSummary": "(복수정답: ②·⑤) 큐넷 제34회 최종정답. ②와 ⑤ 모두 「틀린 것」으로 인정됩니다.",
     "free": false
   },
   {

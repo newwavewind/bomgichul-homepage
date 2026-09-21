@@ -40,19 +40,24 @@ export function StatementRows({
 export function ChoiceRows({
   items,
   correctChoice,
+  correctChoices,
   revealed,
   selectedKey,
 }: {
   items: ExamQuestionItem[];
   correctChoice: string;
+  correctChoices?: string[];
   revealed: boolean;
   free?: boolean;
   selectedKey?: string;
 }) {
+  const accepted = new Set(
+    (correctChoices?.length ? correctChoices : [correctChoice]).map(String)
+  );
   return (
     <ElevatedCard className="overflow-hidden">
       {items.map((item) => {
-        const isCorrectChoice = item.key === correctChoice;
+        const isCorrectChoice = accepted.has(item.key);
         const isSelected = revealed && selectedKey === item.key;
         return (
           <div
