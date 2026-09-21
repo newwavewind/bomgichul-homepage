@@ -8,12 +8,14 @@
  * 이름이 다른 자리만 바꾼다 — question_no → questionNo, correct_choice →
  * correctChoice. 나머지(stem·items·category)는 두 쪽이 이미 같은 이름을 쓴다.
  *
- * 앱에만 있고 홈페이지 틀에 없던 것 셋은 그대로 실어 보낸다.
+ * 앱에만 있고 홈페이지 틀에 없던 것 넷은 그대로 실어 보낸다.
  *   translation      지문 해석
  *   items[].translation  선지 해석
  *   vocab            그 문항에서 챙길 어휘·표현
- * 영어 기출에서 이 셋은 곁다리가 아니라 해설의 일부다. 선지 해설만 남기면
+ *   underlines       stem 글자 offset 밑줄 [[start, end), …]
+ * 영어 기출에서 해석·어휘는 곁다리가 아니라 해설의 일부다. 선지 해설만 남기면
  * 「왜 답이 이건지」는 알아도 「지문이 무슨 말인지」는 끝내 모른다.
+ * 밑줄은 「밑줄 친 부분」 문항에서 어느 구간을 묻는지 가리키므로 빼면 안 된다.
  *
  * 구문 올인원과 기출 단어장은 옮기지 않는다.
  *
@@ -91,6 +93,9 @@ for (const series of SERIES) {
         })),
         ...(q.translation ? { translation: q.translation } : {}),
         ...(q.vocab?.length ? { vocab: q.vocab } : {}),
+        ...(Array.isArray(q.underlines) && q.underlines.length
+          ? { underlines: q.underlines }
+          : {}),
       })
     }
   }
@@ -137,3 +142,4 @@ console.log(`문항 ${exams.length}개 · 연도 ${payload.years.length}개 · �
 console.log(`그림 ${copiedImages.size}개 → public/exam/english/`)
 console.log(`해석 있는 문항 ${exams.filter((e) => e.translation).length}개`)
 console.log(`어휘 있는 문항 ${exams.filter((e) => e.vocab).length}개`)
+console.log(`밑줄 있는 문항 ${exams.filter((e) => e.underlines?.length).length}개`)
