@@ -190,7 +190,9 @@ export type DmMessageKind =
   | "checkin"
   | "schedule_share"
   | "reminder"
-  | "mock_result";
+  | "mock_result"
+  | "note_card"
+  | "live_session";
 
 export interface DmMessage {
   id: string;
@@ -212,7 +214,17 @@ export interface DmMessage {
   published_at?: string | null;
   mention_user_ids?: string[];
   bookmarked?: boolean;
+  bookmark_folder_id?: string | null;
+  repostCount?: number;
   thread_root_id?: string | null;
+}
+
+export interface DmBookmarkFolder {
+  id: string;
+  user_id: string;
+  name: string;
+  sort: number;
+  created_at: string;
 }
 
 export interface DmReaction {

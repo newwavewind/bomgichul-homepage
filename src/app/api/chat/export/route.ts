@@ -47,6 +47,8 @@ export async function GET(request: Request) {
       "wrong_share",
       "mock_invite",
       "schedule_share",
+      "note_card",
+      "live_session",
     ]);
   }
 

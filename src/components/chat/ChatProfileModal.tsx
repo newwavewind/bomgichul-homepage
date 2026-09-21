@@ -34,12 +34,14 @@ export function ChatProfileModal({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [following, setFollowing] = useState(false);
+  const [followBusy, setFollowBusy] = useState(false);
   const avatarInput = useRef<HTMLInputElement>(null);
   const backgroundInput = useRef<HTMLInputElement>(null);
   const isMine = profileId === myUserId;
   const load = useCallback(async () => {
     const s = createClient();
-    const [{ data: p }, { data: m }, { data: admin }] = await Promise.all([
+    const [{ data: p }, { data: m }, { data: admin }, followRes] = await Promise.all([
       s
         .from("profiles")
         .select("id,nickname,avatar_url,status_message,profile_background_url")
@@ -52,6 +54,14 @@ export function ChatProfileModal({
         .order("created_at", { ascending: false })
         .limit(32),
       s.rpc("is_profile_admin", { p_user_id: profileId }),
+      profileId !== myUserId
+        ? s
+            .from("profile_follows")
+            .select("following_id")
+            .eq("follower_id", myUserId)
+            .eq("following_id", profileId)
+            .maybeSingle()
+        : Promise.resolve({ data: null }),
     ]);
     if (p) {
       setProfile(p as Profile);
@@ -59,10 +69,23 @@ export function ChatProfileModal({
     }
     setMedia((m ?? []) as Media[]);
     setIsAdmin(Boolean(admin));
-  }, [profileId]);
+    setFollowing(Boolean(followRes.data));
+  }, [profileId, myUserId]);
   useEffect(() => {
     void load();
   }, [load]);
+  const toggleFollow = async () => {
+    if (isMine || followBusy) return;
+    setFollowBusy(true);
+    setError(null);
+    const { data, error: followError } = await createClient().rpc(
+      "toggle_profile_follow",
+      { p_following_id: profileId },
+    );
+    if (followError) setError(followError.message);
+    else setFollowing(Boolean(data));
+    setFollowBusy(false);
+  };
   const upload = async (file: File, kind: "avatar" | "background") => {
     if (
       !["image/jpeg", "image/png", "image/webp", "image/gif"].includes(
@@ -232,6 +255,20 @@ export function ChatProfileModal({
             </button>
           )}
           {error ? <p className="mt-2 text-xs text-coral">{error}</p> : null}
+          {!isMine ? (
+            <button
+              type="button"
+              disabled={busy || followBusy}
+              onClick={() => void toggleFollow()}
+              className={`mt-4 w-full rounded-full py-2.5 text-sm font-semibold transition ${
+                following
+                  ? "border border-mist bg-white text-smoke"
+                  : "bg-[#007AFF] text-white"
+              }`}
+            >
+              {followBusy ? "…" : following ? "팔로잉" : "팔로우"}
+            </button>
+          ) : null}
           <div className="mt-6 border-t border-mist pt-5 text-left">
             <h3 className="text-sm font-semibold">
               내 사진첩 <span className="text-fog">{avatars.length}/30</span>

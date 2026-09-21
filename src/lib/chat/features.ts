@@ -12,7 +12,9 @@ export type ChatMessageKind =
   | "checkin"
   | "schedule_share"
   | "reminder"
-  | "mock_result";
+  | "mock_result"
+  | "note_card"
+  | "live_session";
 
 export type ExamCardPayload = {
   examId: string;
@@ -24,6 +26,11 @@ export type ExamCardPayload = {
   stem: string;
   label?: string;
   href?: string;
+  /** Quote (#2): commentary + nested source card */
+  quoted?: boolean;
+  quoteOfId?: string;
+  quoteComment?: string;
+  quotedExam?: ExamCardPayload;
 };
 
 export type WrongSharePayload = {
@@ -106,6 +113,66 @@ export type ReminderPayload = {
   reminderKey?: string;
   eventId?: string;
 };
+
+export type NoteCardPayload = {
+  title: string;
+  body: string;
+  subject?: string;
+  subjectLabel?: string;
+  sourceHref?: string;
+  collapsedByDefault?: boolean;
+};
+
+export type LiveSessionPayload = {
+  title: string;
+  subject?: string;
+  subjectLabel?: string;
+  endsAt: string;
+  hostId?: string;
+  hostNickname?: string;
+  status?: "live" | "ended";
+  minutes?: number;
+};
+
+/** Chat community homes → topic_key clusters (UI grouping) */
+export const COMMUNITY_HOME_GROUPS = [
+  {
+    scope: "real_estate" as const,
+    label: "공인중개사",
+    blurb: "민법·중개사법·부동산",
+    topicKeys: [
+      "civil-law",
+      "broker-law",
+      "channel-civil-law",
+      "channel-realestate",
+      "official",
+    ],
+  },
+  {
+    scope: "public_service" as const,
+    label: "공무원",
+    blurb: "행정법 스터디",
+    topicKeys: ["admin-law", "channel-admin-law"],
+  },
+  {
+    scope: "police" as const,
+    label: "경찰",
+    blurb: "경찰학 1·2차",
+    topicKeys: ["police"],
+  },
+  {
+    scope: "english" as const,
+    label: "영어",
+    blurb: "문법·독해",
+    topicKeys: ["english"],
+  },
+  {
+    scope: "history" as const,
+    label: "한국사",
+    blurb: "시대별 정리",
+    topicKeys: ["history"],
+  },
+] as const;
 
 /** 학습 스티커 (인스타형 리액션 팩) */
 export const STUDY_STICKERS = [

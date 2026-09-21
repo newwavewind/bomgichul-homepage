@@ -250,7 +250,16 @@ export function ComposerPlusSheet({
   open: boolean;
   onClose: () => void;
   onPick: (
-    mode: "exam" | "wrong" | "timer" | "poll" | "mock" | "mock-mini" | "attach",
+    mode:
+      | "exam"
+      | "wrong"
+      | "timer"
+      | "poll"
+      | "mock"
+      | "mock-mini"
+      | "attach"
+      | "note"
+      | "live",
   ) => void;
 }) {
   if (!open) return null;
@@ -258,6 +267,8 @@ export function ComposerPlusSheet({
     { key: "attach" as const, label: "사진·파일" },
     { key: "exam" as const, label: "기출 카드" },
     { key: "wrong" as const, label: "오답 공유" },
+    { key: "note" as const, label: "노트 카드" },
+    { key: "live" as const, label: "라이브 스터디" },
     { key: "timer" as const, label: "타이머" },
     { key: "poll" as const, label: "OX 폴" },
     { key: "mock" as const, label: "모의고사 초대" },

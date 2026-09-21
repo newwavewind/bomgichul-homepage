@@ -12,6 +12,8 @@ import type {
   CheckinPayload,
   ReminderPayload,
   ScheduleSharePayload,
+  NoteCardPayload,
+  LiveSessionPayload,
 } from "@/lib/chat/features";
 import { examHref } from "@/lib/chat/features";
 
@@ -27,35 +29,20 @@ function ViewRibbon({ count }: { count: number }) {
     </p>
   );
 }
+function RepostRibbon({ count }: { count: number }) {
+  if (count <= 0) return null;
+  return (
+    <p className="mt-2 inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
+      <span aria-hidden>↻</span>
+      {count}
+    </p>
+  );
+}
 
-export function ExamCardBubble({
-  payload,
-  mine,
-  viewCount = 0,
-  onRecordView,
-}: {
-  payload: ExamCardPayload;
-  mine?: boolean;
-  viewCount?: number;
-  onRecordView?: () => void;
-}) {
-  const href =
-    payload.href ||
-    examHref(payload.subject, payload.year, payload.questionNo);
-  const seenRef = useRef(false);
-
-  useEffect(() => {
-    if (seenRef.current || !onRecordView) return;
-    seenRef.current = true;
-    onRecordView();
-  }, [onRecordView]);
-
-  const body = (
+function ExamCardInner({ payload }: { payload: ExamCardPayload }) {
+  return (
     <>
-      <p className="text-[10px] font-semibold uppercase tracking-wide text-[#0066D6]">
-        기출 카드
-      </p>
-      <p className="mt-1 font-display text-[12px] font-semibold text-ink">
+      <p className="font-display text-[12px] font-semibold text-ink">
         {metaLine([
           payload.subjectLabel || payload.subject,
           payload.year && `${payload.year}년`,
@@ -68,12 +55,70 @@ export function ExamCardBubble({
       {payload.label ? (
         <p className="mt-1.5 text-[11px] text-fog">{payload.label}</p>
       ) : null}
+    </>
+  );
+}
+
+export function ExamCardBubble({
+  payload,
+  mine,
+  viewCount = 0,
+  repostCount = 0,
+  onRecordView,
+}: {
+  payload: ExamCardPayload;
+  mine?: boolean;
+  viewCount?: number;
+  repostCount?: number;
+  onRecordView?: () => void;
+}) {
+  const source = payload.quoted && payload.quotedExam ? payload.quotedExam : payload;
+  const href =
+    source.href ||
+    examHref(source.subject, source.year, source.questionNo);
+  const seenRef = useRef(false);
+
+  useEffect(() => {
+    if (seenRef.current || !onRecordView) return;
+    seenRef.current = true;
+    onRecordView();
+  }, [onRecordView]);
+
+  const body = (
+    <>
+      {payload.quoted ? (
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-[#0066D6]">
+          인용한 기출
+        </p>
+      ) : (
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-[#0066D6]">
+          기출 카드
+        </p>
+      )}
+      {payload.quoted && payload.quoteComment ? (
+        <p className="mt-1 whitespace-pre-wrap font-display text-[13px] leading-relaxed text-ink">
+          {payload.quoteComment}
+        </p>
+      ) : null}
+      {payload.quoted && payload.quotedExam ? (
+        <div className="mt-2 rounded-xl border border-[#007AFF]/20 bg-white/70 px-2.5 py-2">
+          <p className="text-[10px] font-semibold text-fog">원문</p>
+          <ExamCardInner payload={payload.quotedExam} />
+        </div>
+      ) : (
+        <div className="mt-1">
+          <ExamCardInner payload={payload} />
+        </div>
+      )}
       {href ? (
         <p className="mt-2 text-[11px] font-semibold text-[#0066D6]">
           해설 보기 →
         </p>
       ) : null}
-      <ViewRibbon count={viewCount} />
+      <div className="flex flex-wrap gap-1.5">
+        <ViewRibbon count={viewCount} />
+        <RepostRibbon count={repostCount} />
+      </div>
     </>
   );
   const className = `max-w-[85%] rounded-2xl border px-3 py-2.5 transition ${
@@ -99,11 +144,13 @@ export function WrongShareBubble({
   payload,
   mine,
   viewCount = 0,
+  repostCount = 0,
   onRecordView,
 }: {
   payload: WrongSharePayload;
   mine?: boolean;
   viewCount?: number;
+  repostCount?: number;
   onRecordView?: () => void;
 }) {
   const href =
@@ -196,7 +243,10 @@ export function WrongShareBubble({
           ) : null}
         </>
       )}
-      <ViewRibbon count={viewCount} />
+      <div className="flex flex-wrap gap-1.5">
+        <ViewRibbon count={viewCount} />
+        <RepostRibbon count={repostCount} />
+      </div>
     </div>
   );
 }
@@ -548,6 +598,117 @@ export function ScheduleShareBubble({
       ) : null}
       {payload.note ? (
         <p className="mt-1 line-clamp-2 text-[12px] text-smoke">{payload.note}</p>
+      ) : null}
+    </div>
+  );
+}
+
+export function NoteCardBubble({
+  payload,
+  mine,
+}: {
+  payload: NoteCardPayload;
+  mine?: boolean;
+}) {
+  const [open, setOpen] = useState(!(payload.collapsedByDefault ?? true));
+  const long = (payload.body || "").length > 160;
+  return (
+    <div
+      className={`max-w-[90%] rounded-2xl border px-3 py-2.5 ${
+        mine ? "border-[#007AFF]/30 bg-[#007AFF]/10" : "border-mist bg-white/90"
+      }`}
+    >
+      <p className="text-[10px] font-semibold text-[#0066D6]">노트 카드</p>
+      <p className="mt-1 font-display text-[13px] font-semibold text-ink">
+        {payload.title}
+      </p>
+      {payload.subjectLabel || payload.subject ? (
+        <p className="mt-0.5 text-[11px] text-fog">
+          {payload.subjectLabel || payload.subject}
+        </p>
+      ) : null}
+      <p
+        className={`mt-1.5 whitespace-pre-wrap text-[13px] leading-relaxed text-smoke ${
+          open ? "" : "line-clamp-4"
+        }`}
+      >
+        {payload.body}
+      </p>
+      {long ? (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="mt-2 text-[11px] font-semibold text-[#0066D6]"
+        >
+          {open ? "접기" : "더 보기"}
+        </button>
+      ) : null}
+      {payload.sourceHref ? (
+        <Link
+          href={payload.sourceHref}
+          className="mt-2 block text-[11px] font-semibold text-[#0066D6]"
+        >
+          원문 보기 →
+        </Link>
+      ) : null}
+    </div>
+  );
+}
+
+export function LiveSessionBubble({
+  payload,
+  nowMs,
+  mine,
+  onJoin,
+}: {
+  payload: LiveSessionPayload;
+  nowMs: number;
+  mine?: boolean;
+  onJoin?: () => void;
+}) {
+  const ends = new Date(payload.endsAt).getTime();
+  const left = Math.max(0, Math.floor((ends - nowMs) / 1000));
+  const done = payload.status === "ended" || left <= 0;
+  const mm = String(Math.floor(left / 60)).padStart(2, "0");
+  const ss = String(left % 60).padStart(2, "0");
+  return (
+    <div
+      className={`max-w-[90%] rounded-2xl border px-3 py-2.5 ${
+        mine ? "border-[#007AFF]/30 bg-[#007AFF]/10" : "border-mist bg-white/90"
+      }`}
+    >
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-[10px] font-semibold text-[#0066D6]">라이브 스터디</p>
+        <span
+          className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+            done ? "bg-slate-200 text-slate-600" : "bg-[#007AFF] text-white"
+          }`}
+        >
+          {done ? "종료" : "LIVE"}
+        </span>
+      </div>
+      <p className="mt-1 font-display text-[13px] font-semibold text-ink">
+        {payload.title}
+      </p>
+      {payload.subjectLabel || payload.subject ? (
+        <p className="mt-0.5 text-[11px] text-fog">
+          {payload.subjectLabel || payload.subject}
+        </p>
+      ) : null}
+      <p className="mt-1 font-display text-lg font-bold tabular-nums text-ink">
+        {done ? "끝!" : `${mm}:${ss}`}
+      </p>
+      {payload.hostNickname ? (
+        <p className="text-[11px] text-fog">호스트 · {payload.hostNickname}</p>
+      ) : null}
+      {!done && onJoin ? (
+        <button
+          type="button"
+          onClick={onJoin}
+          className="mt-2 rounded-full bg-[#007AFF] px-3 py-1 text-[11px] font-semibold text-white"
+        >
+          참가
+        </button>
       ) : null}
     </div>
   );

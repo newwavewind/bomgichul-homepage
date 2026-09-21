@@ -26,6 +26,8 @@ import {
   SystemBubble,
   ScheduleShareBubble,
   ReminderBubble,
+  NoteCardBubble,
+  LiveSessionBubble,
 } from "@/components/chat/ChatRichBubbles";
 import { ChatPrefsBar, useChatPrefs, useTopicRooms } from "@/components/chat/ChatFeatureHooks";
 import { peekChatShareDraft, clearChatShareDraft } from "@/components/chat/ShareToChatButton";
@@ -39,6 +41,7 @@ import {
   extractMentionUserIds,
   messageMatchesKeywords,
   TOPIC_TEASERS,
+  COMMUNITY_HOME_GROUPS,
   STUDY_STICKERS,
   SOCIAL_REACTIONS,
   stickerLabel,
@@ -53,8 +56,12 @@ import {
   type CheckinPayload,
   type ScheduleSharePayload,
   type ReminderPayload,
+  type NoteCardPayload,
+  type LiveSessionPayload,
 } from "@/lib/chat/features";
 import { EXAM_SUBJECTS } from "@/lib/constants";
+import { communityBaseHref } from "@/lib/exam-track/community";
+import type { CommunityScope, DmBookmarkFolder } from "@/types/database";
 import "@/components/chat/chat-polish.css";
 import {
   BrandChatFab,
@@ -84,6 +91,7 @@ type View =
   | "study"
   | "manage"
   | "topics"
+  | "communities"
   | "bookmarks"
   | "settings"
   | "gallery"
@@ -92,6 +100,7 @@ type View =
   | "thread-detail";
 type ProfileRow = { id: string; nickname: string; avatar_url: string | null };
 type FriendRow = Friendship & { requester: ProfileRow; addressee: ProfileRow };
+type ShareMode = "none" | "exam" | "wrong" | "timer" | "poll" | "mock" | "note" | "live";
 
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
 const MAX_VIDEO_BYTES = 100 * 1024 * 1024;
@@ -197,8 +206,10 @@ function MessageBubble({
   onOpenThread,
   onRecordView,
   onForward,
+  onQuote,
   onHashtag,
   onOpenMockMini,
+  onJoinLive,
 }: {
   message: DmMessage;
   isMine: boolean;
@@ -216,8 +227,10 @@ function MessageBubble({
   onOpenThread?: () => void;
   onRecordView?: () => void;
   onForward?: () => void;
+  onQuote?: () => void;
   onHashtag?: (tag: string) => void;
   onOpenMockMini?: (payload: MockInvitePayload) => void;
+  onJoinLive?: () => void;
 }) {
   const [actionsOpen, setActionsOpen] = useState(false);
   const [stickerOpen, setStickerOpen] = useState(false);
@@ -272,6 +285,12 @@ function MessageBubble({
         (message.payload as { forwarded?: boolean }).forwarded ? (
           <p className="mx-2 mt-2 text-[10px] font-semibold text-[#0066D6]">↪ 전달된 메시지</p>
         ) : null}
+        {message.payload &&
+        typeof message.payload === "object" &&
+        (message.payload as { quoted?: boolean }).quoted &&
+        !(message.payload as { forwarded?: boolean }).forwarded ? (
+          <p className="mx-2 mt-2 text-[10px] font-semibold text-[#0066D6]">❝ 인용</p>
+        ) : null}
         {message.reply_to ? (
           <div
             className={`mx-2 mt-2 rounded-xl border-l-2 px-2.5 py-1.5 chat-meta ${isMine ? "border-[#007AFF]/40 bg-white/50 text-smoke" : "border-[#007AFF] bg-[#007AFF]/5 text-smoke"}`}
@@ -285,6 +304,7 @@ function MessageBubble({
               payload={message.payload as unknown as ExamCardPayload}
               mine={isMine}
               viewCount={viewCount}
+              repostCount={message.repostCount ?? 0}
               onRecordView={onRecordView}
             />
           </div>
@@ -295,6 +315,7 @@ function MessageBubble({
               payload={message.payload as unknown as WrongSharePayload}
               mine={isMine}
               viewCount={viewCount}
+              repostCount={message.repostCount ?? 0}
               onRecordView={onRecordView}
             />
           </div>
@@ -363,6 +384,24 @@ function MessageBubble({
         {!message.deleted_at && message.message_kind === "reminder" && message.payload ? (
           <div className="p-2">
             <ReminderBubble payload={message.payload as unknown as ReminderPayload} />
+          </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "note_card" && message.payload ? (
+          <div className="p-2">
+            <NoteCardBubble
+              payload={message.payload as unknown as NoteCardPayload}
+              mine={isMine}
+            />
+          </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "live_session" && message.payload ? (
+          <div className="p-2">
+            <LiveSessionBubble
+              payload={message.payload as unknown as LiveSessionPayload}
+              nowMs={nowMs}
+              mine={isMine}
+              onJoin={onJoinLive}
+            />
           </div>
         ) : null}
         {message.deleted_at ? (
@@ -551,6 +590,16 @@ function MessageBubble({
                   전달
                 </button>
               ) : null}
+              {onQuote ? (
+                <button
+                  type="button"
+                  onClick={() => runAction(onQuote)}
+                  className="rounded-full px-2 py-1 text-[11px] text-smoke hover:bg-ice"
+                  title="인용"
+                >
+                  인용
+                </button>
+              ) : null}
               {onPin ? (
                 <button
                   type="button"
@@ -736,13 +785,16 @@ export function ChatWidget({
     | { type: "rename"; value: string }
     | { type: "slow"; value: string }
     | { type: "forward"; message: DmMessage }
+    | { type: "quote"; message: DmMessage; comment: string }
+    | { type: "bookmark-folder"; message: DmMessage; folderId: string }
+    | { type: "new-folder"; name: string }
     | { type: "schedule"; title: string; dueAt: string; place: string }
     | { type: "mock-mini"; subject: string; year: string; href: string }
   >(null);
   const [profileId, setProfileId] = useState<string | null>(null);
   const [listFilter, setListFilter] = useState<"all" | "unread" | "mention" | "archived">("all");
   const [showArchived, setShowArchived] = useState(false);
-  const [shareMode, setShareMode] = useState<"none" | "exam" | "wrong" | "timer" | "poll" | "mock">("none");
+  const [shareMode, setShareMode] = useState<ShareMode>("none");
   const [pollDueHours, setPollDueHours] = useState(24);
   const [pollCorrectKey, setPollCorrectKey] = useState<"O" | "X">("O");
   const [threadRoot, setThreadRoot] = useState<DmMessage | null>(null);
@@ -771,9 +823,16 @@ export function ChatWidget({
   const [shareStem, setShareStem] = useState("");
   const [shareMeta, setShareMeta] = useState("");
   const [sharePick, setSharePick] = useState("");
+  const [noteTitle, setNoteTitle] = useState("");
+  const [liveTitle, setLiveTitle] = useState("");
   const [timerMinutes, setTimerMinutes] = useState(25);
   const [pollQuestion, setPollQuestion] = useState("");
   const [bookmarkRows, setBookmarkRows] = useState<DmMessage[]>([]);
+  const [bookmarkFolders, setBookmarkFolders] = useState<DmBookmarkFolder[]>([]);
+  const [bookmarkFolderFilter, setBookmarkFolderFilter] = useState<string | "all" | "inbox">(
+    "all",
+  );
+  const [communityScope, setCommunityScope] = useState<string | null>(null);
   const [nowMs, setNowMs] = useState(() => Date.now());
   const [recording, setRecording] = useState(false);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -836,7 +895,9 @@ export function ChatWidget({
     if (draft.myPick) setSharePick(draft.myPick);
     setView("list");
   }, [forceOpen, openNonce]);
-  const { rooms: topicRooms, loading: topicsLoading, join: joinTopic } = useTopicRooms(open && view === "topics");
+  const { rooms: topicRooms, loading: topicsLoading, join: joinTopic } = useTopicRooms(
+    open && (view === "topics" || view === "communities"),
+  );
 
   const channelPostBlocked =
     activeConversation?.posting_mode === "admin_only" && !user.isAdmin;
@@ -1249,11 +1310,39 @@ export function ChatWidget({
       if (messageIds.length) {
         const { data: marks } = await supabase
           .from("dm_message_bookmarks")
-          .select("message_id")
+          .select("message_id,folder_id")
           .eq("user_id", user.id)
           .in("message_id", messageIds);
-        const marked = new Set((marks ?? []).map((m) => m.message_id));
-        for (const message of mapped) message.bookmarked = marked.has(message.id);
+        const marked = new Map(
+          (marks ?? []).map((m) => [
+            m.message_id as string,
+            (m as { folder_id?: string | null }).folder_id ?? null,
+          ]),
+        );
+        for (const message of mapped) {
+          message.bookmarked = marked.has(message.id);
+          message.bookmark_folder_id = marked.get(message.id) ?? null;
+        }
+        const shareIds = mapped
+          .filter(
+            (m) =>
+              m.message_kind === "exam_card" || m.message_kind === "wrong_share",
+          )
+          .map((m) => m.id);
+        if (shareIds.length) {
+          const { data: reps } = await supabase
+            .from("dm_message_reposts")
+            .select("source_message_id")
+            .in("source_message_id", shareIds);
+          const counts: Record<string, number> = {};
+          for (const row of reps ?? []) {
+            const id = row.source_message_id as string;
+            counts[id] = (counts[id] ?? 0) + 1;
+          }
+          for (const message of mapped) {
+            if (counts[message.id]) message.repostCount = counts[message.id];
+          }
+        }
       }
       for (const message of mapped)
         message.reply_to =
@@ -1451,22 +1540,79 @@ export function ChatWidget({
         .eq("message_id", message.id);
       setMessages((items) =>
         items.map((item) =>
-          item.id === message.id ? { ...item, bookmarked: false } : item,
+          item.id === message.id
+            ? { ...item, bookmarked: false, bookmark_folder_id: null }
+            : item,
         ),
       );
+      setBookmarkRows((rows) => rows.filter((r) => r.id !== message.id));
     } else {
-      const { error: markError } = await supabase.from("dm_message_bookmarks").insert({
-        user_id: user.id,
-        message_id: message.id,
-      });
-      if (markError) setError(markError.message);
-      else
-        setMessages((items) =>
-          items.map((item) =>
-            item.id === message.id ? { ...item, bookmarked: true } : item,
-          ),
-        );
+      void loadBookmarkFolders().then(() =>
+        setSheet({ type: "bookmark-folder", message, folderId: "" }),
+      );
     }
+  };
+
+  const saveBookmarkToFolder = async (message: DmMessage, folderId: string) => {
+    const supabase = createClient();
+    const row: Record<string, unknown> = {
+      user_id: user.id,
+      message_id: message.id,
+    };
+    if (folderId) row.folder_id = folderId;
+    const { error: markError } = await supabase
+      .from("dm_message_bookmarks")
+      .insert(row);
+    if (markError) {
+      notify(markError.message, "error");
+      return;
+    }
+    setMessages((items) =>
+      items.map((item) =>
+        item.id === message.id
+          ? {
+              ...item,
+              bookmarked: true,
+              bookmark_folder_id: folderId || null,
+            }
+          : item,
+      ),
+    );
+    notify(folderId ? "폴더에 저장했어요." : "북마크했어요.", "success");
+  };
+
+  const loadBookmarkFolders = async () => {
+    const { data, error: folderError } = await createClient()
+      .from("dm_bookmark_folders")
+      .select("id,user_id,name,sort,created_at")
+      .eq("user_id", user.id)
+      .order("sort", { ascending: true })
+      .order("created_at", { ascending: true });
+    if (folderError) {
+      setError(folderError.message);
+      return;
+    }
+    setBookmarkFolders((data ?? []) as DmBookmarkFolder[]);
+  };
+
+  const createBookmarkFolder = async (name: string) => {
+    const trimmed = name.trim().slice(0, 40);
+    if (!trimmed) return;
+    const { data, error: createError } = await createClient()
+      .from("dm_bookmark_folders")
+      .insert({
+        user_id: user.id,
+        name: trimmed,
+        sort: bookmarkFolders.length,
+      })
+      .select("id,user_id,name,sort,created_at")
+      .single();
+    if (createError) {
+      notify(createError.message, "error");
+      return;
+    }
+    if (data) setBookmarkFolders((items) => [...items, data as DmBookmarkFolder]);
+    notify("폴더를 만들었어요.", "success");
   };
 
   const reportMessage = async (message: DmMessage) => {
@@ -1495,17 +1641,30 @@ export function ChatWidget({
 
   const loadBookmarks = async () => {
     const supabase = createClient();
-    const { data: marks, error: markError } = await supabase
+    await loadBookmarkFolders();
+    let query = supabase
       .from("dm_message_bookmarks")
-      .select("message_id,created_at")
+      .select("message_id,created_at,folder_id")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false })
       .limit(80);
+    if (bookmarkFolderFilter === "inbox") {
+      query = query.is("folder_id", null);
+    } else if (bookmarkFolderFilter !== "all") {
+      query = query.eq("folder_id", bookmarkFolderFilter);
+    }
+    const { data: marks, error: markError } = await query;
     if (markError) {
       setError(markError.message);
       return;
     }
     const ids = (marks ?? []).map((m) => m.message_id);
+    const folderByMsg = Object.fromEntries(
+      (marks ?? []).map((m) => [
+        m.message_id,
+        (m as { folder_id?: string | null }).folder_id ?? null,
+      ]),
+    );
     if (!ids.length) {
       setBookmarkRows([]);
       return;
@@ -1545,6 +1704,7 @@ export function ChatWidget({
             message_kind: row.message_kind ?? "text",
             payload: row.payload ?? {},
             bookmarked: true,
+            bookmark_folder_id: folderByMsg[row.id] ?? null,
           } as DmMessage;
         }),
     );
@@ -1904,6 +2064,37 @@ export function ChatWidget({
         } satisfies MockInvitePayload,
       };
     }
+    if (shareMode === "note") {
+      const title = noteTitle.trim() || "학습 노트";
+      const body = shareStem.trim() || draft.trim();
+      return {
+        kind: "note_card" as const,
+        content: title,
+        payload: {
+          title,
+          body,
+          subject: shareMeta || undefined,
+          collapsedByDefault: true,
+        } satisfies NoteCardPayload,
+      };
+    }
+    if (shareMode === "live") {
+      const title = liveTitle.trim() || draft.trim() || "라이브 스터디";
+      const endsAt = new Date(Date.now() + timerMinutes * 60_000).toISOString();
+      return {
+        kind: "live_session" as const,
+        content: title,
+        payload: {
+          title,
+          subject: shareMeta || undefined,
+          endsAt,
+          hostId: user.id,
+          hostNickname: user.nickname,
+          status: "live",
+          minutes: timerMinutes,
+        } satisfies LiveSessionPayload,
+      };
+    }
     return {
       kind: "text" as const,
       content: draft.trim(),
@@ -1926,6 +2117,14 @@ export function ChatWidget({
     }
     if (sharing && shareMode === "exam" && !shareStem.trim() && !draft.trim()) {
       setError("기출 지문을 입력해 주세요.");
+      return;
+    }
+    if (sharing && shareMode === "note" && !(shareStem.trim() || draft.trim())) {
+      setError("노트 본문을 입력해 주세요.");
+      return;
+    }
+    if (sharing && shareMode === "live" && !(liveTitle.trim() || draft.trim())) {
+      setError("라이브 제목을 입력해 주세요.");
       return;
     }
     const validation = validateFiles(selectedFiles);
@@ -2066,6 +2265,8 @@ export function ChatWidget({
     setShareMeta("");
     setSharePick("");
     setPollQuestion("");
+    setNoteTitle("");
+    setLiveTitle("");
     setThreadRoot(null);
     clearChatShareDraft();
     await loadMessages(activeConversation.id);
@@ -2295,22 +2496,104 @@ export function ChatWidget({
       notify("삭제된 메시지는 전달할 수 없어요.", "error");
       return;
     }
-    const { error: forwardError } = await createClient().from("dm_messages").insert({
-      conversation_id: conversationId,
-      sender_id: user.id,
-      content: message.content || "전달된 메시지",
-      message_kind: message.message_kind ?? "text",
-      payload: {
-        ...(message.payload ?? {}),
-        forwarded: true,
-        forwardedFromId: message.id,
-      },
-      published_at: new Date().toISOString(),
-      mention_user_ids: [],
-    });
+    const supabase = createClient();
+    const { data: inserted, error: forwardError } = await supabase
+      .from("dm_messages")
+      .insert({
+        conversation_id: conversationId,
+        sender_id: user.id,
+        content: message.content || "전달된 메시지",
+        message_kind: message.message_kind ?? "text",
+        payload: {
+          ...(message.payload ?? {}),
+          forwarded: true,
+          forwardedFromId: message.id,
+        },
+        published_at: new Date().toISOString(),
+        mention_user_ids: [],
+      })
+      .select("id")
+      .single();
     setSheet(null);
-    if (forwardError) notify(forwardError.message, "error");
-    else notify("전달했어요.", "success");
+    if (forwardError || !inserted) {
+      notify(forwardError?.message ?? "전달에 실패했어요.", "error");
+      return;
+    }
+    if (
+      message.message_kind === "exam_card" ||
+      message.message_kind === "wrong_share"
+    ) {
+      const { data: count } = await supabase.rpc("record_dm_message_repost", {
+        p_source_message_id: message.id,
+        p_repost_message_id: inserted.id,
+      });
+      if (typeof count === "number") {
+        setMessages((items) =>
+          items.map((item) =>
+            item.id === message.id ? { ...item, repostCount: count } : item,
+          ),
+        );
+      }
+    }
+    notify("전달했어요.", "success");
+  };
+
+  const quoteExamMessage = async (message: DmMessage, comment: string) => {
+    if (!activeConversation) return;
+    if (message.message_kind !== "exam_card" || !message.payload) {
+      notify("기출 카드만 인용할 수 있어요.", "error");
+      return;
+    }
+    const source = message.payload as unknown as ExamCardPayload;
+    const quotedExam: ExamCardPayload = {
+      examId: source.examId,
+      subject: source.subject,
+      subjectLabel: source.subjectLabel,
+      year: source.year,
+      questionNo: source.questionNo,
+      stem: source.stem,
+      label: source.label,
+      href: source.href,
+    };
+    const trimmed = comment.trim();
+    const supabase = createClient();
+    const { data: inserted, error: quoteError } = await supabase
+      .from("dm_messages")
+      .insert({
+        conversation_id: activeConversation.id,
+        sender_id: user.id,
+        content: trimmed || "기출을 인용했어요.",
+        message_kind: "exam_card",
+        payload: {
+          ...quotedExam,
+          quoted: true,
+          quoteOfId: message.id,
+          quoteComment: trimmed || undefined,
+          quotedExam,
+        } satisfies ExamCardPayload,
+        published_at: new Date().toISOString(),
+        mention_user_ids: [],
+      })
+      .select("id")
+      .single();
+    setSheet(null);
+    if (quoteError || !inserted) {
+      notify(quoteError?.message ?? "인용에 실패했어요.", "error");
+      return;
+    }
+    const { data: count } = await supabase.rpc("record_dm_message_repost", {
+      p_source_message_id: message.id,
+      p_repost_message_id: inserted.id,
+    });
+    if (typeof count === "number") {
+      setMessages((items) =>
+        items.map((item) =>
+          item.id === message.id ? { ...item, repostCount: count } : item,
+        ),
+      );
+    }
+    notify("인용했어요.", "success");
+    await loadMessages(activeConversation.id);
   };
 
   const exportConversation = async (filter: "all" | "exam" = "all") => {
@@ -2465,6 +2748,9 @@ export function ChatWidget({
     if (view === "friends") void loadMemberDirectory();
   }, [view]);
   useEffect(() => {
+    if (view === "bookmarks") void loadBookmarks();
+  }, [view, bookmarkFolderFilter]);
+  useEffect(() => {
     const timer = setTimeout(() => {
       if (view === "friends" && searchQuery.trim().length >= 2) void searchProfiles();
       else if (view === "friends" && !searchQuery.trim()) setSearchResults([]);
@@ -2592,21 +2878,23 @@ export function ChatWidget({
           ? "새 그룹채팅"
           : view === "topics"
             ? "스터디방"
-            : view === "bookmarks"
-              ? "북마크"
-              : view === "settings"
-                ? "채팅 설정"
-                : view === "vault"
-                  ? "서랍"
-                  : view === "gallery"
-                    ? "미디어"
-                    : view === "calendar"
-                      ? "스터디 일정"
-                      : view === "global-search"
-                        ? "전체 검색"
-                        : view === "thread-detail"
-                          ? "스레드"
-                          : "메시지";
+            : view === "communities"
+              ? "커뮤니티"
+              : view === "bookmarks"
+                ? "북마크"
+                : view === "settings"
+                  ? "채팅 설정"
+                  : view === "vault"
+                    ? "서랍"
+                    : view === "gallery"
+                      ? "미디어"
+                      : view === "calendar"
+                        ? "스터디 일정"
+                        : view === "global-search"
+                          ? "전체 검색"
+                          : view === "thread-detail"
+                            ? "스레드"
+                            : "메시지";
 
   return (
     <>
@@ -2708,6 +2996,9 @@ export function ChatWidget({
             ) : null}
             {view === "list" ? (
               <div className="flex flex-wrap items-center justify-end gap-0.5">
+                <ChatHeaderAction onClick={() => setView("communities")} primary>
+                  커뮤니티
+                </ChatHeaderAction>
                 <ChatHeaderAction onClick={() => setView("topics")} primary>
                   스터디방
                 </ChatHeaderAction>
@@ -3440,8 +3731,130 @@ export function ChatWidget({
             </div>
           ) : null}
 
+          {view === "communities" ? (
+            <div className="flex-1 overflow-y-auto p-4">
+              <p className="mb-3 text-[12px] text-smoke">
+                시험 트랙별 스터디방·채널을 모아 봤어요.
+              </p>
+              {topicsLoading ? (
+                <p className="py-8 text-center text-[13px] text-fog">불러오는 중...</p>
+              ) : (
+                <div className="space-y-3">
+                  {COMMUNITY_HOME_GROUPS.map((group) => {
+                    const rooms = topicRooms.filter((r) =>
+                      (group.topicKeys as readonly string[]).includes(r.topic_key),
+                    );
+                    const open = communityScope === group.scope;
+                    return (
+                      <div
+                        key={group.scope}
+                        className="overflow-hidden rounded-2xl border border-mist bg-white/85 shadow-sm"
+                      >
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setCommunityScope(open ? null : group.scope)
+                          }
+                          className="flex w-full items-center justify-between px-4 py-3.5 text-left"
+                        >
+                          <span>
+                            <b className="block font-display text-[13px] text-ink">
+                              {group.label}
+                            </b>
+                            <small className="text-[11px] text-fog">{group.blurb}</small>
+                          </span>
+                          <span className="text-[12px] font-semibold text-[#0066D6]">
+                            {open ? "접기" : `${rooms.length || group.topicKeys.length}곳`}
+                          </span>
+                        </button>
+                        {open ? (
+                          <div className="space-y-1 border-t border-mist px-2 py-2">
+                            {(rooms.length
+                              ? rooms
+                              : group.topicKeys.map((key) => {
+                                  const teaser = TOPIC_TEASERS.find((t) => t.key === key);
+                                  return {
+                                    topic_key: key,
+                                    topic_label: teaser?.label ?? key,
+                                    title: teaser?.label ?? key,
+                                    member_count: 0,
+                                    joined: false,
+                                    posting_mode: key.startsWith("channel-")
+                                      ? "admin_only"
+                                      : null,
+                                  };
+                                })
+                            ).map((room) => (
+                              <button
+                                key={room.topic_key}
+                                type="button"
+                                onClick={() => void openTopicRoom(room.topic_key)}
+                                className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left hover:bg-[#007AFF]/8"
+                              >
+                                <span className="text-[12px] font-semibold text-ink">
+                                  {room.topic_label || room.title}
+                                  {room.posting_mode === "admin_only" ? (
+                                    <span className="ml-1 text-[10px] text-[#0066D6]">
+                                      · 채널
+                                    </span>
+                                  ) : null}
+                                </span>
+                                <span className="text-[11px] text-[#0066D6]">
+                                  {room.joined ? "열기" : "입장"}
+                                </span>
+                              </button>
+                            ))}
+                            <a
+                              href={communityBaseHref(group.scope as CommunityScope)}
+                              className="block px-3 py-2 text-[11px] font-semibold text-[#0066D6]"
+                            >
+                              게시판 커뮤니티 →
+                            </a>
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          ) : null}
+
           {view === "bookmarks" ? (
             <div className="flex-1 overflow-y-auto p-4">
+              <div className="mb-3 flex flex-wrap gap-1.5">
+                {(
+                  [
+                    ["all", "전체"],
+                    ["inbox", "미분류"],
+                    ...bookmarkFolders.map((f) => [f.id, f.name] as const),
+                  ] as Array<[string, string]>
+                ).map(([id, label]) => (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => {
+                      setBookmarkFolderFilter(
+                        id as typeof bookmarkFolderFilter,
+                      );
+                    }}
+                    className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${
+                      bookmarkFolderFilter === id
+                        ? "bg-[#007AFF] text-white"
+                        : "bg-slate-100 text-smoke"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => setSheet({ type: "new-folder", name: "" })}
+                  className="rounded-full border border-dashed border-[#007AFF]/40 px-2.5 py-1 text-[11px] font-semibold text-[#0066D6]"
+                >
+                  + 폴더
+                </button>
+              </div>
               {bookmarkRows.length ? (
                 <div className="space-y-2">
                   {bookmarkRows.map((message) => (
@@ -3460,6 +3873,13 @@ export function ChatWidget({
                       </p>
                       <small className="text-[10px] text-fog">
                         {formatKstChatTime(message.created_at)}
+                        {message.bookmark_folder_id
+                          ? ` · ${
+                              bookmarkFolders.find(
+                                (f) => f.id === message.bookmark_folder_id,
+                              )?.name ?? "폴더"
+                            }`
+                          : ""}
                       </small>
                     </button>
                   ))}
@@ -3736,6 +4156,25 @@ export function ChatWidget({
                       }}
                       onRecordView={() => void recordMessageView(message)}
                       onForward={() => setSheet({ type: "forward", message })}
+                      onQuote={
+                        message.message_kind === "exam_card"
+                          ? () =>
+                              setSheet({
+                                type: "quote",
+                                message,
+                                comment: "",
+                              })
+                          : undefined
+                      }
+                      onJoinLive={
+                        message.message_kind === "live_session"
+                          ? () =>
+                              notify(
+                                "라이브에 참가했어요. 타이머가 끝날 때까지 같이 공부해요.",
+                                "success",
+                              )
+                          : undefined
+                      }
                       onHashtag={(tag) => {
                         setGlobalSearchQuery(tag);
                         setView("global-search");
@@ -3778,7 +4217,11 @@ export function ChatWidget({
                             ? "타이머"
                             : shareMode === "poll"
                               ? "OX폴"
-                              : "모의"}
+                              : shareMode === "note"
+                                ? "노트"
+                                : shareMode === "live"
+                                  ? "라이브"
+                                  : "모의"}
                     </span>
                     <button
                       type="button"
@@ -3833,6 +4276,46 @@ export function ChatWidget({
                       onChange={(e) => setTimerMinutes(Number(e.target.value) || 25)}
                       className="w-20 rounded-lg border border-mist px-2 py-1.5 text-[12px]"
                     />
+                  </div>
+                ) : null}
+                {shareMode === "note" ? (
+                  <div className="mb-2 space-y-1.5">
+                    <input
+                      value={noteTitle}
+                      onChange={(e) => setNoteTitle(e.target.value)}
+                      placeholder="노트 제목"
+                      className="w-full rounded-xl border border-mist px-3 py-2 text-[13px]"
+                    />
+                    <textarea
+                      value={shareStem}
+                      onChange={(e) => setShareStem(e.target.value)}
+                      placeholder="긴 해설·정리 본문"
+                      rows={4}
+                      className="w-full rounded-xl border border-mist px-3 py-2 text-[13px]"
+                    />
+                  </div>
+                ) : null}
+                {shareMode === "live" ? (
+                  <div className="mb-2 space-y-1.5 rounded-xl border border-mist bg-white/80 p-2">
+                    <input
+                      value={liveTitle}
+                      onChange={(e) => setLiveTitle(e.target.value)}
+                      placeholder="라이브 제목 (예: 민법 1시간 집중)"
+                      className="w-full rounded-lg border border-mist px-2 py-1.5 text-[12px]"
+                    />
+                    <div className="flex items-center gap-2">
+                      <label className="text-[11px] text-smoke">분</label>
+                      <input
+                        type="number"
+                        min={5}
+                        max={180}
+                        value={timerMinutes}
+                        onChange={(e) =>
+                          setTimerMinutes(Number(e.target.value) || 25)
+                        }
+                        className="w-20 rounded-lg border border-mist px-2 py-1.5 text-[12px]"
+                      />
+                    </div>
                   </div>
                 ) : null}
                 {shareMode === "poll" ? (
@@ -4269,6 +4752,91 @@ export function ChatWidget({
                 </button>
               ))}
           </div>
+        </ChatSheet>
+      ) : null}
+      {sheet?.type === "quote" ? (
+        <ChatSheet title="기출 인용" onClose={() => setSheet(null)}>
+          <p className="mb-2 line-clamp-3 text-[12px] text-smoke">
+            {(sheet.message.payload as ExamCardPayload | undefined)?.stem ||
+              sheet.message.content}
+          </p>
+          <textarea
+            value={sheet.comment}
+            onChange={(e) =>
+              setSheet({ ...sheet, comment: e.target.value })
+            }
+            placeholder="코멘트를 남겨 보세요"
+            rows={3}
+            className="w-full rounded-xl border border-mist px-3 py-2.5 text-[13px]"
+          />
+          <button
+            type="button"
+            onClick={() => void quoteExamMessage(sheet.message, sheet.comment)}
+            className="chat-focus mt-4 w-full rounded-full bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+          >
+            인용 보내기
+          </button>
+        </ChatSheet>
+      ) : null}
+      {sheet?.type === "bookmark-folder" ? (
+        <ChatSheet title="북마크 폴더" onClose={() => setSheet(null)}>
+          <p className="chat-meta mb-2">저장할 폴더를 고르세요.</p>
+          <div className="space-y-1">
+            <button
+              type="button"
+              onClick={() => {
+                void saveBookmarkToFolder(sheet.message, "");
+                setSheet(null);
+              }}
+              className="flex w-full rounded-xl px-3 py-2.5 text-left text-[13px] font-semibold hover:bg-[#007AFF]/8"
+            >
+              미분류
+            </button>
+            {bookmarkFolders.map((folder) => (
+              <button
+                key={folder.id}
+                type="button"
+                onClick={() => {
+                  void saveBookmarkToFolder(sheet.message, folder.id);
+                  setSheet(null);
+                }}
+                className="flex w-full rounded-xl px-3 py-2.5 text-left text-[13px] font-semibold hover:bg-[#007AFF]/8"
+              >
+                {folder.name}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              void loadBookmarkFolders();
+              setSheet({ type: "new-folder", name: "" });
+            }}
+            className="mt-3 text-[12px] font-semibold text-[#0066D6]"
+          >
+            + 새 폴더
+          </button>
+        </ChatSheet>
+      ) : null}
+      {sheet?.type === "new-folder" ? (
+        <ChatSheet title="새 북마크 폴더" onClose={() => setSheet(null)}>
+          <input
+            value={sheet.name}
+            onChange={(e) => setSheet({ ...sheet, name: e.target.value })}
+            placeholder="폴더 이름"
+            maxLength={40}
+            className="w-full rounded-xl border border-mist px-3 py-2.5 text-[13px]"
+          />
+          <button
+            type="button"
+            onClick={() => {
+              void createBookmarkFolder(sheet.name);
+              setSheet(null);
+            }}
+            className="chat-focus mt-4 w-full rounded-full bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+          >
+            만들기
+          </button>
         </ChatSheet>
       ) : null}
       {sheet?.type === "slow" ? (
