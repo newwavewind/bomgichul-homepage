@@ -366,3 +366,164 @@ export function ChatStudyCalendar({
     </div>
   );
 }
+
+export type VaultRow = {
+  id: string;
+  message_id: string;
+  kind?: string | null;
+  file_name?: string | null;
+  file_path?: string | null;
+  mime_type?: string | null;
+  created_at: string;
+  vault_kind: string;
+  content?: string | null;
+  message_kind?: string | null;
+  payload?: Record<string, unknown> | null;
+  signed_url?: string;
+};
+
+const VAULT_TABS = [
+  ["all", "전체"],
+  ["media", "사진"],
+  ["file", "파일"],
+  ["exam", "기출"],
+  ["link", "링크"],
+  ["bookmark", "★"],
+] as const;
+
+export function ChatRoomVault({
+  conversationId,
+  onOpenMessage,
+}: {
+  conversationId: string;
+  onOpenMessage?: (messageId: string) => void;
+}) {
+  const [tab, setTab] = useState<(typeof VAULT_TABS)[number][0]>("all");
+  const [rows, setRows] = useState<VaultRow[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      setLoading(true);
+      const supabase = createClient();
+      const { data, error } = await supabase.rpc("list_dm_room_vault", {
+        p_conversation_id: conversationId,
+        p_tab: tab,
+        p_limit: 80,
+      });
+      const list = (!error && data ? data : []) as VaultRow[];
+      const paths = list
+        .map((r) => r.file_path)
+        .filter((p): p is string => Boolean(p));
+      if (paths.length) {
+        const { data: signed } = await supabase.storage
+          .from("chat-media")
+          .createSignedUrls(paths, 3600);
+        const urls = Object.fromEntries(
+          (signed ?? []).map((s) => [s.path, s.signedUrl]),
+        );
+        for (const row of list) {
+          if (row.file_path) row.signed_url = urls[row.file_path];
+        }
+      }
+      if (alive) {
+        setRows(list);
+        setLoading(false);
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, [conversationId, tab]);
+
+  return (
+    <div className="flex flex-1 flex-col overflow-hidden">
+      <div className="flex flex-wrap gap-1 border-b border-mist/70 px-3 py-2">
+        {VAULT_TABS.map(([key, label]) => (
+          <button
+            key={key}
+            type="button"
+            onClick={() => setTab(key)}
+            className={`rounded-lg px-2.5 py-1.5 text-[11px] font-semibold ${
+              tab === key
+                ? "bg-[#007AFF] text-white"
+                : "bg-white text-fog ring-1 ring-mist"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      <div className="flex-1 overflow-y-auto p-3">
+        {loading ? (
+          <p className="py-10 text-center text-[13px] text-fog">불러오는 중…</p>
+        ) : !rows.length ? (
+          <p className="py-10 text-center text-[13px] text-fog">
+            서랍에 아직 항목이 없어요.
+          </p>
+        ) : (
+          <div className="space-y-2">
+            {rows.map((row) => {
+              if (row.vault_kind === "attachment" && row.kind === "image" && row.signed_url) {
+                return (
+                  <a
+                    key={`${row.vault_kind}-${row.id}`}
+                    href={row.signed_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3 rounded-2xl border border-mist bg-white/80 p-2"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={row.signed_url}
+                      alt=""
+                      className="h-14 w-14 rounded-xl object-cover"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[12px] font-semibold">{row.file_name}</p>
+                      <p className="text-[10px] text-fog">
+                        {formatKstChatTime(row.created_at)}
+                      </p>
+                    </div>
+                  </a>
+                );
+              }
+              return (
+                <button
+                  key={`${row.vault_kind}-${row.id}`}
+                  type="button"
+                  onClick={() => onOpenMessage?.(row.message_id)}
+                  className="flex w-full items-start gap-3 rounded-2xl border border-mist bg-white/80 p-3 text-left"
+                >
+                  <span className="text-lg">
+                    {row.vault_kind === "exam"
+                      ? "📘"
+                      : row.vault_kind === "link"
+                        ? "🔗"
+                        : row.vault_kind === "bookmark"
+                          ? "★"
+                          : row.kind === "file"
+                            ? "📄"
+                            : "📎"}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-[12px] font-semibold text-ink">
+                      {row.file_name ||
+                        row.content ||
+                        row.message_kind ||
+                        "항목"}
+                    </p>
+                    <p className="mt-0.5 text-[10px] text-fog">
+                      {row.vault_kind} · {formatKstChatTime(row.created_at)}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

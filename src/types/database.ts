@@ -187,7 +187,9 @@ export type DmMessageKind =
   | "voice"
   | "system"
   | "mock_invite"
-  | "checkin";
+  | "checkin"
+  | "schedule_share"
+  | "reminder";
 
 export interface DmMessage {
   id: string;

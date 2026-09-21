@@ -22,6 +22,8 @@ import {
   MockInviteBubble,
   CheckinBubble,
   SystemBubble,
+  ScheduleShareBubble,
+  ReminderBubble,
 } from "@/components/chat/ChatRichBubbles";
 import { ChatPrefsBar, useChatPrefs, useTopicRooms } from "@/components/chat/ChatFeatureHooks";
 import { peekChatShareDraft, clearChatShareDraft } from "@/components/chat/ShareToChatButton";
@@ -29,6 +31,7 @@ import {
   ChatGlobalSearch,
   ChatMediaGallery,
   ChatStudyCalendar,
+  ChatRoomVault,
 } from "@/components/chat/ChatExtras";
 import {
   extractMentionUserIds,
@@ -43,6 +46,8 @@ import {
   type PollPayload,
   type MockInvitePayload,
   type CheckinPayload,
+  type ScheduleSharePayload,
+  type ReminderPayload,
 } from "@/lib/chat/features";
 import "@/components/chat/chat-polish.css";
 import {
@@ -78,6 +83,7 @@ type View =
   | "settings"
   | "gallery"
   | "calendar"
+  | "vault"
   | "thread-detail";
 type ProfileRow = { id: string; nickname: string; avatar_url: string | null };
 type FriendRow = Friendship & { requester: ProfileRow; addressee: ProfileRow };
@@ -185,6 +191,7 @@ function MessageBubble({
   onPin,
   onOpenThread,
   onRecordView,
+  onForward,
 }: {
   message: DmMessage;
   isMine: boolean;
@@ -201,6 +208,7 @@ function MessageBubble({
   onPin?: () => void;
   onOpenThread?: () => void;
   onRecordView?: () => void;
+  onForward?: () => void;
 }) {
   const [actionsOpen, setActionsOpen] = useState(false);
   const [stickerOpen, setStickerOpen] = useState(false);
@@ -237,6 +245,7 @@ function MessageBubble({
 
   return (
     <div
+      id={`dm-msg-${message.id}`}
       className={`flex items-end gap-2 ${isMine ? "justify-end" : "justify-start"}`}
     >
       {!isMine ? (
@@ -249,6 +258,11 @@ function MessageBubble({
       <div
         className={`chat-bubble-enter max-w-[84%] overflow-hidden rounded-[18px] font-display chat-body text-ink ${isMine ? "rounded-br-md bg-[var(--chat-mine)] ring-1 ring-inset ring-[var(--chat-mine-ring)]" : "rounded-bl-md border border-mist bg-paper"}`}
       >
+        {message.payload &&
+        typeof message.payload === "object" &&
+        (message.payload as { forwarded?: boolean }).forwarded ? (
+          <p className="mx-2 mt-2 text-[10px] font-semibold text-[#0066D6]">↪ 전달된 메시지</p>
+        ) : null}
         {message.reply_to ? (
           <div
             className={`mx-2 mt-2 rounded-xl border-l-2 px-2.5 py-1.5 chat-meta ${isMine ? "border-[#007AFF]/40 bg-white/50 text-smoke" : "border-[#007AFF] bg-[#007AFF]/5 text-smoke"}`}
@@ -311,7 +325,20 @@ function MessageBubble({
           </div>
         ) : null}
         {!message.deleted_at && message.message_kind === "system" ? (
-          <SystemBubble content={message.content} />
+          <SystemBubble content={message.content} payload={message.payload} />
+        ) : null}
+        {!message.deleted_at && message.message_kind === "schedule_share" && message.payload ? (
+          <div className="p-2">
+            <ScheduleShareBubble
+              payload={message.payload as unknown as ScheduleSharePayload}
+              mine={isMine}
+            />
+          </div>
+        ) : null}
+        {!message.deleted_at && message.message_kind === "reminder" && message.payload ? (
+          <div className="p-2">
+            <ReminderBubble payload={message.payload as unknown as ReminderPayload} />
+          </div>
         ) : null}
         {message.deleted_at ? (
           <p className="px-4 py-3 italic opacity-65">삭제된 메시지입니다.</p>
@@ -471,6 +498,16 @@ function MessageBubble({
               >
                 {message.bookmarked ? "★" : "☆"}
               </button>
+              {onForward ? (
+                <button
+                  type="button"
+                  onClick={() => runAction(onForward)}
+                  className="rounded-full px-2 py-1 text-[11px] text-smoke hover:bg-ice"
+                  title="전달"
+                >
+                  전달
+                </button>
+              ) : null}
               {onPin ? (
                 <button
                   type="button"
@@ -635,6 +672,10 @@ export function ChatWidget({
   const [messageSearch, setMessageSearch] = useState("");
   const [studyTitle, setStudyTitle] = useState("");
   const [studyKind, setStudyKind] = useState("notice");
+  const [studyDueAt, setStudyDueAt] = useState("");
+  const [studyPlace, setStudyPlace] = useState("");
+  const [studyDdayDraft, setStudyDdayDraft] = useState("");
+  const [studyGoalDraft, setStudyGoalDraft] = useState("");
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [preparingFiles, setPreparingFiles] = useState(false);
   const [isDraggingFiles, setIsDraggingFiles] = useState(false);
@@ -651,6 +692,8 @@ export function ChatWidget({
     | { type: "edit"; message: DmMessage; value: string }
     | { type: "rename"; value: string }
     | { type: "slow"; value: string }
+    | { type: "forward"; message: DmMessage }
+    | { type: "schedule"; title: string; dueAt: string; place: string }
   >(null);
   const [profileId, setProfileId] = useState<string | null>(null);
   const [listFilter, setListFilter] = useState<"all" | "unread" | "mention" | "archived">("all");
@@ -1822,11 +1865,13 @@ export function ChatWidget({
 
   const createStudyTool = async () => {
     if (!activeConversation || !studyTitle.trim()) return;
+    const supabase = createClient();
+    const title = studyTitle.trim();
     const row: Record<string, unknown> = {
       conversation_id: activeConversation.id,
       creator_id: user.id,
       kind: studyKind === "weekly" ? "weekly" : studyKind,
-      title: studyTitle.trim(),
+      title,
       body: "",
       pinned: studyKind === "notice",
     };
@@ -1844,24 +1889,150 @@ export function ChatWidget({
       row.time_of_day = "20:00";
       row.due_at = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
     }
+    if (studyKind === "schedule") {
+      const due = studyDueAt
+        ? new Date(studyDueAt).toISOString()
+        : new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+      row.due_at = due;
+      row.body = studyPlace;
+    }
     if (studyKind === "poll") {
       row.options = [
         { key: "O", label: "O" },
         { key: "X", label: "X" },
       ];
     }
-    const { error: studyError } = await createClient()
+    const { data: eventRow, error: studyError } = await supabase
       .from("chat_study_events")
-      .insert(row);
-    if (studyError) setError(studyError.message);
-    else {
-      setStudyTitle("");
-      setError(
-        studyKind === "weekly"
-          ? "주간 스터디 리마인더를 만들었어요."
-          : "스터디 도구를 만들었습니다.",
-      );
+      .insert(row)
+      .select("id,due_at")
+      .maybeSingle();
+    if (studyError) {
+      setError(studyError.message);
+      return;
     }
+
+    if (studyKind === "notice") {
+      const { data: noticeMsg, error: noticeError } = await supabase
+        .from("dm_messages")
+        .insert({
+          conversation_id: activeConversation.id,
+          sender_id: user.id,
+          content: `📌 공지: ${title}`,
+          message_kind: "system",
+          payload: { kind: "notice", title },
+          published_at: new Date().toISOString(),
+          mention_user_ids: [],
+        })
+        .select("id,content,created_at,sender_id,conversation_id,message_kind,payload")
+        .single();
+      if (!noticeError && noticeMsg) {
+        await pinMessage({
+          id: noticeMsg.id,
+          conversation_id: activeConversation.id,
+          sender_id: user.id,
+          content: noticeMsg.content,
+          created_at: noticeMsg.created_at,
+          author: { nickname: user.nickname, avatar_url: user.avatar_url },
+          attachments: [],
+          reactions: [],
+          reply_to_id: null,
+          edited_at: null,
+          deleted_at: null,
+          message_kind: "system",
+          payload: { kind: "notice", title },
+        });
+      }
+    }
+
+    if (studyKind === "schedule") {
+      const dueAt =
+        (eventRow?.due_at as string | undefined) ||
+        (studyDueAt
+          ? new Date(studyDueAt).toISOString()
+          : new Date(Date.now() + 86400000).toISOString());
+      await supabase.from("dm_messages").insert({
+        conversation_id: activeConversation.id,
+        sender_id: user.id,
+        content: `📅 일정: ${title}`,
+        message_kind: "schedule_share",
+        payload: {
+          title,
+          dueAt,
+          place: studyPlace || undefined,
+          eventId: eventRow?.id,
+        } satisfies ScheduleSharePayload,
+        published_at: new Date().toISOString(),
+        mention_user_ids: [],
+      });
+      setStudyDueAt("");
+      setStudyPlace("");
+    }
+
+    setStudyTitle("");
+    await loadMessages(activeConversation.id);
+    notify(
+      studyKind === "weekly"
+        ? "주간 스터디 리마인더를 만들었어요."
+        : studyKind === "notice"
+          ? "공지를 고정했어요."
+          : studyKind === "schedule"
+            ? "일정을 공유했어요."
+            : "스터디 도구를 만들었습니다.",
+      "success",
+    );
+  };
+
+  const forwardMessage = async (message: DmMessage, conversationId: string) => {
+    if (message.deleted_at) {
+      notify("삭제된 메시지는 전달할 수 없어요.", "error");
+      return;
+    }
+    const { error: forwardError } = await createClient().from("dm_messages").insert({
+      conversation_id: conversationId,
+      sender_id: user.id,
+      content: message.content || "전달된 메시지",
+      message_kind: message.message_kind ?? "text",
+      payload: {
+        ...(message.payload ?? {}),
+        forwarded: true,
+        forwardedFromId: message.id,
+      },
+      published_at: new Date().toISOString(),
+      mention_user_ids: [],
+    });
+    setSheet(null);
+    if (forwardError) notify(forwardError.message, "error");
+    else notify("전달했어요.", "success");
+  };
+
+  const exportConversation = async (filter: "all" | "exam" = "all") => {
+    if (!activeConversation) return;
+    const res = await fetch(
+      `/api/chat/export?conversationId=${encodeURIComponent(activeConversation.id)}&filter=${filter}`,
+    );
+    if (!res.ok) {
+      notify("내보내기에 실패했어요.", "error");
+      return;
+    }
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `chat-${activeConversation.title || "export"}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+    notify("대화를 내보냈어요.", "success");
+  };
+
+  const saveStudyMeta = async (dday: string, goal: string) => {
+    if (!activeConversation) return;
+    await manageGroup("set_dday", undefined, dday);
+    await manageGroup("set_goal", undefined, goal);
+    setActiveConversation((c) =>
+      c ? { ...c, study_dday: dday || null, study_goal: goal || null } : c,
+    );
+    notify("스터디 목표·D-day를 저장했어요.", "success");
   };
 
   const manageGroup = async (
@@ -2120,7 +2291,9 @@ export function ChatWidget({
                 ? "북마크"
                 : view === "settings"
                   ? "채팅 설정"
-                  : view === "gallery"
+                  : view === "vault"
+                    ? "서랍"
+                    : view === "gallery"
                     ? "미디어"
                     : view === "calendar"
                       ? "스터디 일정"
@@ -2200,9 +2373,20 @@ export function ChatWidget({
                 <OverflowMenu
                   items={[
                     { key: "search", label: "대화 검색", onClick: () => setView("search") },
+                    { key: "vault", label: "서랍 보관함", onClick: () => setView("vault") },
                     { key: "gallery", label: "미디어", onClick: () => setView("gallery") },
                     { key: "calendar", label: "일정", onClick: () => setView("calendar") },
                     { key: "study", label: "스터디 도구", onClick: () => setView("study") },
+                    {
+                      key: "export",
+                      label: "대화 내보내기",
+                      onClick: () => void exportConversation("all"),
+                    },
+                    {
+                      key: "export-exam",
+                      label: "기출만 내보내기",
+                      onClick: () => void exportConversation("exam"),
+                    },
                     ...(activeConversation
                       ? [
                           {
@@ -2735,6 +2919,22 @@ export function ChatWidget({
                 placeholder="내용을 입력하세요"
                 className="mt-4 w-full rounded-2xl border border-white bg-white/80 px-4 py-3 text-sm outline-none shadow-sm"
               />
+              {studyKind === "schedule" ? (
+                <div className="mt-2 space-y-2">
+                  <input
+                    type="datetime-local"
+                    value={studyDueAt}
+                    onChange={(e) => setStudyDueAt(e.target.value)}
+                    className="w-full rounded-2xl border border-white bg-white/80 px-4 py-3 text-sm outline-none shadow-sm"
+                  />
+                  <input
+                    value={studyPlace}
+                    onChange={(e) => setStudyPlace(e.target.value)}
+                    placeholder="장소 (선택)"
+                    className="w-full rounded-2xl border border-white bg-white/80 px-4 py-3 text-sm outline-none shadow-sm"
+                  />
+                </div>
+              ) : null}
               <button
                 onClick={() => void createStudyTool()}
                 disabled={!studyTitle.trim()}
@@ -2742,6 +2942,33 @@ export function ChatWidget({
               >
                 채팅방에 만들기
               </button>
+              <div className="mt-4 rounded-2xl border border-white bg-white/80 p-4 shadow-sm">
+                <p className="text-[12px] font-semibold text-smoke">시험 D-day · 목표</p>
+                <input
+                  type="date"
+                  value={studyDdayDraft || (activeConversation?.study_dday ?? "")}
+                  onChange={(e) => setStudyDdayDraft(e.target.value)}
+                  className="mt-2 w-full rounded-xl border border-mist px-3 py-2 text-[13px]"
+                />
+                <input
+                  value={studyGoalDraft || (activeConversation?.study_goal ?? "")}
+                  onChange={(e) => setStudyGoalDraft(e.target.value)}
+                  placeholder="예: 민법 매일 40문항"
+                  className="mt-2 w-full rounded-xl border border-mist px-3 py-2 text-[13px]"
+                />
+                <button
+                  type="button"
+                  onClick={() =>
+                    void saveStudyMeta(
+                      studyDdayDraft || activeConversation?.study_dday || "",
+                      studyGoalDraft || activeConversation?.study_goal || "",
+                    )
+                  }
+                  className="mt-3 w-full rounded-xl bg-[#007AFF] py-2.5 text-[13px] font-semibold text-white"
+                >
+                  D-day·목표 저장
+                </button>
+              </div>
               <button
                 onClick={() => void requestDesktopNotifications()}
                 className="mt-3 w-full rounded-2xl border border-white bg-white/70 py-3 text-sm font-semibold shadow-sm"
@@ -2914,6 +3141,25 @@ export function ChatWidget({
             </div>
           ) : null}
 
+          {view === "vault" && activeConversation ? (
+            <ChatRoomVault
+              conversationId={activeConversation.id}
+              onOpenMessage={(messageId) => {
+                setView("thread");
+                const el = document.getElementById(`dm-msg-${messageId}`);
+                el?.scrollIntoView({ behavior: "smooth", block: "center" });
+              }}
+            />
+          ) : null}
+
+          {view === "gallery" && activeConversation ? (
+            <ChatMediaGallery conversationId={activeConversation.id} />
+          ) : null}
+
+          {view === "calendar" ? (
+            <ChatStudyCalendar conversationId={activeConversation?.id ?? null} />
+          ) : null}
+
           {view === "settings" ? (
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
               <ChatPrefsBar
@@ -2953,20 +3199,40 @@ export function ChatWidget({
 
                     {view === "thread" ? (
             <>
-              {activeConversation?.pinned_message_id ? (
-                <div className="flex items-center gap-2 border-b border-[#007AFF]/20 bg-[#007AFF]/8 px-4 py-2">
-                  <span className="text-sm">📌</span>
-                  <p className="min-w-0 flex-1 truncate text-[12px] text-ink">
-                    {(pinnedBanner ?? messages.find((m) => m.id === activeConversation.pinned_message_id))?.content
-                      || "고정된 메시지"}
-                  </p>
-                  <button
-                    type="button"
-                    className="text-[11px] text-fog"
-                    onClick={() => void pinMessage(null)}
-                  >
-                    해제
-                  </button>
+              {activeConversation?.pinned_message_id ||
+              activeConversation?.study_dday ||
+              activeConversation?.study_goal ? (
+                <div className="border-b border-[#007AFF]/20 bg-[#007AFF]/8 px-4 py-2">
+                  {activeConversation.pinned_message_id ? (
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm">📌</span>
+                      <p className="min-w-0 flex-1 truncate text-[12px] font-semibold text-ink">
+                        {(pinnedBanner ?? messages.find((m) => m.id === activeConversation.pinned_message_id))?.content
+                          || "고정된 공지"}
+                      </p>
+                      <button
+                        type="button"
+                        className="text-[11px] text-fog"
+                        onClick={() => void pinMessage(null)}
+                      >
+                        해제
+                      </button>
+                    </div>
+                  ) : null}
+                  {(activeConversation.study_dday || activeConversation.study_goal) ? (
+                    <div className={`flex flex-wrap items-center gap-2 ${activeConversation.pinned_message_id ? "mt-1.5" : ""}`}>
+                      {activeConversation.study_dday ? (
+                        <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-semibold text-[#0066D6]">
+                          시험 D-day · {activeConversation.study_dday}
+                        </span>
+                      ) : null}
+                      {activeConversation.study_goal ? (
+                        <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-semibold text-smoke">
+                          목표 · {activeConversation.study_goal}
+                        </span>
+                      ) : null}
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
               <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
@@ -3037,6 +3303,7 @@ export function ChatWidget({
                         setView("thread-detail");
                       }}
                       onRecordView={() => void recordMessageView(message)}
+                      onForward={() => setSheet({ type: "forward", message })}
                     />
                   ))
                 ) : (
@@ -3403,6 +3670,27 @@ export function ChatWidget({
               변경
             </button>
           </ChatSheet>
+      ) : null}
+      {sheet?.type === "forward" ? (
+        <ChatSheet title="메시지 전달" onClose={() => setSheet(null)}>
+          <p className="chat-meta mb-2">전달할 대화를 고르세요.</p>
+          <div className="max-h-72 space-y-1 overflow-y-auto">
+            {conversations
+              .filter((c) => c.id !== activeConversation?.id)
+              .slice(0, 40)
+              .map((c) => (
+                <button
+                  key={c.id}
+                  type="button"
+                  onClick={() => void forwardMessage(sheet.message, c.id)}
+                  className="flex w-full items-center gap-3 rounded-xl px-2 py-2.5 text-left hover:bg-[#007AFF]/8"
+                >
+                  <Avatar nickname={c.title} url={c.avatar_url} size="sm" />
+                  <span className="truncate text-[13px] font-semibold">{c.title}</span>
+                </button>
+              ))}
+          </div>
+        </ChatSheet>
       ) : null}
       {sheet?.type === "slow" ? (
         <ChatSheet title="느린 채팅" onClose={() => setSheet(null)}>

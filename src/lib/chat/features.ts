@@ -9,7 +9,9 @@ export type ChatMessageKind =
   | "voice"
   | "system"
   | "mock_invite"
-  | "checkin";
+  | "checkin"
+  | "schedule_share"
+  | "reminder";
 
 export type ExamCardPayload = {
   examId: string;
@@ -71,6 +73,23 @@ export type MockInvitePayload = {
 export type CheckinPayload = {
   streak?: number;
   day?: string;
+};
+
+export type ScheduleSharePayload = {
+  title: string;
+  dueAt: string;
+  place?: string;
+  note?: string;
+  eventId?: string;
+};
+
+export type ReminderPayload = {
+  kind: "dday" | "weekly" | "goal";
+  title: string;
+  body?: string;
+  dday?: string | null;
+  reminderKey?: string;
+  eventId?: string;
 };
 
 /** 학습 스티커 (인스타형 리액션 팩) */

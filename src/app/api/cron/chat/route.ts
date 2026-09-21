@@ -80,6 +80,67 @@ export async function GET(request: Request) {
   let remindersSent = 0;
   const nowMinutes = kst.hour * 60 + kst.minute;
 
+  // D-day reminder cards (today / tomorrow)
+  const { data: ddayRooms } = await admin
+    .from("dm_conversations")
+    .select("id,title,study_dday,study_goal")
+    .not("study_dday", "is", null)
+    .limit(200);
+
+  for (const room of ddayRooms ?? []) {
+    if (!room.study_dday) continue;
+    const dday = String(room.study_dday);
+    const today = kst.date;
+    const todayMs = new Date(`${today}T12:00:00+09:00`).getTime();
+    const examMs = new Date(`${dday}T12:00:00+09:00`).getTime();
+    if (Number.isNaN(todayMs) || Number.isNaN(examMs)) continue;
+    const daysLeft = Math.round((examMs - todayMs) / 86400000);
+    if (![7, 3, 1, 0].includes(daysLeft)) continue;
+
+    const label =
+      daysLeft === 0
+        ? "오늘 시험 D-DAY"
+        : daysLeft === 1
+          ? "내일 시험 D-1"
+          : `시험 D-${daysLeft}`;
+
+    const marker = `dday:${room.id}:${dday}:D${daysLeft}:${today}`;
+    const { data: existing } = await admin
+      .from("dm_messages")
+      .select("id")
+      .eq("conversation_id", room.id)
+      .eq("message_kind", "reminder")
+      .filter("payload->>reminderKey", "eq", marker)
+      .limit(1);
+    if (existing?.length) continue;
+
+    const { data: member } = await admin
+      .from("dm_conversation_members")
+      .select("user_id")
+      .eq("conversation_id", room.id)
+      .order("joined_at", { ascending: true })
+      .limit(1)
+      .maybeSingle();
+    if (!member?.user_id) continue;
+
+    const { error: ddayError } = await admin.from("dm_messages").insert({
+      conversation_id: room.id,
+      sender_id: member.user_id,
+      content: `⏰ ${label}: ${room.title}`,
+      message_kind: "reminder",
+      payload: {
+        kind: "dday",
+        title: label,
+        body: room.study_goal || undefined,
+        dday,
+        reminderKey: marker,
+      },
+      published_at: new Date().toISOString(),
+      mention_user_ids: [],
+    });
+    if (!ddayError) remindersSent += 1;
+  }
+
   for (const event of weeklyEvents ?? []) {
     if (event.weekday != null && Number(event.weekday) !== kst.weekday) continue;
 
@@ -95,7 +156,7 @@ export async function GET(request: Request) {
       .from("dm_messages")
       .select("id")
       .eq("conversation_id", event.conversation_id)
-      .eq("message_kind", "system")
+      .in("message_kind", ["system", "reminder"])
       .filter("payload->>reminderKey", "eq", marker)
       .limit(1);
 
@@ -114,11 +175,13 @@ export async function GET(request: Request) {
       conversation_id: event.conversation_id,
       sender_id: senderId,
       content: `📅 주간 스터디 리마인더: ${event.title}`,
-      message_kind: "system",
+      message_kind: "reminder",
       payload: {
         reminderKey: marker,
         eventId: event.id,
         kind: "weekly",
+        title: event.title,
+        body: event.body || undefined,
       },
       published_at: new Date().toISOString(),
       mention_user_ids: [],

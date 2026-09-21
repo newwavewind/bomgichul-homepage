@@ -9,6 +9,8 @@ import type {
   PollPayload,
   MockInvitePayload,
   CheckinPayload,
+  ReminderPayload,
+  ScheduleSharePayload,
 } from "@/lib/chat/features";
 import { examHref } from "@/lib/chat/features";
 
@@ -362,10 +364,91 @@ export function CheckinBubble({
   );
 }
 
-export function SystemBubble({ content }: { content: string }) {
+export function SystemBubble({
+  content,
+  payload,
+}: {
+  content: string;
+  payload?: Record<string, unknown> | null;
+}) {
+  const kind = payload?.kind;
+  if (kind === "weekly" || kind === "dday" || kind === "goal" || payload?.reminderKey) {
+    return (
+      <ReminderBubble
+        payload={{
+          kind: (kind === "dday" || kind === "goal" ? kind : "weekly") as
+            | "dday"
+            | "weekly"
+            | "goal",
+          title: content.replace(/^📅\s*/, "").replace(/^⏰\s*/, ""),
+          body: typeof payload?.body === "string" ? payload.body : undefined,
+          dday: typeof payload?.dday === "string" ? payload.dday : null,
+          reminderKey:
+            typeof payload?.reminderKey === "string" ? payload.reminderKey : undefined,
+        }}
+      />
+    );
+  }
   return (
     <div className="mx-auto max-w-[92%] rounded-full bg-slate-100/90 px-3 py-1.5 text-center text-[11px] text-smoke">
       {content}
+    </div>
+  );
+}
+
+export function ReminderBubble({ payload }: { payload: ReminderPayload }) {
+  const tone =
+    payload.kind === "dday"
+      ? "border-[#007AFF]/30 bg-[#007AFF]/10"
+      : payload.kind === "goal"
+        ? "border-amber-200 bg-amber-50"
+        : "border-mist bg-white/90";
+  const eyebrow =
+    payload.kind === "dday" ? "D-DAY 알림" : payload.kind === "goal" ? "목표 리마인더" : "주간 리마인더";
+  return (
+    <div className={`mx-auto w-full max-w-[92%] rounded-2xl border px-3 py-2.5 ${tone}`}>
+      <p className="text-[10px] font-semibold text-[#0066D6]">{eyebrow}</p>
+      <p className="mt-1 font-display text-[13px] font-semibold text-ink">{payload.title}</p>
+      {payload.body ? (
+        <p className="mt-1 text-[12px] text-smoke">{payload.body}</p>
+      ) : null}
+      {payload.dday ? (
+        <p className="mt-1.5 text-[11px] font-semibold text-[#0066D6]">시험일 {payload.dday}</p>
+      ) : null}
+    </div>
+  );
+}
+
+export function ScheduleShareBubble({
+  payload,
+  mine,
+}: {
+  payload: ScheduleSharePayload;
+  mine?: boolean;
+}) {
+  const due = new Date(payload.dueAt);
+  const when = Number.isNaN(due.getTime())
+    ? payload.dueAt
+    : new Intl.DateTimeFormat("ko-KR", {
+        timeZone: "Asia/Seoul",
+        dateStyle: "medium",
+        timeStyle: "short",
+      }).format(due);
+  return (
+    <div
+      className={`max-w-[85%] rounded-2xl border px-3 py-2.5 ${
+        mine ? "border-[#007AFF]/30 bg-[#007AFF]/10" : "border-mist bg-white/90"
+      }`}
+    >
+      <p className="text-[10px] font-semibold text-[#0066D6]">스터디 일정</p>
+      <p className="mt-1 font-display text-[13px] font-semibold text-ink">{payload.title}</p>
+      <p className="mt-1 text-[12px] text-smoke">{when}</p>
+      {payload.place ? (
+        <p className="mt-1 text-[11px] text-fog">장소 · {payload.place}</p>
+      ) : null}
+      {payload.note ? (
+        <p className="mt-1 line-clamp-2 text-[12px] text-smoke">{payload.note}</p>
+      ) : null}
     </div>
   );
 }
