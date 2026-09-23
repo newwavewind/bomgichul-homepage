@@ -9,6 +9,7 @@ import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
 import { examRenderKind } from "@/lib/exam-track/exam-render";
+import { formatExamRefLabel } from "@/lib/exam-track/sourceLabel";
 
 type Mode = "random" | "wrong" | "review" | "bookmarks" | "mock" | "stats";
 type Attempt = { subject: string; year: number; question_no: number; result: "correct" | "wrong" };
@@ -197,7 +198,7 @@ export function TrackLearningTools({
       {userId && mode && mode !== "stats" && !current && !loading ? <p className="mt-5 rounded-2xl border border-mist bg-paper p-6 font-display text-body text-smoke">아직 표시할 문제가 없어요. 먼저 기출문제를 풀어 주세요.</p> : null}
       {userId && current ? (
         <div className="mt-6 rounded-[var(--radius-largecards)] border border-mist bg-paper p-5 md:p-7">
-          <div className="mb-4 flex items-center justify-between gap-3 font-display text-body-sm text-fog"><span>{index + 1} / {pool.length} · {current.year}년 {current.sourceCode}</span><button type="button" onClick={() => void toggleBookmark(current)} className="font-semibold text-ios-blue">{bookmarkSet.has(examKey(current)) ? "★ 북마크됨" : "☆ 북마크"}</button></div>
+          <div className="mb-4 flex items-center justify-between gap-3 font-display text-body-sm text-fog"><span>{index + 1} / {pool.length} · {formatExamRefLabel(scope, current.year, current.sourceCode)}</span><button type="button" onClick={() => void toggleBookmark(current)} className="font-semibold text-ios-blue">{bookmarkSet.has(examKey(current)) ? "★ 북마크됨" : "☆ 북마크"}</button></div>
           <QuestionStem stem={current.stem ?? ""} questionNo={current.questionNo} />
           <div className="mt-5"><ExamOxQuestion key={`${mode}:${examKey(current)}`} examId={current.id} items={current.items} correctChoice={current.correctChoice} explanationSummary={current.explanationSummary} initialAttemptResult={attemptMap.get(examKey(current)) ?? null} onAttempt={(result) => saveAttempt(current, result)} /></div>
           <div className="mt-5 flex justify-end"><button type="button" onClick={() => setIndex((value) => Math.min(value + 1, pool.length - 1))} disabled={index >= pool.length - 1} className="rounded-full bg-carbon px-5 py-2.5 font-display text-body-sm font-semibold text-paper disabled:opacity-30">다음 문제 →</button></div>

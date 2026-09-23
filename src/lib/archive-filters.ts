@@ -105,7 +105,7 @@ export function archiveTracksForScope(scope: CommunityScope): {
         label: "구분",
         options: [
           { value: "all", label: "전체" },
-          { value: "national", label: "국가직", titleMatch: "국가직" },
+          { value: "problem", label: "문제", titleMatch: "문제" },
           { value: "answer", label: "정답", titleMatch: "정답" },
         ],
       };

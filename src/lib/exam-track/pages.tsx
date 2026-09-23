@@ -28,6 +28,7 @@ import {
 } from "@/components/exam-track/ExamSubjectiveQuestion";
 import { BackLink } from "@/components/ui/BackLink";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
+import { formatExamRefLabel, trackHidesExamSourceLabel } from "@/lib/exam-track/sourceLabel";
 import { toExamOxCombos } from "@/lib/exam-track/combo-choices";
 import { parseQuestionStem } from "@/lib/exam-stem";
 import { plainStudyText } from "@/lib/study-text";
@@ -99,6 +100,7 @@ export function trackConceptStaticParams(api: TrackApi, subjectIds: string[]) {
 }
 
 function buildTrackConceptStatements(
+  trackId: string,
   conceptSlug: string,
   allExams: ExamTrackExam[],
   linkedExams: ExamTrackExam[],
@@ -121,7 +123,7 @@ function buildTrackConceptStatements(
       text: item.text,
       answer: item.answer,
       explanation: item.explanation,
-      sourceLabel: `${exam.year}년 ${exam.sourceCode} ${exam.questionNo}번`,
+      sourceLabel: formatExamRefLabel(trackId, exam.year, exam.sourceCode, exam.questionNo),
       href: hrefFor(exam),
     }));
 }
@@ -257,7 +259,7 @@ export async function TrackConceptDetailPage({
   const activity = await getUserActivityScores(authorIds);
   const authorRanks = Object.fromEntries(Object.entries(activity).map(([id, value]) => [id, value.rank]));
   const hrefFor = (exam: ExamTrackExam) => `${track.basePath}/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}`;
-  const statements = buildTrackConceptStatements(slug, data.exams, linkedExams, hrefFor);
+  const statements = buildTrackConceptStatements(track.id, slug, data.exams, linkedExams, hrefFor);
   return (
     <>
     <TrackConceptDetailView
@@ -312,7 +314,9 @@ export async function TrackExamSubjectPage({
   const sessionsByGroup = sessions.reduce<Map<string, typeof sessions>>((groups, session) => {
     const groupLabel = track.id === "housing"
       ? housingFirstStage.has(subjectId) ? "1차" : "2차"
-      : session.sourceCode;
+      : trackHidesExamSourceLabel(track.id)
+        ? track.sessionEyebrow
+        : session.sourceCode;
     groups.set(groupLabel, [...(groups.get(groupLabel) ?? []), session]);
     return groups;
   }, new Map());

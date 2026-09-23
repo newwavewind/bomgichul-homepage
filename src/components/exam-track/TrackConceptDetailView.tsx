@@ -13,9 +13,14 @@ import "@/app/concepts/concepts-ui.css";
 import "@/styles/concepts/conceptsEbook.css";
 import { ConceptSourcePanel } from "@/components/concepts/ConceptSourcePanel";
 import { ConceptStructureBlocks, hasConceptStructure } from "@/components/concepts/ConceptStructureBlocks";
+import { formatExamRefLabel } from "@/lib/exam-track/sourceLabel";
 
 type ConceptLike = ExamTrackConcept | PublicServiceConcept;
 type ExamLike = Pick<PublicServiceExam, "id" | "year" | "sourceCode" | "questionNo">;
+
+function trackIdFromSubjectKey(subjectKey: string): string {
+  return subjectKey.split(":")[0] ?? "";
+}
 
 function plainConceptText(text: string): string {
   return text.replace(/\*\*/g, "");
@@ -80,6 +85,9 @@ export function TrackConceptDetailView({
     : concept.pitfalls?.trim() ? [concept.pitfalls] : [];
   const hasStructure = hasConceptStructure(concept);
   const returnTo = `${listHref}/${concept.slug}`;
+  const trackId = trackIdFromSubjectKey(subjectKey);
+  const examRef = (exam: ExamLike) =>
+    formatExamRefLabel(trackId, exam.year, exam.sourceCode, exam.questionNo);
   const aiPrompt = buildConceptDetailAiPrompt({
     subjectLabel,
     titleKo: concept.titleKo,
@@ -115,7 +123,7 @@ export function TrackConceptDetailView({
 
         <ConceptSourcePanel
           sources={concept.sources}
-          examLabels={linkedExams.map((exam) => `${exam.year}년 ${exam.sourceCode} ${exam.questionNo}번`)}
+          examLabels={linkedExams.map((exam) => examRef(exam))}
         />
 
         <article className="hp-cx-card">
@@ -183,9 +191,7 @@ export function TrackConceptDetailView({
                 <div className="hp-cx-related-list">
                   {linkedExams.map((exam) => (
                     <Link key={exam.id} href={examHrefFor(exam)} className="hp-cx-question-row">
-                      <span>
-                        {exam.year}년 {exam.sourceCode} {exam.questionNo}번
-                      </span>
+                      <span>{examRef(exam)}</span>
                       <span className="hp-cx-question-row__go">문제 보기 →</span>
                     </Link>
                   ))}

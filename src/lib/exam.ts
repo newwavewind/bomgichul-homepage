@@ -12,6 +12,8 @@ const TRACK_EXAM_SCHEDULE: Record<
     registrationStart: string;
     note: string;
     examName: string;
+    /** true면 D-day 숫자를 숨기고 공고 확인 안내만 노출 */
+    scheduleUnconfirmed?: boolean;
   }
 > = {
   public_service: {
@@ -32,8 +34,9 @@ const TRACK_EXAM_SCHEDULE: Record<
     label: "소방공무원 공개경쟁채용",
     examDate: "2026-12-31",
     registrationStart: "2026-01-01",
-    note: "회차별 일정은 사이버국가고시센터(gosi.kr) 공고 확인",
+    note: "회차별 일정은 사이버국가고시센터(gosi.kr) 최신 공고를 확인하세요.",
     examName: "소방공무원 공개경쟁채용",
+    scheduleUnconfirmed: true,
   },
   housing: {
     label: "2026년 제29회 주택관리사보 2차",
@@ -150,6 +153,7 @@ export function getExamCountdown(fromDate = getKSTDateString()) {
     label: formatCountdownLabel(days),
     formattedDate: formatKoreanDate(exam.examDate),
     examName: "공인중개사 자격시험",
+    scheduleUnconfirmed: false as const,
   };
 }
 
@@ -177,9 +181,12 @@ export function getExamCountdownForScope(
       resultDate: examDate,
     },
     days,
-    label: formatCountdownLabel(days),
-    formattedDate: formatKoreanDate(examDate),
+    label: base.scheduleUnconfirmed ? "공고 확인" : formatCountdownLabel(days),
+    formattedDate: base.scheduleUnconfirmed
+      ? "일정은 최신 공고를 확인하세요"
+      : formatKoreanDate(examDate),
     examName: base.examName,
+    scheduleUnconfirmed: Boolean(base.scheduleUnconfirmed),
   };
 }
 
