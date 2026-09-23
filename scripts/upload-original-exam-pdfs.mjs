@@ -445,12 +445,14 @@ function collectJobs() {
       // 정답표는 파일명이 길어 고유 접미사로 구분
       const answerTag = isAnswer
         ? (() => {
-            const short = name
-              .replace(/\.pdf$/i, '')
-              .replace(/^\d{4}_[^_]+_/, '')
-              .replace(/\s+/g, ' ')
-              .slice(0, 40)
-            return short ? ` · ${short}` : ''
+            // Keep titles short & readable — long official sheet names truncate mid-glyph.
+            if (/교육청/.test(name)) return ' · 시·도교육청'
+            if (/추가선발/.test(name) || /추가/.test(name)) return ' · 추가선발'
+            if (/붙임/.test(name)) return ''
+            // numbered sheet variants (2. / 4.)
+            const num = (name.match(/\b([24])\.\s/) || [])[1]
+            if (num) return ` · ${num}번표`
+            return ''
           })()
         : bookPart
           ? ` · ${book}`
