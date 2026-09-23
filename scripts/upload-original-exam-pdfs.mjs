@@ -10,7 +10,8 @@
 import { createClient } from '@supabase/supabase-js'
 import { createHash } from 'node:crypto'
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
-import { basename, join, resolve } from 'node:path'
+import { basename, dirname, join, resolve } from 'node:path'
+import { pathToFileURL } from 'node:url'
 import ws from 'ws'
 
 const ADMIN_EMAIL = 'newwavewind@gmail.com'
@@ -57,7 +58,19 @@ const SUBJECT_LABEL = {
   gyojeonghak: '교정학',
   gukjebeop: '국제법',
   nodongbeop: '노동법',
+  gugeo: '국어',
+  minbeop: '민법',
+  haengjeonghak: '행정학개론',
   other: '기타',
+}
+
+/** YY 또는 YYYY → 4자리 연도 (17→2017, 26→2026) */
+function yearFromToken(token) {
+  const n = Number(token)
+  if (!Number.isFinite(n)) return null
+  if (n >= 1990 && n <= 2099) return n
+  if (n >= 0 && n <= 99) return 2000 + n
+  return null
 }
 
 const ADMIN_SUBJECT_MAP = {
@@ -302,6 +315,198 @@ function collectJobs() {
     }
   }
 
+  // ——— 소방공무원 (앱 과목별 + 데스크탑 원본) ———
+  {
+    const FIRE_SUBJECT_MAP = {
+      sobang: 'sobang',
+      sobangbeop: 'sobangbeop',
+      haengjeongbeop: 'haengjeongbeop',
+    }
+    const appRoot = join(HOME, 'firebomgichul/public/exam-pdfs')
+    const groups = new Map()
+    for (const file of walkPdfs(appRoot)) {
+      const name = nfc(basename(file))
+      const m = name.match(/^(\d{4})-([a-z0-9]+)-(문제|정답)-/i)
+      if (!m) continue
+      const [, year, slug, kind] = m
+      const y = Number(year)
+      if (y < 2018 || y > 2026) continue
+      const key = `${year}|${slug}|${kind}`
+      if (!groups.has(key)) groups.set(key, [])
+      groups.get(key).push(file)
+    }
+    for (const [key, files] of groups) {
+      const [year, slug, kind] = key.split('|')
+      const file = pickOne(files)
+      const subject = FIRE_SUBJECT_MAP[slug] || 'other'
+      const label = SUBJECT_LABEL[slug] || slug
+      const title = `${TITLE_PREFIX} ${year}년 소방공무원 ${label} · ${kind}`
+      jobs.push({
+        scope: 'firefighter',
+        subject,
+        title,
+        content: `소방공무원 공채 기출 원본 PDF입니다. 전체 공개로 제공합니다.\n과목: ${label}\n파일: ${basename(file)}`,
+        file,
+        dedupeKey: `firefighter|app|${key}`,
+      })
+    }
+
+    const deskRoot = join(HOME, 'Desktop/소방공무원_기출_9개년')
+    for (const file of walkPdfs(deskRoot)) {
+      if (/[/\\]_(버림|원본메타)[/\\]/.test(file)) continue
+      const name = nfc(basename(file))
+      const yy = (name.match(/^(\d{2})/) || [])[1]
+      const year = yearFromToken(yy)
+      if (!year || year < 2018 || year > 2026) continue
+      let subject = 'other'
+      let label = '자료'
+      let detail = name.replace(/\.pdf$/i, '').replace(/^\d{2}/, '').replace(/^[-_\s]+/, '')
+      if (/행정법/.test(name) || /행정법총론/.test(file)) {
+        subject = 'haengjeongbeop'
+        label = '행정법총론'
+        detail = detail.replace(/^행정법총론[-_]?/, '') || kindFromName(name)
+        // 앱 과목 PDF와 제목이 겹치지 않도록 데스크탑 원본은 책형/원본 표기
+        if (!detail || detail === '자료' || detail === '문제') {
+          detail = '원본'
+        }
+      } else if (/확정답안|정답/.test(name) || /확정답안/.test(file)) {
+        label = '확정답안'
+        detail = '확정답안'
+      } else if (/전과목/.test(name) || /원본문제지/.test(file)) {
+        label = '전과목'
+        detail =
+          detail
+            .replace(/^소방공무원공채[-_]?/, '')
+            .replace(/^전과목[-_]?/, '')
+            .trim() || '문제'
+      }
+      const kind = /확정답안|정답/.test(name) ? '정답' : '문제'
+      if (!detail || detail === '자료') detail = kind
+      const title =
+        label === '확정답안'
+          ? `${TITLE_PREFIX} ${year}년 소방공무원 · 확정답안`
+          : `${TITLE_PREFIX} ${year}년 소방공무원 ${label} · ${detail}`
+      jobs.push({
+        scope: 'firefighter',
+        subject,
+        title,
+        content: `소방공무원 공채 기출 원본 PDF입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `firefighter|desk|${name}`,
+      })
+    }
+  }
+
+  // ——— 공무원 국어 (앱 + 데스크탑) ———
+  {
+    const appRoot = join(HOME, 'gugeobomgichul/public/exam-pdfs')
+    for (const file of walkPdfs(appRoot)) {
+      const name = nfc(basename(file))
+      const m = name.match(/^(\d{4})-(국가직|지방직)(?:-국어)?-(문제|정답)/)
+      if (!m) continue
+      const [, year, track, kind] = m
+      const y = Number(year)
+      if (y < 2017 || y > 2026) continue
+      const title = `${TITLE_PREFIX} ${year}년 공무원 국어 ${track} · ${kind}`
+      jobs.push({
+        scope: 'gugeo',
+        subject: 'gugeo',
+        title,
+        content: `공무원 9급 국어 기출 원본 PDF입니다. 전체 공개로 제공합니다.\n구분: ${track}\n파일: ${name}`,
+        file,
+        dedupeKey: `gugeo|app|${year}|${track}|${kind}`,
+      })
+    }
+
+    const deskRoot = join(HOME, 'Desktop/공무원국어_기출10개년')
+    for (const file of walkPdfs(deskRoot)) {
+      if (/[/\\]_원본메타[/\\]/.test(file)) continue
+      const name = nfc(basename(file))
+      const year = (name.match(/^(\d{4})/) || [])[1]
+      if (!year) continue
+      const y = Number(year)
+      if (y < 2017 || y > 2026) continue
+      const track = /국가직/.test(name) || /[/\\]국가직[/\\]/.test(file)
+        ? '국가직'
+        : /지방직/.test(name) || /[/\\]지방직[/\\]/.test(file)
+          ? '지방직'
+          : '기타'
+      const isAnswer = /정답/.test(name) || /[/\\]정답표[/\\]/.test(file)
+      let book =
+        (name.match(/([가나다라마바사아자차카타파하ABCDEF])책형/i) || [])[1] ||
+        (name.match(/([가나다라마바사아자차카타파하])형/) || [])[1] ||
+        ''
+      if (book && !/책형$/.test(book) && /^[가-힣A-Za-z]$/.test(book)) {
+        book = `${book}책형`
+      }
+      const extra = /추가선발/.test(name) ? ' 추가선발' : ''
+      const kind = isAnswer ? '정답' : '문제'
+      const bookPart = book ? ` ${book}` : ''
+      // 정답표는 파일명이 길어 고유 접미사로 구분
+      const answerTag = isAnswer
+        ? (() => {
+            const short = name
+              .replace(/\.pdf$/i, '')
+              .replace(/^\d{4}_[^_]+_/, '')
+              .replace(/\s+/g, ' ')
+              .slice(0, 40)
+            return short ? ` · ${short}` : ''
+          })()
+        : bookPart
+          ? ` · ${book}`
+          : ''
+      const title = isAnswer
+        ? `${TITLE_PREFIX} ${year}년 공무원 국어 ${track}${extra} · 정답${answerTag}`
+        : `${TITLE_PREFIX} ${year}년 공무원 국어 ${track}${extra} · ${kind}${bookPart}`
+      jobs.push({
+        scope: 'gugeo',
+        subject: 'gugeo',
+        title,
+        content: `공무원 9급 국어 기출 원본 PDF입니다. 전체 공개로 제공합니다.\n구분: ${track}\n파일: ${name}`,
+        file,
+        dedupeKey: `gugeo|desk|${name}`,
+      })
+    }
+  }
+
+  // ——— 행정사 (데스크탑 10개년) ———
+  {
+    const deskRoot = join(HOME, 'Desktop/행정사_기출_10개년')
+    for (const file of walkPdfs(deskRoot)) {
+      if (/[/\\]\.venv[/\\]|[/\\]_버림[/\\]/.test(file)) continue
+      const name = nfc(basename(file))
+      const parent = nfc(basename(dirname(file)))
+      const folderYear = (parent.match(/_(\d{4})$/) || [])[1]
+      const folderRound = (parent.match(/제(\d+)회/) || [])[1]
+      const nameYear = (name.match(/(\d{4})\s*년/) || name.match(/^(\d{4})/))?.[1]
+      const nameRound = (name.match(/제\s*(\d+)\s*회/) || [])[1]
+      const year = Number(folderYear || nameYear)
+      const round = folderRound || nameRound
+      if (!year || year < 2017 || year > 2026) continue
+
+      const kind = kindFromName(name)
+      let detail = name
+        .replace(/\.pdf$/i, '')
+        .replace(/^\d{4}\s*년도?\s*/, '')
+        .replace(/제\s*\d+\s*회\s*/, '')
+        .replace(/^행정사\s*/, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+      if (!detail) detail = kind
+
+      const roundLabel = round ? `제${round}회 ` : ''
+      const title = `${TITLE_PREFIX} ${year}년 ${roundLabel}행정사 · ${detail}`
+      jobs.push({
+        scope: 'haengjeongsa',
+        subject,
+        title,
+        content: `행정사 국가자격시험 기출 원본 PDF입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `haengjeongsa|${year}|${name}`,
+      })
+    }
+  }
+
   return jobs
 }
 
@@ -432,7 +637,10 @@ async function main() {
   console.log(`\n끝 created=${created} skipped=${skipped} errors=${errors}`)
 }
 
-main().catch((e) => {
-  console.error(e)
-  process.exit(1)
-})
+const isDirectRun = process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href
+if (isDirectRun) {
+  main().catch((e) => {
+    console.error(e)
+    process.exit(1)
+  })
+}
