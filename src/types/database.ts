@@ -19,7 +19,9 @@ export type CommunityScope =
   | "housing"
   | "social_worker"
   | "history"
-  | "english";
+  | "english"
+  | "gugeo"
+  | "haengjeongsa";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 

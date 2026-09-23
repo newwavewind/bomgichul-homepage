@@ -35,6 +35,16 @@ import {
   getEnglishSubject,
 } from "@/lib/english-content";
 import {
+  GUGEO_SUBJECT_IDS,
+  getGugeoExamSessions,
+  getGugeoSubject,
+} from "@/lib/gugeo-content";
+import {
+  HAENGJEONGSA_SUBJECT_IDS,
+  getHaengjeongsaExamSessions,
+  getHaengjeongsaSubject,
+} from "@/lib/haengjeongsa-content";
+import {
   HISTORY_SUBJECT_IDS,
   getHistoryExamSessions,
   getHistorySubject,
@@ -61,6 +71,8 @@ export const SITEMAP_GROUPS = [
   "social-worker",
   "history",
   "english",
+  "gugeo",
+  "haengjeongsa",
 ] as const;
 
 export type SitemapGroup = (typeof SITEMAP_GROUPS)[number];
@@ -74,6 +86,8 @@ const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   "social-worker": "social_worker",
   history: "history",
   english: "english",
+  gugeo: "gugeo",
+  haengjeongsa: "haengjeongsa",
 };
 
 function page(
@@ -244,6 +258,22 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         ENGLISH_SUBJECT_IDS,
         getEnglishSubject,
         getEnglishExamSessions,
+        { includeConcepts: false },
+      );
+    case "gugeo":
+      return getNamespacedTrackUrls(
+        "/gugeo",
+        GUGEO_SUBJECT_IDS,
+        getGugeoSubject,
+        getGugeoExamSessions,
+        { includeConcepts: false },
+      );
+    case "haengjeongsa":
+      return getNamespacedTrackUrls(
+        "/haengjeongsa",
+        HAENGJEONGSA_SUBJECT_IDS,
+        getHaengjeongsaSubject,
+        getHaengjeongsaExamSessions,
         { includeConcepts: false },
       );
   }

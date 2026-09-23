@@ -2,6 +2,8 @@ import type { CommunityScope } from "@/types/database";
 import {
   ENGLISH_TRACK,
   FIREFIGHTER_TRACK,
+  GUGEO_TRACK,
+  HAENGJEONGSA_TRACK,
   HISTORY_TRACK,
   HOUSING_TRACK,
   POLICE_TRACK,
@@ -26,6 +28,10 @@ export function communityScopeLabel(scope: CommunityScope): string {
       return "한국사능력검정";
     case "english":
       return "공무원 영어";
+    case "gugeo":
+      return "공무원 국어";
+    case "haengjeongsa":
+      return "행정사";
     default:
       return "공인중개사";
   }
@@ -47,6 +53,10 @@ export function trackHubHref(scope: CommunityScope): string {
       return HISTORY_TRACK.basePath;
     case "english":
       return ENGLISH_TRACK.basePath;
+    case "gugeo":
+      return GUGEO_TRACK.basePath;
+    case "haengjeongsa":
+      return HAENGJEONGSA_TRACK.basePath;
     default:
       return "/real-estate";
   }
@@ -68,6 +78,10 @@ export function communityBaseHref(scope: CommunityScope): string {
       return `${HISTORY_TRACK.basePath}/community`;
     case "english":
       return `${ENGLISH_TRACK.basePath}/community`;
+    case "gugeo":
+      return `${GUGEO_TRACK.basePath}/community`;
+    case "haengjeongsa":
+      return `${HAENGJEONGSA_TRACK.basePath}/community`;
     default:
       return "/community";
   }
@@ -89,6 +103,10 @@ export function archiveBaseHref(scope: CommunityScope): string {
       return `${HISTORY_TRACK.basePath}/archive`;
     case "english":
       return `${ENGLISH_TRACK.basePath}/archive`;
+    case "gugeo":
+      return `${GUGEO_TRACK.basePath}/archive`;
+    case "haengjeongsa":
+      return `${HAENGJEONGSA_TRACK.basePath}/archive`;
     default:
       return "/archive";
   }
@@ -110,6 +128,10 @@ export function diaryBaseHref(scope: CommunityScope): string {
       return `${HISTORY_TRACK.basePath}/diary`;
     case "english":
       return `${ENGLISH_TRACK.basePath}/diary`;
+    case "gugeo":
+      return `${GUGEO_TRACK.basePath}/diary`;
+    case "haengjeongsa":
+      return `${HAENGJEONGSA_TRACK.basePath}/diary`;
     default:
       return "/diary";
   }
@@ -131,6 +153,10 @@ export function faqBaseHref(scope: CommunityScope): string {
       return `${HISTORY_TRACK.basePath}/faq`;
     case "english":
       return `${ENGLISH_TRACK.basePath}/faq`;
+    case "gugeo":
+      return `${GUGEO_TRACK.basePath}/faq`;
+    case "haengjeongsa":
+      return `${HAENGJEONGSA_TRACK.basePath}/faq`;
     default:
       return "/faq";
   }
@@ -152,6 +178,10 @@ export function communityTitle(scope: CommunityScope): string {
       return HISTORY_TRACK.communityTitle;
     case "english":
       return ENGLISH_TRACK.communityTitle;
+    case "gugeo":
+      return GUGEO_TRACK.communityTitle;
+    case "haengjeongsa":
+      return HAENGJEONGSA_TRACK.communityTitle;
     default:
       return "공인중개사 수험생 커뮤니티";
   }
@@ -173,6 +203,10 @@ export function archiveTitle(scope: CommunityScope): string {
       return "한국사능력검정 자료실";
     case "english":
       return "공무원 영어 자료실";
+    case "gugeo":
+      return "공무원 국어 자료실";
+    case "haengjeongsa":
+      return "행정사 자료실";
     default:
       return "공인중개사 자료실";
   }
@@ -194,6 +228,10 @@ export function archiveEyebrow(scope: CommunityScope): string {
       return "한국사능력검정 수험 자료 공유";
     case "english":
       return "공무원 영어 수험 자료 공유";
+    case "gugeo":
+      return "공무원 국어 수험 자료 공유";
+    case "haengjeongsa":
+      return "행정사 수험 자료 공유";
     default:
       return "공인중개사 수험 자료 공유";
   }
@@ -222,7 +260,9 @@ export function isValidCommunityScope(value: string | null | undefined): value i
     value === "history" ||
     // 영어 게시판을 여기 빠뜨리면 DB 는 받는데 API 가 400 으로 막는다.
     // 앱은 「전송 실패」만 보여 주고 어디가 막혔는지 알 길이 없다.
-    value === "english"
+    value === "english" ||
+    value === "gugeo" ||
+    value === "haengjeongsa"
   );
 }
 
@@ -234,6 +274,8 @@ export function scopeFromPathname(pathname: string | null | undefined): Communit
   if (pathname.startsWith("/social-worker")) return "social_worker";
   if (pathname.startsWith("/history")) return "history";
   if (pathname.startsWith("/english")) return "english";
+  if (pathname.startsWith("/gugeo")) return "gugeo";
+  if (pathname.startsWith("/haengjeongsa")) return "haengjeongsa";
   if (pathname.startsWith("/public-service")) return "public_service";
   return "real_estate";
 }

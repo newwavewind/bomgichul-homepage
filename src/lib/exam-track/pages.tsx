@@ -312,11 +312,16 @@ export async function TrackExamSubjectPage({
   const sessions = api.getExamSessions(subjectId);
   const housingFirstStage = new Set(["accounting", "facilities", "civil-law"]);
   const sessionsByGroup = sessions.reduce<Map<string, typeof sessions>>((groups, session) => {
-    const groupLabel = track.id === "housing"
-      ? housingFirstStage.has(subjectId) ? "1차" : "2차"
-      : trackHidesExamSourceLabel(track.id)
-        ? track.sessionEyebrow
-        : session.sourceCode;
+    const groupLabel =
+      track.id === "housing"
+        ? housingFirstStage.has(subjectId)
+          ? "1차"
+          : "2차"
+        : track.id === "haengjeongsa"
+          ? "1차 필기"
+          : trackHidesExamSourceLabel(track.id)
+            ? track.sessionEyebrow
+            : session.sourceCode;
     groups.set(groupLabel, [...(groups.get(groupLabel) ?? []), session]);
     return groups;
   }, new Map());

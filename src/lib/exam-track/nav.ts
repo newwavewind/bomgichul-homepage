@@ -91,6 +91,16 @@ const ENGLISH_SUBJECTS: { id: string; label: string }[] = [
   { id: "gong9", label: "9급 영어" },
 ];
 
+const GUGEO_SUBJECTS: { id: string; label: string }[] = [
+  { id: "gugeo", label: "9급 국어" },
+];
+
+const HAENGJEONGSA_SUBJECTS: { id: string; label: string }[] = [
+  { id: "minbeop", label: "민법" },
+  { id: "haengjeongbeop", label: "행정법" },
+  { id: "haengjeonghak", label: "행정학" },
+];
+
 const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
   { id: "sobang", label: "소방학개론" },
   { id: "sobangbeop", label: "소방관계법규" },
@@ -138,7 +148,11 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
               ? HISTORY_SUBJECTS
               : scope === "english"
                 ? ENGLISH_SUBJECTS
-                : PUBLIC_SERVICE_SUBJECTS;
+                : scope === "gugeo"
+                  ? GUGEO_SUBJECTS
+                  : scope === "haengjeongsa"
+                    ? HAENGJEONGSA_SUBJECTS
+                    : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -169,6 +183,8 @@ function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/social-worker")) return false;
   if (pathname.startsWith("/history")) return false;
   if (pathname.startsWith("/english")) return false;
+  if (pathname.startsWith("/gugeo")) return false;
+  if (pathname.startsWith("/haengjeongsa")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -251,6 +267,28 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("english"),
       subjects: subjectsForScope("english"),
       tools: toolsForScope("english"),
+    };
+  }
+  if (path.startsWith("/gugeo")) {
+    return {
+      mode: "track",
+      scope: "gugeo",
+      label: communityScopeLabel("gugeo"),
+      shortLabel: "국어",
+      hubHref: trackHubHref("gugeo"),
+      subjects: subjectsForScope("gugeo"),
+      tools: toolsForScope("gugeo"),
+    };
+  }
+  if (path.startsWith("/haengjeongsa")) {
+    return {
+      mode: "track",
+      scope: "haengjeongsa",
+      label: communityScopeLabel("haengjeongsa"),
+      shortLabel: "행정사",
+      hubHref: trackHubHref("haengjeongsa"),
+      subjects: subjectsForScope("haengjeongsa"),
+      tools: toolsForScope("haengjeongsa"),
     };
   }
   if (path.startsWith("/public-service")) {

@@ -1,5 +1,7 @@
 import { englishIntro } from "./english";
 import { firefighterIntro } from "./firefighter";
+import { gugeoIntro } from "./gugeo";
+import { haengjeongsaIntro } from "./haengjeongsa";
 import { historyIntro } from "./history";
 import { housingIntro } from "./housing";
 import { policeIntro } from "./police";
@@ -15,6 +17,8 @@ export const EXAM_INTROS = {
   "real-estate": realEstateIntro,
   police: policeIntro,
   firefighter: firefighterIntro,
+  gugeo: gugeoIntro,
+  haengjeongsa: haengjeongsaIntro,
   housing: housingIntro,
   "social-worker": socialWorkerIntro,
   history: historyIntro,

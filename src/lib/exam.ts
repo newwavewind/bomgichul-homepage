@@ -67,6 +67,21 @@ const TRACK_EXAM_SCHEDULE: Record<
     note: "영어는 9급 필기 과목. 다음 일정은 인사혁신처·gongmuwon.gosi.kr 공고 확인",
     examName: "공무원 공개경쟁채용시험",
   },
+  gugeo: {
+    label: "2026년 국가직 9급",
+    examDate: "2026-04-04",
+    registrationStart: "2026-02-02",
+    note: "국어는 9급 필기 과목. 다음 일정은 인사혁신처·gongmuwon.gosi.kr 공고 확인",
+    examName: "공무원 공개경쟁채용시험",
+  },
+  haengjeongsa: {
+    label: "행정사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "행정사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

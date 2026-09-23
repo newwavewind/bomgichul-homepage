@@ -11,6 +11,8 @@ export const PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: st
   { value: "housing", label: "주택관리사" },
   { value: "social_worker", label: "사회복지사" },
   { value: "english", label: "공무원 영어" },
+  { value: "gugeo", label: "공무원 국어" },
+  { value: "haengjeongsa", label: "행정사" },
   { value: "history", label: "한국사" },
 ];
 

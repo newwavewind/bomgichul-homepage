@@ -173,6 +173,18 @@ export const COMMUNITY_HOME_GROUPS = [
     topicKeys: ["english"],
   },
   {
+    scope: "gugeo" as const,
+    label: "국어",
+    blurb: "문법·독해·어휘",
+    topicKeys: ["gugeo"],
+  },
+  {
+    scope: "haengjeongsa" as const,
+    label: "행정사",
+    blurb: "민법·행정법·행정학",
+    topicKeys: ["haengjeongsa"],
+  },
+  {
     scope: "history" as const,
     label: "한국사",
     blurb: "시대별 정리",
@@ -209,6 +221,8 @@ export const TOPIC_TEASERS = [
   { key: "police", label: "경찰학", blurb: "1차·2차 스터디" },
   { key: "firefighter", label: "소방학", blurb: "소방학·관계법규·행정법" },
   { key: "english", label: "영어", blurb: "문법·독해" },
+  { key: "gugeo", label: "국어", blurb: "문법·독해·어휘" },
+  { key: "haengjeongsa", label: "행정사", blurb: "민법·행정법·행정학" },
   { key: "history", label: "한국사", blurb: "시대별 정리" },
 ] as const;
 

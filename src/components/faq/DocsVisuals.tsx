@@ -40,6 +40,14 @@ const HUB_COPY: Record<
     allInOne: ["9급 영어"],
     exam: ["9급 영어"],
   },
+  gugeo: {
+    allInOne: ["9급 국어"],
+    exam: ["9급 국어"],
+  },
+  haengjeongsa: {
+    allInOne: ["민법", "행정법", "행정학개론"],
+    exam: ["민법", "행정법", "행정학개론"],
+  },
 };
 
 const CONCEPT_COPY: Record<
@@ -54,6 +62,8 @@ const CONCEPT_COPY: Record<
   social_worker: { crumb: "인간행동 · 발달", title: "인간발달의 원리" },
   history: { crumb: "한국사 심화 · 고려", title: "무신정변과 최씨 정권" },
   english: { crumb: "9급 영어 · 문법", title: "주어–동사 수일치" },
+  gugeo: { crumb: "9급 국어 · 문법", title: "높임법의 종류" },
+  haengjeongsa: { crumb: "행정사 · 민법", title: "법률행위의 성립" },
 };
 
 const EXAM_COPY: Record<
@@ -91,6 +101,14 @@ const EXAM_COPY: Record<
   english: {
     subject: "9급 영어",
     stem: "밑줄 친 부분에 들어갈 말로 가장 적절한 것을 고르시오.",
+  },
+  gugeo: {
+    subject: "9급 국어",
+    stem: "다음 중 높임법에 관한 설명으로 옳은 것은?",
+  },
+  haengjeongsa: {
+    subject: "민법",
+    stem: "다음 중 법률행위의 성립에 관한 설명으로 옳은 것은?",
   },
 };
 
@@ -155,6 +173,20 @@ const COMMUNITY_COPY: Record<
       { title: "생활영어 표현은 어떻게 외우세요?", meta: "질문 · 댓글 7" },
     ],
   },
+  gugeo: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "맞춤법·띄어쓰기가 헷갈려요", meta: "질문 · 댓글 8" },
+      { title: "2026 국가직 국어 체감 난도", meta: "수험정보 · 댓글 11" },
+    ],
+  },
+  haengjeongsa: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "민법 총칙 범위가 어디까지인가요?", meta: "질문 · 댓글 6" },
+      { title: "행정법 하자·무효 정리 공유", meta: "수험정보 · 댓글 9" },
+    ],
+  },
 };
 
 const ARCHIVE_COPY: Record<
@@ -201,6 +233,16 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "기출 빈출 어휘 정리", size: "760KB" },
     { type: "요약", name: "문법 포인트 한 장 정리", size: "480KB" },
   ],
+  gugeo: [
+    { type: "PDF", name: "9급 국어 2017~2026 기출", size: "3.8MB" },
+    { type: "노트", name: "문법·맞춤법 체크", size: "720KB" },
+    { type: "요약", name: "독해 유형별 공략", size: "450KB" },
+  ],
+  haengjeongsa: [
+    { type: "PDF", name: "행정사 1차 기출 모아보기", size: "2.6MB" },
+    { type: "노트", name: "민법 총칙 요약", size: "690KB" },
+    { type: "요약", name: "행정법 핵심 체크", size: "440KB" },
+  ],
 };
 
 const DIARY_COPY: Record<VisualScope, string> = {
@@ -212,6 +254,8 @@ const DIARY_COPY: Record<VisualScope, string> = {
   social_worker: "인간발달 이론 비교 정리",
   history: "고려 무신정권 연표 정리",
   english: "기출 빈출 어휘 정리",
+  gugeo: "맞춤법·높임법 정리",
+  haengjeongsa: "민법 법률행위 정리",
 };
 
 function PhoneFrame({

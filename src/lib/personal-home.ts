@@ -19,6 +19,8 @@ const BASE_PATHS: Record<string, string> = {
   social_worker: "/social-worker",
   history: "/history",
   english: "/english",
+  gugeo: "/gugeo",
+  haengjeongsa: "/haengjeongsa",
 };
 
 const SCOPE_LABELS: Record<string, string> = {
@@ -29,6 +31,8 @@ const SCOPE_LABELS: Record<string, string> = {
   social_worker: "사회복지사 1급",
   history: "한국사능력검정",
   english: "공무원 영어",
+  gugeo: "공무원 국어",
+  haengjeongsa: "행정사",
 };
 
 function kstDate(date = new Date()) {

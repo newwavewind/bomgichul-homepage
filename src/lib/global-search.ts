@@ -6,6 +6,9 @@ import { HOUSING_SUBJECT_IDS, getHousingSubject } from "@/lib/housing-content";
 import { SOCIAL_WORKER_SUBJECT_IDS, getSocialWorkerSubject } from "@/lib/social-worker-content";
 import { HISTORY_SUBJECT_IDS, getHistorySubject } from "@/lib/history-content";
 import { ENGLISH_SUBJECT_IDS, getEnglishSubject } from "@/lib/english-content";
+import { GUGEO_SUBJECT_IDS, getGugeoSubject } from "@/lib/gugeo-content";
+import { HAENGJEONGSA_SUBJECT_IDS, getHaengjeongsaSubject } from "@/lib/haengjeongsa-content";
+import { FIREFIGHTER_SUBJECT_IDS, getFirefighterSubject } from "@/lib/firefighter-content";
 import type { ExamTrackSubjectContent } from "@/lib/exam-track/types";
 
 export type GlobalSearchResult = { eyebrow: string; title: string; excerpt: string; href: string; score: number };
@@ -43,10 +46,13 @@ function rows() {
       return data.exams.map((exam) => ({ eyebrow: `공무원 · ${data.subject.label}`, title: `${data.subject.label} ${exam.year}년 ${exam.sourceCode} ${exam.questionNo}번`, excerpt: exam.stem, href: `/public-service/exam/${id}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}` }));
     }),
     ...trackRows("경찰공무원", "/police", POLICE_SUBJECT_IDS, getPoliceSubject),
+    ...trackRows("소방공무원", "/firefighter", FIREFIGHTER_SUBJECT_IDS, getFirefighterSubject),
     ...trackRows("주택관리사", "/housing", HOUSING_SUBJECT_IDS, getHousingSubject),
     ...trackRows("사회복지사 1급", "/social-worker", SOCIAL_WORKER_SUBJECT_IDS, getSocialWorkerSubject),
     ...trackRows("한국사능력검정", "/history", HISTORY_SUBJECT_IDS, getHistorySubject),
     ...trackRows("공무원 영어", "/english", ENGLISH_SUBJECT_IDS, getEnglishSubject),
+    ...trackRows("공무원 국어", "/gugeo", GUGEO_SUBJECT_IDS, getGugeoSubject),
+    ...trackRows("행정사", "/haengjeongsa", HAENGJEONGSA_SUBJECT_IDS, getHaengjeongsaSubject),
   ];
   return cached;
 }

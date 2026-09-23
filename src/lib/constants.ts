@@ -13,7 +13,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
@@ -53,7 +53,9 @@ export function appStoreLinksForScope(
     | "housing"
     | "social_worker"
     | "history"
-    | "english",
+    | "english"
+    | "gugeo"
+    | "haengjeongsa",
 ): AppStoreLinks {
   switch (scope) {
     case "police":
@@ -91,6 +93,15 @@ export function appStoreLinksForScope(
     case "english":
       // iOS 는 출시 확인(2026-09-06, 스토어 등재 실측). 안드로이드는 아직.
       return { android: null, ios: "https://apps.apple.com/kr/app/id6803106780" };
+    case "gugeo":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.gugeo",
+        ios: "https://apps.apple.com/kr/app/id6814767249",
+      };
+    // 행정사 앱은 아직 어느 스토어에도 없다. 출시하면 여기만 채우면 된다.
+    case "haengjeongsa":
+      return { android: null, ios: null };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };
   }
@@ -347,6 +358,8 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/firefighter", label: "소방공무원" },
       { href: "/housing", label: "주택관리사" },
       { href: "/social-worker", label: "사회복지사 1급" },
+      { href: "/gugeo", label: "공무원 국어" },
+      { href: "/haengjeongsa", label: "행정사" },
     ],
   },
   {
@@ -479,6 +492,20 @@ export const ARCHIVE_SUBJECTS_ENGLISH = [
   { value: "other", label: "기타" },
 ] as const;
 
+export const ARCHIVE_SUBJECTS_GUGEO = [
+  { value: "all", label: "전체 과목" },
+  { value: "gugeo", label: "국어" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_HAENGJEONGSA = [
+  { value: "all", label: "전체 과목" },
+  { value: "minbeop", label: "민법" },
+  { value: "haengjeongbeop", label: "행정법" },
+  { value: "haengjeonghak", label: "행정학개론" },
+  { value: "other", label: "기타" },
+] as const;
+
 export const ARCHIVE_SUBJECTS_HISTORY = [
   { value: "all", label: "전체 과목" },
   { value: "advanced", label: "심화" },
@@ -501,6 +528,8 @@ export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
   ...ARCHIVE_SUBJECTS_PUBLIC_SERVICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_SOCIAL_WORKER.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_ENGLISH.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_GUGEO.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_HAENGJEONGSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_HISTORY.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
 ]);
 
@@ -518,6 +547,10 @@ export function archiveSubjectsForScope(scope: string) {
       return [...ARCHIVE_SUBJECTS_SOCIAL_WORKER];
     case "english":
       return [...ARCHIVE_SUBJECTS_ENGLISH];
+    case "gugeo":
+      return [...ARCHIVE_SUBJECTS_GUGEO];
+    case "haengjeongsa":
+      return [...ARCHIVE_SUBJECTS_HAENGJEONGSA];
     case "history":
       return [...ARCHIVE_SUBJECTS_HISTORY];
     default:
@@ -539,6 +572,10 @@ export function defaultArchiveSubject(scope: string) {
       return "human-behavior";
     case "english":
       return "english";
+    case "gugeo":
+      return "gugeo";
+    case "haengjeongsa":
+      return "minbeop";
     case "history":
       return "advanced";
     default:

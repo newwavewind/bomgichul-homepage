@@ -10,6 +10,8 @@ const HUB_LINKS = [
   { href: "/social-worker", label: "사회복지사" },
   { href: "/history", label: "한국사" },
   { href: "/english", label: "공무원 영어" },
+  { href: "/gugeo", label: "공무원 국어" },
+  { href: "/haengjeongsa", label: "행정사" },
 ] as const;
 
 const CONCEPT_LINKS = [

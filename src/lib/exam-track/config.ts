@@ -101,6 +101,42 @@ export const ENGLISH_TRACK: ExamTrackConfig = {
   aboutName: "9급 공무원 공개경쟁채용시험 영어",
 };
 
+/*
+ * 9급 국어도 영어와 같이 공무원 필기 한 과목이지만, 「봄기출 공무원국어」
+ * 독립 앱·스토어 상품이라 별도 트랙으로 둔다.
+ */
+export const GUGEO_TRACK: ExamTrackConfig = {
+  id: "gugeo",
+  label: "공무원 국어",
+  shortLabel: "국어",
+  basePath: "/gugeo",
+  eyebrow: "봄기출 · 공무원 국어",
+  hubTitle: "9급 공무원 국어 기출 학습의 모든 것",
+  hubDescription:
+    "국가직·지방직 9급 국어 기출을 2017년부터 2026년까지, 20회차 400문항 담았습니다. 선지마다 해설과 함께 봅니다.",
+  communityScope: "gugeo",
+  communityTitle: "공무원 국어 수험생 커뮤니티",
+  sessionEyebrow: "9급 공무원 국어 기출",
+  educationalLevel: "9급 공무원 공개경쟁채용시험 국어",
+  aboutName: "9급 공무원 공개경쟁채용시험 국어",
+};
+
+export const HAENGJEONGSA_TRACK: ExamTrackConfig = {
+  id: "haengjeongsa",
+  label: "행정사",
+  shortLabel: "행정사",
+  basePath: "/haengjeongsa",
+  eyebrow: "봄기출 · 행정사",
+  hubTitle: "행정사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "행정사 1차 민법·행정법·행정학개론 기출을 회차별로 학습하세요. 2차 주관식은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "haengjeongsa",
+  communityTitle: "행정사 수험생 커뮤니티",
+  sessionEyebrow: "행정사 1차 기출",
+  educationalLevel: "행정사 국가자격시험",
+  aboutName: "행정사 국가자격시험 1차",
+};
+
 export const EXAM_TRACKS = [
   POLICE_TRACK,
   FIREFIGHTER_TRACK,
@@ -108,6 +144,8 @@ export const EXAM_TRACKS = [
   SOCIAL_WORKER_TRACK,
   HISTORY_TRACK,
   ENGLISH_TRACK,
+  GUGEO_TRACK,
+  HAENGJEONGSA_TRACK,
 ] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
@@ -117,5 +155,7 @@ export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/social-worker")) return SOCIAL_WORKER_TRACK;
   if (pathname.startsWith("/history")) return HISTORY_TRACK;
   if (pathname.startsWith("/english")) return ENGLISH_TRACK;
+  if (pathname.startsWith("/gugeo")) return GUGEO_TRACK;
+  if (pathname.startsWith("/haengjeongsa")) return HAENGJEONGSA_TRACK;
   return null;
 }
