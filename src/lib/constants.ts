@@ -13,7 +13,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
@@ -49,6 +49,7 @@ export function appStoreLinksForScope(
     | "real_estate"
     | "public_service"
     | "police"
+    | "firefighter"
     | "housing"
     | "social_worker"
     | "history"
@@ -59,6 +60,12 @@ export function appStoreLinksForScope(
       return {
         android: null,
         ios: "https://apps.apple.com/kr/app/id6798675892",
+      };
+    case "firefighter":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.firefighter",
+        ios: "https://apps.apple.com/kr/app/id6814271261",
       };
     case "public_service":
       return {
@@ -337,6 +344,7 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/public-service", label: "공무원" },
       { href: "/real-estate", label: "공인중개사" },
       { href: "/police", label: "경찰공무원" },
+      { href: "/firefighter", label: "소방공무원" },
       { href: "/housing", label: "주택관리사" },
       { href: "/social-worker", label: "사회복지사 1급" },
     ],
@@ -441,6 +449,11 @@ export const ARCHIVE_SUBJECTS_PUBLIC_SERVICE = [
   { value: "hyeongsogaeron", label: "형사소송법개론" },
   { value: "hyeongbeop", label: "형법" },
   { value: "hyeongso", label: "형사소송법" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_FIREFIGHTER = [
+  { value: "all", label: "전체 과목" },
   { value: "sobang", label: "소방학개론" },
   { value: "sobangbeop", label: "소방관계법규" },
   { value: "other", label: "기타" },
@@ -482,6 +495,7 @@ export const ARCHIVE_RESOURCE_TYPE_MAP: Record<string, string> = {
 export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
   ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_POLICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_FIREFIGHTER.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_HOUSING.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_PUBLIC_SERVICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_SOCIAL_WORKER.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
@@ -493,6 +507,8 @@ export function archiveSubjectsForScope(scope: string) {
   switch (scope) {
     case "police":
       return [...ARCHIVE_SUBJECTS_POLICE];
+    case "firefighter":
+      return [...ARCHIVE_SUBJECTS_FIREFIGHTER];
     case "housing":
       return [...ARCHIVE_SUBJECTS_HOUSING];
     case "public_service":
@@ -512,6 +528,8 @@ export function defaultArchiveSubject(scope: string) {
   switch (scope) {
     case "police":
       return "constitution";
+    case "firefighter":
+      return "sobang";
     case "housing":
       return "accounting";
     case "public_service":

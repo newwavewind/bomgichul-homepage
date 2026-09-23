@@ -20,6 +20,10 @@ const HUB_COPY: Record<
     allInOne: ["헌법", "형사법", "경찰학"],
     exam: ["헌법", "형사법"],
   },
+  firefighter: {
+    allInOne: ["소방학개론", "소방관계법규"],
+    exam: ["소방학개론", "소방관계법규"],
+  },
   housing: {
     allInOne: ["회계원리", "민법", "주택관리관계법규", "공동주택관리실무"],
     exam: ["회계원리", "민법"],
@@ -45,6 +49,7 @@ const CONCEPT_COPY: Record<
   real_estate: { crumb: "민법 · 권리의 변동", title: "권리취득의 유형" },
   public_service: { crumb: "행정학개론 · 조직론", title: "관료제의 특징" },
   police: { crumb: "경찰 · 헌법 · 기본권", title: "기본권의 제한" },
+  firefighter: { crumb: "소방 · 소방학개론", title: "연소의 조건" },
   housing: { crumb: "회계원리 · 재무제표", title: "대차대조표의 구조" },
   social_worker: { crumb: "인간행동 · 발달", title: "인간발달의 원리" },
   history: { crumb: "한국사 심화 · 고려", title: "무신정변과 최씨 정권" },
@@ -66,6 +71,10 @@ const EXAM_COPY: Record<
   police: {
     subject: "헌법",
     stem: "다음 중 기본권의 제한에 관한 설명으로 옳은 것은?",
+  },
+  firefighter: {
+    subject: "소방학개론",
+    stem: "다음 중 연소의 조건에 관한 설명으로 옳은 것은?",
   },
   housing: {
     subject: "회계원리",
@@ -108,6 +117,13 @@ const COMMUNITY_COPY: Record<
     posts: [
       { title: "형소법 영장주의 예외가 헷갈려요", meta: "질문 · 댓글 6" },
       { title: "경찰학 조직 파트 정리 공유", meta: "수험정보 · 댓글 9" },
+    ],
+  },
+  firefighter: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "연소 조건 세 요소가 헷갈려요", meta: "질문 · 댓글 5" },
+      { title: "소방관계법규 시설 기준 정리", meta: "수험정보 · 댓글 8" },
     ],
   },
   housing: {
@@ -160,6 +176,11 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "형사법 수사 절차 한눈에", size: "720KB" },
     { type: "요약", name: "경찰학 조직·인사 요약", size: "450KB" },
   ],
+  firefighter: [
+    { type: "PDF", name: "소방학개론 기출 모아보기", size: "2.0MB" },
+    { type: "노트", name: "소방관계법규 시설 요약", size: "680KB" },
+    { type: "요약", name: "연소·소화 핵심 체크", size: "420KB" },
+  ],
   housing: [
     { type: "PDF", name: "회계원리 기출 모아보기", size: "2.0MB" },
     { type: "노트", name: "주택관리관계법규 요약", size: "680KB" },
@@ -186,6 +207,7 @@ const DIARY_COPY: Record<VisualScope, string> = {
   real_estate: "민법 계약해제 정리",
   public_service: "행정법 하자·무효 정리",
   police: "헌법 기본권 제한 정리",
+  firefighter: "연소 조건·소화 정리",
   housing: "회계 분개 연습 정리",
   social_worker: "인간발달 이론 비교 정리",
   history: "고려 무신정권 연표 정리",
@@ -231,7 +253,9 @@ export function StudyHubVisual({ scope = "real_estate" }: { scope?: VisualScope 
   const allInOne =
     scope === "police"
       ? ["헌법", "형사법", "경찰학"]
-      : copy.allInOne;
+      : scope === "firefighter"
+        ? ["소방학개론", "소방관계법규"]
+        : copy.allInOne;
 
   return (
     <PhoneFrame caption="학습 홈" tint="snow">

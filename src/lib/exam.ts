@@ -28,6 +28,13 @@ const TRACK_EXAM_SCHEDULE: Record<
     note: "제2차 필기 2026.8.22. 완료. 중앙경찰학교 공고 제2026-11호 기준",
     examName: "경찰공무원 순경 공개채용",
   },
+  firefighter: {
+    label: "소방공무원 공개경쟁채용",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 사이버국가고시센터(gosi.kr) 공고 확인",
+    examName: "소방공무원 공개경쟁채용",
+  },
   housing: {
     label: "2026년 제29회 주택관리사보 2차",
     examDate: "2026-09-19",

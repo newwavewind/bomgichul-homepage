@@ -16,6 +16,22 @@ export const POLICE_TRACK: ExamTrackConfig = {
   aboutName: "경찰공무원 순경 공개채용 필기시험",
 };
 
+export const FIREFIGHTER_TRACK: ExamTrackConfig = {
+  id: "firefighter",
+  label: "소방공무원",
+  shortLabel: "소방",
+  basePath: "/firefighter",
+  eyebrow: "봄기출 · 소방공무원",
+  hubTitle: "소방공무원 기출 학습의 모든 것",
+  hubDescription:
+    "소방학개론·소방관계법규 기출과 핵심 개념을 웹에서 바로 학습하고, 앱의 학습 모드로 공부를 이어가세요.",
+  communityScope: "firefighter",
+  communityTitle: "소방공무원 수험생 커뮤니티",
+  sessionEyebrow: "소방 공채 기출",
+  educationalLevel: "소방공무원 공개경쟁채용",
+  aboutName: "소방공무원 공개경쟁채용 필기시험",
+};
+
 export const HOUSING_TRACK: ExamTrackConfig = {
   id: "housing",
   label: "주택관리사",
@@ -87,6 +103,7 @@ export const ENGLISH_TRACK: ExamTrackConfig = {
 
 export const EXAM_TRACKS = [
   POLICE_TRACK,
+  FIREFIGHTER_TRACK,
   HOUSING_TRACK,
   SOCIAL_WORKER_TRACK,
   HISTORY_TRACK,
@@ -95,6 +112,7 @@ export const EXAM_TRACKS = [
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/police")) return POLICE_TRACK;
+  if (pathname.startsWith("/firefighter")) return FIREFIGHTER_TRACK;
   if (pathname.startsWith("/housing")) return HOUSING_TRACK;
   if (pathname.startsWith("/social-worker")) return SOCIAL_WORKER_TRACK;
   if (pathname.startsWith("/history")) return HISTORY_TRACK;

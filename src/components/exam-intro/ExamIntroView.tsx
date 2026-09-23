@@ -9,6 +9,7 @@ const INTRO_STORE_SCOPE: Record<string, AppStoreScope> = {
   "public-service": "public_service",
   "real-estate": "real_estate",
   police: "police",
+  firefighter: "firefighter",
   housing: "housing",
   "social-worker": "social_worker",
   history: "history",

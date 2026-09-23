@@ -19,6 +19,8 @@ export function archiveYearsForScope(scope: CommunityScope): number[] {
       return rangeYears(2017, 2026);
     case "police":
       return rangeYears(2022, 2026);
+    case "firefighter":
+      return rangeYears(2018, 2026);
     case "housing":
       return rangeYears(2016, 2026);
     case "social_worker":
@@ -95,6 +97,15 @@ export function archiveTracksForScope(scope: CommunityScope): {
           { value: "all", label: "전체" },
           { value: "round1", label: "1차", titleMatch: "1차" },
           { value: "round2", label: "2차", titleMatch: "2차" },
+          { value: "answer", label: "정답", titleMatch: "정답" },
+        ],
+      };
+    case "firefighter":
+      return {
+        label: "구분",
+        options: [
+          { value: "all", label: "전체" },
+          { value: "national", label: "국가직", titleMatch: "국가직" },
           { value: "answer", label: "정답", titleMatch: "정답" },
         ],
       };

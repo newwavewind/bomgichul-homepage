@@ -7,6 +7,7 @@ export const PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: st
   { value: "public_service", label: "공무원" },
   { value: "real_estate", label: "공인중개사" },
   { value: "police", label: "경찰" },
+  { value: "firefighter", label: "소방" },
   { value: "housing", label: "주택관리사" },
   { value: "social_worker", label: "사회복지사" },
   { value: "english", label: "공무원 영어" },

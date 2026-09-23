@@ -47,6 +47,13 @@ const LEGACY_PUBLIC_SERVICE_CONCEPT_SLUGS: Record<string, Record<string, string>
     "labor-chwieopgyuchik": "labor-chwieopgyuchik-jakseong",
     "labor-geunrogamdok": "labor-geunrogamdokgwan",
   },
+  sebeop: {
+    "tax-bulbok": "gib-bulbok",
+  },
+};
+
+/** 소방학·소방관계법규는 공무원 트랙에서 분리되어 /firefighter 로 이전 */
+const LEGACY_FIREFIGHTER_CONCEPT_SLUGS: Record<string, Record<string, string>> = {
   sobang: {
     "fire-inhwa-balhwa": "sb-yeonso-hyeongtae",
     "fire-moc-wiheomdo": "sb-yeonso-jogeon",
@@ -57,13 +64,31 @@ const LEGACY_PUBLIC_SERVICE_CONCEPT_SLUGS: Record<string, Record<string, string>
   sobangbeop: {
     "firelaw-yongsu": "sbg-sobangryeok-jangbi",
   },
-  sebeop: {
-    "tax-bulbok": "gib-bulbok",
-  },
 };
+
+const FIREFIGHTER_SUBJECTS = new Set(["sobang", "sobangbeop"]);
 
 export function getLegacySeoRedirect(pathname: string): string | null {
   if (pathname === "/history/concepts/simhwa") return "/history/concepts";
+
+  // 옛 공무원 경로의 소방 과목 → 소방공무원 트랙
+  const firefighterMatch = pathname.match(
+    /^\/public-service\/(concepts|exam)\/(sobang|sobangbeop)(?:\/([^/]+))?(?:\/(.*))?\/?$/,
+  );
+  if (firefighterMatch) {
+    const [, section, subject, segment, rest] = firefighterMatch;
+    if (section === "concepts" && segment) {
+      const newSlug =
+        LEGACY_FIREFIGHTER_CONCEPT_SLUGS[subject]?.[segment] ?? segment;
+      const suffix = rest ? `/${rest}` : "";
+      return `/firefighter/concepts/${subject}/${newSlug}${suffix}`;
+    }
+    if (segment) {
+      const suffix = rest ? `/${rest}` : "";
+      return `/firefighter/${section}/${subject}/${segment}${suffix}`;
+    }
+    return `/firefighter/${section}/${subject}`;
+  }
 
   const match = pathname.match(
     /^\/public-service\/concepts\/([^/]+)\/([^/]+)\/?$/,
@@ -71,6 +96,8 @@ export function getLegacySeoRedirect(pathname: string): string | null {
   if (!match) return null;
 
   const [, subject, oldSlug] = match;
+  if (FIREFIGHTER_SUBJECTS.has(subject)) return null;
+
   const newSlug = LEGACY_PUBLIC_SERVICE_CONCEPT_SLUGS[subject]?.[oldSlug];
   return newSlug ? `/public-service/concepts/${subject}/${newSlug}` : null;
 }

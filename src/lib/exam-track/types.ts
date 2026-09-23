@@ -193,14 +193,14 @@ export interface ExamTrackManifestItem {
 }
 
 export interface ExamTrackConfig {
-  id: "police" | "housing" | "social_worker" | "history" | "english";
+  id: "police" | "firefighter" | "housing" | "social_worker" | "history" | "english";
   label: string;
   shortLabel: string;
   basePath: string;
   eyebrow: string;
   hubTitle: string;
   hubDescription: string;
-  communityScope: "police" | "housing" | "social_worker" | "history" | "english";
+  communityScope: "police" | "firefighter" | "housing" | "social_worker" | "history" | "english";
   communityTitle: string;
   sessionEyebrow: string;
   educationalLevel: string;

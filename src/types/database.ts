@@ -15,6 +15,7 @@ export type CommunityScope =
   | "real_estate"
   | "public_service"
   | "police"
+  | "firefighter"
   | "housing"
   | "social_worker"
   | "history"

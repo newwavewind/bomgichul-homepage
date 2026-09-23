@@ -14,6 +14,7 @@ export type PersonalHomeData = {
 const BASE_PATHS: Record<string, string> = {
   public_service: "/public-service",
   police: "/police",
+  firefighter: "/firefighter",
   housing: "/housing",
   social_worker: "/social-worker",
   history: "/history",
@@ -23,6 +24,7 @@ const BASE_PATHS: Record<string, string> = {
 const SCOPE_LABELS: Record<string, string> = {
   public_service: "공무원",
   police: "경찰공무원",
+  firefighter: "소방공무원",
   housing: "주택관리사",
   social_worker: "사회복지사 1급",
   history: "한국사능력검정",

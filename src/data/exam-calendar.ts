@@ -15,6 +15,7 @@ export type ExamCalendarEvent = {
     | "public-service"
     | "real-estate"
     | "police"
+    | "firefighter"
     | "housing"
     | "social-worker"
     | "history"
@@ -42,6 +43,7 @@ export const EXAM_CALENDAR_COLORS: Record<ExamCalendarEvent["examKey"], string> 
   "public-service": "#2563eb",
   "real-estate": "#087f6d",
   police: "#4f46e5",
+  firefighter: "#ea580c",
   housing: "#c2410c",
   "social-worker": "#db2777",
   history: "#65a30d",
@@ -53,6 +55,7 @@ export const EXAM_CALENDAR_LABELS: Record<ExamCalendarEvent["examKey"], string> 
   "public-service": "공무원",
   "real-estate": "공인중개사",
   police: "경찰공무원",
+  firefighter: "소방공무원",
   housing: "주택관리사보",
   "social-worker": "사회복지사1급",
   english: "공무원 영어",
@@ -63,6 +66,7 @@ export const EXAM_CALENDAR_ORDER: ExamCalendarEvent["examKey"][] = [
   "public-service",
   "real-estate",
   "police",
+  "firefighter",
   "housing",
   "social-worker",
   "english",

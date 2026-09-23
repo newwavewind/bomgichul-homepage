@@ -15,6 +15,11 @@ import {
   getPoliceSubject,
 } from "@/lib/police-content";
 import {
+  FIREFIGHTER_SUBJECT_IDS,
+  getFirefighterExamSessions,
+  getFirefighterSubject,
+} from "@/lib/firefighter-content";
+import {
   HOUSING_SUBJECT_IDS,
   getHousingExamSessions,
   getHousingSubject,
@@ -51,6 +56,7 @@ export const SITEMAP_GROUPS = [
   "real-estate",
   "public-service",
   "police",
+  "firefighter",
   "housing",
   "social-worker",
   "history",
@@ -63,6 +69,7 @@ const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   "real-estate": "real_estate",
   "public-service": "public_service",
   police: "police",
+  firefighter: "firefighter",
   housing: "housing",
   "social-worker": "social_worker",
   history: "history",
@@ -201,6 +208,13 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         POLICE_SUBJECT_IDS,
         getPoliceSubject,
         getPoliceExamSessions,
+      );
+    case "firefighter":
+      return getNamespacedTrackUrls(
+        "/firefighter",
+        FIREFIGHTER_SUBJECT_IDS,
+        getFirefighterSubject,
+        getFirefighterExamSessions,
       );
     case "housing":
       return getNamespacedTrackUrls(

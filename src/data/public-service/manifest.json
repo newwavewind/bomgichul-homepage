@@ -283,48 +283,6 @@
     ]
   },
   {
-    "id": "sobang",
-    "label": "소방학개론",
-    "track": "소방",
-    "conceptCount": 11,
-    "examCount": 200,
-    "years": [
-      2026,
-      2025,
-      2024,
-      2023,
-      2022,
-      2021,
-      2020,
-      2019,
-      2018
-    ],
-    "sources": [
-      "국가직"
-    ]
-  },
-  {
-    "id": "sobangbeop",
-    "label": "소방관계법규",
-    "track": "소방",
-    "conceptCount": 53,
-    "examCount": 200,
-    "years": [
-      2026,
-      2025,
-      2024,
-      2023,
-      2022,
-      2021,
-      2020,
-      2019,
-      2018
-    ],
-    "sources": [
-      "국가직"
-    ]
-  },
-  {
     "id": "hoegyewonri",
     "label": "회계원리",
     "track": "회계 계열",

@@ -67,6 +67,7 @@ describe("search engine foundations", () => {
     const cases = [
       ["public-service", "/public-service/"],
       ["police", "/police/"],
+      ["firefighter", "/firefighter/"],
       ["housing", "/housing/"],
       ["social-worker", "/social-worker/"],
       ["history", "/history/"],

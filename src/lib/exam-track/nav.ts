@@ -91,6 +91,11 @@ const ENGLISH_SUBJECTS: { id: string; label: string }[] = [
   { id: "gong9", label: "9급 영어" },
 ];
 
+const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
+  { id: "sobang", label: "소방학개론" },
+  { id: "sobangbeop", label: "소방관계법규" },
+];
+
 /** 헤더에 바로 보이는 공무원 주요 과목 (나머지는 학습 홈에서) */
 const PUBLIC_SERVICE_SUBJECTS: { id: string; label: string }[] = [
   { id: "hangjunghak", label: "행정학" },
@@ -99,7 +104,6 @@ const PUBLIC_SERVICE_SUBJECTS: { id: string; label: string }[] = [
   { id: "hyeongso", label: "형소법" },
   { id: "sebeop", label: "세법" },
   { id: "bokji", label: "사회복지" },
-  { id: "sobang", label: "소방학" },
 ];
 
 function subjectsForScope(scope: CommunityScope): NavSubject[] {
@@ -123,15 +127,17 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
   const list =
     scope === "police"
       ? POLICE_SUBJECTS
-      : scope === "housing"
-        ? HOUSING_SUBJECTS
-        : scope === "social_worker"
-          ? SOCIAL_WORKER_SUBJECTS
-          : scope === "history"
-            ? HISTORY_SUBJECTS
-            : scope === "english"
-              ? ENGLISH_SUBJECTS
-              : PUBLIC_SERVICE_SUBJECTS;
+      : scope === "firefighter"
+        ? FIREFIGHTER_SUBJECTS
+        : scope === "housing"
+          ? HOUSING_SUBJECTS
+          : scope === "social_worker"
+            ? SOCIAL_WORKER_SUBJECTS
+            : scope === "history"
+              ? HISTORY_SUBJECTS
+              : scope === "english"
+                ? ENGLISH_SUBJECTS
+                : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -157,6 +163,7 @@ function toolsForScope(scope: CommunityScope): NavTool[] {
 /** RE 전용 경로인지 (다른 시험 접두 없음) */
 function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/police")) return false;
+  if (pathname.startsWith("/firefighter")) return false;
   if (pathname.startsWith("/housing")) return false;
   if (pathname.startsWith("/social-worker")) return false;
   if (pathname.startsWith("/history")) return false;
@@ -188,6 +195,17 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("police"),
       subjects: subjectsForScope("police"),
       tools: toolsForScope("police"),
+    };
+  }
+  if (path.startsWith("/firefighter")) {
+    return {
+      mode: "track",
+      scope: "firefighter",
+      label: communityScopeLabel("firefighter"),
+      shortLabel: "소방",
+      hubHref: trackHubHref("firefighter"),
+      subjects: subjectsForScope("firefighter"),
+      tools: toolsForScope("firefighter"),
     };
   }
   if (path.startsWith("/housing")) {

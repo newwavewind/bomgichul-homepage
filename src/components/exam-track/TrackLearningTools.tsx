@@ -54,7 +54,7 @@ export function TrackLearningTools({
   basePath,
   exams: allExams,
 }: {
-  scope: "public_service" | "police" | "housing" | "social_worker" | "history" | "english";
+  scope: "public_service" | "police" | "firefighter" | "housing" | "social_worker" | "history" | "english";
   subjectId: string;
   basePath: string;
   exams: ExamTrackExam[];

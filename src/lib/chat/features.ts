@@ -161,6 +161,12 @@ export const COMMUNITY_HOME_GROUPS = [
     topicKeys: ["police"],
   },
   {
+    scope: "firefighter" as const,
+    label: "소방",
+    blurb: "소방학·관계법규",
+    topicKeys: ["firefighter"],
+  },
+  {
     scope: "english" as const,
     label: "영어",
     blurb: "문법·독해",
@@ -201,6 +207,7 @@ export const TOPIC_TEASERS = [
   { key: "broker-law", label: "공인중개사법", blurb: "중개실무 같이 풀기" },
   { key: "admin-law", label: "행정법", blurb: "국가직·지방직" },
   { key: "police", label: "경찰학", blurb: "1차·2차 스터디" },
+  { key: "firefighter", label: "소방학", blurb: "소방학·관계법규" },
   { key: "english", label: "영어", blurb: "문법·독해" },
   { key: "history", label: "한국사", blurb: "시대별 정리" },
 ] as const;
