@@ -24,7 +24,7 @@ export const FIREFIGHTER_TRACK: ExamTrackConfig = {
   eyebrow: "봄기출 · 소방공무원",
   hubTitle: "소방공무원 기출 학습의 모든 것",
   hubDescription:
-    "소방학개론·소방관계법규 기출과 핵심 개념을 웹에서 바로 학습하고, 앱의 학습 모드로 공부를 이어가세요.",
+    "소방학개론·소방관계법규·행정법총론 기출과 핵심 개념을 웹에서 바로 학습하고, 앱의 학습 모드로 공부를 이어가세요.",
   communityScope: "firefighter",
   communityTitle: "소방공무원 수험생 커뮤니티",
   sessionEyebrow: "소방 공채 기출",

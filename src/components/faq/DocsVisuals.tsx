@@ -21,8 +21,8 @@ const HUB_COPY: Record<
     exam: ["헌법", "형사법"],
   },
   firefighter: {
-    allInOne: ["소방학개론", "소방관계법규"],
-    exam: ["소방학개론", "소방관계법규"],
+    allInOne: ["소방학개론", "소방관계법규", "행정법총론"],
+    exam: ["소방학개론", "소방관계법규", "행정법총론"],
   },
   housing: {
     allInOne: ["회계원리", "민법", "주택관리관계법규", "공동주택관리실무"],
@@ -254,7 +254,7 @@ export function StudyHubVisual({ scope = "real_estate" }: { scope?: VisualScope 
     scope === "police"
       ? ["헌법", "형사법", "경찰학"]
       : scope === "firefighter"
-        ? ["소방학개론", "소방관계법규"]
+        ? ["소방학개론", "소방관계법규", "행정법총론"]
         : copy.allInOne;
 
   return (

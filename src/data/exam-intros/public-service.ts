@@ -29,7 +29,7 @@ export const publicServiceIntro: ExamIntro = {
   eyebrow: "9급 공무원 공개경쟁채용",
   title: "공무원 시험 안내",
   summary:
-    "2026년 국가직 9급 공채는 필기(2026.4.4.)까지 진행되었습니다. 인사혁신처·국가공무원채용시스템 공고 기준으로 직렬·과목·일정을 정리했습니다. 소방공무원(소방학개론·소방관계법규)은 별도 트랙(/firefighter)에서 제공합니다. 다음 연도 일정은 최신 공고를 확인하세요.",
+    "2026년 국가직 9급 공채는 필기(2026.4.4.)까지 진행되었습니다. 인사혁신처·국가공무원채용시스템 공고 기준으로 직렬·과목·일정을 정리했습니다. 소방공무원(소방학개론·소방관계법규·행정법총론)은 별도 트랙(/firefighter)에서 제공합니다. 다음 연도 일정은 최신 공고를 확인하세요.",
   hubHref: "/public-service",
   hubCta: "공무원 학습 시작",
   conceptsHref: "/public-service/concepts/hangjunghak",

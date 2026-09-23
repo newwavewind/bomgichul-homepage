@@ -312,7 +312,7 @@ export function buildPlatformHomeJsonLd() {
         {
           "@type": "ListItem",
           position: 4,
-          name: "소방공무원 소방학개론·소방관계법규 기출 학습",
+          name: "소방공무원 소방학개론·소방관계법규·행정법총론 기출 학습",
           url: absoluteUrl("/firefighter"),
         },
         {

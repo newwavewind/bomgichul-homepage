@@ -456,6 +456,7 @@ export const ARCHIVE_SUBJECTS_FIREFIGHTER = [
   { value: "all", label: "전체 과목" },
   { value: "sobang", label: "소방학개론" },
   { value: "sobangbeop", label: "소방관계법규" },
+  { value: "haengjeongbeop", label: "행정법총론" },
   { value: "other", label: "기타" },
 ] as const;
 

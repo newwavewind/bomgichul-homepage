@@ -94,6 +94,7 @@ const ENGLISH_SUBJECTS: { id: string; label: string }[] = [
 const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
   { id: "sobang", label: "소방학개론" },
   { id: "sobangbeop", label: "소방관계법규" },
+  { id: "haengjeongbeop", label: "행정법총론" },
 ];
 
 /** 헤더에 바로 보이는 공무원 주요 과목 (나머지는 학습 홈에서) */
