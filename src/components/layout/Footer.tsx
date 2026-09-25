@@ -12,6 +12,7 @@ const HUB_LINKS = [
   { href: "/english", label: "공무원 영어" },
   { href: "/gugeo", label: "공무원 국어" },
   { href: "/haengjeongsa", label: "행정사" },
+  { href: "/semusa", label: "세무사" },
 ] as const;
 
 const CONCEPT_LINKS = [

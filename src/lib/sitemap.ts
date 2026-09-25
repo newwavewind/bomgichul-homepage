@@ -45,6 +45,11 @@ import {
   getHaengjeongsaSubject,
 } from "@/lib/haengjeongsa-content";
 import {
+  SEMUSA_SUBJECT_IDS,
+  getSemusaSubject,
+  getSemusaExamSessions,
+} from "@/lib/semusa-content";
+import {
   HISTORY_SUBJECT_IDS,
   getHistoryExamSessions,
   getHistorySubject,
@@ -73,6 +78,7 @@ export const SITEMAP_GROUPS = [
   "english",
   "gugeo",
   "haengjeongsa",
+  "semusa",
 ] as const;
 
 export type SitemapGroup = (typeof SITEMAP_GROUPS)[number];
@@ -88,6 +94,7 @@ const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   english: "english",
   gugeo: "gugeo",
   haengjeongsa: "haengjeongsa",
+  semusa: "semusa",
 };
 
 function page(
@@ -274,6 +281,14 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         HAENGJEONGSA_SUBJECT_IDS,
         getHaengjeongsaSubject,
         getHaengjeongsaExamSessions,
+        { includeConcepts: false },
+      );
+    case "semusa":
+      return getNamespacedTrackUrls(
+        "/semusa",
+        SEMUSA_SUBJECT_IDS,
+        getSemusaSubject,
+        getSemusaExamSessions,
         { includeConcepts: false },
       );
   }

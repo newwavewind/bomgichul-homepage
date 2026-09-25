@@ -31,6 +31,8 @@ export function archiveYearsForScope(scope: CommunityScope): number[] {
       return rangeYears(2017, 2026);
     case "haengjeongsa":
       return rangeYears(2017, 2026);
+    case "semusa":
+      return rangeYears(2017, 2026);
     case "history":
       return [];
     default:
@@ -123,6 +125,15 @@ export function archiveTracksForScope(scope: CommunityScope): {
         ],
       };
     case "haengjeongsa":
+      return {
+        label: "구분",
+        options: [
+          { value: "all", label: "전체" },
+          { value: "problem", label: "문제", titleMatch: "문제" },
+          { value: "answer", label: "정답", titleMatch: "정답" },
+        ],
+      };
+    case "semusa":
       return {
         label: "구분",
         options: [

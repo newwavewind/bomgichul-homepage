@@ -4,6 +4,7 @@ import {
   FIREFIGHTER_TRACK,
   GUGEO_TRACK,
   HAENGJEONGSA_TRACK,
+  SEMUSA_TRACK,
   HISTORY_TRACK,
   HOUSING_TRACK,
   POLICE_TRACK,
@@ -32,6 +33,8 @@ export function communityScopeLabel(scope: CommunityScope): string {
       return "공무원 국어";
     case "haengjeongsa":
       return "행정사";
+    case "semusa":
+      return "세무사";
     default:
       return "공인중개사";
   }
@@ -57,6 +60,8 @@ export function trackHubHref(scope: CommunityScope): string {
       return GUGEO_TRACK.basePath;
     case "haengjeongsa":
       return HAENGJEONGSA_TRACK.basePath;
+    case "semusa":
+      return SEMUSA_TRACK.basePath;
     default:
       return "/real-estate";
   }
@@ -82,6 +87,8 @@ export function communityBaseHref(scope: CommunityScope): string {
       return `${GUGEO_TRACK.basePath}/community`;
     case "haengjeongsa":
       return `${HAENGJEONGSA_TRACK.basePath}/community`;
+    case "semusa":
+      return `${SEMUSA_TRACK.basePath}/community`;
     default:
       return "/community";
   }
@@ -107,6 +114,8 @@ export function archiveBaseHref(scope: CommunityScope): string {
       return `${GUGEO_TRACK.basePath}/archive`;
     case "haengjeongsa":
       return `${HAENGJEONGSA_TRACK.basePath}/archive`;
+    case "semusa":
+      return `${SEMUSA_TRACK.basePath}/archive`;
     default:
       return "/archive";
   }
@@ -132,6 +141,8 @@ export function diaryBaseHref(scope: CommunityScope): string {
       return `${GUGEO_TRACK.basePath}/diary`;
     case "haengjeongsa":
       return `${HAENGJEONGSA_TRACK.basePath}/diary`;
+    case "semusa":
+      return `${SEMUSA_TRACK.basePath}/diary`;
     default:
       return "/diary";
   }
@@ -157,6 +168,8 @@ export function faqBaseHref(scope: CommunityScope): string {
       return `${GUGEO_TRACK.basePath}/faq`;
     case "haengjeongsa":
       return `${HAENGJEONGSA_TRACK.basePath}/faq`;
+    case "semusa":
+      return `${SEMUSA_TRACK.basePath}/faq`;
     default:
       return "/faq";
   }
@@ -182,6 +195,8 @@ export function communityTitle(scope: CommunityScope): string {
       return GUGEO_TRACK.communityTitle;
     case "haengjeongsa":
       return HAENGJEONGSA_TRACK.communityTitle;
+    case "semusa":
+      return SEMUSA_TRACK.communityTitle;
     default:
       return "공인중개사 수험생 커뮤니티";
   }
@@ -207,6 +222,8 @@ export function archiveTitle(scope: CommunityScope): string {
       return "공무원 국어 자료실";
     case "haengjeongsa":
       return "행정사 자료실";
+    case "semusa":
+      return "세무사 자료실";
     default:
       return "공인중개사 자료실";
   }
@@ -232,6 +249,8 @@ export function archiveEyebrow(scope: CommunityScope): string {
       return "공무원 국어 수험 자료 공유";
     case "haengjeongsa":
       return "행정사 수험 자료 공유";
+    case "semusa":
+      return "세무사 수험 자료 공유";
     default:
       return "공인중개사 수험 자료 공유";
   }
@@ -262,7 +281,8 @@ export function isValidCommunityScope(value: string | null | undefined): value i
     // 앱은 「전송 실패」만 보여 주고 어디가 막혔는지 알 길이 없다.
     value === "english" ||
     value === "gugeo" ||
-    value === "haengjeongsa"
+    value === "haengjeongsa" ||
+    value === "semusa"
   );
 }
 
@@ -276,6 +296,7 @@ export function scopeFromPathname(pathname: string | null | undefined): Communit
   if (pathname.startsWith("/english")) return "english";
   if (pathname.startsWith("/gugeo")) return "gugeo";
   if (pathname.startsWith("/haengjeongsa")) return "haengjeongsa";
+  if (pathname.startsWith("/semusa")) return "semusa";
   if (pathname.startsWith("/public-service")) return "public_service";
   return "real_estate";
 }

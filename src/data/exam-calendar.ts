@@ -21,7 +21,8 @@ export type ExamCalendarEvent = {
     | "history"
     | "english"
     | "gugeo"
-    | "haengjeongsa";
+    | "haengjeongsa"
+    | "semusa";
   examLabel: string;
   kind: ExamCalendarKind;
   title: string;
@@ -52,6 +53,7 @@ export const EXAM_CALENDAR_COLORS: Record<ExamCalendarEvent["examKey"], string> 
   english: "#7c3aed",
   gugeo: "#0891b2",
   haengjeongsa: "#0d9488",
+  semusa: "#c2410c",
 };
 
 /** 범례·표시용 정식 이름 (달과 무관하게 항상 전부 노출) */
@@ -66,6 +68,7 @@ export const EXAM_CALENDAR_LABELS: Record<ExamCalendarEvent["examKey"], string> 
   history: "한국사능력검정시험",
   gugeo: "공무원 국어",
   haengjeongsa: "행정사",
+  semusa: "세무사",
 };
 
 export const EXAM_CALENDAR_ORDER: ExamCalendarEvent["examKey"][] = [
@@ -78,6 +81,7 @@ export const EXAM_CALENDAR_ORDER: ExamCalendarEvent["examKey"][] = [
   "english",
   "gugeo",
   "haengjeongsa",
+  "semusa",
   "history",
 ];
 

@@ -101,6 +101,15 @@ const HAENGJEONGSA_SUBJECTS: { id: string; label: string }[] = [
   { id: "haengjeonghak", label: "행정학" },
 ];
 
+const SEMUSA_SUBJECTS: { id: string; label: string }[] = [
+  { id: "jaejeonghak", label: "재정학" },
+  { id: "sebeopgaeron", label: "세법학개론" },
+  { id: "hoegyegaeron", label: "회계학개론" },
+  { id: "sangbeop", label: "상법" },
+  { id: "minbeop", label: "민법" },
+  { id: "haengjeongsosong", label: "행정소송법" },
+];
+
 const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
   { id: "sobang", label: "소방학개론" },
   { id: "sobangbeop", label: "소방관계법규" },
@@ -152,7 +161,9 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
                   ? GUGEO_SUBJECTS
                   : scope === "haengjeongsa"
                     ? HAENGJEONGSA_SUBJECTS
-                    : PUBLIC_SERVICE_SUBJECTS;
+                    : scope === "semusa"
+                      ? SEMUSA_SUBJECTS
+                      : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -185,6 +196,7 @@ function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/english")) return false;
   if (pathname.startsWith("/gugeo")) return false;
   if (pathname.startsWith("/haengjeongsa")) return false;
+  if (pathname.startsWith("/semusa")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -289,6 +301,17 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("haengjeongsa"),
       subjects: subjectsForScope("haengjeongsa"),
       tools: toolsForScope("haengjeongsa"),
+    };
+  }
+  if (path.startsWith("/semusa")) {
+    return {
+      mode: "track",
+      scope: "semusa",
+      label: communityScopeLabel("semusa"),
+      shortLabel: "세무사",
+      hubHref: trackHubHref("semusa"),
+      subjects: subjectsForScope("semusa"),
+      tools: toolsForScope("semusa"),
     };
   }
   if (path.startsWith("/public-service")) {

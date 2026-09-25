@@ -280,7 +280,7 @@ export function buildPlatformHomeJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·국어·행정사 기출 학습",
+    name: "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·국어·행정사·세무사 기출 학습",
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     inLanguage: "ko-KR",
@@ -291,7 +291,7 @@ export function buildPlatformHomeJsonLd() {
     mainEntity: {
       "@type": "ItemList",
       name: "봄기출 시험별 학습",
-      numberOfItems: 8,
+      numberOfItems: 9,
       itemListElement: [
         {
           "@type": "ListItem",
@@ -340,6 +340,12 @@ export function buildPlatformHomeJsonLd() {
           position: 8,
           name: "행정사 1차 기출 학습",
           url: absoluteUrl("/haengjeongsa"),
+        },
+        {
+          "@type": "ListItem",
+          position: 9,
+          name: "세무사 1차 기출 학습",
+          url: absoluteUrl("/semusa"),
         },
       ],
     },

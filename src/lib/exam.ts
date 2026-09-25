@@ -82,6 +82,14 @@ const TRACK_EXAM_SCHEDULE: Record<
     examName: "행정사 국가자격시험",
     scheduleUnconfirmed: true,
   },
+  semusa: {
+    label: "세무사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "세무사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

@@ -18,7 +18,7 @@ import { getUser } from "@/lib/auth";
 export const runtime = "nodejs";
 
 const CONTENT_PATH =
-  /^\/(?:(?:public-service|police|firefighter|housing|social-worker|history|english|gugeo|haengjeongsa)\/)?(?:concepts|exam)(?:\/[^/?#]{1,120}){2,4}$/;
+  /^\/(?:(?:public-service|police|firefighter|housing|social-worker|history|english|gugeo|haengjeongsa|semusa)\/)?(?:concepts|exam)(?:\/[^/?#]{1,120}){2,4}$/;
 
 export async function POST(request: NextRequest) {
   const user = await getUser();

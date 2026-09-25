@@ -185,6 +185,12 @@ export const COMMUNITY_HOME_GROUPS = [
     topicKeys: ["haengjeongsa"],
   },
   {
+    scope: "semusa" as const,
+    label: "세무사",
+    blurb: "재정학·세법·회계학",
+    topicKeys: ["semusa"],
+  },
+  {
     scope: "history" as const,
     label: "한국사",
     blurb: "시대별 정리",
@@ -223,6 +229,7 @@ export const TOPIC_TEASERS = [
   { key: "english", label: "영어", blurb: "문법·독해" },
   { key: "gugeo", label: "국어", blurb: "문법·독해·어휘" },
   { key: "haengjeongsa", label: "행정사", blurb: "민법·행정법·행정학" },
+  { key: "semusa", label: "세무사", blurb: "재정학·세법·회계학" },
   { key: "history", label: "한국사", blurb: "시대별 정리" },
 ] as const;
 

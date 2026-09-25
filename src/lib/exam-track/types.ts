@@ -201,7 +201,8 @@ export interface ExamTrackConfig {
     | "history"
     | "english"
     | "gugeo"
-    | "haengjeongsa";
+    | "haengjeongsa"
+    | "semusa";
   label: string;
   shortLabel: string;
   basePath: string;
@@ -216,7 +217,8 @@ export interface ExamTrackConfig {
     | "history"
     | "english"
     | "gugeo"
-    | "haengjeongsa";
+    | "haengjeongsa"
+    | "semusa";
   communityTitle: string;
   sessionEyebrow: string;
   educationalLevel: string;

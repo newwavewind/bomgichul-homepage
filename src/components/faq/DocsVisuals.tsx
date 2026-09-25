@@ -2,7 +2,7 @@
 
 import type { CommunityScope } from "@/types/database";
 
-type VisualScope = CommunityScope;
+type VisualScope = CommunityScope | "semusa";
 
 const HUB_COPY: Record<
   VisualScope,
@@ -48,6 +48,10 @@ const HUB_COPY: Record<
     allInOne: ["민법", "행정법", "행정학개론"],
     exam: ["민법", "행정법", "행정학개론"],
   },
+  semusa: {
+    allInOne: ["재정학", "세법학개론", "회계학개론", "상법", "민법", "행정소송법"],
+    exam: ["재정학", "세법학개론", "회계학개론", "상법", "민법", "행정소송법"],
+  },
 };
 
 const CONCEPT_COPY: Record<
@@ -64,6 +68,7 @@ const CONCEPT_COPY: Record<
   english: { crumb: "9급 영어 · 문법", title: "주어–동사 수일치" },
   gugeo: { crumb: "9급 국어 · 문법", title: "높임법의 종류" },
   haengjeongsa: { crumb: "행정사 · 민법", title: "법률행위의 성립" },
+  semusa: { crumb: "세무사 · 세법학개론", title: "소득세의 과세표준" },
 };
 
 const EXAM_COPY: Record<
@@ -109,6 +114,10 @@ const EXAM_COPY: Record<
   haengjeongsa: {
     subject: "민법",
     stem: "다음 중 법률행위의 성립에 관한 설명으로 옳은 것은?",
+  },
+  semusa: {
+    subject: "세법학개론",
+    stem: "다음 중 소득세에 관한 설명으로 옳은 것은?",
   },
 };
 
@@ -187,6 +196,13 @@ const COMMUNITY_COPY: Record<
       { title: "행정법 하자·무효 정리 공유", meta: "수험정보 · 댓글 9" },
     ],
   },
+  semusa: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "세법학개론 소득세 과세표준이 헷갈려요", meta: "질문 · 댓글 7" },
+      { title: "재정학 조세 전가 정리 공유", meta: "수험정보 · 댓글 10" },
+    ],
+  },
 };
 
 const ARCHIVE_COPY: Record<
@@ -243,6 +259,11 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "민법 총칙 요약", size: "690KB" },
     { type: "요약", name: "행정법 핵심 체크", size: "440KB" },
   ],
+  semusa: [
+    { type: "PDF", name: "세무사 1차 기출 모아보기", size: "3.2MB" },
+    { type: "노트", name: "세법학개론 요약", size: "710KB" },
+    { type: "요약", name: "재정학·회계학 체크", size: "480KB" },
+  ],
 };
 
 const DIARY_COPY: Record<VisualScope, string> = {
@@ -256,6 +277,7 @@ const DIARY_COPY: Record<VisualScope, string> = {
   english: "기출 빈출 어휘 정리",
   gugeo: "맞춤법·높임법 정리",
   haengjeongsa: "민법 법률행위 정리",
+  semusa: "세법 소득세 과세표준 정리",
 };
 
 function PhoneFrame({

@@ -137,6 +137,23 @@ export const HAENGJEONGSA_TRACK: ExamTrackConfig = {
   aboutName: "행정사 국가자격시험 1차",
 };
 
+
+export const SEMUSA_TRACK: ExamTrackConfig = {
+  id: "semusa",
+  label: "세무사",
+  shortLabel: "세무사",
+  basePath: "/semusa",
+  eyebrow: "봄기출 · 세무사",
+  hubTitle: "세무사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "세무사 1차 재정학·세법학개론·회계학개론·상법·민법·행정소송법 기출을 회차별로 학습하세요. 2차 논술·계산은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "semusa",
+  communityTitle: "세무사 수험생 커뮤니티",
+  sessionEyebrow: "세무사 1차 기출",
+  educationalLevel: "세무사 국가자격시험",
+  aboutName: "세무사 국가자격시험 1차",
+};
+
 export const EXAM_TRACKS = [
   POLICE_TRACK,
   FIREFIGHTER_TRACK,
@@ -146,6 +163,7 @@ export const EXAM_TRACKS = [
   ENGLISH_TRACK,
   GUGEO_TRACK,
   HAENGJEONGSA_TRACK,
+  SEMUSA_TRACK,
 ] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
@@ -157,5 +175,6 @@ export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/english")) return ENGLISH_TRACK;
   if (pathname.startsWith("/gugeo")) return GUGEO_TRACK;
   if (pathname.startsWith("/haengjeongsa")) return HAENGJEONGSA_TRACK;
+  if (pathname.startsWith("/semusa")) return SEMUSA_TRACK;
   return null;
 }

@@ -13,6 +13,7 @@ export const PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: st
   { value: "english", label: "공무원 영어" },
   { value: "gugeo", label: "공무원 국어" },
   { value: "haengjeongsa", label: "행정사" },
+  { value: "semusa", label: "세무사" },
   { value: "history", label: "한국사" },
 ];
 

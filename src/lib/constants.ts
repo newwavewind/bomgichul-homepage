@@ -13,7 +13,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
@@ -55,7 +55,8 @@ export function appStoreLinksForScope(
     | "history"
     | "english"
     | "gugeo"
-    | "haengjeongsa",
+    | "haengjeongsa"
+    | "semusa",
 ): AppStoreLinks {
   switch (scope) {
     case "police":
@@ -102,6 +103,13 @@ export function appStoreLinksForScope(
     // 행정사 앱은 아직 어느 스토어에도 없다. 출시하면 여기만 채우면 된다.
     case "haengjeongsa":
       return { android: null, ios: null };
+    // 세무사: Play 패키지 준비됨. iOS ASC는 심사·출시 후 id 채울 것.
+    case "semusa":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.semusa",
+        ios: null,
+      };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };
   }
@@ -360,6 +368,7 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/social-worker", label: "사회복지사 1급" },
       { href: "/gugeo", label: "공무원 국어" },
       { href: "/haengjeongsa", label: "행정사" },
+      { href: "/semusa", label: "세무사" },
     ],
   },
   {
@@ -506,6 +515,17 @@ export const ARCHIVE_SUBJECTS_HAENGJEONGSA = [
   { value: "other", label: "기타" },
 ] as const;
 
+export const ARCHIVE_SUBJECTS_SEMUSA = [
+  { value: "all", label: "전체 과목" },
+  { value: "jaejeonghak", label: "재정학" },
+  { value: "sebeopgaeron", label: "세법학개론" },
+  { value: "hoegyegaeron", label: "회계학개론" },
+  { value: "sangbeop", label: "상법" },
+  { value: "minbeop", label: "민법" },
+  { value: "haengjeongsosong", label: "행정소송법" },
+  { value: "other", label: "기타" },
+] as const;
+
 export const ARCHIVE_SUBJECTS_HISTORY = [
   { value: "all", label: "전체 과목" },
   { value: "advanced", label: "심화" },
@@ -530,6 +550,7 @@ export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
   ...ARCHIVE_SUBJECTS_ENGLISH.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_GUGEO.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_HAENGJEONGSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_SEMUSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_HISTORY.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
 ]);
 
@@ -551,6 +572,8 @@ export function archiveSubjectsForScope(scope: string) {
       return [...ARCHIVE_SUBJECTS_GUGEO];
     case "haengjeongsa":
       return [...ARCHIVE_SUBJECTS_HAENGJEONGSA];
+    case "semusa":
+      return [...ARCHIVE_SUBJECTS_SEMUSA];
     case "history":
       return [...ARCHIVE_SUBJECTS_HISTORY];
     default:
@@ -576,6 +599,8 @@ export function defaultArchiveSubject(scope: string) {
       return "gugeo";
     case "haengjeongsa":
       return "minbeop";
+    case "semusa":
+      return "jaejeonghak";
     case "history":
       return "advanced";
     default:

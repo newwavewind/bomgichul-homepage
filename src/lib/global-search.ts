@@ -8,6 +8,7 @@ import { HISTORY_SUBJECT_IDS, getHistorySubject } from "@/lib/history-content";
 import { ENGLISH_SUBJECT_IDS, getEnglishSubject } from "@/lib/english-content";
 import { GUGEO_SUBJECT_IDS, getGugeoSubject } from "@/lib/gugeo-content";
 import { HAENGJEONGSA_SUBJECT_IDS, getHaengjeongsaSubject } from "@/lib/haengjeongsa-content";
+import { SEMUSA_SUBJECT_IDS, getSemusaSubject } from "@/lib/semusa-content";
 import { FIREFIGHTER_SUBJECT_IDS, getFirefighterSubject } from "@/lib/firefighter-content";
 import type { ExamTrackSubjectContent } from "@/lib/exam-track/types";
 
@@ -53,6 +54,7 @@ function rows() {
     ...trackRows("공무원 영어", "/english", ENGLISH_SUBJECT_IDS, getEnglishSubject),
     ...trackRows("공무원 국어", "/gugeo", GUGEO_SUBJECT_IDS, getGugeoSubject),
     ...trackRows("행정사", "/haengjeongsa", HAENGJEONGSA_SUBJECT_IDS, getHaengjeongsaSubject),
+    ...trackRows("세무사", "/semusa", SEMUSA_SUBJECT_IDS, getSemusaSubject),
   ];
   return cached;
 }

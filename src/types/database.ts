@@ -21,7 +21,8 @@ export type CommunityScope =
   | "history"
   | "english"
   | "gugeo"
-  | "haengjeongsa";
+  | "haengjeongsa"
+  | "semusa";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 
