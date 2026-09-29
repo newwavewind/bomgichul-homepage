@@ -123,7 +123,7 @@ export function splitLawCites(text: string): LawCitePart[] {
   let previousEnd = -1;
   for (const { m, appendix } of slots) {
     const beforeEnd = text.slice(0, m.index).replace(/\s+$/, "").length;
-    let nameHit =
+    let nameHit: { name: string; start: number } | null =
       findLawName(text, beforeEnd) ??
       findNameOutsideTable(text, beforeEnd, previousLaw ?? textLaw);
     let start: number;
