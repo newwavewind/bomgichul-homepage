@@ -130,7 +130,7 @@ export function ExamOxQuestion({
             따로 떼어 두면 그 상자가 쉼표에서 끊겨 문장이 잘린 것처럼 읽힌다.
             그래서 도입부와 지문을 같은 상자에 담고, O/X 는 각 줄 끝에 붙인다.
           */}
-          <fieldset className="min-w-0 rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 pb-4">
+          <fieldset className="min-w-0 rounded-[var(--radius-cards)] border border-carbon px-5 pb-4">
             {passageLabel ? (
               <legend className="mx-auto px-3 text-center font-display text-body-sm font-medium text-smoke">
                 {passageLabel}

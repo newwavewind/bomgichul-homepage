@@ -91,6 +91,8 @@ for (const series of SERIES) {
         })),
         ...(q.translation ? { translation: q.translation } : {}),
         ...(q.vocab?.length ? { vocab: q.vocab } : {}),
+        // 밑줄 친 자리가 곧 문제인 문항 — offset 을 그대로 실어 화면에서 <u> 로 감싼다.
+        ...(q.underlines?.length ? { underlines: q.underlines } : {}),
       })
     }
   }
@@ -137,3 +139,4 @@ console.log(`문항 ${exams.length}개 · 연도 ${payload.years.length}개 · �
 console.log(`그림 ${copiedImages.size}개 → public/exam/english/`)
 console.log(`해석 있는 문항 ${exams.filter((e) => e.translation).length}개`)
 console.log(`어휘 있는 문항 ${exams.filter((e) => e.vocab).length}개`)
+console.log(`밑줄 있는 문항 ${exams.filter((e) => e.underlines?.length).length}개`)
