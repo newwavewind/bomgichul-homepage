@@ -11,7 +11,8 @@ const exams = [
     conceptsLabel: "행정학 올인원",
     eyebrow: "9급 공무원",
     title: "공무원",
-    accent: "from-[#e8f5ff] to-[#f4f8ff]",
+    accentFrom: "#e8f5ff",
+    accentTo: "#f4f8ff",
     cta: "공무원 알아보기",
   },
   {
@@ -21,7 +22,8 @@ const exams = [
     conceptsLabel: "중개사법 올인원",
     eyebrow: "제37회 공인중개사",
     title: "공인중개사",
-    accent: "from-[#e8faf5] to-[#f4fbf8]",
+    accentFrom: "#e8faf5",
+    accentTo: "#f4fbf8",
     cta: "공인중개사 알아보기",
   },
   {
@@ -31,7 +33,8 @@ const exams = [
     conceptsLabel: "헌법 올인원",
     eyebrow: "순경 공채",
     title: "경찰공무원",
-    accent: "from-[#eef2ff] to-[#f7f8ff]",
+    accentFrom: "#eef2ff",
+    accentTo: "#f7f8ff",
     cta: "경찰 알아보기",
   },
   {
@@ -42,7 +45,8 @@ const exams = [
     eyebrow: "소방 공채",
     title: "소방공무원",
     // 경찰(226°) 다음 칸 — 따뜻한 앰버로 구분
-    accent: "from-[#fff7e8] to-[#fffbf2]",
+    accentFrom: "#fff7e8",
+    accentTo: "#fffbf2",
     cta: "소방 알아보기",
   },
   {
@@ -52,7 +56,8 @@ const exams = [
     conceptsLabel: "회계원리 올인원",
     eyebrow: "주택관리사보",
     title: "주택관리사",
-    accent: "from-[#fff4e8] to-[#fffaf4]",
+    accentFrom: "#fff4e8",
+    accentTo: "#fffaf4",
     cta: "주택관리사 알아보기",
   },
   {
@@ -62,7 +67,8 @@ const exams = [
     conceptsLabel: "인간행동 올인원",
     eyebrow: "국가전문자격",
     title: "사회복지사 1급",
-    accent: "from-[#fff0f5] to-[#fff8fb]",
+    accentFrom: "#fff0f5",
+    accentTo: "#fff8fb",
     cta: "사회복지사 알아보기",
   },
   {
@@ -74,7 +80,8 @@ const exams = [
     title: "한국사능력검정",
     // 앞 다섯 카드가 파랑(206°)·민트(163°)·남보라(226°)·주황(31°)·분홍(340°)을 쓰고 있어
     // 색상환에서 가장 비어 있던 연둣빛(95°)을 골랐다 — 어느 카드와도 60° 넘게 떨어진다.
-    accent: "from-[#f0ffe5] to-[#f8fff2]",
+    accentFrom: "#f0ffe5",
+    accentTo: "#f8fff2",
     cta: "한국사 알아보기",
   },
   {
@@ -87,7 +94,8 @@ const exams = [
     // 앞 여섯이 31°·95°·163°·206°·226°·340° 를 쓰고 있어, 일곱 번째는 60° 규칙을
     // 지킬 수가 없다 — 가장 벌어진 틈이 226°~340° 인데 그 한가운데도 57° 다.
     // 그래서 규칙을 지키는 대신 최소 간격이 가장 큰 자리(283°)를 골랐다.
-    accent: "from-[#f6f0ff] to-[#fbf8ff]",
+    accentFrom: "#f6f0ff",
+    accentTo: "#fbf8ff",
     cta: "공무원 영어 알아보기",
   },
   {
@@ -97,7 +105,8 @@ const exams = [
     conceptsLabel: "국어 기출 허브",
     eyebrow: "9급 공채 · 국가직 · 지방직",
     title: "공무원 국어",
-    accent: "from-[#e8f9ff] to-[#f4fcff]",
+    accentFrom: "#e8f9ff",
+    accentTo: "#f4fcff",
     cta: "공무원 국어 알아보기",
   },
   {
@@ -107,7 +116,8 @@ const exams = [
     conceptsLabel: "행정사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "행정사",
-    accent: "from-[#e8faf7] to-[#f4fbf9]",
+    accentFrom: "#e8faf7",
+    accentTo: "#f4fbf9",
     cta: "행정사 알아보기",
   },
   {
@@ -117,7 +127,8 @@ const exams = [
     conceptsLabel: "세무사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "세무사",
-    accent: "from-[#fff4e8] to-[#fffaf4]",
+    accentFrom: "#fff4e8",
+    accentTo: "#fffaf4",
     cta: "세무사 알아보기",
   },
   {
@@ -127,7 +138,8 @@ const exams = [
     conceptsLabel: "산업안전지도사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "산업안전지도사",
-    accent: "from-[#fff7e6] to-[#fffbf2]",
+    accentFrom: "#fff7e6",
+    accentTo: "#fffbf2",
     cta: "산업안전지도사 알아보기",
   },
   {
@@ -137,7 +149,8 @@ const exams = [
     conceptsLabel: "손해평가사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "손해평가사",
-    accent: "from-[#eefbe8] to-[#f6fcf2]",
+    accentFrom: "#eefbe8",
+    accentTo: "#f6fcf2",
     cta: "손해평가사 알아보기",
   },
   {
@@ -147,7 +160,8 @@ const exams = [
     conceptsLabel: "공인노무사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "공인노무사",
-    accent: "from-[#eaf1ff] to-[#f5f8ff]",
+    accentFrom: "#eaf1ff",
+    accentTo: "#f5f8ff",
     cta: "공인노무사 알아보기",
   },
 ] as const;
@@ -173,7 +187,10 @@ export function PlatformHome() {
           {exams.map((exam) => (
             <article
               key={exam.href}
-              className={`flex flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon bg-gradient-to-br ${exam.accent} p-7 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-9`}
+              className="flex flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon p-7 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-9"
+              style={{
+                backgroundImage: `linear-gradient(to bottom right, ${exam.accentFrom}, ${exam.accentTo})`,
+              }}
             >
               <div>
                 <p className="font-display text-[13px] font-semibold tracking-[0.04em] text-fog">
