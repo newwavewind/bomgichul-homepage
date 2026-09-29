@@ -50,6 +50,21 @@ import {
   getSemusaExamSessions,
 } from "@/lib/semusa-content";
 import {
+  SANAN_SUBJECT_IDS,
+  getSananSubject,
+  getSananExamSessions,
+} from "@/lib/sanan-content";
+import {
+  SONHAE_SUBJECT_IDS,
+  getSonhaeSubject,
+  getSonhaeExamSessions,
+} from "@/lib/sonhae-content";
+import {
+  NOMUSA_SUBJECT_IDS,
+  getNomusaSubject,
+  getNomusaExamSessions,
+} from "@/lib/nomusa-content";
+import {
   HISTORY_SUBJECT_IDS,
   getHistoryExamSessions,
   getHistorySubject,
@@ -79,6 +94,9 @@ export const SITEMAP_GROUPS = [
   "gugeo",
   "haengjeongsa",
   "semusa",
+  "sanan",
+  "sonhae",
+  "nomusa",
 ] as const;
 
 export type SitemapGroup = (typeof SITEMAP_GROUPS)[number];
@@ -95,6 +113,9 @@ const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   gugeo: "gugeo",
   haengjeongsa: "haengjeongsa",
   semusa: "semusa",
+  sanan: "sanan",
+  sonhae: "sonhae",
+  nomusa: "nomusa",
 };
 
 function page(
@@ -289,6 +310,30 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         SEMUSA_SUBJECT_IDS,
         getSemusaSubject,
         getSemusaExamSessions,
+        { includeConcepts: false },
+      );
+    case "sanan":
+      return getNamespacedTrackUrls(
+        "/sanan",
+        SANAN_SUBJECT_IDS,
+        getSananSubject,
+        getSananExamSessions,
+        { includeConcepts: false },
+      );
+    case "sonhae":
+      return getNamespacedTrackUrls(
+        "/sonhae",
+        SONHAE_SUBJECT_IDS,
+        getSonhaeSubject,
+        getSonhaeExamSessions,
+        { includeConcepts: false },
+      );
+    case "nomusa":
+      return getNamespacedTrackUrls(
+        "/nomusa",
+        NOMUSA_SUBJECT_IDS,
+        getNomusaSubject,
+        getNomusaExamSessions,
         { includeConcepts: false },
       );
   }

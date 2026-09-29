@@ -46,6 +46,7 @@ const APP_LABELS: Record<string, string> = {
   haengjeongsa: "행정사",
   nomusa: "공인노무사",
   sonhae: "손해평가사",
+  sanan: "산업안전지도사",
 };
 
 /** 필터·묶음에 쓰는 앱 순서 */
@@ -63,6 +64,7 @@ const APP_ORDER = [
   "haengjeongsa",
   "nomusa",
   "sonhae",
+  "sanan",
 ] as const;
 
 /**

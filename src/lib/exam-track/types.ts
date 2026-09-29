@@ -63,6 +63,8 @@ export interface ExamTrackExamItem {
   taxonomy_unit_id?: string;
   /** 공무원 영어 — 그 선지 낱말의 뜻 */
   translation?: string;
+  /** 그래프·도면처럼 글이 아닌 선지(산업안전지도사·공인노무사) */
+  image?: string;
 }
 
 /** 주관식(단답형) 문항의 빈칸 하나 — 지문의 ( ㄱ ) 자리와 그 정답 */
@@ -202,7 +204,10 @@ export interface ExamTrackConfig {
     | "english"
     | "gugeo"
     | "haengjeongsa"
-    | "semusa";
+    | "semusa"
+    | "sanan"
+    | "sonhae"
+    | "nomusa";
   label: string;
   shortLabel: string;
   basePath: string;
@@ -218,7 +223,10 @@ export interface ExamTrackConfig {
     | "english"
     | "gugeo"
     | "haengjeongsa"
-    | "semusa";
+    | "semusa"
+    | "sanan"
+    | "sonhae"
+    | "nomusa";
   communityTitle: string;
   sessionEyebrow: string;
   educationalLevel: string;

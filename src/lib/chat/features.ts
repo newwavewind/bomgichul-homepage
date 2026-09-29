@@ -191,6 +191,24 @@ export const COMMUNITY_HOME_GROUPS = [
     topicKeys: ["semusa"],
   },
   {
+    scope: "sanan" as const,
+    label: "산업안전지도사",
+    blurb: "법령·안전일반·기업진단",
+    topicKeys: ["sanan"],
+  },
+  {
+    scope: "sonhae" as const,
+    label: "손해평가사",
+    blurb: "상법·재해보험법령·농학",
+    topicKeys: ["sonhae"],
+  },
+  {
+    scope: "nomusa" as const,
+    label: "공인노무사",
+    blurb: "노동법·민법·사회보험법",
+    topicKeys: ["nomusa"],
+  },
+  {
     scope: "history" as const,
     label: "한국사",
     blurb: "시대별 정리",
@@ -230,6 +248,9 @@ export const TOPIC_TEASERS = [
   { key: "gugeo", label: "국어", blurb: "문법·독해·어휘" },
   { key: "haengjeongsa", label: "행정사", blurb: "민법·행정법·행정학" },
   { key: "semusa", label: "세무사", blurb: "재정학·세법·회계학" },
+  { key: "sanan", label: "산업안전지도사", blurb: "법령·안전일반·기업진단" },
+  { key: "sonhae", label: "손해평가사", blurb: "상법·재해보험법령·농학" },
+  { key: "nomusa", label: "공인노무사", blurb: "노동법·민법·사회보험법" },
   { key: "history", label: "한국사", blurb: "시대별 정리" },
 ] as const;
 

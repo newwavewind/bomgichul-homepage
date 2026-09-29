@@ -75,6 +75,9 @@ describe("search engine foundations", () => {
       ["gugeo", "/gugeo/"],
       ["haengjeongsa", "/haengjeongsa/"],
       ["semusa", "/semusa/"],
+      ["sanan", "/sanan/"],
+      ["sonhae", "/sonhae/"],
+      ["nomusa", "/nomusa/"],
     ] as const;
 
     for (const [group, prefix] of cases) {

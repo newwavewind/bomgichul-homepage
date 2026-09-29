@@ -317,7 +317,7 @@ export async function TrackExamSubjectPage({
         ? housingFirstStage.has(subjectId)
           ? "1차"
           : "2차"
-        : track.id === "haengjeongsa" || track.id === "semusa"
+        : track.id === "haengjeongsa" || track.id === "semusa" || track.id === "sanan" || track.id === "sonhae" || track.id === "nomusa"
           ? "1차 필기"
           : trackHidesExamSourceLabel(track.id)
             ? track.sessionEyebrow

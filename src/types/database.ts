@@ -22,7 +22,10 @@ export type CommunityScope =
   | "english"
   | "gugeo"
   | "haengjeongsa"
-  | "semusa";
+  | "semusa"
+  | "sanan"
+  | "sonhae"
+  | "nomusa";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 

@@ -2,7 +2,7 @@
 
 import type { CommunityScope } from "@/types/database";
 
-type VisualScope = CommunityScope | "semusa";
+type VisualScope = CommunityScope;
 
 const HUB_COPY: Record<
   VisualScope,
@@ -52,6 +52,18 @@ const HUB_COPY: Record<
     allInOne: ["재정학", "세법학개론", "회계학개론", "상법", "민법", "행정소송법"],
     exam: ["재정학", "세법학개론", "회계학개론", "상법", "민법", "행정소송법"],
   },
+  sanan: {
+    allInOne: ["산업안전보건법령", "산업안전일반", "기업진단·지도"],
+    exam: ["산업안전보건법령", "산업안전일반", "기업진단·지도"],
+  },
+  sonhae: {
+    allInOne: ["「상법」 보험편", "농어업재해보험법령", "농학개론"],
+    exam: ["「상법」 보험편", "농어업재해보험법령", "농학개론"],
+  },
+  nomusa: {
+    allInOne: ["노동법(1)", "노동법(2)", "민법", "사회보험법", "경영학개론", "경제학원론"],
+    exam: ["노동법(1)", "노동법(2)", "민법", "사회보험법", "경영학개론", "경제학원론"],
+  },
 };
 
 const CONCEPT_COPY: Record<
@@ -69,6 +81,9 @@ const CONCEPT_COPY: Record<
   gugeo: { crumb: "9급 국어 · 문법", title: "높임법의 종류" },
   haengjeongsa: { crumb: "행정사 · 민법", title: "법률행위의 성립" },
   semusa: { crumb: "세무사 · 세법학개론", title: "소득세의 과세표준" },
+  sanan: { crumb: "산업안전지도사 · 산업안전보건법령", title: "안전보건관리체제" },
+  sonhae: { crumb: "손해평가사 · 「상법」 보험편", title: "보험계약의 법적 성질" },
+  nomusa: { crumb: "공인노무사 · 노동법(1)", title: "근로기준법상 해고의 제한" },
 };
 
 const EXAM_COPY: Record<
@@ -118,6 +133,18 @@ const EXAM_COPY: Record<
   semusa: {
     subject: "세법학개론",
     stem: "다음 중 소득세에 관한 설명으로 옳은 것은?",
+  },
+  sanan: {
+    subject: "산업안전보건법령",
+    stem: "다음 중 안전보건관리책임자에 관한 설명으로 옳은 것은?",
+  },
+  sonhae: {
+    subject: "농어업재해보험법령",
+    stem: "다음 중 농업재해보험의 손해평가에 관한 설명으로 옳은 것은?",
+  },
+  nomusa: {
+    subject: "노동법(1)",
+    stem: "다음 중 근로기준법상 해고에 관한 설명으로 옳은 것은?",
   },
 };
 
@@ -203,6 +230,27 @@ const COMMUNITY_COPY: Record<
       { title: "재정학 조세 전가 정리 공유", meta: "수험정보 · 댓글 10" },
     ],
   },
+  sanan: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "산업안전보건법 별표 교육시간이 헷갈려요", meta: "질문 · 댓글 6" },
+      { title: "기업진단·지도 PERT 계산 정리 공유", meta: "수험정보 · 댓글 9" },
+    ],
+  },
+  sonhae: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "보험계약의 법적 성질이 헷갈려요", meta: "질문 · 댓글 5" },
+      { title: "농학개론 작물 생리 정리 공유", meta: "수험정보 · 댓글 8" },
+    ],
+  },
+  nomusa: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "근로기준법 해고예고 예외가 헷갈려요", meta: "질문 · 댓글 7" },
+      { title: "사회보험법 급여 정리 공유", meta: "수험정보 · 댓글 10" },
+    ],
+  },
 };
 
 const ARCHIVE_COPY: Record<
@@ -264,6 +312,21 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "세법학개론 요약", size: "710KB" },
     { type: "요약", name: "재정학·회계학 체크", size: "480KB" },
   ],
+  sanan: [
+    { type: "PDF", name: "산업안전지도사 1차 기출 모아보기", size: "2.9MB" },
+    { type: "노트", name: "산업안전보건법령 요약", size: "680KB" },
+    { type: "요약", name: "산업안전일반 체크", size: "450KB" },
+  ],
+  sonhae: [
+    { type: "PDF", name: "손해평가사 1차 기출 모아보기", size: "2.6MB" },
+    { type: "노트", name: "농어업재해보험법령 요약", size: "640KB" },
+    { type: "요약", name: "농학개론 체크", size: "420KB" },
+  ],
+  nomusa: [
+    { type: "PDF", name: "공인노무사 1차 기출 모아보기", size: "3.4MB" },
+    { type: "노트", name: "노동법(1) 요약", size: "720KB" },
+    { type: "요약", name: "사회보험법 체크", size: "470KB" },
+  ],
 };
 
 const DIARY_COPY: Record<VisualScope, string> = {
@@ -278,6 +341,9 @@ const DIARY_COPY: Record<VisualScope, string> = {
   gugeo: "맞춤법·높임법 정리",
   haengjeongsa: "민법 법률행위 정리",
   semusa: "세법 소득세 과세표준 정리",
+  sanan: "산업안전보건법 교육시간 정리",
+  sonhae: "보험편 법적 성질 정리",
+  nomusa: "근로기준법 해고 제한 정리",
 };
 
 function PhoneFrame({

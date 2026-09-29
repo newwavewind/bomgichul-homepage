@@ -14,6 +14,9 @@ export const PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: st
   { value: "gugeo", label: "공무원 국어" },
   { value: "haengjeongsa", label: "행정사" },
   { value: "semusa", label: "세무사" },
+  { value: "sanan", label: "산업안전지도사" },
+  { value: "sonhae", label: "손해평가사" },
+  { value: "nomusa", label: "공인노무사" },
   { value: "history", label: "한국사" },
 ];
 

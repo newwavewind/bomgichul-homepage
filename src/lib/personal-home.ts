@@ -22,6 +22,9 @@ const BASE_PATHS: Record<string, string> = {
   gugeo: "/gugeo",
   haengjeongsa: "/haengjeongsa",
   semusa: "/semusa",
+  sanan: "/sanan",
+  sonhae: "/sonhae",
+  nomusa: "/nomusa",
 };
 
 const SCOPE_LABELS: Record<string, string> = {
@@ -35,6 +38,9 @@ const SCOPE_LABELS: Record<string, string> = {
   gugeo: "공무원 국어",
   haengjeongsa: "행정사",
   semusa: "세무사",
+  sanan: "산업안전지도사",
+  sonhae: "손해평가사",
+  nomusa: "공인노무사",
 };
 
 function kstDate(date = new Date()) {

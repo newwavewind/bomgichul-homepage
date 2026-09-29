@@ -110,6 +110,27 @@ const SEMUSA_SUBJECTS: { id: string; label: string }[] = [
   { id: "haengjeongsosong", label: "행정소송법" },
 ];
 
+const SANAN_SUBJECTS: { id: string; label: string }[] = [
+  { id: "sanbeop", label: "산업안전보건법령" },
+  { id: "sanil", label: "산업안전일반" },
+  { id: "gieop", label: "기업진단·지도" },
+];
+
+const SONHAE_SUBJECTS: { id: string; label: string }[] = [
+  { id: "sangbeop", label: "「상법」 보험편" },
+  { id: "nongeoeop", label: "농어업재해보험법령" },
+  { id: "nonghak", label: "농학개론" },
+];
+
+const NOMUSA_SUBJECTS: { id: string; label: string }[] = [
+  { id: "nodong1", label: "노동법(1)" },
+  { id: "nodong2", label: "노동법(2)" },
+  { id: "minbeop", label: "민법" },
+  { id: "sahoeboheom", label: "사회보험법" },
+  { id: "gyeongyeong", label: "경영학개론" },
+  { id: "gyeongje", label: "경제학원론" },
+];
+
 const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
   { id: "sobang", label: "소방학개론" },
   { id: "sobangbeop", label: "소방관계법규" },
@@ -163,7 +184,13 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
                     ? HAENGJEONGSA_SUBJECTS
                     : scope === "semusa"
                       ? SEMUSA_SUBJECTS
-                      : PUBLIC_SERVICE_SUBJECTS;
+                      : scope === "sanan"
+                        ? SANAN_SUBJECTS
+                        : scope === "sonhae"
+                          ? SONHAE_SUBJECTS
+                          : scope === "nomusa"
+                            ? NOMUSA_SUBJECTS
+                            : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -197,6 +224,9 @@ function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/gugeo")) return false;
   if (pathname.startsWith("/haengjeongsa")) return false;
   if (pathname.startsWith("/semusa")) return false;
+  if (pathname.startsWith("/sanan")) return false;
+  if (pathname.startsWith("/sonhae")) return false;
+  if (pathname.startsWith("/nomusa")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -312,6 +342,39 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("semusa"),
       subjects: subjectsForScope("semusa"),
       tools: toolsForScope("semusa"),
+    };
+  }
+  if (path.startsWith("/sanan")) {
+    return {
+      mode: "track",
+      scope: "sanan",
+      label: communityScopeLabel("sanan"),
+      shortLabel: "산업안전지도사",
+      hubHref: trackHubHref("sanan"),
+      subjects: subjectsForScope("sanan"),
+      tools: toolsForScope("sanan"),
+    };
+  }
+  if (path.startsWith("/sonhae")) {
+    return {
+      mode: "track",
+      scope: "sonhae",
+      label: communityScopeLabel("sonhae"),
+      shortLabel: "손해평가사",
+      hubHref: trackHubHref("sonhae"),
+      subjects: subjectsForScope("sonhae"),
+      tools: toolsForScope("sonhae"),
+    };
+  }
+  if (path.startsWith("/nomusa")) {
+    return {
+      mode: "track",
+      scope: "nomusa",
+      label: communityScopeLabel("nomusa"),
+      shortLabel: "공인노무사",
+      hubHref: trackHubHref("nomusa"),
+      subjects: subjectsForScope("nomusa"),
+      tools: toolsForScope("nomusa"),
     };
   }
   if (path.startsWith("/public-service")) {

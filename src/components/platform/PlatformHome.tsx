@@ -120,6 +120,36 @@ const exams = [
     accent: "from-[#fff4e8] to-[#fffaf4]",
     cta: "세무사 알아보기",
   },
+  {
+    href: "/sanan/intro",
+    learnHref: "/sanan",
+    conceptsHref: "/sanan",
+    conceptsLabel: "산업안전지도사 기출 허브",
+    eyebrow: "국가전문자격 · 1차",
+    title: "산업안전지도사",
+    accent: "from-[#fff7e6] to-[#fffbf2]",
+    cta: "산업안전지도사 알아보기",
+  },
+  {
+    href: "/sonhae/intro",
+    learnHref: "/sonhae",
+    conceptsHref: "/sonhae",
+    conceptsLabel: "손해평가사 기출 허브",
+    eyebrow: "국가전문자격 · 1차",
+    title: "손해평가사",
+    accent: "from-[#eefbe8] to-[#f6fcf2]",
+    cta: "손해평가사 알아보기",
+  },
+  {
+    href: "/nomusa/intro",
+    learnHref: "/nomusa",
+    conceptsHref: "/nomusa",
+    conceptsLabel: "공인노무사 기출 허브",
+    eyebrow: "국가전문자격 · 1차",
+    title: "공인노무사",
+    accent: "from-[#eaf1ff] to-[#f5f8ff]",
+    cta: "공인노무사 알아보기",
+  },
 ] as const;
 
 /** 학습 시작 — 차분한 블루(대비 유지, 채도↓) */
@@ -134,9 +164,9 @@ export function PlatformHome() {
   return (
     <div className="relative overflow-hidden bg-white px-4 py-10 md:py-16">
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
-        <h1 className="sr-only">공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사 기출 학습</h1>
+        <h1 className="sr-only">공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사 기출 학습</h1>
         <p className="sr-only">
-          9급 공무원, 공인중개사, 경찰공무원, 소방공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어, 공무원 국어, 행정사, 세무사 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
+          9급 공무원, 공인중개사, 경찰공무원, 소방공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어, 공무원 국어, 행정사, 세무사, 공인노무사, 손해평가사, 산업안전지도사 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
         </p>
 
         <section className="mx-auto mb-10 grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">

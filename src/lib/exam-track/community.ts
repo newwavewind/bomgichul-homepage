@@ -5,6 +5,9 @@ import {
   GUGEO_TRACK,
   HAENGJEONGSA_TRACK,
   SEMUSA_TRACK,
+  SANAN_TRACK,
+  SONHAE_TRACK,
+  NOMUSA_TRACK,
   HISTORY_TRACK,
   HOUSING_TRACK,
   POLICE_TRACK,
@@ -35,6 +38,12 @@ export function communityScopeLabel(scope: CommunityScope): string {
       return "행정사";
     case "semusa":
       return "세무사";
+    case "sanan":
+      return "산업안전지도사";
+    case "sonhae":
+      return "손해평가사";
+    case "nomusa":
+      return "공인노무사";
     default:
       return "공인중개사";
   }
@@ -62,6 +71,12 @@ export function trackHubHref(scope: CommunityScope): string {
       return HAENGJEONGSA_TRACK.basePath;
     case "semusa":
       return SEMUSA_TRACK.basePath;
+    case "sanan":
+      return SANAN_TRACK.basePath;
+    case "sonhae":
+      return SONHAE_TRACK.basePath;
+    case "nomusa":
+      return NOMUSA_TRACK.basePath;
     default:
       return "/real-estate";
   }
@@ -89,6 +104,12 @@ export function communityBaseHref(scope: CommunityScope): string {
       return `${HAENGJEONGSA_TRACK.basePath}/community`;
     case "semusa":
       return `${SEMUSA_TRACK.basePath}/community`;
+    case "sanan":
+      return `${SANAN_TRACK.basePath}/community`;
+    case "sonhae":
+      return `${SONHAE_TRACK.basePath}/community`;
+    case "nomusa":
+      return `${NOMUSA_TRACK.basePath}/community`;
     default:
       return "/community";
   }
@@ -116,6 +137,12 @@ export function archiveBaseHref(scope: CommunityScope): string {
       return `${HAENGJEONGSA_TRACK.basePath}/archive`;
     case "semusa":
       return `${SEMUSA_TRACK.basePath}/archive`;
+    case "sanan":
+      return `${SANAN_TRACK.basePath}/archive`;
+    case "sonhae":
+      return `${SONHAE_TRACK.basePath}/archive`;
+    case "nomusa":
+      return `${NOMUSA_TRACK.basePath}/archive`;
     default:
       return "/archive";
   }
@@ -143,6 +170,12 @@ export function diaryBaseHref(scope: CommunityScope): string {
       return `${HAENGJEONGSA_TRACK.basePath}/diary`;
     case "semusa":
       return `${SEMUSA_TRACK.basePath}/diary`;
+    case "sanan":
+      return `${SANAN_TRACK.basePath}/diary`;
+    case "sonhae":
+      return `${SONHAE_TRACK.basePath}/diary`;
+    case "nomusa":
+      return `${NOMUSA_TRACK.basePath}/diary`;
     default:
       return "/diary";
   }
@@ -170,6 +203,12 @@ export function faqBaseHref(scope: CommunityScope): string {
       return `${HAENGJEONGSA_TRACK.basePath}/faq`;
     case "semusa":
       return `${SEMUSA_TRACK.basePath}/faq`;
+    case "sanan":
+      return `${SANAN_TRACK.basePath}/faq`;
+    case "sonhae":
+      return `${SONHAE_TRACK.basePath}/faq`;
+    case "nomusa":
+      return `${NOMUSA_TRACK.basePath}/faq`;
     default:
       return "/faq";
   }
@@ -197,6 +236,12 @@ export function communityTitle(scope: CommunityScope): string {
       return HAENGJEONGSA_TRACK.communityTitle;
     case "semusa":
       return SEMUSA_TRACK.communityTitle;
+    case "sanan":
+      return SANAN_TRACK.communityTitle;
+    case "sonhae":
+      return SONHAE_TRACK.communityTitle;
+    case "nomusa":
+      return NOMUSA_TRACK.communityTitle;
     default:
       return "공인중개사 수험생 커뮤니티";
   }
@@ -224,6 +269,12 @@ export function archiveTitle(scope: CommunityScope): string {
       return "행정사 자료실";
     case "semusa":
       return "세무사 자료실";
+    case "sanan":
+      return "산업안전지도사 자료실";
+    case "sonhae":
+      return "손해평가사 자료실";
+    case "nomusa":
+      return "공인노무사 자료실";
     default:
       return "공인중개사 자료실";
   }
@@ -251,6 +302,12 @@ export function archiveEyebrow(scope: CommunityScope): string {
       return "행정사 수험 자료 공유";
     case "semusa":
       return "세무사 수험 자료 공유";
+    case "sanan":
+      return "산업안전지도사 수험 자료 공유";
+    case "sonhae":
+      return "손해평가사 수험 자료 공유";
+    case "nomusa":
+      return "공인노무사 수험 자료 공유";
     default:
       return "공인중개사 수험 자료 공유";
   }
@@ -282,7 +339,10 @@ export function isValidCommunityScope(value: string | null | undefined): value i
     value === "english" ||
     value === "gugeo" ||
     value === "haengjeongsa" ||
-    value === "semusa"
+    value === "semusa" ||
+    value === "sanan" ||
+    value === "sonhae" ||
+    value === "nomusa"
   );
 }
 
@@ -297,6 +357,9 @@ export function scopeFromPathname(pathname: string | null | undefined): Communit
   if (pathname.startsWith("/gugeo")) return "gugeo";
   if (pathname.startsWith("/haengjeongsa")) return "haengjeongsa";
   if (pathname.startsWith("/semusa")) return "semusa";
+  if (pathname.startsWith("/sanan")) return "sanan";
+  if (pathname.startsWith("/sonhae")) return "sonhae";
+  if (pathname.startsWith("/nomusa")) return "nomusa";
   if (pathname.startsWith("/public-service")) return "public_service";
   return "real_estate";
 }

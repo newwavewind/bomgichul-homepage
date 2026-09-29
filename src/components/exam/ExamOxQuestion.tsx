@@ -17,6 +17,8 @@ export type ExamOxItem = {
   text: string;
   answer?: string;
   explanation?: string;
+  /** 그래프·도면처럼 글이 아닌 선지 — 산업안전지도사·공인노무사 몇 문항 */
+  image?: string;
 };
 
 export type ExamOxCombo = {
@@ -240,6 +242,13 @@ export function ExamOxQuestion({
                   {choiceHeaders.length >= 2 && item.text.split("/").length === choiceHeaders.length ? (
                     <span className="grid flex-1 gap-2 text-center font-system text-[15px] leading-7 text-ink" style={{ gridTemplateColumns: `repeat(${choiceHeaders.length}, minmax(0, 1fr))` }}>
                       {item.text.split("/").map((cell, cellIndex) => <span key={cellIndex}>{plainStudyText(cell.trim())}</span>)}
+                    </span>
+                  ) : item.image ? (
+                    <span className="flex-1">
+                      {/* 글은 그림을 옮겨 적은 것이라 둘 다 보이면 같은 선지가 두 번 읽힌다 — 화면 읽기용으로만 남긴다 */}
+                      {item.text ? <span className="sr-only">{plainStudyText(item.text)}</span> : null}
+                      {/* eslint-disable-next-line @next/next/no-img-element -- 크기가 제각각인 시험지 그림이라 원본 비율을 그대로 둔다 */}
+                      <img src={item.image} alt={item.text ? plainStudyText(item.text) : `${item.label ?? ""} 선지 그림`} loading="lazy" className="h-auto max-h-60 w-auto max-w-full rounded-md border border-mist bg-white" />
                     </span>
                   ) : (
                     <span className="flex-1 font-system text-[15px] leading-7 text-ink">{plainStudyText(item.text)}</span>

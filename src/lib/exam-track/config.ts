@@ -154,6 +154,54 @@ export const SEMUSA_TRACK: ExamTrackConfig = {
   aboutName: "세무사 국가자격시험 1차",
 };
 
+export const SANAN_TRACK: ExamTrackConfig = {
+  id: "sanan",
+  label: "산업안전지도사",
+  shortLabel: "산업안전지도사",
+  basePath: "/sanan",
+  eyebrow: "봄기출 · 산업안전지도사",
+  hubTitle: "산업안전지도사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "산업안전지도사 1차 산업안전보건법령·산업안전일반·기업진단·지도 기출을 회차별로 학습하세요. 2차 분야별 논술·단답은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "sanan",
+  communityTitle: "산업안전지도사 수험생 커뮤니티",
+  sessionEyebrow: "산업안전지도사 1차 기출",
+  educationalLevel: "산업안전지도사 국가자격시험",
+  aboutName: "산업안전지도사 국가자격시험 1차",
+};
+
+export const SONHAE_TRACK: ExamTrackConfig = {
+  id: "sonhae",
+  label: "손해평가사",
+  shortLabel: "손해평가사",
+  basePath: "/sonhae",
+  eyebrow: "봄기출 · 손해평가사",
+  hubTitle: "손해평가사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "손해평가사 1차 「상법」 보험편·농어업재해보험법령·농학개론 기출을 회차별로 학습하세요. 2차 서술·계산은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "sonhae",
+  communityTitle: "손해평가사 수험생 커뮤니티",
+  sessionEyebrow: "손해평가사 1차 기출",
+  educationalLevel: "손해평가사 국가자격시험",
+  aboutName: "손해평가사 국가자격시험 1차",
+};
+
+export const NOMUSA_TRACK: ExamTrackConfig = {
+  id: "nomusa",
+  label: "공인노무사",
+  shortLabel: "공인노무사",
+  basePath: "/nomusa",
+  eyebrow: "봄기출 · 공인노무사",
+  hubTitle: "공인노무사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "공인노무사 1차 노동법(1)·노동법(2)·민법·사회보험법·경영학개론·경제학원론 기출을 회차별로 학습하세요. 2차 논술은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "nomusa",
+  communityTitle: "공인노무사 수험생 커뮤니티",
+  sessionEyebrow: "공인노무사 1차 기출",
+  educationalLevel: "공인노무사 국가자격시험",
+  aboutName: "공인노무사 국가자격시험 1차",
+};
+
 export const EXAM_TRACKS = [
   POLICE_TRACK,
   FIREFIGHTER_TRACK,
@@ -164,6 +212,9 @@ export const EXAM_TRACKS = [
   GUGEO_TRACK,
   HAENGJEONGSA_TRACK,
   SEMUSA_TRACK,
+  SANAN_TRACK,
+  SONHAE_TRACK,
+  NOMUSA_TRACK,
 ] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
@@ -176,5 +227,8 @@ export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/gugeo")) return GUGEO_TRACK;
   if (pathname.startsWith("/haengjeongsa")) return HAENGJEONGSA_TRACK;
   if (pathname.startsWith("/semusa")) return SEMUSA_TRACK;
+  if (pathname.startsWith("/sanan")) return SANAN_TRACK;
+  if (pathname.startsWith("/sonhae")) return SONHAE_TRACK;
+  if (pathname.startsWith("/nomusa")) return NOMUSA_TRACK;
   return null;
 }

@@ -13,6 +13,9 @@ const HUB_LINKS = [
   { href: "/gugeo", label: "공무원 국어" },
   { href: "/haengjeongsa", label: "행정사" },
   { href: "/semusa", label: "세무사" },
+  { href: "/sanan", label: "산업안전지도사" },
+  { href: "/sonhae", label: "손해평가사" },
+  { href: "/nomusa", label: "공인노무사" },
 ] as const;
 
 const CONCEPT_LINKS = [

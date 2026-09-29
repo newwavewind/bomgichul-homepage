@@ -90,6 +90,30 @@ const TRACK_EXAM_SCHEDULE: Record<
     examName: "세무사 국가자격시험",
     scheduleUnconfirmed: true,
   },
+  sanan: {
+    label: "산업안전지도사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "산업안전지도사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
+  sonhae: {
+    label: "손해평가사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "손해평가사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
+  nomusa: {
+    label: "공인노무사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "공인노무사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

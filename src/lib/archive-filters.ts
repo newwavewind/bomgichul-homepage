@@ -33,6 +33,12 @@ export function archiveYearsForScope(scope: CommunityScope): number[] {
       return rangeYears(2017, 2026);
     case "semusa":
       return rangeYears(2017, 2026);
+    case "sanan":
+      return rangeYears(2017, 2026);
+    case "sonhae":
+      return rangeYears(2017, 2026);
+    case "nomusa":
+      return rangeYears(2017, 2025);
     case "history":
       return [];
     default:
@@ -133,6 +139,9 @@ export function archiveTracksForScope(scope: CommunityScope): {
           { value: "answer", label: "정답", titleMatch: "정답" },
         ],
       };
+    case "sanan":
+    case "sonhae":
+    case "nomusa":
     case "semusa":
       return {
         label: "구분",
