@@ -331,3 +331,35 @@ textarea,
     animation: none;
   }
 }
+
+/* 해설 근거 링크 — 앱 lawCite 와 같이 본문과 획을 갈라 누를 수 있게 보인다 */
+.law-cite {
+  font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+  color: #1d4ed8;
+  font-weight: 500;
+  font-size: 1.02em;
+  letter-spacing: -0.01em;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.22em;
+  text-decoration-color: rgba(29, 78, 216, 0.38);
+  border-radius: 0.2rem;
+  padding: 0 0.1em;
+  white-space: normal;
+  word-break: keep-all;
+  cursor: pointer;
+  transition: background-color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.law-cite:hover,
+.law-cite:focus-visible {
+  background-color: rgba(29, 78, 216, 0.08);
+  text-decoration-style: solid;
+  text-decoration-color: #1d4ed8;
+}
+
+.law-cite:focus-visible {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 1px;
+}

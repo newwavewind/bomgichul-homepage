@@ -9,6 +9,7 @@ import {
   dismissProgressNudge,
   shouldShowProgressNudge,
 } from "@/lib/login-nudges";
+import { CitedText } from "@/components/exam/CitedText";
 import { plainStudyText } from "@/lib/study-text";
 
 export type ExamOxItem = {
@@ -337,7 +338,7 @@ export function ExamOxQuestion({
                   </div>
                   {item.explanation ? (
                     <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                      {plainStudyText(item.explanation)}
+                      <CitedText text={item.explanation} />
                     </p>
                   ) : null}
                 </div>
@@ -359,7 +360,7 @@ export function ExamOxQuestion({
                       </div>
                       {choice.explanation ? (
                         <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                          {plainStudyText(choice.explanation)}
+                          <CitedText text={choice.explanation} />
                         </p>
                       ) : null}
                     </div>
@@ -370,7 +371,7 @@ export function ExamOxQuestion({
             !comboChoices.some((c) => c.explanation) &&
             explanationSummary ? (
               <p className="font-system text-[14px] leading-6 text-smoke">
-                {plainStudyText(explanationSummary)}
+                <CitedText text={explanationSummary} />
               </p>
             ) : null}
             {explanationSummary &&
@@ -379,7 +380,7 @@ export function ExamOxQuestion({
               <div className="mt-4 border-t border-mist pt-4">
                 <p className="font-display text-body-sm font-semibold text-ink">해설 요약</p>
                 <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                  {plainStudyText(explanationSummary)}
+                  <CitedText text={explanationSummary} />
                 </p>
               </div>
             ) : null}

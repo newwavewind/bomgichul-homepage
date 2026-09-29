@@ -1,3 +1,4 @@
+import { CitedText } from "@/components/exam/CitedText";
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 import { plainStudyText } from "@/lib/study-text";
 
@@ -152,7 +153,7 @@ export function ExamQuestionSeoExplanations({
       </div>
 
       {correctChoice ? (
-        <div className="mb-4 rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3">
+        <div className="mb-4 rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3">
           <p className="font-display text-body-sm font-semibold text-ink">
             정답: {correctChoice}번
           </p>
@@ -160,10 +161,10 @@ export function ExamQuestionSeoExplanations({
       ) : null}
 
       {summary ? (
-        <div className="mb-6 rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3">
+        <div className="mb-6 rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3">
           <p className="font-display text-body-sm font-medium text-ink">해설 요약</p>
           <p className="mt-2 whitespace-pre-wrap font-display text-body-sm leading-relaxed text-smoke">
-            {plainStudyText(summary)}
+            <CitedText text={summary} />
           </p>
         </div>
       ) : null}
@@ -173,7 +174,7 @@ export function ExamQuestionSeoExplanations({
           {itemsWithAnswerOrExpl.map((item) => (
             <li
               key={item.key}
-              className="rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3"
+              className="rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3"
             >
               <p className="font-display text-body-sm font-medium text-ink">
                 {item.label ?? item.key} {plainStudyText(item.text)}
@@ -185,7 +186,7 @@ export function ExamQuestionSeoExplanations({
               ) : null}
               {item.explanation ? (
                 <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                  {plainStudyText(item.explanation)}
+                  <CitedText text={item.explanation} />
                 </p>
               ) : null}
             </li>
@@ -198,7 +199,7 @@ export function ExamQuestionSeoExplanations({
           {comboWithExplanation.map((choice) => (
             <li
               key={choice.no}
-              className="rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3"
+              className="rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3"
             >
               <p className="font-display text-body-sm font-medium text-ink">
                 {choice.label} {plainStudyText(choice.text)}
@@ -209,7 +210,7 @@ export function ExamQuestionSeoExplanations({
                 </p>
               ) : null}
               <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                {plainStudyText(choice.explanation ?? "")}
+                <CitedText text={choice.explanation ?? ""} />
               </p>
             </li>
           ))}
