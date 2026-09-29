@@ -67,10 +67,17 @@ describe("search engine foundations", () => {
     const cases = [
       ["public-service", "/public-service/"],
       ["police", "/police/"],
+      ["firefighter", "/firefighter/"],
       ["housing", "/housing/"],
       ["social-worker", "/social-worker/"],
       ["history", "/history/"],
       ["english", "/english/"],
+      ["gugeo", "/gugeo/"],
+      ["haengjeongsa", "/haengjeongsa/"],
+      ["semusa", "/semusa/"],
+      ["sanan", "/sanan/"],
+      ["sonhae", "/sonhae/"],
+      ["nomusa", "/nomusa/"],
     ] as const;
 
     for (const [group, prefix] of cases) {

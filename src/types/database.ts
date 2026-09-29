@@ -15,10 +15,17 @@ export type CommunityScope =
   | "real_estate"
   | "public_service"
   | "police"
+  | "firefighter"
   | "housing"
   | "social_worker"
   | "history"
-  | "english";
+  | "english"
+  | "gugeo"
+  | "haengjeongsa"
+  | "semusa"
+  | "sanan"
+  | "sonhae"
+  | "nomusa";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 
@@ -178,6 +185,22 @@ export interface ConceptCommunityPost {
   comments: ConceptCommunityComment[];
 }
 
+export type DmMessageKind =
+  | "text"
+  | "exam_card"
+  | "wrong_share"
+  | "timer"
+  | "poll"
+  | "voice"
+  | "system"
+  | "mock_invite"
+  | "checkin"
+  | "schedule_share"
+  | "reminder"
+  | "mock_result"
+  | "note_card"
+  | "live_session";
+
 export interface DmMessage {
   id: string;
   conversation_id: string;
@@ -191,12 +214,36 @@ export interface DmMessage {
   deleted_at: string | null;
   reply_to?: Pick<DmMessage, "id" | "content" | "sender_id"> | null;
   reactions: DmReaction[];
+  views?: DmMessageView[];
+  message_kind?: DmMessageKind;
+  payload?: Record<string, unknown>;
+  scheduled_for?: string | null;
+  published_at?: string | null;
+  mention_user_ids?: string[];
+  bookmarked?: boolean;
+  bookmark_folder_id?: string | null;
+  repostCount?: number;
+  thread_root_id?: string | null;
+}
+
+export interface DmBookmarkFolder {
+  id: string;
+  user_id: string;
+  name: string;
+  sort: number;
+  created_at: string;
 }
 
 export interface DmReaction {
   message_id: string;
   user_id: string;
-  emoji: "👍" | "❤️" | "😂" | "🔥" | "👏" | "😮";
+  emoji: string;
+}
+
+export interface DmMessageView {
+  message_id: string;
+  user_id: string;
+  created_at?: string;
 }
 
 export interface DmAttachment {
@@ -204,7 +251,7 @@ export interface DmAttachment {
   message_id: string;
   conversation_id: string;
   uploader_id: string;
-  kind: "image" | "video" | "file";
+  kind: "image" | "video" | "file" | "audio";
   file_name: string;
   file_path: string;
   file_size: number;
@@ -232,19 +279,48 @@ export interface DmConversationPreview {
   otherUser: Pick<Profile, "id" | "nickname" | "avatar_url"> | null;
   isSelf?: boolean;
   pinnedAt?: string | null;
+  archivedAt?: string | null;
+  mutedUntil?: string | null;
+  kind?: "dm" | "group" | "self" | "topic";
+  topicKey?: string | null;
+  topicLabel?: string | null;
+  inviteCode?: string | null;
   lastMessage: {
     id: string;
     conversation_id: string;
     sender_id: string;
     content: string;
     created_at: string;
+    mention_user_ids?: string[];
   } | null;
   unreadCount: number;
+  mentionUnread?: boolean;
   updatedAt: string;
   pinned_message_id?: string | null;
   slow_mode_seconds?: number;
   study_dday?: string | null;
   study_goal?: string | null;
+  posting_mode?: "open" | "admin_only" | null;
+}
+
+export interface UserChatPrefs {
+  user_id: string;
+  keyword_alerts: string[];
+  daily_goal_count: number;
+  daily_done_count: number;
+  daily_done_on: string | null;
+}
+
+export interface TopicRoomRow {
+  id: string;
+  title: string;
+  topic_key: string;
+  topic_label: string;
+  gate_subject: string | null;
+  invite_code: string | null;
+  member_count: number;
+  joined: boolean;
+  posting_mode?: string | null;
 }
 
 export interface Friendship {
@@ -281,7 +357,15 @@ export interface Notification {
   comment_id: string | null;
   memo_id: string | null;
   memo_comment_id: string | null;
-  type: "comment" | "memo_comment";
+  conversation_id?: string | null;
+  dm_message_id?: string | null;
+  type:
+    | "comment"
+    | "memo_comment"
+    | "dm_mention"
+    | "dm_message"
+    | "friend"
+    | "chat_system";
   read_at: string | null;
   created_at: string;
   actor?: Pick<Profile, "nickname" | "avatar_url">;

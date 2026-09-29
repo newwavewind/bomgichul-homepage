@@ -16,6 +16,22 @@ export const POLICE_TRACK: ExamTrackConfig = {
   aboutName: "경찰공무원 순경 공개채용 필기시험",
 };
 
+export const FIREFIGHTER_TRACK: ExamTrackConfig = {
+  id: "firefighter",
+  label: "소방공무원",
+  shortLabel: "소방",
+  basePath: "/firefighter",
+  eyebrow: "봄기출 · 소방공무원",
+  hubTitle: "소방공무원 기출 학습의 모든 것",
+  hubDescription:
+    "소방학개론·소방관계법규·행정법총론 기출과 핵심 개념을 웹에서 바로 학습하고, 앱의 학습 모드로 공부를 이어가세요.",
+  communityScope: "firefighter",
+  communityTitle: "소방공무원 수험생 커뮤니티",
+  sessionEyebrow: "소방 공채 기출",
+  educationalLevel: "소방공무원 공개경쟁채용",
+  aboutName: "소방공무원 공개경쟁채용 필기시험",
+};
+
 export const HOUSING_TRACK: ExamTrackConfig = {
   id: "housing",
   label: "주택관리사",
@@ -85,19 +101,134 @@ export const ENGLISH_TRACK: ExamTrackConfig = {
   aboutName: "9급 공무원 공개경쟁채용시험 영어",
 };
 
+/*
+ * 9급 국어도 영어와 같이 공무원 필기 한 과목이지만, 「봄기출 공무원국어」
+ * 독립 앱·스토어 상품이라 별도 트랙으로 둔다.
+ */
+export const GUGEO_TRACK: ExamTrackConfig = {
+  id: "gugeo",
+  label: "공무원 국어",
+  shortLabel: "국어",
+  basePath: "/gugeo",
+  eyebrow: "봄기출 · 공무원 국어",
+  hubTitle: "9급 공무원 국어 기출 학습의 모든 것",
+  hubDescription:
+    "국가직·지방직 9급 국어 기출을 2017년부터 2026년까지, 20회차 400문항 담았습니다. 선지마다 해설과 함께 봅니다.",
+  communityScope: "gugeo",
+  communityTitle: "공무원 국어 수험생 커뮤니티",
+  sessionEyebrow: "9급 공무원 국어 기출",
+  educationalLevel: "9급 공무원 공개경쟁채용시험 국어",
+  aboutName: "9급 공무원 공개경쟁채용시험 국어",
+};
+
+export const HAENGJEONGSA_TRACK: ExamTrackConfig = {
+  id: "haengjeongsa",
+  label: "행정사",
+  shortLabel: "행정사",
+  basePath: "/haengjeongsa",
+  eyebrow: "봄기출 · 행정사",
+  hubTitle: "행정사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "행정사 1차 민법·행정법·행정학개론 기출을 회차별로 학습하세요. 2차 주관식은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "haengjeongsa",
+  communityTitle: "행정사 수험생 커뮤니티",
+  sessionEyebrow: "행정사 1차 기출",
+  educationalLevel: "행정사 국가자격시험",
+  aboutName: "행정사 국가자격시험 1차",
+};
+
+
+export const SEMUSA_TRACK: ExamTrackConfig = {
+  id: "semusa",
+  label: "세무사",
+  shortLabel: "세무사",
+  basePath: "/semusa",
+  eyebrow: "봄기출 · 세무사",
+  hubTitle: "세무사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "세무사 1차 재정학·세법학개론·회계학개론·상법·민법·행정소송법 기출을 회차별로 학습하세요. 2차 논술·계산은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "semusa",
+  communityTitle: "세무사 수험생 커뮤니티",
+  sessionEyebrow: "세무사 1차 기출",
+  educationalLevel: "세무사 국가자격시험",
+  aboutName: "세무사 국가자격시험 1차",
+};
+
+export const SANAN_TRACK: ExamTrackConfig = {
+  id: "sanan",
+  label: "산업안전지도사",
+  shortLabel: "산업안전지도사",
+  basePath: "/sanan",
+  eyebrow: "봄기출 · 산업안전지도사",
+  hubTitle: "산업안전지도사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "산업안전지도사 1차 산업안전보건법령·산업안전일반·기업진단·지도 기출을 회차별로 학습하세요. 2차 분야별 논술·단답은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "sanan",
+  communityTitle: "산업안전지도사 수험생 커뮤니티",
+  sessionEyebrow: "산업안전지도사 1차 기출",
+  educationalLevel: "산업안전지도사 국가자격시험",
+  aboutName: "산업안전지도사 국가자격시험 1차",
+};
+
+export const SONHAE_TRACK: ExamTrackConfig = {
+  id: "sonhae",
+  label: "손해평가사",
+  shortLabel: "손해평가사",
+  basePath: "/sonhae",
+  eyebrow: "봄기출 · 손해평가사",
+  hubTitle: "손해평가사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "손해평가사 1차 「상법」 보험편·농어업재해보험법령·농학개론 기출을 회차별로 학습하세요. 2차 서술·계산은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "sonhae",
+  communityTitle: "손해평가사 수험생 커뮤니티",
+  sessionEyebrow: "손해평가사 1차 기출",
+  educationalLevel: "손해평가사 국가자격시험",
+  aboutName: "손해평가사 국가자격시험 1차",
+};
+
+export const NOMUSA_TRACK: ExamTrackConfig = {
+  id: "nomusa",
+  label: "공인노무사",
+  shortLabel: "공인노무사",
+  basePath: "/nomusa",
+  eyebrow: "봄기출 · 공인노무사",
+  hubTitle: "공인노무사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "공인노무사 1차 노동법(1)·노동법(2)·민법·사회보험법·경영학개론·경제학원론 기출을 회차별로 학습하세요. 2차 논술은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "nomusa",
+  communityTitle: "공인노무사 수험생 커뮤니티",
+  sessionEyebrow: "공인노무사 1차 기출",
+  educationalLevel: "공인노무사 국가자격시험",
+  aboutName: "공인노무사 국가자격시험 1차",
+};
+
 export const EXAM_TRACKS = [
   POLICE_TRACK,
+  FIREFIGHTER_TRACK,
   HOUSING_TRACK,
   SOCIAL_WORKER_TRACK,
   HISTORY_TRACK,
   ENGLISH_TRACK,
+  GUGEO_TRACK,
+  HAENGJEONGSA_TRACK,
+  SEMUSA_TRACK,
+  SANAN_TRACK,
+  SONHAE_TRACK,
+  NOMUSA_TRACK,
 ] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/police")) return POLICE_TRACK;
+  if (pathname.startsWith("/firefighter")) return FIREFIGHTER_TRACK;
   if (pathname.startsWith("/housing")) return HOUSING_TRACK;
   if (pathname.startsWith("/social-worker")) return SOCIAL_WORKER_TRACK;
   if (pathname.startsWith("/history")) return HISTORY_TRACK;
   if (pathname.startsWith("/english")) return ENGLISH_TRACK;
+  if (pathname.startsWith("/gugeo")) return GUGEO_TRACK;
+  if (pathname.startsWith("/haengjeongsa")) return HAENGJEONGSA_TRACK;
+  if (pathname.startsWith("/semusa")) return SEMUSA_TRACK;
+  if (pathname.startsWith("/sanan")) return SANAN_TRACK;
+  if (pathname.startsWith("/sonhae")) return SONHAE_TRACK;
+  if (pathname.startsWith("/nomusa")) return NOMUSA_TRACK;
   return null;
 }

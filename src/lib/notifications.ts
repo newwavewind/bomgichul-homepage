@@ -40,6 +40,15 @@ export async function getNotificationsForUser(
 }
 
 export function notificationHref(notification: Notification): string {
+  if (
+    notification.type === "dm_mention" ||
+    notification.type === "dm_message" ||
+    notification.type === "friend" ||
+    notification.type === "chat_system"
+  ) {
+    return "/?chat=1";
+  }
+
   if (notification.type !== "memo_comment" || !notification.memo) {
     const scope = isValidCommunityScope(notification.post?.community_scope)
       ? notification.post.community_scope

@@ -7,9 +7,16 @@ export const PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: st
   { value: "public_service", label: "공무원" },
   { value: "real_estate", label: "공인중개사" },
   { value: "police", label: "경찰" },
+  { value: "firefighter", label: "소방" },
   { value: "housing", label: "주택관리사" },
   { value: "social_worker", label: "사회복지사" },
   { value: "english", label: "공무원 영어" },
+  { value: "gugeo", label: "공무원 국어" },
+  { value: "haengjeongsa", label: "행정사" },
+  { value: "semusa", label: "세무사" },
+  { value: "sanan", label: "산업안전지도사" },
+  { value: "sonhae", label: "손해평가사" },
+  { value: "nomusa", label: "공인노무사" },
   { value: "history", label: "한국사" },
 ];
 

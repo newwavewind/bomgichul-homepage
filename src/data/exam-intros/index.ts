@@ -1,4 +1,11 @@
 import { englishIntro } from "./english";
+import { firefighterIntro } from "./firefighter";
+import { gugeoIntro } from "./gugeo";
+import { haengjeongsaIntro } from "./haengjeongsa";
+import { semusaIntro } from "./semusa";
+import { sananIntro } from "./sanan";
+import { sonhaeIntro } from "./sonhae";
+import { nomusaIntro } from "./nomusa";
 import { historyIntro } from "./history";
 import { housingIntro } from "./housing";
 import { policeIntro } from "./police";
@@ -13,6 +20,13 @@ export const EXAM_INTROS = {
   "public-service": publicServiceIntro,
   "real-estate": realEstateIntro,
   police: policeIntro,
+  firefighter: firefighterIntro,
+  gugeo: gugeoIntro,
+  haengjeongsa: haengjeongsaIntro,
+  semusa: semusaIntro,
+  sanan: sananIntro,
+  sonhae: sonhaeIntro,
+  nomusa: nomusaIntro,
   housing: housingIntro,
   "social-worker": socialWorkerIntro,
   history: historyIntro,

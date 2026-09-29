@@ -14,19 +14,33 @@ export type PersonalHomeData = {
 const BASE_PATHS: Record<string, string> = {
   public_service: "/public-service",
   police: "/police",
+  firefighter: "/firefighter",
   housing: "/housing",
   social_worker: "/social-worker",
   history: "/history",
   english: "/english",
+  gugeo: "/gugeo",
+  haengjeongsa: "/haengjeongsa",
+  semusa: "/semusa",
+  sanan: "/sanan",
+  sonhae: "/sonhae",
+  nomusa: "/nomusa",
 };
 
 const SCOPE_LABELS: Record<string, string> = {
   public_service: "공무원",
   police: "경찰공무원",
+  firefighter: "소방공무원",
   housing: "주택관리사",
   social_worker: "사회복지사 1급",
   history: "한국사능력검정",
   english: "공무원 영어",
+  gugeo: "공무원 국어",
+  haengjeongsa: "행정사",
+  semusa: "세무사",
+  sanan: "산업안전지도사",
+  sonhae: "손해평가사",
+  nomusa: "공인노무사",
 };
 
 function kstDate(date = new Date()) {

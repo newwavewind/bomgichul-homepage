@@ -15,6 +15,11 @@ import {
   getPoliceSubject,
 } from "@/lib/police-content";
 import {
+  FIREFIGHTER_SUBJECT_IDS,
+  getFirefighterExamSessions,
+  getFirefighterSubject,
+} from "@/lib/firefighter-content";
+import {
   HOUSING_SUBJECT_IDS,
   getHousingExamSessions,
   getHousingSubject,
@@ -29,6 +34,36 @@ import {
   getEnglishExamSessions,
   getEnglishSubject,
 } from "@/lib/english-content";
+import {
+  GUGEO_SUBJECT_IDS,
+  getGugeoExamSessions,
+  getGugeoSubject,
+} from "@/lib/gugeo-content";
+import {
+  HAENGJEONGSA_SUBJECT_IDS,
+  getHaengjeongsaExamSessions,
+  getHaengjeongsaSubject,
+} from "@/lib/haengjeongsa-content";
+import {
+  SEMUSA_SUBJECT_IDS,
+  getSemusaSubject,
+  getSemusaExamSessions,
+} from "@/lib/semusa-content";
+import {
+  SANAN_SUBJECT_IDS,
+  getSananSubject,
+  getSananExamSessions,
+} from "@/lib/sanan-content";
+import {
+  SONHAE_SUBJECT_IDS,
+  getSonhaeSubject,
+  getSonhaeExamSessions,
+} from "@/lib/sonhae-content";
+import {
+  NOMUSA_SUBJECT_IDS,
+  getNomusaSubject,
+  getNomusaExamSessions,
+} from "@/lib/nomusa-content";
 import {
   HISTORY_SUBJECT_IDS,
   getHistoryExamSessions,
@@ -51,10 +86,17 @@ export const SITEMAP_GROUPS = [
   "real-estate",
   "public-service",
   "police",
+  "firefighter",
   "housing",
   "social-worker",
   "history",
   "english",
+  "gugeo",
+  "haengjeongsa",
+  "semusa",
+  "sanan",
+  "sonhae",
+  "nomusa",
 ] as const;
 
 export type SitemapGroup = (typeof SITEMAP_GROUPS)[number];
@@ -63,10 +105,17 @@ const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   "real-estate": "real_estate",
   "public-service": "public_service",
   police: "police",
+  firefighter: "firefighter",
   housing: "housing",
   "social-worker": "social_worker",
   history: "history",
   english: "english",
+  gugeo: "gugeo",
+  haengjeongsa: "haengjeongsa",
+  semusa: "semusa",
+  sanan: "sanan",
+  sonhae: "sonhae",
+  nomusa: "nomusa",
 };
 
 function page(
@@ -202,6 +251,13 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         getPoliceSubject,
         getPoliceExamSessions,
       );
+    case "firefighter":
+      return getNamespacedTrackUrls(
+        "/firefighter",
+        FIREFIGHTER_SUBJECT_IDS,
+        getFirefighterSubject,
+        getFirefighterExamSessions,
+      );
     case "housing":
       return getNamespacedTrackUrls(
         "/housing",
@@ -230,6 +286,54 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         ENGLISH_SUBJECT_IDS,
         getEnglishSubject,
         getEnglishExamSessions,
+        { includeConcepts: false },
+      );
+    case "gugeo":
+      return getNamespacedTrackUrls(
+        "/gugeo",
+        GUGEO_SUBJECT_IDS,
+        getGugeoSubject,
+        getGugeoExamSessions,
+        { includeConcepts: false },
+      );
+    case "haengjeongsa":
+      return getNamespacedTrackUrls(
+        "/haengjeongsa",
+        HAENGJEONGSA_SUBJECT_IDS,
+        getHaengjeongsaSubject,
+        getHaengjeongsaExamSessions,
+        { includeConcepts: false },
+      );
+    case "semusa":
+      return getNamespacedTrackUrls(
+        "/semusa",
+        SEMUSA_SUBJECT_IDS,
+        getSemusaSubject,
+        getSemusaExamSessions,
+        { includeConcepts: false },
+      );
+    case "sanan":
+      return getNamespacedTrackUrls(
+        "/sanan",
+        SANAN_SUBJECT_IDS,
+        getSananSubject,
+        getSananExamSessions,
+        { includeConcepts: false },
+      );
+    case "sonhae":
+      return getNamespacedTrackUrls(
+        "/sonhae",
+        SONHAE_SUBJECT_IDS,
+        getSonhaeSubject,
+        getSonhaeExamSessions,
+        { includeConcepts: false },
+      );
+    case "nomusa":
+      return getNamespacedTrackUrls(
+        "/nomusa",
+        NOMUSA_SUBJECT_IDS,
+        getNomusaSubject,
+        getNomusaExamSessions,
         { includeConcepts: false },
       );
   }

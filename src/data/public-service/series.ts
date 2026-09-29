@@ -19,7 +19,6 @@ export const PUBLIC_SERVICE_SERIES: PublicServiceSeries[] = [
   { id: "geomchal", label: "검찰직", group: "교정·수사", subjectIds: ["hyeongbeop", "hyeongso"] },
   { id: "mayak-susa", label: "마약수사직", group: "교정·수사", subjectIds: ["hyeongbeop", "hyeongso"] },
   { id: "cheoldo-gyeongchal", label: "철도경찰직", group: "교정·수사", subjectIds: ["hyeongbeop", "hyeongsogaeron"] },
-  { id: "sobang", label: "소방직", group: "소방", subjectIds: ["sobang", "sobangbeop"], blurb: "소방사 공채" },
 ];
 
 /** manifest.json 과목 표기와 동일 (시험·학습 홈 라벨) */
@@ -38,6 +37,4 @@ export const PUBLIC_SERVICE_SUBJECT_LABELS: Record<string, string> = {
   hyeongsogaeron: "형사소송법개론",
   hyeongbeop: "형법",
   hyeongso: "형사소송법",
-  sobang: "소방학개론",
-  sobangbeop: "소방관계법규",
 };

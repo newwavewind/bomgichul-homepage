@@ -19,12 +19,26 @@ export function archiveYearsForScope(scope: CommunityScope): number[] {
       return rangeYears(2017, 2026);
     case "police":
       return rangeYears(2022, 2026);
+    case "firefighter":
+      return rangeYears(2018, 2026);
     case "housing":
       return rangeYears(2016, 2026);
     case "social_worker":
       return rangeYears(2017, 2026);
     case "english":
       return rangeYears(2017, 2026);
+    case "gugeo":
+      return rangeYears(2017, 2026);
+    case "haengjeongsa":
+      return rangeYears(2017, 2026);
+    case "semusa":
+      return rangeYears(2017, 2026);
+    case "sanan":
+      return rangeYears(2017, 2026);
+    case "sonhae":
+      return rangeYears(2017, 2026);
+    case "nomusa":
+      return rangeYears(2017, 2025);
     case "history":
       return [];
     default:
@@ -68,6 +82,15 @@ export function archiveTracksForScope(scope: CommunityScope): {
           { value: "local", label: "지방직", titleMatch: "지방직" },
         ],
       };
+    case "gugeo":
+      return {
+        label: "구분",
+        options: [
+          { value: "all", label: "전체" },
+          { value: "national", label: "국가직", titleMatch: "국가직" },
+          { value: "local", label: "지방직", titleMatch: "지방직" },
+        ],
+      };
     case "real_estate":
       return {
         label: "차수",
@@ -95,6 +118,36 @@ export function archiveTracksForScope(scope: CommunityScope): {
           { value: "all", label: "전체" },
           { value: "round1", label: "1차", titleMatch: "1차" },
           { value: "round2", label: "2차", titleMatch: "2차" },
+          { value: "answer", label: "정답", titleMatch: "정답" },
+        ],
+      };
+    case "firefighter":
+      return {
+        label: "구분",
+        options: [
+          { value: "all", label: "전체" },
+          { value: "problem", label: "문제", titleMatch: "문제" },
+          { value: "answer", label: "정답", titleMatch: "정답" },
+        ],
+      };
+    case "haengjeongsa":
+      return {
+        label: "구분",
+        options: [
+          { value: "all", label: "전체" },
+          { value: "problem", label: "문제", titleMatch: "문제" },
+          { value: "answer", label: "정답", titleMatch: "정답" },
+        ],
+      };
+    case "sanan":
+    case "sonhae":
+    case "nomusa":
+    case "semusa":
+      return {
+        label: "구분",
+        options: [
+          { value: "all", label: "전체" },
+          { value: "problem", label: "문제", titleMatch: "문제" },
           { value: "answer", label: "정답", titleMatch: "정답" },
         ],
       };

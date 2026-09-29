@@ -12,6 +12,8 @@ const TRACK_EXAM_SCHEDULE: Record<
     registrationStart: string;
     note: string;
     examName: string;
+    /** true면 D-day 숫자를 숨기고 공고 확인 안내만 노출 */
+    scheduleUnconfirmed?: boolean;
   }
 > = {
   public_service: {
@@ -27,6 +29,14 @@ const TRACK_EXAM_SCHEDULE: Record<
     registrationStart: "2026-07-10",
     note: "제2차 필기 2026.8.22. 완료. 중앙경찰학교 공고 제2026-11호 기준",
     examName: "경찰공무원 순경 공개채용",
+  },
+  firefighter: {
+    label: "소방공무원 공개경쟁채용",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 사이버국가고시센터(gosi.kr) 최신 공고를 확인하세요.",
+    examName: "소방공무원 공개경쟁채용",
+    scheduleUnconfirmed: true,
   },
   housing: {
     label: "2026년 제29회 주택관리사보 2차",
@@ -56,6 +66,53 @@ const TRACK_EXAM_SCHEDULE: Record<
     registrationStart: "2026-02-02",
     note: "영어는 9급 필기 과목. 다음 일정은 인사혁신처·gongmuwon.gosi.kr 공고 확인",
     examName: "공무원 공개경쟁채용시험",
+  },
+  gugeo: {
+    label: "2026년 국가직 9급",
+    examDate: "2026-04-04",
+    registrationStart: "2026-02-02",
+    note: "국어는 9급 필기 과목. 다음 일정은 인사혁신처·gongmuwon.gosi.kr 공고 확인",
+    examName: "공무원 공개경쟁채용시험",
+  },
+  haengjeongsa: {
+    label: "행정사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "행정사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
+  semusa: {
+    label: "세무사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "세무사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
+  sanan: {
+    label: "산업안전지도사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "산업안전지도사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
+  sonhae: {
+    label: "손해평가사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "손해평가사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
+  nomusa: {
+    label: "공인노무사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "공인노무사 국가자격시험",
+    scheduleUnconfirmed: true,
   },
 };
 
@@ -143,6 +200,7 @@ export function getExamCountdown(fromDate = getKSTDateString()) {
     label: formatCountdownLabel(days),
     formattedDate: formatKoreanDate(exam.examDate),
     examName: "공인중개사 자격시험",
+    scheduleUnconfirmed: false as const,
   };
 }
 
@@ -170,9 +228,12 @@ export function getExamCountdownForScope(
       resultDate: examDate,
     },
     days,
-    label: formatCountdownLabel(days),
-    formattedDate: formatKoreanDate(examDate),
+    label: base.scheduleUnconfirmed ? "공고 확인" : formatCountdownLabel(days),
+    formattedDate: base.scheduleUnconfirmed
+      ? "일정은 최신 공고를 확인하세요"
+      : formatKoreanDate(examDate),
     examName: base.examName,
+    scheduleUnconfirmed: Boolean(base.scheduleUnconfirmed),
   };
 }
 

@@ -61,8 +61,11 @@ export async function getDmConversations(
       .in("conversation_id", convIds),
     supabase
       .from("dm_messages")
-      .select("id, conversation_id, sender_id, content, created_at")
+      .select("id, conversation_id, sender_id, content, created_at, scheduled_for, published_at")
       .in("conversation_id", convIds)
+      .or(
+        `scheduled_for.is.null,published_at.not.is.null,and(sender_id.eq.${userId},published_at.is.null,scheduled_for.not.is.null)`,
+      )
       .order("created_at", { ascending: false }),
     supabase
       .from("dm_conversations")

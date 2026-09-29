@@ -5,16 +5,24 @@ const HUB_LINKS = [
   { href: "/public-service", label: "공무원" },
   { href: "/real-estate", label: "공인중개사" },
   { href: "/police", label: "경찰공무원" },
+  { href: "/firefighter", label: "소방공무원" },
   { href: "/housing", label: "주택관리사" },
   { href: "/social-worker", label: "사회복지사" },
   { href: "/history", label: "한국사" },
   { href: "/english", label: "공무원 영어" },
+  { href: "/gugeo", label: "공무원 국어" },
+  { href: "/haengjeongsa", label: "행정사" },
+  { href: "/semusa", label: "세무사" },
+  { href: "/sanan", label: "산업안전지도사" },
+  { href: "/sonhae", label: "손해평가사" },
+  { href: "/nomusa", label: "공인노무사" },
 ] as const;
 
 const CONCEPT_LINKS = [
   { href: "/concepts/broker-law", label: "중개사법 올인원" },
   { href: "/concepts/civillaw", label: "민법 올인원" },
   { href: "/police/concepts/constitution", label: "경찰 헌법 올인원" },
+  { href: "/firefighter/concepts/sobang", label: "소방학개론 올인원" },
   { href: "/public-service/concepts/hangjunghak", label: "행정학 올인원" },
   { href: "/history/concepts", label: "한국사 개념" },
 ] as const;

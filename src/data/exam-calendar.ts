@@ -15,10 +15,17 @@ export type ExamCalendarEvent = {
     | "public-service"
     | "real-estate"
     | "police"
+    | "firefighter"
     | "housing"
     | "social-worker"
     | "history"
-    | "english";
+    | "english"
+    | "gugeo"
+    | "haengjeongsa"
+    | "semusa"
+    | "sanan"
+    | "sonhae"
+    | "nomusa";
   examLabel: string;
   kind: ExamCalendarKind;
   title: string;
@@ -42,10 +49,17 @@ export const EXAM_CALENDAR_COLORS: Record<ExamCalendarEvent["examKey"], string> 
   "public-service": "#2563eb",
   "real-estate": "#087f6d",
   police: "#4f46e5",
+  firefighter: "#ea580c",
   housing: "#c2410c",
   "social-worker": "#db2777",
   history: "#65a30d",
   english: "#7c3aed",
+  gugeo: "#0891b2",
+  haengjeongsa: "#0d9488",
+  semusa: "#c2410c",
+  sanan: "#b45309",
+  sonhae: "#15803d",
+  nomusa: "#1d4ed8",
 };
 
 /** 범례·표시용 정식 이름 (달과 무관하게 항상 전부 노출) */
@@ -53,19 +67,33 @@ export const EXAM_CALENDAR_LABELS: Record<ExamCalendarEvent["examKey"], string> 
   "public-service": "공무원",
   "real-estate": "공인중개사",
   police: "경찰공무원",
+  firefighter: "소방공무원",
   housing: "주택관리사보",
   "social-worker": "사회복지사1급",
   english: "공무원 영어",
   history: "한국사능력검정시험",
+  gugeo: "공무원 국어",
+  haengjeongsa: "행정사",
+  semusa: "세무사",
+  sanan: "산업안전지도사",
+  sonhae: "손해평가사",
+  nomusa: "공인노무사",
 };
 
 export const EXAM_CALENDAR_ORDER: ExamCalendarEvent["examKey"][] = [
   "public-service",
   "real-estate",
   "police",
+  "firefighter",
   "housing",
   "social-worker",
   "english",
+  "gugeo",
+  "haengjeongsa",
+  "semusa",
+  "sanan",
+  "sonhae",
+  "nomusa",
   "history",
 ];
 

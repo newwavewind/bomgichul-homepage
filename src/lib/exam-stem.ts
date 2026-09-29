@@ -20,7 +20,9 @@ const INLINE_KOREAN_ITEM = /[가-하]\.\s*/g;
 function isDisclaimerProse(text: string): boolean {
   const t = text.trim();
   if (!t) return false;
-  if (/^\((단|다만|주|참고)[,，]/.test(t)) return true;
+  // "(단, …)" 뒤에 실질 자료가 이어지면 단서가 아니다 — 닫는 괄호까지만 본다.
+  const m = t.match(/^\((단|다만|주|참고)[,，][^)]*\)/);
+  if (m) return t.slice(m[0].length).trim().length === 0;
   if (/^\([^)]+\)$/.test(t) && t.length <= 200) return true;
   return false;
 }
@@ -123,7 +125,15 @@ function parseInlineMaterialBox(stem: string): ParsedQuestionStem | null {
   if (!rest) return null;
 
   const bulletStart = findBulletStart(rest);
-  if (bulletStart < 0) return null;
+  if (bulletStart < 0) {
+    // 항목 나열은 아니지만("( )에 들어갈 … 옳은 것은? [인용 조문]"처럼)
+    // 물음표 뒤에 법령·정의 문장이 통째로 이어지면 질문과 구분해 박스로 감싼다.
+    // ox-quiz-app parseQuestionStem 과 동일.
+    if (!isDisclaimerProse(rest) && rest.length >= 20) {
+      return { intro, boxLines: [rest] };
+    }
+    return null;
+  }
 
   let prose = rest.slice(0, bulletStart).trim();
   const bulletText = rest.slice(bulletStart).trim();
@@ -134,7 +144,12 @@ function parseInlineMaterialBox(stem: string): ParsedQuestionStem | null {
   }
 
   const bullets = extractInlineBullets(bulletText);
-  if (bullets.length === 0) return null;
+  if (bullets.length === 0) {
+    if (!isDisclaimerProse(rest) && rest.length >= 20) {
+      return { intro, boxLines: [rest] };
+    }
+    return null;
+  }
 
   // 첫 `o` 항목이 prose로 잘못 분류된 경우 보정
   if (prose && LOWER_O_AT_START.test(prose)) {

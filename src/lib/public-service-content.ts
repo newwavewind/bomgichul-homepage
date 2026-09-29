@@ -11,8 +11,6 @@ import gyoyukhak from "@/data/public-service/gyoyukhak.json";
 import gukjebeop from "@/data/public-service/gukjebeop.json";
 import nodongbeop from "@/data/public-service/nodongbeop.json";
 import bokji from "@/data/public-service/bokji.json";
-import sobang from "@/data/public-service/sobang.json";
-import sobangbeop from "@/data/public-service/sobangbeop.json";
 import hoegyewonri from "@/data/public-service/hoegyewonri.json";
 
 export interface PublicServiceConcept {
@@ -112,8 +110,6 @@ const contentBySubject = {
   gukjebeop,
   nodongbeop,
   bokji,
-  sobang,
-  sobangbeop,
   hoegyewonri,
 } as unknown as Record<string, PublicServiceSubjectContent>;
 

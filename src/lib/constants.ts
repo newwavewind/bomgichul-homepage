@@ -13,7 +13,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 
 export const GA_MEASUREMENT_ID = "G-ET80RLKKXQ";
@@ -49,16 +49,29 @@ export function appStoreLinksForScope(
     | "real_estate"
     | "public_service"
     | "police"
+    | "firefighter"
     | "housing"
     | "social_worker"
     | "history"
-    | "english",
+    | "english"
+    | "gugeo"
+    | "haengjeongsa"
+    | "semusa"
+    | "sanan"
+    | "sonhae"
+    | "nomusa",
 ): AppStoreLinks {
   switch (scope) {
     case "police":
       return {
         android: null,
         ios: "https://apps.apple.com/kr/app/id6798675892",
+      };
+    case "firefighter":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.firefighter",
+        ios: "https://apps.apple.com/kr/app/id6814271261",
       };
     case "public_service":
       return {
@@ -84,6 +97,27 @@ export function appStoreLinksForScope(
     case "english":
       // iOS 는 출시 확인(2026-09-06, 스토어 등재 실측). 안드로이드는 아직.
       return { android: null, ios: "https://apps.apple.com/kr/app/id6803106780" };
+    case "gugeo":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.gugeo",
+        ios: "https://apps.apple.com/kr/app/id6814767249",
+      };
+    // 행정사 앱은 아직 어느 스토어에도 없다. 출시하면 여기만 채우면 된다.
+    case "haengjeongsa":
+      return { android: null, ios: null };
+    // 산업안전지도사·손해평가사·공인노무사 — 심사·비공개 테스트 중. 공개 출시하면 여기만 채운다.
+    case "sanan":
+    case "sonhae":
+    case "nomusa":
+      return { android: null, ios: null };
+    // 세무사: Play 패키지 준비됨. iOS ASC는 심사·출시 후 id 채울 것.
+    case "semusa":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.semusa",
+        ios: null,
+      };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };
   }
@@ -337,8 +371,15 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/public-service", label: "공무원" },
       { href: "/real-estate", label: "공인중개사" },
       { href: "/police", label: "경찰공무원" },
+      { href: "/firefighter", label: "소방공무원" },
       { href: "/housing", label: "주택관리사" },
       { href: "/social-worker", label: "사회복지사 1급" },
+      { href: "/gugeo", label: "공무원 국어" },
+      { href: "/haengjeongsa", label: "행정사" },
+      { href: "/semusa", label: "세무사" },
+      { href: "/sanan", label: "산업안전지도사" },
+      { href: "/sonhae", label: "손해평가사" },
+      { href: "/nomusa", label: "공인노무사" },
     ],
   },
   {
@@ -441,8 +482,14 @@ export const ARCHIVE_SUBJECTS_PUBLIC_SERVICE = [
   { value: "hyeongsogaeron", label: "형사소송법개론" },
   { value: "hyeongbeop", label: "형법" },
   { value: "hyeongso", label: "형사소송법" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_FIREFIGHTER = [
+  { value: "all", label: "전체 과목" },
   { value: "sobang", label: "소방학개론" },
   { value: "sobangbeop", label: "소방관계법규" },
+  { value: "haengjeongbeop", label: "행정법총론" },
   { value: "other", label: "기타" },
 ] as const;
 
@@ -465,6 +512,59 @@ export const ARCHIVE_SUBJECTS_ENGLISH = [
   { value: "other", label: "기타" },
 ] as const;
 
+export const ARCHIVE_SUBJECTS_GUGEO = [
+  { value: "all", label: "전체 과목" },
+  { value: "gugeo", label: "국어" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_HAENGJEONGSA = [
+  { value: "all", label: "전체 과목" },
+  { value: "minbeop", label: "민법" },
+  { value: "haengjeongbeop", label: "행정법" },
+  { value: "haengjeonghak", label: "행정학개론" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_SEMUSA = [
+  { value: "all", label: "전체 과목" },
+  { value: "jaejeonghak", label: "재정학" },
+  { value: "sebeopgaeron", label: "세법학개론" },
+  { value: "hoegyegaeron", label: "회계학개론" },
+  { value: "sangbeop", label: "상법" },
+  { value: "minbeop", label: "민법" },
+  { value: "haengjeongsosong", label: "행정소송법" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_SANAN = [
+  { value: "all", label: "전체 과목" },
+  { value: "sanbeop", label: "산업안전보건법령" },
+  { value: "sanil", label: "산업안전일반" },
+  { value: "gieop", label: "기업진단·지도" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_SONHAE = [
+  { value: "all", label: "전체 과목" },
+  // 세무사 「상법」(sangbeop)과 값이 겹치면 ARCHIVE_SUBJECT_MAP 에서 한쪽 이름이 덮인다
+  { value: "bohumsangbeop", label: "「상법」 보험편" },
+  { value: "nongeoeop", label: "농어업재해보험법령" },
+  { value: "nonghak", label: "농학개론" },
+  { value: "other", label: "기타" },
+] as const;
+
+export const ARCHIVE_SUBJECTS_NOMUSA = [
+  { value: "all", label: "전체 과목" },
+  { value: "nodong1", label: "노동법(1)" },
+  { value: "nodong2", label: "노동법(2)" },
+  { value: "minbeop", label: "민법" },
+  { value: "sahoeboheom", label: "사회보험법" },
+  { value: "gyeongyeong", label: "경영학개론" },
+  { value: "gyeongje", label: "경제학원론" },
+  { value: "other", label: "기타" },
+] as const;
+
 export const ARCHIVE_SUBJECTS_HISTORY = [
   { value: "all", label: "전체 과목" },
   { value: "advanced", label: "심화" },
@@ -482,10 +582,17 @@ export const ARCHIVE_RESOURCE_TYPE_MAP: Record<string, string> = {
 export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
   ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_POLICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_FIREFIGHTER.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_HOUSING.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_PUBLIC_SERVICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_SOCIAL_WORKER.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_ENGLISH.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_GUGEO.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_HAENGJEONGSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_SEMUSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_SANAN.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_SONHAE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_NOMUSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_HISTORY.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
 ]);
 
@@ -493,6 +600,8 @@ export function archiveSubjectsForScope(scope: string) {
   switch (scope) {
     case "police":
       return [...ARCHIVE_SUBJECTS_POLICE];
+    case "firefighter":
+      return [...ARCHIVE_SUBJECTS_FIREFIGHTER];
     case "housing":
       return [...ARCHIVE_SUBJECTS_HOUSING];
     case "public_service":
@@ -501,6 +610,18 @@ export function archiveSubjectsForScope(scope: string) {
       return [...ARCHIVE_SUBJECTS_SOCIAL_WORKER];
     case "english":
       return [...ARCHIVE_SUBJECTS_ENGLISH];
+    case "gugeo":
+      return [...ARCHIVE_SUBJECTS_GUGEO];
+    case "haengjeongsa":
+      return [...ARCHIVE_SUBJECTS_HAENGJEONGSA];
+    case "semusa":
+      return [...ARCHIVE_SUBJECTS_SEMUSA];
+    case "sanan":
+      return [...ARCHIVE_SUBJECTS_SANAN];
+    case "sonhae":
+      return [...ARCHIVE_SUBJECTS_SONHAE];
+    case "nomusa":
+      return [...ARCHIVE_SUBJECTS_NOMUSA];
     case "history":
       return [...ARCHIVE_SUBJECTS_HISTORY];
     default:
@@ -512,6 +633,8 @@ export function defaultArchiveSubject(scope: string) {
   switch (scope) {
     case "police":
       return "constitution";
+    case "firefighter":
+      return "sobang";
     case "housing":
       return "accounting";
     case "public_service":
@@ -520,6 +643,18 @@ export function defaultArchiveSubject(scope: string) {
       return "human-behavior";
     case "english":
       return "english";
+    case "gugeo":
+      return "gugeo";
+    case "haengjeongsa":
+      return "minbeop";
+    case "semusa":
+      return "jaejeonghak";
+    case "sanan":
+      return "sanbeop";
+    case "sonhae":
+      return "bohumsangbeop";
+    case "nomusa":
+      return "nodong1";
     case "history":
       return "advanced";
     default:

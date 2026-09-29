@@ -245,12 +245,16 @@ export function buildOrganizationJsonLd() {
       "https://apps.apple.com/kr/app/id6784651251",
       "https://apps.apple.com/kr/app/id6790764010",
       "https://apps.apple.com/kr/app/id6798675892",
+      "https://apps.apple.com/kr/app/id6814271261",
       "https://apps.apple.com/kr/app/id6799456199",
       "https://apps.apple.com/kr/app/id6801141200",
       "https://apps.apple.com/kr/app/id6803106780",
+      "https://apps.apple.com/kr/app/id6814767249",
       "https://play.google.com/store/apps/details?id=com.sanghyun.civillaw",
       "https://play.google.com/store/apps/details?id=com.sanghyun.publicofficial",
       "https://play.google.com/store/apps/details?id=com.sanghyun.police",
+      "https://play.google.com/store/apps/details?id=com.sanghyun.firefighter",
+      "https://play.google.com/store/apps/details?id=com.sanghyun.gugeo",
     ],
   };
 }
@@ -276,7 +280,7 @@ export function buildPlatformHomeJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "공무원·공인중개사·경찰·주택관리사·사회복지사 1급 기출 학습",
+    name: "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사 기출 학습",
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     inLanguage: "ko-KR",
@@ -287,7 +291,7 @@ export function buildPlatformHomeJsonLd() {
     mainEntity: {
       "@type": "ItemList",
       name: "봄기출 시험별 학습",
-      numberOfItems: 5,
+      numberOfItems: 12,
       itemListElement: [
         {
           "@type": "ListItem",
@@ -310,14 +314,56 @@ export function buildPlatformHomeJsonLd() {
         {
           "@type": "ListItem",
           position: 4,
+          name: "소방공무원 소방학개론·소방관계법규·행정법총론 기출 학습",
+          url: absoluteUrl("/firefighter"),
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
           name: "주택관리사보 기출 학습",
           url: absoluteUrl("/housing"),
         },
         {
           "@type": "ListItem",
-          position: 5,
+          position: 6,
           name: "사회복지사 1급 국가시험 기출 학습",
           url: absoluteUrl("/social-worker"),
+        },
+        {
+          "@type": "ListItem",
+          position: 7,
+          name: "9급 공무원 국어 기출 학습",
+          url: absoluteUrl("/gugeo"),
+        },
+        {
+          "@type": "ListItem",
+          position: 8,
+          name: "행정사 1차 기출 학습",
+          url: absoluteUrl("/haengjeongsa"),
+        },
+        {
+          "@type": "ListItem",
+          position: 9,
+          name: "세무사 1차 기출 학습",
+          url: absoluteUrl("/semusa"),
+        },
+        {
+          "@type": "ListItem",
+          position: 10,
+          name: "산업안전지도사 1차 기출 학습",
+          url: absoluteUrl("/sanan"),
+        },
+        {
+          "@type": "ListItem",
+          position: 11,
+          name: "손해평가사 1차 기출 학습",
+          url: absoluteUrl("/sonhae"),
+        },
+        {
+          "@type": "ListItem",
+          position: 12,
+          name: "공인노무사 1차 기출 학습",
+          url: absoluteUrl("/nomusa"),
         },
       ],
     },

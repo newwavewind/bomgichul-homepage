@@ -9,7 +9,7 @@ import { Tag } from "@/components/ui/Tag";
 import type { CommunityScope } from "@/types/database";
 
 export function DDayPanel({ scope = "real_estate" }: { scope?: CommunityScope }) {
-  const { exam, days, label, formattedDate, examName } =
+  const { exam, days, label, formattedDate, examName, scheduleUnconfirmed } =
     getExamCountdownForScope(scope);
   const registrationStart = bumpExamDateToUpcoming(exam.registrationStart);
   const registrationEnd = bumpExamDateToUpcoming(exam.registrationEnd);
@@ -30,12 +30,16 @@ export function DDayPanel({ scope = "real_estate" }: { scope?: CommunityScope })
         <div className="text-center md:text-right">
           <p
             className={`font-display text-[56px] font-bold leading-none tracking-tight md:text-[72px] ${
-              days <= 30 ? "text-amber" : "text-ink"
+              scheduleUnconfirmed ? "text-ink" : days <= 30 ? "text-amber" : "text-ink"
             }`}
           >
             {label}
           </p>
-          {days > 0 ? (
+          {scheduleUnconfirmed ? (
+            <p className="mt-2 font-display text-body-sm text-smoke">
+              확정 일정이 나오면 D-day로 바뀌어요
+            </p>
+          ) : days > 0 ? (
             <p className="mt-2 font-display text-body-sm text-smoke">
               시험까지 {days}일 남았어요
             </p>

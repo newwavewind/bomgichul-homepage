@@ -91,6 +91,52 @@ const ENGLISH_SUBJECTS: { id: string; label: string }[] = [
   { id: "gong9", label: "9급 영어" },
 ];
 
+const GUGEO_SUBJECTS: { id: string; label: string }[] = [
+  { id: "gugeo", label: "9급 국어" },
+];
+
+const HAENGJEONGSA_SUBJECTS: { id: string; label: string }[] = [
+  { id: "minbeop", label: "민법" },
+  { id: "haengjeongbeop", label: "행정법" },
+  { id: "haengjeonghak", label: "행정학" },
+];
+
+const SEMUSA_SUBJECTS: { id: string; label: string }[] = [
+  { id: "jaejeonghak", label: "재정학" },
+  { id: "sebeopgaeron", label: "세법학개론" },
+  { id: "hoegyegaeron", label: "회계학개론" },
+  { id: "sangbeop", label: "상법" },
+  { id: "minbeop", label: "민법" },
+  { id: "haengjeongsosong", label: "행정소송법" },
+];
+
+const SANAN_SUBJECTS: { id: string; label: string }[] = [
+  { id: "sanbeop", label: "산업안전보건법령" },
+  { id: "sanil", label: "산업안전일반" },
+  { id: "gieop", label: "기업진단·지도" },
+];
+
+const SONHAE_SUBJECTS: { id: string; label: string }[] = [
+  { id: "sangbeop", label: "「상법」 보험편" },
+  { id: "nongeoeop", label: "농어업재해보험법령" },
+  { id: "nonghak", label: "농학개론" },
+];
+
+const NOMUSA_SUBJECTS: { id: string; label: string }[] = [
+  { id: "nodong1", label: "노동법(1)" },
+  { id: "nodong2", label: "노동법(2)" },
+  { id: "minbeop", label: "민법" },
+  { id: "sahoeboheom", label: "사회보험법" },
+  { id: "gyeongyeong", label: "경영학개론" },
+  { id: "gyeongje", label: "경제학원론" },
+];
+
+const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
+  { id: "sobang", label: "소방학개론" },
+  { id: "sobangbeop", label: "소방관계법규" },
+  { id: "haengjeongbeop", label: "행정법총론" },
+];
+
 /** 헤더에 바로 보이는 공무원 주요 과목 (나머지는 학습 홈에서) */
 const PUBLIC_SERVICE_SUBJECTS: { id: string; label: string }[] = [
   { id: "hangjunghak", label: "행정학" },
@@ -99,7 +145,6 @@ const PUBLIC_SERVICE_SUBJECTS: { id: string; label: string }[] = [
   { id: "hyeongso", label: "형소법" },
   { id: "sebeop", label: "세법" },
   { id: "bokji", label: "사회복지" },
-  { id: "sobang", label: "소방학" },
 ];
 
 function subjectsForScope(scope: CommunityScope): NavSubject[] {
@@ -123,15 +168,29 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
   const list =
     scope === "police"
       ? POLICE_SUBJECTS
-      : scope === "housing"
-        ? HOUSING_SUBJECTS
-        : scope === "social_worker"
-          ? SOCIAL_WORKER_SUBJECTS
-          : scope === "history"
-            ? HISTORY_SUBJECTS
-            : scope === "english"
-              ? ENGLISH_SUBJECTS
-              : PUBLIC_SERVICE_SUBJECTS;
+      : scope === "firefighter"
+        ? FIREFIGHTER_SUBJECTS
+        : scope === "housing"
+          ? HOUSING_SUBJECTS
+          : scope === "social_worker"
+            ? SOCIAL_WORKER_SUBJECTS
+            : scope === "history"
+              ? HISTORY_SUBJECTS
+              : scope === "english"
+                ? ENGLISH_SUBJECTS
+                : scope === "gugeo"
+                  ? GUGEO_SUBJECTS
+                  : scope === "haengjeongsa"
+                    ? HAENGJEONGSA_SUBJECTS
+                    : scope === "semusa"
+                      ? SEMUSA_SUBJECTS
+                      : scope === "sanan"
+                        ? SANAN_SUBJECTS
+                        : scope === "sonhae"
+                          ? SONHAE_SUBJECTS
+                          : scope === "nomusa"
+                            ? NOMUSA_SUBJECTS
+                            : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -157,10 +216,17 @@ function toolsForScope(scope: CommunityScope): NavTool[] {
 /** RE 전용 경로인지 (다른 시험 접두 없음) */
 function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/police")) return false;
+  if (pathname.startsWith("/firefighter")) return false;
   if (pathname.startsWith("/housing")) return false;
   if (pathname.startsWith("/social-worker")) return false;
   if (pathname.startsWith("/history")) return false;
   if (pathname.startsWith("/english")) return false;
+  if (pathname.startsWith("/gugeo")) return false;
+  if (pathname.startsWith("/haengjeongsa")) return false;
+  if (pathname.startsWith("/semusa")) return false;
+  if (pathname.startsWith("/sanan")) return false;
+  if (pathname.startsWith("/sonhae")) return false;
+  if (pathname.startsWith("/nomusa")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -188,6 +254,17 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("police"),
       subjects: subjectsForScope("police"),
       tools: toolsForScope("police"),
+    };
+  }
+  if (path.startsWith("/firefighter")) {
+    return {
+      mode: "track",
+      scope: "firefighter",
+      label: communityScopeLabel("firefighter"),
+      shortLabel: "소방",
+      hubHref: trackHubHref("firefighter"),
+      subjects: subjectsForScope("firefighter"),
+      tools: toolsForScope("firefighter"),
     };
   }
   if (path.startsWith("/housing")) {
@@ -232,6 +309,72 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("english"),
       subjects: subjectsForScope("english"),
       tools: toolsForScope("english"),
+    };
+  }
+  if (path.startsWith("/gugeo")) {
+    return {
+      mode: "track",
+      scope: "gugeo",
+      label: communityScopeLabel("gugeo"),
+      shortLabel: "국어",
+      hubHref: trackHubHref("gugeo"),
+      subjects: subjectsForScope("gugeo"),
+      tools: toolsForScope("gugeo"),
+    };
+  }
+  if (path.startsWith("/haengjeongsa")) {
+    return {
+      mode: "track",
+      scope: "haengjeongsa",
+      label: communityScopeLabel("haengjeongsa"),
+      shortLabel: "행정사",
+      hubHref: trackHubHref("haengjeongsa"),
+      subjects: subjectsForScope("haengjeongsa"),
+      tools: toolsForScope("haengjeongsa"),
+    };
+  }
+  if (path.startsWith("/semusa")) {
+    return {
+      mode: "track",
+      scope: "semusa",
+      label: communityScopeLabel("semusa"),
+      shortLabel: "세무사",
+      hubHref: trackHubHref("semusa"),
+      subjects: subjectsForScope("semusa"),
+      tools: toolsForScope("semusa"),
+    };
+  }
+  if (path.startsWith("/sanan")) {
+    return {
+      mode: "track",
+      scope: "sanan",
+      label: communityScopeLabel("sanan"),
+      shortLabel: "산업안전지도사",
+      hubHref: trackHubHref("sanan"),
+      subjects: subjectsForScope("sanan"),
+      tools: toolsForScope("sanan"),
+    };
+  }
+  if (path.startsWith("/sonhae")) {
+    return {
+      mode: "track",
+      scope: "sonhae",
+      label: communityScopeLabel("sonhae"),
+      shortLabel: "손해평가사",
+      hubHref: trackHubHref("sonhae"),
+      subjects: subjectsForScope("sonhae"),
+      tools: toolsForScope("sonhae"),
+    };
+  }
+  if (path.startsWith("/nomusa")) {
+    return {
+      mode: "track",
+      scope: "nomusa",
+      label: communityScopeLabel("nomusa"),
+      shortLabel: "공인노무사",
+      hubHref: trackHubHref("nomusa"),
+      subjects: subjectsForScope("nomusa"),
+      tools: toolsForScope("nomusa"),
     };
   }
   if (path.startsWith("/public-service")) {

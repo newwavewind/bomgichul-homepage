@@ -23,6 +23,20 @@ describe("getLegacySeoRedirect", () => {
     );
   });
 
+  it("redirects retired public-service firefighter URLs to /firefighter", () => {
+    expect(
+      getLegacySeoRedirect(
+        "/public-service/concepts/sobang/fire-inhwa-balhwa",
+      ),
+    ).toBe("/firefighter/concepts/sobang/sb-yeonso-hyeongtae");
+    expect(getLegacySeoRedirect("/public-service/concepts/sobang")).toBe(
+      "/firefighter/concepts/sobang",
+    );
+    expect(
+      getLegacySeoRedirect("/public-service/exam/sobangbeop/2024/국가직"),
+    ).toBe("/firefighter/exam/sobangbeop/2024/국가직");
+  });
+
   it("keeps unknown URLs as real 404s", () => {
     expect(
       getLegacySeoRedirect("/public-service/concepts/bokji/not-a-real-slug"),
