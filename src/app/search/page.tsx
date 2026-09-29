@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { searchAllQuestions } from "@/lib/global-search";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "기출문제 통합 검색", description: "시험·과목·연도·문항 번호로 봄기출 전체 기출문제를 검색하세요." };
+export const metadata: Metadata = buildPageMetadata({
+  title: "기출문제 통합 검색",
+  description:
+    "공무원·공인중개사·경찰·소방·세무사·산업안전지도사·손해평가사·공인노무사 등 봄기출 전 시험 기출문제를 과목·연도·문항 번호로 검색하세요.",
+  path: "/search",
+});
 
 export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
   const q = (await searchParams).q?.trim() ?? "";

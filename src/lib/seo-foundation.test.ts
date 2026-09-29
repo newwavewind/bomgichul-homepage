@@ -25,6 +25,12 @@ describe("search engine foundations", () => {
     expect(website["@id"]).toBe(`${SITE_URL}/#website`);
     expect(website.publisher["@id"]).toBe(organization["@id"]);
     expect(website.alternateName).toContain("bomgichul.com");
+    expect(website.potentialAction?.target?.urlTemplate).toBe(
+      `${SITE_URL}/search?q={search_term_string}`,
+    );
+    expect(organization.sameAs).toContain(
+      "https://play.google.com/store/apps/details?id=com.sanghyun.semusa",
+    );
   });
 
   it("uses each exam's canonical archive path in the sitemap", () => {
@@ -51,6 +57,33 @@ describe("search engine foundations", () => {
     expect(historyUrls).toContain(`${SITE_URL}/history/concepts`);
     expect(historyUrls).not.toContain(`${SITE_URL}/history/concepts/simhwa`);
     expect(englishUrls).not.toContain(`${SITE_URL}/english/concepts/gong9`);
+  });
+
+  it("lists every published exam hub in the home CollectionPage entity", async () => {
+    const { buildPlatformHomeJsonLd } = await import("@/lib/seo");
+    const home = buildPlatformHomeJsonLd();
+    const urls = home.mainEntity.itemListElement.map(
+      (item: { url: string }) => item.url,
+    );
+    expect(home.mainEntity.numberOfItems).toBe(14);
+    for (const path of [
+      "/public-service",
+      "/real-estate",
+      "/police",
+      "/firefighter",
+      "/housing",
+      "/social-worker",
+      "/history",
+      "/english",
+      "/gugeo",
+      "/haengjeongsa",
+      "/semusa",
+      "/sanan",
+      "/sonhae",
+      "/nomusa",
+    ]) {
+      expect(urls).toContain(`${SITE_URL}${path}`);
+    }
   });
 
   it("publishes a sitemap index with one independently crawlable feed per exam", () => {

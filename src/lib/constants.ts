@@ -11,7 +11,7 @@ export const SITE_PLATFORM = "기출 AI 학습 플랫폼";
 /** 전체 브랜딩 문구 */
 export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE}`;
 /** SEO / Open Graph / Twitter 기본 제목 */
-export const SITE_TITLE = "봄기출 | 종합 기출 학습 플랫폼";
+export const SITE_TITLE = "봄기출 | 공무원·공인중개사·세무사·산업안전지도사 기출 학습";
 export const SITE_DESCRIPTION =
   "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
