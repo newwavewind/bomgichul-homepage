@@ -116,7 +116,13 @@ function loadEnvFile(filename) {
 loadEnvFile('.env.local')
 
 function walkPdfs(dir) {
+  return walkExamFiles(dir, ['.pdf'])
+}
+
+/** PDF·HWP 기출 원본 (정답표가 HWP 인 자격시험용) */
+function walkExamFiles(dir, exts = ['.pdf', '.hwp', '.hwpx']) {
   if (!existsSync(dir)) return []
+  const want = new Set(exts.map((e) => e.toLowerCase()))
   const out = []
   const stack = [dir]
   while (stack.length) {
@@ -124,11 +130,25 @@ function walkPdfs(dir) {
     for (const name of readdirSync(cur)) {
       const p = join(cur, name)
       const st = statSync(p)
-      if (st.isDirectory()) stack.push(p)
-      else if (name.toLowerCase().endsWith('.pdf')) out.push(p)
+      if (st.isDirectory()) {
+        if (/^(?:\.venv|_버림|_정답표그림|_원본메타)$/.test(name)) continue
+        stack.push(p)
+      } else {
+        const lower = name.toLowerCase()
+        const dot = lower.lastIndexOf('.')
+        if (dot >= 0 && want.has(lower.slice(dot))) out.push(p)
+      }
     }
   }
   return out.sort()
+}
+
+function mimeFor(file) {
+  const n = file.toLowerCase()
+  if (n.endsWith('.pdf')) return 'application/pdf'
+  if (n.endsWith('.hwp')) return 'application/x-hwp'
+  if (n.endsWith('.hwpx')) return 'application/hwp+zip'
+  return 'application/octet-stream'
 }
 
 function nfc(s) {
@@ -500,7 +520,7 @@ function collectJobs() {
       const title = `${TITLE_PREFIX} ${year}년 ${roundLabel}행정사 · ${detail}`
       jobs.push({
         scope: 'haengjeongsa',
-        subject,
+        subject: 'other',
         title,
         content: `행정사 국가자격시험 기출 원본 PDF입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
         file,
@@ -509,13 +529,153 @@ function collectJobs() {
     }
   }
 
+  // ——— 산업안전지도사 (앱 exam-pdfs — 1·2차) ———
+  {
+    const root = join(HOME, 'sananbomgichul/public/exam-pdfs')
+    for (const file of walkExamFiles(root)) {
+      const name = nfc(basename(file))
+      const year = (name.match(/^(\d{4})/) || [])[1]
+      if (!year) continue
+      const y = Number(year)
+      if (y < 2017 || y > 2026) continue
+      let detail = name
+        .replace(/\.(pdf|hwp|hwpx)$/i, '')
+        .replace(/^\d{4}-/, '')
+        .replace(/-[a-f0-9]{5,}$/i, '')
+        .replace(/-/g, ' ')
+        .trim()
+      if (!detail) detail = kindFromName(name)
+      const title = `${TITLE_PREFIX} ${year}년 산업안전지도사 · ${detail}`
+      jobs.push({
+        scope: 'sanan',
+        subject: 'other',
+        title,
+        content: `산업안전지도사 국가자격시험 기출 원본입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `sanan|app|${name}`,
+      })
+    }
+  }
+
+  // ——— 손해평가사 (앱 exam-pdfs) ———
+  {
+    const root = join(HOME, 'sonhaebomgichul/public/exam-pdfs')
+    for (const file of walkExamFiles(root)) {
+      const name = nfc(basename(file))
+      const year = (name.match(/^(\d{4})/) || [])[1]
+      if (!year) continue
+      const y = Number(year)
+      if (y < 2017 || y > 2026) continue
+      let detail = name
+        .replace(/\.(pdf|hwp|hwpx)$/i, '')
+        .replace(/^\d{4}-/, '')
+        .replace(/-[a-f0-9]{5,}$/i, '')
+        .replace(/-/g, ' ')
+        .trim()
+      if (!detail) detail = kindFromName(name)
+      const title = `${TITLE_PREFIX} ${year}년 손해평가사 · ${detail}`
+      jobs.push({
+        scope: 'sonhae',
+        subject: 'other',
+        title,
+        content: `손해평가사 국가자격시험 기출 원본입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `sonhae|app|${name}`,
+      })
+    }
+  }
+
+  // ——— 세무사 (데스크탑 10개년) ———
+  {
+    const deskRoot = join(HOME, 'Desktop/세무사_기출_10개년')
+    for (const file of walkExamFiles(deskRoot)) {
+      const name = nfc(basename(file))
+      const parent = nfc(basename(dirname(file)))
+      const folderYear = (parent.match(/_(\d{4})$/) || [])[1]
+      const folderRound = (parent.match(/제(\d+)회/) || [])[1]
+      const nameYear = (name.match(/(\d{4})\s*년/) || name.match(/(\d{4})/))?.[1]
+      const year = Number(folderYear || nameYear)
+      const round = folderRound || (name.match(/제\s*(\d+)\s*회/) || [])[1]
+      if (!year || year < 2017 || year > 2026) continue
+
+      let detail = name
+        .replace(/\.(pdf|hwp|hwpx)$/i, '')
+        .replace(/^\d{4}\s*년도?\s*/, '')
+        .replace(/제\s*\d+\s*회\s*/, '')
+        .replace(/^세무사\s*/, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+      if (!detail) detail = kindFromName(name)
+      const roundLabel = round ? `제${round}회 ` : ''
+      const title = `${TITLE_PREFIX} ${year}년 ${roundLabel}세무사 · ${detail}`
+      jobs.push({
+        scope: 'semusa',
+        subject: 'other',
+        title,
+        content: `세무사 국가자격시험 기출 원본입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `semusa|${year}|${name}`,
+      })
+    }
+  }
+
+  // ——— 공인노무사 (데스크탑 10개년) ———
+  {
+    const deskRoot = join(HOME, 'Desktop/공인노무사_기출_10개년')
+    for (const file of walkExamFiles(deskRoot)) {
+      const name = nfc(basename(file))
+      const parent = nfc(basename(dirname(file)))
+      // 하위 폴더(경영학/…) 위에 회차 폴더가 있다
+      const grand = nfc(basename(dirname(dirname(file))))
+      const folderMeta = [parent, grand].find((p) => /제\d+회_\d{4}/.test(p)) || parent
+      const folderYear = (folderMeta.match(/_(\d{4})$/) || [])[1]
+      const folderRound = (folderMeta.match(/제(\d+)회/) || [])[1]
+      const nameYear = (name.match(/(\d{4})\s*년/) || name.match(/(\d{4})/))?.[1]
+      const year = Number(folderYear || nameYear)
+      const round = folderRound || (name.match(/제\s*(\d+)\s*회/) || [])[1]
+      if (!year || year < 2017 || year > 2026) continue
+
+      let detail = name
+        .replace(/\.(pdf|hwp|hwpx)$/i, '')
+        .replace(/^\★\s*/, '')
+        .replace(/^\d{4}\s*년도?\s*/, '')
+        .replace(/제\s*\d+\s*회\s*/, '')
+        .replace(/^공인노무사\s*/, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+      if (!detail) detail = kindFromName(name)
+      // 같은 회차·같은 파일명이 하위 폴더에 겹치면 과목 폴더명을 붙인다
+      if (/^(경영학|경제학|노동법|인사|선택과목)/.test(parent) || parent.includes('시행')) {
+        detail = `${parent} · ${detail}`
+      }
+      const roundLabel = round ? `제${round}회 ` : ''
+      const title = `${TITLE_PREFIX} ${year}년 ${roundLabel}공인노무사 · ${detail}`
+      jobs.push({
+        scope: 'nomusa',
+        subject: 'other',
+        title,
+        content: `공인노무사 국가자격시험 기출 원본입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `nomusa|${year}|${parent}|${name}`,
+      })
+    }
+  }
+
   return jobs
 }
 
 async function resolveAdmin(admin) {
-  const { data, error } = await admin.auth.admin.listUsers({ perPage: 200 })
-  if (error) throw new Error(`관리자 조회 실패: ${error.message}`)
-  const user = data.users.find((u) => u.email === ADMIN_EMAIL)
+  let page = 1
+  let user = null
+  for (;;) {
+    const { data, error } = await admin.auth.admin.listUsers({ page, perPage: 200 })
+    if (error) throw new Error(`관리자 조회 실패: ${error.message}`)
+    user = data.users.find((u) => u.email === ADMIN_EMAIL) || null
+    if (user) break
+    if (data.users.length < 200) break
+    page += 1
+    if (page > 50) break
+  }
   if (!user) throw new Error(`${ADMIN_EMAIL} 없음`)
   await admin
     .from('profiles')
@@ -548,12 +708,15 @@ async function uploadOne(admin, authorId, job) {
   const buf = readFileSync(job.file)
   const hash = createHash('sha256').update(buf).digest('hex').slice(0, 12)
   // Storage object keys must be ASCII — keep Korean only in display file_name.
-  const asciiName = basename(job.file)
+  const rawBase = basename(job.file)
+  const extMatch = rawBase.match(/(\.[a-zA-Z0-9]+)$/)
+  const ext = extMatch ? extMatch[1].toLowerCase() : '.pdf'
+  const asciiName = rawBase
     .normalize('NFKD')
     .replace(/[^\x00-\x7F]/g, '')
     .replace(/[^a-zA-Z0-9._-]+/g, '_')
-    .replace(/^_+|_+$/g, '') || 'exam.pdf'
-  const storageName = asciiName.toLowerCase().endsWith('.pdf') ? asciiName : `${asciiName}.pdf`
+    .replace(/^_+|_+$/g, '') || `exam${ext}`
+  const storageName = /\.[a-z0-9]+$/i.test(asciiName) ? asciiName : `${asciiName}${ext}`
 
   const { data: post, error: postErr } = await admin
     .from('posts')
@@ -572,7 +735,7 @@ async function uploadOne(admin, authorId, job) {
 
   const path = `${authorId}/${post.id}/${Date.now()}-${hash}-${storageName}`
   const { error: upErr } = await admin.storage.from(BUCKET).upload(path, buf, {
-    contentType: 'application/pdf',
+    contentType: mimeFor(job.file),
     upsert: false,
   })
   if (upErr) {
@@ -585,7 +748,7 @@ async function uploadOne(admin, authorId, job) {
     file_name: basename(job.file),
     file_path: path,
     file_size: buf.length,
-    mime_type: 'application/pdf',
+    mime_type: mimeFor(job.file),
   })
   if (attErr) throw new Error(`attachment: ${attErr.message}`)
   return post.id
