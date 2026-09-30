@@ -700,6 +700,7 @@ export async function TrackExamDetailPage({
           ) : (
             <span />
           )}
+          <span className="web-question-nav-grade-slot" aria-hidden />
           {next ? (
             <Link
               href={`${listBase}/${next.questionNo}`}

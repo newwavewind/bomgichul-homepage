@@ -255,6 +255,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           ) : (
             <span />
           )}
+          <span className="web-question-nav-grade-slot" aria-hidden />
           {next ? (
             <ReturnAwareNavLink
               href={`${listBase}/${next.questionNo}`}

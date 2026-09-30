@@ -196,6 +196,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
           ) : (
             <span />
           )}
+          <span className="web-question-nav-grade-slot" aria-hidden />
           {next ? (
             <Link
               href={`${listBase}/${next.questionNo}`}

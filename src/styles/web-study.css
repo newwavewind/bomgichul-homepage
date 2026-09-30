@@ -204,6 +204,9 @@
   outline: 2px solid #477bdd;
   outline-offset: 3px;
 }
+.web-question-nav-grade-slot {
+  display: none;
+}
 @media (max-width: 767px) {
   .web-panel {
     padding: 1rem;
@@ -266,17 +269,33 @@
     height: 56px;
     transform: none;
   }
+  /* 채점 전에는 이전·정답 확인·다음 문제를 같은 줄에 둔다. 바깥쪽은 방향 이동,
+     가운데는 눈에 띄는 한 번의 채점 동작이라 손가락 이동도 짧아진다. */
+  body:has(.web-question-nav):has(.web-grade-button) .web-question-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  body:has(.web-question-nav):has(.web-grade-button) .web-question-nav-grade-slot {
+    display: block;
+  }
   body:has(.web-question-nav) .web-grade-button {
     position: fixed;
-    left: 16px;
-    right: 16px;
-    width: auto;
-    min-height: 48px;
+    left: calc(24px + (100vw - 116px) / 3);
+    right: auto;
+    width: calc((100vw - 116px) / 3);
+    min-height: 56px;
+    height: 56px;
     margin: 0;
-    bottom: calc(var(--web-mobile-bottom) + 56px + 12px);
+    padding: 0 6px;
+    bottom: var(--web-mobile-bottom);
+    z-index: 41;
+    border: 1px solid #0066d6;
+    background: #007aff;
+    box-shadow: 0 2px 8px #0066d633, inset 0 1px 0 #ffffff3d;
+    font-size: 12px;
+    white-space: nowrap;
   }
   body:has(.web-question-nav):has(.web-grade-button) {
-    padding-bottom: calc(148px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
   }
   .web-pdf-file {
     align-items: flex-start;
