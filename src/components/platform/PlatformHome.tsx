@@ -166,13 +166,9 @@ const exams = [
   },
 ] as const;
 
-/** 학습 시작 — 차분한 블루(대비 유지, 채도↓) */
+/** 학습 시작 — iOS 시스템 블루를 써서 카드 색과 분리되는 선명한 출발점 */
 const learnCtaClass =
-  "group/cta flex min-h-12 flex-1 items-center justify-center gap-1 rounded-[18px] border border-black/[0.04] bg-[#3b6fd4] px-3 py-3 text-center font-display text-[14px] font-semibold tracking-tight text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_2px_8px_rgba(36,59,83,0.1)] transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-[#3463be] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_4px_12px_rgba(36,59,83,0.12)] active:translate-y-0";
-
-/** 알아보기 — 맑은 글래스 */
-const introCtaClass =
-  "group/cta flex min-h-12 flex-1 items-center justify-center gap-1 rounded-[18px] border border-black/[0.06] bg-white/70 px-3 py-3 text-center font-display text-[14px] font-semibold tracking-tight text-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_2px_8px_rgba(15,23,42,0.04)] backdrop-blur-xl transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-[inset_0_1px_0_rgba(255,255,255,1),0_6px_16px_rgba(15,23,42,0.07)] active:translate-y-0";
+  "group/cta inline-flex min-h-10 items-center justify-center gap-1 rounded-[16px] border border-[#0066d6]/35 bg-[#007aff] px-4 py-2 text-center font-display text-[13px] font-semibold tracking-tight text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_2px_8px_rgba(0,102,214,0.18)] transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-[#0066d6] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_5px_14px_rgba(0,102,214,0.22)] active:translate-y-0";
 
 export function PlatformHome() {
   return (
@@ -188,7 +184,7 @@ export function PlatformHome() {
             <article
               key={exam.href}
               data-exam-card={exam.learnHref.slice(1)}
-              className="flex flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon p-7 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-9"
+              className="flex flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon p-6 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-7"
               style={{
                 backgroundImage: `linear-gradient(to bottom right, ${exam.accentFrom}, ${exam.accentTo})`,
               }}
@@ -201,29 +197,14 @@ export function PlatformHome() {
                   {exam.title}
                 </h2>
               </div>
-              <div className="mt-10 flex gap-2.5">
+              <div className="mt-6">
                 <Link href={exam.learnHref} className={learnCtaClass} aria-label={`${exam.title} 학습 시작`}>
                   학습 시작
                   <span aria-hidden className="opacity-80 transition-transform group-hover/cta:translate-x-0.5">
                     →
                   </span>
                 </Link>
-                <Link href={exam.href} className={introCtaClass} aria-label={exam.cta}>
-                  알아보기
-                  <span aria-hidden className="opacity-55 transition-transform group-hover/cta:translate-x-0.5">
-                    →
-                  </span>
-                </Link>
               </div>
-              <p className="mt-3 font-display text-[13px] text-smoke">
-                <Link
-                  href={exam.conceptsHref}
-                  className="font-semibold text-ink underline decoration-mist underline-offset-4 transition-colors hover:decoration-carbon"
-                >
-                  {exam.conceptsLabel}
-                </Link>
-                <span className="text-fog"> · 핵심 개념·과목 허브로 바로 이동</span>
-              </p>
             </article>
           ))}
         </section>

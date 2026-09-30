@@ -296,14 +296,14 @@ export function QuestionMemoPanel({
   };
 
   return (
-    <><QuestionNoteEditor key={`${identity}:${viewer.userId}`} subject={subject} year={year} questionNo={questionNo} userId={viewer.userId} loginNext={loginNext ?? `/exam/${subject}/${year}/${questionNo}`} />
-    <div className="mt-4 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
+    <>
+    <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
       <div className="mb-3 flex items-baseline justify-between gap-3">
         <h2 className="font-display text-body font-semibold text-ink">
           이 문제에 대한 이야기
         </h2>
         <p className="min-w-0 font-display text-[12px] text-fog">
-          누구나 볼 수 있는 공개 게시판입니다. 개인 기록은 위의 개인 메모를 이용하세요.
+          누구나 볼 수 있는 공개 게시판입니다. 개인 기록은 아래 개인 메모를 이용하세요.
         </p>
       </div>
 
@@ -366,6 +366,17 @@ export function QuestionMemoPanel({
           ))}
         </div>
       )}
-    </div></>
+    </div>
+    <div className="mt-4">
+      <QuestionNoteEditor
+        key={`${identity}:${viewer.userId}`}
+        subject={subject}
+        year={year}
+        questionNo={questionNo}
+        userId={viewer.userId}
+        loginNext={loginNext ?? `/exam/${subject}/${year}/${questionNo}`}
+      />
+    </div>
+    </>
   );
 }

@@ -21,7 +21,8 @@ import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
 import { ExamQuestionListCard } from "@/components/exam/ExamQuestionListCard";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
-import { QuestionStem, toBoxGroups } from "@/components/exam/QuestionStem";
+import { QuestionStem } from "@/components/exam/QuestionStem";
+import { getTrackQuestionPresentation } from "@/components/exam-track/questionPresentation";
 import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
 import {
   SubjectiveAnswer,
@@ -31,8 +32,6 @@ import { BackLink } from "@/components/ui/BackLink";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { formatExamRefLabel, trackHidesExamSourceLabel } from "@/lib/exam-track/sourceLabel";
 import { toExamOxCombos } from "@/lib/exam-track/combo-choices";
-import { parseQuestionStem } from "@/lib/exam-stem";
-import { plainStudyText } from "@/lib/study-text";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
 import { getUserActivityScores } from "@/lib/activity";
 import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
@@ -572,14 +571,7 @@ export async function TrackExamDetailPage({
    * 그 상자를 지문 바로 위로 내려 함께 그린다. 지문이 선지 자리에 오는 다른 유형
    * (comboChoices 가 없는 문항)은 그대로 둔다.
    */
-  const passageGroups = seoQuestion.comboChoices.length > 0
-    ? toBoxGroups(parseQuestionStem(plainStudyText(exam.stem ?? "")).boxLines)
-    : [];
-  const passageLead = passageGroups.flatMap(group => group.lines);
-  // 도입부가 없는 문항(20·33번처럼 ㉠부터 바로 시작)은 상자 이름도 없다.
-  // 발문이 「아래 <보기>에서」라고 가리키면 그 이름을 세워 준다.
-  const passageLabel = passageGroups.find(group => group.label)?.label
-    ?? (seoQuestion.comboChoices.length > 0 && /<\s*보\s?기[^>]*>/.test(exam.stem ?? "") ? "< 보기 >" : undefined);
+  const { passageLead, passageLabel } = getTrackQuestionPresentation(exam);
   return (
     <div className="bg-white px-4 py-8 md:py-12">
       <script

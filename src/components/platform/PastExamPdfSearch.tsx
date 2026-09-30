@@ -9,16 +9,6 @@ import {
   type PastExamPdfGroup,
 } from "@/lib/past-exam-search-shared";
 
-const SUGGESTIONS = [
-  "행정법",
-  "공인중개사 1차",
-  "주택관리사 1차",
-  "경찰",
-  "사회복지사",
-  "공무원 영어 국가직",
-  "한국사 심화",
-] as const;
-
 type Status = "idle" | "loading" | "ready" | "error";
 
 function chipClass(active: boolean) {
@@ -215,21 +205,6 @@ export function PastExamPdfSearch() {
           </div>
         )}
       </div>
-
-      {!query ? (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {SUGGESTIONS.map((hint) => (
-            <button
-              key={hint}
-              type="button"
-              onClick={() => setQuery(hint)}
-              className="rounded-xl border border-slate-200/80 bg-white/70 px-3 py-1 font-display text-[12px] font-medium text-slate-600 hover:bg-white"
-            >
-              {hint}
-            </button>
-          ))}
-        </div>
-      ) : null}
 
       <div className="mt-5" aria-live="polite">
         {status === "loading" ? (
