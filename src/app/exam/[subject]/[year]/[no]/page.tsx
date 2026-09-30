@@ -218,6 +218,9 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             revealEvent={{ subject, year, questionNo }}
             items={question.items}
             correctChoice={Number(question.correctChoice)}
+            correctChoices={question.correctChoices}
+            examDate={question.examDate}
+            lawVersions={question.lawVersions}
             explanationSummary={question.explanationSummary}
             comboChoices={question.comboChoices}
             renderExplanation={false}

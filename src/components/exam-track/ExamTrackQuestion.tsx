@@ -71,6 +71,9 @@ export function ExamTrackQuestion({
       } : undefined}
       items={exam.items}
       correctChoice={exam.correctChoice}
+      correctChoices={exam.correctChoices}
+      examDate={exam.examDate}
+      lawVersions={exam.lawVersions}
       comboChoices={toExamOxCombos(exam.comboChoices, exam.correctChoice)}
       passageLead={passageLead}
       passageLabel={passageLabel}

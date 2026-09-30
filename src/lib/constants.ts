@@ -475,6 +475,7 @@ export const ARCHIVE_SUBJECTS_PUBLIC_SERVICE = [
   { value: "gukjebeop", label: "국제법개론" },
   { value: "bokji", label: "사회복지학개론" },
   { value: "sebeop", label: "세법개론" },
+  { value: "jibangsebeop", label: "지방세법" },
   { value: "hoegyehak", label: "회계학" },
   { value: "gwansebeop", label: "관세법개론" },
   { value: "hoegyewonri", label: "회계원리" },

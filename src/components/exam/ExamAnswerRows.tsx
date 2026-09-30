@@ -2,6 +2,7 @@ import { ElevatedCard } from "@/components/ui/Card";
 import { CorrectAnswerBadge } from "@/components/exam/CorrectAnswerBadge";
 import { SelectedAnswerBadge } from "@/components/exam/SelectedAnswerBadge";
 import type { ExamComboChoice, ExamQuestionItem } from "@/lib/exam-questions";
+import { matchesCorrectChoice } from "@/lib/answer-key";
 import { plainStudyText } from "@/lib/study-text";
 
 export function StatementRows({
@@ -52,7 +53,7 @@ export function ChoiceRows({
   return (
     <ElevatedCard className="overflow-hidden">
       {items.map((item) => {
-        const isCorrectChoice = item.key === correctChoice;
+        const isCorrectChoice = matchesCorrectChoice(correctChoice, item.key);
         const isSelected = revealed && selectedKey === item.key;
         return (
           <div
@@ -103,7 +104,7 @@ export function ComboChoiceRows({
   return (
     <ElevatedCard className="mt-4 overflow-hidden">
       {comboChoices.map((choice) => {
-        const isCorrectChoice = String(choice.no) === correctChoice;
+        const isCorrectChoice = matchesCorrectChoice(correctChoice, choice.no);
         const isSelected = revealed && selectedNo === choice.no;
         return (
           <div

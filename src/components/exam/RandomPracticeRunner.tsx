@@ -8,6 +8,7 @@ import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoEx
 import { PrimaryButton } from "@/components/ui/Button";
 import { trackEvent } from "@/lib/analytics";
 import type { ExamQuestion } from "@/lib/exam-questions";
+import { answerKeyString } from "@/lib/answer-key";
 import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
 import type { AttemptResult } from "@/types/database";
 
@@ -103,7 +104,7 @@ export function RandomPracticeRunner({
       <ExamAnswerList
         key={`${question.year}-${question.questionNo}`}
         items={question.items}
-        correctChoice={question.correctChoice}
+        correctChoice={answerKeyString(question)}
         questionType={question.questionType}
         comboChoices={question.comboChoices}
         compositeLayout={question.compositeLayout}

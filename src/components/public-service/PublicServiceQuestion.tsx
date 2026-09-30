@@ -65,6 +65,9 @@ export function PublicServiceQuestion({
       } : undefined}
       items={exam.items}
       correctChoice={exam.correctChoice}
+      correctChoices={exam.correctChoices}
+      examDate={exam.examDate}
+      lawVersions={exam.lawVersions}
       explanationSummary={exam.explanationSummary}
       choiceHeaders={exam.choiceHeaders}
       initialAttemptResult={attemptResult}

@@ -9,8 +9,9 @@ import {
 import { parseQuestionStem } from "./exam-stem";
 
 describe("공무원 공개 콘텐츠", () => {
-  it("16개 과목의 개념과 기출이 모두 연결된다", () => {
-    expect(PUBLIC_SERVICE_SUBJECT_IDS).toHaveLength(16);
+  it("15개 과목의 개념과 기출이 모두 연결된다", () => {
+    // 소방 두 과목은 소방 트랙으로 옮겼고(2026-09-23), 지방세법·지방직 회차를 더했다(2026-09-30)
+    expect(PUBLIC_SERVICE_SUBJECT_IDS).toHaveLength(15);
     let concepts = 0;
     let exams = 0;
     for (const subjectId of PUBLIC_SERVICE_SUBJECT_IDS) {
@@ -21,8 +22,8 @@ describe("공무원 공개 콘텐츠", () => {
       concepts += subject!.concepts.length;
       exams += subject!.exams.length;
     }
-    expect(concepts).toBe(599);
-    expect(exams).toBe(3720);
+    expect(concepts).toBe(581);
+    expect(exams).toBe(3960);
   });
 
   it("앱에 있는 노동법·형사소송법 2020~2022 회차가 빠지지 않는다", () => {

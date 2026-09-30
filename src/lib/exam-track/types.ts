@@ -145,6 +145,11 @@ export interface ExamTrackExam {
   stem?: string;
   questionType?: string;
   correctChoice?: number;
+  /** 복수정답·전항정답 — 확정답안이 정답으로 인정한 번호 전부 */
+  correctChoices?: number[];
+  /** 시험일과 그날 판 조문 주소 — scripts/sync-app-explanations.mjs 가 싣는다 */
+  examDate?: string;
+  lawVersions?: Record<string, string>;
   category?: string;
   subcategory?: string;
   explanationTopic?: string;

@@ -4,7 +4,7 @@
     "label": "행정학개론",
     "track": "일반행정",
     "conceptCount": 41,
-    "examCount": 380,
+    "examCount": 400,
     "years": [
       2026,
       2025,
@@ -50,8 +50,9 @@
     "label": "관세법개론",
     "track": "관세직",
     "conceptCount": 44,
-    "examCount": 180,
+    "examCount": 200,
     "years": [
+      2026,
       2025,
       2024,
       2023,
@@ -93,7 +94,7 @@
     "label": "회계학",
     "track": "세무·관세직",
     "conceptCount": 25,
-    "examCount": 200,
+    "examCount": 400,
     "years": [
       2026,
       2025,
@@ -107,7 +108,8 @@
       2017
     ],
     "sources": [
-      "국가직"
+      "국가직",
+      "지방직"
     ]
   },
   {
@@ -137,12 +139,13 @@
     "label": "형사소송법",
     "track": "검찰직",
     "conceptCount": 44,
-    "examCount": 180,
+    "examCount": 200,
     "years": [
       2026,
       2025,
       2024,
       2023,
+      2022,
       2021,
       2020,
       2019,
@@ -158,12 +161,13 @@
     "label": "형사소송법개론",
     "track": "교정직",
     "conceptCount": 44,
-    "examCount": 180,
+    "examCount": 200,
     "years": [
       2026,
       2025,
       2024,
       2023,
+      2022,
       2021,
       2020,
       2019,
@@ -201,7 +205,7 @@
     "label": "교육학개론",
     "track": "교육행정",
     "conceptCount": 18,
-    "examCount": 200,
+    "examCount": 400,
     "years": [
       2026,
       2025,
@@ -215,7 +219,8 @@
       2017
     ],
     "sources": [
-      "국가직"
+      "국가직",
+      "지방직"
     ]
   },
   {
@@ -244,7 +249,7 @@
     "label": "노동법개론",
     "track": "고용노동",
     "conceptCount": 56,
-    "examCount": 160,
+    "examCount": 180,
     "years": [
       2026,
       2025,
@@ -252,6 +257,7 @@
       2023,
       2022,
       2021,
+      2020,
       2019,
       2018
     ],
@@ -302,6 +308,28 @@
     ],
     "sources": [
       "국가직"
+    ]
+  },
+  {
+    "id": "jibangsebeop",
+    "label": "지방세법",
+    "track": "지방세무직",
+    "conceptCount": 46,
+    "examCount": 200,
+    "years": [
+      2026,
+      2025,
+      2024,
+      2023,
+      2022,
+      2021,
+      2020,
+      2019,
+      2018,
+      2017
+    ],
+    "sources": [
+      "지방직"
     ]
   }
 ]

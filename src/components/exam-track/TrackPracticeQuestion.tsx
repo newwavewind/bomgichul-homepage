@@ -30,6 +30,9 @@ export function TrackPracticeQuestion({ exam, loginNext, initialAttemptResult, o
           loginNext={loginNext}
           items={exam.items}
           correctChoice={exam.correctChoice}
+          correctChoices={exam.correctChoices}
+          examDate={exam.examDate}
+          lawVersions={exam.lawVersions}
           {...presentation}
           choiceHeaders={exam.choiceHeaders}
           explanationSummary={exam.explanationSummary}

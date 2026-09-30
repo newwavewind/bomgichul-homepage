@@ -12,6 +12,7 @@ import { enrichTableCompositeQuestion } from "@/lib/realestate-table-composites"
 import { trackEvent } from "@/lib/analytics";
 import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
 import type { ExamQuestion } from "@/lib/exam-questions";
+import { answerKeyString, matchesCorrectChoice } from "@/lib/answer-key";
 import { isStatementCompositeQuestion } from "@/lib/exam-questions";
 import { writeChatShareDraft } from "@/components/chat/ShareToChatButton";
 
@@ -44,8 +45,9 @@ const MockQuestionCard = memo(function MockQuestionCard({
   onSelect: (questionNo: number, value: string) => void;
 }) {
   const { q, enriched, isStatementComposite, isTableComposite } = prepared;
-  const isCorrect = submitted && selected === q.correctChoice;
-  const isWrong = submitted && Boolean(selected) && selected !== q.correctChoice;
+  const answerKey = answerKeyString(q);
+  const isCorrect = submitted && matchesCorrectChoice(answerKey, selected);
+  const isWrong = submitted && Boolean(selected) && !matchesCorrectChoice(answerKey, selected);
   const selectedItem = isStatementComposite
     ? q.comboChoices.find((choice) => String(choice.no) === selected)
     : q.items.find((item) => item.key === selected);
@@ -93,7 +95,7 @@ const MockQuestionCard = memo(function MockQuestionCard({
                   stem={enriched.stem}
                   year={enriched.year}
                   questionNo={enriched.questionNo}
-                  correctChoice={enriched.correctChoice}
+                  correctChoice={answerKeyString(enriched)}
                   revealed={false}
                   interactive
                   selectedNo={selected ? Number(selected) : null}
@@ -149,7 +151,7 @@ const MockQuestionCard = memo(function MockQuestionCard({
           </p>
           <ExamAnswerList
             items={q.items}
-            correctChoice={q.correctChoice}
+            correctChoice={answerKey}
             questionType={q.questionType}
             comboChoices={enriched.comboChoices}
             compositeLayout={enriched.compositeLayout}
@@ -236,7 +238,7 @@ export function MockExamRunner({
 
   const total = questions.length;
   const answeredCount = Object.keys(answers).length;
-  const correctCount = questions.filter((q) => answers[q.questionNo] === q.correctChoice).length;
+  const correctCount = questions.filter((q) => matchesCorrectChoice(answerKeyString(q), answers[q.questionNo])).length;
 
   const onSelect = useCallback((questionNo: number, value: string) => {
     setAnswers((a) => ({ ...a, [questionNo]: value }));
@@ -250,7 +252,7 @@ export function MockExamRunner({
         subject,
         year,
         total,
-        correct: questions.filter((q) => answers[q.questionNo] === q.correctChoice).length,
+        correct: questions.filter((q) => matchesCorrectChoice(answerKeyString(q), answers[q.questionNo])).length,
       });
 
       if (saveSession && userId && !sessionSaved) {
@@ -262,7 +264,7 @@ export function MockExamRunner({
               subject,
               year,
               total,
-              correct: questions.filter((q) => answers[q.questionNo] === q.correctChoice).length,
+              correct: questions.filter((q) => matchesCorrectChoice(answerKeyString(q), answers[q.questionNo])).length,
               elapsedSeconds,
             }),
           });

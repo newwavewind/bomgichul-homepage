@@ -2,6 +2,7 @@ import hangjunghak from "@/data/public-service/hangjunghak.json";
 import haengjeongbeop from "@/data/public-service/haengjeongbeop.json";
 import gwansebeop from "@/data/public-service/gwansebeop.json";
 import sebeop from "@/data/public-service/sebeop.json";
+import jibangsebeop from "@/data/public-service/jibangsebeop.json";
 import hoegyehak from "@/data/public-service/hoegyehak.json";
 import hyeongbeop from "@/data/public-service/hyeongbeop.json";
 import hyeongso from "@/data/public-service/hyeongso.json";
@@ -80,6 +81,9 @@ export interface PublicServiceExam {
   stem: string;
   questionType?: string;
   correctChoice?: number;
+  correctChoices?: number[];
+  examDate?: string;
+  lawVersions?: Record<string, string>;
   category?: string;
   subcategory?: string;
   explanationTopic?: string;
@@ -101,6 +105,7 @@ const contentBySubject = {
   haengjeongbeop,
   gwansebeop,
   sebeop,
+  jibangsebeop,
   hoegyehak,
   hyeongbeop,
   hyeongso,

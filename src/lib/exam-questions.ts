@@ -37,6 +37,10 @@ export interface ExamQuestion {
   subcategory: string;
   questionType: "correct" | "wrong" | "composite";
   correctChoice: string;
+  /** 복수정답·전항정답 — 확정답안이 정답으로 인정한 번호 전부 */
+  correctChoices?: number[];
+  examDate?: string;
+  lawVersions?: Record<string, string>;
   items: ExamQuestionItem[];
   comboChoices: ExamComboChoice[];
   free: boolean;

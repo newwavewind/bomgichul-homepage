@@ -6,6 +6,10 @@ type SeoExplanationQuestion = {
   year: number;
   questionNo: number;
   correctChoice?: string | number;
+  /** 복수정답·전항정답 */
+  correctChoices?: number[];
+  examDate?: string;
+  lawVersions?: Record<string, string>;
   explanationSummary?: string;
   items: {
     key: string;
@@ -95,9 +99,17 @@ export function ExamQuestionSeoExplanations({
   if (summary) {
     blocksForCopy.push(`해설 요약\n${summary}`);
   }
-  const correctChoice = String(question.correctChoice ?? "").trim();
+  const choiceNos = question.correctChoices?.length ? question.correctChoices : null;
+  const single = String(question.correctChoice ?? "").trim();
+  const correctChoice = choiceNos
+    ? choiceNos.length > 1 && choiceNos.length >= question.items.length
+      ? "모든 번호(전항정답)"
+      : `${choiceNos.join("·")}번`
+    : single
+      ? `${single}번`
+      : "";
   if (correctChoice) {
-    blocksForCopy.push(`정답\n${correctChoice}번`);
+    blocksForCopy.push(`정답\n${correctChoice}`);
   }
   for (const item of itemsWithAnswerOrExpl) {
     blocksForCopy.push(
@@ -155,7 +167,7 @@ export function ExamQuestionSeoExplanations({
       {correctChoice ? (
         <div className="mb-4 rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3">
           <p className="font-display text-body-sm font-semibold text-ink">
-            정답: {correctChoice}번
+            정답: {correctChoice}
           </p>
         </div>
       ) : null}
@@ -164,7 +176,7 @@ export function ExamQuestionSeoExplanations({
         <div className="mb-6 rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3">
           <p className="font-display text-body-sm font-medium text-ink">해설 요약</p>
           <p className="mt-2 whitespace-pre-wrap font-display text-body-sm leading-relaxed text-smoke">
-            <CitedText text={summary} />
+            <CitedText text={summary} examDate={question.examDate} lawVersions={question.lawVersions} />
           </p>
         </div>
       ) : null}
@@ -186,7 +198,7 @@ export function ExamQuestionSeoExplanations({
               ) : null}
               {item.explanation ? (
                 <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                  <CitedText text={item.explanation} />
+                  <CitedText text={item.explanation} examDate={question.examDate} lawVersions={question.lawVersions} />
                 </p>
               ) : null}
             </li>
@@ -210,7 +222,7 @@ export function ExamQuestionSeoExplanations({
                 </p>
               ) : null}
               <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                <CitedText text={choice.explanation ?? ""} />
+                <CitedText text={choice.explanation ?? ""} examDate={question.examDate} lawVersions={question.lawVersions} />
               </p>
             </li>
           ))}

@@ -39,6 +39,9 @@ export function ExamOxQuestion({
   revealEvent,
   items,
   correctChoice,
+  correctChoices,
+  examDate,
+  lawVersions,
   explanationSummary,
   comboChoices = [],
   passageLead = [],
@@ -54,6 +57,11 @@ export function ExamOxQuestion({
   revealEvent?: { subject: string; year: number; questionNo: number };
   items: ExamOxItem[];
   correctChoice?: number;
+  /** 복수정답·전항정답 — 있으면 correctChoice 대신 이 목록 가운데 무엇을 골라도 정답이다 */
+  correctChoices?: number[];
+  /** 시험일과 그날 판 조문 주소(열쇠 「법|조」) — 해설 근거 링크를 시험 당시 판으로 연다 */
+  examDate?: string;
+  lawVersions?: Record<string, string>;
   explanationSummary?: string;
   comboChoices?: ExamOxCombo[];
   /** 보기 상자에서 ㉠ 앞에 놓인 도입부. 지문과 한 문장으로 이어지는 자리다. */
@@ -85,13 +93,20 @@ export function ExamOxQuestion({
   const [previousExamId,setPreviousExamId] = useState(examId);
   if(previousExamId !== examId){setPreviousExamId(examId);setSelected(null);setRevealed(false);}
   const [showProgressNudge, setShowProgressNudge] = useState(false);
-  const isCorrect =
-    selected !== null && correctChoice !== undefined && selected === correctChoice;
+  // 확정답안이 둘 이상을 정답으로 인정한 문항(복수정답·전항정답)은 그 가운데 무엇을 골라도 정답이다.
+  // 번호 하나만 보면 공식 정답을 골랐는데 오답이 뜬다 — 앱 채점기(getCorrectChoiceNos)와 같게 본다.
+  const acceptedChoices =
+    correctChoices && correctChoices.length ? correctChoices : correctChoice !== undefined ? [correctChoice] : [];
+  const hasAnswerKey = acceptedChoices.length > 0;
+  const allAccepted =
+    acceptedChoices.length > 1 && acceptedChoices.length >= (isComposite ? comboChoices.length : items.length);
+  const answerLabel = allAccepted ? "모든 번호(전항정답)" : `${acceptedChoices.join("·")}번`;
+  const isCorrect = selected !== null && acceptedChoices.includes(selected);
   const answeredWrong =
     revealed &&
     (selected === null
       ? initialAttemptResult === "wrong"
-      : correctChoice !== undefined && selected !== correctChoice);
+      : hasAnswerKey && !acceptedChoices.includes(selected));
 
   useEffect(() => {
     if (revealed && isAnon) {
@@ -109,10 +124,10 @@ export function ExamOxQuestion({
   const reveal = () => {
     if (revealed) return;
     setRevealed(true);
-    if (selected !== null && correctChoice !== undefined) {
-      const result = selected === correctChoice ? "correct" : "wrong";
+    if (selected !== null && hasAnswerKey) {
+      const result = acceptedChoices.includes(selected) ? "correct" : "wrong";
       const entry: Omit<StudyEntry,"day"> = {id: journalId, href: questionHref, title: document.querySelector("h1")?.textContent || examId, scope: scopeForPath(pathname), result,
-        answerSummary: [`정답: ${correctChoice}번`, explanationSummary, ...items.filter(item => item.explanation).map(item => `${item.label ?? item.key}: ${plainStudyText(item.explanation!)}`)].filter(Boolean).join("\n")};
+        answerSummary: [`정답: ${answerLabel}`, explanationSummary, ...items.filter(item => item.explanation).map(item => `${item.label ?? item.key}: ${plainStudyText(item.explanation!)}`)].filter(Boolean).join("\n")};
       if(userId === undefined && me.pending) void fetchMe().then(session => recordWebStudy(session.user?.id ?? "guest", entry));
       else recordWebStudy(actor, entry);
       trackEvent("web_question_completed", {scope:scopeForPath(pathname),result});
@@ -123,8 +138,8 @@ export function ExamOxQuestion({
       bumpAnonAttemptCount();
       setShowProgressNudge(shouldShowProgressNudge(false));
     }
-    if (selected !== null && correctChoice !== undefined) {
-      void onAttempt?.(selected === correctChoice ? "correct" : "wrong");
+    if (selected !== null && hasAnswerKey) {
+      void onAttempt?.(acceptedChoices.includes(selected) ? "correct" : "wrong");
     }
     // 아래 해설 details 를 함께 연다
     if (revealEvent) {
@@ -195,7 +210,7 @@ export function ExamOxQuestion({
                   className={`w-full rounded-2xl border px-4 py-4 text-left transition-colors ${
                     selectedItem
                       ? revealed
-                        ? choice.isCorrect
+                        ? (correctChoices?.length ? acceptedChoices.includes(choice.no) : choice.isCorrect)
                           ? "border-[#6366f1] bg-[#6366f1]/[0.06]"
                           : "border-[#ef4444] bg-[#ef4444]/[0.05]"
                         : "border-carbon bg-snow study-pick-tap-again"
@@ -229,8 +244,8 @@ export function ExamOxQuestion({
             // 채점 뒤에는 고른 자리와 정답만 남기고 나머지는 물러선다.
             // 앱이 하던 것이다 — 다섯 줄이 같은 무게로 남아 있으면 어디를
             // 봐야 하는지 눈이 다시 헤맨다.
-            const muted = revealed && !selectedItem && choice !== correctChoice;
-            const isAnswer = revealed && choice === correctChoice;
+            const muted = revealed && !selectedItem && !acceptedChoices.includes(choice);
+            const isAnswer = revealed && acceptedChoices.includes(choice);
             return (
               <button
                 key={`${examId}-${item.key}`}
@@ -316,7 +331,9 @@ export function ExamOxQuestion({
             }`}
           >
             <p className="font-display text-[13px] font-semibold text-ink">
-              {(selected === null ? initialAttemptResult === "correct" : isCorrect) ? "정답입니다." : `정답은 ${correctChoice ?? "?"}번입니다.`}
+              {(selected === null ? initialAttemptResult === "correct" : isCorrect)
+                ? allAccepted ? "정답입니다 — 확정답안에서 모든 번호를 정답으로 인정한 문항입니다." : "정답입니다."
+                : `정답은 ${hasAnswerKey ? answerLabel : "?번"}입니다.`}
             </p>
           </div>
           {isAnon && answeredWrong ? (
@@ -364,7 +381,7 @@ export function ExamOxQuestion({
                   </div>
                   {item.explanation ? (
                     <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                      <CitedText text={item.explanation} />
+                      <CitedText text={item.explanation} examDate={examDate} lawVersions={lawVersions} />
                     </p>
                   ) : null}
                 </div>
@@ -386,7 +403,7 @@ export function ExamOxQuestion({
                       </div>
                       {choice.explanation ? (
                         <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                          <CitedText text={choice.explanation} />
+                          <CitedText text={choice.explanation} examDate={examDate} lawVersions={lawVersions} />
                         </p>
                       ) : null}
                     </div>
@@ -397,7 +414,7 @@ export function ExamOxQuestion({
             !comboChoices.some((c) => c.explanation) &&
             explanationSummary ? (
               <p className="font-system text-[14px] leading-6 text-smoke">
-                <CitedText text={explanationSummary} />
+                <CitedText text={explanationSummary} examDate={examDate} lawVersions={lawVersions} />
               </p>
             ) : null}
             {explanationSummary &&
@@ -406,7 +423,7 @@ export function ExamOxQuestion({
               <div className="mt-4 border-t border-mist pt-4">
                 <p className="font-display text-body-sm font-semibold text-ink">해설 요약</p>
                 <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                  <CitedText text={explanationSummary} />
+                  <CitedText text={explanationSummary} examDate={examDate} lawVersions={lawVersions} />
                 </p>
               </div>
             ) : null}

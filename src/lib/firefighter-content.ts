@@ -1,39 +1,18 @@
 import sobang from "@/data/firefighter/sobang.json";
 import sobangbeop from "@/data/firefighter/sobangbeop.json";
 /**
- * 행정법총론은 공무원 트랙과 동일 원본을 쓰되, 소방 앱과 같이
- * 「국가직」회차만 연다(앱 exam 폴더에 지방직 파일이 없음).
+ * 행정법총론은 소방 앱의 소방공무원 공채 행정법총론이다(2018~2026, 소방청 출제).
+ * 예전에는 공무원 트랙의 국가직 9급 행정법을 국가직 회차만 걸러 보여 줬는데, 소방공무원
+ * 시험과 문항이 다르다 — scripts/sync-app-explanations.mjs 가 소방 앱에서 싣는다.
  */
-import haengjeongbeopRaw from "@/data/public-service/haengjeongbeop.json";
+import haengjeongbeop from "@/data/firefighter/haengjeongbeop.json";
 import { createTrackContent } from "@/lib/exam-track/createTrackContent";
 import type { ExamTrackSubjectContent } from "@/lib/exam-track/types";
-
-const FIRE_ADMIN_SOURCE = "국가직";
-
-function firefighterAdminLaw(
-  raw: typeof haengjeongbeopRaw,
-): typeof haengjeongbeopRaw {
-  const exams = raw.exams.filter((exam) => exam.sourceCode === FIRE_ADMIN_SOURCE);
-  const concepts = raw.concepts.map((concept) => ({
-    ...concept,
-    questionRefs: concept.questionRefs?.filter(
-      (ref) => !ref.sourceCode || ref.sourceCode === FIRE_ADMIN_SOURCE,
-    ),
-  }));
-  return {
-    ...raw,
-    subject: { ...raw.subject, track: "소방" },
-    sources: [FIRE_ADMIN_SOURCE],
-    years: [...new Set(exams.map((exam) => exam.year))].sort((a, b) => b - a),
-    exams,
-    concepts,
-  };
-}
 
 const contentBySubject = {
   sobang,
   sobangbeop,
-  haengjeongbeop: firefighterAdminLaw(haengjeongbeopRaw),
+  haengjeongbeop,
 } as unknown as Record<string, ExamTrackSubjectContent>;
 
 const track = createTrackContent(contentBySubject);

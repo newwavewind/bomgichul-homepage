@@ -8,6 +8,7 @@ import {
   tableColumnCount,
 } from "@/lib/composite-exam";
 import type { ExamComboChoice } from "@/lib/exam-questions";
+import { matchesCorrectChoice } from "@/lib/answer-key";
 
 export function TableComboChoiceRows({
   comboChoices,
@@ -57,7 +58,7 @@ export function TableComboChoiceRows({
       {comboChoices.map((choice) => {
         const cells = getComboColumnCells(choice);
         while (cells.length < colCount) cells.push("");
-        const isCorrectChoice = String(choice.no) === correctChoice;
+        const isCorrectChoice = matchesCorrectChoice(correctChoice, choice.no);
         const isSelected = selectedNo === choice.no;
         const isGradedSelection = !interactive && revealed && isSelected;
 
