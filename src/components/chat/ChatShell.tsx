@@ -11,7 +11,7 @@ type Conversations = ComponentProps<typeof ChatWidget>["initialConversations"];
 function ChatFabPlaceholder() {
   return (
     <div
-      className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-carbon bg-paper text-2xl shadow-[var(--shadow-card)]"
+      className="web-chat-launcher fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-carbon bg-paper text-2xl shadow-[var(--shadow-card)]"
       aria-hidden
       aria-busy="true"
     >

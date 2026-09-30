@@ -1,3 +1,4 @@
+import { QuestionNavLabel } from "@/components/exam/QuestionNavLabel";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
@@ -249,7 +250,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
               href={`${listBase}/${prev.questionNo}`}
               className="rounded-2xl border border-mist px-4 py-3 font-display text-body-sm hover:border-carbon"
             >
-              ← {prev.questionNo}번
+              <QuestionNavLabel direction="previous" questionNo={prev.questionNo} />
             </ReturnAwareNavLink>
           ) : (
             <span />
@@ -259,7 +260,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
               href={`${listBase}/${next.questionNo}`}
               className="rounded-2xl border border-mist px-4 py-3 text-right font-display text-body-sm hover:border-carbon"
             >
-              {next.questionNo}번 →
+              <QuestionNavLabel direction="next" questionNo={next.questionNo} />
             </ReturnAwareNavLink>
           ) : null}
         </nav>

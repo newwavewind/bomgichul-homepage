@@ -242,8 +242,6 @@ export function QuestionMemoPanel({
   }
   const [content, setContent] = useState("");
   const [saving, setSaving] = useState(false);
-  const [kind, setKind] = useState("tip");
-  const [filter, setFilter] = useState("all");
   const [postError, setPostError] = useState("");
   const loginHref = `/login?next=${encodeURIComponent(
     loginNext ?? `/exam/${subject}/${year}/${questionNo}`,
@@ -285,7 +283,7 @@ export function QuestionMemoPanel({
       subject,
       year,
       question_no: questionNo,
-      content: kind === "question" ? formatDiscussion(trimmed) : trimmed,
+      content: trimmed,
     });
     setPostError(error ? "등록하지 못했습니다. 내용을 확인하고 다시 시도해 주세요." : "");
     if (!error) {
@@ -302,26 +300,24 @@ export function QuestionMemoPanel({
     <div className="mt-4 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
       <div className="mb-3 flex items-baseline justify-between gap-3">
         <h2 className="font-display text-body font-semibold text-ink">
-          이 문제의 질문·공개 암기 팁
+          이 문제에 대한 이야기
         </h2>
         <p className="min-w-0 font-display text-[12px] text-fog">
           누구나 볼 수 있는 공개 게시판입니다. 개인 기록은 위의 개인 메모를 이용하세요.
         </p>
       </div>
 
-      <div className="web-actions" aria-label="글 분류">{[["all","전체"],["question","질문"],["open","미해결 질문"],["resolved","해결된 질문"],["tip","암기 팁"]].map(([value,label])=><button key={value} aria-pressed={filter===value} onClick={()=>setFilter(value)}>{label}</button>)}</div>
-      <label className="block my-3">작성할 글 종류 <select value={kind} onChange={e=>setKind(e.target.value)}><option value="tip">공개 암기 팁</option><option value="question">이 문제 질문하기</option></select></label>
       {postError && <p role="alert">{postError}</p>}
       {viewer.userId || viewer.pending ? (
         <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1">
             <Textarea
               id={`public-memo-${subject}-${year}-${questionNo}`}
-              label="공개 질문·암기 팁 내용"
+              label="공개 글 내용"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={2}
-              placeholder="메모를 남겨보세요 (헷갈린 포인트, 암기 팁 등)"
+              placeholder="질문, 생각, 암기 팁 등 자유롭게 남겨보세요."
               className="!py-2.5 text-body-sm"
               disabled={viewer.pending}
             />
@@ -337,7 +333,7 @@ export function QuestionMemoPanel({
         </div>
       ) : (
         <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-body-sm text-smoke">
-          <span>로그인하면 이 문제에 공개 질문·암기 팁을 남길 수 있어요.</span>
+          <span>로그인하면 이 문제에 대해 자유롭게 글을 남길 수 있어요.</span>
           <Link
             href={loginHref}
             className="font-medium text-[#6366f1] hover:underline"
@@ -353,7 +349,7 @@ export function QuestionMemoPanel({
         </p>
       ) : (
         <div>
-          {memos.filter(memo => {const d=parseDiscussion(memo.content);return filter==="all" || (filter==="tip"&&!d.question) || (filter==="question"&&d.question) || (filter==="open"&&d.question&&!d.resolved) || (filter==="resolved"&&d.resolved);}).map((memo) => (
+          {memos.map((memo) => (
             <MemoCard
               key={memo.id}
               memo={memo}

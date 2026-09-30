@@ -1,3 +1,4 @@
+import { QuestionNavLabel } from "@/components/exam/QuestionNavLabel";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ExamTrackQuestion } from "@/components/exam-track/ExamTrackQuestion";
@@ -702,7 +703,7 @@ export async function TrackExamDetailPage({
               href={`${listBase}/${previous.questionNo}`}
               className="rounded-2xl border border-mist px-4 py-3 font-display text-body-sm hover:border-carbon"
             >
-              ← {previous.questionNo}번
+              <QuestionNavLabel direction="previous" questionNo={previous.questionNo} />
             </Link>
           ) : (
             <span />
@@ -712,7 +713,7 @@ export async function TrackExamDetailPage({
               href={`${listBase}/${next.questionNo}`}
               className="rounded-2xl border border-mist px-4 py-3 text-right font-display text-body-sm hover:border-carbon"
             >
-              {next.questionNo}번 →
+              <QuestionNavLabel direction="next" questionNo={next.questionNo} />
             </Link>
           ) : null}
         </nav>

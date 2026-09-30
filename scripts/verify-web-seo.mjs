@@ -95,7 +95,7 @@ for (const scope of scopes) {
   const questionHtml = await inspect(question);
   assert.match(questionHtml, /문항 해설|선지별 해설|해설 요약/);
   assert.match(questionHtml, /비공개 개인 메모/);
-  assert.match(questionHtml, /질문·공개 암기 팁/);
+  assert.match(questionHtml, /이 문제에 대한 이야기/);
   const concept = anchors(questionHtml).find(
     (path) =>
       path.includes("/concepts/") &&

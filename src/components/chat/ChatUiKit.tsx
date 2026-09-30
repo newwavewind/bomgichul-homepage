@@ -16,7 +16,7 @@ export function BrandChatFab({
       type="button"
       onClick={onClick}
       aria-label={ariaLabel}
-      className="chat-focus fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-carbon bg-paper text-2xl shadow-[var(--shadow-card)] transition-transform hover:scale-105"
+      className="web-chat-launcher chat-focus fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-carbon bg-paper text-2xl shadow-[var(--shadow-card)] transition-transform hover:scale-105"
     >
       💬
       {badge}

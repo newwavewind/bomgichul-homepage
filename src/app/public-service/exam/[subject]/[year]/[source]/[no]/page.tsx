@@ -1,3 +1,4 @@
+import { QuestionNavLabel } from "@/components/exam/QuestionNavLabel";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -190,7 +191,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
               href={`${listBase}/${previous.questionNo}`}
               className="rounded-2xl border border-mist px-4 py-3 font-display text-body-sm hover:border-carbon"
             >
-              ← {previous.questionNo}번
+              <QuestionNavLabel direction="previous" questionNo={previous.questionNo} />
             </Link>
           ) : (
             <span />
@@ -200,7 +201,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
               href={`${listBase}/${next.questionNo}`}
               className="rounded-2xl border border-mist px-4 py-3 text-right font-display text-body-sm hover:border-carbon"
             >
-              {next.questionNo}번 →
+              <QuestionNavLabel direction="next" questionNo={next.questionNo} />
             </Link>
           ) : null}
         </nav>
