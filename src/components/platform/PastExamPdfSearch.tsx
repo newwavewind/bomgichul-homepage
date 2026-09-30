@@ -19,6 +19,46 @@ function chipClass(active: boolean) {
   }`;
 }
 
+/** 그룹 헤더에 이미 있는 연도·회차·시험명을 빼고 과목·교시만 남긴다. */
+function itemTitle(item: PastExamPdfGroup): string {
+  let rest = item.label
+    .replace(/^\d{4}년\s*/, "")
+    .replace(/제?\d{1,3}회\s*/, "")
+    .replace(item.scopeLabel, "")
+    .replace(/^[·•\s]+/, "")
+    .trim();
+
+  const period = rest.match(/\((\d+교시)\)/)?.[1] ?? null;
+  const subject =
+    [...rest.matchAll(/\(([^)]+)\)/g)]
+      .map((m) => m[1])
+      .find((s) => !/^\d+교시$/.test(s)) ?? null;
+
+  if (period && subject) return `${period} · ${subject}`;
+  if (period) {
+    if (/시험지|문제/.test(rest)) return `${period} · 시험지`;
+    if (/정답/.test(rest)) return `${period} · 정답`;
+    return period;
+  }
+
+  rest = rest.replace(/_/g, " · ").replace(/\s+/g, " ").trim();
+  return rest || item.label;
+}
+
+function displayFileName(name: string): string {
+  return name.replace(/^[★☆✦\s]+/, "").trim();
+}
+
+function groupMeta(rows: PastExamPdfGroup[]): string {
+  const head = rows[0];
+  const bits = [
+    head.year != null ? `${head.year}년` : null,
+    head.round != null ? `${head.round}회` : null,
+    `자료 ${rows.reduce((n, item) => n + item.files.length, 0)}개`,
+  ].filter(Boolean);
+  return bits.join(" · ");
+}
+
 export function PastExamPdfSearch() {
   const inputId = useId();
   const [query, setQuery] = useState("");
@@ -220,13 +260,61 @@ export function PastExamPdfSearch() {
         ) : null}
 
         {items.length > 0 ? (
-          <ul className="divide-y divide-mist/80 overflow-hidden rounded-2xl border border-mist/70 bg-paper">
+          <ul className="web-pdf-groups overflow-hidden rounded-2xl border border-mist/70 bg-paper">
             {[...groups.entries()].map(([key, rows], index) => (
-              <li key={key} className="web-pdf-group"><details open={index === 0}>
-                <summary>{rows[0].scopeLabel} · {rows[0].round ? `${rows[0].round}회` : `${rows[0].year ?? "연도 미표기"}년`} · 자료 {rows.reduce((n,item)=>n+item.files.length,0)}개</summary>
-                {rows.map(item => <div key={item.key}><p className="mt-3 font-semibold text-sm">{item.label}</p>{item.files.map(file => <div className="web-pdf-file" key={`${file.postId}-${file.fileName}`}><span className="text-sm break-all">{file.fileName}</span><a href={file.url} target="_blank" rel="noopener noreferrer" download={file.fileName} className="text-sm underline">{file.kindLabel} 받기 ↓</a></div>)}</div>)}
-                <Link href={rows[0].scope === "real_estate" ? "/real-estate" : `/${rows[0].scope.replaceAll("_","-")}`} className="inline-block mt-3 font-semibold text-blue-700">이 시험 웹 기출 보기 →</Link>
-              </details></li>
+              <li key={key} className="web-pdf-group">
+                <details open={index === 0}>
+                  <summary className="web-pdf-group__summary">
+                    <span className="web-pdf-group__exam">{rows[0].scopeLabel}</span>
+                    <span className="web-pdf-group__meta">{groupMeta(rows)}</span>
+                  </summary>
+
+                  <ul className="web-pdf-list">
+                    {rows.flatMap((item) =>
+                      item.files.map((file) => (
+                        <li
+                          key={`${item.key}:${file.postId}:${file.fileName}`}
+                          className="web-pdf-row"
+                        >
+                          <div className="web-pdf-row__body">
+                            <div className="web-pdf-row__top">
+                              <p className="web-pdf-row__title">{itemTitle(item)}</p>
+                              <span
+                                className={`web-pdf-row__kind web-pdf-row__kind--${file.kind}`}
+                              >
+                                {file.kindLabel}
+                              </span>
+                            </div>
+                            <p className="web-pdf-row__filename" title={file.fileName}>
+                              {displayFileName(file.fileName)}
+                            </p>
+                          </div>
+                          <a
+                            href={file.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            download={file.fileName}
+                            className="web-pdf-row__dl"
+                          >
+                            받기
+                          </a>
+                        </li>
+                      )),
+                    )}
+                  </ul>
+
+                  <Link
+                    href={
+                      rows[0].scope === "real_estate"
+                        ? "/real-estate"
+                        : `/${rows[0].scope.replaceAll("_", "-")}`
+                    }
+                    className="web-pdf-group__more"
+                  >
+                    이 시험 웹 기출 보기 →
+                  </Link>
+                </details>
+              </li>
             ))}
           </ul>
         ) : null}
