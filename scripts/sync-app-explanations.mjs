@@ -1,5 +1,5 @@
 /**
- * 봄기출 네 앱(공무원·공인중개사·경찰·소방)의 기출 해설을 홈페이지 데이터에 다시 싣는다.
+ * 봄기출 여섯 앱(공무원·공인중개사·경찰·소방·주택관리사·사회복지사)의 기출 해설을 홈페이지 데이터에 다시 싣는다.
  *
  *   node scripts/sync-app-explanations.mjs          # 쓴다
  *   node scripts/sync-app-explanations.mjs --dry    # 무엇이 바뀌는지 세기만
@@ -28,6 +28,8 @@ const APPS = {
   broker: "/Users/newsang/ox-quiz-app",
   police: "/Users/newsang/policebomgichul",
   fire: "/Users/newsang/firebomgichul",
+  housing: "/Users/newsang/housingbomgichul",
+  socialworker: "/Users/newsang/socialworkerbomgichul",
 };
 
 const rowsOf = (d) => (Array.isArray(d) ? d : d?.questions ?? []);
@@ -54,6 +56,11 @@ const BROKER = loadApp("broker", [
 ]);
 const POLICE = loadApp("police", ["broker-law", "realestate-tax", "registry-law"].map((s) => `src/data/subjects/${s}/exam`));
 const FIRE = loadApp("fire", ["src/data/exam"]);
+// 2026-10-01 주택관리사·사회복지사 해설도 재집필(짧게, 끝 괄호 근거) — 과목 id 가 앱과 홈페이지가 같다
+const HOUSING_SUBJECTS = ["accounting", "civil-law", "facilities", "housing-admin", "housing-law"];
+const SW_SUBJECTS = ["administration", "community", "human-behavior", "law", "policy", "practice-skills", "practice", "research"];
+const HOUSING = loadApp("housing", HOUSING_SUBJECTS.map((s) => `src/data/subjects/${s}/exam`));
+const SOCIALWORKER = loadApp("socialworker", SW_SUBJECTS.map((s) => `src/data/subjects/${s}/exam`));
 
 /** 공인중개사 앱 채점기(pastExamGrade.getCorrectChoiceNos)와 같은 판정 */
 const ALL_ACCEPTED = /전\s*항\s*정답|전\s*원\s*정답/;
@@ -61,6 +68,8 @@ function acceptedChoices(q) {
   const numericKeys = (q.items ?? []).map((it) => Number(it.key)).filter((n) => Number.isFinite(n));
   if (ALL_ACCEPTED.test(q.explanation_summary ?? "") && numericKeys.length) return numericKeys;
   if (Array.isArray(q.correct_choices) && q.correct_choices.length > 1) return q.correct_choices.map(Number);
+  // 주택관리사 앱은 복수정답을 correct_choice 자리에 목록으로 담는다([2, 5])
+  if (Array.isArray(q.correct_choice) && q.correct_choice.length > 1) return q.correct_choice.map(Number);
   return null;
 }
 
@@ -84,6 +93,8 @@ const DAY_KEY = {
   fire: (q) => `${q.id.split("-")[0]}|${q.year}|${q.source_code}`,
   broker: (q) => String(q.year),
   police: (q) => `${q.year}-${q.round}`,
+  housing: (q) => `${String(q.id).replace(/-(?:19|20)\d{2}(?:-.*)?$/, "")}|${q.year}`,
+  socialworker: (q) => String(q.year),
 };
 const squash = (t) => String(t ?? "").replace(/\s+/g, "");
 const beforeCurrentNote = (t) => {
@@ -100,7 +111,9 @@ function attachLawVersions(web, q, app) {
   for (const { law, jo, url } of (date && VERSIONS[app].get(date)) || []) {
     const [n, sub] = jo.split("의");
     const art = jo.startsWith("별표") ? jo : sub ? `제${n}조의${sub}` : `제${n}조`;
-    if (texts.includes(squash(law)) && texts.includes(art)) found[`${law}|${jo}`] = url;
+    // 화재안전기준은 판표에 정식 이름(「…(NFSC 102)」)으로 있고 해설은 꼬리 없이 적기도 한다
+    const short = law.replace(/\s*\((?:NFSC|NFPC|NFTC)\s*[\d.-]+[A-Z]?\)$/, "");
+    if ((texts.includes(squash(law)) || texts.includes(squash(short))) && texts.includes(art)) found[`${law}|${jo}`] = url;
   }
   const before = JSON.stringify([web.examDate, web.lawVersions]);
   if (Object.keys(found).length) {
@@ -117,7 +130,7 @@ const stats = {};
 const bump = (k, n = 1) => (stats[k] = (stats[k] ?? 0) + n);
 
 /** 이미 실린 문항을 제자리에서 고친다. correctAsString — 공인중개사 데이터는 정답 번호를 글자로 담는다. */
-function patchExam(web, q, { correctAsString = false } = {}) {
+function patchExam(web, q, { correctAsString = false, syncTable = false } = {}) {
   let changed = false;
   const set = (obj, key, value, stat) => {
     if (JSON.stringify(obj[key]) === JSON.stringify(value)) return;
@@ -141,10 +154,13 @@ function patchExam(web, q, { correctAsString = false } = {}) {
       changed = true;
     }
   } else {
-    set(web, "correctChoice", q.correct_choice == null ? undefined : Number(q.correct_choice), "정답");
+    const cc = Array.isArray(q.correct_choice) ? q.correct_choice[0] : q.correct_choice;
+    set(web, "correctChoice", cc == null ? undefined : Number(cc), "정답");
   }
   set(web, "correctChoices", acceptedChoices(q) ?? undefined, "복수정답");
   set(web, "explanationSummary", q.explanation_summary, "요약");
+  // 주택관리사·사회복지사는 표를 앱과 같은 모양(headers·rows)으로 싣는다 — 깨진 표를 앱에서 고치면 따라온다
+  if (syncTable) set(web, "table", q.table, "표");
   const byKey = new Map((q.items ?? []).map((it) => [String(it.key), it]));
   for (const item of web.items ?? []) {
     const a = byKey.get(String(item.key));
@@ -398,6 +414,32 @@ for (const [slug, ko] of Object.entries(RE_KO)) {
     else bump("공인중개사:앱에없음");
   }
   writeJson(file, list, true);
+}
+
+// ── 주택관리사·사회복지사 ────────────────────────────────────────────────
+// 문항은 앱과 1:1(과목마다 240·250문항)이다. 2차 주관식(단답형, items 없음)은 재집필 대상이 아니라 건드리지 않는다.
+for (const [dirName, app, subjects, byId] of [
+  ["housing", "housing", HOUSING_SUBJECTS, HOUSING],
+  ["social-worker", "socialworker", SW_SUBJECTS, SOCIALWORKER],
+]) {
+  for (const s of subjects) {
+    const file = path.join(HOME, "src", "data", dirName, `${s}.json`);
+    const d = readJson(file);
+    for (const web of d.exams) {
+      const q = byId.get(web.id);
+      if (!q) {
+        bump(`${dirName}:앱에없음`);
+        continue;
+      }
+      if (!Array.isArray(q.items) || !q.items.length) {
+        bump(`${dirName}:주관식건너뜀`);
+        continue;
+      }
+      patchExam(web, q, { syncTable: true });
+      attachLawVersions(web, q, app);
+    }
+    writeJson(file, d, false);
+  }
 }
 
 console.log(DRY ? "(--dry) 쓰지 않았다" : "썼다");

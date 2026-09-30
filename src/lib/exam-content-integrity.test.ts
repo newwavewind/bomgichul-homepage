@@ -43,7 +43,8 @@ describe("웹 기출 데이터 무결성", () => {
     const exams = allTrackExams(HOUSING_SUBJECT_IDS, getHousingSubject);
     expect(exams).toHaveLength(1200);
     expectCompleteObjectiveQuestions(exams);
-    expect(exams.filter((exam) => exam.table)).toHaveLength(53);
+    // 회계원리 2024-29 는 조건 문장이 표 칸으로 잘못 들어간 가짜 표였다 — 2026-10-01 발문으로 되붙이고 지웠다
+    expect(exams.filter((exam) => exam.table)).toHaveLength(52);
     expect(exams.filter((exam) => exam.material)).toHaveLength(7);
     expect(exams.filter((exam) => exam.choiceHeaders?.length)).toHaveLength(1);
     expectMaterialFiles(exams);
