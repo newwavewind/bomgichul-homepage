@@ -279,9 +279,9 @@
   }
   body:has(.web-question-nav) .web-grade-button {
     position: fixed;
-    left: calc(24px + (100vw - 116px) / 3);
+    left: calc(24px + (100% - 116px) / 3);
     right: auto;
-    width: calc((100vw - 116px) / 3);
+    width: calc((100% - 116px) / 3);
     min-height: 56px;
     height: 56px;
     margin: 0;
