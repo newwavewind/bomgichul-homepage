@@ -1,4 +1,3 @@
-import { ExamDiscovery } from "@/components/web-study/ExamDiscovery";
 import Link from "next/link";
 import { ExamCalendar } from "@/components/platform/ExamCalendar";
 import { PastExamPdfSearch } from "@/components/platform/PastExamPdfSearch";
@@ -184,7 +183,7 @@ export function PlatformHome() {
           9급 공무원, 공인중개사, 경찰공무원, 소방공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어, 공무원 국어, 행정사, 세무사, 공인노무사, 손해평가사, 산업안전지도사 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
         </p>
 
-        <ExamDiscovery><section id="exam-selection" className="mx-auto mb-10 grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
+        <section id="exam-selection" className="mx-auto mb-10 grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
           {exams.map((exam) => (
             <article
               key={exam.href}
@@ -227,7 +226,7 @@ export function PlatformHome() {
               </p>
             </article>
           ))}
-        </section></ExamDiscovery>
+        </section>
 
         {/* 로그인 시에만 「나의 학습 홈」 — 손님 환영판은 제거 */}
         <PersonalHomeGate guest={null} />
