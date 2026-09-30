@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { useMe } from "@/lib/client-session";
 import { trackEvent } from "@/lib/analytics";
 import { useSubjectExtras } from "@/components/exam/SubjectExtras";
 
@@ -16,6 +18,7 @@ export function ReviewPdfButton({
   subjectLabel: string;
   toolbar?: boolean;
 }) {
+  const { user, pending: authPending } = useMe();
   const { pending, bookmarkCount, noteCount } = useSubjectExtras(subject);
   const total = bookmarkCount + noteCount;
   const toolbarClass = "inline-flex items-center justify-center gap-2 rounded-full border border-carbon bg-paper px-4 py-2 font-display text-body-sm font-semibold text-ink";
@@ -27,8 +30,9 @@ export function ReviewPdfButton({
     return <span className={emptyClass}>📒 복습 PDF</span>;
   }
 
+  if (!authPending && !user) return <Link className={emptyClass} href={`/login?next=${encodeURIComponent(`/exam/${subject}`)}`}>복습 PDF · 로그인 후 북마크·메모로 만들기</Link>;
   if (total === 0) {
-    return <span className={emptyClass}>📒 복습 PDF (북마크·메모 없음)</span>;
+    return <span className={emptyClass}>📒 문제에서 북마크·메모를 저장하면 PDF를 만들 수 있어요</span>;
   }
 
   return (

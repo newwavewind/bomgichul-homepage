@@ -19,11 +19,11 @@ const HUB_LINKS = [
 ] as const;
 
 const CONCEPT_LINKS = [
-  { href: "/concepts/broker-law", label: "중개사법 올인원" },
-  { href: "/concepts/civillaw", label: "민법 올인원" },
-  { href: "/police/concepts/constitution", label: "경찰 헌법 올인원" },
-  { href: "/firefighter/concepts/sobang", label: "소방학개론 올인원" },
-  { href: "/public-service/concepts/hangjunghak", label: "행정학 올인원" },
+  { href: "/concepts/broker-law", label: "중개사법 핵심 개념" },
+  { href: "/concepts/civillaw", label: "민법 핵심 개념" },
+  { href: "/police/concepts/constitution", label: "경찰 헌법 핵심 개념" },
+  { href: "/firefighter/concepts/sobang", label: "소방학개론 핵심 개념" },
+  { href: "/public-service/concepts/hangjunghak", label: "행정학 핵심 개념" },
   { href: "/history/concepts", label: "한국사 개념" },
 ] as const;
 
@@ -42,7 +42,7 @@ export function Footer() {
             </Link>
           ))}
         </nav>
-        <nav aria-label="기출 올인원" className="flex flex-wrap gap-x-4 gap-y-2">
+        <nav aria-label="핵심 개념" className="flex flex-wrap gap-x-4 gap-y-2">
           {CONCEPT_LINKS.map((link) => (
             <Link
               key={link.href}

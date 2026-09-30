@@ -1,5 +1,7 @@
 "use client";
 
+import { QuestionNoteEditor } from "@/components/exam/QuestionNoteEditor";
+import { parseDiscussion, formatDiscussion } from "@/lib/question-discussion";
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
@@ -18,7 +20,7 @@ function formatMemoDate(iso: string): string {
  * 방문자 상태 — pending(로그인 판정 중)을 비로그인과 갈라 둔다.
  * 판정 중에 로그인 유도 문구를 그리면 로그인해 둔 사람에게 깜빡 보인다.
  */
-type Viewer = { pending: boolean; userId: string | null };
+type Viewer = { pending: boolean; userId: string | null; isAdmin?: boolean };
 
 function LoginHint({ href, action }: { href: string; action: string }) {
   return (
@@ -42,8 +44,19 @@ function MemoCard({
   loginHref: string;
   onChanged: () => void;
 }) {
+  const [reviewTarget, setReviewTarget] = useState<string | null>(null);
   const [commentText, setCommentText] = useState("");
   const [busy, setBusy] = useState(false);
+  const discussion = parseDiscussion(memo.content);
+  const [actionError, setActionError] = useState("");
+  const resolveQuestion = async (acceptedId?: string) => {
+    if (viewer.userId !== memo.user_id || busy) return;
+    setBusy(true);
+    const { error } = await createClient().from("question_public_memos").update({content:formatDiscussion(discussion.text, !discussion.resolved || Boolean(acceptedId), acceptedId)}).eq("id",memo.id).eq("user_id",viewer.userId);
+    setBusy(false);
+    setActionError(error ? "질문 상태를 저장하지 못했습니다." : "");
+    if (!error) onChanged();
+  };
   const resolvedAnon = !viewer.pending && !viewer.userId;
 
   const toggleLike = async () => {
@@ -72,11 +85,14 @@ function MemoCard({
     if (!viewer.userId || !trimmed || !isSupabaseConfigured() || busy) return;
     setBusy(true);
     const supabase = createClient();
-    await supabase.from("question_public_memo_comments").insert({
+    const {error} = await supabase.from("question_public_memo_comments").insert({
       memo_id: memo.id,
       user_id: viewer.userId,
-      content: trimmed,
+      content: reviewTarget && viewer.isAdmin ? `[검수 확인:${reviewTarget}]\n${trimmed}` : trimmed,
     });
+    if(error){setActionError("답변을 등록하지 못했습니다. 다시 시도해 주세요.");setBusy(false);return;}
+    setActionError("");
+    setReviewTarget(null);
     setCommentText("");
     setBusy(false);
     onChanged();
@@ -119,8 +135,10 @@ function MemoCard({
         </button>
       </div>
 
+      {discussion.question && <div className="web-actions"><strong>{discussion.resolved ? "해결됨 · 작성자 확인" : "질문 · 미해결"}</strong>{viewer.userId === memo.user_id && <button disabled={busy} onClick={() => resolveQuestion()}>{discussion.resolved ? "다시 질문 열기" : "해결됨으로 표시"}</button>}</div>}
+      {actionError && <p role="alert">{actionError}</p>}
       <p className="mt-3 whitespace-pre-wrap font-display text-body-sm leading-relaxed text-ink">
-        {memo.content}
+        {discussion.text}
       </p>
 
       <div className="mt-3 font-display text-[12px] font-medium text-smoke">
@@ -141,8 +159,12 @@ function MemoCard({
                   {formatMemoDate(comment.created_at)}
                 </span>
               </p>
+              {memo.comments.some(c=>c.verifiedByStaff && c.content.startsWith(`[검수 확인:${comment.id}]\n`)) && <strong className="block text-sm">운영자 검수 확인</strong>}
+              {viewer.isAdmin && !comment.verifiedByStaff && <button className="text-sm underline" onClick={()=>{setReviewTarget(comment.id);setCommentText("");}}>이 답변 검수 의견 작성</button>}
+              {discussion.acceptedId === comment.id && <strong className="text-sm">질문자가 채택한 답변</strong>}
+              {discussion.question && viewer.userId === memo.user_id && discussion.acceptedId !== comment.id && <button className="text-sm underline" disabled={busy} onClick={() => resolveQuestion(comment.id)}>이 답변 채택</button>}
               <p className="mt-1 whitespace-pre-wrap font-display text-[12px] leading-relaxed text-smoke">
-                {comment.content}
+                {comment.verifiedByStaff ? comment.content.replace(/^\[검수 확인:[a-zA-Z0-9-]+\]\n/, "검수 의견: ") : comment.content}
               </p>
             </div>
           ))
@@ -152,7 +174,7 @@ function MemoCard({
           <div className="space-y-2 border-t border-mist/60 pt-3">
             <Textarea
               id={`memo-comment-${memo.id}`}
-              label="댓글"
+              label={reviewTarget ? "운영자 검수 의견 (공개)" : "답변·댓글"}
               value={commentText}
               onChange={(e) => setCommentText(e.target.value)}
               rows={2}
@@ -160,6 +182,7 @@ function MemoCard({
               disabled={viewer.pending}
             />
             <div className="flex justify-end">
+              {reviewTarget && <button onClick={()=>setReviewTarget(null)}>검수 취소</button>}
               <PrimaryButton
                 size="sm"
                 onClick={submitComment}
@@ -206,8 +229,8 @@ export function QuestionMemoPanel({
   const selfResolve = userId === undefined;
   const me = useMe();
   const viewer: Viewer = selfResolve
-    ? { pending: me.pending, userId: me.pending ? null : (me.user?.id ?? null) }
-    : { pending: false, userId };
+    ? { pending: me.pending, userId: me.pending ? null : (me.user?.id ?? null), isAdmin: me.user?.isAdmin }
+    : { pending: false, userId, isAdmin: me.user?.id === userId && me.user?.isAdmin };
   const [memos, setMemos] = useState<PublicQuestionMemo[]>(initialMemos);
   // 이전·다음 문항으로 소프트 내비게이션하면 이 컴포넌트 인스턴스가 재사용된다 —
   // 목록을 상태로 들고 있으므로, 문항이 바뀌면 새 문항의 초기 목록으로 되돌린다.
@@ -219,6 +242,9 @@ export function QuestionMemoPanel({
   }
   const [content, setContent] = useState("");
   const [saving, setSaving] = useState(false);
+  const [kind, setKind] = useState("tip");
+  const [filter, setFilter] = useState("all");
+  const [postError, setPostError] = useState("");
   const loginHref = `/login?next=${encodeURIComponent(
     loginNext ?? `/exam/${subject}/${year}/${questionNo}`,
   )}`;
@@ -259,8 +285,9 @@ export function QuestionMemoPanel({
       subject,
       year,
       question_no: questionNo,
-      content: trimmed,
+      content: kind === "question" ? formatDiscussion(trimmed) : trimmed,
     });
+    setPostError(error ? "등록하지 못했습니다. 내용을 확인하고 다시 시도해 주세요." : "");
     if (!error) {
       setContent("");
       // 새 메모는 다른 방문자에게도 바로 보여야 한다 — 정적 캐시를 비운다.
@@ -271,22 +298,26 @@ export function QuestionMemoPanel({
   };
 
   return (
+    <><QuestionNoteEditor key={`${identity}:${viewer.userId}`} subject={subject} year={year} questionNo={questionNo} userId={viewer.userId} loginNext={loginNext ?? `/exam/${subject}/${year}/${questionNo}`} />
     <div className="mt-4 rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
       <div className="mb-3 flex items-baseline justify-between gap-3">
         <h2 className="font-display text-body font-semibold text-ink">
-          나만의 메모
+          이 문제의 질문·공개 암기 팁
         </h2>
         <p className="min-w-0 font-display text-[12px] text-fog">
-          누구나 볼 수 있어요 · 암기 팁을 함께 쌓아보세요
+          누구나 볼 수 있는 공개 게시판입니다. 개인 기록은 위의 개인 메모를 이용하세요.
         </p>
       </div>
 
+      <div className="web-actions" aria-label="글 분류">{[["all","전체"],["question","질문"],["open","미해결 질문"],["resolved","해결된 질문"],["tip","암기 팁"]].map(([value,label])=><button key={value} aria-pressed={filter===value} onClick={()=>setFilter(value)}>{label}</button>)}</div>
+      <label className="block my-3">작성할 글 종류 <select value={kind} onChange={e=>setKind(e.target.value)}><option value="tip">공개 암기 팁</option><option value="question">이 문제 질문하기</option></select></label>
+      {postError && <p role="alert">{postError}</p>}
       {viewer.userId || viewer.pending ? (
         <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1">
             <Textarea
               id={`public-memo-${subject}-${year}-${questionNo}`}
-              label="공개 메모 내용"
+              label="공개 질문·암기 팁 내용"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               rows={2}
@@ -301,12 +332,12 @@ export function QuestionMemoPanel({
             disabled={viewer.pending || saving || !content.trim()}
             className="shrink-0 self-end"
           >
-            {saving ? "등록 중..." : "등록"}
+            {saving ? "등록 중..." : "공개 등록"}
           </PrimaryButton>
         </div>
       ) : (
         <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-body-sm text-smoke">
-          <span>메모는 무료예요. 로그인만 하면 남길 수 있어요.</span>
+          <span>로그인하면 이 문제에 공개 질문·암기 팁을 남길 수 있어요.</span>
           <Link
             href={loginHref}
             className="font-medium text-[#6366f1] hover:underline"
@@ -322,7 +353,7 @@ export function QuestionMemoPanel({
         </p>
       ) : (
         <div>
-          {memos.map((memo) => (
+          {memos.filter(memo => {const d=parseDiscussion(memo.content);return filter==="all" || (filter==="tip"&&!d.question) || (filter==="question"&&d.question) || (filter==="open"&&d.question&&!d.resolved) || (filter==="resolved"&&d.resolved);}).map((memo) => (
             <MemoCard
               key={memo.id}
               memo={memo}
@@ -339,6 +370,6 @@ export function QuestionMemoPanel({
           ))}
         </div>
       )}
-    </div>
+    </div></>
   );
 }

@@ -629,7 +629,7 @@ export async function TrackExamDetailPage({
             <ExamStructuredMaterials table={exam.table} stemTail={exam.stemTail} />
           </div>
         </header>
-        <div className="mt-6">
+        <div className="mt-6 web-question-layout">
           {isSubjective ? (
             <>
               <SubjectivePassage passage={exam.passage} />
@@ -696,7 +696,7 @@ export async function TrackExamDetailPage({
             }))}
           />
         </div>
-        <nav className="mt-8 grid grid-cols-2 gap-3">
+        <nav aria-label="이전·다음 문제" className="web-question-nav mt-8 grid grid-cols-2 gap-3">
           {previous ? (
             <Link
               href={`${listBase}/${previous.questionNo}`}

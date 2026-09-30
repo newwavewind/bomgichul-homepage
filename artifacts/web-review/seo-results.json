@@ -1,0 +1,514 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/real-estate",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/real-estate",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/exam/realestate",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/exam/realestate",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/exam/realestate/2025",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/exam/realestate/2025",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/exam/realestate/2025/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/exam/realestate/2025/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/concepts/realestate/land-characteristics",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/concepts/realestate/land-characteristics",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/public-service",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/public-service",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/public-service/exam/haengjeongbeop",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/public-service/exam/haengjeongbeop",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/public-service/exam/haengjeongbeop/2026/국가직",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/public-service/exam/haengjeongbeop/2026/%EA%B5%AD%EA%B0%80%EC%A7%81",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/public-service/exam/haengjeongbeop/2026/국가직/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/public-service/exam/haengjeongbeop/2026/%EA%B5%AD%EA%B0%80%EC%A7%81/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/public-service/concepts/haengjeongbeop/halb-106",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/public-service/concepts/haengjeongbeop/halb-106",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/police",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/police",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/police/exam/constitution",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/police/exam/constitution",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/police/exam/constitution/2026/1차",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/police/exam/constitution/2026/1%EC%B0%A8",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/police/exam/constitution/2026/1차/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/police/exam/constitution/2026/1%EC%B0%A8/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/police/concepts/constitution/constitution-basic-principles",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/police/concepts/constitution/constitution-basic-principles",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/housing",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/housing",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/housing/exam/accounting",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/housing/exam/accounting",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/housing/exam/accounting/2025/제28회",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/housing/exam/accounting/2025/%EC%A0%9C28%ED%9A%8C",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/housing/exam/accounting/2025/제28회/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/housing/exam/accounting/2025/%EC%A0%9C28%ED%9A%8C/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/housing/concepts/accounting/ac-102",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/housing/concepts/accounting/ac-102",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/social-worker",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/social-worker",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/social-worker/exam/human-behavior",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/social-worker/exam/human-behavior",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/social-worker/exam/human-behavior/2026/제24회",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/social-worker/exam/human-behavior/2026/%EC%A0%9C24%ED%9A%8C",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/social-worker/exam/human-behavior/2026/제24회/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/social-worker/exam/human-behavior/2026/%EC%A0%9C24%ED%9A%8C/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/english",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/english",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/english/exam/gong9",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/english/exam/gong9",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/english/exam/gong9/2026/국가직",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/english/exam/gong9/2026/%EA%B5%AD%EA%B0%80%EC%A7%81",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/english/exam/gong9/2026/국가직/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/english/exam/gong9/2026/%EA%B5%AD%EA%B0%80%EC%A7%81/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/history",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/history",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/history/exam/simhwa",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/history/exam/simhwa",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/history/exam/simhwa/2026/제77회",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/history/exam/simhwa/2026/%EC%A0%9C77%ED%9A%8C",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/history/exam/simhwa/2026/제77회/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/history/exam/simhwa/2026/%EC%A0%9C77%ED%9A%8C/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/firefighter",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/firefighter",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/firefighter/exam/sobang",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/firefighter/exam/sobang",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/firefighter/exam/sobang/2026/국가직",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/firefighter/exam/sobang/2026/%EA%B5%AD%EA%B0%80%EC%A7%81",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/firefighter/exam/sobang/2026/국가직/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/firefighter/exam/sobang/2026/%EA%B5%AD%EA%B0%80%EC%A7%81/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/firefighter/concepts/sobang/sb-sobang-jojik",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/firefighter/concepts/sobang/sb-sobang-jojik",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/gugeo",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/gugeo",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/gugeo/exam/gugeo",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/gugeo/exam/gugeo",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/gugeo/exam/gugeo/2026/국가직",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/gugeo/exam/gugeo/2026/%EA%B5%AD%EA%B0%80%EC%A7%81",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/gugeo/exam/gugeo/2026/국가직/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/gugeo/exam/gugeo/2026/%EA%B5%AD%EA%B0%80%EC%A7%81/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/haengjeongsa",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/haengjeongsa",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/haengjeongsa/exam/minbeop",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/haengjeongsa/exam/minbeop",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/haengjeongsa/exam/minbeop/2026/제14회",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/haengjeongsa/exam/minbeop/2026/%EC%A0%9C14%ED%9A%8C",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/haengjeongsa/exam/minbeop/2026/제14회/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/haengjeongsa/exam/minbeop/2026/%EC%A0%9C14%ED%9A%8C/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/semusa",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/semusa",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/semusa/exam/jaejeonghak",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/semusa/exam/jaejeonghak",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/semusa/exam/jaejeonghak/2026/제63회",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/semusa/exam/jaejeonghak/2026/%EC%A0%9C63%ED%9A%8C",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/semusa/exam/jaejeonghak/2026/제63회/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/semusa/exam/jaejeonghak/2026/%EC%A0%9C63%ED%9A%8C/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/sanan",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/sanan",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/sanan/exam/sanbeop",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/sanan/exam/sanbeop",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/sanan/exam/sanbeop/2026/제16회",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/sanan/exam/sanbeop/2026/%EC%A0%9C16%ED%9A%8C",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/sanan/exam/sanbeop/2026/제16회/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/sanan/exam/sanbeop/2026/%EC%A0%9C16%ED%9A%8C/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/sonhae",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/sonhae",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/sonhae/exam/sangbeop",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/sonhae/exam/sangbeop",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/sonhae/exam/sangbeop/2026/제12회",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/sonhae/exam/sangbeop/2026/%EC%A0%9C12%ED%9A%8C",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/sonhae/exam/sangbeop/2026/제12회/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/sonhae/exam/sangbeop/2026/%EC%A0%9C12%ED%9A%8C/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/nomusa",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/nomusa",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 2
+  },
+  {
+    "path": "/nomusa/exam/nodong1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/nomusa/exam/nodong1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/nomusa/exam/nodong1/2025/제34회",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/nomusa/exam/nodong1/2025/%EC%A0%9C34%ED%9A%8C",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/nomusa/exam/nodong1/2025/제34회/1",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/nomusa/exam/nodong1/2025/%EC%A0%9C34%ED%9A%8C/1",
+    "robots": "index, follow",
+    "h1": 1,
+    "jsonLd": 3
+  },
+  {
+    "path": "/search?q=민법",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/search",
+    "robots": "noindex, follow",
+    "h1": 1,
+    "jsonLd": 1
+  },
+  {
+    "path": "/study-tools",
+    "status": 200,
+    "canonical": "https://www.bomgichul.com/study-tools",
+    "robots": "noindex, follow",
+    "h1": 1,
+    "jsonLd": 1
+  }
+]

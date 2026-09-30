@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { Tag } from "@/components/ui/Tag";
+import { SubjectLearningCard } from "@/components/study/SubjectLearningCard";
+
 import {
   PUBLIC_SERVICE_SERIES,
   type PublicServiceSeries,
@@ -16,21 +16,9 @@ interface PublicServiceSubject {
   examCount: number;
 }
 
-function SubjectCard({ subject, index, badge }: { subject: PublicServiceSubject; index: number; badge?: string }) {
-  return (
-    <article className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-paper p-6 shadow-[var(--shadow-card)]">
-      <div className="mb-5 flex items-center justify-between gap-3">
-        <Tag className="!px-2.5 !py-0.5 !text-[12px]">{badge ?? subject.track}</Tag>
-        <span className="font-display text-[12px] text-fog">{String(index + 1).padStart(2, "0")}</span>
-      </div>
-      <h3 className="font-display text-subheading font-semibold text-ink">{subject.label}</h3>
-      <p className="mt-2 font-display text-body-sm text-smoke">개념 {subject.conceptCount}개 · 기출 {subject.examCount}문항</p>
-      <div className="mt-6 grid grid-cols-2 gap-2">
-        <Link href={`/public-service/exam/${subject.id}`} className="rounded-xl bg-carbon px-3 py-3 text-center font-display text-[13px] font-semibold text-paper hover:opacity-90">기출문제</Link>
-        <Link href={`/public-service/concepts/${subject.id}`} className="rounded-xl border border-carbon/40 bg-[#e8f0ff] px-3 py-3 text-center font-display text-[13px] font-semibold text-carbon transition-colors hover:border-carbon hover:bg-[#dbe8ff]">올인원</Link>
-      </div>
-    </article>
-  );
+function SubjectCard({ subject, badge }: { subject: PublicServiceSubject; index: number; badge?: string }) {
+  return <SubjectLearningCard label={subject.label} badge={badge ?? subject.track} examCount={subject.examCount} conceptCount={subject.conceptCount} examHref={`/public-service/exam/${subject.id}`} conceptHref={subject.conceptCount>0?`/public-service/concepts/${subject.id}`:undefined} />;
+
 }
 
 export function PublicServiceSubjectBrowser({ subjects }: { subjects: PublicServiceSubject[] }) {

@@ -1,6 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useMe } from "@/lib/client-session";
+import { recordWebStudy } from "@/lib/web-study";
+import { trackEvent } from "@/lib/analytics";
+import { WrongReasonPicker } from "@/components/web-study/WrongReasonPicker";
 import Image from "next/image";
 import type { ExamTrackExam, ExamTrackExamItem } from "@/lib/exam-track/types";
 import { HistoryConceptNote } from "@/components/history/HistoryConceptNote";
@@ -24,6 +29,10 @@ function normalize(answer?: string): Verdict | null {
 }
 
 export function HistoryOxQuestion({ exam }: { exam: ExamTrackExam }) {
+  const pathname = usePathname();
+  const {user} = useMe();
+  const actor = user?.id ?? "guest";
+  const journalId = `${pathname}#${exam.id}`;
   const [picks, setPicks] = useState<Record<string, Verdict>>({});
   const [graded, setGraded] = useState(false);
 
@@ -78,14 +87,15 @@ export function HistoryOxQuestion({ exam }: { exam: ExamTrackExam }) {
         ))}
       </ol>
 
+      {graded && score && score.right < score.total ? <WrongReasonPicker actor={actor} id={journalId} /> : null}
       <div className="mt-5 flex flex-wrap items-center gap-3">
         {!graded ? (
           <>
             <button
               type="button"
-              onClick={() => setGraded(true)}
+              onClick={() => {setGraded(true);const result=items.every(item=>normalize(item.answer)===picks[item.key]) ? "correct" : "wrong";recordWebStudy(actor,{id:journalId,href:pathname,title:document.querySelector("h1")?.textContent||exam.id,scope:"history",result});trackEvent("web_question_completed",{scope:"history",result});}}
               disabled={!allAnswered}
-              className="inline-flex items-center justify-center rounded-[var(--radius-buttons)] border border-carbon bg-[#6366f1] px-5 py-2.5 font-display text-body-sm font-semibold text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:border-mist disabled:bg-mist disabled:text-fog disabled:shadow-none"
+              className="web-grade-button inline-flex items-center justify-center rounded-[var(--radius-buttons)] border border-carbon bg-[#6366f1] px-5 py-2.5 font-display text-body-sm font-semibold text-paper shadow-[var(--shadow-button)] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:border-mist disabled:bg-mist disabled:text-fog disabled:shadow-none"
             >
               정답 확인
             </button>

@@ -211,7 +211,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           </div>
         </header>
 
-        <div className="mt-6">
+        <div className="mt-6 web-question-layout">
           <ExamOxQuestion
             examId={`${subject}-${year}-${questionNo}`}
             revealEvent={{ subject, year, questionNo }}
@@ -243,7 +243,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           />
         </div>
 
-        <nav className="mt-8 grid grid-cols-2 gap-3">
+        <nav aria-label="이전·다음 문제" className="web-question-nav mt-8 grid grid-cols-2 gap-3">
           {prev ? (
             <ReturnAwareNavLink
               href={`${listBase}/${prev.questionNo}`}

@@ -1,3 +1,4 @@
+import { WebConceptToc } from "@/components/concepts/WebConceptToc";
 import Link from "next/link";
 import { BackLink } from "@/components/ui/BackLink";
 import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
@@ -119,6 +120,7 @@ export function TrackConceptDetailView({
           ) : null}
         </div>
 
+        <WebConceptToc items={[{id:"cx-sec-definition",label:"핵심 개념"},...(pitfallList.length?[{id:"cx-sec-pitfalls",label:"시험 함정"}]:[]),...(hasStructure?[{id:"cx-sec-structure",label:"비교·구조"}]:[]),{id:"cx-sec-related",label:"관련 기출"}]} />
         <ConceptReadBar subject={subjectKey} slug={concept.slug} returnTo={returnTo} />
 
         <ConceptSourcePanel

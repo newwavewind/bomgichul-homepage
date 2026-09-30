@@ -73,7 +73,7 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
   return (
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto max-w-[var(--page-max-width)]">
-        <BackLink href="/#exam">과목 목록으로</BackLink>
+        <BackLink href="/real-estate#exam">과목 목록으로</BackLink>
 
         <header className="border-b border-mist pb-8">
           <SectionHeading as="h1">공인중개사 {label} 기출문제</SectionHeading>

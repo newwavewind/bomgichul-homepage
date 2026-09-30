@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { recordWebStudy, scopeForPath } from "@/lib/web-study";
+import { trackEvent } from "@/lib/analytics";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import { fetchMe, useMe } from "@/lib/client-session";
 import {
@@ -121,7 +123,9 @@ export function ConceptReadBar({
     }
     const { progress: next } = incrementConceptRead(uid, subject, slug);
     setProgress(next);
-  }, [resolveUserId, subject, slug]);
+    recordWebStudy(uid,{id:`concept:${returnTo}`,href:returnTo,title:document.querySelector("h1")?.textContent||slug,scope:scopeForPath(returnTo),result:"read"});
+    trackEvent("web_concept_completed",{scope:scopeForPath(returnTo)});
+  }, [resolveUserId, subject, slug, returnTo]);
 
   const handleReset = useCallback(async () => {
     const uid = await resolveUserId();

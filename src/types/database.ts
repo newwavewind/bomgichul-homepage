@@ -151,6 +151,8 @@ export interface PublicQuestionMemo {
 }
 
 export interface PublicMemoComment {
+  /** Set by the server from admin_users; never inferred from display names. */
+  verifiedByStaff?: boolean;
   id: string;
   memo_id: string;
   user_id: string;

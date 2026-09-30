@@ -204,7 +204,7 @@ export function TrackLearningTools({
             questionNo={current.questionNo}
             underlines={current.underlines ?? null}
           />
-          <div className="mt-5"><ExamOxQuestion key={`${mode}:${examKey(current)}`} examId={current.id} items={current.items} correctChoice={current.correctChoice} explanationSummary={current.explanationSummary} initialAttemptResult={attemptMap.get(examKey(current)) ?? null} onAttempt={(result) => saveAttempt(current, result)} /></div>
+          <div className="mt-5"><ExamOxQuestion key={`${mode}:${examKey(current)}`} examId={current.id} loginNext={`${basePath}/exam/${subjectId}/${current.year}/${encodeURIComponent(current.sourceCode)}/${current.questionNo}`} items={current.items} correctChoice={current.correctChoice} explanationSummary={current.explanationSummary} initialAttemptResult={attemptMap.get(examKey(current)) ?? null} onAttempt={(result) => saveAttempt(current, result)} /></div>
           <div className="mt-5 flex justify-end"><button type="button" onClick={() => setIndex((value) => Math.min(value + 1, pool.length - 1))} disabled={index >= pool.length - 1} className="rounded-full bg-carbon px-5 py-2.5 font-display text-body-sm font-semibold text-paper disabled:opacity-30">다음 문제 →</button></div>
         </div>
       ) : null}

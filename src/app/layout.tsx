@@ -1,3 +1,5 @@
+import { WebStudyTracker } from "@/components/web-study/WebStudyTracker";
+import "@/styles/web-study.css";
 import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Outfit, Caveat } from "next/font/google";
@@ -176,7 +178,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <ChatShell />
-        <VisitTracker />
+        <VisitTracker /><WebStudyTracker />
       </body>
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>

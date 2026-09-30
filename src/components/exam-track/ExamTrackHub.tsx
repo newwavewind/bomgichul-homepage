@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { HubExamIntroLink } from "@/components/exam-intro/HubExamIntroLink";
 import { ExamTrackSubjectBrowser } from "@/components/exam-track/ExamTrackSubjectBrowser";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
@@ -20,57 +19,6 @@ export function ExamTrackHub({
           <HubExamIntroLink href={`${track.basePath}/intro`} label={track.label} />
         </div>
 
-        {/* 핵심 개념 모아보기는 한국사에만 있다 — 문항마다 개념 카드가 붙는 시험이라
-            그것만 이어 읽으면 개념서가 되기 때문이다. */}
-        {track.id === "history" ? (
-          <Link
-            href="/history/concepts"
-            className="flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-lavender px-5 py-4 transition-colors hover:bg-lavender/70 md:px-6"
-          >
-            <span>
-              <span className="block font-display text-[12px] font-semibold tracking-[0.05em] text-ios-blue">
-                한국사 전용
-              </span>
-              <span className="mt-1 block font-display text-subheading font-semibold text-ink">
-                핵심 개념 모아보기
-              </span>
-              <span className="mt-1 block font-display text-body-sm text-smoke">
-                문항마다 붙는 개념 카드 250장을 회차·시대별로 골라 이어 읽어요.
-              </span>
-            </span>
-            <span className="shrink-0 rounded-full border border-carbon bg-paper px-4 py-2 font-display text-body-sm font-semibold text-ink">
-              열기 →
-            </span>
-          </Link>
-        ) : null}
-
-        {subjects.some((s) => s.conceptCount > 0) ? (
-          <section
-            aria-label={`${track.label} 기출 올인원`}
-            className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-[#f4f8ff] px-5 py-5 md:px-6"
-          >
-            <h2 className="font-display text-subheading font-semibold text-ink">기출 올인원</h2>
-            <p className="mt-1 font-display text-body-sm text-smoke">
-              과목별 개념 허브로 바로 들어가 핵심만 이어 읽어요.
-            </p>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {subjects
-                .filter((s) => s.conceptCount > 0)
-                .map((s) => (
-                  <li key={s.id}>
-                    <Link
-                      href={`${track.basePath}/concepts/${s.id}`}
-                      className="inline-flex min-h-10 items-center rounded-full border border-carbon/25 bg-paper px-3.5 font-display text-[13px] font-semibold text-ink transition-colors hover:border-carbon hover:bg-white"
-                    >
-                      {s.label}
-                      <span className="ml-1.5 text-fog">{s.conceptCount}</span>
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-          </section>
-        ) : null}
-
         <ExamTrackSubjectBrowser track={track} subjects={subjects} />
 
         <section className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-carbon px-6 py-8 text-paper md:px-9">
@@ -88,7 +36,7 @@ export function ExamTrackHub({
               </p>
             </div>
             <span className="rounded-full border border-white/25 px-4 py-2 font-display text-[13px] text-white/80">
-              {track.label} 앱 연동
+              {track.label} 앱 안내
             </span>
           </div>
         </section>

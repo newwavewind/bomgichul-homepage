@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { useMe } from "@/lib/client-session";
+import { useMe, fetchMe } from "@/lib/client-session";
 import { LoginSoftNudge } from "@/components/auth/LoginSoftNudge";
 import {
   bumpAnonAttemptCount,
@@ -10,6 +10,9 @@ import {
   shouldShowProgressNudge,
 } from "@/lib/login-nudges";
 import { CitedText } from "@/components/exam/CitedText";
+import { recordWebStudy, scopeForPath, type StudyEntry } from "@/lib/web-study";
+import { trackEvent } from "@/lib/analytics";
+import { WrongReasonPicker } from "@/components/web-study/WrongReasonPicker";
 import { plainStudyText } from "@/lib/study-text";
 
 export type ExamOxItem = {
@@ -73,9 +76,14 @@ export function ExamOxQuestion({
   // 로그인 유도 배너가 깜빡 나타나면 안 된다. 익명은 판정이 끝난 뒤 확정된다.
   const isAnon = userId === undefined ? !me.pending && !me.user : userId === null;
   const loginHref = `/login?next=${encodeURIComponent(loginNext ?? pathname ?? "/")}`;
+  const actor = (userId === undefined ? me.user?.id : userId) ?? "guest";
+  const questionHref = loginNext ?? pathname;
+  const journalId = `${questionHref}#${examId}`;
   const isComposite = comboChoices.length > 0;
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
+  const [previousExamId,setPreviousExamId] = useState(examId);
+  if(previousExamId !== examId){setPreviousExamId(examId);setSelected(null);setRevealed(false);}
   const [showProgressNudge, setShowProgressNudge] = useState(false);
   const isCorrect =
     selected !== null && correctChoice !== undefined && selected === correctChoice;
@@ -101,6 +109,14 @@ export function ExamOxQuestion({
   const reveal = () => {
     if (revealed) return;
     setRevealed(true);
+    if (selected !== null && correctChoice !== undefined) {
+      const result = selected === correctChoice ? "correct" : "wrong";
+      const entry: Omit<StudyEntry,"day"> = {id: journalId, href: questionHref, title: document.querySelector("h1")?.textContent || examId, scope: scopeForPath(pathname), result,
+        answerSummary: [`정답: ${correctChoice}번`, explanationSummary, ...items.filter(item => item.explanation).map(item => `${item.label ?? item.key}: ${plainStudyText(item.explanation!)}`)].filter(Boolean).join("\n")};
+      if(userId === undefined && me.pending) void fetchMe().then(session => recordWebStudy(session.user?.id ?? "guest", entry));
+      else recordWebStudy(actor, entry);
+      trackEvent("web_question_completed", {scope:scopeForPath(pathname),result});
+    }
     // 채점 순간 아직 pending 이면 익명 집계 한 번을 놓치지만, 위 effect 가
     // isAnon 확정 뒤 다시 돌아 배너 판단은 회복된다.
     if (isAnon) {
@@ -121,7 +137,7 @@ export function ExamOxQuestion({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 web-question-choices">
       {isComposite ? (
         <div className="space-y-3">
           {/*
@@ -282,13 +298,14 @@ export function ExamOxQuestion({
             type="button"
             disabled={selected === null}
             onClick={reveal}
-            className="w-full rounded-2xl bg-carbon px-5 py-4 font-display text-body-sm font-semibold text-paper disabled:cursor-not-allowed disabled:opacity-35"
+            className="web-grade-button w-full rounded-2xl bg-carbon px-5 py-4 font-display text-body-sm font-semibold text-paper disabled:cursor-not-allowed disabled:opacity-35"
           >
             정답 확인
           </button>
         </>
       ) : null}
 
+      {revealed && answeredWrong ? <WrongReasonPicker key={journalId} actor={actor} id={journalId} /> : null}
       {revealed ? (
         <div className="space-y-4">
           <div

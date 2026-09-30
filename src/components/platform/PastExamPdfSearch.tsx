@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import {
   PAST_EXAM_SCOPE_OPTIONS,
@@ -94,6 +95,8 @@ export function PastExamPdfSearch() {
     void load(debouncedQ, scope, year, round);
   }, [debouncedQ, scope, year, round, load]);
 
+  const groups = new Map<string, PastExamPdfGroup[]>();
+  for (const item of items) { const key = `${item.scope}:${item.round ?? item.year ?? item.key}`; groups.set(key, [...(groups.get(key) ?? []), item]); }
   const emptyHint =
     [
       isHistory ? (round ? `${round}회` : null) : year ? `${year}년` : null,
@@ -243,41 +246,12 @@ export function PastExamPdfSearch() {
 
         {items.length > 0 ? (
           <ul className="divide-y divide-mist/80 overflow-hidden rounded-2xl border border-mist/70 bg-paper">
-            {items.map((item) => (
-              <li
-                key={item.key}
-                className="flex flex-col gap-3 px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <div className="min-w-0">
-                  <p className="font-display text-[11px] font-semibold tracking-wide text-fog">
-                    {item.scopeLabel}
-                    {item.round ? ` · ${item.round}회` : item.year ? ` · ${item.year}년` : ""}
-                  </p>
-                  <p className="mt-0.5 truncate font-display text-[15px] font-semibold text-ink">
-                    {item.label}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {item.files.map((file) => (
-                    <a
-                      key={`${file.postId}-${file.kind}-${file.fileName}`}
-                      href={file.url}
-                      download={file.fileName}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex h-9 items-center rounded-xl px-3 font-display text-[13px] font-medium transition-colors ${
-                        file.kind === "question"
-                          ? "border border-[#007AFF]/35 bg-[#007AFF]/[0.08] text-[#0066D6] hover:bg-[#007AFF]/[0.14]"
-                          : file.kind === "answer"
-                            ? "border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
-                            : "border border-mist bg-surface text-ink hover:bg-snow"
-                      }`}
-                    >
-                      {file.kindLabel} 받기 ↓
-                    </a>
-                  ))}
-                </div>
-              </li>
+            {[...groups.entries()].map(([key, rows], index) => (
+              <li key={key} className="web-pdf-group"><details open={index === 0}>
+                <summary>{rows[0].scopeLabel} · {rows[0].round ? `${rows[0].round}회` : `${rows[0].year ?? "연도 미표기"}년`} · 자료 {rows.reduce((n,item)=>n+item.files.length,0)}개</summary>
+                {rows.map(item => <div key={item.key}><p className="mt-3 font-semibold text-sm">{item.label}</p>{item.files.map(file => <div className="web-pdf-file" key={`${file.postId}-${file.fileName}`}><span className="text-sm break-all">{file.fileName}</span><a href={file.url} target="_blank" rel="noopener noreferrer" download={file.fileName} className="text-sm underline">{file.kindLabel} 받기 ↓</a></div>)}</div>)}
+                <Link href={rows[0].scope === "real_estate" ? "/real-estate" : `/${rows[0].scope.replaceAll("_","-")}`} className="inline-block mt-3 font-semibold text-blue-700">이 시험 웹 기출 보기 →</Link>
+              </details></li>
             ))}
           </ul>
         ) : null}

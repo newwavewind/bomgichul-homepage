@@ -6,6 +6,7 @@ export type PersonalHomeData = {
   attemptCount: number;
   wrongCount: number;
   bookmarkCount: number;
+  reviewCount: number;
   accuracy: number;
   streak: number;
   recent: null | { label: string; href: string; updatedAt: string };
@@ -84,7 +85,7 @@ export function resolveAttemptDestination(subject: string, year: number, questio
 }
 
 export async function getPersonalHomeData(userId: string): Promise<PersonalHomeData> {
-  const empty: PersonalHomeData = { attemptCount: 0, wrongCount: 0, bookmarkCount: 0, accuracy: 0, streak: 0, recent: null };
+  const empty: PersonalHomeData = { attemptCount: 0, wrongCount: 0, bookmarkCount: 0, reviewCount: 0, accuracy: 0, streak: 0, recent: null };
   if (!isSupabaseConfigured()) return empty;
   const supabase = await createClient();
   // count와 최근 1건을 분리 — exact count + limit(1) 한 쿼리는 전체 스캔이 무겁다
@@ -119,7 +120,19 @@ export async function getPersonalHomeData(userId: string): Promise<PersonalHomeD
   const wrongCount = wrong.count ?? 0;
   const row = recentRes.data?.[0];
   const destination = row ? resolveAttemptDestination(row.subject, row.year, row.question_no) : null;
+  const keys = new Set<string>();
+  for (const table of ["question_attempts", "question_bookmarks"]) {
+    for (let offset = 0; ; offset += 1000) {
+      let query = supabase.from(table).select("subject,year,question_no").eq("user_id", userId).order("id").range(offset, offset + 999);
+      if (table === "question_attempts") query = query.eq("result", "wrong");
+      const { data, error } = await query;
+      if (error) throw error;
+      for (const item of data ?? []) keys.add(`${item.subject}:${item.year}:${item.question_no}`);
+      if (!data || data.length < 1000) break;
+    }
+  }
   return {
+    reviewCount: keys.size,
     attemptCount,
     wrongCount,
     bookmarkCount: bookmarks.count ?? 0,

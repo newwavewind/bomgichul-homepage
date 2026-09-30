@@ -1,3 +1,4 @@
+import { ExamDiscovery } from "@/components/web-study/ExamDiscovery";
 import Link from "next/link";
 import { ExamCalendar } from "@/components/platform/ExamCalendar";
 import { PastExamPdfSearch } from "@/components/platform/PastExamPdfSearch";
@@ -8,7 +9,7 @@ const exams = [
     href: "/public-service/intro",
     learnHref: "/public-service",
     conceptsHref: "/public-service/concepts/hangjunghak",
-    conceptsLabel: "행정학 올인원",
+    conceptsLabel: "행정학 핵심 개념",
     eyebrow: "9급 공무원",
     title: "공무원",
     accentFrom: "#e8f5ff",
@@ -19,7 +20,7 @@ const exams = [
     href: "/real-estate/intro",
     learnHref: "/real-estate",
     conceptsHref: "/concepts/broker-law",
-    conceptsLabel: "중개사법 올인원",
+    conceptsLabel: "중개사법 핵심 개념",
     eyebrow: "제37회 공인중개사",
     title: "공인중개사",
     accentFrom: "#e8faf5",
@@ -30,7 +31,7 @@ const exams = [
     href: "/police/intro",
     learnHref: "/police",
     conceptsHref: "/police/concepts/constitution",
-    conceptsLabel: "헌법 올인원",
+    conceptsLabel: "헌법 핵심 개념",
     eyebrow: "순경 공채",
     title: "경찰공무원",
     accentFrom: "#eef2ff",
@@ -41,7 +42,7 @@ const exams = [
     href: "/firefighter/intro",
     learnHref: "/firefighter",
     conceptsHref: "/firefighter/concepts/sobang",
-    conceptsLabel: "소방학개론 올인원",
+    conceptsLabel: "소방학개론 핵심 개념",
     eyebrow: "소방 공채",
     title: "소방공무원",
     // 경찰(226°) 다음 칸 — 따뜻한 앰버로 구분
@@ -53,7 +54,7 @@ const exams = [
     href: "/housing/intro",
     learnHref: "/housing",
     conceptsHref: "/housing/concepts/accounting",
-    conceptsLabel: "회계원리 올인원",
+    conceptsLabel: "회계원리 핵심 개념",
     eyebrow: "주택관리사보",
     title: "주택관리사",
     accentFrom: "#fff4e8",
@@ -64,7 +65,7 @@ const exams = [
     href: "/social-worker/intro",
     learnHref: "/social-worker",
     conceptsHref: "/social-worker/concepts/human-behavior",
-    conceptsLabel: "인간행동 올인원",
+    conceptsLabel: "인간행동 핵심 개념",
     eyebrow: "국가전문자격",
     title: "사회복지사 1급",
     accentFrom: "#fff0f5",
@@ -178,15 +179,16 @@ export function PlatformHome() {
   return (
     <div className="relative overflow-hidden bg-white px-4 py-10 md:py-16">
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
-        <h1 className="sr-only">공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사 기출 학습</h1>
-        <p className="sr-only">
+        <h1 className="mx-auto max-w-5xl text-2xl font-semibold mb-3">기출문제와 핵심 개념, 봄기출</h1>
+        <p className="mx-auto max-w-5xl text-sm text-smoke mb-8">
           9급 공무원, 공인중개사, 경찰공무원, 소방공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어, 공무원 국어, 행정사, 세무사, 공인노무사, 손해평가사, 산업안전지도사 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
         </p>
 
-        <section className="mx-auto mb-10 grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
+        <ExamDiscovery><section id="exam-selection" className="mx-auto mb-10 grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
           {exams.map((exam) => (
             <article
               key={exam.href}
+              data-exam-card={exam.learnHref.slice(1)}
               className="flex flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon p-7 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-9"
               style={{
                 backgroundImage: `linear-gradient(to bottom right, ${exam.accentFrom}, ${exam.accentTo})`,
@@ -221,11 +223,11 @@ export function PlatformHome() {
                 >
                   {exam.conceptsLabel}
                 </Link>
-                <span className="text-fog"> · 기출 올인원·과목 허브로 바로 이동</span>
+                <span className="text-fog"> · 핵심 개념·과목 허브로 바로 이동</span>
               </p>
             </article>
           ))}
-        </section>
+        </section></ExamDiscovery>
 
         {/* 로그인 시에만 「나의 학습 홈」 — 손님 환영판은 제거 */}
         <PersonalHomeGate guest={null} />

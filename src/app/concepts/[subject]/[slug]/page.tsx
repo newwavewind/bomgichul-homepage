@@ -1,3 +1,4 @@
+import { WebConceptToc } from "@/components/concepts/WebConceptToc";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -253,6 +254,7 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
           </p>
         </div>
 
+        <WebConceptToc items={[{id:"cx-sec-definition",label:"핵심 개념"},{id:"cx-sec-intuition",label:"이해하기"},{id:"cx-sec-keypoints",label:"핵심 포인트"},{id:"cx-sec-related",label:"관련 기출"}]} />
         <ConceptReadBar subject={subject} slug={slug} returnTo={returnTo} />
 
         <ConceptSourcePanel

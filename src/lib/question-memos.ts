@@ -1,3 +1,4 @@
+import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
@@ -93,6 +94,12 @@ export async function getPublicMemosForQuestion(
 
   if (error || !data) return [];
 
+  const reviewerIds = new Set((data as MemoRow[]).flatMap(row => (row.question_public_memo_comments ?? []).filter(c => /^\[검수 확인:[a-zA-Z0-9-]+\]\n/.test(c.content)).map(c => c.user_id)));
+  let verifiedReviewers = new Set<string>();
+  if (reviewerIds.size && process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    const { data: admins } = await createAdminClient().from("admin_users").select("user_id").in("user_id", [...reviewerIds]);
+    verifiedReviewers = new Set((admins ?? []).map(row => row.user_id));
+  }
   return (data as MemoRow[]).map((row) => {
     const author = pickProfile(row.profiles);
     const likes = row.question_public_memo_likes ?? [];
@@ -101,6 +108,7 @@ export async function getPublicMemosForQuestion(
       .sort((a, b) => a.created_at.localeCompare(b.created_at))
       .map(
         (c): PublicMemoComment => ({
+          verifiedByStaff: verifiedReviewers.has(c.user_id) && /^\[검수 확인:[a-zA-Z0-9-]+\]\n/.test(c.content),
           id: c.id,
           memo_id: c.memo_id,
           user_id: c.user_id,

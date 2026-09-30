@@ -1,59 +1,20 @@
 "use client";
 
 import { useMemo } from "react";
-import Link from "next/link";
-import { Tag } from "@/components/ui/Tag";
+import { SubjectLearningCard } from "@/components/study/SubjectLearningCard";
+
 import type { ExamTrackConfig, ExamTrackManifestItem } from "@/lib/exam-track/types";
 
 function SubjectCard({
   track,
   subject,
-  index,
 }: {
   track: ExamTrackConfig;
   subject: ExamTrackManifestItem;
   index: number;
 }) {
-  // 올인원(단원 개념)이 아직 집필 전인 과목은 링크를 걸지 않는다 — 눌러도 빈 화면이라
-  // 「준비중」으로 두고, 개념이 들어오면 conceptCount 가 차면서 저절로 열린다.
-  const allInOneReady = subject.conceptCount > 0;
+  return <SubjectLearningCard label={subject.label} badge={subject.track} examCount={subject.examCount} conceptCount={subject.conceptCount} examHref={`${track.basePath}/exam/${subject.id}`} conceptHref={track.id === 'history' ? '/history/concepts' : subject.conceptCount > 0 ? `${track.basePath}/concepts/${subject.id}` : undefined} />;
 
-  return (
-    <article className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-paper p-6 shadow-[var(--shadow-card)]">
-      <div className="mb-5 flex items-center justify-between gap-3">
-        <Tag className="!px-2.5 !py-0.5 !text-[12px]">{subject.track}</Tag>
-        <span className="font-display text-[12px] text-fog">{String(index + 1).padStart(2, "0")}</span>
-      </div>
-      <h3 className="font-display text-subheading font-semibold text-ink">{subject.label}</h3>
-      <p className="mt-2 font-display text-body-sm text-smoke">
-        {allInOneReady ? `개념 ${subject.conceptCount}개 · ` : ""}
-        기출 {subject.examCount}문항
-      </p>
-      <div className="mt-6 grid grid-cols-2 gap-2">
-        <Link
-          href={`${track.basePath}/exam/${subject.id}`}
-          className="rounded-xl bg-carbon px-3 py-3 text-center font-display text-[13px] font-semibold text-paper hover:opacity-90"
-        >
-          기출문제
-        </Link>
-        {allInOneReady ? (
-          <Link
-            href={`${track.basePath}/concepts/${subject.id}`}
-            className="rounded-xl border border-carbon/40 bg-[#e8f0ff] px-3 py-3 text-center font-display text-[13px] font-semibold text-carbon transition-colors hover:border-carbon hover:bg-[#dbe8ff]"
-          >
-            올인원
-          </Link>
-        ) : (
-          <span
-            aria-disabled="true"
-            className="rounded-xl border border-mist bg-snow px-3 py-3 text-center font-display text-[13px] font-semibold text-fog"
-          >
-            올인원 준비중
-          </span>
-        )}
-      </div>
-    </article>
-  );
 }
 
 export function ExamTrackSubjectBrowser({

@@ -154,7 +154,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
           {exam.material?.figureFirst ? <ExamMaterialFigure material={exam.material} questionNo={exam.questionNo} /> : null}
           <PublicServiceExamMaterials table={exam.table} tAccounts={exam.tAccounts} stemTail={exam.stemTail} />
         </header>
-        <div className="mt-6">
+        <div className="mt-6 web-question-layout">
           {!exam.material?.figureFirst ? (
             <ExamMaterialFigure material={exam.material} questionNo={exam.questionNo} />
           ) : null}
@@ -184,7 +184,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
             }))}
           />
         </div>
-        <nav className="mt-8 grid grid-cols-2 gap-3">
+        <nav aria-label="이전·다음 문제" className="web-question-nav mt-8 grid grid-cols-2 gap-3">
           {previous ? (
             <Link
               href={`${listBase}/${previous.questionNo}`}
