@@ -5,6 +5,7 @@ import { TintedAccentCard } from "@/components/ui/Card";
 
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { FloatingStickers } from "@/components/illustrations/Stickers";
+import { AdRail } from "@/components/ads/AdRail";
 import {
   EXAM_SUBJECTS,
   ARCHIVE_SUBJECT_MAP,
@@ -26,6 +27,8 @@ export function StudyHub() {
           <HubExamIntroLink href="/real-estate/intro" label="공인중개사" />
         </div>
         <section id="exam"><span id="concepts" className="scroll-mt-24" /><h2 className="mb-6 text-2xl font-semibold">과목별 기출문제·핵심 개념</h2><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{EXAM_SUBJECTS.map(s=>{const subject=s.value as ExamSubject;return <SubjectLearningCard key={subject} label={ARCHIVE_SUBJECT_MAP[subject]} badge={SUBJECT_LANDING_INFO[subject].round} examCount={getExamQuestionsForSubject(subject).length} conceptCount={getConceptsForSubject(subject).length} examHref={`/exam/${subject}`} conceptHref={`/concepts/${subject}`}/>;})}</div></section>
+
+        <AdRail adsense="hub" spacingClassName="" />
 
         <section aria-label="앱 설치 안내">
           <TintedAccentCard className="relative overflow-hidden !bg-snow text-center">

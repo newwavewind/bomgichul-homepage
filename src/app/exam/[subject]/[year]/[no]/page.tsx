@@ -20,6 +20,7 @@ import {
   ReturnAwareNavLink,
 } from "@/components/exam/ReturnToClient";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
+import { AdRail } from "@/components/ads/AdRail";
 import { EXAM_SUBJECTS, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";
 import {
   getExamQuestion,
@@ -251,6 +252,8 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           />
         </div>
 
+        <AdRail adsense="exam" spacingClassName="mt-8" />
+
         <nav aria-label="이전·다음 문제" className="web-question-nav mt-8 grid grid-cols-2 gap-3">
           {prev ? (
             <ReturnAwareNavLink
@@ -282,6 +285,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             loginNext={detailPath}
           />
         </div>
+        <AdRail coupang spacingClassName="mt-8" />
         <SimpleAppInstallStrip scope="real_estate" />
       </article>
     </div>

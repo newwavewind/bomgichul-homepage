@@ -65,6 +65,10 @@ export function Footer() {
             <p className="mt-0.5 font-display text-[12px] text-fog">
               © {new Date().getFullYear()} {SITE_NAME}
             </p>
+            <p className="mt-2 max-w-xl font-display text-[11px] leading-relaxed text-fog">
+              이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를
+              제공받습니다. 사이트에는 Google AdSense 등 광고가 표시될 수 있습니다.
+            </p>
           </div>
           <div className="flex flex-wrap items-center gap-x-4">
             <Link

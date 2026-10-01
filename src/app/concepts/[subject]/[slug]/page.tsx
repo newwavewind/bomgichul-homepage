@@ -26,6 +26,7 @@ import { ConceptAiButtons } from "@/components/concepts/ConceptAiButtons";
 import { ConceptSourcePanel } from "@/components/concepts/ConceptSourcePanel";
 import { ConceptStructureBlocks, hasConceptStructure } from "@/components/concepts/ConceptStructureBlocks";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
+import { AdRail } from "@/components/ads/AdRail";
 import type { ExamSubject } from "@/lib/exam-questions";
 import { absoluteUrl, buildBreadcrumbJsonLd, buildConceptLearningResourceJsonLd, conceptSeoTitle, truncateDescription } from "@/lib/seo";
 import { getConceptCommunityPosts } from "@/lib/concept-community";
@@ -290,6 +291,8 @@ export default async function ConceptDetailPage({ params }: ConceptDetailPagePro
             </SectionBlock>
           ) : null}
         </article>
+
+        <AdRail adsense="concept" spacingClassName="mt-8 mb-2" />
 
         {hasStructure && structureIndex != null ? (
           <article id="cx-sec-structure" className="hp-cx-card">

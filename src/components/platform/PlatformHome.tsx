@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ExamCalendar } from "@/components/platform/ExamCalendar";
 import { PastExamPdfSearch } from "@/components/platform/PastExamPdfSearch";
 import { PersonalHomeGate } from "@/components/platform/PersonalHomeGate";
+import { AdRail } from "@/components/ads/AdRail";
 
 const exams = [
   {
@@ -208,6 +209,8 @@ export function PlatformHome() {
             </article>
           ))}
         </section>
+
+        <AdRail adsense="hub" spacingClassName="mx-auto mb-10 max-w-5xl" />
 
         {/* 로그인 시에만 「나의 학습 홈」 — 손님 환영판은 제거 */}
         <PersonalHomeGate guest={null} />
