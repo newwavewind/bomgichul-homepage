@@ -2,7 +2,6 @@ import { WebStudyTracker } from "@/components/web-study/WebStudyTracker";
 import "@/styles/web-study.css";
 import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Script from "next/script";
 import { Outfit, Caveat } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -171,14 +170,15 @@ export default function RootLayout({
       lang="ko"
       className={`${outfit.variable} ${caveat.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-paper text-ink">
-        <Script
-          id="adsense-account"
+      <head>
+        {/* AdSense 사이트 소유 확인 — crawler가 <head>에서 찾음 */}
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2810884671058928"
-          strategy="afterInteractive"
           crossOrigin="anonymous"
         />
+      </head>
+      <body className="flex min-h-full flex-col bg-paper text-ink">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
