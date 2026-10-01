@@ -12,6 +12,7 @@ import {
 import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import { QuestionStem } from "@/components/exam/QuestionStem";
+import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import {
   ConceptReturnLoginGate,
@@ -209,6 +210,9 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           </div>
           <div className="mt-5">
             <QuestionStem stem={question.stem} questionNo={questionNo} />
+            {question.table ? (
+              <ExamStructuredMaterials table={question.table} />
+            ) : null}
           </div>
         </header>
 

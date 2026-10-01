@@ -76,6 +76,86 @@ function computeFreeYears(years, rule) {
   return new Set(sorted.slice(0, rule.freeYearCount));
 }
 
+/** ox-quiz reference_table / cash_flow_table → 홈페이지 ExamStructuredTable */
+function toHomepageTable(q) {
+  const cash = q.cash_flow_table;
+  if (cash?.periods?.length && cash?.values?.length) {
+    return {
+      ...(cash.unit ? { caption: `현금흐름 (단위: ${cash.unit})` } : { caption: "현금흐름" }),
+      headers: ["구분", ...cash.periods.map((p) => `${p}년`)],
+      rows: [["현금흐름", ...cash.values.map((v) => String(v ?? ""))]],
+    };
+  }
+
+  const rt = q.reference_table ?? q.table;
+  if (!rt || typeof rt !== "object") return null;
+
+  if (rt.layout === "employment_lq") {
+    const regions = rt.region_headers ?? [];
+    const headers = ["구분", ...regions, rt.national_header ?? "전지역 고용자수", ...regions.map((r) => `${r} LQ`)];
+    const rows = (rt.industries ?? []).map((ind) => [
+      ind.industry ?? "",
+      ...(ind.employment ?? []).map((v) => String(v ?? "")),
+      ...(ind.lq ?? []).map((v) => String(v ?? "")),
+    ]);
+    if (rt.total) {
+      rows.push([
+        rt.total.label ?? "합계",
+        ...(rt.total.values ?? []).map((v) => String(v ?? "")),
+        ...regions.map(() => ""),
+      ]);
+    }
+    return { headers, rows };
+  }
+
+  if (rt.layout === "expected_return_scenarios") {
+    return {
+      ...(rt.group_header || rt.expected_return
+        ? {
+            caption: [rt.group_header, rt.expected_return ? `(기대수익률 ${rt.expected_return}%)` : null]
+              .filter(Boolean)
+              .join(" "),
+          }
+        : {}),
+      headers: [
+        rt.scenario_header ?? "상황별",
+        rt.probability_header ?? "확률(%)",
+        rt.return_header ?? "예상수익률(%)",
+      ],
+      rows: (rt.rows ?? []).map((row) => [
+        String(row.scenario ?? ""),
+        String(row.probability ?? ""),
+        String(row.return_rate ?? ""),
+      ]),
+    };
+  }
+
+  const headers = Array.isArray(rt.headers) ? rt.headers.map((h) => String(h ?? "")) : [];
+  const assetHeaders = Array.isArray(rt.asset_headers)
+    ? rt.asset_headers.map((h) => String(h ?? ""))
+    : [];
+  const rows = Array.isArray(rt.rows)
+    ? rt.rows
+        .filter((row) => Array.isArray(row))
+        .map((row) => row.map((cell) => String(cell ?? "").replace(/\n/g, " ")))
+    : [];
+  if (!rows.length) return null;
+
+  const wideHeaders =
+    assetHeaders.length && headers.length + assetHeaders.length === (rows[0]?.length ?? 0)
+      ? [...headers, ...assetHeaders]
+      : headers;
+
+  return {
+    ...(wideHeaders.length ? { headers: wideHeaders } : {}),
+    rows,
+    ...(Array.isArray(rt.notes) && rt.notes.length ? { notes: rt.notes.map(String) } : {}),
+    ...(Array.isArray(q.reference_table_notes) && q.reference_table_notes.length
+      ? { notes: q.reference_table_notes.map(String) }
+      : {}),
+  };
+}
+
 mkdirSync(OUTPUT_DIR, { recursive: true });
 
 let grandTotal = 0;
@@ -122,6 +202,10 @@ for (const [subject, dir] of Object.entries(SUBJECT_EXAM_DIRS)) {
         : {}),
       ...(q.composite_layout ? { compositeLayout: q.composite_layout } : {}),
       ...(q.table_header?.length ? { tableHeader: q.table_header } : {}),
+      ...(() => {
+        const table = toHomepageTable(q);
+        return table ? { table } : {};
+      })(),
       free: freeYears.has(q.year),
     }))
     .sort((a, b) => a.year - b.year || a.questionNo - b.questionNo);

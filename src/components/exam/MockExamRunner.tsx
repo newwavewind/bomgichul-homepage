@@ -2,6 +2,7 @@
 
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { QuestionStem } from "@/components/exam/QuestionStem";
+import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
 import { plainStudyText } from "@/lib/study-text";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
@@ -72,6 +73,7 @@ const MockQuestionCard = memo(function MockQuestionCard({
       </div>
 
       <QuestionStem stem={q.stem} questionNo={q.questionNo} />
+      {q.table ? <ExamStructuredMaterials table={q.table} /> : null}
 
       {!submitted ? (
         isStatementComposite ? (

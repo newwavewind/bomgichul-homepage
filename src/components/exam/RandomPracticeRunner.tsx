@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { QuestionStem } from "@/components/exam/QuestionStem";
+import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
 import { PrimaryButton } from "@/components/ui/Button";
@@ -100,6 +101,7 @@ export function RandomPracticeRunner({
       </div>
 
       <QuestionStem stem={question.stem} questionNo={question.questionNo} />
+      {question.table ? <ExamStructuredMaterials table={question.table} /> : null}
 
       <ExamAnswerList
         key={`${question.year}-${question.questionNo}`}

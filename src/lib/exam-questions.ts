@@ -27,6 +27,14 @@ export interface ExamComboChoice {
   middle?: string;
 }
 
+export interface ExamQuestionTable {
+  caption?: string;
+  lead?: string;
+  headers?: string[];
+  rows: string[][];
+  notes?: string[];
+}
+
 export interface ExamQuestion {
   subject: ExamSubject;
   year: number;
@@ -48,6 +56,8 @@ export interface ExamQuestion {
   explanationSummary?: string;
   compositeLayout?: "table" | "statements";
   tableHeader?: string[];
+  /** 원문 부표·자료 표 (허프모형 면적·거리 등) */
+  table?: ExamQuestionTable;
 }
 
 /** ㄱ·ㄴ·ㄷ 보기 + ①②③ 조합 선지 형태의 조합형 문항 */
