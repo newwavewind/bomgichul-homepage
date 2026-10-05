@@ -256,6 +256,7 @@ export function buildOrganizationJsonLd() {
     // 브랜드→도메인 엔티티 대조용 자사 소유 프로필.
     // 공개 스토어에 실제로 있는 앱만 넣는다(없는 URL은 sameAs 신호가 깨진다).
     sameAs: [
+      // App Store — 공개 출시된 봄기출 앱
       "https://apps.apple.com/kr/app/id6784651251",
       "https://apps.apple.com/kr/app/id6790764010",
       "https://apps.apple.com/kr/app/id6798675892",
@@ -264,12 +265,18 @@ export function buildOrganizationJsonLd() {
       "https://apps.apple.com/kr/app/id6801141200",
       "https://apps.apple.com/kr/app/id6803106780",
       "https://apps.apple.com/kr/app/id6814767249",
+      "https://apps.apple.com/kr/app/id6814634212",
+      "https://apps.apple.com/kr/app/id6815671838",
+      "https://apps.apple.com/kr/app/id6817339316",
+      "https://apps.apple.com/kr/app/id6817147016",
+      "https://apps.apple.com/kr/app/id6816073525",
+      // Google Play — 공개 페이지가 있는 앱만
       "https://play.google.com/store/apps/details?id=com.sanghyun.civillaw",
       "https://play.google.com/store/apps/details?id=com.sanghyun.publicofficial",
       "https://play.google.com/store/apps/details?id=com.sanghyun.police",
-      "https://play.google.com/store/apps/details?id=com.sanghyun.firefighter",
-      "https://play.google.com/store/apps/details?id=com.sanghyun.gugeo",
-      "https://play.google.com/store/apps/details?id=com.sanghyun.semusa",
+      "https://play.google.com/store/apps/details?id=com.sanghyun.housing",
+      "https://play.google.com/store/apps/details?id=com.sanghyun.socialworker",
+      "https://play.google.com/store/apps/details?id=com.sanghyun.english",
     ],
   };
 }

@@ -41,13 +41,9 @@ export type AppStoreLinks = {
 /**
  * 시험별 스토어 링크.
  *
- * 2026-08-18 기준 실제 등록 상태를 그대로 적었다(App Store 는 iTunes lookup,
- * Google Play 는 스토어 페이지 응답으로 확인).
- *   · App Store — 5개 전부 출시
- *   · Google Play — 공인중개사·공무원만 출시. 경찰·주택관리사·사회복지사는 404.
- *   · 한국사 — 아직 앱 자체가 스토어에 없다.
- * 없는 곳을 링크로 걸면 사용자가 눌렀을 때 「찾을 수 없는 페이지」로 떨어지므로
- * null 로 두어 「출시준비중」이 보이게 한다. 스토어에 올라가면 여기만 채우면 된다.
+ * 2026-10-05 공개 스토어 실측(App Store iTunes lookup / Google Play 페이지 200).
+ * 공개 페이지가 없는 스토어는 null — 화면에서는 「출시준비중」.
+ * 비공개·클로즈드 테스트만 있는 패키지에 링크를 걸면 방문자가 404를 본다.
  */
 export function appStoreLinksForScope(
   scope:
@@ -67,61 +63,76 @@ export function appStoreLinksForScope(
     | "nomusa",
 ): AppStoreLinks {
   switch (scope) {
-    case "police":
-      return {
-        android: null,
-        ios: "https://apps.apple.com/kr/app/id6798675892",
-      };
-    case "firefighter":
-      return {
-        android:
-          "https://play.google.com/store/apps/details?id=com.sanghyun.firefighter",
-        ios: "https://apps.apple.com/kr/app/id6814271261",
-      };
     case "public_service":
       return {
         android:
           "https://play.google.com/store/apps/details?id=com.sanghyun.publicofficial",
         ios: "https://apps.apple.com/kr/app/id6790764010",
       };
-    case "housing":
+    case "police":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.police",
+        ios: "https://apps.apple.com/kr/app/id6798675892",
+      };
+    case "firefighter":
+      // Play 공개 페이지 없음(404). iOS만 출시.
       return {
         android: null,
+        ios: "https://apps.apple.com/kr/app/id6814271261",
+      };
+    case "housing":
+      return {
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.housing",
         ios: "https://apps.apple.com/kr/app/id6799456199",
       };
     case "social_worker":
       return {
-        android: null,
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.socialworker",
         ios: "https://apps.apple.com/kr/app/id6801141200",
       };
-    // 한국사 앱은 아직 어느 스토어에도 없다(2026-08-19 확인). 출시하면 여기만 채우면 된다.
+    // 한국사 — 어느 스토어에도 공개 앱 없음.
     case "history":
       return { android: null, ios: null };
-    // 공무원영어 앱은 App Store 심사 대기 중이고 Google Play 에는 아직 없다
-    // (2026-08-20 확인). 승인되면 여기에 링크만 채우면 된다.
     case "english":
-      // iOS 는 출시 확인(2026-09-06, 스토어 등재 실측). 안드로이드는 아직.
-      return { android: null, ios: "https://apps.apple.com/kr/app/id6803106780" };
-    case "gugeo":
       return {
         android:
-          "https://play.google.com/store/apps/details?id=com.sanghyun.gugeo",
+          "https://play.google.com/store/apps/details?id=com.sanghyun.english",
+        ios: "https://apps.apple.com/kr/app/id6803106780",
+      };
+    case "gugeo":
+      // Play 공개 페이지 없음(404). iOS만 출시.
+      return {
+        android: null,
         ios: "https://apps.apple.com/kr/app/id6814767249",
       };
-    // 행정사 앱은 아직 어느 스토어에도 없다. 출시하면 여기만 채우면 된다.
     case "haengjeongsa":
-      return { android: null, ios: null };
-    // 산업안전지도사·손해평가사·공인노무사 — 심사·비공개 테스트 중. 공개 출시하면 여기만 채운다.
-    case "sanan":
-    case "sonhae":
-    case "nomusa":
-      return { android: null, ios: null };
-    // 세무사: Play 패키지 준비됨. iOS ASC는 심사·출시 후 id 채울 것.
-    case "semusa":
       return {
-        android:
-          "https://play.google.com/store/apps/details?id=com.sanghyun.semusa",
-        ios: null,
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6814634212",
+      };
+    case "semusa":
+      // Play 공개 페이지 없음(404). iOS 출시(id 6815671838).
+      return {
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6815671838",
+      };
+    case "sanan":
+      return {
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6817339316",
+      };
+    case "sonhae":
+      return {
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6817147016",
+      };
+    case "nomusa":
+      return {
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6816073525",
       };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };

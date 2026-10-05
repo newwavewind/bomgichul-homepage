@@ -65,13 +65,19 @@ function discoverApps() {
 function homepageLinks(scope) {
   const src = fs.readFileSync(path.join(ROOT, 'src/lib/constants.ts'), 'utf8')
   if (!scope) return null
-  const block = src.match(new RegExp(`case "${scope}":\\s*return \\{([^}]*)\\}`))?.[1]
+  // case 와 return 사이에 주석이 있을 수 있다.
+  const block = src.match(
+    new RegExp(`case "${scope}":[\\s\\S]*?return \\{([\\s\\S]*?)\\}`),
+  )?.[1]
   if (!block) {
     // real_estate 는 default 로 떨어져 APP_LINKS 를 쓴다
     if (scope === 'real_estate') {
+      const appLinks = src.match(
+        /export const APP_LINKS = \{([\s\S]*?)\} as const/,
+      )?.[1]
       return {
-        ios: src.match(/ios:\s*"([^"]+)"/)?.[1] ?? null,
-        android: src.match(/android:\s*\n?\s*"([^"]+)"/)?.[1] ?? null,
+        ios: appLinks?.match(/ios:\s*"([^"]+)"/)?.[1] ?? null,
+        android: appLinks?.match(/android:\s*\n?\s*"([^"]+)"/)?.[1] ?? null,
       }
     }
     return null

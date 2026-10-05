@@ -29,7 +29,10 @@ describe("search engine foundations", () => {
       `${SITE_URL}/search?q={search_term_string}`,
     );
     expect(organization.sameAs).toContain(
-      "https://play.google.com/store/apps/details?id=com.sanghyun.semusa",
+      "https://play.google.com/store/apps/details?id=com.sanghyun.police",
+    );
+    expect(organization.sameAs).toContain(
+      "https://apps.apple.com/kr/app/id6815671838",
     );
   });
 
