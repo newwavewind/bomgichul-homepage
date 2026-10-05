@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { SITE_NAME, SITE_IDENTITY } from "@/lib/constants";
+import {
+  PUBLISHER_BUSINESS_NUMBER,
+  PUBLISHER_CONTACT_EMAIL,
+  SITE_IDENTITY,
+  SITE_NAME,
+} from "@/lib/constants";
 
 const HUB_LINKS = [
   { href: "/public-service", label: "공무원" },
@@ -25,6 +30,14 @@ const CONCEPT_LINKS = [
   { href: "/firefighter/concepts/sobang", label: "소방학개론 핵심 개념" },
   { href: "/public-service/concepts/hangjunghak", label: "행정학 핵심 개념" },
   { href: "/history/concepts", label: "한국사 개념" },
+] as const;
+
+const LEGAL_LINKS = [
+  { href: "/about", label: "소개" },
+  { href: "/contact", label: "문의" },
+  { href: "/faq", label: "이용 안내" },
+  { href: "/terms", label: "이용약관" },
+  { href: "/privacy", label: "개인정보처리방침" },
 ] as const;
 
 export function Footer() {
@@ -53,7 +66,7 @@ export function Footer() {
             </Link>
           ))}
         </nav>
-        <div className="flex flex-col gap-3 border-t border-mist pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 border-t border-mist pt-5 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="font-display text-[13px] font-medium text-ink">
               {SITE_NAME}
@@ -61,6 +74,19 @@ export function Footer() {
                 ·
               </span>
               <span className="font-normal text-smoke">{SITE_IDENTITY}</span>
+            </p>
+            <p className="mt-1 font-display text-[12px] leading-relaxed text-fog">
+              사업자등록번호 {PUBLISHER_BUSINESS_NUMBER}
+              <span className="mx-1.5" aria-hidden>
+                ·
+              </span>
+              문의{" "}
+              <a
+                href={`mailto:${PUBLISHER_CONTACT_EMAIL}`}
+                className="underline underline-offset-2 hover:text-ink"
+              >
+                {PUBLISHER_CONTACT_EMAIL}
+              </a>
             </p>
             <p className="mt-0.5 font-display text-[12px] text-fog">
               © {new Date().getFullYear()} {SITE_NAME}
@@ -70,20 +96,20 @@ export function Footer() {
               제공받습니다. 사이트에는 Google AdSense 등 광고가 표시될 수 있습니다.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-x-4">
-            <Link
-              href="/terms"
-              className="inline-flex min-h-11 items-center font-display text-[12px] text-fog transition-colors hover:text-ink"
-            >
-              이용약관
-            </Link>
-            <Link
-              href="/privacy"
-              className="inline-flex min-h-11 items-center font-display text-[12px] text-fog transition-colors hover:text-ink"
-            >
-              개인정보처리방침
-            </Link>
-          </div>
+          <nav
+            aria-label="사이트 정보"
+            className="flex flex-wrap items-center gap-x-4"
+          >
+            {LEGAL_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="inline-flex min-h-11 items-center font-display text-[12px] text-fog transition-colors hover:text-ink"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

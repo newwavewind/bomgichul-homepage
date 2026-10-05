@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
+import {
+  PUBLISHER_CONTACT_EMAIL,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/constants";
 
 /** 검색 노출 제외 (로그인·관리자·연습 모드 등) */
 export const ROBOTS_NOINDEX: Metadata["robots"] = {
@@ -238,6 +243,16 @@ export function buildOrganizationJsonLd() {
     url: SITE_URL,
     logo: absoluteUrl("/brand/whale-mark.png"),
     description: SITE_DESCRIPTION,
+    email: PUBLISHER_CONTACT_EMAIL,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: PUBLISHER_CONTACT_EMAIL,
+        availableLanguage: ["ko"],
+        url: absoluteUrl("/contact"),
+      },
+    ],
     // 브랜드→도메인 엔티티 대조용 자사 소유 프로필.
     // 공개 스토어에 실제로 있는 앱만 넣는다(없는 URL은 sameAs 신호가 깨진다).
     sameAs: [
