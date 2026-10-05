@@ -2,6 +2,13 @@ import type { NextConfig } from "next";
 import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      // Play Console 등 예전 privacy.html 경로 호환
+      { source: "/privacy.html", destination: "/privacy", permanent: true },
+    ];
+  },
+
   // Cursor 미리보기는 127.0.0.1 로 열고, next dev 는 localhost 로 떠서
   // 클라이언트 JS·HMR 이 막히면 버튼 클릭이 아무 반응 없게 된다.
   allowedDevOrigins: ["127.0.0.1", "localhost"],
