@@ -68,7 +68,7 @@ describe("search engine foundations", () => {
     const urls = home.mainEntity.itemListElement.map(
       (item: { url: string }) => item.url,
     );
-    expect(home.mainEntity.numberOfItems).toBe(14);
+    expect(home.mainEntity.numberOfItems).toBe(15);
     for (const path of [
       "/public-service",
       "/real-estate",
@@ -84,6 +84,7 @@ describe("search engine foundations", () => {
       "/sanan",
       "/sonhae",
       "/nomusa",
+      "/gyeongbi",
     ]) {
       expect(urls).toContain(`${SITE_URL}${path}`);
     }
@@ -114,6 +115,7 @@ describe("search engine foundations", () => {
       ["sanan", "/sanan/"],
       ["sonhae", "/sonhae/"],
       ["nomusa", "/nomusa/"],
+      ["gyeongbi", "/gyeongbi/"],
     ] as const;
 
     for (const [group, prefix] of cases) {

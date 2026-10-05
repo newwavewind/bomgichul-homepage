@@ -64,6 +64,10 @@ const HUB_COPY: Record<
     allInOne: ["노동법(1)", "노동법(2)", "민법", "사회보험법", "경영학개론", "경제학원론"],
     exam: ["노동법(1)", "노동법(2)", "민법", "사회보험법", "경영학개론", "경제학원론"],
   },
+  gyeongbi: {
+    allInOne: ["법학개론", "민간경비론", "경비업법", "경호학"],
+    exam: ["법학개론", "민간경비론", "경비업법", "범죄학"],
+  },
 };
 
 const CONCEPT_COPY: Record<
@@ -84,6 +88,7 @@ const CONCEPT_COPY: Record<
   sanan: { crumb: "산업안전지도사 · 산업안전보건법령", title: "안전보건관리체제" },
   sonhae: { crumb: "손해평가사 · 「상법」 보험편", title: "보험계약의 법적 성질" },
   nomusa: { crumb: "공인노무사 · 노동법(1)", title: "근로기준법상 해고의 제한" },
+  gyeongbi: { crumb: "경비지도사 · 경비업법", title: "경비업의 종류" },
 };
 
 const EXAM_COPY: Record<
@@ -145,6 +150,10 @@ const EXAM_COPY: Record<
   nomusa: {
     subject: "노동법(1)",
     stem: "다음 중 근로기준법상 해고에 관한 설명으로 옳은 것은?",
+  },
+  gyeongbi: {
+    subject: "경비업법",
+    stem: "경비업법령상 경비업의 허가에 관한 설명으로 옳은 것은?",
   },
 };
 
@@ -251,6 +260,13 @@ const COMMUNITY_COPY: Record<
       { title: "사회보험법 급여 정리 공유", meta: "수험정보 · 댓글 10" },
     ],
   },
+  gyeongbi: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "경비업법 특수경비원 의무가 헷갈려요", meta: "질문 · 댓글 5" },
+      { title: "민간경비론 경비 형태 비교 정리 공유", meta: "수험정보 · 댓글 8" },
+    ],
+  },
 };
 
 const ARCHIVE_COPY: Record<
@@ -327,6 +343,11 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "노동법(1) 요약", size: "720KB" },
     { type: "요약", name: "사회보험법 체크", size: "470KB" },
   ],
+  gyeongbi: [
+    { type: "PDF", name: "경비지도사 1·2차 기출 모아보기", size: "3.1MB" },
+    { type: "노트", name: "경비업법 요약", size: "650KB" },
+    { type: "요약", name: "민간경비론 체크", size: "430KB" },
+  ],
 };
 
 const DIARY_COPY: Record<VisualScope, string> = {
@@ -344,6 +365,7 @@ const DIARY_COPY: Record<VisualScope, string> = {
   sanan: "산업안전보건법 교육시간 정리",
   sonhae: "보험편 법적 성질 정리",
   nomusa: "근로기준법 해고 제한 정리",
+  gyeongbi: "경비업법 허가·신고 정리",
 };
 
 function PhoneFrame({

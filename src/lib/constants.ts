@@ -13,7 +13,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 /** SEO / Open Graph / Twitter 기본 제목 */
 export const SITE_TITLE = "봄기출 | 공무원·공인중개사·세무사·산업안전지도사 기출 학습";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사·경비지도사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
 
 /** 사업자·문의 — 푸터·소개·약관에 공통으로 쓴다 */
 export const PUBLISHER_LEGAL_NAME = "봄기출";
@@ -60,7 +60,8 @@ export function appStoreLinksForScope(
     | "semusa"
     | "sanan"
     | "sonhae"
-    | "nomusa",
+    | "nomusa"
+    | "gyeongbi",
 ): AppStoreLinks {
   switch (scope) {
     case "public_service":
@@ -134,6 +135,9 @@ export function appStoreLinksForScope(
         android: null,
         ios: "https://apps.apple.com/kr/app/id6816073525",
       };
+    case "gyeongbi":
+      // 2026-10-05 앱 제작 중 — 두 스토어 모두 공개 페이지 없음(「출시준비중」). 출시 뒤 채운다.
+      return { android: null, ios: null };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };
   }
@@ -396,6 +400,7 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/sanan", label: "산업안전지도사" },
       { href: "/sonhae", label: "손해평가사" },
       { href: "/nomusa", label: "공인노무사" },
+      { href: "/gyeongbi", label: "경비지도사" },
     ],
   },
   {
@@ -562,6 +567,20 @@ export const ARCHIVE_SUBJECTS_SANAN = [
   { value: "other", label: "기타" },
 ] as const;
 
+export const ARCHIVE_SUBJECTS_GYEONGBI = [
+  { value: "all", label: "전체 과목" },
+  { value: "beophak", label: "법학개론" },
+  { value: "mingan", label: "민간경비론" },
+  { value: "gyeongbibeop", label: "경비업법" },
+  // 소방공무원 「소방학개론」(sobang)과 값이 겹치면 ARCHIVE_SUBJECT_MAP 에서 한쪽 이름이 덮인다
+  { value: "sobanghak", label: "소방학" },
+  { value: "beomjoe", label: "범죄학" },
+  { value: "gyeongho", label: "경호학" },
+  { value: "gigye", label: "기계경비개론" },
+  { value: "gigyeseolgye", label: "기계경비기획 및 설계" },
+  { value: "other", label: "기타" },
+] as const;
+
 export const ARCHIVE_SUBJECTS_SONHAE = [
   { value: "all", label: "전체 과목" },
   // 세무사 「상법」(sangbeop)과 값이 겹치면 ARCHIVE_SUBJECT_MAP 에서 한쪽 이름이 덮인다
@@ -610,6 +629,7 @@ export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
   ...ARCHIVE_SUBJECTS_SANAN.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_SONHAE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_NOMUSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS_GYEONGBI.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
   ...ARCHIVE_SUBJECTS_HISTORY.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
 ]);
 
@@ -639,6 +659,8 @@ export function archiveSubjectsForScope(scope: string) {
       return [...ARCHIVE_SUBJECTS_SONHAE];
     case "nomusa":
       return [...ARCHIVE_SUBJECTS_NOMUSA];
+    case "gyeongbi":
+      return [...ARCHIVE_SUBJECTS_GYEONGBI];
     case "history":
       return [...ARCHIVE_SUBJECTS_HISTORY];
     default:
@@ -672,6 +694,8 @@ export function defaultArchiveSubject(scope: string) {
       return "bohumsangbeop";
     case "nomusa":
       return "nodong1";
+    case "gyeongbi":
+      return "beophak";
     case "history":
       return "advanced";
     default:

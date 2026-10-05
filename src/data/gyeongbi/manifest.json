@@ -1,0 +1,74 @@
+[
+  {
+    "id": "beophak",
+    "label": "법학개론",
+    "track": "1차",
+    "conceptCount": 0,
+    "examCount": 0,
+    "years": [],
+    "sources": []
+  },
+  {
+    "id": "mingan",
+    "label": "민간경비론",
+    "track": "1차",
+    "conceptCount": 0,
+    "examCount": 0,
+    "years": [],
+    "sources": []
+  },
+  {
+    "id": "gyeongbibeop",
+    "label": "경비업법",
+    "track": "2차",
+    "conceptCount": 0,
+    "examCount": 0,
+    "years": [],
+    "sources": []
+  },
+  {
+    "id": "sobang",
+    "label": "소방학",
+    "track": "2차",
+    "conceptCount": 0,
+    "examCount": 0,
+    "years": [],
+    "sources": []
+  },
+  {
+    "id": "beomjoe",
+    "label": "범죄학",
+    "track": "2차",
+    "conceptCount": 0,
+    "examCount": 0,
+    "years": [],
+    "sources": []
+  },
+  {
+    "id": "gyeongho",
+    "label": "경호학",
+    "track": "2차",
+    "conceptCount": 0,
+    "examCount": 0,
+    "years": [],
+    "sources": []
+  },
+  {
+    "id": "gigye",
+    "label": "기계경비개론",
+    "track": "2차",
+    "conceptCount": 0,
+    "examCount": 0,
+    "years": [],
+    "sources": []
+  },
+  {
+    "id": "gigyeseolgye",
+    "label": "기계경비기획 및 설계",
+    "track": "2차",
+    "conceptCount": 0,
+    "examCount": 0,
+    "years": [],
+    "sources": []
+  }
+]

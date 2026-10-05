@@ -21,7 +21,8 @@ export function SubjectLearningCard({
         {label}
       </h3>
       <p className="mt-2 font-display text-body-sm text-smoke">
-        기출 {examCount}문항
+        {/* 트랙을 먼저 세우고 기출을 뒤에 싣는 시험(경비지도사)에서 「0문항」으로 보이지 않게 */}
+        {examCount > 0 ? `기출 ${examCount}문항` : "기출 싣는 중"}
         {conceptCount > 0 ? ` · 핵심 개념 ${conceptCount}개` : ""}
       </p>
       <div className="mt-6 grid grid-cols-2 gap-2">
@@ -41,7 +42,7 @@ export function SubjectLearningCard({
         ) : (
           <p className="rounded-xl bg-snow px-3 py-3 text-xs text-smoke">
             단원별 개념 준비 중<br />
-            기출 해설은 이용 가능
+            {examCount > 0 ? "기출 해설은 이용 가능" : "기출·해설도 곧 열립니다"}
           </p>
         )}
       </div>

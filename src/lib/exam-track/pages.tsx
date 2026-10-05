@@ -311,12 +311,18 @@ export async function TrackExamSubjectPage({
   const description = `${data.subject.label} 기출 ${data.exams.length}문항과 정답 해설`;
   const sessions = api.getExamSessions(subjectId);
   const housingFirstStage = new Set(["accounting", "facilities", "civil-law"]);
+  // 경비지도사는 1·2차 모두 객관식이라 2차 과목도 싣는다 — 과목에 따라 「1차」·「2차」로 묶는다.
+  const gyeongbiFirstStage = new Set(["beophak", "mingan"]);
   const sessionsByGroup = sessions.reduce<Map<string, typeof sessions>>((groups, session) => {
     const groupLabel =
       track.id === "housing"
         ? housingFirstStage.has(subjectId)
           ? "1차"
           : "2차"
+        : track.id === "gyeongbi"
+          ? gyeongbiFirstStage.has(subjectId)
+            ? "1차"
+            : "2차"
         : track.id === "haengjeongsa" || track.id === "semusa" || track.id === "sanan" || track.id === "sonhae" || track.id === "nomusa"
           ? "1차 필기"
           : trackHidesExamSourceLabel(track.id)
@@ -375,6 +381,12 @@ export async function TrackExamSubjectPage({
           exams={data.exams}
         />
         <section className="mt-10">
+          {sessions.length === 0 ? (
+            // 트랙을 먼저 세우고 기출을 뒤에 싣는 시험(경비지도사)에서 빈 화면 대신 알린다.
+            <p className="max-w-2xl rounded-[var(--radius-cards)] border border-mist bg-paper px-5 py-4 font-display text-body-sm text-smoke">
+              {data.subject.label} 기출을 옮겨 싣는 중입니다. 앱과 같은 문항·해설로 곧 열립니다.
+            </p>
+          ) : null}
           <div className={`grid gap-6 ${sessionsByGroup.size > 1 ? "lg:grid-cols-2" : "max-w-2xl"}`}>
             {[...sessionsByGroup.entries()].map(([groupLabel, groupSessions]) => (
               <ExamSessionGroup key={groupLabel} title={groupLabel}>

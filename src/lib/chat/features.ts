@@ -209,6 +209,12 @@ export const COMMUNITY_HOME_GROUPS = [
     topicKeys: ["nomusa"],
   },
   {
+    scope: "gyeongbi" as const,
+    label: "경비지도사",
+    blurb: "경비업법·민간경비론·법학",
+    topicKeys: ["gyeongbi"],
+  },
+  {
     scope: "history" as const,
     label: "한국사",
     blurb: "시대별 정리",
@@ -251,6 +257,7 @@ export const TOPIC_TEASERS = [
   { key: "sanan", label: "산업안전지도사", blurb: "법령·안전일반·기업진단" },
   { key: "sonhae", label: "손해평가사", blurb: "상법·재해보험법령·농학" },
   { key: "nomusa", label: "공인노무사", blurb: "노동법·민법·사회보험법" },
+  { key: "gyeongbi", label: "경비지도사", blurb: "경비업법·민간경비론·법학" },
   { key: "history", label: "한국사", blurb: "시대별 정리" },
 ] as const;
 

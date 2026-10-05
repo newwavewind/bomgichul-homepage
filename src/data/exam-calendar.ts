@@ -25,7 +25,8 @@ export type ExamCalendarEvent = {
     | "semusa"
     | "sanan"
     | "sonhae"
-    | "nomusa";
+    | "nomusa"
+    | "gyeongbi";
   examLabel: string;
   kind: ExamCalendarKind;
   title: string;
@@ -60,6 +61,7 @@ export const EXAM_CALENDAR_COLORS: Record<ExamCalendarEvent["examKey"], string> 
   sanan: "#b45309",
   sonhae: "#15803d",
   nomusa: "#1d4ed8",
+  gyeongbi: "#2f4b8a",
 };
 
 /** 범례·표시용 정식 이름 (달과 무관하게 항상 전부 노출) */
@@ -78,6 +80,7 @@ export const EXAM_CALENDAR_LABELS: Record<ExamCalendarEvent["examKey"], string> 
   sanan: "산업안전지도사",
   sonhae: "손해평가사",
   nomusa: "공인노무사",
+  gyeongbi: "경비지도사",
 };
 
 export const EXAM_CALENDAR_ORDER: ExamCalendarEvent["examKey"][] = [
@@ -94,6 +97,7 @@ export const EXAM_CALENDAR_ORDER: ExamCalendarEvent["examKey"][] = [
   "sanan",
   "sonhae",
   "nomusa",
+  "gyeongbi",
   "history",
 ];
 
@@ -558,6 +562,18 @@ export const EXAM_CALENDAR_EVENTS: ExamCalendarEvent[] = [
     title: "제81회 결과 발표",
     detail: "10:00",
     href: "/history/intro",
+  },
+
+  // —— 경비지도사 제28회 (2026년도 시행계획 공고, 한국산업인력공단 공고 제2026-135호) ——
+  {
+    id: "gb-exam-28",
+    date: "2026-11-21",
+    examKey: "gyeongbi",
+    examLabel: "경비지도사",
+    kind: "exam",
+    title: "제28회 1·2차 시험",
+    detail: "1차 법학개론·민간경비론 · 2차 경비업법+선택 1과목 · 같은 날 시행",
+    href: "/gyeongbi/intro",
   },
 ];
 

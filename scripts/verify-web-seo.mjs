@@ -16,6 +16,7 @@ const scopes = [
   "sanan",
   "sonhae",
   "nomusa",
+  "gyeongbi",
 ];
 const results = [];
 const anchors = (html) =>

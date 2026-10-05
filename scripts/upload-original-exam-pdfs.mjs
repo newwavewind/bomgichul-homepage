@@ -585,6 +585,35 @@ function collectJobs() {
     }
   }
 
+  // ——— 경비지도사 (앱 exam-pdfs — 1·2차, 제18회 2016 ~ 제27회 2025) ———
+  // 앱 public/exam-pdfs/gyeongbi/<연도>/ 가 차면 올라간다(비어 있으면 아무것도 하지 않는다).
+  {
+    const root = join(HOME, 'gyeongbibomgichul/public/exam-pdfs')
+    for (const file of walkExamFiles(root)) {
+      const name = nfc(basename(file))
+      const year = (name.match(/^(\d{4})/) || [])[1]
+      if (!year) continue
+      const y = Number(year)
+      if (y < 2016 || y > 2026) continue
+      let detail = name
+        .replace(/\.(pdf|hwp|hwpx)$/i, '')
+        .replace(/^\d{4}-/, '')
+        .replace(/-[a-f0-9]{5,}$/i, '')
+        .replace(/-/g, ' ')
+        .trim()
+      if (!detail) detail = kindFromName(name)
+      const title = `${TITLE_PREFIX} ${year}년 경비지도사 · ${detail}`
+      jobs.push({
+        scope: 'gyeongbi',
+        subject: 'other',
+        title,
+        content: `경비지도사 국가자격시험 기출 원본입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `gyeongbi|app|${name}`,
+      })
+    }
+  }
+
   // ——— 세무사 (데스크탑 10개년) ———
   {
     const deskRoot = join(HOME, 'Desktop/세무사_기출_10개년')

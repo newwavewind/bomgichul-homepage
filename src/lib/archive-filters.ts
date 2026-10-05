@@ -39,6 +39,8 @@ export function archiveYearsForScope(scope: CommunityScope): number[] {
       return rangeYears(2017, 2026);
     case "nomusa":
       return rangeYears(2017, 2025);
+    case "gyeongbi":
+      return rangeYears(2016, 2025);
     case "history":
       return [];
     default:
@@ -142,6 +144,7 @@ export function archiveTracksForScope(scope: CommunityScope): {
     case "sanan":
     case "sonhae":
     case "nomusa":
+    case "gyeongbi":
     case "semusa":
       return {
         label: "구분",

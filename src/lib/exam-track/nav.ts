@@ -131,6 +131,18 @@ const NOMUSA_SUBJECTS: { id: string; label: string }[] = [
   { id: "gyeongje", label: "경제학원론" },
 ];
 
+/** 1차 법학개론·민간경비론, 2차 경비업법(필수) + 선택과목 다섯 */
+const GYEONGBI_SUBJECTS: { id: string; label: string }[] = [
+  { id: "beophak", label: "법학개론" },
+  { id: "mingan", label: "민간경비론" },
+  { id: "gyeongbibeop", label: "경비업법" },
+  { id: "sobang", label: "소방학" },
+  { id: "beomjoe", label: "범죄학" },
+  { id: "gyeongho", label: "경호학" },
+  { id: "gigye", label: "기계경비개론" },
+  { id: "gigyeseolgye", label: "기계경비기획 및 설계" },
+];
+
 const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
   { id: "sobang", label: "소방학개론" },
   { id: "sobangbeop", label: "소방관계법규" },
@@ -190,7 +202,9 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
                           ? SONHAE_SUBJECTS
                           : scope === "nomusa"
                             ? NOMUSA_SUBJECTS
-                            : PUBLIC_SERVICE_SUBJECTS;
+                            : scope === "gyeongbi"
+                              ? GYEONGBI_SUBJECTS
+                              : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -227,6 +241,7 @@ function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/sanan")) return false;
   if (pathname.startsWith("/sonhae")) return false;
   if (pathname.startsWith("/nomusa")) return false;
+  if (pathname.startsWith("/gyeongbi")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -375,6 +390,17 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("nomusa"),
       subjects: subjectsForScope("nomusa"),
       tools: toolsForScope("nomusa"),
+    };
+  }
+  if (path.startsWith("/gyeongbi")) {
+    return {
+      mode: "track",
+      scope: "gyeongbi",
+      label: communityScopeLabel("gyeongbi"),
+      shortLabel: "경비지도사",
+      hubHref: trackHubHref("gyeongbi"),
+      subjects: subjectsForScope("gyeongbi"),
+      tools: toolsForScope("gyeongbi"),
     };
   }
   if (path.startsWith("/public-service")) {

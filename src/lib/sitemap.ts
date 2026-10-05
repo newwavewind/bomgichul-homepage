@@ -65,6 +65,11 @@ import {
   getNomusaExamSessions,
 } from "@/lib/nomusa-content";
 import {
+  GYEONGBI_SUBJECT_IDS,
+  getGyeongbiSubject,
+  getGyeongbiExamSessions,
+} from "@/lib/gyeongbi-content";
+import {
   HISTORY_SUBJECT_IDS,
   getHistoryExamSessions,
   getHistorySubject,
@@ -97,6 +102,7 @@ export const SITEMAP_GROUPS = [
   "sanan",
   "sonhae",
   "nomusa",
+  "gyeongbi",
 ] as const;
 
 export type SitemapGroup = (typeof SITEMAP_GROUPS)[number];
@@ -116,6 +122,7 @@ const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   sanan: "sanan",
   sonhae: "sonhae",
   nomusa: "nomusa",
+  gyeongbi: "gyeongbi",
 };
 
 function page(
@@ -336,6 +343,15 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         NOMUSA_SUBJECT_IDS,
         getNomusaSubject,
         getNomusaExamSessions,
+        { includeConcepts: false },
+      );
+    case "gyeongbi":
+      // 기출을 아직 싣지 않은 과목(문항 0)은 빈 쪽이라 사이트맵에 넣지 않는다 — 실으면 저절로 들어온다.
+      return getNamespacedTrackUrls(
+        "/gyeongbi",
+        GYEONGBI_SUBJECT_IDS.filter((id) => (getGyeongbiSubject(id)?.exams.length ?? 0) > 0),
+        getGyeongbiSubject,
+        getGyeongbiExamSessions,
         { includeConcepts: false },
       );
   }

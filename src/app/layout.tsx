@@ -93,6 +93,7 @@ export const metadata: Metadata = {
     "손해평가사 기출문제",
     "산업안전지도사 기출문제",
     "산업안전보건법령",
+    "경비지도사 기출문제",
     "기출 원본 PDF",
   ],
   authors: [{ name: SITE_NAME, url: SITE_URL }],

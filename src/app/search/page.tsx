@@ -7,7 +7,7 @@ export const metadata: Metadata = buildPageMetadata({
   robots: { index: false, follow: true },
   title: "기출문제 통합 검색",
   description:
-    "공무원·공인중개사·경찰·소방·세무사·산업안전지도사·손해평가사·공인노무사 등 봄기출 전 시험 기출문제를 과목·연도·문항 번호로 검색하세요.",
+    "공무원·공인중개사·경찰·소방·세무사·산업안전지도사·손해평가사·공인노무사·경비지도사 등 봄기출 전 시험 기출문제를 과목·연도·문항 번호로 검색하세요.",
   path: "/search",
 });
 

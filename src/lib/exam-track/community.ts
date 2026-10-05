@@ -8,6 +8,7 @@ import {
   SANAN_TRACK,
   SONHAE_TRACK,
   NOMUSA_TRACK,
+  GYEONGBI_TRACK,
   HISTORY_TRACK,
   HOUSING_TRACK,
   POLICE_TRACK,
@@ -44,6 +45,8 @@ export function communityScopeLabel(scope: CommunityScope): string {
       return "손해평가사";
     case "nomusa":
       return "공인노무사";
+    case "gyeongbi":
+      return "경비지도사";
     default:
       return "공인중개사";
   }
@@ -77,6 +80,8 @@ export function trackHubHref(scope: CommunityScope): string {
       return SONHAE_TRACK.basePath;
     case "nomusa":
       return NOMUSA_TRACK.basePath;
+    case "gyeongbi":
+      return GYEONGBI_TRACK.basePath;
     default:
       return "/real-estate";
   }
@@ -110,6 +115,8 @@ export function communityBaseHref(scope: CommunityScope): string {
       return `${SONHAE_TRACK.basePath}/community`;
     case "nomusa":
       return `${NOMUSA_TRACK.basePath}/community`;
+    case "gyeongbi":
+      return `${GYEONGBI_TRACK.basePath}/community`;
     default:
       return "/community";
   }
@@ -143,6 +150,8 @@ export function archiveBaseHref(scope: CommunityScope): string {
       return `${SONHAE_TRACK.basePath}/archive`;
     case "nomusa":
       return `${NOMUSA_TRACK.basePath}/archive`;
+    case "gyeongbi":
+      return `${GYEONGBI_TRACK.basePath}/archive`;
     default:
       return "/archive";
   }
@@ -176,6 +185,8 @@ export function diaryBaseHref(scope: CommunityScope): string {
       return `${SONHAE_TRACK.basePath}/diary`;
     case "nomusa":
       return `${NOMUSA_TRACK.basePath}/diary`;
+    case "gyeongbi":
+      return `${GYEONGBI_TRACK.basePath}/diary`;
     default:
       return "/diary";
   }
@@ -209,6 +220,8 @@ export function faqBaseHref(scope: CommunityScope): string {
       return `${SONHAE_TRACK.basePath}/faq`;
     case "nomusa":
       return `${NOMUSA_TRACK.basePath}/faq`;
+    case "gyeongbi":
+      return `${GYEONGBI_TRACK.basePath}/faq`;
     default:
       return "/faq";
   }
@@ -242,6 +255,8 @@ export function communityTitle(scope: CommunityScope): string {
       return SONHAE_TRACK.communityTitle;
     case "nomusa":
       return NOMUSA_TRACK.communityTitle;
+    case "gyeongbi":
+      return GYEONGBI_TRACK.communityTitle;
     default:
       return "공인중개사 수험생 커뮤니티";
   }
@@ -275,6 +290,8 @@ export function archiveTitle(scope: CommunityScope): string {
       return "손해평가사 자료실";
     case "nomusa":
       return "공인노무사 자료실";
+    case "gyeongbi":
+      return "경비지도사 자료실";
     default:
       return "공인중개사 자료실";
   }
@@ -308,6 +325,8 @@ export function archiveEyebrow(scope: CommunityScope): string {
       return "손해평가사 수험 자료 공유";
     case "nomusa":
       return "공인노무사 수험 자료 공유";
+    case "gyeongbi":
+      return "경비지도사 수험 자료 공유";
     default:
       return "공인중개사 수험 자료 공유";
   }
@@ -342,7 +361,8 @@ export function isValidCommunityScope(value: string | null | undefined): value i
     value === "semusa" ||
     value === "sanan" ||
     value === "sonhae" ||
-    value === "nomusa"
+    value === "nomusa" ||
+    value === "gyeongbi"
   );
 }
 
@@ -360,6 +380,7 @@ export function scopeFromPathname(pathname: string | null | undefined): Communit
   if (pathname.startsWith("/sanan")) return "sanan";
   if (pathname.startsWith("/sonhae")) return "sonhae";
   if (pathname.startsWith("/nomusa")) return "nomusa";
+  if (pathname.startsWith("/gyeongbi")) return "gyeongbi";
   if (pathname.startsWith("/public-service")) return "public_service";
   return "real_estate";
 }

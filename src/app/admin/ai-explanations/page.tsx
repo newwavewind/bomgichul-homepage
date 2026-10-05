@@ -47,6 +47,7 @@ const APP_LABELS: Record<string, string> = {
   nomusa: "공인노무사",
   sonhae: "손해평가사",
   sanan: "산업안전지도사",
+  gyeongbi: "경비지도사",
 };
 
 /** 필터·묶음에 쓰는 앱 순서 */
@@ -65,6 +66,7 @@ const APP_ORDER = [
   "nomusa",
   "sonhae",
   "sanan",
+  "gyeongbi",
 ] as const;
 
 /**
@@ -83,9 +85,26 @@ const POLICE_SLOT_LABELS: Record<string, string> = {
   gyeongchalhak: "경찰학",
 };
 
+/**
+ * 경비지도사 앱: 과목 id → 과목명.
+ * 「sobang」은 기본 맵에서 소방공무원 「소방학개론」이라 이 앱에서는 덮어써야 한다.
+ * @see gyeongbibomgichul/src/subjects/registry.js
+ */
+const GYEONGBI_SLOT_LABELS: Record<string, string> = {
+  beophak: "법학개론",
+  mingan: "민간경비론",
+  gyeongbibeop: "경비업법",
+  sobang: "소방학",
+  beomjoe: "범죄학",
+  gyeongho: "경호학",
+  gigye: "기계경비개론",
+  gigyeseolgye: "기계경비기획 및 설계",
+};
+
 /** 앱 접두별 슬롯 라벨 덮어쓰기 (공인중개사 기본 맵보다 우선) */
 const APP_SUBJECT_SLUG_OVERRIDES: Record<string, Record<string, string>> = {
   police: POLICE_SLOT_LABELS,
+  gyeongbi: GYEONGBI_SLOT_LABELS,
 };
 
 /** 콜론 뒤 과목 슬러그 → 한국어 (공인중개사·공통 기본값) */

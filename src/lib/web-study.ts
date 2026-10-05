@@ -37,6 +37,7 @@ export const EXAM_CHOICES = [
   ["sanan", "산업안전지도사", "전문자격"],
   ["sonhae", "손해평가사", "전문자격"],
   ["nomusa", "공인노무사", "전문자격"],
+  ["gyeongbi", "경비지도사", "전문자격"],
 ] as const;
 export function scopeForPath(path: string) {
   return (

@@ -12,6 +12,7 @@ import { SEMUSA_SUBJECT_IDS, getSemusaSubject } from "@/lib/semusa-content";
 import { SANAN_SUBJECT_IDS, getSananSubject } from "@/lib/sanan-content";
 import { SONHAE_SUBJECT_IDS, getSonhaeSubject } from "@/lib/sonhae-content";
 import { NOMUSA_SUBJECT_IDS, getNomusaSubject } from "@/lib/nomusa-content";
+import { GYEONGBI_SUBJECT_IDS, getGyeongbiSubject } from "@/lib/gyeongbi-content";
 import { FIREFIGHTER_SUBJECT_IDS, getFirefighterSubject } from "@/lib/firefighter-content";
 import type { ExamTrackSubjectContent } from "@/lib/exam-track/types";
 
@@ -61,6 +62,7 @@ function rows() {
     ...trackRows("산업안전지도사", "/sanan", SANAN_SUBJECT_IDS, getSananSubject),
     ...trackRows("손해평가사", "/sonhae", SONHAE_SUBJECT_IDS, getSonhaeSubject),
     ...trackRows("공인노무사", "/nomusa", NOMUSA_SUBJECT_IDS, getNomusaSubject),
+    ...trackRows("경비지도사", "/gyeongbi", GYEONGBI_SUBJECT_IDS, getGyeongbiSubject),
   ];
   return cached;
 }

@@ -114,6 +114,15 @@ const TRACK_EXAM_SCHEDULE: Record<
     examName: "공인노무사 국가자격시험",
     scheduleUnconfirmed: true,
   },
+  // 2026년도 제28회 시행계획 공고(한국산업인력공단 공고 제2026-135호) — 1·2차를 같은 날 치른다.
+  // 원서 접수 기간은 이 표에서 공인중개사만 보여 주므로 시험일만 확정값으로 둔다(접수 칸은 시험일과 같게).
+  gyeongbi: {
+    label: "2026년 경비지도사 1·2차",
+    examDate: "2026-11-21",
+    registrationStart: "2026-11-21",
+    note: "제28회 1차·2차를 같은 날 치릅니다. 원서 접수·합격 발표는 Q-Net 공고를 확인하세요.",
+    examName: "경비지도사 국가자격시험",
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

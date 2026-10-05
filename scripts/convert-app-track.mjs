@@ -5,8 +5,21 @@
  *   node scripts/convert-app-track.mjs sonhae     # 손해평가사
  *   node scripts/convert-app-track.mjs nomusa     # 공인노무사
  *   node scripts/convert-app-track.mjs semusa     # 세무사(자료 그림을 다시 싣는다)
+ *   node scripts/convert-app-track.mjs gyeongbi   # 경비지도사(1·2차 여덟 과목)
  *
  * 2차(논술·단답, 확정답안 없음)는 싣지 않는다 — 세무사·행정사와 같다.
+ * 경비지도사만 다르다: 2차도 1차와 같은 4지선다 객관식이고 확정답안이 있어 1·2차를 함께 싣는다.
+ * 과목마다 `group`(1차·2차)을 주면 허브가 그 이름으로 과목을 묶는다(주택관리사와 같은 꼴).
+ *
+ * 앱의 문항 `subject` 는 시험지 머리글을 그대로 담기도 한다(「경비업법(청원경찰법 포함)」·
+ * 「기계경비기획 및 설계」). 그래서 과목 열쇠·표시 이름·`aliases` 를 모두 받고, 그래도 못 찾으면
+ * 파일 이름 앞머리(`경비업법-2025-제27회.json` 의 「경비업법」)로 찾는다.
+ * 복수정답·전항정답(`correct_choice: [2, 4]`)은 correctChoices 로 싣는다(채점 화면이 이 목록을 본다).
+ *
+ * 앱의 기출이 아직 다 들어오지 않았어도 돌릴 수 있다 — 빈 과목은 빈 목록으로 나가고,
+ * 데이터가 다 들어온 뒤 같은 명령을 다시 돌리면 된다.
+ * `--empty` 를 붙이면 앱을 읽지 않고 과목 뼈대(문항 0)만 쓴다 — 기출·해설이 아직 작업 중일 때
+ * 트랙·커뮤니티·오류 신고 화면부터 세우는 데 쓴다(경비지도사 2026-10-05).
  *
  * ## 자료를 앱과 같은 차례로 옮긴다
  *
@@ -27,7 +40,7 @@ import path from "node:path";
 
 const HOME = process.cwd();
 
-/** @type {Record<string, { app: string, track: string, subjects: Record<string, { id: string, label: string }> }>} */
+/** @type {Record<string, { app: string, track: string, subjects: Record<string, { id: string, label: string, group?: string, aliases?: string[] }> }>} */
 const TRACKS = {
   sanan: {
     app: "/Users/newsang/sananbomgichul",
@@ -71,9 +84,49 @@ const TRACKS = {
       행정소송법: { id: "haengjeongsosong", label: "행정소송법" },
     },
   },
+  gyeongbi: {
+    app: "/Users/newsang/gyeongbibomgichul",
+    track: "경비지도사",
+    // 열쇠 = 앱 기출 파일 이름 앞머리(src/subjects/subjectSources.js 의 EXAM_PREFIX_BY_SUBJECT).
+    // 별칭은 앱 registry.js 의 LEGACY_DATA_LABELS 와 같다(회차마다 시험지 머리글 적는 법이 다르다).
+    subjects: {
+      법학개론: { id: "beophak", label: "법학개론", group: "1차", aliases: ["법학 개론"] },
+      민간경비론: { id: "mingan", label: "민간경비론", group: "1차", aliases: ["민간 경비론", "민간경비"] },
+      경비업법: {
+        id: "gyeongbibeop",
+        label: "경비업법",
+        group: "2차",
+        aliases: [
+          "경비업법(청원경찰법 포함)",
+          "경비업법(청원경찰법포함)",
+          "경비업법 (청원경찰법 포함)",
+          "경비업법(청원경찰법을 포함한다)",
+          "경비업법 및 청원경찰법",
+        ],
+      },
+      소방학: { id: "sobang", label: "소방학", group: "2차", aliases: ["소방학개론"] },
+      범죄학: { id: "beomjoe", label: "범죄학", group: "2차", aliases: ["범죄학개론"] },
+      경호학: { id: "gyeongho", label: "경호학", group: "2차", aliases: ["경호학개론"] },
+      기계경비개론: { id: "gigye", label: "기계경비개론", group: "2차", aliases: ["기계경비 개론"] },
+      기계경비기획및설계: {
+        id: "gigyeseolgye",
+        label: "기계경비기획 및 설계",
+        group: "2차",
+        aliases: [
+          "기계경비기획 및 설계",
+          "기계경비 기획 및 설계",
+          "기계경비기획 및설계",
+          "기계경비기획·설계",
+          "기계경비기획ㆍ설계",
+          "기계경비기획 및 설계론",
+        ],
+      },
+    },
+  },
 };
 
 const key = process.argv[2];
+const EMPTY = process.argv.includes("--empty");
 const cfg = TRACKS[key];
 if (!cfg) {
   console.error(`사용: node scripts/convert-app-track.mjs <${Object.keys(TRACKS).join("|")}>`);
@@ -130,17 +183,44 @@ function toTables(blocks) {
   return tables;
 }
 
-const counts = { lines: 0, table: 0, figure: 0, text: 0, itemImage: 0 };
+/** 과목 열쇠·표시 이름·별칭 → 과목. macOS·tar 를 거친 이름은 NFD 라 NFC 로 펴서 견준다. */
+const SUBJECT_BY_NAME = new Map();
+for (const [name, meta] of Object.entries(cfg.subjects)) {
+  for (const alias of [name, meta.label, ...(meta.aliases ?? [])]) {
+    const k = alias.normalize("NFC");
+    if (!SUBJECT_BY_NAME.has(k)) SUBJECT_BY_NAME.set(k, meta);
+  }
+}
+
+/** 복수정답·전항정답은 앱이 correct_choices 나 correct_choice 자리에 목록으로 담는다 */
+function answerKey(q) {
+  const list = Array.isArray(q.correct_choices) && q.correct_choices.length > 1
+    ? q.correct_choices
+    : Array.isArray(q.correct_choice) && q.correct_choice.length > 1
+      ? q.correct_choice
+      : null;
+  const first = Array.isArray(q.correct_choice) ? q.correct_choice[0] : q.correct_choice;
+  return {
+    correctChoice: first == null ? first : Number(first),
+    ...(list ? { correctChoices: list.map(Number) } : {}),
+  };
+}
+
+const counts = { lines: 0, table: 0, figure: 0, text: 0, itemImage: 0, multi: 0 };
 const bySubject = Object.fromEntries(Object.values(cfg.subjects).map((s) => [s.id, []]));
 const dir = path.join(cfg.app, "src", "data", "exam");
-for (const file of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
+for (const file of EMPTY ? [] : readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
   const rows = JSON.parse(readFileSync(path.join(dir, file), "utf8"));
+  const filePrefix = file.normalize("NFC").split("-")[0];
   for (const q of Array.isArray(rows) ? rows : rows.questions ?? []) {
-    const meta = cfg.subjects[q.subject];
+    const meta =
+      SUBJECT_BY_NAME.get(String(q.subject ?? "").normalize("NFC")) ?? SUBJECT_BY_NAME.get(filePrefix);
     if (!meta) {
       console.warn("모르는 과목", q.subject, file);
       continue;
     }
+    const key = answerKey(q);
+    if (key.correctChoices) counts.multi += 1;
     let stem = q.stem ?? "";
     let table;
     let material;
@@ -172,7 +252,7 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
       ...(q.stem_tail ? { stemTail: q.stem_tail } : {}),
       ...(Array.isArray(q.choice_headers) && q.choice_headers.length ? { choiceHeaders: q.choice_headers } : {}),
       questionType: q.question_type,
-      correctChoice: q.correct_choice,
+      ...key,
       category: q.category,
       subcategory: q.subcategory ?? q.chapter ?? null,
       ...(q.taxonomy_unit_id ? { taxonomyUnitId: q.taxonomy_unit_id } : {}),
@@ -208,10 +288,10 @@ for (const meta of Object.values(cfg.subjects)) {
   const sources = [...new Set(exams.map((e) => e.sourceCode))];
   writeFileSync(
     path.join(OUT_DIR, `${meta.id}.json`),
-    JSON.stringify({ subject: { id: meta.id, label: meta.label, track: cfg.track }, years, sources, concepts: [], exams }) + "\n",
+    JSON.stringify({ subject: { id: meta.id, label: meta.label, track: meta.group ?? cfg.track }, years, sources, concepts: [], exams }) + "\n",
   );
-  manifest.push({ id: meta.id, label: meta.label, track: cfg.track, conceptCount: 0, examCount: exams.length, years, sources });
+  manifest.push({ id: meta.id, label: meta.label, track: meta.group ?? cfg.track, conceptCount: 0, examCount: exams.length, years, sources });
   console.log(`${meta.id}: ${exams.length}문항`);
 }
 writeFileSync(path.join(OUT_DIR, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
-console.log(`자료: 글 상자 ${counts.lines} · 표 ${counts.table} · 그림 ${counts.figure} · 평문 ${counts.text} · 선지 그림 ${counts.itemImage} · 새로 복사한 그림 ${copied}`);
+console.log(`자료: 글 상자 ${counts.lines} · 표 ${counts.table} · 그림 ${counts.figure} · 평문 ${counts.text} · 선지 그림 ${counts.itemImage} · 새로 복사한 그림 ${copied} · 복수정답 ${counts.multi}`);

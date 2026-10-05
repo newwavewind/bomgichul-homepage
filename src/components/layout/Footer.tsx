@@ -21,6 +21,7 @@ const HUB_LINKS = [
   { href: "/sanan", label: "산업안전지도사" },
   { href: "/sonhae", label: "손해평가사" },
   { href: "/nomusa", label: "공인노무사" },
+  { href: "/gyeongbi", label: "경비지도사" },
 ] as const;
 
 const CONCEPT_LINKS = [

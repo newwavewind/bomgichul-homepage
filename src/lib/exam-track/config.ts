@@ -202,6 +202,26 @@ export const NOMUSA_TRACK: ExamTrackConfig = {
   aboutName: "공인노무사 국가자격시험 1차",
 };
 
+/*
+ * 경비지도사는 1·2차 모두 4지선다 객관식이고 확정답안이 있어, 다른 자격시험 트랙과 달리
+ * 2차(경비업법 + 선택과목)까지 싣는다. 시행은 경찰청, 접수·출제는 한국산업인력공단(Q-Net).
+ */
+export const GYEONGBI_TRACK: ExamTrackConfig = {
+  id: "gyeongbi",
+  label: "경비지도사",
+  shortLabel: "경비지도사",
+  basePath: "/gyeongbi",
+  eyebrow: "봄기출 · 경비지도사",
+  hubTitle: "경비지도사 1·2차 기출 학습의 모든 것",
+  hubDescription:
+    "경비지도사 1차 법학개론·민간경비론과 2차 경비업법·선택과목(소방학·범죄학·경호학·기계경비개론·기계경비기획 및 설계) 기출을 회차별로 학습하세요.",
+  communityScope: "gyeongbi",
+  communityTitle: "경비지도사 수험생 커뮤니티",
+  sessionEyebrow: "경비지도사 기출",
+  educationalLevel: "경비지도사 국가자격시험",
+  aboutName: "경비지도사 국가자격시험 1·2차",
+};
+
 export const EXAM_TRACKS = [
   POLICE_TRACK,
   FIREFIGHTER_TRACK,
@@ -215,6 +235,7 @@ export const EXAM_TRACKS = [
   SANAN_TRACK,
   SONHAE_TRACK,
   NOMUSA_TRACK,
+  GYEONGBI_TRACK,
 ] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
@@ -230,5 +251,6 @@ export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/sanan")) return SANAN_TRACK;
   if (pathname.startsWith("/sonhae")) return SONHAE_TRACK;
   if (pathname.startsWith("/nomusa")) return NOMUSA_TRACK;
+  if (pathname.startsWith("/gyeongbi")) return GYEONGBI_TRACK;
   return null;
 }

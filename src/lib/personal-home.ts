@@ -26,6 +26,7 @@ const BASE_PATHS: Record<string, string> = {
   sanan: "/sanan",
   sonhae: "/sonhae",
   nomusa: "/nomusa",
+  gyeongbi: "/gyeongbi",
 };
 
 const SCOPE_LABELS: Record<string, string> = {
@@ -42,6 +43,7 @@ const SCOPE_LABELS: Record<string, string> = {
   sanan: "산업안전지도사",
   sonhae: "손해평가사",
   nomusa: "공인노무사",
+  gyeongbi: "경비지도사",
 };
 
 function kstDate(date = new Date()) {

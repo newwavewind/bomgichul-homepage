@@ -165,6 +165,17 @@ const exams = [
     accentTo: "#f5f8ff",
     cta: "공인노무사 알아보기",
   },
+  {
+    href: "/gyeongbi/intro",
+    learnHref: "/gyeongbi",
+    conceptsHref: "/gyeongbi",
+    conceptsLabel: "경비지도사 기출 허브",
+    eyebrow: "국가전문자격 · 1·2차",
+    title: "경비지도사",
+    accentFrom: "#eef1fa",
+    accentTo: "#f6f8fc",
+    cta: "경비지도사 알아보기",
+  },
 ] as const;
 
 /** 학습 시작 — iOS 시스템 블루를 써서 카드 색과 분리되는 선명한 출발점 */
