@@ -137,8 +137,8 @@ export function appStoreLinksForScope(
         ios: "https://apps.apple.com/kr/app/id6816073525",
       };
     case "gyeongbi":
-      // 2026-10-05 앱 제작 중 — 두 스토어 모두 공개 페이지 없음(「출시준비중」). 출시 뒤 채운다.
-      return { android: null, ios: null };
+      // 2026-10-13 App Store 공개(iTunes lookup 「봄기출 경비지도사」 1.0.3). Google Play 는 아직 공개 페이지 없음(404).
+      return { android: null, ios: "https://apps.apple.com/kr/app/id6819304028" };
     case "gamjeong":
       // 2026-10-12 앱 출시 준비 중 — 두 스토어 모두 공개 페이지가 없다. 출시 뒤 채운다.
       return { android: null, ios: null };
