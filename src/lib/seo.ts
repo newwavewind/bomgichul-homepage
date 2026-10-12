@@ -369,12 +369,16 @@ export function buildPlatformHomeJsonLd() {
       name: "경비지도사 1·2차 기출 학습",
       url: absoluteUrl("/gyeongbi"),
     },
+    {
+      name: "감정평가사 1차 기출 학습",
+      url: absoluteUrl("/gamjeong"),
+    },
   ] as const;
 
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사·경비지도사 기출 학습",
+    name: "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사·경비지도사·감정평가사 기출 학습",
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     inLanguage: "ko-KR",

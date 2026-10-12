@@ -222,6 +222,27 @@ export const GYEONGBI_TRACK: ExamTrackConfig = {
   aboutName: "경비지도사 국가자격시험 1·2차",
 };
 
+/*
+ * 감정평가사는 1차 다섯 과목(민법·경제학원론·부동산학원론·감정평가관계법규·회계학, 5지선다)만 싣는다.
+ * 2차(감정평가실무·이론·보상법규)는 서술형이고 확정답안이 없어 웹 OX 트랙에는 싣지 않는다 — 앱은 바로바로 AI.
+ * 시행 국토교통부, 접수·출제 한국산업인력공단(Q-Net).
+ */
+export const GAMJEONG_TRACK: ExamTrackConfig = {
+  id: "gamjeong",
+  label: "감정평가사",
+  shortLabel: "감정평가사",
+  basePath: "/gamjeong",
+  eyebrow: "봄기출 · 감정평가사",
+  hubTitle: "감정평가사 1차 기출 학습의 모든 것",
+  hubDescription:
+    "감정평가사 1차 민법·경제학원론·부동산학원론·감정평가관계법규·회계학 기출을 회차별로 학습하세요. 2차 서술형은 확정답안이 없어 웹 OX 트랙에는 싣지 않았습니다.",
+  communityScope: "gamjeong",
+  communityTitle: "감정평가사 수험생 커뮤니티",
+  sessionEyebrow: "감정평가사 1차 기출",
+  educationalLevel: "감정평가사 국가자격시험",
+  aboutName: "감정평가사 국가자격시험 1차",
+};
+
 export const EXAM_TRACKS = [
   POLICE_TRACK,
   FIREFIGHTER_TRACK,
@@ -236,6 +257,7 @@ export const EXAM_TRACKS = [
   SONHAE_TRACK,
   NOMUSA_TRACK,
   GYEONGBI_TRACK,
+  GAMJEONG_TRACK,
 ] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
@@ -252,5 +274,6 @@ export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/sonhae")) return SONHAE_TRACK;
   if (pathname.startsWith("/nomusa")) return NOMUSA_TRACK;
   if (pathname.startsWith("/gyeongbi")) return GYEONGBI_TRACK;
+  if (pathname.startsWith("/gamjeong")) return GAMJEONG_TRACK;
   return null;
 }

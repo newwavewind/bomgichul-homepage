@@ -5,6 +5,7 @@ import { ExamTrackQuestion } from "@/components/exam-track/ExamTrackQuestion";
 import { EnglishPassageNotes } from "@/components/english/EnglishPassageNotes";
 import { ExamMaterialFigure } from "@/components/exam/ExamMaterialFigure";
 import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
+import { ExamSubjectNotice } from "@/components/exam/ExamSubjectNotice";
 import { HistoryConceptNote } from "@/components/history/HistoryConceptNote";
 import { TrackConceptDetailView } from "@/components/exam-track/TrackConceptDetailView";
 import { TrackConceptPartList, type TrackConceptPartGroup } from "@/components/exam-track/TrackConceptPartList";
@@ -625,11 +626,13 @@ export async function TrackExamDetailPage({
             </div>
           </div>
           <div className="mt-5">
+            <ExamSubjectNotice notice={exam.notice} className="mb-4" />
             <QuestionStem
               stem={(isSubjective ? exam.prompt : exam.stem) ?? ""}
               questionNo={exam.questionNo}
               renderBox={passageLead.length === 0}
               underlines={exam.underlines ?? null}
+              keepLineBreaks={exam.keepStemLines}
             />
             <ExamStructuredMaterials table={exam.table} stemTail={exam.stemTail} />
           </div>

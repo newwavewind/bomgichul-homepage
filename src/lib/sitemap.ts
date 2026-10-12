@@ -70,6 +70,11 @@ import {
   getGyeongbiExamSessions,
 } from "@/lib/gyeongbi-content";
 import {
+  GAMJEONG_SUBJECT_IDS,
+  getGamjeongSubject,
+  getGamjeongExamSessions,
+} from "@/lib/gamjeong-content";
+import {
   HISTORY_SUBJECT_IDS,
   getHistoryExamSessions,
   getHistorySubject,
@@ -103,6 +108,7 @@ export const SITEMAP_GROUPS = [
   "sonhae",
   "nomusa",
   "gyeongbi",
+  "gamjeong",
 ] as const;
 
 export type SitemapGroup = (typeof SITEMAP_GROUPS)[number];
@@ -123,6 +129,7 @@ const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   sonhae: "sonhae",
   nomusa: "nomusa",
   gyeongbi: "gyeongbi",
+  gamjeong: "gamjeong",
 };
 
 function page(
@@ -352,6 +359,14 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         GYEONGBI_SUBJECT_IDS.filter((id) => (getGyeongbiSubject(id)?.exams.length ?? 0) > 0),
         getGyeongbiSubject,
         getGyeongbiExamSessions,
+        { includeConcepts: false },
+      );
+    case "gamjeong":
+      return getNamespacedTrackUrls(
+        "/gamjeong",
+        GAMJEONG_SUBJECT_IDS,
+        getGamjeongSubject,
+        getGamjeongExamSessions,
         { includeConcepts: false },
       );
   }

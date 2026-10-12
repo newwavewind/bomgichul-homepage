@@ -123,6 +123,16 @@ const TRACK_EXAM_SCHEDULE: Record<
     note: "제28회 1차·2차를 같은 날 치릅니다. 원서 접수·합격 발표는 Q-Net 공고를 확인하세요.",
     examName: "경비지도사 국가자격시험",
   },
+  // 2026년 제37회는 1차 4.4.·2차 7.4. 시행을 마쳤다(앱 data/exam_days.json). 2027년 제38회 시행계획은
+  // 아직 공고 전이라 D-day 를 띄우지 않는다 — 공고가 나오면 날짜를 넣고 scheduleUnconfirmed 를 뗀다.
+  gamjeong: {
+    label: "감정평가사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "2026년 제37회는 1차 4.4.·2차 7.4. 시행을 마쳤습니다. 다음 회차 일정은 Q-Net 공고를 확인하세요.",
+    examName: "감정평가사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

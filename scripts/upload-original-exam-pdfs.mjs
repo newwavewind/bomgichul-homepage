@@ -614,6 +614,35 @@ function collectJobs() {
     }
   }
 
+  // ——— 감정평가사 (앱 exam-pdfs — 1·2차, 제28회 2017 ~ 제37회 2026) ———
+  // 앱 public/exam-pdfs/gamjeong/<연도>/ 의 문제지·최종정답(이름 `<연도>-<1차|2차>[-<N>교시]-<문제지|최종정답>…`).
+  {
+    const root = join(HOME, 'gamjeongbomgichul/public/exam-pdfs')
+    for (const file of walkExamFiles(root)) {
+      const name = nfc(basename(file))
+      const year = (name.match(/^(\d{4})/) || [])[1]
+      if (!year) continue
+      const y = Number(year)
+      if (y < 2017 || y > 2026) continue
+      let detail = name
+        .replace(/\.(pdf|hwp|hwpx)$/i, '')
+        .replace(/^\d{4}-/, '')
+        .replace(/-[a-f0-9]{5,}$/i, '')
+        .replace(/-/g, ' ')
+        .trim()
+      if (!detail) detail = kindFromName(name)
+      const title = `${TITLE_PREFIX} ${year}년 감정평가사 · ${detail}`
+      jobs.push({
+        scope: 'gamjeong',
+        subject: 'other',
+        title,
+        content: `감정평가사 국가자격시험 기출 원본입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `gamjeong|app|${name}`,
+      })
+    }
+  }
+
   // ——— 세무사 (데스크탑 10개년) ———
   {
     const deskRoot = join(HOME, 'Desktop/세무사_기출_10개년')

@@ -18,6 +18,7 @@ export const PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: st
   { value: "sonhae", label: "손해평가사" },
   { value: "nomusa", label: "공인노무사" },
   { value: "gyeongbi", label: "경비지도사" },
+  { value: "gamjeong", label: "감정평가사" },
   { value: "history", label: "한국사" },
 ];
 

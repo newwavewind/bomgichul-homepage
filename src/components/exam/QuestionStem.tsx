@@ -62,16 +62,29 @@ export function QuestionStem({
   renderBox = true,
   /** 공무원 영어 — stem 기준 밑줄 구간 */
   underlines = null,
+  /**
+   * 발문 첫 줄이 물음이고 그 뒤 줄이 자료 상자 한 줄씩이다(감정평가사 — 변환기가 앱 material_lines 를
+   * 줄로 붙인 문항). 짐작해 나누지 않고 그 줄 그대로 상자에 넣는다. 짐작하면 「Y=C+I+X−M / C=… / I=…」
+   * 같은 ○ 없는 모형 식이 한 줄로 이어 붙고, 물음 뒤 「(단, …)」 단서가 상자로 들어갔다.
+   */
+  keepLineBreaks = false,
 }: {
   stem: string;
   questionNo?: number;
   renderBox?: boolean;
   underlines?: readonly UnderlineRange[] | null;
+  keepLineBreaks?: boolean;
 }) {
   // 밑줄 offset 는 원문 기준이다. * 각주 표시를 지우면 자리가 밀리므로
   // 밑줄이 있는 문항에서는 원문을 그대로 쓴다.
   const cleanStem = underlines?.length ? stem : plainStudyText(stem);
-  const { intro, boxLines } = parseQuestionStem(cleanStem);
+  const stemLines = keepLineBreaks ? cleanStem.split("\n") : null;
+  const { intro, boxLines } = stemLines
+    ? {
+        intro: stemLines[0]!.trim(),
+        boxLines: stemLines.slice(1).map((line) => line.trim()).filter(Boolean),
+      }
+    : parseQuestionStem(cleanStem);
   const headingClass =
     "mb-8 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink";
 
@@ -105,6 +118,21 @@ export function QuestionStem({
   const proseBox =
     proseBoxStart != null &&
     boxLines[0] === cleanStem.slice(proseBoxStart).replace(/\s+$/, "");
+  // 자료 줄 안의 밑줄(「밑줄 친 (ㄱ)」) — 줄마다 원문 안 자리를 앞에서부터 찾아 밑줄 offset 를 옮긴다.
+  // 상자로 나눌 때 글자를 바꾼 줄(「o 」→「○ 」)은 못 찾으면 밑줄 없이 그린다.
+  const groups = toBoxGroups(boxLines);
+  const lineOffsets: (number | null)[][] = [];
+  let lineCursor = intro.length;
+  for (const group of groups) {
+    const offsets: (number | null)[] = [];
+    for (const line of group.lines) {
+      const trimmed = line.trim();
+      const at = underlines?.length && !proseBox ? cleanStem.indexOf(trimmed, lineCursor) : -1;
+      offsets.push(at >= 0 ? at : null);
+      if (at >= 0) lineCursor = at + trimmed.length;
+    }
+    lineOffsets.push(offsets);
+  }
 
   return (
     <>
@@ -117,7 +145,7 @@ export function QuestionStem({
           baseOffset={0}
         />
       )}
-      {toBoxGroups(boxLines).map((group, gi) => (
+      {groups.map((group, gi) => (
         <fieldset
           key={gi}
           className="mb-8 min-w-0 max-w-3xl rounded-[var(--radius-cards)] border border-carbon px-5 pb-4 last:mb-8"
@@ -139,7 +167,7 @@ export function QuestionStem({
               const lineOffset =
                 proseBox && proseBoxStart != null && gi === 0 && i === 0
                   ? proseBoxStart
-                  : null;
+                  : (lineOffsets[gi]?.[i] ?? null);
               return (
                 <p
                   key={i}

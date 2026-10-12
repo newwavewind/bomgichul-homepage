@@ -42,6 +42,30 @@ describe("practice question materials", () => {
     for (const text of ["기초", "1,000", "기말 금액으로 옳은 것은?", "차변", "대변"]) expect(html).toContain(text);
   });
 
+  it("renders 감정평가사 subject notice, model lines one per line, box and table underlines", () => {
+    const stem = "아래 모형에서 (ㄱ)균형소득은?\nY=C+I\nC=100+0.6Y";
+    const html = render({
+      id: "gamjeong", year: 2026, sourceCode: "제37회", questionNo: 41,
+      notice: "※ 회계기간은 1월 1일부터 12월 31일까지이다.",
+      stem, keepStemLines: true,
+      underlines: [[stem.indexOf("(ㄱ)균형소득"), stem.indexOf("(ㄱ)균형소득") + "(ㄱ)균형소득".length], [stem.indexOf("C=100"), stem.indexOf("C=100") + 5]],
+      table: [
+        { headerRows: [["속성", "독점시장"]], rows: [["균형 가격", { text: "(ㄱ)P > MC", underlines: [[0, 9]] }]] },
+        { lead: "○ 표 뒤에 오는 조건 줄", rows: [] },
+      ],
+      correctChoice: 1,
+      items: [{ key: "1", label: "①", text: "500" }, { key: "2", label: "②", text: "600" }],
+    });
+    expect(html).toContain("과목 공통 전제 보기");
+    expect(html).toContain("회계기간은 1월 1일부터");
+    // 식 두 줄이 한 줄로 이어 붙지 않는다
+    expect(html).toMatch(/>Y=C\+I<\/p>/);
+    expect(html).toContain("<u class=\"underline decoration-carbon underline-offset-[3px]\">(ㄱ)균형소득</u>");
+    expect(html).toContain(">C=100</u>");
+    expect(html).toContain(">(ㄱ)P &gt; MC</u>");
+    expect(html).toContain("○ 표 뒤에 오는 조건 줄");
+  });
+
   it("keeps compound statements in the passage and renders numeric answer combinations", () => {
     const html = render({
       id: "combo", year: 2026, sourceCode: "test", questionNo: 2,

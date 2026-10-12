@@ -215,6 +215,12 @@ export const COMMUNITY_HOME_GROUPS = [
     topicKeys: ["gyeongbi"],
   },
   {
+    scope: "gamjeong" as const,
+    label: "감정평가사",
+    blurb: "민법·경제학·부동산학·관계법규·회계학",
+    topicKeys: ["gamjeong"],
+  },
+  {
     scope: "history" as const,
     label: "한국사",
     blurb: "시대별 정리",
@@ -258,6 +264,7 @@ export const TOPIC_TEASERS = [
   { key: "sonhae", label: "손해평가사", blurb: "상법·재해보험법령·농학" },
   { key: "nomusa", label: "공인노무사", blurb: "노동법·민법·사회보험법" },
   { key: "gyeongbi", label: "경비지도사", blurb: "경비업법·민간경비론·법학" },
+  { key: "gamjeong", label: "감정평가사", blurb: "민법·경제학·부동산학·관계법규·회계학" },
   { key: "history", label: "한국사", blurb: "시대별 정리" },
 ] as const;
 

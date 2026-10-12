@@ -1,14 +1,22 @@
 import { plainStudyText } from "@/lib/study-text";
+import { renderUnderlinedText } from "@/lib/underlined-text";
 
 export type ExamTableCell =
   | string
-  | { text?: string; colSpan?: number; rowSpan?: number; align?: "left" | "center" };
+  | {
+      text?: string;
+      colSpan?: number;
+      rowSpan?: number;
+      align?: "left" | "center";
+      /** 칸 안 밑줄 친 말 [시작, 끝) — 「밑줄 친 (ㄱ)~(ㅁ)」을 묻는 표(감정평가사 경제학) */
+      underlines?: [number, number][];
+    };
 
 export interface ExamStructuredTable {
   caption?: string;
   lead?: string;
   headers?: string[];
-  headerRows?: Array<Array<string | { text?: string; colSpan?: number; rowSpan?: number }>>;
+  headerRows?: Array<Array<string | { text?: string; colSpan?: number; rowSpan?: number; underlines?: [number, number][] }>>;
   rows: ExamTableCell[][];
   notes?: string[];
 }
@@ -20,17 +28,26 @@ export interface ExamTAccount {
 }
 
 function cellInfo(cell: ExamTableCell) {
-  if (typeof cell === "string") return { text: cell, colSpan: 1, rowSpan: 1, align: undefined };
+  if (typeof cell === "string") return { text: cell, colSpan: 1, rowSpan: 1, align: undefined, underlines: undefined };
   return {
     text: cell?.text ?? "",
     colSpan: cell?.colSpan ?? 1,
     rowSpan: cell?.rowSpan ?? 1,
     align: cell?.align,
+    underlines: cell?.underlines,
   };
 }
 
+/** 칸 글 — 밑줄 자리가 있으면 그 자리에 밑줄을 긋는다(자리는 원문 기준이라 별표 정리 없이 그린다) */
+function cellText(cell: ReturnType<typeof cellInfo>) {
+  return cell.underlines?.length ? renderUnderlinedText(cell.text, cell.underlines) : plainStudyText(cell.text);
+}
+
 function MaterialTable({ table }: { table: ExamStructuredTable }) {
-  if (!table.rows?.length) return null;
+  // 표 없이 글만 있는 자리 — 자료 문단이 마지막 표 뒤에 오는 문항(○ 조건·ㄱ.~ㅁ. 보기)
+  if (!table.rows?.length) {
+    return table.lead ? <p className="whitespace-pre-line font-display text-body leading-relaxed text-ink">{plainStudyText(table.lead)}</p> : null;
+  }
   const headerRows = table.headerRows?.length
     ? table.headerRows.map((row) => row.map(cellInfo))
     : table.headers?.length
@@ -53,8 +70,8 @@ function MaterialTable({ table }: { table: ExamStructuredTable }) {
               {headerRows.map((row, rowIndex) => (
                 <tr key={`header-${rowIndex}`}>
                   {row.map((cell, cellIndex) => (
-                    <th key={`header-${rowIndex}-${cellIndex}`} colSpan={cell.colSpan > 1 ? cell.colSpan : undefined} rowSpan={cell.rowSpan > 1 ? cell.rowSpan : undefined} className="border border-ash bg-snow px-3 py-2 text-center font-semibold">
-                      {plainStudyText(cell.text)}
+                    <th key={`header-${rowIndex}-${cellIndex}`} colSpan={cell.colSpan > 1 ? cell.colSpan : undefined} rowSpan={cell.rowSpan > 1 ? cell.rowSpan : undefined} className="whitespace-pre-line border border-ash bg-snow px-3 py-2 text-center font-semibold">
+                      {cellText(cell)}
                     </th>
                   ))}
                 </tr>
@@ -68,8 +85,8 @@ function MaterialTable({ table }: { table: ExamStructuredTable }) {
                   const cell = cellInfo(rawCell);
                   const align = cell.align ?? (cellIndex === 0 && cell.colSpan === 1 ? "left" : "center");
                   return (
-                    <td key={`cell-${rowIndex}-${cellIndex}`} colSpan={cell.colSpan > 1 ? cell.colSpan : undefined} rowSpan={cell.rowSpan > 1 ? cell.rowSpan : undefined} className={`border border-ash px-3 py-2 leading-relaxed ${align === "left" ? "text-left" : "text-center tabular-nums"}`}>
-                      {plainStudyText(cell.text)}
+                    <td key={`cell-${rowIndex}-${cellIndex}`} colSpan={cell.colSpan > 1 ? cell.colSpan : undefined} rowSpan={cell.rowSpan > 1 ? cell.rowSpan : undefined} className={`whitespace-pre-line border border-ash px-3 py-2 leading-relaxed ${align === "left" ? "text-left" : "text-center tabular-nums"}`}>
+                      {cellText(cell)}
                     </td>
                   );
                 })}

@@ -139,7 +139,17 @@ export function lawUrl(name: string, article?: string, articleOf?: string): stri
   return `https://www.law.go.kr/${kind}/${encodeURIComponent(proper)}/${encodeURIComponent(clause)}`;
 }
 
+/** 헌법재판소 사건부호 — 헌마·헌바·헌가·헌라·헌나·헌다 */
+const CONSTITUTIONAL_COURT_CASE = /헌[마바가라나다]/;
+
+/**
+ * 헌법재판소 결정은 대법원 판례 검색에 없다 — 판례 검색에 넣으면 「결과 없음」이 뜬다.
+ * 헌재결정례 검색으로 보낸다(앱 lawLink.js `판례주소` 와 같다, 경찰 앱 2026-10-06).
+ */
 export function precedentUrl(caseNo: string): string {
+  if (CONSTITUTIONAL_COURT_CASE.test(caseNo)) {
+    return `https://www.law.go.kr/detcSc.do?menuId=7&subMenuId=49&tabMenuId=225&query=${encodeURIComponent(caseNo)}`;
+  }
   return `https://www.law.go.kr/precSc.do?menuId=7&query=${encodeURIComponent(caseNo)}`;
 }
 

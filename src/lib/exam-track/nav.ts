@@ -143,6 +143,15 @@ const GYEONGBI_SUBJECTS: { id: string; label: string }[] = [
   { id: "gigyeseolgye", label: "기계경비기획 및 설계" },
 ];
 
+/** 1차 다섯 과목(5지선다) — 2차 서술형은 웹에 싣지 않는다 */
+const GAMJEONG_SUBJECTS: { id: string; label: string }[] = [
+  { id: "minbeop", label: "민법" },
+  { id: "gyeongje", label: "경제학원론" },
+  { id: "budongsan", label: "부동산학원론" },
+  { id: "beopgyu", label: "감정평가관계법규" },
+  { id: "hoegye", label: "회계학" },
+];
+
 const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
   { id: "sobang", label: "소방학개론" },
   { id: "sobangbeop", label: "소방관계법규" },
@@ -204,7 +213,9 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
                             ? NOMUSA_SUBJECTS
                             : scope === "gyeongbi"
                               ? GYEONGBI_SUBJECTS
-                              : PUBLIC_SERVICE_SUBJECTS;
+                              : scope === "gamjeong"
+                                ? GAMJEONG_SUBJECTS
+                                : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -242,6 +253,7 @@ function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/sonhae")) return false;
   if (pathname.startsWith("/nomusa")) return false;
   if (pathname.startsWith("/gyeongbi")) return false;
+  if (pathname.startsWith("/gamjeong")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -401,6 +413,17 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("gyeongbi"),
       subjects: subjectsForScope("gyeongbi"),
       tools: toolsForScope("gyeongbi"),
+    };
+  }
+  if (path.startsWith("/gamjeong")) {
+    return {
+      mode: "track",
+      scope: "gamjeong",
+      label: communityScopeLabel("gamjeong"),
+      shortLabel: "감정평가사",
+      hubHref: trackHubHref("gamjeong"),
+      subjects: subjectsForScope("gamjeong"),
+      tools: toolsForScope("gamjeong"),
     };
   }
   if (path.startsWith("/public-service")) {

@@ -68,6 +68,10 @@ const HUB_COPY: Record<
     allInOne: ["법학개론", "민간경비론", "경비업법", "경호학"],
     exam: ["법학개론", "민간경비론", "경비업법", "범죄학"],
   },
+  gamjeong: {
+    allInOne: ["민법", "경제학원론", "부동산학원론", "감정평가관계법규", "회계학"],
+    exam: ["민법", "경제학원론", "부동산학원론", "감정평가관계법규", "회계학"],
+  },
 };
 
 const CONCEPT_COPY: Record<
@@ -89,6 +93,7 @@ const CONCEPT_COPY: Record<
   sonhae: { crumb: "손해평가사 · 「상법」 보험편", title: "보험계약의 법적 성질" },
   nomusa: { crumb: "공인노무사 · 노동법(1)", title: "근로기준법상 해고의 제한" },
   gyeongbi: { crumb: "경비지도사 · 경비업법", title: "경비업의 종류" },
+  gamjeong: { crumb: "감정평가사 · 부동산학원론", title: "감정평가의 3방식" },
 };
 
 const EXAM_COPY: Record<
@@ -154,6 +159,10 @@ const EXAM_COPY: Record<
   gyeongbi: {
     subject: "경비업법",
     stem: "경비업법령상 경비업의 허가에 관한 설명으로 옳은 것은?",
+  },
+  gamjeong: {
+    subject: "감정평가관계법규",
+    stem: "감정평가 및 감정평가사에 관한 법령상 감정평가사의 등록에 관한 설명으로 옳은 것은?",
   },
 };
 
@@ -267,6 +276,13 @@ const COMMUNITY_COPY: Record<
       { title: "민간경비론 경비 형태 비교 정리 공유", meta: "수험정보 · 댓글 8" },
     ],
   },
+  gamjeong: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "회계학 리스 감가상각 계산이 헷갈려요", meta: "질문 · 댓글 6" },
+      { title: "감정평가관계법규 국토계획법 용도지역 정리 공유", meta: "수험정보 · 댓글 9" },
+    ],
+  },
 };
 
 const ARCHIVE_COPY: Record<
@@ -348,6 +364,11 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "경비업법 요약", size: "650KB" },
     { type: "요약", name: "민간경비론 체크", size: "430KB" },
   ],
+  gamjeong: [
+    { type: "PDF", name: "감정평가사 1차 기출 모아보기", size: "3.3MB" },
+    { type: "노트", name: "감정평가관계법규 요약", size: "700KB" },
+    { type: "요약", name: "회계학 계산 체크", size: "460KB" },
+  ],
 };
 
 const DIARY_COPY: Record<VisualScope, string> = {
@@ -366,6 +387,7 @@ const DIARY_COPY: Record<VisualScope, string> = {
   sonhae: "보험편 법적 성질 정리",
   nomusa: "근로기준법 해고 제한 정리",
   gyeongbi: "경비업법 허가·신고 정리",
+  gamjeong: "부동산학원론 감정평가 방식 정리",
 };
 
 function PhoneFrame({

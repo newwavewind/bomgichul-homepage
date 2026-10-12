@@ -176,6 +176,17 @@ const exams = [
     accentTo: "#f6f8fc",
     cta: "경비지도사 알아보기",
   },
+  {
+    href: "/gamjeong/intro",
+    learnHref: "/gamjeong",
+    conceptsHref: "/gamjeong",
+    conceptsLabel: "감정평가사 기출 허브",
+    eyebrow: "국가전문자격 · 1차",
+    title: "감정평가사",
+    accentFrom: "#fbeef2",
+    accentTo: "#fdf6f8",
+    cta: "감정평가사 알아보기",
+  },
 ] as const;
 
 /** 학습 시작 — iOS 시스템 블루를 써서 카드 색과 분리되는 선명한 출발점 */

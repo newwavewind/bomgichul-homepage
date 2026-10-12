@@ -48,6 +48,7 @@ const APP_LABELS: Record<string, string> = {
   sonhae: "손해평가사",
   sanan: "산업안전지도사",
   gyeongbi: "경비지도사",
+  gamjeong: "감정평가사",
 };
 
 /** 필터·묶음에 쓰는 앱 순서 */
@@ -67,6 +68,7 @@ const APP_ORDER = [
   "sonhae",
   "sanan",
   "gyeongbi",
+  "gamjeong",
 ] as const;
 
 /**
@@ -101,10 +103,27 @@ const GYEONGBI_SLOT_LABELS: Record<string, string> = {
   gigyeseolgye: "기계경비기획 및 설계",
 };
 
+/**
+ * 감정평가사 앱: 과목 id → 과목명(1차 다섯·2차 셋).
+ * 「hoegye」 등은 기본 맵에 없어 날것으로 뜨고, 2차 「iron」·「silmu」·「bosang」도 여기서 이름을 붙인다.
+ * @see gamjeongbomgichul/src/subjects/registry.js
+ */
+const GAMJEONG_SLOT_LABELS: Record<string, string> = {
+  minbeop: "민법",
+  gyeongje: "경제학원론",
+  budongsan: "부동산학원론",
+  beopgyu: "감정평가관계법규",
+  hoegye: "회계학",
+  silmu: "감정평가실무",
+  iron: "감정평가이론",
+  bosang: "감정평가 및 보상법규",
+};
+
 /** 앱 접두별 슬롯 라벨 덮어쓰기 (공인중개사 기본 맵보다 우선) */
 const APP_SUBJECT_SLUG_OVERRIDES: Record<string, Record<string, string>> = {
   police: POLICE_SLOT_LABELS,
   gyeongbi: GYEONGBI_SLOT_LABELS,
+  gamjeong: GAMJEONG_SLOT_LABELS,
 };
 
 /** 콜론 뒤 과목 슬러그 → 한국어 (공인중개사·공통 기본값) */

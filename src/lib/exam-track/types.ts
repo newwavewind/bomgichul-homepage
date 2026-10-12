@@ -99,17 +99,19 @@ export interface ExamTrackMaterial {
   image: string;
   width?: number;
   height?: number;
+  /** 그림을 글로 옮긴 설명(감정평가사 figure_alt) — 대체 글 */
+  alt?: string;
 }
 
 export type ExamTrackTableCell =
   | string
-  | { text?: string; colSpan?: number; rowSpan?: number; align?: "left" | "center" };
+  | { text?: string; colSpan?: number; rowSpan?: number; align?: "left" | "center"; underlines?: [number, number][] };
 
 export interface ExamTrackTable {
   caption?: string;
   lead?: string;
   headers?: string[];
-  headerRows?: Array<Array<string | { text?: string; colSpan?: number; rowSpan?: number }>>;
+  headerRows?: Array<Array<string | { text?: string; colSpan?: number; rowSpan?: number; underlines?: [number, number][] }>>;
   rows: ExamTrackTableCell[][];
   notes?: string[];
 }
@@ -122,6 +124,14 @@ export interface ExamTrackExam {
   questionNo: number;
   /** 한국사 — 문항 자료 이미지 */
   material?: ExamTrackMaterial;
+  /**
+   * 과목 머리 안내문 — 시험지가 과목 첫머리에 한 번 적는 공통 전제(감정평가사 회계학:
+   * 「회계기간 1월 1일~12월 31일 · K-IFRS 적용 · 법인세 언급이 없으면 법인세 효과 무시」).
+   * 계산 문항의 답이 이 전제에 달려 있어 앱처럼 문항 위에 「과목 공통 전제 보기」로 싣는다.
+   */
+  notice?: string;
+  /** 발문 뒤 자료 줄(앱 material_lines)을 한 줄씩 지킨다 — 모형 식처럼 ○ 없이 오는 줄 */
+  keepStemLines?: boolean;
   /** 회계·법규 문항에 포함된 표 또는 복수 표 */
   table?: ExamTrackTable | ExamTrackTable[];
   /** 표 뒤에 이어지는 발문 */
@@ -218,7 +228,8 @@ export interface ExamTrackConfig {
     | "sanan"
     | "sonhae"
     | "nomusa"
-    | "gyeongbi";
+    | "gyeongbi"
+    | "gamjeong";
   label: string;
   shortLabel: string;
   basePath: string;
@@ -238,7 +249,8 @@ export interface ExamTrackConfig {
     | "sanan"
     | "sonhae"
     | "nomusa"
-    | "gyeongbi";
+    | "gyeongbi"
+    | "gamjeong";
   communityTitle: string;
   sessionEyebrow: string;
   educationalLevel: string;

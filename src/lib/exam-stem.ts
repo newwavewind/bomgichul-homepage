@@ -92,9 +92,14 @@ function splitCircledItemBullets(text: string): string[] {
  * OCR 원문은 표 머리와 항목을 `주요대상가. 범죄자 나. 우범자`처럼 한 줄에 붙여 둔다.
  * 항목 표지가 둘 이상일 때만 나눠 일반 문장 속 `가.`를 잘못 자르는 일을 피한다.
  */
+const KOREAN_ITEM_ORDER = "가나다라마바사아자차카타파하";
+
 function splitKoreanLetterItems(text: string): string[] {
   const matches = [...text.matchAll(INLINE_KOREAN_ITEM)];
   if (matches.length < 2) return [];
+  // 항목 표지는 「가. 나. 다.」 차례로 온다. 그렇지 않으면 문장 끝 「…이다. …한다.」의 「다.」다 —
+  // 두 문장짜리 보기 줄(「ㄴ. …1,100(원/달러)이다. 장기적으로 … 상승한다.」)을 「다.」마다 자르던 것을 막는다.
+  if (!matches.every((m, i) => m[0][0] === KOREAN_ITEM_ORDER[i])) return [];
 
   const parts: string[] = [];
   const firstIndex = matches[0].index ?? 0;

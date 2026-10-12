@@ -125,11 +125,13 @@ export function ExamMaterialFigure({
   const [open, setOpen] = useState(false);
   if (!material?.image) return null;
   const alt = `${questionNo}번 문항 자료`;
+  // 그림을 글로 옮긴 설명이 있으면(감정평가사 그래프·도해) 그것을 대체 글로 — 화면 읽기·검색이 그림 내용을 안다
+  const imageAlt = material.alt ? `${alt} — ${material.alt}` : alt;
   return (
     <>
       <figure className="mb-6 overflow-hidden rounded-[var(--radius-cards)] border border-mist bg-white">
         <button type="button" onClick={() => setOpen(true)} aria-label={`${alt} 크게 보기`} className="group relative block w-full cursor-zoom-in bg-white p-3">
-          <Image src={material.image} alt={alt} width={material.width ?? 1200} height={material.height ?? 900} className="mx-auto h-auto max-h-[720px] w-auto max-w-full" sizes="(max-width: 900px) 100vw, 860px" priority={questionNo <= 2} />
+          <Image src={material.image} alt={imageAlt} width={material.width ?? 1200} height={material.height ?? 900} className="mx-auto h-auto max-h-[720px] w-auto max-w-full" sizes="(max-width: 900px) 100vw, 860px" priority={questionNo <= 2} />
           <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full border border-mist bg-white/95 px-2 py-1 font-display text-[11px] font-bold text-smoke shadow-sm transition group-hover:border-carbon group-hover:text-carbon" aria-hidden>
             <ZoomIcon className="h-3.5 w-3.5" /> 크게
           </span>

@@ -26,7 +26,8 @@ export type CommunityScope =
   | "sanan"
   | "sonhae"
   | "nomusa"
-  | "gyeongbi";
+  | "gyeongbi"
+  | "gamjeong";
 
 export type ResourceType = "past_exam" | "note" | "summary" | "other";
 
