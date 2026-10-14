@@ -1,4 +1,5 @@
 import { HubExamIntroLink } from "@/components/exam-intro/HubExamIntroLink";
+import { DailyEntry } from "@/components/daily/DailyEntry";
 import { ExamTrackSubjectBrowser } from "@/components/exam-track/ExamTrackSubjectBrowser";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { appStoreLinksForScope } from "@/lib/constants";
@@ -17,6 +18,7 @@ export function ExamTrackHub({
         <div className="space-y-3">
           <h1 className="font-display text-heading font-semibold text-ink">{track.label} 기출문제</h1>
           <HubExamIntroLink href={`${track.basePath}/intro`} label={track.label} />
+          <DailyEntry href={`${track.basePath}/daily`} />
         </div>
 
         <ExamTrackSubjectBrowser track={track} subjects={subjects} />

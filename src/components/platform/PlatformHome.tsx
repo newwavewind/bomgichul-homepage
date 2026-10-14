@@ -220,12 +220,18 @@ export function PlatformHome() {
                   {exam.title}
                 </h2>
               </div>
-              <div className="mt-6">
+              <div className="mt-6 flex flex-wrap gap-2">
                 <Link href={exam.learnHref} className={learnCtaClass} aria-label={`${exam.title} 학습 시작`}>
                   학습 시작
                   <span aria-hidden className="opacity-80 transition-transform group-hover/cta:translate-x-0.5">
                     →
                   </span>
+                </Link>
+                <Link
+                  href={`${exam.learnHref}/daily`}
+                  className="inline-flex min-h-10 items-center justify-center rounded-[16px] border border-[#007AFF]/30 bg-white/80 px-4 py-2 text-center font-display text-[13px] font-semibold text-[#0066D6]"
+                >
+                  매일 10문제
                 </Link>
               </div>
             </article>

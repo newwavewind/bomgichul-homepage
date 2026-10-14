@@ -1,5 +1,6 @@
 import { SubjectLearningCard } from "@/components/study/SubjectLearningCard";
 import { HubExamIntroLink } from "@/components/exam-intro/HubExamIntroLink";
+import { DailyEntry } from "@/components/daily/DailyEntry";
 
 import { TintedAccentCard } from "@/components/ui/Card";
 
@@ -25,6 +26,7 @@ export function StudyHub() {
         <div className="space-y-3">
           <h1 className="font-display text-heading font-semibold text-ink">공인중개사 기출문제</h1>
           <HubExamIntroLink href="/real-estate/intro" label="공인중개사" />
+          <DailyEntry href="/real-estate/daily" />
         </div>
         <section id="exam"><span id="concepts" className="scroll-mt-24" /><h2 className="mb-6 text-2xl font-semibold">과목별 기출문제·핵심 개념</h2><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{EXAM_SUBJECTS.map(s=>{const subject=s.value as ExamSubject;return <SubjectLearningCard key={subject} label={ARCHIVE_SUBJECT_MAP[subject]} badge={SUBJECT_LANDING_INFO[subject].round} examCount={getExamQuestionsForSubject(subject).length} conceptCount={getConceptsForSubject(subject).length} examHref={`/exam/${subject}`} conceptHref={`/concepts/${subject}`}/>;})}</div></section>
 
