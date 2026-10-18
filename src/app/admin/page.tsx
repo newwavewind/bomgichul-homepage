@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { getAdminOverview, getAdminRecentSignups } from "@/lib/admin";
+import {
+  getAdminOverview,
+  getAdminRecentSignups,
+  getAdminSignupStats,
+} from "@/lib/admin";
 import { getAdminVisitStats } from "@/lib/site-visits";
 import { AdminStatCard } from "@/components/admin/AdminUi";
+import { AdminAuthProviderBadge } from "@/components/admin/AdminAuthProviderBadge";
 import { ElevatedCard } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/Typography";
 import { formatKstDateTime } from "@/lib/datetime";
@@ -25,12 +30,13 @@ export default async function AdminDashboardPage({
       ? requestedPage
       : 1;
 
-  const [overview, signups, visitStats] = await Promise.all([
+  const [overview, signups, signupStats, visitStats] = await Promise.all([
     getAdminOverview(),
     getAdminRecentSignups(
       showAll ? null : SIGNUPS_PER_PAGE,
-      showAll ? 0 : (page - 1) * SIGNUPS_PER_PAGE
+      showAll ? 0 : (page - 1) * SIGNUPS_PER_PAGE,
     ),
+    getAdminSignupStats(),
     getAdminVisitStats(),
   ]);
   const totalPages = showAll
@@ -45,19 +51,66 @@ export default async function AdminDashboardPage({
           한눈에 보기
         </SectionHeading>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <AdminStatCard label="전체 회원" value={overview.totalUsers} hint={`아이디 설정 완료 ${overview.usersWithUsername}명`} />
-          <AdminStatCard href="/admin/community" label="게시글" value={overview.totalPosts} hint={`최근 7일 ${overview.postsLast7Days}건`} />
+          <AdminStatCard
+            label="전체 회원"
+            value={signupStats.total.all}
+            hint={`아이디 설정 완료 ${overview.usersWithUsername}명`}
+          />
+          <AdminStatCard
+            label="오늘 가입"
+            value={signupStats.today.all}
+            hint={`Google ${signupStats.today.google}명 · 카카오 ${signupStats.today.kakao}명`}
+          />
+          <AdminStatCard
+            label="Google 가입"
+            value={signupStats.total.google}
+            hint={`오늘 ${signupStats.today.google}명`}
+          />
+          <AdminStatCard
+            label="카카오 가입"
+            value={signupStats.total.kakao}
+            hint={`오늘 ${signupStats.today.kakao}명`}
+          />
+          <AdminStatCard
+            href="/admin/community"
+            label="게시글"
+            value={overview.totalPosts}
+            hint={`최근 7일 ${overview.postsLast7Days}건`}
+          />
           <AdminStatCard
             label="오류·피드백"
             value={overview.openReports}
             hint="앱 제보·피드백 글"
           />
-          <AdminStatCard href="/admin/memos" label="공개 메모" value={overview.publicMemos} hint="기출 문항 메모" />
-          <AdminStatCard label="DM 메시지" value={overview.dmMessages} hint="누적 1:1 채팅" />
-          <AdminStatCard label="모의고사 기록" value={overview.mockExamSessions} />
-          <AdminStatCard label="일일 퀴즈 참여" value={overview.dailyQuizUsers} hint="누적 기록 수" />
-          <AdminStatCard label="프리미엄 이용" value={overview.premiumUsers} hint="활성 entitlements" />
-          <Link href="/admin/visits" className="block transition-opacity hover:opacity-90">
+          <AdminStatCard
+            href="/admin/memos"
+            label="공개 메모"
+            value={overview.publicMemos}
+            hint="기출 문항 메모"
+          />
+          <AdminStatCard
+            label="DM 메시지"
+            value={overview.dmMessages}
+            hint="누적 1:1 채팅"
+          />
+          <AdminStatCard
+            label="모의고사 기록"
+            value={overview.mockExamSessions}
+          />
+          <AdminStatCard
+            label="일일 퀴즈 참여"
+            value={overview.dailyQuizUsers}
+            hint="누적 기록 수"
+          />
+          <AdminStatCard
+            label="프리미엄 이용"
+            value={overview.premiumUsers}
+            hint="활성 entitlements"
+          />
+          <Link
+            href="/admin/visits"
+            className="block transition-opacity hover:opacity-90"
+          >
             <AdminStatCard
               label="오늘 방문"
               value={visitStats.uniqueVisitorsToday}
@@ -86,19 +139,30 @@ export default async function AdminDashboardPage({
             </p>
           ) : (
             <ul className="divide-y divide-mist/60">
-              {signups.rows.map((s, i) => (
+              {signups.rows.map((s) => (
                 <li
-                  key={`${s.email}-${i}`}
+                  key={s.id}
                   className="flex flex-wrap items-center justify-between gap-2 px-6 py-4"
                 >
                   <div>
-                    <p className="font-display text-body-sm font-medium text-ink">
-                      {s.nickname}
-                      {!s.usernameSet && (
-                        <span className="ml-2 text-[12px] text-fog">(아이디 미설정)</span>
-                      )}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="font-display text-body-sm font-medium text-ink">
+                        {s.providerNickname && !s.usernameSet
+                          ? s.providerNickname
+                          : s.nickname}
+                        {!s.usernameSet && (
+                          <span className="ml-2 text-[12px] text-fog">
+                            {s.providerNickname
+                              ? "(카카오 프로필 · 아이디 연결 필요)"
+                              : "(아이디 미설정)"}
+                          </span>
+                        )}
+                      </p>
+                      <AdminAuthProviderBadge provider={s.provider} />
+                    </div>
+                    <p className="mt-0.5 font-display text-[12px] text-smoke">
+                      {s.email ?? "이메일 없음"}
                     </p>
-                    <p className="mt-0.5 font-display text-[12px] text-smoke">{s.email ?? "이메일 없음"}</p>
                   </div>
                   <time className="font-display text-[12px] text-fog">
                     {formatKstDateTime(s.createdAt)}
@@ -119,15 +183,24 @@ export default async function AdminDashboardPage({
       <section className="rounded-[var(--radius-cards)] border border-dashed border-mist bg-surface px-5 py-4">
         <p className="font-display text-body-sm text-smoke">
           <strong className="text-ink">운영 팁:</strong> 오류·피드백은{" "}
-          <Link href="/admin/reports" className="text-electric-blue hover:underline">
+          <Link
+            href="/admin/reports"
+            className="text-electric-blue hover:underline"
+          >
             제보 목록
           </Link>
           에서 확인하고, 사이트 방문(로그인·비로그인·로컬 포함)은{" "}
-          <Link href="/admin/visits" className="text-electric-blue hover:underline">
+          <Link
+            href="/admin/visits"
+            className="text-electric-blue hover:underline"
+          >
             방문
           </Link>
           탭에서, 회원 로그인 이메일·공개 아이디는{" "}
-          <Link href="/admin/users" className="text-electric-blue hover:underline">
+          <Link
+            href="/admin/users"
+            className="text-electric-blue hover:underline"
+          >
             회원·로그인
           </Link>
           탭에서 조회할 수 있습니다.

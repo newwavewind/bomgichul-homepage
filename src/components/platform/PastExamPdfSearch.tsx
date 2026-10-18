@@ -150,7 +150,7 @@ export function PastExamPdfSearch() {
           문제·정답 바로 받기
         </h2>
         <p className="mt-1 font-display text-[13px] text-smoke">
-          시험·연도(한국사는 회차)를 고르거나 검색해서 받으세요. 로그인 없이 받을 수 있습니다.
+          시험·연도를 고르거나 검색해서 받으세요. 로그인 없이 받을 수 있습니다.
         </p>
       </div>
 

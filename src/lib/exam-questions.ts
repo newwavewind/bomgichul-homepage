@@ -16,6 +16,11 @@ export interface ExamQuestionItem {
   explanation: string;
 }
 
+export interface ExamReferenceEntry {
+  label: string;
+  text: string;
+}
+
 export interface ExamComboChoice {
   no: number;
   label: string;
@@ -50,6 +55,10 @@ export interface ExamQuestion {
   examDate?: string;
   lawVersions?: Record<string, string>;
   items: ExamQuestionItem[];
+  /** 문제 도입부 아래에 제시된 A·B·C 등의 분류 항목 */
+  leadEntries?: ExamReferenceEntry[];
+  /** 지문 뒤에 독립된 <보기> 상자로 제시된 가·나·다·라 등 대응 항목 */
+  referenceEntries?: ExamReferenceEntry[];
   comboChoices: ExamComboChoice[];
   free: boolean;
   /** 문항 전체 해설 요약(계산·근거). SEO·상세에 보기별 해설과 함께 노출 */

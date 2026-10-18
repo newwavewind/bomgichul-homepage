@@ -3,7 +3,7 @@ import { dailyResultMetadata, DailyResultPage } from "@/components/daily/DailySc
 export function generateMetadata({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined> | Promise<Record<string, string | string[] | undefined>>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   return dailyResultMetadata("gamjeong", searchParams);
 }
@@ -11,7 +11,7 @@ export function generateMetadata({
 export default function Page({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined> | Promise<Record<string, string | string[] | undefined>>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   return <DailyResultPage slug="gamjeong" searchParams={searchParams} />;
 }

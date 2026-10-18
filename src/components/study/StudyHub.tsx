@@ -1,6 +1,8 @@
 import { SubjectLearningCard } from "@/components/study/SubjectLearningCard";
-import { HubExamIntroLink } from "@/components/exam-intro/HubExamIntroLink";
-import { DailyEntry } from "@/components/daily/DailyEntry";
+import {
+  HubBackButton,
+  HubExamIntroLink,
+} from "@/components/exam-intro/HubExamIntroLink";
 
 import { TintedAccentCard } from "@/components/ui/Card";
 
@@ -12,7 +14,6 @@ import {
   ARCHIVE_SUBJECT_MAP,
   SUBJECT_LANDING_INFO,
 } from "@/lib/constants";
-import { getConceptsForSubject } from "@/lib/concepts";
 import {
   getExamQuestionsForSubject,
   type ExamSubject,
@@ -21,14 +22,16 @@ import {
 /** 학습 허브 — 홈(`/`) 전용. `/study`는 홈으로 영구 리다이렉트. */
 export function StudyHub() {
   return (
-    <div className="px-4 py-8 md:py-12">
-      <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
-        <div className="space-y-3">
-          <h1 className="font-display text-heading font-semibold text-ink">공인중개사 기출문제</h1>
+    <div className="px-4 py-6 sm:px-5 md:py-10">
+      <div className="mx-auto max-w-[1120px] space-y-10 md:space-y-12">
+        <div className="space-y-5">
+          <div className="flex items-center gap-2.5">
+            <HubBackButton />
+            <h1 className="font-display text-[30px] font-semibold leading-tight text-ink md:text-[34px]">공인중개사 기출문제</h1>
+          </div>
           <HubExamIntroLink href="/real-estate/intro" label="공인중개사" />
-          <DailyEntry href="/real-estate/daily" />
         </div>
-        <section id="exam"><span id="concepts" className="scroll-mt-24" /><h2 className="mb-6 text-2xl font-semibold">과목별 기출문제·핵심 개념</h2><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{EXAM_SUBJECTS.map(s=>{const subject=s.value as ExamSubject;return <SubjectLearningCard key={subject} label={ARCHIVE_SUBJECT_MAP[subject]} badge={SUBJECT_LANDING_INFO[subject].round} examCount={getExamQuestionsForSubject(subject).length} conceptCount={getConceptsForSubject(subject).length} examHref={`/exam/${subject}`} conceptHref={`/concepts/${subject}`}/>;})}</div></section>
+        <section id="exam"><h2 className="mb-5 text-[22px] font-semibold md:text-2xl">과목별 기출문제</h2><div className="grid gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">{EXAM_SUBJECTS.map(s=>{const subject=s.value as ExamSubject;return <SubjectLearningCard key={subject} label={ARCHIVE_SUBJECT_MAP[subject]} badge={SUBJECT_LANDING_INFO[subject].round} examCount={getExamQuestionsForSubject(subject).length} examHref={`/exam/${subject}`} dailyHref={`/real-estate/daily?subject=${encodeURIComponent(subject)}`}/>;})}</div></section>
 
         <AdRail adsense="hub" spacingClassName="" />
 

@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AiProviderTag, AiProviderTriangleDots } from "@/components/exam/AiProviderTag";
+import {
+  AiProviderTag,
+  AiProviderTriangleDots,
+} from "@/components/exam/AiProviderTag";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import { trackEvent } from "@/lib/analytics";
 import { fetchMe, useMe } from "@/lib/client-session";
@@ -49,13 +52,16 @@ function LoginModal({
         aria-labelledby="hp-cx-concept-ai-login-title"
       >
         <p className="hp-cx-login-modal__badge">무료</p>
-        <h3 id="hp-cx-concept-ai-login-title" className="hp-cx-login-modal__title">
+        <h3
+          id="hp-cx-concept-ai-login-title"
+          className="hp-cx-login-modal__title"
+        >
           로그인이 필요해요
         </h3>
         <p className="hp-cx-login-modal__desc">
           AI 해설은 로그인만 하면 무료로 이용할 수 있어요.
           <br />
-          구독·결제 없이 Google로 바로 시작하세요.
+          구독·결제 없이 Google 또는 카카오로 바로 시작하세요.
         </p>
         <div className="hp-cx-login-modal__actions">
           <OutlineButton onClick={onClose}>닫기</OutlineButton>
@@ -119,7 +125,8 @@ export function ConceptAiButtons({
     }
     if (!prompt) return;
     const { copied } = await openAiService(serviceId, prompt);
-    const label = AI_SERVICES.find((s) => s.id === serviceId)?.label ?? serviceId;
+    const label =
+      AI_SERVICES.find((s) => s.id === serviceId)?.label ?? serviceId;
     trackEvent("concept_ai_ask", { service: serviceId, subject });
     setOpen(false);
 
@@ -134,7 +141,10 @@ export function ConceptAiButtons({
 
   return (
     <>
-      <span ref={rootRef} className="exam-ai hp-cx-concept-ai inline-flex max-w-full flex-col items-start gap-1.5">
+      <span
+        ref={rootRef}
+        className="exam-ai hp-cx-concept-ai inline-flex max-w-full flex-col items-start gap-1.5"
+      >
         <span className="exam-ai__row inline-flex max-w-full flex-wrap items-start gap-x-2.5 gap-y-1.5">
           <span className="inline-flex w-fit max-w-full shrink-0 flex-col items-stretch">
             <button
@@ -182,7 +192,9 @@ export function ConceptAiButtons({
               className="exam-ai__hint relative min-w-[11rem] max-w-[18rem] flex-1 rounded-[0.65rem] border border-burnt/20 bg-paper px-2.5 py-2 shadow-[var(--shadow-button)]"
               role="note"
             >
-              <p className="font-display text-[11px] leading-snug text-smoke">{USAGE_HINT}</p>
+              <p className="font-display text-[11px] leading-snug text-smoke">
+                {USAGE_HINT}
+              </p>
             </div>
           ) : null}
         </span>
@@ -194,7 +206,11 @@ export function ConceptAiButtons({
         ) : null}
       </span>
 
-      <LoginModal open={loginOpen} loginHref={loginHref} onClose={() => setLoginOpen(false)} />
+      <LoginModal
+        open={loginOpen}
+        loginHref={loginHref}
+        onClose={() => setLoginOpen(false)}
+      />
     </>
   );
 }

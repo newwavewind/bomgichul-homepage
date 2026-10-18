@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PublicServiceQuestion } from "@/components/public-service/PublicServiceQuestion";
 import { PublicServiceExamMaterials } from "@/components/public-service/PublicServiceExamMaterials";
-import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
 import {
   ExamQuestionSeoExplanations,
   hasExamQuestionSeoExplanations,
@@ -19,7 +18,6 @@ import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
 import { getPublicServiceExam, getPublicServiceSubject } from "@/lib/public-service-content";
-import { findTrackConceptsForExamQuestion } from "@/lib/exam-track/concept-matches";
 import {
   buildBreadcrumbJsonLd,
   buildExamPageDescription,
@@ -45,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const exam = getPublicServiceExam(subjectId, Number(year), source, Number(no));
   if (!data || !exam) return {};
   return buildPageMetadata({
-    title: `${year}년 9급 공무원 ${source} ${data.subject.label} ${no}번 기출문제 해설`,
+    title: `${exam.year}년 9급 공무원 ${exam.sourceCode} ${data.subject.label} ${exam.questionNo}번 기출문제 해설`,
     description: buildExamPageDescription({
       category: exam.category,
       stem: exam.stem,
@@ -53,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       explanationSummary: exam.explanationSummary,
       items: exam.items,
     }),
-    path: `/public-service/exam/${subjectId}/${year}/${source}/${no}`,
+    path: `/public-service/exam/${subjectId}/${exam.year}/${exam.sourceCode}/${exam.questionNo}`,
   });
 }
 
@@ -69,7 +67,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
   const position = session.findIndex((item) => item.questionNo === exam.questionNo);
   const previous = position > 0 ? session[position - 1] : null;
   const next = position >= 0 && position < session.length - 1 ? session[position + 1] : null;
-  const listBase = `/public-service/exam/${subjectId}/${year}/${encodeURIComponent(source)}`;
+  const listBase = `/public-service/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}`;
   const detailPath = `${listBase}/${exam.questionNo}`;
   const storageSubject = `public_service:${subjectId}:${source}`;
   const memoSubject = examMemoSubjectKey("public_service", subjectId, source);
@@ -82,7 +80,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
     null,
   );
   const title = `${year}년 ${source} ${data.subject.label} ${exam.questionNo}번 기출문제 해설`;
-  const canonicalPath = `/public-service/exam/${subjectId}/${year}/${source}/${exam.questionNo}`;
+  const canonicalPath = `/public-service/exam/${subjectId}/${exam.year}/${exam.sourceCode}/${exam.questionNo}`;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "홈", path: "/" },
     { name: "공무원", path: "/public-service" },
@@ -107,7 +105,6 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
     educationalLevel: "9급 공무원 시험",
     aboutName: `9급 공무원 ${data.subject.label}`,
   });
-  const relatedConcepts = findTrackConceptsForExamQuestion(data, exam);
 
   return (
     <div className="bg-white px-4 py-8 md:py-12">
@@ -123,7 +120,12 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
       ) : null}
       <article className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-3">
-          <BackLink href={listBase}>{year}년 {source} 목록</BackLink>
+          <BackLink
+            href={`/public-service/exam/${subjectId}`}
+            preferHistory
+          >
+            {data.subject.label} 연도 선택
+          </BackLink>
           <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} loginNext={detailPath} />
         </div>
         <ExamQuestionJumpBar
@@ -177,13 +179,6 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
               embedded
             />
           </ExamSeoExplanationDetails> : null}
-          <QuestionConceptLinks
-            concepts={relatedConcepts.map((concept) => ({
-              slug: concept.slug,
-              titleKo: concept.titleKo,
-              href: `/public-service/concepts/${subjectId}/${concept.slug}`,
-            }))}
-          />
         </div>
         <nav aria-label="이전·다음 문제" className="web-question-nav mt-8 grid grid-cols-2 gap-3">
           {previous ? (

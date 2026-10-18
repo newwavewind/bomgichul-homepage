@@ -39,7 +39,7 @@ const SECTIONS: { title: string; body: string[]; bullets?: string[] }[] = [
     bullets: [
       "서비스: 회사가 제공하는 홈페이지(www.bomgichul.com), PC 학습 서비스(app.bomgichul.com), 모바일 앱을 통틀어 말합니다.",
       "이용자: 이 약관에 따라 서비스를 이용하는 회원과 비회원을 말합니다.",
-      "회원: Google 계정으로 로그인해 회사가 관리하는 계정을 가진 이용자를 말합니다.",
+      "회원: Google 또는 카카오 계정으로 로그인해 회사가 관리하는 계정을 가진 이용자를 말합니다.",
       "스토어: 모바일 앱을 내려받고 유료 상품을 결제하는 Apple App Store와 Google Play를 말합니다.",
       "학습권: 유료 결제로 특정 과목의 앱·PC 학습 기능을 이용할 수 있게 된 권한을 말합니다.",
       "게시물: 이용자가 커뮤니티 게시글·댓글·채팅 등에 올린 글, 이미지, 파일을 말합니다.",
@@ -57,7 +57,7 @@ const SECTIONS: { title: string; body: string[]; bullets?: string[] }[] = [
     title: "4. 이용계약의 성립",
     body: [
       "비회원도 홈페이지의 기출문제와 해설을 볼 수 있으며, 이 경우 서비스에 접속한 때에 이 약관에 따른 이용계약이 성립합니다.",
-      "회원 가입은 이용자가 Google 계정으로 로그인하고 회사가 이를 승낙함으로써 성립합니다. 회사는 별도의 비밀번호를 받지 않고 보관하지도 않습니다.",
+      "회원 가입은 이용자가 Google 또는 카카오 계정으로 로그인하고 회사가 이를 승낙함으로써 성립합니다. 회사는 별도의 비밀번호를 받지 않고 보관하지도 않습니다.",
       "회사는 다음의 경우 가입 승낙을 미루거나 거절할 수 있고, 이미 성립한 이용계약을 해지할 수 있습니다.",
     ],
     bullets: [
@@ -191,9 +191,9 @@ export default function TermsPage() {
           <EyebrowLabel className="mb-2">LEGAL</EyebrowLabel>
           <SectionHeading as="h1">이용약관</SectionHeading>
           <p className="mt-4 font-display text-body leading-relaxed text-smoke">
-            봄기출(사업자등록번호: 381-03-03800, 이하 &apos;회사&apos;)이 제공하는 홈페이지와
-            앱의 이용 조건을 안내합니다. 홈페이지 기능은 전부 무료이며, 유료 결제는 앱
-            스토어를 통해서만 이루어집니다.
+            봄기출(사업자등록번호: 381-03-03800, 이하 &apos;회사&apos;)이
+            제공하는 홈페이지와 앱의 이용 조건을 안내합니다. 홈페이지 기능은
+            전부 무료이며, 유료 결제는 앱 스토어를 통해서만 이루어집니다.
           </p>
 
           <div className="mt-10 space-y-8">

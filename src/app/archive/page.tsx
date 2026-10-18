@@ -10,11 +10,9 @@ import { EyebrowLabel, SectionHeading } from "@/components/ui/Typography";
 import { ElevatedCard } from "@/components/ui/Card";
 import type { SortOption } from "@/lib/constants";
 import {
-  ARCHIVE_RESOURCE_TYPE_MAP,
-  ARCHIVE_SUBJECT_MAP,
   archiveSubjectsForScope,
 } from "@/lib/constants";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildArchiveListMetadata } from "@/lib/exam-track/archive-seo";
 import { getUserActivityScores } from "@/lib/activity";
 import {
   archiveBaseHref,
@@ -40,33 +38,11 @@ interface ArchivePageProps {
 export async function generateMetadata({
   searchParams,
 }: ArchivePageProps): Promise<Metadata> {
-  const params = await searchParams;
-  const page = Math.max(1, Number(params.page) || 1);
-  const search = params.q?.trim() ?? "";
-  const resourceType = params.type ?? "all";
-  const subject = params.subject ?? "all";
-
-  let title = archiveTitle("real_estate");
-  if (resourceType !== "all") {
-    title = `${ARCHIVE_RESOURCE_TYPE_MAP[resourceType] ?? resourceType} 자료`;
-  }
-  if (subject !== "all") {
-    const subjectLabel = ARCHIVE_SUBJECT_MAP[subject] ?? subject;
-    title = resourceType !== "all" ? `${subjectLabel} ${title}` : `${subjectLabel} 자료실`;
-  }
-  if (page > 1) title = `${title} ${page}페이지`;
-
-  return buildPageMetadata({
-    title,
+  return buildArchiveListMetadata({
+    searchParams,
+    scope: "real_estate",
     description:
       "공인중개사 기출 PDF, 노트, 요약 자료를 과목별로 올리고 다운로드하세요. 수험생이 공유한 학습 자료를 한곳에서 찾아보세요.",
-    path: "/archive",
-    canonicalParams: {
-      type: resourceType,
-      subject,
-      page,
-    },
-    noIndex: Boolean(search),
   });
 }
 

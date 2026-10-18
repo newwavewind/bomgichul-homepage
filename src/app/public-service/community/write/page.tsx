@@ -1,6 +1,6 @@
 "use client";
 
-import { CommunityWritePage } from "@/app/community/write/page";
+import { CommunityWritePage } from "@/components/community/CommunityWritePage";
 
 export default function PublicServiceCommunityWritePage() {
   return <CommunityWritePage scope="public_service" />;

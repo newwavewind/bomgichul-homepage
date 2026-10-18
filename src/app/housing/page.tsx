@@ -5,13 +5,13 @@ import { HOUSING_TRACK } from "@/lib/exam-track/config";
 import { buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "주택관리사 기출문제·핵심 개념",
-  description: "주택관리사보 1·2차 전 과목 기출문제와 해설, 핵심 개념을 무료로 학습하세요.",
+  title: "주택관리사 기출문제·해설",
+  description: "주택관리사보 1·2차 전 과목 기출문제와 해설을 무료로 학습하세요.",
   path: "/housing",
 });
 
 export default function Page() {
-  const description = "주택관리사보 1·2차 전 과목 기출문제와 해설, 핵심 개념을 무료로 학습하세요.";
+  const description = "주택관리사보 1·2차 전 과목 기출문제와 해설을 무료로 학습하세요.";
   return (
     <>
       <script

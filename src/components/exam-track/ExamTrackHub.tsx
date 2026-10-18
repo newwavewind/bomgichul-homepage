@@ -1,5 +1,7 @@
-import { HubExamIntroLink } from "@/components/exam-intro/HubExamIntroLink";
-import { DailyEntry } from "@/components/daily/DailyEntry";
+import {
+  HubBackButton,
+  HubExamIntroLink,
+} from "@/components/exam-intro/HubExamIntroLink";
 import { ExamTrackSubjectBrowser } from "@/components/exam-track/ExamTrackSubjectBrowser";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { appStoreLinksForScope } from "@/lib/constants";
@@ -13,12 +15,14 @@ export function ExamTrackHub({
   subjects: ExamTrackManifestItem[];
 }) {
   return (
-    <div className="px-4 py-8 md:py-12">
-      <div className="mx-auto max-w-[var(--page-max-width)] space-y-14">
-        <div className="space-y-3">
-          <h1 className="font-display text-heading font-semibold text-ink">{track.label} 기출문제</h1>
+    <div className="px-4 py-6 sm:px-5 md:py-10">
+      <div className="mx-auto max-w-[1120px] space-y-10 md:space-y-12">
+        <div className="space-y-5">
+          <div className="flex items-center gap-2.5">
+            <HubBackButton />
+            <h1 className="font-display text-[30px] font-semibold leading-tight text-ink md:text-[34px]">{track.label} 기출문제</h1>
+          </div>
           <HubExamIntroLink href={`${track.basePath}/intro`} label={track.label} />
-          <DailyEntry href={`${track.basePath}/daily`} />
         </div>
 
         <ExamTrackSubjectBrowser track={track} subjects={subjects} />
@@ -33,7 +37,7 @@ export function ExamTrackHub({
                 웹에서 시작하고, 앱에서 학습 루틴을 더 넓혀보세요
               </h2>
               <p className="mt-2 max-w-2xl font-display text-body-sm text-white/70">
-                웹에서는 공개 기출과 핵심 개념을 바로 학습하고, 앱에서는 포켓 오디오·랜덤 시험·회독 관리로
+                웹에서는 공개 기출과 해설을 바로 학습하고, 앱에서는 포켓 오디오·랜덤 시험·회독 관리로
                 같은 공부를 더 다양한 방식으로 이어갈 수 있어요.
               </p>
             </div>
@@ -48,7 +52,7 @@ export function ExamTrackHub({
           className="flex flex-col items-center gap-4 border-t border-mist pt-10 text-center"
         >
           <p className="font-display text-body-sm text-smoke">
-            웹에서 익힌 기출과 개념을 앱에서도 자연스럽게 이어가세요.
+            웹에서 익힌 기출을 앱에서도 자연스럽게 이어가세요.
           </p>
           <AppStoreButtons
             size="sm"

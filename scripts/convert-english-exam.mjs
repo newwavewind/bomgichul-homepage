@@ -8,12 +8,13 @@
  * 이름이 다른 자리만 바꾼다 — question_no → questionNo, correct_choice →
  * correctChoice. 나머지(stem·items·category)는 두 쪽이 이미 같은 이름을 쓴다.
  *
- * 앱에만 있고 홈페이지 틀에 없던 것 셋은 그대로 실어 보낸다.
+ * 앱에만 있고 홈페이지 틀에 없던 것 둘은 그대로 실어 보낸다.
  *   translation      지문 해석
- *   items[].translation  선지 해석
  *   vocab            그 문항에서 챙길 어휘·표현
- * 영어 기출에서 이 셋은 곁다리가 아니라 해설의 일부다. 선지 해설만 남기면
+ * 영어 기출에서 이 둘은 곁다리가 아니라 해설의 일부다. 선지 해설만 남기면
  * 「왜 답이 이건지」는 알아도 「지문이 무슨 말인지」는 끝내 모른다.
+ * 선지 번역은 원본 시험지에 없는 학습용 보충 문구이므로 문제 화면에 섞이지
+ * 않도록 홈페이지 데이터에는 옮기지 않는다.
  *
  * 구문 올인원과 기출 단어장은 옮기지 않는다.
  *
@@ -87,7 +88,6 @@ for (const series of SERIES) {
           text: it.text,
           answer: it.answer,
           explanation: it.explanation,
-          ...(it.translation ? { translation: it.translation } : {}),
         })),
         ...(q.translation ? { translation: q.translation } : {}),
         ...(q.vocab?.length ? { vocab: q.vocab } : {}),

@@ -1,8 +1,9 @@
 import type { CommunityScope } from "@/types/database";
+import { isPublicCommunityScopeVisible } from "@/lib/public-exam-visibility";
 
 export const PAST_EXAM_TITLE_PREFIX = "[기출 원본]";
 
-export const PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: string }[] = [
+const ALL_PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: string }[] = [
   { value: "all", label: "전체" },
   { value: "public_service", label: "공무원" },
   { value: "real_estate", label: "공인중개사" },
@@ -21,6 +22,10 @@ export const PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: st
   { value: "gamjeong", label: "감정평가사" },
   { value: "history", label: "한국사" },
 ];
+
+export const PAST_EXAM_SCOPE_OPTIONS = ALL_PAST_EXAM_SCOPE_OPTIONS.filter(
+  (option) => option.value === "all" || isPublicCommunityScopeVisible(option.value),
+);
 
 /** 홈 기출 PDF 연도 칩 — 최근 연도부터 */
 export const PAST_EXAM_YEAR_OPTIONS: number[] = (() => {

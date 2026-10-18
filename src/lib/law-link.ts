@@ -10,10 +10,14 @@ const FORMAL_NAME: Record<string, string> = {
   // 해설이 쓰는 짧은 이름 → 법제처 행정규칙의 현행 이름(앱 lawNames.js 행정규칙정식이름)
   "피의자 유치 및 호송 규칙": "(경찰청) 피의자 유치 및 호송 규칙",
   // 화재안전기준은 법제처 이름에 코드 꼬리가 붙는다(주택관리사 앱 lawNames.js 행정규칙정식이름)
-  "소화기구 및 자동소화장치의 화재안전기준": "소화기구 및 자동소화장치의 화재안전기준(NFSC 101)",
-  "유도등 및 유도표지의 화재안전기준": "유도등 및 유도표지의 화재안전기준(NFSC303)",
-  "연결송수관설비의 화재안전성능기준": "연결송수관설비의 화재안전성능기준(NFPC 502)",
-  "옥내소화전설비의 화재안전성능기준": "옥내소화전설비의 화재안전성능기준(NFPC 102)",
+  "소화기구 및 자동소화장치의 화재안전기준":
+    "소화기구 및 자동소화장치의 화재안전기준(NFSC 101)",
+  "유도등 및 유도표지의 화재안전기준":
+    "유도등 및 유도표지의 화재안전기준(NFSC303)",
+  "연결송수관설비의 화재안전성능기준":
+    "연결송수관설비의 화재안전성능기준(NFPC 502)",
+  "옥내소화전설비의 화재안전성능기준":
+    "옥내소화전설비의 화재안전성능기준(NFPC 102)",
   "옥내소화전설비의 화재안전기준": "옥내소화전설비의 화재안전기준(NFSC 102)",
   "옥외소화전설비의 화재안전기준": "옥외소화전설비의 화재안전기준(NFSC 109)",
   "공동주택의 화재안전성능기준": "공동주택의 화재안전성능기준(NFPC 608)",
@@ -81,7 +85,10 @@ const ADMIN_RULES = new Set([
 
 const ALIASES = [...Object.keys(FORMAL_NAME), ...ADMIN_RULES];
 
-function findLawName(text: string, end: number): { name: string; start: number } | null {
+function findLawName(
+  text: string,
+  end: number,
+): { name: string; start: number } | null {
   for (const listed of [...LAW_NAMES, ...ALIASES]) {
     const start = end - listed.length;
     if (start < 0 || text.slice(start, end) !== listed) continue;
@@ -92,12 +99,21 @@ function findLawName(text: string, end: number): { name: string; start: number }
 }
 
 const BARE_NAME_RE = /((?:[가-힣]|[·ㆍ]){1,24}?(?:법|령|규칙|규정))[」｣]?$/;
-const DEPENDENT = new Set(["시행령", "시행규칙", "법률", "법", "령", "규칙", "규정", "요령"]);
+const DEPENDENT = new Set([
+  "시행령",
+  "시행규칙",
+  "법률",
+  "법",
+  "령",
+  "규칙",
+  "규정",
+  "요령",
+]);
 
 function findNameOutsideTable(
   text: string,
   end: number,
-  previousLaw: string | null
+  previousLaw: string | null,
 ): { name: string; start: number } | null {
   const m = BARE_NAME_RE.exec(text.slice(0, end));
   if (!m) return null;
@@ -121,7 +137,7 @@ const ARTICLE_RE = new RegExp(
     "(?:\\s*제\\s*\\d+\\s*호(?:\\s*의\\s*\\d+)?)?" +
     "(?:\\s*[가-하]\\s*목)?" +
     "(?:\\s*(?:본문|단서|전단|후단))?",
-  "g"
+  "g",
 );
 
 const CASE_RE =
@@ -129,7 +145,11 @@ const CASE_RE =
 
 const APPENDIX_RE = /별표\s*(\d+)(?:\s*의\s*(\d+))?/g;
 
-export function lawUrl(name: string, article?: string, articleOf?: string): string {
+export function lawUrl(
+  name: string,
+  article?: string,
+  articleOf?: string,
+): string {
   const proper = FORMAL_NAME[name] ?? name;
   const kind = ADMIN_RULES.has(proper) ? "행정규칙" : "법령";
   if (article == null) {
@@ -148,9 +168,9 @@ const CONSTITUTIONAL_COURT_CASE = /헌[마바가라나다]/;
  */
 export function precedentUrl(caseNo: string): string {
   if (CONSTITUTIONAL_COURT_CASE.test(caseNo)) {
-    return `https://www.law.go.kr/detcSc.do?menuId=7&subMenuId=49&tabMenuId=225&query=${encodeURIComponent(caseNo)}`;
+    return `https://www.law.go.kr/LSW/detcSc.do?menuId=7&subMenuId=49&tabMenuId=225&query=${encodeURIComponent(caseNo)}`;
   }
-  return `https://www.law.go.kr/precSc.do?menuId=7&query=${encodeURIComponent(caseNo)}`;
+  return `https://www.law.go.kr/LSW/precSc.do?menuId=7&query=${encodeURIComponent(caseNo)}`;
 }
 
 export type LawCitePart = {
@@ -166,14 +186,26 @@ export type LawCitePart = {
 export function splitLawCites(text: string): LawCitePart[] {
   if (!text) return [];
 
-  type Hit = { start: number; end: number; href: string; law?: string; article?: string };
+  type Hit = {
+    start: number;
+    end: number;
+    href: string;
+    law?: string;
+    article?: string;
+  };
   const hits: Hit[] = [];
 
   ARTICLE_RE.lastIndex = 0;
   APPENDIX_RE.lastIndex = 0;
   const slots = [
-    ...[...text.matchAll(ARTICLE_RE)].map((m) => ({ m, appendix: false as const })),
-    ...[...text.matchAll(APPENDIX_RE)].map((m) => ({ m, appendix: true as const })),
+    ...[...text.matchAll(ARTICLE_RE)].map((m) => ({
+      m,
+      appendix: false as const,
+    })),
+    ...[...text.matchAll(APPENDIX_RE)].map((m) => ({
+      m,
+      appendix: true as const,
+    })),
   ].sort((a, b) => (a.m.index ?? 0) - (b.m.index ?? 0));
 
   let textLaw: string | null = null;
@@ -191,7 +223,8 @@ export function splitLawCites(text: string): LawCitePart[] {
       findNameOutsideTable(text, beforeEnd, previousLaw ?? textLaw);
     let start: number;
     if (nameHit) {
-      start = nameHit.start - (/[「｢]$/.test(text.slice(0, nameHit.start)) ? 1 : 0);
+      start =
+        nameHit.start - (/[「｢]$/.test(text.slice(0, nameHit.start)) ? 1 : 0);
     } else if (
       previousLaw &&
       previousEnd >= 0 &&
@@ -207,9 +240,7 @@ export function splitLawCites(text: string): LawCitePart[] {
     hits.push({
       start,
       end: previousEnd,
-      href: appendix
-        ? lawUrl(nameHit.name)
-        : lawUrl(nameHit.name, m[1], m[2]),
+      href: appendix ? lawUrl(nameHit.name) : lawUrl(nameHit.name, m[1], m[2]),
       law: FORMAL_NAME[nameHit.name] ?? nameHit.name,
       article: appendix
         ? m[2]

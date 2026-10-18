@@ -60,13 +60,16 @@ function LoginModal({
         aria-labelledby="hp-cx-schedule-login-title"
       >
         <p className="hp-cx-login-modal__badge">무료</p>
-        <h3 id="hp-cx-schedule-login-title" className="hp-cx-login-modal__title">
+        <h3
+          id="hp-cx-schedule-login-title"
+          className="hp-cx-login-modal__title"
+        >
           로그인이 필요해요
         </h3>
         <p className="hp-cx-login-modal__desc">
           회독·학습 스케줄 저장은 무료예요. 로그인만 하면 됩니다.
           <br />
-          구독·결제 없이 Google로 바로 시작하세요.
+          구독·결제 없이 Google 또는 카카오로 바로 시작하세요.
         </p>
         <div className="hp-cx-login-modal__actions">
           <OutlineButton onClick={onClose}>닫기</OutlineButton>
@@ -119,7 +122,7 @@ export function ConceptStudySchedule({
   const studied = isLoggedIn
     ? countStudiedConcepts(
         progress,
-        concepts.map((c) => c.slug)
+        concepts.map((c) => c.slug),
       )
     : 0;
   const unread = Math.max(0, total - studied);
@@ -167,7 +170,10 @@ export function ConceptStudySchedule({
 
         {!isLoggedIn ? (
           <div className="hp-cx-schedule__login">
-            <p>로그인하고 읽은 개념을 표시하면 과목별 회독 진도가 자동으로 쌓여요.</p>
+            <p>
+              로그인하고 읽은 개념을 표시하면 과목별 회독 진도가 자동으로
+              쌓여요.
+            </p>
             <button
               type="button"
               className="hp-cx-schedule__login-btn"
@@ -177,7 +183,11 @@ export function ConceptStudySchedule({
             </button>
           </div>
         ) : (
-          <div className="hp-cx-schedule__filters" role="tablist" aria-label="회독 필터">
+          <div
+            className="hp-cx-schedule__filters"
+            role="tablist"
+            aria-label="회독 필터"
+          >
             {filters.map((item) => (
               <button
                 key={item.key}
@@ -202,38 +212,48 @@ export function ConceptStudySchedule({
           </div>
         )}
 
-        {isLoggedIn ? <ul className="hp-cx-schedule__list">
-          {visible.length === 0 ? (
-            <li className="hp-cx-schedule__empty">
-              {filter === "read"
-                ? "아직 회독한 개념이 없어요."
-                : filter === "unread"
-                  ? "미회독 개념이 없어요."
-                  : "표시할 개념이 없어요."}
-            </li>
-          ) : (
-            visible.map((concept, index) => {
-              const reads = isLoggedIn ? getConceptReadCount(progress, concept.slug) : 0;
-              const isNext = filter === "unread" && index === 0;
-              return (
-                <li key={concept.slug}>
-                  <Link
-                    href={`${basePath}/${concept.slug}`}
-                    className={`hp-cx-schedule__row${isNext ? " is-next" : ""}`}
-                  >
-                    <span className="hp-cx-schedule__row-title">
-                      {isNext ? <span className="hp-cx-schedule__next-mark">다음</span> : null}
-                      {concept.titleKo}
-                    </span>
-                    {showStatus && reads > 0 ? (
-                      <span className="hp-cx-schedule__status">{formatConceptReads(reads)}</span>
-                    ) : null}
-                  </Link>
-                </li>
-              );
-            })
-          )}
-        </ul> : null}
+        {isLoggedIn ? (
+          <ul className="hp-cx-schedule__list">
+            {visible.length === 0 ? (
+              <li className="hp-cx-schedule__empty">
+                {filter === "read"
+                  ? "아직 회독한 개념이 없어요."
+                  : filter === "unread"
+                    ? "미회독 개념이 없어요."
+                    : "표시할 개념이 없어요."}
+              </li>
+            ) : (
+              visible.map((concept, index) => {
+                const reads = isLoggedIn
+                  ? getConceptReadCount(progress, concept.slug)
+                  : 0;
+                const isNext = filter === "unread" && index === 0;
+                return (
+                  <li key={concept.slug}>
+                    <Link
+                      href={`${basePath}/${concept.slug}`}
+                      className={`hp-cx-schedule__row${isNext ? " is-next" : ""}`}
+                    >
+                      <span className="hp-cx-schedule__row-title">
+                        {isNext ? (
+                          <span className="hp-cx-schedule__next-mark">
+                            다음
+                          </span>
+                        ) : null}
+                        {concept.titleKo}
+                      </span>
+                      {showStatus && reads > 0 ? (
+                        <span className="hp-cx-schedule__status">
+                          {formatConceptReads(reads)}
+                        </span>
+                      ) : null}
+                    </Link>
+                  </li>
+                );
+              })
+            )}
+          </ul>
+        ) : null}
 
         {isLoggedIn && filtered.length > visible.length ? (
           <p className="hp-cx-schedule__more">
@@ -242,7 +262,11 @@ export function ConceptStudySchedule({
         ) : null}
       </section>
 
-      <LoginModal open={loginOpen} loginHref={loginHref} onClose={() => setLoginOpen(false)} />
+      <LoginModal
+        open={loginOpen}
+        loginHref={loginHref}
+        onClose={() => setLoginOpen(false)}
+      />
     </>
   );
 }

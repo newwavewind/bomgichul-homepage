@@ -5,13 +5,13 @@ import { POLICE_TRACK } from "@/lib/exam-track/config";
 import { buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "경찰공무원 순경 공채 기출문제·핵심 개념",
-  description: "경찰공무원 순경 공채 헌법·형사법·경찰학 기출문제와 해설, 핵심 개념을 무료로 학습하세요.",
+  title: "경찰공무원 순경 공채 기출문제·해설",
+  description: "경찰공무원 순경 공채 헌법·형사법·경찰학 기출문제와 해설을 무료로 학습하세요.",
   path: "/police",
 });
 
 export default function Page() {
-  const description = "경찰공무원 순경 공채 헌법·형사법·경찰학 기출문제와 해설, 핵심 개념을 무료로 학습하세요.";
+  const description = "경찰공무원 순경 공채 헌법·형사법·경찰학 기출문제와 해설을 무료로 학습하세요.";
   return (
     <>
       <script

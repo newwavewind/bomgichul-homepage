@@ -102,19 +102,13 @@ function AppStoreBadge({
           Download on the
         </span>
         <span className="block text-body-sm font-semibold">
-          {disabled ? "출시준비중" : "App Store"}
+          App Store
         </span>
       </span>
     </>
   );
 
-  if (disabled || !href) {
-    return (
-      <span className={styles} aria-disabled="true">
-        {content}
-      </span>
-    );
-  }
+  if (disabled || !href) return null;
 
   return (
     <a
@@ -144,21 +138,7 @@ function GooglePlayBadge({
     "inline-flex w-[168px] items-center justify-center rounded-[var(--radius-buttons)] border px-3.5 py-2 transition-colors";
 
   // 아직 Play 스토어에 없는 시험 — 눌러도 404 로 떨어지므로 링크를 걸지 않는다.
-  if (disabled || !href) {
-    return (
-      <span
-        className={`${base} cursor-default border-mist bg-snow opacity-60`}
-        aria-disabled="true"
-      >
-        <span className="flex items-center gap-2">
-          <GooglePlayMark height={logoHeight} />
-          <span className="font-display text-[11px] font-semibold text-fog">
-            출시준비중
-          </span>
-        </span>
-      </span>
-    );
-  }
+  if (disabled || !href) return null;
 
   return (
     <a

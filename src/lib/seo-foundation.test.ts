@@ -53,13 +53,12 @@ describe("search engine foundations", () => {
     ).toBe("/police/community/post-id");
   });
 
-  it("only publishes concept routes that actually exist for history and English", async () => {
+  it("omits hidden exams while publishing existing English concepts", async () => {
     const historyUrls = buildStaticSitemapGroup("history").map((entry) => entry.url);
     const englishUrls = buildStaticSitemapGroup("english").map((entry) => entry.url);
 
-    expect(historyUrls).toContain(`${SITE_URL}/history/concepts`);
-    expect(historyUrls).not.toContain(`${SITE_URL}/history/concepts/simhwa`);
-    expect(englishUrls).not.toContain(`${SITE_URL}/english/concepts/gong9`);
+    expect(historyUrls).toEqual([]);
+    expect(englishUrls).toContain(`${SITE_URL}/english/concepts/gong9`);
   });
 
   it("lists every published exam hub in the home CollectionPage entity", async () => {
@@ -68,7 +67,7 @@ describe("search engine foundations", () => {
     const urls = home.mainEntity.itemListElement.map(
       (item: { url: string }) => item.url,
     );
-    expect(home.mainEntity.numberOfItems).toBe(16);
+    expect(home.mainEntity.numberOfItems).toBe(15);
     for (const path of [
       "/public-service",
       "/real-estate",
@@ -76,7 +75,6 @@ describe("search engine foundations", () => {
       "/firefighter",
       "/housing",
       "/social-worker",
-      "/history",
       "/english",
       "/gugeo",
       "/haengjeongsa",
@@ -89,6 +87,7 @@ describe("search engine foundations", () => {
     ]) {
       expect(urls).toContain(`${SITE_URL}${path}`);
     }
+    expect(urls).not.toContain(`${SITE_URL}/history`);
   });
 
   it("publishes a sitemap index with one independently crawlable feed per exam", () => {
@@ -108,7 +107,6 @@ describe("search engine foundations", () => {
       ["firefighter", "/firefighter/"],
       ["housing", "/housing/"],
       ["social-worker", "/social-worker/"],
-      ["history", "/history/"],
       ["english", "/english/"],
       ["gugeo", "/gugeo/"],
       ["haengjeongsa", "/haengjeongsa/"],

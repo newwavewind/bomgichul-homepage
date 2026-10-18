@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { searchPastExamPdfs } from "@/lib/past-exam-search";
 import { PAST_EXAM_SCOPE_OPTIONS } from "@/lib/past-exam-search-shared";
 import type { CommunityScope } from "@/types/database";
+import { isPublicCommunityScopeVisible } from "@/lib/public-exam-visibility";
 
 export const runtime = "nodejs";
 
@@ -15,6 +16,9 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const q = searchParams.get("q") ?? "";
   const scopeRaw = searchParams.get("scope") ?? "all";
+  if (scopeRaw !== "all" && !isPublicCommunityScopeVisible(scopeRaw)) {
+    return NextResponse.json({ items: [] }, { status: 404 });
+  }
   const scope = SCOPES.has(scopeRaw as "all" | CommunityScope)
     ? (scopeRaw as "all" | CommunityScope)
     : "all";

@@ -3,13 +3,12 @@ import { ExamCalendar } from "@/components/platform/ExamCalendar";
 import { PastExamPdfSearch } from "@/components/platform/PastExamPdfSearch";
 import { PersonalHomeGate } from "@/components/platform/PersonalHomeGate";
 import { AdRail } from "@/components/ads/AdRail";
+import { isPublicExamPathVisible } from "@/lib/public-exam-visibility";
 
 const exams = [
   {
     href: "/public-service/intro",
     learnHref: "/public-service",
-    conceptsHref: "/public-service/concepts/hangjunghak",
-    conceptsLabel: "행정학 핵심 개념",
     eyebrow: "9급 공무원",
     title: "공무원",
     accentFrom: "#e8f5ff",
@@ -19,8 +18,6 @@ const exams = [
   {
     href: "/real-estate/intro",
     learnHref: "/real-estate",
-    conceptsHref: "/concepts/broker-law",
-    conceptsLabel: "중개사법 핵심 개념",
     eyebrow: "제37회 공인중개사",
     title: "공인중개사",
     accentFrom: "#e8faf5",
@@ -30,8 +27,6 @@ const exams = [
   {
     href: "/police/intro",
     learnHref: "/police",
-    conceptsHref: "/police/concepts/constitution",
-    conceptsLabel: "헌법 핵심 개념",
     eyebrow: "순경 공채",
     title: "경찰공무원",
     accentFrom: "#eef2ff",
@@ -41,8 +36,6 @@ const exams = [
   {
     href: "/firefighter/intro",
     learnHref: "/firefighter",
-    conceptsHref: "/firefighter/concepts/sobang",
-    conceptsLabel: "소방학개론 핵심 개념",
     eyebrow: "소방 공채",
     title: "소방공무원",
     // 경찰(226°) 다음 칸 — 따뜻한 앰버로 구분
@@ -53,8 +46,6 @@ const exams = [
   {
     href: "/housing/intro",
     learnHref: "/housing",
-    conceptsHref: "/housing/concepts/accounting",
-    conceptsLabel: "회계원리 핵심 개념",
     eyebrow: "주택관리사보",
     title: "주택관리사",
     accentFrom: "#fff4e8",
@@ -64,8 +55,6 @@ const exams = [
   {
     href: "/social-worker/intro",
     learnHref: "/social-worker",
-    conceptsHref: "/social-worker/concepts/human-behavior",
-    conceptsLabel: "인간행동 핵심 개념",
     eyebrow: "국가전문자격",
     title: "사회복지사 1급",
     accentFrom: "#fff0f5",
@@ -75,8 +64,6 @@ const exams = [
   {
     href: "/history/intro",
     learnHref: "/history",
-    conceptsHref: "/history/concepts",
-    conceptsLabel: "핵심 개념 모아보기",
     eyebrow: "국가공인 · 심화",
     title: "한국사능력검정",
     // 앞 다섯 카드가 파랑(206°)·민트(163°)·남보라(226°)·주황(31°)·분홍(340°)을 쓰고 있어
@@ -88,8 +75,6 @@ const exams = [
   {
     href: "/english/intro",
     learnHref: "/english",
-    conceptsHref: "/english",
-    conceptsLabel: "영어 기출 허브",
     eyebrow: "9급 공채 · 국가직 · 지방직",
     title: "공무원 영어",
     // 앞 여섯이 31°·95°·163°·206°·226°·340° 를 쓰고 있어, 일곱 번째는 60° 규칙을
@@ -102,8 +87,6 @@ const exams = [
   {
     href: "/gugeo/intro",
     learnHref: "/gugeo",
-    conceptsHref: "/gugeo",
-    conceptsLabel: "국어 기출 허브",
     eyebrow: "9급 공채 · 국가직 · 지방직",
     title: "공무원 국어",
     accentFrom: "#e8f9ff",
@@ -113,8 +96,6 @@ const exams = [
   {
     href: "/haengjeongsa/intro",
     learnHref: "/haengjeongsa",
-    conceptsHref: "/haengjeongsa",
-    conceptsLabel: "행정사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "행정사",
     accentFrom: "#e8faf7",
@@ -124,8 +105,6 @@ const exams = [
   {
     href: "/semusa/intro",
     learnHref: "/semusa",
-    conceptsHref: "/semusa",
-    conceptsLabel: "세무사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "세무사",
     accentFrom: "#fff4e8",
@@ -135,8 +114,6 @@ const exams = [
   {
     href: "/sanan/intro",
     learnHref: "/sanan",
-    conceptsHref: "/sanan",
-    conceptsLabel: "산업안전지도사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "산업안전지도사",
     accentFrom: "#fff7e6",
@@ -146,8 +123,6 @@ const exams = [
   {
     href: "/sonhae/intro",
     learnHref: "/sonhae",
-    conceptsHref: "/sonhae",
-    conceptsLabel: "손해평가사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "손해평가사",
     accentFrom: "#eefbe8",
@@ -157,8 +132,6 @@ const exams = [
   {
     href: "/nomusa/intro",
     learnHref: "/nomusa",
-    conceptsHref: "/nomusa",
-    conceptsLabel: "공인노무사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "공인노무사",
     accentFrom: "#eaf1ff",
@@ -168,8 +141,6 @@ const exams = [
   {
     href: "/gyeongbi/intro",
     learnHref: "/gyeongbi",
-    conceptsHref: "/gyeongbi",
-    conceptsLabel: "경비지도사 기출 허브",
     eyebrow: "국가전문자격 · 1·2차",
     title: "경비지도사",
     accentFrom: "#eef1fa",
@@ -179,8 +150,6 @@ const exams = [
   {
     href: "/gamjeong/intro",
     learnHref: "/gamjeong",
-    conceptsHref: "/gamjeong",
-    conceptsLabel: "감정평가사 기출 허브",
     eyebrow: "국가전문자격 · 1차",
     title: "감정평가사",
     accentFrom: "#fbeef2",
@@ -189,21 +158,56 @@ const exams = [
   },
 ] as const;
 
-/** 학습 시작 — iOS 시스템 블루를 써서 카드 색과 분리되는 선명한 출발점 */
-const learnCtaClass =
-  "group/cta inline-flex min-h-10 items-center justify-center gap-1 rounded-[16px] border border-[#0066d6]/35 bg-[#007aff] px-4 py-2 text-center font-display text-[13px] font-semibold tracking-tight text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_2px_8px_rgba(0,102,214,0.18)] transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-[#0066d6] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_5px_14px_rgba(0,102,214,0.22)] active:translate-y-0";
+const visibleExams = exams.filter((exam) => isPublicExamPathVisible(exam.learnHref));
+
+function ExamCardAction({
+  href,
+  label,
+  examTitle,
+  primary = false,
+}: {
+  href: string;
+  label: string;
+  examTitle: string;
+  primary?: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      aria-label={`${examTitle} ${label}`}
+      className={`inline-flex min-h-10 min-w-[120px] items-center justify-center rounded-[16px] border px-4 py-2 text-center font-display text-[13px] font-semibold tracking-tight transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007aff] focus-visible:ring-offset-2 ${
+        primary
+          ? "border-[#0066d6]/35 bg-[#007aff] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_2px_8px_rgba(0,102,214,0.18)] hover:bg-[#0066d6] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_5px_14px_rgba(0,102,214,0.22)]"
+          : "border-[#007aff]/30 bg-white/80 text-[#0066d6] shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_2px_8px_rgba(0,102,214,0.06)] hover:bg-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_5px_14px_rgba(0,102,214,0.12)]"
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}
 
 export function PlatformHome() {
   return (
     <div className="relative overflow-hidden bg-white px-4 py-10 md:py-16">
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
-        <h1 className="mx-auto max-w-5xl text-2xl font-semibold mb-3">기출문제와 핵심 개념, 봄기출</h1>
-        <p className="mx-auto max-w-5xl text-sm text-smoke mb-8">
-          9급 공무원, 공인중개사, 경찰공무원, 소방공무원, 주택관리사, 사회복지사 1급, 한국사능력검정, 공무원 영어, 공무원 국어, 행정사, 세무사, 공인노무사, 손해평가사, 산업안전지도사 시험의 과목별 기출문제와 핵심 개념을 무료로 학습하세요.
-        </p>
+        <section className="relative isolate mx-auto mb-10 max-w-5xl overflow-hidden rounded-2xl bg-white px-5 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.1)] sm:px-8 sm:py-10 md:px-12 md:py-12" aria-labelledby="platform-home-heading">
+          <div className="pointer-events-none absolute -right-14 -top-20 size-56 rounded-full bg-[#c4baff]/45 blur-2xl" aria-hidden />
+          <div className="pointer-events-none absolute bottom-0 right-0 h-1.5 w-28 bg-[#4d49fc]" aria-hidden />
+          <div className="relative max-w-4xl">
+            <p className="font-mono text-xs tracking-[0.05em] text-[#595959]">PAST EXAMS / FREE STUDY</p>
+            <h1 id="platform-home-heading" className="mt-5 max-w-3xl text-[clamp(38px,6vw,56px)] font-light leading-[1.08] tracking-[-0.02em] text-black">
+              기출문제와 해설,
+              <br className="sm:hidden" /> 봄기출
+            </h1>
+            <p className="mt-6 max-w-4xl text-base font-normal leading-[1.6] tracking-[-0.007em] text-[#595959] sm:text-lg sm:leading-[1.5]">
+              {visibleExams.map((exam) => exam.title).join(", ")} 시험의 과목별 기출문제와
+              해설을 무료로 학습하세요.
+            </p>
+          </div>
+        </section>
 
         <section id="exam-selection" className="mx-auto mb-10 grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
-          {exams.map((exam) => (
+          {visibleExams.map((exam) => (
             <article
               key={exam.href}
               data-exam-card={exam.learnHref.slice(1)}
@@ -221,18 +225,17 @@ export function PlatformHome() {
                 </h2>
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
-                <Link href={exam.learnHref} className={learnCtaClass} aria-label={`${exam.title} 학습 시작`}>
-                  학습 시작
-                  <span aria-hidden className="opacity-80 transition-transform group-hover/cta:translate-x-0.5">
-                    →
-                  </span>
-                </Link>
-                <Link
+                <ExamCardAction
+                  href={exam.learnHref}
+                  label="학습 시작"
+                  examTitle={exam.title}
+                  primary
+                />
+                <ExamCardAction
                   href={`${exam.learnHref}/daily`}
-                  className="inline-flex min-h-10 items-center justify-center rounded-[16px] border border-[#007AFF]/30 bg-white/80 px-4 py-2 text-center font-display text-[13px] font-semibold text-[#0066D6]"
-                >
-                  매일 10문제
-                </Link>
+                  label="매일 10문제"
+                  examTitle={exam.title}
+                />
               </div>
             </article>
           ))}

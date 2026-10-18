@@ -5,6 +5,7 @@ import {
   SITE_IDENTITY,
   SITE_NAME,
 } from "@/lib/constants";
+import { isPublicExamPathVisible } from "@/lib/public-exam-visibility";
 
 const HUB_LINKS = [
   { href: "/public-service", label: "공무원" },
@@ -25,15 +26,6 @@ const HUB_LINKS = [
   { href: "/gamjeong", label: "감정평가사" },
 ] as const;
 
-const CONCEPT_LINKS = [
-  { href: "/concepts/broker-law", label: "중개사법 핵심 개념" },
-  { href: "/concepts/civillaw", label: "민법 핵심 개념" },
-  { href: "/police/concepts/constitution", label: "경찰 헌법 핵심 개념" },
-  { href: "/firefighter/concepts/sobang", label: "소방학개론 핵심 개념" },
-  { href: "/public-service/concepts/hangjunghak", label: "행정학 핵심 개념" },
-  { href: "/history/concepts", label: "한국사 개념" },
-] as const;
-
 const LEGAL_LINKS = [
   { href: "/about", label: "소개" },
   { href: "/contact", label: "문의" },
@@ -47,22 +39,11 @@ export function Footer() {
     <footer className="mt-auto border-t border-mist bg-snow">
       <div className="mx-auto flex max-w-[var(--page-max-width)] flex-col gap-6 px-4 py-8">
         <nav aria-label="시험 허브" className="flex flex-wrap gap-x-4 gap-y-2">
-          {HUB_LINKS.map((link) => (
+          {HUB_LINKS.filter((link) => isPublicExamPathVisible(link.href)).map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className="font-display text-[13px] font-semibold text-ink transition-colors hover:text-carbon"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-        <nav aria-label="핵심 개념" className="flex flex-wrap gap-x-4 gap-y-2">
-          {CONCEPT_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="font-display text-[12px] text-smoke transition-colors hover:text-ink"
             >
               {link.label}
             </Link>

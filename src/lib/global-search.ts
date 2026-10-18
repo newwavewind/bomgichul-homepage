@@ -16,6 +16,7 @@ import { GYEONGBI_SUBJECT_IDS, getGyeongbiSubject } from "@/lib/gyeongbi-content
 import { GAMJEONG_SUBJECT_IDS, getGamjeongSubject } from "@/lib/gamjeong-content";
 import { FIREFIGHTER_SUBJECT_IDS, getFirefighterSubject } from "@/lib/firefighter-content";
 import type { ExamTrackSubjectContent } from "@/lib/exam-track/types";
+import { isPublicExamVisible } from "@/lib/public-exam-visibility";
 
 export type GlobalSearchResult = { eyebrow: string; title: string; excerpt: string; href: string; score: number };
 
@@ -55,7 +56,9 @@ function rows() {
     ...trackRows("소방공무원", "/firefighter", FIREFIGHTER_SUBJECT_IDS, getFirefighterSubject),
     ...trackRows("주택관리사", "/housing", HOUSING_SUBJECT_IDS, getHousingSubject),
     ...trackRows("사회복지사 1급", "/social-worker", SOCIAL_WORKER_SUBJECT_IDS, getSocialWorkerSubject),
-    ...trackRows("한국사능력검정", "/history", HISTORY_SUBJECT_IDS, getHistorySubject),
+    ...(isPublicExamVisible("history")
+      ? trackRows("한국사능력검정", "/history", HISTORY_SUBJECT_IDS, getHistorySubject)
+      : []),
     ...trackRows("공무원 영어", "/english", ENGLISH_SUBJECT_IDS, getEnglishSubject),
     ...trackRows("공무원 국어", "/gugeo", GUGEO_SUBJECT_IDS, getGugeoSubject),
     ...trackRows("행정사", "/haengjeongsa", HAENGJEONGSA_SUBJECT_IDS, getHaengjeongsaSubject),

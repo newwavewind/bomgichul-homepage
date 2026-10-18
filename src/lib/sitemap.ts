@@ -4,6 +4,7 @@ import { getSupabaseEnv, isSupabaseConfigured } from "@/lib/supabase/env";
 import { ARCHIVE_SUBJECTS, EXAM_SUBJECTS, SITE_URL } from "@/lib/constants";
 import { getAllConceptParams } from "@/lib/concepts";
 import { getAllExamParams, getExamYearParams } from "@/lib/exam-questions";
+import { ENGLISH_SYNTAX_CARDS } from "@/lib/english-syntax";
 import {
   PUBLIC_SERVICE_SUBJECT_IDS,
   getPublicServiceExamSessions,
@@ -85,13 +86,15 @@ import {
   isValidCommunityScope,
 } from "@/lib/exam-track/community";
 import { isRenderableExam } from "@/lib/exam-track/exam-render";
+import { hasPublicListingContent } from "@/lib/exam-track/public-listing-content";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
 import type { CommunityScope } from "@/types/database";
+import { isPublicExamVisible } from "@/lib/public-exam-visibility";
 
 type SitemapEntry = MetadataRoute.Sitemap[number];
 type ExamRenderCheck = Pick<ExamTrackExam, "kind" | "stem" | "prompt" | "blanks">;
 
-export const SITEMAP_GROUPS = [
+const ALL_SITEMAP_GROUPS = [
   "core",
   "real-estate",
   "public-service",
@@ -111,7 +114,11 @@ export const SITEMAP_GROUPS = [
   "gamjeong",
 ] as const;
 
-export type SitemapGroup = (typeof SITEMAP_GROUPS)[number];
+export type SitemapGroup = (typeof ALL_SITEMAP_GROUPS)[number];
+
+export const SITEMAP_GROUPS: readonly SitemapGroup[] = ALL_SITEMAP_GROUPS.filter(
+  (group) => isPublicExamVisible(group),
+);
 
 const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   "real-estate": "real_estate",
@@ -222,14 +229,17 @@ function getNamespacedTrackUrls(
     })[];
   } | null,
   getSessions: (id: string) => { year: number; sourceCode: string }[],
-  { includeConcepts = true }: { includeConcepts?: boolean } = {},
+  {
+    includeConcepts = true,
+    includeQuestionUrls = false,
+  }: { includeConcepts?: boolean; includeQuestionUrls?: boolean } = {},
 ): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = [];
   for (const subjectId of subjectIds) {
     const subject = getSubject(subjectId);
     if (!subject) continue;
 
-    if (includeConcepts) {
+    if (includeConcepts && subject.concepts.length > 0) {
       urls.push(page(`${basePath}/concepts/${subjectId}`, "weekly", 0.7));
       for (const concept of subject.concepts) {
         urls.push(page(`${basePath}/concepts/${subjectId}/${concept.slug}`, "monthly", 0.6));
@@ -246,7 +256,19 @@ function getNamespacedTrackUrls(
         ),
       );
     }
-    // 문항 단위 URL 은 넣지 않는다 — 위 getRealEstateExamUrls 의 주석과 같은 까닭.
+    // New published question collections can opt in without changing the
+    // existing sitemap policy for older tracks.
+    if (includeQuestionUrls) {
+      for (const exam of subject.exams.filter(isRenderableExam)) {
+        urls.push(
+          page(
+            `${basePath}/exam/${subjectId}/${exam.year}/${exam.sourceCode}/${exam.questionNo}`,
+            "monthly",
+            0.6,
+          ),
+        );
+      }
+    }
   }
   return urls;
 }
@@ -297,13 +319,19 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         { includeConcepts: false },
       );
     case "english":
-      return getNamespacedTrackUrls(
-        "/english",
-        ENGLISH_SUBJECT_IDS,
-        getEnglishSubject,
-        getEnglishExamSessions,
-        { includeConcepts: false },
-      );
+      return [
+        ...getNamespacedTrackUrls(
+          "/english",
+          ENGLISH_SUBJECT_IDS,
+          getEnglishSubject,
+          getEnglishExamSessions,
+          { includeConcepts: false },
+        ),
+        page("/english/concepts/gong9", "weekly", 0.7),
+        ...ENGLISH_SYNTAX_CARDS.map((card) =>
+          page(`/english/concepts/gong9/${card.id}`, "monthly", 0.6),
+        ),
+      ];
     case "gugeo":
       return getNamespacedTrackUrls(
         "/gugeo",
@@ -367,7 +395,7 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         GAMJEONG_SUBJECT_IDS,
         getGamjeongSubject,
         getGamjeongExamSessions,
-        { includeConcepts: false },
+        { includeConcepts: false, includeQuestionUrls: true },
       );
   }
 }
@@ -423,6 +451,7 @@ function uniqueEntries(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
 }
 
 export function buildStaticSitemapGroup(group: SitemapGroup): MetadataRoute.Sitemap {
+  if (!isPublicExamVisible(group)) return [];
   if (group === "core") return CORE_PAGES;
 
   if (group === "real-estate") {
@@ -438,10 +467,26 @@ export function buildStaticSitemapGroup(group: SitemapGroup): MetadataRoute.Site
 }
 
 export async function buildSitemapGroup(group: SitemapGroup): Promise<MetadataRoute.Sitemap> {
+  if (!isPublicExamVisible(group)) return [];
   const staticEntries = buildStaticSitemapGroup(group);
   const scope = GROUP_SCOPE[group];
   const publicContent = scope ? await getPublicContentUrls(scope) : [];
-  return uniqueEntries([...staticEntries, ...publicContent]);
+  // These two listings were confirmed empty. Include them again automatically
+  // when public content is available; leave other tracks unchanged.
+  if (scope !== "gamjeong") return uniqueEntries([...staticEntries, ...publicContent]);
+
+  const [hasCommunity, hasArchive] = await Promise.all([
+    hasPublicListingContent(scope, "community"),
+    hasPublicListingContent(scope, "archive"),
+  ]);
+  const emptyListingUrls = new Set([
+    ...(hasCommunity === false ? [`${SITE_URL}${communityBaseHref(scope)}`] : []),
+    ...(hasArchive === false ? [`${SITE_URL}${archiveBaseHref(scope)}`] : []),
+  ]);
+  return uniqueEntries([
+    ...staticEntries.filter((entry) => !emptyListingUrls.has(entry.url)),
+    ...publicContent,
+  ]);
 }
 
 export function sitemapChildUrl(group: SitemapGroup): string {

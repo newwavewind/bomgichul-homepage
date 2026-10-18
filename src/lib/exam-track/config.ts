@@ -8,7 +8,7 @@ export const POLICE_TRACK: ExamTrackConfig = {
   eyebrow: "봄기출 · 경찰공무원",
   hubTitle: "경찰공무원 기출 학습의 모든 것",
   hubDescription:
-    "순경 공채 헌법·형사법·경찰학 기출과 핵심 개념을 웹에서 바로 학습하고, 앱의 포켓 오디오·회독 관리로 공부를 이어가세요.",
+    "순경 공채 헌법·형사법·경찰학 기출과 해설을 웹에서 바로 학습하고, 앱의 포켓 오디오·회독 관리로 공부를 이어가세요.",
   communityScope: "police",
   communityTitle: "경찰공무원 수험생 커뮤니티",
   sessionEyebrow: "순경 공채 기출",
@@ -24,7 +24,7 @@ export const FIREFIGHTER_TRACK: ExamTrackConfig = {
   eyebrow: "봄기출 · 소방공무원",
   hubTitle: "소방공무원 기출 학습의 모든 것",
   hubDescription:
-    "소방학개론·소방관계법규·행정법총론 기출과 핵심 개념을 웹에서 바로 학습하고, 앱의 학습 모드로 공부를 이어가세요.",
+    "소방학개론·소방관계법규·행정법총론 기출과 해설을 웹에서 바로 학습하고, 앱의 학습 모드로 공부를 이어가세요.",
   communityScope: "firefighter",
   communityTitle: "소방공무원 수험생 커뮤니티",
   sessionEyebrow: "소방 공채 기출",
@@ -40,7 +40,7 @@ export const HOUSING_TRACK: ExamTrackConfig = {
   eyebrow: "봄기출 · 주택관리사",
   hubTitle: "주택관리사 기출 학습의 모든 것",
   hubDescription:
-    "주택관리사보 1·2차 전 과목 기출과 핵심 개념을 웹에서 바로 학습하고, 앱의 학습 모드·오디오로 공부를 이어가세요.",
+    "주택관리사보 1·2차 전 과목 기출과 해설을 웹에서 바로 학습하고, 앱의 학습 모드·오디오로 공부를 이어가세요.",
   communityScope: "housing",
   communityTitle: "주택관리사 수험생 커뮤니티",
   sessionEyebrow: "주택관리사보 기출",
@@ -56,7 +56,7 @@ export const SOCIAL_WORKER_TRACK: ExamTrackConfig = {
   eyebrow: "봄기출 · 사회복지사 1급",
   hubTitle: "사회복지사 1급 기출 학습의 모든 것",
   hubDescription:
-    "사회복지사 1급 8개 영역의 10개년 기출과 핵심 개념을 과목별·회차별로 학습하세요.",
+    "사회복지사 1급 8개 영역의 10개년 기출과 해설을 과목별·회차별로 학습하세요.",
   communityScope: "social_worker",
   communityTitle: "사회복지사 1급 수험생 커뮤니티",
   sessionEyebrow: "사회복지사 1급 국가시험 기출",
@@ -72,7 +72,7 @@ export const HISTORY_TRACK: ExamTrackConfig = {
   eyebrow: "봄기출 · 한국사능력검정",
   hubTitle: "한국사능력검정 기출 학습의 모든 것",
   hubDescription:
-    "심화 최근 5회차 250문항을 선지마다 해설과 함께 봅니다. 문항마다 그 시대를 통째로 정리한 핵심 개념 카드가 붙어 있어, 문제를 풀고 바로 개념을 굳힐 수 있습니다.",
+    "심화 최근 5회차 250문항을 선지마다 해설과 함께 봅니다.",
   communityScope: "history",
   communityTitle: "한국사능력검정 수험생 커뮤니티",
   sessionEyebrow: "한국사능력검정 심화 기출",

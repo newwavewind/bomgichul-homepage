@@ -1,4 +1,5 @@
 import { trackWebFunnel } from "@/lib/web-funnel";
+import { isPublicExamVisible } from "@/lib/public-exam-visibility";
 /** Website-only records. Account scoped; never changes the mobile apps' storage. */
 export type WrongReason = "개념 부족" | "선지 혼동" | "실수" | "시간 부족";
 export type StudyEntry = {
@@ -22,7 +23,7 @@ export type StudyPlan = {
   started: string;
 };
 export type WebStudy = { entries: StudyEntry[]; plan?: StudyPlan };
-export const EXAM_CHOICES = [
+const ALL_EXAM_CHOICES = [
   ["real-estate", "공인중개사", "전문자격"],
   ["public-service", "공무원", "공무원"],
   ["police", "경찰공무원", "공무원"],
@@ -40,6 +41,7 @@ export const EXAM_CHOICES = [
   ["gyeongbi", "경비지도사", "전문자격"],
   ["gamjeong", "감정평가사", "전문자격"],
 ] as const;
+export const EXAM_CHOICES = ALL_EXAM_CHOICES.filter(([id]) => isPublicExamVisible(id));
 export function scopeForPath(path: string) {
   return (
     EXAM_CHOICES.find(

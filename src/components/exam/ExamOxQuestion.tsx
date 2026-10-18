@@ -14,6 +14,8 @@ import { recordWebStudy, scopeForPath, type StudyEntry } from "@/lib/web-study";
 import { trackEvent } from "@/lib/analytics";
 import { WrongReasonPicker } from "@/components/web-study/WrongReasonPicker";
 import { plainStudyText } from "@/lib/study-text";
+import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
+import type { ExamReferenceEntry } from "@/lib/exam-questions";
 
 export type ExamOxItem = {
   key: string;
@@ -44,6 +46,7 @@ export function ExamOxQuestion({
   lawVersions,
   explanationSummary,
   comboChoices = [],
+  referenceEntries,
   passageLead = [],
   passageLabel,
   choiceHeaders = [],
@@ -64,6 +67,7 @@ export function ExamOxQuestion({
   lawVersions?: Record<string, string>;
   explanationSummary?: string;
   comboChoices?: ExamOxCombo[];
+  referenceEntries?: ExamReferenceEntry[];
   /** 보기 상자에서 ㉠ 앞에 놓인 도입부. 지문과 한 문장으로 이어지는 자리다. */
   passageLead?: string[];
   passageLabel?: string;
@@ -194,6 +198,7 @@ export function ExamOxQuestion({
               ))}
             </div>
           </fieldset>
+          <ExamReferenceList entries={referenceEntries} />
           <p className="pt-1 font-display text-body-sm font-semibold text-smoke">선택지</p>
           <div className="space-y-3">
             {comboChoices.map((choice) => {

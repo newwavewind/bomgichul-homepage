@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
+import { isPublicCommunityScopeVisible } from "@/lib/public-exam-visibility";
 
 export type PersonalHomeData = {
   attemptCount: number;
@@ -76,6 +77,7 @@ export function calculateStudyStreak(loginDates: string[], today = kstDate()) {
 
 export function resolveAttemptDestination(subject: string, year: number, questionNo: number) {
   const [scope, subjectId, sourceCode] = subject.split(":");
+  if (!isPublicCommunityScopeVisible(scope)) return null;
   if (BASE_PATHS[scope] && subjectId && sourceCode) {
     return {
       label: `${SCOPE_LABELS[scope]} · ${ARCHIVE_SUBJECT_MAP[subjectId] ?? subjectId} ${year}년 ${questionNo}번`,

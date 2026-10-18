@@ -1,6 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { getSupabaseEnv } from "@/lib/supabase/env";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { getKakaoProfileNickname } from "@/lib/kakao-profile";
 
 function safeNextPath(next: string | null): string {
   if (!next || !next.startsWith("/") || next.startsWith("//")) {
@@ -36,7 +38,7 @@ export async function GET(request: NextRequest) {
   if (oauthError) {
     const message = oauthErrorDescription || oauthError;
     return NextResponse.redirect(
-      `${origin}/login?error=auth&message=${encodeURIComponent(message)}`
+      `${origin}/login?error=auth&message=${encodeURIComponent(message)}`,
     );
   }
 
@@ -60,9 +62,28 @@ export async function GET(request: NextRequest) {
       },
     });
 
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (!error) {
+      if (
+        data.user?.app_metadata?.provider === "kakao" &&
+        data.session?.provider_token
+      ) {
+        const kakaoNickname = await getKakaoProfileNickname(
+          data.session.provider_token,
+        );
+
+        if (kakaoNickname) {
+          const admin = createAdminClient();
+          await admin.auth.admin.updateUserById(data.user.id, {
+            user_metadata: {
+              ...data.user.user_metadata,
+              kakao_profile_nickname: kakaoNickname,
+            },
+          });
+        }
+      }
+
       // 로그인 성공 당일의 활동 점수를 즉시 반영합니다.
       await supabase.rpc("record_daily_login");
       response.cookies.set("auth_next", "", { path: "/", maxAge: 0 });
@@ -71,7 +92,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.redirect(
-      `${origin}/login?error=auth&message=${encodeURIComponent(error.message)}`
+      `${origin}/login?error=auth&message=${encodeURIComponent(error.message)}`,
     );
   }
 

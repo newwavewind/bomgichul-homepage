@@ -13,7 +13,7 @@ function safeNextPath(next: string | null): string {
 
 async function findAuthUserByEmail(
   admin: ReturnType<typeof createAdminClient>,
-  email: string
+  email: string,
 ) {
   const normalized = email.toLowerCase();
   for (let page = 1; page <= 20; page += 1) {
@@ -23,7 +23,9 @@ async function findAuthUserByEmail(
     });
     if (error) throw error;
     const users = data?.users ?? [];
-    const found = users.find((user) => user.email?.toLowerCase() === normalized);
+    const found = users.find(
+      (user) => user.email?.toLowerCase() === normalized,
+    );
     if (found) return found;
     if (users.length < 200) return null;
   }
@@ -59,7 +61,7 @@ function fail(
   asForm: boolean,
   request: NextRequest,
   message: string,
-  status: number
+  status: number,
 ) {
   if (!asForm) {
     return NextResponse.json({ error: message }, { status });
@@ -82,7 +84,7 @@ export async function POST(request: NextRequest) {
       true,
       request,
       "미리보기 로그인은 로컬(localhost)에서만 사용할 수 있어요.",
-      403
+      403,
     );
   }
 
@@ -96,7 +98,12 @@ export async function POST(request: NextRequest) {
   const { email, next, asForm } = payload;
 
   if (!email || !email.includes("@")) {
-    return fail(asForm, request, "가입에 쓰는 Google 이메일을 입력해 주세요.", 400);
+    return fail(
+      asForm,
+      request,
+      "가입에 쓰는 로그인 이메일을 입력해 주세요.",
+      400,
+    );
   }
 
   let admin;
@@ -107,7 +114,7 @@ export async function POST(request: NextRequest) {
       asForm,
       request,
       "SUPABASE_SERVICE_ROLE_KEY가 .env.local에 없어요. 키를 넣은 뒤 dev 서버를 재시작하세요.",
-      500
+      500,
     );
   }
 
@@ -116,22 +123,23 @@ export async function POST(request: NextRequest) {
     return fail(
       asForm,
       request,
-      "해당 이메일 계정을 찾지 못했어요. 사이트에 한 번이라도 Google 로그인한 이메일을 쓰세요.",
-      400
+      "해당 이메일 계정을 찾지 못했어요. 사이트에 한 번이라도 로그인한 이메일을 쓰세요.",
+      400,
     );
   }
 
-  const { data: linkData, error: linkError } = await admin.auth.admin.generateLink({
-    type: "magiclink",
-    email,
-  });
+  const { data: linkData, error: linkError } =
+    await admin.auth.admin.generateLink({
+      type: "magiclink",
+      email,
+    });
 
   if (linkError || !linkData?.properties?.hashed_token) {
     return fail(
       asForm,
       request,
       linkError?.message || "로그인 토큰을 만들지 못했어요.",
-      400
+      400,
     );
   }
 
@@ -163,7 +171,7 @@ export async function POST(request: NextRequest) {
       asForm,
       request,
       verifyError.message || "세션을 만들지 못했어요.",
-      400
+      400,
     );
   }
 

@@ -9,6 +9,7 @@ import { getPublicServiceSubject } from "@/lib/public-service-content";
 import { getSocialWorkerSubject } from "@/lib/social-worker-content";
 import { createClient } from "@/lib/supabase/server";
 import { collectTrackReviewEntries, renderTrackReviewPdfBuffer } from "@/lib/track-review-pdf";
+import { isPublicCommunityScopeVisible } from "@/lib/public-exam-visibility";
 
 export const runtime = "nodejs";
 
@@ -29,6 +30,9 @@ function isTrackScope(value: string): value is TrackScope {
 
 export async function GET(_request: Request, context: RouteContext<"/api/review-pdf/track/[scope]/[subject]">) {
   const { scope, subject } = await context.params;
+  if (!isPublicCommunityScopeVisible(scope)) {
+    return NextResponse.json({ error: "not found" }, { status: 404 });
+  }
   if (!isTrackScope(scope)) return NextResponse.json({ error: "invalid track" }, { status: 404 });
 
   const track = TRACKS[scope];

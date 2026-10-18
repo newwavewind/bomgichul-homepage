@@ -1,12 +1,18 @@
 import Link from "next/link";
-import { HandCaption, SectionHeading, ElectricHighlight } from "@/components/ui/Typography";
+import {
+  HandCaption,
+  SectionHeading,
+  ElectricHighlight,
+} from "@/components/ui/Typography";
 import { FeatureCard, ElevatedCard } from "@/components/ui/Card";
-import { PrimaryButton, SecondaryButton, OutlineButton } from "@/components/ui/Button";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  OutlineButton,
+} from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
 import {
   appStoreLinksForScope,
-  EXAM_SUBJECTS,
-  ARCHIVE_SUBJECT_MAP,
   PC_APP_URL,
 } from "@/lib/constants";
 import {
@@ -18,7 +24,6 @@ import {
 import type { CommunityScope } from "@/types/database";
 import {
   StudyHubVisual,
-  ConceptsVisual,
   ExamVisual,
   CommunityVisual,
   ArchiveVisual,
@@ -29,24 +34,23 @@ import {
 function tocForScope(scope: CommunityScope) {
   const base = [
     { href: "#home", label: "1. 학습 홈" },
-    { href: "#concepts", label: "2. 기출 올인원" },
-    { href: "#exam", label: "3. 기출문제" },
-    { href: "#community", label: "4. 커뮤니티" },
-    { href: "#archive", label: "5. 자료실" },
+    { href: "#exam", label: "2. 기출문제" },
+    { href: "#community", label: "3. 커뮤니티" },
+    { href: "#archive", label: "4. 자료실" },
   ];
   if (scope === "real_estate") {
     return [
       ...base,
-      { href: "#news", label: "6. 뉴스" },
-      { href: "#account", label: "7. 로그인·프로필" },
-      { href: "#premium", label: "8. 이용 범위" },
-      { href: "#apps", label: "9. 앱·PC앱" },
+      { href: "#news", label: "5. 뉴스" },
+      { href: "#account", label: "6. 로그인·프로필" },
+      { href: "#premium", label: "7. 이용 범위" },
+      { href: "#apps", label: "8. 앱·PC앱" },
     ];
   }
   return [
     ...base,
-    { href: "#account", label: "6. 로그인·프로필" },
-    { href: "#apps", label: "7. 앱" },
+    { href: "#account", label: "5. 로그인·프로필" },
+    { href: "#apps", label: "6. 앱" },
   ];
 }
 
@@ -82,7 +86,9 @@ function DocsSection({
           reverse ? "lg:[&>*:first-child]:order-2" : ""
         }`}
       >
-        <div className="space-y-4 font-display text-body text-smoke">{children}</div>
+        <div className="space-y-4 font-display text-body text-smoke">
+          {children}
+        </div>
         <div className="lg:sticky lg:top-28">{visual}</div>
       </div>
     </section>
@@ -97,7 +103,9 @@ function StepList({ items }: { items: string[] }) {
           <span className="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full border border-carbon bg-paper font-display text-[11px] font-bold text-ink">
             {index + 1}
           </span>
-          <span className="font-display text-body-sm leading-relaxed text-ink">{item}</span>
+          <span className="font-display text-body-sm leading-relaxed text-ink">
+            {item}
+          </span>
         </li>
       ))}
     </ol>
@@ -125,9 +133,9 @@ export function GuideContent({
           {label} 기능을 한눈에
         </SectionHeading>
         <p className="max-w-2xl font-display text-body text-smoke">
-          이 페이지는 <ElectricHighlight>봄기출 {label}</ElectricHighlight>에 있는 기능을
-          하나씩 설명하는 가이드예요. 마케팅 문구가 아니라, 지금 실제로 눌러볼 수 있는
-          화면 기준으로 적어 두었습니다.
+          이 페이지는 <ElectricHighlight>봄기출 {label}</ElectricHighlight>에
+          있는 기능을 하나씩 설명하는 가이드예요. 마케팅 문구가 아니라, 지금
+          실제로 눌러볼 수 있는 화면 기준으로 적어 두었습니다.
         </p>
         <nav aria-label="목차" className="mt-6">
           <div className="flex flex-wrap gap-2">
@@ -154,14 +162,24 @@ export function GuideContent({
         <p>
           {isRE ? (
             <>
-              사이트에 들어오면 바로 <strong className="text-ink">학습 홈</strong>이 보여요.
-              주소는 <code className="rounded bg-mist/60 px-1.5 py-0.5 text-[13px]">/</code> 또는{" "}
-              <code className="rounded bg-mist/60 px-1.5 py-0.5 text-[13px]">/study</code> 입니다.
+              사이트에 들어오면 바로{" "}
+              <strong className="text-ink">학습 홈</strong>이 보여요. 주소는{" "}
+              <code className="rounded bg-mist/60 px-1.5 py-0.5 text-[13px]">
+                /
+              </code>{" "}
+              또는{" "}
+              <code className="rounded bg-mist/60 px-1.5 py-0.5 text-[13px]">
+                /study
+              </code>{" "}
+              입니다.
             </>
           ) : (
             <>
               <strong className="text-ink">{label} 학습 홈</strong> 주소는{" "}
-              <code className="rounded bg-mist/60 px-1.5 py-0.5 text-[13px]">{hub}</code> 입니다.
+              <code className="rounded bg-mist/60 px-1.5 py-0.5 text-[13px]">
+                {hub}
+              </code>{" "}
+              입니다.
             </>
           )}
         </p>
@@ -175,7 +193,8 @@ export function GuideContent({
           </li>
         </ul>
         <p className="font-display text-body-sm">
-          아래에는 앱 설치 안내가 있어요. 로그인 없이도 과목을 눌러 들어갈 수 있습니다.
+          아래에는 앱 설치 안내가 있어요. 로그인 없이도 과목을 눌러 들어갈 수
+          있습니다.
         </p>
         <OutlineButton href={hub} className="!px-4 !py-2">
           학습 홈 열기
@@ -183,62 +202,15 @@ export function GuideContent({
       </DocsSection>
 
       <DocsSection
-        id="concepts"
-        step="02"
-        eyebrow="개념"
-        title="기출 올인원으로 주제를 따라갑니다"
-        visual={<ConceptsVisual key={`concepts-${scope}`} scope={scope} />}
-        reverse
-      >
-        <p>
-          {isRE
-            ? "과목을 고르면 PART · CHAPTER 같은 목차로 개념이 정리되어 있어요."
-            : `${label} 과목을 고르면 PART · CHAPTER 같은 목차로 개념이 정리되어 있어요.`}{" "}
-          한 개념을 열면 이런 순서로 읽으면 됩니다.
-        </p>
-        <StepList
-          items={[
-            "개념 정리 — 한 줄 정의",
-            "이해하기 — 직관적으로 받아들이는 설명",
-            "핵심 포인트 · 함정 포인트 — 시험에서 자주 틀리는 지점",
-            "한눈에 학습맵 / 시각 가이드 — 도표로 구조 잡기",
-            "기출 지문 · 관련 기출 — 실제 문제로 바로 이어가기",
-          ]}
-        />
-        <p className="font-display text-body-sm">
-          「수정」 표시가 있는 지문은 원문과 표현이 조금 다듬어진 버전이에요. 개념
-          공부용으로 읽기 쉽게 정리한 것입니다.
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {isRE &&
-            EXAM_SUBJECTS.slice(0, 3).map((s) => (
-              <Link
-                key={s.value}
-                href={`/concepts/${s.value}`}
-                className="rounded-full border border-carbon/40 bg-lavender/60 px-3 py-1.5 font-display text-[12px] font-medium text-ink hover:border-carbon"
-              >
-                {ARCHIVE_SUBJECT_MAP[s.value]}
-              </Link>
-            ))}
-          <OutlineButton
-            href={isRE ? "/#concepts" : hub}
-            className="!px-3 !py-1.5 !text-[12px]"
-          >
-            전체 과목
-          </OutlineButton>
-        </div>
-      </DocsSection>
-
-      <DocsSection
         id="exam"
-        step="03"
+        step="02"
         eyebrow="문제 풀이"
         title="기출문제는 연도 → 문항으로 풉니다"
         visual={<ExamVisual scope={scope} />}
       >
         <p>
-          과목을 고르면 연도 목록이 나와요. 연도를 누르면 문항 목록, 문항을 누르면 O/X로
-          풀어볼 수 있습니다.
+          과목을 고르면 연도 목록이 나와요. 연도를 누르면 첫 문항이 바로 열리고,
+          문제 화면의 목록 버튼에서 전체 문항을 볼 수 있습니다.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           {[
@@ -260,7 +232,9 @@ export function GuideContent({
             },
           ].map((card) => (
             <FeatureCard key={card.title} tint="snow" className="!p-3.5">
-              <p className="font-display text-[13px] font-semibold text-ink">{card.title}</p>
+              <p className="font-display text-[13px] font-semibold text-ink">
+                {card.title}
+              </p>
               <p className="mt-1 font-display text-[12px] leading-relaxed text-smoke">
                 {card.body}
               </p>
@@ -268,8 +242,9 @@ export function GuideContent({
           ))}
         </div>
         <p className="font-display text-body-sm">
-          과목별 기출 목록은 학습 홈의 <strong className="text-ink">기출문제</strong> 카드에서
-          들어가면 됩니다.
+          과목별 기출 목록은 학습 홈의{" "}
+          <strong className="text-ink">기출문제</strong> 카드에서 들어가면
+          됩니다.
         </p>
         <OutlineButton href={isRE ? "/#exam" : hub} className="!px-4 !py-2">
           기출문제 과목 보기
@@ -278,7 +253,7 @@ export function GuideContent({
 
       <DocsSection
         id="community"
-        step="04"
+        step="03"
         eyebrow="함께 공부"
         title={`${label} 커뮤니티에서 질문하고 정보를 나눠요`}
         visual={<CommunityVisual scope={scope} />}
@@ -289,8 +264,8 @@ export function GuideContent({
             ? "자유 · 질문 · 자료공유 · 수험정보 · 법령정보 · 합격후기 카테고리가 있어요."
             : "질문 · 수험정보 등 카테고리가 있어요."}{" "}
           글은 누구나 읽을 수 있고,{" "}
-          <strong className="text-ink">글쓰기·댓글은 로그인</strong> 후 이용합니다.{" "}
-          {label} 커뮤니티는 다른 시험 글과 섞이지 않습니다.
+          <strong className="text-ink">글쓰기·댓글은 로그인</strong> 후
+          이용합니다. {label} 커뮤니티는 다른 시험 글과 섞이지 않습니다.
         </p>
         <StepList
           items={[
@@ -308,19 +283,20 @@ export function GuideContent({
 
       <DocsSection
         id="archive"
-        step="05"
+        step="04"
         eyebrow="파일"
         title="자료실에서 파일을 받고 올려요"
         visual={<ArchiveVisual scope={scope} />}
       >
         <p>
-          {label} 기출 · 노트 · 요약 등 파일을 과목별로 모아 둔 공간이에요. 다운로드는
-          로그인 없이 가능하고,{" "}
-          <strong className="text-ink">자료 올리기는 로그인</strong>이 필요합니다.
+          {label} 기출 · 노트 · 요약 등 파일을 과목별로 모아 둔 공간이에요.
+          다운로드는 로그인 없이 가능하고,{" "}
+          <strong className="text-ink">자료 올리기는 로그인</strong>이
+          필요합니다.
         </p>
         <p className="font-display text-body-sm">
-          PDF · 문서 · 이미지 · CSV · MP4를 올릴 수 있어요. (일반 파일은 대체로 20MB, 영상은
-          더 큰 용량까지)
+          PDF · 문서 · 이미지 · CSV · MP4를 올릴 수 있어요. (일반 파일은 대체로
+          20MB, 영상은 더 큰 용량까지)
         </p>
         <OutlineButton href={archive} className="!px-4 !py-2">
           자료실 열기
@@ -330,14 +306,14 @@ export function GuideContent({
       {isRE && (
         <DocsSection
           id="news"
-          step="06"
+          step="05"
           eyebrow="소식"
           title="뉴스로 날짜별 이슈를 훑어요"
           visual={<NewsVisual />}
         >
           <p>
-            공인중개사와 관련한 소식을 날짜 줄로 넘겨 가며 읽을 수 있어요. 따로 로그인할
-            필요는 없습니다. 뉴스는 공인중개사 전용입니다.
+            공인중개사와 관련한 소식을 날짜 줄로 넘겨 가며 읽을 수 있어요. 따로
+            로그인할 필요는 없습니다. 뉴스는 공인중개사 전용입니다.
           </p>
           <OutlineButton href="/news" className="!px-4 !py-2">
             뉴스 보기
@@ -347,13 +323,15 @@ export function GuideContent({
 
       <DocsSection
         id="account"
-        step={isRE ? "07" : "06"}
+        step={isRE ? "06" : "05"}
         eyebrow="계정"
-        title="로그인은 구글로, 프로필에서 내 공부를 봐요"
+        title="Google·카카오로 로그인하고 내 공부를 봐요"
         visual={
           <FeatureCard tint="snow" className="mx-auto max-w-sm !p-5">
             <Tag className="mb-3 !text-[11px]">계정</Tag>
-            <p className="font-display text-subheading font-semibold text-ink">Google 로그인</p>
+            <p className="font-display text-subheading font-semibold text-ink">
+              Google·카카오 로그인
+            </p>
             <p className="mt-2 font-display text-body-sm text-smoke">
               로그인 → 아이디(닉네임) 설정 → 프로필에서 북마크·오답·내 글 확인
             </p>
@@ -372,15 +350,15 @@ export function GuideContent({
       >
         <StepList
           items={[
-            "상단 「로그인」에서 Google로 접속합니다",
+            "상단 「로그인」에서 Google 또는 카카오로 접속합니다",
             "처음이면 닉네임을 정하는 온보딩이 나와요",
             "프로필에서 북마크·오답·내가 쓴 글을 봅니다",
             "알림은 댓글 등 소식용이에요",
           ]}
         />
         <p className="font-display text-body-sm">
-          우측 하단 채팅은 닉네임이 있는 계정에서, 접속 중인 수험생과 짧게 대화할 때
-          씁니다.
+          우측 하단 채팅은 닉네임이 있는 계정에서, 접속 중인 수험생과 짧게
+          대화할 때 씁니다.
         </p>
         <OutlineButton href="/login" className="!px-4 !py-2">
           로그인
@@ -390,7 +368,7 @@ export function GuideContent({
       {isRE && (
         <DocsSection
           id="premium"
-          step="08"
+          step="07"
           eyebrow="이용 범위"
           title="홈페이지는 전부 무료"
           visual={<PremiumVisual />}
@@ -418,16 +396,17 @@ export function GuideContent({
             </ElevatedCard>
           </div>
           <p className="font-display text-body-sm">
-            이 홈페이지는 <strong className="text-ink">모든 과목과 모든 기능이 무료</strong>입니다.
-            로그인만 하면 북마크·오답노트처럼 기록이 남는 기능까지 다 쓸 수 있어요.
-            과목을 구매해야 하는 것은 PC앱과 모바일 앱뿐입니다.
+            이 홈페이지는{" "}
+            <strong className="text-ink">모든 과목과 모든 기능이 무료</strong>
+            입니다. 로그인만 하면 북마크·오답노트처럼 기록이 남는 기능까지 다 쓸
+            수 있어요. 과목을 구매해야 하는 것은 PC앱과 모바일 앱뿐입니다.
           </p>
         </DocsSection>
       )}
 
       <section id="apps" className="scroll-mt-28 border-t border-mist pt-14">
         <p className="mb-2 font-display text-[12px] font-semibold tracking-[0.08em] text-electric-blue">
-          {isRE ? "09" : "07"} · 앱
+          {isRE ? "08" : "06"} · 앱
         </p>
         <SectionHeading as="h2" className="mb-4">
           {isRE ? "모바일 앱과 PC앱" : "모바일 앱"}
@@ -439,7 +418,8 @@ export function GuideContent({
               봄기출 {label}
             </p>
             <p className="mt-2 font-display text-body-sm text-smoke">
-              앱스토어·플레이스토어에서 설치해요. 앱 전용으로 더 많은 학습 모드가 있어요.
+              앱스토어·플레이스토어에서 설치해요. 앱 전용으로 더 많은 학습
+              모드가 있어요.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {storeLinks.ios ? (
@@ -471,9 +451,12 @@ export function GuideContent({
           {isRE && (
             <FeatureCard tint="lavender">
               <Tag className="mb-3 !text-[11px]">PC</Tag>
-              <p className="font-display text-subheading font-semibold text-ink">PC앱</p>
+              <p className="font-display text-subheading font-semibold text-ink">
+                PC앱
+              </p>
               <p className="mt-2 font-display text-body-sm text-smoke">
-                큰 화면에서 학습할 때 쓰는 별도 앱입니다. 과목별로 구매해야 이용할 수 있어요.
+                큰 화면에서 학습할 때 쓰는 별도 앱입니다. 과목별로 구매해야
+                이용할 수 있어요.
               </p>
               <a
                 href={PC_APP_URL}

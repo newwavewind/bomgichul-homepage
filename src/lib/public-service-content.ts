@@ -142,11 +142,20 @@ export function getPublicServiceExam(
 export function getPublicServiceExamSessions(subjectId: string) {
   const subject = getPublicServiceSubject(subjectId);
   if (!subject) return [];
-  const sessions = new Map<string, { year: number; sourceCode: string; count: number }>();
+  const sessions = new Map<
+    string,
+    { year: number; sourceCode: string; count: number; firstQuestionNo: number }
+  >();
   for (const exam of subject.exams) {
     const key = `${exam.year}-${exam.sourceCode}`;
-    const current = sessions.get(key) ?? { year: exam.year, sourceCode: exam.sourceCode, count: 0 };
+    const current = sessions.get(key) ?? {
+      year: exam.year,
+      sourceCode: exam.sourceCode,
+      count: 0,
+      firstQuestionNo: exam.questionNo,
+    };
     current.count += 1;
+    current.firstQuestionNo = Math.min(current.firstQuestionNo, exam.questionNo);
     sessions.set(key, current);
   }
   return [...sessions.values()].sort((a, b) => b.year - a.year || a.sourceCode.localeCompare(b.sourceCode, "ko"));

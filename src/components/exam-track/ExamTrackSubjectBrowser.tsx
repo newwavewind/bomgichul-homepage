@@ -13,7 +13,7 @@ function SubjectCard({
   subject: ExamTrackManifestItem;
   index: number;
 }) {
-  return <SubjectLearningCard label={subject.label} badge={subject.track} examCount={subject.examCount} conceptCount={subject.conceptCount} examHref={`${track.basePath}/exam/${subject.id}`} conceptHref={track.id === 'history' ? '/history/concepts' : subject.conceptCount > 0 ? `${track.basePath}/concepts/${subject.id}` : undefined} />;
+  return <SubjectLearningCard label={subject.label} badge={subject.track} examCount={subject.examCount} examHref={`${track.basePath}/exam/${subject.id}`} dailyHref={`${track.basePath}/daily?subject=${encodeURIComponent(subject.id)}`} />;
 
 }
 
@@ -38,19 +38,19 @@ export function ExamTrackSubjectBrowser({
   return (
     <section id={`${track.id}-subjects`}>
       {tracks.length <= 1 ? (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
           {(tracks[0]?.[1] ?? subjects).map((subject, index) => (
             <SubjectCard key={subject.id} track={track} subject={subject} index={index} />
           ))}
         </div>
       ) : (
-        <div className="space-y-12">
+        <div className="space-y-10 md:space-y-12">
           {tracks.map(([group, groupSubjects]) => (
             <section key={group}>
-              <h3 className="mb-5 border-b border-mist pb-3 font-display text-[24px] font-semibold text-ink">
+              <h3 className="mb-5 border-b border-mist pb-3 font-display text-[22px] font-semibold text-ink md:text-[24px]">
                 {group}
               </h3>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
                 {groupSubjects.map((subject) => (
                   <SubjectCard
                     key={subject.id}

@@ -5,7 +5,7 @@ import { ROBOTS_NOINDEX } from "@/lib/seo";
  *  이 지시를 읽지 못해 오히려 「내용 모르는 채 색인」 되므로 noindex 로 뺀다. */
 export const metadata: Metadata = { robots: ROBOTS_NOINDEX };
 
-import { CommunityWritePage } from "@/app/community/write/page";
+import { CommunityWritePage } from "@/components/community/CommunityWritePage";
 
 export default function Page() {
   return <CommunityWritePage scope="gugeo" />;

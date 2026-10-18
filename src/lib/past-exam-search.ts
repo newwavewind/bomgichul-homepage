@@ -7,6 +7,7 @@ import {
   type PastExamFileKind,
   type PastExamPdfGroup,
 } from "@/lib/past-exam-search-shared";
+import { isPublicCommunityScopeVisible } from "@/lib/public-exam-visibility";
 
 export type { PastExamPdfGroup, PastExamPdfFile, PastExamFileKind } from "@/lib/past-exam-search-shared";
 export { PAST_EXAM_SCOPE_OPTIONS, PAST_EXAM_TITLE_PREFIX } from "@/lib/past-exam-search-shared";
@@ -76,6 +77,7 @@ export async function searchPastExamPdfs(options: {
 
   const q = (options.q ?? "").trim();
   const scope = options.scope ?? "all";
+  if (scope !== "all" && !isPublicCommunityScopeVisible(scope)) return [];
   const year = options.year && options.year >= 2000 && options.year <= 2100 ? options.year : null;
   const round =
     options.round && options.round >= 1 && options.round <= 200 ? options.round : null;
@@ -95,6 +97,8 @@ export async function searchPastExamPdfs(options: {
 
   if (scope !== "all") {
     query = query.eq("community_scope", scope);
+  } else if (!isPublicCommunityScopeVisible("history")) {
+    query = query.neq("community_scope", "history");
   }
 
   // 한국사는 제목에 연도가 없고 `N회`만 있음

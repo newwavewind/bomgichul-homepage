@@ -3,48 +3,39 @@ export function SubjectLearningCard({
   label,
   badge,
   examCount,
-  conceptCount,
   examHref,
-  conceptHref,
+  dailyHref,
 }: {
   label: string;
   badge: string;
   examCount: number;
-  conceptCount: number;
   examHref: string;
-  conceptHref?: string;
+  dailyHref?: string;
 }) {
   return (
-    <article className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-paper p-6 shadow-[var(--shadow-card)]">
-      <p className="mb-5 font-display text-xs text-smoke">{badge}</p>
-      <h3 className="font-display text-subheading font-semibold text-ink">
+    <article className="rounded-[20px] border border-[#d8e3ef] bg-paper p-5 shadow-[0_4px_18px_rgba(15,23,42,0.035)] transition-colors hover:border-[#b8cde4]">
+      <p className="mb-3 font-display text-xs text-fog">{badge}</p>
+      <h3 className="font-display text-[22px] font-semibold leading-[1.3] text-ink">
         {label}
       </h3>
-      <p className="mt-2 font-display text-body-sm text-smoke">
-        {/* 트랙을 먼저 세우고 기출을 뒤에 싣는 시험(경비지도사)에서 「0문항」으로 보이지 않게 */}
-        {examCount > 0 ? `기출 ${examCount}문항` : "기출 싣는 중"}
-        {conceptCount > 0 ? ` · 핵심 개념 ${conceptCount}개` : ""}
+      <p className="mt-1.5 font-display text-sm leading-5 text-smoke">
+        {examCount > 0 ? `기출 ${examCount}문항` : "연도별 기출과 선지 해설"}
       </p>
-      <div className="mt-6 grid grid-cols-2 gap-2">
+      <div className={`mt-5 grid gap-2 ${dailyHref ? "grid-cols-2" : ""}`}>
         <Link
           href={examHref}
-          className="rounded-xl bg-carbon px-3 py-3 text-center text-sm font-semibold text-paper"
+          className="flex min-h-11 items-center justify-center rounded-[12px] bg-carbon px-3 py-2.5 text-center text-sm font-semibold text-paper transition-colors hover:bg-midnight"
         >
           문제 풀기
         </Link>
-        {conceptHref ? (
+        {dailyHref ? (
           <Link
-            href={conceptHref}
-            className="rounded-xl border border-carbon/40 bg-[#e8f0ff] px-3 py-3 text-center text-sm font-semibold text-carbon"
+            href={dailyHref}
+            className="flex min-h-11 items-center justify-center rounded-[12px] border border-[#9dbbe0] bg-paper px-3 py-2.5 text-center text-sm font-semibold text-carbon transition-colors hover:bg-[#f4f8fd]"
           >
-            핵심 개념
+            매일 10문제
           </Link>
-        ) : (
-          <p className="rounded-xl bg-snow px-3 py-3 text-xs text-smoke">
-            단원별 개념 준비 중<br />
-            {examCount > 0 ? "기출 해설은 이용 가능" : "기출·해설도 곧 열립니다"}
-          </p>
-        )}
+        ) : null}
       </div>
     </article>
   );

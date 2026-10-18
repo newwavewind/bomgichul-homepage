@@ -1,3 +1,5 @@
+import { isPublicExamVisible } from "@/lib/public-exam-visibility";
+
 export type DailyExamMeta = {
   slug: string;
   label: string;
@@ -22,7 +24,7 @@ export const DAILY_EXAMS: DailyExamMeta[] = [
   { slug: "nomusa", label: "공인노무사", home: "/nomusa", trackId: "nomusa" },
   { slug: "gyeongbi", label: "경비지도사", home: "/gyeongbi", trackId: "gyeongbi" },
   { slug: "gamjeong", label: "감정평가사", home: "/gamjeong", trackId: "gamjeong" },
-];
+].filter((exam) => isPublicExamVisible(exam.slug));
 
 export function getDailyExam(slug: string): DailyExamMeta | null {
   return DAILY_EXAMS.find((exam) => exam.slug === slug) ?? null;

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
-import { QuestionConceptLinks } from "@/components/concepts/QuestionConceptLinks";
 import { ShareToChatButton } from "@/components/chat/ShareToChatButton";
 import {
   ExamQuestionSeoExplanations,
@@ -13,6 +12,7 @@ import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationD
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
+import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import {
   ConceptReturnLoginGate,
@@ -27,7 +27,6 @@ import {
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
-import { findConceptsForExamQuestion } from "@/lib/concepts";
 import { getPublicMemosForQuestion } from "@/lib/question-memos";
 import {
   absoluteUrl,
@@ -71,7 +70,7 @@ export async function generateMetadata({
       question.explanationSummary ? ` ${question.explanationSummary}` : ""
     }`
   );
-  const canonicalPath = `/exam/${subject}/${yearParam}/${question.questionNo}`;
+  const canonicalPath = `/exam/${subject}/${question.year}/${question.questionNo}`;
 
   return {
     title,
@@ -103,7 +102,6 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
   const questionNo = Number(noParam);
   const question = getExamQuestion(subject, year, questionNo);
   if (!question) notFound();
-  const relatedConcepts = findConceptsForExamQuestion(subject, question);
 
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const yearQuestions = getExamQuestionsForYear(subject, year);
@@ -166,7 +164,10 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
       <ConceptReturnLoginGate />
       <article className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-3">
-          <ExamBackLink listBase={listBase} listLabel={`${year}년 문항 목록`} />
+          <ExamBackLink
+            listBase={`/exam/${subject}`}
+            listLabel={`${label} 연도 선택`}
+          />
           <div className="flex flex-wrap items-center justify-end gap-2">
             <ShareToChatButton
               mode="exam"
@@ -211,6 +212,11 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           </div>
           <div className="mt-5">
             <QuestionStem stem={question.stem} questionNo={questionNo} />
+            {question.leadEntries?.length ? (
+              <div className="mb-6">
+                <ExamReferenceList entries={question.leadEntries} heading="시장 유형" />
+              </div>
+            ) : null}
             {question.table ? (
               <ExamStructuredMaterials table={question.table} />
             ) : null}
@@ -228,6 +234,8 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             lawVersions={question.lawVersions}
             explanationSummary={question.explanationSummary}
             comboChoices={question.comboChoices}
+            referenceEntries={question.referenceEntries}
+            passageLabel={question.leadEntries?.length ? "<보기>" : undefined}
             renderExplanation={false}
             loginNext={detailPath}
           />
@@ -243,13 +251,6 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
               embedded
             />
           </ExamSeoExplanationDetails> : null}
-          <QuestionConceptLinks
-            concepts={relatedConcepts.map((concept) => ({
-              slug: concept.slug,
-              titleKo: concept.titleKo,
-              href: `/concepts/${subject}/${concept.slug}`,
-            }))}
-          />
         </div>
 
         <AdRail adsense="exam" spacingClassName="mt-8" />

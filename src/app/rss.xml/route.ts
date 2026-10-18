@@ -1,7 +1,8 @@
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
-import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
+import { archiveBaseHref, communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 import { getPost, getPosts } from "@/lib/posts";
 import type { CommunityScope } from "@/types/database";
+import { isPublicCommunityScopeVisible } from "@/lib/public-exam-visibility";
 
 export const revalidate = 900;
 
@@ -11,22 +12,22 @@ const FALLBACK_ITEMS = [
   {
     title: "공인중개사 기출 학습",
     link: `${SITE_URL}/real-estate`,
-    description: "공인중개사 과목별 핵심 개념과 연도별 공개 기출문제를 학습하세요.",
+    description: "공인중개사 과목별·연도별 공개 기출문제와 해설을 학습하세요.",
   },
   {
     title: "공무원 기출 학습",
     link: `${SITE_URL}/public-service`,
-    description: "공무원 시험 과목별 핵심 개념과 연도별 공개 기출문제를 학습하세요.",
+    description: "공무원 시험 과목별·연도별 공개 기출문제와 해설을 학습하세요.",
   },
   {
     title: "경찰공무원 기출 학습",
     link: `${SITE_URL}/police`,
-    description: "경찰공무원 시험 과목별 핵심 개념과 연도별 공개 기출문제를 학습하세요.",
+    description: "경찰공무원 시험 과목별·연도별 공개 기출문제와 해설을 학습하세요.",
   },
   {
     title: "주택관리사 기출 학습",
     link: `${SITE_URL}/housing`,
-    description: "주택관리사 과목별 핵심 개념과 연도별 공개 기출문제를 학습하세요.",
+    description: "주택관리사 과목별·연도별 공개 기출문제와 해설을 학습하세요.",
   },
 ] as const;
 
@@ -42,7 +43,8 @@ function escapeXml(value: string): string {
 export async function GET() {
   const { data } = await getPosts({ scope: "all", page: 1, sort: "latest" });
   const publishedPosts = data
-    .filter((post) => post.category !== "bug" && post.category !== "feedback");
+    .filter((post) => post.category !== "bug" && post.category !== "feedback")
+    .filter((post) => !post.community_scope || isPublicCommunityScopeVisible(post.community_scope));
   const detailedPosts = await Promise.all(
     publishedPosts.map(async (post) => ({ post, detail: await getPost(post.id) })),
   );
@@ -51,7 +53,8 @@ export async function GET() {
       const scope = isValidCommunityScope(post.community_scope)
         ? (post.community_scope as CommunityScope)
         : "real_estate";
-      const link = `${SITE_URL}${communityBaseHref(scope)}/${post.id}`;
+      const base = post.category === "resource" ? archiveBaseHref(scope) : communityBaseHref(scope);
+      const link = `${SITE_URL}${base}/${post.id}`;
       return {
         title: post.title,
         link,

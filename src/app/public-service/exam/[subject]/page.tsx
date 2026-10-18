@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
@@ -42,9 +41,6 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
       <BackLink href="/public-service">공무원 과목</BackLink>
       <header className="mt-6 border-b border-mist pb-8">
         <h1 className="font-display text-heading font-semibold text-ink">9급 공무원 {data.subject.label} 기출문제</h1>
-        <Link href={`/public-service/concepts/${subjectId}`} className="mt-3 inline-flex items-center gap-1 font-display text-body-sm font-semibold text-ios-blue hover:underline">
-          9급 공무원 {data.subject.label} 기출 올인원 →
-        </Link>
       </header>
       <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} />
       <section className="mt-10">
@@ -52,7 +48,7 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
           {[...sessionsBySource.entries()].map(([sourceCode, sourceSessions]) => (
             <ExamSessionGroup key={sourceCode} title={sourceCode}>
               {sourceSessions.map((session) => (
-                <ExamSessionCard key={`${session.year}-${session.sourceCode}`} href={`/public-service/exam/${subjectId}/${session.year}/${session.sourceCode}`} year={session.year} questionCount={session.count} />
+                <ExamSessionCard key={`${session.year}-${session.sourceCode}`} href={`/public-service/exam/${subjectId}/${session.year}/${encodeURIComponent(session.sourceCode)}/${session.firstQuestionNo}`} year={session.year} questionCount={session.count} />
               ))}
             </ExamSessionGroup>
           ))}

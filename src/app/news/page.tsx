@@ -56,10 +56,12 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
     <div className="px-4 py-8 md:py-12">
       <div className="mx-auto w-full max-w-[var(--page-max-width)]">
         <div className="mb-8 max-w-xl">
-          <EyebrowLabel className="mb-2">매일 아침 8시 업데이트</EyebrowLabel>
+          <EyebrowLabel className="mb-2">
+            {dates[0] ? `최근 수집일 · ${dates[0]}` : "뉴스 모아보기"}
+          </EyebrowLabel>
           <SectionHeading as="h1">공인중개사 뉴스</SectionHeading>
           <p className="mt-3 font-display text-body text-smoke">
-            시험·자격증·중개업·부동산 정책 관련 뉴스를 매일 아침 모아드려요.
+            시험·자격증·중개업·부동산 정책 관련 뉴스를 날짜별로 모았습니다.
           </p>
         </div>
 

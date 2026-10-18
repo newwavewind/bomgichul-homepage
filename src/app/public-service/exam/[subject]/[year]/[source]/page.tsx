@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
-import { BackLink } from "@/components/ui/BackLink";
-import { ExamQuestionListCard } from "@/components/exam/ExamQuestionListCard";
+import { notFound, redirect } from "next/navigation";
 import { getPublicServiceExamSessions, getPublicServiceSubject, PUBLIC_SERVICE_SUBJECT_IDS } from "@/lib/public-service-content";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -34,14 +31,7 @@ export default async function PublicServiceExamSessionPage({ params }: Props) {
   if (!data) notFound();
   const exams = data.exams.filter((exam) => exam.year === Number(year) && exam.sourceCode === source).sort((a, b) => a.questionNo - b.questionNo);
   if (!exams.length) notFound();
-  return (
-    <div className="px-4 py-8 md:py-12"><div className="mx-auto max-w-4xl">
-      <BackLink href={`/public-service/exam/${subjectId}`}>{data.subject.label} 기출 목록</BackLink>
-      <header className="mt-6 border-b border-mist pb-8"><h1 className="font-display text-heading font-semibold text-ink">{year}년 9급 {source}</h1></header>
-      <div className="mt-8 grid gap-3 sm:grid-cols-2">{exams.map((exam) => (
-        <ExamQuestionListCard key={exam.id} href={`/public-service/exam/${subjectId}/${year}/${source}/${exam.questionNo}`} questionNo={exam.questionNo} stem={exam.stem} category={exam.category} subcategory={exam.subcategory} />
-      ))}</div>
-      <SimpleAppInstallStrip scope="public_service" />
-    </div></div>
+  return redirect(
+    `/public-service/exam/${subjectId}/${year}/${encodeURIComponent(source)}/${exams[0].questionNo}`,
   );
 }

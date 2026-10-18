@@ -7,7 +7,7 @@ export function generateMetadata() {
 export default function Page({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined> | Promise<Record<string, string | string[] | undefined>>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   return <DailyPlayPage slug="haengjeongsa" searchParams={searchParams} />;
 }

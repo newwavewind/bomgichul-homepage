@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
   itemRow: { flexDirection: "row", marginBottom: 2 },
   itemBadge: { width: 18, fontWeight: "bold" },
   itemText: { flex: 1 },
+  referenceBox: { borderWidth: 1, borderColor: "#cbd5e1", padding: 7, marginBottom: 6 },
+  referenceTitle: { fontSize: 9, fontWeight: "bold", marginBottom: 3 },
   correctTag: { color: "#6366f1", fontWeight: "bold" },
   explanation: { fontSize: 9, color: "#475569", marginLeft: 18, marginBottom: 6 },
   divider: { borderBottomWidth: 1, borderBottomColor: "#e2e8f0", marginTop: 4 },
@@ -116,6 +118,14 @@ export async function renderExamYearPdfBuffer(
           <View key={q.questionNo} style={styles.questionBlock} wrap={false}>
             <Text style={styles.questionNo}>{q.questionNo}번</Text>
             <Text style={styles.stem}>{q.stem}</Text>
+            {q.leadEntries?.length ? (
+              <View style={styles.referenceBox}>
+                <Text style={styles.referenceTitle}>시장 유형</Text>
+                {q.leadEntries.map((entry) => (
+                  <Text key={entry.label}>{entry.label}: {entry.text}</Text>
+                ))}
+              </View>
+            ) : null}
 
             {isStatementCompositeQuestion(q) ? (
               <>
@@ -130,6 +140,14 @@ export async function renderExamYearPdfBuffer(
                     <Text style={styles.explanation}>{item.explanation}</Text>
                   </View>
                 ))}
+                {q.referenceEntries?.length ? (
+                  <View style={styles.referenceBox}>
+                    <Text style={styles.referenceTitle}>&lt;보기&gt;</Text>
+                    {q.referenceEntries.map((entry) => (
+                      <Text key={entry.label}>{entry.label}: {entry.text}</Text>
+                    ))}
+                  </View>
+                ) : null}
                 {q.comboChoices.map((choice) => (
                   <View key={choice.no} style={styles.itemRow}>
                     <Text style={styles.itemBadge}>{choice.label}</Text>

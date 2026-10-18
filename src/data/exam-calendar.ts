@@ -1,3 +1,5 @@
+import { isPublicExamVisible } from "@/lib/public-exam-visibility";
+
 /**
  * 메인 시험달력용 일정.
  * 수치는 각 시험 intro의 공식 공고 대조분과 맞춘다. 추측·미확인 일정은 넣지 않는다.
@@ -86,7 +88,7 @@ export const EXAM_CALENDAR_LABELS: Record<ExamCalendarEvent["examKey"], string> 
   gamjeong: "감정평가사",
 };
 
-export const EXAM_CALENDAR_ORDER: ExamCalendarEvent["examKey"][] = [
+const ALL_EXAM_CALENDAR_ORDER = [
   "public-service",
   "real-estate",
   "police",
@@ -103,13 +105,16 @@ export const EXAM_CALENDAR_ORDER: ExamCalendarEvent["examKey"][] = [
   "gyeongbi",
   "gamjeong",
   "history",
-];
+] satisfies ExamCalendarEvent["examKey"][];
+
+export const EXAM_CALENDAR_ORDER: ExamCalendarEvent["examKey"][] =
+  ALL_EXAM_CALENDAR_ORDER.filter((examKey) => isPublicExamVisible(examKey));
 
 /**
  * 2026년 공식 공고 기준 일정 (홈페이지 시험달력).
  * 기간형은 start~end 포함.
  */
-export const EXAM_CALENDAR_EVENTS: ExamCalendarEvent[] = [
+const ALL_EXAM_CALENDAR_EVENTS = [
   // —— 공무원·영어 (국가직 9급 2026) ——
   {
     id: "ps-reg-2026",
@@ -579,7 +584,11 @@ export const EXAM_CALENDAR_EVENTS: ExamCalendarEvent[] = [
     detail: "1차 법학개론·민간경비론 · 2차 경비업법+선택 1과목 · 같은 날 시행",
     href: "/gyeongbi/intro",
   },
-];
+] satisfies ExamCalendarEvent[];
+
+export const EXAM_CALENDAR_EVENTS: ExamCalendarEvent[] = ALL_EXAM_CALENDAR_EVENTS.filter(
+  (event) => isPublicExamVisible(event.examKey),
+);
 
 function parseIso(iso: string): number {
   const [y, m, d] = iso.split("-").map(Number);

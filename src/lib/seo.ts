@@ -5,6 +5,7 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/lib/constants";
+import { isPublicExamVisible } from "@/lib/public-exam-visibility";
 
 /** 검색 노출 제외 (로그인·관리자·연습 모드 등) */
 export const ROBOTS_NOINDEX: Metadata["robots"] = {
@@ -241,7 +242,7 @@ export function buildOrganizationJsonLd() {
     name: SITE_NAME,
     alternateName: ["Bomgichul", "봄 기출", "bomgichul.com"],
     url: SITE_URL,
-    logo: absoluteUrl("/brand/whale-mark.png"),
+    logo: absoluteUrl("/brand/bomgichul-search-icon.png"),
     description: SITE_DESCRIPTION,
     email: PUBLISHER_CONTACT_EMAIL,
     contactPoint: [
@@ -333,10 +334,14 @@ export function buildPlatformHomeJsonLd() {
       name: "사회복지사 1급 국가시험 기출 학습",
       url: absoluteUrl("/social-worker"),
     },
-    {
-      name: "한국사능력검정 심화 기출 학습",
-      url: absoluteUrl("/history"),
-    },
+    ...(isPublicExamVisible("history")
+      ? [
+          {
+            name: "한국사능력검정 심화 기출 학습",
+            url: absoluteUrl("/history"),
+          },
+        ]
+      : []),
     {
       name: "9급 공무원 영어 기출 학습",
       url: absoluteUrl("/english"),
@@ -378,7 +383,7 @@ export function buildPlatformHomeJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사·경비지도사·감정평가사 기출 학습",
+    name: "봄기출 시험별 기출 학습",
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     inLanguage: "ko-KR",

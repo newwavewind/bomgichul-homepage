@@ -28,13 +28,23 @@ function ExamBackLinkInner({ listBase, listLabel }: { listBase: string; listLabe
       </BackLink>
     );
   }
-  return <BackLink href={listBase}>{listLabel}</BackLink>;
+  return (
+    <BackLink href={listBase} preferHistory>
+      {listLabel}
+    </BackLink>
+  );
 }
 
-/** 뒤로가기 자리 — from 이 있으면 개념 복귀, 없으면 연도 목록. */
+/** 뒤로가기 자리 — from 이 있으면 개념 복귀, 없으면 과목의 연도 선택 화면. */
 export function ExamBackLink(props: { listBase: string; listLabel: string }) {
   return (
-    <Suspense fallback={<BackLink href={props.listBase}>{props.listLabel}</BackLink>}>
+    <Suspense
+      fallback={
+        <BackLink href={props.listBase} preferHistory>
+          {props.listLabel}
+        </BackLink>
+      }
+    >
       <ExamBackLinkInner {...props} />
     </Suspense>
   );

@@ -77,9 +77,6 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
 
         <header className="border-b border-mist pb-8">
           <SectionHeading as="h1">공인중개사 {label} 기출문제</SectionHeading>
-          <Link href={`/concepts/${subject}`} className="mt-3 inline-flex items-center gap-1 font-display text-body-sm font-semibold text-ios-blue hover:underline">
-            공인중개사 {label} 기출 올인원 →
-          </Link>
         </header>
 
         <section className="mb-10 mt-10 pt-8">
@@ -121,7 +118,7 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
               return (
                 <ExamSessionCard
                   key={year}
-                  href={`/exam/${subject}/${year}`}
+                  href={`/exam/${subject}/${year}/${questions[0].questionNo}`}
                   year={year}
                   questionCount={questions.length}
                 />

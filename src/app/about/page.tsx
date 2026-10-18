@@ -10,11 +10,12 @@ import {
   SITE_URL,
 } from "@/lib/constants";
 import { absoluteUrl, buildOrganizationJsonLd, buildPageMetadata } from "@/lib/seo";
+import { isPublicExamPathVisible } from "@/lib/public-exam-visibility";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "소개",
   description:
-    "봄기출은 공무원·공인중개사·경찰·소방 등 국가시험 기출문제와 자체 해설·핵심 개념을 무료로 제공하는 학습 사이트입니다. 운영 주체와 문의 방법을 안내합니다.",
+    "봄기출은 공무원·공인중개사·경찰·소방 등 국가시험 기출문제와 자체 해설을 무료로 제공하는 학습 사이트입니다. 운영 주체와 문의 방법을 안내합니다.",
   path: "/about",
 });
 
@@ -22,10 +23,6 @@ const CONTENT_PILLARS = [
   {
     title: "기출문제와 해설",
     body: "시행기관이 공개한 기출을 과목·연도별로 정리하고, 봄기출이 직접 쓴 선지 해설과 쉬운 해설을 붙입니다. 홈페이지 학습 기능은 로그인만 하면 전부 무료입니다.",
-  },
-  {
-    title: "기출 올인원 개념",
-    body: "단원별 핵심 개념·조문·판례 포인트를 카드로 묶어, 문제만 푸는 학습이 아니라 개념을 다시 짚을 수 있게 합니다.",
   },
   {
     title: "수험생 커뮤니티",
@@ -78,7 +75,7 @@ export default function AboutPage() {
           <SectionHeading as="h1">{SITE_NAME} 소개</SectionHeading>
           <p className="mt-4 font-display text-body leading-relaxed text-smoke">
             {SITE_NAME}은 {SITE_PLATFORM}입니다. 국가시험 기출을 한곳에 모아, 자체
-            해설과 개념 정리로 수험생이 바로 학습할 수 있게 만드는 것이 목표입니다.
+            해설로 수험생이 바로 학습할 수 있게 만드는 것이 목표입니다.
           </p>
 
           <section className="mt-10">
@@ -86,7 +83,7 @@ export default function AboutPage() {
               무엇을 제공하나요
             </h2>
             <p className="font-display text-body-sm leading-relaxed text-smoke">
-              단순 문제 모음이 아니라, 과목·단원 구조와 해설·개념을 함께 둡니다.
+              단순 문제 모음이 아니라, 과목·단원 구조와 해설을 함께 둡니다.
               모바일 앱과 PC 학습 서비스도 같은 봄기출 브랜드로 운영하며, 홈페이지는
               광고·제휴와 별개로 학습 본문을 먼저 보여 줍니다.
             </p>
@@ -112,7 +109,7 @@ export default function AboutPage() {
               아래 시험 허브에서 기출·개념·커뮤니티로 바로 들어갈 수 있습니다.
             </p>
             <ul className="flex flex-wrap gap-2">
-              {EXAM_TRACKS.map((track) => (
+              {EXAM_TRACKS.filter((track) => isPublicExamPathVisible(track.href)).map((track) => (
                 <li key={track.href}>
                   <Link
                     href={track.href}

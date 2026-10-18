@@ -5,15 +5,15 @@ import { FIREFIGHTER_TRACK } from "@/lib/exam-track/config";
 import { buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "소방공무원 소방학개론·소방관계법규·행정법총론 기출문제·핵심 개념",
+  title: "소방공무원 소방학개론·소방관계법규·행정법총론 기출문제·해설",
   description:
-    "소방공무원 공개경쟁채용 소방학개론·소방관계법규·행정법총론 기출문제와 해설, 핵심 개념을 무료로 학습하세요.",
+    "소방공무원 공개경쟁채용 소방학개론·소방관계법규·행정법총론 기출문제와 해설을 무료로 학습하세요.",
   path: "/firefighter",
 });
 
 export default function Page() {
   const description =
-    "소방공무원 공개경쟁채용 소방학개론·소방관계법규·행정법총론 기출문제와 해설, 핵심 개념을 무료로 학습하세요.";
+    "소방공무원 공개경쟁채용 소방학개론·소방관계법규·행정법총론 기출문제와 해설을 무료로 학습하세요.";
   return (
     <>
       <script

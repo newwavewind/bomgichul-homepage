@@ -5,6 +5,7 @@ import { allowOpenAdminWithoutAuth } from "@/lib/dev-preview-auth";
 
 const USERNAME_SKIP_PREFIXES = [
   "/onboarding",
+  "/api/profile/username",
   "/auth",
   "/login",
   "/_next",

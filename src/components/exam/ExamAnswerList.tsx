@@ -4,6 +4,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { LoginSoftNudge } from "@/components/auth/LoginSoftNudge";
 import { TableComboChoiceRows } from "@/components/exam/TableComboChoiceRows";
+import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
 import {
   ChoiceRows,
   ComboChoiceRows,
@@ -23,6 +24,7 @@ import {
   isStatementCompositeQuestion,
   type ExamComboChoice,
   type ExamQuestionItem,
+  type ExamReferenceEntry,
   type ExamSubject,
 } from "@/lib/exam-questions";
 import type { AttemptResult } from "@/types/database";
@@ -32,6 +34,7 @@ export function ExamAnswerList({
   correctChoice,
   questionType,
   comboChoices = [],
+  referenceEntries,
   compositeLayout,
   tableHeader,
   stem,
@@ -50,6 +53,7 @@ export function ExamAnswerList({
   correctChoice: string;
   questionType?: "correct" | "wrong" | "composite";
   comboChoices?: ExamComboChoice[];
+  referenceEntries?: ExamReferenceEntry[];
   compositeLayout?: "table" | "statements";
   tableHeader?: string[];
   stem?: string;
@@ -122,6 +126,11 @@ export function ExamAnswerList({
       {isStatementComposite ? (
         <>
           <StatementRows items={items} revealed={revealed} free={free} />
+          {referenceEntries?.length ? (
+            <div className="mt-4">
+              <ExamReferenceList entries={referenceEntries} />
+            </div>
+          ) : null}
           <p className="mb-2 mt-5 font-display text-body-sm font-semibold text-smoke">선택지</p>
           {isTableComposite ? (
             <TableComboChoiceRows

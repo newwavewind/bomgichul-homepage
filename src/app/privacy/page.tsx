@@ -9,7 +9,12 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/privacy",
 });
 
-const SECTIONS: { title: string; body: string[]; bullets?: string[] }[] = [
+const SECTIONS: {
+  title: string;
+  body: string[];
+  bullets?: string[];
+  links?: { label: string; href: string }[];
+}[] = [
   {
     title: "1. 수집하는 개인정보 항목",
     body: [],
@@ -57,9 +62,30 @@ const SECTIONS: { title: string; body: string[]; bullets?: string[] }[] = [
     title: "5. 광고·쿠키 및 제휴 마케팅",
     body: [
       "회사는 서비스 운영을 위해 Google AdSense 등 광고 네트워크와 쿠팡파트너스 등 제휴 마케팅을 이용할 수 있습니다. 이 과정에서 광고·제휴 사업자가 쿠키·광고 식별자·기기·브라우저 정보·방문·클릭 기록을 수집·이용할 수 있으며, 해당 처리에는 각 사업자의 개인정보·쿠키 정책이 적용됩니다.",
-      "Google AdSense: 맞춤형·일반 광고 게재 및 사기·악용 방지 목적. Google의 광고 설정(https://adssettings.google.com)과 브라우저 쿠키 설정으로 맞춤형 광고를 제한하거나 거부할 수 있습니다.",
+      "Google AdSense: Google 및 서드 파티 광고 공급업체는 이용자가 이전에 봄기출 또는 다른 웹사이트를 방문한 기록을 바탕으로 광고를 게재하기 위해 쿠키를 사용할 수 있습니다. Google의 광고 쿠키를 통해 Google과 파트너는 이 사이트 및 인터넷상의 다른 사이트 방문 기록에 기반한 개인 맞춤 광고를 게재할 수 있습니다. 실제 광고의 개인 맞춤 여부는 이용자의 동의, 광고 설정 및 적용되는 정책에 따라 달라집니다.",
+      "이용자는 아래 Google 광고 설정에서 개인 맞춤 광고를 거부할 수 있습니다. 개인 맞춤 광고를 거부하더라도 일반 광고가 표시될 수 있으며, 사기·악용 방지와 광고 효과 측정 등에 필요한 정보 처리는 해당 사업자의 정책에 따라 이루어질 수 있습니다.",
+      "Google 외의 서드 파티 공급업체와 광고 네트워크도 이 사이트의 광고 게재에 쿠키를 사용할 수 있습니다. 공급업체 정보와 각 업체의 웹사이트는 아래 Google 인증 광고 공급업체 목록에서 확인할 수 있으며, 실제 참여 업체는 게재되는 광고에 따라 달라질 수 있습니다. 해당 업체가 거부 기능을 제공하는 경우 업체 웹사이트에서 개인 맞춤 광고 쿠키를 거부할 수 있고, 아래 AboutAds의 WebChoices에서도 참여 업체의 개인 맞춤 광고를 위한 쿠키 사용을 거부할 수 있습니다.",
+      "Google이 파트너 사이트에서 수집하는 정보와 이용 방법은 아래 Google 파트너 사이트 정보 이용 안내에서 확인할 수 있습니다.",
       "쿠팡파트너스: 상품 추천·검색 위젯 등 제휴 링크를 통해 구매가 이루어지면 회사에 일정액의 수수료가 지급될 수 있습니다. 제휴 활동에 관한 안내는 사이트 푸터 및 위젯 근처 고지를 참고해 주세요.",
       "브라우저에서 쿠키를 삭제·차단하거나, 기기·브라우저의 광고 추적 제한 설정을 켜면 일부 광고·제휴 기능이 제한될 수 있습니다.",
+    ],
+    links: [
+      {
+        label: "Google 광고 설정 · 개인 맞춤 광고 관리 및 거부",
+        href: "https://adssettings.google.com/",
+      },
+      {
+        label: "AboutAds WebChoices · 참여 업체의 개인 맞춤 광고 쿠키 거부",
+        href: "https://www.aboutads.info/choices/",
+      },
+      {
+        label: "Google 파트너 사이트 정보 이용 안내",
+        href: "https://policies.google.com/technologies/partner-sites?hl=ko",
+      },
+      {
+        label: "Google 인증 광고 공급업체 목록 및 업체 웹사이트",
+        href: "https://developers.google.com/third-party-ads/googleads-vendors?hl=ko",
+      },
     ],
   },
   {
@@ -93,6 +119,7 @@ const SECTIONS: { title: string; body: string[]; bullets?: string[] }[] = [
     title: "10. 시행일자",
     body: [
       "이 개인정보처리방침은 2026년 7월 14일부터 시행되었으며, AI 해설 기능에 관한 내용을 더해 2026년 8월 22일, Apple·카카오 로그인과 앱의 기록 동기화·오류 신고에 관한 내용을 더해 2026년 9월 29일, 광고·쿠키 및 제휴 마케팅에 관한 내용을 더해 2026년 10월 1일 개정되었습니다.",
+      "2026년 10월 15일, 광고 쿠키의 이전 방문 기록 이용, 개인 맞춤 광고 거부 방법 및 광고 공급업체 정보에 관한 안내를 보완했습니다.",
     ],
   },
 ];
@@ -127,6 +154,20 @@ export default function PrivacyPage() {
                   <ul className="mt-2 list-disc space-y-1.5 pl-5 font-display text-body-sm leading-relaxed text-smoke">
                     {section.bullets.map((item) => (
                       <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
+                {section.links ? (
+                  <ul className="mt-3 list-disc space-y-2 pl-5 font-display text-body-sm leading-relaxed">
+                    {section.links.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          className="text-accent underline underline-offset-4 hover:text-ink"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
                     ))}
                   </ul>
                 ) : null}

@@ -120,14 +120,6 @@ export function ExamIntroView({ intro }: { intro: ExamIntro }) {
             >
               {intro.hubCta}
             </Link>
-            {intro.conceptsHref && intro.conceptsCta ? (
-              <Link
-                href={intro.conceptsHref}
-                className="inline-flex min-h-11 items-center rounded-full border border-carbon/30 bg-[#e8f0ff] px-6 font-display text-body-sm font-semibold text-carbon hover:border-carbon"
-              >
-                {intro.conceptsCta}
-              </Link>
-            ) : null}
             <Link
               href="/"
               className="inline-flex min-h-11 items-center rounded-full border border-carbon/30 bg-paper px-6 font-display text-body-sm font-semibold text-ink hover:border-carbon"
@@ -385,21 +377,27 @@ export function ExamIntroView({ intro }: { intro: ExamIntro }) {
               </div>
             </>
           ) : null}
-          {INTRO_STORE_SCOPE[intro.id] ? (
+          {(() => {
+            const scope = INTRO_STORE_SCOPE[intro.id];
+            if (!scope) return null;
+            const links = appStoreLinksForScope(scope);
+            if (!links.ios && !links.android) return null;
+            return (
             <>
               <p className="mt-6 font-display text-[13px] font-semibold tracking-[0.04em] text-fog">
                 모바일 앱
               </p>
               <p className="mt-1 font-display text-[13px] text-smoke">
-                App Store와 Google Play를 구분해 두었습니다. 아직 없는 스토어는 출시준비중입니다.
+                웹에서 기출과 해설을 바로 풀 수 있습니다. 스토어에 올라온 앱은 아래에서 받습니다.
               </p>
               <AppStoreButtons
                 className="mt-3"
                 size="sm"
-                links={appStoreLinksForScope(INTRO_STORE_SCOPE[intro.id])}
+                links={links}
               />
             </>
-          ) : null}
+            );
+          })()}
           <div className="mt-8">
             <Link
               href={intro.hubHref}

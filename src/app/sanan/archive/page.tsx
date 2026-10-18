@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { ArchiveBoard } from "@/app/archive/page";
-import { buildPageMetadata } from "@/lib/seo";
-import { archiveTitle } from "@/lib/exam-track/community";
+import { buildArchiveListMetadata } from "@/lib/exam-track/archive-seo";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: archiveTitle("sanan"),
-  description: "산업안전지도사 기출·노트·요약 자료를 과목별로 올리고 다운로드하세요.",
-  path: "/sanan/archive",
-});
+export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {
+  return buildArchiveListMetadata({
+    searchParams,
+    scope: "sanan",
+    description: "산업안전지도사 기출·노트·요약 자료를 과목별로 올리고 다운로드하세요.",
+  });
+}
 
 type SearchParams = Promise<{
   page?: string;

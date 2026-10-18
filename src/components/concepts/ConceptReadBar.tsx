@@ -60,7 +60,7 @@ function ReadLoginModal({
         <p id="hp-cx-read-login-desc" className="hp-cx-login-modal__desc">
           회독 기록 저장은 무료예요. 로그인만 하면 됩니다.
           <br />
-          구독·결제 없이 Google로 바로 시작하세요.
+          구독·결제 없이 Google 또는 카카오로 바로 시작하세요.
         </p>
         <div className="hp-cx-login-modal__actions">
           <OutlineButton onClick={onClose}>닫기</OutlineButton>
@@ -123,8 +123,14 @@ export function ConceptReadBar({
     }
     const { progress: next } = incrementConceptRead(uid, subject, slug);
     setProgress(next);
-    recordWebStudy(uid,{id:`concept:${returnTo}`,href:returnTo,title:document.querySelector("h1")?.textContent||slug,scope:scopeForPath(returnTo),result:"read"});
-    trackEvent("web_concept_completed",{scope:scopeForPath(returnTo)});
+    recordWebStudy(uid, {
+      id: `concept:${returnTo}`,
+      href: returnTo,
+      title: document.querySelector("h1")?.textContent || slug,
+      scope: scopeForPath(returnTo),
+      result: "read",
+    });
+    trackEvent("web_concept_completed", { scope: scopeForPath(returnTo) });
   }, [resolveUserId, subject, slug, returnTo]);
 
   const handleReset = useCallback(async () => {
@@ -155,11 +161,19 @@ export function ConceptReadBar({
         </div>
         <div className="hp-cx-read-bar__actions">
           {studied ? (
-            <button type="button" className="hp-cx-read-reset" onClick={handleReset}>
+            <button
+              type="button"
+              className="hp-cx-read-reset"
+              onClick={handleReset}
+            >
               초기화
             </button>
           ) : null}
-          <button type="button" className="hp-cx-read-mark" onClick={handleMark}>
+          <button
+            type="button"
+            className="hp-cx-read-mark"
+            onClick={handleMark}
+          >
             {studied ? "회독 +1" : "회독 완료"}
           </button>
         </div>

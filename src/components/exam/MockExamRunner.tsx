@@ -3,6 +3,7 @@
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
+import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
 import { plainStudyText } from "@/lib/study-text";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
@@ -73,6 +74,11 @@ const MockQuestionCard = memo(function MockQuestionCard({
       </div>
 
       <QuestionStem stem={q.stem} questionNo={q.questionNo} />
+      {q.leadEntries?.length ? (
+        <div className="mb-6">
+          <ExamReferenceList entries={q.leadEntries} heading="시장 유형" />
+        </div>
+      ) : null}
       {q.table ? <ExamStructuredMaterials table={q.table} /> : null}
 
       {!submitted ? (
@@ -88,6 +94,7 @@ const MockQuestionCard = memo(function MockQuestionCard({
                 </div>
               ))}
             </div>
+            <ExamReferenceList entries={q.referenceEntries} />
             <div className="space-y-2">
               <p className="font-display text-body-sm font-semibold text-smoke">선택지</p>
               {isTableComposite ? (
@@ -156,6 +163,7 @@ const MockQuestionCard = memo(function MockQuestionCard({
             correctChoice={answerKey}
             questionType={q.questionType}
             comboChoices={enriched.comboChoices}
+            referenceEntries={q.referenceEntries}
             compositeLayout={enriched.compositeLayout}
             tableHeader={enriched.tableHeader}
             stem={enriched.stem}

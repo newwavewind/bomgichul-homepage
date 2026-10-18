@@ -11,9 +11,10 @@ export const SITE_PLATFORM = "기출 AI 학습 플랫폼";
 /** 전체 브랜딩 문구 */
 export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE}`;
 /** SEO / Open Graph / Twitter 기본 제목 */
-export const SITE_TITLE = "봄기출 | 공무원·공인중개사·세무사·산업안전지도사 기출 학습";
+export const SITE_TITLE =
+  "봄기출 | 공무원·자격시험 기출문제와 해설";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·소방·주택관리사·사회복지사 1급·한국사능력검정·공무원 영어·공무원 국어·행정사·세무사·공인노무사·손해평가사·산업안전지도사·경비지도사·감정평가사 종합 기출 학습 플랫폼. 시험별 기출문제와 핵심 개념, 수험생 커뮤니티를 한곳에서.";
+  "공무원·공인중개사·경찰·소방·감정평가사 등 16개 시험의 기출문제와 해설을 무료로 학습하세요. 매일 10문제, 핵심 개념, 오답 복습과 수험생 커뮤니티를 봄기출에서 이용할 수 있습니다.";
 
 /** 사업자·문의 — 푸터·소개·약관에 공통으로 쓴다 */
 export const PUBLISHER_LEGAL_NAME = "봄기출";
@@ -32,7 +33,7 @@ export const APP_LINKS = {
   ios: "https://apps.apple.com/kr/app/id6784651251",
 } as const;
 
-/** null 은 「아직 그 스토어에 없음」 — 화면에서는 「출시준비중」으로 보인다. */
+/** null 은 공개 스토어 페이지가 없음 — 그 버튼은 화면에 두지 않는다. */
 export type AppStoreLinks = {
   android: string | null;
   ios: string | null;
@@ -42,7 +43,7 @@ export type AppStoreLinks = {
  * 시험별 스토어 링크.
  *
  * 2026-10-05 공개 스토어 실측(App Store iTunes lookup / Google Play 페이지 200).
- * 공개 페이지가 없는 스토어는 null — 화면에서는 「출시준비중」.
+ * 공개 페이지가 없는 스토어는 null — 버튼 자체를 그리지 않는다.
  * 비공개·클로즈드 테스트만 있는 패키지에 링크를 걸면 방문자가 404를 본다.
  */
 export function appStoreLinksForScope(
@@ -138,13 +139,42 @@ export function appStoreLinksForScope(
       };
     case "gyeongbi":
       // 2026-10-13 App Store 공개(iTunes lookup 「봄기출 경비지도사」 1.0.3). Google Play 는 아직 공개 페이지 없음(404).
-      return { android: null, ios: "https://apps.apple.com/kr/app/id6819304028" };
+      return {
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6819304028",
+      };
     case "gamjeong":
       // 2026-10-12 앱 출시 준비 중 — 두 스토어 모두 공개 페이지가 없다. 출시 뒤 채운다.
       return { android: null, ios: null };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };
   }
+}
+
+const APP_SCOPE_BY_DAILY_EXAM = {
+  "real-estate": "real_estate",
+  "public-service": "public_service",
+  police: "police",
+  firefighter: "firefighter",
+  housing: "housing",
+  "social-worker": "social_worker",
+  history: "history",
+  english: "english",
+  gugeo: "gugeo",
+  haengjeongsa: "haengjeongsa",
+  semusa: "semusa",
+  sanan: "sanan",
+  sonhae: "sonhae",
+  nomusa: "nomusa",
+  gyeongbi: "gyeongbi",
+  gamjeong: "gamjeong",
+} as const;
+
+/** 매일 10문제의 시험 경로를 해당 시험 전용 앱의 스토어 링크로 바꾼다. */
+export function appStoreLinksForDailyExam(exam: string): AppStoreLinks {
+  const scope =
+    APP_SCOPE_BY_DAILY_EXAM[exam as keyof typeof APP_SCOPE_BY_DAILY_EXAM];
+  return scope ? appStoreLinksForScope(scope) : { android: null, ios: null };
 }
 
 export const POSTS_PER_PAGE = 10;
@@ -155,11 +185,19 @@ export const CATEGORIES: {
   description: string;
 }[] = [
   { value: "all", label: "전체", description: "모든 게시글" },
-  { value: "free", label: "자유게시판", description: "주제 제한 없이 자유롭게" },
+  {
+    value: "free",
+    label: "자유게시판",
+    description: "주제 제한 없이 자유롭게",
+  },
   { value: "question", label: "질문", description: "공부 관련 질문" },
   { value: "resource", label: "자료공유", description: "기출, 노트, 팁 공유" },
   { value: "info", label: "수험정보", description: "시험 일정, 공고 등" },
-  { value: "law_update", label: "법령정보", description: "시험 관련 법령·제도 개정 소식" },
+  {
+    value: "law_update",
+    label: "법령정보",
+    description: "시험 관련 법령·제도 개정 소식",
+  },
   { value: "review", label: "합격후기", description: "합격 수기, 공부법 공유" },
   { value: "bug", label: "오류신고", description: "앱 문항·기능 오류 제보" },
   { value: "feedback", label: "피드백", description: "앱 개선 의견" },
@@ -167,12 +205,12 @@ export const CATEGORIES: {
 
 /** 웹에서 직접 작성 가능한 카테고리 (앱 전용 제외) */
 export const USER_WRITABLE_CATEGORIES = CATEGORIES.filter(
-  (c) => c.value !== "all" && c.value !== "bug" && c.value !== "feedback"
+  (c) => c.value !== "all" && c.value !== "bug" && c.value !== "feedback",
 );
 
 /** 앱 전용 카테고리 (오류신고·피드백) — 게시판에서는 낮은 우선순위로 노출 */
 export const APP_ONLY_CATEGORIES = CATEGORIES.filter(
-  (c) => c.value === "bug" || c.value === "feedback"
+  (c) => c.value === "bug" || c.value === "feedback",
 );
 
 /** 카테고리별 배지 색상 (Tailwind 클래스, 정적 문자열이어야 JIT가 인식함) */
@@ -210,7 +248,7 @@ export const CATEGORY_EMOJI: Partial<Record<PostCategory, string>> = {
 
 export const CATEGORY_MAP = {
   ...Object.fromEntries(
-    CATEGORIES.filter((c) => c.value !== "all").map((c) => [c.value, c.label])
+    CATEGORIES.filter((c) => c.value !== "all").map((c) => [c.value, c.label]),
   ),
   chat: "자유게시판",
 } as Record<PostCategory, string>;
@@ -287,7 +325,11 @@ export const STUDY_MODES = [
 export const SUBJECTS = [
   { name: "부동산학개론", round: "1차", status: "available" as const },
   { name: "민법 및 민사특별법", round: "1차", status: "available" as const },
-  { name: "공인중개사법령 및 실무", round: "2차", status: "available" as const },
+  {
+    name: "공인중개사법령 및 실무",
+    round: "2차",
+    status: "available" as const,
+  },
   { name: "부동산공시법령", round: "2차", status: "available" as const },
   { name: "부동산세법", round: "2차", status: "available" as const },
   { name: "부동산공법", round: "2차", status: "available" as const },
@@ -324,7 +366,7 @@ export const FAQ_ITEMS = [
   {
     question: "로그인하면 뭐가 달라지나요?",
     answer:
-      "로그인만 하면 됩니다. 결제는 없어요. 해설·오답노트·북마크·랜덤·복습·PDF 다운로드, 풀이 기록, 커뮤니티·자료실 글쓰기까지 홈페이지 기능은 전부 무료로 열립니다. Google 계정만 있으면 됩니다.",
+      "로그인만 하면 됩니다. 결제는 없어요. 해설·오답노트·북마크·랜덤·복습·PDF 다운로드, 풀이 기록, 커뮤니티·자료실 글쓰기까지 홈페이지 기능은 전부 무료로 열립니다. Google 또는 카카오 계정으로 시작할 수 있습니다.",
   },
   {
     question: "돈을 내야 하는 건 뭔가요?",
@@ -383,7 +425,7 @@ export function flattenNavLinks(links: NavLinkItem[]): NavChildLink[] {
           ...(link.href ? [{ href: link.href, label: link.label }] : []),
           ...link.children,
         ]
-      : [link]
+      : [link],
   );
 }
 
@@ -448,7 +490,7 @@ export const DIARY_MOODS = [
 export type DiaryMood = (typeof DIARY_MOODS)[number]["value"];
 
 export const DIARY_MOOD_MAP = Object.fromEntries(
-  DIARY_MOODS.map((m) => [m.value, m.label])
+  DIARY_MOODS.map((m) => [m.value, m.label]),
 ) as Record<DiaryMood, string>;
 
 export const ARCHIVE_RESOURCE_TYPES = [
@@ -459,7 +501,8 @@ export const ARCHIVE_RESOURCE_TYPES = [
   { value: "other", label: "기타" },
 ] as const;
 
-export type ArchiveResourceType = (typeof ARCHIVE_RESOURCE_TYPES)[number]["value"];
+export type ArchiveResourceType =
+  (typeof ARCHIVE_RESOURCE_TYPES)[number]["value"];
 
 export const ARCHIVE_SUBJECTS = [
   { value: "all", label: "전체 과목" },
@@ -632,22 +675,68 @@ export const ARCHIVE_RESOURCE_TYPE_MAP: Record<string, string> = {
 };
 
 export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
-  ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_POLICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_FIREFIGHTER.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_HOUSING.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_PUBLIC_SERVICE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_SOCIAL_WORKER.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_ENGLISH.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_GUGEO.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_HAENGJEONGSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_SEMUSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_SANAN.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_SONHAE.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_NOMUSA.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_GYEONGBI.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_GAMJEONG.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
-  ...ARCHIVE_SUBJECTS_HISTORY.filter((s) => s.value !== "all").map((s) => [s.value, s.label]),
+  ...ARCHIVE_SUBJECTS.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_POLICE.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_FIREFIGHTER.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_HOUSING.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_PUBLIC_SERVICE.filter((s) => s.value !== "all").map(
+    (s) => [s.value, s.label],
+  ),
+  ...ARCHIVE_SUBJECTS_SOCIAL_WORKER.filter((s) => s.value !== "all").map(
+    (s) => [s.value, s.label],
+  ),
+  ...ARCHIVE_SUBJECTS_ENGLISH.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_GUGEO.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_HAENGJEONGSA.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_SEMUSA.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_SANAN.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_SONHAE.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_NOMUSA.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_GYEONGBI.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_GAMJEONG.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
+  ...ARCHIVE_SUBJECTS_HISTORY.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
 ]);
 
 export function archiveSubjectsForScope(scope: string) {
@@ -726,7 +815,7 @@ export function defaultArchiveSubject(scope: string) {
 
 /** 기출문제 해설 페이지(/exam)에서 다루는 실제 시험 과목 — ARCHIVE_SUBJECTS 중 "all"/"other" 제외 */
 export const EXAM_SUBJECTS = ARCHIVE_SUBJECTS.filter(
-  (s) => s.value !== "all" && s.value !== "other"
+  (s) => s.value !== "all" && s.value !== "other",
 ) as { value: Exclude<ArchiveSubject, "all" | "other">; label: string }[];
 
 /** 과목별 랜딩 페이지(/subjects/[subject]) 소개 문구 */
@@ -751,11 +840,13 @@ export const SUBJECT_LANDING_INFO: Record<
   },
   "registry-law": {
     round: "2차",
-    description: "부동산공시법령(부동산등기법·공간정보관리법) 기출 O/X와 자료를 모아뒀습니다.",
+    description:
+      "부동산공시법령(부동산등기법·공간정보관리법) 기출 O/X와 자료를 모아뒀습니다.",
   },
   "realestate-tax": {
     round: "2차",
-    description: "부동산세법 기출 O/X와 자료. 취득세·재산세·양도소득세 등 세목별로 정리했습니다.",
+    description:
+      "부동산세법 기출 O/X와 자료. 취득세·재산세·양도소득세 등 세목별로 정리했습니다.",
   },
   "realestate-public-law": {
     round: "2차",

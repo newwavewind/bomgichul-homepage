@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { getPost, getComments, incrementViewCount } from "@/lib/posts";
 import { getUser } from "@/lib/auth";
@@ -14,7 +14,7 @@ import { getCommunityLikeState, getUserActivityScores } from "@/lib/activity";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 import { CommunityLikeButton } from "@/components/board/CommunityLikeButton";
 import { RichTextBody } from "@/components/editor/RichTextBody";
-import { communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
+import { archiveBaseHref, communityBaseHref, isValidCommunityScope } from "@/lib/exam-track/community";
 import type { CommunityScope } from "@/types/database";
 
 export const dynamic = "force-dynamic";
@@ -37,6 +37,9 @@ export async function generateMetadata({
   // 스트리밍이 시작된 뒤라 상태코드가 200 으로 나가 soft-404 가 됐다
   // (크롤러가 200 을 받고 재방문을 되풀이한다 — 실측으로 확인한 결함).
   if (!post) notFound();
+  if (post.category === "resource") {
+    permanentRedirect(`${archiveBaseHref(scopeFromPost(post.community_scope))}/${id}`);
+  }
 
   const description = truncateDescription(post.content);
   const title = post.title;
@@ -79,6 +82,9 @@ export async function CommunityPostDetailPage({
   if (!post) notFound();
 
   const postScope = scopeFromPost(post.community_scope);
+  if (post.category === "resource") {
+    permanentRedirect(`${archiveBaseHref(postScope)}/${id}`);
+  }
   const canonicalHref = `${communityBaseHref(postScope)}/${id}`;
 
   if (expectedScope) {

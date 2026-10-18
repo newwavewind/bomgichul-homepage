@@ -30,6 +30,20 @@ function GoogleIcon() {
   );
 }
 
+function KakaoIcon() {
+  return (
+    <svg
+      aria-hidden
+      width="21"
+      height="21"
+      viewBox="0 0 24 24"
+      className="fill-current"
+    >
+      <path d="M12 3C6.48 3 2 6.58 2 11c0 2.82 1.82 5.3 4.57 6.72l-.94 3.46a.55.55 0 0 0 .82.61l4.12-2.73c.47.05.95.08 1.43.08 5.52 0 10-3.58 10-8.14S17.52 3 12 3Z" />
+    </svg>
+  );
+}
+
 function readAuthNext(defaultNext: string) {
   const params = new URLSearchParams(window.location.search);
   const fromQuery = params.get("next");
@@ -70,7 +84,9 @@ export function GoogleAuthCard({
   previewLogin?: boolean;
 }) {
   const isSignup = mode === "signup";
-  const [loading, setLoading] = useState(false);
+  const [loadingProvider, setLoadingProvider] = useState<
+    "google" | "kakao" | null
+  >(null);
   const [message, setMessage] = useState<string | null>(null);
   const [previewEmail, setPreviewEmail] = useState("");
   const [nextPath, setNextPath] = useState(isSignup ? "/onboarding" : "/");
@@ -99,8 +115,8 @@ export function GoogleAuthCard({
     }
   }, [isSignup, previewLogin]);
 
-  const handleGoogleAuth = async () => {
-    setLoading(true);
+  const handleOAuth = async (provider: "google" | "kakao") => {
+    setLoadingProvider(provider);
     setMessage(null);
 
     try {
@@ -112,18 +128,18 @@ export function GoogleAuthCard({
       const redirectTo = `${window.location.origin}/auth/callback`;
 
       const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
+        provider,
         options: {
           redirectTo,
-          queryParams: {
-            prompt: "select_account",
-          },
+          ...(provider === "google"
+            ? { queryParams: { prompt: "select_account" } }
+            : {}),
         },
       });
 
       if (error) {
         setMessage(error.message);
-        setLoading(false);
+        setLoadingProvider(null);
         return;
       }
 
@@ -133,14 +149,14 @@ export function GoogleAuthCard({
       }
 
       setMessage(
-        "Google 로그인 URL을 받지 못했습니다. Supabase Google Provider 설정을 확인해주세요."
+        `${provider === "google" ? "Google" : "카카오"} 로그인 URL을 받지 못했습니다. 잠시 후 다시 시도해주세요.`,
       );
-      setLoading(false);
+      setLoadingProvider(null);
     } catch (err) {
       const detail =
         err instanceof Error ? err.message : "알 수 없는 오류가 발생했습니다.";
       setMessage(detail);
-      setLoading(false);
+      setLoadingProvider(null);
     }
   };
 
@@ -154,8 +170,8 @@ export function GoogleAuthCard({
               무료로 시작하기
             </SectionHeading>
             <p className="mt-3 font-display text-body-sm text-smoke">
-              홈페이지 기능은 전부 무료입니다. Google로 로그인만 하면 결제 없이 바로 쓸 수
-              있어요.
+              홈페이지 기능은 전부 무료입니다. Google 또는 카카오 계정으로
+              로그인하면 결제 없이 바로 쓸 수 있어요.
             </p>
           </div>
 
@@ -163,7 +179,7 @@ export function GoogleAuthCard({
             <li>✓ 웹 기능 전부 무료 · 구독·결제 없음</li>
             <li>✓ 해설·오답노트·북마크·랜덤·복습</li>
             <li>✓ 복습 PDF 다운로드</li>
-            <li>✓ 기기마다 이어서 학습 · Google만으로 시작</li>
+            <li>✓ 기기마다 이어서 학습 · Google·카카오 계정으로 시작</li>
           </ul>
 
           {message && (
@@ -173,62 +189,100 @@ export function GoogleAuthCard({
           )}
 
           {previewLogin ? (
-            <form
-              action="/api/dev/preview-login"
-              method="post"
-              className="space-y-3"
-              onSubmit={() => {
-                try {
-                  if (previewEmail) {
-                    window.localStorage.setItem(PREVIEW_EMAIL_KEY, previewEmail);
+            <div className="space-y-3">
+              <form
+                action="/api/dev/preview-login"
+                method="post"
+                className="space-y-3"
+                onSubmit={() => {
+                  try {
+                    if (previewEmail) {
+                      window.localStorage.setItem(
+                        PREVIEW_EMAIL_KEY,
+                        previewEmail,
+                      );
+                    }
+                  } catch {
+                    // ignore
                   }
-                } catch {
-                  // ignore
-                }
-              }}
-            >
-              <div className="rounded-2xl border border-dashed border-carbon/40 bg-surface/80 p-4">
-                <p className="font-display text-[12px] font-semibold text-ink">
-                  Cursor 미리보기용 로그인
-                </p>
-                <p className="mt-1 font-display text-[12px] leading-relaxed text-smoke">
-                  미리보기에서는 Google 창이 막혀요. 평소 쓰는 Google 이메일을 넣고 아래
-                  버튼을 누르면 바로 로그인됩니다.
-                </p>
-                <label className="mt-3 block">
-                  <span className="sr-only">미리보기 로그인 이메일</span>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    autoComplete="username"
-                    value={previewEmail}
-                    onChange={(e) => setPreviewEmail(e.target.value)}
-                    placeholder="you@gmail.com"
-                    className="w-full rounded-full border border-mist bg-paper px-4 py-2.5 font-display text-body-sm text-ink outline-none focus:border-carbon"
-                  />
-                </label>
-                <input type="hidden" name="next" value={nextPath} />
+                }}
+              >
+                <div className="rounded-2xl border border-dashed border-carbon/40 bg-surface/80 p-4">
+                  <p className="font-display text-[12px] font-semibold text-ink">
+                    Cursor 미리보기용 로그인
+                  </p>
+                  <p className="mt-1 font-display text-[12px] leading-relaxed text-smoke">
+                    미리보기에서는 OAuth 창이 막힐 수 있어요. 평소 쓰는 로그인
+                    이메일을 넣고 아래 버튼을 누르면 바로 로그인됩니다.
+                  </p>
+                  <label className="mt-3 block">
+                    <span className="sr-only">미리보기 로그인 이메일</span>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      autoComplete="username"
+                      value={previewEmail}
+                      onChange={(e) => setPreviewEmail(e.target.value)}
+                      placeholder="you@gmail.com"
+                      className="w-full rounded-full border border-mist bg-paper px-4 py-2.5 font-display text-body-sm text-ink outline-none focus:border-carbon"
+                    />
+                  </label>
+                  <input type="hidden" name="next" value={nextPath} />
+                </div>
+                <button type="submit" className={buttonClassName}>
+                  <GoogleIcon />
+                  미리보기로 로그인
+                </button>
+              </form>
+              <div className="flex items-center gap-3 py-1" aria-hidden="true">
+                <span className="h-px flex-1 bg-mist" />
+                <span className="font-display text-[11px] text-smoke">
+                  또는
+                </span>
+                <span className="h-px flex-1 bg-mist" />
               </div>
-              <button type="submit" className={buttonClassName}>
-                <GoogleIcon />
-                미리보기로 로그인
+              <button
+                type="button"
+                onClick={() => handleOAuth("kakao")}
+                disabled={loadingProvider !== null}
+                className={`${buttonClassName} !border-[#FEE500] !bg-[#FEE500] !font-semibold !text-[#191919] hover:!bg-[#f5dc00]`}
+              >
+                <KakaoIcon />
+                {loadingProvider === "kakao"
+                  ? "카카오로 이동 중..."
+                  : "카카오로 계속하기"}
               </button>
-            </form>
+            </div>
           ) : (
-            <PrimaryButton
-              onClick={handleGoogleAuth}
-              disabled={loading}
-              className="w-full !bg-paper !text-ink border border-mist/80 hover:!bg-snow"
-            >
-              <GoogleIcon />
-              {loading ? "Google로 이동 중..." : "무료로 시작하기"}
-            </PrimaryButton>
+            <div className="space-y-3">
+              <PrimaryButton
+                onClick={() => handleOAuth("google")}
+                disabled={loadingProvider !== null}
+                className="w-full !bg-paper !text-ink border border-mist/80 hover:!bg-snow"
+              >
+                <GoogleIcon />
+                {loadingProvider === "google"
+                  ? "Google로 이동 중..."
+                  : "Google로 계속하기"}
+              </PrimaryButton>
+              <button
+                type="button"
+                onClick={() => handleOAuth("kakao")}
+                disabled={loadingProvider !== null}
+                className={`${buttonClassName} !border-[#FEE500] !bg-[#FEE500] !font-semibold !text-[#191919] hover:!bg-[#f5dc00]`}
+              >
+                <KakaoIcon />
+                {loadingProvider === "kakao"
+                  ? "카카오로 이동 중..."
+                  : "카카오로 계속하기"}
+              </button>
+            </div>
           )}
 
           <p className="mt-5 text-center font-display text-[12px] leading-relaxed text-smoke">
             {previewLogin
-              ? "배포 사이트에서는 일반 Google 로그인이 그대로 쓰입니다."
+              ? "배포 사이트에서는 Google·카카오 로그인을 모두 사용할 수 있습니다."
               : "가입·로그인은 같은 버튼입니다. 홈페이지 기능은 전부 무료이며 결제가 없습니다."}
           </p>
 

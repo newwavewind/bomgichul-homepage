@@ -17,7 +17,7 @@ interface PublicServiceSubject {
 }
 
 function SubjectCard({ subject, badge }: { subject: PublicServiceSubject; index: number; badge?: string }) {
-  return <SubjectLearningCard label={subject.label} badge={badge ?? subject.track} examCount={subject.examCount} conceptCount={subject.conceptCount} examHref={`/public-service/exam/${subject.id}`} conceptHref={subject.conceptCount>0?`/public-service/concepts/${subject.id}`:undefined} />;
+  return <SubjectLearningCard label={subject.label} badge={badge ?? subject.track} examCount={subject.examCount} examHref={`/public-service/exam/${subject.id}`} dailyHref={`/public-service/daily?subject=${encodeURIComponent(subject.id)}`} />;
 
 }
 
@@ -39,7 +39,7 @@ export function PublicServiceSubjectBrowser({ subjects }: { subjects: PublicServ
 
   return (
     <section id="public-service-subjects">
-      <div className="mb-6">
+      <div className="mb-5">
         <div className="inline-grid w-fit grid-cols-2 rounded-full border border-mist bg-paper p-1 shadow-[var(--shadow-button)]" aria-label="과목 보기 방식">
           {([['track', '직렬별'], ['subject', '과목별']] as const).map(([value, label]) => (
             <button key={value} type="button" onClick={() => setMode(value)} className={`rounded-full px-5 py-2 font-display text-body-sm font-semibold transition-colors ${mode === value ? "bg-carbon text-paper" : "text-smoke hover:bg-snow hover:text-ink"}`}>
@@ -50,15 +50,15 @@ export function PublicServiceSubjectBrowser({ subjects }: { subjects: PublicServ
       </div>
 
       {mode === "subject" ? (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
           {sortedSubjects.map((subject, index) => <SubjectCard key={subject.id} subject={subject} index={index} />)}
         </div>
       ) : (
-        <div className="space-y-14">
+        <div className="space-y-10 md:space-y-12">
           {seriesGroups.map(([group, seriesList]) => (
             <section key={group} aria-labelledby={`series-group-${group}`}>
-              <h3 id={`series-group-${group}`} className="mb-6 border-b border-mist pb-3 font-display text-[24px] font-semibold text-ink">{group}</h3>
-              <div className="space-y-9">
+              <h3 id={`series-group-${group}`} className="mb-5 border-b border-mist pb-3 font-display text-[22px] font-semibold text-ink md:text-[24px]">{group}</h3>
+              <div className="space-y-8">
                 {seriesList.map((series) => {
                   const seriesSubjects = series.subjectIds
                     .map((subjectId) => subjectsById.get(subjectId))
@@ -70,7 +70,7 @@ export function PublicServiceSubjectBrowser({ subjects }: { subjects: PublicServ
                         <span className="rounded-full bg-ice px-3 py-1 font-display text-[12px] font-semibold text-electric-blue">전문과목 {seriesSubjects.length}개</span>
                         {series.blurb && <span className="font-display text-[12px] text-fog">{series.blurb}</span>}
                       </div>
-                      <div className="grid gap-4 sm:grid-cols-2 lg:max-w-[66.666%]">
+                      <div className="grid gap-3 md:grid-cols-2 md:gap-4 xl:max-w-[66.666%]">
                         {seriesSubjects.map((subject) => (
                           <SubjectCard key={`${series.id}-${subject.id}`} subject={subject} index={subjects.findIndex((item) => item.id === subject.id)} badge={series.label} />
                         ))}

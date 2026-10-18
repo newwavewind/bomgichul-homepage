@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
+import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
 import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
 import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
 import { PrimaryButton } from "@/components/ui/Button";
@@ -101,6 +102,11 @@ export function RandomPracticeRunner({
       </div>
 
       <QuestionStem stem={question.stem} questionNo={question.questionNo} />
+      {question.leadEntries?.length ? (
+        <div className="mb-6">
+          <ExamReferenceList entries={question.leadEntries} heading="시장 유형" />
+        </div>
+      ) : null}
       {question.table ? <ExamStructuredMaterials table={question.table} /> : null}
 
       <ExamAnswerList
@@ -109,6 +115,7 @@ export function RandomPracticeRunner({
         correctChoice={answerKeyString(question)}
         questionType={question.questionType}
         comboChoices={question.comboChoices}
+        referenceEntries={question.referenceEntries}
         compositeLayout={question.compositeLayout}
         tableHeader={question.tableHeader}
         stem={question.stem}

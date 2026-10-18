@@ -1,3 +1,5 @@
+import { cache } from "react";
+import type { User } from "@supabase/supabase-js";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { CATEGORY_MAP } from "@/lib/constants";
 import type { PostCategory } from "@/types/database";
@@ -8,9 +10,20 @@ export type AdminUserRow = {
   email: string | null;
   nickname: string;
   usernameSet: boolean;
+  provider: AdminAuthProvider;
+  providerNickname: string | null;
   createdAt: string;
   lastSignInAt: string | null;
   isAdmin: boolean;
+};
+
+export type AdminAuthProvider = "google" | "kakao" | "app" | "email" | "other";
+
+type RawAuthProvider = "google" | "kakao" | "apple" | "email" | "other";
+
+export type AdminSignupStats = {
+  total: Record<AdminAuthProvider | "all", number>;
+  today: Record<AdminAuthProvider | "all", number>;
 };
 
 export type AdminOverview = {
@@ -30,15 +43,101 @@ function getAdminClient() {
   return createAdminClient();
 }
 
+const KAKAO_HOMEPAGE_SIGNUP_STARTED_AT_MS = new Date(
+  "2026-10-14T00:00:00+09:00",
+).getTime();
+
 type AuthUserMeta = {
   email: string | null;
+  provider: AdminAuthProvider;
+  createdAt: string | null;
   lastSignInAt: string | null;
 };
+
+type AdminProfileMeta = {
+  id: string;
+  nickname: string;
+  username_set: boolean;
+  created_at: string;
+};
+
+function rawAuthProviderOf(user: {
+  app_metadata?: { provider?: unknown };
+  identities?: Array<{ provider?: string }>;
+}): RawAuthProvider {
+  const raw =
+    (typeof user.app_metadata?.provider === "string"
+      ? user.app_metadata.provider
+      : null) ?? user.identities?.[0]?.provider;
+
+  if (
+    raw === "google" ||
+    raw === "kakao" ||
+    raw === "apple" ||
+    raw === "email"
+  ) {
+    return raw;
+  }
+  return "other";
+}
+
+function authProviderOf(user: User): AdminAuthProvider {
+  const provider = rawAuthProviderOf(user);
+  if (provider === "google" || provider === "email") return provider;
+  if (
+    provider === "kakao" &&
+    new Date(user.created_at).getTime() >= KAKAO_HOMEPAGE_SIGNUP_STARTED_AT_MS
+  ) {
+    return "kakao";
+  }
+  if (provider === "apple" || provider === "kakao") return "app";
+  return "other";
+}
+
+function providerNicknameOf(user: User): string | null {
+  const value = user.user_metadata?.kakao_profile_nickname;
+  return typeof value === "string" && value.trim() ? value.trim() : null;
+}
+
+const getAllAuthUsers = cache(async (): Promise<User[]> => {
+  const admin = getAdminClient();
+  const users: User[] = [];
+  const perPage = 1000;
+
+  for (let page = 1; ; page += 1) {
+    const { data, error } = await admin.auth.admin.listUsers({ page, perPage });
+    if (error) throw error;
+    users.push(...(data.users ?? []));
+    if ((data.users?.length ?? 0) < perPage) break;
+  }
+
+  return users;
+});
+
+async function getProfilesByIds(
+  admin: ReturnType<typeof createAdminClient>,
+  ids: string[],
+): Promise<AdminProfileMeta[]> {
+  const profiles: AdminProfileMeta[] = [];
+  for (let index = 0; index < ids.length; index += 100) {
+    const { data, error } = await admin
+      .from("profiles")
+      .select("id, nickname, username_set, created_at")
+      .in("id", ids.slice(index, index + 100));
+    if (error) throw error;
+    profiles.push(...((data ?? []) as AdminProfileMeta[]));
+  }
+  return profiles;
+}
+
+function emptyProviderCounts(): Record<AdminAuthProvider | "all", number> {
+  return { all: 0, google: 0, kakao: 0, app: 0, email: 0, other: 0 };
+}
 
 /** Auth Admin listUsers 전체 스캔 대신, 필요한 id만 getUserById로 조회 */
 async function getAuthMetaByIds(
   admin: ReturnType<typeof createAdminClient>,
-  ids: string[]
+  ids: string[],
 ): Promise<Map<string, AuthUserMeta>> {
   const unique = [...new Set(ids.filter(Boolean))];
   const map = new Map<string, AuthUserMeta>();
@@ -51,29 +150,64 @@ async function getAuthMetaByIds(
       chunk.map(async (id) => {
         const { data, error } = await admin.auth.admin.getUserById(id);
         if (error || !data.user) {
-          return [id, { email: null, lastSignInAt: null }] as const;
+          return [
+            id,
+            {
+              email: null,
+              provider: "other" as const,
+              createdAt: null,
+              lastSignInAt: null,
+            },
+          ] as const;
         }
         return [
           id,
           {
             email: data.user.email ?? null,
+            provider: authProviderOf(data.user),
+            createdAt: data.user.created_at ?? null,
             lastSignInAt: data.user.last_sign_in_at ?? null,
           },
         ] as const;
-      })
+      }),
     );
     for (const [id, meta] of rows) map.set(id, meta);
   }
   return map;
 }
 
+/** 전체 Auth 사용자를 유지하면서 홈페이지에서 확인 가능한 가입 경로만 구분합니다. */
+export async function getAdminSignupStats(): Promise<AdminSignupStats> {
+  const total = emptyProviderCounts();
+  const today = emptyProviderCounts();
+  const { start, end } = kstDayBounds(toKstDateKey());
+  const startMs = new Date(start).getTime();
+  const endMs = new Date(end).getTime();
+  const users = await getAllAuthUsers();
+
+  for (const user of users) {
+    const provider = authProviderOf(user);
+    total.all += 1;
+    total[provider] += 1;
+
+    const createdAtMs = new Date(user.created_at).getTime();
+    if (createdAtMs >= startMs && createdAtMs < endMs) {
+      today.all += 1;
+      today[provider] += 1;
+    }
+  }
+
+  return { total, today };
+}
+
 export async function getAdminOverview(): Promise<AdminOverview> {
   const admin = getAdminClient();
+  const allUserIds = (await getAllAuthUsers()).map((user) => user.id);
+  const allUserIdSet = new Set(allUserIds);
 
   const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
 
   const [
-    totalUsersRes,
     usersWithUsernameRes,
     postsRes,
     recentPostsRes,
@@ -84,11 +218,7 @@ export async function getAdminOverview(): Promise<AdminOverview> {
     quizRes,
     premiumRes,
   ] = await Promise.all([
-    admin.from("profiles").select("id", { count: "exact", head: true }),
-    admin
-      .from("profiles")
-      .select("id", { count: "exact", head: true })
-      .eq("username_set", true),
+    admin.from("profiles").select("id").eq("username_set", true),
     admin.from("posts").select("id", { count: "exact", head: true }),
     admin
       .from("posts")
@@ -98,10 +228,16 @@ export async function getAdminOverview(): Promise<AdminOverview> {
       .from("posts")
       .select("id", { count: "exact", head: true })
       .in("category", ["bug", "feedback"]),
-    admin.from("question_public_memos").select("id", { count: "exact", head: true }),
+    admin
+      .from("question_public_memos")
+      .select("id", { count: "exact", head: true }),
     admin.from("dm_messages").select("id", { count: "exact", head: true }),
-    admin.from("mock_exam_sessions").select("id", { count: "exact", head: true }),
-    admin.from("daily_quiz_results").select("user_id", { count: "exact", head: true }),
+    admin
+      .from("mock_exam_sessions")
+      .select("id", { count: "exact", head: true }),
+    admin
+      .from("daily_quiz_results")
+      .select("user_id", { count: "exact", head: true }),
     admin
       .from("user_entitlements")
       .select("user_id", { count: "exact", head: true })
@@ -109,8 +245,10 @@ export async function getAdminOverview(): Promise<AdminOverview> {
   ]);
 
   return {
-    totalUsers: totalUsersRes.count ?? 0,
-    usersWithUsername: usersWithUsernameRes.count ?? 0,
+    totalUsers: allUserIds.length,
+    usersWithUsername: (usersWithUsernameRes.data ?? []).filter((profile) =>
+      allUserIdSet.has(profile.id),
+    ).length,
     totalPosts: postsRes.count ?? 0,
     postsLast7Days: recentPostsRes.count ?? 0,
     openReports: reportsRes.count ?? 0,
@@ -124,32 +262,34 @@ export async function getAdminOverview(): Promise<AdminOverview> {
 
 export async function getAdminUsers(limit = 100): Promise<AdminUserRow[]> {
   const admin = getAdminClient();
+  const authUsers = (await getAllAuthUsers())
+    .sort((a, b) => b.created_at.localeCompare(a.created_at))
+    .slice(0, limit);
+  const ids = authUsers.map((user) => user.id);
 
-  const [{ data: profiles }, { data: admins }] = await Promise.all([
-    admin
-      .from("profiles")
-      .select("id, nickname, username_set, created_at")
-      .order("created_at", { ascending: false })
-      .limit(limit),
+  const [profiles, { data: admins }] = await Promise.all([
+    getProfilesByIds(admin, ids),
     admin.from("admin_users").select("user_id"),
   ]);
 
   const adminIds = new Set((admins ?? []).map((a) => a.user_id));
-  const authById = await getAuthMetaByIds(
-    admin,
-    (profiles ?? []).map((p) => p.id)
+  const profileById = new Map(
+    profiles.map((profile) => [profile.id, profile] as const),
   );
 
-  return (profiles ?? []).map((p) => {
-    const auth = authById.get(p.id);
+  return authUsers.map((auth) => {
+    const profile = profileById.get(auth.id);
     return {
-      id: p.id,
-      email: auth?.email ?? null,
-      nickname: p.nickname,
-      usernameSet: Boolean(p.username_set),
-      createdAt: p.created_at,
-      lastSignInAt: auth?.lastSignInAt ?? null,
-      isAdmin: adminIds.has(p.id),
+      id: auth.id,
+      email: auth.email ?? null,
+      nickname:
+        profile?.nickname ?? `수험생${auth.id.replaceAll("-", "").slice(0, 6)}`,
+      usernameSet: Boolean(profile?.username_set),
+      provider: authProviderOf(auth),
+      providerNickname: providerNicknameOf(auth),
+      createdAt: auth.created_at,
+      lastSignInAt: auth.last_sign_in_at ?? null,
+      isAdmin: adminIds.has(auth.id),
     };
   });
 }
@@ -176,19 +316,25 @@ export type AdminPublicMemoRow = {
   createdAt: string;
 };
 
-export async function getAdminPublicMemos(limit = 100): Promise<AdminPublicMemoRow[]> {
+export async function getAdminPublicMemos(
+  limit = 100,
+): Promise<AdminPublicMemoRow[]> {
   const admin = getAdminClient();
 
   const { data } = await admin
     .from("question_public_memos")
-    .select("id, subject, year, question_no, content, created_at, profiles:user_id(nickname)")
+    .select(
+      "id, subject, year, question_no, content, created_at, profiles:user_id(nickname)",
+    )
     .order("created_at", { ascending: false })
     .limit(limit);
 
   if (!data) return [];
 
   return data.map((row) => {
-    const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
+    const profile = Array.isArray(row.profiles)
+      ? row.profiles[0]
+      : row.profiles;
     return {
       id: row.id,
       subject: row.subject,
@@ -222,7 +368,7 @@ export async function getAdminPosts(options: {
     .from("posts")
     .select(
       "id, title, category, community_scope, view_count, created_at, profiles:author_id(nickname), comments(count)",
-      { count: "exact" }
+      { count: "exact" },
     )
     .order("created_at", { ascending: false })
     .range(from, to);
@@ -242,11 +388,12 @@ export async function getAdminPosts(options: {
   }
 
   const rows = data.map((row) => {
-    const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
+    const profile = Array.isArray(row.profiles)
+      ? row.profiles[0]
+      : row.profiles;
     const category = row.category as PostCategory;
-    const commentRel = (
-      row as { comments?: { count: number }[] | null }
-    ).comments;
+    const commentRel = (row as { comments?: { count: number }[] | null })
+      .comments;
     return {
       id: row.id,
       title: row.title,
@@ -272,7 +419,9 @@ export type AdminPremiumRow = {
   expiresAt: string | null;
 };
 
-export async function getAdminPremiumEntitlements(limit = 50): Promise<AdminPremiumRow[]> {
+export async function getAdminPremiumEntitlements(
+  limit = 50,
+): Promise<AdminPremiumRow[]> {
   const admin = getAdminClient();
 
   const { data } = await admin
@@ -284,7 +433,7 @@ export async function getAdminPremiumEntitlements(limit = 50): Promise<AdminPrem
       status,
       expires_at,
       profiles:user_id (nickname)
-    `
+    `,
     )
     .order("created_at", { ascending: false })
     .limit(limit);
@@ -293,11 +442,13 @@ export async function getAdminPremiumEntitlements(limit = 50): Promise<AdminPrem
 
   const authById = await getAuthMetaByIds(
     admin,
-    data.map((row) => row.user_id)
+    data.map((row) => row.user_id),
   );
 
   return data.map((row) => {
-    const profile = Array.isArray(row.profiles) ? row.profiles[0] : row.profiles;
+    const profile = Array.isArray(row.profiles)
+      ? row.profiles[0]
+      : row.profiles;
     return {
       userId: row.user_id,
       nickname: profile?.nickname ?? "익명",
@@ -310,8 +461,11 @@ export async function getAdminPremiumEntitlements(limit = 50): Promise<AdminPrem
 }
 
 export type AdminRecentSignup = {
+  id: string;
   nickname: string;
   email: string | null;
+  provider: AdminAuthProvider;
+  providerNickname: string | null;
   createdAt: string;
   usernameSet: boolean;
 };
@@ -323,62 +477,41 @@ export type AdminRecentSignupPage = {
 
 export async function getAdminRecentSignups(
   limit: number | null = 30,
-  offset = 0
+  offset = 0,
 ): Promise<AdminRecentSignupPage> {
   const admin = getAdminClient();
   const from = Math.max(0, offset);
-  const pageSize = 1000;
+  const allAuthUsers = (await getAllAuthUsers()).sort((a, b) =>
+    b.created_at.localeCompare(a.created_at),
+  );
+  const total = allAuthUsers.length;
+  const authUsers =
+    limit === null
+      ? allAuthUsers
+      : allAuthUsers.slice(from, from + Math.max(1, limit));
+  const ids = authUsers.map((user) => user.id);
 
-  const fetchProfiles = async () => {
-    if (limit !== null) {
-      const { count, error: countError } = await admin
-        .from("profiles")
-        .select("id", { count: "exact", head: true });
-      if (countError) throw countError;
+  const profiles = await getProfilesByIds(admin, ids);
 
-      const total = count ?? 0;
-      if (total === 0) return { profiles: [], total };
-
-      const safeFrom = Math.min(from, total - 1);
-      const to = safeFrom + Math.max(1, limit) - 1;
-      const { data, error } = await admin
-        .from("profiles")
-        .select("id, nickname, username_set, created_at")
-        .order("created_at", { ascending: false })
-        .range(safeFrom, to);
-      if (error) throw error;
-      return { profiles: data ?? [], total };
-    }
-
-    const profiles = [];
-    let total = 0;
-    for (let batchFrom = 0; ; batchFrom += pageSize) {
-      const { data, count, error } = await admin
-        .from("profiles")
-        .select("id, nickname, username_set, created_at", { count: "exact" })
-        .order("created_at", { ascending: false })
-        .range(batchFrom, batchFrom + pageSize - 1);
-      if (error) throw error;
-      const batch = data ?? [];
-      profiles.push(...batch);
-      total = count ?? profiles.length;
-      if (batch.length < pageSize) return { profiles, total };
-    }
-  };
-
-  const { profiles, total } = await fetchProfiles();
-  const authById = await getAuthMetaByIds(
-    admin,
-    profiles.map((profile) => profile.id)
+  const profileById = new Map(
+    profiles.map((profile) => [profile.id, profile] as const),
   );
 
   return {
-    rows: profiles.map((profile) => ({
-      nickname: profile.nickname,
-      email: authById.get(profile.id)?.email ?? null,
-      createdAt: profile.created_at,
-      usernameSet: Boolean(profile.username_set),
-    })),
+    rows: authUsers.map((auth) => {
+      const profile = profileById.get(auth.id);
+      return {
+        id: auth.id,
+        nickname:
+          profile?.nickname ??
+          `수험생${auth.id.replaceAll("-", "").slice(0, 6)}`,
+        email: auth.email ?? null,
+        provider: authProviderOf(auth),
+        providerNickname: providerNicknameOf(auth),
+        createdAt: auth.created_at,
+        usernameSet: Boolean(profile?.username_set),
+      };
+    }),
     total,
   };
 }
@@ -433,36 +566,48 @@ export const CONCEPT_EXAM_PREFIX = "concept:";
 export type AiLogKind = "explanation" | "concept";
 
 /** 개념만 / 해설만 고르는 조건을 얹는다. `exam_id` 접두 하나로 갈린다. */
-function applyKind<T extends { like: (col: string, pat: string) => T; not: (col: string, op: string, val: string) => T }>(
-  query: T,
-  kind: AiLogKind
-): T {
+function applyKind<
+  T extends {
+    like: (col: string, pat: string) => T;
+    not: (col: string, op: string, val: string) => T;
+  },
+>(query: T, kind: AiLogKind): T {
   return kind === "concept"
     ? query.like("exam_id", `${CONCEPT_EXAM_PREFIX}%`)
     : query.not("exam_id", "like", `${CONCEPT_EXAM_PREFIX}%`);
 }
 
-export async function getAiExplanationOverview(kind: AiLogKind = "explanation"): Promise<AiExplanationOverview> {
+export async function getAiExplanationOverview(
+  kind: AiLogKind = "explanation",
+): Promise<AiExplanationOverview> {
   const admin = getAdminClient();
 
   // 한국 시간 자정부터
   const now = new Date();
   const seoulMidnight = new Date(
-    new Date(now.getTime() + 9 * 3600 * 1000).toISOString().slice(0, 10) + "T00:00:00+09:00"
+    new Date(now.getTime() + 9 * 3600 * 1000).toISOString().slice(0, 10) +
+      "T00:00:00+09:00",
   ).toISOString();
 
   const [totalRes, todayRes, groupsRes] = await Promise.all([
-    applyKind(admin.from("ai_explanation_log").select("id", { count: "exact", head: true }), kind),
+    applyKind(
+      admin
+        .from("ai_explanation_log")
+        .select("id", { count: "exact", head: true }),
+      kind,
+    ),
     applyKind(
       admin
         .from("ai_explanation_log")
         .select("id", { count: "exact", head: true })
         .gte("created_at", seoulMidnight),
-      kind
+      kind,
     ),
     applyKind(
-      admin.from("ai_explanation_log_groups").select("exam_id", { count: "exact", head: true }),
-      kind
+      admin
+        .from("ai_explanation_log_groups")
+        .select("exam_id", { count: "exact", head: true }),
+      kind,
     ),
   ]);
 
@@ -474,19 +619,21 @@ export async function getAiExplanationOverview(kind: AiLogKind = "explanation"):
 }
 
 /** 판본이 많이 쌓인 보기부터 — 견주어 볼 거리가 있는 자리가 위로 온다 */
-export async function getAiExplanationGroups(options: {
-  subjectId?: string;
-  /** YYYY-MM-DD (KST). last_at 기준 그날만 */
-  dateKey?: string;
-  limit?: number;
-  kind?: AiLogKind;
-} = {}): Promise<AiExplanationGroupRow[]> {
+export async function getAiExplanationGroups(
+  options: {
+    subjectId?: string;
+    /** YYYY-MM-DD (KST). last_at 기준 그날만 */
+    dateKey?: string;
+    limit?: number;
+    kind?: AiLogKind;
+  } = {},
+): Promise<AiExplanationGroupRow[]> {
   const admin = getAdminClient();
 
   let query = admin
     .from("ai_explanation_log_groups")
     .select(
-      "subject_id, exam_id, item_key, item_text, answer, variant_count, model_count, prompt_version_count, first_at, last_at"
+      "subject_id, exam_id, item_key, item_text, answer, variant_count, model_count, prompt_version_count, first_at, last_at",
     )
     .order("last_at", { ascending: false })
     .order("variant_count", { ascending: false })
@@ -520,7 +667,7 @@ export async function getAiExplanationGroups(options: {
 /** 최근 활동이 있는 날짜(KST)와 그날 보기 수 — 미니 달력용 */
 export async function getAiExplanationDateSummaries(
   limitDays = 120,
-  kind: AiLogKind = "explanation"
+  kind: AiLogKind = "explanation",
 ): Promise<{ dateKey: string; count: number }[]> {
   const admin = getAdminClient();
   const { data } = await applyKind(
@@ -529,7 +676,7 @@ export async function getAiExplanationDateSummaries(
       .select("last_at")
       .order("last_at", { ascending: false })
       .limit(2000),
-    kind
+    kind,
   );
 
   if (!data?.length) return [];
@@ -561,8 +708,12 @@ export async function getAiExplanationVariants(params: {
     .order("id", { ascending: true })
     .limit(100);
 
-  query = params.examId ? query.eq("exam_id", params.examId) : query.is("exam_id", null);
-  query = params.itemKey ? query.eq("item_key", params.itemKey) : query.is("item_key", null);
+  query = params.examId
+    ? query.eq("exam_id", params.examId)
+    : query.is("exam_id", null);
+  query = params.itemKey
+    ? query.eq("item_key", params.itemKey)
+    : query.is("item_key", null);
 
   const { data } = await query;
   if (!data) return [];
@@ -597,18 +748,21 @@ export function aiSubjectBaseId(subjectId: string): string {
  * 과목 하나로 묶고 싶으면 `aiSubjectBaseId` 로 합치면 된다.
  */
 export async function getAiExplanationSubjects(
-  kind: AiLogKind = "explanation"
+  kind: AiLogKind = "explanation",
 ): Promise<{ id: string; count: number }[]> {
   const admin = getAdminClient();
   const { data } = await applyKind(
     admin.from("ai_explanation_log_groups").select("subject_id, variant_count"),
-    kind
+    kind,
   );
   if (!data) return [];
 
   const tally = new Map<string, number>();
   for (const row of data) {
-    tally.set(row.subject_id, (tally.get(row.subject_id) ?? 0) + row.variant_count);
+    tally.set(
+      row.subject_id,
+      (tally.get(row.subject_id) ?? 0) + row.variant_count,
+    );
   }
   return [...tally.entries()]
     .map(([id, count]) => ({ id, count }))
@@ -616,7 +770,7 @@ export async function getAiExplanationSubjects(
 }
 
 export async function deleteAdminPost(
-  postId: string
+  postId: string,
 ): Promise<{ ok: true } | { ok: false; error: string }> {
   let admin;
   try {

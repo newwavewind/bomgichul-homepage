@@ -7551,10 +7551,16 @@
       {
         "key": "ㄷ",
         "label": "ㄷ.",
-        "text": "특정 점포가 최대 이익을 얻을 수 있는 매출액을 확보하기 위해서는 어떤 장소에 입지하여야 하는지를 제시하였다. <보기> 가: 버제스(E. Burgess)의 동심원이론 나: 레일리(W. Reilly)의 소매인력법칙 다: 크리스탈러(W. Christaller)의 중심지이론 라: 넬슨(R. Nelson)의 소매입지이론",
+        "text": "특정 점포가 최대 이익을 얻을 수 있는 매출액을 확보하기 위해서는 어떤 장소에 입지하여야 하는지를 제시하였다.",
         "answer": "O",
         "explanation": "점포가 최대 이익을 낼 매출액을 확보하려면 어디에 입지해야 하는지 제시한 것은 넬슨의 소매입지이론(라)이다 — 입지 선정 8원칙을 내놓았다."
       }
+    ],
+    "referenceEntries": [
+      { "label": "가", "text": "버제스(E. Burgess)의 동심원이론" },
+      { "label": "나", "text": "레일리(W. Reilly)의 소매인력법칙" },
+      { "label": "다", "text": "크리스탈러(W. Christaller)의 중심지이론" },
+      { "label": "라", "text": "넬슨(R. Nelson)의 소매입지이론" }
     ],
     "comboChoices": [
       {
@@ -12403,6 +12409,11 @@
     "round": 32,
     "questionNo": 13,
     "stem": "다음은 3가지 효율적 시장(A∼C)의 유형과 관련된 내용이다. 시장별 해당되는 내용을 <보기>에서 모두 찾아 옳게 짝지어진 것은?",
+    "leadEntries": [
+      { "label": "A", "text": "약성 효율적 시장" },
+      { "label": "B", "text": "준강성 효율적 시장" },
+      { "label": "C", "text": "강성 효율적 시장" }
+    ],
     "category": "부동산경제론",
     "subcategory": "효율적 시장",
     "questionType": "composite",
@@ -13578,6 +13589,14 @@
         "answer": "O",
         "explanation": "준공과 함께 민간사업자가 소유권과 운영권을 계속 갖는 방식은 BOO(e)로, 소유권 이전이 없다."
       }
+    ],
+    "referenceEntries": [
+      { "label": "a", "text": "BTO(build-transfer-operate) 방식" },
+      { "label": "b", "text": "BOT(build-operate-transfer) 방식" },
+      { "label": "c", "text": "BTL(build-transfer-lease) 방식" },
+      { "label": "d", "text": "BLT(build-lease-transfer) 방식" },
+      { "label": "e", "text": "BOO(build-own-operate) 방식" },
+      { "label": "f", "text": "ROT(rehabilitate-operate-transfer) 방식" }
     ],
     "comboChoices": [
       {

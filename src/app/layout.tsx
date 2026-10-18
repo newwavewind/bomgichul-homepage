@@ -15,6 +15,7 @@ import {
   GA_MEASUREMENT_ID,
 } from "@/lib/constants";
 import { buildOrganizationJsonLd } from "@/lib/seo";
+import { isPublicExamVisible } from "@/lib/public-exam-visibility";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -83,7 +84,7 @@ export const metadata: Metadata = {
     "주택관리사 기출문제",
     "주택관리사보",
     "사회복지사 1급 기출문제",
-    "한국사능력검정 기출문제",
+    ...(isPublicExamVisible("history") ? ["한국사능력검정 기출문제"] : []),
     "공무원 영어 기출문제",
     "공무원 국어 기출문제",
     "행정사 기출문제",
@@ -114,16 +115,11 @@ export const metadata: Metadata = {
         sizes: "1024x1024",
         type: "image/png",
       },
-      {
-        url: `${SITE_URL}/favicon.ico`,
-        sizes: "any",
-        type: "image/x-icon",
-      },
     ],
     shortcut: `${SITE_URL}/favicon.ico`,
     apple: [
       {
-        url: `${SITE_URL}/apple-icon`,
+        url: `${SITE_URL}/brand/bomgichul-apple-icon.png`,
         sizes: "180x180",
         type: "image/png",
       },
