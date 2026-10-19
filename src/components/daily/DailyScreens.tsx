@@ -137,8 +137,12 @@ export async function DailyPlayPage({
     (latest, question) => Math.max(latest, question.year),
     0,
   );
+  const eligibleYears = eligiblePool.map((question) => question.year);
   const composition = {
-    years: new Set(eligiblePool.map((question) => question.year)).size,
+    years: new Set(eligibleYears).size,
+    yearSpan: eligibleYears.length
+      ? Math.max(...eligibleYears) - Math.min(...eligibleYears) + 1
+      : 0,
     topics: new Set(
       set.map((question) => question.subcategory || question.category),
     ).size,

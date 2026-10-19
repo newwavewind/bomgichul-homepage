@@ -214,6 +214,7 @@ export type DailyInsights = {
 
 export type DailyComposition = {
   years: number;
+  yearSpan: number;
   topics: number;
   latestCount: number;
   poolCount: number;

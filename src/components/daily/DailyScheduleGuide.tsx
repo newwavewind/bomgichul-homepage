@@ -48,7 +48,7 @@ export function DailyScheduleGuide({
         </div>
 
         <p className="mt-4 text-sm leading-6 text-[#475569]">
-          {subjectLabel}의 최근 10개년 객관식 기출 {composition.poolCount.toLocaleString()}문제를
+          {subjectLabel}의 최근 {composition.yearSpan}개년 객관식 기출 {composition.poolCount.toLocaleString()}문제를
           하루 10문제씩 만납니다. 한 순환 안에서는 모든 문제를 한 번 보기 전까지 중복 출제하지 않습니다.
         </p>
         <p className="mt-2 text-sm leading-6 text-[#475569]">
