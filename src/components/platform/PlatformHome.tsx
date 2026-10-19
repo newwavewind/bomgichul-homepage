@@ -156,6 +156,15 @@ const exams = [
     accentTo: "#fdf6f8",
     cta: "감정평가사 알아보기",
   },
+  {
+    href: "/mullyu/intro",
+    learnHref: "/mullyu",
+    eyebrow: "국가전문자격",
+    title: "물류관리사",
+    accentFrom: "#f7f1e8",
+    accentTo: "#fbf8f2",
+    cta: "물류관리사 알아보기",
+  },
 ] as const;
 
 const visibleExams = exams.filter((exam) => isPublicExamPathVisible(exam.learnHref));

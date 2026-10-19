@@ -14,6 +14,7 @@ import { SONHAE_SUBJECT_IDS, getSonhaeSubject } from "@/lib/sonhae-content";
 import { NOMUSA_SUBJECT_IDS, getNomusaSubject } from "@/lib/nomusa-content";
 import { GYEONGBI_SUBJECT_IDS, getGyeongbiSubject } from "@/lib/gyeongbi-content";
 import { GAMJEONG_SUBJECT_IDS, getGamjeongSubject } from "@/lib/gamjeong-content";
+import { MULLYU_SUBJECT_IDS, getMullyuSubject } from "@/lib/mullyu-content";
 import { FIREFIGHTER_SUBJECT_IDS, getFirefighterSubject } from "@/lib/firefighter-content";
 import type { ExamTrackSubjectContent } from "@/lib/exam-track/types";
 import { isPublicExamVisible } from "@/lib/public-exam-visibility";
@@ -68,6 +69,7 @@ function rows() {
     ...trackRows("공인노무사", "/nomusa", NOMUSA_SUBJECT_IDS, getNomusaSubject),
     ...trackRows("경비지도사", "/gyeongbi", GYEONGBI_SUBJECT_IDS, getGyeongbiSubject),
     ...trackRows("감정평가사", "/gamjeong", GAMJEONG_SUBJECT_IDS, getGamjeongSubject),
+    ...trackRows("물류관리사", "/mullyu", MULLYU_SUBJECT_IDS, getMullyuSubject),
   ];
   return cached;
 }

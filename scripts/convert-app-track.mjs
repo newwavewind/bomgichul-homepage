@@ -7,6 +7,7 @@
  *   node scripts/convert-app-track.mjs semusa     # 세무사(자료 그림을 다시 싣는다)
  *   node scripts/convert-app-track.mjs gyeongbi   # 경비지도사(1·2차 여덟 과목)
  *   node scripts/convert-app-track.mjs gamjeong   # 감정평가사(1차 다섯 과목, 5지선다)
+ *   node scripts/convert-app-track.mjs mullyu     # 물류관리사(다섯 과목, 5지선다 — 감정평가사와 같은 rich 갈래)
  *
  * ## 감정평가사부터 더 옮기는 것(`rich: true`)
  *
@@ -151,6 +152,24 @@ const TRACKS = {
       부동산학원론: { id: "budongsan", label: "부동산학원론" },
       감정평가관계법규: { id: "beopgyu", label: "감정평가관계법규" },
       회계학: { id: "hoegye", label: "회계학" },
+    },
+  },
+  mullyu: {
+    app: "/Users/newsang/mullyubomgichul",
+    track: "물류관리사",
+    // 감정평가사 앱과 같은 꼴(자료 상자·표·그림·시험일 판 근거)이라 같은 rich 갈래로 옮긴다.
+    // 열쇠 = 앱 기출 파일 이름 앞머리, 별칭은 앱 registry.js 의 LEGACY_DATA_LABELS 와 같다.
+    rich: true,
+    subjects: {
+      물류관리론: { id: "gwalli", label: "물류관리론", aliases: ["물류 관리론"] },
+      화물운송론: { id: "unsong", label: "화물운송론", aliases: ["화물 운송론"] },
+      국제물류론: { id: "gukje", label: "국제물류론", aliases: ["국제 물류론"] },
+      보관하역론: { id: "bogwan", label: "보관하역론", aliases: ["보관 하역론"] },
+      물류관련법규: {
+        id: "beopgyu",
+        label: "물류관련법규",
+        aliases: ["물류법규", "물류 관련 법규", "물류 관련법규", "물류관련 법규", "물류관계법규"],
+      },
     },
   },
 };

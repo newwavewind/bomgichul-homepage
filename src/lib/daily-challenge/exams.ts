@@ -24,6 +24,7 @@ export const DAILY_EXAMS: DailyExamMeta[] = [
   { slug: "nomusa", label: "공인노무사", home: "/nomusa", trackId: "nomusa" },
   { slug: "gyeongbi", label: "경비지도사", home: "/gyeongbi", trackId: "gyeongbi" },
   { slug: "gamjeong", label: "감정평가사", home: "/gamjeong", trackId: "gamjeong" },
+  { slug: "mullyu", label: "물류관리사", home: "/mullyu", trackId: "mullyu" },
 ].filter((exam) => isPublicExamVisible(exam.slug));
 
 export function getDailyExam(slug: string): DailyExamMeta | null {

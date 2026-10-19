@@ -133,6 +133,16 @@ const TRACK_EXAM_SCHEDULE: Record<
     examName: "감정평가사 국가자격시험",
     scheduleUnconfirmed: true,
   },
+  // 2026년 제30회는 7.25. 시행을 마쳤다(앱 data/exam_days.json). 2027년 제31회 시행계획은
+  // 아직 확인 전이라 D-day 를 띄우지 않는다 — 공고가 나오면 날짜를 넣고 scheduleUnconfirmed 를 뗀다.
+  mullyu: {
+    label: "물류관리사 국가자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "2026년 제30회는 7.25. 시행을 마쳤습니다. 다음 회차 일정은 Q-Net 공고를 확인하세요.",
+    examName: "물류관리사 국가자격시험",
+    scheduleUnconfirmed: true,
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

@@ -152,6 +152,15 @@ const GAMJEONG_SUBJECTS: { id: string; label: string }[] = [
   { id: "hoegye", label: "회계학" },
 ];
 
+/** 다섯 과목(5지선다) — 2차 시험이 없다 */
+const MULLYU_SUBJECTS: { id: string; label: string }[] = [
+  { id: "gwalli", label: "물류관리론" },
+  { id: "unsong", label: "화물운송론" },
+  { id: "gukje", label: "국제물류론" },
+  { id: "bogwan", label: "보관하역론" },
+  { id: "beopgyu", label: "물류관련법규" },
+];
+
 const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
   { id: "sobang", label: "소방학개론" },
   { id: "sobangbeop", label: "소방관계법규" },
@@ -215,7 +224,9 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
                               ? GYEONGBI_SUBJECTS
                               : scope === "gamjeong"
                                 ? GAMJEONG_SUBJECTS
-                                : PUBLIC_SERVICE_SUBJECTS;
+                                : scope === "mullyu"
+                                  ? MULLYU_SUBJECTS
+                                  : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -254,6 +265,7 @@ function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/nomusa")) return false;
   if (pathname.startsWith("/gyeongbi")) return false;
   if (pathname.startsWith("/gamjeong")) return false;
+  if (pathname.startsWith("/mullyu")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -424,6 +436,17 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("gamjeong"),
       subjects: subjectsForScope("gamjeong"),
       tools: toolsForScope("gamjeong"),
+    };
+  }
+  if (path.startsWith("/mullyu")) {
+    return {
+      mode: "track",
+      scope: "mullyu",
+      label: communityScopeLabel("mullyu"),
+      shortLabel: "물류관리사",
+      hubHref: trackHubHref("mullyu"),
+      subjects: subjectsForScope("mullyu"),
+      tools: toolsForScope("mullyu"),
     };
   }
   if (path.startsWith("/public-service")) {

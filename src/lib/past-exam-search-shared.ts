@@ -20,6 +20,7 @@ const ALL_PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: strin
   { value: "nomusa", label: "공인노무사" },
   { value: "gyeongbi", label: "경비지도사" },
   { value: "gamjeong", label: "감정평가사" },
+  { value: "mullyu", label: "물류관리사" },
   { value: "history", label: "한국사" },
 ];
 

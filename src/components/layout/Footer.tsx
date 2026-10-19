@@ -24,6 +24,7 @@ const HUB_LINKS = [
   { href: "/nomusa", label: "공인노무사" },
   { href: "/gyeongbi", label: "경비지도사" },
   { href: "/gamjeong", label: "감정평가사" },
+  { href: "/mullyu", label: "물류관리사" },
 ] as const;
 
 const LEGAL_LINKS = [

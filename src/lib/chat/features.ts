@@ -221,6 +221,12 @@ export const COMMUNITY_HOME_GROUPS = [
     topicKeys: ["gamjeong"],
   },
   {
+    scope: "mullyu" as const,
+    label: "물류관리사",
+    blurb: "물류관리·화물운송·국제물류·보관하역·물류법규",
+    topicKeys: ["mullyu"],
+  },
+  {
     scope: "history" as const,
     label: "한국사",
     blurb: "시대별 정리",
@@ -265,6 +271,7 @@ export const TOPIC_TEASERS = [
   { key: "nomusa", label: "공인노무사", blurb: "노동법·민법·사회보험법" },
   { key: "gyeongbi", label: "경비지도사", blurb: "경비업법·민간경비론·법학" },
   { key: "gamjeong", label: "감정평가사", blurb: "민법·경제학·부동산학·관계법규·회계학" },
+  { key: "mullyu", label: "물류관리사", blurb: "물류관리·화물운송·국제물류·보관하역·물류법규" },
   { key: "history", label: "한국사", blurb: "시대별 정리" },
 ] as const;
 

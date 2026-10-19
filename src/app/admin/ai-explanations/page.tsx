@@ -49,6 +49,7 @@ const APP_LABELS: Record<string, string> = {
   sanan: "산업안전지도사",
   gyeongbi: "경비지도사",
   gamjeong: "감정평가사",
+  mullyu: "물류관리사",
 };
 
 /** 필터·묶음에 쓰는 앱 순서 */
@@ -69,6 +70,7 @@ const APP_ORDER = [
   "sanan",
   "gyeongbi",
   "gamjeong",
+  "mullyu",
 ] as const;
 
 /**
@@ -119,11 +121,25 @@ const GAMJEONG_SLOT_LABELS: Record<string, string> = {
   bosang: "감정평가 및 보상법규",
 };
 
+/**
+ * 물류관리사 앱: 과목 id → 과목명.
+ * 「beopgyu」는 감정평가사에서 「감정평가관계법규」라 이 앱에서는 덮어써야 한다.
+ * @see mullyubomgichul/src/subjects/registry.js
+ */
+const MULLYU_SLOT_LABELS: Record<string, string> = {
+  gwalli: "물류관리론",
+  unsong: "화물운송론",
+  gukje: "국제물류론",
+  bogwan: "보관하역론",
+  beopgyu: "물류관련법규",
+};
+
 /** 앱 접두별 슬롯 라벨 덮어쓰기 (공인중개사 기본 맵보다 우선) */
 const APP_SUBJECT_SLUG_OVERRIDES: Record<string, Record<string, string>> = {
   police: POLICE_SLOT_LABELS,
   gyeongbi: GYEONGBI_SLOT_LABELS,
   gamjeong: GAMJEONG_SLOT_LABELS,
+  mullyu: MULLYU_SLOT_LABELS,
 };
 
 /** 콜론 뒤 과목 슬러그 → 한국어 (공인중개사·공통 기본값) */

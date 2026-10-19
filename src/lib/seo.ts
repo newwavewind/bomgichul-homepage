@@ -378,6 +378,10 @@ export function buildPlatformHomeJsonLd() {
       name: "감정평가사 1차 기출 학습",
       url: absoluteUrl("/gamjeong"),
     },
+    {
+      name: "물류관리사 기출 학습",
+      url: absoluteUrl("/mullyu"),
+    },
   ] as const;
 
   return {

@@ -643,6 +643,35 @@ function collectJobs() {
     }
   }
 
+  // ——— 물류관리사 (앱 exam-pdfs — 제21회 2017 ~ 제30회 2026, 2018~2026 문제지·2019~2026 최종정답) ———
+  // 앱 public/exam-pdfs/mullyu/<연도>/ 의 문제지·최종정답(이름 `<연도>-1차[-<N>교시]-<문제지|최종정답>…`).
+  {
+    const root = join(HOME, 'mullyubomgichul/public/exam-pdfs')
+    for (const file of walkExamFiles(root)) {
+      const name = nfc(basename(file))
+      const year = (name.match(/^(\d{4})/) || [])[1]
+      if (!year) continue
+      const y = Number(year)
+      if (y < 2017 || y > 2026) continue
+      let detail = name
+        .replace(/\.(pdf|hwp|hwpx)$/i, '')
+        .replace(/^\d{4}-/, '')
+        .replace(/-[a-f0-9]{5,}$/i, '')
+        .replace(/-/g, ' ')
+        .trim()
+      if (!detail) detail = kindFromName(name)
+      const title = `${TITLE_PREFIX} ${year}년 물류관리사 · ${detail}`
+      jobs.push({
+        scope: 'mullyu',
+        subject: 'other',
+        title,
+        content: `물류관리사 국가자격시험 기출 원본입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `mullyu|app|${name}`,
+      })
+    }
+  }
+
   // ——— 세무사 (데스크탑 10개년) ———
   {
     const deskRoot = join(HOME, 'Desktop/세무사_기출_10개년')

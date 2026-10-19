@@ -29,6 +29,7 @@ const BASE_PATHS: Record<string, string> = {
   nomusa: "/nomusa",
   gyeongbi: "/gyeongbi",
   gamjeong: "/gamjeong",
+  mullyu: "/mullyu",
 };
 
 const SCOPE_LABELS: Record<string, string> = {
@@ -47,6 +48,7 @@ const SCOPE_LABELS: Record<string, string> = {
   nomusa: "공인노무사",
   gyeongbi: "경비지도사",
   gamjeong: "감정평가사",
+  mullyu: "물류관리사",
 };
 
 function kstDate(date = new Date()) {

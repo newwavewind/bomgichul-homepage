@@ -16,6 +16,7 @@ import {
   getGamjeongSubject,
   GAMJEONG_SUBJECT_IDS,
 } from "@/lib/gamjeong-content";
+import { getMullyuSubject, MULLYU_SUBJECT_IDS } from "@/lib/mullyu-content";
 import { getGugeoSubject, GUGEO_SUBJECT_IDS } from "@/lib/gugeo-content";
 import {
   getGyeongbiSubject,
@@ -282,6 +283,7 @@ const TRACK_LOADERS: Record<
   nomusa: { ids: NOMUSA_SUBJECT_IDS, get: (id) => getNomusaSubject(id) },
   gyeongbi: { ids: GYEONGBI_SUBJECT_IDS, get: (id) => getGyeongbiSubject(id) },
   gamjeong: { ids: GAMJEONG_SUBJECT_IDS, get: (id) => getGamjeongSubject(id) },
+  mullyu: { ids: MULLYU_SUBJECT_IDS, get: (id) => getMullyuSubject(id) },
 };
 
 function buildRealEstate(): DailyQuestion[] {

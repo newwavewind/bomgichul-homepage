@@ -243,6 +243,26 @@ export const GAMJEONG_TRACK: ExamTrackConfig = {
   aboutName: "감정평가사 국가자격시험 1차",
 };
 
+/*
+ * 물류관리사는 한 번의 시험에 다섯 과목(물류관리론·화물운송론·국제물류론·보관하역론·물류관련법규,
+ * 5지선다)을 치른다 — 2차 시험이 없다. 시행 국토교통부, 접수·출제 한국산업인력공단(Q-Net).
+ */
+export const MULLYU_TRACK: ExamTrackConfig = {
+  id: "mullyu",
+  label: "물류관리사",
+  shortLabel: "물류관리사",
+  basePath: "/mullyu",
+  eyebrow: "봄기출 · 물류관리사",
+  hubTitle: "물류관리사 기출 학습의 모든 것",
+  hubDescription:
+    "물류관리사 물류관리론·화물운송론·국제물류론·보관하역론·물류관련법규 기출을 회차별로 학습하세요.",
+  communityScope: "mullyu",
+  communityTitle: "물류관리사 수험생 커뮤니티",
+  sessionEyebrow: "물류관리사 기출",
+  educationalLevel: "물류관리사 국가자격시험",
+  aboutName: "물류관리사 국가자격시험",
+};
+
 export const EXAM_TRACKS = [
   POLICE_TRACK,
   FIREFIGHTER_TRACK,
@@ -258,6 +278,7 @@ export const EXAM_TRACKS = [
   NOMUSA_TRACK,
   GYEONGBI_TRACK,
   GAMJEONG_TRACK,
+  MULLYU_TRACK,
 ] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
@@ -275,5 +296,6 @@ export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/nomusa")) return NOMUSA_TRACK;
   if (pathname.startsWith("/gyeongbi")) return GYEONGBI_TRACK;
   if (pathname.startsWith("/gamjeong")) return GAMJEONG_TRACK;
+  if (pathname.startsWith("/mullyu")) return MULLYU_TRACK;
   return null;
 }

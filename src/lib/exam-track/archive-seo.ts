@@ -42,7 +42,7 @@ export async function buildArchiveListMetadata({
   // Keep paginated collections discoverable, but not search/filter variants.
   const hasFilters = resourceType !== "all" || subject !== "all" ||
     Boolean(params.year || params.round) || Boolean(params.track && params.track !== "all");
-  const isKnownEmpty = scope === "gamjeong" &&
+  const isKnownEmpty = (scope === "gamjeong" || scope === "mullyu") &&
     (await hasPublicListingContent(scope, "archive")) === false;
   return buildPageMetadata({
     title,

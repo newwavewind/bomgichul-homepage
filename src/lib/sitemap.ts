@@ -76,6 +76,11 @@ import {
   getGamjeongExamSessions,
 } from "@/lib/gamjeong-content";
 import {
+  MULLYU_SUBJECT_IDS,
+  getMullyuSubject,
+  getMullyuExamSessions,
+} from "@/lib/mullyu-content";
+import {
   HISTORY_SUBJECT_IDS,
   getHistoryExamSessions,
   getHistorySubject,
@@ -112,6 +117,7 @@ const ALL_SITEMAP_GROUPS = [
   "nomusa",
   "gyeongbi",
   "gamjeong",
+  "mullyu",
 ] as const;
 
 export type SitemapGroup = (typeof ALL_SITEMAP_GROUPS)[number];
@@ -137,6 +143,7 @@ const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   nomusa: "nomusa",
   gyeongbi: "gyeongbi",
   gamjeong: "gamjeong",
+  mullyu: "mullyu",
 };
 
 function page(
@@ -397,6 +404,14 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         getGamjeongExamSessions,
         { includeConcepts: false, includeQuestionUrls: true },
       );
+    case "mullyu":
+      return getNamespacedTrackUrls(
+        "/mullyu",
+        MULLYU_SUBJECT_IDS,
+        getMullyuSubject,
+        getMullyuExamSessions,
+        { includeConcepts: false, includeQuestionUrls: true },
+      );
   }
 }
 
@@ -473,7 +488,7 @@ export async function buildSitemapGroup(group: SitemapGroup): Promise<MetadataRo
   const publicContent = scope ? await getPublicContentUrls(scope) : [];
   // These two listings were confirmed empty. Include them again automatically
   // when public content is available; leave other tracks unchanged.
-  if (scope !== "gamjeong") return uniqueEntries([...staticEntries, ...publicContent]);
+  if (scope !== "gamjeong" && scope !== "mullyu") return uniqueEntries([...staticEntries, ...publicContent]);
 
   const [hasCommunity, hasArchive] = await Promise.all([
     hasPublicListingContent(scope, "community"),
