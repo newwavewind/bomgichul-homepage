@@ -560,7 +560,7 @@ export function DailyPlay({
                       매일 10문제씩, 전체 기출 한 바퀴
                     </h2>
                     <p className="mt-2 max-w-lg text-sm font-normal leading-6 text-[#595959]">
-                      최근 10개년 기출을 하루 10문제씩 만나보세요. 한 순환을 마치면 틀린 문제는 복습 순서에 맞춰 다시 이어집니다.
+                      최근 10개년 기출을 하루 10문제씩 만나보세요. 모두 같은 문제로 겨루고, 한 바퀴 안엔 겹치는 문제가 없습니다.
                     </p>
                   </div>
                   <div className="flex shrink-0 gap-1.5 text-xs">
