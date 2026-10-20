@@ -736,7 +736,6 @@ export async function TrackExamDetailPage({
               />
               {/* 영어는 선지 해설만으로 끝나지 않는다 — 지문 해석과 그 문항에서
                   챙길 어휘를 같은 자리에 붙인다. 다른 트랙에는 이 자료가 없다. */}
-              {track.id === "english" ? <EnglishPassageNotes exam={exam} showTranslation={false} /> : null}
               {/* 한국사의 핵심 개념 카드 — 선지 해설이 「왜 이 선지가 참·거짓인가」를
                   답한다면, 이 카드는 「이 문항을 풀려면 무엇을 알아야 했는가」를
                   답한다. 늘 펼쳐 두고 서버에서 그린다 — 채점해야만 나오게 하면
@@ -748,22 +747,24 @@ export async function TrackExamDetailPage({
                 questionNo={exam.questionNo}
                 externallyToggled
               >
-                <ExamQuestionSeoExplanations
-                  question={seoQuestion}
-                  subjectLabel={data.subject.label}
-                  embedded
-                />
                 {/* 영어 지문 해석은 앱처럼 정답 확인 뒤 해설 칸에 함께 펼친다(2026-10-21) —
                     예전엔 선지 아래에 접혀 있어 해설 칸만 보고 「해석이 없다」고 여겼다. */}
                 {track.id === "english" && exam.translation ? (
-                  <section className="mt-6 rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3">
+                  <section className="mb-6 rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3">
                     <h3 className="font-display text-body-sm font-semibold text-ink">지문 해석</h3>
                     <p className="mt-2 whitespace-pre-line font-system text-[15px] leading-[1.8] text-smoke">
                       {exam.translation}
                     </p>
                   </section>
                 ) : null}
+                <ExamQuestionSeoExplanations
+                  question={seoQuestion}
+                  subjectLabel={data.subject.label}
+                  embedded
+                />
               </ExamSeoExplanationDetails> : null}
+              {/* 순서: 지문 해석 → 해설 → 어휘(2026-10-21) */}
+              {track.id === "english" ? <EnglishPassageNotes exam={exam} showTranslation={false} /> : null}
             </>
           )}
         </div>
