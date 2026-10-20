@@ -1,5 +1,6 @@
 "use client";
 
+import { DailyExplanationText } from "@/components/daily/DailyExplanationText";
 import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
 import { DailyChoiceBadge } from "@/components/daily/DailyChoiceBadge";
@@ -7,7 +8,6 @@ import {
   DailyChoiceContent,
   DailyQuestionBody,
 } from "@/components/daily/DailyQuestionBody";
-import { CitedText } from "@/components/exam/CitedText";
 import { saveDailyWrongNote } from "@/lib/daily-challenge/actions";
 import type {
   DailyWrongNotebook,
@@ -352,11 +352,12 @@ function WrongCard({
             <p className="text-base font-medium text-[#4d49fc]">
               정답 {item.choices.filter((choice) => item.correctKeys.includes(choice.key)).map((choice) => choice.label).join(", ")}
             </p>
-            <div className="mt-3 whitespace-pre-wrap text-base font-normal leading-7 text-black">
-              <CitedText
+            <div className="mt-3">
+              <DailyExplanationText
                 text={item.explanation || "이 문항의 해설은 준비 중입니다."}
                 examDate={item.examDate}
                 lawVersions={item.lawVersions}
+                className="text-base font-normal leading-7 text-black"
               />
             </div>
           </div>

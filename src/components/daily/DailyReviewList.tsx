@@ -9,6 +9,7 @@ import {
   DailyQuestionBody,
 } from "@/components/daily/DailyQuestionBody";
 import { CitedText } from "@/components/exam/CitedText";
+import { DailyExplanationText } from "@/components/daily/DailyExplanationText";
 import { splitDailyExplanation } from "@/lib/daily-challenge/explanation";
 import type { DailyReviewItem } from "@/lib/daily-challenge/types";
 
@@ -281,14 +282,14 @@ function ReviewCard({
           <p className="text-sm font-semibold text-[#0066D6]">
             {hasChoiceExplanations ? "공통 해설" : "해설"}
           </p>
-          <p className="mt-1 whitespace-pre-wrap text-base leading-7 text-[#334155]">
-            <CitedText
+          <div className="mt-1.5">
+            <DailyExplanationText
               text={
                 explanation.common ||
                 "이 문항의 해설은 문항 페이지에 있습니다."
               }
             />
-          </p>
+          </div>
         </div>
       ) : null}
       {showAnswers ? <DailyQuestionDiscussion questionId={item.id} /> : null}

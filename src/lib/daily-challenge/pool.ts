@@ -82,6 +82,8 @@ type LooseExam = {
     explanation?: string;
     image?: string;
     translation?: string;
+    /** 보기형 보기의 참(O)·거짓(X) */
+    answer?: string;
   }[];
   comboChoices?: unknown[];
   explanationSummary?: string;
@@ -381,8 +383,9 @@ function fromTrackExam(
 }
 
 function explainExam(exam: LooseExam): string {
+  // 「①·정답 ㄱ, ㄴ이 옳으므로 정답은 ①이다.」 — 앞의 「①·정답」은 정답 칸 표식이라 해설 글에선 뗀다.
   const summary = exam.explanationSummary
-    ? plainStudyText(exam.explanationSummary).trim()
+    ? plainStudyText(exam.explanationSummary).trim().replace(/^[①-⑩]\s*·\s*정답\s*/, "")
     : "";
   const numericCorrect =
     typeof exam.correctChoice === "number"
@@ -392,7 +395,7 @@ function explainExam(exam: LooseExam): string {
     exam.comboChoices,
     Number.isFinite(numericCorrect) ? numericCorrect : undefined,
   );
-  const notes =
+  const comboNotes =
     combos.length >= 2
       ? combos.flatMap((combo) => {
           const text = combo.explanation
@@ -400,14 +403,26 @@ function explainExam(exam: LooseExam): string {
             : "";
           return text ? [`${combo.label} ${text}`] : [];
         })
-      : (exam.items ?? []).flatMap((item) => {
-          const text = item.explanation
-            ? plainStudyText(item.explanation).trim()
-            : "";
-          if (!text) return [];
-          const label = item.label?.trim() || String(item.key);
-          return [`${label} ${text}`];
-        });
+      : [];
+  // 보기형(ㄱ·ㄴ·ㄷ…)은 해설이 조합 선지가 아니라 보기마다 붙어 있다. 예전엔 조합 선지가 있으면 보기
+  // 해설을 통째로 버려 공인중개사 보기형 383문항 중 353문항이 한 줄 요약만 남았다(2026-10-21).
+  // 보기 줄엔 참·거짓을 「(옳음)」「(틀림)」으로 붙여 화면이 표식으로 그린다(DailyExplanationText).
+  const isStatementSet = combos.length >= 2;
+  const itemNotes = (exam.items ?? []).flatMap((item) => {
+    const text = item.explanation
+      ? plainStudyText(item.explanation).trim()
+      : "";
+    if (!text) return [];
+    const label = item.label?.trim() || String(item.key);
+    const verdict =
+      isStatementSet && item.answer === "O"
+        ? " (옳음)"
+        : isStatementSet && item.answer === "X"
+          ? " (틀림)"
+          : "";
+    return [`${label}${verdict} ${text}`];
+  });
+  const notes = comboNotes.length ? comboNotes : itemNotes;
   return [summary, ...notes].filter(Boolean).join("\n\n");
 }
 
