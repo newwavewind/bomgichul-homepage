@@ -210,14 +210,15 @@ function parseMultilineStem(stem: string): ParsedQuestionStem | null {
 
 /** 지문을 질문 본문 + ○/ㄱ. 자료 박스로 분리 */
 export function parseQuestionStem(stem: string): ParsedQuestionStem {
+  // 영어 지문은 줄 나눔 규칙보다 먼저 본다 — 대화문(A:/B:)의 첫 줄이 발문 쪽에 붙어 상자 밖으로 나갔다.
+  const latinFirst = parseLatinPassage(stem);
+  if (latinFirst) return latinFirst;
+
   const multiline = parseMultilineStem(stem);
   if (multiline && multiline.boxLines.length > 0) return multiline;
 
   const inline = parseInlineMaterialBox(stem);
   if (inline) return inline;
-
-  const passage = parseLatinPassage(stem);
-  if (passage) return passage;
 
   return { intro: stem, boxLines: [] };
 }
