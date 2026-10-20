@@ -161,6 +161,35 @@ const MULLYU_SUBJECTS: { id: string; label: string }[] = [
   { id: "beopgyu", label: "물류관련법규" },
 ];
 
+/**
+ * 1·2·3급 22과목 — 급수마다 과목이 다르다. 좁은 칸에 쓰는 이름이라 앱 registry.js 의 shortLabel 에
+ * 급수를 붙인다(연구방법론·심리측정·집단상담은 급수 사이에 비슷한 이름이 있다).
+ */
+const YOUTH_SUBJECTS: { id: string; label: string }[] = [
+  { id: "g1_sagye", label: "1급 교육·사례지도" },
+  { id: "g1_beop", label: "1급 법과 행정" },
+  { id: "g1_yeongu", label: "1급 연구방법론 실제" },
+  { id: "g1_bihaeng", label: "1급 비행상담" },
+  { id: "g1_seong", label: "1급 성상담" },
+  { id: "g1_yakmul", label: "1급 약물상담" },
+  { id: "g1_wigi", label: "1급 위기상담" },
+  { id: "g2_iron", label: "2급 상담 이론과 실제" },
+  { id: "g2_yeongu", label: "2급 연구방법론 기초" },
+  { id: "g2_cheukjeong", label: "2급 심리측정 활용" },
+  { id: "g2_isang", label: "2급 이상심리" },
+  { id: "g2_jinro", label: "2급 진로상담" },
+  { id: "g2_jipdan", label: "2급 집단상담" },
+  { id: "g2_gajok", label: "2급 가족상담" },
+  { id: "g2_hakeop", label: "2급 학업상담" },
+  { id: "g3_baldal", label: "3급 발달심리" },
+  { id: "g3_jipdan", label: "3급 집단상담 기초" },
+  { id: "g3_cheukjeong", label: "3급 심리측정·평가" },
+  { id: "g3_sangdam", label: "3급 상담이론" },
+  { id: "g3_hakseup", label: "3급 학습이론" },
+  { id: "g3_ihae", label: "3급 청소년이해론" },
+  { id: "g3_suryeon", label: "3급 수련활동론" },
+];
+
 const FIREFIGHTER_SUBJECTS: { id: string; label: string }[] = [
   { id: "sobang", label: "소방학개론" },
   { id: "sobangbeop", label: "소방관계법규" },
@@ -226,7 +255,9 @@ function subjectsForScope(scope: CommunityScope): NavSubject[] {
                                 ? GAMJEONG_SUBJECTS
                                 : scope === "mullyu"
                                   ? MULLYU_SUBJECTS
-                                  : PUBLIC_SERVICE_SUBJECTS;
+                                  : scope === "youth"
+                                    ? YOUTH_SUBJECTS
+                                    : PUBLIC_SERVICE_SUBJECTS;
   return list.map((s) => ({
     id: s.id,
     label: s.label,
@@ -266,6 +297,7 @@ function isRealEstatePath(pathname: string): boolean {
   if (pathname.startsWith("/gyeongbi")) return false;
   if (pathname.startsWith("/gamjeong")) return false;
   if (pathname.startsWith("/mullyu")) return false;
+  if (pathname.startsWith("/youth")) return false;
   if (pathname.startsWith("/public-service")) return false;
   if (pathname === "/") return false;
   return (
@@ -447,6 +479,17 @@ export function resolveNavContext(pathname: string | null | undefined): NavConte
       hubHref: trackHubHref("mullyu"),
       subjects: subjectsForScope("mullyu"),
       tools: toolsForScope("mullyu"),
+    };
+  }
+  if (path.startsWith("/youth")) {
+    return {
+      mode: "track",
+      scope: "youth",
+      label: communityScopeLabel("youth"),
+      shortLabel: "청소년상담사",
+      hubHref: trackHubHref("youth"),
+      subjects: subjectsForScope("youth"),
+      tools: toolsForScope("youth"),
     };
   }
   if (path.startsWith("/public-service")) {

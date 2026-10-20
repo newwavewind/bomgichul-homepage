@@ -23,6 +23,7 @@ const INTRO_STORE_SCOPE: Record<string, AppStoreScope> = {
   gyeongbi: "gyeongbi",
   gamjeong: "gamjeong",
   mullyu: "mullyu",
+  youth: "youth",
 };
 /** YYYY-MM-DD → 2026년 4월 4일 */
 function formatKoDate(iso: string): string {

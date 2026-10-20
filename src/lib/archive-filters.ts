@@ -45,6 +45,8 @@ export function archiveYearsForScope(scope: CommunityScope): number[] {
       return rangeYears(2017, 2026);
     case "mullyu":
       return rangeYears(2017, 2026);
+    case "youth":
+      return rangeYears(2017, 2026);
     case "history":
       return [];
     default:
@@ -157,6 +159,18 @@ export function archiveTracksForScope(scope: CommunityScope): {
         options: [
           { value: "all", label: "전체" },
           { value: "problem", label: "문제", titleMatch: "문제" },
+          { value: "answer", label: "정답", titleMatch: "정답" },
+        ],
+      };
+    // 청소년상담사 기출 원본은 급수·교시마다 한 부씩이다 — 제목의 「1급」·「2급」·「3급」으로 가른다.
+    case "youth":
+      return {
+        label: "급수",
+        options: [
+          { value: "all", label: "전체" },
+          { value: "grade1", label: "1급", titleMatch: "1급" },
+          { value: "grade2", label: "2급", titleMatch: "2급" },
+          { value: "grade3", label: "3급", titleMatch: "3급" },
           { value: "answer", label: "정답", titleMatch: "정답" },
         ],
       };

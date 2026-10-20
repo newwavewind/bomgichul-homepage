@@ -30,7 +30,8 @@ export type ExamCalendarEvent = {
     | "nomusa"
     | "gyeongbi"
     | "gamjeong"
-    | "mullyu";
+    | "mullyu"
+    | "youth";
   examLabel: string;
   kind: ExamCalendarKind;
   title: string;
@@ -68,6 +69,7 @@ export const EXAM_CALENDAR_COLORS: Record<ExamCalendarEvent["examKey"], string> 
   gyeongbi: "#2f4b8a",
   gamjeong: "#8b2d4b",
   mullyu: "#7c5a2e",
+  youth: "#2f7a64",
 };
 
 /** 범례·표시용 정식 이름 (달과 무관하게 항상 전부 노출) */
@@ -89,6 +91,7 @@ export const EXAM_CALENDAR_LABELS: Record<ExamCalendarEvent["examKey"], string> 
   gyeongbi: "경비지도사",
   gamjeong: "감정평가사",
   mullyu: "물류관리사",
+  youth: "청소년상담사",
 };
 
 const ALL_EXAM_CALENDAR_ORDER = [
@@ -108,6 +111,7 @@ const ALL_EXAM_CALENDAR_ORDER = [
   "gyeongbi",
   "gamjeong",
   "mullyu",
+  "youth",
   "history",
 ] satisfies ExamCalendarEvent["examKey"][];
 

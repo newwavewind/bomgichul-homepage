@@ -97,6 +97,7 @@ export const metadata: Metadata = {
     "경비지도사 기출문제",
     "감정평가사 기출문제",
     "물류관리사 기출문제",
+    "청소년상담사 기출문제",
     "기출 원본 PDF",
   ],
   authors: [{ name: SITE_NAME, url: SITE_URL }],

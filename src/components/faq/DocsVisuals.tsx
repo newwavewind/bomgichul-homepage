@@ -76,6 +76,10 @@ const HUB_COPY: Record<
     allInOne: ["물류관리론", "화물운송론", "국제물류론", "보관하역론", "물류관련법규"],
     exam: ["물류관리론", "화물운송론", "국제물류론", "보관하역론", "물류관련법규"],
   },
+  youth: {
+    allInOne: ["상담이론", "발달심리", "이상심리", "집단상담"],
+    exam: ["상담이론", "발달심리", "이상심리", "비행상담"],
+  },
 };
 
 const CONCEPT_COPY: Record<
@@ -99,6 +103,7 @@ const CONCEPT_COPY: Record<
   gyeongbi: { crumb: "경비지도사 · 경비업법", title: "경비업의 종류" },
   gamjeong: { crumb: "감정평가사 · 부동산학원론", title: "감정평가의 3방식" },
   mullyu: { crumb: "물류관리사 · 보관하역론", title: "유닛로드 시스템" },
+  youth: { crumb: "청소년상담사 · 비행상담", title: "비행 중화 기술" },
 };
 
 const EXAM_COPY: Record<
@@ -172,6 +177,10 @@ const EXAM_COPY: Record<
   mullyu: {
     subject: "물류관련법규",
     stem: "물류정책기본법령상 국가물류기본계획에 관한 설명으로 옳은 것은?",
+  },
+  youth: {
+    subject: "비행상담",
+    stem: "사이크스(G. Sykes)와 맛짜(D. Matza)의 비행 중화 기술 유형에 해당하지 않는 것은?",
   },
 };
 
@@ -299,6 +308,13 @@ const COMMUNITY_COPY: Record<
       { title: "물류관련법규 일곱 법 벌칙 비교 정리 공유", meta: "수험정보 · 댓글 9" },
     ],
   },
+  youth: {
+    cats: ["전체", "질문", "수험정보", "자유"],
+    posts: [
+      { title: "2급 2교시 선택 과목 둘, 어떻게 고르셨나요?", meta: "질문 · 댓글 6" },
+      { title: "상담이론 학자별 핵심 개념 비교 정리 공유", meta: "수험정보 · 댓글 9" },
+    ],
+  },
 };
 
 const ARCHIVE_COPY: Record<
@@ -390,6 +406,11 @@ const ARCHIVE_COPY: Record<
     { type: "노트", name: "물류관련법규 요약", size: "680KB" },
     { type: "요약", name: "화물운송론 운임 계산 체크", size: "440KB" },
   ],
+  youth: [
+    { type: "PDF", name: "청소년상담사 기출 모아보기", size: "3.0MB" },
+    { type: "노트", name: "상담이론 학자별 요약", size: "640KB" },
+    { type: "요약", name: "발달심리 이론가 체크", size: "420KB" },
+  ],
 };
 
 const DIARY_COPY: Record<VisualScope, string> = {
@@ -410,6 +431,7 @@ const DIARY_COPY: Record<VisualScope, string> = {
   gyeongbi: "경비업법 허가·신고 정리",
   gamjeong: "부동산학원론 감정평가 방식 정리",
   mullyu: "인코텀즈 위험 이전 정리",
+  youth: "비행 중화 기술 다섯 가지 정리",
 };
 
 function PhoneFrame({

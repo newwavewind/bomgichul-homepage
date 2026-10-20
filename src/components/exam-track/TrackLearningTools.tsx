@@ -54,7 +54,7 @@ export function TrackLearningTools({
   basePath,
   exams: allExams,
 }: {
-  scope: "public_service" | "police" | "firefighter" | "housing" | "social_worker" | "history" | "english" | "gugeo" | "haengjeongsa" | "semusa" | "sanan" | "sonhae" | "nomusa" | "gyeongbi" | "gamjeong" | "mullyu";
+  scope: "public_service" | "police" | "firefighter" | "housing" | "social_worker" | "history" | "english" | "gugeo" | "haengjeongsa" | "semusa" | "sanan" | "sonhae" | "nomusa" | "gyeongbi" | "gamjeong" | "mullyu" | "youth";
   subjectId: string;
   basePath: string;
   exams: ExamTrackExam[];

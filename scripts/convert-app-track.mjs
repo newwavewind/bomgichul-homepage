@@ -8,6 +8,7 @@
  *   node scripts/convert-app-track.mjs gyeongbi   # 경비지도사(1·2차 여덟 과목)
  *   node scripts/convert-app-track.mjs gamjeong   # 감정평가사(1차 다섯 과목, 5지선다)
  *   node scripts/convert-app-track.mjs mullyu     # 물류관리사(다섯 과목, 5지선다 — 감정평가사와 같은 rich 갈래)
+ *   node scripts/convert-app-track.mjs youth      # 청소년상담사(1·2·3급 22과목, 5지선다 — rich 갈래, 급수로 묶는다)
  *
  * ## 감정평가사부터 더 옮기는 것(`rich: true`)
  *
@@ -57,7 +58,7 @@ import { pathToFileURL } from "node:url";
 
 const HOME = process.cwd();
 
-/** @type {Record<string, { app: string, track: string, subjects: Record<string, { id: string, label: string, group?: string, aliases?: string[] }> }>} */
+/** @type {Record<string, { app: string, track: string, rich?: boolean, filePrefix?: (file: string) => string, materialContentWins?: boolean, subjects: Record<string, { id: string, label: string, group?: string, aliases?: string[] }> }>} */
 const TRACKS = {
   sanan: {
     app: "/Users/newsang/sananbomgichul",
@@ -172,6 +173,45 @@ const TRACKS = {
       },
     },
   },
+  youth: {
+    app: "/Users/newsang/youthbomgichul",
+    track: "청소년상담사",
+    // 물류관리사 앱을 바탕으로 만든 앱이라 같은 rich 갈래로 옮긴다(자료 상자·표·그림·밑줄).
+    rich: true,
+    // 앱 기출 파일 앞머리에 급수와 하이픈이 함께 든다(「1급-비행상담-2025-제24회.json」) —
+    // `split("-")[0]` 으로 떼면 「1급」만 남아 과목 안내문 열쇠가 어긋난다. 연도 앞까지를 앞머리로 뗀다.
+    filePrefix: (file) => file.replace(/-(?:19|20)\d{2}-[^-]+\.json$/, ""),
+    // 앱 StemWithMaterialBox 는 글 줄(material_lines)과 표(material_content)가 함께 오면 표가 이긴다
+    // (2급 연구방법론 2018-37 등 16문항 — 표 쪽이 「… | …」 글 줄을 다 담는다). 홈페이지도 앱과 같이 표로 싣는다.
+    materialContentWins: true,
+    // 열쇠 = 앱 기출 파일 앞머리(src/subjects/registry.js 의 EXAM_FILE_PREFIX_BY_SUBJECT), 이름은 앱 label,
+    // 별칭은 문항 `subject` 칸(시험지 머리글 — 급수 없이 적힌다)이다. 급수(group)로 허브가 과목을 묶는다.
+    // 급수 사이에 같은 이름의 과목은 없다(앱 registry.js — 과목 id 는 급수마다 따로).
+    subjects: {
+      "1급-상담사교육및사례지도": { id: "g1_sagye", label: "상담사 교육 및 사례지도", group: "1급" },
+      "1급-청소년관련법과행정": { id: "g1_beop", label: "청소년 관련 법과 행정", group: "1급" },
+      "1급-상담연구방법론의실제": { id: "g1_yeongu", label: "상담연구방법론의 실제", group: "1급" },
+      "1급-비행상담": { id: "g1_bihaeng", label: "비행상담", group: "1급" },
+      "1급-성상담": { id: "g1_seong", label: "성상담", group: "1급" },
+      "1급-약물상담": { id: "g1_yakmul", label: "약물상담", group: "1급" },
+      "1급-위기상담": { id: "g1_wigi", label: "위기상담", group: "1급" },
+      "2급-청소년상담의이론과실제": { id: "g2_iron", label: "청소년 상담의 이론과 실제", group: "2급" },
+      "2급-상담연구방법론의기초": { id: "g2_yeongu", label: "상담연구방법론의 기초", group: "2급" },
+      "2급-심리측정평가의활용": { id: "g2_cheukjeong", label: "심리측정 평가의 활용", group: "2급" },
+      "2급-이상심리": { id: "g2_isang", label: "이상심리", group: "2급" },
+      "2급-진로상담": { id: "g2_jinro", label: "진로상담", group: "2급" },
+      "2급-집단상담": { id: "g2_jipdan", label: "집단상담", group: "2급" },
+      "2급-가족상담": { id: "g2_gajok", label: "가족상담", group: "2급" },
+      "2급-학업상담": { id: "g2_hakeop", label: "학업상담", group: "2급" },
+      "3급-발달심리": { id: "g3_baldal", label: "발달심리", group: "3급" },
+      "3급-집단상담의기초": { id: "g3_jipdan", label: "집단상담의 기초", group: "3급" },
+      "3급-심리측정및평가": { id: "g3_cheukjeong", label: "심리측정 및 평가", group: "3급" },
+      "3급-상담이론": { id: "g3_sangdam", label: "상담이론", group: "3급" },
+      "3급-학습이론": { id: "g3_hakseup", label: "학습이론", group: "3급" },
+      "3급-청소년이해론": { id: "g3_ihae", label: "청소년이해론", group: "3급" },
+      "3급-청소년수련활동론": { id: "g3_suryeon", label: "청소년수련활동론", group: "3급" },
+    },
+  },
 };
 
 const key = process.argv[2];
@@ -241,6 +281,9 @@ const star = (t) => (typeof t === "string" ? t.replace(/\*/g, "∗") : t);
 function unmark(raw) {
   const s = String(raw ?? "");
   if (!s.includes("__")) return { text: s, ranges: [] };
+  // 밑줄 세 개 넘게 이어진 것(「집단상담자: ___」)은 표시가 아니라 빈칸이다 — 그것뿐이면 그대로 둔다
+  // (청소년상담사 2급 집단상담 2025-34. 벗기면 「_」 하나만 남아 빈칸이 사라진다).
+  if (!s.replace(/_{3,}/g, "").includes("__")) return { text: s, ranges: [] };
   const parts = s.split("__");
   if (parts.length % 2 === 0) {
     console.warn("짝 없는 밑줄 표시 — 표시만 벗긴다:", s.slice(0, 60));
@@ -451,7 +494,11 @@ function richExam(q, meta, key, filePrefix) {
   }
   let table;
   let material;
-  if (Array.isArray(q.material_lines) && q.material_lines.length) {
+  // 청소년상담사부터(`materialContentWins`): 글 줄과 표가 함께 오면 앱처럼 표가 이긴다
+  const hasContent = Array.isArray(q.material_content) && q.material_content.length > 0;
+  const useLines =
+    Array.isArray(q.material_lines) && q.material_lines.length > 0 && !(cfg.materialContentWins && hasContent);
+  if (useLines) {
     // 글 상자 줄은 발문 뒤에 줄로 — 홈페이지 QuestionStem 이 상자로 그린다. 줄 안 밑줄은 발문 기준 자리로.
     for (const raw of q.material_lines) {
       const { text, ranges } = unmark(star(String(raw ?? "").trim()));
@@ -461,7 +508,7 @@ function richExam(q, meta, key, filePrefix) {
       for (const [s, e] of ranges) underlines.push([at + s, at + e]);
     }
     counts.lines += 1;
-  } else if (Array.isArray(q.material_content) && q.material_content.length) {
+  } else if (hasContent) {
     table = toRichTables(q.material_content);
     if (JSON.stringify(table).includes('"underlines"')) counts.underline += 1;
     counts.table += 1;
@@ -494,7 +541,7 @@ function richExam(q, meta, key, filePrefix) {
     points: 1,
     ...(notice ? { notice: String(notice).trim() } : {}),
     stem,
-    ...(Array.isArray(q.material_lines) && q.material_lines.length ? { keepStemLines: true } : {}),
+    ...(useLines ? { keepStemLines: true } : {}),
     ...(underlines.length ? { underlines } : {}),
     ...(table ? { table } : {}),
     ...(material ? { material } : {}),
@@ -530,7 +577,7 @@ const bySubject = Object.fromEntries(Object.values(cfg.subjects).map((s) => [s.i
 const dir = path.join(cfg.app, "src", "data", "exam");
 for (const file of EMPTY ? [] : readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
   const rows = JSON.parse(readFileSync(path.join(dir, file), "utf8"));
-  const filePrefix = file.normalize("NFC").split("-")[0];
+  const filePrefix = cfg.filePrefix ? cfg.filePrefix(file.normalize("NFC")) : file.normalize("NFC").split("-")[0];
   for (const q of Array.isArray(rows) ? rows : rows.questions ?? []) {
     const meta =
       SUBJECT_BY_NAME.get(String(q.subject ?? "").normalize("NFC")) ?? SUBJECT_BY_NAME.get(filePrefix);

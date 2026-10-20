@@ -15,6 +15,7 @@ import { NOMUSA_SUBJECT_IDS, getNomusaSubject } from "@/lib/nomusa-content";
 import { GYEONGBI_SUBJECT_IDS, getGyeongbiSubject } from "@/lib/gyeongbi-content";
 import { GAMJEONG_SUBJECT_IDS, getGamjeongSubject } from "@/lib/gamjeong-content";
 import { MULLYU_SUBJECT_IDS, getMullyuSubject } from "@/lib/mullyu-content";
+import { YOUTH_SUBJECT_IDS, getYouthSubject } from "@/lib/youth-content";
 import { FIREFIGHTER_SUBJECT_IDS, getFirefighterSubject } from "@/lib/firefighter-content";
 import type { ExamTrackSubjectContent } from "@/lib/exam-track/types";
 import { isPublicExamVisible } from "@/lib/public-exam-visibility";
@@ -70,6 +71,7 @@ function rows() {
     ...trackRows("경비지도사", "/gyeongbi", GYEONGBI_SUBJECT_IDS, getGyeongbiSubject),
     ...trackRows("감정평가사", "/gamjeong", GAMJEONG_SUBJECT_IDS, getGamjeongSubject),
     ...trackRows("물류관리사", "/mullyu", MULLYU_SUBJECT_IDS, getMullyuSubject),
+    ...trackRows("청소년상담사", "/youth", YOUTH_SUBJECT_IDS, getYouthSubject),
   ];
   return cached;
 }

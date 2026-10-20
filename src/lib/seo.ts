@@ -382,6 +382,10 @@ export function buildPlatformHomeJsonLd() {
       name: "물류관리사 기출 학습",
       url: absoluteUrl("/mullyu"),
     },
+    {
+      name: "청소년상담사 기출 학습",
+      url: absoluteUrl("/youth"),
+    },
   ] as const;
 
   return {

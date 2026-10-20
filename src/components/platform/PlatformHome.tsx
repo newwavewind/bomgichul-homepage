@@ -165,6 +165,15 @@ const exams = [
     accentTo: "#fbf8f2",
     cta: "물류관리사 알아보기",
   },
+  {
+    href: "/youth/intro",
+    learnHref: "/youth",
+    eyebrow: "국가전문자격 · 1·2·3급",
+    title: "청소년상담사",
+    accentFrom: "#eef7f3",
+    accentTo: "#f6fbf9",
+    cta: "청소년상담사 알아보기",
+  },
 ] as const;
 
 const visibleExams = exams.filter((exam) => isPublicExamPathVisible(exam.learnHref));

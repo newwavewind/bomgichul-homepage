@@ -50,6 +50,7 @@ const APP_LABELS: Record<string, string> = {
   gyeongbi: "경비지도사",
   gamjeong: "감정평가사",
   mullyu: "물류관리사",
+  youth: "청소년상담사",
 };
 
 /** 필터·묶음에 쓰는 앱 순서 */
@@ -71,6 +72,7 @@ const APP_ORDER = [
   "gyeongbi",
   "gamjeong",
   "mullyu",
+  "youth",
 ] as const;
 
 /**
@@ -134,12 +136,43 @@ const MULLYU_SLOT_LABELS: Record<string, string> = {
   beopgyu: "물류관련법규",
 };
 
+/**
+ * 청소년상담사 앱: 과목 id → 과목명(1·2·3급 22과목, 급수를 붙인 이름).
+ * id 가 급수마다 따로라(`g1_…`·`g2_…`·`g3_…`) 기본 맵과 겹치지는 않지만, 기본 맵에 없어 날것으로 뜨므로 이름을 붙인다.
+ * @see youthbomgichul/src/subjects/registry.js
+ */
+const YOUTH_SLOT_LABELS: Record<string, string> = {
+  g1_sagye: "1급 상담사 교육 및 사례지도",
+  g1_beop: "1급 청소년 관련 법과 행정",
+  g1_yeongu: "1급 상담연구방법론의 실제",
+  g1_bihaeng: "1급 비행상담",
+  g1_seong: "1급 성상담",
+  g1_yakmul: "1급 약물상담",
+  g1_wigi: "1급 위기상담",
+  g2_iron: "2급 청소년 상담의 이론과 실제",
+  g2_yeongu: "2급 상담연구방법론의 기초",
+  g2_cheukjeong: "2급 심리측정 평가의 활용",
+  g2_isang: "2급 이상심리",
+  g2_jinro: "2급 진로상담",
+  g2_jipdan: "2급 집단상담",
+  g2_gajok: "2급 가족상담",
+  g2_hakeop: "2급 학업상담",
+  g3_baldal: "3급 발달심리",
+  g3_jipdan: "3급 집단상담의 기초",
+  g3_cheukjeong: "3급 심리측정 및 평가",
+  g3_sangdam: "3급 상담이론",
+  g3_hakseup: "3급 학습이론",
+  g3_ihae: "3급 청소년이해론",
+  g3_suryeon: "3급 청소년수련활동론",
+};
+
 /** 앱 접두별 슬롯 라벨 덮어쓰기 (공인중개사 기본 맵보다 우선) */
 const APP_SUBJECT_SLUG_OVERRIDES: Record<string, Record<string, string>> = {
   police: POLICE_SLOT_LABELS,
   gyeongbi: GYEONGBI_SLOT_LABELS,
   gamjeong: GAMJEONG_SLOT_LABELS,
   mullyu: MULLYU_SLOT_LABELS,
+  youth: YOUTH_SLOT_LABELS,
 };
 
 /** 콜론 뒤 과목 슬러그 → 한국어 (공인중개사·공통 기본값) */

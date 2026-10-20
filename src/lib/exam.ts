@@ -143,6 +143,16 @@ const TRACK_EXAM_SCHEDULE: Record<
     examName: "물류관리사 국가자격시험",
     scheduleUnconfirmed: true,
   },
+  // 다음 회차 시행계획은 확인 전이라 D-day 를 띄우지 않는다 — 공고가 나오면 날짜를 넣고
+  // scheduleUnconfirmed 를 뗀다.
+  youth: {
+    label: "청소년상담사 자격시험",
+    examDate: "2026-12-31",
+    registrationStart: "2026-01-01",
+    note: "회차별 일정은 Q-Net 최신 공고를 확인하세요.",
+    examName: "청소년상담사 자격시험",
+    scheduleUnconfirmed: true,
+  },
 };
 
 /** KST 기준 YYYY-MM-DD */

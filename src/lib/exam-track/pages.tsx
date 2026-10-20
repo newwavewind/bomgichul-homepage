@@ -323,6 +323,9 @@ export async function TrackExamSubjectPage({
           ? gyeongbiFirstStage.has(subjectId)
             ? "1차"
             : "2차"
+        // 청소년상담사는 과목이 급수마다 따로라 과목의 급수(「1급」…) 한 묶음으로 보인다.
+        : track.id === "youth"
+          ? `${data.subject.track} 필기`
         : track.id === "haengjeongsa" || track.id === "semusa" || track.id === "sanan" || track.id === "sonhae" || track.id === "nomusa"
           ? "1차 필기"
           : trackHidesExamSourceLabel(track.id)

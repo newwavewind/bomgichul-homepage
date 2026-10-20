@@ -41,6 +41,7 @@ const ALL_EXAM_CHOICES = [
   ["gyeongbi", "경비지도사", "전문자격"],
   ["gamjeong", "감정평가사", "전문자격"],
   ["mullyu", "물류관리사", "전문자격"],
+  ["youth", "청소년상담사", "전문자격"],
 ] as const;
 export const EXAM_CHOICES = ALL_EXAM_CHOICES.filter(([id]) => isPublicExamVisible(id));
 export function scopeForPath(path: string) {

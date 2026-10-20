@@ -67,7 +67,7 @@ describe("search engine foundations", () => {
     const urls = home.mainEntity.itemListElement.map(
       (item: { url: string }) => item.url,
     );
-    expect(home.mainEntity.numberOfItems).toBe(16);
+    expect(home.mainEntity.numberOfItems).toBe(17);
     for (const path of [
       "/public-service",
       "/real-estate",
@@ -85,6 +85,7 @@ describe("search engine foundations", () => {
       "/gyeongbi",
       "/gamjeong",
       "/mullyu",
+      "/youth",
     ]) {
       expect(urls).toContain(`${SITE_URL}${path}`);
     }
@@ -99,6 +100,14 @@ describe("search engine foundations", () => {
       expect(index).toContain(`<loc>${sitemapChildUrl(group)}</loc>`);
       expect(buildStaticSitemapGroup(group).length).toBeGreaterThan(0);
     }
+  });
+
+  it("lists youth exam rounds without question-level URLs", () => {
+    // 청소년상담사는 앞 트랙들의 기본 정책대로 과목·회차까지만 싣는다(문항 URL 은 회차 목록의 링크로 발견된다).
+    const urls = buildStaticSitemapGroup("youth").map((entry) => decodeURI(entry.url));
+    expect(urls).toContain(`${SITE_URL}/youth/exam/g1_beop`);
+    expect(urls).toContain(`${SITE_URL}/youth/exam/g1_beop/2025/제24회`);
+    expect(urls.some((url) => /\/youth\/exam\/[^/]+\/\d{4}\/[^/]+\/\d+$/.test(url))).toBe(false);
   });
 
   it("keeps every exam URL inside its own sitemap", () => {
@@ -118,6 +127,7 @@ describe("search engine foundations", () => {
       ["gyeongbi", "/gyeongbi/"],
       ["gamjeong", "/gamjeong/"],
       ["mullyu", "/mullyu/"],
+      ["youth", "/youth/"],
     ] as const;
 
     for (const [group, prefix] of cases) {
