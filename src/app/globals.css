@@ -351,3 +351,7 @@ textarea,
 [data-exam-latin] *:not(.font-mono):not(.font-handwritten):not(svg *) {
   font-family: "ExamLatin", var(--font-display);
 }
+/* 영어 선지(ExamOxQuestion 15px)를 지문(17px)과 같은 크기로 */
+[data-exam-latin] button .font-system.text-\[15px\] {
+  font-size: 17px;
+}
