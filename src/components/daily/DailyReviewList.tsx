@@ -10,6 +10,7 @@ import {
 } from "@/components/daily/DailyQuestionBody";
 import { CitedText } from "@/components/exam/CitedText";
 import { DailyExplanationText } from "@/components/daily/DailyExplanationText";
+import { EnglishPassageNotes } from "@/components/english/EnglishPassageNotes";
 import { splitDailyExplanation } from "@/lib/daily-challenge/explanation";
 import type { DailyReviewItem } from "@/lib/daily-challenge/types";
 
@@ -211,6 +212,13 @@ function ReviewCard({
         questionNo={index + 1}
         heading="h3"
       />
+      {/* 공무원 영어 — 문항 화면과 같은 순서: 지문 해석 → 해설 → 어휘(2026-10-21) */}
+      {showAnswers && item.translation ? (
+        <section className="mt-3 rounded-2xl border border-[#e6eef8] bg-[#F8FAFC] px-3 py-2.5 sm:px-4">
+          <p className="text-sm font-semibold text-[#0066D6]">지문 해석</p>
+          <p className="mt-1 whitespace-pre-line text-[15px] leading-7 text-[#475569]">{item.translation}</p>
+        </section>
+      ) : null}
       <div className="mt-3 grid gap-2">
         {item.choices.map((choice) => {
           const isPicked = item.picked === choice.key;
@@ -290,6 +298,11 @@ function ReviewCard({
               }
             />
           </div>
+        </div>
+      ) : null}
+      {showAnswers && item.vocab?.length ? (
+        <div className="-mt-4">
+          <EnglishPassageNotes exam={{ vocab: item.vocab }} showTranslation={false} />
         </div>
       ) : null}
       {showAnswers ? <DailyQuestionDiscussion questionId={item.id} /> : null}

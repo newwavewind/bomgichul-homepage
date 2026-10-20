@@ -245,6 +245,8 @@ function grade(
       pickedLabel: choice?.label ?? "",
       answerLabel: answers.map((item) => item.label).join(", "),
       explanation: question.explanation,
+      ...(question.translation ? { translation: question.translation } : {}),
+      ...(question.vocab?.length ? { vocab: question.vocab } : {}),
       ok: question.correctKeys.includes(key),
       confidence: answer?.confidence ?? null,
       category: question.category,

@@ -50,6 +50,8 @@ export type DailyReviewItem = {
   pickedLabel: string;
   answerLabel: string;
   explanation: string;
+  translation?: string;
+  vocab?: DailyVocabEntry[];
   ok: boolean;
   confidence: DailyConfidence;
   category: string;
@@ -256,11 +258,16 @@ export type DailyQuestion = {
   year: number;
   category: string;
   subcategory: string;
+  /** 공무원 영어 — 지문 해석·어휘(채점 뒤에만 보낸다) */
+  translation?: string;
+  vocab?: DailyVocabEntry[];
 };
+
+export type DailyVocabEntry = import("@/lib/exam-track/types").ExamTrackVocabEntry;
 
 export type DailyQuestionView = Omit<
   DailyQuestion,
-  "correctKeys" | "explanation"
+  "correctKeys" | "explanation" | "translation" | "vocab"
 > & {
   nextDateKey: string | null;
 };

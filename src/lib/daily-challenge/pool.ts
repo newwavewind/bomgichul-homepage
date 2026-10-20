@@ -67,6 +67,8 @@ import { itemsRepeatComboChoices } from "@/lib/daily-challenge/presentation";
 export type { DailyChoice, DailyQuestion, DailyQuestionView };
 
 type LooseExam = {
+  translation?: string;
+  vocab?: import("@/lib/exam-track/types").ExamTrackVocabEntry[];
   kind?: string;
   stem?: string;
   year: number;
@@ -219,6 +221,8 @@ export function toQuestionView(
   const {
     correctKeys: _correctKeys,
     explanation: _explanation,
+    translation: _translation,
+    vocab: _vocab,
     ...view
   } = question;
   return { ...view, nextDateKey };
@@ -373,6 +377,8 @@ function fromTrackExam(
       ),
       explanation: explainExam(exam),
       lawChangeNote: extractLawChangeNote(explainExam(exam)),
+      ...(exam.translation ? { translation: exam.translation } : {}),
+      ...(exam.vocab?.length ? { vocab: exam.vocab } : {}),
       examDate: exam.examDate,
       lawVersions: exam.lawVersions,
       year: exam.year,

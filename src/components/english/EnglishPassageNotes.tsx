@@ -17,7 +17,7 @@ export function EnglishPassageNotes({
   exam,
   showTranslation = true,
 }: {
-  exam: ExamTrackExam;
+  exam: Pick<ExamTrackExam, "translation" | "vocab">;
   /** 문항 화면은 해석을 정답 확인 뒤 해설 칸에 싣는다 — 여기선 어휘만 */
   showTranslation?: boolean;
 }) {
