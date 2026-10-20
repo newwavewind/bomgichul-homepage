@@ -660,9 +660,6 @@ export async function TrackExamDetailPage({
             >
               {data.subject.label} 연도 선택
             </BackLink>
-            <Link href={listBase} className="font-display text-[13px] text-smoke underline-offset-2 hover:text-ink hover:underline">
-              {year}년 {source} 전체 문항
-            </Link>
           </div>
           <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} loginNext={detailPath} />
         </div>
