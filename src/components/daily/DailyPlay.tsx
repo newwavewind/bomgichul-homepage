@@ -897,15 +897,6 @@ export function DailyPlay({
                 embedded
               />
             ) : null}
-            <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
-              <h2 className="font-display text-2xl font-semibold tabular-nums text-ink">
-                {score.correct}/{score.total}
-              </h2>
-              <p className="text-sm text-[#475569]">
-                {formatElapsed(score.elapsedMs)}
-                {score.rank ? ` · 오늘 ${score.rank}위` : ""}
-              </p>
-            </div>
             <DailyLearningReportCard
               exam={exam}
               subjectId={subjectId}
