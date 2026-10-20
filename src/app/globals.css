@@ -332,16 +332,8 @@ textarea,
 @font-face {
   font-family: "ExamLatin";
   src: local("Times New Roman"), local("TimesNewRomanPSMT"), url("/fonts/tinos-400-latin.woff2") format("woff2");
-  font-weight: 100 500;
-  font-style: normal;
-  font-display: swap;
-  size-adjust: 124%;
-  unicode-range: U+0041-005A, U+0061-007A, U+0027, U+0022, U+2018-201D, U+00C0-00FF;
-}
-@font-face {
-  font-family: "ExamLatin";
-  src: local("Times New Roman Bold"), local("TimesNewRomanPS-BoldMT"), url("/fonts/tinos-700-latin.woff2") format("woff2");
-  font-weight: 600 900;
+  /* 굵은 글씨 면은 두지 않는다 — 지문이 굵은 발문 안에 들어 있는 문항도 원문처럼 보통 굵기로 */
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
   size-adjust: 124%;
