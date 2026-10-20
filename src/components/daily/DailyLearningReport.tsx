@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { DailyLearningReport } from "@/lib/daily-challenge/types";
 
 export function DailyLearningReportCard({
@@ -7,12 +8,15 @@ export function DailyLearningReportCard({
   attemptId,
   rank,
   report,
+  children,
 }: {
   exam: string;
   subjectId: string;
   attemptId: string | null;
   rank: number | null;
   report: DailyLearningReport;
+  /** 리포트 아래에 이어 붙일 것 — 매일 10문제 풀이 화면은 소개·메뉴를 여기로 내린다. */
+  children?: ReactNode;
 }) {
   const delta = report.previousDelta;
   // 점수·시간·순위는 바로 위 머리에 이미 있다(2026-10-21) — 여기선 그 밖의 숫자만 한 줄로 촘촘히.
@@ -62,6 +66,9 @@ export function DailyLearningReportCard({
         >
           오늘의 복습 풀기 · {report.dueReviewCount}문제
         </Link>
+      ) : null}
+      {children ? (
+        <div className="mt-3 border-t border-[#dbe7f5] pt-3">{children}</div>
       ) : null}
     </section>
   );
