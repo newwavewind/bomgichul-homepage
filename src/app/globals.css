@@ -347,10 +347,14 @@ textarea,
  * 영어 지문·선지 글씨 크기를 한 가지로(2026-10-21). 지문이 발문 안에 들어 있는 문항은 20px 제목 글씨로,
  * 지문 상자는 17px, 선지는 15px 로 제각각이었다. 모두 발문 크기(20px)에 맞춘다 — 문제 화면·매일 10문제 모두.
  */
+[data-exam-latin] {
+  /* 글씨 크기 단추(EnglishTextSizeControl)가 바꾸는 값 */
+  --exam-latin-size: 20px;
+}
 [data-exam-latin] fieldset p.text-body,
 [data-exam-latin] button .font-system.text-\[15px\],
 [data-exam-latin] .text-\[1\.0625rem\] {
-  font-size: 20px;
+  font-size: var(--exam-latin-size);
   line-height: 1.6;
 }
 /*
