@@ -216,7 +216,27 @@ export function parseQuestionStem(stem: string): ParsedQuestionStem {
   const inline = parseInlineMaterialBox(stem);
   if (inline) return inline;
 
+  const passage = parseLatinPassage(stem);
+  if (passage) return passage;
+
   return { intro: stem, boxLines: [] };
+}
+
+/**
+ * 「밑줄 친 부분에 … 고르시오\n\n(영문 지문)」 — 지문이 발문에 붙어 온 영어 문항(2026-10-21).
+ * 같은 꼴인데 어떤 문항은 지문이 상자에, 어떤 문항은 발문 글씨로 나와 제각각이었다.
+ * 첫 문단이 한글 발문이고 나머지가 대부분 영문이면 나머지를 지문 상자로 뺀다.
+ */
+function parseLatinPassage(stem: string): ParsedQuestionStem | null {
+  const parts = stem.split(/\n\s*\n/);
+  if (parts.length < 2) return null;
+  const intro = parts[0]!.trim();
+  const rest = parts.slice(1).join("\n\n").trim();
+  if (!/[가-힣]/.test(intro) || rest.length < 40) return null;
+  const latin = (rest.match(/[A-Za-z]/g) ?? []).length;
+  const hangul = (rest.match(/[가-힣]/g) ?? []).length;
+  if (latin < rest.length * 0.5 || hangul > latin * 0.1) return null;
+  return { intro, boxLines: [rest] };
 }
 
 /** 박스 분리가 필요한데 현재 단일 <p>로만 나가는 지문인지 (감사용) */
