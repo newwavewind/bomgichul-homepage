@@ -11,6 +11,7 @@ import {
   GYEONGBI_TRACK,
   GAMJEONG_TRACK,
   MULLYU_TRACK,
+  YOUTH_TRACK,
   HISTORY_TRACK,
   HOUSING_TRACK,
   POLICE_TRACK,
@@ -53,6 +54,8 @@ export function communityScopeLabel(scope: CommunityScope): string {
       return "감정평가사";
     case "mullyu":
       return "물류관리사";
+    case "youth":
+      return "청소년상담사";
     default:
       return "공인중개사";
   }
@@ -92,6 +95,8 @@ export function trackHubHref(scope: CommunityScope): string {
       return GAMJEONG_TRACK.basePath;
     case "mullyu":
       return MULLYU_TRACK.basePath;
+    case "youth":
+      return YOUTH_TRACK.basePath;
     default:
       return "/real-estate";
   }
@@ -131,6 +136,8 @@ export function communityBaseHref(scope: CommunityScope): string {
       return `${GAMJEONG_TRACK.basePath}/community`;
     case "mullyu":
       return `${MULLYU_TRACK.basePath}/community`;
+    case "youth":
+      return `${YOUTH_TRACK.basePath}/community`;
     default:
       return "/community";
   }
@@ -170,6 +177,8 @@ export function archiveBaseHref(scope: CommunityScope): string {
       return `${GAMJEONG_TRACK.basePath}/archive`;
     case "mullyu":
       return `${MULLYU_TRACK.basePath}/archive`;
+    case "youth":
+      return `${YOUTH_TRACK.basePath}/archive`;
     default:
       return "/archive";
   }
@@ -209,6 +218,8 @@ export function diaryBaseHref(scope: CommunityScope): string {
       return `${GAMJEONG_TRACK.basePath}/diary`;
     case "mullyu":
       return `${MULLYU_TRACK.basePath}/diary`;
+    case "youth":
+      return `${YOUTH_TRACK.basePath}/diary`;
     default:
       return "/diary";
   }
@@ -248,6 +259,8 @@ export function faqBaseHref(scope: CommunityScope): string {
       return `${GAMJEONG_TRACK.basePath}/faq`;
     case "mullyu":
       return `${MULLYU_TRACK.basePath}/faq`;
+    case "youth":
+      return `${YOUTH_TRACK.basePath}/faq`;
     default:
       return "/faq";
   }
@@ -287,6 +300,8 @@ export function communityTitle(scope: CommunityScope): string {
       return GAMJEONG_TRACK.communityTitle;
     case "mullyu":
       return MULLYU_TRACK.communityTitle;
+    case "youth":
+      return YOUTH_TRACK.communityTitle;
     default:
       return "공인중개사 수험생 커뮤니티";
   }
@@ -326,6 +341,8 @@ export function archiveTitle(scope: CommunityScope): string {
       return "감정평가사 자료실";
     case "mullyu":
       return "물류관리사 자료실";
+    case "youth":
+      return "청소년상담사 자료실";
     default:
       return "공인중개사 자료실";
   }
@@ -365,6 +382,8 @@ export function archiveEyebrow(scope: CommunityScope): string {
       return "감정평가사 수험 자료 공유";
     case "mullyu":
       return "물류관리사 수험 자료 공유";
+    case "youth":
+      return "청소년상담사 수험 자료 공유";
     default:
       return "공인중개사 수험 자료 공유";
   }
@@ -402,7 +421,8 @@ export function isValidCommunityScope(value: string | null | undefined): value i
     value === "nomusa" ||
     value === "gyeongbi" ||
     value === "gamjeong" ||
-    value === "mullyu"
+    value === "mullyu" ||
+    value === "youth"
   );
 }
 
@@ -423,6 +443,7 @@ export function scopeFromPathname(pathname: string | null | undefined): Communit
   if (pathname.startsWith("/gyeongbi")) return "gyeongbi";
   if (pathname.startsWith("/gamjeong")) return "gamjeong";
   if (pathname.startsWith("/mullyu")) return "mullyu";
+  if (pathname.startsWith("/youth")) return "youth";
   if (pathname.startsWith("/public-service")) return "public_service";
   return "real_estate";
 }

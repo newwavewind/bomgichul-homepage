@@ -48,6 +48,7 @@ const EXAM_TRACKS = [
   { href: "/gyeongbi", label: "경비지도사" },
   { href: "/gamjeong", label: "감정평가사" },
   { href: "/mullyu", label: "물류관리사" },
+  { href: "/youth", label: "청소년상담사" },
 ] as const;
 
 export default function AboutPage() {

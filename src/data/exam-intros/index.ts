@@ -9,6 +9,7 @@ import { nomusaIntro } from "./nomusa";
 import { gyeongbiIntro } from "./gyeongbi";
 import { gamjeongIntro } from "./gamjeong";
 import { mullyuIntro } from "./mullyu";
+import { youthIntro } from "./youth";
 import { historyIntro } from "./history";
 import { housingIntro } from "./housing";
 import { policeIntro } from "./police";
@@ -33,6 +34,7 @@ export const EXAM_INTROS = {
   gyeongbi: gyeongbiIntro,
   gamjeong: gamjeongIntro,
   mullyu: mullyuIntro,
+  youth: youthIntro,
   housing: housingIntro,
   "social-worker": socialWorkerIntro,
   history: historyIntro,

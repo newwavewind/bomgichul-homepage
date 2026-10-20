@@ -21,6 +21,7 @@ const ALL_PAST_EXAM_SCOPE_OPTIONS: { value: "all" | CommunityScope; label: strin
   { value: "gyeongbi", label: "경비지도사" },
   { value: "gamjeong", label: "감정평가사" },
   { value: "mullyu", label: "물류관리사" },
+  { value: "youth", label: "청소년상담사" },
   { value: "history", label: "한국사" },
 ];
 

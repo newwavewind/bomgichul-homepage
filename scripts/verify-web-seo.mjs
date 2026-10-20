@@ -19,6 +19,7 @@ const scopes = [
   "gyeongbi",
   "gamjeong",
   "mullyu",
+  "youth",
 ];
 const results = [];
 const anchors = (html) =>

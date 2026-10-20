@@ -14,7 +14,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 export const SITE_TITLE =
   "봄기출 | 공무원·자격시험 기출문제와 해설";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·소방·감정평가사·물류관리사 등 17개 시험의 기출문제와 해설을 무료로 학습하세요. 매일 10문제, 핵심 개념, 오답 복습과 수험생 커뮤니티를 봄기출에서 이용할 수 있습니다.";
+  "공무원·공인중개사·경찰·소방·감정평가사·물류관리사·청소년상담사 등 18개 시험의 기출문제와 해설을 무료로 학습하세요. 매일 10문제, 핵심 개념, 오답 복습과 수험생 커뮤니티를 봄기출에서 이용할 수 있습니다.";
 
 /** 사업자·문의 — 푸터·소개·약관에 공통으로 쓴다 */
 export const PUBLISHER_LEGAL_NAME = "봄기출";
@@ -64,7 +64,8 @@ export function appStoreLinksForScope(
     | "nomusa"
     | "gyeongbi"
     | "gamjeong"
-    | "mullyu",
+    | "mullyu"
+    | "youth",
 ): AppStoreLinks {
   switch (scope) {
     case "public_service":
@@ -150,6 +151,10 @@ export function appStoreLinksForScope(
     case "mullyu":
       // 2026-10-19 앱 출시 준비 중 — 두 스토어 모두 공개 페이지가 없다. 출시 뒤 채운다.
       return { android: null, ios: null };
+    case "youth":
+      // 2026-10-20 앱 출시 준비 중 — App Store 는 심사 대기(id 6824690861), Play 는 비공개 테스트뿐이라
+      // 두 스토어 모두 공개 페이지가 없다. 단추가 깨진 주소로 가지 않게 비워 두고, 출시 뒤 채운다.
+      return { android: null, ios: null };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };
   }
@@ -173,6 +178,7 @@ const APP_SCOPE_BY_DAILY_EXAM = {
   gyeongbi: "gyeongbi",
   gamjeong: "gamjeong",
   mullyu: "mullyu",
+  youth: "youth",
 } as const;
 
 /** 매일 10문제의 시험 경로를 해당 시험 전용 앱의 스토어 링크로 바꾼다. */
@@ -454,6 +460,7 @@ export const NAV_LINKS: NavLinkItem[] = [
       { href: "/gyeongbi", label: "경비지도사" },
       { href: "/gamjeong", label: "감정평가사" },
       { href: "/mullyu", label: "물류관리사" },
+      { href: "/youth", label: "청소년상담사" },
     ],
   },
   {
@@ -657,6 +664,34 @@ export const ARCHIVE_SUBJECTS_MULLYU = [
   { value: "other", label: "기타" },
 ] as const;
 
+/** 1·2·3급 22과목 — 한 목록에 섞여 뜨므로 이름에 급수를 붙인다(앱 registry.js 의 fullLabel) */
+export const ARCHIVE_SUBJECTS_YOUTH = [
+  { value: "all", label: "전체 과목" },
+  { value: "g1_sagye", label: "1급 상담사 교육 및 사례지도" },
+  { value: "g1_beop", label: "1급 청소년 관련 법과 행정" },
+  { value: "g1_yeongu", label: "1급 상담연구방법론의 실제" },
+  { value: "g1_bihaeng", label: "1급 비행상담" },
+  { value: "g1_seong", label: "1급 성상담" },
+  { value: "g1_yakmul", label: "1급 약물상담" },
+  { value: "g1_wigi", label: "1급 위기상담" },
+  { value: "g2_iron", label: "2급 청소년 상담의 이론과 실제" },
+  { value: "g2_yeongu", label: "2급 상담연구방법론의 기초" },
+  { value: "g2_cheukjeong", label: "2급 심리측정 평가의 활용" },
+  { value: "g2_isang", label: "2급 이상심리" },
+  { value: "g2_jinro", label: "2급 진로상담" },
+  { value: "g2_jipdan", label: "2급 집단상담" },
+  { value: "g2_gajok", label: "2급 가족상담" },
+  { value: "g2_hakeop", label: "2급 학업상담" },
+  { value: "g3_baldal", label: "3급 발달심리" },
+  { value: "g3_jipdan", label: "3급 집단상담의 기초" },
+  { value: "g3_cheukjeong", label: "3급 심리측정 및 평가" },
+  { value: "g3_sangdam", label: "3급 상담이론" },
+  { value: "g3_hakseup", label: "3급 학습이론" },
+  { value: "g3_ihae", label: "3급 청소년이해론" },
+  { value: "g3_suryeon", label: "3급 청소년수련활동론" },
+  { value: "other", label: "기타" },
+] as const;
+
 export const ARCHIVE_SUBJECTS_SONHAE = [
   { value: "all", label: "전체 과목" },
   // 세무사 「상법」(sangbeop)과 값이 겹치면 ARCHIVE_SUBJECT_MAP 에서 한쪽 이름이 덮인다
@@ -754,6 +789,10 @@ export const ARCHIVE_SUBJECT_MAP: Record<string, string> = Object.fromEntries([
     s.value,
     s.label,
   ]),
+  ...ARCHIVE_SUBJECTS_YOUTH.filter((s) => s.value !== "all").map((s) => [
+    s.value,
+    s.label,
+  ]),
   ...ARCHIVE_SUBJECTS_HISTORY.filter((s) => s.value !== "all").map((s) => [
     s.value,
     s.label,
@@ -792,6 +831,8 @@ export function archiveSubjectsForScope(scope: string) {
       return [...ARCHIVE_SUBJECTS_GAMJEONG];
     case "mullyu":
       return [...ARCHIVE_SUBJECTS_MULLYU];
+    case "youth":
+      return [...ARCHIVE_SUBJECTS_YOUTH];
     case "history":
       return [...ARCHIVE_SUBJECTS_HISTORY];
     default:
@@ -831,6 +872,9 @@ export function defaultArchiveSubject(scope: string) {
       return "minbeop";
     case "mullyu":
       return "gwalli";
+    case "youth":
+      // 앱 registry.js 의 DEFAULT_SUBJECT_ID 와 같다
+      return "g2_iron";
     case "history":
       return "advanced";
     default:

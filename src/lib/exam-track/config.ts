@@ -263,6 +263,26 @@ export const MULLYU_TRACK: ExamTrackConfig = {
   aboutName: "물류관리사 국가자격시험",
 };
 
+/*
+ * 청소년상담사는 급수(1·2·3급)마다 필기 과목이 다르다 — 1급 일곱·2급 여덟·3급 일곱, 모두 객관식
+ * 5지선다·과목당 25문항. 앱처럼 급수로 과목을 묶는다. 접수·시행은 한국산업인력공단(Q-Net).
+ */
+export const YOUTH_TRACK: ExamTrackConfig = {
+  id: "youth",
+  label: "청소년상담사",
+  shortLabel: "청소년상담사",
+  basePath: "/youth",
+  eyebrow: "봄기출 · 청소년상담사",
+  hubTitle: "청소년상담사 기출 학습의 모든 것",
+  hubDescription:
+    "청소년상담사 1·2·3급 필기 22과목 기출을 급수별·회차별로 학습하세요.",
+  communityScope: "youth",
+  communityTitle: "청소년상담사 수험생 커뮤니티",
+  sessionEyebrow: "청소년상담사 기출",
+  educationalLevel: "청소년상담사 자격시험",
+  aboutName: "청소년상담사 자격시험",
+};
+
 export const EXAM_TRACKS = [
   POLICE_TRACK,
   FIREFIGHTER_TRACK,
@@ -279,6 +299,7 @@ export const EXAM_TRACKS = [
   GYEONGBI_TRACK,
   GAMJEONG_TRACK,
   MULLYU_TRACK,
+  YOUTH_TRACK,
 ] as const;
 
 export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
@@ -297,5 +318,6 @@ export function getTrackByBasePath(pathname: string): ExamTrackConfig | null {
   if (pathname.startsWith("/gyeongbi")) return GYEONGBI_TRACK;
   if (pathname.startsWith("/gamjeong")) return GAMJEONG_TRACK;
   if (pathname.startsWith("/mullyu")) return MULLYU_TRACK;
+  if (pathname.startsWith("/youth")) return YOUTH_TRACK;
   return null;
 }

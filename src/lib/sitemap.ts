@@ -81,6 +81,11 @@ import {
   getMullyuExamSessions,
 } from "@/lib/mullyu-content";
 import {
+  YOUTH_SUBJECT_IDS,
+  getYouthSubject,
+  getYouthExamSessions,
+} from "@/lib/youth-content";
+import {
   HISTORY_SUBJECT_IDS,
   getHistoryExamSessions,
   getHistorySubject,
@@ -118,6 +123,7 @@ const ALL_SITEMAP_GROUPS = [
   "gyeongbi",
   "gamjeong",
   "mullyu",
+  "youth",
 ] as const;
 
 export type SitemapGroup = (typeof ALL_SITEMAP_GROUPS)[number];
@@ -144,6 +150,7 @@ const GROUP_SCOPE: Partial<Record<SitemapGroup, CommunityScope>> = {
   gyeongbi: "gyeongbi",
   gamjeong: "gamjeong",
   mullyu: "mullyu",
+  youth: "youth",
 };
 
 function page(
@@ -412,6 +419,16 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         getMullyuExamSessions,
         { includeConcepts: false, includeQuestionUrls: true },
       );
+    case "youth":
+      // 문항 단위 URL 은 싣지 않는다 — 과목·회차까지만(앞 트랙들의 기본 정책). 22과목 × 9회차라
+      // 문항까지 넣으면 4,950개가 사이트맵의 대부분을 차지한다. 문항은 회차 목록의 내부 링크로 발견된다.
+      return getNamespacedTrackUrls(
+        "/youth",
+        YOUTH_SUBJECT_IDS,
+        getYouthSubject,
+        getYouthExamSessions,
+        { includeConcepts: false },
+      );
   }
 }
 
@@ -488,7 +505,9 @@ export async function buildSitemapGroup(group: SitemapGroup): Promise<MetadataRo
   const publicContent = scope ? await getPublicContentUrls(scope) : [];
   // These two listings were confirmed empty. Include them again automatically
   // when public content is available; leave other tracks unchanged.
-  if (scope !== "gamjeong" && scope !== "mullyu") return uniqueEntries([...staticEntries, ...publicContent]);
+  if (scope !== "gamjeong" && scope !== "mullyu" && scope !== "youth") {
+    return uniqueEntries([...staticEntries, ...publicContent]);
+  }
 
   const [hasCommunity, hasArchive] = await Promise.all([
     hasPublicListingContent(scope, "community"),

@@ -17,6 +17,7 @@ import {
   GAMJEONG_SUBJECT_IDS,
 } from "@/lib/gamjeong-content";
 import { getMullyuSubject, MULLYU_SUBJECT_IDS } from "@/lib/mullyu-content";
+import { getYouthSubject, YOUTH_SUBJECT_IDS } from "@/lib/youth-content";
 import { getGugeoSubject, GUGEO_SUBJECT_IDS } from "@/lib/gugeo-content";
 import {
   getGyeongbiSubject,
@@ -284,6 +285,19 @@ const TRACK_LOADERS: Record<
   gyeongbi: { ids: GYEONGBI_SUBJECT_IDS, get: (id) => getGyeongbiSubject(id) },
   gamjeong: { ids: GAMJEONG_SUBJECT_IDS, get: (id) => getGamjeongSubject(id) },
   mullyu: { ids: MULLYU_SUBJECT_IDS, get: (id) => getMullyuSubject(id) },
+  // 청소년상담사는 1·2·3급 22과목이 과목 고르기 한 목록에 섞여 뜬다 — 이름 앞에 급수를 붙인다
+  // (「2급 집단상담」·「3급 집단상담의 기초」. 앱 registry.js 의 fullLabel 과 같다).
+  youth: {
+    ids: YOUTH_SUBJECT_IDS,
+    get: (id) => {
+      const content = getYouthSubject(id);
+      if (!content) return null;
+      return {
+        ...content,
+        subject: { ...content.subject, label: `${content.subject.track} ${content.subject.label}` },
+      };
+    },
+  },
 };
 
 function buildRealEstate(): DailyQuestion[] {

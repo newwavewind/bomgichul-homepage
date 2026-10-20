@@ -230,7 +230,8 @@ export interface ExamTrackConfig {
     | "nomusa"
     | "gyeongbi"
     | "gamjeong"
-    | "mullyu";
+    | "mullyu"
+    | "youth";
   label: string;
   shortLabel: string;
   basePath: string;
@@ -252,7 +253,8 @@ export interface ExamTrackConfig {
     | "nomusa"
     | "gyeongbi"
     | "gamjeong"
-    | "mullyu";
+    | "mullyu"
+    | "youth";
   communityTitle: string;
   sessionEyebrow: string;
   educationalLevel: string;

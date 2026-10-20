@@ -672,6 +672,36 @@ function collectJobs() {
     }
   }
 
+  // ——— 청소년상담사 (앱 exam-pdfs — 제16회 2017 ~ 제25회 2026, 급수·교시별 문제지 2017·2018·2021~2026, 최종정답 2021~2025) ———
+  // 앱 public/exam-pdfs/youth/<연도>/ 의 문제지·최종정답(이름 `<연도>-1차-<N>급-<N>교시-문제지[-A형]…`·`<연도>-1차-최종정답…`).
+  // 2019·2020 은 원본이 없어 빠져 있다. 제목에 「1급」·「2급」·「3급」이 남아 자료실 급수 칩(archive-filters)이 가른다.
+  {
+    const root = join(HOME, 'youthbomgichul/public/exam-pdfs')
+    for (const file of walkExamFiles(root)) {
+      const name = nfc(basename(file))
+      const year = (name.match(/^(\d{4})/) || [])[1]
+      if (!year) continue
+      const y = Number(year)
+      if (y < 2017 || y > 2026) continue
+      let detail = name
+        .replace(/\.(pdf|hwp|hwpx)$/i, '')
+        .replace(/^\d{4}-/, '')
+        .replace(/-[a-f0-9]{5,}$/i, '')
+        .replace(/-/g, ' ')
+        .trim()
+      if (!detail) detail = kindFromName(name)
+      const title = `${TITLE_PREFIX} ${year}년 청소년상담사 · ${detail}`
+      jobs.push({
+        scope: 'youth',
+        subject: 'other',
+        title,
+        content: `청소년상담사 자격시험 기출 원본입니다. 전체 공개로 제공합니다.\n파일: ${name}`,
+        file,
+        dedupeKey: `youth|app|${name}`,
+      })
+    }
+  }
+
   // ——— 세무사 (데스크탑 10개년) ———
   {
     const deskRoot = join(HOME, 'Desktop/세무사_기출_10개년')
