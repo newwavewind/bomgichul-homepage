@@ -65,9 +65,6 @@ export function EnglishPassageNotes({
                     {entry.term}
                   </span>
                   <span className="font-system text-[14px] text-smoke">{entry.meaning}</span>
-                  {entry.level ? (
-                    <span className="font-system text-[11px] text-fog">{entry.level}</span>
-                  ) : null}
                 </p>
                 {entry.otherMeanings ? (
                   <p className="mt-1 font-system text-[13px] leading-[1.6] text-fog">

@@ -215,12 +215,34 @@ export function parseQuestionStem(stem: string): ParsedQuestionStem {
   if (latinFirst) return latinFirst;
 
   const multiline = parseMultilineStem(stem);
-  if (multiline && multiline.boxLines.length > 0) return multiline;
+  if (multiline && multiline.boxLines.length > 0) return pullLatinLinesIntoBox(multiline);
 
   const inline = parseInlineMaterialBox(stem);
   if (inline) return inline;
 
   return { intro: stem, boxLines: [] };
+}
+
+/**
+ * 발문 첫 줄 뒤에 남은 영문 자료 줄(「Transhipment means …」「DOCUMENTS REQUIRED:」)을 상자 맨 앞으로.
+ * 전수 조사(2026-10-21)에서 물류관리사 국제물류 두 문항이 이렇게 상자 밖에 샜다.
+ */
+function pullLatinLinesIntoBox(parsed: ParsedQuestionStem): ParsedQuestionStem {
+  const lines = parsed.intro.split("\n");
+  if (lines.length < 2) return parsed;
+  const isLatinLine = (line: string) => {
+    const t = line.trim();
+    const latin = (t.match(/[A-Za-z]/g) ?? []).length;
+    const hangul = (t.match(/[가-힣]/g) ?? []).length;
+    return t.length >= 8 && latin > t.length * 0.5 && hangul <= 2;
+  };
+  let cut = lines.length;
+  while (cut > 1 && isLatinLine(lines[cut - 1]!)) cut -= 1;
+  if (cut === lines.length) return parsed;
+  return {
+    intro: lines.slice(0, cut).join("\n").trim(),
+    boxLines: [...lines.slice(cut).map((line) => line.trim()), ...parsed.boxLines],
+  };
 }
 
 /**
