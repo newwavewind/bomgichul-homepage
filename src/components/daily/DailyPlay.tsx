@@ -442,108 +442,103 @@ export function DailyPlay({
                   : "추가 연습 문제이며 공식 순위에는 반영되지 않습니다."}
             </p>
           ) : null}
-          {!isArchive && !challenge ? (
-            <section className="relative mt-4 overflow-hidden rounded-2xl border border-black/10 bg-white text-black first:mt-0">
-              <div className="pointer-events-none absolute -right-20 -top-24 size-64 rounded-full bg-[#4d49fc]/10 blur-3xl" aria-hidden />
-              <div className="relative p-3.5 sm:p-4">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div className="max-w-xl">
-                    <p className="font-mono text-xs tracking-[0.05em] text-[#595959]">
-                      DAILY ROTATION / 10 QUESTIONS
-                    </p>
-                    <h2 className="mt-2 text-[clamp(21px,3vw,26px)] font-light leading-[1.12] tracking-[-0.02em]">
-                      매일 10문제씩, 전체 기출 한 바퀴
-                    </h2>
-                    <p className="mt-2 max-w-lg text-sm font-normal leading-6 text-[#595959]">
-                      최근 {composition.yearSpan}개년 기출을 하루 10문제씩 만나보세요. 모두 같은 문제로 겨루고, 한 바퀴 안엔 겹치는 문제가 없습니다.
-                    </p>
-                    <details className="group mt-2 max-w-lg">
-                      <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-sm font-medium text-[#4d49fc] [&::-webkit-details-marker]:hidden">
-                        한 바퀴는 어떻게 도나요?
-                        <span className="transition-transform group-open:rotate-180" aria-hidden>⌄</span>
-                      </summary>
-                      <ol className="mt-2 space-y-2 text-sm leading-6 text-[#595959]">
-                        {[
-                          ["한 번 섞기", `${subjectLabel} 기출 ${composition.poolCount.toLocaleString()}문제를 카드 섞듯 한 번 섞어 1번부터 ${composition.poolCount.toLocaleString()}번까지 순서를 정합니다.`],
-                          ["하루 10문제씩 차례로", `첫날은 1~10번, 다음 날은 11~20번처럼 앞에서부터 이어서 냅니다. 한 번 나간 자리는 다시 쓰지 않으니 한 바퀴(약 ${composition.rotationDays}일)를 다 돌 때까지 같은 문제가 두 번 나오지 않습니다.`],
-                          ["다 돌면 다시 섞기", "마지막 문제까지 나가면 새로 섞어 다음 바퀴를 시작합니다. 앞 바퀴 끝과 새 바퀴 처음이 같은 날에 걸쳐도 그날 10문제 안에서는 겹치지 않습니다."],
-                          ["누구에게나 같은 순서", "같은 날에는 누가 풀어도 같은 10문제가 나옵니다. 그래서 순위를 공정하게 비교할 수 있습니다."],
-                        ].map(([title, body], index) => (
-                          <li key={title} className="flex gap-2.5">
-                            <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#4d49fc]/10 font-mono text-[11px] text-[#4d49fc]">
-                              {index + 1}
-                            </span>
-                            <span>
-                              <strong className="font-semibold text-black">{title}</strong> · {body}
-                            </span>
-                          </li>
-                        ))}
-                      </ol>
-                      <div className="mt-3 rounded-xl bg-[#4d49fc]/[0.06] px-3.5 py-3 text-sm leading-6 text-[#595959]">
-                        <p>
-                          <strong className="font-semibold text-black">바퀴는 끝없이 이어집니다.</strong>{" "}
-                          {Math.floor(365 / Math.max(1, composition.rotationDays)) >= 1
-                            ? `매일 풀면 1년에 약 ${Math.floor(365 / Math.max(1, composition.rotationDays))}바퀴, 같은 문제를 그만큼 다시 만납니다.`
-                            : `한 바퀴에 약 ${composition.rotationDays}일이 걸리고, 다 돌면 다음 바퀴가 이어집니다.`}
-                        </p>
-                        {Math.floor(365 / Math.max(1, composition.rotationDays)) >= 2 ? (
-                          <p className="mt-1 text-[15px] font-semibold text-[#4d49fc]">
-                            무려 {Math.floor(365 / Math.max(1, composition.rotationDays))}회독! <span aria-hidden>😲</span>
-                          </p>
-                        ) : null}
-                        <p className="mt-2 font-semibold text-black">한 바퀴씩 돌면 좋은 점</p>
-                        <ul className="mt-1 space-y-1">
-                          {[
-                            ["빠짐없이", `좋아하는 단원만 골라 풀지 않아도 한 바퀴면 기출 ${composition.poolCount.toLocaleString()}문제를 한 문제도 빼놓지 않고 만납니다.`],
-                            ["잊을 만할 때 다시", `같은 문제는 평균 약 ${composition.rotationDays}일 간격으로 돌아옵니다. 기억이 흐려질 즈음 다시 꺼내 보게 됩니다.`],
-                            ["순서로 외우지 않게", "바퀴마다 순서를 새로 섞어 앞뒤 문제로는 답을 떠올릴 수 없습니다. 내용을 알아야 풉니다."],
-                          ].map(([title, body]) => (
-                            <li key={title}>
-                              <strong className="font-semibold text-black">{title}</strong> · {body}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <p className="mt-2 text-xs leading-5 text-[#8a8a8a]">
-                        새 연도 기출이 들어오면 문제 모음이 바뀌어 순서를 새로 섞습니다.
-                      </p>
-                    </details>
-                  </div>
-                  <div className="flex shrink-0 gap-1.5 text-xs">
-                    <span className="rounded-lg bg-[#e2e2e2] px-2.5 py-1.5">
-                      연속 {score?.report.streak ?? insights.streak}일
+          {!challenge ? (
+            <section className="mt-4 rounded-2xl border border-black/10 bg-white p-3 first:mt-0 sm:p-3.5">
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <h2 className="text-[15px] font-semibold leading-6 text-ink">
+                    매일 10문제 · 전체 기출 한 바퀴
+                  </h2>
+                  <p className="mt-0.5 text-xs leading-5 text-[#64748b]">
+                    최근 {composition.yearSpan}개년 · {composition.topics}개 단원 · {composition.poolCount.toLocaleString()}문제를 하루 10문제씩, 한 바퀴 약 {composition.rotationDays}일
+                  </p>
+                </div>
+                {/* 채점 뒤엔 학습 리포트가 같은 숫자를 보여 줘서 뺀다. */}
+                {step !== "result" && !isArchive ? (
+                  <div className="flex shrink-0 gap-1 text-[11px] font-medium text-[#475569]">
+                    <span className="rounded-md bg-[#f1f5f9] px-2 py-1">
+                      연속 {insights.streak}일
                     </span>
-                    <span className="rounded-lg bg-[#e2e2e2] px-2.5 py-1.5">
-                      이번 달 {score?.report.monthDone ?? insights.monthDone}회
+                    <span className="rounded-md bg-[#f1f5f9] px-2 py-1">
+                      이번 달 {insights.monthDone}회
                     </span>
                   </div>
-                </div>
-
-                <div className="mt-3 grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-[#e2e2e2] sm:grid-cols-4">
-                  {[
-                    ["01", "수록 연도", `${composition.years}개`],
-                    ["02", "학습 단원", `${composition.topics}개`],
-                    ["03", "전체 문제", `${composition.poolCount.toLocaleString()}문제`],
-                    ["04", "한 순환", `약 ${composition.rotationDays}일`],
-                  ].map(([index, label, value]) => (
-                    <div key={index} className="bg-white p-2.5 sm:p-3">
-                      <p className="font-mono text-xs tracking-[0.05em] text-[#595959]">{index}</p>
-                      <p className="mt-1.5 text-base font-light tabular-nums sm:text-lg">{value}</p>
-                      <p className="mt-0.5 text-sm text-[#595959]">{label}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-3 flex">
-                  <Link
-                    href={`/${exam}/daily/wrong?subject=${encodeURIComponent(subjectId)}`}
-                    className="inline-flex min-h-9 items-center justify-center rounded-[50px] bg-[#4d49fc] px-4 text-sm font-medium text-white transition-transform hover:-translate-y-0.5"
-                  >
-                    특별한 오답노트
-                    <span className="ml-3" aria-hidden>→</span>
-                  </Link>
-                </div>
+                ) : null}
               </div>
+              <details className="group mt-1.5">
+                <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-[#4d49fc] [&::-webkit-details-marker]:hidden">
+                  한 바퀴는 어떻게 도나요?
+                  <span className="transition-transform group-open:rotate-180" aria-hidden>⌄</span>
+                </summary>
+                <ol className="mt-2 space-y-1.5 text-[13px] leading-6 text-[#595959]">
+                  {[
+                    ["한 번 섞기", `${subjectLabel} 기출 ${composition.poolCount.toLocaleString()}문제를 카드 섞듯 한 번 섞어 1번부터 ${composition.poolCount.toLocaleString()}번까지 순서를 정합니다.`],
+                    ["하루 10문제씩 차례로", `첫날은 1~10번, 다음 날은 11~20번처럼 앞에서부터 이어서 냅니다. 한 번 나간 자리는 다시 쓰지 않으니 한 바퀴(약 ${composition.rotationDays}일)를 다 돌 때까지 같은 문제가 두 번 나오지 않습니다.`],
+                    ["다 돌면 다시 섞기", "마지막 문제까지 나가면 새로 섞어 다음 바퀴를 시작합니다. 앞 바퀴 끝과 새 바퀴 처음이 같은 날에 걸쳐도 그날 10문제 안에서는 겹치지 않습니다."],
+                    ["누구에게나 같은 순서", "같은 날에는 누가 풀어도 같은 10문제가 나옵니다. 그래서 순위를 공정하게 비교할 수 있습니다."],
+                  ].map(([title, body], index) => (
+                    <li key={title} className="flex gap-2.5">
+                      <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#4d49fc]/10 font-mono text-[11px] text-[#4d49fc]">
+                        {index + 1}
+                      </span>
+                      <span>
+                        <strong className="font-semibold text-black">{title}</strong> · {body}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+                <div className="mt-2.5 rounded-xl bg-[#4d49fc]/[0.06] px-3 py-2.5 text-[13px] leading-6 text-[#595959]">
+                  <p>
+                    <strong className="font-semibold text-black">바퀴는 끝없이 이어집니다.</strong>{" "}
+                    {Math.floor(365 / Math.max(1, composition.rotationDays)) >= 1
+                      ? `매일 풀면 1년에 약 ${Math.floor(365 / Math.max(1, composition.rotationDays))}바퀴, 같은 문제를 그만큼 다시 만납니다.`
+                      : `한 바퀴에 약 ${composition.rotationDays}일이 걸리고, 다 돌면 다음 바퀴가 이어집니다.`}
+                  </p>
+                  {Math.floor(365 / Math.max(1, composition.rotationDays)) >= 2 ? (
+                    <p className="mt-1 text-[15px] font-semibold text-[#4d49fc]">
+                      무려 {Math.floor(365 / Math.max(1, composition.rotationDays))}회독! <span aria-hidden>😲</span>
+                    </p>
+                  ) : null}
+                  <p className="mt-2 font-semibold text-black">한 바퀴씩 돌면 좋은 점</p>
+                  <ul className="mt-1 space-y-1">
+                    {[
+                      ["빠짐없이", `좋아하는 단원만 골라 풀지 않아도 한 바퀴면 기출 ${composition.poolCount.toLocaleString()}문제를 한 문제도 빼놓지 않고 만납니다.`],
+                      ["잊을 만할 때 다시", `같은 문제는 평균 약 ${composition.rotationDays}일 간격으로 돌아옵니다. 기억이 흐려질 즈음 다시 꺼내 보게 됩니다.`],
+                      ["순서로 외우지 않게", "바퀴마다 순서를 새로 섞어 앞뒤 문제로는 답을 떠올릴 수 없습니다. 내용을 알아야 풉니다."],
+                    ].map(([title, body]) => (
+                      <li key={title}>
+                        <strong className="font-semibold text-black">{title}</strong> · {body}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p className="mt-2 text-xs leading-5 text-[#8a8a8a]">
+                  새 연도 기출이 들어오면 문제 모음이 바뀌어 순서를 새로 섞습니다.
+                </p>
+              </details>
+              <nav
+                aria-label="매일 10문제 메뉴"
+                className="mt-2.5 grid grid-cols-3 gap-1 rounded-xl bg-[#f1f5f9] p-1 text-center text-xs font-semibold"
+              >
+                <Link
+                  href={rankedDailyHref}
+                  className={`rounded-lg px-2 py-1.5 ${mode === "ranked" ? "bg-[#007AFF] text-white" : "text-[#475569] hover:bg-white"}`}
+                >
+                  오늘의 10문제
+                </Link>
+                <Link
+                  href={`/${exam}/daily?subject=${encodeURIComponent(subjectId)}&more=1`}
+                  className={`rounded-lg px-2 py-1.5 ${mode === "practice" ? "bg-[#007AFF] text-white" : "text-[#475569] hover:bg-white"}`}
+                >
+                  추가 연습
+                </Link>
+                <Link
+                  href={`/${exam}/daily/wrong?subject=${encodeURIComponent(subjectId)}`}
+                  className="rounded-lg px-2 py-1.5 text-[#475569] hover:bg-white"
+                >
+                  특별한 오답노트
+                </Link>
+              </nav>
             </section>
           ) : null}
           {mode === "ranked" ? (
@@ -603,52 +598,25 @@ export function DailyPlay({
               )}
             </div>
           ) : null}
-          {step === "result" || challenge ? (
+          {challenge ? (
             <div className="mt-4 rounded-2xl bg-[#E8F4FF] px-4 py-4 first:mt-0">
               <p className="text-sm font-bold text-[#075AA8]">
-                {challenge
-                  ? `${challenge.nickname}님이 보낸 무료 기출 10문제`
-                  : "매일 새로운 기출 10문제"}
+                {`${challenge.nickname}님이 보낸 무료 기출 10문제`}
               </p>
               <p className="mt-1 text-xs leading-5 text-[#3B6285]">
-                {challenge
-                  ? "매일 새로운 기출 10문제를 무료로 풀고, 채점과 해설까지 확인해 보세요."
-                  : "오늘 10문제를 풀고 바로 채점해 학습 흐름을 이어가세요."}
+                매일 새로운 기출 10문제를 무료로 풀고, 채점과 해설까지 확인해 보세요.
               </p>
-              {challenge ? (
-                <div className="mt-3 flex flex-wrap gap-1.5 text-[11px] font-bold text-[#075AA8]">
-                  <span className="rounded-full bg-white/80 px-2.5 py-1">
-                    {subjectLabel}
-                  </span>
-                  <span className="rounded-full bg-white/80 px-2.5 py-1">
-                    {questions.length}문제
-                  </span>
-                  <span className="rounded-full bg-white/80 px-2.5 py-1">
-                    채점·해설 무료
-                  </span>
-                </div>
-              ) : (
-                <div className="mt-3 grid grid-cols-3 gap-1 rounded-xl bg-white/70 p-1 text-center text-[11px] font-bold">
-                  <Link
-                    href={rankedDailyHref}
-                    className={`rounded-lg px-2 py-2 ${mode === "ranked" ? "bg-[#007AFF] text-white" : "text-[#475569]"}`}
-                  >
-                    오늘의 10문제
-                  </Link>
-                  <Link
-                    href={`/${exam}/daily?subject=${encodeURIComponent(subjectId)}&more=1`}
-                    className={`rounded-lg px-2 py-2 ${mode === "practice" ? "bg-[#007AFF] text-white" : "text-[#475569]"}`}
-                  >
-                    추가 연습
-                  </Link>
-                  <Link
-                    href={`/${exam}/daily/wrong?subject=${encodeURIComponent(subjectId)}`}
-                    className="rounded-lg px-2 py-2 text-[#475569]"
-                  >
-                    특별한 오답노트
-                  </Link>
-                </div>
-              )}
+              <div className="mt-3 flex flex-wrap gap-1.5 text-[11px] font-bold text-[#075AA8]">
+                <span className="rounded-full bg-white/80 px-2.5 py-1">
+                  {subjectLabel}
+                </span>
+                <span className="rounded-full bg-white/80 px-2.5 py-1">
+                  {questions.length}문제
+                </span>
+                <span className="rounded-full bg-white/80 px-2.5 py-1">
+                  채점·해설 무료
+                </span>
+              </div>
             </div>
           ) : null}
           {challenge ? (
@@ -874,23 +842,19 @@ export function DailyPlay({
                 embedded
               />
             ) : null}
-            <p className="text-sm text-[#0066D6]">
-              {formatKoreanDate(score.dateKey)}
-            </p>
-            <h2 className="mt-1 font-display text-2xl font-semibold text-ink">
-              {score.correct}/{score.total}
-            </h2>
-            <p className="mt-1 text-sm text-[#475569]">
-              {formatElapsed(score.elapsedMs)}
-              {score.rank ? ` · 오늘 ${score.rank}위` : ""}
-            </p>
+            <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+              <h2 className="font-display text-2xl font-semibold tabular-nums text-ink">
+                {score.correct}/{score.total}
+              </h2>
+              <p className="text-sm text-[#475569]">
+                {formatElapsed(score.elapsedMs)}
+                {score.rank ? ` · 오늘 ${score.rank}위` : ""}
+              </p>
+            </div>
             <DailyLearningReportCard
               exam={exam}
               subjectId={subjectId}
               attemptId={score.attemptId}
-              correct={score.correct}
-              total={score.total}
-              elapsedMs={score.elapsedMs}
               rank={score.rank}
               report={score.report}
             />

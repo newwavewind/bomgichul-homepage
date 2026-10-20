@@ -248,9 +248,6 @@ export async function DailyResultPage({
               exam={slug}
               subjectId={attempt.subjectId}
               attemptId={attempt.id}
-              correct={attempt.correct}
-              total={attempt.total}
-              elapsedMs={attempt.elapsedMs}
               rank={attempt.rank}
               report={attempt.report}
             />
