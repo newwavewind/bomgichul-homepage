@@ -7,7 +7,7 @@
 -- 앞 마이그레이션(20261019120000_mullyu_community)처럼 scope 전체를 다시 세운다 — 원격에 빠진 것이 있어도
 -- 이것 하나로 맞는다. 토픽방은 없을 때만 만든다(몇 번 돌려도 같다).
 --
--- 아직 운영 DB 에 적용하지 않았다 — 홈페이지 /youth 를 배포하기 전에 적용해야 한다.
+-- 운영 DB 에 2026-10-20 적용함(SQL Editor) — 제약 둘에 youth 들어간 것과 토픽방 생성을 조회로 확인했다.
 
 alter table public.posts
   drop constraint if exists posts_community_scope_check;
