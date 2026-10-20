@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * 공무원 영어 지문·선지 글씨 크기 단추(2026-10-21) — 오른쪽 위(머리 띠 바로 아래) 가로 「A− A+」.
+ * 공무원 영어 지문·선지 글씨 크기 단추(2026-10-21) — 오른쪽 위(머리 띠 바로 아래) 세로 「A+ / A−」.
  * globals.css 의 --exam-latin-size 를 바꾸고, 고른 크기는 이 기기에 기억한다.
  */
 const SIZES = [16, 18, 20, 22, 24, 27, 30];
@@ -58,14 +58,14 @@ export function EnglishTextSizeControl() {
     <div
       role="group"
       aria-label="영어 글씨 크기"
-      className="fixed right-4 top-[76px] z-40 flex flex-row overflow-hidden rounded-2xl border border-[#d7e3f4] bg-white/95 shadow-[0_6px_20px_rgba(15,23,42,0.12)] backdrop-blur"
+      className="fixed right-4 top-[76px] z-40 flex flex-col overflow-hidden rounded-2xl border border-[#d7e3f4] bg-white/95 shadow-[0_6px_20px_rgba(15,23,42,0.12)] backdrop-blur"
     >
-      <button type="button" onClick={() => change(-1)} disabled={index === 0} aria-label="영어 글씨 작게" className={button}>
-        <span className="text-[13px] font-semibold">A−</span>
-      </button>
-      <span className="border-l border-[#e6eef8]" aria-hidden />
       <button type="button" onClick={() => change(1)} disabled={index === SIZES.length - 1} aria-label="영어 글씨 크게" className={button}>
         <span className="text-[17px] font-semibold">A+</span>
+      </button>
+      <span className="border-t border-[#e6eef8]" aria-hidden />
+      <button type="button" onClick={() => change(-1)} disabled={index === 0} aria-label="영어 글씨 작게" className={button}>
+        <span className="text-[13px] font-semibold">A−</span>
       </button>
     </div>
   );
