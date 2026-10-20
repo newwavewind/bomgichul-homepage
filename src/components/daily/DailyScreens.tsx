@@ -5,6 +5,7 @@ import { DailyPlay } from "@/components/daily/DailyPlay";
 import { DailyLearningReportCard } from "@/components/daily/DailyLearningReport";
 import { DailyReviewList } from "@/components/daily/DailyReviewList";
 import { DailySubjectPick } from "@/components/daily/DailySubjectPick";
+import { DailyAbout } from "@/components/daily/DailyAbout";
 import { ResultActions } from "@/components/daily/ResultActions";
 import {
   getChallenger,
@@ -96,12 +97,15 @@ export async function DailyPlayPage({
     (subjects.length === 1 ? subjects[0] : undefined);
   if (!subject) {
     return (
-      <DailySubjectPick
-        exam={slug}
-        label={meta.label}
-        home={meta.home}
-        subjects={subjects}
-      />
+      <>
+        <DailySubjectPick
+          exam={slug}
+          label={meta.label}
+          home={meta.home}
+          subjects={subjects}
+        />
+        <DailyAbout exam={slug} label={meta.label} home={meta.home} subjects={subjects} />
+      </>
     );
   }
   const todayDateKey = getKSTDateString();
@@ -318,12 +322,15 @@ export async function DailyRanksPage({
     (subjects.length === 1 ? subjects[0] : undefined);
   if (!subject) {
     return (
-      <DailySubjectPick
-        exam={slug}
-        label={meta.label}
-        home={meta.home}
-        subjects={subjects}
-      />
+      <>
+        <DailySubjectPick
+          exam={slug}
+          label={meta.label}
+          home={meta.home}
+          subjects={subjects}
+        />
+        <DailyAbout exam={slug} label={meta.label} home={meta.home} subjects={subjects} />
+      </>
     );
   }
   const board = one(query.board) === "total" ? "total" : "today";

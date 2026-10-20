@@ -120,12 +120,17 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
       ) : null}
       <article className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-3">
-          <BackLink
-            href={`/public-service/exam/${subjectId}`}
-            preferHistory
-          >
-            {data.subject.label} 연도 선택
-          </BackLink>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <BackLink
+              href={`/public-service/exam/${subjectId}`}
+              preferHistory
+            >
+              {data.subject.label} 연도 선택
+            </BackLink>
+            <Link href={listBase} className="font-display text-[13px] text-smoke underline-offset-2 hover:text-ink hover:underline">
+              {year}년 {source} 전체 문항
+            </Link>
+          </div>
           <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} loginNext={detailPath} />
         </div>
         <ExamQuestionJumpBar

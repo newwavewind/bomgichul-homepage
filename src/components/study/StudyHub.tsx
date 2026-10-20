@@ -1,4 +1,5 @@
 import { SubjectLearningCard } from "@/components/study/SubjectLearningCard";
+import { ExamTrackHubGuide } from "@/components/exam-track/ExamTrackHubGuide";
 import {
   HubBackButton,
   HubExamIntroLink,
@@ -32,6 +33,8 @@ export function StudyHub() {
           <HubExamIntroLink href="/real-estate/intro" label="공인중개사" />
         </div>
         <section id="exam"><h2 className="mb-5 text-[22px] font-semibold md:text-2xl">과목별 기출문제</h2><div className="grid gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">{EXAM_SUBJECTS.map(s=>{const subject=s.value as ExamSubject;return <SubjectLearningCard key={subject} label={ARCHIVE_SUBJECT_MAP[subject]} badge={SUBJECT_LANDING_INFO[subject].round} examCount={getExamQuestionsForSubject(subject).length} examHref={`/exam/${subject}`} dailyHref={`/real-estate/daily?subject=${encodeURIComponent(subject)}`}/>;})}</div></section>
+
+        <ExamTrackHubGuide id="real_estate" basePath="/real-estate" label="공인중개사" />
 
         <AdRail adsense="hub" spacingClassName="" />
 

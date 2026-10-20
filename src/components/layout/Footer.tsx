@@ -75,9 +75,10 @@ export function Footer() {
             <p className="mt-0.5 font-display text-[12px] text-fog">
               © {new Date().getFullYear()} {SITE_NAME}
             </p>
+            {/* 쿠팡 파트너스 고지는 위젯이 실제로 뜨는 자리(CoupangPartnersSlot)에만 둔다 —
+                모든 쪽 바닥에 적어 두면 광고 외 문구가 본문보다 앞서 보인다(2026-10-20 애드센스 심사). */}
             <p className="mt-2 max-w-xl font-display text-[11px] leading-relaxed text-fog">
-              이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를
-              제공받습니다. 사이트에는 Google AdSense 등 광고가 표시될 수 있습니다.
+              사이트에는 Google AdSense 광고가 표시될 수 있습니다.
             </p>
           </div>
           <nav

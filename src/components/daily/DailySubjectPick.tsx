@@ -73,8 +73,8 @@ export function DailySubjectPick({
           <h1 className="mt-2 font-display text-2xl font-semibold text-ink">매일 10문제</h1>
           <p className="mt-2 text-sm leading-6 text-[#475569]">
             {mode === "series" && hasSeriesView
-              ? "응시할 직렬을 찾고 전문과목을 고르세요. 순위는 선택한 과목에서 매깁니다."
-              : "오늘 풀 과목을 고르세요. 고른 과목의 기출 10문제만 나오고, 순위도 그 과목에서 매깁니다."}
+              ? "응시할 직렬을 찾고 전문과목을 고르세요. 순위는 같은 과목을 푼 사람끼리 비교해요."
+              : "오늘 풀 과목을 고르세요. 그 과목 기출 10문제가 나오고, 순위는 같은 과목을 푼 사람끼리 비교해요."}
           </p>
 
           {hasSeriesView && (

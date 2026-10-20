@@ -4,6 +4,7 @@ import {
   HubExamIntroLink,
 } from "@/components/exam-intro/HubExamIntroLink";
 import { PublicServiceSubjectBrowser } from "@/components/study/PublicServiceSubjectBrowser";
+import { ExamTrackHubGuide } from "@/components/exam-track/ExamTrackHubGuide";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { appStoreLinksForScope } from "@/lib/constants";
 
@@ -20,6 +21,8 @@ export function PublicServiceHub() {
         </div>
 
         <PublicServiceSubjectBrowser subjects={subjects} />
+
+        <ExamTrackHubGuide id="public_service" basePath="/public-service" label="9급 공무원" />
 
         <section
           aria-label="앱 설치 안내"

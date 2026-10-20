@@ -3,6 +3,7 @@ import {
   HubExamIntroLink,
 } from "@/components/exam-intro/HubExamIntroLink";
 import { ExamTrackSubjectBrowser } from "@/components/exam-track/ExamTrackSubjectBrowser";
+import { ExamTrackHubGuide } from "@/components/exam-track/ExamTrackHubGuide";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { appStoreLinksForScope } from "@/lib/constants";
 import type { ExamTrackConfig, ExamTrackManifestItem } from "@/lib/exam-track/types";
@@ -26,6 +27,8 @@ export function ExamTrackHub({
         </div>
 
         <ExamTrackSubjectBrowser track={track} subjects={subjects} />
+
+        <ExamTrackHubGuide id={track.id} basePath={track.basePath} label={track.label} />
 
         <section className="rounded-[var(--radius-largecards)] border-[1.5px] border-carbon bg-carbon px-6 py-8 text-paper md:px-9">
           <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-white/60">

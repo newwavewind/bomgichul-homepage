@@ -464,10 +464,10 @@ export function DailyPlay({
                       </summary>
                       <ol className="mt-2 space-y-2 text-sm leading-6 text-[#595959]">
                         {[
-                          ["섞어서 줄 세우기", `${subjectLabel} 기출 ${composition.poolCount.toLocaleString()}문제를 카드 섞듯 한 번 섞어 1번부터 ${composition.poolCount.toLocaleString()}번까지 줄을 세웁니다.`],
+                          ["한 번 섞기", `${subjectLabel} 기출 ${composition.poolCount.toLocaleString()}문제를 카드 섞듯 한 번 섞어 1번부터 ${composition.poolCount.toLocaleString()}번까지 순서를 정합니다.`],
                           ["하루 10문제씩 차례로", `첫날은 1~10번, 다음 날은 11~20번처럼 앞에서부터 이어서 냅니다. 한 번 나간 자리는 다시 쓰지 않으니 한 바퀴(약 ${composition.rotationDays}일)를 다 돌 때까지 같은 문제가 두 번 나오지 않습니다.`],
                           ["다 돌면 다시 섞기", "마지막 문제까지 나가면 새로 섞어 다음 바퀴를 시작합니다. 앞 바퀴 끝과 새 바퀴 처음이 같은 날에 걸쳐도 그날 10문제 안에서는 겹치지 않습니다."],
-                          ["누구에게나 같은 순서", "섞는 순서는 과목마다 정해진 값으로 계산합니다. 누가 언제 열어도 같은 날엔 같은 10문제라서 순위를 공정하게 견줄 수 있습니다."],
+                          ["누구에게나 같은 순서", "같은 날에는 누가 풀어도 같은 10문제가 나옵니다. 그래서 순위를 공정하게 비교할 수 있습니다."],
                         ].map(([title, body], index) => (
                           <li key={title} className="flex gap-2.5">
                             <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#4d49fc]/10 font-mono text-[11px] text-[#4d49fc]">
@@ -486,6 +486,11 @@ export function DailyPlay({
                             ? `매일 풀면 1년에 약 ${Math.floor(365 / Math.max(1, composition.rotationDays))}바퀴, 같은 문제를 그만큼 다시 만납니다.`
                             : `한 바퀴에 약 ${composition.rotationDays}일이 걸리고, 다 돌면 다음 바퀴가 이어집니다.`}
                         </p>
+                        {Math.floor(365 / Math.max(1, composition.rotationDays)) >= 2 ? (
+                          <p className="mt-1 text-[15px] font-semibold text-[#4d49fc]">
+                            무려 {Math.floor(365 / Math.max(1, composition.rotationDays))}회독! <span aria-hidden>😲</span>
+                          </p>
+                        ) : null}
                         <p className="mt-2 font-semibold text-black">한 바퀴씩 돌면 좋은 점</p>
                         <ul className="mt-1 space-y-1">
                           {[
