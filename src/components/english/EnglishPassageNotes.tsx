@@ -13,8 +13,15 @@ import type { ExamTrackExam } from "@/lib/exam-track/types";
  * 해석을 처음부터 펼쳐 두지는 않는다. 지문 옆에 뜻이 보이면 영어를 읽지 않고
  * 한국어만 읽게 된다. 스스로 읽어 본 뒤에 여는 자리다.
  */
-export function EnglishPassageNotes({ exam }: { exam: ExamTrackExam }) {
-  const hasTranslation = Boolean(exam.translation);
+export function EnglishPassageNotes({
+  exam,
+  showTranslation = true,
+}: {
+  exam: ExamTrackExam;
+  /** 문항 화면은 해석을 정답 확인 뒤 해설 칸에 싣는다 — 여기선 어휘만 */
+  showTranslation?: boolean;
+}) {
+  const hasTranslation = showTranslation && Boolean(exam.translation);
   const vocab = exam.vocab ?? [];
   if (!hasTranslation && vocab.length === 0) return null;
 
