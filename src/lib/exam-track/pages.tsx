@@ -656,7 +656,6 @@ export async function TrackExamDetailPage({
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <BackLink
               href={`${track.basePath}/exam/${subjectId}`}
-              preferHistory
             >
               {data.subject.label} 연도 선택
             </BackLink>

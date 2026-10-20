@@ -123,7 +123,6 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <BackLink
               href={`/public-service/exam/${subjectId}`}
-              preferHistory
             >
               {data.subject.label} 연도 선택
             </BackLink>
