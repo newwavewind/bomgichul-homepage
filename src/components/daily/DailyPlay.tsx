@@ -6,7 +6,10 @@ import { DailyScheduleGuide } from "@/components/daily/DailyScheduleGuide";
 import { useEffect, useState, type ReactNode } from "react";
 import { BackLink } from "@/components/ui/BackLink";
 import { DailyCalendar } from "@/components/daily/DailyCalendar";
-import { DailyLearningReportCard } from "@/components/daily/DailyLearningReport";
+import {
+  DailyLearningReportCard,
+  dailyReportAction,
+} from "@/components/daily/DailyLearningReport";
 import {
   DailyChoiceContent,
   DailyQuestionBody,
@@ -426,6 +429,26 @@ export function DailyPlay({
         .map((row, index) => ({ ...row, rank: index + 1 }))
     : friendBoard;
 
+  // 메뉴 가운데 칸 — 채점 뒤엔 리포트가 권하는 다음 걸음(틀린 문제·오늘의 복습), 풀기 전엔 오늘의 복습.
+  const nextReview =
+    step === "result" && score
+      ? dailyReportAction(exam, subjectId, score.attemptId, score.report)
+      : mode === "review"
+        ? null // 지금 풀고 있는 화면이 바로 그 칸이라 단추 대신 표시만
+        : insights.dueReviewCount > 0
+          ? {
+              href: `${rankedDailyHref}&review=due`,
+              label: "오늘의 복습 풀기",
+              count: insights.dueReviewCount,
+            }
+          : null;
+  const showTodayQuestions = () => {
+    setRevealedReviewKey(null);
+    document
+      .getElementById("daily-review-questions")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   // 「매일 10문제 · 전체 기출 한 바퀴」 소개와 세 칸 메뉴 — 풀기 전엔 맨 위, 채점 뒤엔 학습 리포트 아래.
   const rotationIntro = (
     <>
@@ -503,23 +526,46 @@ export function DailyPlay({
       </details>
       <nav
         aria-label="매일 10문제 메뉴"
-        className="mt-2.5 grid grid-cols-3 gap-1 rounded-xl bg-[#EEF3F9] p-1 text-center text-xs font-semibold"
+        className="mt-2.5 grid grid-cols-3 gap-1 rounded-xl bg-[#EEF3F9] p-1 text-center text-xs font-semibold leading-tight"
       >
-        <Link
-          href={rankedDailyHref}
-          className={`rounded-lg px-2 py-1.5 ${mode === "ranked" ? "bg-[#007AFF] text-white" : "text-[#475569] hover:bg-white"}`}
-        >
-          오늘의 10문제
-        </Link>
-        <Link
-          href={`/${exam}/daily?subject=${encodeURIComponent(subjectId)}&more=1`}
-          className={`rounded-lg px-2 py-1.5 ${mode === "practice" ? "bg-[#007AFF] text-white" : "text-[#475569] hover:bg-white"}`}
-        >
-          추가 연습
-        </Link>
+        {step === "result" && mode === "ranked" ? (
+          // 채점 뒤 「오늘의 10문제」는 해설을 가린 문제 화면으로 돌아간다.
+          <button
+            type="button"
+            onClick={showTodayQuestions}
+            className="rounded-lg bg-[#007AFF] px-2 py-2 text-white"
+          >
+            오늘의 10문제
+          </button>
+        ) : (
+          <Link
+            href={rankedDailyHref}
+            className={`flex items-center justify-center rounded-lg px-2 py-2 ${mode === "ranked" ? "bg-[#007AFF] text-white" : "text-[#475569] hover:bg-white"}`}
+          >
+            오늘의 10문제
+          </Link>
+        )}
+        {nextReview ? (
+          <Link
+            href={nextReview.href}
+            className={`flex items-center justify-center rounded-lg px-2 py-2 ${mode === "review" ? "bg-[#007AFF] text-white" : "text-[#0066D6] hover:bg-white"}`}
+          >
+            <span>
+              {nextReview.label}
+              <span className="whitespace-nowrap tabular-nums"> · {nextReview.count}문제</span>
+            </span>
+          </Link>
+        ) : (
+          <span
+            aria-disabled="true"
+            className={`flex items-center justify-center rounded-lg px-2 py-2 ${mode === "review" ? "bg-[#007AFF] text-white" : "text-[#94a3b8]"}`}
+          >
+            {mode === "review" ? "틀린 문제 다시 풀기" : "복습할 문제 없음"}
+          </span>
+        )}
         <Link
           href={`/${exam}/daily/wrong?subject=${encodeURIComponent(subjectId)}`}
-          className="rounded-lg px-2 py-1.5 text-[#475569] hover:bg-white"
+          className="flex items-center justify-center rounded-lg px-2 py-2 text-[#475569] hover:bg-white"
         >
           특별한 오답노트
         </Link>
@@ -638,7 +684,7 @@ export function DailyPlay({
               함께 풀고 결과를 비교해 보세요.
             </p>
           ) : null}
-          {step === "play" && !signedIn && !isArchive ? (
+          {step === "play" && !signedIn && !isArchive && mode === "ranked" ? (
             <input
               id="daily-nickname"
               value={nickname}
@@ -779,7 +825,8 @@ export function DailyPlay({
               </Link>
             ) : (
               <>
-                {!signedIn ? (
+                {/* 닉네임은 오늘 순위에만 쓰인다 — 틀린 문제 다시 풀기·추가 연습엔 묻지 않는다. */}
+                {!signedIn && mode === "ranked" ? (
                   <div
                     className={`mt-8 rounded-2xl border p-4 transition-all duration-300 ${isComplete ? "border-[#80BFFF] bg-[#F0F7FF] shadow-[0_8px_24px_rgba(0,122,255,0.10)] ring-4 ring-[#007AFF]/10" : "border-[#dbe7f5] bg-[#f8fafc]"}`}
                     aria-live="polite"
@@ -808,7 +855,7 @@ export function DailyPlay({
                   type="button"
                   onClick={() => void finish(picks)}
                   disabled={!isComplete || busy}
-                  className={`${signedIn ? "mt-8" : "mt-4"} w-full rounded-2xl bg-[#007AFF] px-4 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-[#94a3b8]`}
+                  className={`${signedIn || mode !== "ranked" ? "mt-8" : "mt-4"} w-full rounded-2xl bg-[#007AFF] px-4 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-[#94a3b8]`}
                 >
                   {busy
                     ? "채점하는 중..."
@@ -865,6 +912,7 @@ export function DailyPlay({
               attemptId={score.attemptId}
               rank={score.rank}
               report={score.report}
+              hideAction={!challenge}
             >
               {!challenge ? rotationIntro : null}
             </DailyLearningReportCard>
@@ -936,7 +984,10 @@ export function DailyPlay({
                 </ol>
               </section>
             ) : null}
-            <div className="mt-5 rounded-2xl border border-[#cfe0f5] bg-[#f8fbff] p-3 sm:flex sm:items-center sm:justify-between sm:gap-4 sm:p-4">
+            <div
+              id="daily-review-questions"
+              className="mt-5 scroll-mt-20 rounded-2xl border border-[#cfe0f5] bg-[#f8fbff] p-3 sm:flex sm:items-center sm:justify-between sm:gap-4 sm:p-4"
+            >
               <div>
                 <p className="text-sm font-semibold text-ink">
                   {showReviewAnswers
