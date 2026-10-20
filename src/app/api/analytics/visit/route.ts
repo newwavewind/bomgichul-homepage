@@ -152,6 +152,11 @@ export async function POST(request: NextRequest) {
   const userAgent = request.headers.get("user-agent");
   const { browserName, deviceType } = detectClient(userAgent);
   const bot = await classifyBot();
+  // 봇 방문은 남기지 않는다(2026-10-21) — 하루 약 3천 줄(17%)이 봇이었고, 방문 기록 쓰기가
+  // DB 디스크 IO 의 대부분이었다. 사람·판정 불가만 기록한다.
+  if (bot.botClass === "suspected_bot" || bot.botClass === "verified_bot") {
+    return new NextResponse(null, { status: 204 });
+  }
 
   const [visitId] = await Promise.all([
     recordSiteVisit({

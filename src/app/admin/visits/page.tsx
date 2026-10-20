@@ -79,7 +79,8 @@ export default async function AdminVisitsPage({
   const selectedDate = resolveSelectedDate(params.date);
   const selectedFilter = resolveFilter(params.kind);
 
-  const trendFrom = addKstDays(selectedDate, -59);
+  // 방문 기록은 30일만 보관한다(supabase/migrations/20261021090000_site_visits_retention.sql)
+  const trendFrom = addKstDays(selectedDate, -29);
   const trendTo = addKstDays(selectedDate, 30);
   const [dayStatsAll, dayStats, trend, visitors, recent] = await Promise.all([
     getAdminVisitStatsForDate(selectedDate),
