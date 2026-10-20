@@ -321,3 +321,30 @@ textarea,
   outline: 2px solid #1d4ed8;
   outline-offset: 1px;
 }
+
+/*
+ * 영어 지문·선지는 시험지 원문처럼 Times 계열 세리프로(2026-10-21).
+ * Tinos 는 Times New Roman 과 글자 폭이 같은 무료 글꼴. 영문 글자·따옴표만 바꾸고(unicode-range)
+ * 숫자와 한글은 원래 글꼴을 그대로 쓴다 — 「2018년 지방직 10번」 같은 화면 글씨는 안 바뀐다.
+ * /english 아래 화면만 [data-exam-latin] 로 켠다.
+ */
+@font-face {
+  font-family: "ExamLatin";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), url("/fonts/tinos-400-latin.woff2") format("woff2");
+  font-weight: 100 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0041-005A, U+0061-007A, U+0027, U+0022, U+2018-201D, U+00C0-00FF;
+}
+@font-face {
+  font-family: "ExamLatin";
+  src: local("Times New Roman Bold"), local("TimesNewRomanPS-BoldMT"), url("/fonts/tinos-700-latin.woff2") format("woff2");
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0041-005A, U+0061-007A, U+0027, U+0022, U+2018-201D, U+00C0-00FF;
+}
+[data-exam-latin],
+[data-exam-latin] *:not(.font-mono):not(.font-handwritten):not(svg *) {
+  font-family: "ExamLatin", var(--font-display);
+}
