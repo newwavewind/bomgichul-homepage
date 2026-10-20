@@ -37,6 +37,38 @@ export async function ExamTrackHubGuide({ id, basePath, label }: { id: string; b
         ? `${examBase}/${subject.id}/${subject.latest.year}`
         : `${examBase}/${subject.id}/${subject.latest.year}/${encodeURIComponent(subject.latest.sourceCode)}`;
   const withUnits = stats.subjects.filter((subject) => subject.topUnits.length > 0);
+  // 과목이 많은 시험(공무원 15·청소년상담사 22)은 앞 6과목만 펼치고 나머지는 접는다 — 접어도 서버가 그린 글이다.
+  const shown = withUnits.slice(0, 6);
+  const folded = withUnits.slice(6);
+  const unitCard = (subject: HubSubjectStats) => (
+    <article key={subject.id} className="flex flex-col rounded-2xl border border-mist bg-white p-5">
+      <div className="flex items-baseline justify-between gap-3">
+        <h3 className="font-display text-[17px] font-semibold text-ink">{subject.label}</h3>
+        <span className="font-display text-[13px] tabular-nums text-smoke">{subject.questionCount}문항</span>
+      </div>
+      <ul className="mt-4 flex-1 space-y-2.5">
+        {subject.topUnits.map((unit) => (
+          <li key={unit.label}>
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="truncate font-display text-[14px] text-ink">{unit.label}</span>
+              <span className="shrink-0 font-display text-[12px] tabular-nums text-smoke">{unit.share}%</span>
+            </div>
+            <span className="mt-1 block h-1.5 overflow-hidden rounded-full bg-snow" aria-hidden>
+              <span className="block h-full rounded-full bg-electric-blue/70" style={{ width: `${Math.max(4, unit.share)}%` }} />
+            </span>
+          </li>
+        ))}
+      </ul>
+      {subject.latest ? (
+        <Link
+          href={roundHref(subject)}
+          className="mt-5 inline-flex items-center gap-1 self-start font-display text-[13px] font-semibold text-electric-blue underline-offset-2 hover:underline"
+        >
+          최근 {subject.latest.year}년{showSource ? ` ${subject.latest.sourceCode}` : ""} {subject.latest.count}문항 보기 <span aria-hidden>→</span>
+        </Link>
+      ) : null}
+    </article>
+  );
   const newest = [...stats.subjects].sort((a, b) => (b.latest?.year ?? 0) - (a.latest?.year ?? 0))[0];
 
   return (
@@ -73,36 +105,17 @@ export async function ExamTrackHubGuide({ id, basePath, label }: { id: string; b
             기출 {stats.questionCount.toLocaleString("ko-KR")}문항을 단원별로 나눠 봤어요. 막대 길이는 그 과목에서 차지하는 비율이에요.
           </p>
           <div className={`mt-5 grid gap-4 md:grid-cols-2 ${withUnits.length > 6 ? "xl:grid-cols-3" : ""}`}>
-            {withUnits.map((subject) => (
-              <article key={subject.id} className="flex flex-col rounded-2xl border border-mist bg-white p-5">
-                <div className="flex items-baseline justify-between gap-3">
-                  <h3 className="font-display text-[17px] font-semibold text-ink">{subject.label}</h3>
-                  <span className="font-display text-[13px] tabular-nums text-smoke">{subject.questionCount}문항</span>
-                </div>
-                <ul className="mt-4 flex-1 space-y-2.5">
-                  {subject.topUnits.map((unit) => (
-                    <li key={unit.label}>
-                      <div className="flex items-baseline justify-between gap-3">
-                        <span className="truncate font-display text-[14px] text-ink">{unit.label}</span>
-                        <span className="shrink-0 font-display text-[12px] tabular-nums text-smoke">{unit.share}%</span>
-                      </div>
-                      <span className="mt-1 block h-1.5 overflow-hidden rounded-full bg-snow" aria-hidden>
-                        <span className="block h-full rounded-full bg-electric-blue/70" style={{ width: `${Math.max(4, unit.share)}%` }} />
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                {subject.latest ? (
-                  <Link
-                    href={roundHref(subject)}
-                    className="mt-5 inline-flex items-center gap-1 self-start font-display text-[13px] font-semibold text-electric-blue underline-offset-2 hover:underline"
-                  >
-                    최근 {subject.latest.year}년{showSource ? ` ${subject.latest.sourceCode}` : ""} {subject.latest.count}문항 보기 <span aria-hidden>→</span>
-                  </Link>
-                ) : null}
-              </article>
-            ))}
+            {shown.map(unitCard)}
           </div>
+          {folded.length ? (
+            <details className="group mt-4">
+              <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-mist bg-white px-4 py-2 font-display text-[13px] font-semibold text-ink hover:border-carbon [&::-webkit-details-marker]:hidden">
+                과목 {folded.length}개 더 보기
+                <span aria-hidden className="transition-transform group-open:rotate-180">⌄</span>
+              </summary>
+              <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">{folded.map(unitCard)}</div>
+            </details>
+          ) : null}
         </section>
       ) : null}
 

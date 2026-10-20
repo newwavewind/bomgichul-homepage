@@ -43,6 +43,14 @@ const LOADERS: Record<string, Loader> = {
   gyeongbi: async () => { const m = await import("@/lib/gyeongbi-content"); return fromTrack(m.GYEONGBI_SUBJECT_IDS, m.getGyeongbiSubject); },
   gamjeong: async () => { const m = await import("@/lib/gamjeong-content"); return fromTrack(m.GAMJEONG_SUBJECT_IDS, m.getGamjeongSubject); },
   mullyu: async () => { const m = await import("@/lib/mullyu-content"); return fromTrack(m.MULLYU_SUBJECT_IDS, m.getMullyuSubject); },
+  // 청소년상담사는 과목 이름에 급수가 없어(1·2·3급에 「집단상담」 등이 겹친다) id 의 g1_·g2_·g3_ 에서 붙인다.
+  youth: async () => {
+    const m = await import("@/lib/youth-content");
+    return fromTrack(m.YOUTH_SUBJECT_IDS, m.getYouthSubject).map((subject) => {
+      const grade = /^g(\d)_/.exec(subject.id)?.[1];
+      return grade ? { ...subject, label: `${grade}급 ${subject.label}` } : subject;
+    });
+  },
   public_service: async () => { const m = await import("@/lib/public-service-content"); return fromTrack(m.PUBLIC_SERVICE_SUBJECT_IDS, m.getPublicServiceSubject); },
   // 공인중개사는 트랙 이전의 옛 구조 — 회차가 「연도」 하나라 sourceCode 자리에 회차 번호를 둔다.
   real_estate: async () => {
