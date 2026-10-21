@@ -31,6 +31,11 @@ export function RandomPracticeFilters({
   const [size, setSize] = useState(
     Number(searchParams.get("size") ?? defaultSize) || defaultSize
   );
+  // 「필터 적용하고 시작」을 누르면 필터 칸을 접어 문제가 바로 보이게 한다(2026-10-21).
+  // 필터를 건 주소로 들어와도 접힌 채로 시작하고, 「다시 펼치기」로 연다.
+  const [collapsed, setCollapsed] = useState(
+    () => searchParams.has("years") || searchParams.has("categories") || searchParams.has("size")
+  );
 
   const toggle = (value: string, list: string[], setter: (v: string[]) => void) => {
     setter(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
@@ -42,8 +47,34 @@ export function RandomPracticeFilters({
     if (selectedCategories.length) params.set("categories", selectedCategories.join(","));
     if (size !== defaultSize) params.set("size", String(size));
     const query = params.toString();
+    setCollapsed(true);
     router.push(`/exam/${subject}/random${query ? `?${query}` : ""}`);
   };
+
+  if (collapsed) {
+    const unitCount = selectedCategories.length;
+    const summary = [
+      selectedYears.length ? `연도 ${selectedYears.length}개` : "전체 연도",
+      unitCount ? `단원 ${unitCount}개` : "전체 단원",
+      `${size}문제`,
+    ].join(" · ");
+    return (
+      <div className="mb-8 flex items-center justify-between gap-3 rounded-[var(--radius-cards)] border border-carbon bg-surface px-5 py-3.5">
+        <p className="min-w-0 font-display text-body-sm text-ink">
+          <span className="font-semibold">연도·단원 필터</span>
+          <span className="ml-2 text-smoke">{summary}</span>
+        </p>
+        <button
+          type="button"
+          onClick={() => setCollapsed(false)}
+          aria-expanded={false}
+          className="shrink-0 rounded-full border border-mist bg-paper px-4 py-2 font-display text-[13px] font-semibold text-ink hover:bg-snow"
+        >
+          다시 펼치기 ▾
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="mb-8 rounded-[var(--radius-cards)] border border-carbon bg-surface p-5">
