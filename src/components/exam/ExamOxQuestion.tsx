@@ -94,6 +94,8 @@ export function ExamOxQuestion({
   const isComposite = comboChoices.length > 0;
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
+  // 해설을 이 컴포넌트가 그릴 때(랜덤 문제 등) 채점 뒤 각 선지 아래에 그 선지 해설을 붙인다
+  const inlineExplanation = renderExplanation && revealed;
   const [previousExamId,setPreviousExamId] = useState(examId);
   if(previousExamId !== examId){setPreviousExamId(examId);setSelected(null);setRevealed(false);}
   const [showProgressNudge, setShowProgressNudge] = useState(false);
@@ -178,7 +180,7 @@ export function ExamOxQuestion({
                 </p>
               ))}
               {items.map((item) => (
-                <div key={`${examId}-stmt-${item.key}`} className="flex gap-3">
+                <div key={`${examId}-stmt-${item.key}`} className="flex flex-wrap gap-x-3">
                   <span className="font-display font-semibold text-ink">
                     {item.label ?? item.key}
                   </span>
@@ -193,6 +195,9 @@ export function ExamOxQuestion({
                     >
                       {item.answer}
                     </span>
+                  ) : null}
+                  {inlineExplanation && item.explanation ? (
+                    <InlineExplanation text={item.explanation} examDate={examDate} lawVersions={lawVersions} />
                   ) : null}
                 </div>
               ))}
@@ -228,6 +233,9 @@ export function ExamOxQuestion({
                       {plainStudyText(choice.text)}
                     </span>
                   </div>
+                  {inlineExplanation && choice.explanation ? (
+                    <InlineExplanation text={choice.explanation} examDate={examDate} lawVersions={lawVersions} />
+                  ) : null}
                 </button>
               );
             })}
@@ -249,7 +257,7 @@ export function ExamOxQuestion({
             // 채점 뒤에는 고른 자리와 정답만 남기고 나머지는 물러선다.
             // 앱이 하던 것이다 — 다섯 줄이 같은 무게로 남아 있으면 어디를
             // 봐야 하는지 눈이 다시 헤맨다.
-            const muted = revealed && !selectedItem && !acceptedChoices.includes(choice);
+            const muted = revealed && !inlineExplanation && !selectedItem && !acceptedChoices.includes(choice);
             const isAnswer = revealed && acceptedChoices.includes(choice);
             return (
               <button
@@ -300,6 +308,9 @@ export function ExamOxQuestion({
                     </span>
                   ) : null}
                 </div>
+                {inlineExplanation && item.explanation ? (
+                  <InlineExplanation text={item.explanation} examDate={examDate} lawVersions={lawVersions} />
+                ) : null}
               </button>
             );
           })}
@@ -361,80 +372,38 @@ export function ExamOxQuestion({
               }}
             />
           ) : null}
-          {renderExplanation ? <section
-            className="rounded-2xl border border-mist bg-paper px-5 py-5"
-            aria-label="선지별 해설"
-          >
-            <h2 className="font-display text-[18px] font-semibold text-ink">선지별 해설</h2>
-            <div className="mt-4 divide-y divide-mist">
-              {items.map((item, index) => (
-                <div
-                  key={`explanation-${examId}-${item.key}`}
-                  className="py-4 first:pt-0 last:pb-0"
-                >
-                  <div className="flex items-center gap-2 font-display text-body-sm font-semibold text-ink">
-                    <span>{item.label ?? index + 1}</span>
-                    {item.answer ? (
-                      <span
-                        className={
-                          item.answer === "O" ? "text-[#6366f1]" : "text-[#ef4444]"
-                        }
-                      >
-                        {item.answer}
-                      </span>
-                    ) : null}
-                  </div>
-                  {item.explanation ? (
-                    <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                      <CitedText text={item.explanation} examDate={examDate} lawVersions={lawVersions} />
-                    </p>
-                  ) : null}
-                </div>
-              ))}
-              {isComposite
-                ? comboChoices.map((choice) => (
-                    <div key={`combo-expl-${examId}-${choice.no}`} className="py-4 last:pb-0">
-                      <div className="flex items-center gap-2 font-display text-body-sm font-semibold text-ink">
-                        <span>
-                          {choice.label} {plainStudyText(choice.text)}
-                        </span>
-                        <span
-                          className={
-                            choice.isCorrect ? "text-[#6366f1]" : "text-[#ef4444]"
-                          }
-                        >
-                          {choice.isCorrect ? "O" : "X"}
-                        </span>
-                      </div>
-                      {choice.explanation ? (
-                        <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                          <CitedText text={choice.explanation} examDate={examDate} lawVersions={lawVersions} />
-                        </p>
-                      ) : null}
-                    </div>
-                  ))
-                : null}
-            </div>
-            {!items.some((item) => item.explanation) &&
-            !comboChoices.some((c) => c.explanation) &&
-            explanationSummary ? (
-              <p className="font-system text-[14px] leading-6 text-smoke">
+          {/* 선지 해설은 각 선지 바로 아래에 붙였다(2026-10-21) — 여기는 공통 해설만 */}
+          {renderExplanation && explanationSummary ? (
+            <section className="rounded-2xl border border-mist bg-paper px-5 py-4" aria-label="공통 해설">
+              <h2 className="font-display text-body-sm font-semibold text-ink">공통 해설</h2>
+              <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
                 <CitedText text={explanationSummary} examDate={examDate} lawVersions={lawVersions} />
               </p>
-            ) : null}
-            {explanationSummary &&
-            (items.some((item) => item.explanation) ||
-              comboChoices.some((c) => c.explanation)) ? (
-              <div className="mt-4 border-t border-mist pt-4">
-                <p className="font-display text-body-sm font-semibold text-ink">해설 요약</p>
-                <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
-                  <CitedText text={explanationSummary} examDate={examDate} lawVersions={lawVersions} />
-                </p>
-              </div>
-            ) : null}
-          </section> : null}
+            </section>
+          ) : null}
         </div>
       ) : null}
     </div>
+  );
+}
+
+function InlineExplanation({
+  text,
+  examDate,
+  lawVersions,
+}: {
+  text: string;
+  examDate?: string;
+  lawVersions?: Record<string, string>;
+}) {
+  return (
+    <span className="mt-3 flex w-full items-start gap-2.5 rounded-xl bg-white/70 px-3 py-2.5 text-left font-system text-[14px] leading-6 text-smoke">
+      <span className="mt-0.5 shrink-0 rounded-full bg-[#EAF3FE] px-2 py-0.5 font-display text-[11px] font-bold leading-5 text-[#47739E]">
+        해설
+      </span>
+      <span className="min-w-0 flex-1">
+        <CitedText text={text} examDate={examDate} lawVersions={lawVersions} />
+      </span>
+    </span>
   );
 }
