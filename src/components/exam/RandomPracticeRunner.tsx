@@ -5,32 +5,27 @@ import Link from "next/link";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
 import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
-import { ExamAnswerList } from "@/components/exam/ExamAnswerList";
-import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
+import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
 import { PrimaryButton } from "@/components/ui/Button";
 import { trackEvent } from "@/lib/analytics";
 import type { ExamQuestion } from "@/lib/exam-questions";
-import { answerKeyString } from "@/lib/answer-key";
-import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
 import type { AttemptResult } from "@/types/database";
 
 export function RandomPracticeRunner({
   subject,
   questions,
-  userId,
 }: {
   subject: string;
   questions: ExamQuestion[];
-  userId: string | null;
+  /** 예전 채점 저장용 — 지금은 문항 화면과 같은 ExamOxQuestion 이 기록을 맡는다 */
+  userId?: string | null;
 }) {
   const [index, setIndex] = useState(0);
   const [results, setResults] = useState<Record<number, AttemptResult>>({});
   const [finished, setFinished] = useState(false);
-  const [revealed, setRevealed] = useState(false);
 
   const total = questions.length;
   const question = questions[index];
-  const subjectLabel = ARCHIVE_SUBJECT_MAP[question.subject];
 
   const handleNext = () => {
     if (finished) return;
@@ -40,14 +35,12 @@ export function RandomPracticeRunner({
       return;
     }
     setIndex((i) => Math.min(i + 1, total - 1));
-    setRevealed(false);
   };
 
   const handleRestart = () => {
     setIndex(0);
     setResults({});
     setFinished(false);
-    setRevealed(false);
   };
 
   if (finished) {
@@ -57,11 +50,11 @@ export function RandomPracticeRunner({
       <div className="mx-auto max-w-xl rounded-[var(--radius-largecards)] border border-carbon bg-paper p-8 text-center shadow-[var(--shadow-card)]">
         <p className="font-display text-body-sm text-smoke">랜덤 문제 연습 결과</p>
         <p className="mt-2 font-display text-heading-sm font-bold text-ink">
-          {total}문제 중 <span className="text-[#6366f1]">{correctCount}개</span> 맞았다고 표시했어요
+          {total}문제 중 <span className="text-[#6366f1]">{correctCount}개</span> 맞혔어요
         </p>
         {attemptedCount < total && (
           <p className="mt-2 font-display text-body-sm text-smoke">
-            ({total - attemptedCount}문제는 채점 표시를 안 남겼어요)
+            ({total - attemptedCount}문제는 정답 확인을 하지 않았어요)
           </p>
         )}
         <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -109,32 +102,22 @@ export function RandomPracticeRunner({
       ) : null}
       {question.table ? <ExamStructuredMaterials table={question.table} /> : null}
 
-      <ExamAnswerList
+      {/* 문항 화면과 같은 방식 — 선지를 고르고 「정답 확인」을 누르면 맞힘·틀림과 해설이 나온다(2026-10-21).
+          예전엔 고를 수 없이 정답만 펼쳐 스스로 맞았다고 표시해야 했다. */}
+      <ExamOxQuestion
         key={`${question.year}-${question.questionNo}`}
+        examId={`${question.subject}-${question.year}-${question.questionNo}-random`}
         items={question.items}
-        correctChoice={answerKeyString(question)}
-        questionType={question.questionType}
+        correctChoice={Number(question.correctChoice)}
+        correctChoices={question.correctChoices}
+        examDate={question.examDate}
+        lawVersions={question.lawVersions}
+        explanationSummary={question.explanationSummary}
         comboChoices={question.comboChoices}
         referenceEntries={question.referenceEntries}
-        compositeLayout={question.compositeLayout}
-        tableHeader={question.tableHeader}
-        stem={question.stem}
-        free
-        subject={question.subject}
-        year={question.year}
-        questionNo={question.questionNo}
-        userId={userId}
-        initialAttemptResult={null}
+        passageLabel={question.leadEntries?.length ? "<보기>" : undefined}
         onAttempt={(result) => setResults((r) => ({ ...r, [index]: result }))}
-        onRevealed={() => setRevealed(true)}
       />
-
-      {revealed && (
-        <ExamQuestionSeoExplanations
-          question={question}
-          subjectLabel={subjectLabel}
-        />
-      )}
 
       <div className="mt-4 flex justify-end">
         <PrimaryButton onClick={handleNext}>
