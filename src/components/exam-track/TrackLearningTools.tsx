@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { TrackPracticeQuestion } from "./TrackPracticeQuestion";
+import { TrackRandomPractice } from "./TrackRandomPractice";
+import type { TrackSubjectToc } from "@/lib/exam-track/toc";
 import { useMe } from "@/lib/client-session";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
@@ -53,11 +55,14 @@ export function TrackLearningTools({
   subjectId,
   basePath,
   exams: allExams,
+  toc = null,
 }: {
   scope: "public_service" | "police" | "firefighter" | "housing" | "social_worker" | "history" | "english" | "gugeo" | "haengjeongsa" | "semusa" | "sanan" | "sonhae" | "nomusa" | "gyeongbi" | "gamjeong" | "mullyu" | "youth";
   subjectId: string;
   basePath: string;
   exams: ExamTrackExam[];
+  /** 교재 목차(편 → 장) — 랜덤 문제 단원 필터에 쓴다. 없으면 문항 분류로 세운다 */
+  toc?: TrackSubjectToc | null;
 }) {
   /*
    * 로그인 상태를 서버 프롭으로 받지 않고 스스로 알아낸다 — 페이지가 쿠키를
@@ -115,7 +120,6 @@ export function TrackLearningTools({
       const latest = [...exams].sort((a, b) => b.year - a.year || a.questionNo - b.questionNo)[0];
       return latest ? exams.filter((exam) => exam.year === latest.year && exam.sourceCode === latest.sourceCode) : [];
     }
-    if (mode === "random") return seededDaily(exams, `${Date.now()}:${prefix}`, 10);
     return [];
   }, [allExams, attemptMap, bookmarkSet, mode, prefix, today]);
 
@@ -175,7 +179,18 @@ export function TrackLearningTools({
           </button>
         ))}
       </div>
-      {!pending && !userId && mode ? (
+      {/* 랜덤 문제는 공인중개사처럼 로그인 없이도 연도·단원을 골라 푼다(2026-10-21) */}
+      {mode === "random" ? (
+        <TrackRandomPractice
+          scope={scope}
+          exams={allExams.filter((exam) => examRenderKind(exam) === "objective")}
+          toc={toc}
+          loginNextFor={(exam) => `${basePath}/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}/${exam.questionNo}`}
+          attemptOf={(exam) => attemptMap.get(examKey(exam)) ?? null}
+          onAttempt={(exam, result) => saveAttempt(exam, result)}
+        />
+      ) : null}
+      {!pending && !userId && mode && mode !== "random" ? (
         <div className="mt-5 rounded-2xl border border-ios-blue/25 bg-ios-blue/[0.06] p-6 text-center">
           <p className="font-display text-body font-semibold text-ink">
             홈페이지 기능은 전부 무료예요. 로그인만 하면 학습 기록·오답노트·북마크·랜덤·복습·PDF를
@@ -183,7 +198,7 @@ export function TrackLearningTools({
           </p>
           <Link href={loginHref} className="mt-4 inline-flex rounded-full bg-ios-blue px-5 py-2.5 font-display text-body-sm font-semibold text-white">무료로 로그인</Link>
         </div>
-      ) : (pending || loading) && mode ? (
+      ) : (pending || loading) && mode && mode !== "random" ? (
         <div className="mt-5 space-y-3" aria-busy="true" aria-label="학습 기록 불러오는 중">
           <div className="h-24 animate-pulse rounded-2xl bg-snow" />
           <div className="h-40 animate-pulse rounded-2xl bg-snow" />
@@ -194,8 +209,8 @@ export function TrackLearningTools({
           {[["풀이", total], ["정답", correct], ["오답", wrong], ["정답률", total ? `${Math.round(correct / total * 100)}%` : "—"]].map(([label, value]) => <div key={label} className="rounded-2xl border border-mist bg-paper p-5"><p className="font-display text-body-sm text-fog">{label}</p><p className="mt-2 font-display text-[26px] font-semibold text-ink">{value}</p></div>)}
         </div>
       ) : null}
-      {userId && mode && mode !== "stats" && !current && !loading ? <p className="mt-5 rounded-2xl border border-mist bg-paper p-6 font-display text-body text-smoke">아직 표시할 문제가 없어요. 먼저 기출문제를 풀어 주세요.</p> : null}
-      {userId && current ? (
+      {userId && mode && mode !== "stats" && mode !== "random" && !current && !loading ? <p className="mt-5 rounded-2xl border border-mist bg-paper p-6 font-display text-body text-smoke">아직 표시할 문제가 없어요. 먼저 기출문제를 풀어 주세요.</p> : null}
+      {userId && current && mode !== "random" ? (
         <div className="mt-6 rounded-[var(--radius-largecards)] border border-mist bg-paper p-5 md:p-7">
           <div className="mb-4 flex items-center justify-between gap-3 font-display text-body-sm text-fog"><span>{index + 1} / {pool.length} · {formatExamRefLabel(scope, current.year, current.sourceCode)}</span><button type="button" onClick={() => void toggleBookmark(current)} className="font-semibold text-ios-blue">{bookmarkSet.has(examKey(current)) ? "★ 북마크됨" : "☆ 북마크"}</button></div>
           <TrackPracticeQuestion

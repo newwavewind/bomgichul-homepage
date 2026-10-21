@@ -13,6 +13,7 @@ import type { TrackConceptStatement } from "@/components/exam-track/TrackConcept
 import { TrackLearningTools } from "@/components/exam-track/TrackLearningTools";
 import { TrackExamSessionOverview } from "@/components/exam-track/TrackExamSessionOverview";
 import { SubjectUnitShare } from "@/components/exam-track/SubjectUnitShare";
+import { loadTrackSubjectToc } from "@/lib/exam-track/toc";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import {
   ExamQuestionSeoExplanations,
@@ -311,6 +312,7 @@ export async function TrackExamSubjectPage({
   if (!data) notFound();
   const path = `${track.basePath}/exam/${subjectId}`;
   const description = `${data.subject.label} 기출 ${data.exams.length}문항과 정답 해설`;
+  const toc = await loadTrackSubjectToc(track.basePath.replace(/^\//, ""), subjectId);
   const sessions = api.getExamSessions(subjectId);
   const housingFirstStage = new Set(["accounting", "facilities", "civil-law"]);
   // 경비지도사는 1·2차 모두 객관식이라 2차 과목도 싣는다 — 과목에 따라 「1차」·「2차」로 묶는다.
@@ -377,6 +379,7 @@ export async function TrackExamSubjectPage({
           subjectId={subjectId}
           basePath={track.basePath}
           exams={data.exams}
+          toc={toc}
         />
         <SubjectUnitShare exams={data.exams.filter((exam) => examRenderKind(exam))} subjectLabel={data.subject.label} />
         <section className="mt-10">

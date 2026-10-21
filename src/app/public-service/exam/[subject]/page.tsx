@@ -4,6 +4,7 @@ import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { BackLink } from "@/components/ui/BackLink";
 import { TrackLearningTools } from "@/components/exam-track/TrackLearningTools";
 import { SubjectUnitShare } from "@/components/exam-track/SubjectUnitShare";
+import { loadTrackSubjectToc } from "@/lib/exam-track/toc";
 import { ExamSessionCard } from "@/components/exam/ExamSessionCard";
 import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
 import { getPublicServiceExamSessions, getPublicServiceSubject, PUBLIC_SERVICE_SUBJECT_IDS } from "@/lib/public-service-content";
@@ -43,7 +44,7 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
       <header className="mt-6 border-b border-mist pb-8">
         <h1 className="font-display text-heading font-semibold text-ink">9급 공무원 {data.subject.label} 기출문제</h1>
       </header>
-      <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} />
+      <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} toc={await loadTrackSubjectToc("public-service", subjectId)} />
       <SubjectUnitShare exams={data.exams} subjectLabel={data.subject.label} />
       <section className="mt-10">
         <div className={`grid gap-6 ${sessionsBySource.size > 1 ? "lg:grid-cols-2" : "max-w-2xl"}`}>
