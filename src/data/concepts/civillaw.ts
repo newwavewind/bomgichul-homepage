@@ -30,51 +30,9 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "contract-classification",
-    "chapterKo": "민법총칙",
-    "sectionKo": "권리의 변동",
-    "category": "권리의변동",
-    "subcategory": "권리의변동",
-    "parentSlug": "types-of-real-right-change",
-    "titleKo": "계약의 성질 분류 (유상·무상·쌍무·편무·낙성·요물)",
-    "titleEn": "Classifying Contracts by Nature",
-    "definition": "계약을 가르는 잣대는 셋이다. 양쪽이 값을 주고받는가(유상·무상), 양쪽이 서로 의무를 지는가(쌍무·편무), 합의만으로 성립하는가 물건을 건네야 성립하는가(낙성·요물).",
-    "intuition": "계약의 성질은 '누가 의무를 지는가(쌍무·편무)', '대가가 있는가(유상·무상)', '언제 성립하는가(낙성·요물)'라는 세 가지 서로 다른 잣대로 각각 분류된다는 점을 이해하면, 매년 반복 출제되는 이 유형의 문제를 빠르게 풀 수 있다.",
-    "keyPoints": [
-      "부동산매매계약은 유상·쌍무계약이자 낙성계약이며 '요물계약'이 아니다.",
-      "증여계약은 편무·무상계약이지만 낙성계약이라는 점(의사표시 합치만으로 성립)은 매매와 같다.",
-      "현상광고계약은 낙성계약이 아니라 요물계약이다 — 지정된 행위의 완료라는 사실행위가 성립요건이다.",
-      "임대차·교환계약은 모두 쌍무·유상·낙성계약이며, 사용대차는 무상계약이라는 점에서 임대차와 구별된다."
-    ],
-    "pitfalls": "매매·도급을 요물계약으로, 교환을 무상계약으로 착각하는 지문이 거의 매년 출제된다 — 각 계약의 세 가지 분류축(유상·무상/쌍무·편무/낙성·요물)을 표로 정리해두면 실수를 줄일 수 있다.",
-    "example": "매매·임대차·도급은 모두 낙성·쌍무·유상계약이지만, 현상광고만은 지정행위 완료가 있어야 성립하는 요물계약이라는 점에서 예외적이다.",
-    "questionRefs": [
-      {
-        "year": 2017,
-        "questionNo": 70
-      },
-      {
-        "year": 2020,
-        "questionNo": 65
-      },
-      {
-        "year": 2022,
-        "questionNo": 69
-      },
-      {
-        "year": 2024,
-        "questionNo": 65
-      },
-      {
-        "year": 2025,
-        "questionNo": 74
-      }
-    ]
-  },
-  {
     "slug": "unilateral-act-classification",
     "chapterKo": "민법총칙",
-    "sectionKo": "권리의 변동",
+    "sectionKo": "법률행위",
     "category": "권리의변동",
     "subcategory": "권리의변동",
     "parentSlug": "types-of-real-right-change",
@@ -189,9 +147,27 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "non-genuine-intent-expression",
+    "slug": "mistake-fraud-duress",
     "chapterKo": "민법총칙",
     "sectionKo": "법률행위",
+    "category": "법률행위",
+    "subcategory": "착오·사기·강박",
+    "titleKo": "착오·사기·강박에 의한 의사표시 (제109·110조)",
+    "titleEn": "Declarations Made by Mistake, Fraud, or Duress",
+    "definition": "착오·사기·강박에 의한 의사표시는 그 요건을 충족하면 표의자가 취소할 수 있는 법률행위가 되며, 계약서상 표시가 잘못되었을 뿐 당사자의 진의가 일치한 경우(오표시)에는 애초에 진의대로 계약이 유효하게 성립한다.",
+    "intuition": "오표시무해 원칙은 '문서의 글자'보다 '당사자가 실제로 합의한 내용'을 우선한다는 사고방식이므로, 서류상 표시 오류와 착오에 의한 의사표시를 구분하는 열쇠가 된다.",
+    "keyPoints": [
+      "쌍방이 실제로는 X토지를 목적물로 합의했으나 계약서에 Y토지로 잘못 기재했다면, 오표시무해 원칙에 따라 X토지에 대해 유효하게 계약이 성립한다 — 이는 착오의 문제가 아니다.",
+      "아파트 인근에 공동묘지가 있다는 사실을 고지하지 않은 경우, 고지의무 위반으로서 기망행위(사기)에 해당할 수 있다.",
+      "착오·사기·강박에 의한 의사표시는 무효가 아니라 '취소할 수 있는' 법률행위라는 점에서 통정허위표시(무효)와 구별된다."
+    ],
+    "pitfalls": "오표시무해 사안을 착오취소의 문제로 접근하는 실수가 흔하다 — 당사자의 진의가 합치했다면 애초에 취소할 착오 자체가 없다.",
+    "example": "매도인과 매수인이 구두로는 101호를 거래하기로 합의했으나 계약서에 실수로 102호라고 적었다면, 계약은 101호에 대해 유효하게 성립한 것으로 본다."
+  },
+  {
+    "slug": "non-genuine-intent-expression",
+    "chapterKo": "민법총칙",
+    "sectionKo": "의사표시",
     "category": "법률행위",
     "subcategory": "비진의·통정허위",
     "titleKo": "비진의표시 (민법 제107조)",
@@ -215,7 +191,7 @@ const concepts: Concept[] = [
   {
     "slug": "sham-declaration",
     "chapterKo": "민법총칙",
-    "sectionKo": "법률행위",
+    "sectionKo": "의사표시",
     "category": "법률행위",
     "subcategory": "비진의·통정허위",
     "titleKo": "통정허위표시 (민법 제108조)",
@@ -277,24 +253,6 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "mistake-fraud-duress",
-    "chapterKo": "민법총칙",
-    "sectionKo": "법률행위",
-    "category": "법률행위",
-    "subcategory": "착오·사기·강박",
-    "titleKo": "착오·사기·강박에 의한 의사표시 (제109·110조)",
-    "titleEn": "Declarations Made by Mistake, Fraud, or Duress",
-    "definition": "착오·사기·강박에 의한 의사표시는 그 요건을 충족하면 표의자가 취소할 수 있는 법률행위가 되며, 계약서상 표시가 잘못되었을 뿐 당사자의 진의가 일치한 경우(오표시)에는 애초에 진의대로 계약이 유효하게 성립한다.",
-    "intuition": "오표시무해 원칙은 '문서의 글자'보다 '당사자가 실제로 합의한 내용'을 우선한다는 사고방식이므로, 서류상 표시 오류와 착오에 의한 의사표시를 구분하는 열쇠가 된다.",
-    "keyPoints": [
-      "쌍방이 실제로는 X토지를 목적물로 합의했으나 계약서에 Y토지로 잘못 기재했다면, 오표시무해 원칙에 따라 X토지에 대해 유효하게 계약이 성립한다 — 이는 착오의 문제가 아니다.",
-      "아파트 인근에 공동묘지가 있다는 사실을 고지하지 않은 경우, 고지의무 위반으로서 기망행위(사기)에 해당할 수 있다.",
-      "착오·사기·강박에 의한 의사표시는 무효가 아니라 '취소할 수 있는' 법률행위라는 점에서 통정허위표시(무효)와 구별된다."
-    ],
-    "pitfalls": "오표시무해 사안을 착오취소의 문제로 접근하는 실수가 흔하다 — 당사자의 진의가 합치했다면 애초에 취소할 착오 자체가 없다.",
-    "example": "매도인과 매수인이 구두로는 101호를 거래하기로 합의했으나 계약서에 실수로 102호라고 적었다면, 계약은 101호에 대해 유효하게 성립한 것으로 본다."
-  },
-  {
     "slug": "juridical-act-effective-time",
     "chapterKo": "민법총칙",
     "sectionKo": "의사표시",
@@ -321,7 +279,7 @@ const concepts: Concept[] = [
   {
     "slug": "agency-basics",
     "chapterKo": "민법총칙",
-    "sectionKo": "법률행위의 대리",
+    "sectionKo": "대리",
     "category": "대리",
     "subcategory": "대리일반",
     "titleKo": "대리인의 권한 범위",
@@ -374,7 +332,7 @@ const concepts: Concept[] = [
   {
     "slug": "apparent-agency",
     "chapterKo": "민법총칙",
-    "sectionKo": "법률행위의 대리",
+    "sectionKo": "대리",
     "category": "대리",
     "subcategory": "대리일반",
     "parentSlug": "agency-basics",
@@ -416,7 +374,7 @@ const concepts: Concept[] = [
   {
     "slug": "sub-agency",
     "chapterKo": "민법총칙",
-    "sectionKo": "법률행위의 대리",
+    "sectionKo": "대리",
     "category": "대리",
     "subcategory": "대리일반",
     "parentSlug": "agency-basics",
@@ -461,7 +419,7 @@ const concepts: Concept[] = [
   {
     "slug": "unauthorized-agency",
     "chapterKo": "민법총칙",
-    "sectionKo": "법률행위의 대리",
+    "sectionKo": "대리",
     "category": "대리",
     "subcategory": "무권대리",
     "titleKo": "무권대리 행위의 추인과 최고 (민법 제130·131조)",
@@ -641,7 +599,7 @@ const concepts: Concept[] = [
   {
     "slug": "numerus-clausus",
     "chapterKo": "물권법",
-    "sectionKo": "물권의 의의",
+    "sectionKo": "물권법 총설",
     "category": "물권총칙",
     "subcategory": "물권법정주의",
     "titleKo": "물권법정주의 (민법 제185조)",
@@ -659,7 +617,7 @@ const concepts: Concept[] = [
   {
     "slug": "real-right-claim",
     "chapterKo": "물권법",
-    "sectionKo": "물권의 의의",
+    "sectionKo": "물권법 총설",
     "category": "물권적청구권",
     "subcategory": "물권적청구권",
     "titleKo": "물권적 청구권의 내용과 한계",
@@ -1151,31 +1109,44 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "transfer-security",
-    "chapterKo": "물권법",
-    "sectionKo": "담보물권",
-    "category": "저당권",
-    "subcategory": "저당권",
-    "parentSlug": "mortgage-effect-scope",
-    "titleKo": "양도담보의 법률관계",
-    "titleEn": "Legal Relations under Security by Way of Transfer",
-    "definition": "양도담보는 채무 담보를 위해 소유권이전 형식을 취하는 비전형담보다. 특별한 반대 약정이 없는 한 양도담보설정자는 목적물을 계속 사용·수익하고 제3자에게 임대할 권한도 가진다.",
-    "intuition": "양도담보는 형식상 '소유권 이전'이지만 실질은 '담보'이므로, 겉모습(등기명의)과 실제 권리관계(담보 목적)를 분리해서 봐야 한다는 점이 다른 담보물권(저당권)과 근본적으로 다른 지점이다.",
+    "slug": "contract-classification",
+    "chapterKo": "계약법",
+    "sectionKo": "계약법 총론",
+    "category": "권리의변동",
+    "subcategory": "권리의변동",
+    "parentSlug": "types-of-real-right-change",
+    "titleKo": "계약의 성질 분류 (유상·무상·쌍무·편무·낙성·요물)",
+    "titleEn": "Classifying Contracts by Nature",
+    "definition": "계약을 가르는 잣대는 셋이다. 양쪽이 값을 주고받는가(유상·무상), 양쪽이 서로 의무를 지는가(쌍무·편무), 합의만으로 성립하는가 물건을 건네야 성립하는가(낙성·요물).",
+    "intuition": "계약의 성질은 '누가 의무를 지는가(쌍무·편무)', '대가가 있는가(유상·무상)', '언제 성립하는가(낙성·요물)'라는 세 가지 서로 다른 잣대로 각각 분류된다는 점을 이해하면, 매년 반복 출제되는 이 유형의 문제를 빠르게 풀 수 있다.",
     "keyPoints": [
-      "양도담보권자 명의로 이전등기가 되어도, 반대 약정이 없으면 설정자가 사용·수익권을 보유한다.",
-      "같은 전제에서 설정자는 자신의 사용·수익권에 기해 제3자와 임대차계약을 체결할 수 있다.",
-      "양도담보는 저당권처럼 등기부상 담보물권으로 공시되지 않고 소유권 이전 형식을 취한다는 점에서 저당권과 근본적으로 다른 비전형담보다."
+      "부동산매매계약은 유상·쌍무계약이자 낙성계약이며 '요물계약'이 아니다.",
+      "증여계약은 편무·무상계약이지만 낙성계약이라는 점(의사표시 합치만으로 성립)은 매매와 같다.",
+      "현상광고계약은 낙성계약이 아니라 요물계약이다 — 지정된 행위의 완료라는 사실행위가 성립요건이다.",
+      "임대차·교환계약은 모두 쌍무·유상·낙성계약이며, 사용대차는 무상계약이라는 점에서 임대차와 구별된다."
     ],
-    "pitfalls": "등기명의만 보고 설정자의 사용·수익권이 사라졌다고 단정하거나, 반대로 당사자 사이의 반대 약정이 있어도 언제나 설정자가 사용한다고 단정하면 모두 틀린다.",
-    "example": "채무자가 대출금 담보로 자신의 토지를 채권자 명의로 이전등기해주었더라도(양도담보), 채무자는 그 토지를 계속 사용하거나 제3자에게 임대할 수 있다.",
+    "pitfalls": "매매·도급을 요물계약으로, 교환을 무상계약으로 착각하는 지문이 거의 매년 출제된다 — 각 계약의 세 가지 분류축(유상·무상/쌍무·편무/낙성·요물)을 표로 정리해두면 실수를 줄일 수 있다.",
+    "example": "매매·임대차·도급은 모두 낙성·쌍무·유상계약이지만, 현상광고만은 지정행위 완료가 있어야 성립하는 요물계약이라는 점에서 예외적이다.",
     "questionRefs": [
       {
-        "year": 2018,
-        "questionNo": 76
+        "year": 2017,
+        "questionNo": 70
       },
       {
         "year": 2020,
-        "questionNo": 78
+        "questionNo": 65
+      },
+      {
+        "year": 2022,
+        "questionNo": 69
+      },
+      {
+        "year": 2024,
+        "questionNo": 65
+      },
+      {
+        "year": 2025,
+        "questionNo": 74
       }
     ]
   },
@@ -1354,48 +1325,6 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "earnest-money-rescission",
-    "chapterKo": "계약법",
-    "sectionKo": "계약법 총론",
-    "category": "계약총론",
-    "subcategory": "계약해제",
-    "parentSlug": "contract-rescission",
-    "titleKo": "계약금(해약금)의 성질과 해약금 해제",
-    "titleEn": "Nature of Earnest Money and Rescission by Forfeiture",
-    "definition": "계약금은 별도 약정이 없어도 해약금으로 추정되며, 당사자 일방이 이행에 착수하기 전까지 매수인은 계약금을 포기하고 매도인은 그 배액을 상환하여 계약을 해제할 수 있다. 다만 중도금 지급 등 이행에 착수한 후에는 이 해약금 해제권을 행사할 수 없다.",
-    "intuition": "계약금계약은 매매계약에 딸린 종된 계약이지만, 그 자체로 '위약 없이도 빠져나갈 수 있는 보험' 역할을 한다 — 다만 상대방이 이미 이행에 착수해 신뢰를 쌓은 후에는 그 보험을 더 이상 쓸 수 없게 막아둔 것이 이행착수 전이라는 시간적 제한이다.",
-    "keyPoints": [
-      "계약금계약은 매매계약의 종된 계약이며, 계약금을 위약금으로 하는 특약도 별도로 가능하다.",
-      "중도금 지급 등 이행에 착수한 후에는 특약이 없는 한 계약금을 포기하고 계약을 해제할 수 없다.",
-      "해약금에 기한 해제로 상대방에게 손해가 발생하더라도, 그 손해배상을 별도로 청구할 수는 없다.",
-      "당사자들이 해약금에 기한 해제권을 배제하기로 약정했다면, 더 이상 그 해제권을 행사할 수 없다."
-    ],
-    "pitfalls": "해약금 해제로 인한 손해에 대해서도 별도로 손해배상을 청구할 수 있다고 착각하기 쉽다 — 해약금 해제는 손해배상 청구권을 발생시키지 않는다.",
-    "example": "매수인이 중도금을 지급하기 전이라면 계약금을 포기하고 매매계약을 해제할 수 있지만, 중도금을 이미 지급했다면 특약이 없는 한 더 이상 그럴 수 없다.",
-    "questionRefs": [
-      {
-        "year": 2016,
-        "questionNo": 75
-      },
-      {
-        "year": 2017,
-        "questionNo": 72
-      },
-      {
-        "year": 2018,
-        "questionNo": 67
-      },
-      {
-        "year": 2019,
-        "questionNo": 65
-      },
-      {
-        "year": 2023,
-        "questionNo": 71
-      }
-    ]
-  },
-  {
     "slug": "mutual-rescission",
     "chapterKo": "계약법",
     "sectionKo": "계약법 총론",
@@ -1466,6 +1395,48 @@ const concepts: Concept[] = [
       {
         "year": 2024,
         "questionNo": 72
+      }
+    ]
+  },
+  {
+    "slug": "earnest-money-rescission",
+    "chapterKo": "계약법",
+    "sectionKo": "매매",
+    "category": "계약총론",
+    "subcategory": "계약해제",
+    "parentSlug": "contract-rescission",
+    "titleKo": "계약금(해약금)의 성질과 해약금 해제",
+    "titleEn": "Nature of Earnest Money and Rescission by Forfeiture",
+    "definition": "계약금은 별도 약정이 없어도 해약금으로 추정되며, 당사자 일방이 이행에 착수하기 전까지 매수인은 계약금을 포기하고 매도인은 그 배액을 상환하여 계약을 해제할 수 있다. 다만 중도금 지급 등 이행에 착수한 후에는 이 해약금 해제권을 행사할 수 없다.",
+    "intuition": "계약금계약은 매매계약에 딸린 종된 계약이지만, 그 자체로 '위약 없이도 빠져나갈 수 있는 보험' 역할을 한다 — 다만 상대방이 이미 이행에 착수해 신뢰를 쌓은 후에는 그 보험을 더 이상 쓸 수 없게 막아둔 것이 이행착수 전이라는 시간적 제한이다.",
+    "keyPoints": [
+      "계약금계약은 매매계약의 종된 계약이며, 계약금을 위약금으로 하는 특약도 별도로 가능하다.",
+      "중도금 지급 등 이행에 착수한 후에는 특약이 없는 한 계약금을 포기하고 계약을 해제할 수 없다.",
+      "해약금에 기한 해제로 상대방에게 손해가 발생하더라도, 그 손해배상을 별도로 청구할 수는 없다.",
+      "당사자들이 해약금에 기한 해제권을 배제하기로 약정했다면, 더 이상 그 해제권을 행사할 수 없다."
+    ],
+    "pitfalls": "해약금 해제로 인한 손해에 대해서도 별도로 손해배상을 청구할 수 있다고 착각하기 쉽다 — 해약금 해제는 손해배상 청구권을 발생시키지 않는다.",
+    "example": "매수인이 중도금을 지급하기 전이라면 계약금을 포기하고 매매계약을 해제할 수 있지만, 중도금을 이미 지급했다면 특약이 없는 한 더 이상 그럴 수 없다.",
+    "questionRefs": [
+      {
+        "year": 2016,
+        "questionNo": 75
+      },
+      {
+        "year": 2017,
+        "questionNo": 72
+      },
+      {
+        "year": 2018,
+        "questionNo": 67
+      },
+      {
+        "year": 2019,
+        "questionNo": 65
+      },
+      {
+        "year": 2023,
+        "questionNo": 71
       }
     ]
   },
@@ -1829,22 +1800,33 @@ const concepts: Concept[] = [
     "example": "사업자등록 대상이 아닌 종교시설 용도의 건물을 임차한 경우에는 상가임대차법의 보호를 받지 못한다."
   },
   {
-    "slug": "aggregate-building-act",
+    "slug": "transfer-security",
     "chapterKo": "민사특별법",
-    "sectionKo": "집합건물의 소유 및 관리에 관한 법률",
-    "category": "민사특별법",
-    "subcategory": "집합건물법",
-    "titleKo": "집합건물법상 전유부분과 재건축 결의",
-    "titleEn": "Exclusive Ownership and Reconstruction Resolution under the Aggregate Buildings Act",
-    "definition": "집합건물은 한 채 안에 여러 소유권이 들어 있는 건물이다. 혼자 쓰는 전유부분에만 소유권이 붙고 함께 쓰는 공용부분은 그 전유부분을 따라다녀, 따로 떼어 팔 수 없다.",
-    "intuition": "집합건물은 '독립적으로 쓰이는 부분(전유부분)'과 '공동으로 쓰이는 부분(공용부분)'으로 나뉜다는 기본 구도를 먼저 잡고, 건물 전체의 운명을 바꾸는 재건축 같은 중대한 결정에는 매우 높은 동의율(5분의 4)을 요구한다고 이해하면 된다.",
+    "sectionKo": "가등기담보 등에 관한 법률",
+    "category": "저당권",
+    "subcategory": "저당권",
+    "parentSlug": "mortgage-effect-scope",
+    "titleKo": "양도담보의 법률관계",
+    "titleEn": "Legal Relations under Security by Way of Transfer",
+    "definition": "양도담보는 채무 담보를 위해 소유권이전 형식을 취하는 비전형담보다. 특별한 반대 약정이 없는 한 양도담보설정자는 목적물을 계속 사용·수익하고 제3자에게 임대할 권한도 가진다.",
+    "intuition": "양도담보는 형식상 '소유권 이전'이지만 실질은 '담보'이므로, 겉모습(등기명의)과 실제 권리관계(담보 목적)를 분리해서 봐야 한다는 점이 다른 담보물권(저당권)과 근본적으로 다른 지점이다.",
     "keyPoints": [
-      "전유부분은 구분소유권의 목적인 건물부분이다(제2조 제3호).",
-      "재건축 결의는 구분소유자 및 의결권의 각 5분의 4 이상의 결의에 의한다(제47조 제1항).",
-      "공용부분에 관한 권리는 전유부분의 처분에 따르며, 전유부분과 분리하여 공용부분의 지분만 처분할 수 없다."
+      "양도담보권자 명의로 이전등기가 되어도, 반대 약정이 없으면 설정자가 사용·수익권을 보유한다.",
+      "같은 전제에서 설정자는 자신의 사용·수익권에 기해 제3자와 임대차계약을 체결할 수 있다.",
+      "양도담보는 저당권처럼 등기부상 담보물권으로 공시되지 않고 소유권 이전 형식을 취한다는 점에서 저당권과 근본적으로 다른 비전형담보다."
     ],
-    "pitfalls": "재건축 결의 요건을 과반수나 3분의 2로 착각하기 쉽다 — 정확히는 '5분의 4 이상'이다.",
-    "example": "노후 아파트 재건축을 추진하려면 전체 구분소유자와 의결권의 각 5분의 4 이상이 찬성해야 재건축 결의가 성립한다."
+    "pitfalls": "등기명의만 보고 설정자의 사용·수익권이 사라졌다고 단정하거나, 반대로 당사자 사이의 반대 약정이 있어도 언제나 설정자가 사용한다고 단정하면 모두 틀린다.",
+    "example": "채무자가 대출금 담보로 자신의 토지를 채권자 명의로 이전등기해주었더라도(양도담보), 채무자는 그 토지를 계속 사용하거나 제3자에게 임대할 수 있다.",
+    "questionRefs": [
+      {
+        "year": 2018,
+        "questionNo": 76
+      },
+      {
+        "year": 2020,
+        "questionNo": 78
+      }
+    ]
   },
   {
     "slug": "provisional-registration-security-act",
@@ -1863,6 +1845,24 @@ const concepts: Concept[] = [
     ],
     "pitfalls": "채무변제의무와 가등기말소의무를 동시이행관계로 착각하기 쉽다 — 변제가 먼저 이루어져야 하는 선이행의무 관계다.",
     "example": "채권자가 청산금을 계산해 채무자에게 통지한 후 2개월의 청산기간이 지나야, 채무자가 변제하지 않는 한 채권자가 확정적으로 소유권을 취득한다."
+  },
+  {
+    "slug": "aggregate-building-act",
+    "chapterKo": "민사특별법",
+    "sectionKo": "집합건물의 소유 및 관리에 관한 법률",
+    "category": "민사특별법",
+    "subcategory": "집합건물법",
+    "titleKo": "집합건물법상 전유부분과 재건축 결의",
+    "titleEn": "Exclusive Ownership and Reconstruction Resolution under the Aggregate Buildings Act",
+    "definition": "집합건물은 한 채 안에 여러 소유권이 들어 있는 건물이다. 혼자 쓰는 전유부분에만 소유권이 붙고 함께 쓰는 공용부분은 그 전유부분을 따라다녀, 따로 떼어 팔 수 없다.",
+    "intuition": "집합건물은 '독립적으로 쓰이는 부분(전유부분)'과 '공동으로 쓰이는 부분(공용부분)'으로 나뉜다는 기본 구도를 먼저 잡고, 건물 전체의 운명을 바꾸는 재건축 같은 중대한 결정에는 매우 높은 동의율(5분의 4)을 요구한다고 이해하면 된다.",
+    "keyPoints": [
+      "전유부분은 구분소유권의 목적인 건물부분이다(제2조 제3호).",
+      "재건축 결의는 구분소유자 및 의결권의 각 5분의 4 이상의 결의에 의한다(제47조 제1항).",
+      "공용부분에 관한 권리는 전유부분의 처분에 따르며, 전유부분과 분리하여 공용부분의 지분만 처분할 수 없다."
+    ],
+    "pitfalls": "재건축 결의 요건을 과반수나 3분의 2로 착각하기 쉽다 — 정확히는 '5분의 4 이상'이다.",
+    "example": "노후 아파트 재건축을 추진하려면 전체 구분소유자와 의결권의 각 5분의 4 이상이 찬성해야 재건축 결의가 성립한다."
   },
   {
     "slug": "title-trust",

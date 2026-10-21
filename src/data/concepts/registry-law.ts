@@ -225,6 +225,95 @@ const concepts: Concept[] = [
     "example": "철도 선로가 지나는 부지는 '선로용지'가 아니라 법정 지목인 '철도용지'로 등록된다."
   },
   {
+    "slug": "boundary-point-register",
+    "chapterKo": "공간정보관리법",
+    "sectionKo": "토지의 등록",
+    "category": "공간정보관리법",
+    "subcategory": "지적공부",
+    "parentSlug": "cadastral-books-classification",
+    "titleKo": "지상경계의 결정과 지상경계점등록부",
+    "titleEn": "Determining Boundaries and the Boundary Point Register",
+    "definition": "지상경계점등록부는 경계를 정한 뒤 「그 점이 실제로 어디였는지」를 남겨 두는 기록이다. 표지가 없어져도 다시 찾을 수 있도록 위치 설명도와 사진, 표지의 종류까지 함께 적는다.",
+    "intuition": "지상경계는 현장에 실제로 표시된 경계점(말뚝, 표지 등)을 기준으로 하므로, 그 표지의 종류와 위치를 별도 장부로 남겨 두어야 나중에 분쟁이 생겨도 원래 경계를 확인할 수 있다.",
+    "keyPoints": [
+      "지상경계점등록부에는 경계점 위치 설명도, 경계점 표지의 종류, 경계점 사진 파일 등이 등록되며, 지목·면적 등 지적공부 일반 등록사항과는 별개다.",
+      "지적소관청은 토지의 이동에 따라 지상경계를 새로 정한 경우 지상경계점등록부를 작성·관리해야 한다."
+    ],
+    "pitfalls": "지상경계점등록부의 등록사항을 토지대장 등 일반 지적공부의 등록사항과 혼동하기 쉽지만, 경계점 표지·사진 등 현장 표시 정보가 핵심이다.",
+    "example": "새로 지상경계를 정한 토지에 콘크리트 말뚝으로 경계점표지를 설치했다면, 그 표지의 종류가 지상경계점등록부에 등록된다.",
+    "questionRefs": [
+      {
+        "year": 2017,
+        "questionNo": 4
+      },
+      {
+        "year": 2019,
+        "questionNo": 3
+      },
+      {
+        "year": 2023,
+        "questionNo": 12
+      }
+    ]
+  },
+  {
+    "slug": "land-alteration-registration",
+    "chapterKo": "공간정보관리법",
+    "sectionKo": "토지의 등록",
+    "category": "공간정보관리법",
+    "subcategory": "토지의 이동",
+    "titleKo": "지번부여·등록전환·합병과 직권 정정",
+    "titleEn": "Lot Numbering, Conversion, Merger, and Ex Officio Correction",
+    "definition": "토지이동은 땅의 표시가 바뀌는 일을 통틀어 부르는 말이다. 나누고 합치고 지목을 바꾸는 것이 모두 여기에 들고, 원칙은 소유자의 신청이지만 현황이 장부와 어긋나면 관청이 직권으로도 고친다.",
+    "intuition": "지번·지목·경계 등 토지의 기본 표시사항을 새로 만들거나(등록전환) 합치거나(합병) 고칠 때(직권정정), 신청인의 뜻과 무관하게 지적소관청이 실체적 사실관계를 직접 확인해 등록을 좌우한다는 공통점이 있다.",
+    "keyPoints": [
+      "도시개발사업 등 준공 전 지번부여는 지적확정측량을 실시한 지역의 지번부여 방법을 준용한다.",
+      "합병하려는 토지는 지목·지번부여지역·소유자가 같아야 하고 서로 연접해야 한다. 지적도·임야도의 축척이 서로 다르거나, 각 필지의 소유권 등기의 등기원인과 그 연월일 또는 접수번호가 서로 다른 경우에는 합병할 수 없다.",
+      "등록전환 시 임야대장 면적과 실제 등록전환 면적의 차이가 허용범위를 초과하면, 지적소관청이 임야대장의 면적 또는 임야도의 경계를 직권으로 정정한다.",
+      "토지소유자의 신청이 없어도 지적소관청은 토지이동현황을 직권으로 조사·측량하여 지번·지목·면적 등을 결정할 수 있다."
+    ],
+    "pitfalls": "합병은 소유자와 지목만 같다고 되는 것이 아니다. 서로 연접해야 하고, 지적도·임야도의 축척이 서로 다른 경우도 법정 합병 제한사유다.",
+    "example": "임야대장에 3,000㎡로 적힌 땅을 등록전환하려고 측량했더니 3,200㎡가 나왔고 그 차이가 허용범위를 넘었다면, 소유자가 따로 신청하지 않아도 지적소관청이 임야대장의 면적을 직권으로 고친다.",
+    "questionRefs": [
+      {
+        "year": 2016,
+        "questionNo": 5
+      },
+      {
+        "year": 2016,
+        "questionNo": 12
+      },
+      {
+        "year": 2017,
+        "questionNo": 8
+      },
+      {
+        "year": 2020,
+        "questionNo": 6
+      },
+      {
+        "year": 2021,
+        "questionNo": 7
+      },
+      {
+        "year": 2022,
+        "questionNo": 3
+      },
+      {
+        "year": 2024,
+        "questionNo": 4
+      },
+      {
+        "year": 2024,
+        "questionNo": 6
+      },
+      {
+        "year": 2024,
+        "questionNo": 7
+      }
+    ]
+  },
+  {
     "slug": "cadastral-books-classification",
     "chapterKo": "공간정보관리법",
     "sectionKo": "지적공부",
@@ -338,38 +427,6 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "boundary-point-register",
-    "chapterKo": "공간정보관리법",
-    "sectionKo": "지적공부",
-    "category": "공간정보관리법",
-    "subcategory": "지적공부",
-    "parentSlug": "cadastral-books-classification",
-    "titleKo": "지상경계의 결정과 지상경계점등록부",
-    "titleEn": "Determining Boundaries and the Boundary Point Register",
-    "definition": "지상경계점등록부는 경계를 정한 뒤 「그 점이 실제로 어디였는지」를 남겨 두는 기록이다. 표지가 없어져도 다시 찾을 수 있도록 위치 설명도와 사진, 표지의 종류까지 함께 적는다.",
-    "intuition": "지상경계는 현장에 실제로 표시된 경계점(말뚝, 표지 등)을 기준으로 하므로, 그 표지의 종류와 위치를 별도 장부로 남겨 두어야 나중에 분쟁이 생겨도 원래 경계를 확인할 수 있다.",
-    "keyPoints": [
-      "지상경계점등록부에는 경계점 위치 설명도, 경계점 표지의 종류, 경계점 사진 파일 등이 등록되며, 지목·면적 등 지적공부 일반 등록사항과는 별개다.",
-      "지적소관청은 토지의 이동에 따라 지상경계를 새로 정한 경우 지상경계점등록부를 작성·관리해야 한다."
-    ],
-    "pitfalls": "지상경계점등록부의 등록사항을 토지대장 등 일반 지적공부의 등록사항과 혼동하기 쉽지만, 경계점 표지·사진 등 현장 표시 정보가 핵심이다.",
-    "example": "새로 지상경계를 정한 토지에 콘크리트 말뚝으로 경계점표지를 설치했다면, 그 표지의 종류가 지상경계점등록부에 등록된다.",
-    "questionRefs": [
-      {
-        "year": 2017,
-        "questionNo": 4
-      },
-      {
-        "year": 2019,
-        "questionNo": 3
-      },
-      {
-        "year": 2023,
-        "questionNo": 12
-      }
-    ]
-  },
-  {
     "slug": "cadastral-books-restoration",
     "chapterKo": "공간정보관리법",
     "sectionKo": "지적공부",
@@ -457,66 +514,9 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "land-alteration-registration",
-    "chapterKo": "공간정보관리법",
-    "sectionKo": "토지의 이동·축척변경",
-    "category": "공간정보관리법",
-    "subcategory": "토지의 이동",
-    "titleKo": "지번부여·등록전환·합병과 직권 정정",
-    "titleEn": "Lot Numbering, Conversion, Merger, and Ex Officio Correction",
-    "definition": "토지이동은 땅의 표시가 바뀌는 일을 통틀어 부르는 말이다. 나누고 합치고 지목을 바꾸는 것이 모두 여기에 들고, 원칙은 소유자의 신청이지만 현황이 장부와 어긋나면 관청이 직권으로도 고친다.",
-    "intuition": "지번·지목·경계 등 토지의 기본 표시사항을 새로 만들거나(등록전환) 합치거나(합병) 고칠 때(직권정정), 신청인의 뜻과 무관하게 지적소관청이 실체적 사실관계를 직접 확인해 등록을 좌우한다는 공통점이 있다.",
-    "keyPoints": [
-      "도시개발사업 등 준공 전 지번부여는 지적확정측량을 실시한 지역의 지번부여 방법을 준용한다.",
-      "합병하려는 토지는 지목·지번부여지역·소유자가 같아야 하고 서로 연접해야 한다. 지적도·임야도의 축척이 서로 다르거나, 각 필지의 소유권 등기의 등기원인과 그 연월일 또는 접수번호가 서로 다른 경우에는 합병할 수 없다.",
-      "등록전환 시 임야대장 면적과 실제 등록전환 면적의 차이가 허용범위를 초과하면, 지적소관청이 임야대장의 면적 또는 임야도의 경계를 직권으로 정정한다.",
-      "토지소유자의 신청이 없어도 지적소관청은 토지이동현황을 직권으로 조사·측량하여 지번·지목·면적 등을 결정할 수 있다."
-    ],
-    "pitfalls": "합병은 소유자와 지목만 같다고 되는 것이 아니다. 서로 연접해야 하고, 지적도·임야도의 축척이 서로 다른 경우도 법정 합병 제한사유다.",
-    "example": "임야대장에 3,000㎡로 적힌 땅을 등록전환하려고 측량했더니 3,200㎡가 나왔고 그 차이가 허용범위를 넘었다면, 소유자가 따로 신청하지 않아도 지적소관청이 임야대장의 면적을 직권으로 고친다.",
-    "questionRefs": [
-      {
-        "year": 2016,
-        "questionNo": 5
-      },
-      {
-        "year": 2016,
-        "questionNo": 12
-      },
-      {
-        "year": 2017,
-        "questionNo": 8
-      },
-      {
-        "year": 2020,
-        "questionNo": 6
-      },
-      {
-        "year": 2021,
-        "questionNo": 7
-      },
-      {
-        "year": 2022,
-        "questionNo": 3
-      },
-      {
-        "year": 2024,
-        "questionNo": 4
-      },
-      {
-        "year": 2024,
-        "questionNo": 6
-      },
-      {
-        "year": 2024,
-        "questionNo": 7
-      }
-    ]
-  },
-  {
     "slug": "scale-conversion",
     "chapterKo": "공간정보관리법",
-    "sectionKo": "토지의 이동·축척변경",
+    "sectionKo": "토지의 이동·지적정리",
     "category": "공간정보관리법",
     "subcategory": "토지의 이동",
     "parentSlug": "land-alteration-registration",
@@ -593,7 +593,7 @@ const concepts: Concept[] = [
   {
     "slug": "development-project-special-case",
     "chapterKo": "공간정보관리법",
-    "sectionKo": "토지의 이동·축척변경",
+    "sectionKo": "토지의 이동·지적정리",
     "category": "공간정보관리법",
     "subcategory": "토지의 이동",
     "parentSlug": "land-alteration-registration",
@@ -630,7 +630,7 @@ const concepts: Concept[] = [
   {
     "slug": "land-record-notification-procedure",
     "chapterKo": "공간정보관리법",
-    "sectionKo": "토지의 이동·축척변경",
+    "sectionKo": "토지의 이동·지적정리",
     "category": "공간정보관리법",
     "subcategory": "토지의 이동",
     "parentSlug": "land-alteration-registration",
@@ -870,6 +870,24 @@ const concepts: Concept[] = [
         "questionNo": 9
       }
     ]
+  },
+  {
+    "slug": "building-status-registration",
+    "chapterKo": "부동산등기법",
+    "sectionKo": "등기기관과 설비",
+    "category": "부동산등기법",
+    "subcategory": "표시에 관한 등기",
+    "titleKo": "건물의 표시등기와 부기등기",
+    "titleEn": "Building Description Registration and Sub-Registration",
+    "definition": "건물의 표시등기는 소재·지번·종류·구조·면적 등 물리적 현황을 표제부에 반영한다. 건축물대장에 합병등록이 되면 소유권 등기명의인은 1개월 이내 합병등기를 신청해야 하고, 기존 권리의 동일성과 순위를 잇는 저당권 이전등기는 부기등기로 한다.",
+    "intuition": "'표시에 관한 등기'는 부동산 자체의 물리적 현황(면적·구조·합병 등)을 반영하는 등기이고, 부기등기는 기존 순위를 그대로 유지하면서 덧붙이는 등기라는 두 축을 구분해서 이해하면 된다.",
+    "keyPoints": [
+      "건축물대장상 건물 합병등록이 있으면, 소유권 등기명의인은 그 날로부터 1개월 이내에 건물합병등기를 신청해야 한다.",
+      "저당권 이전등기는 기존 저당권의 동일성을 유지하는 등기이므로 부기등기로 한다.",
+      "폐쇄한 등기기록은 영구히 보존해야 한다."
+    ],
+    "pitfalls": "건물합병은 표시변경이고 저당권 이전은 권리변동이다. 둘을 같은 등기 유형으로 묶지 말고, 후자는 기존 저당권의 순위를 잇기 때문에 부기등기로 한다.",
+    "example": "붙어 있던 두 건물이 4월 10일에 건축물대장에 하나로 합병 등록되었다면, 소유권 등기명의인은 5월 10일까지 건물합병등기를 신청해야 한다."
   },
   {
     "slug": "registration-application-procedure",
@@ -1174,24 +1192,6 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "building-status-registration",
-    "chapterKo": "부동산등기법",
-    "sectionKo": "표시에 관한 등기",
-    "category": "부동산등기법",
-    "subcategory": "표시에 관한 등기",
-    "titleKo": "건물의 표시등기와 부기등기",
-    "titleEn": "Building Description Registration and Sub-Registration",
-    "definition": "건물의 표시등기는 소재·지번·종류·구조·면적 등 물리적 현황을 표제부에 반영한다. 건축물대장에 합병등록이 되면 소유권 등기명의인은 1개월 이내 합병등기를 신청해야 하고, 기존 권리의 동일성과 순위를 잇는 저당권 이전등기는 부기등기로 한다.",
-    "intuition": "'표시에 관한 등기'는 부동산 자체의 물리적 현황(면적·구조·합병 등)을 반영하는 등기이고, 부기등기는 기존 순위를 그대로 유지하면서 덧붙이는 등기라는 두 축을 구분해서 이해하면 된다.",
-    "keyPoints": [
-      "건축물대장상 건물 합병등록이 있으면, 소유권 등기명의인은 그 날로부터 1개월 이내에 건물합병등기를 신청해야 한다.",
-      "저당권 이전등기는 기존 저당권의 동일성을 유지하는 등기이므로 부기등기로 한다.",
-      "폐쇄한 등기기록은 영구히 보존해야 한다."
-    ],
-    "pitfalls": "건물합병은 표시변경이고 저당권 이전은 권리변동이다. 둘을 같은 등기 유형으로 묶지 말고, 후자는 기존 저당권의 순위를 잇기 때문에 부기등기로 한다.",
-    "example": "붙어 있던 두 건물이 4월 10일에 건축물대장에 하나로 합병 등록되었다면, 소유권 등기명의인은 5월 10일까지 건물합병등기를 신청해야 한다."
-  },
-  {
     "slug": "ownership-registration",
     "chapterKo": "부동산등기법",
     "sectionKo": "권리에 관한 등기",
@@ -1445,47 +1445,6 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "sub-registration-and-priority",
-    "chapterKo": "부동산등기법",
-    "sectionKo": "권리에 관한 등기",
-    "category": "부동산등기법",
-    "subcategory": "권리에 관한 등기",
-    "parentSlug": "ownership-registration",
-    "titleKo": "부기등기의 대상과 등기 순위",
-    "titleEn": "Scope of Sub-Registrations and Registration Priority",
-    "definition": "부기등기는 앞선 등기에 덧붙여 그 순위를 그대로 물려받는 등기다. 그래서 이미 있는 권리를 손보거나 그 권리 자체를 옮기는 일에 쓰이고, 새 권리를 세우는 일에는 쓰지 않는다.",
-    "intuition": "부기등기는 기존 등기의 순위를 그대로 유지하면서 덧붙이는 등기이므로, 그 변경이 다른 이해관계인에게 불리한 영향을 주지 않는 경우(단순 표시변경, 이전등기 등)에는 승낙 없이도 부기등기로 처리되지만, 채권최고액 증액처럼 후순위자에게 불리해질 수 있는 변경은 그 승낙을 받아야만 순위를 그대로 유지하는 부기등기로 할 수 있다.",
-    "keyPoints": [
-      "환매특약등기, 지상권의 이전등기, 등기명의인표시의 변경등기, 지상권 위 저당권의 이전등기는 승낙 여부와 무관하게 부기등기로 한다.",
-      "근저당권의 채권최고액을 증액하는 변경등기는 이해관계 있는 제3자(후순위 권리자 등)의 승낙이 없으면 부기등기로 할 수 없다.",
-      "등기한 권리의 순위는 원칙적으로 등기의 전후(순위번호·접수번호)에 따르며, 부기등기의 순위는 주등기의 순위에 따른다."
-    ],
-    "pitfalls": "근저당권 채권최고액 증액 변경등기도 승낙 없이 부기등기로 할 수 있다고 착각하기 쉽다 — 이해관계 있는 제3자의 승낙이 필요하다.",
-    "example": "채권최고액 3억원인 1순위 근저당권을 5억원으로 올리려는데 2순위 저당권자가 있다면, 그 사람의 승낙을 받아야 부기등기로 올릴 수 있다. 승낙이 없으면 늘어난 몫은 1순위의 순위를 물려받지 못한다.",
-    "questionRefs": [
-      {
-        "year": 2018,
-        "questionNo": 20
-      },
-      {
-        "year": 2019,
-        "questionNo": 22
-      },
-      {
-        "year": 2022,
-        "questionNo": 19
-      },
-      {
-        "year": 2023,
-        "questionNo": 15
-      },
-      {
-        "year": 2025,
-        "questionNo": 17
-      }
-    ]
-  },
-  {
     "slug": "repurchase-registration",
     "chapterKo": "부동산등기법",
     "sectionKo": "권리에 관한 등기",
@@ -1594,9 +1553,50 @@ const concepts: Concept[] = [
     ]
   },
   {
+    "slug": "sub-registration-and-priority",
+    "chapterKo": "부동산등기법",
+    "sectionKo": "각종의 등기절차",
+    "category": "부동산등기법",
+    "subcategory": "권리에 관한 등기",
+    "parentSlug": "ownership-registration",
+    "titleKo": "부기등기의 대상과 등기 순위",
+    "titleEn": "Scope of Sub-Registrations and Registration Priority",
+    "definition": "부기등기는 앞선 등기에 덧붙여 그 순위를 그대로 물려받는 등기다. 그래서 이미 있는 권리를 손보거나 그 권리 자체를 옮기는 일에 쓰이고, 새 권리를 세우는 일에는 쓰지 않는다.",
+    "intuition": "부기등기는 기존 등기의 순위를 그대로 유지하면서 덧붙이는 등기이므로, 그 변경이 다른 이해관계인에게 불리한 영향을 주지 않는 경우(단순 표시변경, 이전등기 등)에는 승낙 없이도 부기등기로 처리되지만, 채권최고액 증액처럼 후순위자에게 불리해질 수 있는 변경은 그 승낙을 받아야만 순위를 그대로 유지하는 부기등기로 할 수 있다.",
+    "keyPoints": [
+      "환매특약등기, 지상권의 이전등기, 등기명의인표시의 변경등기, 지상권 위 저당권의 이전등기는 승낙 여부와 무관하게 부기등기로 한다.",
+      "근저당권의 채권최고액을 증액하는 변경등기는 이해관계 있는 제3자(후순위 권리자 등)의 승낙이 없으면 부기등기로 할 수 없다.",
+      "등기한 권리의 순위는 원칙적으로 등기의 전후(순위번호·접수번호)에 따르며, 부기등기의 순위는 주등기의 순위에 따른다."
+    ],
+    "pitfalls": "근저당권 채권최고액 증액 변경등기도 승낙 없이 부기등기로 할 수 있다고 착각하기 쉽다 — 이해관계 있는 제3자의 승낙이 필요하다.",
+    "example": "채권최고액 3억원인 1순위 근저당권을 5억원으로 올리려는데 2순위 저당권자가 있다면, 그 사람의 승낙을 받아야 부기등기로 올릴 수 있다. 승낙이 없으면 늘어난 몫은 1순위의 순위를 물려받지 못한다.",
+    "questionRefs": [
+      {
+        "year": 2018,
+        "questionNo": 20
+      },
+      {
+        "year": 2019,
+        "questionNo": 22
+      },
+      {
+        "year": 2022,
+        "questionNo": 19
+      },
+      {
+        "year": 2023,
+        "questionNo": 15
+      },
+      {
+        "year": 2025,
+        "questionNo": 17
+      }
+    ]
+  },
+  {
     "slug": "provisional-registration",
     "chapterKo": "부동산등기법",
-    "sectionKo": "가등기",
+    "sectionKo": "각종의 등기절차",
     "category": "부동산등기법",
     "subcategory": "가등기",
     "titleKo": "가등기의 청구권 범위·신청절차와 본등기의 효력",
@@ -1653,7 +1653,7 @@ const concepts: Concept[] = [
   {
     "slug": "provisional-registration-ex-officio-cancellation",
     "chapterKo": "부동산등기법",
-    "sectionKo": "가등기",
+    "sectionKo": "각종의 등기절차",
     "category": "부동산등기법",
     "subcategory": "가등기",
     "parentSlug": "provisional-registration",

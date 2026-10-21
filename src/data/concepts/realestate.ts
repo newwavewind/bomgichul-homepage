@@ -2,6 +2,39 @@ import type { Concept } from "@/lib/concepts";
 
 const concepts: Concept[] = [
   {
+    "slug": "ksic-real-estate-business-classification",
+    "chapterKo": "부동산학 총론",
+    "sectionKo": "부동산학의 이해",
+    "category": "부동산의 개념과 분류",
+    "subcategory": "부동산의 분류 (한국표준산업분류 등)",
+    "parentSlug": "real-estate-classification",
+    "titleKo": "한국표준산업분류(KSIC)상 부동산업의 분류",
+    "titleEn": "Classification of the Real Estate Industry under the KSIC",
+    "definition": "산업분류는 「그 일이 부동산 자체를 굴리는가, 남의 부동산을 거들어 주는가」로 부동산업을 가른다. 임대·공급이 앞쪽이고, 관리·중개·감정·분양대행처럼 남의 것을 손봐 주는 일이 뒤쪽의 서비스업이다.",
+    "intuition": "부동산업 분류는 '내가 부동산을 직접 임대·공급하는가(임대 및 공급업)'와 '남의 부동산을 관리·중개·평가해주는가(관련 서비스업)'로 먼저 나눈 뒤, 후자를 다시 세분한다고 이해하면 된다.",
+    "keyPoints": [
+      "부동산 관리업(주거용·비주거용), 부동산 중개 및 대리업, 부동산 투자 자문업, 부동산 감정평가업은 부동산 관련 서비스업에 속하지만, 부동산 개발 및 공급업은 부동산 임대 및 공급업 계열에 속해 '부동산 관련 서비스업'으로 분류되지 않는다.",
+      "아파트 관리, 사무용 건물 관리는 부동산 관리업의 세부 예시에 해당하지만, 사업시설의 유지·관리(청소·경비 등 시설관리 용역)는 부동산 관리업이 아니라 별도의 산업으로 분류된다.",
+      "부동산 분양 대행업은 부동산 관련 서비스업으로 분류되지 않는 업종으로, 오답 선택지에 자주 등장한다."
+    ],
+    "pitfalls": "부동산 개발 및 공급업을 부동산 '관련 서비스업'으로 착각하기 쉽지만, 이는 부동산 임대 및 공급업 계열에 속해 서비스업 분류에는 포함되지 않는다.",
+    "example": "아파트 관리업무를 수행하는 회사는 한국표준산업분류상 부동산 관리업(부동산 관련 서비스업)으로 분류된다.",
+    "questionRefs": [
+      {
+        "year": 2017,
+        "questionNo": 4
+      },
+      {
+        "year": 2020,
+        "questionNo": 2
+      },
+      {
+        "year": 2025,
+        "questionNo": 2
+      }
+    ]
+  },
+  {
     "slug": "real-estate-concept-fixture",
     "chapterKo": "부동산학 총론",
     "sectionKo": "부동산의 개념과 분류",
@@ -77,39 +110,6 @@ const concepts: Concept[] = [
       {
         "year": 2025,
         "questionNo": 4
-      }
-    ]
-  },
-  {
-    "slug": "ksic-real-estate-business-classification",
-    "chapterKo": "부동산학 총론",
-    "sectionKo": "부동산의 개념과 분류",
-    "category": "부동산의 개념과 분류",
-    "subcategory": "부동산의 분류 (한국표준산업분류 등)",
-    "parentSlug": "real-estate-classification",
-    "titleKo": "한국표준산업분류(KSIC)상 부동산업의 분류",
-    "titleEn": "Classification of the Real Estate Industry under the KSIC",
-    "definition": "산업분류는 「그 일이 부동산 자체를 굴리는가, 남의 부동산을 거들어 주는가」로 부동산업을 가른다. 임대·공급이 앞쪽이고, 관리·중개·감정·분양대행처럼 남의 것을 손봐 주는 일이 뒤쪽의 서비스업이다.",
-    "intuition": "부동산업 분류는 '내가 부동산을 직접 임대·공급하는가(임대 및 공급업)'와 '남의 부동산을 관리·중개·평가해주는가(관련 서비스업)'로 먼저 나눈 뒤, 후자를 다시 세분한다고 이해하면 된다.",
-    "keyPoints": [
-      "부동산 관리업(주거용·비주거용), 부동산 중개 및 대리업, 부동산 투자 자문업, 부동산 감정평가업은 부동산 관련 서비스업에 속하지만, 부동산 개발 및 공급업은 부동산 임대 및 공급업 계열에 속해 '부동산 관련 서비스업'으로 분류되지 않는다.",
-      "아파트 관리, 사무용 건물 관리는 부동산 관리업의 세부 예시에 해당하지만, 사업시설의 유지·관리(청소·경비 등 시설관리 용역)는 부동산 관리업이 아니라 별도의 산업으로 분류된다.",
-      "부동산 분양 대행업은 부동산 관련 서비스업으로 분류되지 않는 업종으로, 오답 선택지에 자주 등장한다."
-    ],
-    "pitfalls": "부동산 개발 및 공급업을 부동산 '관련 서비스업'으로 착각하기 쉽지만, 이는 부동산 임대 및 공급업 계열에 속해 서비스업 분류에는 포함되지 않는다.",
-    "example": "아파트 관리업무를 수행하는 회사는 한국표준산업분류상 부동산 관리업(부동산 관련 서비스업)으로 분류된다.",
-    "questionRefs": [
-      {
-        "year": 2017,
-        "questionNo": 4
-      },
-      {
-        "year": 2020,
-        "questionNo": 2
-      },
-      {
-        "year": 2025,
-        "questionNo": 2
       }
     ]
   },
@@ -194,8 +194,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "supply-elasticity-price-change",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "부동산의 수요·공급이론",
     "category": "부동산경제론",
     "subcategory": "수요·공급 요인",
     "titleKo": "수요·공급의 기본개념과 탄력성-가격의 관계",
@@ -247,8 +247,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "flow-stock-variables",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "부동산의 수요·공급이론",
     "category": "부동산경제론",
     "subcategory": "수요·공급 요인",
     "parentSlug": "supply-elasticity-price-change",
@@ -280,8 +280,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "demand-supply-shift-factors",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "부동산의 수요·공급이론",
     "category": "부동산경제론",
     "subcategory": "수요·공급 요인",
     "parentSlug": "supply-elasticity-price-change",
@@ -326,8 +326,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "demand-supply-equilibrium-calculation",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "부동산의 수요·공급이론",
     "category": "부동산경제론",
     "subcategory": "수요·공급 요인",
     "parentSlug": "supply-elasticity-price-change",
@@ -359,8 +359,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "market-equilibrium-shift",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "부동산의 수요·공급이론",
     "category": "부동산경제론",
     "subcategory": "균형점 이동",
     "titleKo": "수요·공급 곡선의 이동과 균형점 계산",
@@ -407,8 +407,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "equilibrium-shift-direction-judgment",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "부동산의 수요·공급이론",
     "category": "부동산경제론",
     "subcategory": "균형점 이동",
     "parentSlug": "market-equilibrium-shift",
@@ -444,8 +444,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "elasticity-theory",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "수요와 공급의 탄력성",
     "category": "부동산경제론",
     "subcategory": "탄력성 이론",
     "titleKo": "완전탄력적·완전비탄력적 수요와 총수입의 변화",
@@ -462,8 +462,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "elasticity-calculation",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "수요와 공급의 탄력성",
     "category": "부동산경제론",
     "subcategory": "탄력성 계산",
     "titleKo": "가격탄력성·교차탄력성의 계산과 재화 관계 판정",
@@ -514,27 +514,9 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "efficient-market-hypothesis",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
-    "category": "부동산경제론",
-    "subcategory": "효율적 시장",
-    "titleKo": "효율적 시장의 3단계 구분과 부동산시장의 특수성",
-    "titleEn": "Three Forms of Market Efficiency and Real Estate Market Specifics",
-    "definition": "효율적 시장은 정보의 반영 속도와 범위에 따라 약성·준강성·강성 효율적 시장으로 구분되며, 부동산은 개별성(이질성)으로 인해 대체가 어렵고 공매도가 주식시장과 달리 거의 불가능하다는 특수성을 가진다.",
-    "intuition": "세 단계 효율적 시장은 '어디까지의 정보가 이미 가격에 반영되어 있는가'로 구분되므로, 과거정보(약성)·공표정보(준강성)·비공표정보까지(강성) 순서대로 포함 범위가 넓어진다고 이해하면 헷갈리지 않는다.",
-    "keyPoints": [
-      "약성 효율적 시장은 과거의 정보, 준강성은 공표된 정보, 강성은 공표·비공표 정보 모두가 이미 가격에 반영된 시장이다.",
-      "부동산은 개별성(이질성) 때문에 다른 부동산으로 쉽게 대체되기 어렵다.",
-      "공매(short selling)는 주식시장과 달리 부동산시장에서는 거의 불가능하다."
-    ],
-    "pitfalls": "준강성과 강성 효율적 시장의 정의를 바꿔서 서술하는 지문에 주의해야 한다 — 강성은 '비공표 정보까지' 반영된 시장이다.",
-    "example": "아직 공개되지 않은 개발계획 정보까지 이미 가격에 반영되어 있다면, 이는 강성 효율적 시장의 특징을 보이는 것이다."
-  },
-  {
     "slug": "business-cycle-cobweb",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "부동산의 경기변동",
     "category": "부동산경제론",
     "subcategory": "경기변동·거미집이론",
     "titleKo": "거미집이론의 수렴·발산·순환형 판정",
@@ -573,8 +555,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "real-estate-business-cycle-phases",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산경제론",
+    "chapterKo": "부동산경제론",
+    "sectionKo": "부동산의 경기변동",
     "category": "부동산경제론",
     "subcategory": "경기변동·거미집이론",
     "parentSlug": "business-cycle-cobweb",
@@ -610,190 +592,78 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "location-theory-huff-reilly",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산시장론",
-    "category": "부동산시장론",
-    "subcategory": "입지론",
-    "titleKo": "레일리의 소매인력법칙과 컨버스의 분기점 모형",
-    "titleEn": "Reilly's Law of Retail Gravitation and Converse's Breaking Point Model",
-    "definition": "레일리의 소매인력법칙에 따르면 두 도시로 흡인되는 구매력은 두 도시의 인구(규모)에 비례하고 거리의 제곱에 반비례하며, 컨버스는 이를 응용해 두 경쟁 도시 사이의 상권 경계(분기점)를 구하는 모형을 제시했다.",
-    "intuition": "이 법칙은 뉴턴의 만유인력 공식을 소매상권에 응용한 것이라고 보면 이해가 빠르다 — 크고 가까운 도시일수록 구매력을 더 많이 끌어당긴다는 직관을 수식화한 것이다.",
+    "slug": "efficient-market-hypothesis",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "부동산시장",
+    "category": "부동산경제론",
+    "subcategory": "효율적 시장",
+    "titleKo": "효율적 시장의 3단계 구분과 부동산시장의 특수성",
+    "titleEn": "Three Forms of Market Efficiency and Real Estate Market Specifics",
+    "definition": "효율적 시장은 정보의 반영 속도와 범위에 따라 약성·준강성·강성 효율적 시장으로 구분되며, 부동산은 개별성(이질성)으로 인해 대체가 어렵고 공매도가 주식시장과 달리 거의 불가능하다는 특수성을 가진다.",
+    "intuition": "세 단계 효율적 시장은 '어디까지의 정보가 이미 가격에 반영되어 있는가'로 구분되므로, 과거정보(약성)·공표정보(준강성)·비공표정보까지(강성) 순서대로 포함 범위가 넓어진다고 이해하면 헷갈리지 않는다.",
     "keyPoints": [
-      "흡인력은 두 도시의 인구(규모)에 비례하고 거리의 제곱에 반비례한다('크기에 반비례, 거리에 비례'로 서술하면 틀림).",
-      "컨버스의 분기점 모형은 두 경쟁 도시(상권) 사이에서 두 도시로의 구매지향력이 같아지는 경계지점을 구하는 공식이며, A시로부터의 분기점 거리 = 두 도시 간 거리 ÷ (1 + √(B시 인구/A시 인구))로 계산한다.",
-      "허프(Huff)의 확률모형은 레일리의 법칙을 개별 소비자 단위로, 매장 규모와 거리에 따른 확률로 확장한 모형이다."
+      "약성 효율적 시장은 과거의 정보, 준강성은 공표된 정보, 강성은 공표·비공표 정보 모두가 이미 가격에 반영된 시장이다.",
+      "부동산은 개별성(이질성) 때문에 다른 부동산으로 쉽게 대체되기 어렵다.",
+      "공매(short selling)는 주식시장과 달리 부동산시장에서는 거의 불가능하다."
     ],
-    "pitfalls": "거리에 '비례'한다고 착각하기 쉽다 — 정확히는 거리의 제곱에 '반비례'한다.",
-    "example": "인구가 큰 도시일수록, 그리고 중간 도시와의 거리가 가까울수록 그 도시가 중간 도시의 구매력을 더 많이 흡인한다.",
+    "pitfalls": "준강성과 강성 효율적 시장의 정의를 바꿔서 서술하는 지문에 주의해야 한다 — 강성은 '비공표 정보까지' 반영된 시장이다.",
+    "example": "아직 공개되지 않은 개발계획 정보까지 이미 가격에 반영되어 있다면, 이는 강성 효율적 시장의 특징을 보이는 것이다."
+  },
+  {
+    "slug": "housing-filtering-market-segregation",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "부동산시장",
+    "category": "부동산시장론",
+    "subcategory": "부동산시장 일반 (시장 특성·유형)",
+    "titleKo": "주거분리 현상과 효율적 시장의 강성·준강성 구분",
+    "titleEn": "Residential Segregation and Distinguishing Strong/Semi-Strong Efficient Markets",
+    "definition": "주거분리는 값을 낼 수 있는 만큼 사는 곳이 갈리면서 소득계층별로 동네가 나뉘는 현상이다. 낡은 집이 아래 계층으로 내려가고 고친 집이 위로 올라가는 여과 과정이 그 배경에 있다.",
+    "intuition": "부동산시장론의 '시장 유형' 파트는 앞서 배운 효율적 시장 개념을 다시 응용하는 부분이므로, 강성·준강성의 정의를 정확히 구분해 반복 학습하는 것이 효과적이다.",
+    "keyPoints": [
+      "주거분리는 소득계층별로 주거지가 나뉘는 현상을 말한다.",
+      "공표·비공표 정보 모두 반영된 시장은 강성 효율적 시장이며, 공표된 정보만 반영된 시장은 준강성 효율적 시장이다.",
+      "불완전경쟁 시장에서도 자원이 최선으로 배분된다면 할당효율성은 달성될 수 있다."
+    ],
+    "pitfalls": "강성과 준강성의 정의를 뒤바꿔 서술하는 지문에 주의해야 한다.",
+    "example": "아직 공개되지 않은 정보까지 가격에 반영된 시장은 강성 효율적 시장이고, 이미 발표된 뉴스만 반영된 시장은 준강성 효율적 시장이다."
+  },
+  {
+    "slug": "informational-value-calculation",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "부동산시장",
+    "category": "부동산투자론",
+    "subcategory": "수익과 위험 (기대수익률 등)",
+    "parentSlug": "required-vs-expected-return",
+    "titleKo": "정보의 현재가치 계산",
+    "titleEn": "Calculating the Present Value of Information",
+    "definition": "정보의 현재가치는 개발이 확실하다고 가정했을 때의 현재가치와, 불확실성이 반영된 기댓값의 현재가치의 차액으로 계산하며, 이는 투자자가 그 정보를 미리 알기 위해 최대한 지불할 수 있는 금액이다.",
+    "intuition": "정보의 가치는 '불확실성을 없애주면 얼마나 이득인가'로 측정되므로, 확실한 미래의 현재가치에서 불확실한 상태의 기댓값 현재가치를 빼는 것으로 계산된다고 이해하면 된다.",
+    "keyPoints": [
+      "정보의 현재가치 = (개발이 확실하다고 가정했을 때 가격의 현재가치) - (불확실성이 반영된 기댓값의 현재가치)로 계산한다.",
+      "불확실성이 반영된 기댓값 = 개발 시 가격×개발확률 + 미개발 시 가격×(1-개발확률)이며, 이 값을 현재가치로 할인한 뒤 확실한 경우의 현재가치에서 빼면 정보의 현재가치가 된다.",
+      "정보의 현재가치는 곧 불확실성을 제거해주는 대가로 투자자가 지불할 용의가 있는 최대금액을 의미한다."
+    ],
+    "pitfalls": "정보의 현재가치를 단순히 '개발 시 가격의 현재가치'로 착각하기 쉽지만, 실제로는 확실한 경우의 현재가치에서 불확실한 기댓값의 현재가치를 뺀 차액이다.",
+    "example": "2년 후 개발이 확실하다면 A토지 가격의 현재가치가 더 높게 계산되며, 그 값과 불확실성을 반영한 기댓값의 현재가치와의 차이가 정보의 현재가치다.",
     "questionRefs": [
       {
-        "year": 2016,
-        "questionNo": 13
-      },
-      {
         "year": 2018,
-        "questionNo": 15
-      },
-      {
-        "year": 2021,
-        "questionNo": 12
+        "questionNo": 14
       },
       {
         "year": 2022,
-        "questionNo": 14
+        "questionNo": 12
       },
       {
         "year": 2024,
-        "questionNo": 14
-      }
-    ]
-  },
-  {
-    "slug": "huff-probability-model",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산시장론",
-    "category": "부동산시장론",
-    "subcategory": "입지론",
-    "parentSlug": "location-theory-huff-reilly",
-    "titleKo": "허프모형의 공간(거리)마찰계수와 매출액 추정",
-    "titleEn": "Huff's Model: Distance-Friction Coefficient and Sales Estimation",
-    "definition": "허프모형은 소비자가 특정 매장을 방문할 확률이 매장의 크기(매력도)에 비례하고 소비자와 매장 사이 거리의 공간(거리)마찰계수 거듭제곱에 반비례한다고 보아, 각 매장의 이용확률과 예상 매출액을 추정하는 확률모형이다.",
-    "intuition": "허프모형은 레일리의 도시 단위 인력모형을 개별 소비자·개별 매장 단위로 쪼갠 것이므로, '매장 크기는 끌어당기는 힘, 거리는 밀어내는 힘'이라는 구조를 그대로 가져와 이해하면 된다.",
-    "keyPoints": [
-      "매장 방문 확률은 매장의 면적(크기)에 비례하고 소비자-매장 간 거리의 공간(거리)마찰계수 거듭제곱에 반비례하며, 이 마찰계수는 모형 적용 전에 교통조건·상품특성에 따라 미리 정해져야 한다.",
-      "교통조건이 나쁠수록, 일상용품(편의품)일수록 공간마찰계수가 커지고, 전문품일수록 공간마찰계수가 작아진다(전문품이 일상용품보다 마찰계수가 크다는 서술은 틀림).",
-      "예상 매출액은 지역 전체의 소비지출액에 각 매장의 이용확률을 곱해 구하며, 마찰계수가 잘못 적용된 것을 발견하면 올바른 마찰계수로 확률을 다시 계산해 매출액을 재추정해야 한다.",
-      "허프모형은 고정된 상권을 두고 매장들이 경쟁하는 제로섬 게임의 성격을 가지며, 소비자는 일반적으로 가장 가까운 곳에서 상품을 구매하려는 경향이 있다는 공리에 기초한다."
-    ],
-    "pitfalls": "전문품점이 일상용품점보다 공간마찰계수가 크다고 착각하기 쉽지만, 실제로는 일상용품(편의품)점의 마찰계수가 더 크다.",
-    "example": "교통조건이 나빠지면 소비자들이 먼 매장 방문을 꺼리게 되어 공간마찰계수가 커진다.",
-    "questionRefs": [
-      {
-        "year": 2017,
-        "questionNo": 13
-      },
-      {
-        "year": 2019,
-        "questionNo": 13
-      },
-      {
-        "year": 2022,
-        "questionNo": 10
-      },
-      {
-        "year": 2023,
-        "questionNo": 12
-      },
-      {
-        "year": 2025,
-        "questionNo": 16
-      }
-    ]
-  },
-  {
-    "slug": "location-quotient-calculation",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산시장론",
-    "category": "부동산시장론",
-    "subcategory": "입지론",
-    "parentSlug": "location-theory-huff-reilly",
-    "titleKo": "입지계수(LQ)의 계산과 기반산업 판별",
-    "titleEn": "Calculating the Location Quotient and Identifying Base Industries",
-    "definition": "입지계수(LQ)는 '해당 지역의 특정 산업 고용비중 ÷ 전체 지역의 그 산업 고용비중'으로 계산하며, LQ가 1보다 크면 그 산업은 해당 지역에서 특화된 기반산업(수출산업)으로 판별한다.",
-    "intuition": "LQ는 결국 '그 지역이 전국 평균보다 이 산업에 얼마나 더 치우쳐 있는가'를 나타내는 비율이므로, 1을 기준으로 그보다 크면 특화, 작으면 비특화라고 이해하면 된다.",
-    "keyPoints": [
-      "LQ = (A지역 X산업 고용자수 / A지역 전체 고용자수) ÷ (전체지역 X산업 고용자수 / 전체지역 전체 고용자수)로 계산한다.",
-      "LQ가 1을 초과하면 그 지역에서 해당 산업은 전국 평균보다 특화되어 있다는 뜻이며, 이는 그 지역의 기반산업(수출기반산업)으로 분류된다.",
-      "여러 산업·지역이 함께 제시된 문제에서는 각 산업별로 LQ를 개별 계산한 뒤, 1을 초과하는 산업의 개수를 세어 기반산업의 개수를 판별해야 한다."
-    ],
-    "pitfalls": "LQ 계산 시 분모·분자를 뒤바꾸는 실수가 잦다 — 지역 내 비중을 전국 비중으로 나누는 순서를 정확히 지켜야 한다.",
-    "example": "A지역 전체 고용 10만 명 중 조선업이 8천 명(8%)이고 전국은 500만 명 중 10만 명(2%)이라면 입지계수는 8 ÷ 2 = 4다. 1을 크게 넘으므로 조선업은 A지역이 밖에 내다 파는 기반산업이다.",
-    "questionRefs": [
-      {
-        "year": 2016,
-        "questionNo": 8
-      },
-      {
-        "year": 2019,
-        "questionNo": 16
-      },
-      {
-        "year": 2021,
-        "questionNo": 26
-      },
-      {
-        "year": 2023,
-        "questionNo": 11
-      }
-    ]
-  },
-  {
-    "slug": "weber-least-cost-theory",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산시장론",
-    "category": "부동산시장론",
-    "subcategory": "입지론",
-    "parentSlug": "location-theory-huff-reilly",
-    "titleKo": "베버의 최소비용이론과 등비용선",
-    "titleEn": "Weber's Least-Cost Theory and Isodapanes",
-    "definition": "베버는 공장이 어디에 설 것인지를 비용이 가장 적게 드는 자리로 설명했다. 원료가 무거우면 원료 쪽으로, 제품이 무거우면 시장 쪽으로 끌려간다는 것이 그 뼈대다.",
-    "intuition": "베버의 이론은 '어디에 공장을 지어야 운송비·노동비 합이 가장 작은가'라는 질문에 답하는 이론이므로, 수익이 아니라 비용을 최소화하는 관점이라는 것이 핵심이다.",
-    "keyPoints": [
-      "원료지수(material index) = 국지원료의 중량 ÷ 제품의 중량이며, 원료지수가 1보다 크면 원료지향적 입지, 제품 중량이 원료 중량보다 크면(원료지수 1 미만) 시장지향적 입지를 선호한다(원료지수가 음수가 되는 경우는 없다).",
-      "등비용선(isodapane)은 최소운송비 지점으로부터 입지를 옮길 경우 추가로 부담해야 하는 운송비 부담액이 동일한 지점을 연결한 곡선이며, 임계등비용선은 그 추가 운송비 부담액이 다른 지점(저임금 지점 등)에서 얻는 비용 절감액과 같아지는 등비용선을 말한다.",
-      "운송비는 원료와 제품의 무게, 수송 거리에 의해 결정되며, 최소비용지점은 최소운송비·최소노동비·집적이익을 종합적으로 고려해 결정된다(최대수익이 아니라 최소비용 관점에서 최적입지를 판단한다)."
-    ],
-    "pitfalls": "베버의 이론을 '최대수익이 최적입지 기준'이라고 착각하기 쉽지만, 베버는 비용(운송비·노동비) 최소화 관점에서 최적입지를 설명한다.",
-    "example": "국지원료의 중량이 제품 중량보다 훨씬 무거운 산업(예: 시멘트 산업)은 원료지수가 1보다 커서 원료산지 인근에 입지하려는 경향을 보인다.",
-    "questionRefs": [
-      {
-        "year": 2021,
-        "questionNo": 11
-      },
-      {
-        "year": 2023,
-        "questionNo": 13
-      },
-      {
-        "year": 2025,
-        "questionNo": 13
-      }
-    ]
-  },
-  {
-    "slug": "christaller-central-place-theory",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산시장론",
-    "category": "부동산시장론",
-    "subcategory": "입지론",
-    "parentSlug": "location-theory-huff-reilly",
-    "titleKo": "크리스탈러의 중심지이론",
-    "titleEn": "Christaller's Central Place Theory",
-    "definition": "크리스탈러는 인간정주체계의 분포원리와 상업입지의 계층체계를 중심지의 도달범위와 최소요구치의 관계로 설명했으며, 최소요구치가 도달범위 안에 있어야 그 중심지 기능(재화·서비스 제공)이 유지될 수 있다고 보았다.",
-    "intuition": "도달범위는 손님을 끌 수 있는 한계, 최소요구치는 장사가 유지되기 위한 최소 매출선이라고 생각하면, 후자가 전자 안에 들어와야 그 상업기능이 살아남는다는 결론이 자연스럽다.",
-    "keyPoints": [
-      "도달범위는 중심지가 재화·서비스를 제공할 수 있는 최대 거리(수요가 0이 되는 지점까지의 거리)이며, 최소요구치는 중심지 기능이 유지되기 위해 필요한 최소한의 수요 규모(범위)다.",
-      "배후지는 중심지로부터 재화와 서비스를 제공받는 주변지역을 말하며(중심지가 배후지에 제공하는 것이지 그 반대가 아님), 최소요구치가 도달범위 안에 있어야 판매자가 존속할 수 있는 최소한의 상권범위가 확보된다.",
-      "재화와 서비스의 종류에 따라 중심지가 계층화되며, 고차중심지일수록 도달범위와 최소요구치가 모두 크고 그 수는 적다."
-    ],
-    "pitfalls": "배후지를 '중심지에 재화·서비스를 제공하는 곳'으로 거꾸로 착각하기 쉽지만, 실제로는 중심지가 배후지에 재화·서비스를 제공한다.",
-    "example": "인구가 적은 소도시에서는 종합병원처럼 최소요구치가 큰 고차 중심기능이 유지되기 어렵다.",
-    "questionRefs": [
-      {
-        "year": 2022,
-        "questionNo": 11
-      },
-      {
-        "year": 2023,
-        "questionNo": 14
+        "questionNo": 17
       }
     ]
   },
   {
     "slug": "quasi-rent-differential-rent",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산시장론",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "지대이론",
     "category": "부동산시장론",
     "subcategory": "지대론 (차액·절대지대 등)",
     "titleKo": "차액지대설과 준지대·절대지대·위치지대의 구분",
@@ -848,9 +718,46 @@ const concepts: Concept[] = [
     ]
   },
   {
+    "slug": "location-quotient-calculation",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "도시공간구조론",
+    "category": "부동산시장론",
+    "subcategory": "입지론",
+    "parentSlug": "location-theory-huff-reilly",
+    "titleKo": "입지계수(LQ)의 계산과 기반산업 판별",
+    "titleEn": "Calculating the Location Quotient and Identifying Base Industries",
+    "definition": "입지계수(LQ)는 '해당 지역의 특정 산업 고용비중 ÷ 전체 지역의 그 산업 고용비중'으로 계산하며, LQ가 1보다 크면 그 산업은 해당 지역에서 특화된 기반산업(수출산업)으로 판별한다.",
+    "intuition": "LQ는 결국 '그 지역이 전국 평균보다 이 산업에 얼마나 더 치우쳐 있는가'를 나타내는 비율이므로, 1을 기준으로 그보다 크면 특화, 작으면 비특화라고 이해하면 된다.",
+    "keyPoints": [
+      "LQ = (A지역 X산업 고용자수 / A지역 전체 고용자수) ÷ (전체지역 X산업 고용자수 / 전체지역 전체 고용자수)로 계산한다.",
+      "LQ가 1을 초과하면 그 지역에서 해당 산업은 전국 평균보다 특화되어 있다는 뜻이며, 이는 그 지역의 기반산업(수출기반산업)으로 분류된다.",
+      "여러 산업·지역이 함께 제시된 문제에서는 각 산업별로 LQ를 개별 계산한 뒤, 1을 초과하는 산업의 개수를 세어 기반산업의 개수를 판별해야 한다."
+    ],
+    "pitfalls": "LQ 계산 시 분모·분자를 뒤바꾸는 실수가 잦다 — 지역 내 비중을 전국 비중으로 나누는 순서를 정확히 지켜야 한다.",
+    "example": "A지역 전체 고용 10만 명 중 조선업이 8천 명(8%)이고 전국은 500만 명 중 10만 명(2%)이라면 입지계수는 8 ÷ 2 = 4다. 1을 크게 넘으므로 조선업은 A지역이 밖에 내다 파는 기반산업이다.",
+    "questionRefs": [
+      {
+        "year": 2016,
+        "questionNo": 8
+      },
+      {
+        "year": 2019,
+        "questionNo": 16
+      },
+      {
+        "year": 2021,
+        "questionNo": 26
+      },
+      {
+        "year": 2023,
+        "questionNo": 11
+      }
+    ]
+  },
+  {
     "slug": "urban-structure-theory",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산시장론",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "도시공간구조론",
     "category": "부동산시장론",
     "subcategory": "도시공간구조론 (동심원·선형 등)",
     "titleKo": "동심원·선형·다핵심 도시공간구조이론의 비교",
@@ -905,27 +812,153 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "housing-filtering-market-segregation",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산시장론",
+    "slug": "location-theory-huff-reilly",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "입지론",
     "category": "부동산시장론",
-    "subcategory": "부동산시장 일반 (시장 특성·유형)",
-    "titleKo": "주거분리 현상과 효율적 시장의 강성·준강성 구분",
-    "titleEn": "Residential Segregation and Distinguishing Strong/Semi-Strong Efficient Markets",
-    "definition": "주거분리는 값을 낼 수 있는 만큼 사는 곳이 갈리면서 소득계층별로 동네가 나뉘는 현상이다. 낡은 집이 아래 계층으로 내려가고 고친 집이 위로 올라가는 여과 과정이 그 배경에 있다.",
-    "intuition": "부동산시장론의 '시장 유형' 파트는 앞서 배운 효율적 시장 개념을 다시 응용하는 부분이므로, 강성·준강성의 정의를 정확히 구분해 반복 학습하는 것이 효과적이다.",
+    "subcategory": "입지론",
+    "titleKo": "레일리의 소매인력법칙과 컨버스의 분기점 모형",
+    "titleEn": "Reilly's Law of Retail Gravitation and Converse's Breaking Point Model",
+    "definition": "레일리의 소매인력법칙에 따르면 두 도시로 흡인되는 구매력은 두 도시의 인구(규모)에 비례하고 거리의 제곱에 반비례하며, 컨버스는 이를 응용해 두 경쟁 도시 사이의 상권 경계(분기점)를 구하는 모형을 제시했다.",
+    "intuition": "이 법칙은 뉴턴의 만유인력 공식을 소매상권에 응용한 것이라고 보면 이해가 빠르다 — 크고 가까운 도시일수록 구매력을 더 많이 끌어당긴다는 직관을 수식화한 것이다.",
     "keyPoints": [
-      "주거분리는 소득계층별로 주거지가 나뉘는 현상을 말한다.",
-      "공표·비공표 정보 모두 반영된 시장은 강성 효율적 시장이며, 공표된 정보만 반영된 시장은 준강성 효율적 시장이다.",
-      "불완전경쟁 시장에서도 자원이 최선으로 배분된다면 할당효율성은 달성될 수 있다."
+      "흡인력은 두 도시의 인구(규모)에 비례하고 거리의 제곱에 반비례한다('크기에 반비례, 거리에 비례'로 서술하면 틀림).",
+      "컨버스의 분기점 모형은 두 경쟁 도시(상권) 사이에서 두 도시로의 구매지향력이 같아지는 경계지점을 구하는 공식이며, A시로부터의 분기점 거리 = 두 도시 간 거리 ÷ (1 + √(B시 인구/A시 인구))로 계산한다.",
+      "허프(Huff)의 확률모형은 레일리의 법칙을 개별 소비자 단위로, 매장 규모와 거리에 따른 확률로 확장한 모형이다."
     ],
-    "pitfalls": "강성과 준강성의 정의를 뒤바꿔 서술하는 지문에 주의해야 한다.",
-    "example": "아직 공개되지 않은 정보까지 가격에 반영된 시장은 강성 효율적 시장이고, 이미 발표된 뉴스만 반영된 시장은 준강성 효율적 시장이다."
+    "pitfalls": "거리에 '비례'한다고 착각하기 쉽다 — 정확히는 거리의 제곱에 '반비례'한다.",
+    "example": "인구가 큰 도시일수록, 그리고 중간 도시와의 거리가 가까울수록 그 도시가 중간 도시의 구매력을 더 많이 흡인한다.",
+    "questionRefs": [
+      {
+        "year": 2016,
+        "questionNo": 13
+      },
+      {
+        "year": 2018,
+        "questionNo": 15
+      },
+      {
+        "year": 2021,
+        "questionNo": 12
+      },
+      {
+        "year": 2022,
+        "questionNo": 14
+      },
+      {
+        "year": 2024,
+        "questionNo": 14
+      }
+    ]
+  },
+  {
+    "slug": "huff-probability-model",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "입지론",
+    "category": "부동산시장론",
+    "subcategory": "입지론",
+    "parentSlug": "location-theory-huff-reilly",
+    "titleKo": "허프모형의 공간(거리)마찰계수와 매출액 추정",
+    "titleEn": "Huff's Model: Distance-Friction Coefficient and Sales Estimation",
+    "definition": "허프모형은 소비자가 특정 매장을 방문할 확률이 매장의 크기(매력도)에 비례하고 소비자와 매장 사이 거리의 공간(거리)마찰계수 거듭제곱에 반비례한다고 보아, 각 매장의 이용확률과 예상 매출액을 추정하는 확률모형이다.",
+    "intuition": "허프모형은 레일리의 도시 단위 인력모형을 개별 소비자·개별 매장 단위로 쪼갠 것이므로, '매장 크기는 끌어당기는 힘, 거리는 밀어내는 힘'이라는 구조를 그대로 가져와 이해하면 된다.",
+    "keyPoints": [
+      "매장 방문 확률은 매장의 면적(크기)에 비례하고 소비자-매장 간 거리의 공간(거리)마찰계수 거듭제곱에 반비례하며, 이 마찰계수는 모형 적용 전에 교통조건·상품특성에 따라 미리 정해져야 한다.",
+      "교통조건이 나쁠수록, 일상용품(편의품)일수록 공간마찰계수가 커지고, 전문품일수록 공간마찰계수가 작아진다(전문품이 일상용품보다 마찰계수가 크다는 서술은 틀림).",
+      "예상 매출액은 지역 전체의 소비지출액에 각 매장의 이용확률을 곱해 구하며, 마찰계수가 잘못 적용된 것을 발견하면 올바른 마찰계수로 확률을 다시 계산해 매출액을 재추정해야 한다.",
+      "허프모형은 고정된 상권을 두고 매장들이 경쟁하는 제로섬 게임의 성격을 가지며, 소비자는 일반적으로 가장 가까운 곳에서 상품을 구매하려는 경향이 있다는 공리에 기초한다."
+    ],
+    "pitfalls": "전문품점이 일상용품점보다 공간마찰계수가 크다고 착각하기 쉽지만, 실제로는 일상용품(편의품)점의 마찰계수가 더 크다.",
+    "example": "교통조건이 나빠지면 소비자들이 먼 매장 방문을 꺼리게 되어 공간마찰계수가 커진다.",
+    "questionRefs": [
+      {
+        "year": 2017,
+        "questionNo": 13
+      },
+      {
+        "year": 2019,
+        "questionNo": 13
+      },
+      {
+        "year": 2022,
+        "questionNo": 10
+      },
+      {
+        "year": 2023,
+        "questionNo": 12
+      },
+      {
+        "year": 2025,
+        "questionNo": 16
+      }
+    ]
+  },
+  {
+    "slug": "weber-least-cost-theory",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "입지론",
+    "category": "부동산시장론",
+    "subcategory": "입지론",
+    "parentSlug": "location-theory-huff-reilly",
+    "titleKo": "베버의 최소비용이론과 등비용선",
+    "titleEn": "Weber's Least-Cost Theory and Isodapanes",
+    "definition": "베버는 공장이 어디에 설 것인지를 비용이 가장 적게 드는 자리로 설명했다. 원료가 무거우면 원료 쪽으로, 제품이 무거우면 시장 쪽으로 끌려간다는 것이 그 뼈대다.",
+    "intuition": "베버의 이론은 '어디에 공장을 지어야 운송비·노동비 합이 가장 작은가'라는 질문에 답하는 이론이므로, 수익이 아니라 비용을 최소화하는 관점이라는 것이 핵심이다.",
+    "keyPoints": [
+      "원료지수(material index) = 국지원료의 중량 ÷ 제품의 중량이며, 원료지수가 1보다 크면 원료지향적 입지, 제품 중량이 원료 중량보다 크면(원료지수 1 미만) 시장지향적 입지를 선호한다(원료지수가 음수가 되는 경우는 없다).",
+      "등비용선(isodapane)은 최소운송비 지점으로부터 입지를 옮길 경우 추가로 부담해야 하는 운송비 부담액이 동일한 지점을 연결한 곡선이며, 임계등비용선은 그 추가 운송비 부담액이 다른 지점(저임금 지점 등)에서 얻는 비용 절감액과 같아지는 등비용선을 말한다.",
+      "운송비는 원료와 제품의 무게, 수송 거리에 의해 결정되며, 최소비용지점은 최소운송비·최소노동비·집적이익을 종합적으로 고려해 결정된다(최대수익이 아니라 최소비용 관점에서 최적입지를 판단한다)."
+    ],
+    "pitfalls": "베버의 이론을 '최대수익이 최적입지 기준'이라고 착각하기 쉽지만, 베버는 비용(운송비·노동비) 최소화 관점에서 최적입지를 설명한다.",
+    "example": "국지원료의 중량이 제품 중량보다 훨씬 무거운 산업(예: 시멘트 산업)은 원료지수가 1보다 커서 원료산지 인근에 입지하려는 경향을 보인다.",
+    "questionRefs": [
+      {
+        "year": 2021,
+        "questionNo": 11
+      },
+      {
+        "year": 2023,
+        "questionNo": 13
+      },
+      {
+        "year": 2025,
+        "questionNo": 13
+      }
+    ]
+  },
+  {
+    "slug": "christaller-central-place-theory",
+    "chapterKo": "부동산시장론",
+    "sectionKo": "입지론",
+    "category": "부동산시장론",
+    "subcategory": "입지론",
+    "parentSlug": "location-theory-huff-reilly",
+    "titleKo": "크리스탈러의 중심지이론",
+    "titleEn": "Christaller's Central Place Theory",
+    "definition": "크리스탈러는 인간정주체계의 분포원리와 상업입지의 계층체계를 중심지의 도달범위와 최소요구치의 관계로 설명했으며, 최소요구치가 도달범위 안에 있어야 그 중심지 기능(재화·서비스 제공)이 유지될 수 있다고 보았다.",
+    "intuition": "도달범위는 손님을 끌 수 있는 한계, 최소요구치는 장사가 유지되기 위한 최소 매출선이라고 생각하면, 후자가 전자 안에 들어와야 그 상업기능이 살아남는다는 결론이 자연스럽다.",
+    "keyPoints": [
+      "도달범위는 중심지가 재화·서비스를 제공할 수 있는 최대 거리(수요가 0이 되는 지점까지의 거리)이며, 최소요구치는 중심지 기능이 유지되기 위해 필요한 최소한의 수요 규모(범위)다.",
+      "배후지는 중심지로부터 재화와 서비스를 제공받는 주변지역을 말하며(중심지가 배후지에 제공하는 것이지 그 반대가 아님), 최소요구치가 도달범위 안에 있어야 판매자가 존속할 수 있는 최소한의 상권범위가 확보된다.",
+      "재화와 서비스의 종류에 따라 중심지가 계층화되며, 고차중심지일수록 도달범위와 최소요구치가 모두 크고 그 수는 적다."
+    ],
+    "pitfalls": "배후지를 '중심지에 재화·서비스를 제공하는 곳'으로 거꾸로 착각하기 쉽지만, 실제로는 중심지가 배후지에 재화·서비스를 제공한다.",
+    "example": "인구가 적은 소도시에서는 종합병원처럼 최소요구치가 큰 고차 중심기능이 유지되기 어렵다.",
+    "questionRefs": [
+      {
+        "year": 2022,
+        "questionNo": 11
+      },
+      {
+        "year": 2023,
+        "questionNo": 14
+      }
+    ]
   },
   {
     "slug": "market-failure-intervention",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "부동산정책의 의의와 기능",
     "category": "부동산정책론",
     "subcategory": "시장개입 (직접·간접)",
     "titleKo": "직접·간접 시장개입 수단의 구분과 시장실패 원인",
@@ -941,9 +974,80 @@ const concepts: Concept[] = [
     "example": "정부가 직접 토지를 수용해 공공택지를 조성하는 것은 직접개입이고, 개발이익을 환수하기 위해 개발부담금을 부과하는 것은 간접개입이다."
   },
   {
+    "slug": "financial-regulation-classification",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "부동산정책의 의의와 기능",
+    "category": "부동산정책론",
+    "subcategory": "부동산 정책수단·제도",
+    "parentSlug": "zoning-negative-externality",
+    "titleKo": "금융규제와 비금융규제의 구분",
+    "titleEn": "Distinguishing Financial from Non-Financial Regulations",
+    "definition": "정책 수단은 그것이 돈줄을 죄는 것인지 아닌지로 갈린다. 얼마나 빌릴 수 있는지를 정하는 것이 금융규제이고, 세금이나 인허가로 조이는 것은 금융 아닌 규제다.",
+    "intuition": "금융규제인지 판별할 때는 '돈을 빌리고 갚는 조건'을 직접 건드리는가만 확인하면 된다 — 세금·용도규제·가격규제는 아무리 시장에 강하게 개입해도 금융규제로 분류되지 않는다.",
+    "keyPoints": [
+      "담보인정비율(LTV) 강화, 총부채원리금상환비율(DSR) 강화는 대표적인 금융규제 수단이다.",
+      "양도소득세 강화, 개발부담금의 부담률 인상은 조세정책 수단이지 금융규제가 아니다.",
+      "토지거래허가제, 개발제한구역·택지개발지구 지정, 분양가상한제의 적용 지역 확대, 개발권양도제(TDR) 시행은 토지이용·가격 규제 수단이지 금융규제가 아니다."
+    ],
+    "pitfalls": "토지거래허가제나 분양가상한제처럼 시장에 강하게 개입하는 정책을 금융규제로 착각하기 쉽지만, 이들은 대출조건을 건드리지 않으므로 금융규제가 아니다.",
+    "example": "정부가 총부채원리금상환비율(DSR) 기준을 강화하는 것은 금융규제에 해당하지만, 분양가상한제 적용 지역을 확대하는 것은 금융규제가 아니다.",
+    "questionRefs": [
+      {
+        "year": 2020,
+        "questionNo": 5
+      },
+      {
+        "year": 2024,
+        "questionNo": 20
+      }
+    ]
+  },
+  {
+    "slug": "real-estate-system-timeline-status",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "부동산정책의 의의와 기능",
+    "category": "부동산정책론",
+    "subcategory": "부동산 정책수단·제도",
+    "parentSlug": "zoning-negative-externality",
+    "titleKo": "부동산제도의 시행 여부와 도입 시기",
+    "titleEn": "Timeline and Current Status of Real Estate Institutions",
+    "definition": "부동산 제도는 「지금 살아 있는가」와 「언제 들어왔는가」 두 축으로 정리한다. 값이 뛰던 시기에 급히 만들었다가 사라진 제도가 여럿이라, 이름만 알고 있으면 현행으로 착각하기 쉽다.",
+    "intuition": "이 단원은 '지금도 있는 제도인가'와 '언제 생긴 제도인가'라는 두 축의 암기 문제이므로, 폐지된 제도 목록과 주요 제도의 도입 연도를 각각 순서대로 정리해두면 된다.",
+    "keyPoints": [
+      "택지소유상한제, 토지초과이득세제, 공한지세는 폐지되어 현재 시행되지 않는 대표적인 제도다.",
+      "일반 부동산거래신고제는 현행이지만, 과거 주택법상 특정 지역을 지정해 운영하던 별도의 주택거래신고제는 2015년 폐지되었다.",
+      "분양가상한제, 개발행위허가제, 용도지역제, 토지거래허가제, 개발이익환수제, 부동산실명제, 주택 전매제한, 종합부동산세는 현행 제도다.",
+      "법령상 도입 시기는 공인중개사제도(1983년, 부동산중개업법) → 부동산실명제(1995년) → 자산유동화제도(1998년) → 부동산거래신고제(2006년) 순이다."
+    ],
+    "pitfalls": "일반 부동산 실거래 신고와 과거의 주택거래신고지역 제도를 같은 것으로 묶으면 안 된다. 전자는 현행이지만 후자는 2015년 폐지되었다.",
+    "example": "부동산 실권리자명의 등기제도(부동산실명제)는 1995년에 도입되어 공인중개사제도(1983년)보다 늦게 시행되었다.",
+    "questionRefs": [
+      {
+        "year": 2018,
+        "questionNo": 18
+      },
+      {
+        "year": 2020,
+        "questionNo": 23
+      },
+      {
+        "year": 2020,
+        "questionNo": 24
+      },
+      {
+        "year": 2021,
+        "questionNo": 14
+      },
+      {
+        "year": 2023,
+        "questionNo": 16
+      }
+    ]
+  },
+  {
     "slug": "zoning-negative-externality",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "토지정책",
     "category": "부동산정책론",
     "subcategory": "부동산 정책수단·제도",
     "titleKo": "용도지역·지구제와 도시지역의 세부 구분",
@@ -975,8 +1079,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "land-policy-tools-current-status",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "토지정책",
     "category": "부동산정책론",
     "subcategory": "부동산 정책수단·제도",
     "parentSlug": "zoning-negative-externality",
@@ -1032,80 +1136,9 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "financial-regulation-classification",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
-    "category": "부동산정책론",
-    "subcategory": "부동산 정책수단·제도",
-    "parentSlug": "zoning-negative-externality",
-    "titleKo": "금융규제와 비금융규제의 구분",
-    "titleEn": "Distinguishing Financial from Non-Financial Regulations",
-    "definition": "정책 수단은 그것이 돈줄을 죄는 것인지 아닌지로 갈린다. 얼마나 빌릴 수 있는지를 정하는 것이 금융규제이고, 세금이나 인허가로 조이는 것은 금융 아닌 규제다.",
-    "intuition": "금융규제인지 판별할 때는 '돈을 빌리고 갚는 조건'을 직접 건드리는가만 확인하면 된다 — 세금·용도규제·가격규제는 아무리 시장에 강하게 개입해도 금융규제로 분류되지 않는다.",
-    "keyPoints": [
-      "담보인정비율(LTV) 강화, 총부채원리금상환비율(DSR) 강화는 대표적인 금융규제 수단이다.",
-      "양도소득세 강화, 개발부담금의 부담률 인상은 조세정책 수단이지 금융규제가 아니다.",
-      "토지거래허가제, 개발제한구역·택지개발지구 지정, 분양가상한제의 적용 지역 확대, 개발권양도제(TDR) 시행은 토지이용·가격 규제 수단이지 금융규제가 아니다."
-    ],
-    "pitfalls": "토지거래허가제나 분양가상한제처럼 시장에 강하게 개입하는 정책을 금융규제로 착각하기 쉽지만, 이들은 대출조건을 건드리지 않으므로 금융규제가 아니다.",
-    "example": "정부가 총부채원리금상환비율(DSR) 기준을 강화하는 것은 금융규제에 해당하지만, 분양가상한제 적용 지역을 확대하는 것은 금융규제가 아니다.",
-    "questionRefs": [
-      {
-        "year": 2020,
-        "questionNo": 5
-      },
-      {
-        "year": 2024,
-        "questionNo": 20
-      }
-    ]
-  },
-  {
-    "slug": "real-estate-system-timeline-status",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
-    "category": "부동산정책론",
-    "subcategory": "부동산 정책수단·제도",
-    "parentSlug": "zoning-negative-externality",
-    "titleKo": "부동산제도의 시행 여부와 도입 시기",
-    "titleEn": "Timeline and Current Status of Real Estate Institutions",
-    "definition": "부동산 제도는 「지금 살아 있는가」와 「언제 들어왔는가」 두 축으로 정리한다. 값이 뛰던 시기에 급히 만들었다가 사라진 제도가 여럿이라, 이름만 알고 있으면 현행으로 착각하기 쉽다.",
-    "intuition": "이 단원은 '지금도 있는 제도인가'와 '언제 생긴 제도인가'라는 두 축의 암기 문제이므로, 폐지된 제도 목록과 주요 제도의 도입 연도를 각각 순서대로 정리해두면 된다.",
-    "keyPoints": [
-      "택지소유상한제, 토지초과이득세제, 공한지세는 폐지되어 현재 시행되지 않는 대표적인 제도다.",
-      "일반 부동산거래신고제는 현행이지만, 과거 주택법상 특정 지역을 지정해 운영하던 별도의 주택거래신고제는 2015년 폐지되었다.",
-      "분양가상한제, 개발행위허가제, 용도지역제, 토지거래허가제, 개발이익환수제, 부동산실명제, 주택 전매제한, 종합부동산세는 현행 제도다.",
-      "법령상 도입 시기는 공인중개사제도(1983년, 부동산중개업법) → 부동산실명제(1995년) → 자산유동화제도(1998년) → 부동산거래신고제(2006년) 순이다."
-    ],
-    "pitfalls": "일반 부동산 실거래 신고와 과거의 주택거래신고지역 제도를 같은 것으로 묶으면 안 된다. 전자는 현행이지만 후자는 2015년 폐지되었다.",
-    "example": "부동산 실권리자명의 등기제도(부동산실명제)는 1995년에 도입되어 공인중개사제도(1983년)보다 늦게 시행되었다.",
-    "questionRefs": [
-      {
-        "year": 2018,
-        "questionNo": 18
-      },
-      {
-        "year": 2020,
-        "questionNo": 23
-      },
-      {
-        "year": 2020,
-        "questionNo": 24
-      },
-      {
-        "year": 2021,
-        "questionNo": 14
-      },
-      {
-        "year": 2023,
-        "questionNo": 16
-      }
-    ]
-  },
-  {
     "slug": "sale-price-cap-rent-subsidy",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "주택정책",
     "category": "부동산정책론",
     "subcategory": "주택정책 (분양가규제·주거복지 등)",
     "titleKo": "분양가상한제와 분양가규제",
@@ -1132,8 +1165,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "public-rental-housing-types",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "주택정책",
     "category": "부동산정책론",
     "subcategory": "주택정책 (분양가규제·주거복지 등)",
     "parentSlug": "sale-price-cap-rent-subsidy",
@@ -1170,8 +1203,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "rental-policy-and-housing-welfare",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "주택정책",
     "category": "부동산정책론",
     "subcategory": "주택정책 (분양가규제·주거복지 등)",
     "parentSlug": "sale-price-cap-rent-subsidy",
@@ -1220,8 +1253,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "real-estate-tax-policy",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "조세정책",
     "category": "부동산정책론",
     "subcategory": "조세정책",
     "titleKo": "부동산 조세의 국세·지방세·과세단계 분류",
@@ -1252,8 +1285,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "real-estate-tax-economic-effects",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산정책론",
+    "chapterKo": "부동산정책론",
+    "sectionKo": "조세정책",
     "category": "부동산정책론",
     "subcategory": "조세정책",
     "parentSlug": "real-estate-tax-policy",
@@ -1302,8 +1335,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "leverage-effect",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "부동산투자의 의의",
     "category": "부동산투자론",
     "subcategory": "지렛대효과 (레버리지)",
     "titleKo": "레버리지 효과와 자기자본수익률",
@@ -1319,45 +1352,9 @@ const concepts: Concept[] = [
     "example": "자기자본 1억원에 부채 5천만원(부채비율 50%)을 더해 투자한 경우, 대출이자율보다 투자수익률이 높으면 자기자본수익률은 총자본수익률보다 더 높게 나타난다."
   },
   {
-    "slug": "time-value-of-money",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
-    "category": "부동산투자론",
-    "subcategory": "화폐의 시간가치",
-    "titleKo": "저당상수와 감채기금계수의 용도 구분",
-    "titleEn": "Distinguishing Mortgage Constant from Sinking Fund Factor",
-    "definition": "돈의 시간가치를 다루는 계수들은 「지금 값을 미래로 보내는가, 미래 값을 지금으로 당기는가」와 「한 번에 오가는가, 매기 나뉘어 오가는가」 두 축으로 갈린다. 어느 칸에 서 있는지를 정하면 쓸 계수가 따라 정해진다.",
-    "intuition": "화폐의 시간가치 6계수는 '내가 지금 무엇을 알고 있고, 무엇을 구하려 하는지'에 따라 골라 쓰는 도구상자라고 생각하면, 저당상수와 감채기금계수처럼 헷갈리는 계수를 구분하는 데 도움이 된다.",
-    "keyPoints": [
-      "매월 상환할 금액(원리금)을 구할 때는 저당상수를 사용한다.",
-      "미래 목표액을 만들기 위한 매기 적립금을 구할 때는 감채기금계수를 사용한다 — 저당상수와 혼동하지 않아야 한다.",
-      "잔금비율(남은 원금 비율)과 상환비율(상환된 원금 비율)의 합은 항상 1이다."
-    ],
-    "pitfalls": "저당상수와 감채기금계수의 용도를 서로 바꿔 적용하는 실수가 잦다 — 상환액 계산은 저당상수, 적립액 계산은 감채기금계수다.",
-    "example": "3억원을 빌리고 매달 얼마씩 갚아야 하는지를 구한다면 저당상수를 곱한다. 반대로 10년 뒤 1억원을 만들려고 해마다 얼마씩 부어야 하는지를 구한다면 감채기금계수를 곱한다."
-  },
-  {
-    "slug": "operating-cash-flow",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
-    "category": "부동산투자론",
-    "subcategory": "현금수지 계산 (운영수지·현금흐름)",
-    "titleKo": "가능총소득(PGI)에서 세후현금흐름까지의 산출 구조",
-    "titleEn": "Structure from Potential Gross Income to After-Tax Cash Flow",
-    "definition": "부동산의 현금흐름은 가장 넉넉한 수치에서 시작해 단계마다 빠질 것을 덜어 내려간다. 다 찼을 때의 임대료에서 빈 방을 빼고, 운영비를 빼고, 원리금과 세금을 빼면 손에 남는 돈이 된다.",
-    "intuition": "운영수지 계산은 위에서 아래로 항목을 하나씩 차감해가는 '폭포수' 구조이므로, PGI부터 세후현금흐름까지 순서를 통째로 암기해두면 계산 문제의 뼈대를 놓치지 않는다.",
-    "keyPoints": [
-      "가능총소득(PGI) = 단위면적당 추정 임대료 × 임대면적.",
-      "PGI에서 공실 및 불량부채를 차감하면 유효총소득(EGI)이 된다.",
-      "EGI에서 영업경비를 차감하면 순영업소득(NOI), 여기서 부채서비스액을 차감하면 세전현금흐름, 영업소득세를 차감하면 세후현금흐름이 된다."
-    ],
-    "pitfalls": "각 단계에서 차감하는 항목의 순서(공실→영업경비→부채서비스액→세금)를 뒤바꾸는 실수를 하기 쉽다.",
-    "example": "단위면적당 임대료 10만원에 임대면적 1,000㎡인 건물의 가능총소득(PGI)은 1억원이며, 여기서 공실·영업경비·부채서비스액·세금을 순서대로 차감해 최종 세후현금흐름을 구한다."
-  },
-  {
     "slug": "required-vs-expected-return",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "부동산투자의 위험과 수익",
     "category": "부동산투자론",
     "subcategory": "수익과 위험 (기대수익률 등)",
     "titleKo": "요구수익률·기대수익률과 투자위험의 구분",
@@ -1424,42 +1421,9 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "informational-value-calculation",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
-    "category": "부동산투자론",
-    "subcategory": "수익과 위험 (기대수익률 등)",
-    "parentSlug": "required-vs-expected-return",
-    "titleKo": "정보의 현재가치 계산",
-    "titleEn": "Calculating the Present Value of Information",
-    "definition": "정보의 현재가치는 개발이 확실하다고 가정했을 때의 현재가치와, 불확실성이 반영된 기댓값의 현재가치의 차액으로 계산하며, 이는 투자자가 그 정보를 미리 알기 위해 최대한 지불할 수 있는 금액이다.",
-    "intuition": "정보의 가치는 '불확실성을 없애주면 얼마나 이득인가'로 측정되므로, 확실한 미래의 현재가치에서 불확실한 상태의 기댓값 현재가치를 빼는 것으로 계산된다고 이해하면 된다.",
-    "keyPoints": [
-      "정보의 현재가치 = (개발이 확실하다고 가정했을 때 가격의 현재가치) - (불확실성이 반영된 기댓값의 현재가치)로 계산한다.",
-      "불확실성이 반영된 기댓값 = 개발 시 가격×개발확률 + 미개발 시 가격×(1-개발확률)이며, 이 값을 현재가치로 할인한 뒤 확실한 경우의 현재가치에서 빼면 정보의 현재가치가 된다.",
-      "정보의 현재가치는 곧 불확실성을 제거해주는 대가로 투자자가 지불할 용의가 있는 최대금액을 의미한다."
-    ],
-    "pitfalls": "정보의 현재가치를 단순히 '개발 시 가격의 현재가치'로 착각하기 쉽지만, 실제로는 확실한 경우의 현재가치에서 불확실한 기댓값의 현재가치를 뺀 차액이다.",
-    "example": "2년 후 개발이 확실하다면 A토지 가격의 현재가치가 더 높게 계산되며, 그 값과 불확실성을 반영한 기댓값의 현재가치와의 차이가 정보의 현재가치다.",
-    "questionRefs": [
-      {
-        "year": 2018,
-        "questionNo": 14
-      },
-      {
-        "year": 2022,
-        "questionNo": 12
-      },
-      {
-        "year": 2024,
-        "questionNo": 17
-      }
-    ]
-  },
-  {
     "slug": "expected-return-calculation",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "부동산투자의 위험과 수익",
     "category": "부동산투자론",
     "subcategory": "수익과 위험 (기대수익률 등)",
     "parentSlug": "required-vs-expected-return",
@@ -1490,9 +1454,63 @@ const concepts: Concept[] = [
     ]
   },
   {
+    "slug": "portfolio-theory",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "부동산투자의 위험과 수익",
+    "category": "부동산투자론",
+    "subcategory": "포트폴리오이론",
+    "titleKo": "체계적 위험과 비체계적 위험의 분산 효과",
+    "titleEn": "Diversification Effects on Systematic and Unsystematic Risk",
+    "definition": "위험은 나눠 담아 없앨 수 있는 것과 없앨 수 없는 것으로 갈린다. 개별 자산의 사정에서 오는 위험은 여러 개를 섞으면 상쇄되지만, 시장 전체가 흔들리는 위험은 아무리 섞어도 남는다.",
+    "intuition": "포트폴리오 효과는 '서로 다르게 움직이는 자산을 섞을수록 위험이 상쇄된다'는 원리이므로, 상관계수가 음수에 가까울수록 분산 효과가 커진다는 방향성만 정확히 알아두면 된다.",
+    "keyPoints": [
+      "분산투자로 제거 가능한 것은 비체계적 위험이며, 체계적 위험은 분산으로 제거할 수 없다.",
+      "위험감소 효과가 최대가 되려면 상관계수가 -1(완전 부의 상관관계)이어야 한다.",
+      "상관계수가 0인 경우에도 분산효과는 있지만, -1일 때만큼 최대는 아니다."
+    ],
+    "pitfalls": "'분산투자로 체계적 위험이 감소한다'는 서술은 틀렸다 — 체계적 위험은 시장 전체에 영향을 미치는 위험이라 분산으로 제거되지 않는다.",
+    "example": "가격이 반대로 움직이는 두 자산(상관계수 -1에 가까움)에 나누어 투자하면, 한 자산의 손실이 다른 자산의 이익으로 상쇄되어 포트폴리오 전체의 위험이 크게 줄어든다."
+  },
+  {
+    "slug": "time-value-of-money",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "화폐의 시간가치",
+    "category": "부동산투자론",
+    "subcategory": "화폐의 시간가치",
+    "titleKo": "저당상수와 감채기금계수의 용도 구분",
+    "titleEn": "Distinguishing Mortgage Constant from Sinking Fund Factor",
+    "definition": "돈의 시간가치를 다루는 계수들은 「지금 값을 미래로 보내는가, 미래 값을 지금으로 당기는가」와 「한 번에 오가는가, 매기 나뉘어 오가는가」 두 축으로 갈린다. 어느 칸에 서 있는지를 정하면 쓸 계수가 따라 정해진다.",
+    "intuition": "화폐의 시간가치 6계수는 '내가 지금 무엇을 알고 있고, 무엇을 구하려 하는지'에 따라 골라 쓰는 도구상자라고 생각하면, 저당상수와 감채기금계수처럼 헷갈리는 계수를 구분하는 데 도움이 된다.",
+    "keyPoints": [
+      "매월 상환할 금액(원리금)을 구할 때는 저당상수를 사용한다.",
+      "미래 목표액을 만들기 위한 매기 적립금을 구할 때는 감채기금계수를 사용한다 — 저당상수와 혼동하지 않아야 한다.",
+      "잔금비율(남은 원금 비율)과 상환비율(상환된 원금 비율)의 합은 항상 1이다."
+    ],
+    "pitfalls": "저당상수와 감채기금계수의 용도를 서로 바꿔 적용하는 실수가 잦다 — 상환액 계산은 저당상수, 적립액 계산은 감채기금계수다.",
+    "example": "3억원을 빌리고 매달 얼마씩 갚아야 하는지를 구한다면 저당상수를 곱한다. 반대로 10년 뒤 1억원을 만들려고 해마다 얼마씩 부어야 하는지를 구한다면 감채기금계수를 곱한다."
+  },
+  {
+    "slug": "operating-cash-flow",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "부동산투자분석",
+    "category": "부동산투자론",
+    "subcategory": "현금수지 계산 (운영수지·현금흐름)",
+    "titleKo": "가능총소득(PGI)에서 세후현금흐름까지의 산출 구조",
+    "titleEn": "Structure from Potential Gross Income to After-Tax Cash Flow",
+    "definition": "부동산의 현금흐름은 가장 넉넉한 수치에서 시작해 단계마다 빠질 것을 덜어 내려간다. 다 찼을 때의 임대료에서 빈 방을 빼고, 운영비를 빼고, 원리금과 세금을 빼면 손에 남는 돈이 된다.",
+    "intuition": "운영수지 계산은 위에서 아래로 항목을 하나씩 차감해가는 '폭포수' 구조이므로, PGI부터 세후현금흐름까지 순서를 통째로 암기해두면 계산 문제의 뼈대를 놓치지 않는다.",
+    "keyPoints": [
+      "가능총소득(PGI) = 단위면적당 추정 임대료 × 임대면적.",
+      "PGI에서 공실 및 불량부채를 차감하면 유효총소득(EGI)이 된다.",
+      "EGI에서 영업경비를 차감하면 순영업소득(NOI), 여기서 부채서비스액을 차감하면 세전현금흐름, 영업소득세를 차감하면 세후현금흐름이 된다."
+    ],
+    "pitfalls": "각 단계에서 차감하는 항목의 순서(공실→영업경비→부채서비스액→세금)를 뒤바꾸는 실수를 하기 쉽다.",
+    "example": "단위면적당 임대료 10만원에 임대면적 1,000㎡인 건물의 가능총소득(PGI)은 1억원이며, 여기서 공실·영업경비·부채서비스액·세금을 순서대로 차감해 최종 세후현금흐름을 구한다."
+  },
+  {
     "slug": "npv-irr",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "부동산투자분석",
     "category": "부동산투자론",
     "subcategory": "할인현금흐름법 (DCF)",
     "titleKo": "순현재가치(NPV)·내부수익률(IRR)·수익성지수(PI)의 비교",
@@ -1548,8 +1566,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "dcf-calculation-problems",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "부동산투자분석",
     "category": "부동산투자론",
     "subcategory": "할인현금흐름법 (DCF)",
     "parentSlug": "npv-irr",
@@ -1589,8 +1607,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "non-discounted-methods",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "부동산투자분석",
     "category": "부동산투자론",
     "subcategory": "비할인법 (어림셈법·비율분석·부채감당률)",
     "titleKo": "비율분석법의 지표 정의와 비교",
@@ -1622,8 +1640,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "ratio-analysis-calculation",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
+    "chapterKo": "부동산투자론",
+    "sectionKo": "부동산투자분석",
     "category": "부동산투자론",
     "subcategory": "비할인법 (어림셈법·비율분석·부채감당률)",
     "parentSlug": "non-discounted-methods",
@@ -1675,27 +1693,9 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "portfolio-theory",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산투자론",
-    "category": "부동산투자론",
-    "subcategory": "포트폴리오이론",
-    "titleKo": "체계적 위험과 비체계적 위험의 분산 효과",
-    "titleEn": "Diversification Effects on Systematic and Unsystematic Risk",
-    "definition": "위험은 나눠 담아 없앨 수 있는 것과 없앨 수 없는 것으로 갈린다. 개별 자산의 사정에서 오는 위험은 여러 개를 섞으면 상쇄되지만, 시장 전체가 흔들리는 위험은 아무리 섞어도 남는다.",
-    "intuition": "포트폴리오 효과는 '서로 다르게 움직이는 자산을 섞을수록 위험이 상쇄된다'는 원리이므로, 상관계수가 음수에 가까울수록 분산 효과가 커진다는 방향성만 정확히 알아두면 된다.",
-    "keyPoints": [
-      "분산투자로 제거 가능한 것은 비체계적 위험이며, 체계적 위험은 분산으로 제거할 수 없다.",
-      "위험감소 효과가 최대가 되려면 상관계수가 -1(완전 부의 상관관계)이어야 한다.",
-      "상관계수가 0인 경우에도 분산효과는 있지만, -1일 때만큼 최대는 아니다."
-    ],
-    "pitfalls": "'분산투자로 체계적 위험이 감소한다'는 서술은 틀렸다 — 체계적 위험은 시장 전체에 영향을 미치는 위험이라 분산으로 제거되지 않는다.",
-    "example": "가격이 반대로 움직이는 두 자산(상관계수 -1에 가까움)에 나누어 투자하면, 한 자산의 손실이 다른 자산의 이익으로 상쇄되어 포트폴리오 전체의 위험이 크게 줄어든다."
-  },
-  {
     "slug": "loan-limit-ltv-dcr",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "부동산금융",
     "category": "부동산금융론",
     "subcategory": "최대 융자금액 (LTV·DTI)",
     "titleKo": "LTV·DCR 기준에 따른 대출한도 산정",
@@ -1734,8 +1734,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "reverse-mortgage-pension",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "부동산금융",
     "category": "부동산금융론",
     "subcategory": "최대 융자금액 (LTV·DTI)",
     "parentSlug": "loan-limit-ltv-dcr",
@@ -1768,8 +1768,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "housing-finance-and-ltv-dti-concepts",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "부동산금융",
     "category": "부동산금융론",
     "subcategory": "최대 융자금액 (LTV·DTI)",
     "parentSlug": "loan-limit-ltv-dcr",
@@ -1806,8 +1806,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "amortization-methods",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "저당상환방법",
     "category": "부동산금융론",
     "subcategory": "원리금 상환방법",
     "titleKo": "원리금균등·원금균등·체증식·만기일시상환의 비교",
@@ -1851,8 +1851,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "amortization-schedule-calculation",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "저당상환방법",
     "category": "부동산금융론",
     "subcategory": "원리금 상환방법",
     "parentSlug": "amortization-methods",
@@ -1900,8 +1900,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "mbs-securitization",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "부동산증권론 및 개발금융",
     "category": "부동산금융론",
     "subcategory": "주택저당증권·유동화 (MBS·ABS 등)",
     "titleKo": "MBS 종류별 위험부담과 현금흐름 구조",
@@ -1937,8 +1937,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "asset-securitization-law-and-pf",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "부동산증권론 및 개발금융",
     "category": "부동산금융론",
     "subcategory": "주택저당증권·유동화 (MBS·ABS 등)",
     "parentSlug": "mbs-securitization",
@@ -1971,8 +1971,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "mbs-market-effects-and-pricing",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "부동산증권론 및 개발금융",
     "category": "부동산금융론",
     "subcategory": "주택저당증권·유동화 (MBS·ABS 등)",
     "parentSlug": "mbs-securitization",
@@ -2000,8 +2000,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "project-financing",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "부동산증권론 및 개발금융",
     "category": "부동산금융론",
     "subcategory": "프로젝트 파이낸싱 (PF·부동산신탁 등)",
     "titleKo": "프로젝트 금융의 비소구성과 신탁 당사자",
@@ -2017,27 +2017,9 @@ const concepts: Concept[] = [
     "example": "시행사가 특정 개발사업만을 위해 설립한 프로젝트회사 명의로 대출을 받았다면, 그 사업이 실패하더라도 대주는 원칙적으로 시행사의 다른 자산까지 청구할 수 없다."
   },
   {
-    "slug": "reits-structure",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
-    "category": "부동산금융론",
-    "subcategory": "부동산투자회사 (REITs)",
-    "titleKo": "REITs의 3가지 유형과 최저자본금",
-    "titleEn": "Three Types of REITs and Minimum Capital Requirements",
-    "definition": "리츠는 여럿의 돈을 모아 부동산에 넣고 그 수익을 나누는 회사다. 그 회사가 스스로 굴리는지 남에게 맡기는지, 무엇을 사는지에 따라 갈래가 나뉘고 요구되는 자본금도 달라진다.",
-    "intuition": "REITs 3종류는 '누가 직접 자산을 운용하는가(자기관리·위탁관리)'와 '어떤 목적의 자산을 다루는가(기업구조조정)'로 구분된다고 이해하면, 유형별 특징을 헷갈리지 않고 암기할 수 있다.",
-    "keyPoints": [
-      "REITs는 자기관리·위탁관리·기업구조조정 REITs의 3종류로 구분된다.",
-      "자기관리 REITs의 설립 최저 자본금은 5억원 이상이다.",
-      "주주 1인당 주식소유 한도를 제한하는 것은 일반투자자를 보호하기 위한 장치다."
-    ],
-    "pitfalls": "자기관리·위탁관리 REITs의 자산운용 주체를 혼동하기 쉽다 — 자기관리는 자체 인력이, 위탁관리는 자산관리회사가 운용한다.",
-    "example": "자체적으로 자산운용 전문인력을 고용해 직접 부동산을 운용하는 REITs는 자기관리 REITs로 분류되며, 설립 시 최저 자본금 5억원 이상을 갖추어야 한다."
-  },
-  {
     "slug": "financing-instrument-classification",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산금융론",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "부동산증권론 및 개발금융",
     "category": "부동산금융론",
     "subcategory": "자금조달 방식 (지분·부채·메자닌금융 구분)",
     "titleKo": "지분금융·부채금융·메자닌금융의 구분",
@@ -2053,9 +2035,27 @@ const concepts: Concept[] = [
     "example": "개발사업 시행사가 채권을 발행해 자금을 조달했다면 이는 부채금융이고, 투자자로부터 지분 투자를 받았다면 이는 지분금융이다."
   },
   {
+    "slug": "reits-structure",
+    "chapterKo": "부동산금융론",
+    "sectionKo": "부동산투자회사",
+    "category": "부동산금융론",
+    "subcategory": "부동산투자회사 (REITs)",
+    "titleKo": "REITs의 3가지 유형과 최저자본금",
+    "titleEn": "Three Types of REITs and Minimum Capital Requirements",
+    "definition": "리츠는 여럿의 돈을 모아 부동산에 넣고 그 수익을 나누는 회사다. 그 회사가 스스로 굴리는지 남에게 맡기는지, 무엇을 사는지에 따라 갈래가 나뉘고 요구되는 자본금도 달라진다.",
+    "intuition": "REITs 3종류는 '누가 직접 자산을 운용하는가(자기관리·위탁관리)'와 '어떤 목적의 자산을 다루는가(기업구조조정)'로 구분된다고 이해하면, 유형별 특징을 헷갈리지 않고 암기할 수 있다.",
+    "keyPoints": [
+      "REITs는 자기관리·위탁관리·기업구조조정 REITs의 3종류로 구분된다.",
+      "자기관리 REITs의 설립 최저 자본금은 5억원 이상이다.",
+      "주주 1인당 주식소유 한도를 제한하는 것은 일반투자자를 보호하기 위한 장치다."
+    ],
+    "pitfalls": "자기관리·위탁관리 REITs의 자산운용 주체를 혼동하기 쉽다 — 자기관리는 자체 인력이, 위탁관리는 자산관리회사가 운용한다.",
+    "example": "자체적으로 자산운용 전문인력을 고용해 직접 부동산을 운용하는 REITs는 자기관리 REITs로 분류되며, 설립 시 최저 자본금 5억원 이상을 갖추어야 한다."
+  },
+  {
     "slug": "development-risk-feasibility",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산개발 및 관리론",
+    "chapterKo": "부동산개발 및 관리론",
+    "sectionKo": "부동산이용 및 개발",
     "category": "부동산개발 및 관리론",
     "subcategory": "개발위험·타당성분석 (비율분석 포함)",
     "titleKo": "워포드의 개발위험 3분류와 부동산개발업의 정의",
@@ -2072,8 +2072,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "redevelopment-project-methods",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산개발 및 관리론",
+    "chapterKo": "부동산개발 및 관리론",
+    "sectionKo": "부동산이용 및 개발",
     "category": "부동산개발 및 관리론",
     "subcategory": "개발 사업방식 (환지·수용·지주공동·민자 등)",
     "titleKo": "도시 및 주거환경정비법상 정비사업의 유형",
@@ -2104,8 +2104,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "private-investment-project-types",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산개발 및 관리론",
+    "chapterKo": "부동산개발 및 관리론",
+    "sectionKo": "부동산이용 및 개발",
     "category": "부동산개발 및 관리론",
     "subcategory": "개발 사업방식 (환지·수용·지주공동·민자 등)",
     "parentSlug": "redevelopment-project-methods",
@@ -2142,8 +2142,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "land-acquisition-and-joint-development-methods",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산개발 및 관리론",
+    "chapterKo": "부동산개발 및 관리론",
+    "sectionKo": "부동산이용 및 개발",
     "category": "부동산개발 및 관리론",
     "subcategory": "개발 사업방식 (환지·수용·지주공동·민자 등)",
     "parentSlug": "redevelopment-project-methods",
@@ -2176,8 +2176,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "property-management-methods",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산개발 및 관리론",
+    "chapterKo": "부동산개발 및 관리론",
+    "sectionKo": "부동산관리",
     "category": "부동산개발 및 관리론",
     "subcategory": "부동산관리 (관리방식·유형)",
     "titleKo": "위탁관리의 장단점과 재산관리(PM)의 업무 범위",
@@ -2193,9 +2193,27 @@ const concepts: Concept[] = [
     "example": "위탁관리형 주택임대관리업자는 임대료 징수·시설 유지관리 등은 수행할 수 있지만, 입주자에게 대출을 알선하는 업무는 할 수 없다."
   },
   {
+    "slug": "percentage-lease-analysis",
+    "chapterKo": "부동산개발 및 관리론",
+    "sectionKo": "부동산관리",
+    "category": "부동산개발 및 관리론",
+    "subcategory": "임대차 분석 (비율임대차 등)",
+    "titleKo": "비율임대차의 추가임대료 계산",
+    "titleEn": "Calculating Overage Rent in Percentage Leases",
+    "definition": "비율임대차에서 추가임대료는 손익분기점 매출액을 초과하는 매출액(초과매출액)에 추가임대료율을 곱하여 계산하며, 총임대료는 기본임대료에 이 추가임대료를 더한 금액이다.",
+    "intuition": "비율임대차는 '기본임대료(고정) + 매출 초과분에 대한 성과급(변동)'이라는 이중 구조이므로, 손익분기점 매출액을 먼저 구한 뒤 그 초과분에만 추가임대료율을 곱한다는 순서를 기억하면 계산이 쉬워진다.",
+    "keyPoints": [
+      "초과매출액 = 총매출액 − 손익분기점 매출액.",
+      "추가임대료 = 초과매출액 × 추가임대료율.",
+      "총임대료 = 기본임대료 + 추가임대료."
+    ],
+    "pitfalls": "추가임대료율을 총매출액 전체에 곱하는 실수를 하기 쉽다 — 반드시 손익분기점을 초과한 매출액에만 곱해야 한다.",
+    "example": "총매출액이 7억 5천만원이고 손익분기점 매출액이 4억 5천만원이라면 초과매출액은 3억원이며, 여기에 추가임대료율 15%를 곱한 4,500만원이 추가임대료가 된다."
+  },
+  {
     "slug": "market-segmentation-stp",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산개발 및 관리론",
+    "chapterKo": "부동산개발 및 관리론",
+    "sectionKo": "부동산마케팅",
     "category": "부동산개발 및 관리론",
     "subcategory": "부동산마케팅 (시장세분화·STP 등)",
     "titleKo": "부동산마케팅 전략의 개념 — STP·시장점유·고객점유·관계마케팅",
@@ -2243,8 +2261,8 @@ const concepts: Concept[] = [
   },
   {
     "slug": "4p-marketing-mix-components",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산개발 및 관리론",
+    "chapterKo": "부동산개발 및 관리론",
+    "sectionKo": "부동산마케팅",
     "category": "부동산개발 및 관리론",
     "subcategory": "부동산마케팅 (시장세분화·STP 등)",
     "parentSlug": "market-segmentation-stp",
@@ -2274,26 +2292,8 @@ const concepts: Concept[] = [
     ]
   },
   {
-    "slug": "percentage-lease-analysis",
-    "chapterKo": "부동산학 각론",
-    "sectionKo": "부동산개발 및 관리론",
-    "category": "부동산개발 및 관리론",
-    "subcategory": "임대차 분석 (비율임대차 등)",
-    "titleKo": "비율임대차의 추가임대료 계산",
-    "titleEn": "Calculating Overage Rent in Percentage Leases",
-    "definition": "비율임대차에서 추가임대료는 손익분기점 매출액을 초과하는 매출액(초과매출액)에 추가임대료율을 곱하여 계산하며, 총임대료는 기본임대료에 이 추가임대료를 더한 금액이다.",
-    "intuition": "비율임대차는 '기본임대료(고정) + 매출 초과분에 대한 성과급(변동)'이라는 이중 구조이므로, 손익분기점 매출액을 먼저 구한 뒤 그 초과분에만 추가임대료율을 곱한다는 순서를 기억하면 계산이 쉬워진다.",
-    "keyPoints": [
-      "초과매출액 = 총매출액 − 손익분기점 매출액.",
-      "추가임대료 = 초과매출액 × 추가임대료율.",
-      "총임대료 = 기본임대료 + 추가임대료."
-    ],
-    "pitfalls": "추가임대료율을 총매출액 전체에 곱하는 실수를 하기 쉽다 — 반드시 손익분기점을 초과한 매출액에만 곱해야 한다.",
-    "example": "총매출액이 7억 5천만원이고 손익분기점 매출액이 4억 5천만원이라면 초과매출액은 3억원이며, 여기에 추가임대료율 15%를 곱한 4,500만원이 추가임대료가 된다."
-  },
-  {
     "slug": "appraisal-procedure",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 기초이론",
     "category": "감정평가의 기초이론",
     "subcategory": "감정평가 개요·절차",
@@ -2311,7 +2311,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "appraisal-terminology",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 기초이론",
     "category": "감정평가의 기초이론",
     "subcategory": "감정평가 용어·법령",
@@ -2376,7 +2376,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "regional-individual-analysis",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "부동산가격이론",
     "category": "부동산가격이론",
     "subcategory": "지역분석·개별분석",
@@ -2394,7 +2394,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "asset-specific-appraisal-method",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 방식",
     "category": "감정평가의 방식",
     "subcategory": "물건별 감정평가 (주된 방식)",
@@ -2435,7 +2435,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "three-appraisal-approaches-reconciliation",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 방식",
     "category": "감정평가의 방식",
     "subcategory": "물건별 감정평가 (주된 방식)",
@@ -2464,7 +2464,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "appraisal-approach-principles-and-rent-formulas",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 방식",
     "category": "감정평가의 방식",
     "subcategory": "물건별 감정평가 (주된 방식)",
@@ -2497,7 +2497,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "cost-approach-appraisal",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 방식",
     "category": "감정평가의 방식",
     "subcategory": "원가방식 (비용접근법)",
@@ -2541,7 +2541,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "depreciation-methods-and-reproduction-cost",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 방식",
     "category": "감정평가의 방식",
     "subcategory": "원가방식 (비용접근법)",
@@ -2575,7 +2575,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "income-capitalization-method",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 방식",
     "category": "감정평가의 방식",
     "subcategory": "수익방식 (수익환원법)",
@@ -2608,7 +2608,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "direct-capitalization-income-calculation",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 방식",
     "category": "감정평가의 방식",
     "subcategory": "수익방식 (수익환원법)",
@@ -2649,7 +2649,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "sales-comparison-standard-price-method",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 방식",
     "category": "감정평가의 방식",
     "subcategory": "거래사례비교법·공시지가기준법(비교방식)",
@@ -2685,7 +2685,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "sales-comparison-adjustment-calculation",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "감정평가의 방식",
     "category": "감정평가의 방식",
     "subcategory": "거래사례비교법·공시지가기준법(비교방식)",
@@ -2726,7 +2726,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "official-land-price-system",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "부동산가격공시제도",
     "category": "부동산가격공시제도",
     "subcategory": "표준지·개별공시지가",
@@ -2771,7 +2771,7 @@ const concepts: Concept[] = [
   },
   {
     "slug": "official-house-price-system",
-    "chapterKo": "부동산 감정평가론",
+    "chapterKo": "부동산감정평가론",
     "sectionKo": "부동산가격공시제도",
     "category": "부동산가격공시제도",
     "subcategory": "표준지·개별공시지가",

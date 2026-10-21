@@ -2,51 +2,9 @@ import type { Concept } from "@/lib/concepts";
 
 const concepts: Concept[] = [
   {
-    "slug": "tax-liability-establishment-date",
-    "chapterKo": "조세총론",
-    "sectionKo": "조세총론",
-    "category": "조세총론",
-    "subcategory": "납세의무 성립시기",
-    "parentSlug": "tax-liability-priority",
-    "titleKo": "세목별 납세의무 성립시기",
-    "titleEn": "Timing of Tax Liability Establishment by Tax Item",
-    "definition": "납세의무가 언제 생기는가는 그 세금이 무엇에 붙는지를 따라간다. 취득에 붙는 세금은 물건을 얻은 때, 보유에 붙는 세금은 정해 둔 기준일, 한 해의 소득에 붙는 세금은 그 해가 끝나는 때에 생긴다.",
-    "intuition": "납세의무 성립시기는 세목마다 '과세요건이 충족되었다고 볼 수 있는 시점'을 각각 다르게 정하고 있으므로, 세목별로 짝지어 암기하는 것이 효율적이다.",
-    "keyPoints": [
-      "주민세 사업소분의 납세의무 성립시기는 매년 7월 1일이다.",
-      "증여로 취득한 경우 그 계약일에 취득세 납세의무가 성립한다.",
-      "토지에 대한 양도소득세의 납세의무 성립시기는 과세기간이 끝나는 때이며, 취득세를 신고한 경우 법정기일은 그 신고일이다.",
-      "종합부동산세·재산세처럼 보유단계에서 부담하는 세목에는 농어촌특별세·지방교육세·개인지방소득세·지역자원시설세 등이 함께 부과될 수 있다."
-    ],
-    "pitfalls": "양도소득세의 납세의무 성립시기를 양도일(잔금청산일)로 착각하기 쉽다 — 정확히는 그 과세기간이 끝나는 때다.",
-    "example": "3월 10일에 증여계약을 맺고 5월 2일에 소유권이전등기를 마쳤다면, 취득세 납세의무는 등기한 5월 2일이 아니라 계약한 3월 10일에 이미 생겨 있다. 같은 사람이 그해 9월에 토지를 팔았다면 양도소득세 납세의무는 판 날이 아니라 과세기간이 끝나는 12월 31일에 생긴다.",
-    "questionRefs": [
-      {
-        "year": 2018,
-        "questionNo": 31
-      },
-      {
-        "year": 2019,
-        "questionNo": 25
-      },
-      {
-        "year": 2021,
-        "questionNo": 32
-      },
-      {
-        "year": 2024,
-        "questionNo": 25
-      },
-      {
-        "year": 2025,
-        "questionNo": 25
-      }
-    ]
-  },
-  {
     "slug": "tax-collection-and-notice",
     "chapterKo": "조세총론",
-    "sectionKo": "조세총론",
+    "sectionKo": "조세의 기초이론",
     "category": "조세총론",
     "subcategory": "납세의무 확장",
     "parentSlug": "tax-liability-priority",
@@ -86,9 +44,51 @@ const concepts: Concept[] = [
     ]
   },
   {
+    "slug": "tax-liability-establishment-date",
+    "chapterKo": "조세총론",
+    "sectionKo": "납세의무의 성립·확정·소멸",
+    "category": "조세총론",
+    "subcategory": "납세의무 성립시기",
+    "parentSlug": "tax-liability-priority",
+    "titleKo": "세목별 납세의무 성립시기",
+    "titleEn": "Timing of Tax Liability Establishment by Tax Item",
+    "definition": "납세의무가 언제 생기는가는 그 세금이 무엇에 붙는지를 따라간다. 취득에 붙는 세금은 물건을 얻은 때, 보유에 붙는 세금은 정해 둔 기준일, 한 해의 소득에 붙는 세금은 그 해가 끝나는 때에 생긴다.",
+    "intuition": "납세의무 성립시기는 세목마다 '과세요건이 충족되었다고 볼 수 있는 시점'을 각각 다르게 정하고 있으므로, 세목별로 짝지어 암기하는 것이 효율적이다.",
+    "keyPoints": [
+      "주민세 사업소분의 납세의무 성립시기는 매년 7월 1일이다.",
+      "증여로 취득한 경우 그 계약일에 취득세 납세의무가 성립한다.",
+      "토지에 대한 양도소득세의 납세의무 성립시기는 과세기간이 끝나는 때이며, 취득세를 신고한 경우 법정기일은 그 신고일이다.",
+      "종합부동산세·재산세처럼 보유단계에서 부담하는 세목에는 농어촌특별세·지방교육세·개인지방소득세·지역자원시설세 등이 함께 부과될 수 있다."
+    ],
+    "pitfalls": "양도소득세의 납세의무 성립시기를 양도일(잔금청산일)로 착각하기 쉽다 — 정확히는 그 과세기간이 끝나는 때다.",
+    "example": "3월 10일에 증여계약을 맺고 5월 2일에 소유권이전등기를 마쳤다면, 취득세 납세의무는 등기한 5월 2일이 아니라 계약한 3월 10일에 이미 생겨 있다. 같은 사람이 그해 9월에 토지를 팔았다면 양도소득세 납세의무는 판 날이 아니라 과세기간이 끝나는 12월 31일에 생긴다.",
+    "questionRefs": [
+      {
+        "year": 2018,
+        "questionNo": 31
+      },
+      {
+        "year": 2019,
+        "questionNo": 25
+      },
+      {
+        "year": 2021,
+        "questionNo": 32
+      },
+      {
+        "year": 2024,
+        "questionNo": 25
+      },
+      {
+        "year": 2025,
+        "questionNo": 25
+      }
+    ]
+  },
+  {
     "slug": "non-filing-penalty",
     "chapterKo": "조세총론",
-    "sectionKo": "조세총론",
+    "sectionKo": "납세의무의 성립·확정·소멸",
     "category": "조세총론",
     "subcategory": "가산세",
     "titleKo": "무신고가산세의 세율",
@@ -106,7 +106,7 @@ const concepts: Concept[] = [
   {
     "slug": "tax-liability-extinction",
     "chapterKo": "조세총론",
-    "sectionKo": "조세총론",
+    "sectionKo": "납세의무의 성립·확정·소멸",
     "category": "조세총론",
     "subcategory": "납세의무 소멸",
     "titleKo": "지방세 납부의무의 소멸사유",
@@ -124,7 +124,7 @@ const concepts: Concept[] = [
   {
     "slug": "tax-liability-priority",
     "chapterKo": "조세총론",
-    "sectionKo": "조세총론",
+    "sectionKo": "조세와 다른 채권의 관계",
     "category": "조세총론",
     "subcategory": "조세우선권",
     "titleKo": "담보 있는 조세채권과 압류 조세채권의 우선순위",
@@ -154,7 +154,7 @@ const concepts: Concept[] = [
   {
     "slug": "tax-appeal-procedure",
     "chapterKo": "조세총론",
-    "sectionKo": "조세총론",
+    "sectionKo": "조세의 불복제도 및 서류의 송달",
     "category": "조세총론",
     "subcategory": "조세불복",
     "parentSlug": "tax-liability-priority",
@@ -775,7 +775,7 @@ const concepts: Concept[] = [
   {
     "slug": "local-income-tax-capital-gains",
     "chapterKo": "지방세",
-    "sectionKo": "기타지방세",
+    "sectionKo": "기타 지방세",
     "category": "소득세",
     "subcategory": "지방소득세",
     "titleKo": "양도소득분 개인지방소득세의 과세표준",
@@ -847,7 +847,7 @@ const concepts: Concept[] = [
   {
     "slug": "rental-income-exclusion",
     "chapterKo": "국세",
-    "sectionKo": "소득세총설",
+    "sectionKo": "소득세 총설",
     "category": "소득세",
     "subcategory": "부동산임대소득",
     "titleKo": "부동산임대소득의 범위",
