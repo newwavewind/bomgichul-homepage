@@ -12,7 +12,6 @@ import {
 import { CitedText } from "@/components/exam/CitedText";
 import { recordWebStudy, scopeForPath, type StudyEntry } from "@/lib/web-study";
 import { trackEvent } from "@/lib/analytics";
-import { WrongReasonPicker } from "@/components/web-study/WrongReasonPicker";
 import { plainStudyText } from "@/lib/study-text";
 import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
 import type { ExamReferenceEntry } from "@/lib/exam-questions";
@@ -336,7 +335,6 @@ export function ExamOxQuestion({
         </>
       ) : null}
 
-      {revealed && answeredWrong ? <WrongReasonPicker key={journalId} actor={actor} id={journalId} /> : null}
       {revealed ? (
         <div className="space-y-4">
           <div
