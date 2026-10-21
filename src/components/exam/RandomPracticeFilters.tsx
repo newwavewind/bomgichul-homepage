@@ -10,11 +10,14 @@ export function RandomPracticeFilters({
   subject,
   years,
   categories,
+  groups,
   defaultSize = DEFAULT_SIZE,
 }: {
   subject: string;
   years: number[];
   categories: string[];
+  /** 교재 목차(편 → 장)가 있으면 편마다 묶어 목차 순서로 보인다 */
+  groups?: { label: string; units: { id: string; label: string }[] }[];
   defaultSize?: number;
 }) {
   const router = useRouter();
@@ -66,7 +69,36 @@ export function RandomPracticeFilters({
         </div>
       </div>
 
-      {categories.length > 0 && (
+      {groups?.length ? (
+        <div className="mb-4">
+          <p className="mb-2 font-display text-[12px] font-medium text-fog">단원 (교재 목차 순)</p>
+          <div className="space-y-3">
+            {groups.map((group, groupIndex) => (
+              <div key={group.label}>
+                <p className="mb-1.5 font-display text-[12px] font-semibold text-ink">
+                  {groupIndex + 1}편 · {group.label}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.units.map((unit) => (
+                    <button
+                      key={unit.id}
+                      type="button"
+                      onClick={() => toggle(unit.id, selectedCategories, setSelectedCategories)}
+                      className={`min-h-10 rounded-full border px-3 font-display text-[12px] font-medium transition-colors ${
+                        selectedCategories.includes(unit.id)
+                          ? "border-carbon bg-carbon text-paper"
+                          : "border-mist bg-paper text-ink hover:bg-snow"
+                      }`}
+                    >
+                      {unit.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : categories.length > 0 && (
         <div className="mb-4">
           <p className="mb-2 font-display text-[12px] font-medium text-fog">단원</p>
           <div className="flex flex-wrap gap-2">

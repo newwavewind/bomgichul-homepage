@@ -15,6 +15,7 @@ import {
   type ExamSubject,
 } from "@/lib/exam-questions";
 import { getUser } from "@/lib/auth";
+import { getExamToc, tocChapterOf } from "@/lib/exam-toc";
 
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 const DEFAULT_SIZE = 20;
@@ -53,7 +54,11 @@ export default async function RandomPracticePage({ params, searchParams }: Rando
   const label = ARCHIVE_SUBJECT_MAP[subject];
   const user = await getUser();
   const years = getExamYears(subject);
-  const categories = getCategoriesForSubject(subject);
+  // 단원은 교재 목차(편 → 장) 순서로 — 목차가 있는 과목은 장 id 로 거른다
+  const toc = getExamToc(subject);
+  const categories = toc
+    ? toc.parts.flatMap((part) => part.chapters.map((chapter) => chapter.id))
+    : getCategoriesForSubject(subject);
 
   const selectedYears = yearsParam
     ?.split(",")
@@ -64,7 +69,11 @@ export default async function RandomPracticePage({ params, searchParams }: Rando
 
   const pool = filterExamQuestions(subject, {
     years: selectedYears?.length ? selectedYears : undefined,
-    categories: selectedCategories?.length ? selectedCategories : undefined,
+    categories: !toc && selectedCategories?.length ? selectedCategories : undefined,
+  }).filter((question) => {
+    if (!toc || !selectedCategories?.length) return true;
+    const chapter = tocChapterOf(subject, question.year, question.questionNo);
+    return chapter != null && selectedCategories.includes(chapter);
   });
   const questions = shuffleQuestions(pool).slice(0, size);
 
@@ -93,6 +102,7 @@ export default async function RandomPracticePage({ params, searchParams }: Rando
             subject={subject}
             years={years}
             categories={categories}
+            groups={toc?.parts.map((part) => ({ label: part.label, units: part.chapters }))}
             defaultSize={DEFAULT_SIZE}
           />
         </Suspense>
