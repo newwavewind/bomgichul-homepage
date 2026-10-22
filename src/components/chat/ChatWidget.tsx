@@ -724,6 +724,7 @@ export function ChatWidget({
 }) {
   const [open, setOpen] = useState(false);
   const [view, setViewRaw] = useState<View>("friends");
+  const [friendSearchOpen, setFriendSearchOpen] = useState(false);
   const [viewStack, setViewStack] = useState<View[]>([]);
   const viewRef = useRef<View>("list");
   viewRef.current = view;
@@ -3041,6 +3042,17 @@ export function ChatWidget({
             ) : null}
             {hubView ? (
               <div className="chat-header__utilities">
+                {view === "friends" ? (
+                  <button
+                    type="button"
+                    onClick={() => setFriendSearchOpen((v) => !v)}
+                    aria-expanded={friendSearchOpen}
+                    aria-label="친구 찾기"
+                    className={`chat-icon-button chat-focus ${friendSearchOpen ? "is-on" : ""}`}
+                  >
+                    <ChatGlyph name="search" />
+                  </button>
+                ) : null}
                 <OverflowMenu
                   items={[
                     { key: "search", label: "전체 검색", onClick: () => setView("global-search") },
@@ -3212,23 +3224,27 @@ export function ChatWidget({
 
           {view === "friends" ? (
             <div className="chat-directory flex-1 overflow-y-auto">
-              <div className="chat-directory-search sticky top-0 z-10 p-3">
-                <div className="flex gap-2">
-                  <input
-                    value={searchQuery}
-                    onChange={(event) => setSearchQuery(event.target.value)}
-                    placeholder="아이디로 친구 찾기"
-                    className="min-w-0 flex-1 rounded-xl border border-mist px-3 py-2 text-[13px] outline-none focus:border-[#007AFF]"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => void searchProfiles()}
-                    className="rounded-xl bg-[#007AFF] px-3 text-[12px] font-semibold text-white"
-                  >
-                    검색
-                  </button>
-                </div>
-              </div>
+              {friendSearchOpen ? (
+              <form
+                className="chat-directory-search"
+                role="search"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  void searchProfiles();
+                }}
+              >
+                <ChatGlyph name="search" className="chat-directory-search__icon" />
+                <input
+                  autoFocus
+                  type="search"
+                  enterKeyHint="search"
+                  value={searchQuery}
+                  onChange={(event) => setSearchQuery(event.target.value)}
+                  placeholder="아이디로 친구 찾기"
+                  aria-label="아이디로 친구 찾기"
+                />
+              </form>
+              ) : null}
               {incomingRequests.map((friend) => {
                 const profile = friend.requester;
                 return (

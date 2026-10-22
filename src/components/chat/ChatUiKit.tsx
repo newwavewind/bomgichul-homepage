@@ -6,7 +6,7 @@ export function ChatGlyph({
   name,
   className,
 }: {
-  name: "message" | "friends" | "study" | "community" | "close" | "spark" | "back" | "more";
+  name: "message" | "friends" | "study" | "community" | "close" | "spark" | "back" | "more" | "search";
   className?: string;
 }) {
   const paths: Record<typeof name, ReactNode> = {
@@ -17,6 +17,7 @@ export function ChatGlyph({
     close: <path d="m5.5 5.5 9 9m0-9-9 9" />,
     spark: <><path d="m10 2 2.1 5.9L18 10l-5.9 2.1L10 18l-2.1-5.9L2 10l5.9-2.1L10 2Z" /><path d="M16 2v3m-1.5-1.5h3" /></>,
     back: <path d="m12 4.5-5.5 5.5 5.5 5.5" />,
+    search: <><circle cx="9" cy="9" r="5.5" /><path d="m13.2 13.2 3.8 3.8" /></>,
     more: <><circle cx="4" cy="10" r=".75" /><circle cx="10" cy="10" r=".75" /><circle cx="16" cy="10" r=".75" /></>,
   };
   return (

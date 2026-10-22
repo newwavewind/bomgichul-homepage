@@ -243,9 +243,23 @@
 .chat-panel:not(.chat-panel--guest) .chat-list-filters { padding: 10px 16px 4px; }
 .chat-panel:not(.chat-panel--guest) :is(.chat-room-directory, .chat-community-directory) { padding-top: 14px; }
 .chat-panel:not(.chat-panel--guest) .chat-room-directory > p { margin-bottom: 10px; }
-.chat-panel:not(.chat-panel--guest) .chat-directory-search { padding: 10px 0; }
 .chat-panel:is([data-chat-view="list"], [data-chat-view="friends"], [data-chat-view="topics"], [data-chat-view="communities"]) { overflow-y: auto; }
 .chat-panel:is([data-chat-view="list"], [data-chat-view="friends"], [data-chat-view="topics"], [data-chat-view="communities"])
   > :is(.chat-inbox, .chat-directory, .chat-room-directory, .chat-community-directory),
 .chat-panel[data-chat-view="list"] .chat-conversation-list { flex: none; overflow: visible; min-height: auto; }
-.chat-panel[data-chat-view="friends"] .chat-directory-search { position: static; }
+
+/* 탭 — 알약 대신 밑줄 탭. 머리글과 한 줄 띄운다 */
+.chat-panel:not(.chat-panel--guest) .chat-hub-nav { gap: 0; margin: 6px 0 0; padding: 0 12px; border-radius: 0; background: #fff; border-bottom: 1px solid #eceff4; }
+.chat-panel:not(.chat-panel--guest) .chat-hub-nav__item { position: relative; gap: 6px; min-height: 44px; padding: 8px 4px; border-radius: 0; background: none; color: #7a808c; font-size: 13px; font-weight: 500; box-shadow: none; }
+.chat-panel:not(.chat-panel--guest) .chat-hub-nav__item svg { width: 17px; height: 17px; }
+.chat-panel:not(.chat-panel--guest) .chat-hub-nav__item::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: -1px; height: 2px; border-radius: 2px; background: transparent; transition: background-color 180ms; }
+.chat-panel:not(.chat-panel--guest) .chat-hub-nav__item.is-active { color: #1f2025; font-weight: 600; background: none; box-shadow: none; }
+.chat-panel:not(.chat-panel--guest) .chat-hub-nav__item.is-active::after { background: #1f2025; }
+.chat-panel:not(.chat-panel--guest) .chat-hub-nav__item:not(.is-active):hover { color: #3f4755; }
+.chat-header__utilities { gap: 6px; }
+.chat-header--hub .chat-icon-button.is-on { background: #1f2025; color: #fff; box-shadow: none; }
+/* 친구 찾기 — 검색 아이콘을 누르면 맨 위에 한 줄만 */
+.chat-panel .chat-directory-search { position: relative; display: block; padding: 12px 0 4px; background: #fff; }
+.chat-directory-search__icon { position: absolute; left: 14px; top: 50%; margin-top: 4px; transform: translateY(-50%); width: 17px; height: 17px; color: #8a909b; pointer-events: none; }
+.chat-panel .chat-directory-search input { width: 100%; min-height: 42px; padding: 8px 14px 8px 40px; border: 1px solid transparent; border-radius: 128px; font-size: 14px; outline: none; }
+.chat-panel .chat-directory-search input:focus { border-color: #c9d1f5; background: #fff; }
