@@ -723,7 +723,7 @@ export function ChatWidget({
   openNonce?: number;
 }) {
   const [open, setOpen] = useState(false);
-  const [view, setViewRaw] = useState<View>("list");
+  const [view, setViewRaw] = useState<View>("friends");
   const [viewStack, setViewStack] = useState<View[]>([]);
   const viewRef = useRef<View>("list");
   viewRef.current = view;
@@ -2929,14 +2929,11 @@ export function ChatWidget({
                             ? "스레드"
                             : "메시지";
 
+  // 머리글이 목록과 함께 스크롤되므로, 탭을 바꾸면 맨 위에서 다시 보여 준다
+  useEffect(() => {
+    document.querySelector(".chat-panel")?.scrollTo(0, 0);
+  }, [view]);
   const hubView = view === "list" || view === "friends" || view === "topics" || view === "communities";
-  const hubSubtitle = view === "friends"
-    ? "같은 목표를 향해, 함께 공부하는 사람들."
-    : view === "topics"
-      ? "궁금한 문제부터 오늘의 공부까지 나눠요."
-      : view === "communities"
-        ? "내 시험의 이야기와 스터디를 한곳에서."
-        : "함께 나누면, 공부가 조금 더 가벼워져요.";
 
   return (
     <>
@@ -2990,7 +2987,6 @@ export function ChatWidget({
             </div>
           ) : null}
           <div className={`chat-glass-bar chat-header ${hubView ? "chat-header--hub" : ""}`}>
-            {hubView ? <p className="chat-brand"><span className="chat-brand__mark"><ChatGlyph name="spark" /></span>봄기출 · 함께 공부하는 공간</p> : null}
             <div className="chat-header__row">
             {!hubView ? (
               <ChatBackButton onClick={goBack} />
@@ -3006,7 +3002,6 @@ export function ChatWidget({
             <h2 className="truncate font-display font-semibold text-ink">
               {panelTitle}
             </h2>
-            {hubView ? <p>{hubSubtitle}</p> : null}
             </div>
             {view === "thread" ? (
               <>
@@ -3080,10 +3075,9 @@ export function ChatWidget({
             <nav className="chat-hub-nav" aria-label="채팅 메뉴">
               {(
                 [
-                  ["list", "대화", "message"],
                   ["friends", "친구", "friends"],
+                  ["list", "대화", "message"],
                   ["topics", "스터디방", "study"],
-                  ["communities", "커뮤니티", "community"],
                 ] as const
               ).map(([key, label, icon]) => (
                 <button
