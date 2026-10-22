@@ -10,6 +10,7 @@
  * 수평선(---)은 그리지 않고 여백으로만 받는 것도 앱과 같다.
  */
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { looksLikeMermaid, repairMermaid } from "@/lib/mermaid-repair";
 
 function MermaidBlock({ code }: { code: string }) {
   const [svg, setSvg] = useState("");
@@ -32,10 +33,16 @@ function MermaidBlock({ code }: { code: string }) {
           theme: dark ? "dark" : "default",
           fontFamily,
           themeVariables: { fontSize },
+          // 문법이 틀리면 「Syntax error」 폭탄 그림을 body 끝에 남기지 않게(앱과 같음)
+          suppressErrorRendering: true,
         });
         const renderId = `admin-mermaid-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-        const { svg: rendered } = await mermaid.render(renderId, code);
-        if (active) setSvg(rendered);
+        try {
+          const { svg: rendered } = await mermaid.render(renderId, code);
+          if (active) setSvg(rendered);
+        } finally {
+          for (const leftover of [`d${renderId}`, `i${renderId}`]) document.getElementById(leftover)?.remove();
+        }
       } catch {
         if (active) setFailed(true);
       }
@@ -46,13 +53,8 @@ function MermaidBlock({ code }: { code: string }) {
     };
   }, [code, reactId]);
 
-  if (failed) {
-    return (
-      <pre className="overflow-x-auto rounded-lg bg-slate-100 p-2.5 text-[11px] leading-relaxed">
-        {code}
-      </pre>
-    );
-  }
+  // 손질(repairMermaid)해도 못 그리는 흐름도는 숨긴다 — 코드 글자는 읽는 사람에게 뜻이 없다(앱과 같음, 2026-10-22)
+  if (failed) return null;
 
   if (!svg) {
     return (
@@ -185,8 +187,11 @@ export function AiAnswerBody({ text }: { text: string }) {
       }
       i += 1;
       const code = buf.join("\n");
-      if (language === "mermaid" && code.trim()) {
-        nodes.push(<MermaidBlock key={key} code={code} />);
+      // 울타리 말이 없거나 ```flow 처럼 흐름도 첫 낱말을 쓴 것도 흐름도로 본다
+      const flowWord = ["flow", "graph", "flowchart"].includes(language);
+      const flowCode = flowWord ? `${language}\n${code}` : code;
+      if ((language === "mermaid" || ((flowWord || !language) && looksLikeMermaid(flowCode))) && code.trim()) {
+        nodes.push(<MermaidBlock key={key} code={repairMermaid(flowCode)} />);
         continue;
       }
       nodes.push(
