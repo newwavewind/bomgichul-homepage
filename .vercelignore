@@ -1,3 +1,6 @@
 ox-quiz-app/
 .claude/
 bomgichulhomepage.code-workspace
+# Editorial reference captures are not runtime assets; some macOS filenames
+# exceed the Linux filename limit used by the deployment builder.
+표준목차/
