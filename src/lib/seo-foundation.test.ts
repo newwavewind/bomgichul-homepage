@@ -1,14 +1,19 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import robots from "@/app/robots";
 import { SITE_URL } from "@/lib/constants";
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo";
 import {
   buildStaticSitemapGroup,
+  buildSitemapGroup,
   publicContentPath,
   renderSitemapIndex,
   SITEMAP_GROUPS,
   sitemapChildUrl,
 } from "@/lib/sitemap";
+import { hasPublicListingContent } from "@/lib/exam-track/public-listing-content";
+
+vi.mock("@/lib/exam-track/public-listing-content", () => ({ hasPublicListingContent: vi.fn() }));
+vi.mock("@/lib/supabase/env", () => ({ isSupabaseConfigured: () => false }));
 
 describe("search engine foundations", () => {
   it("publishes one canonical host to crawlers", () => {
@@ -135,6 +140,21 @@ describe("search engine foundations", () => {
       const base = `${SITE_URL}${prefix.slice(0, -1)}`;
       expect(urls.every((url) => url === base || url.startsWith(`${base}/`))).toBe(true);
       expect(new Set(urls).size).toBe(urls.length);
+    }
+  });
+
+  it("omits only confirmed empty public listings across existing and new exams", async () => {
+    for (const group of ["real-estate", "police", "housing", "gamjeong", "mullyu", "youth"] as const) {
+      const prefix = group === "real-estate" ? "" : `/${group}`;
+      const listingUrls = [`${SITE_URL}${prefix}/community`, `${SITE_URL}${prefix}/archive`];
+      vi.mocked(hasPublicListingContent).mockResolvedValue(false);
+      const emptyUrls = (await buildSitemapGroup(group)).map(({ url }) => url);
+      for (const url of listingUrls) expect(emptyUrls).not.toContain(url);
+      for (const result of [true, null]) {
+        vi.mocked(hasPublicListingContent).mockResolvedValue(result);
+        const availableUrls = (await buildSitemapGroup(group)).map(({ url }) => url);
+        for (const url of listingUrls) expect(availableUrls).toContain(url);
+      }
     }
   });
 });

@@ -503,9 +503,9 @@ export async function buildSitemapGroup(group: SitemapGroup): Promise<MetadataRo
   const staticEntries = buildStaticSitemapGroup(group);
   const scope = GROUP_SCOPE[group];
   const publicContent = scope ? await getPublicContentUrls(scope) : [];
-  // These two listings were confirmed empty. Include them again automatically
-  // when public content is available; leave other tracks unchanged.
-  if (scope !== "gamjeong" && scope !== "mullyu" && scope !== "youth") {
+  // Every exam uses the same rule: exclude confirmed empty public listings,
+  // restore them when content arrives, and preserve them on lookup failures.
+  if (!scope) {
     return uniqueEntries([...staticEntries, ...publicContent]);
   }
 

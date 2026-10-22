@@ -170,14 +170,8 @@ export default function RootLayout({
       lang="ko"
       className={`${outfit.variable} ${caveat.variable} h-full antialiased`}
     >
-      <head>
-        {/* AdSense 사이트 소유 확인 — crawler가 <head>에서 찾음 */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2810884671058928"
-          crossOrigin="anonymous"
-        />
-      </head>
+      {/* 소유 확인은 metadata의 google-adsense-account와 ads.txt로 유지한다.
+          광고 스크립트는 활성화된 콘텐츠 슬롯에서만 불러온다. */}
       <body className="flex min-h-full flex-col bg-paper text-ink">
         <script
           type="application/ld+json"

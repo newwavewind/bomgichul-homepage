@@ -54,10 +54,16 @@ export default function ContactPage() {
             </h2>
             <ul className="list-disc space-y-1.5 pl-5 font-display text-body-sm leading-relaxed text-smoke">
               <li>기출 해설·개념 오류 제보와 수정 요청</li>
+              <li>출처 누락, 저작권·게시물 권리 침해에 관한 확인 및 삭제 요청</li>
               <li>홈페이지·앱 이용 중 발생한 장애나 계정 문의</li>
               <li>개인정보 열람·정정·삭제 등 권리 행사 요청</li>
               <li>광고·제휴·사업 제휴 관련 일반 문의</li>
             </ul>
+            <p className="mt-3 font-display text-body-sm leading-relaxed text-smoke">
+              콘텐츠 관련 요청에는 해당 페이지 주소와 원자료·권리 관계를 확인할
+              수 있는 근거를 함께 보내 주세요. 문의에 필요한 범위를 넘는 주민등록번호,
+              결제 비밀번호 등 민감한 정보는 보내지 마세요.
+            </p>
           </section>
 
           <section className="mt-10">

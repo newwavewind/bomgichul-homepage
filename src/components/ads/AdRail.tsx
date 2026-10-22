@@ -1,6 +1,6 @@
 import { AdSenseSlot } from "@/components/ads/AdSenseSlot";
 import { CoupangPartnersSlot } from "@/components/ads/CoupangPartnersSlot";
-import type { AdSensePlacement } from "@/lib/ads/config";
+import { canShowAdSense, canShowCoupang, type AdSensePlacement } from "@/lib/ads/config";
 
 type AdRailProps = {
   /** 애드센스 슬롯 배치 키 */
@@ -21,12 +21,14 @@ export function AdRail({
   className = "",
   spacingClassName = "mt-8 space-y-6",
 }: AdRailProps) {
-  if (!adsense && !coupang) return null;
+  const showAdSense = adsense != null && canShowAdSense(adsense);
+  const showCoupang = coupang && canShowCoupang();
+  if (!showAdSense && !showCoupang) return null;
 
   return (
     <div className={`${spacingClassName} ${className}`.trim()}>
-      {adsense ? <AdSenseSlot placement={adsense} /> : null}
-      {coupang ? <CoupangPartnersSlot /> : null}
+      {showAdSense && adsense ? <AdSenseSlot placement={adsense} /> : null}
+      {showCoupang ? <CoupangPartnersSlot /> : null}
     </div>
   );
 }

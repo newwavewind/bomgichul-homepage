@@ -51,6 +51,7 @@ export function AdSenseSlot({
       data-ad-placement={placement}
       style={{ minHeight }}
     >
+      <p className="mb-2 text-center text-xs text-smoke">광고</p>
       <Script
         id="adsense-loader"
         async

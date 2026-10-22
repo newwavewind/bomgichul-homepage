@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BEST_POST_MIN_VIEWS, CATEGORIES, CATEGORY_MAP } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
+import { hasPublicListingContent } from "@/lib/exam-track/public-listing-content";
 import type { CommunityListFilter, CommunityScope } from "@/types/database";
 import {
   communityBaseHref,
@@ -69,6 +70,9 @@ export async function buildCommunityListMetadata({
 
   const isAppOnlyCategory = category === "bug" || category === "feedback";
   const hasUnsupportedFilter = category === null;
+  // Only a successful empty lookup excludes a board. A database outage must
+  // not turn established public discussions into noindex pages.
+  const isKnownEmpty = (await hasPublicListingContent(scope, "community")) === false;
 
   return buildPageMetadata({
     title,
@@ -82,6 +86,7 @@ export async function buildCommunityListMetadata({
       Boolean(search) ||
       sort !== "latest" ||
       isAppOnlyCategory ||
-      hasUnsupportedFilter,
+      hasUnsupportedFilter ||
+      isKnownEmpty,
   });
 }

@@ -22,7 +22,7 @@ export const metadata: Metadata = buildPageMetadata({
 const CONTENT_PILLARS = [
   {
     title: "기출문제와 해설",
-    body: "시행기관이 공개한 기출을 과목·연도별로 정리하고, 봄기출이 직접 쓴 선지 해설과 쉬운 해설을 붙입니다. 홈페이지 학습 기능은 로그인만 하면 전부 무료입니다.",
+    body: "시행기관이 공개한 기출을 과목·연도별로 정리하고, 봄기출에서 작성·편집한 선지 해설과 쉬운 해설을 함께 제공합니다. 기출문제와 해설은 로그인 없이 열람할 수 있고, 기록 저장 등 회원 기능도 홈페이지에서는 무료입니다.",
   },
   {
     title: "수험생 커뮤니티",
@@ -122,6 +122,36 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="mb-3 font-display text-subheading font-semibold text-ink">
+              기출과 해설을 확인하는 방법
+            </h2>
+            <div className="space-y-3 font-display text-body-sm leading-relaxed text-smoke">
+              <p>
+                봄기출은 시험 시행기관과 별개로 운영하는 학습 서비스입니다.
+                문제의 시험·연도·문항 번호를 확인한 뒤 선지별 해설을 읽고,
+                공식 정답과 원문이 필요하면 홈의 기출 원본 PDF나 각 시험 안내의
+                시행기관 링크를 확인해 주세요.
+              </p>
+              <p>
+                기출은 출제 당시의 기준을 포함하므로 현재 법령·제도와 다를 수
+                있습니다. 해설과 개념 정리는 학습을 돕는 참고 자료이며,
+                출처에 표시된 판결 선고일·법령 개정일과 콘텐츠 검수 기준일은
+                서로 다른 정보입니다. 최종 확인은 시행기관의 정답과 해당 원문을
+                기준으로 해 주세요.
+              </p>
+              <p>
+                오류나 출처 누락을 발견하면 시험명·연도·문항 번호 또는 페이지
+                주소와 확인 근거를{" "}
+                <Link href="/contact" className="underline underline-offset-2 hover:text-ink">
+                  문의하기
+                </Link>
+                로 보내 주세요. 학습 질문과 오류 제보는 해당 시험 커뮤니티에서도
+                남길 수 있습니다.
+              </p>
+            </div>
           </section>
 
           <section className="mt-10">

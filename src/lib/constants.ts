@@ -14,7 +14,7 @@ export const SITE_BRAND_LINE = `${SITE_NAME} | ${SITE_IDENTITY} | ${SITE_TAGLINE
 export const SITE_TITLE =
   "봄기출 | 공무원·자격시험 기출문제와 해설";
 export const SITE_DESCRIPTION =
-  "공무원·공인중개사·경찰·소방·감정평가사·물류관리사·청소년상담사 등 18개 시험의 기출문제와 해설을 무료로 학습하세요. 매일 10문제, 핵심 개념, 오답 복습과 수험생 커뮤니티를 봄기출에서 이용할 수 있습니다.";
+  "공무원·공인중개사·경찰·소방·감정평가사·물류관리사·청소년상담사 등 국가시험의 기출문제와 해설을 무료로 학습하세요. 매일 10문제, 핵심 개념, 오답 복습과 수험생 커뮤니티를 봄기출에서 이용할 수 있습니다.";
 
 /** 사업자·문의 — 푸터·소개·약관에 공통으로 쓴다 */
 export const PUBLISHER_LEGAL_NAME = "봄기출";

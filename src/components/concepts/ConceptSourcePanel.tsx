@@ -9,13 +9,10 @@ function normalizeSource(source: ConceptSourceValue): { title: string; locator?:
   return { ...source, title, locator };
 }
 
-function dateIn(title: string) {
-  return title.match(/20\d{2}[-.년 ]\s?\d{1,2}[-.월 ]\s?\d{1,2}/)?.[0] ?? null;
-}
-
 export function ConceptSourcePanel({ sources = [], examLabels = [], amendmentNotice }: { sources?: ConceptSource[]; examLabels?: string[]; amendmentNotice?: string }) {
   const normalized = sources.map(normalizeSource);
-  const verifiedDates = [...new Set(normalized.flatMap((source) => [dateIn(source.title), source.verifiedAt ?? null]).filter(Boolean))];
+  // 판결 선고일·법령 개정일은 콘텐츠 검수일이 아니므로 명시된 검수일만 표시한다.
+  const verifiedDates = [...new Set(normalized.map((source) => source.verifiedAt?.trim()).filter(Boolean))];
   return <aside className="mt-6 rounded-2xl border border-mist bg-surface p-5" aria-label="콘텐츠 출처와 검수 정보">
     <div className="flex flex-wrap items-center justify-between gap-2"><h2 className="font-display text-body font-semibold text-ink">출처·검수 정보</h2><span className="rounded-full bg-paper px-3 py-1 font-display text-[11px] font-semibold text-[#087f6d]">근거 공개</span></div>
     {normalized.length ? <ul className="mt-3 space-y-2">{normalized.map((source, index) => <li key={`${source.title}-${index}`} className="font-display text-body-sm text-smoke"><strong className="text-ink">{source.type === "law" ? "법령" : source.type === "case" ? "판례" : "집필·검수"}</strong> · {source.title}{source.locator ? <span className="text-fog"> · {source.locator}</span> : null}{source.status === "verified" ? <span className="ml-2 text-[#087f6d]">검수 완료</span> : null}</li>)}</ul> : <p className="mt-3 font-display text-body-sm text-smoke">연결된 공식 기출과 해설을 기준으로 구성했으며, 개별 법령·판례 출처는 확인되는 항목부터 공개합니다.</p>}

@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { CommunityScope } from "@/types/database";
@@ -6,7 +7,7 @@ import type { CommunityScope } from "@/types/database";
  * Check the public, unfiltered listing. A failed lookup is unknown, not empty,
  * so a temporary database failure must not remove an existing page from search.
  */
-export async function hasPublicListingContent(
+export const hasPublicListingContent = cache(async function hasPublicListingContent(
   scope: CommunityScope,
   kind: "community" | "archive",
 ): Promise<boolean | null> {
@@ -29,4 +30,4 @@ export async function hasPublicListingContent(
   } catch {
     return null;
   }
-}
+});
