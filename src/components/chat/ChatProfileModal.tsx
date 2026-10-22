@@ -170,11 +170,11 @@ export function ChatProfileModal({
   const avatars = media.filter((x) => x.kind === "avatar");
   return (
     <div
-      className="fixed inset-0 z-[90] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm"
+      className="chat-sheet-backdrop fixed inset-0 z-[90] flex items-center justify-center p-3"
       onClick={onClose}
     >
       <section
-        className="max-h-[94dvh] w-full max-w-md overflow-y-auto rounded-[28px] bg-white shadow-2xl"
+        className="chat-sheet chat-profile-sheet max-h-[94dvh] w-full max-w-md overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative h-64 overflow-hidden bg-gradient-to-br from-sky-100 via-indigo-100 to-violet-200">

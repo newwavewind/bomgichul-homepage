@@ -29,7 +29,7 @@ import {
   NoteCardBubble,
   LiveSessionBubble,
 } from "@/components/chat/ChatRichBubbles";
-import { ChatPrefsBar, useChatPrefs, useTopicRooms } from "@/components/chat/ChatFeatureHooks";
+import { ChatKeywordButton, useChatPrefs, useTopicRooms } from "@/components/chat/ChatFeatureHooks";
 import { peekChatShareDraft, clearChatShareDraft } from "@/components/chat/ShareToChatButton";
 import {
   ChatGlobalSearch,
@@ -72,6 +72,7 @@ import {
   ComposerPlusSheet,
   ChatBackButton,
   ChatHeaderAction,
+  ChatGlyph,
 } from "@/components/chat/ChatUiKit";
 import { ChatSharePicker, type PickedShare } from "@/components/chat/ChatSharePicker";
 
@@ -172,8 +173,10 @@ function Avatar({
       onClick={(event) => { if (onOpen) { event.stopPropagation(); onOpen(); } }}
       onKeyDown={(event) => { if (onOpen && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); event.stopPropagation(); onOpen(); } }}
       role={onOpen ? "button" : undefined}
+      aria-label={onOpen ? `${nickname} 프로필 보기` : undefined}
       tabIndex={onOpen ? 0 : undefined}
-      className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-carbon bg-ice font-display font-bold text-ink ${sizeClass}`}
+      className={`chat-avatar flex shrink-0 items-center justify-center overflow-hidden rounded-full font-display font-semibold text-ink ${sizeClass}`}
+      data-tone={(nickname.codePointAt(0) ?? 0) % 4}
     >
       {url ? (
         <img src={url} alt="" className="h-full w-full object-cover" />
@@ -724,7 +727,7 @@ export function ChatWidget({
   const [viewStack, setViewStack] = useState<View[]>([]);
   const viewRef = useRef<View>("list");
   viewRef.current = view;
-  const isRootTab = (v: View) => v === "list" || v === "friends";
+  const isRootTab = (v: View) => v === "list" || v === "friends" || v === "topics" || v === "communities";
   const setView = (next: View) => {
     const current = viewRef.current;
     if (current === next) return;
@@ -842,7 +845,7 @@ export function ChatWidget({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dragDepthRef = useRef(0);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
-  const { prefs, save: savePrefs, bumpDailyDone, doneToday, goalCount } = useChatPrefs(user.id);
+  const { prefs, save: savePrefs, bumpDailyDone } = useChatPrefs(user.id);
   const notify = (message: string, tone: "info" | "success" | "error" = "info") => {
     setToastTone(tone);
     setError(message);
@@ -1046,7 +1049,7 @@ export function ChatWidget({
     [onlineUsers],
   );
   const scrollToBottom = useCallback(
-    () => messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }),
+    () => messagesEndRef.current?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }),
     [],
   );
 
@@ -2926,6 +2929,15 @@ export function ChatWidget({
                             ? "스레드"
                             : "메시지";
 
+  const hubView = view === "list" || view === "friends" || view === "topics" || view === "communities";
+  const hubSubtitle = view === "friends"
+    ? "같은 목표를 향해, 함께 공부하는 사람들."
+    : view === "topics"
+      ? "궁금한 문제부터 오늘의 공부까지 나눠요."
+      : view === "communities"
+        ? "내 시험의 이야기와 스터디를 한곳에서."
+        : "함께 나누면, 공부가 조금 더 가벼워져요.";
+
   return (
     <>
       <BrandChatFab
@@ -2941,6 +2953,9 @@ export function ChatWidget({
       {open ? (
         <div
           className="chat-panel chat-panel-enter fixed inset-0 z-[60] flex flex-col overflow-hidden shadow-2xl sm:inset-auto sm:bottom-24 sm:right-5 sm:h-[min(82vh,760px)] sm:w-[min(94vw,720px)] sm:rounded-[30px] sm:border sm:border-white/80"
+          data-chat-view={view}
+          role="region"
+          aria-label="봄기출 채팅"
           onDragEnter={handleDragEnter}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
@@ -2974,8 +2989,10 @@ export function ChatWidget({
               </div>
             </div>
           ) : null}
-          <div className="chat-glass-bar flex items-center gap-2 px-4 py-3">
-            {view !== "list" && view !== "friends" ? (
+          <div className={`chat-glass-bar chat-header ${hubView ? "chat-header--hub" : ""}`}>
+            {hubView ? <p className="chat-brand"><span className="chat-brand__mark"><ChatGlyph name="spark" /></span>봄기출 · 함께 공부하는 공간</p> : null}
+            <div className="chat-header__row">
+            {!hubView ? (
               <ChatBackButton onClick={goBack} />
             ) : null}
             {view === "thread" ? (
@@ -2985,9 +3002,12 @@ export function ChatWidget({
                 size="sm"
               />
             ) : null}
-            <h2 className="min-w-0 flex-1 truncate font-display text-body font-semibold text-ink">
+            <div className="chat-header__title">
+            <h2 className="truncate font-display font-semibold text-ink">
               {panelTitle}
             </h2>
+            {hubView ? <p>{hubSubtitle}</p> : null}
+            </div>
             {view === "thread" ? (
               <>
                 <ChatHeaderAction onClick={() => void doCheckin()} primary>
@@ -3024,17 +3044,8 @@ export function ChatWidget({
                 />
               </>
             ) : null}
-            {view === "list" ? (
-              <div className="flex flex-wrap items-center justify-end gap-0.5">
-                <ChatHeaderAction onClick={() => setView("communities")} primary>
-                  커뮤니티
-                </ChatHeaderAction>
-                <ChatHeaderAction onClick={() => setView("topics")} primary>
-                  스터디방
-                </ChatHeaderAction>
-                <ChatHeaderAction onClick={() => setView("friends")} primary>
-                  친구
-                </ChatHeaderAction>
+            {hubView ? (
+              <div className="chat-header__utilities">
                 <OverflowMenu
                   items={[
                     { key: "search", label: "전체 검색", onClick: () => setView("global-search") },
@@ -3058,33 +3069,36 @@ export function ChatWidget({
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xl text-fog transition-colors hover:bg-black/5 active:bg-black/10"
+              className="chat-icon-button chat-close chat-focus"
               aria-label="닫기"
             >
-              ✕
+              <ChatGlyph name="close" />
             </button>
+            </div>
           </div>
-          {view === "list" || view === "friends" ? (
-            <div className="grid grid-cols-2 border-b border-mist">
+          {hubView ? (
+            <nav className="chat-hub-nav" aria-label="채팅 메뉴">
               {(
                 [
-                  [
-                    "friends",
-                    `친구${incomingRequests.length ? ` ${incomingRequests.length}` : ""}`,
-                  ],
-                  ["list", "대화"],
+                  ["list", "대화", "message"],
+                  ["friends", "친구", "friends"],
+                  ["topics", "스터디방", "study"],
+                  ["communities", "커뮤니티", "community"],
                 ] as const
-              ).map(([key, label]) => (
+              ).map(([key, label, icon]) => (
                 <button
                   key={key}
                   type="button"
                   onClick={() => setView(key)}
-                  className={`py-2.5 font-display text-[12px] font-medium ${view === key ? "border-b-2 border-[#007AFF] text-[#0066D6]" : "text-fog"}`}
+                  aria-current={view === key ? "page" : undefined}
+                  className={`chat-hub-nav__item ${view === key ? "is-active" : ""}`}
                 >
+                  <ChatGlyph name={icon} />
                   {label}
+                  {key === "friends" && incomingRequests.length > 0 ? <span className="chat-nav-badge">{incomingRequests.length}</span> : null}
                 </button>
               ))}
-            </div>
+            </nav>
           ) : null}
           {error ? (
             <ChatToast
@@ -3098,20 +3112,8 @@ export function ChatWidget({
           ) : null}
 
           {view === "list" ? (
-            <div className="flex flex-1 flex-col overflow-hidden">
-              <ChatPrefsBar
-                doneToday={doneToday}
-                goalCount={goalCount}
-                keywords={prefs?.keyword_alerts ?? []}
-                onOpenKeywords={() =>
-                  setSheet({
-                    type: "keywords",
-                    value: (prefs?.keyword_alerts ?? []).join(", "),
-                  })
-                }
-                onBumpDone={() => void bumpDailyDone()}
-              />
-              <div className="flex flex-wrap gap-1.5 border-b border-mist/70 px-3 py-2">
+            <div className="chat-inbox flex min-h-0 flex-1 flex-col overflow-hidden">
+              <div className="chat-list-filters" role="group" aria-label="대화 필터">
                 {(
                   [
                     ["all", "전체"],
@@ -3124,24 +3126,26 @@ export function ChatWidget({
                     key={key}
                     type="button"
                     onClick={() => setListFilter(key)}
-                    className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${
-                      listFilter === key
-                        ? "bg-[#007AFF] text-white"
-                        : "bg-white text-fog"
-                    }`}
+                    aria-pressed={listFilter === key}
+                    className={`chat-filter ${listFilter === key ? "is-active" : ""}`}
                   >
                     {label}
                   </button>
                 ))}
+                <ChatKeywordButton
+                  keywords={prefs?.keyword_alerts ?? []}
+                  onOpenKeywords={() => setSheet({ type: "keywords", value: (prefs?.keyword_alerts ?? []).join(", ") })}
+                />
               </div>
-              <div className="flex-1 overflow-y-auto">
+              <div className="chat-conversation-list flex-1 overflow-y-auto">
                 {visibleConversations.length ? (
-                  visibleConversations.map((conversation) => (
+                  visibleConversations.map((conversation, index) => (
                     <button
                       key={conversation.id}
                       type="button"
                       onClick={() => void openThread(conversation)}
-                      className="flex w-full items-center gap-3 border-b border-mist/70 px-4 py-3 text-left hover:bg-surface"
+                      className="chat-conversation-row flex w-full items-center gap-3 text-left"
+                      style={{ animationDelay: `${Math.min(index, 7) * 35}ms` }}
                     >
                       <Avatar
                         nickname={conversation.title}
@@ -3150,7 +3154,7 @@ export function ChatWidget({
                       />
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between gap-2">
-                          <p className="truncate font-display text-body-sm font-semibold text-ink">
+                          <p className="chat-conversation-name truncate font-display font-semibold text-ink">
                             {conversation.title}
                             {conversation.kind === "topic" ? (
                               <span className="ml-1 text-[10px] font-normal text-[#0066D6]">스터디</span>
@@ -3168,19 +3172,19 @@ export function ChatWidget({
                             ) : null}
                           </p>
                           {conversation.lastMessage ? (
-                            <span className="text-[10px] text-fog">
+                            <span className="chat-conversation-time">
                               {formatKstChatTime(
                                 conversation.lastMessage.created_at,
                               )}
                             </span>
                           ) : null}
                         </div>
-                        <p className="mt-0.5 truncate font-display text-[12px] text-smoke">
+                        <p className="chat-conversation-preview truncate font-display">
                           {messagePreview(conversation.lastMessage)}
                         </p>
                       </div>
                       {conversation.unreadCount ? (
-                        <span className="rounded-full bg-[#007AFF] px-1.5 py-0.5 text-[10px] font-bold text-white">
+                        <span className="chat-unread-badge">
                           {conversation.unreadCount}
                         </span>
                       ) : null}
@@ -3190,7 +3194,7 @@ export function ChatWidget({
                         aria-label={conversation.pinnedAt ? "채팅방 고정 해제" : "채팅방 상단 고정"}
                         onClick={(event) => { event.stopPropagation(); void toggleConversationPin(conversation); }}
                         onKeyDown={(event) => { if(event.key==="Enter"||event.key===" "){event.preventDefault();event.stopPropagation();void toggleConversationPin(conversation);} }}
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm text-fog hover:bg-ice"
+                        className="chat-row-menu flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm text-fog"
                       >
                         {conversation.pinnedAt ? "📌" : "⋮"}
                       </span>
@@ -3213,8 +3217,8 @@ export function ChatWidget({
           ) : null}
 
           {view === "friends" ? (
-            <div className="flex-1 overflow-y-auto">
-              <div className="sticky top-0 z-10 border-b border-mist bg-paper p-3">
+            <div className="chat-directory flex-1 overflow-y-auto">
+              <div className="chat-directory-search sticky top-0 z-10 p-3">
                 <div className="flex gap-2">
                   <input
                     value={searchQuery}
@@ -3708,14 +3712,14 @@ export function ChatWidget({
           ) : null}
 
           {view === "topics" ? (
-            <div className="flex-1 overflow-y-auto p-4">
+            <div className="chat-room-directory flex-1 overflow-y-auto p-4">
               <p className="mb-3 text-[12px] text-smoke">
                 과목별 공개 스터디방에 바로 입장하세요.
               </p>
               {topicsLoading ? (
                 <p className="py-8 text-center text-[13px] text-fog">불러오는 중...</p>
               ) : (
-                <div className="space-y-2">
+                <div className="chat-room-grid">
                   {(topicRooms.length
                     ? topicRooms
                     : TOPIC_TEASERS.map((t) => ({
@@ -3734,8 +3738,9 @@ export function ChatWidget({
                       key={room.topic_key}
                       type="button"
                       onClick={() => void openTopicRoom(room.topic_key)}
-                      className="chat-focus flex w-full items-center justify-between rounded-2xl border border-mist bg-white/85 px-4 py-3.5 text-left shadow-sm transition hover:border-[#007AFF]/35 hover:bg-[#007AFF]/5"
+                      className="chat-room-card chat-focus"
                     >
+                      <span className="chat-room-icon"><ChatGlyph name="study" /></span>
                       <span>
                         <b className="block font-display text-[13px] text-ink">
                           {room.topic_label || room.title}
@@ -3751,7 +3756,7 @@ export function ChatWidget({
                           {room.gate_subject ? " · 관련 과목 있음" : ""}
                         </small>
                       </span>
-                      <span className="text-[12px] font-semibold text-[#0066D6]">
+                      <span className="chat-room-action">
                         {room.joined ? "열기" : "입장"}
                       </span>
                     </button>
@@ -3762,7 +3767,7 @@ export function ChatWidget({
           ) : null}
 
           {view === "communities" ? (
-            <div className="flex-1 overflow-y-auto p-4">
+            <div className="chat-community-directory flex-1 overflow-y-auto p-4">
               <p className="mb-3 text-[12px] text-smoke">
                 시험 트랙별 스터디방·채널을 모아 봤어요.
               </p>
@@ -3778,22 +3783,24 @@ export function ChatWidget({
                     return (
                       <div
                         key={group.scope}
-                        className="overflow-hidden rounded-2xl border border-mist bg-white/85 shadow-sm"
+                        className="chat-community-card overflow-hidden"
                       >
                         <button
                           type="button"
                           onClick={() =>
                             setCommunityScope(open ? null : group.scope)
                           }
-                          className="flex w-full items-center justify-between px-4 py-3.5 text-left"
+                          aria-expanded={open}
+                          className="chat-community-toggle flex w-full items-center justify-between text-left"
                         >
+                          <span className="chat-room-icon"><ChatGlyph name="community" /></span>
                           <span>
                             <b className="block font-display text-[13px] text-ink">
                               {group.label}
                             </b>
                             <small className="text-[11px] text-fog">{group.blurb}</small>
                           </span>
-                          <span className="text-[12px] font-semibold text-[#0066D6]">
+                          <span className="chat-room-action">
                             {open ? "접기" : `${rooms.length || group.topicKeys.length}곳`}
                           </span>
                         </button>
@@ -3928,7 +3935,7 @@ export function ChatWidget({
               onOpenMessage={(messageId) => {
                 setView("thread");
                 const el = document.getElementById(`dm-msg-${messageId}`);
-                el?.scrollIntoView({ behavior: "smooth", block: "center" });
+                el?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
               }}
             />
           ) : null}
@@ -3970,9 +3977,7 @@ export function ChatWidget({
 
           {view === "settings" ? (
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
-              <ChatPrefsBar
-                doneToday={doneToday}
-                goalCount={goalCount}
+              <ChatKeywordButton
                 keywords={prefs?.keyword_alerts ?? []}
                 onOpenKeywords={() =>
                   setSheet({
@@ -3980,21 +3985,7 @@ export function ChatWidget({
                     value: (prefs?.keyword_alerts ?? []).join(", "),
                   })
                 }
-                onBumpDone={() => void bumpDailyDone()}
               />
-              <div className="rounded-2xl border border-mist bg-white/80 p-4">
-                <label className="text-[12px] font-semibold text-smoke">오늘 목표 문항</label>
-                <input
-                  type="number"
-                  min={0}
-                  max={500}
-                  value={prefs?.daily_goal_count ?? 40}
-                  onChange={(e) =>
-                    void savePrefs({ daily_goal_count: Number(e.target.value) || 0 })
-                  }
-                  className="mt-2 w-full rounded-xl border border-mist px-3 py-2 text-[13px]"
-                />
-              </div>
               <button
                 type="button"
                 onClick={() => void requestDesktopNotifications()}
@@ -4088,7 +4079,7 @@ export function ChatWidget({
                                     `dm-msg-${pin.message_id}`,
                                   );
                                   el?.scrollIntoView({
-                                    behavior: "smooth",
+                                    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
                                     block: "center",
                                   });
                                   setPinnedListOpen(false);
@@ -4552,14 +4543,14 @@ export function ChatWidget({
                     ))}
                   </div>
                 ) : null}
-                <div className="flex items-end gap-2">
+                <div className="chat-compose-row flex items-end gap-2">
                   <button
                     type="button"
                     onClick={() =>
                       recording ? stopVoice() : setPlusOpen(true)
                     }
                     disabled={sending || preparingFiles || channelPostBlocked}
-                    className={`chat-hit chat-focus flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xl text-white shadow-md ${
+                    className={`chat-compose-add chat-hit chat-focus flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-xl text-white ${
                       recording ? "bg-rose-500" : "bg-[#007AFF]"
                     }`}
                     aria-label={recording ? "녹음 중지" : "보내기 메뉴"}
@@ -4589,7 +4580,8 @@ export function ChatWidget({
                           : "메시지를 입력하세요"
                     }
                     disabled={channelPostBlocked}
-                    className="max-h-28 min-h-11 min-w-0 flex-1 resize-none rounded-[20px] border border-white bg-white/90 px-4 py-2.5 text-base shadow-inner outline-none focus:ring-2 focus:ring-[#007AFF]/20 disabled:opacity-60 sm:text-[13px]"
+                    aria-label="메시지 입력"
+                    className="chat-compose-input max-h-28 min-h-11 min-w-0 flex-1 resize-none rounded-[20px] px-4 py-2.5 text-base outline-none disabled:opacity-60 sm:text-[13px]"
                     onKeyDown={(event) => {
                       if (event.key === "Enter" && !event.shiftKey) {
                         event.preventDefault();
@@ -4608,7 +4600,7 @@ export function ChatWidget({
                         !selectedFiles.length &&
                         shareMode === "none")
                     }
-                    className="rounded-full bg-carbon px-4 py-2.5 text-[12px] font-semibold text-white shadow-md disabled:opacity-40"
+                    className="chat-primary chat-compose-send rounded-full px-4 py-2.5 text-[12px] font-semibold disabled:opacity-40"
                   >
                     {preparingFiles ? "준비 중" : sending ? "전송 중" : "전송"}
                   </button>

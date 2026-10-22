@@ -7,7 +7,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { OnlineUser } from "@/types/database";
 import { TOPIC_TEASERS } from "@/lib/chat/features";
 import "@/components/chat/chat-polish.css";
-import { BrandChatFab } from "@/components/chat/ChatUiKit";
+import { BrandChatFab, ChatGlyph } from "@/components/chat/ChatUiKit";
 
 export function GuestChatWidget({
   forceOpen = false,
@@ -50,7 +50,7 @@ export function GuestChatWidget({
       <BrandChatFab
         onClick={() => setOpen((value) => !value)}
         badge={
-          <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#007AFF] px-1 font-display text-[10px] font-bold text-white">
+          <span className="chat-launcher-badge absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full px-1 font-display text-[10px] font-bold">
             {onlineUsers.length}
           </span>
         }
@@ -58,7 +58,8 @@ export function GuestChatWidget({
 
       {open ? (
         <section
-          className="chat-panel chat-panel-enter fixed inset-0 z-[60] flex flex-col overflow-hidden shadow-2xl sm:inset-auto sm:bottom-24 sm:right-5 sm:h-[min(72vh,620px)] sm:w-[min(92vw,420px)] sm:rounded-[30px] sm:border sm:border-white/80"
+          aria-label="봄기출 채팅"
+          className="chat-panel chat-panel--guest chat-panel-enter fixed inset-0 z-[60] flex flex-col overflow-hidden sm:inset-auto sm:bottom-24 sm:right-5 sm:h-[min(82dvh,720px)] sm:w-[min(92vw,420px)] sm:rounded-[32px]"
           onTouchStart={(event) => {
             const touch = event.touches[0];
             swipeStartRef.current = touch
@@ -77,12 +78,13 @@ export function GuestChatWidget({
               setOpen(false);
           }}
         >
-          <header className="chat-glass-bar flex items-center px-4 py-3">
+          <header className="chat-header chat-header--hub flex items-start gap-3 px-6 py-6">
             <div className="min-w-0 flex-1">
-              <h2 className="font-display text-body font-semibold text-ink">
-                봄기출 채팅
+              <p className="chat-eyebrow">봄기출 · 함께 공부하는 공간</p>
+              <h2 className="chat-title mt-2 font-display text-2xl font-semibold">
+                함께 공부해요
               </h2>
-              <p className="chat-meta">
+              <p className="chat-subtitle mt-2">
                 지금 {onlineUsers.length}명이 같이 공부 중
               </p>
             </div>
@@ -90,15 +92,16 @@ export function GuestChatWidget({
               type="button"
               onClick={() => setOpen(false)}
               aria-label="닫기"
-              className="chat-focus flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xl text-fog transition-colors hover:bg-black/5"
+              className="chat-icon-button chat-focus flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
             >
-              ✕
+              <ChatGlyph name="close" />
             </button>
           </header>
 
-          <div className="flex-1 overflow-y-auto p-4">
-            <div className="rounded-2xl border border-mist bg-white/75 p-4">
-              <p className="font-display text-sm font-semibold text-ink">
+          <div className="chat-guest-body min-h-0 flex-1 overflow-y-auto px-5 pb-5">
+            <div className="chat-guest-card rounded-[24px] p-5">
+              <p className="chat-section-heading flex items-center gap-2 font-display text-sm font-semibold">
+                <ChatGlyph name="friends" />
                 지금 함께 공부 중인 사람
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -106,9 +109,9 @@ export function GuestChatWidget({
                   onlineUsers.map((online) => (
                     <span
                       key={online.user_id}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-ice px-3 py-1.5 text-xs text-ink"
+                      className="chat-presence-chip inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-xs"
                     >
-                      <i className="h-2 w-2 rounded-full bg-[#007AFF]" />
+                      <i className="chat-presence-dot h-1.5 w-1.5 rounded-full" aria-hidden="true" />
                       {online.nickname}
                     </span>
                   ))
@@ -119,7 +122,7 @@ export function GuestChatWidget({
             </div>
 
             <div className="mt-4">
-              <p className="mb-2 font-display text-[12px] font-semibold text-smoke">
+              <p className="chat-section-heading mb-3 font-display text-[12px] font-semibold">
                 로그인하면 바로 들어갈 수 있는 스터디방
               </p>
               <div className="grid grid-cols-2 gap-2">
@@ -127,20 +130,21 @@ export function GuestChatWidget({
                   <Link
                     key={topic.key}
                     href={loginHref}
-                    className="chat-focus rounded-2xl border border-mist bg-white/80 px-3 py-2.5 text-left shadow-sm"
+                    className="chat-room-card chat-focus rounded-[24px] px-4 py-4 text-left"
                   >
-                    <b className="block font-display text-[13px] text-ink">
+                    <span className="chat-room-icon mb-3 inline-flex"><ChatGlyph name="study" /></span>
+                    <b className="block font-display text-[13px]">
                       {topic.label}
                     </b>
-                    <small className="chat-meta">{topic.blurb}</small>
+                    <small className="chat-meta mt-1 block">{topic.blurb}</small>
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div className="mt-4 rounded-2xl border border-[#007AFF]/15 bg-[#007AFF]/8 p-5 text-center">
-              <span className="text-3xl">💬</span>
-              <h3 className="mt-2 font-display text-base font-semibold text-ink">
+            <div className="chat-guest-invite mt-4 rounded-[28px] p-6 text-center">
+              <span className="chat-guest-invite-icon inline-flex" aria-hidden="true"><ChatGlyph name="spark" /></span>
+              <h3 className="mt-3 font-display text-base font-semibold">
                 로그인하고 바로 대화하기
               </h3>
               <p className="mt-2 chat-meta leading-relaxed">
@@ -150,7 +154,7 @@ export function GuestChatWidget({
               </p>
               <Link
                 href={loginHref}
-                className="chat-focus mt-4 inline-flex rounded-full bg-[#007AFF] px-5 py-2.5 font-display text-sm font-semibold text-white"
+                className="chat-primary chat-focus mt-5 inline-flex items-center justify-center rounded-full px-5 py-3 font-display text-sm font-semibold"
               >
                 로그인하고 채팅하기
               </Link>

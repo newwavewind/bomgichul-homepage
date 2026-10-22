@@ -2,6 +2,42 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 
+export function ChatGlyph({
+  name,
+  className,
+}: {
+  name: "message" | "friends" | "study" | "community" | "close" | "spark" | "back" | "more";
+  className?: string;
+}) {
+  const paths: Record<typeof name, ReactNode> = {
+    message: <><path d="M16.5 9.5a6.5 6.5 0 0 1-6.5 6.5H6.5L3 18v-5.2A6.5 6.5 0 1 1 16.5 9.5Z" /><path d="M6.5 8h7M6.5 11h4.5" /></>,
+    friends: <><circle cx="7.5" cy="6.5" r="2.5" /><path d="M2.5 16v-1a5 5 0 0 1 10 0v1M13 4.3a2.5 2.5 0 0 1 0 4.4M14.5 11a4.5 4.5 0 0 1 3 4.3V16" /></>,
+    study: <><path d="M10 5.5C7.8 3.8 5.4 3.4 2.5 4v11c2.9-.6 5.3-.2 7.5 1.5 2.2-1.7 4.6-2.1 7.5-1.5V4c-2.9-.6-5.3-.2-7.5 1.5ZM10 5.5v11" /><path d="m5 7 2.5.8M12.5 7.8 15 7" /></>,
+    community: <><circle cx="10" cy="5.5" r="2.5" /><circle cx="5" cy="13.5" r="2.5" /><circle cx="15" cy="13.5" r="2.5" /><path d="m8.7 7.7-2.4 3.6m5-3.6 2.4 3.6M7.5 13.5h5" /></>,
+    close: <path d="m5.5 5.5 9 9m0-9-9 9" />,
+    spark: <><path d="m10 2 2.1 5.9L18 10l-5.9 2.1L10 18l-2.1-5.9L2 10l5.9-2.1L10 2Z" /><path d="M16 2v3m-1.5-1.5h3" /></>,
+    back: <path d="m12 4.5-5.5 5.5 5.5 5.5" />,
+    more: <><circle cx="4" cy="10" r=".75" /><circle cx="10" cy="10" r=".75" /><circle cx="16" cy="10" r=".75" /></>,
+  };
+  return (
+    <svg
+      className={className}
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.45"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {paths[name]}
+    </svg>
+  );
+}
+
 export function BrandChatFab({
   onClick,
   badge,
@@ -30,17 +66,9 @@ export function ChatBackButton({ onClick }: { onClick: () => void }) {
       type="button"
       onClick={onClick}
       aria-label="뒤로"
-      className="chat-focus flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink transition-colors hover:bg-black/[0.06] active:bg-black/[0.1]"
+      className="chat-icon-button chat-focus flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
     >
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <path
-          d="M15 18l-6-6 6-6"
-          stroke="currentColor"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <ChatGlyph name="back" />
     </button>
   );
 }
@@ -58,11 +86,7 @@ export function ChatHeaderAction({
     <button
       type="button"
       onClick={onClick}
-      className={`chat-focus h-8 shrink-0 rounded-lg px-2.5 font-display text-[12px] font-medium transition-colors ${
-        primary
-          ? "text-[#0066D6] hover:bg-[#007AFF]/10"
-          : "text-smoke hover:bg-black/[0.05] hover:text-ink"
-      }`}
+      className={`chat-header-action chat-focus shrink-0 rounded-full px-3 py-2 font-display text-[12px] font-medium ${primary ? "is-primary" : ""}`}
     >
       {children}
     </button>
@@ -100,10 +124,10 @@ export function ChatToast({
         <button
           type="button"
           onClick={onClose}
-          className="chat-hit chat-focus shrink-0 rounded-full text-[14px] text-fog"
+          className="chat-icon-button chat-hit chat-focus shrink-0 rounded-full"
           aria-label="닫기"
         >
-          ✕
+          <ChatGlyph name="close" />
         </button>
       </div>
     </div>
@@ -129,7 +153,7 @@ export function ChatSheet({
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-[95] flex items-end justify-center bg-black/25 p-3 sm:items-center">
+    <div className="chat-sheet-backdrop fixed inset-0 z-[95] flex items-end justify-center p-3 sm:items-center">
       <button
         type="button"
         className="absolute inset-0 cursor-default"
@@ -140,7 +164,7 @@ export function ChatSheet({
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative w-full max-w-md rounded-[24px] border border-white/80 bg-white p-4 shadow-2xl"
+        className="chat-sheet relative max-h-[calc(100dvh-1.5rem)] w-full max-w-md overflow-y-auto rounded-[28px] bg-white p-5"
       >
         <div className="mb-3 flex items-center justify-between gap-2">
           <h3 id={titleId} className="font-display text-[15px] font-semibold text-ink">
@@ -149,10 +173,10 @@ export function ChatSheet({
           <button
             type="button"
             onClick={onClose}
-            className="chat-hit chat-focus rounded-full text-[16px] text-fog"
+            className="chat-icon-button chat-hit chat-focus rounded-full"
             aria-label="닫기"
           >
-            ✕
+            <ChatGlyph name="close" />
           </button>
         </div>
         {children}
@@ -183,23 +207,19 @@ export function OverflowMenu({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="chat-focus flex h-9 w-9 items-center justify-center rounded-full text-ink transition-colors hover:bg-black/[0.06]"
+        className="chat-icon-button chat-focus flex h-11 w-11 items-center justify-center rounded-full"
         aria-expanded={open}
         aria-label="더보기"
       >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-          <circle cx="5" cy="12" r="1.7" />
-          <circle cx="12" cy="12" r="1.7" />
-          <circle cx="19" cy="12" r="1.7" />
-        </svg>
+        <ChatGlyph name="more" />
       </button>
       {open ? (
-        <div className="absolute right-0 top-11 z-50 min-w-[148px] overflow-hidden rounded-2xl border border-mist bg-white py-1 shadow-xl">
+        <div className="chat-menu absolute right-0 top-12 z-50 min-w-[176px] overflow-hidden rounded-3xl bg-white p-1.5">
           {items.map((item) => (
             <button
               key={item.key}
               type="button"
-              className="chat-focus flex w-full px-3 py-2.5 text-left font-display text-[13px] text-ink hover:bg-[#007AFF]/8"
+              className="chat-focus flex min-h-11 w-full items-center rounded-2xl px-3 py-2.5 text-left font-display text-[13px]"
               onClick={() => {
                 setOpen(false);
                 item.onClick();
@@ -226,7 +246,8 @@ export function ChatEmptyState({
   onAction?: () => void;
 }) {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center px-6 py-14 text-center">
+    <div className="chat-empty flex flex-1 flex-col items-center justify-center px-6 py-14 text-center">
+      <span className="chat-empty-icon" aria-hidden="true"><ChatGlyph name="message" /></span>
       <h3 className="font-display text-[16px] font-semibold text-ink">{title}</h3>
       <p className="mt-2 max-w-[240px] font-display text-[13px] leading-relaxed text-smoke">
         {body}
@@ -235,7 +256,7 @@ export function ChatEmptyState({
         <button
           type="button"
           onClick={onAction}
-          className="chat-focus mt-5 rounded-full bg-[#007AFF] px-5 py-2.5 font-display text-[13px] font-semibold text-white"
+          className="chat-primary chat-focus mt-5 rounded-full px-5 py-3 font-display text-[13px] font-semibold"
         >
           {actionLabel}
         </button>
@@ -285,7 +306,7 @@ export function ComposerPlusSheet({
           <button
             key={item.key}
             type="button"
-            className="chat-focus rounded-2xl border border-mist bg-[#007AFF]/5 px-3 py-3 text-left font-display text-[13px] font-semibold text-[#0066D6]"
+            className="chat-send-option chat-focus rounded-2xl px-4 py-4 text-left font-display text-[13px] font-semibold"
             onClick={() => {
               onPick(item.key);
               onClose();

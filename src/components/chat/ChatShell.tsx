@@ -3,6 +3,7 @@
 import { useEffect, useState, type ComponentProps } from "react";
 import { ChatWidget } from "@/components/chat/ChatWidget";
 import { GuestChatWidget } from "@/components/chat/GuestChatWidget";
+import { ChatGlyph } from "@/components/chat/ChatUiKit";
 import { fetchMe, type MeUser } from "@/lib/client-session";
 
 type Conversations = ComponentProps<typeof ChatWidget>["initialConversations"];
@@ -11,11 +12,12 @@ type Conversations = ComponentProps<typeof ChatWidget>["initialConversations"];
 function ChatFabPlaceholder() {
   return (
     <div
-      className="web-chat-launcher fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border-[1.5px] border-carbon bg-paper text-2xl shadow-[var(--shadow-card)]"
+      className="web-chat-launcher chat-launcher fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full"
       aria-hidden
       aria-busy="true"
     >
-      💬
+      <ChatGlyph name="message" />
+      <span className="chat-launcher-dots" aria-hidden="true"><i /><i /><i /></span>
     </div>
   );
 }

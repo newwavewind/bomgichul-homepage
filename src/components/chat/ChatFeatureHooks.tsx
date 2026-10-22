@@ -116,52 +116,21 @@ export function useTopicRooms(enabled: boolean) {
   return { rooms, loading, refresh, join };
 }
 
-export function ChatPrefsBar({
-  doneToday,
-  goalCount,
+export function ChatKeywordButton({
   keywords,
   onOpenKeywords,
-  onBumpDone,
 }: {
-  doneToday: number;
-  goalCount: number;
   keywords: string[];
   onOpenKeywords: () => void;
-  onBumpDone: () => void;
 }) {
-  const pct = goalCount > 0 ? Math.min(100, Math.round((doneToday / goalCount) * 100)) : 0;
-
   return (
-    <div className="flex items-center gap-2 border-b border-mist/70 bg-white/50 px-3 py-2.5">
-      <button
-        type="button"
-        onClick={onBumpDone}
-        title="오늘 푼 문항 +1"
-        className="chat-focus min-w-0 flex-1 rounded-xl border border-mist bg-white px-3 py-2 text-left transition-colors hover:border-[#007AFF]/35"
-      >
-        <div className="flex items-center justify-between gap-2">
-          <span className="font-display text-[11px] font-medium text-smoke">
-            오늘 목표
-          </span>
-          <span className="font-display text-[12px] font-semibold tabular-nums text-ink">
-            {doneToday}
-            <span className="font-normal text-fog"> / {goalCount}</span>
-          </span>
-        </div>
-        <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-slate-100">
-          <div
-            className="h-full rounded-full bg-[#007AFF] transition-[width] duration-300"
-            style={{ width: `${pct}%` }}
-          />
-        </div>
-      </button>
-      <button
-        type="button"
-        onClick={onOpenKeywords}
-        className="chat-focus shrink-0 rounded-xl border border-mist bg-white px-3 py-2 font-display text-[11px] font-medium text-smoke transition-colors hover:border-[#007AFF]/35 hover:text-ink"
-      >
-        키워드{keywords.length ? ` ${keywords.length}` : ""}
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={onOpenKeywords}
+      className="chat-keywords chat-focus"
+    >
+      <span aria-hidden="true">#</span>
+      <span>키워드 알림{keywords.length ? ` ${keywords.length}` : ""}</span>
+    </button>
   );
 }
