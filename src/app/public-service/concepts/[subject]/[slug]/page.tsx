@@ -27,7 +27,7 @@ export function generateStaticParams() {
 }
 
 // 커뮤니티 글이 실리는 페이지 — 한 시간마다 다시 그린다.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject: subjectId, slug } = await params;

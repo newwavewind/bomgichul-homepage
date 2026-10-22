@@ -22,8 +22,8 @@ export function generateStaticParams() {
   return [];
 }
 
-// 공개 메모가 실리는 페이지 — 한 시간마다 다시 그린다.
-export const revalidate = 3600;
+// 공개 메모가 실리는 페이지 — 글을 쓰면 그 자리에서 비우므로(/api/revalidate), 저절로는 하루에 한 번만 다시 그린다(비용).
+export const revalidate = 86400;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { subject, year, source: encodedSource, no } = await params;

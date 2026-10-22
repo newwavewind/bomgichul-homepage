@@ -46,7 +46,7 @@ interface ExamQuestionPageProps {
 }
 
 // 공개 메모가 실리는 페이지 — 정적(ISR)으로 캐시하되 한 시간마다 다시 굽는다.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   // 전량(1만 쪽 남짓)을 돌려주면 빌드가 그만큼 사전 렌더한다 — 빈 배열로 두고

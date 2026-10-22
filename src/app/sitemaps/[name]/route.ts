@@ -6,7 +6,7 @@ import {
   type SitemapGroup,
 } from "@/lib/sitemap";
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 type Props = { params: Promise<{ name: string }> };
 

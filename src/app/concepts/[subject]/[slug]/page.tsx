@@ -38,7 +38,7 @@ import "@/styles/concepts/conceptsEbook.css";
 const VALID_SUBJECTS = EXAM_SUBJECTS.map((s) => s.value);
 
 // 커뮤니티 글(모두의 개념)이 실리는 페이지라 한 시간마다 다시 굽는다.
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 function plainConceptText(text: string): string {
   return text.replace(/\*\*/g, "");
