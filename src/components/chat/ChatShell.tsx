@@ -58,6 +58,9 @@ export function ChatShell() {
 
   useEffect(() => {
     const openFromQuery = () => {
+      // 로그인·인증 화면에서는 열지 않는다 — 「로그인하고 채팅하기」 주소의 chat=1 때문에
+      // 로그인 페이지 위에 채팅 창이 다시 떠서 로그인 단추를 가리고 있었다.
+      if (/^\/(login|auth)(\/|$)/.test(window.location.pathname)) return;
       const params = new URLSearchParams(window.location.search);
       if (params.get("chat") === "1") {
         setForceOpen(true);

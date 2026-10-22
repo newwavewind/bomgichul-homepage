@@ -43,7 +43,8 @@ export function GuestChatWidget({
     };
   }, []);
 
-  const loginHref = "/login?next=/&chat=1";
+  // 로그인한 뒤 홈으로 돌아와 채팅 창이 바로 열리게 chat=1 은 next 안에 넣는다
+  const loginHref = `/login?next=${encodeURIComponent("/?chat=1")}`;
 
   return (
     <>
