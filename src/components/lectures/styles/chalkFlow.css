@@ -1,0 +1,11 @@
+.c103-flow.lecture-flow{position:relative;display:grid;grid-template-columns:repeat(var(--flow-columns),minmax(0,1fr));gap:52px;padding:4px;margin-top:18px;isolation:isolate}
+.lecture-flow__slot{position:relative;min-width:0;display:flex;z-index:2}
+.lecture-flow__slot.is-wide{grid-column:1/-1}
+.lecture-flow__slot .c103-flow__node{box-sizing:border-box;min-width:0;min-height:94px;width:100%;height:100%;flex:none;padding:13px 15px;gap:5px}
+.lecture-flow__slot .c103-flow__node small{line-height:1.35;word-break:keep-all}
+.lecture-flow__lines{position:absolute;inset:0;z-index:1;overflow:visible;pointer-events:none;color:#ffdfa1;filter:drop-shadow(0 0 2px #f5d78b40)}
+.lecture-flow__line{fill:none;stroke:currentColor;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:0}
+.lecture-flow__line.is-on{opacity:1;animation:lecture-flow-draw .48s ease-out forwards}
+.lecture-flow__tip{fill:currentColor;stroke:currentColor;stroke-width:.5;stroke-linejoin:round}
+@keyframes lecture-flow-draw{to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.lecture-flow__line.is-on{animation-duration:.01ms}}

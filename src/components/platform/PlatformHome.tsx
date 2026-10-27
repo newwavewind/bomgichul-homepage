@@ -183,17 +183,19 @@ function ExamCardAction({
   label,
   examTitle,
   primary = false,
+  compact = false,
 }: {
   href: string;
   label: string;
   examTitle: string;
   primary?: boolean;
+  compact?: boolean;
 }) {
   return (
     <Link
       href={href}
       aria-label={`${examTitle} ${label}`}
-      className={`inline-flex min-h-10 min-w-[120px] items-center justify-center rounded-[16px] border px-4 py-2 text-center font-display text-[13px] font-semibold tracking-tight transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007aff] focus-visible:ring-offset-2 ${
+      className={`inline-flex min-h-10 ${compact ? "min-w-0 px-2" : "min-w-[120px] px-4"} items-center justify-center rounded-[16px] border py-2 text-center font-display text-[13px] font-semibold tracking-tight transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007aff] focus-visible:ring-offset-2 ${
         primary
           ? "border-[#0066d6]/35 bg-[#007aff] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_2px_8px_rgba(0,102,214,0.18)] hover:bg-[#0066d6] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_5px_14px_rgba(0,102,214,0.22)]"
           : "border-[#007aff]/30 bg-white/80 text-[#0066d6] shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_2px_8px_rgba(0,102,214,0.06)] hover:bg-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_5px_14px_rgba(0,102,214,0.12)]"
@@ -242,17 +244,27 @@ export function PlatformHome() {
                   {exam.title}
                 </h2>
               </div>
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className={exam.learnHref === "/real-estate" ? "mt-6 grid grid-cols-3 gap-2" : "mt-6 flex flex-wrap gap-2"}>
                 <ExamCardAction
                   href={exam.learnHref}
-                  label="학습 시작"
+                  label={exam.learnHref === "/real-estate" ? "기출문제" : "학습 시작"}
                   examTitle={exam.title}
+                  compact={exam.learnHref === "/real-estate"}
                   primary
                 />
+                {exam.learnHref === "/real-estate" && (
+                  <ExamCardAction
+                    href="/real-estate/lectures/realestate"
+                    label="강의 보기"
+                    examTitle={exam.title}
+                    compact
+                  />
+                )}
                 <ExamCardAction
                   href={`${exam.learnHref}/daily`}
                   label="매일 10문제"
                   examTitle={exam.title}
+                  compact={exam.learnHref === "/real-estate"}
                 />
               </div>
             </article>

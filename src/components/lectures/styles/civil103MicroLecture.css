@@ -1,0 +1,450 @@
+/* 칠판 손글씨 — 강의를 열 때만 받아 온다(앱 패키지에 글꼴 파일을 넣지 않음, 음성도 어차피 인터넷으로 받는다) */
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+.c103-overlay{position:fixed;inset:0;z-index:10050;display:grid;place-items:center;padding:18px;background:#11221cbd;backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+.c103-shell{display:flex;flex-direction:column;width:min(940px,100%);max-height:min(94dvh,920px);overflow:auto;border:1px solid #f3edd7a8;border-radius:28px;background:#f8f6ed;box-shadow:0 30px 90px #05150e77;color:#1d392e}
+.c103-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 22px 15px}
+.c103-kicker{font-size:10px;font-weight:800;letter-spacing:.18em;color:#7a907f}
+.c103-header h2{margin:3px 0 0;font-size:21px;line-height:1.25;letter-spacing:-.045em}
+.c103-views{display:block;margin-top:4px;font-size:12px;font-weight:600;color:#6d8474;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.c103-close{display:grid;place-items:center;flex:none;width:38px;height:38px;border:1px solid #d9e1d5;border-radius:50%;background:#fff;color:#345044;cursor:pointer}
+.c103-stage{padding:0 18px}
+.c103-board{position:relative;display:flex;flex-direction:column;min-height:430px;overflow:hidden;border:12px solid #a9774e;border-radius:15px;background:radial-gradient(ellipse at 27% 30%,#2e6252 0,#224d41 55%,#16372f 100%);box-shadow:inset 0 0 0 2px #d7b68a,inset 0 0 38px #0a2d237a,0 8px 22px #28413129;color:#f7f0d6}
+.c103-board__grain{position:absolute;inset:0;pointer-events:none;opacity:.24;background-image:repeating-linear-gradient(106deg,#ffffff05 0 1px,transparent 1px 5px),radial-gradient(circle at 40% 40%,#fff4 0 1px,transparent 1px);background-size:auto,11px 13px;mix-blend-mode:screen}
+.c103-board__top{position:relative;display:flex;justify-content:space-between;gap:10px;padding:15px 20px;border-bottom:1px solid #e4f4de23;font-size:10px;font-weight:800;letter-spacing:.15em;color:#d1e4cd}
+.c103-board__writing{position:relative;display:flex;flex:1;flex-direction:column;justify-content:center;width:min(760px,100%);margin:auto;padding:23px 37px 31px}
+.c103-board__eyebrow{font:700 18px/1.2 'Gaegu',sans-serif;color:#efd09b}
+.c103-board__heading{white-space:pre-line;margin:10px 0 4px;font:700 clamp(28px,4vw,43px)/1.1 'Gaegu','Noto Sans KR',sans-serif;letter-spacing:-.025em;text-shadow:0 1px #fff7,0 0 13px #ffffff33}
+.c103-board__chalk-line{width:min(500px,100%);height:18px;overflow:visible}
+.c103-board__chalk-line path{fill:none;stroke:#e9cf94;stroke-width:4;stroke-linecap:round;stroke-dasharray:540;stroke-dashoffset:540;filter:drop-shadow(0 0 2px #f9e6c587);animation:c103-line 1.3s 1.15s ease-out forwards}
+.c103-board__notes{display:flex;flex-direction:column;gap:3px;margin-top:9px}
+.c103-board__notes p{display:flex;align-items:baseline;gap:10px;margin:0;font:400 clamp(19px,2.7vw,28px)/1.28 'Gaegu','Noto Sans KR',sans-serif;color:#f6f5e4}
+.c103-board__mark{font-size:18px;color:#eecb91}
+.c103-board__emphasis{align-self:flex-start;margin-top:18px;padding:5px 12px;border:1px solid #d6c6898e;border-radius:4px;color:#f1d69e;font:700 clamp(18px,2.5vw,25px)/1.2 'Gaegu',sans-serif;transform:rotate(-1deg)}
+.c103-write{--write-delay:0s;clip-path:inset(0 100% 0 0);animation:c103-write 1.55s var(--write-delay) steps(28,end) forwards}
+.c103-board__ledge{position:relative;display:flex;align-items:center;gap:8px;height:15px;padding:0 20px;background:linear-gradient(#865b3a,#bc8b5e)}
+.c103-board__ledge span{width:32px;height:5px;border-radius:4px;background:#e9e8d5;transform:rotate(-2deg);box-shadow:0 1px 3px #17352b80}
+.c103-board__ledge span:nth-child(2){width:22px;background:#e6cb93;transform:rotate(3deg)}
+.c103-board__ledge span:nth-child(3){width:27px;background:#c8dbcf}
+.c103-stage__caption{display:grid;grid-template-columns:90px 1fr;gap:8px;padding:14px 8px 9px;color:#4f675c}
+.c103-stage__caption>span{padding-top:3px;font-size:11px;font-weight:800;color:#3d8066}
+.c103-stage__caption p{max-height:76px;overflow:auto;margin:0;font-size:12px;line-height:1.65}
+.c103-controls{padding:8px 26px 12px}
+.c103-controls__timeline{display:flex;gap:5px}
+.c103-controls__timeline button{flex:1;height:6px;border:0;border-radius:6px;background:#cdd8c8;cursor:pointer}
+.c103-controls__timeline button.is-past{background:#9cbea7}
+.c103-controls__timeline button.is-current{background:#2c7657;box-shadow:0 0 0 2px #2c765728}
+.c103-controls__main{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0}
+.c103-controls__main button{width:38px;height:38px;border:1px solid #d7ded4;border-radius:50%;background:#fff;color:#2a5849;font-size:18px;cursor:pointer}
+.c103-controls__main button:disabled{opacity:.35;cursor:default}
+.c103-controls__main .c103-play{display:flex;align-items:center;justify-content:center;gap:8px;width:auto;min-width:132px;padding:0 17px;border:0;border-radius:20px;background:#2c7657;color:#fff;font-size:13px;font-weight:800}
+.c103-time{min-width:73px;font-size:11px;font-variant-numeric:tabular-nums;color:#65786b}
+.c103-error{margin:5px 0 0;font-size:12px;color:#a4342c}
+.c103-controls__meta{display:flex;justify-content:space-between;gap:8px;color:#718676;font-size:10px;line-height:1.4}
+.c103-footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:0 26px 20px}
+.c103-footer button{padding:8px 11px;border:1px solid #d5e2d4;border-radius:9px;background:#fff;color:#426553;text-decoration:none;font-size:11px;font-weight:700;cursor:pointer}
+.c103-footer a{padding:0;border:0;background:none;color:#718676;text-decoration:none;font-size:10px;font-weight:500;letter-spacing:-0.02em;cursor:pointer}
+.c103-footer a:hover{color:#2a5849;text-decoration:underline}
+@keyframes c103-write{to{clip-path:inset(0 0 0 0)}}
+@keyframes c103-line{to{stroke-dashoffset:0}}
+@media(max-width:650px){.c103-overlay{padding:0}.c103-shell{width:100%;height:100dvh;max-height:none;border:0;border-radius:0}.c103-header{padding:15px 17px 12px}.c103-stage{padding:0 10px}.c103-board{min-height:390px;border-width:9px}.c103-board__writing{padding:20px 19px 25px}.c103-stage__caption{grid-template-columns:1fr;gap:2px}.c103-stage__caption p{max-height:100px}.c103-controls{padding:9px 17px}.c103-controls__meta{flex-direction:column}.c103-footer{padding:4px 17px 24px}}
+@media(prefers-reduced-motion:reduce){.c103-write{animation-duration:.01ms;animation-delay:0s}.c103-board__chalk-line path{animation-duration:.01ms;animation-delay:0s}}
+
+/* ── 3판(2026-10-25): 판서 모양 여럿 + 음성에 맞춰 써지는 분필 ── */
+.c103-ink{opacity:0;clip-path:inset(0 100% 0 0);transition:opacity .2s}
+.c103-ink.is-on{opacity:1;animation:c103-write .95s steps(22,end) forwards}
+.c103-ink--row{clip-path:none;transform:translateY(4px)}
+.c103-ink--row.is-on{animation:c103-row .5s ease-out forwards}
+@keyframes c103-row{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.c103-board{min-height:470px}
+.c103-board__writing{justify-content:flex-start;padding-top:20px}
+.c103-board__heading{font-size:clamp(25px,3.6vw,38px)}
+.c103-board__emphasis{margin-top:auto}
+.c103-chalk{font-family:'Gaegu','Noto Sans KR',sans-serif}
+
+/* 흐름 */
+.c103-flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px 6px;margin-top:16px}
+.c103-flow__node{position:relative;display:flex;flex-direction:column;gap:2px;min-width:132px;flex:1;padding:10px 12px 11px;border:2px solid #f2ecd2a8;border-radius:10px 14px 9px 13px;font-family:'Gaegu','Noto Sans KR',sans-serif}
+.c103-flow__node strong{font-size:clamp(19px,2.4vw,25px);color:#fbf6dd}
+.c103-flow__node small{font-size:clamp(14px,1.8vw,17px);line-height:1.25;color:#d9e8d4}
+.c103-flow__node.is-warn{border-color:#efb27fcc}
+.c103-flow__node.is-warn strong{color:#f6c79a}
+.c103-flow__node.is-key{border-color:#f0d58f;background:#f0d58f1a}
+.c103-flow__node.is-key strong{color:#f5dc9a}
+
+/* 조문 */
+.c103-article{display:grid;gap:12px;margin-top:14px}
+.c103-article__card{padding:12px 16px 14px;border:2px dashed #f0e7c99c;border-radius:8px;font-family:'Gaegu','Noto Sans KR',sans-serif}
+.c103-article__title{display:block;margin-bottom:5px;font-size:15px;color:#efd09b}
+.c103-article__card p{margin:0;font-size:clamp(20px,2.7vw,28px);line-height:1.45;color:#fbf6df}
+.c103-mark{background-image:linear-gradient(#f0cf8a,#f0cf8a);background-size:0 3px;background-repeat:no-repeat;background-position:0 96%;transition:background-size .7s ease-out,color .3s}
+.c103-mark.is-on{background-size:100% 3px;color:#ffe6a6}
+.c103-article__notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px}
+.c103-article__note{display:flex;flex-direction:column;font-family:'Gaegu','Noto Sans KR',sans-serif}
+.c103-article__note b{font-size:16px;color:#f0cf8a}
+.c103-article__note span{font-size:clamp(16px,2vw,20px);color:#eef4e6}
+
+/* 비교 두 칸 */
+.c103-compare__cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.c103-compare__col{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:2px solid #f2ecd2a8;border-radius:12px 9px 14px 10px;font-family:'Gaegu','Noto Sans KR',sans-serif}
+.c103-compare__col strong{font-size:clamp(19px,2.4vw,24px)}
+.c103-compare__col span{font-size:clamp(16px,2vw,20px);color:#e9f1e3}
+.c103-compare__col.is-ok strong{color:#b9e6c4}
+.c103-compare__col.is-bad{border-color:#efa58fbb}
+.c103-compare__col.is-bad strong{color:#f6b8a3}
+.c103-footnote{margin-top:12px;padding:7px 11px;border-left:3px solid #eecb91;font:400 clamp(16px,2vw,20px)/1.35 'Gaegu','Noto Sans KR',sans-serif;color:#f3e3bb}
+.c103-rights{display:grid;gap:20px;margin-top:18px}
+.c103-rights__row{padding:0 0 16px;border-bottom:1px solid #ecdfb94d}
+.c103-rights__row h4{margin:0;color:#ffdfa1;font:700 clamp(20px,2.5vw,26px)/1.3 'Gaegu','Noto Sans KR',sans-serif}
+.c103-rights__row .lecture-flow{margin-top:10px;max-width:760px}
+.c103-rights__row p{margin:10px 0 0;color:#dcebdc;font:400 clamp(15px,2vw,20px)/1.4 'Gaegu','Noto Sans KR',sans-serif}
+
+/* 2×2 */
+.c103-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.c103-grid__cell{display:flex;flex-direction:column;gap:3px;padding:10px 12px;border:2px solid #f2ecd2a0;border-radius:10px;font-family:'Gaegu','Noto Sans KR',sans-serif}
+.c103-grid__cell strong{font-size:clamp(18px,2.3vw,23px);color:#f5dc9a}
+.c103-grid__cell span{font-size:clamp(15px,1.9vw,19px);line-height:1.3;color:#eef4e6}
+
+/* 표 */
+.c103-table{width:100%;margin-top:12px;border-collapse:collapse;font-family:'Gaegu','Noto Sans KR',sans-serif}
+.c103-table th,.c103-table td{padding:5px 9px;border-bottom:1.5px solid #f2ecd247;text-align:left;vertical-align:top;font-size:clamp(15px,1.9vw,19px);line-height:1.3;color:#eef4e6}
+.c103-table thead th{border-bottom:2px solid #f2ecd2a8;font-size:clamp(16px,2vw,20px);color:#f5dc9a}
+.c103-table thead th.is-o{color:#f6b8a3}
+.c103-table thead th.is-x{color:#b9e6c4}
+.c103-table td+td{border-left:1.5px dashed #f2ecd247}
+.c103-table.is-wide th,.c103-table.is-wide td{text-align:center}
+.c103-table.is-wide tbody th{color:#f0cf8a;text-align:left;white-space:nowrap}
+
+/* 관계도 */
+.c103-diagram{position:relative;height:300px;margin-top:10px}
+.c103-diagram__lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.c103-diagram__edge{stroke:#f0e7c9;stroke-width:.5;stroke-dasharray:1;stroke-dashoffset:1;opacity:0}
+.c103-diagram__edge{stroke-width:2.2}
+.c103-diagram__edge.is-on{opacity:.85;animation:c103-line .9s ease-out forwards}
+.c103-diagram__node,.c103-diagram__label,.c103-diagram__note{position:absolute;transform:translate(-50%,-50%);font-family:'Gaegu','Noto Sans KR',sans-serif;text-align:center}
+.c103-diagram__node{display:flex;flex-direction:column;align-items:center;min-width:74px;padding:5px 10px;border:2px solid #f2ecd2c4;border-radius:50%/42%;background:#1d4a3fd9}
+.c103-diagram__node strong{font-size:clamp(22px,3vw,28px);color:#fbf6dd;line-height:1.1}
+.c103-diagram__node small{font-size:13px;color:#d9e8d4}
+.c103-diagram__label{padding:0 5px;background:#214c41;font-size:clamp(14px,1.8vw,17px);color:#efd09b;white-space:nowrap}
+.c103-diagram__note{max-width:46%;padding:3px 8px;border-radius:6px;font-size:clamp(14px,1.8vw,17px);line-height:1.25;white-space:normal}
+.c103-diagram__note.is-ok{border:1.5px solid #b9e6c4aa;color:#c9eccf}
+.c103-diagram__note.is-bad{border:1.5px solid #f6b8a3cc;color:#f9c6b4}
+.c103-diagram__note.is-note{border:1.5px dashed #f0d58f99;color:#f3e3bb}
+
+/* O·X 판별 */
+.c103-drill{display:grid;gap:9px;margin:14px 0 0;padding:0;list-style:none;font-family:'Gaegu','Noto Sans KR',sans-serif}
+.c103-drill__item{display:grid;grid-template-columns:1fr auto;gap:0 12px;align-items:center;padding:7px 11px;border-bottom:1.5px dashed #f2ecd247}
+.c103-drill__q{font-size:clamp(17px,2.2vw,22px);color:#f6f5e4}
+.c103-drill__a{grid-row:span 2;display:grid;place-items:center;width:40px;height:40px;border:2.5px solid currentColor;border-radius:50%;font-size:24px;font-weight:700}
+.c103-drill__a.is-o{color:#9fdcb0}
+.c103-drill__a.is-x{color:#f3a08b;border-radius:6px}
+.c103-drill__item small{font-size:clamp(14px,1.8vw,17px);color:#efd09b}
+
+/* 기본 줄 */
+.c103-lines{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+.c103-lines p{margin:0;font:400 clamp(19px,2.6vw,26px)/1.32 'Gaegu','Noto Sans KR',sans-serif;color:#f6f5e4}
+
+/* 자막과 용어 */
+.c103-stage__side{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px;padding:12px 6px 4px}
+.c103-stage__caption{padding:0}
+.c103-stage__caption p{max-height:none;font-size:13.5px;line-height:1.7;color:#30473c;animation:c103-fade .35s ease-out}
+.c103-terms{padding:9px 11px;border:1px solid #dde5d6;border-radius:12px;background:#fff}
+.c103-terms>span{font-size:11px;font-weight:800;color:#3d8066}
+.c103-terms dl{display:grid;gap:5px;margin:6px 0 0}
+.c103-terms dl div{animation:c103-fade .35s ease-out}
+.c103-terms dt{display:inline;font-size:12.5px;font-weight:800;color:#1d392e}
+.c103-terms dt::after{content:' — '}
+.c103-terms dd{display:inline;margin:0;font-size:12px;color:#55695e}
+.c103-footer>span{font-size:11px;font-weight:800;color:#3d8066}
+@keyframes c103-fade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media(max-width:650px){
+  .c103-board{min-height:520px}
+  .c103-stage__side{grid-template-columns:1fr}
+  .c103-compare__cols,.c103-grid,.c103-article__notes{grid-template-columns:1fr}
+  .c103-diagram{height:330px}
+  .c103-diagram__note{max-width:60%}
+  .c103-table th,.c103-table td{padding:4px 5px}
+}
+@media(prefers-reduced-motion:reduce){.c103-ink.is-on,.c103-ink--row.is-on,.c103-diagram__edge.is-on{animation-duration:.01ms}}
+
+/* 노치·상태 표시줄과 겹치지 않게 — 앱이 재어 심는 안전영역 값을 쓴다(맨 env 만 쓰지 않음) */
+.c103-overlay{padding-top:calc(18px + var(--safe-area-inset-top, 0px));padding-bottom:calc(18px + var(--safe-area-inset-bottom, 0px))}
+.c103-shell{max-height:calc(100dvh - 36px - var(--safe-area-inset-top, 0px) - var(--safe-area-inset-bottom, 0px))}
+@media(max-width:650px){
+  .c103-overlay{padding:0}
+  .c103-shell{height:100dvh;max-height:none;padding-top:var(--safe-area-inset-top, 0px);padding-bottom:var(--safe-area-inset-bottom, 0px);box-sizing:border-box}
+}
+
+/* 방송 자막 — 칠판 아래쪽, 말하는 문장만 */
+.c103-subtitle{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:62px;padding:0 18px 10px}
+.c103-subtitle p{max-width:min(680px,100%);margin:0;padding:6px 14px 7px;border-radius:8px;background:#0a1f19d9;color:#fff;font:600 clamp(15px,2.1vw,19px)/1.45 'Pretendard','Noto Sans KR',sans-serif;letter-spacing:-.01em;text-align:center;word-break:keep-all;text-shadow:0 1px 2px #0008;animation:c103-fade .25s ease-out}
+.c103-stage__side{grid-template-columns:1fr}
+.c103-stage__side:empty{display:none}
+@media(max-width:650px){.c103-subtitle{min-height:70px;padding:0 10px 8px}.c103-subtitle p{font-size:15px}}
+
+/* ── 재생 조작부(유튜브식) ── */
+.c103-ink.is-on{animation-duration:calc(.95s / var(--c103-rate, 1))}
+.c103-ink--row.is-on{animation-duration:calc(.5s / var(--c103-rate, 1))}
+.c103-diagram__edge.is-on{animation-duration:calc(.9s / var(--c103-rate, 1))}
+.c103-seek{position:relative;height:22px;margin:10px 0 2px;cursor:pointer;touch-action:none;outline:none}
+.c103-seek__track{position:absolute;left:0;right:0;top:50%;height:4px;transform:translateY(-50%);border-radius:4px;background:#d3ddcf;transition:height .12s}
+.c103-seek:hover .c103-seek__track,.c103-seek.is-drag .c103-seek__track,.c103-seek:focus-visible .c103-seek__track{height:6px}
+.c103-seek__fill{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:#2c7657}
+.c103-seek__tick{position:absolute;top:0;bottom:0;width:2px;background:#f8f6ed}
+.c103-seek__thumb{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#2c7657;box-shadow:0 0 0 3px #2c765733;transform:translate(-50%,-50%)}
+.c103-seek__tip{position:absolute;bottom:22px;padding:2px 6px;border-radius:5px;background:#173a2e;color:#fff;font-size:11px;font-variant-numeric:tabular-nums;transform:translateX(-50%);pointer-events:none}
+.c103-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:4px 0 6px}
+.c103-bar__left,.c103-bar__right{display:flex;align-items:center;gap:6px}
+.c103-icon{position:relative;display:inline-grid;place-items:center;min-width:38px;height:38px;padding:0 8px;border:1px solid #d7ded4;border-radius:19px;background:#fff;color:#2a5849;font-size:17px;line-height:1;cursor:pointer}
+.c103-icon small{position:absolute;font-size:9px;font-weight:800}
+.c103-icon--text{font-size:12.5px;font-weight:800}
+.c103-icon.is-on{border-color:#2c7657;background:#e8f2ec;color:#1f5a43}
+.c103-icon.is-off{color:#a4342c}
+.c103-bar .c103-play{display:grid;place-items:center;width:46px;min-width:46px;height:46px;padding:0;border:0;border-radius:50%;background:#2c7657;color:#fff;font-size:17px;cursor:pointer;box-shadow:0 4px 12px #1c564533}
+.c103-time{min-width:auto;margin-left:4px}
+.c103-pop{position:relative}
+.c103-pop__menu{position:absolute;right:0;bottom:46px;z-index:5;display:flex;flex-direction:column;gap:2px;min-width:92px;padding:6px;border:1px solid #d7ded4;border-radius:12px;background:#fff;box-shadow:0 10px 26px #0b241b33}
+.c103-pop__menu button{padding:7px 10px;border:0;border-radius:8px;background:none;color:#2a5849;font-size:13px;font-weight:700;text-align:left;cursor:pointer}
+.c103-pop__menu button.is-on{background:#e8f2ec;color:#1f5a43}
+.c103-pop__menu--volume{flex-direction:row;align-items:center;gap:8px;min-width:210px}
+.c103-pop__menu--volume input{flex:1;accent-color:#2c7657}
+
+/* ── 꽉 찬 화면 ── 노치·카메라 구멍·홈 막대를 네 방향 모두 피한다(앱이 재어 심는 값) */
+.c103-overlay.is-full{padding:0;background:#0d1f19;backdrop-filter:none;-webkit-backdrop-filter:none}
+.c103-overlay.is-full .c103-shell{width:100vw;height:100dvh;max-width:none;max-height:none;border:0;border-radius:0;box-sizing:border-box;
+  padding:var(--safe-area-inset-top,0px) var(--safe-area-inset-right,0px) var(--safe-area-inset-bottom,0px) var(--safe-area-inset-left,0px);
+  background:#0d1f19;color:#f2f5ee;overflow:hidden;display:flex;flex-direction:column}
+.c103-overlay.is-full .c103-header{padding:10px 14px 6px;color:#f2f5ee;transition:opacity .25s}
+.c103-overlay.is-full .c103-header h2{font-size:16px}
+.c103-overlay.is-full .c103-kicker{color:#9fb8aa}
+.c103-overlay.is-full .c103-views{color:#c5d6cc}
+.c103-overlay.is-full .c103-close{background:#ffffff1a;border-color:#ffffff33;color:#fff}
+.c103-overlay.is-full .c103-stage{flex:1;min-height:0;display:flex;padding:0 10px}
+.c103-overlay.is-full .c103-board{flex:1;min-height:0}
+.c103-overlay.is-full .c103-board__writing{overflow:auto}
+.c103-overlay.is-full .c103-controls{padding:4px 14px 8px;transition:opacity .25s}
+.c103-overlay.is-full .c103-icon{background:#ffffff14;border-color:#ffffff2e;color:#eef4ea}
+.c103-overlay.is-full .c103-icon.is-on{background:#2c765766;border-color:#7fc3a0;color:#fff}
+.c103-overlay.is-full .c103-time{color:#c8d6cd}
+.c103-overlay.is-full .c103-seek__track{background:#ffffff33}
+.c103-overlay.is-full .c103-seek__tick{background:#0d1f19}
+.c103-overlay.is-full .c103-controls__timeline button{background:#ffffff2a}
+.c103-overlay.is-full .c103-controls__timeline button.is-past{background:#7fc3a088}
+.c103-overlay.is-full .c103-controls__timeline button.is-current{background:#7fc3a0}
+/* 재생 중 3초 손대지 않으면 조작부를 숨긴다(누르면 다시) */
+.c103-overlay.is-full.is-chrome-hidden .c103-header,.c103-overlay.is-full.is-chrome-hidden .c103-controls{opacity:0;pointer-events:none}
+/* 가로: 칠판을 화면 가득, 조작부는 아래에 겹쳐 */
+.c103-overlay.is-full.is-landscape .c103-header{position:absolute;top:var(--safe-area-inset-top,0px);left:var(--safe-area-inset-left,0px);right:var(--safe-area-inset-right,0px);z-index:2;padding:8px 14px;background:linear-gradient(#0d1f19e6,#0d1f1900)}
+.c103-overlay.is-full.is-landscape .c103-stage{padding:6px 8px}
+.c103-overlay.is-full.is-landscape .c103-board{border-width:8px}
+.c103-overlay.is-full.is-landscape .c103-controls{position:absolute;left:var(--safe-area-inset-left,0px);right:var(--safe-area-inset-right,0px);bottom:var(--safe-area-inset-bottom,0px);z-index:2;background:linear-gradient(#0d1f1900,#0d1f19f0 40%)}
+.c103-overlay.is-full.is-landscape .c103-controls__timeline{display:none}
+/* 기기를 못 돌리는 곳에서 가로: 화면 자체를 시계 방향 90° 돌린다.
+   돌린 뒤 내용의 위=기기 오른쪽, 오른쪽=기기 아래, 아래=기기 왼쪽, 왼쪽=기기 위 — 안전영역도 그렇게 바꿔 끼운다 */
+.c103-overlay.is-full.is-rotated .c103-shell{position:fixed;top:0;left:100vw;width:100dvh;height:100vw;transform-origin:top left;transform:rotate(90deg);
+  padding:var(--safe-area-inset-right,0px) var(--safe-area-inset-bottom,0px) var(--safe-area-inset-left,0px) var(--safe-area-inset-top,0px)}
+.c103-overlay.is-full.is-rotated .c103-header{top:var(--safe-area-inset-right,0px);left:var(--safe-area-inset-top,0px);right:var(--safe-area-inset-bottom,0px)}
+.c103-overlay.is-full.is-rotated .c103-controls{bottom:var(--safe-area-inset-left,0px);left:var(--safe-area-inset-top,0px);right:var(--safe-area-inset-bottom,0px)}
+@media(max-width:650px){.c103-bar__right{gap:4px}.c103-icon{min-width:34px;height:34px;padding:0 6px}.c103-time{font-size:10.5px}}
+.c103-time{white-space:nowrap;font-variant-numeric:tabular-nums}
+@media(max-width:400px){.c103-bar .c103-play{width:42px;min-width:42px;height:42px}.c103-time{font-size:10px;margin-left:2px}}
+.c103-bar{flex-wrap:wrap;row-gap:6px}
+/* 가로는 높이가 좁다 — 판서 여백·제목을 줄여 한 화면에 */
+.c103-overlay.is-landscape .c103-board__top{padding:7px 14px}
+.c103-overlay.is-landscape .c103-board__writing{padding:8px 24px 6px}
+.c103-overlay.is-landscape .c103-board__eyebrow{font-size:15px}
+.c103-overlay.is-landscape .c103-board__heading{margin:4px 0 2px;font-size:clamp(20px,6vh,30px)}
+.c103-overlay.is-landscape .c103-board__chalk-line{height:12px}
+.c103-overlay.is-landscape .c103-board__ledge{height:9px}
+.c103-overlay.is-landscape .c103-subtitle{min-height:40px;padding-bottom:5px}
+.c103-overlay.is-landscape .c103-subtitle p{font-size:15px}
+.c103-overlay.is-landscape .c103-flow,.c103-overlay.is-landscape .c103-grid,.c103-overlay.is-landscape .c103-article,.c103-overlay.is-landscape .c103-table,.c103-overlay.is-landscape .c103-compare__cols,.c103-overlay.is-landscape .c103-drill{margin-top:6px}
+.c103-overlay.is-landscape .c103-diagram{height:min(300px,52vh)}
+
+/* ── 2026-10-25: 조작부는 색 없이(투명) — 초록 걷기 ── */
+.c103-icon,.c103-icon.is-on,.c103-bar .c103-play{background:transparent;box-shadow:none;border-color:#c9d0cb;color:#2f3a35}
+.c103-icon.is-on{border-color:#2f3a35;color:#111}
+.c103-icon.is-off{color:#8a2e27}
+.c103-bar .c103-play{border:1.5px solid #2f3a35;color:#111}
+.c103-seek__fill,.c103-seek__thumb{background:#2f3a35}
+.c103-seek__thumb{box-shadow:0 0 0 3px #2f3a3522}
+.c103-controls__timeline button.is-past{background:#9ea8a2}
+.c103-controls__timeline button.is-current{background:#2f3a35;box-shadow:none}
+.c103-pop__menu button.is-on{background:#eef0ee;color:#111}
+.c103-pop__menu--volume input{accent-color:#2f3a35}
+.c103-overlay.is-full .c103-icon,.c103-overlay.is-full .c103-icon.is-on,.c103-overlay.is-full .c103-bar .c103-play{background:transparent;border-color:#ffffff4d;color:#fff}
+.c103-overlay.is-full .c103-icon.is-on,.c103-overlay.is-full .c103-bar .c103-play{border-color:#ffffffcc}
+.c103-overlay.is-full .c103-seek__fill,.c103-overlay.is-full .c103-seek__thumb{background:#fff}
+.c103-overlay.is-full .c103-seek__thumb{box-shadow:0 0 0 3px #ffffff33}
+.c103-overlay.is-full .c103-controls__timeline button.is-past{background:#ffffff73}
+.c103-overlay.is-full .c103-controls__timeline button.is-current{background:#fff}
+
+/* ── 가로: 제목·조작부를 칠판에 겹치지 않고 위·아래에 따로. 숨으면 칠판이 그만큼 커진다 ── */
+.c103-overlay.is-full.is-landscape .c103-header{padding:4px 12px}
+.c103-overlay.is-full.is-landscape .c103-header .c103-kicker{display:none}
+.c103-overlay.is-full.is-landscape .c103-controls{padding:2px 12px 4px}
+.c103-overlay.is-full.is-landscape .c103-seek{margin:2px 0 0}
+.c103-overlay.is-full.is-landscape .c103-bar{margin:0}
+
+/* ── 조작부 다시 그림: 선 아이콘, 원형 투명 단추, 테두리 없이 눌렀을 때만 옅은 바탕 ── */
+.c103-icon,.c103-icon.is-on,.c103-bar .c103-play{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-width:40px;height:40px;padding:0 8px;border:0;border-radius:20px;background:transparent;color:#26302c;transition:background .15s,opacity .15s}
+.c103-icon:hover,.c103-icon:focus-visible{background:#0000000f}
+.c103-icon:active{background:#0000001a}
+.c103-icon.is-dim{opacity:.4}
+.c103-icon--text{font-size:13px;font-weight:700;letter-spacing:-.01em}
+.c103-icon__label{font-size:12px;font-weight:700}
+.c103-bar .c103-play{width:48px;min-width:48px;height:48px;padding:0;border:0}
+.c103-bar .c103-play svg{width:30px;height:30px}
+.c103-overlay.is-full .c103-icon,.c103-overlay.is-full .c103-icon.is-on,.c103-overlay.is-full .c103-bar .c103-play{border:0;background:transparent;color:#fff}
+.c103-overlay.is-full .c103-icon:hover,.c103-overlay.is-full .c103-icon:focus-visible{background:#ffffff1f}
+.c103-overlay.is-full .c103-close{display:grid;place-items:center;border:0;background:transparent;color:#fff}
+@media(max-width:400px){.c103-icon,.c103-icon.is-on{min-width:36px;height:36px;padding:0 6px}.c103-bar .c103-play{width:44px;min-width:44px;height:44px}}
+
+/* ── 장면 막대를 재생 막대에 합침(유튜브 챕터) ── */
+.c103-seek{height:28px;margin:6px 0 0}
+.c103-seek__track{height:4px;background:none}
+.c103-seek__seg{position:absolute;top:0;bottom:0;border-radius:3px;background:#d3d8d4;overflow:hidden;transform-origin:center;transition:transform .12s}
+.c103-seek__seg i{position:absolute;left:0;top:0;bottom:0;background:#2f3a35}
+.c103-seek__seg.is-current{transform:scaleY(1.5)}
+.c103-seek:hover .c103-seek__seg,.c103-seek.is-drag .c103-seek__seg{transform:scaleY(1.6)}
+.c103-seek__tick{display:none}
+.c103-seek__tip{bottom:26px;display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 8px;white-space:nowrap}
+.c103-seek__tip b{font-size:11.5px;font-weight:700}
+.c103-chapter{display:inline-flex;align-items:center;gap:4px;max-width:180px;height:34px;padding:0 8px;border:0;border-radius:17px;background:transparent;color:#4a5550;font-size:12.5px;font-weight:600;cursor:pointer}
+.c103-chapter span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c103-chapter:hover{background:#0000000f}
+.c103-pop--left .c103-pop__menu{left:0;right:auto}
+.c103-pop__menu--chapters{min-width:230px;max-height:min(360px,60vh);overflow:auto}
+.c103-pop__menu--chapters button{display:flex;justify-content:space-between;gap:12px}
+.c103-pop__menu--chapters small{color:#7a847f;font-variant-numeric:tabular-nums}
+.c103-overlay.is-full .c103-seek__seg{background:#ffffff40}
+.c103-overlay.is-full .c103-seek__seg i{background:#fff}
+.c103-overlay.is-full .c103-chapter{color:#dfe6e2}
+.c103-overlay.is-full .c103-chapter:hover{background:#ffffff1f}
+@media(max-width:520px){.c103-chapter{max-width:110px}}
+/* 강조 상자 — 기울이지 않고, 위 판서(표·칸)와 틈을 둔다(표 선과 겹쳐 보이던 것) */
+.c103-board__emphasis,.c103-board__emphasis.is-on{transform:none}
+.c103-board__writing > :nth-last-child(2){margin-bottom:18px}
+/* 제목 밑줄 — 늘 500px 물결이던 것을 제목 글자 길이에 맞춘 곧은 분필 선으로 */
+.c103-board__chalk-line{display:none}
+.c103-board__heading{position:relative;display:inline-block;align-self:flex-start;margin-bottom:14px}
+.c103-board__heading::after{content:'';position:absolute;left:2px;right:2px;bottom:-9px;height:3px;border-radius:3px;background:#e9cf94;opacity:.85;box-shadow:0 0 4px #f9e6c566;transform:scaleX(0);transform-origin:left center;animation:c103-underline .8s calc(.9s / var(--c103-rate, 1)) ease-out forwards}
+@keyframes c103-underline{to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.c103-board__heading::after{animation-duration:.01ms;animation-delay:0s}}
+.c103-overlay.is-landscape .c103-board__heading{margin-bottom:10px}
+.c103-overlay.is-landscape .c103-board__heading::after{bottom:-6px;height:2.5px}
+/* 써지는 효과(clip-path)가 상자 밖을 잘라서 — 밑줄을 상자 안쪽 아래에 */
+.c103-board__heading{padding-bottom:12px;margin-bottom:6px}
+.c103-board__heading::after{bottom:2px}
+.c103-overlay.is-landscape .c103-board__heading{padding-bottom:9px;margin-bottom:4px}
+.c103-overlay.is-landscape .c103-board__heading::after{bottom:1px}
+
+/* 오늘의 요약 — 번호를 크게 */
+.c103-summary{display:grid;gap:8px;margin:12px 0 0;padding:0;list-style:none;font-family:'Gaegu','Noto Sans KR',sans-serif}
+.c103-summary__item{display:flex;align-items:center;gap:12px;font-size:clamp(20px,2.7vw,27px);color:#f6f5e4}
+.c103-summary__no{display:grid;place-items:center;flex:none;width:34px;height:34px;border:2px solid #f0d58f;border-radius:50%;color:#f5dc9a;font-size:20px;font-weight:700}
+.c103-overlay.is-landscape .c103-summary{gap:4px;margin-top:6px}
+.c103-overlay.is-landscape .c103-summary__item{font-size:clamp(17px,5vh,22px)}
+.c103-overlay.is-landscape .c103-summary__no{width:28px;height:28px;font-size:16px}
+
+/* ── 판서 움직임 ── */
+.c103-ink.is-fresh{animation:c103-write calc(.95s / var(--c103-rate, 1)) steps(22,end) forwards, c103-glow 1.4s ease-out}
+.c103-ink--row.is-fresh{animation:c103-row calc(.5s / var(--c103-rate, 1)) ease-out forwards, c103-glow 1.4s ease-out}
+@keyframes c103-glow{0%{filter:drop-shadow(0 0 0 #fff0)}25%{filter:drop-shadow(0 0 7px #fff6c8aa)}100%{filter:drop-shadow(0 0 0 #fff0)}}
+/* 강조 상자는 「톡」 튀어나온다 */
+.c103-board__emphasis.is-on{clip-path:none;animation:c103-pop .55s cubic-bezier(.2,1.6,.4,1) forwards}
+@keyframes c103-pop{0%{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+/* O/X 정답은 도장처럼 쾅 */
+.c103-drill__a.is-on{clip-path:none;animation:c103-stamp .45s cubic-bezier(.3,1.5,.5,1) forwards}
+@keyframes c103-stamp{0%{opacity:0;transform:scale(2.2) rotate(-14deg)}70%{opacity:1;transform:scale(.92) rotate(3deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+/* 관계도 동그라미·요약 번호는 튀어 오른다 */
+.c103-diagram__node.is-on{clip-path:none;animation:c103-bounce .6s cubic-bezier(.2,1.6,.4,1) forwards}
+@keyframes c103-bounce{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}70%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.c103-summary__item.is-on .c103-summary__no{animation:c103-pop .5s cubic-bezier(.2,1.6,.4,1) both}
+/* O/X 출처 */
+.c103-drill__from{display:block;margin-bottom:2px;font-size:13px;color:#efd09b;font-family:'Pretendard','Noto Sans KR',sans-serif}
+.c103-drill__q{font-size:clamp(15px,1.9vw,19px);line-height:1.35}
+.c103-pop__hint{font-size:12px;color:#7a847f;white-space:nowrap}
+.c103-pop__menu--volume{flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){.c103-ink.is-fresh,.c103-board__emphasis.is-on,.c103-drill__a.is-on,.c103-diagram__node.is-on,.c103-summary__item.is-on .c103-summary__no{animation-duration:.01ms}}
+
+/* 가로 전체화면 — 판서를 줄이지 않고 칠판 너비만큼 키운다. 넘치면 칠판 안에서 스크롤(새 판서는 저절로 따라감) */
+.c103-overlay.is-full .c103-board__writing{zoom:var(--c103-fit,1);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#ffffff40 transparent}
+.c103-overlay.is-full.is-landscape .c103-board__writing{padding:14px 28px 18px}
+.c103-overlay.is-full.is-landscape .c103-board__eyebrow{font-size:18px}
+.c103-overlay.is-full.is-landscape .c103-board__heading{font-size:clamp(25px,3.6vw,38px);margin:8px 0 4px}
+.c103-overlay.is-full.is-landscape .c103-flow,.c103-overlay.is-full.is-landscape .c103-grid,.c103-overlay.is-full.is-landscape .c103-article,.c103-overlay.is-full.is-landscape .c103-table,.c103-overlay.is-full.is-landscape .c103-compare__cols,.c103-overlay.is-full.is-landscape .c103-drill{margin-top:12px}
+.c103-overlay.is-full.is-landscape .c103-diagram{height:300px}
+
+/* ── 전체화면 조작부: 유튜브처럼 칠판 위에 겹쳐 두고, 화면을 살짝 누르면 나타났다가 3초 뒤 스르르 사라진다.
+   늘 겹쳐 있으니 나타나고 사라져도 칠판 크기는 그대로다. 자막은 조작부가 보일 때만 그만큼 위로 비켜 선다 ── */
+.c103-overlay.is-full .c103-shell{position:relative}
+.c103-overlay.is-full .c103-stage{padding:6px 8px}
+.c103-overlay.is-full .c103-header{position:absolute;top:var(--safe-area-inset-top,0px);left:var(--safe-area-inset-left,0px);right:var(--safe-area-inset-right,0px);z-index:3;padding:8px 14px 18px;background:linear-gradient(#0d1f19e6,#0d1f1900);transition:opacity .35s ease,transform .35s ease}
+.c103-overlay.is-full .c103-controls{position:absolute;bottom:var(--safe-area-inset-bottom,0px);left:var(--safe-area-inset-left,0px);right:var(--safe-area-inset-right,0px);z-index:3;padding:22px 14px 8px;background:linear-gradient(#0d1f1900,#0d1f19d9 45%);transition:opacity .35s ease,transform .35s ease}
+.c103-overlay.is-full.is-chrome-hidden .c103-header{opacity:0;transform:translateY(-6px);pointer-events:none}
+.c103-overlay.is-full.is-chrome-hidden .c103-controls{opacity:0;transform:translateY(6px);pointer-events:none}
+.c103-overlay.is-full .c103-subtitle{transition:transform .35s ease}
+.c103-overlay.is-full:not(.is-chrome-hidden) .c103-subtitle{transform:translateY(calc(-1 * var(--c103-ctrl-h, 0px) + 8px))}
+/* 마지막 판서도 자막 위로 올릴 수 있게, 확대 배율을 뺀 실제 가림 높이만큼 스크롤 여유를 둔다. */
+.c103-overlay.is-full .c103-board__writing,.c103-overlay.is-full.is-landscape .c103-board__writing{padding-bottom:calc((var(--c103-ctrl-h,80px) + 110px) / var(--c103-fit,1))}
+
+
+/* 메뉴 자리 재기(offsetParent)가 틀 안에서 멈추게 — 틀을 기준 상자로 */
+.c103-shell{position:relative}
+.c103-overlay.is-full.is-rotated .c103-shell{position:fixed}
+
+/* ── 강의 밑에서 바로 푸는 기출 ── */
+.c103-quiz{display:flex;flex-direction:column;gap:12px;width:100%;margin-top:6px}
+.c103-q{padding:14px 14px 12px;border:1px solid #e1e4dc;border-radius:14px;background:#fff}
+.c103-q__head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;font-size:12px;font-weight:800;color:#5c6b63}
+.c103-q__head b{font-size:12px}
+.c103-q__head b.is-right{color:#1d4ed8}
+.c103-q__head b.is-wrong{color:#c2410c}
+.c103-q__stem{margin:0 0 10px;font-size:15px;font-weight:700;line-height:1.45;color:#1d2a24}
+.c103-q__items{margin:0 0 10px;padding:10px 12px;list-style:none;border-radius:10px;background:#f6f6f2;font-size:14px;line-height:1.5;color:#2b3631}
+.c103-q__items li+li{margin-top:6px}
+.c103-q__items em{margin-left:6px;font-style:normal;font-weight:800}
+.c103-q__items em.is-o,.c103-q__why strong{color:#1d4ed8}
+.c103-q__items em.is-x{color:#c2410c}
+.c103-q__options{display:flex;flex-direction:column;gap:6px}
+.c103-q__option{display:flex;gap:8px;width:100%;padding:10px 12px;border:1px solid #e1e4dc;border-radius:10px;background:#fff;color:#1d2a24;font-size:14px;line-height:1.45;text-align:left;cursor:pointer}
+.c103-q__option>span:first-child{flex:none;font-weight:800;color:#5c6b63}
+.c103-q__option:disabled{cursor:default}
+.c103-q__option.is-correct{border-color:#1d4ed8;background:#eef3ff}
+.c103-q__option.is-picked{border-color:#c2410c;background:#fff3ec}
+.c103-q__why{margin-top:10px;padding-top:10px;border-top:1px dashed #e1e4dc;font-size:13px;line-height:1.55;color:#33413a}
+.c103-q__why p{margin:0 0 6px}
+.c103-q__again{margin-top:4px;padding:6px 10px;border:1px solid #e1e4dc;border-radius:8px;background:#fff;font-size:12px;font-weight:700;color:#5c6b63;cursor:pointer}
+.c103-footer button.is-open{border-color:#1d2a24;background:#1d2a24;color:#fff}
+
+/* 요약 = 들고 다닐 노트 한 장 — 줄마다 제목(손글씨) + 조건·예·함정(읽기 쉬운 글씨) */
+.c103-summary{gap:14px}
+.c103-summary__item{align-items:flex-start}
+.c103-summary__no{margin-top:2px}
+.c103-summary__body{display:flex;flex-direction:column;gap:5px;min-width:0}
+.c103-summary__title{line-height:1.25}
+.c103-summary__details{margin:0;padding:0 0 0 2px;list-style:none;font:500 clamp(13px,1.6vw,15px)/1.5 'Noto Sans KR',sans-serif;color:#e6ecdf}
+.c103-summary__details li{position:relative;padding-left:12px}
+.c103-summary__details li::before{content:'';position:absolute;left:0;top:.68em;width:5px;height:5px;border-radius:50%;background:#e9cf94}
+.c103-overlay.is-landscape .c103-summary__details{font-size:clamp(12px,3.4vh,14px)}
+
+/* 전체화면: 판서 끝이 자막·조작부 위로 올라올 수 있게 아래 여백 */
+.c103-overlay.is-full .c103-board__writing{padding-bottom:calc(var(--c103-ctrl-h, 0px) / var(--c103-fit, 1) + 70px)}
+
+/* 비교표 뒤 긴 관계도를 쓰는 판서: 창 모드에서도 판서 안에서 따라 읽는다. */
+.c103-overlay:not(.is-full) :is(.c103-board--sequence,.c103-board--bounded) .c103-board__writing{flex:0 1 auto;max-height:min(58dvh,620px);overflow-y:auto;overscroll-behavior:contain;padding-bottom:100px}
+
+/* 창 모드: 위아래로 밀면 창 전체가 스크롤되어 아래 기출까지 내려간다(10-26).
+   칠판은 자막이 보이게 작은 높이를 지키고, 칠판 안 스크롤이 끝에 닿으면 바로 창 스크롤로 이어진다(contain 을 풀었다).
+   전체화면은 「전체화면」 단추로만 들어간다(밀어서 전체화면 기능은 뺌) */
+.c103-overlay:not(.is-full) .c103-board__writing,
+.c103-overlay:not(.is-full) :is(.c103-board--sequence,.c103-board--bounded) .c103-board__writing{overscroll-behavior:auto}
+/* 원래 문제 모양으로 그린 지문(조건 상자·표) 아래와 보기 사이 숨 — 붙어 보이지 않게(10-26) */
+.c103-q__exam-stem{margin:0 0 14px}
+.c103-q__exam-stem > * + *{margin-top:10px}
+.c103-q__matching{margin:0 0 12px}
+.c103-q__easy{margin:14px 0 4px}
+
+/* Keep the fullscreen toggle at the far right of the bottom controls in both modes. */
+.c103-bar__right{margin-left:auto;justify-content:flex-end}
+.c103-fullscreen{flex:none}

@@ -1,0 +1,21 @@
+import {lazy} from 'react';
+export const players = {
+  reRealEstateConcept: lazy(() => import('./players/reRealEstateConcept')),
+  reRealEstateNotion: lazy(() => import('./players/reRealEstateNotion')),
+  reRealEstateClassification: lazy(() => import('./players/reRealEstateClassification')),
+  civilRightsChange: lazy(() => import('./players/civilRightsChange')),
+  civilLegalActTypes: lazy(() => import('./players/civilLegalActTypes')),
+  civilMandatoryRules: lazy(() => import('./players/civilMandatoryRules')),
+  blDefinitions: lazy(() => import('./players/blDefinitions')),
+  blBrokerageObjects: lazy(() => import('./players/blBrokerageObjects')),
+  blPolicyCommittee: lazy(() => import('./players/blPolicyCommittee')),
+  rlLandSurveyRegistration: lazy(() => import('./players/rlLandSurveyRegistration')),
+  rlLotNumber: lazy(() => import('./players/rlLotNumber')),
+  rlLandCategory: lazy(() => import('./players/rlLandCategory')),
+  rtTaxBasics: lazy(() => import('./players/rtTaxBasics')),
+  rtLiabilityArise: lazy(() => import('./players/rtLiabilityArise')),
+  rtLiabilityExtinction: lazy(() => import('./players/rtLiabilityExtinction')),
+  plNlDefinitions: lazy(() => import('./players/plNlDefinitions')),
+  plMetroRegion: lazy(() => import('./players/plMetroRegion')),
+  plMetroPlan: lazy(() => import('./players/plMetroPlan')),
+};
