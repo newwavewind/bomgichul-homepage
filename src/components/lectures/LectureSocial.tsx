@@ -114,7 +114,7 @@ export default function LectureSocial({lectureId, subject, title}: {lectureId: s
       <button type="button" className={liked ? 'is-liked' : ''} aria-pressed={liked} onClick={toggleLike} disabled={pending || loading}><span aria-hidden="true">{liked?'♥':'♡'}</span> 좋아요 {loading ? '…' : likeCount}</button>
       <button type="button" aria-expanded={showComments} onClick={()=>{setShowComments(!showComments);if(!showComments) requestAnimationFrame(()=>commentsRef.current?.scrollIntoView({behavior:'smooth',block:'nearest'}));}}>댓글 {loading ? '…' : commentCount}</button>
       <button type="button" onClick={copyLink}>링크 공유</button>
-      <KakaoShareButton title={`${title} | 봄기출 칠판 강의`} description={LECTURE_SHARE_DESCRIPTION} imagePath={lectureBoardImage(lectureId)} path={path} buttonTitle="강의 보기" preparationText="강의 공유를 준비하고 있어요.">카카오톡 공유</KakaoShareButton>
+      <KakaoShareButton title={`${title} | 봄기출 칠판 강의`} description={LECTURE_SHARE_DESCRIPTION} imagePath={lectureBoardImage(lectureId)} path={path}>카카오톡 공유</KakaoShareButton>
     </div>
     {message && <p className="lecture-social-message" role="status">{message}</p>}
     {error && <p className="lecture-social-error" role="alert">{error} <button type="button" onClick={()=>{setError('');void load(userId).catch(()=>setError('잠시 후 다시 시도해 주세요.'));}}>다시 불러오기</button></p>}
