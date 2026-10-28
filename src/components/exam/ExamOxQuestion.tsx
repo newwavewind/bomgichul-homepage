@@ -15,6 +15,10 @@ import { trackEvent } from "@/lib/analytics";
 import { plainStudyText } from "@/lib/study-text";
 import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
 import type { ExamReferenceEntry } from "@/lib/exam-questions";
+import {
+  getOxComboTable,
+  jamoHeadersFromItems,
+} from "@/lib/ox-combo-table";
 
 export type ExamOxItem = {
   key: string;
@@ -91,6 +95,16 @@ export function ExamOxQuestion({
   const questionHref = loginNext ?? pathname;
   const journalId = `${questionHref}#${examId}`;
   const isComposite = comboChoices.length > 0;
+  const oxComboTable = isComposite
+    ? (() => {
+        const headers = jamoHeadersFromItems(items);
+        if (!headers) return null;
+        return getOxComboTable(
+          headers,
+          comboChoices.map((choice) => choice.text),
+        );
+      })()
+    : null;
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
   // 해설을 이 컴포넌트가 그릴 때(랜덤 문제 등) 채점 뒤 각 선지 아래에 그 선지 해설을 붙인다
@@ -203,6 +217,77 @@ export function ExamOxQuestion({
             </div>
           </fieldset>
           <ExamReferenceList entries={referenceEntries} />
+          {oxComboTable ? (
+            <div className="overflow-hidden rounded-[var(--radius-cards)] border border-mist bg-paper">
+              <div
+                className="grid items-center gap-x-3 border-b border-mist bg-snow px-4 py-2.5 font-display text-[12px] font-semibold text-smoke"
+                style={{
+                  gridTemplateColumns: `2.25rem repeat(${oxComboTable.headers.length}, minmax(0, 1fr))`,
+                }}
+                aria-hidden
+              >
+                <span />
+                {oxComboTable.headers.map((header, index) => (
+                  <span key={`${header}-${index}`} className="text-center">
+                    {header}
+                  </span>
+                ))}
+              </div>
+              <div className="divide-y divide-mist">
+                {comboChoices.map((choice, rowIdx) => {
+                  const selectedItem = selected === choice.no;
+                  const cells = oxComboTable.rows[rowIdx] ?? [];
+                  const isAccepted = acceptedChoices.includes(choice.no);
+                  return (
+                    <div key={`${examId}-combo-${choice.no}`}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (revealed) return;
+                          if (selectedItem) reveal();
+                          else setSelected(choice.no);
+                        }}
+                        className={`grid w-full items-center gap-x-3 px-4 py-3 text-left transition-colors ${
+                          selectedItem
+                            ? revealed
+                              ? isAccepted
+                                ? "bg-[#6366f1]/[0.06]"
+                                : "bg-[#ef4444]/[0.05]"
+                              : "bg-snow study-pick-tap-again"
+                            : "hover:bg-snow"
+                        }`}
+                        style={{
+                          gridTemplateColumns: `2.25rem repeat(${oxComboTable.headers.length}, minmax(0, 1fr))`,
+                        }}
+                      >
+                        <span className="font-display font-semibold text-ink">
+                          {choice.label}
+                        </span>
+                        {cells.map((cell, cellIndex) => (
+                          <span
+                            key={cellIndex}
+                            className="text-center font-system text-[15px] leading-7 text-ink"
+                          >
+                            {cell}
+                          </span>
+                        ))}
+                      </button>
+                      {inlineExplanation && choice.explanation ? (
+                        <div className="px-4 pb-3">
+                          <InlineExplanation
+                            text={choice.explanation}
+                            examDate={examDate}
+                            lawVersions={lawVersions}
+                          />
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            <>
           <p className="pt-1 font-display text-body-sm font-semibold text-smoke">선택지</p>
           <div className="space-y-3">
             {comboChoices.map((choice) => {
@@ -239,6 +324,8 @@ export function ExamOxQuestion({
               );
             })}
           </div>
+            </>
+          )}
         </div>
       ) : (
         <div className="space-y-3">

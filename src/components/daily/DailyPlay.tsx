@@ -11,6 +11,10 @@ import {
   dailyReportAction,
 } from "@/components/daily/DailyLearningReport";
 import {
+  DailyOxComboTable,
+  dailyOxTableFrom,
+} from "@/components/daily/DailyOxComboTable";
+import {
   DailyChoiceContent,
   DailyQuestionBody,
 } from "@/components/daily/DailyQuestionBody";
@@ -767,6 +771,28 @@ export function DailyPlay({
                     presentation={question.presentation}
                     questionNo={questionIndex + 1}
                   />
+                  {(() => {
+                    const oxTable = dailyOxTableFrom(
+                      question.presentation.promptItems,
+                      question.choices,
+                    );
+                    if (oxTable) {
+                      return (
+                        <DailyOxComboTable
+                          headers={oxTable.headers}
+                          rows={oxTable.rows}
+                          choices={question.choices}
+                          selectedKey={picks[question.id]?.key}
+                          onSelect={
+                            isArchive
+                              ? undefined
+                              : (key) => choose(question.id, key)
+                          }
+                          disabled={busy}
+                        />
+                      );
+                    }
+                    return (
                   <div className="mt-4 grid gap-2">
                     {question.choices.map((choice) => {
                       const selected = picks[question.id]?.key === choice.key;
@@ -813,6 +839,8 @@ export function DailyPlay({
                       );
                     })}
                   </div>
+                    );
+                  })()}
                 </article>
               ))}
             </div>

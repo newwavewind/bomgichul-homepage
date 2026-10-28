@@ -5,6 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { DailyChoiceBadge } from "@/components/daily/DailyChoiceBadge";
 import { DailyQuestionDiscussion } from "@/components/daily/DailyQuestionDiscussion";
 import {
+  DailyOxComboTable,
+  dailyOxTableFrom,
+} from "@/components/daily/DailyOxComboTable";
+import {
   DailyChoiceContent,
   DailyQuestionBody,
 } from "@/components/daily/DailyQuestionBody";
@@ -219,6 +223,48 @@ function ReviewCard({
           <p className="mt-1 whitespace-pre-line text-[15px] leading-7 text-[#475569]">{item.translation}</p>
         </section>
       ) : null}
+      {(() => {
+        const oxTable = dailyOxTableFrom(
+          item.presentation.promptItems,
+          item.choices,
+        );
+        if (oxTable) {
+          return (
+            <DailyOxComboTable
+              headers={oxTable.headers}
+              rows={oxTable.rows}
+              choices={item.choices}
+              correctKeys={item.correctKeys}
+              pickedKey={item.picked}
+              showAnswers={showAnswers}
+              renderRowExtra={(choice) => {
+                if (!showAnswers || !explanation.byChoice[choice.key]) return null;
+                const isCorrect = item.correctKeys.includes(choice.key);
+                const isPicked = item.picked === choice.key;
+                const explanationLabelStyle = isCorrect
+                  ? "bg-[#DCEEFF] text-[#0066D6]"
+                  : isPicked
+                    ? "bg-[#FFE1E8] text-[#C70036]"
+                    : "bg-[#EAF3FE] text-[#47739E]";
+                return (
+                  <div className="px-3 pb-3 sm:px-4">
+                    <div className="flex items-start gap-2.5 rounded-xl bg-white/70 px-3 py-2.5">
+                      <span
+                        className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-[11px] font-bold leading-5 ${explanationLabelStyle}`}
+                      >
+                        해설
+                      </span>
+                      <p className="min-w-0 flex-1 text-sm leading-6 text-[#475569]">
+                        <CitedText text={explanation.byChoice[choice.key]!} />
+                      </p>
+                    </div>
+                  </div>
+                );
+              }}
+            />
+          );
+        }
+        return (
       <div className="mt-3 grid gap-2">
         {item.choices.map((choice) => {
           const isPicked = item.picked === choice.key;
@@ -285,6 +331,8 @@ function ReviewCard({
           );
         })}
       </div>
+        );
+      })()}
       {showAnswers && (explanation.common || !hasChoiceExplanations) ? (
         <div className="mt-4 border-t border-[#e6eef8] pt-4">
           <p className="text-sm font-semibold text-[#0066D6]">

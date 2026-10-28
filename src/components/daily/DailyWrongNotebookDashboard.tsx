@@ -5,6 +5,10 @@ import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
 import { DailyChoiceBadge } from "@/components/daily/DailyChoiceBadge";
 import {
+  DailyOxComboTable,
+  dailyOxTableFrom,
+} from "@/components/daily/DailyOxComboTable";
+import {
   DailyChoiceContent,
   DailyQuestionBody,
 } from "@/components/daily/DailyQuestionBody";
@@ -330,6 +334,25 @@ function WrongCard({
               ? `다른 수험생 ${item.choiceStats.total}명의 최근 선택을 중복 없이 집계했습니다.`
               : "다른 수험생 기록이 3명 이상 모이면 선택지별 오답률을 표시합니다."}
           </p>
+          {(() => {
+            const oxTable = dailyOxTableFrom(item.presentation.promptItems, item.choices);
+            if (oxTable) {
+              return (
+                <DailyOxComboTable
+                  headers={oxTable.headers}
+                  rows={oxTable.rows}
+                  choices={item.choices}
+                  correctKeys={item.correctKeys}
+                  showAnswers
+                  renderRowExtra={(choice) => (
+                    <div className="px-3 pb-3 sm:px-4">
+                      <ChoiceRate item={item} choiceKey={choice.key} />
+                    </div>
+                  )}
+                />
+              );
+            }
+            return (
           <div className="mt-4 grid gap-2">
             {item.choices.map((choice) => {
               const isCorrect = item.correctKeys.includes(choice.key);
@@ -348,6 +371,8 @@ function WrongCard({
               );
             })}
           </div>
+            );
+          })()}
           <div className="mt-5 border-t border-black/10 pt-5">
             <p className="text-base font-medium text-[#4d49fc]">
               정답 {item.choices.filter((choice) => item.correctKeys.includes(choice.key)).map((choice) => choice.label).join(", ")}

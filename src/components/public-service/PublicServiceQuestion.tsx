@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
+import { toExamOxCombos } from "@/lib/exam-track/combo-choices";
 import type { PublicServiceExam } from "@/lib/public-service-content";
 import { useMe } from "@/lib/client-session";
 import { createClient } from "@/lib/supabase/client";
@@ -69,6 +70,7 @@ export function PublicServiceQuestion({
       examDate={exam.examDate}
       lawVersions={exam.lawVersions}
       explanationSummary={exam.explanationSummary}
+      comboChoices={toExamOxCombos(exam.comboChoices, exam.correctChoice)}
       choiceHeaders={exam.choiceHeaders}
       initialAttemptResult={attemptResult}
       onAttempt={saveAttempt}
