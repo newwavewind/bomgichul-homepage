@@ -29,19 +29,27 @@ export function splitOxCells(text: string): string[] | null {
     : null;
 }
 
-function jamoToken(value: string | undefined) {
-  const token = (value ?? "").replace(/[.\s]/g, "").trim();
-  return /^[ㄱ-ㅎ]$/.test(token) ? token : null;
+const SYLLABLE_HEADERS = "가나다라마바사아자차카타파하";
+
+function oxColumnHeader(item: { key?: string; label?: string }) {
+  const rawLabel = (item.label ?? "").trim();
+  const rawKey = (item.key ?? "").trim();
+  for (const value of [rawLabel, rawKey]) {
+    const token = value.replace(/[()（）.\s]/g, "");
+    if (/^[ㄱ-ㅎ]$/.test(token)) return rawLabel || token;
+    if (token.length === 1 && SYLLABLE_HEADERS.includes(token)) {
+      return rawLabel || `(${token})`;
+    }
+  }
+  return null;
 }
 
-/** 보기 칸이 ㄱ~ㅎ 지문일 때만 열 제목으로 쓴다 */
+/** 보기 칸이 ㄱ~ㅎ·(가)~(라) 지문일 때만 열 제목으로 쓴다 */
 export function jamoHeadersFromItems(
   items: { key?: string; label?: string }[],
 ): string[] | null {
   if (items.length < 2) return null;
-  const headers = items.map((item) => {
-    return jamoToken(item.label) ?? jamoToken(item.key);
-  });
+  const headers = items.map(oxColumnHeader);
   if (headers.some((header) => !header)) return null;
   return headers as string[];
 }

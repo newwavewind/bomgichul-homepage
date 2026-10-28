@@ -47,6 +47,17 @@ describe("jamoHeadersFromItems", () => {
       ]),
     ).toBeNull();
   });
+
+  it("reads (가)~(라) labels from the 2021 지방직 행정법 5번 shape", () => {
+    expect(
+      jamoHeadersFromItems([
+        { key: "가", label: "(가)" },
+        { key: "나", label: "(나)" },
+        { key: "다", label: "(다)" },
+        { key: "라", label: "(라)" },
+      ]),
+    ).toEqual(["(가)", "(나)", "(다)", "(라)"]);
+  });
 });
 
 describe("getOxComboTable", () => {
@@ -63,6 +74,23 @@ describe("getOxComboTable", () => {
         ["○", "○", "×", "○"],
         ["○", "×", "○", "×"],
         ["×", "×", "×", "○"],
+      ],
+    });
+  });
+
+  it("builds the 2021 지방직 행정법 5번 table", () => {
+    expect(
+      getOxComboTable(
+        ["(가)", "(나)", "(다)", "(라)"],
+        ["× × ○ ○", "○ ○ × ○", "○ × ○ ×", "× ○ ○ ×"],
+      ),
+    ).toEqual({
+      headers: ["(가)", "(나)", "(다)", "(라)"],
+      rows: [
+        ["×", "×", "○", "○"],
+        ["○", "○", "×", "○"],
+        ["○", "×", "○", "×"],
+        ["×", "○", "○", "×"],
       ],
     });
   });
