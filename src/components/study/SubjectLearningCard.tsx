@@ -46,9 +46,16 @@ export function SubjectLearningCard({
         {lectureHref ? (
           <Link
             href={lectureHref}
-            className={`${actionClass} border border-[#9dbbe0] bg-[#f0f5ff] text-carbon hover:bg-[#e4edff]`}
+            aria-label={`${label} 강의 보기 (새로 나옴)`}
+            className={`relative z-[1] ${actionClass} border border-[#f5b7dc] bg-[#ffebf6] text-[#6b1458] hover:bg-[#fff3fa]`}
           >
             강의 보기
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -right-1.5 -top-2 rotate-[-8deg] rounded-full border border-white bg-[#e8ff3a] px-[7px] py-[2px] font-display text-[9px] font-extrabold leading-none tracking-[0.12em] text-[#355000] shadow-[0_1px_5px_rgba(90,120,0,0.28)]"
+            >
+              NEW
+            </span>
           </Link>
         ) : null}
       </div>

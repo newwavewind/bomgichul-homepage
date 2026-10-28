@@ -184,24 +184,36 @@ function ExamCardAction({
   examTitle,
   primary = false,
   compact = false,
+  fresh = false,
 }: {
   href: string;
   label: string;
   examTitle: string;
   primary?: boolean;
   compact?: boolean;
+  fresh?: boolean;
 }) {
+  const tone = primary
+    ? "border-[#0066d6]/35 bg-[#007aff] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_2px_8px_rgba(0,102,214,0.18)] hover:bg-[#0066d6] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_5px_14px_rgba(0,102,214,0.22)]"
+    : fresh
+      ? "z-[1] border-[#f5b7dc] bg-[#ffebf6] text-[#6b1458] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_8px_rgba(232,80,180,0.1)] hover:bg-[#fff3fa] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_5px_14px_rgba(232,80,180,0.16)]"
+      : "border-[#007aff]/30 bg-white/80 text-[#0066d6] shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_2px_8px_rgba(0,102,214,0.06)] hover:bg-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_5px_14px_rgba(0,102,214,0.12)]";
+
   return (
     <Link
       href={href}
-      aria-label={`${examTitle} ${label}`}
-      className={`inline-flex min-h-10 ${compact ? "min-w-0 px-2" : "min-w-[120px] px-4"} items-center justify-center rounded-[16px] border py-2 text-center font-display text-[13px] font-semibold tracking-tight transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007aff] focus-visible:ring-offset-2 ${
-        primary
-          ? "border-[#0066d6]/35 bg-[#007aff] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_2px_8px_rgba(0,102,214,0.18)] hover:bg-[#0066d6] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_5px_14px_rgba(0,102,214,0.22)]"
-          : "border-[#007aff]/30 bg-white/80 text-[#0066d6] shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_2px_8px_rgba(0,102,214,0.06)] hover:bg-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_5px_14px_rgba(0,102,214,0.12)]"
-      }`}
+      aria-label={fresh ? `${examTitle} ${label} (새로 나옴)` : `${examTitle} ${label}`}
+      className={`relative inline-flex min-h-10 ${compact ? "min-w-0 px-2" : "min-w-[120px] px-4"} items-center justify-center rounded-[16px] border py-2 text-center font-display text-[13px] font-semibold tracking-tight transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007aff] focus-visible:ring-offset-2 ${tone}`}
     >
       {label}
+      {fresh ? (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -right-1.5 -top-2 rotate-[-8deg] rounded-full border border-white bg-[#e8ff3a] px-[7px] py-[2px] font-display text-[9px] font-extrabold leading-none tracking-[0.12em] text-[#355000] shadow-[0_1px_5px_rgba(90,120,0,0.28)]"
+        >
+          NEW
+        </span>
+      ) : null}
     </Link>
   );
 }
@@ -258,6 +270,7 @@ export function PlatformHome() {
                     label="강의 보기"
                     examTitle={exam.title}
                     compact
+                    fresh
                   />
                 )}
                 <ExamCardAction
