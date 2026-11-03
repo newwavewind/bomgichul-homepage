@@ -58,5 +58,11 @@
         "sceneCount": 15
       }
     ]
+  },
+  {
+    "subject": "police-science",
+    "label": "경찰학",
+    "status": "preparing",
+    "lectures": []
   }
 ]

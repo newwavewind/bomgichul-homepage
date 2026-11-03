@@ -41,7 +41,12 @@ for (const { appId, subject, label } of subjects) {
     return { id: `police-${lecture.id}`, sourceId: lecture.id, title: item.titleKo, number: ++number, ready: true, seconds: Math.round(app.lectureTotalSeconds(lecture.id)), description: lecture.description || '' };
   }) })).filter(section => section.lessons.length) })).filter(part => part.sections.length);
   const allLessons = parts.flatMap(part => part.sections.flatMap(section => section.lessons));
-  if (allLessons.length === 0) continue;
+  if (allLessons.length === 0) {
+    // 과목이 비어 있어도 탭에서 빠지지 않게 「준비중」으로 남긴다.
+    catalog.push({ subject, label, status: 'preparing', lectures: [] });
+    outline.push({ subject, label, status: 'preparing', parts: [] });
+    continue;
+  }
   if (allLessons.length < 3) throw new Error(`${label}: at least three available lessons required`);
   const previews = allLessons.slice(0, 3);
   const lectures = [];

@@ -1548,5 +1548,11 @@
         ]
       }
     ]
+  },
+  {
+    "subject": "police-science",
+    "label": "경찰학",
+    "status": "preparing",
+    "parts": []
   }
 ]

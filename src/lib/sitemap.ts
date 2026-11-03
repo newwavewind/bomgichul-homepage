@@ -498,7 +498,7 @@ export function buildStaticSitemapGroup(group: SitemapGroup): MetadataRoute.Site
   const lecturePages = group === 'firefighter'
     ? ['sobang', 'sobangbeop', 'haengjeongbeop'].map(subject => page(`/firefighter/lectures/${subject}`, 'weekly', 0.8))
     : group === 'police'
-      ? ['constitution', 'criminal-law'].map(subject => page(`/police/lectures/${subject}`, 'weekly', 0.8))
+      ? ['constitution', 'criminal-law', 'police-science'].map(subject => page(`/police/lectures/${subject}`, 'weekly', 0.8))
       : [];
   return uniqueEntries([...publicPages, ...lecturePages, ...getTrackLearningUrls(group)]);
 }
