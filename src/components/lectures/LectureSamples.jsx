@@ -2,6 +2,7 @@
 import { Component, Suspense, useMemo, useRef, useState } from 'react';
 import { AppStoreButtons } from '@/components/ui/AppStoreButtons';
 import { formatLectureViewCount } from '@/lib/lecture-views';
+import { lectureSiteConfig } from '@/lib/lecture-sites';
 import { players } from './players';
 import LectureSocial from './LectureSocial';
 import { useLectureViewCounts } from './LectureViewCount';
@@ -15,7 +16,8 @@ class PlayerBoundary extends Component {
   }
 }
 function duration(seconds) { return `${Math.floor(seconds / 60)}분 ${seconds % 60}초`; }
-export default function LectureSamples({ lectures, parts, subjectLabel, subject, initialLectureId }) {
+export default function LectureSamples({ lectures, parts, subjectLabel, subject, initialLectureId, site = 'real-estate' }) {
+  const siteConfig = lectureSiteConfig(site);
   const dialog = useRef(null);
   const [selected, setSelected] = useState('');
   const previewById = new Map(lectures.map(lecture => [lecture.id, lecture]));
@@ -40,7 +42,7 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
               <div className="lecture-row-copy"><h4>{lesson.title}</h4><p>{section.title}{` · ${duration(lesson.seconds)}`}{typeof viewCounts[lesson.id] === 'number' ? ` · ${formatLectureViewCount(viewCounts[lesson.id])}` : ''}</p></div>
               <div className="lecture-row-action">
                 {preview ? <PlayerBoundary><Suspense fallback={<button className="lecture-preview-button" disabled>준비 중…</button>}>
-                  <Player lectureId={lesson.id} progressId={`homepage-sample:${lesson.id}`} initialOpen={initialLectureId === lesson.id} renderFooter={() => <LectureSocial lectureId={lesson.id} subject={subject} title={lesson.title}/>} renderTrigger={play => <button className="lecture-preview-button" onClick={play} aria-label={`${lesson.number}강 ${lesson.title} 재생`}><span aria-hidden="true">▶</span> 재생</button>}/>
+                  <Player lectureId={lesson.id} progressId={`homepage-sample:${lesson.id}`} initialOpen={initialLectureId === lesson.id} renderFooter={() => <LectureSocial lectureId={lesson.id} subject={subject} title={lesson.title} site={site}/>} renderTrigger={play => <button className="lecture-preview-button" onClick={play} aria-label={`${lesson.number}강 ${lesson.title} 재생`}><span aria-hidden="true">▶</span> 재생</button>}/>
                 </Suspense></PlayerBoundary> : <button type="button" className="lecture-app-button" onClick={() => openApp(lesson.title)} aria-label={`${lesson.number}강 ${lesson.title} 앱에서 보기`}>앱에서 보기 <span aria-hidden="true">↗</span></button>}
               </div>
             </li>;
@@ -51,11 +53,11 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
     <dialog ref={dialog} className="lecture-download-dialog" aria-labelledby="lecture-download-title" onClick={(event) => { if (event.target === dialog.current) dialog.current.close(); }}>
       <div className="lecture-download-content">
         <button type="button" className="lecture-download-close" onClick={() => dialog.current?.close()} aria-label="닫기">✕</button>
-        <p className="lecture-download-kicker">봄기출 공인중개사 앱</p>
+        <p className="lecture-download-kicker">{siteConfig.appName}</p>
         <h2 id="lecture-download-title">이 강의는 앱에서 만나 보세요</h2>
         <p className="lecture-download-selected">{subjectLabel} · {selected}</p>
         <p className="lecture-download-description">홈페이지에서는 첫 3강을 미리 볼 수 있어요.<br/>앱에서 이어서 공부할 수 있어요.</p>
-        <AppStoreButtons className="justify-center"/>
+        <AppStoreButtons className="justify-center" links={siteConfig.appLinks}/>
       </div>
     </dialog>
   </>;

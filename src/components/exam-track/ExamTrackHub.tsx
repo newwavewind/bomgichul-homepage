@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   HubBackButton,
   HubExamIntroLink,
@@ -11,9 +12,11 @@ import type { ExamTrackConfig, ExamTrackManifestItem } from "@/lib/exam-track/ty
 export function ExamTrackHub({
   track,
   subjects,
+  lecturePreview,
 }: {
   track: ExamTrackConfig;
   subjects: ExamTrackManifestItem[];
+  lecturePreview?: { href: string; total: number };
 }) {
   return (
     <div className="px-4 py-6 sm:px-5 md:py-10">
@@ -25,6 +28,15 @@ export function ExamTrackHub({
           </div>
           <HubExamIntroLink href={`${track.basePath}/intro`} label={track.label} />
         </div>
+
+        {lecturePreview && <Link href={lecturePreview.href} className="group block rounded-2xl border border-[#b8d3c9] bg-[#eef7f2] p-6 transition-colors hover:bg-[#e4f1e9] sm:flex sm:items-center sm:justify-between sm:gap-6">
+          <div>
+            <p className="text-xs font-semibold text-[#176859]">봄기출 {track.label} · 칠판 강의 {lecturePreview.total}강</p>
+            <h2 className="mt-2 text-2xl font-semibold text-ink">설명을 듣고, 판서를 따라 이해하세요</h2>
+            <p className="mt-2 text-sm leading-6 text-smoke">음성·판서·자막·요약 노트까지. 각 과목의 첫 3강을 홈페이지에서 미리 볼 수 있어요.</p>
+          </div>
+          <span className="mt-5 inline-flex shrink-0 rounded-full bg-[#176859] px-5 py-3 text-sm font-semibold text-white sm:mt-0">칠판 강의 미리보기 <span aria-hidden="true" className="ml-2">→</span></span>
+        </Link>}
 
         <ExamTrackSubjectBrowser track={track} subjects={subjects} />
 

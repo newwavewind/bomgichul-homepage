@@ -1,0 +1,1552 @@
+[
+  {
+    "subject": "constitution",
+    "label": "헌법",
+    "parts": [
+      {
+        "title": "헌법총론",
+        "sections": [
+          {
+            "title": "헌법과 헌법학",
+            "lessons": [
+              {
+                "id": "police-hnU101_1",
+                "sourceId": "hnU101_1",
+                "title": "헌법의 의의와 특질",
+                "number": 1,
+                "ready": true,
+                "seconds": 930,
+                "description": "순경 공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hnU101_2",
+                "sourceId": "hnU101_2",
+                "title": "헌법의 해석과 합헌적 법률해석",
+                "number": 2,
+                "ready": true,
+                "seconds": 982,
+                "description": "순경 공채 기출 18문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hnU101_3",
+                "sourceId": "hnU101_3",
+                "title": "헌법의 제정·개정·변천",
+                "number": 3,
+                "ready": true,
+                "seconds": 1069,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "대한민국헌법 총설",
+            "lessons": [
+              {
+                "id": "police-hnU102_1",
+                "sourceId": "hnU102_1",
+                "title": "헌정사",
+                "number": 4,
+                "ready": true,
+                "seconds": 1122,
+                "description": "순경 공채 기출 6문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hnU102_2",
+                "sourceId": "hnU102_2",
+                "title": "국가형태와 구성요소",
+                "number": 5,
+                "ready": true,
+                "seconds": 1106,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU102_3",
+                "sourceId": "hnU102_3",
+                "title": "헌법의 기본원리와 기본질서",
+                "number": 6,
+                "ready": true,
+                "seconds": 1107,
+                "description": "순경 공채 기출 20문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU102_4",
+                "sourceId": "hnU102_4",
+                "title": "정당제도",
+                "number": 7,
+                "ready": true,
+                "seconds": 1056,
+                "description": "순경 공채 기출 5문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hnU102_5",
+                "sourceId": "hnU102_5",
+                "title": "선거제도",
+                "number": 8,
+                "ready": true,
+                "seconds": 1054,
+                "description": "순경 공채 기출 3문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hnU102_6",
+                "sourceId": "hnU102_6",
+                "title": "공무원제도와 지방자치제도",
+                "number": 9,
+                "ready": true,
+                "seconds": 907,
+                "description": "순경 공채 기출 4문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "기본권 총론",
+        "sections": [
+          {
+            "title": "기본권 총론",
+            "lessons": [
+              {
+                "id": "police-hnU201_1",
+                "sourceId": "hnU201_1",
+                "title": "기본권의 의의·성격·분류",
+                "number": 10,
+                "ready": true,
+                "seconds": 954,
+                "description": "순경 공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hnU201_2",
+                "sourceId": "hnU201_2",
+                "title": "기본권의 주체",
+                "number": 11,
+                "ready": true,
+                "seconds": 1134,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU201_4",
+                "sourceId": "hnU201_4",
+                "title": "기본권의 갈등과 국가의 보호의무",
+                "number": 12,
+                "ready": true,
+                "seconds": 1146,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU201_5",
+                "sourceId": "hnU201_5",
+                "title": "기본권의 제한과 한계",
+                "number": 13,
+                "ready": true,
+                "seconds": 1026,
+                "description": "순경 공채 기출 12문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hnU201_6",
+                "sourceId": "hnU201_6",
+                "title": "기본권의 침해와 구제",
+                "number": 14,
+                "ready": true,
+                "seconds": 1053,
+                "description": "순경 공채 기출 1문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "인간의 존엄과 평등",
+        "sections": [
+          {
+            "title": "인간의 존엄과 가치·행복추구권",
+            "lessons": [
+              {
+                "id": "police-hnU301_1",
+                "sourceId": "hnU301_1",
+                "title": "인간의 존엄과 가치",
+                "number": 15,
+                "ready": true,
+                "seconds": 994,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU301_2",
+                "sourceId": "hnU301_2",
+                "title": "행복추구권",
+                "number": 16,
+                "ready": true,
+                "seconds": 1019,
+                "description": "순경 공채 기출 8문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hnU301_3",
+                "sourceId": "hnU301_3",
+                "title": "일반적 행동자유권과 자기결정권",
+                "number": 17,
+                "ready": true,
+                "seconds": 962,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "평등권",
+            "lessons": [
+              {
+                "id": "police-hnU302_1",
+                "sourceId": "hnU302_1",
+                "title": "평등원칙과 평등권",
+                "number": 18,
+                "ready": true,
+                "seconds": 1129,
+                "description": "순경 공채 기출 8문제 · 15줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "자유권적 기본권",
+        "sections": [
+          {
+            "title": "인신의 자유권",
+            "lessons": [
+              {
+                "id": "police-hnU401_2",
+                "sourceId": "hnU401_2",
+                "title": "신체의 자유의 실체적 보장",
+                "number": 19,
+                "ready": true,
+                "seconds": 1075,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU401_3",
+                "sourceId": "hnU401_3",
+                "title": "적법절차와 영장주의",
+                "number": 20,
+                "ready": true,
+                "seconds": 1138,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU401_4",
+                "sourceId": "hnU401_4",
+                "title": "형사절차상의 권리",
+                "number": 21,
+                "ready": true,
+                "seconds": 1087,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "사생활의 자유권",
+            "lessons": [
+              {
+                "id": "police-hnU402_1",
+                "sourceId": "hnU402_1",
+                "title": "사생활의 비밀과 자유",
+                "number": 22,
+                "ready": true,
+                "seconds": 918,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU402_2",
+                "sourceId": "hnU402_2",
+                "title": "개인정보자기결정권",
+                "number": 23,
+                "ready": true,
+                "seconds": 1080,
+                "description": "순경 공채 기출 7문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hnU402_4",
+                "sourceId": "hnU402_4",
+                "title": "거주·이전의 자유",
+                "number": 24,
+                "ready": true,
+                "seconds": 949,
+                "description": "순경 공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hnU402_5",
+                "sourceId": "hnU402_5",
+                "title": "통신의 자유",
+                "number": 25,
+                "ready": true,
+                "seconds": 1144,
+                "description": "순경 공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "정신적 자유권",
+            "lessons": [
+              {
+                "id": "police-hnU403_1",
+                "sourceId": "hnU403_1",
+                "title": "양심의 자유",
+                "number": 26,
+                "ready": true,
+                "seconds": 978,
+                "description": "순경 공채 기출 4문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hnU403_2",
+                "sourceId": "hnU403_2",
+                "title": "종교의 자유",
+                "number": 27,
+                "ready": true,
+                "seconds": 1053,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU403_3",
+                "sourceId": "hnU403_3",
+                "title": "학문·예술의 자유와 대학의 자치",
+                "number": 28,
+                "ready": true,
+                "seconds": 1038,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU403_4",
+                "sourceId": "hnU403_4",
+                "title": "언론·출판의 자유",
+                "number": 29,
+                "ready": true,
+                "seconds": 940,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU403_5",
+                "sourceId": "hnU403_5",
+                "title": "집회·결사의 자유",
+                "number": 30,
+                "ready": true,
+                "seconds": 998,
+                "description": "순경 공채 기출 8문제 · 15줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "경제적 기본권",
+        "sections": [
+          {
+            "title": "경제적 기본권",
+            "lessons": [
+              {
+                "id": "police-hnU501_1",
+                "sourceId": "hnU501_1",
+                "title": "재산권",
+                "number": 31,
+                "ready": true,
+                "seconds": 1133,
+                "description": "순경 공채 기출 12문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU501_2",
+                "sourceId": "hnU501_2",
+                "title": "직업의 자유",
+                "number": 32,
+                "ready": true,
+                "seconds": 1022,
+                "description": "순경 공채 기출 6문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "정치적 기본권",
+        "sections": [
+          {
+            "title": "정치적 기본권(참정권)",
+            "lessons": [
+              {
+                "id": "police-hnU601_1",
+                "sourceId": "hnU601_1",
+                "title": "선거권",
+                "number": 33,
+                "ready": true,
+                "seconds": 1109,
+                "description": "순경 공채 기출 9문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hnU601_2",
+                "sourceId": "hnU601_2",
+                "title": "공무담임권",
+                "number": 34,
+                "ready": true,
+                "seconds": 1020,
+                "description": "순경 공채 기출 6문제 · 15줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "청구권적 기본권",
+        "sections": [
+          {
+            "title": "청구권적 기본권",
+            "lessons": [
+              {
+                "id": "police-hnU701_1",
+                "sourceId": "hnU701_1",
+                "title": "청원권",
+                "number": 35,
+                "ready": true,
+                "seconds": 1078,
+                "description": "순경 공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hnU701_2",
+                "sourceId": "hnU701_2",
+                "title": "재판청구권",
+                "number": 36,
+                "ready": true,
+                "seconds": 1122,
+                "description": "순경 공채 기출 12문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hnU701_3",
+                "sourceId": "hnU701_3",
+                "title": "국가배상청구권",
+                "number": 37,
+                "ready": true,
+                "seconds": 945,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hnU701_4",
+                "sourceId": "hnU701_4",
+                "title": "형사보상청구권",
+                "number": 38,
+                "ready": true,
+                "seconds": 1118,
+                "description": "순경 공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU701_5",
+                "sourceId": "hnU701_5",
+                "title": "범죄피해자구조청구권",
+                "number": 39,
+                "ready": true,
+                "seconds": 976,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "사회적 기본권",
+        "sections": [
+          {
+            "title": "사회적 기본권",
+            "lessons": [
+              {
+                "id": "police-hnU801_1",
+                "sourceId": "hnU801_1",
+                "title": "인간다운 생활을 할 권리",
+                "number": 40,
+                "ready": true,
+                "seconds": 1075,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU801_2",
+                "sourceId": "hnU801_2",
+                "title": "교육을 받을 권리",
+                "number": 41,
+                "ready": true,
+                "seconds": 1071,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU801_3",
+                "sourceId": "hnU801_3",
+                "title": "근로의 권리",
+                "number": 42,
+                "ready": true,
+                "seconds": 1007,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU801_4",
+                "sourceId": "hnU801_4",
+                "title": "근로3권",
+                "number": 43,
+                "ready": true,
+                "seconds": 1131,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hnU801_5",
+                "sourceId": "hnU801_5",
+                "title": "환경권·보건권과 혼인·가족생활",
+                "number": 44,
+                "ready": true,
+                "seconds": 1108,
+                "description": "순경 공채 기출 13문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "국민의 의무",
+        "sections": [
+          {
+            "title": "국민의 기본적 의무",
+            "lessons": [
+              {
+                "id": "police-hnU901_1",
+                "sourceId": "hnU901_1",
+                "title": "고전적 의무",
+                "number": 45,
+                "ready": true,
+                "seconds": 992,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subject": "criminal-law",
+    "label": "형사법",
+    "parts": [
+      {
+        "title": "형법총론 - 서론",
+        "sections": [
+          {
+            "title": "형법의 기본개념과 죄형법정주의",
+            "lessons": [
+              {
+                "id": "police-hsU101_1",
+                "sourceId": "hsU101_1",
+                "title": "형법의 의의·성격·기능",
+                "number": 1,
+                "ready": true,
+                "seconds": 971,
+                "description": "순경 공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU101_2",
+                "sourceId": "hsU101_2",
+                "title": "죄형법정주의 — 법률주의와 소급효금지",
+                "number": 2,
+                "ready": true,
+                "seconds": 1087,
+                "description": "순경 공채 기출 9문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU101_3",
+                "sourceId": "hsU101_3",
+                "title": "죄형법정주의 — 명확성원칙·유추해석금지·적정성원칙",
+                "number": 3,
+                "ready": true,
+                "seconds": 957,
+                "description": "순경 공채 기출 9문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "형법의 적용범위",
+            "lessons": [
+              {
+                "id": "police-hsU102_1",
+                "sourceId": "hsU102_1",
+                "title": "시간적 적용범위",
+                "number": 4,
+                "ready": true,
+                "seconds": 885,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "형법총론 - 범죄론",
+        "sections": [
+          {
+            "title": "범죄의 기본개념",
+            "lessons": [
+              {
+                "id": "police-hsU201_1",
+                "sourceId": "hsU201_1",
+                "title": "범죄의 의의와 종류",
+                "number": 5,
+                "ready": true,
+                "seconds": 963,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU201_2",
+                "sourceId": "hsU201_2",
+                "title": "행위의 주체와 객체",
+                "number": 6,
+                "ready": true,
+                "seconds": 962,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "구성요건론",
+            "lessons": [
+              {
+                "id": "police-hsU202_1",
+                "sourceId": "hsU202_1",
+                "title": "구성요건의 일반이론",
+                "number": 7,
+                "ready": true,
+                "seconds": 974,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU202_2",
+                "sourceId": "hsU202_2",
+                "title": "인과관계와 객관적 귀속",
+                "number": 8,
+                "ready": true,
+                "seconds": 903,
+                "description": "순경 공채 기출 7문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hsU202_3",
+                "sourceId": "hsU202_3",
+                "title": "구성요건적 고의",
+                "number": 9,
+                "ready": true,
+                "seconds": 1154,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU202_4",
+                "sourceId": "hsU202_4",
+                "title": "구성요건적 착오(사실의 착오)",
+                "number": 10,
+                "ready": true,
+                "seconds": 943,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "특수한 범죄유형",
+            "lessons": [
+              {
+                "id": "police-hsU203_1",
+                "sourceId": "hsU203_1",
+                "title": "부작위범",
+                "number": 11,
+                "ready": true,
+                "seconds": 1138,
+                "description": "순경 공채 기출 11문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU203_2",
+                "sourceId": "hsU203_2",
+                "title": "과실범",
+                "number": 12,
+                "ready": true,
+                "seconds": 1070,
+                "description": "순경 공채 기출 8문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU203_3",
+                "sourceId": "hsU203_3",
+                "title": "결과적 가중범",
+                "number": 13,
+                "ready": true,
+                "seconds": 1046,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "위법성론",
+            "lessons": [
+              {
+                "id": "police-hsU204_1",
+                "sourceId": "hsU204_1",
+                "title": "위법성의 일반이론",
+                "number": 14,
+                "ready": true,
+                "seconds": 1052,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU204_2",
+                "sourceId": "hsU204_2",
+                "title": "정당방위",
+                "number": 15,
+                "ready": true,
+                "seconds": 1143,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU204_3",
+                "sourceId": "hsU204_3",
+                "title": "긴급피난과 자구행위",
+                "number": 16,
+                "ready": true,
+                "seconds": 923,
+                "description": "순경 공채 기출 4문제 · 12줄 노트"
+              },
+              {
+                "id": "police-hsU204_4",
+                "sourceId": "hsU204_4",
+                "title": "피해자의 승낙",
+                "number": 17,
+                "ready": true,
+                "seconds": 894,
+                "description": "순경 공채 기출 2문제 · 12줄 노트"
+              },
+              {
+                "id": "police-hsU204_5",
+                "sourceId": "hsU204_5",
+                "title": "정당행위",
+                "number": 18,
+                "ready": true,
+                "seconds": 1136,
+                "description": "순경 공채 기출 6문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "책임론",
+            "lessons": [
+              {
+                "id": "police-hsU205_1",
+                "sourceId": "hsU205_1",
+                "title": "책임의 일반이론과 책임능력",
+                "number": 19,
+                "ready": true,
+                "seconds": 1013,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU205_3",
+                "sourceId": "hsU205_3",
+                "title": "위법성의 인식과 법률의 착오",
+                "number": 20,
+                "ready": true,
+                "seconds": 1123,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU205_4",
+                "sourceId": "hsU205_4",
+                "title": "기대가능성",
+                "number": 21,
+                "ready": true,
+                "seconds": 932,
+                "description": "순경 공채 기출 5문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "미수론",
+            "lessons": [
+              {
+                "id": "police-hsU206_1",
+                "sourceId": "hsU206_1",
+                "title": "범죄의 실현단계와 예비·음모",
+                "number": 22,
+                "ready": true,
+                "seconds": 893,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU206_2",
+                "sourceId": "hsU206_2",
+                "title": "장애미수",
+                "number": 23,
+                "ready": true,
+                "seconds": 898,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "공범론",
+            "lessons": [
+              {
+                "id": "police-hsU207_1",
+                "sourceId": "hsU207_1",
+                "title": "공범의 일반이론",
+                "number": 24,
+                "ready": true,
+                "seconds": 1099,
+                "description": "순경 공채 기출 5문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU207_2",
+                "sourceId": "hsU207_2",
+                "title": "공동정범",
+                "number": 25,
+                "ready": true,
+                "seconds": 1129,
+                "description": "순경 공채 기출 15문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU207_3",
+                "sourceId": "hsU207_3",
+                "title": "합동범과 동시범",
+                "number": 26,
+                "ready": true,
+                "seconds": 933,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hsU207_4",
+                "sourceId": "hsU207_4",
+                "title": "간접정범",
+                "number": 27,
+                "ready": true,
+                "seconds": 1088,
+                "description": "순경 공채 기출 5문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU207_5",
+                "sourceId": "hsU207_5",
+                "title": "교사범·종범과 공범과 신분",
+                "number": 28,
+                "ready": true,
+                "seconds": 1124,
+                "description": "순경 공채 기출 9문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "죄수론",
+            "lessons": [
+              {
+                "id": "police-hsU208_1",
+                "sourceId": "hsU208_1",
+                "title": "일죄",
+                "number": 29,
+                "ready": true,
+                "seconds": 1134,
+                "description": "순경 공채 기출 17문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU208_2",
+                "sourceId": "hsU208_2",
+                "title": "수죄",
+                "number": 30,
+                "ready": true,
+                "seconds": 1045,
+                "description": "순경 공채 기출 4문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "형법총론 - 형벌론",
+        "sections": [
+          {
+            "title": "형벌",
+            "lessons": [
+              {
+                "id": "police-hsU301_1",
+                "sourceId": "hsU301_1",
+                "title": "형벌의 의의와 종류",
+                "number": 31,
+                "ready": true,
+                "seconds": 1171,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU301_2",
+                "sourceId": "hsU301_2",
+                "title": "몰수와 추징",
+                "number": 32,
+                "ready": true,
+                "seconds": 970,
+                "description": "순경 공채 기출 10문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hsU301_5",
+                "sourceId": "hsU301_5",
+                "title": "선고유예·집행유예·가석방",
+                "number": 33,
+                "ready": true,
+                "seconds": 1021,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "형법각론 - 개인적 법익",
+        "sections": [
+          {
+            "title": "생명과 신체에 대한 죄",
+            "lessons": [
+              {
+                "id": "police-hsU401_1",
+                "sourceId": "hsU401_1",
+                "title": "살인의 죄",
+                "number": 34,
+                "ready": true,
+                "seconds": 932,
+                "description": "순경 공채 기출 4문제 · 12줄 노트"
+              },
+              {
+                "id": "police-hsU401_2",
+                "sourceId": "hsU401_2",
+                "title": "상해와 폭행의 죄",
+                "number": 35,
+                "ready": true,
+                "seconds": 985,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU401_3",
+                "sourceId": "hsU401_3",
+                "title": "과실치사상의 죄",
+                "number": 36,
+                "ready": true,
+                "seconds": 982,
+                "description": "순경 공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hsU401_4",
+                "sourceId": "hsU401_4",
+                "title": "낙태·유기와 학대의 죄",
+                "number": 37,
+                "ready": true,
+                "seconds": 1006,
+                "description": "순경 공채 기출 4문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "자유에 대한 죄",
+            "lessons": [
+              {
+                "id": "police-hsU402_1",
+                "sourceId": "hsU402_1",
+                "title": "협박과 강요의 죄",
+                "number": 38,
+                "ready": true,
+                "seconds": 1063,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU402_2",
+                "sourceId": "hsU402_2",
+                "title": "체포와 감금의 죄",
+                "number": 39,
+                "ready": true,
+                "seconds": 941,
+                "description": "순경 공채 기출 6문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU402_4",
+                "sourceId": "hsU402_4",
+                "title": "강간과 추행의 죄",
+                "number": 40,
+                "ready": true,
+                "seconds": 1071,
+                "description": "순경 공채 기출 14문제 · 16줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "명예·신용 및 업무에 대한 죄",
+            "lessons": [
+              {
+                "id": "police-hsU403_1",
+                "sourceId": "hsU403_1",
+                "title": "명예에 관한 죄",
+                "number": 41,
+                "ready": true,
+                "seconds": 1142,
+                "description": "순경 공채 기출 20문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU403_2",
+                "sourceId": "hsU403_2",
+                "title": "신용·업무·경매에 관한 죄",
+                "number": 42,
+                "ready": true,
+                "seconds": 1094,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "사생활의 평온에 대한 죄",
+            "lessons": [
+              {
+                "id": "police-hsU404_1",
+                "sourceId": "hsU404_1",
+                "title": "비밀침해의 죄",
+                "number": 43,
+                "ready": true,
+                "seconds": 1004,
+                "description": "순경 공채 기출 1문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU404_2",
+                "sourceId": "hsU404_2",
+                "title": "주거침입의 죄",
+                "number": 44,
+                "ready": true,
+                "seconds": 1099,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "재산에 대한 죄",
+            "lessons": [
+              {
+                "id": "police-hsU405_1",
+                "sourceId": "hsU405_1",
+                "title": "재산죄의 일반론",
+                "number": 45,
+                "ready": true,
+                "seconds": 1074,
+                "description": "순경 공채 기출 16문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU405_2",
+                "sourceId": "hsU405_2",
+                "title": "절도의 죄",
+                "number": 46,
+                "ready": true,
+                "seconds": 1139,
+                "description": "순경 공채 기출 16문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU405_4",
+                "sourceId": "hsU405_4",
+                "title": "사기의 죄",
+                "number": 47,
+                "ready": true,
+                "seconds": 1091,
+                "description": "순경 공채 기출 9문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU405_6",
+                "sourceId": "hsU405_6",
+                "title": "횡령의 죄",
+                "number": 48,
+                "ready": true,
+                "seconds": 1151,
+                "description": "순경 공채 기출 13문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU405_7",
+                "sourceId": "hsU405_7",
+                "title": "배임의 죄",
+                "number": 49,
+                "ready": true,
+                "seconds": 1093,
+                "description": "순경 공채 기출 19문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU405_8",
+                "sourceId": "hsU405_8",
+                "title": "장물의 죄",
+                "number": 50,
+                "ready": true,
+                "seconds": 932,
+                "description": "순경 공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hsU405_9",
+                "sourceId": "hsU405_9",
+                "title": "손괴의 죄",
+                "number": 51,
+                "ready": true,
+                "seconds": 934,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "형법각론 - 사회적 법익",
+        "sections": [
+          {
+            "title": "공공의 안전과 평온에 대한 죄",
+            "lessons": [
+              {
+                "id": "police-hsU501_1",
+                "sourceId": "hsU501_1",
+                "title": "공안을 해하는 죄와 폭발물에 관한 죄",
+                "number": 52,
+                "ready": true,
+                "seconds": 1055,
+                "description": "순경 공채 기출 1문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU501_2",
+                "sourceId": "hsU501_2",
+                "title": "방화와 실화의 죄",
+                "number": 53,
+                "ready": true,
+                "seconds": 1118,
+                "description": "순경 공채 기출 10문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU501_3",
+                "sourceId": "hsU501_3",
+                "title": "일수·수리와 교통방해의 죄",
+                "number": 54,
+                "ready": true,
+                "seconds": 1034,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "공공의 신용에 대한 죄",
+            "lessons": [
+              {
+                "id": "police-hsU502_1",
+                "sourceId": "hsU502_1",
+                "title": "통화에 관한 죄",
+                "number": 55,
+                "ready": true,
+                "seconds": 954,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU502_2",
+                "sourceId": "hsU502_2",
+                "title": "유가증권·인지·우표에 관한 죄",
+                "number": 56,
+                "ready": true,
+                "seconds": 988,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU502_3",
+                "sourceId": "hsU502_3",
+                "title": "문서에 관한 죄",
+                "number": 57,
+                "ready": true,
+                "seconds": 1147,
+                "description": "순경 공채 기출 16문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "공중의 건강과 사회의 도덕에 대한 죄",
+            "lessons": [
+              {
+                "id": "police-hsU503_2",
+                "sourceId": "hsU503_2",
+                "title": "성풍속에 관한 죄",
+                "number": 58,
+                "ready": true,
+                "seconds": 876,
+                "description": "순경 공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hsU503_3",
+                "sourceId": "hsU503_3",
+                "title": "도박과 복표·신앙에 관한 죄",
+                "number": 59,
+                "ready": true,
+                "seconds": 1023,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "형법각론 - 국가적 법익",
+        "sections": [
+          {
+            "title": "국가의 기능에 대한 죄",
+            "lessons": [
+              {
+                "id": "police-hsU602_1",
+                "sourceId": "hsU602_1",
+                "title": "공무원의 직무에 관한 죄",
+                "number": 60,
+                "ready": true,
+                "seconds": 1154,
+                "description": "순경 공채 기출 16문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU602_2",
+                "sourceId": "hsU602_2",
+                "title": "뇌물에 관한 죄",
+                "number": 61,
+                "ready": true,
+                "seconds": 1167,
+                "description": "순경 공채 기출 9문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU602_3",
+                "sourceId": "hsU602_3",
+                "title": "공무방해에 관한 죄",
+                "number": 62,
+                "ready": true,
+                "seconds": 1107,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU602_4",
+                "sourceId": "hsU602_4",
+                "title": "도주와 범인은닉의 죄",
+                "number": 63,
+                "ready": true,
+                "seconds": 1084,
+                "description": "순경 공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU602_5",
+                "sourceId": "hsU602_5",
+                "title": "위증과 증거인멸의 죄",
+                "number": 64,
+                "ready": true,
+                "seconds": 1005,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU602_6",
+                "sourceId": "hsU602_6",
+                "title": "무고의 죄",
+                "number": 65,
+                "ready": true,
+                "seconds": 918,
+                "description": "순경 공채 기출 8문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "형사소송법 - 수사",
+        "sections": [
+          {
+            "title": "수사의 기초와 소송의 주체",
+            "lessons": [
+              {
+                "id": "police-hsU701_1",
+                "sourceId": "hsU701_1",
+                "title": "수사의 의의·구조와 조건",
+                "number": 66,
+                "ready": true,
+                "seconds": 1143,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU701_2",
+                "sourceId": "hsU701_2",
+                "title": "수사기관과 피의자",
+                "number": 67,
+                "ready": true,
+                "seconds": 1070,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU701_3",
+                "sourceId": "hsU701_3",
+                "title": "변호인과 접견교통권",
+                "number": 68,
+                "ready": true,
+                "seconds": 942,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "수사의 단서",
+            "lessons": [
+              {
+                "id": "police-hsU702_1",
+                "sourceId": "hsU702_1",
+                "title": "불심검문",
+                "number": 69,
+                "ready": true,
+                "seconds": 949,
+                "description": "순경 공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hsU702_3",
+                "sourceId": "hsU702_3",
+                "title": "고소·고발·자수",
+                "number": 70,
+                "ready": true,
+                "seconds": 1134,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "임의수사",
+            "lessons": [
+              {
+                "id": "police-hsU703_1",
+                "sourceId": "hsU703_1",
+                "title": "임의수사와 강제수사의 구별",
+                "number": 71,
+                "ready": true,
+                "seconds": 1056,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU703_2",
+                "sourceId": "hsU703_2",
+                "title": "피의자신문",
+                "number": 72,
+                "ready": true,
+                "seconds": 1088,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "수사의 종결",
+            "lessons": [
+              {
+                "id": "police-hsU704_1",
+                "sourceId": "hsU704_1",
+                "title": "검사의 수사종결과 수사준칙",
+                "number": 73,
+                "ready": true,
+                "seconds": 1104,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "형사소송법 - 강제처분",
+        "sections": [
+          {
+            "title": "대인적 강제처분",
+            "lessons": [
+              {
+                "id": "police-hsU801_1",
+                "sourceId": "hsU801_1",
+                "title": "체포영장에 의한 체포",
+                "number": 74,
+                "ready": true,
+                "seconds": 1092,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU801_3",
+                "sourceId": "hsU801_3",
+                "title": "현행범인 체포",
+                "number": 75,
+                "ready": true,
+                "seconds": 1123,
+                "description": "순경 공채 기출 5문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU801_4",
+                "sourceId": "hsU801_4",
+                "title": "구속과 구속기간",
+                "number": 76,
+                "ready": true,
+                "seconds": 1156,
+                "description": "순경 공채 기출 9문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "대물적 강제처분",
+            "lessons": [
+              {
+                "id": "police-hsU802_1",
+                "sourceId": "hsU802_1",
+                "title": "압수·수색의 요건과 절차",
+                "number": 77,
+                "ready": true,
+                "seconds": 1132,
+                "description": "순경 공채 기출 10문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU802_2",
+                "sourceId": "hsU802_2",
+                "title": "영장 없는 압수·수색",
+                "number": 78,
+                "ready": true,
+                "seconds": 1160,
+                "description": "순경 공채 기출 17문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU802_3",
+                "sourceId": "hsU802_3",
+                "title": "전자정보의 압수·수색",
+                "number": 79,
+                "ready": true,
+                "seconds": 1143,
+                "description": "순경 공채 기출 12문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "신체구속의 구제와 그 밖의 강제처분",
+            "lessons": [
+              {
+                "id": "police-hsU803_2",
+                "sourceId": "hsU803_2",
+                "title": "통신제한조치",
+                "number": 80,
+                "ready": true,
+                "seconds": 1100,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU803_3",
+                "sourceId": "hsU803_3",
+                "title": "증거보전과 수사상 증인신문",
+                "number": 81,
+                "ready": true,
+                "seconds": 1012,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "형사소송법 - 증거",
+        "sections": [
+          {
+            "title": "증명의 기본원칙",
+            "lessons": [
+              {
+                "id": "police-hsU901_1",
+                "sourceId": "hsU901_1",
+                "title": "증거의 의의와 종류",
+                "number": 82,
+                "ready": true,
+                "seconds": 1140,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU901_2",
+                "sourceId": "hsU901_2",
+                "title": "증거재판주의와 엄격한 증명",
+                "number": 83,
+                "ready": true,
+                "seconds": 1163,
+                "description": "순경 공채 기출 13문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU901_3",
+                "sourceId": "hsU901_3",
+                "title": "거증책임과 자유심증주의",
+                "number": 84,
+                "ready": true,
+                "seconds": 1106,
+                "description": "순경 공채 기출 3문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "증거능력의 제한",
+            "lessons": [
+              {
+                "id": "police-hsU902_1",
+                "sourceId": "hsU902_1",
+                "title": "자백배제법칙",
+                "number": 85,
+                "ready": true,
+                "seconds": 1018,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU902_2",
+                "sourceId": "hsU902_2",
+                "title": "위법수집증거배제법칙",
+                "number": 86,
+                "ready": true,
+                "seconds": 964,
+                "description": "순경 공채 기출 9문제 · 15줄 노트"
+              },
+              {
+                "id": "police-hsU902_3",
+                "sourceId": "hsU902_3",
+                "title": "전문법칙의 의의와 예외",
+                "number": 87,
+                "ready": true,
+                "seconds": 1146,
+                "description": "순경 공채 기출 16문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU902_4",
+                "sourceId": "hsU902_4",
+                "title": "조서와 진술서의 증거능력",
+                "number": 88,
+                "ready": true,
+                "seconds": 963,
+                "description": "순경 공채 기출 5문제 · 13줄 노트"
+              },
+              {
+                "id": "police-hsU902_5",
+                "sourceId": "hsU902_5",
+                "title": "전문법칙 관련 문제",
+                "number": 89,
+                "ready": true,
+                "seconds": 1113,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "증거동의와 증명력",
+            "lessons": [
+              {
+                "id": "police-hsU903_1",
+                "sourceId": "hsU903_1",
+                "title": "증거동의",
+                "number": 90,
+                "ready": true,
+                "seconds": 926,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU903_2",
+                "sourceId": "hsU903_2",
+                "title": "탄핵증거",
+                "number": 91,
+                "ready": true,
+                "seconds": 963,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "police-hsU903_3",
+                "sourceId": "hsU903_3",
+                "title": "자백의 보강법칙",
+                "number": 92,
+                "ready": true,
+                "seconds": 875,
+                "description": "순경 공채 기출 4문제 · 12줄 노트"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

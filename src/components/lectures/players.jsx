@@ -1,5 +1,9 @@
 import {lazy} from 'react';
+import { firefighterPlayers } from './firefighter/players';
+import { policePlayers } from './police/players';
 export const players = {
+  ...firefighterPlayers,
+  ...policePlayers,
   reRealEstateConcept: lazy(() => import('./players/reRealEstateConcept')),
   reRealEstateNotion: lazy(() => import('./players/reRealEstateNotion')),
   reRealEstateClassification: lazy(() => import('./players/reRealEstateClassification')),

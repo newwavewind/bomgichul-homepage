@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import subjects from "@/data/police/manifest.json";
+import lectureManifest from "@/components/lectures/police/source-manifest.json";
 import { ExamTrackHub } from "@/components/exam-track/ExamTrackHub";
 import { POLICE_TRACK } from "@/lib/exam-track/config";
 import { buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
@@ -27,7 +28,7 @@ export default function Page() {
           })),
         }}
       />
-      <ExamTrackHub track={POLICE_TRACK} subjects={subjects} />
+      <ExamTrackHub track={POLICE_TRACK} subjects={subjects} lecturePreview={{href: '/police/lectures', total: lectureManifest.registeredLectures}} />
     </>
   );
 }

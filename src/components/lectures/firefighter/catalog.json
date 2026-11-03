@@ -1,0 +1,92 @@
+[
+  {
+    "subject": "sobang",
+    "label": "소방학개론",
+    "lectures": [
+      {
+        "id": "fire-sbU101_1",
+        "sourceId": "sbU101_1",
+        "title": "연소의 정의와 3요소·4요소",
+        "description": "교재 그림 · 공채 기출 1문제 · 13줄 노트",
+        "seconds": 919,
+        "sceneCount": 15
+      },
+      {
+        "id": "fire-sbU101_3",
+        "sourceId": "sbU101_3",
+        "title": "연소의 형태(기체·액체·고체)",
+        "description": "교재 그림 · 공채 기출 5문제 · 14줄 노트",
+        "seconds": 976,
+        "sceneCount": 16
+      },
+      {
+        "id": "fire-sbU101_4",
+        "sourceId": "sbU101_4",
+        "title": "연소속도와 연소 반응식",
+        "description": "공채 기출 4문제 · 13줄 노트",
+        "seconds": 999,
+        "sceneCount": 17
+      }
+    ]
+  },
+  {
+    "subject": "sobangbeop",
+    "label": "소방관계법규",
+    "lectures": [
+      {
+        "id": "fire-slU101_1",
+        "sourceId": "slU101_1",
+        "title": "목적과 용어의 정의",
+        "description": "공채 기출 1문제 · 13줄 노트",
+        "seconds": 1004,
+        "sceneCount": 15
+      },
+      {
+        "id": "fire-slU101_2",
+        "sourceId": "slU101_2",
+        "title": "소방기관의 설치와 119종합상황실",
+        "description": "공채 기출 4문제 · 14줄 노트",
+        "seconds": 963,
+        "sceneCount": 16
+      },
+      {
+        "id": "fire-slU101_3",
+        "sourceId": "slU101_3",
+        "title": "소방박물관과 종합계획의 수립·시행",
+        "description": "공채 기출 2문제 · 14줄 노트",
+        "seconds": 921,
+        "sceneCount": 13
+      }
+    ]
+  },
+  {
+    "subject": "haengjeongbeop",
+    "label": "행정법총론",
+    "lectures": [
+      {
+        "id": "fire-haU101",
+        "sourceId": "haU101",
+        "title": "통치행위",
+        "description": "공채 기출 1문제 · 13줄 노트",
+        "seconds": 907,
+        "sceneCount": 15
+      },
+      {
+        "id": "fire-haU102",
+        "sourceId": "haU102",
+        "title": "행정법의 법원",
+        "description": "공채 기출 4문제 · 13줄 노트",
+        "seconds": 1145,
+        "sceneCount": 16
+      },
+      {
+        "id": "fire-haU103",
+        "sourceId": "haU103",
+        "title": "행정법의 효력",
+        "description": "공채 기출 3문제 · 14줄 노트",
+        "seconds": 1105,
+        "sceneCount": 17
+      }
+    ]
+  }
+]

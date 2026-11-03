@@ -18,6 +18,7 @@ const exams = [
   {
     href: "/real-estate/intro",
     learnHref: "/real-estate",
+    lectureHref: "/real-estate/lectures/realestate",
     eyebrow: "제37회 공인중개사",
     title: "공인중개사",
     accentFrom: "#e8faf5",
@@ -27,6 +28,7 @@ const exams = [
   {
     href: "/police/intro",
     learnHref: "/police",
+    lectureHref: "/police/lectures/constitution",
     eyebrow: "순경 공채",
     title: "경찰공무원",
     accentFrom: "#eef2ff",
@@ -36,6 +38,7 @@ const exams = [
   {
     href: "/firefighter/intro",
     learnHref: "/firefighter",
+    lectureHref: "/firefighter/lectures/sobang",
     eyebrow: "소방 공채",
     title: "소방공무원",
     // 경찰(226°) 다음 칸 — 따뜻한 앰버로 구분
@@ -239,7 +242,9 @@ export function PlatformHome() {
         </section>
 
         <section id="exam-selection" className="mx-auto mb-10 grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
-          {visibleExams.map((exam) => (
+          {visibleExams.map((exam) => {
+            const lectureHref = "lectureHref" in exam ? exam.lectureHref : undefined;
+            return (
             <article
               key={exam.href}
               data-exam-card={exam.learnHref.slice(1)}
@@ -256,17 +261,17 @@ export function PlatformHome() {
                   {exam.title}
                 </h2>
               </div>
-              <div className={exam.learnHref === "/real-estate" ? "mt-6 grid grid-cols-3 gap-2" : "mt-6 flex flex-wrap gap-2"}>
+              <div className={lectureHref ? "mt-6 grid grid-cols-3 gap-2" : "mt-6 flex flex-wrap gap-2"}>
                 <ExamCardAction
                   href={exam.learnHref}
-                  label={exam.learnHref === "/real-estate" ? "기출문제" : "학습 시작"}
+                  label={lectureHref ? "기출문제" : "학습 시작"}
                   examTitle={exam.title}
-                  compact={exam.learnHref === "/real-estate"}
+                  compact={Boolean(lectureHref)}
                   primary
                 />
-                {exam.learnHref === "/real-estate" && (
+                {lectureHref && (
                   <ExamCardAction
-                    href="/real-estate/lectures/realestate"
+                    href={lectureHref}
                     label="강의 보기"
                     examTitle={exam.title}
                     compact
@@ -277,14 +282,15 @@ export function PlatformHome() {
                   href={`${exam.learnHref}/daily`}
                   label="매일 10문제"
                   examTitle={exam.title}
-                  compact={exam.learnHref === "/real-estate"}
+                  compact={Boolean(lectureHref)}
                 />
               </div>
             </article>
-          ))}
+            );
+          })}
         </section>
 
-        <AdRail adsense="hub" spacingClassName="mx-auto mb-10 max-w-5xl" />
+        <AdRail coupang spacingClassName="mx-auto mb-10 max-w-5xl" />
 
         {/* 로그인 시에만 「나의 학습 홈」 — 손님 환영판은 제거 */}
         <PersonalHomeGate guest={null} />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import subjects from "@/data/firefighter/manifest.json";
+import lectureManifest from "@/components/lectures/firefighter/source-manifest.json";
 import { ExamTrackHub } from "@/components/exam-track/ExamTrackHub";
 import { FIREFIGHTER_TRACK } from "@/lib/exam-track/config";
 import { buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
@@ -29,7 +30,7 @@ export default function Page() {
           })),
         }}
       />
-      <ExamTrackHub track={FIREFIGHTER_TRACK} subjects={subjects} />
+      <ExamTrackHub track={FIREFIGHTER_TRACK} subjects={subjects} lecturePreview={{href: '/firefighter/lectures', total: lectureManifest.registeredLectures}} />
     </>
   );
 }

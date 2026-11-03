@@ -1,0 +1,45 @@
+{
+  "sourceCommit": "57fb98bb4a20c04668b67d82503d20baa770355f",
+  "registeredLectures": 137,
+  "previewCount": 6,
+  "previewsPerSubject": 3,
+  "figureBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/figs/nfa2026-hd",
+  "hashes": {
+    "hnU101_1": {
+      "scenes": "55f03ae033ec2eb5969c38a917deb80bfcd2fbbcc97aac8ea920df59797d82c8",
+      "cues": "39120c9dd626f6aa6ea30d94cee41c73b81a69928e7eb834bb2bba99a35fe0b6",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/heonbeop/u101-1/v1",
+      "sceneCount": 15
+    },
+    "hnU101_2": {
+      "scenes": "0699463c9f36eccf9af8f66805a52b73c970397e21823c1aa3c5227445ef013f",
+      "cues": "1821049ebc454fdc8c819637b01c9961ed96848cbf23aa218b7c249b9300aa8c",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/heonbeop/u101-2/v1",
+      "sceneCount": 17
+    },
+    "hnU101_3": {
+      "scenes": "39a90386623a89beedb86abf24e3fa53a2ce3b767ca9d62c50c01a97bc0d17c8",
+      "cues": "2673d93acba842722f62a6d3a00c863bac3a2de56f0308df5f49f6f937f0b3b7",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/heonbeop/u101-3/v1",
+      "sceneCount": 16
+    },
+    "hsU101_1": {
+      "scenes": "2c08e6b1ac22d24d75353a1287545ae8ca401eeab1f9623ef16388653969681b",
+      "cues": "9885e7da934170552f8da4d151bb6ede5ad3bc0e7d555af949d1808b5d1cc293",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/hyeongsabeop/u101-1/v1",
+      "sceneCount": 15
+    },
+    "hsU101_2": {
+      "scenes": "1fb2e5fb78040b3d16d9a7b4b9ce4620386cd21b17d49423f2f7ace76d96795a",
+      "cues": "20b27f5cf8b05d75e3d5372b82219c1349e9b787100c35a3b5fd8b238660a66c",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/hyeongsabeop/u101-2/v1",
+      "sceneCount": 16
+    },
+    "hsU101_3": {
+      "scenes": "3459d3121ebc9a960fe1bd41ec5a069ada10d0b0884bf234b97e44b0ba6f67f7",
+      "cues": "f676be681ef8b8e13b955f15a8c77a5fe318d07caf4b70ee343e2d3480685695",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/hyeongsabeop/u101-3/v1",
+      "sceneCount": 15
+    }
+  }
+}

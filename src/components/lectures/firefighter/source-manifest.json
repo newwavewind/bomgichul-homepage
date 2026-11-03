@@ -1,0 +1,63 @@
+{
+  "sourceCommit": "f9d71e5c2c4f167a3d4bfc732fedab59bbc44481",
+  "registeredLectures": 215,
+  "previewCount": 9,
+  "previewsPerSubject": 3,
+  "figureBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/figs/nfa2026-hd",
+  "hashes": {
+    "sbU101_1": {
+      "scenes": "c20f3c54dd72945db43e43ac7b3a89d2e76b2a29636bfbddc72736e41248106e",
+      "cues": "d99c1d7c966da7e4450ba745ff6379c722f2c944ff4bbeb2e02e28a4a623bcb1",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/sobang/u101-1/v1",
+      "sceneCount": 15
+    },
+    "sbU101_3": {
+      "scenes": "204bb1a0793b34b669c99b50fc9e70283eef963b623bfd34d1f815bcb35695dd",
+      "cues": "6e7dbee9228bb935f01414735954a31af23b51560aeff07f927e83c6aa871a01",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/sobang/u101-3/v1",
+      "sceneCount": 16
+    },
+    "sbU101_4": {
+      "scenes": "54b1fc34ca148b41e275e545a27ca00854b081199161b7e2e8dd7ab176f01d59",
+      "cues": "116e987fa1ba0af2b21c0de3e3490ac605c11fab937e60584063b4a97204370c",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/sobang/u101-4/v1",
+      "sceneCount": 17
+    },
+    "slU101_1": {
+      "scenes": "b94c3b08ad2e20513c9804751e58b4c2b22741442e4c574da365d861565e7969",
+      "cues": "2b13f2600a0f71d796bc358db0fb3a97c4ec0abf101bf8eb2d6a3627cc77003a",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/sobangbeop/u101-1/v1",
+      "sceneCount": 15
+    },
+    "slU101_2": {
+      "scenes": "1f325bf2df3348c20431d05928f0e35e2c23af6a3ac60b3811f1cb7b974f2e6a",
+      "cues": "14a714464b41d1a7fd9f7b8f97b0b64e5832fb8a6d53c42e858cc8972816f4d4",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/sobangbeop/u101-2/v1",
+      "sceneCount": 16
+    },
+    "slU101_3": {
+      "scenes": "ab51e2494c32e3da1860e18c52a140b3d1783172051d811d4705ff607d191937",
+      "cues": "7e31083eebd9a18fb236fd1ea4af91206018354d771cd577bd9fb22bf6c64e50",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/sobangbeop/u101-3/v1",
+      "sceneCount": 13
+    },
+    "haU101": {
+      "scenes": "64b4f5bb5c68e0a11fae95ca6448ef3151cbdef61d2873dcf026dbb80755773c",
+      "cues": "c7ea006a48385cc0490337e352446aaab1a8abc6ecb4f0d5bd893fc4ae0b3f44",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/haengjeongbeop/u101/v1",
+      "sceneCount": 15
+    },
+    "haU102": {
+      "scenes": "825f0b7546c04e56283ad03e450fa6dbc7b3996bf9d231eef592d40e491ef33d",
+      "cues": "0d5e54afa510058e72374b889f63f0e8abe86432c4e8c16818893dedd07a4adb",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/haengjeongbeop/u102/v1",
+      "sceneCount": 16
+    },
+    "haU103": {
+      "scenes": "baf7eee421b344e23b54414816092724eafe591b9a4c91de40f547fd8801f0ea",
+      "cues": "e5481848d16babb69c50789730c672c1266138ce9d80661ad59b7bb01e94207f",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/haengjeongbeop/u103/v1",
+      "sceneCount": 17
+    }
+  }
+}
