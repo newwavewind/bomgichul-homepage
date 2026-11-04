@@ -37,7 +37,7 @@ export default async function LectureSubjectPage({params, searchParams}: Props) 
     <nav aria-label="맛보기 강의 과목" className="flex flex-wrap gap-2 border-b border-[#d8e3ef] pb-6">
       {catalog.map(item => <Link key={item.subject} href={`/real-estate/lectures/${item.subject}`} aria-current={item.subject === subject ? 'page' : undefined} className={`rounded-full border px-4 py-2.5 text-[13px] font-semibold transition-colors ${item.subject === subject ? 'border-carbon bg-carbon text-white' : 'border-[#d8e3ef] bg-white text-smoke hover:bg-snow'}`}>{subjectLabel(item.subject)}</Link>)}
     </nav>
-    <p className="rounded-xl bg-[#f3f7fc] px-5 py-4 text-sm leading-6 text-smoke">첫 3강은 여기서 미리 볼 수 있어요. 앱에서 이어서 공부할 수 있어요.</p>
+    <p className="rounded-xl bg-[#f3f7fc] px-5 py-4 text-sm leading-6 text-smoke">강의는 각 과목의 첫 3강을 미리 볼 수 있어요. <strong className="font-semibold text-carbon">311강 개별 교재와 6과목 통합 기본서는 모두 무료</strong>예요. 로그인·구매 없이 열고 저장하세요. <Link href="/real-estate/textbooks" className="ml-1 font-semibold text-carbon underline underline-offset-4">전체 교재 보기 →</Link></p>
     <LectureSamples key={`${subject}:${initialLectureId || "list"}`} subject={subject} initialLectureId={initialLectureId} lectures={group.lectures} parts={outline.find(item => item.subject === subject)!.parts} subjectLabel={subjectLabel(subject)}/>
     <section id="lecture-app" className="scroll-mt-24 rounded-[24px] border border-[#d8e3ef] bg-[#f3f7fc] px-6 py-9 md:flex md:items-center md:justify-between md:gap-10 md:px-9">
       <div className="max-w-xl space-y-3">
