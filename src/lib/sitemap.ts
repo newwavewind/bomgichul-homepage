@@ -181,6 +181,7 @@ const CORE_PAGES: MetadataRoute.Sitemap = [
 const REAL_ESTATE_PAGES: MetadataRoute.Sitemap = [
   page("/real-estate", "weekly", 0.9),
   page("/real-estate/intro", "monthly", 0.85),
+  page("/real-estate/textbooks", "weekly", 0.85),
   page("/community", "daily", 0.9),
   page("/archive", "daily", 0.9),
   page("/faq", "monthly", 0.8),
@@ -496,7 +497,7 @@ export function buildStaticSitemapGroup(group: SitemapGroup): MetadataRoute.Site
 
   const publicPages = getTrackPublicPages(`/${group}`, group === "history");
   const lecturePages = group === 'firefighter'
-    ? ['sobang', 'sobangbeop', 'haengjeongbeop'].map(subject => page(`/firefighter/lectures/${subject}`, 'weekly', 0.8))
+    ? [page('/firefighter/textbooks', 'weekly', 0.85), ...['sobang', 'sobangbeop', 'haengjeongbeop'].map(subject => page(`/firefighter/lectures/${subject}`, 'weekly', 0.8))]
     : group === 'police'
       ? ['constitution', 'criminal-law', 'police-science'].map(subject => page(`/police/lectures/${subject}`, 'weekly', 0.8))
       : [];

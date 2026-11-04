@@ -40,6 +40,7 @@ export default async function FirefighterLectureSubjectPage({params, searchParam
       <p className="text-sm font-semibold text-[#176859]">봄기출 소방공무원 앱 · 칠판 강의 미리보기</p>
       <h1 className="text-[30px] font-semibold leading-tight tracking-tight text-ink md:text-[38px]">{group.label} 칠판 강의</h1>
       <p className="max-w-2xl text-sm leading-7 text-smoke md:text-base">설명을 들으며 한 줄씩 써지는 판서를 따라가 보세요.<br className="hidden sm:block"/> 자막으로 놓친 말을 확인하고, 마지막 요약 노트로 배운 내용을 정리할 수 있어요.</p>
+      <Link href="/firefighter/textbooks" className="inline-flex min-h-11 items-center text-sm font-semibold text-carbon underline underline-offset-4">공채 215강 무료 교재 전체 보기 →</Link>
     </header>
     <nav aria-label="맛보기 강의 과목" className="flex flex-wrap gap-2 border-b border-[#d8e3ef] pb-6">
       {catalog.map(item => <Link key={item.subject} href={lecturePagePath('firefighter', item.subject)} aria-current={item.subject === subject ? 'page' : undefined} className={`rounded-full border px-4 py-2.5 text-[13px] font-semibold transition-colors ${item.subject === subject ? 'border-carbon bg-carbon text-white' : 'border-[#d8e3ef] bg-white text-smoke hover:bg-snow'}`}>{item.label}</Link>)}
