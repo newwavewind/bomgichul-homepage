@@ -41,7 +41,7 @@ export function StudyHub() {
             <h2 className="text-2xl font-semibold leading-snug">설명은 귀로, 정리는 칠판으로.</h2>
             <p className="max-w-xl text-sm leading-7 text-[#d0dfd4]">음성과 판서, 자막과 요약 노트로 공부해 보세요.</p>
           </div>
-          <div className="flex shrink-0 flex-col gap-3"><Link href="/real-estate/lectures" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#f7f0d6] px-6 py-3 text-sm font-semibold text-[#1e463b] hover:bg-white">강의 재생 →</Link><Link href="/real-estate/textbooks" className="inline-flex min-h-11 items-center justify-center text-sm font-semibold underline underline-offset-4">모든 교재 무료 보기 →</Link></div>
+          <Link href="/real-estate/lectures" className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-[#f7f0d6] px-6 py-3 text-sm font-semibold text-[#1e463b] hover:bg-white">강의 재생 →</Link>
         </section>
 
         <ExamTrackHubGuide id="real_estate" basePath="/real-estate" label="공인중개사" />

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import subjects from "@/data/firefighter/manifest.json";
 import lectureManifest from "@/components/lectures/firefighter/source-manifest.json";
 import { ExamTrackHub } from "@/components/exam-track/ExamTrackHub";
@@ -31,7 +30,6 @@ export default function Page() {
           })),
         }}
       />
-      <div className="mx-auto max-w-[1160px] px-4 pt-6 sm:px-6"><Link href="/firefighter/textbooks" className="inline-flex min-h-11 items-center rounded-xl border border-[#cbdced] bg-[#edf4fc] px-5 text-sm font-semibold text-[#2d5fa4]">공채 215강 교재 무료 보기 →</Link></div>
       <ExamTrackHub track={FIREFIGHTER_TRACK} subjects={subjects} lecturePreview={{href: '/firefighter/lectures', total: lectureManifest.registeredLectures}} />
     </>
   );

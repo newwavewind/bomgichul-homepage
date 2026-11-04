@@ -7,27 +7,37 @@ import fireOutline from '@/components/lectures/firefighter/outline.json';
 import civilCatalog from '@/components/lectures/catalog.json';
 import fireCatalog from '@/components/lectures/firefighter/catalog.json';
 
-describe('현재 공인중개사·소방 무료 교재와 기존 강의 공개 범위', () => {
-  it('532개의 현재 SHA 고정 PDF를 강의 목차와 빠짐없이 연결한다', () => {
+describe('웹 강의·교재 과목별 첫3강 공개와 앱 과목구매 안내', () => {
+  it('현재526강 메타데이터를 보존하고 첫3 READY 교재에만 원격 URL을 제공한다', () => {
     for (const [product, manifest, outline, count, pages] of [
       ['civil', civil, civilOutline, 311, 12723],
       ['fire', fire, fireOutline, 215, 5913],
     ] as const) {
+      const books: Record<string, {id:string;pages:number;sha256:string;url?:string;remotePath?:string;requiresPurchase:boolean}> = manifest.books;
       const ids = outline.flatMap(g => g.parts.flatMap(p => p.sections.flatMap(s => s.lessons.map(l => l.id))));
       expect(ids).toHaveLength(count);
-      expect(Object.keys(manifest.books).sort()).toEqual(ids.sort());
-      expect(Object.values(manifest.books).reduce((n, b) => n + b.pages, 0)).toBe(pages);
-      for (const book of [...Object.values(manifest.books), ...Object.values(manifest.compilations)]) {
-        expect(book.url).toBe(`https://pub-018addf460ef45fcad17018a675217b0.r2.dev/textbooks/${product}/2026-11-04/${book.sha256}/${book.id}.pdf`);
-        expect(book.pages).toBeGreaterThan(0);
-        expect(book.sha256).toMatch(/^[a-f0-9]{64}$/);
+      expect(Object.keys(books).sort()).toEqual(ids.sort());
+      expect(Object.values(books).reduce((n, b) => n + b.pages, 0)).toBe(pages);
+      expect(manifest.access.freeTextbooksPerSubject).toBe(3);
+      expect(Object.keys(manifest.compilations)).toHaveLength(0);
+      for (const group of outline) {
+        const lessons=group.parts.flatMap(p => p.sections.flatMap(s => s.lessons));
+        for (const [index, lesson] of lessons.entries()) {
+          const book=books[lesson.id];
+          expect(book.sha256).toMatch(/^[a-f0-9]{64}$/);
+          if(index < 3) {
+            expect(book.requiresPurchase).toBe(false);
+            expect(book.url).toBe(`https://pub-018addf460ef45fcad17018a675217b0.r2.dev/textbooks/${product}/2026-11-04/${book.sha256}/${book.id}.pdf`);
+          } else {
+            expect(book.requiresPurchase).toBe(true);
+            expect(book.url).toBeUndefined();
+            expect(book.remotePath).toBeUndefined();
+          }
+        }
       }
     }
-    expect(Object.keys(civil.compilations).sort()).toEqual(civilOutline.map(g => g.subject).sort());
-    expect(Object.values(civil.compilations).reduce((n, b) => n + b.pages, 0)).toBe(12744);
-    expect(Object.keys(fire.compilations)).toHaveLength(0);
   });
-  it('강의 플레이어는 각 과목 첫3강만 공개하고 교재 단추는 별도로 무료 제공한다', () => {
+  it('강의 첫3강 정책을 유지하고 나머지 교재는 PDF 대신 과목구매 앱 안내를 제공한다', () => {
     for (const [catalog, outline] of [[civilCatalog, civilOutline], [fireCatalog, fireOutline]] as const) {
       for (const group of outline) {
         const ids = group.parts.flatMap(p => p.sections.flatMap(s => s.lessons.map(l => l.id)));
@@ -35,15 +45,18 @@ describe('현재 공인중개사·소방 무료 교재와 기존 강의 공개 �
       }
     }
     const source = readFileSync('src/components/lectures/LectureSamples.jsx', 'utf8');
-    expect(source).toContain("site === 'firefighter' ? fireTextbooks.books : {}");
     expect(source).toContain('preview ? <PlayerBoundary>');
-    expect(source).toContain('lecture-app-button');
-    expect(source).toContain('{book && <TextbookButton book={book}/>}');
-    expect(source).not.toContain('TextbookAppButton');
+    expect(source).toContain('book.url ? <TextbookButton');
+    expect(source).toContain('TextbookAppButton title={book.title}');
+    expect(source).toContain('과목 구매 후 이용하세요');
     const viewer = readFileSync('src/components/lectures/TextbookAccess.tsx', 'utf8');
-    expect(viewer).not.toMatch(/supabase|useAuth|isPaid|hasAccess/);
-    expect(viewer).toContain("label = '교재 무료'");
+    expect(viewer).toContain('if (!book.url) return null');
     expect(viewer).toContain('key={book.sha256}');
     expect(viewer).toContain('link.download = book.fileName');
+    for(const site of ['real-estate','firefighter']) {
+      const page=readFileSync(`src/app/${site}/textbooks/page.tsx`,'utf8');
+      expect(page).toContain(`redirect('/${site}/lectures/`);
+      expect(page).not.toContain('CompilationCard');
+    }
   });
 });

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import './textbooks.css';
 
 export type Textbook = {
-  id: string; title: string; url: string; fileName: string; pages: number;
+  id: string; title: string; url?: string; fileName: string; pages: number;
   sha256: string; size?: number; lectureCount?: number;
 };
 
@@ -12,7 +12,7 @@ function BookIcon() {
   return <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 3h11l3 3v15H5z"/><path d="M15 3v4h4M8 11h8M8 15h8"/></svg>;
 }
 
-function TextbookViewer({ book, onClose }: { book: Textbook; onClose: () => void }) {
+function TextbookViewer({ book, onClose }: { book: Textbook & {url: string}; onClose: () => void }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const request = useRef<AbortController | null>(null);
   const [saving, setSaving] = useState(false);
@@ -53,15 +53,12 @@ function TextbookViewer({ book, onClose }: { book: Textbook; onClose: () => void
   </dialog>;
 }
 
-export function TextbookButton({ book, label = '교재 무료' }: { book: Textbook; label?: string }) {
+export function TextbookButton({ book, label = '교재' }: { book: Textbook; label?: string }) {
   const [open, setOpen] = useState(false);
-  return <><button type="button" className="textbook-open" onClick={() => setOpen(true)} aria-label={`${book.title} 무료 교재 열기`}><BookIcon/>{label}</button>{open && <TextbookViewer key={book.sha256} book={book} onClose={() => setOpen(false)}/>}</>;
+  if (!book.url) return null;
+  return <><button type="button" className="textbook-open" onClick={() => setOpen(true)} aria-label={`${book.title} 샘플 교재 열기`}><BookIcon/>{label}</button>{open && <TextbookViewer key={book.sha256} book={{...book,url:book.url}} onClose={() => setOpen(false)}/>}</>;
 }
 
-export function CompilationCard({ book }: { book: Textbook }) {
-  return <section className="textbook-compilation" aria-label={`${book.title} 무료 제공`}>
-    <div className="textbook-compilation-icon"><BookIcon/></div>
-    <div className="textbook-compilation-copy"><p>무료 통합 기본서</p><h2>{book.title}</h2><span>{book.lectureCount}강 전체 · {book.pages.toLocaleString()}쪽 · PDF 열기·저장</span><small>로그인이나 강의 구매 없이 모든 교재를 이용할 수 있어요.</small></div>
-    <TextbookButton book={book} label="기본서 열기"/>
-  </section>;
+export function TextbookAppButton({ title, onOpenApp }: { title: string; onOpenApp: () => void }) {
+  return <button type="button" className="textbook-open" onClick={onOpenApp} aria-label={`${title} 교재는 과목 구매 후 앱에서 보기`}><BookIcon/>앱에서 교재 보기</button>;
 }

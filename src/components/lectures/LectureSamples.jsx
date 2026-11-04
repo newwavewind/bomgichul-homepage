@@ -9,7 +9,7 @@ import { useLectureViewCounts } from './LectureViewCount';
 import './samples.css';
 import textbooks from './textbooks.json';
 import fireTextbooks from './firefighter/textbooks.json';
-import { TextbookButton } from './TextbookAccess';
+import { TextbookAppButton, TextbookButton } from './TextbookAccess';
 class PlayerBoundary extends Component {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
@@ -23,15 +23,18 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
   const siteConfig = lectureSiteConfig(site);
   const dialog = useRef(null);
   const [selected, setSelected] = useState('');
+  const [selectedKind, setSelectedKind] = useState('lecture');
   const previewById = new Map(lectures.map(lecture => [lecture.id, lecture]));
   const lessonIds = useMemo(() => parts.flatMap(part => part.sections.flatMap(section => section.lessons.map(lesson => lesson.id))), [parts]);
   const viewCounts = useLectureViewCounts(lessonIds);
   const count = parts.reduce((n, part) => n + part.sections.reduce((m, section) => m + section.lessons.length, 0), 0);
-  const openApp = (title) => {
+  const openApp = (title, kind = 'lecture') => {
     setSelected(title);
+    setSelectedKind(kind);
     dialog.current?.showModal();
   };
   const subjectBooks = site === 'real-estate' ? textbooks.books : site === 'firefighter' ? fireTextbooks.books : {};
+  const freeBookCount = site === 'firefighter' ? fireTextbooks.access.freeTextbooksPerSubject : textbooks.access.freeTextbooksPerSubject;
   return <>
     <section className="lecture-curriculum" aria-label={`${subjectLabel} 전체 강의 목록`}>
       <div className="lecture-curriculum-heading"><h2>전체 강의 목록 <span>{count}강</span></h2><span>첫 3강 미리보기</span></div>
@@ -49,7 +52,7 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
                 {preview ? <PlayerBoundary><Suspense fallback={<button className="lecture-preview-button" disabled>준비 중…</button>}>
                   <Player lectureId={lesson.id} progressId={`homepage-sample:${lesson.id}`} initialOpen={initialLectureId === lesson.id} renderFooter={() => <LectureSocial lectureId={lesson.id} subject={subject} title={lesson.title} site={site}/>} renderTrigger={play => <button className="lecture-preview-button" onClick={play} aria-label={`${lesson.number}강 ${lesson.title} 재생`}><span aria-hidden="true">▶</span> 재생</button>}/>
                 </Suspense></PlayerBoundary> : <button type="button" className="lecture-app-button" onClick={() => openApp(lesson.title)} aria-label={`${lesson.number}강 ${lesson.title} 앱에서 보기`}>앱에서 보기 <span aria-hidden="true">↗</span></button>}
-                {book && <TextbookButton book={book}/>}
+                {book && (book.url ? <TextbookButton book={book}/> : <TextbookAppButton title={book.title} onOpenApp={() => openApp(book.title, 'book')}/>)}
               </div>
             </li>;
           }))}
@@ -60,9 +63,9 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
       <div className="lecture-download-content">
         <button type="button" className="lecture-download-close" onClick={() => dialog.current?.close()} aria-label="닫기">✕</button>
         <p className="lecture-download-kicker">{siteConfig.appName}</p>
-        <h2 id="lecture-download-title">이 강의는 앱에서 만나 보세요</h2>
+        <h2 id="lecture-download-title">{selectedKind === 'book' ? '이 교재는 앱에서 과목 구매 후 이용하세요' : '이 강의는 앱에서 만나 보세요'}</h2>
         <p className="lecture-download-selected">{subjectLabel} · {selected}</p>
-        <p className="lecture-download-description">홈페이지에서는 첫 3강을 미리 볼 수 있어요.<br/>앱에서 이어서 공부할 수 있어요.</p>
+        <p className="lecture-download-description">{selectedKind === 'book' ? <>홈페이지에서는 각 과목의 첫 {freeBookCount}강 교재를 미리 볼 수 있어요.<br/>이후 교재는 앱에서 해당 과목 구매 후 강의와 함께 이용하세요.</> : <>홈페이지에서는 첫 3강을 미리 볼 수 있어요.<br/>앱에서 이어서 공부할 수 있어요.</>}</p>
         <AppStoreButtons className="justify-center" links={siteConfig.appLinks}/>
       </div>
     </dialog>
