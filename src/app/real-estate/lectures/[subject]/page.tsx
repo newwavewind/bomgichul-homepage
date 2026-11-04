@@ -37,7 +37,6 @@ export default async function LectureSubjectPage({params, searchParams}: Props) 
     <nav aria-label="맛보기 강의 과목" className="flex flex-wrap gap-2 border-b border-[#d8e3ef] pb-6">
       {catalog.map(item => <Link key={item.subject} href={`/real-estate/lectures/${item.subject}`} aria-current={item.subject === subject ? 'page' : undefined} className={`rounded-full border px-4 py-2.5 text-[13px] font-semibold transition-colors ${item.subject === subject ? 'border-carbon bg-carbon text-white' : 'border-[#d8e3ef] bg-white text-smoke hover:bg-snow'}`}>{subjectLabel(item.subject)}</Link>)}
     </nav>
-    <p className="rounded-xl bg-[#f3f7fc] px-5 py-4 text-sm leading-6 text-smoke">강의와 교재는 각 과목의 <strong className="font-semibold text-carbon">첫 3강</strong>을 미리 볼 수 있어요. 나머지 강의·교재는 봄기출 공인중개사 앱에서 이어서 이용하세요.</p>
     <LectureSamples key={`${subject}:${initialLectureId || "list"}`} subject={subject} initialLectureId={initialLectureId} lectures={group.lectures} parts={outline.find(item => item.subject === subject)!.parts} subjectLabel={subjectLabel(subject)}/>
     <section id="lecture-app" className="scroll-mt-24 rounded-[24px] border border-[#d8e3ef] bg-[#f3f7fc] px-6 py-9 md:flex md:items-center md:justify-between md:gap-10 md:px-9">
       <div className="max-w-xl space-y-3">
