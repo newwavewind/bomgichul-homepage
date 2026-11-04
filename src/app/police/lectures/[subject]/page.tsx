@@ -65,10 +65,7 @@ export default async function PoliceLectureSubjectPage({params, searchParams}: P
         </div>
       </section>
     ) : (
-      <>
-        <p className="rounded-xl bg-[#f3f7fc] px-5 py-4 text-sm leading-6 text-smoke">각 과목의 첫 3강은 여기서 미리 볼 수 있어요. 경찰학은 준비중이고, 이후 강의는 봄기출 경찰공무원 앱에서 이어서 공부하세요.</p>
-        <LectureSamples key={`${subject}:${initialLectureId || 'list'}`} site="police" subject={subject} initialLectureId={initialLectureId} lectures={group.lectures} parts={curriculum.parts} subjectLabel={group.label}/>
-      </>
+      <LectureSamples key={`${subject}:${initialLectureId || 'list'}`} site="police" subject={subject} initialLectureId={initialLectureId} lectures={group.lectures} parts={curriculum.parts} subjectLabel={group.label}/>
     )}
     <section id="lecture-app" className="scroll-mt-24 rounded-[24px] border border-[#d8e3ef] bg-[#f3f7fc] px-6 py-9 md:flex md:items-center md:justify-between md:gap-10 md:px-9">
       <div className="max-w-xl space-y-3">
