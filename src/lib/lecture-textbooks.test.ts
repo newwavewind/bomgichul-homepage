@@ -17,7 +17,7 @@ describe('공인중개사 무료 교재와 강의 공개 범위', () => {
       expect(book.sha256).toMatch(/^[a-f0-9]{64}$/);
     }
   });
-  it('과목별 첫 3강만 기존 웹 플레이어에 공개하고 나머지 교재를 독립 제공한다', () => {
+  it('과목별 첫 3강만 웹에서 강의·교재를 열고 나머지는 앱으로 안내한다', () => {
     expect(catalog).toHaveLength(6);
     for (const group of outline) {
       const ids = group.parts.flatMap(part => part.sections.flatMap(section => section.lessons.map(lesson => lesson.id)));
@@ -27,9 +27,12 @@ describe('공인중개사 무료 교재와 강의 공개 범위', () => {
     expect(source).toContain("site === 'real-estate' ? textbooks.books : {}");
     expect(source).toContain('preview ? <PlayerBoundary>');
     expect(source).toContain('lecture-app-button');
-    expect(source).toContain('{subjectBooks[lesson.id] && <TextbookButton');
+    expect(source).toContain('TextbookButton book={book}');
+    expect(source).toContain('TextbookAppButton');
+    expect(source).not.toContain('CompilationCard');
     const viewer = readFileSync('src/components/lectures/TextbookAccess.tsx', 'utf8');
     expect(viewer).not.toMatch(/supabase|useAuth|isPaid|hasAccess/);
+    expect(viewer).toContain("label = '교재'");
     expect(viewer).toContain('link.download = book.fileName');
   });
 });

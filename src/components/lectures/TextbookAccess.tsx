@@ -53,9 +53,13 @@ function TextbookViewer({ book, onClose }: { book: Textbook; onClose: () => void
   </dialog>;
 }
 
-export function TextbookButton({ book, label = '교재 무료' }: { book: Textbook; label?: string }) {
+export function TextbookButton({ book, label = '교재' }: { book: Textbook; label?: string }) {
   const [open, setOpen] = useState(false);
-  return <><button type="button" className="textbook-open" onClick={() => setOpen(true)} aria-label={`${book.title} 무료 교재 열기`}><BookIcon/>{label}</button>{open && <TextbookViewer book={book} onClose={() => setOpen(false)}/>}</>;
+  return <><button type="button" className="textbook-open" onClick={() => setOpen(true)} aria-label={`${book.title} 교재 열기`}><BookIcon/>{label}</button>{open && <TextbookViewer book={book} onClose={() => setOpen(false)}/>}</>;
+}
+
+export function TextbookAppButton({ title, onOpenApp, label = '교재' }: { title: string; onOpenApp: () => void; label?: string }) {
+  return <button type="button" className="textbook-open" onClick={onOpenApp} aria-label={`${title} 교재는 앱에서 보기`}><BookIcon/>{label}</button>;
 }
 
 export function CompilationCard({ book }: { book: Textbook }) {

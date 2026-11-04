@@ -8,7 +8,7 @@ import LectureSocial from './LectureSocial';
 import { useLectureViewCounts } from './LectureViewCount';
 import './samples.css';
 import textbooks from './textbooks.json';
-import { CompilationCard, TextbookButton } from './TextbookAccess';
+import { TextbookAppButton, TextbookButton } from './TextbookAccess';
 class PlayerBoundary extends Component {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
@@ -31,9 +31,7 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
     dialog.current?.showModal();
   };
   const subjectBooks = site === 'real-estate' ? textbooks.books : {};
-  const compilation = site === 'real-estate' ? textbooks.compilations[subject] : null;
   return <>
-    {compilation && <CompilationCard book={compilation}/>}
     <section className="lecture-curriculum" aria-label={`${subjectLabel} 전체 강의 목록`}>
       <div className="lecture-curriculum-heading"><h2>전체 강의 목록 <span>{count}강</span></h2><span>첫 3강 미리보기</span></div>
       {parts.map((part, partIndex) => <section className="lecture-part" key={part.title} aria-label={part.title}>
@@ -42,6 +40,7 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
           {part.sections.flatMap(section => section.lessons.map(lesson => {
             const preview = previewById.get(lesson.id);
             const Player = preview ? players[lesson.id] : null;
+            const book = subjectBooks[lesson.id];
             return <li className={`lecture-row${preview ? ' is-preview' : ''}`} key={lesson.id}>
               <span className="lecture-number">{String(lesson.number).padStart(2, '0')}</span>
               <div className="lecture-row-copy"><h4>{lesson.title}</h4><p>{section.title}{` · ${duration(lesson.seconds)}`}{typeof viewCounts[lesson.id] === 'number' ? ` · ${formatLectureViewCount(viewCounts[lesson.id])}` : ''}</p></div>
@@ -49,7 +48,9 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
                 {preview ? <PlayerBoundary><Suspense fallback={<button className="lecture-preview-button" disabled>준비 중…</button>}>
                   <Player lectureId={lesson.id} progressId={`homepage-sample:${lesson.id}`} initialOpen={initialLectureId === lesson.id} renderFooter={() => <LectureSocial lectureId={lesson.id} subject={subject} title={lesson.title} site={site}/>} renderTrigger={play => <button className="lecture-preview-button" onClick={play} aria-label={`${lesson.number}강 ${lesson.title} 재생`}><span aria-hidden="true">▶</span> 재생</button>}/>
                 </Suspense></PlayerBoundary> : <button type="button" className="lecture-app-button" onClick={() => openApp(lesson.title)} aria-label={`${lesson.number}강 ${lesson.title} 앱에서 보기`}>앱에서 보기 <span aria-hidden="true">↗</span></button>}
-                {subjectBooks[lesson.id] && <TextbookButton book={subjectBooks[lesson.id]}/>}
+                {book && (preview
+                  ? <TextbookButton book={book}/>
+                  : <TextbookAppButton title={`${lesson.number}강 ${lesson.title}`} onOpenApp={() => openApp(`${lesson.title} 교재`)}/>)}
               </div>
             </li>;
           }))}
