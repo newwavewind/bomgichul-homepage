@@ -128,9 +128,10 @@ export async function DailyPlayPage({
         subject.id,
         morePage,
       );
-  const [nickname, todayRanking, insights, friendBoard, shareContext] = await Promise.all([
+  const [nickname, todayRanking, cumulativeRanking, insights, friendBoard, shareContext] = await Promise.all([
     viewerNickname(),
     getTodayBoard(slug, subject.id, dateKey),
+    getCumulativeBoard(slug, subject.id),
     getDailyInsights(slug, subject.id, dateKey),
     challengeId ? getFriendBoard(challengeId) : Promise.resolve([]),
     getViewerDailyShareContext(slug, subject.id, dateKey),
@@ -181,6 +182,7 @@ export async function DailyPlayPage({
       roundHref={set[0]?.roundHref ?? meta.home}
       defaultNickname={nickname}
       todayRanking={todayRanking.slice(0, 10)}
+      cumulativeRanking={cumulativeRanking.slice(0, 10)}
       friendBoard={friendBoard}
       insights={insights}
       composition={composition}

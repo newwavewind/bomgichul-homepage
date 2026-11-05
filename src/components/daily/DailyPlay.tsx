@@ -22,6 +22,7 @@ import { DailyReviewList } from "@/components/daily/DailyReviewList";
 import { DailyInviteCard } from "@/components/daily/DailyInviteCard";
 import { ResultActions } from "@/components/daily/ResultActions";
 import {
+  getCumulativeBoard,
   getTodayBoard,
   startDailyAttempt,
   submitDailyAttempt,
@@ -70,6 +71,7 @@ export function DailyPlay({
   roundHref,
   defaultNickname,
   todayRanking,
+  cumulativeRanking,
   friendBoard,
   insights,
   composition,
@@ -92,6 +94,7 @@ export function DailyPlay({
   roundHref: string;
   defaultNickname: string;
   todayRanking: BoardRow[];
+  cumulativeRanking: BoardRow[];
   friendBoard: BoardRow[];
   insights: DailyInsights;
   composition: DailyComposition;
@@ -122,6 +125,8 @@ export function DailyPlay({
   const [error, setError] = useState<string | null>(null);
   const [score, setScore] = useState<DailyScore | null>(null);
   const [ranking, setRanking] = useState(todayRanking);
+  const [cumulative, setCumulative] = useState(cumulativeRanking);
+  const [rankBoard, setRankBoard] = useState<"today" | "total">("today");
   const [rankingSynced, setRankingSynced] = useState(true);
   const [showAllRanking, setShowAllRanking] = useState(false);
   const [rankingLoading, setRankingLoading] = useState(false);
@@ -340,12 +345,16 @@ export function DailyPlay({
     setRankingLoading(true);
     setRankingError(false);
     try {
-      const rows = await getTodayBoard(exam, subjectId, score?.dateKey ?? dateKey);
-      if (rows.length > 0 || !score?.saved) {
-        setRanking(rows);
-        setRankingSynced(true);
+      if (rankBoard === "total") {
+        setCumulative(await getCumulativeBoard(exam, subjectId));
       } else {
-        setRankingError(true);
+        const rows = await getTodayBoard(exam, subjectId, score?.dateKey ?? dateKey);
+        if (rows.length > 0 || !score?.saved) {
+          setRanking(rows);
+          setRankingSynced(true);
+        } else {
+          setRankingError(true);
+        }
       }
     } catch {
       setRankingError(true);
@@ -404,7 +413,8 @@ export function DailyPlay({
         },
       ].sort((a, b) => a.rank - b.rank)
     : ranking;
-  const visibleRanking = showAllRanking ? liveRanking : liveRanking.slice(0, 10);
+  const activeRanking = rankBoard === "total" ? cumulative : liveRanking;
+  const visibleRanking = showAllRanking ? activeRanking : activeRanking.slice(0, 10);
   const liveFriendBoard = score
     ? [
         ...friendBoard.filter(
@@ -605,15 +615,25 @@ export function DailyPlay({
               aria-label={`${isArchive ? formatKoreanDate(dateKey) : "오늘"} 순위`}
             >
               <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-xs font-semibold text-[#64748b]">
-                    {isArchive
-                      ? `${formatKoreanDate(dateKey)} 순위`
-                      : "오늘 순위"}
-                  </p>
-                  <h2 className="mt-0.5 text-base font-semibold text-ink">
-                    {showAllRanking ? `전체 순위 · ${liveRanking.length}명` : "상위 10명"}
-                  </h2>
+                <div className="flex rounded-full bg-[#EEF3F9] p-1" role="tablist" aria-label="순위 보기">
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={rankBoard === "today"}
+                    onClick={() => setRankBoard("today")}
+                    className={`rounded-full px-3 py-1.5 text-sm font-semibold ${rankBoard === "today" ? "bg-white text-ink shadow-sm" : "text-[#64748b]"}`}
+                  >
+                    {isArchive ? formatKoreanDate(dateKey) : "오늘 순위"}
+                  </button>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={rankBoard === "total"}
+                    onClick={() => setRankBoard("total")}
+                    className={`rounded-full px-3 py-1.5 text-sm font-semibold ${rankBoard === "total" ? "bg-white text-ink shadow-sm" : "text-[#64748b]"}`}
+                  >
+                    누적 순위
+                  </button>
                 </div>
                 <button
                   type="button"
@@ -624,6 +644,9 @@ export function DailyPlay({
                   {showAllRanking ? "순위 접기 ↑" : "전체 순위 보기 ↓"}
                 </button>
               </div>
+              <h2 className="mt-3 text-base font-semibold text-ink">
+                {showAllRanking ? `전체 순위 · ${activeRanking.length}명` : "상위 10명"}
+              </h2>
               {rankingLoading ? (
                 <p className="mt-3 text-xs text-[#64748b]">최신 순위를 불러오는 중...</p>
               ) : null}
@@ -641,17 +664,18 @@ export function DailyPlay({
                         {row.rank}. {row.nickname}
                       </span>
                       <span className="shrink-0 text-xs text-[#64748b]">
-                        {row.correct}/{row.total} ·{" "}
-                        {row.elapsedMs != null
-                          ? formatElapsed(row.elapsedMs)
-                          : "-"}
+                        {rankBoard === "total"
+                          ? `${row.days ?? 0}일 · 맞힌 수 ${row.correct}`
+                          : `${row.correct}/${row.total} · ${
+                              row.elapsedMs != null ? formatElapsed(row.elapsedMs) : "-"
+                            }`}
                       </span>
                     </li>
                   ))}
                 </ol>
               ) : (
                 <p className="mt-4 rounded-2xl bg-[#f8fafc] px-4 py-5 text-center text-sm text-[#64748b]">
-                  아직 오늘 기록이 없습니다.
+                  {rankBoard === "total" ? "아직 누적 기록이 없습니다." : "아직 오늘 기록이 없습니다."}
                 </p>
               )}
             </div>

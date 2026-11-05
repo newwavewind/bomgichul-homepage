@@ -4,6 +4,7 @@ import { createHmac, timingSafeEqual } from "crypto";
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { getUser } from "@/lib/auth";
+import { currentDailyActor } from "@/lib/daily-challenge/daily-actor";
 import {
   ANONYMOUS_NICKNAME,
   cleanNickname,
@@ -113,7 +114,27 @@ function cleanDevice(id: string) {
   return text;
 }
 
+function nickIdentity(nickname: string) {
+  const key = nickname.normalize("NFKC").toLowerCase().replace(/\s+/g, "");
+  return `nick:${key}`;
+}
+
 async function identityFor(deviceId: string) {
+  const actor = currentDailyActor();
+  if (actor?.guestIdentity) {
+    return {
+      identity: actor.guestIdentity,
+      userId: null as string | null,
+      profileName: actor.nickname,
+    };
+  }
+  if (actor?.id) {
+    return {
+      identity: `user:${actor.id}`,
+      userId: actor.id,
+      profileName: actor.nickname,
+    };
+  }
   const user = await getUser();
   if (user)
     return {
@@ -728,14 +749,14 @@ async function rankStats(
 ) {
   const { data } = await admin
     .from("daily_challenge_attempts")
-    .select("correct, elapsed_ms")
+    .select("nickname, correct, elapsed_ms")
     .eq("exam_slug", exam)
     .eq("subject_id", subject)
     .eq("quiz_date", dateKey)
     .eq("mode", "ranked")
     .order("correct", { ascending: false })
     .order("elapsed_ms", { ascending: true });
-  const rows = (data ?? []) as Pick<AttemptRow, "correct" | "elapsed_ms">[];
+  const rows = (data ?? []) as Pick<AttemptRow, "nickname" | "correct" | "elapsed_ms">[];
   const better = rows.filter(
     (row) =>
       row.correct > correct ||
@@ -831,7 +852,15 @@ export async function startDailyAttempt(input: {
       maxAge: 60 * 60 * 6,
     },
   );
-  jar.set("bom_daily_identity", who.identity, {
+  const savedIdentity = jar.get("bom_daily_identity")?.value || "";
+  const identityCookie = who.userId
+    ? who.identity
+    : who.identity.startsWith("nick:")
+      ? who.identity
+      : savedIdentity.startsWith("nick:")
+        ? savedIdentity
+        : who.identity;
+  jar.set("bom_daily_identity", identityCookie, {
     httpOnly: true,
     sameSite: "lax",
     path: "/",
@@ -899,29 +928,42 @@ export async function submitDailyAttempt(input: {
   if (set.length === 0)
     return { ok: false, message: "오늘 문제를 만들지 못했습니다." };
 
-  const who = await identityFor(input.deviceId);
+  const deviceWho = await identityFor(input.deviceId);
+  const nickname = cleanNickname(input.nickname || deviceWho.profileName);
+  let who = deviceWho;
+  if (!deviceWho.userId && nickname !== ANONYMOUS_NICKNAME) {
+    who = {
+      identity: nickIdentity(nickname),
+      userId: null,
+      profileName: nickname,
+    };
+  }
   const jar = await cookies();
   const modeKey = attemptModeKey(input.mode, page, input.reviewSource);
-  const tokenElapsedMs = readElapsed(
-    input.timerToken ?? undefined,
-    input.exam,
-    dateKey,
-    modeKey,
-    subject.id,
-    who.identity,
-  );
-  const elapsedMs =
-    tokenElapsedMs !== INVALID_ELAPSED_MS
-      ? tokenElapsedMs
-      : readElapsed(
-          jar.get(cookieName(input.exam, modeKey, subject.id))?.value,
-          input.exam,
-          dateKey,
-          modeKey,
-          subject.id,
-          who.identity,
-        );
-  const nickname = cleanNickname(input.nickname || who.profileName);
+  const deviceKey = `device:${cleanDevice(input.deviceId)}`;
+  const elapsedFor = (identity: string) => {
+    const fromToken = readElapsed(
+      input.timerToken ?? undefined,
+      input.exam,
+      dateKey,
+      modeKey,
+      subject.id,
+      identity,
+    );
+    if (fromToken !== INVALID_ELAPSED_MS) return fromToken;
+    return readElapsed(
+      jar.get(cookieName(input.exam, modeKey, subject.id))?.value,
+      input.exam,
+      dateKey,
+      modeKey,
+      subject.id,
+      identity,
+    );
+  };
+  let elapsedMs = elapsedFor(who.identity);
+  if (elapsedMs === INVALID_ELAPSED_MS && who.identity !== deviceKey) {
+    elapsedMs = elapsedFor(deviceKey);
+  }
   const review = grade(set, input.picks ?? []);
   const correct = review.filter((item) => item.ok).length;
   const roundHref = set[0]?.roundHref ?? meta.home;
@@ -1045,12 +1087,25 @@ export async function submitDailyAttempt(input: {
         .eq("nickname", nickname)
         .maybeSingle();
       if (clash && clash.identity_key !== who.identity) {
-        return {
-          ...base,
-          message:
-            "오늘 이 과목에 이미 쓰인 이름입니다. 다른 이름을 적어 주세요.",
-        };
+        const theirs = clash.identity_key || "";
+        if (theirs.startsWith("user:")) {
+          return {
+            ...base,
+            message:
+              "오늘 이 과목에 이미 쓰인 이름입니다. 다른 이름을 적어 주세요.",
+          };
+        }
+        who = { ...who, identity: theirs };
       }
+    }
+
+    if (!who.userId) {
+      jar.set("bom_daily_identity", who.identity, {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        maxAge: 60 * 60 * 24 * 400,
+      });
     }
 
     if (input.mode === "ranked") {
@@ -1215,11 +1270,13 @@ export async function submitDailyAttempt(input: {
 }
 
 async function mineIdentity() {
-  const jar = await cookies();
-  const saved = jar.get("bom_daily_identity")?.value;
-  if (saved) return saved;
+  const actor = currentDailyActor();
+  if (actor?.guestIdentity) return actor.guestIdentity;
+  if (actor?.id) return `user:${actor.id}`;
   const user = await getUser();
-  return user ? `user:${user.id}` : "";
+  if (user) return `user:${user.id}`;
+  const jar = await cookies();
+  return jar.get("bom_daily_identity")?.value || "";
 }
 
 export async function getTodayBoard(
@@ -1319,6 +1376,7 @@ export async function getCumulativeBoard(
     }
 
     return [...grouped.entries()]
+      .filter((entry) => entry[1].nickname !== ANONYMOUS_NICKNAME)
       .sort(
         (a, b) =>
           b[1].points - a[1].points ||
