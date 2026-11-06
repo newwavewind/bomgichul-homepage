@@ -127,6 +127,22 @@ export function getDailyEligiblePool(slug: string, subjectId: string) {
   return subjectPool.filter((question) => question.year >= latestYear - 9);
 }
 
+/** 앱이 예전 과목 id 로 매일 10문제를 연다. 홈 과목 id 로 바꿔 같은 출제를 준다. */
+const DAILY_SUBJECT_ALIASES: Record<string, Record<string, string>> = {
+  police: {
+    "broker-law": "police-science",
+    "registry-law": "constitution",
+    "realestate-tax": "criminal-law",
+  },
+  english: {
+    english: "gong9",
+  },
+};
+
+export function canonicalDailySubjectId(slug: string, subjectId: string) {
+  return DAILY_SUBJECT_ALIASES[slug]?.[subjectId] ?? subjectId;
+}
+
 export function listDailySubjects(
   slug: string,
 ): { id: string; label: string }[] {

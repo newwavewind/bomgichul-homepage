@@ -7,6 +7,7 @@ import {
   getDailyExam,
 } from "@/lib/daily-challenge/exams";
 import {
+  canonicalDailySubjectId,
   getDailyEligiblePool,
   getDailySetWithSchedule,
   listDailySubjects,
@@ -15,6 +16,7 @@ import {
   getCumulativeBoard,
   getDailyInsights,
   getTodayBoard,
+  getViewerDailyShareContext,
   startDailyAttempt,
   submitDailyAttempt,
 } from "@/lib/daily-challenge/actions";
@@ -25,12 +27,20 @@ import {
 import { getKSTDateString } from "@/lib/exam";
 import { parseQuestionStem } from "@/lib/exam-stem";
 
-function tableCell(cell: unknown): string {
-  if (typeof cell === "string") return cell;
-  if (cell && typeof cell === "object" && "text" in cell) {
-    return String((cell as { text?: unknown }).text ?? "");
+function tableCell(cell: unknown): { text: string; colSpan?: number; rowSpan?: number } {
+  if (typeof cell === "string") return { text: cell };
+  if (cell && typeof cell === "object") {
+    const row = cell as { text?: unknown; colSpan?: unknown; rowSpan?: unknown };
+    const text = "text" in row ? String(row.text ?? "") : "";
+    const colSpan = typeof row.colSpan === "number" && row.colSpan > 1 ? row.colSpan : undefined;
+    const rowSpan = typeof row.rowSpan === "number" && row.rowSpan > 1 ? row.rowSpan : undefined;
+    return {
+      text,
+      ...(colSpan ? { colSpan } : {}),
+      ...(rowSpan ? { rowSpan } : {}),
+    };
   }
-  return "";
+  return { text: "" };
 }
 
 function questionTables(table: unknown) {
@@ -39,20 +49,25 @@ function questionTables(table: unknown) {
     if (!item || typeof item !== "object") return [];
     const row = item as {
       headers?: unknown[];
+      headerRows?: unknown[];
       rows?: unknown[];
       caption?: string;
       lead?: string;
       notes?: unknown[];
     };
-    const headers = Array.isArray(row.headers) ? row.headers.map(tableCell) : [];
+    const headers = Array.isArray(row.headers) ? row.headers.map((cell) => tableCell(cell).text) : [];
+    const headerRows = Array.isArray(row.headerRows)
+      ? row.headerRows.flatMap((line) => (Array.isArray(line) ? [line.map(tableCell)] : []))
+      : [];
     const rows = Array.isArray(row.rows)
       ? row.rows.flatMap((line) => (Array.isArray(line) ? [line.map(tableCell)] : []))
       : [];
-    if (!headers.length && !rows.length) return [];
+    if (!headers.length && !headerRows.length && !rows.length) return [];
     return [{
       caption: row.caption || "",
       lead: typeof row.lead === "string" ? row.lead : "",
       headers,
+      ...(headerRows.length ? { headerRows } : {}),
       rows,
       notes: Array.isArray(row.notes) ? row.notes.map((note) => String(note)) : [],
     }];
@@ -123,7 +138,10 @@ export async function POST(request: Request) {
   }
 
   const examSlug = typeof payload.examSlug === "string" ? payload.examSlug : "";
-  const subjectId = typeof payload.subjectId === "string" ? payload.subjectId : "";
+  const subjectId = canonicalDailySubjectId(
+    examSlug,
+    typeof payload.subjectId === "string" ? payload.subjectId : "",
+  );
   const deviceId = typeof payload.deviceId === "string" ? payload.deviceId : "";
   const exam = getDailyExam(examSlug);
   const subject = listDailySubjects(examSlug).find((row) => row.id === subjectId);
@@ -141,6 +159,17 @@ export async function POST(request: Request) {
 
   const run = async () => {
     const action = typeof payload.action === "string" ? payload.action : "open";
+    if (action === "arm") {
+      return startDailyAttempt({
+        exam: examSlug,
+        subject: subjectId,
+        mode: "ranked",
+        deviceId,
+        arm: true,
+        timerToken: typeof payload.timerToken === "string" ? payload.timerToken : "",
+      });
+    }
+
     if (action === "submit") {
       const score = await submitDailyAttempt({
         exam: examSlug,
@@ -177,6 +206,7 @@ export async function POST(request: Request) {
           subject: subjectId,
           mode: "ranked",
           deviceId,
+          ...(payload.arm === false ? { arm: false as const } : {}),
           timerToken: typeof payload.timerToken === "string" ? payload.timerToken : "",
         });
     const questionSet = getDailySetWithSchedule(examSlug, date, "ranked", subjectId);
@@ -213,9 +243,12 @@ export async function POST(request: Request) {
     const eligibleYears = eligiblePool.map((question) => question.year);
     const eligibleIds = eligiblePool.map((question) => question.id);
     const insights = await getDailyInsights(examSlug, subjectId, date);
-    const [today, cumulative] = await Promise.all([
+    const [today, cumulative, share] = await Promise.all([
       getTodayBoard(examSlug, subjectId, date),
       getCumulativeBoard(examSlug, subjectId),
+      archive
+        ? Promise.resolve({ inviterNickname: "", attempt: null })
+        : getViewerDailyShareContext(examSlug, subjectId, date),
     ]);
     return {
       ...started,
@@ -245,6 +278,7 @@ export async function POST(request: Request) {
       questions,
       today,
       cumulative,
+      share,
     };
   };
 
