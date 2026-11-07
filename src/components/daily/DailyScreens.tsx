@@ -6,6 +6,8 @@ import { DailyLearningReportCard } from "@/components/daily/DailyLearningReport"
 import { DailyReviewList } from "@/components/daily/DailyReviewList";
 import { DailySubjectPick } from "@/components/daily/DailySubjectPick";
 import { DailyAbout } from "@/components/daily/DailyAbout";
+import { AppSolveMark } from "@/components/daily/AppSolveMark";
+import { CumulativeRankNote } from "@/components/daily/CumulativeRankNote";
 import { ResultActions } from "@/components/daily/ResultActions";
 import {
   getChallenger,
@@ -21,6 +23,7 @@ import {
 import { getDailyExam } from "@/lib/daily-challenge/exams";
 import { formatElapsed, formatKoreanDate } from "@/lib/daily-challenge/format";
 import {
+  canonicalDailySubjectId,
   getDailyEligiblePool,
   getDailySetWithSchedule,
   listDailySubjects,
@@ -88,11 +91,14 @@ export async function DailyPlayPage({
   const subjects = listDailySubjects(slug);
   const challengeId = one(query.challenge);
   const challenge = challengeId ? await getChallenger(challengeId, slug) : null;
-  const requested = one(query.subject);
+  const requested = canonicalDailySubjectId(slug, one(query.subject) || "");
+  const challenged = challenge
+    ? canonicalDailySubjectId(slug, challenge.subjectId)
+    : "";
   const subject =
     subjects.find((item) => item.id === requested) ??
-    (challenge
-      ? subjects.find((item) => item.id === challenge.subjectId)
+    (challenged
+      ? subjects.find((item) => item.id === challenged)
       : undefined) ??
     (subjects.length === 1 ? subjects[0] : undefined);
   if (!subject) {
@@ -350,7 +356,7 @@ export async function DailyRanksPage({
         <h1 className="mt-1 font-display text-2xl font-semibold text-ink">
           {subject.label} 순위
         </h1>
-        <div className="mt-4 flex gap-2">
+        <div className="mt-4 flex items-center gap-2">
           <Link href={rankBase} className={board === "today" ? tabOn : tabOff}>
             {dateKey === todayDateKey ? "오늘" : formatKoreanDate(dateKey)}
           </Link>
@@ -360,6 +366,7 @@ export async function DailyRanksPage({
           >
             누적
           </Link>
+          {board === "total" ? <CumulativeRankNote /> : null}
         </div>
         <ol className="mt-4 space-y-2">
           {rows.length === 0 ? (
@@ -373,8 +380,11 @@ export async function DailyRanksPage({
                 className={`flex items-center justify-between rounded-2xl px-4 py-3 ${row.mine ? "bg-[#E8F4FF]" : "bg-white/80"}`}
               >
                 <div>
-                  <p className="text-sm font-semibold text-ink">
-                    {row.rank}. {row.nickname}
+                  <p className="flex items-center text-sm font-semibold text-ink">
+                    <span className="truncate">
+                      {row.rank}. {row.nickname}
+                    </span>
+                    {row.fromApp ? <AppSolveMark /> : null}
                   </p>
                   <p className="text-xs text-[#64748b]">
                     {board === "total"

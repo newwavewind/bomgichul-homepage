@@ -1,6 +1,10 @@
 import { ImageResponse } from "next/og";
 import { getDailyExam } from "@/lib/daily-challenge/exams";
-import { getDailySet, listDailySubjects } from "@/lib/daily-challenge/pool";
+import {
+  canonicalDailySubjectId,
+  getDailySet,
+  listDailySubjects,
+} from "@/lib/daily-challenge/pool";
 import { getKSTDateString } from "@/lib/exam";
 
 export const runtime = "nodejs";
@@ -15,7 +19,10 @@ function clipped(text: string, length: number) {
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const exam = url.searchParams.get("exam") ?? "";
-  const subjectId = url.searchParams.get("subject") ?? "";
+  const subjectId = canonicalDailySubjectId(
+    exam,
+    url.searchParams.get("subject") ?? "",
+  );
   const date = url.searchParams.get("date") ?? getKSTDateString();
   const meta = getDailyExam(exam);
   const subject = listDailySubjects(exam).find((item) => item.id === subjectId);
