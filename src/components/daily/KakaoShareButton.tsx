@@ -194,6 +194,70 @@ export function KakaoShareButton({
   );
 }
 
+function oneLine(value: string, max: number) {
+  return value.replace(/\s+/g, " ").trim().slice(0, max);
+}
+
+function sharePath(value: string) {
+  const path = value.trim().replace(/^\/+/, "");
+  if (!path || path.length > 800 || path.includes("://") || path.startsWith("//") || path.includes("\\")) {
+    return "";
+  }
+  return path;
+}
+
+function shareImage(value: string) {
+  try {
+    const url = new URL(value);
+    if (url.origin !== SITE_URL || url.protocol !== "https:") return "";
+    return url.href;
+  } catch {
+    return "";
+  }
+}
+
+/** 앱 웹뷰는 주소가 localhost라 카카오 인증이 거절된다. 등록된 홈페이지에서 한 번 더 누르게 한다. */
+export function KakaoShareBridge({
+  title,
+  description,
+  imageUrl,
+  path,
+}: {
+  title: string;
+  description: string;
+  imageUrl: string;
+  path: string;
+}) {
+  const safeTitle = oneLine(title, 80);
+  const safeDescription = oneLine(description, 160);
+  const safePath = sharePath(path);
+  const safeImage = shareImage(imageUrl);
+  const readyArgs = Boolean(safeTitle && safeDescription && safePath && safeImage);
+
+  return (
+    <div className="mx-auto flex min-h-[50vh] max-w-md flex-col items-center justify-center px-5 py-10 text-center">
+      <p className="text-lg font-bold text-ink">카카오톡으로 보내기</p>
+      <p className="mt-2 text-sm leading-6 text-[#64748b]">
+        {readyArgs
+          ? "아래 버튼을 누르면 카카오톡 친구 선택 창이 열립니다."
+          : "공유 내용이 빠졌습니다. 앱에서 다시 공유해 주세요."}
+      </p>
+      {readyArgs ? (
+        <div className="mt-6 w-full">
+          <KakaoShareButton
+            title={safeTitle}
+            description={safeDescription}
+            imagePath={safeImage}
+            path={safePath}
+          >
+            카카오톡으로 보내기
+          </KakaoShareButton>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export const shareButtonClass =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#FEE500] px-4 py-3 text-center text-sm font-bold text-[#191919] shadow-[0_3px_0_#e4cf00] transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-none disabled:cursor-wait disabled:opacity-80 disabled:hover:translate-y-0";
 
