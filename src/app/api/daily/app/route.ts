@@ -216,7 +216,17 @@ export async function POST(request: Request) {
         (typeof presentation.passageText === "string" && presentation.passageText) ||
         (typeof presentation.passage === "string" && presentation.passage) ||
         "";
-      const parsedStem = parseQuestionStem(view.stem);
+      // 감정평가사 등 keepStemLines 문항은 material_lines 를 줄바꿈으로 붙인 발문이다.
+      // 짐작 파서로 다시 나누면 ○ 없는 모형 식·단서가 깨지므로, 줄 그대로 상자에 넣는다.
+      const stemLines = Boolean(presentation.keepStemLines)
+        ? String(view.stem || "")
+            .split("\n")
+            .map((line) => line.trim())
+            .filter(Boolean)
+        : null;
+      const parsedStem = stemLines
+        ? { intro: stemLines[0] || String(view.stem || ""), boxLines: stemLines.slice(1) }
+        : parseQuestionStem(view.stem);
       return {
         id: view.id,
         stem: parsedStem.boxLines.length ? parsedStem.intro : view.stem,

@@ -1,4 +1,6 @@
 import { BOX_LABEL_AT_START, parseQuestionStem } from "@/lib/exam-stem";
+import { prepareRealestateStem, realestateStemHasBoxes } from "@/lib/realestate-stem-layout";
+import { RealestateStemView } from "@/components/exam/RealestateStemView";
 import { plainStudyText } from "@/lib/study-text";
 import {
   inlineBoxStartOffset,
@@ -68,16 +70,27 @@ export function QuestionStem({
    * 같은 ○ 없는 모형 식이 한 줄로 이어 붙고, 물음 뒤 「(단, …)」 단서가 상자로 들어갔다.
    */
   keepLineBreaks = false,
+  subject,
 }: {
   stem: string;
   questionNo?: number;
   renderBox?: boolean;
   underlines?: readonly UnderlineRange[] | null;
   keepLineBreaks?: boolean;
+  subject?: string;
 }) {
   // 밑줄 offset 는 원문 기준이다. * 각주 표시를 지우면 자리가 밀리므로
   // 밑줄이 있는 문항에서는 원문을 그대로 쓴다.
   const cleanStem = underlines?.length ? stem : plainStudyText(stem);
+  if (
+    subject === "realestate" &&
+    renderBox &&
+    !underlines?.length &&
+    !keepLineBreaks &&
+    realestateStemHasBoxes(prepareRealestateStem(cleanStem))
+  ) {
+    return <RealestateStemView stem={cleanStem} questionNo={questionNo} tone="exam" />;
+  }
   const stemLines = keepLineBreaks ? cleanStem.split("\n") : null;
   const { intro, boxLines } = stemLines
     ? {

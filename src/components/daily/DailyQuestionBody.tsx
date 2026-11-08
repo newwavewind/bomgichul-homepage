@@ -11,17 +11,20 @@ import type {
   DailyQuestionPresentation,
 } from "@/lib/daily-challenge/types";
 import { plainStudyText } from "@/lib/study-text";
+import { dailyFormulaExamId, getExamFormulaChoice } from "@/components/exam/formulas/examFormulaChoice";
 
 export function DailyQuestionBody({
   stem,
   presentation,
   questionNo,
   heading = "h2",
+  subjectId,
 }: {
   stem: string;
   presentation: DailyQuestionPresentation;
   questionNo: number;
   heading?: "h2" | "h3";
+  subjectId?: string;
 }) {
   const passages = [presentation.passage, presentation.passageText]
     .map((value) => value?.trim() ?? "")
@@ -35,6 +38,7 @@ export function DailyQuestionBody({
         heading={heading}
         underlines={presentation.underlines}
         keepLineBreaks={presentation.keepStemLines}
+        subjectId={subjectId}
       />
       {presentation.material?.figureFirst ? (
         <div className="mt-4">
@@ -140,13 +144,26 @@ export function DailyQuestionBody({
 export function DailyChoiceContent({
   choice,
   choiceHeaders = [],
+  questionId = "",
 }: {
   choice: DailyChoice;
   choiceHeaders?: string[];
+  questionId?: string;
 }) {
+  const Formula = getExamFormulaChoice(dailyFormulaExamId(questionId), choice.key);
   const cells = choice.text.split("/").map((cell) => cell.trim());
   const showCells =
     choiceHeaders.length >= 2 && cells.length === choiceHeaders.length;
+
+  if (Formula) {
+    return (
+      <div className="min-w-0 flex-1 text-ink">
+        <span aria-label={choice.text}>
+          <Formula />
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div className="min-w-0 flex-1 break-words text-[1.0625rem] leading-7">

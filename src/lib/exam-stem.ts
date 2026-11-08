@@ -4,16 +4,22 @@ export interface ParsedQuestionStem {
 }
 
 const CIRCLE_AT_START = /^[ㅇ○]\s/;
-const LOWER_O_AT_START = /^o\s+(?=[가-힣「(ㄱ-ㅎ])/i;
-/** 시험지 보기 상자 — ㄱ. ㄴ. ㄷ. ㄹ. … */
-const JAMO_ITEM_AT_START = /^[ㄱ-ㅎ]\.\s+/;
+const LOWER_O_AT_START = /^o\s+(?=[가-힣「(ㄱ-ㅎ一-鿿])/i;
+/** 시험지 보기 상자 — ㄱ. ㄴ. ㄷ. ㄹ. … 과 ㄱ: ㄴ: 정의 */
+const JAMO_ITEM_AT_START = /^[ㄱ-ㅎ][.:：]\s+/;
 /** 시험지 보기 상자 — ㉠ ㉡ ㉢ … / ㉮ ㉯ … (경찰·공무원 기출이 가장 많이 쓰는 표기) */
 const CIRCLED_ITEM_AT_START = /^[㉠-㉿]\s*\S/;
 /** 상자 이름 줄 — 「< 보기 >」·「<보기 1>」 */
 export const BOX_LABEL_AT_START = /^<\s*보\s?기[^>]*>$/;
 const CIRCLE_SPLIT = /(?=[ㅇ○]\s)/;
-const INLINE_O_SPLIT = /\s+o\s+(?=[가-힣「(ㄱ-ㅎ])/i;
-const INLINE_JAMO_ITEM_SPLIT = /(?=[ㄱ-ㅎ]\.\s+)/;
+const INLINE_O_SPLIT = /\s+o\s+(?=[가-힣「(ㄱ-ㅎ一-鿿])/i;
+const INLINE_JAMO_ITEM_SPLIT = /(?=[ㄱ-ㅎ][.:：]\s+)/;
+const PAREN_NUM_AT_START = /^\([0-9]{1,2}\)\s*(?=[가-힣])/;
+const NUM_DOT_AT_START = /^[0-9]{1,2}\.\s+(?=[가-힣「(])/;
+const PAREN_NUM_SPLIT = /(?=\([0-9]{1,2}\)\s*(?=[가-힣]))/;
+const NUM_DOT_SPLIT = /(?=(?:^|\s)[0-9]{1,2}\.\s+(?=[가-힣「(]))/;
+const PAREN_JAMO_ITEM_AT_START = /^\(\s*[ㄱ-ㅎ]\s*\)\s*[:：]\s*/;
+const PAREN_JAMO_ITEM_SPLIT = /(?=\(\s*[ㄱ-ㅎ]\s*\)\s*[:：]\s*)/;
 const INLINE_CIRCLED_ITEM_SPLIT = /(?=[㉠-㉿]\s*)/;
 const INLINE_KOREAN_ITEM = /[가-하]\.\s*/g;
 
@@ -44,8 +50,14 @@ function findBulletStart(rest: string): number {
   if (LOWER_O_AT_START.test(rest)) indices.push(0);
   const oIdx = rest.search(INLINE_O_SPLIT);
   if (oIdx >= 0) indices.push(oIdx);
-  const jamoIdx = rest.search(/[ㄱ-ㅎ]\.\s+/);
+  const jamoIdx = rest.search(/[ㄱ-ㅎ][.:：]\s+/);
   if (jamoIdx >= 0) indices.push(jamoIdx);
+  const parenJamoIdx = rest.search(/\(\s*[ㄱ-ㅎ]\s*\)\s*[:：]\s*/);
+  if (parenJamoIdx >= 0) indices.push(parenJamoIdx);
+  const parenNumIdx = rest.search(/\([0-9]{1,2}\)\s*(?=[가-힣])/);
+  if (parenNumIdx >= 0) indices.push(parenNumIdx);
+  const numDotIdx = rest.search(/(?:^|\s)[0-9]{1,2}\.\s+(?=[가-힣「(])/);
+  if (numDotIdx >= 0) indices.push(numDotIdx);
   return indices.length > 0 ? Math.min(...indices) : -1;
 }
 
@@ -70,8 +82,23 @@ function splitLowerOBullets(text: string): string[] {
     .map((s) => `○ ${s.replace(/^o\s+/i, "")}`);
 }
 
+function splitParenJamoBullets(text: string): string[] {
+  if (!text || !PAREN_JAMO_ITEM_AT_START.test(text)) return [];
+  return text.split(PAREN_JAMO_ITEM_SPLIT).map((s) => s.trim()).filter(Boolean);
+}
+
+function splitParenNumBullets(text: string): string[] {
+  if (!text || !PAREN_NUM_AT_START.test(text)) return [];
+  return text.split(PAREN_NUM_SPLIT).map((s) => s.trim()).filter(Boolean);
+}
+
+function splitNumDotBullets(text: string): string[] {
+  if (!text || !NUM_DOT_AT_START.test(text)) return [];
+  return text.split(NUM_DOT_SPLIT).map((s) => s.trim()).filter(Boolean);
+}
+
 function splitJamoItemBullets(text: string): string[] {
-  if (!text || !/[ㄱ-ㅎ]\.\s+/.test(text)) return [];
+  if (!text || !/[ㄱ-ㅎ][.:：]\s+/.test(text)) return [];
   return text
     .split(INLINE_JAMO_ITEM_SPLIT)
     .map((s) => s.trim())
@@ -118,6 +145,12 @@ function extractInlineBullets(bulletText: string): string[] {
   if (/[ㅇ○]\s/.test(bulletText)) return splitCircleBullets(bulletText);
   const jamo = splitJamoItemBullets(bulletText);
   if (jamo.length >= 2) return jamo;
+  const parenJamo = splitParenJamoBullets(bulletText);
+  if (parenJamo.length >= 2) return parenJamo;
+  const parenNum = splitParenNumBullets(bulletText);
+  if (parenNum.length >= 2) return parenNum;
+  const numDot = splitNumDotBullets(bulletText);
+  if (numDot.length >= 2) return numDot;
   return splitLowerOBullets(bulletText);
 }
 
@@ -174,6 +207,9 @@ function isBoxStartLine(line: string): boolean {
     CIRCLE_AT_START.test(trimmed) ||
     LOWER_O_AT_START.test(trimmed) ||
     JAMO_ITEM_AT_START.test(trimmed) ||
+    PAREN_JAMO_ITEM_AT_START.test(trimmed) ||
+    PAREN_NUM_AT_START.test(trimmed) ||
+    NUM_DOT_AT_START.test(trimmed) ||
     CIRCLED_ITEM_AT_START.test(trimmed) ||
     BOX_LABEL_AT_START.test(trimmed)
   );
@@ -199,6 +235,14 @@ function parseMultilineStem(stem: string): ParsedQuestionStem | null {
       // "ㄱ. A   ㄴ. B"처럼 한 줄에 여러 항목이면 분리
       const jamoParts = splitJamoItemBullets(trimmed);
       if (jamoParts.length >= 2) return jamoParts;
+      const parenJamoParts = splitParenJamoBullets(trimmed);
+      if (parenJamoParts.length >= 2) return parenJamoParts;
+      const parenNumParts = splitParenNumBullets(trimmed);
+      if (parenNumParts.length >= 2) return parenNumParts;
+      const numDotParts = splitNumDotBullets(trimmed);
+      if (numDotParts.length >= 2) return numDotParts;
+      const lowerOParts = splitLowerOBullets(trimmed);
+      if (lowerOParts.length >= 2) return lowerOParts;
       // `주요대상가. 범죄자 나. 우범자`처럼 표 머리까지 붙은 행을 복원한다.
       const koreanParts = splitKoreanLetterItems(trimmed);
       if (koreanParts.length >= 2) return koreanParts;

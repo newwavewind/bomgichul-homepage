@@ -696,6 +696,7 @@ export async function TrackExamDetailPage({
               renderBox={passageLead.length === 0}
               underlines={exam.underlines ?? null}
               keepLineBreaks={exam.keepStemLines}
+              subject={subjectId}
             />
             <ExamStructuredMaterials table={exam.table} stemTail={exam.stemTail} />
           </div>
