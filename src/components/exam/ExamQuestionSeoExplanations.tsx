@@ -1,4 +1,6 @@
 import { CitedText } from "@/components/exam/CitedText";
+import { HistorySourceLinks } from "@/components/history/HistorySourceLinks";
+import type { ExplanationSource } from "@/lib/exam-track/types";
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 import { plainStudyText } from "@/lib/study-text";
 
@@ -17,6 +19,8 @@ type SeoExplanationQuestion = {
     text: string;
     answer?: string;
     explanation?: string;
+    /** 해설 근거 링크(한국사) */
+    sources?: ExplanationSource[];
   }[];
   comboChoices?: {
     no: number;
@@ -201,6 +205,7 @@ export function ExamQuestionSeoExplanations({
                   <CitedText text={item.explanation} examDate={question.examDate} lawVersions={question.lawVersions} />
                 </p>
               ) : null}
+              {item.explanation ? <HistorySourceLinks sources={item.sources} /> : null}
             </li>
           ))}
         </ol>

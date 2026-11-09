@@ -64,11 +64,11 @@ describe("웹 기출 데이터 무결성", () => {
     expectMaterialFiles(exams);
   });
 
-  it("한능검 250문항과 사료·지도 자료가 모두 연결된다", () => {
+  it("한능검 550문항(제70~80회)과 사료·지도 자료가 모두 연결된다", () => {
     const exams = allTrackExams(HISTORY_SUBJECT_IDS, getHistorySubject);
-    expect(exams).toHaveLength(250);
+    expect(exams).toHaveLength(550);
     expectCompleteObjectiveQuestions(exams);
-    expect(exams.filter((exam) => exam.material)).toHaveLength(250);
+    expect(exams.filter((exam) => exam.material)).toHaveLength(550);
     expectMaterialFiles(exams);
   });
 });

@@ -110,7 +110,14 @@ export async function buildHubStats(id: string): Promise<HubStats | null> {
       bySession.set(key, s);
     }
     const labelled = [...units.values()].reduce((a, b) => a + b, 0);
-    const latest = [...bySession.values()].sort((a, b) => b.year - a.year || a.sourceCode.localeCompare(b.sourceCode, "ko"))[0] ?? null;
+    // 「제80회」처럼 회차 번호가 있으면 큰 번호가 최근이다(한국사). 그 밖은 예전 순서 그대로.
+    const roundNo = (code: string) => Number(/^제(\d+)회$/.exec(code)?.[1] ?? NaN);
+    const latest = [...bySession.values()].sort((a, b) => {
+      if (b.year !== a.year) return b.year - a.year;
+      const ra = roundNo(a.sourceCode), rb = roundNo(b.sourceCode);
+      if (Number.isFinite(ra) && Number.isFinite(rb)) return rb - ra;
+      return a.sourceCode.localeCompare(b.sourceCode, "ko");
+    })[0] ?? null;
     subjects.push({
       id: subjectId,
       label,

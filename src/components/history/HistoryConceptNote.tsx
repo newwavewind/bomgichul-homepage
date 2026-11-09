@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import type { HistoryConceptBlock, HistoryConceptNote as Note } from "@/lib/exam-track/types";
+import { HistorySourceLinks } from "@/components/history/HistorySourceLinks";
 
 /**
  * 문항 아래에 붙는 「핵심 개념」 카드 — 한국사능력검정 전용.
@@ -133,6 +134,7 @@ export function HistoryConceptNote({ concept }: { concept?: Note | null }) {
         {concept.블록.map((block, i) => (
           <ConceptBlock key={i} block={block} />
         ))}
+        <HistorySourceLinks sources={concept.sources} variant="list" />
       </div>
     </section>
   );

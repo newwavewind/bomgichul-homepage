@@ -9,6 +9,7 @@ import { WrongReasonPicker } from "@/components/web-study/WrongReasonPicker";
 import Image from "next/image";
 import type { ExamTrackExam, ExamTrackExamItem } from "@/lib/exam-track/types";
 import { HistoryConceptNote } from "@/components/history/HistoryConceptNote";
+import { HistorySourceLinks } from "@/components/history/HistorySourceLinks";
 
 /**
  * 한국사능력검정 전용 문항 화면.
@@ -195,6 +196,7 @@ function ChoiceRow({
           {item.explanation ? (
             <p className="font-system text-[14px] leading-[1.7] text-smoke">{item.explanation}</p>
           ) : null}
+          {item.explanation ? <HistorySourceLinks sources={item.sources} /> : null}
         </div>
       ) : null}
     </li>

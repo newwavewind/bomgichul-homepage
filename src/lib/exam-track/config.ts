@@ -72,7 +72,7 @@ export const HISTORY_TRACK: ExamTrackConfig = {
   eyebrow: "봄기출 · 한국사능력검정",
   hubTitle: "한국사능력검정 기출 학습의 모든 것",
   hubDescription:
-    "심화 최근 5회차 250문항을 선지마다 해설과 함께 봅니다.",
+    "심화 최근 11회차(제70~80회) 550문항을 선지마다 해설·근거와 함께 봅니다.",
   communityScope: "history",
   communityTitle: "한국사능력검정 수험생 커뮤니티",
   sessionEyebrow: "한국사능력검정 심화 기출",

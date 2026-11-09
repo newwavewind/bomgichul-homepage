@@ -6,12 +6,12 @@ import { buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/l
 
 export const metadata: Metadata = buildPageMetadata({
   title: "한국사능력검정 기출문제·해설",
-  description: "한국사능력검정 심화 최근 5회차 250문항을 선지마다 해설과 함께 봅니다.",
+  description: "한국사능력검정 심화 최근 11회차(제70~80회) 550문항을 선지마다 해설·근거와 함께 봅니다.",
   path: "/history",
 });
 
 export default function Page() {
-  const description = "한국사능력검정 심화 최근 5회차 250문항을 선지마다 해설과 함께 봅니다.";
+  const description = "한국사능력검정 심화 최근 11회차(제70~80회) 550문항을 선지마다 해설·근거와 함께 봅니다.";
   return (
     <>
       <script

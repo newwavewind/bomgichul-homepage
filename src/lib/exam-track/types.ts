@@ -54,12 +54,19 @@ export interface ConceptSpectrum {
   points: Array<string | { label: string; position?: number; desc?: string }>;
 }
 
+/** 해설 근거 링크(한국사 — 대백과·우리역사넷 등). 사실 확인용 출처 */
+export interface ExplanationSource {
+  label: string;
+  url: string;
+}
+
 export interface ExamTrackExamItem {
   key: string;
   label?: string;
   text: string;
   answer?: "O" | "X" | string;
   explanation?: string;
+  sources?: ExplanationSource[];
   taxonomy_unit_id?: string;
   /** 공무원 영어 — 그 선지 낱말의 뜻 */
   translation?: string;
@@ -92,6 +99,7 @@ export type HistoryConceptBlock =
 export interface HistoryConceptNote {
   제목: string;
   블록: HistoryConceptBlock[];
+  sources?: ExplanationSource[];
 }
 
 /** 문항에 딸린 자료 이미지 (한국사 사료·지도·사진) */
