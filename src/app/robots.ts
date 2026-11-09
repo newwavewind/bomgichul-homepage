@@ -49,11 +49,10 @@ export default function robots(): MetadataRoute.Robots {
         "/gamjeong/archive/*/edit",
         "/mullyu/archive/*/edit",
         "/youth/archive/*/edit",
-        "/exam/*/random",
-        "/exam/*/wrong",
-        "/exam/*/review",
-        "/exam/*/bookmarks",
-        "/exam/*/*/mock",
+        // /exam/*/random·wrong·review·bookmarks·/exam/*/*/mock 은 여기서 막지 않는다.
+        // 연도 목록 등 공개 페이지에서 링크되어 색인이 잡히면, robots 로 막혀 noindex 를
+        // 읽지 못해 「색인이 생성되었으나 robots.txt에 의해 차단됨」으로 남는다.
+        // 크롤은 열어 두고 각 페이지의 noindex 로 뺀다.
       ],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
