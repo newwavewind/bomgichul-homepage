@@ -71,7 +71,7 @@ export default async function PoliceLectureSubjectPage({params, searchParams}: P
       <div className="max-w-xl space-y-3">
         <p className="text-xs font-semibold tracking-wide text-carbon">{site.appName}</p>
         <h2 className="text-2xl font-semibold leading-snug text-ink">다음 강의도 이어서 들어 보세요</h2>
-        <p className="text-sm leading-7 text-smoke">헌법·형사법 칠판 강의 {lectureManifest.registeredLectures}강이 열려 있고, 경찰학은 준비중이에요. 홈페이지에서는 열린 과목의 첫 3강을 미리 보고, 앱에서 이어서 공부할 수 있어요.</p>
+        <p className="text-sm leading-7 text-smoke">헌법·형사법·경찰학 칠판 강의 {lectureManifest.registeredLectures}강. 홈페이지에서는 각 과목의 첫 3강을 미리 보고, 앱에서 이어서 공부할 수 있어요.</p>
       </div>
       <AppStoreButtons className="mt-6 shrink-0 md:mt-0 md:max-w-[180px]" links={site.appLinks}/>
     </section>

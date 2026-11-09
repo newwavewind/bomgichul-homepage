@@ -1,7 +1,7 @@
 {
-  "sourceCommit": "57fb98bb4a20c04668b67d82503d20baa770355f",
-  "registeredLectures": 137,
-  "previewCount": 6,
+  "sourceCommit": "bf96b34469819d47b1998de66de4624075f8d4e8",
+  "registeredLectures": 232,
+  "previewCount": 9,
   "previewsPerSubject": 3,
   "figureBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/figs/nfa2026-hd",
   "hashes": {
@@ -40,6 +40,24 @@
       "cues": "f676be681ef8b8e13b955f15a8c77a5fe318d07caf4b70ee343e2d3480685695",
       "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/hyeongsabeop/u101-3/v1",
       "sceneCount": 15
+    },
+    "gcU101_1": {
+      "scenes": "f67d4aff9e64a33e716f2af30d9c761ce7b6a6b2a1ea99bea0a3c5e0a5be881e",
+      "cues": "57b6bedc8c1998503abefa9f45947e0b201c4017918733c6ba16ee5963234e5a",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/gyeongchalhak/u101-1/v1",
+      "sceneCount": 17
+    },
+    "gcU101_2": {
+      "scenes": "6d3a1ddddf597300f788f592e9e2474aafd5dd2174a98cc3ccfc68f952c3707b",
+      "cues": "82d1b1d91c39a1e0d39585a7ed6cfe84f70f46b2c31d1c7bc23c8b3999cf15a2",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/gyeongchalhak/u101-2/v1",
+      "sceneCount": 15
+    },
+    "gcU101_3": {
+      "scenes": "4a795376a99c51f18b08c52de8467267a9c12ad3ccb73d7bf106dd928d07692b",
+      "cues": "a4683e8eda0fb7f30be48a65bbabab98e2fd3c85f478fb393132601fc2023a06",
+      "audioBase": "https://pub-018addf460ef45fcad17018a675217b0.r2.dev/lectures/gyeongchalhak/u101-3/v1",
+      "sceneCount": 13
     }
   }
 }

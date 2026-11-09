@@ -14,13 +14,14 @@ const hash = (value: unknown) => createHash('sha256').update(JSON.stringify(valu
 
 describe('경찰공무원 앱 강의의 홈페이지 이식', () => {
   it('완성된 강의 순서와 과목별 첫 3강만 웹 플레이어에 공개한다', () => {
-    expect(outline.map(group => group.parts.flatMap(part => part.sections.flatMap(section => section.lessons)).length)).toEqual([45, 92, 0]);
-    expect(manifest.registeredLectures).toBe(137);
+    expect(outline.map(group => group.parts.flatMap(part => part.sections.flatMap(section => section.lessons)).length)).toEqual([45, 92, 95]);
+    expect(manifest.registeredLectures).toBe(232);
     expect(catalog.map(group => group.subject)).toEqual(['constitution', 'criminal-law', 'police-science']);
-    expect(catalog.find(group => group.subject === 'police-science')).toMatchObject({ status: 'preparing', lectures: [] });
-    expect(catalog.flatMap(group => group.lectures)).toHaveLength(6);
+    expect(catalog.find(group => group.subject === 'police-science')?.status).toBeUndefined();
+    expect(catalog.find(group => group.subject === 'police-science')!.lectures.map(item => item.sourceId)).toEqual(['gcU101_1', 'gcU101_2', 'gcU101_3']);
+    expect(catalog.flatMap(group => group.lectures)).toHaveLength(9);
     const previews = catalog.flatMap(group => group.lectures);
-    expect(new Set(previews.map(lecture => lecture.id)).size).toBe(6);
+    expect(new Set(previews.map(lecture => lecture.id)).size).toBe(9);
     expect(previews.every(lecture => lecture.id.startsWith('police-'))).toBe(true);
     expect(previews.some(lecture => realtorCatalog.some(group => group.lectures.some(item => item.id === lecture.id)))).toBe(false);
     expect(previews.some(lecture => firefighterCatalog.some(group => group.lectures.some(item => item.id === lecture.id)))).toBe(false);
@@ -32,7 +33,7 @@ describe('경찰공무원 앱 강의의 홈페이지 이식', () => {
     }
   });
 
-  it('6강의 원본 대본·판서·큐와 공개 음원 주소를 변경하지 않는다', () => {
+  it('9강의 원본 대본·판서·큐와 공개 음원 주소를 변경하지 않는다', () => {
     for (const group of catalog.filter(item => item.status !== 'preparing')) for (const lecture of group.lectures) {
       const definition = JSON.parse(readFileSync(path.join(dataRoot, `${lecture.sourceId}.json`), 'utf8'));
       const original = manifest.hashes[lecture.sourceId as keyof typeof manifest.hashes];

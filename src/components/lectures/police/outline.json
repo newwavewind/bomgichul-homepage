@@ -1552,7 +1552,1067 @@
   {
     "subject": "police-science",
     "label": "경찰학",
-    "status": "preparing",
-    "parts": []
+    "parts": [
+      {
+        "title": "경찰학의 기초이론",
+        "sections": [
+          {
+            "title": "경찰의 개념과 분류",
+            "lessons": [
+              {
+                "id": "police-gcU101_1",
+                "sourceId": "gcU101_1",
+                "title": "경찰개념의 형성과 변천",
+                "number": 1,
+                "ready": true,
+                "seconds": 955,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU101_2",
+                "sourceId": "gcU101_2",
+                "title": "형식적 의미의 경찰과 실질적 의미의 경찰",
+                "number": 2,
+                "ready": true,
+                "seconds": 889,
+                "description": "순경 공채 기출 6문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU101_3",
+                "sourceId": "gcU101_3",
+                "title": "경찰의 분류",
+                "number": 3,
+                "ready": true,
+                "seconds": 916,
+                "description": "순경 공채 기출 8문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰의 임무·수단·관할",
+            "lessons": [
+              {
+                "id": "police-gcU102_1",
+                "sourceId": "gcU102_1",
+                "title": "경찰의 임무와 사무",
+                "number": 4,
+                "ready": true,
+                "seconds": 1035,
+                "description": "순경 공채 기출 7문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU102_3",
+                "sourceId": "gcU102_3",
+                "title": "경찰권과 경찰의 관할",
+                "number": 5,
+                "ready": true,
+                "seconds": 957,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰의 기본이념과 역할모델",
+            "lessons": [
+              {
+                "id": "police-gcU103_1",
+                "sourceId": "gcU103_1",
+                "title": "경찰의 기본이념",
+                "number": 6,
+                "ready": true,
+                "seconds": 923,
+                "description": "순경 공채 기출 5문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU103_2",
+                "sourceId": "gcU103_2",
+                "title": "바람직한 경찰의 역할모델",
+                "number": 7,
+                "ready": true,
+                "seconds": 885,
+                "description": "순경 공채 기출 1문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "경찰과 윤리",
+        "sections": [
+          {
+            "title": "경찰윤리와 부패",
+            "lessons": [
+              {
+                "id": "police-gcU201_1",
+                "sourceId": "gcU201_1",
+                "title": "경찰윤리의 필요성과 윤리표준",
+                "number": 8,
+                "ready": true,
+                "seconds": 908,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU201_2",
+                "sourceId": "gcU201_2",
+                "title": "경찰의 일탈과 부패이론",
+                "number": 9,
+                "ready": true,
+                "seconds": 903,
+                "description": "순경 공채 기출 6문제 · 12줄 노트"
+              },
+              {
+                "id": "police-gcU201_3",
+                "sourceId": "gcU201_3",
+                "title": "경찰문화와 전문직업화",
+                "number": 10,
+                "ready": true,
+                "seconds": 858,
+                "description": "순경 공채 기출 9문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU201_4",
+                "sourceId": "gcU201_4",
+                "title": "경찰윤리강령",
+                "number": 11,
+                "ready": true,
+                "seconds": 919,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행동강령·청탁금지법·이해충돌방지법",
+            "lessons": [
+              {
+                "id": "police-gcU202_1",
+                "sourceId": "gcU202_1",
+                "title": "경찰청 공무원 행동강령",
+                "number": 12,
+                "ready": true,
+                "seconds": 1110,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU202_2",
+                "sourceId": "gcU202_2",
+                "title": "부정청탁 및 금품등 수수의 금지에 관한 법률",
+                "number": 13,
+                "ready": true,
+                "seconds": 1138,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU202_3",
+                "sourceId": "gcU202_3",
+                "title": "공직자의 이해충돌 방지법",
+                "number": 14,
+                "ready": true,
+                "seconds": 920,
+                "description": "순경 공채 기출 4문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰 인권보호와 적극행정",
+            "lessons": [
+              {
+                "id": "police-gcU203_1",
+                "sourceId": "gcU203_1",
+                "title": "경찰 인권보호 규칙",
+                "number": 15,
+                "ready": true,
+                "seconds": 1019,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU203_2",
+                "sourceId": "gcU203_2",
+                "title": "적극행정과 소극행정",
+                "number": 16,
+                "ready": true,
+                "seconds": 1079,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "범죄학과 범죄예방",
+        "sections": [
+          {
+            "title": "범죄원인론",
+            "lessons": [
+              {
+                "id": "police-gcU301_1",
+                "sourceId": "gcU301_1",
+                "title": "고전주의와 실증주의",
+                "number": 17,
+                "ready": true,
+                "seconds": 887,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU301_2",
+                "sourceId": "gcU301_2",
+                "title": "사회구조이론과 사회과정이론",
+                "number": 18,
+                "ready": true,
+                "seconds": 959,
+                "description": "순경 공채 기출 6문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "범죄예방이론과 CPTED",
+            "lessons": [
+              {
+                "id": "police-gcU302_1",
+                "sourceId": "gcU302_1",
+                "title": "전통적·현대적 범죄예방론",
+                "number": 19,
+                "ready": true,
+                "seconds": 918,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU302_2",
+                "sourceId": "gcU302_2",
+                "title": "CPTED와 범죄예방모델",
+                "number": 20,
+                "ready": true,
+                "seconds": 880,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "지역사회 경찰활동",
+            "lessons": [
+              {
+                "id": "police-gcU303_1",
+                "sourceId": "gcU303_1",
+                "title": "전통적 경찰활동과의 비교",
+                "number": 21,
+                "ready": true,
+                "seconds": 959,
+                "description": "순경 공채 기출 7문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU303_2",
+                "sourceId": "gcU303_2",
+                "title": "주요 프로그램",
+                "number": 22,
+                "ready": true,
+                "seconds": 938,
+                "description": "순경 공채 기출 11문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU303_3",
+                "sourceId": "gcU303_3",
+                "title": "순찰과 지역경찰",
+                "number": 23,
+                "ready": true,
+                "seconds": 870,
+                "description": "순경 공채 기출 7문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "피해자학",
+            "lessons": [
+              {
+                "id": "police-gcU304_1",
+                "sourceId": "gcU304_1",
+                "title": "피해자학 이론",
+                "number": 24,
+                "ready": true,
+                "seconds": 880,
+                "description": "순경 공채 기출 1문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU304_2",
+                "sourceId": "gcU304_2",
+                "title": "범죄피해자 보호법",
+                "number": 25,
+                "ready": true,
+                "seconds": 1116,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "한국경찰사와 비교경찰",
+        "sections": [
+          {
+            "title": "한국경찰의 역사",
+            "lessons": [
+              {
+                "id": "police-gcU401_3",
+                "sourceId": "gcU401_3",
+                "title": "임시정부·미군정과 정부수립 이후",
+                "number": 26,
+                "ready": true,
+                "seconds": 968,
+                "description": "순경 공채 기출 10문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU401_4",
+                "sourceId": "gcU401_4",
+                "title": "경찰의 표상",
+                "number": 27,
+                "ready": true,
+                "seconds": 896,
+                "description": "순경 공채 기출 2문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "외국경찰·비교경찰",
+            "lessons": [
+              {
+                "id": "police-gcU402_1",
+                "sourceId": "gcU402_1",
+                "title": "영미법계 경찰",
+                "number": 28,
+                "ready": true,
+                "seconds": 1037,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "경찰행정학",
+        "sections": [
+          {
+            "title": "경찰관리 일반론과 정책결정",
+            "lessons": [
+              {
+                "id": "police-gcU501_2",
+                "sourceId": "gcU501_2",
+                "title": "경찰기획과 정책결정",
+                "number": 29,
+                "ready": true,
+                "seconds": 883,
+                "description": "순경 공채 기출 1문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰조직관리",
+            "lessons": [
+              {
+                "id": "police-gcU502_1",
+                "sourceId": "gcU502_1",
+                "title": "조직편성의 원리",
+                "number": 30,
+                "ready": true,
+                "seconds": 873,
+                "description": "순경 공채 기출 8문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU502_2",
+                "sourceId": "gcU502_2",
+                "title": "관료제와 조직이론",
+                "number": 31,
+                "ready": true,
+                "seconds": 879,
+                "description": "순경 공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU502_3",
+                "sourceId": "gcU502_3",
+                "title": "동기부여이론",
+                "number": 32,
+                "ready": true,
+                "seconds": 883,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰인사관리",
+            "lessons": [
+              {
+                "id": "police-gcU503_1",
+                "sourceId": "gcU503_1",
+                "title": "엽관주의와 실적주의",
+                "number": 33,
+                "ready": true,
+                "seconds": 851,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU503_2",
+                "sourceId": "gcU503_2",
+                "title": "직업공무원제도",
+                "number": 34,
+                "ready": true,
+                "seconds": 888,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU503_3",
+                "sourceId": "gcU503_3",
+                "title": "공직의 분류",
+                "number": 35,
+                "ready": true,
+                "seconds": 915,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU503_4",
+                "sourceId": "gcU503_4",
+                "title": "근무성적평정과 승진",
+                "number": 36,
+                "ready": true,
+                "seconds": 1076,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰예산관리",
+            "lessons": [
+              {
+                "id": "police-gcU504_1",
+                "sourceId": "gcU504_1",
+                "title": "예산의 의의와 분류",
+                "number": 37,
+                "ready": true,
+                "seconds": 915,
+                "description": "순경 공채 기출 4문제 · 16줄 노트"
+              },
+              {
+                "id": "police-gcU504_2",
+                "sourceId": "gcU504_2",
+                "title": "예산제도",
+                "number": 38,
+                "ready": true,
+                "seconds": 932,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU504_3",
+                "sourceId": "gcU504_3",
+                "title": "예산의 과정",
+                "number": 39,
+                "ready": true,
+                "seconds": 932,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "장비·보안·문서관리",
+            "lessons": [
+              {
+                "id": "police-gcU505_1",
+                "sourceId": "gcU505_1",
+                "title": "경찰장비관리규칙",
+                "number": 40,
+                "ready": true,
+                "seconds": 977,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU505_2",
+                "sourceId": "gcU505_2",
+                "title": "보안업무규정",
+                "number": 41,
+                "ready": true,
+                "seconds": 981,
+                "description": "순경 공채 기출 7문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU505_3",
+                "sourceId": "gcU505_3",
+                "title": "문서관리",
+                "number": 42,
+                "ready": true,
+                "seconds": 908,
+                "description": "순경 공채 기출 1문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰통제와 홍보",
+            "lessons": [
+              {
+                "id": "police-gcU506_1",
+                "sourceId": "gcU506_1",
+                "title": "경찰통제의 유형과 기본요소",
+                "number": 43,
+                "ready": true,
+                "seconds": 878,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU506_2",
+                "sourceId": "gcU506_2",
+                "title": "공공기관의 정보공개에 관한 법률",
+                "number": 44,
+                "ready": true,
+                "seconds": 1066,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU506_3",
+                "sourceId": "gcU506_3",
+                "title": "개인정보 보호법",
+                "number": 45,
+                "ready": true,
+                "seconds": 1007,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU506_4",
+                "sourceId": "gcU506_4",
+                "title": "경찰 감찰 규칙과 경찰청 감사 규칙",
+                "number": 46,
+                "ready": true,
+                "seconds": 989,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU506_5",
+                "sourceId": "gcU506_5",
+                "title": "경찰홍보와 언론중재",
+                "number": 47,
+                "ready": true,
+                "seconds": 950,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "경찰행정법",
+        "sections": [
+          {
+            "title": "법치행정과 행정법의 일반원칙",
+            "lessons": [
+              {
+                "id": "police-gcU601_1",
+                "sourceId": "gcU601_1",
+                "title": "법치행정의 원리",
+                "number": 48,
+                "ready": true,
+                "seconds": 929,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU601_2",
+                "sourceId": "gcU601_2",
+                "title": "경찰행정법의 법원",
+                "number": 49,
+                "ready": true,
+                "seconds": 869,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU601_3",
+                "sourceId": "gcU601_3",
+                "title": "행정법의 일반원칙",
+                "number": 50,
+                "ready": true,
+                "seconds": 1108,
+                "description": "순경 공채 기출 9문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU601_4",
+                "sourceId": "gcU601_4",
+                "title": "행정법의 효력과 행정상 법률관계",
+                "number": 51,
+                "ready": true,
+                "seconds": 873,
+                "description": "순경 공채 기출 2문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰조직법",
+            "lessons": [
+              {
+                "id": "police-gcU602_1",
+                "sourceId": "gcU602_1",
+                "title": "경찰행정기관의 종류",
+                "number": 52,
+                "ready": true,
+                "seconds": 872,
+                "description": "순경 공채 기출 2문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU602_2",
+                "sourceId": "gcU602_2",
+                "title": "국가경찰과 자치경찰의 조직 및 운영에 관한 법률",
+                "number": 53,
+                "ready": true,
+                "seconds": 1123,
+                "description": "순경 공채 기출 6문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU602_3",
+                "sourceId": "gcU602_3",
+                "title": "국가경찰위원회와 시·도자치경찰위원회",
+                "number": 54,
+                "ready": true,
+                "seconds": 902,
+                "description": "순경 공채 기출 9문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU602_4",
+                "sourceId": "gcU602_4",
+                "title": "권한의 위임과 대리",
+                "number": 55,
+                "ready": true,
+                "seconds": 913,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU602_5",
+                "sourceId": "gcU602_5",
+                "title": "훈령과 직무명령",
+                "number": 56,
+                "ready": true,
+                "seconds": 889,
+                "description": "순경 공채 기출 6문제 · 12줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰공무원법",
+            "lessons": [
+              {
+                "id": "police-gcU603_1",
+                "sourceId": "gcU603_1",
+                "title": "경찰공무원의 분류와 임용권자",
+                "number": 57,
+                "ready": true,
+                "seconds": 884,
+                "description": "순경 공채 기출 2문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU603_2",
+                "sourceId": "gcU603_2",
+                "title": "관계의 발생·변경·소멸",
+                "number": 58,
+                "ready": true,
+                "seconds": 1139,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU603_3",
+                "sourceId": "gcU603_3",
+                "title": "권리와 의무",
+                "number": 59,
+                "ready": true,
+                "seconds": 911,
+                "description": "순경 공채 기출 1문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU603_4",
+                "sourceId": "gcU603_4",
+                "title": "징계책임",
+                "number": 60,
+                "ready": true,
+                "seconds": 1004,
+                "description": "순경 공채 기출 4문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU603_5",
+                "sourceId": "gcU603_5",
+                "title": "권익보장",
+                "number": 61,
+                "ready": true,
+                "seconds": 871,
+                "description": "순경 공채 기출 1문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰작용법 총론",
+            "lessons": [
+              {
+                "id": "police-gcU604_1",
+                "sourceId": "gcU604_1",
+                "title": "경찰권 발동의 근거와 한계",
+                "number": 62,
+                "ready": true,
+                "seconds": 1015,
+                "description": "순경 공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU604_2",
+                "sourceId": "gcU604_2",
+                "title": "행정입법",
+                "number": 63,
+                "ready": true,
+                "seconds": 900,
+                "description": "순경 공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU604_3",
+                "sourceId": "gcU604_3",
+                "title": "행정행위의 종류와 부관",
+                "number": 64,
+                "ready": true,
+                "seconds": 1117,
+                "description": "순경 공채 기출 9문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU604_4",
+                "sourceId": "gcU604_4",
+                "title": "행정행위의 효력과 하자",
+                "number": 65,
+                "ready": true,
+                "seconds": 964,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU604_5",
+                "sourceId": "gcU604_5",
+                "title": "그 밖의 행정작용과 행정기본법",
+                "number": 66,
+                "ready": true,
+                "seconds": 892,
+                "description": "순경 공채 기출 2문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경찰관 직무집행법",
+            "lessons": [
+              {
+                "id": "police-gcU605_1",
+                "sourceId": "gcU605_1",
+                "title": "총설과 직무의 범위",
+                "number": 67,
+                "ready": true,
+                "seconds": 1071,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU605_3",
+                "sourceId": "gcU605_3",
+                "title": "보호조치·위험발생의 방지·제지",
+                "number": 68,
+                "ready": true,
+                "seconds": 933,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU605_4",
+                "sourceId": "gcU605_4",
+                "title": "위험방지를 위한 출입과 정보의 수집",
+                "number": 69,
+                "ready": true,
+                "seconds": 1032,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU605_5",
+                "sourceId": "gcU605_5",
+                "title": "경찰장비·장구·분사기·무기의 사용",
+                "number": 70,
+                "ready": true,
+                "seconds": 1043,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU605_6",
+                "sourceId": "gcU605_6",
+                "title": "위해성 경찰장비 규정과 물리력 행사 기준",
+                "number": 71,
+                "ready": true,
+                "seconds": 1165,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU605_7",
+                "sourceId": "gcU605_7",
+                "title": "손실보상·보상금과 형의 감면",
+                "number": 72,
+                "ready": true,
+                "seconds": 1112,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정절차법",
+            "lessons": [
+              {
+                "id": "police-gcU606_1",
+                "sourceId": "gcU606_1",
+                "title": "총칙과 적용범위",
+                "number": 73,
+                "ready": true,
+                "seconds": 1008,
+                "description": "순경 공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU606_2",
+                "sourceId": "gcU606_2",
+                "title": "처분절차",
+                "number": 74,
+                "ready": true,
+                "seconds": 914,
+                "description": "순경 공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU606_3",
+                "sourceId": "gcU606_3",
+                "title": "그 밖의 절차",
+                "number": 75,
+                "ready": true,
+                "seconds": 889,
+                "description": "순경 공채 기출 2문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정의 실효성 확보수단",
+            "lessons": [
+              {
+                "id": "police-gcU607_1",
+                "sourceId": "gcU607_1",
+                "title": "행정상 강제집행",
+                "number": 76,
+                "ready": true,
+                "seconds": 1135,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU607_2",
+                "sourceId": "gcU607_2",
+                "title": "즉시강제와 행정조사",
+                "number": 77,
+                "ready": true,
+                "seconds": 1078,
+                "description": "순경 공채 기출 12문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU607_3",
+                "sourceId": "gcU607_3",
+                "title": "행정벌",
+                "number": 78,
+                "ready": true,
+                "seconds": 867,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정구제",
+            "lessons": [
+              {
+                "id": "police-gcU608_1",
+                "sourceId": "gcU608_1",
+                "title": "국가배상",
+                "number": 79,
+                "ready": true,
+                "seconds": 1027,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU608_3",
+                "sourceId": "gcU608_3",
+                "title": "행정심판",
+                "number": 80,
+                "ready": true,
+                "seconds": 1000,
+                "description": "순경 공채 기출 8문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU608_4",
+                "sourceId": "gcU608_4",
+                "title": "행정소송",
+                "number": 81,
+                "ready": true,
+                "seconds": 923,
+                "description": "순경 공채 기출 6문제 · 15줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "분야별 경찰활동",
+        "sections": [
+          {
+            "title": "생활안전·지역경찰",
+            "lessons": [
+              {
+                "id": "police-gcU701_1",
+                "sourceId": "gcU701_1",
+                "title": "지역경찰과 112신고 처리",
+                "number": 82,
+                "ready": true,
+                "seconds": 1148,
+                "description": "순경 공채 기출 7문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU701_2",
+                "sourceId": "gcU701_2",
+                "title": "생활질서",
+                "number": 83,
+                "ready": true,
+                "seconds": 1110,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "여성·청소년·아동 보호",
+            "lessons": [
+              {
+                "id": "police-gcU702_1",
+                "sourceId": "gcU702_1",
+                "title": "청소년·성보호 법령",
+                "number": 84,
+                "ready": true,
+                "seconds": 1076,
+                "description": "순경 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU702_2",
+                "sourceId": "gcU702_2",
+                "title": "가정폭력·아동학대·스토킹",
+                "number": 85,
+                "ready": true,
+                "seconds": 1040,
+                "description": "순경 공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "수사경찰",
+            "lessons": [
+              {
+                "id": "police-gcU703_1",
+                "sourceId": "gcU703_1",
+                "title": "수사조직과 검·경 협력절차",
+                "number": 86,
+                "ready": true,
+                "seconds": 998,
+                "description": "순경 공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "police-gcU703_2",
+                "sourceId": "gcU703_2",
+                "title": "수사의 절차와 과학수사",
+                "number": 87,
+                "ready": true,
+                "seconds": 899,
+                "description": "순경 공채 기출 2문제 · 16줄 노트"
+              },
+              {
+                "id": "police-gcU703_3",
+                "sourceId": "gcU703_3",
+                "title": "마약류 사범 수사",
+                "number": 88,
+                "ready": true,
+                "seconds": 1010,
+                "description": "순경 공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "경비경찰",
+            "lessons": [
+              {
+                "id": "police-gcU704_2",
+                "sourceId": "gcU704_2",
+                "title": "경비경찰의 주요 대상",
+                "number": 89,
+                "ready": true,
+                "seconds": 1133,
+                "description": "순경 공채 기출 8문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "교통경찰",
+            "lessons": [
+              {
+                "id": "police-gcU705_1",
+                "sourceId": "gcU705_1",
+                "title": "도로교통법 총칙과 통행방법",
+                "number": 90,
+                "ready": true,
+                "seconds": 1101,
+                "description": "순경 공채 기출 6문제 · 15줄 노트"
+              },
+              {
+                "id": "police-gcU705_2",
+                "sourceId": "gcU705_2",
+                "title": "운전면허와 음주운전",
+                "number": 91,
+                "ready": true,
+                "seconds": 1001,
+                "description": "순경 공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "정보경찰",
+            "lessons": [
+              {
+                "id": "police-gcU706_1",
+                "sourceId": "gcU706_1",
+                "title": "정보의 개념과 순환",
+                "number": 92,
+                "ready": true,
+                "seconds": 911,
+                "description": "순경 공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "police-gcU706_2",
+                "sourceId": "gcU706_2",
+                "title": "집회 및 시위에 관한 법률",
+                "number": 93,
+                "ready": true,
+                "seconds": 1079,
+                "description": "순경 공채 기출 5문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "안보경찰",
+            "lessons": [
+              {
+                "id": "police-gcU707_2",
+                "sourceId": "gcU707_2",
+                "title": "보안관찰과 북한이탈주민",
+                "number": 94,
+                "ready": true,
+                "seconds": 1041,
+                "description": "순경 공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "외사경찰",
+            "lessons": [
+              {
+                "id": "police-gcU708_2",
+                "sourceId": "gcU708_2",
+                "title": "국제공조와 범죄인 인도",
+                "number": 95,
+                "ready": true,
+                "seconds": 916,
+                "description": "순경 공채 기출 4문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

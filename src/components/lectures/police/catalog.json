@@ -62,7 +62,31 @@
   {
     "subject": "police-science",
     "label": "경찰학",
-    "status": "preparing",
-    "lectures": []
+    "lectures": [
+      {
+        "id": "police-gcU101_1",
+        "sourceId": "gcU101_1",
+        "title": "경찰개념의 형성과 변천",
+        "description": "순경 공채 기출 8문제 · 14줄 노트",
+        "seconds": 955,
+        "sceneCount": 17
+      },
+      {
+        "id": "police-gcU101_2",
+        "sourceId": "gcU101_2",
+        "title": "형식적 의미의 경찰과 실질적 의미의 경찰",
+        "description": "순경 공채 기출 6문제 · 15줄 노트",
+        "seconds": 889,
+        "sceneCount": 15
+      },
+      {
+        "id": "police-gcU101_3",
+        "sourceId": "gcU101_3",
+        "title": "경찰의 분류",
+        "description": "순경 공채 기출 8문제 · 13줄 노트",
+        "seconds": 916,
+        "sceneCount": 13
+      }
+    ]
   }
 ]
