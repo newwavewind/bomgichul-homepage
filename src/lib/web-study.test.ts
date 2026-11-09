@@ -89,8 +89,8 @@ describe("web-only study records", () => {
     expect(calculatePlan(plan, rows, "2026-10-02").days).toBe(0);
   });
   it("maps every visible website exam to a separate scope", () => {
-    expect(EXAM_CHOICES).toHaveLength(17);
-    expect(EXAM_CHOICES.some(([scope]) => scope === "history")).toBe(false);
+    expect(EXAM_CHOICES).toHaveLength(18);
+    expect(EXAM_CHOICES.some(([scope]) => scope === "history")).toBe(true);
     for (const [scope] of EXAM_CHOICES)
       expect(scopeForPath(`/${scope}/exam/test`)).toBe(scope);
     expect(scopeForPath("/exam/civillaw")).toBe("real-estate");

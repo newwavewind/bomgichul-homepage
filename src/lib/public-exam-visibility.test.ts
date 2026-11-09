@@ -6,10 +6,10 @@ import {
 } from "@/lib/public-exam-visibility";
 
 describe("public exam visibility", () => {
-  it("temporarily hides the history product", () => {
-    expect(isPublicExamVisible("history")).toBe(false);
-    expect(isPublicExamPathVisible("/history/exam/simhwa")).toBe(false);
-    expect(isPublicCommunityScopeVisible("history")).toBe(false);
+  it("keeps the history product public", () => {
+    expect(isPublicExamVisible("history")).toBe(true);
+    expect(isPublicExamPathVisible("/history/exam/simhwa")).toBe(true);
+    expect(isPublicCommunityScopeVisible("history")).toBe(true);
   });
 
   it("keeps other products public", () => {
