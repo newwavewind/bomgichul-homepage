@@ -182,7 +182,7 @@
     "id": "gyojeonghak",
     "label": "교정학개론",
     "track": "교정직",
-    "conceptCount": 28,
+    "conceptCount": 38,
     "examCount": 200,
     "years": [
       2026,
@@ -227,7 +227,7 @@
     "id": "gukjebeop",
     "label": "국제법개론",
     "track": "출입국관리",
-    "conceptCount": 30,
+    "conceptCount": 40,
     "examCount": 180,
     "years": [
       2026,
@@ -248,7 +248,7 @@
     "id": "nodongbeop",
     "label": "노동법개론",
     "track": "고용노동",
-    "conceptCount": 56,
+    "conceptCount": 57,
     "examCount": 180,
     "years": [
       2026,
@@ -308,28 +308,6 @@
     ],
     "sources": [
       "국가직"
-    ]
-  },
-  {
-    "id": "jibangsebeop",
-    "label": "지방세법",
-    "track": "지방세무직",
-    "conceptCount": 46,
-    "examCount": 200,
-    "years": [
-      2026,
-      2025,
-      2024,
-      2023,
-      2022,
-      2021,
-      2020,
-      2019,
-      2018,
-      2017
-    ],
-    "sources": [
-      "지방직"
     ]
   }
 ]
