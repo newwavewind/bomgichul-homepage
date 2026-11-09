@@ -17,7 +17,6 @@ describe('경찰공무원 앱 강의의 홈페이지 이식', () => {
     expect(outline.map(group => group.parts.flatMap(part => part.sections.flatMap(section => section.lessons)).length)).toEqual([45, 92, 95]);
     expect(manifest.registeredLectures).toBe(232);
     expect(catalog.map(group => group.subject)).toEqual(['constitution', 'criminal-law', 'police-science']);
-    expect(catalog.find(group => group.subject === 'police-science')?.status).toBeUndefined();
     expect(catalog.find(group => group.subject === 'police-science')!.lectures.map(item => item.sourceId)).toEqual(['gcU101_1', 'gcU101_2', 'gcU101_3']);
     expect(catalog.flatMap(group => group.lectures)).toHaveLength(9);
     const previews = catalog.flatMap(group => group.lectures);
@@ -26,7 +25,7 @@ describe('경찰공무원 앱 강의의 홈페이지 이식', () => {
     expect(previews.some(lecture => realtorCatalog.some(group => group.lectures.some(item => item.id === lecture.id)))).toBe(false);
     expect(previews.some(lecture => firefighterCatalog.some(group => group.lectures.some(item => item.id === lecture.id)))).toBe(false);
     expect(readdirSync(dataRoot).sort()).toEqual(previews.map(item => `${item.sourceId}.json`).sort());
-    for (const group of outline.filter(item => item.status !== 'preparing')) {
+    for (const group of outline) {
       const lessons = group.parts.flatMap(part => part.sections.flatMap(section => section.lessons));
       expect(lessons.map(item => item.number)).toEqual(lessons.map((_, index) => index + 1));
       expect(catalog.find(item => item.subject === group.subject)!.lectures.map(item => item.id)).toEqual(lessons.slice(0, 3).map(item => item.id));
@@ -34,7 +33,7 @@ describe('경찰공무원 앱 강의의 홈페이지 이식', () => {
   });
 
   it('9강의 원본 대본·판서·큐와 공개 음원 주소를 변경하지 않는다', () => {
-    for (const group of catalog.filter(item => item.status !== 'preparing')) for (const lecture of group.lectures) {
+    for (const group of catalog) for (const lecture of group.lectures) {
       const definition = JSON.parse(readFileSync(path.join(dataRoot, `${lecture.sourceId}.json`), 'utf8'));
       const original = manifest.hashes[lecture.sourceId as keyof typeof manifest.hashes];
       expect(hash(definition.scenes)).toBe(original.scenes);
