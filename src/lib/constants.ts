@@ -81,9 +81,9 @@ export function appStoreLinksForScope(
         ios: "https://apps.apple.com/kr/app/id6798675892",
       };
     case "firefighter":
-      // Play 공개 페이지 없음(404). iOS만 출시.
       return {
-        android: null,
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.firefighter",
         ios: "https://apps.apple.com/kr/app/id6814271261",
       };
     case "housing":
@@ -108,53 +108,62 @@ export function appStoreLinksForScope(
         ios: "https://apps.apple.com/kr/app/id6803106780",
       };
     case "gugeo":
-      // Play 공개 페이지 없음(404). iOS만 출시.
       return {
-        android: null,
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.gugeo",
         ios: "https://apps.apple.com/kr/app/id6814767249",
       };
     case "haengjeongsa":
       return {
-        android: null,
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.haengjeongsa",
         ios: "https://apps.apple.com/kr/app/id6814634212",
       };
     case "semusa":
-      // Play 공개 페이지 없음(404). iOS 출시(id 6815671838).
       return {
-        android: null,
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.semusa",
         ios: "https://apps.apple.com/kr/app/id6815671838",
       };
     case "sanan":
       return {
-        android: null,
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.sanan",
         ios: "https://apps.apple.com/kr/app/id6817339316",
       };
     case "sonhae":
       return {
-        android: null,
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.sonhae",
         ios: "https://apps.apple.com/kr/app/id6817147016",
       };
     case "nomusa":
       return {
-        android: null,
+        android:
+          "https://play.google.com/store/apps/details?id=com.sanghyun.nomusa",
         ios: "https://apps.apple.com/kr/app/id6816073525",
       };
     case "gyeongbi":
-      // 2026-10-13 App Store 공개(iTunes lookup 「봄기출 경비지도사」 1.0.3). Google Play 는 아직 공개 페이지 없음(404).
+      // App Store 공개. Google Play 는 아직 공개 페이지 없음(404).
       return {
         android: null,
         ios: "https://apps.apple.com/kr/app/id6819304028",
       };
     case "gamjeong":
-      // 2026-10-12 앱 출시 준비 중 — 두 스토어 모두 공개 페이지가 없다. 출시 뒤 채운다.
-      return { android: null, ios: null };
+      // App Store 공개. Google Play 는 아직 공개 페이지 없음(404).
+      return {
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6821985622",
+      };
     case "mullyu":
-      // 2026-10-19 앱 출시 준비 중 — 두 스토어 모두 공개 페이지가 없다. 출시 뒤 채운다.
+      // 2026-10-28 App Store 심사 대기, Play 는 공개 페이지 없음(404).
       return { android: null, ios: null };
     case "youth":
-      // 2026-10-20 앱 출시 준비 중 — App Store 는 심사 대기(id 6824690861), Play 는 비공개 테스트뿐이라
-      // 두 스토어 모두 공개 페이지가 없다. 단추가 깨진 주소로 가지 않게 비워 두고, 출시 뒤 채운다.
-      return { android: null, ios: null };
+      // App Store 공개. Google Play 는 아직 공개 페이지 없음(404).
+      return {
+        android: null,
+        ios: "https://apps.apple.com/kr/app/id6824690861",
+      };
     default:
       return { android: APP_LINKS.android, ios: APP_LINKS.ios };
   }
