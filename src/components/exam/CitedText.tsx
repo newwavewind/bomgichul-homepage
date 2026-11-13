@@ -35,6 +35,37 @@ export function CitedText({
   const tail = mark < 0 ? "" : plain.slice(mark);
   const headParts = splitLawCites(head);
   const tailParts = tail ? splitLawCites(tail) : [];
+  // [개정]·[판례변경]이 있으면 앞(출제 당시)은 줄을 긋고, 뒤(현행)는 따로 또렷하게 보인다(앱과 같다)
+  if (mark > 0) {
+    const label = tail.startsWith("[판례변경]") ? "판례 변경" : "개정 · 현행";
+    const now = tail.replace(/^\[(?:개정|판례변경)\]\s*/, "");
+    const nowParts = splitLawCites(now);
+    const render = (list: (LawCitePart & { examDay?: boolean })[]) =>
+      list.map((part, i) =>
+        part.href ? (
+          <a key={i} href={part.href} target="_blank" rel="noopener noreferrer" className="law-cite"
+            title={part.examDay && examDate ? `${examDate} 시험 당시 판으로 열립니다` : undefined}>
+            {part.text}
+          </a>
+        ) : (
+          <span key={i}>{part.text}</span>
+        )
+      );
+    return (
+      <span className={className}>
+        <span className="text-slate-400 dark:text-slate-500">
+          <span className="mr-1.5 inline-block rounded-full bg-slate-100 px-1.5 text-[11px] font-bold leading-[1.7] text-slate-500 no-underline dark:bg-slate-800 dark:text-slate-400">출제 당시</span>
+          <span className="line-through decoration-slate-400/70">
+            {render(headParts.length ? toExamDay(headParts, lawVersions) : [{ text: head }])}
+          </span>
+        </span>
+        <span className="mt-1.5 block">
+          <span className="mr-1.5 inline-block rounded-full bg-amber-50 px-1.5 text-[11px] font-bold leading-[1.7] text-amber-700 dark:bg-amber-950 dark:text-amber-300">{label}</span>
+          {render(nowParts.length ? nowParts : [{ text: now }])}
+        </span>
+      </span>
+    );
+  }
   if (!headParts.length && !tailParts.length) {
     return className ? <span className={className}>{plain}</span> : <>{plain}</>;
   }
