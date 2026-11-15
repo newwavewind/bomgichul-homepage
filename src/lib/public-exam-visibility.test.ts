@@ -6,7 +6,7 @@ import {
 } from "@/lib/public-exam-visibility";
 
 describe("public exam visibility", () => {
-  it("keeps the history product public", () => {
+  it("shows the history product publicly", () => {
     expect(isPublicExamVisible("history")).toBe(true);
     expect(isPublicExamPathVisible("/history/exam/simhwa")).toBe(true);
     expect(isPublicCommunityScopeVisible("history")).toBe(true);
