@@ -219,6 +219,8 @@ export type DailyInsights = {
 export type DailyComposition = {
   years: number;
   yearSpan: number;
+  /** 한국사처럼 회차가 축일 때 — 최근 N회 */
+  roundSpan?: number | null;
   topics: number;
   latestCount: number;
   poolCount: number;
@@ -258,6 +260,8 @@ export type DailyQuestion = {
   examDate?: string;
   lawVersions?: Record<string, string>;
   year: number;
+  /** 한국사능력검정처럼 회차가 축인 시험 */
+  round?: number;
   category: string;
   subcategory: string;
   /** 공무원 영어 — 지문 해석·어휘(채점 뒤에만 보낸다) */

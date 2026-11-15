@@ -472,7 +472,7 @@ export function DailyPlay({
             매일 10문제 · 전체 기출 한 바퀴
           </h2>
           <p className="mt-0.5 text-xs leading-5 text-[#64748b]">
-            최근 {composition.yearSpan}개년 · {composition.topics}개 단원 · {composition.poolCount.toLocaleString()}문제를 하루 10문제씩, 한 바퀴 약 {composition.rotationDays}일
+            최근 {composition.roundSpan != null ? `${composition.roundSpan}회` : `${composition.yearSpan}개년`} · {composition.topics}개 단원 · {composition.poolCount.toLocaleString()}문제를 하루 10문제씩, 한 바퀴 약 {composition.rotationDays}일
           </p>
         </div>
         {/* 채점 뒤엔 학습 리포트가 같은 숫자를 보여 줘서 뺀다. */}

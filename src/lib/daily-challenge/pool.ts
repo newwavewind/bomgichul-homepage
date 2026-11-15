@@ -118,11 +118,27 @@ export function getDailyPool(slug: string): DailyQuestion[] {
   return built;
 }
 
-/** The latest ten available exam years in one subject's objective-question pool. */
+/**
+ * 매일 10문제 출제 모음.
+ * 보통은 최근 10개 시행 연도, 한국사능력검정은 회차가 축이라 최근 10회분만 쓴다.
+ */
 export function getDailyEligiblePool(slug: string, subjectId: string) {
   const subjectPool = getDailyPool(slug).filter(
     (question) => question.subjectId === subjectId,
   );
+  if (slug === "history") {
+    const rounds = [
+      ...new Set(
+        subjectPool
+          .map((question) => question.round)
+          .filter((round): round is number => Number.isFinite(round) && round > 0),
+      ),
+    ].sort((a, b) => b - a);
+    const keep = new Set(rounds.slice(0, 10));
+    return subjectPool.filter(
+      (question) => question.round != null && keep.has(question.round),
+    );
+  }
   const latestYear = Math.max(0, ...subjectPool.map((question) => question.year));
   return subjectPool.filter((question) => question.year >= latestYear - 9);
 }
@@ -136,6 +152,9 @@ const DAILY_SUBJECT_ALIASES: Record<string, Record<string, string>> = {
   },
   english: {
     english: "gong9",
+  },
+  history: {
+    history: "simhwa",
   },
 };
 
@@ -398,6 +417,19 @@ function fromTrackExam(
       examDate: exam.examDate,
       lawVersions: exam.lawVersions,
       year: exam.year,
+      ...(() => {
+        const fromExam =
+          Number.isFinite(exam.round) && (exam.round as number) > 0
+            ? (exam.round as number)
+            : null;
+        const fromSource = Number(
+          String(exam.sourceCode ?? "").replace(/\D/g, ""),
+        );
+        const round =
+          fromExam ??
+          (Number.isFinite(fromSource) && fromSource > 0 ? fromSource : null);
+        return round != null ? { round } : {};
+      })(),
       category: exam.category || "미분류",
       subcategory: exam.subcategory || exam.category || "미분류",
     },

@@ -23,11 +23,17 @@ export function DailyAbout({
       const pool = getDailyEligiblePool(exam, subject.id);
       if (!pool.length) return null;
       const years = pool.map((q) => q.year);
+      const rounds = pool
+        .map((q) => q.round)
+        .filter((round): round is number => Number.isFinite(round) && round > 0);
       return {
         ...subject,
         count: pool.length,
         firstYear: Math.min(...years),
         lastYear: Math.max(...years),
+        firstRound: rounds.length ? Math.min(...rounds) : null,
+        lastRound: rounds.length ? Math.max(...rounds) : null,
+        byRound: exam === "history" && rounds.length > 0,
         days: Math.ceil(pool.length / 10),
       };
     })
@@ -72,7 +78,14 @@ export function DailyAbout({
               <li key={row.id} className="flex items-baseline justify-between gap-4 py-3">
                 <span className="font-display text-[15px] font-semibold text-ink">{row.label}</span>
                 <span className="shrink-0 text-right font-display text-[13px] tabular-nums text-smoke">
-                  {row.firstYear === row.lastYear ? `${row.lastYear}년` : `${row.firstYear}–${row.lastYear}년`} · {row.count.toLocaleString("ko-KR")}문제 · 한 바퀴 약 {row.days}일
+                  {row.byRound
+                    ? row.firstRound === row.lastRound
+                      ? `제${row.lastRound}회`
+                      : `제${row.firstRound}–${row.lastRound}회`
+                    : row.firstYear === row.lastYear
+                      ? `${row.lastYear}년`
+                      : `${row.firstYear}–${row.lastYear}년`}{" "}
+                  · {row.count.toLocaleString("ko-KR")}문제 · 한 바퀴 약 {row.days}일
                 </span>
               </li>
             ))}

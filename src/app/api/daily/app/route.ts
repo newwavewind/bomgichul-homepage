@@ -251,6 +251,9 @@ export async function POST(request: Request) {
     });
     const eligiblePool = getDailyEligiblePool(examSlug, subjectId);
     const eligibleYears = eligiblePool.map((question) => question.year);
+    const eligibleRounds = eligiblePool
+      .map((question) => question.round)
+      .filter((round): round is number => Number.isFinite(round) && round > 0);
     const eligibleIds = eligiblePool.map((question) => question.id);
     const insights = await getDailyInsights(examSlug, subjectId, date);
     const [today, cumulative, share] = await Promise.all([
@@ -274,6 +277,10 @@ export async function POST(request: Request) {
         yearSpan: eligibleYears.length
           ? Math.max(...eligibleYears) - Math.min(...eligibleYears) + 1
           : 0,
+        roundSpan:
+          examSlug === "history" && eligibleRounds.length
+            ? new Set(eligibleRounds).size
+            : null,
         poolCount: eligiblePool.length,
         topics: new Set(questionSet.map((view) => view.subcategory || view.category)).size,
         rotationDays: Math.ceil(eligiblePool.length / 10),

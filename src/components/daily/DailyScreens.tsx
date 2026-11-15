@@ -149,11 +149,19 @@ export async function DailyPlayPage({
     0,
   );
   const eligibleYears = eligiblePool.map((question) => question.year);
+  const eligibleRounds = eligiblePool
+    .map((question) => question.round)
+    .filter((round): round is number => Number.isFinite(round) && round > 0);
+  const roundSpan =
+    slug === "history" && eligibleRounds.length
+      ? new Set(eligibleRounds).size
+      : null;
   const composition = {
     years: new Set(eligibleYears).size,
     yearSpan: eligibleYears.length
       ? Math.max(...eligibleYears) - Math.min(...eligibleYears) + 1
       : 0,
+    roundSpan,
     topics: new Set(
       set.map((question) => question.subcategory || question.category),
     ).size,
