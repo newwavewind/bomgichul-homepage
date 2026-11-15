@@ -118,13 +118,36 @@ export function getDailyPool(slug: string): DailyQuestion[] {
   return built;
 }
 
-/** The latest ten available exam years in one subject's objective-question pool. */
+const DAILY_ELIGIBLE_WINDOW = 10;
+
+/** 회차(제N회)가 있으면 최신 10회분, 없으면 최근 10개년 — 앱 매일 10문제와 같은 창. */
 export function getDailyEligiblePool(slug: string, subjectId: string) {
   const subjectPool = getDailyPool(slug).filter(
     (question) => question.subjectId === subjectId,
   );
+  const rounds = [
+    ...new Set(
+      subjectPool
+        .map((question) => question.round)
+        .filter((round): round is number => typeof round === "number" && Number.isFinite(round)),
+    ),
+  ].sort((a, b) => b - a);
+  if (rounds.length > 0) {
+    const keep = new Set(rounds.slice(0, DAILY_ELIGIBLE_WINDOW));
+    return subjectPool.filter(
+      (question) => question.round != null && keep.has(question.round),
+    );
+  }
   const latestYear = Math.max(0, ...subjectPool.map((question) => question.year));
-  return subjectPool.filter((question) => question.year >= latestYear - 9);
+  return subjectPool.filter(
+    (question) => question.year >= latestYear - (DAILY_ELIGIBLE_WINDOW - 1),
+  );
+}
+
+export function dailyPoolUsesRounds(slug: string, subjectId: string) {
+  return getDailyEligiblePool(slug, subjectId).some(
+    (question) => typeof question.round === "number",
+  );
 }
 
 export function listDailySubjects(
@@ -341,10 +364,20 @@ function fromRealEstate(
       examDate: question.examDate,
       lawVersions: question.lawVersions,
       year: question.year,
+      round: question.round,
       category: question.category || "미분류",
       subcategory: question.subcategory || question.category || "미분류",
     },
   ];
+}
+
+function roundFromSource(sourceCode: string | undefined, round?: number) {
+  if (typeof round === "number" && Number.isFinite(round)) return round;
+  if (!sourceCode) return undefined;
+  const matched = sourceCode.match(/(\d+)\s*회/);
+  if (!matched) return undefined;
+  const value = Number(matched[1]);
+  return Number.isFinite(value) ? value : undefined;
 }
 
 function fromTrackExam(
@@ -382,6 +415,7 @@ function fromTrackExam(
       examDate: exam.examDate,
       lawVersions: exam.lawVersions,
       year: exam.year,
+      round: roundFromSource(exam.sourceCode, exam.round),
       category: exam.category || "미분류",
       subcategory: exam.subcategory || exam.category || "미분류",
     },

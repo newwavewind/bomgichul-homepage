@@ -39,9 +39,19 @@ export function createTrackContent(contentBySubject: Record<string, ExamTrackSub
       current.firstQuestionNo = Math.min(current.firstQuestionNo, exam.questionNo);
       sessions.set(key, current);
     }
-    return [...sessions.values()].sort(
-      (a, b) => b.year - a.year || a.sourceCode.localeCompare(b.sourceCode, "ko"),
-    );
+    // 최신 회차가 위로: 연도 내림차순 → 회차 번호 내림차순(제80회→제65회).
+    // 회차 숫자가 없으면 문자열 비교.
+    const sourceRank = (sourceCode: string) => {
+      const digits = sourceCode.replace(/\D/g, "");
+      return digits ? Number(digits) : null;
+    };
+    return [...sessions.values()].sort((a, b) => {
+      if (b.year !== a.year) return b.year - a.year;
+      const aRank = sourceRank(a.sourceCode);
+      const bRank = sourceRank(b.sourceCode);
+      if (aRank != null && bRank != null && aRank !== bRank) return bRank - aRank;
+      return a.sourceCode.localeCompare(b.sourceCode, "ko", { numeric: true });
+    });
   }
 
   /** questionRefs가 없으면 category·subcategory로 기출을 연결 */

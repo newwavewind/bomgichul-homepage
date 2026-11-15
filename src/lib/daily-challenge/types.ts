@@ -217,6 +217,10 @@ export type DailyInsights = {
 export type DailyComposition = {
   years: number;
   yearSpan: number;
+  /** 회차 단위 풀이면 true — 안내 문구를 「최신 N회분」으로 쓴다. */
+  usesRounds: boolean;
+  /** 안내 숫자의 창 크기(회차 풀이면 회차 수, 연도 풀이면 연도 수). */
+  spanCount: number;
   topics: number;
   latestCount: number;
   poolCount: number;
@@ -256,6 +260,8 @@ export type DailyQuestion = {
   examDate?: string;
   lawVersions?: Record<string, string>;
   year: number;
+  /** 제N회처럼 회차 번호가 있으면 매일 10문제 풀은 최신 10회분만 쓴다(앱과 동일). */
+  round?: number;
   category: string;
   subcategory: string;
   /** 공무원 영어 — 지문 해석·어휘(채점 뒤에만 보낸다) */
