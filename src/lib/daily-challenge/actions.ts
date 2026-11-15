@@ -4,6 +4,7 @@ import { createHmac, timingSafeEqual } from "crypto";
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { getUser } from "@/lib/auth";
+import { currentDailyActor } from "@/lib/daily-challenge/daily-actor";
 import {
   ANONYMOUS_NICKNAME,
   cleanNickname,
@@ -113,7 +114,46 @@ function cleanDevice(id: string) {
   return text;
 }
 
+function nickIdentity(nickname: string) {
+  const key = nickname.normalize("NFKC").toLowerCase().replace(/\s+/g, "");
+  return `nick:${key}`;
+}
+
+/** 앱 제출이면 답안에 표식을 남긴다. 이름만 적은 앱 손님은 열쇠가 nick: 이다. */
+function solvedInApp(identity: string, answers: unknown) {
+  if (identity.startsWith("nick:")) return true;
+  return (
+    Array.isArray(answers) &&
+    answers.some(
+      (item) =>
+        Boolean(item) &&
+        typeof item === "object" &&
+        (item as { client?: unknown }).client === "app",
+    )
+  );
+}
+
+function markAppAnswers<T extends Record<string, unknown>>(items: T[]) {
+  if (!currentDailyActor()) return items;
+  return items.map((item) => ({ ...item, client: "app" as const }));
+}
+
 async function identityFor(deviceId: string) {
+  const actor = currentDailyActor();
+  if (actor?.guestIdentity) {
+    return {
+      identity: actor.guestIdentity,
+      userId: null as string | null,
+      profileName: actor.nickname,
+    };
+  }
+  if (actor?.id) {
+    return {
+      identity: `user:${actor.id}`,
+      userId: actor.id,
+      profileName: actor.nickname,
+    };
+  }
   const user = await getUser();
   if (user)
     return {
@@ -128,49 +168,50 @@ async function identityFor(deviceId: string) {
   };
 }
 
-function readStartedAt(
+function signaturesMatch(sig: string, expected: string) {
+  const a = Buffer.from(sig);
+  const b = Buffer.from(expected);
+  return a.length === b.length && timingSafeEqual(a, b);
+}
+
+/**
+ * 시작 시각은 서명된 토큰에만 둔다.
+ * 새 토큰은 기기까지 묶어서, 닉네임이나 로그인이 바뀌어도 같은 풀이의 시작은 유지된다.
+ * 기기 칸이 없는 예전 토큰은 같은 날·같은 과목이면 시작 시각만 이어 받는다.
+ */
+function readTimerStart(
   value: string | undefined,
-  exam: string,
-  dateKey: string,
-  mode: string,
-  subject: string,
-  identity: string,
+  expected: {
+    exam: string;
+    dateKey: string;
+    mode: string;
+    subject: string;
+    device: string;
+  },
 ) {
   if (!value) return null;
   const parts = value.split("|");
-  if (parts.length !== 7) return null;
-  const [
-    cookieExam,
-    cookieDate,
-    cookieMode,
-    cookieSubject,
-    cookieIdentity,
-    ts,
-    sig,
-  ] = parts;
-  const body = [
-    cookieExam,
-    cookieDate,
-    cookieMode,
-    cookieSubject,
-    cookieIdentity,
-    ts,
-  ].join("|");
-  const expected = sign(body);
-  const a = Buffer.from(sig);
-  const b = Buffer.from(expected);
-  if (a.length !== b.length || !timingSafeEqual(a, b)) return null;
+  if (parts.length !== 7 && parts.length !== 8) return null;
+  const sig = parts[parts.length - 1] ?? "";
+  const body = parts.slice(0, -1).join("|");
+  if (!signaturesMatch(sig, sign(body))) return null;
+  const [exam, dateKey, mode, subject, , sixth, seventh] = parts;
+  const stamped = parts.length === 8;
+  const device = stamped ? sixth : "";
+  const ts = Number(stamped ? seventh : sixth);
   if (
-    cookieExam !== exam ||
-    cookieDate !== dateKey ||
-    cookieMode !== mode ||
-    cookieSubject !== subject ||
-    cookieIdentity !== identity
+    exam !== expected.exam ||
+    dateKey !== expected.dateKey ||
+    mode !== expected.mode ||
+    subject !== expected.subject ||
+    !Number.isFinite(ts)
   ) {
     return null;
   }
-  const started = Number(ts);
-  return Number.isFinite(started) ? started : null;
+  const age = Date.now() - ts;
+  if (age < -5_000 || age > MAX_VALID_ELAPSED_MS) return null;
+  if (stamped && device !== expected.device) return null;
+  return ts;
 }
 
 function readElapsed(
@@ -179,20 +220,18 @@ function readElapsed(
   dateKey: string,
   mode: string,
   subject: string,
-  identity: string,
+  device: string,
 ) {
-  const started = readStartedAt(
-    value,
+  const started = readTimerStart(value, {
     exam,
     dateKey,
     mode,
     subject,
-    identity,
-  );
+    device,
+  });
   if (started === null) return INVALID_ELAPSED_MS;
   const elapsed = Date.now() - started;
-  if (elapsed < 1000 || elapsed > MAX_VALID_ELAPSED_MS)
-    return INVALID_ELAPSED_MS;
+  if (elapsed < 0 || elapsed > MAX_VALID_ELAPSED_MS) return INVALID_ELAPSED_MS;
   return elapsed;
 }
 
@@ -728,14 +767,14 @@ async function rankStats(
 ) {
   const { data } = await admin
     .from("daily_challenge_attempts")
-    .select("correct, elapsed_ms")
+    .select("nickname, correct, elapsed_ms")
     .eq("exam_slug", exam)
     .eq("subject_id", subject)
     .eq("quiz_date", dateKey)
     .eq("mode", "ranked")
     .order("correct", { ascending: false })
     .order("elapsed_ms", { ascending: true });
-  const rows = (data ?? []) as Pick<AttemptRow, "correct" | "elapsed_ms">[];
+  const rows = (data ?? []) as Pick<AttemptRow, "nickname" | "correct" | "elapsed_ms">[];
   const better = rows.filter(
     (row) =>
       row.correct > correct ||
@@ -780,6 +819,8 @@ export async function startDailyAttempt(input: {
   reviewSource?: string;
   timerToken?: string | null;
   deviceId: string;
+  /** 참이면 저장된 시작이 없을 때 지금을 시작으로 찍는다. 지문을 처음 누를 때만 참이다. */
+  arm?: boolean;
 }) {
   const subject = listDailySubjects(input.exam).find(
     (item) => item.id === input.subject,
@@ -795,29 +836,35 @@ export async function startDailyAttempt(input: {
   );
   const jar = await cookies();
   const now = Date.now();
+  const device = cleanDevice(input.deviceId);
   const savedToken =
     input.timerToken ||
     jar.get(cookieName(input.exam, modeKey, subject.id))?.value;
-  const savedStarted = readStartedAt(
-    savedToken,
-    input.exam,
+  const savedStarted = readTimerStart(savedToken, {
+    exam: input.exam,
     dateKey,
-    modeKey,
-    subject.id,
-    who.identity,
-  );
-  const ts =
-    savedStarted !== null &&
-    now >= savedStarted &&
-    now - savedStarted <= MAX_VALID_ELAPSED_MS
-      ? savedStarted
-      : now;
+    mode: modeKey,
+    subject: subject.id,
+    device,
+  });
+  if (savedStarted === null && input.arm === false) {
+    return {
+      ok: true as const,
+      dateKey,
+      defaultNickname: who.profileName,
+      timerToken: "",
+      startedAt: null,
+      serverNow: now,
+    };
+  }
+  const ts = savedStarted ?? now;
   const body = [
     input.exam,
     dateKey,
     modeKey,
     subject.id,
     who.identity,
+    device,
     String(ts),
   ].join("|");
   const timerToken = `${body}|${sign(body)}`;
@@ -831,7 +878,15 @@ export async function startDailyAttempt(input: {
       maxAge: 60 * 60 * 6,
     },
   );
-  jar.set("bom_daily_identity", who.identity, {
+  const savedIdentity = jar.get("bom_daily_identity")?.value || "";
+  const identityCookie = who.userId
+    ? who.identity
+    : who.identity.startsWith("nick:")
+      ? who.identity
+      : savedIdentity.startsWith("nick:")
+        ? savedIdentity
+        : who.identity;
+  jar.set("bom_daily_identity", identityCookie, {
     httpOnly: true,
     sameSite: "lax",
     path: "/",
@@ -842,6 +897,8 @@ export async function startDailyAttempt(input: {
     dateKey,
     defaultNickname: who.profileName,
     timerToken,
+    startedAt: ts,
+    serverNow: now,
   };
 }
 
@@ -899,29 +956,34 @@ export async function submitDailyAttempt(input: {
   if (set.length === 0)
     return { ok: false, message: "오늘 문제를 만들지 못했습니다." };
 
-  const who = await identityFor(input.deviceId);
+  const deviceWho = await identityFor(input.deviceId);
+  const nickname = cleanNickname(input.nickname || deviceWho.profileName);
+  let who = deviceWho;
+  if (!deviceWho.userId && nickname !== ANONYMOUS_NICKNAME) {
+    who = {
+      identity: nickIdentity(nickname),
+      userId: null,
+      profileName: nickname,
+    };
+  }
   const jar = await cookies();
   const modeKey = attemptModeKey(input.mode, page, input.reviewSource);
-  const tokenElapsedMs = readElapsed(
-    input.timerToken ?? undefined,
-    input.exam,
-    dateKey,
-    modeKey,
-    subject.id,
-    who.identity,
-  );
-  const elapsedMs =
-    tokenElapsedMs !== INVALID_ELAPSED_MS
-      ? tokenElapsedMs
-      : readElapsed(
-          jar.get(cookieName(input.exam, modeKey, subject.id))?.value,
-          input.exam,
-          dateKey,
-          modeKey,
-          subject.id,
-          who.identity,
-        );
-  const nickname = cleanNickname(input.nickname || who.profileName);
+  const device = cleanDevice(input.deviceId);
+  const elapsedFor = (token: string | undefined) =>
+    readElapsed(
+      token,
+      input.exam,
+      dateKey,
+      modeKey,
+      subject.id,
+      device,
+    );
+  let elapsedMs = elapsedFor(input.timerToken ?? undefined);
+  if (elapsedMs === INVALID_ELAPSED_MS) {
+    elapsedMs = elapsedFor(
+      jar.get(cookieName(input.exam, modeKey, subject.id))?.value,
+    );
+  }
   const review = grade(set, input.picks ?? []);
   const correct = review.filter((item) => item.ok).length;
   const roundHref = set[0]?.roundHref ?? meta.home;
@@ -964,14 +1026,16 @@ export async function submitDailyAttempt(input: {
     );
 
     if (input.mode === "review") {
-      const reviewAnswers = review.map((item) => ({
-        id: item.id,
-        picked: item.picked,
-        ok: item.ok,
-        confidence: item.confidence,
-        review: true,
-        graduationFor,
-      }));
+      const reviewAnswers = markAppAnswers(
+        review.map((item) => ({
+          id: item.id,
+          picked: item.picked,
+          ok: item.ok,
+          confidence: item.confidence,
+          review: true,
+          graduationFor,
+        })),
+      );
       const { data: insertedReview } = await admin
         .from("daily_challenge_attempts")
         .insert({
@@ -1045,12 +1109,25 @@ export async function submitDailyAttempt(input: {
         .eq("nickname", nickname)
         .maybeSingle();
       if (clash && clash.identity_key !== who.identity) {
-        return {
-          ...base,
-          message:
-            "오늘 이 과목에 이미 쓰인 이름입니다. 다른 이름을 적어 주세요.",
-        };
+        const theirs = clash.identity_key || "";
+        if (theirs.startsWith("user:")) {
+          return {
+            ...base,
+            message:
+              "오늘 이 과목에 이미 쓰인 이름입니다. 다른 이름을 적어 주세요.",
+          };
+        }
+        who = { ...who, identity: theirs };
       }
+    }
+
+    if (!who.userId) {
+      jar.set("bom_daily_identity", who.identity, {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        maxAge: 60 * 60 * 24 * 400,
+      });
     }
 
     if (input.mode === "ranked") {
@@ -1123,13 +1200,15 @@ export async function submitDailyAttempt(input: {
         total: set.length,
         elapsed_ms: elapsedMs,
         question_ids: set.map((question) => question.id),
-        answers: review.map((item) => ({
-          id: item.id,
-          picked: item.picked,
-          ok: item.ok,
-          confidence: item.confidence,
-          challengeId,
-        })),
+        answers: markAppAnswers(
+          review.map((item) => ({
+            id: item.id,
+            picked: item.picked,
+            ok: item.ok,
+            confidence: item.confidence,
+            challengeId,
+          })),
+        ),
       })
       .select("id")
       .single();
@@ -1215,11 +1294,13 @@ export async function submitDailyAttempt(input: {
 }
 
 async function mineIdentity() {
-  const jar = await cookies();
-  const saved = jar.get("bom_daily_identity")?.value;
-  if (saved) return saved;
+  const actor = currentDailyActor();
+  if (actor?.guestIdentity) return actor.guestIdentity;
+  if (actor?.id) return `user:${actor.id}`;
   const user = await getUser();
-  return user ? `user:${user.id}` : "";
+  if (user) return `user:${user.id}`;
+  const jar = await cookies();
+  return jar.get("bom_daily_identity")?.value || "";
 }
 
 export async function getTodayBoard(
@@ -1233,13 +1314,13 @@ export async function getTodayBoard(
     const admin = createAdminClient();
     const rows: Pick<
       AttemptRow,
-      "nickname" | "identity_key" | "correct" | "total" | "elapsed_ms"
+      "nickname" | "identity_key" | "correct" | "total" | "elapsed_ms" | "answers"
     >[] = [];
     const pageSize = 1000;
     for (let from = 0; ; from += pageSize) {
       const { data, error } = await admin
         .from("daily_challenge_attempts")
-        .select("nickname, identity_key, correct, total, elapsed_ms")
+        .select("nickname, identity_key, correct, total, elapsed_ms, answers")
         .eq("exam_slug", exam)
         .eq("subject_id", subject)
         .eq("quiz_date", dateKey)
@@ -1260,6 +1341,7 @@ export async function getTodayBoard(
       elapsedMs: row.elapsed_ms,
       days: null,
       mine: row.identity_key === mine,
+      fromApp: solvedInApp(row.identity_key, row.answers),
     }));
   } catch {
     return [];
@@ -1282,12 +1364,13 @@ export async function getCumulativeBoard(
       | "total"
       | "quiz_date"
       | "elapsed_ms"
+      | "answers"
     >[] = [];
     const pageSize = 1000;
     for (let from = 0; ; from += pageSize) {
       const { data, error } = await admin
         .from("daily_challenge_attempts")
-        .select("nickname, identity_key, correct, total, quiz_date, elapsed_ms")
+        .select("nickname, identity_key, correct, total, quiz_date, elapsed_ms, answers")
         .eq("exam_slug", exam)
         .eq("subject_id", subject)
         .eq("mode", "ranked")
@@ -1301,9 +1384,10 @@ export async function getCumulativeBoard(
 
     const grouped = new Map<
       string,
-      { nickname: string; points: number; days: number; total: number }
+      { nickname: string; points: number; days: number; total: number; fromApp: boolean }
     >();
     for (const row of rows) {
+      const fromApp = solvedInApp(row.identity_key, row.answers);
       const current = grouped.get(row.identity_key);
       if (!current) {
         grouped.set(row.identity_key, {
@@ -1311,14 +1395,17 @@ export async function getCumulativeBoard(
           points: row.correct,
           days: 1,
           total: row.total,
+          fromApp,
         });
       } else {
         current.points += row.correct;
         current.days += 1;
+        current.fromApp = current.fromApp || fromApp;
       }
     }
 
     return [...grouped.entries()]
+      .filter((entry) => entry[1].nickname !== ANONYMOUS_NICKNAME)
       .sort(
         (a, b) =>
           b[1].points - a[1].points ||
@@ -1333,6 +1420,7 @@ export async function getCumulativeBoard(
         elapsedMs: null,
         days: row.days,
         mine: identity === mine,
+        fromApp: row.fromApp,
       }));
   } catch {
     return [];
@@ -1829,12 +1917,17 @@ export async function getViewerDailyShareContext(
   }
 
   try {
-    const user = await getUser();
+    const actor = currentDailyActor();
+    const user = actor ? null : await getUser();
     const jar = await cookies();
-    const identity = user
-      ? `user:${user.id}`
-      : (jar.get("bom_daily_identity")?.value ?? "");
-    const inviterNickname = user?.nickname ?? "";
+    const identity = actor?.guestIdentity
+      ? actor.guestIdentity
+      : actor?.id
+        ? `user:${actor.id}`
+        : user
+          ? `user:${user.id}`
+          : (jar.get("bom_daily_identity")?.value ?? "");
+    const inviterNickname = (actor?.id ? actor.nickname : user?.nickname) ?? "";
     if (!identity) return { ...empty, inviterNickname };
 
     const admin = createAdminClient();

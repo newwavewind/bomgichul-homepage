@@ -104,6 +104,8 @@ export type BoardRow = {
   elapsedMs: number | null;
   days: number | null;
   mine: boolean;
+  /** 이 기록을 앱에서 제출했다. */
+  fromApp?: boolean;
 };
 
 export type DailyCalendarStatus = {
