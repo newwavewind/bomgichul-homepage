@@ -5,7 +5,7 @@
  * migration. Every public entry point should consult this helper instead.
  */
 const PUBLIC_EXAM_VISIBILITY: Readonly<Record<string, boolean>> = {
-  history: false,
+  history: true,
 };
 
 export function isPublicExamVisible(slug: string): boolean {
