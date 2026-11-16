@@ -636,7 +636,7 @@ function buildInsights(
       pool
         .map((question) => question.round)
         .filter(
-          (round): round is number => Number.isFinite(round) && round > 0,
+          (round): round is number => typeof round === "number" && Number.isFinite(round) && round > 0,
         ),
     ),
   ].sort((a, b) => b - a);

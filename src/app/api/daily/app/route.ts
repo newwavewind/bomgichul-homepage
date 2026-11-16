@@ -253,7 +253,7 @@ export async function POST(request: Request) {
     const eligibleYears = eligiblePool.map((question) => question.year);
     const eligibleRounds = eligiblePool
       .map((question) => question.round)
-      .filter((round): round is number => Number.isFinite(round) && round > 0);
+      .filter((round): round is number => typeof round === "number" && Number.isFinite(round) && round > 0);
     const eligibleIds = eligiblePool.map((question) => question.id);
     const insights = await getDailyInsights(examSlug, subjectId, date);
     const [today, cumulative, share] = await Promise.all([

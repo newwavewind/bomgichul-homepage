@@ -25,7 +25,7 @@ export function DailyAbout({
       const years = pool.map((q) => q.year);
       const rounds = pool
         .map((q) => q.round)
-        .filter((round): round is number => Number.isFinite(round) && round > 0);
+        .filter((round): round is number => typeof round === "number" && Number.isFinite(round) && round > 0);
       return {
         ...subject,
         count: pool.length,

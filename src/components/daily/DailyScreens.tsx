@@ -151,7 +151,7 @@ export async function DailyPlayPage({
   const eligibleYears = eligiblePool.map((question) => question.year);
   const eligibleRounds = eligiblePool
     .map((question) => question.round)
-    .filter((round): round is number => Number.isFinite(round) && round > 0);
+    .filter((round): round is number => typeof round === "number" && Number.isFinite(round) && round > 0);
   const roundSpan =
     slug === "history" && eligibleRounds.length
       ? new Set(eligibleRounds).size

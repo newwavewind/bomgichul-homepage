@@ -131,7 +131,7 @@ export function getDailyEligiblePool(slug: string, subjectId: string) {
       ...new Set(
         subjectPool
           .map((question) => question.round)
-          .filter((round): round is number => Number.isFinite(round) && round > 0),
+          .filter((round): round is number => typeof round === "number" && Number.isFinite(round) && round > 0),
       ),
     ].sort((a, b) => b - a);
     const keep = new Set(rounds.slice(0, 10));
