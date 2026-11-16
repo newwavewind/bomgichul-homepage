@@ -448,3 +448,12 @@
 /* Keep the fullscreen toggle at the far right of the bottom controls in both modes. */
 .c103-bar__right{margin-left:auto;justify-content:flex-end}
 .c103-fullscreen{flex:none}
+
+.c103-figure{margin:10px 0 0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.c103-figure__frame{position:relative;display:inline-block;max-width:100%;padding:8px;background:#fbfaf6;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.c103-figure__frame img{display:block;max-width:100%;max-height:min(58vh,420px);object-fit:contain;image-rendering:auto}
+.c103-figure__note{position:absolute;transform:translate(-50%,-50%);padding:3px 9px;border-radius:6px;background:rgba(32,44,38,.92);color:#ffe9a8;font:700 clamp(14px,1.8vw,18px)/1.25 'Gaegu','Noto Sans KR',sans-serif;white-space:nowrap;border:2px solid #f2c75c}
+.c103-figure__note.is-red{color:#ffd0c4;border-color:#ff8a70}
+.c103-figure__note.is-blue{color:#d4ecff;border-color:#8cc8ff}
+.c103-figure figcaption{font:700 clamp(15px,1.9vw,19px)/1.3 'Gaegu','Noto Sans KR',sans-serif;color:#f3e3bb}
+.c103-figure__credit{font:400 11px/1.3 'Noto Sans KR',sans-serif;color:rgba(243,227,187,.62)}

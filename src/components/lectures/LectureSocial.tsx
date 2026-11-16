@@ -4,7 +4,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { SITE_URL } from '@/lib/constants';
-import { lectureBoardImage, LECTURE_SHARE_DESCRIPTION } from '@/lib/lecture-share';
+import { lectureBoardImage } from '@/lib/lecture-share';
+import { lecturePagePath, lectureSiteConfig } from '@/lib/lecture-sites';
 import { KakaoShareButton } from '@/components/daily/KakaoShareButton';
 import { LectureViewCount } from '@/components/lectures/LectureViewCount';
 
@@ -12,7 +13,7 @@ type Comment = { id: string; user_id: string; parent_id: string | null; content:
 const nickname = (comment: Comment) => (Array.isArray(comment.profiles) ? comment.profiles[0] : comment.profiles)?.nickname || '수강생';
 const PAGE_SIZE = 100;
 
-export default function LectureSocial({lectureId, subject, title}: {lectureId: string; subject: string; title: string}) {
+export default function LectureSocial({lectureId, subject, title, site = 'real-estate'}: {lectureId: string; subject: string; title: string; site?: string}) {
   const client = useMemo(() => createClient(), []);
   const [userId, setUserId] = useState<string | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
@@ -30,7 +31,8 @@ export default function LectureSocial({lectureId, subject, title}: {lectureId: s
   const [hasMore, setHasMore] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const commentsRef = useRef<HTMLElement>(null);
-  const path = `/real-estate/lectures/${subject}?lecture=${encodeURIComponent(lectureId)}`;
+  const path = lecturePagePath(site, subject, lectureId);
+  const siteConfig = lectureSiteConfig(site);
   const loginHref = `/login?next=${encodeURIComponent(path)}`;
 
   const load = useCallback(async (viewer: string | null) => {
@@ -114,7 +116,7 @@ export default function LectureSocial({lectureId, subject, title}: {lectureId: s
       <button type="button" className={liked ? 'is-liked' : ''} aria-pressed={liked} onClick={toggleLike} disabled={pending || loading}><span aria-hidden="true">{liked?'♥':'♡'}</span> 좋아요 {loading ? '…' : likeCount}</button>
       <button type="button" aria-expanded={showComments} onClick={()=>{setShowComments(!showComments);if(!showComments) requestAnimationFrame(()=>commentsRef.current?.scrollIntoView({behavior:'smooth',block:'nearest'}));}}>댓글 {loading ? '…' : commentCount}</button>
       <button type="button" onClick={copyLink}>링크 공유</button>
-      <KakaoShareButton title={`${title} | 봄기출 칠판 강의`} description={LECTURE_SHARE_DESCRIPTION} imagePath={lectureBoardImage(lectureId)} path={path}>카카오톡 공유</KakaoShareButton>
+      <KakaoShareButton title={`${title} | 봄기출 칠판 강의`} description={siteConfig.shareDescription} imagePath={lectureBoardImage(lectureId)} path={path}>카카오톡 공유</KakaoShareButton>
     </div>
     {message && <p className="lecture-social-message" role="status">{message}</p>}
     {error && <p className="lecture-social-error" role="alert">{error} <button type="button" onClick={()=>{setError('');void load(userId).catch(()=>setError('잠시 후 다시 시도해 주세요.'));}}>다시 불러오기</button></p>}

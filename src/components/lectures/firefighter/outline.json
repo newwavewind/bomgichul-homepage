@@ -1,0 +1,2455 @@
+[
+  {
+    "subject": "sobang",
+    "label": "소방학개론",
+    "parts": [
+      {
+        "title": "연소이론",
+        "sections": [
+          {
+            "title": "제1장 연소의 개념과 형태",
+            "lessons": [
+              {
+                "id": "fire-sbU101_1",
+                "sourceId": "sbU101_1",
+                "title": "연소의 정의와 3요소·4요소",
+                "number": 1,
+                "ready": true,
+                "seconds": 919,
+                "description": "교재 그림 · 공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU101_3",
+                "sourceId": "sbU101_3",
+                "title": "연소의 형태(기체·액체·고체)",
+                "number": 2,
+                "ready": true,
+                "seconds": 976,
+                "description": "교재 그림 · 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU101_4",
+                "sourceId": "sbU101_4",
+                "title": "연소속도와 연소 반응식",
+                "number": 3,
+                "ready": true,
+                "seconds": 999,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 발화와 위험성",
+            "lessons": [
+              {
+                "id": "fire-sbU102_1",
+                "sourceId": "sbU102_1",
+                "title": "인화점·연소점·발화점",
+                "number": 4,
+                "ready": true,
+                "seconds": 1035,
+                "description": "교재 그림 · 공채 기출 11문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbFlammableRange",
+                "sourceId": "sbFlammableRange",
+                "title": "연소범위와 위험도",
+                "number": 5,
+                "ready": true,
+                "seconds": 1260,
+                "description": "하한계·상한계·위험도 · 인화점 그래프 · 같이 푸는 계산 · 15줄 노트"
+              },
+              {
+                "id": "fire-sbU102_3",
+                "sourceId": "sbU102_3",
+                "title": "자연발화",
+                "number": 6,
+                "ready": true,
+                "seconds": 896,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU102_4",
+                "sourceId": "sbU102_4",
+                "title": "최소발화에너지와 최소산소농도",
+                "number": 7,
+                "ready": true,
+                "seconds": 998,
+                "description": "공채 기출 7문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 연소생성물과 열전달",
+            "lessons": [
+              {
+                "id": "fire-sbU103_1",
+                "sourceId": "sbU103_1",
+                "title": "연소생성가스",
+                "number": 8,
+                "ready": true,
+                "seconds": 909,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU103_2",
+                "sourceId": "sbU103_2",
+                "title": "연기의 정의와 성상",
+                "number": 9,
+                "ready": true,
+                "seconds": 917,
+                "description": "공채 기출 6문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU103_3",
+                "sourceId": "sbU103_3",
+                "title": "화염의 형태와 열방사",
+                "number": 10,
+                "ready": true,
+                "seconds": 924,
+                "description": "공채 기출 5문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU103_4",
+                "sourceId": "sbU103_4",
+                "title": "열전달(전도·대류·복사)",
+                "number": 11,
+                "ready": true,
+                "seconds": 958,
+                "description": "공채 기출 8문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 폭발",
+            "lessons": [
+              {
+                "id": "fire-sbU104_1",
+                "sourceId": "sbU104_1",
+                "title": "폭발의 조건과 분류",
+                "number": 12,
+                "ready": true,
+                "seconds": 913,
+                "description": "공채 기출 5문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU104_2",
+                "sourceId": "sbU104_2",
+                "title": "물리적 폭발과 화학적 폭발",
+                "number": 13,
+                "ready": true,
+                "seconds": 920,
+                "description": "공채 기출 5문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU104_3",
+                "sourceId": "sbU104_3",
+                "title": "기상폭발과 응상폭발",
+                "number": 14,
+                "ready": true,
+                "seconds": 976,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU104_4",
+                "sourceId": "sbU104_4",
+                "title": "폭연과 폭굉",
+                "number": 15,
+                "ready": true,
+                "seconds": 901,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU104_5",
+                "sourceId": "sbU104_5",
+                "title": "BLEVE·증기운폭발 등 대표적 폭발현상",
+                "number": 16,
+                "ready": true,
+                "seconds": 1008,
+                "description": "교재 그림 · 공채 기출 5문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제5장 소방화학",
+            "lessons": [
+              {
+                "id": "fire-sbU105_1",
+                "sourceId": "sbU105_1",
+                "title": "소방화학의 기초이론(기체법칙·화학양론)",
+                "number": 17,
+                "ready": true,
+                "seconds": 1152,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "화재이론",
+        "sections": [
+          {
+            "title": "제1장 화재의 정의와 분류",
+            "lessons": [
+              {
+                "id": "fire-sbU201_2",
+                "sourceId": "sbU201_2",
+                "title": "화재의 종류(A·B·C·D·K급)와 종류별 소화방법",
+                "number": 18,
+                "ready": true,
+                "seconds": 1000,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU201_3",
+                "sourceId": "sbU201_3",
+                "title": "화재하중과 화재가혹도",
+                "number": 19,
+                "ready": true,
+                "seconds": 900,
+                "description": "공채 기출 7문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 실내(건축물) 화재의 성상",
+            "lessons": [
+              {
+                "id": "fire-sbU202_1",
+                "sourceId": "sbU202_1",
+                "title": "실내화재의 진행단계",
+                "number": 20,
+                "ready": true,
+                "seconds": 946,
+                "description": "교재 그림 · 공채 기출 6문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU202_2",
+                "sourceId": "sbU202_2",
+                "title": "플래시오버와 백드래프트",
+                "number": 21,
+                "ready": true,
+                "seconds": 1002,
+                "description": "교재 그림 · 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU202_3",
+                "sourceId": "sbU202_3",
+                "title": "연기의 유동과 중성대",
+                "number": 22,
+                "ready": true,
+                "seconds": 919,
+                "description": "교재 그림 · 공채 기출 5문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 위험물·유류 화재의 성상",
+            "lessons": [
+              {
+                "id": "fire-sbU203_1",
+                "sourceId": "sbU203_1",
+                "title": "유류화재의 특수현상(보일오버·슬롭오버 등)",
+                "number": 23,
+                "ready": true,
+                "seconds": 912,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 화재조사",
+            "lessons": [
+              {
+                "id": "fire-sbU204_1",
+                "sourceId": "sbU204_1",
+                "title": "화재조사의 개요와 실시",
+                "number": 24,
+                "ready": true,
+                "seconds": 1046,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU204_2",
+                "sourceId": "sbU204_2",
+                "title": "화재패턴과 발화지점 판정",
+                "number": 25,
+                "ready": true,
+                "seconds": 962,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU204_3",
+                "sourceId": "sbU204_3",
+                "title": "화재조사 결과의 공표와 기반구축",
+                "number": 26,
+                "ready": true,
+                "seconds": 1048,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "소화이론",
+        "sections": [
+          {
+            "title": "제1장 소화의 원리와 방법",
+            "lessons": [
+              {
+                "id": "fire-sbU301_1",
+                "sourceId": "sbU301_1",
+                "title": "소화의 기본원리",
+                "number": 27,
+                "ready": true,
+                "seconds": 812,
+                "description": "교재 그림 · 공채 기출 6문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU301_2",
+                "sourceId": "sbU301_2",
+                "title": "냉각·질식·제거·부촉매 소화",
+                "number": 28,
+                "ready": true,
+                "seconds": 986,
+                "description": "교재 그림 · 공채 기출 9문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 수계 소화약제",
+            "lessons": [
+              {
+                "id": "fire-sbU302_1",
+                "sourceId": "sbU302_1",
+                "title": "물 소화약제",
+                "number": 29,
+                "ready": true,
+                "seconds": 921,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU302_2",
+                "sourceId": "sbU302_2",
+                "title": "포 소화약제",
+                "number": 30,
+                "ready": true,
+                "seconds": 897,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 비수계 소화약제",
+            "lessons": [
+              {
+                "id": "fire-sbU303_1",
+                "sourceId": "sbU303_1",
+                "title": "이산화탄소 소화약제",
+                "number": 31,
+                "ready": true,
+                "seconds": 983,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU303_2",
+                "sourceId": "sbU303_2",
+                "title": "할론 소화약제",
+                "number": 32,
+                "ready": true,
+                "seconds": 960,
+                "description": "교재 그림 · 공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU303_3",
+                "sourceId": "sbU303_3",
+                "title": "할로겐화합물 및 불활성기체 소화약제",
+                "number": 33,
+                "ready": true,
+                "seconds": 938,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU303_4",
+                "sourceId": "sbU303_4",
+                "title": "분말 소화약제",
+                "number": 34,
+                "ready": true,
+                "seconds": 1016,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "소방시설",
+        "sections": [
+          {
+            "title": "제1장 소방시설의 분류",
+            "lessons": [
+              {
+                "id": "fire-sbU401_1",
+                "sourceId": "sbU401_1",
+                "title": "소방시설의 종류와 분류 체계",
+                "number": 35,
+                "ready": true,
+                "seconds": 939,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 소화설비",
+            "lessons": [
+              {
+                "id": "fire-sbU402_1",
+                "sourceId": "sbU402_1",
+                "title": "소화기구와 자동소화장치",
+                "number": 36,
+                "ready": true,
+                "seconds": 927,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU402_2",
+                "sourceId": "sbU402_2",
+                "title": "옥내·옥외소화전설비",
+                "number": 37,
+                "ready": true,
+                "seconds": 1012,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU402_3",
+                "sourceId": "sbU402_3",
+                "title": "소화펌프",
+                "number": 38,
+                "ready": true,
+                "seconds": 1125,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU402_4",
+                "sourceId": "sbU402_4",
+                "title": "스프링클러설비",
+                "number": 39,
+                "ready": true,
+                "seconds": 906,
+                "description": "교재 그림 · 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU402_5",
+                "sourceId": "sbU402_5",
+                "title": "물분무등소화설비(포·가스계)",
+                "number": 40,
+                "ready": true,
+                "seconds": 997,
+                "description": "교재 그림 · 공채 기출 10문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 경보설비",
+            "lessons": [
+              {
+                "id": "fire-sbU403_1",
+                "sourceId": "sbU403_1",
+                "title": "자동화재탐지설비와 감지기",
+                "number": 41,
+                "ready": true,
+                "seconds": 902,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU403_2",
+                "sourceId": "sbU403_2",
+                "title": "비상경보·비상방송설비",
+                "number": 42,
+                "ready": true,
+                "seconds": 984,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU403_3",
+                "sourceId": "sbU403_3",
+                "title": "그 밖의 경보설비",
+                "number": 43,
+                "ready": true,
+                "seconds": 899,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 피난구조설비와 소화용수설비",
+            "lessons": [
+              {
+                "id": "fire-sbU404_1",
+                "sourceId": "sbU404_1",
+                "title": "피난기구와 인명구조기구",
+                "number": 44,
+                "ready": true,
+                "seconds": 923,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제5장 소화활동설비",
+            "lessons": [
+              {
+                "id": "fire-sbU405_1",
+                "sourceId": "sbU405_1",
+                "title": "제연설비",
+                "number": 45,
+                "ready": true,
+                "seconds": 947,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "위험물",
+        "sections": [
+          {
+            "title": "제1장 위험물의 정의와 분류",
+            "lessons": [
+              {
+                "id": "fire-sbU501_1",
+                "sourceId": "sbU501_1",
+                "title": "위험물의 정의와 지정수량",
+                "number": 46,
+                "ready": true,
+                "seconds": 1149,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU501_2",
+                "sourceId": "sbU501_2",
+                "title": "유별 분류 체계",
+                "number": 47,
+                "ready": true,
+                "seconds": 1220,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 위험물 유별 성상",
+            "lessons": [
+              {
+                "id": "fire-sbU502_1",
+                "sourceId": "sbU502_1",
+                "title": "제1류 산화성 고체",
+                "number": 48,
+                "ready": true,
+                "seconds": 1072,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU502_2",
+                "sourceId": "sbU502_2",
+                "title": "제2류 가연성 고체",
+                "number": 49,
+                "ready": true,
+                "seconds": 971,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU502_3",
+                "sourceId": "sbU502_3",
+                "title": "제3류 자연발화성·금수성 물질",
+                "number": 50,
+                "ready": true,
+                "seconds": 1030,
+                "description": "공채 기출 8문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU502_4",
+                "sourceId": "sbU502_4",
+                "title": "제4류 인화성 액체",
+                "number": 51,
+                "ready": true,
+                "seconds": 916,
+                "description": "공채 기출 9문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU502_5",
+                "sourceId": "sbU502_5",
+                "title": "제5류 자기반응성 물질",
+                "number": 52,
+                "ready": true,
+                "seconds": 1030,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU502_6",
+                "sourceId": "sbU502_6",
+                "title": "제6류 산화성 액체",
+                "number": 53,
+                "ready": true,
+                "seconds": 1046,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 위험물시설의 안전관리와 소화대책",
+            "lessons": [
+              {
+                "id": "fire-sbU503_2",
+                "sourceId": "sbU503_2",
+                "title": "유별 소화대책",
+                "number": 54,
+                "ready": true,
+                "seconds": 1065,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "소방조직과 소방행정",
+        "sections": [
+          {
+            "title": "제1장 소방의 역사",
+            "lessons": [
+              {
+                "id": "fire-sbU601_1",
+                "sourceId": "sbU601_1",
+                "title": "우리나라 소방의 발전 과정",
+                "number": 55,
+                "ready": true,
+                "seconds": 1027,
+                "description": "공채 기출 8문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU601_2",
+                "sourceId": "sbU601_2",
+                "title": "소방조직의 변천",
+                "number": 56,
+                "ready": true,
+                "seconds": 1121,
+                "description": "공채 기출 9문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 소방조직과 행정체제",
+            "lessons": [
+              {
+                "id": "fire-sbU602_1",
+                "sourceId": "sbU602_1",
+                "title": "소방행정체제와 기능·책임",
+                "number": 57,
+                "ready": true,
+                "seconds": 902,
+                "description": "공채 기출 2문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-sbU602_2",
+                "sourceId": "sbU602_2",
+                "title": "소방조직관리의 기초이론",
+                "number": 58,
+                "ready": true,
+                "seconds": 963,
+                "description": "공채 기출 1문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-sbU602_3",
+                "sourceId": "sbU602_3",
+                "title": "민간 소방조직(의용소방대 등)",
+                "number": 59,
+                "ready": true,
+                "seconds": 1028,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 소방인적자원관리",
+            "lessons": [
+              {
+                "id": "fire-sbU603_1",
+                "sourceId": "sbU603_1",
+                "title": "소방공무원법의 주요 내용",
+                "number": 60,
+                "ready": true,
+                "seconds": 1023,
+                "description": "공채 기출 1문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 소방기능",
+            "lessons": [
+              {
+                "id": "fire-sbU604_2",
+                "sourceId": "sbU604_2",
+                "title": "소방신호와 119종합상황실",
+                "number": 61,
+                "ready": true,
+                "seconds": 899,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "재난관리",
+        "sections": [
+          {
+            "title": "제1장 재난의 개념과 분류",
+            "lessons": [
+              {
+                "id": "fire-sbU701_1",
+                "sourceId": "sbU701_1",
+                "title": "재난의 정의와 특징",
+                "number": 62,
+                "ready": true,
+                "seconds": 1009,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU701_2",
+                "sourceId": "sbU701_2",
+                "title": "재난의 유형",
+                "number": 63,
+                "ready": true,
+                "seconds": 919,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-sbU701_3",
+                "sourceId": "sbU701_3",
+                "title": "재해이론(하인리히·프랭크버드 등)",
+                "number": 64,
+                "ready": true,
+                "seconds": 922,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 재난관리 방식과 단계",
+            "lessons": [
+              {
+                "id": "fire-sbU702_1",
+                "sourceId": "sbU702_1",
+                "title": "분산관리와 통합관리",
+                "number": 65,
+                "ready": true,
+                "seconds": 944,
+                "description": "공채 기출 2문제 · 12줄 노트"
+              },
+              {
+                "id": "fire-sbU702_2",
+                "sourceId": "sbU702_2",
+                "title": "예방·대비·대응·복구 4단계",
+                "number": 66,
+                "ready": true,
+                "seconds": 976,
+                "description": "공채 기출 6문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 우리나라의 재난관리체계",
+            "lessons": [
+              {
+                "id": "fire-sbU703_1",
+                "sourceId": "sbU703_1",
+                "title": "재난안전법 총칙",
+                "number": 67,
+                "ready": true,
+                "seconds": 1097,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU703_2",
+                "sourceId": "sbU703_2",
+                "title": "안전관리기구와 안전관리계획",
+                "number": 68,
+                "ready": true,
+                "seconds": 953,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU703_3",
+                "sourceId": "sbU703_3",
+                "title": "재난의 예방과 대비",
+                "number": 69,
+                "ready": true,
+                "seconds": 909,
+                "description": "공채 기출 3문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-sbU703_4",
+                "sourceId": "sbU703_4",
+                "title": "재난의 대응과 복구",
+                "number": 70,
+                "ready": true,
+                "seconds": 950,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 긴급구조",
+            "lessons": [
+              {
+                "id": "fire-sbU704_1",
+                "sourceId": "sbU704_1",
+                "title": "긴급구조체계와 현장지휘",
+                "number": 71,
+                "ready": true,
+                "seconds": 1127,
+                "description": "교재 그림 · 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-sbU704_2",
+                "sourceId": "sbU704_2",
+                "title": "응급조치",
+                "number": 72,
+                "ready": true,
+                "seconds": 948,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subject": "sobangbeop",
+    "label": "소방관계법규",
+    "parts": [
+      {
+        "title": "소방기본법",
+        "sections": [
+          {
+            "title": "제1장 총칙",
+            "lessons": [
+              {
+                "id": "fire-slU101_1",
+                "sourceId": "slU101_1",
+                "title": "목적과 용어의 정의",
+                "number": 1,
+                "ready": true,
+                "seconds": 1004,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU101_2",
+                "sourceId": "slU101_2",
+                "title": "소방기관의 설치와 119종합상황실",
+                "number": 2,
+                "ready": true,
+                "seconds": 963,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU101_3",
+                "sourceId": "slU101_3",
+                "title": "소방박물관과 종합계획의 수립·시행",
+                "number": 3,
+                "ready": true,
+                "seconds": 921,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 소방장비 및 소방용수시설 등",
+            "lessons": [
+              {
+                "id": "fire-slU102_1",
+                "sourceId": "slU102_1",
+                "title": "소방장비 등에 대한 국고보조",
+                "number": 4,
+                "ready": true,
+                "seconds": 927,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slWaterSupply",
+                "sourceId": "slWaterSupply",
+                "title": "소방용수시설의 설치·관리",
+                "number": 5,
+                "ready": true,
+                "seconds": 1108,
+                "description": "소화전·급수탑·저수조 기준 · 표지 그림 · 개정 짚기 · 19줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 소방활동 등",
+            "lessons": [
+              {
+                "id": "fire-slU103_1",
+                "sourceId": "slU103_1",
+                "title": "소방활동과 소방지원활동·생활안전활동",
+                "number": 6,
+                "ready": true,
+                "seconds": 1069,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU103_2",
+                "sourceId": "slU103_2",
+                "title": "소방자동차의 우선통행과 전용구역",
+                "number": 7,
+                "ready": true,
+                "seconds": 966,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU103_3",
+                "sourceId": "slU103_3",
+                "title": "소방교육·훈련과 소방안전교육사",
+                "number": 8,
+                "ready": true,
+                "seconds": 932,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU103_4",
+                "sourceId": "slU103_4",
+                "title": "소방신호와 화재 등의 통지",
+                "number": 9,
+                "ready": true,
+                "seconds": 895,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU103_5",
+                "sourceId": "slU103_5",
+                "title": "소방활동구역과 소방활동 종사 명령",
+                "number": 10,
+                "ready": true,
+                "seconds": 881,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU103_6",
+                "sourceId": "slU103_6",
+                "title": "강제처분·피난명령과 위험시설에 대한 긴급조치",
+                "number": 11,
+                "ready": true,
+                "seconds": 910,
+                "description": "공채 기출 1문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제6장 한국소방안전원",
+            "lessons": [
+              {
+                "id": "fire-slU106_1",
+                "sourceId": "slU106_1",
+                "title": "안전원의 설립과 업무",
+                "number": 12,
+                "ready": true,
+                "seconds": 939,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제7장 보칙",
+            "lessons": [
+              {
+                "id": "fire-slU107_2",
+                "sourceId": "slU107_2",
+                "title": "손실보상",
+                "number": 13,
+                "ready": true,
+                "seconds": 945,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제8장 벌칙",
+            "lessons": [
+              {
+                "id": "fire-slU108_1",
+                "sourceId": "slU108_1",
+                "title": "벌칙",
+                "number": 14,
+                "ready": true,
+                "seconds": 898,
+                "description": "공채 기출 1문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU108_2",
+                "sourceId": "slU108_2",
+                "title": "과태료",
+                "number": 15,
+                "ready": true,
+                "seconds": 911,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "화재조사법",
+        "sections": [
+          {
+            "title": "제2장 화재조사의 실시 등",
+            "lessons": [
+              {
+                "id": "fire-slU202_1",
+                "sourceId": "slU202_1",
+                "title": "화재조사의 실시와 화재조사전담부서",
+                "number": 16,
+                "ready": true,
+                "seconds": 940,
+                "description": "공채 기출 2문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-slU202_2",
+                "sourceId": "slU202_2",
+                "title": "화재현장 보존과 출입·조사",
+                "number": 17,
+                "ready": true,
+                "seconds": 943,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 화재조사 기반구축",
+            "lessons": [
+              {
+                "id": "fire-slU204_1",
+                "sourceId": "slU204_1",
+                "title": "감정기관의 지정·운영",
+                "number": 18,
+                "ready": true,
+                "seconds": 933,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU204_2",
+                "sourceId": "slU204_2",
+                "title": "국가화재정보시스템",
+                "number": 19,
+                "ready": true,
+                "seconds": 884,
+                "description": "공채 기출 1문제 · 12줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "화재예방법",
+        "sections": [
+          {
+            "title": "제2장 화재의 예방 및 안전관리 기본계획의 수립·시행",
+            "lessons": [
+              {
+                "id": "fire-slU302_1",
+                "sourceId": "slU302_1",
+                "title": "기본계획과 시행계획",
+                "number": 20,
+                "ready": true,
+                "seconds": 982,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 화재안전조사",
+            "lessons": [
+              {
+                "id": "fire-slU303_1",
+                "sourceId": "slU303_1",
+                "title": "화재안전조사의 실시와 방법·절차",
+                "number": 21,
+                "ready": true,
+                "seconds": 911,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 화재의 예방조치 등",
+            "lessons": [
+              {
+                "id": "fire-slU304_1",
+                "sourceId": "slU304_1",
+                "title": "화재의 예방조치",
+                "number": 22,
+                "ready": true,
+                "seconds": 1165,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU304_2",
+                "sourceId": "slU304_2",
+                "title": "불의 사용에 있어서 지켜야 하는 사항",
+                "number": 23,
+                "ready": true,
+                "seconds": 1019,
+                "description": "공채 기출 2문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-slU304_3",
+                "sourceId": "slU304_3",
+                "title": "특수가연물",
+                "number": 24,
+                "ready": true,
+                "seconds": 937,
+                "description": "공채 기출 1문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU304_4",
+                "sourceId": "slU304_4",
+                "title": "화재예방강화지구",
+                "number": 25,
+                "ready": true,
+                "seconds": 927,
+                "description": "공채 기출 3문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제5장 소방대상물의 소방안전관리",
+            "lessons": [
+              {
+                "id": "fire-slU305_1",
+                "sourceId": "slU305_1",
+                "title": "특정소방대상물의 소방안전관리(1급~3급 등 구분)",
+                "number": 26,
+                "ready": true,
+                "seconds": 933,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU305_2",
+                "sourceId": "slU305_2",
+                "title": "소방안전관리자의 선임과 자격·자격시험",
+                "number": 27,
+                "ready": true,
+                "seconds": 1040,
+                "description": "공채 기출 8문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-slU305_3",
+                "sourceId": "slU305_3",
+                "title": "소방계획서와 소방안전관리업무",
+                "number": 28,
+                "ready": true,
+                "seconds": 941,
+                "description": "공채 기출 2문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-slU305_4",
+                "sourceId": "slU305_4",
+                "title": "건설현장 소방안전관리",
+                "number": 29,
+                "ready": true,
+                "seconds": 915,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU305_5",
+                "sourceId": "slU305_5",
+                "title": "공동 소방안전관리와 피난계획",
+                "number": 30,
+                "ready": true,
+                "seconds": 935,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU305_6",
+                "sourceId": "slU305_6",
+                "title": "소방안전 특별관리와 교육·훈련",
+                "number": 31,
+                "ready": true,
+                "seconds": 917,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제6장 특별관리시설물의 소방안전관리",
+            "lessons": [
+              {
+                "id": "fire-slU306_1",
+                "sourceId": "slU306_1",
+                "title": "소방안전 특별관리시설물",
+                "number": 32,
+                "ready": true,
+                "seconds": 950,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU306_2",
+                "sourceId": "slU306_2",
+                "title": "화재예방안전진단",
+                "number": 33,
+                "ready": true,
+                "seconds": 940,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제8장 벌칙",
+            "lessons": [
+              {
+                "id": "fire-slU308_1",
+                "sourceId": "slU308_1",
+                "title": "벌칙",
+                "number": 34,
+                "ready": true,
+                "seconds": 1012,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU308_2",
+                "sourceId": "slU308_2",
+                "title": "과태료",
+                "number": 35,
+                "ready": true,
+                "seconds": 914,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "소방시설법",
+        "sections": [
+          {
+            "title": "제1장 총칙",
+            "lessons": [
+              {
+                "id": "fire-slU401_1",
+                "sourceId": "slU401_1",
+                "title": "목적과 용어의 정의",
+                "number": 36,
+                "ready": true,
+                "seconds": 994,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU401_2",
+                "sourceId": "slU401_2",
+                "title": "특정소방대상물과 수용인원의 산정",
+                "number": 37,
+                "ready": true,
+                "seconds": 1174,
+                "description": "공채 기출 8문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU401_4",
+                "sourceId": "slU401_4",
+                "title": "소방기술심의위원회",
+                "number": 38,
+                "ready": true,
+                "seconds": 930,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 소방시설등의 설치·관리 및 방염",
+            "lessons": [
+              {
+                "id": "fire-slU402_1",
+                "sourceId": "slU402_1",
+                "title": "건축허가등의 동의",
+                "number": 39,
+                "ready": true,
+                "seconds": 896,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU402_2",
+                "sourceId": "slU402_2",
+                "title": "소방시설의 내진설계와 성능위주설계",
+                "number": 40,
+                "ready": true,
+                "seconds": 941,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU402_3",
+                "sourceId": "slU402_3",
+                "title": "주택에 설치하는 소방시설",
+                "number": 41,
+                "ready": true,
+                "seconds": 921,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU402_4",
+                "sourceId": "slU402_4",
+                "title": "자동차에 설치하는 소화기",
+                "number": 42,
+                "ready": true,
+                "seconds": 959,
+                "description": "공채 기출 1문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-slU402_5",
+                "sourceId": "slU402_5",
+                "title": "소방시설의 설치기준(소화설비)",
+                "number": 43,
+                "ready": true,
+                "seconds": 1081,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU402_6",
+                "sourceId": "slU402_6",
+                "title": "경보설비와 피난구조설비",
+                "number": 44,
+                "ready": true,
+                "seconds": 1178,
+                "description": "공채 기출 4문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-slU402_7",
+                "sourceId": "slU402_7",
+                "title": "소화용수설비와 소화활동설비",
+                "number": 45,
+                "ready": true,
+                "seconds": 896,
+                "description": "공채 기출 5문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU402_8",
+                "sourceId": "slU402_8",
+                "title": "설치·관리의 특례와 설치면제",
+                "number": 46,
+                "ready": true,
+                "seconds": 983,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU402_9",
+                "sourceId": "slU402_9",
+                "title": "임시소방시설",
+                "number": 47,
+                "ready": true,
+                "seconds": 977,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU402_10",
+                "sourceId": "slU402_10",
+                "title": "유지·관리와 중대위반사항",
+                "number": 48,
+                "ready": true,
+                "seconds": 873,
+                "description": "공채 기출 1문제 · 12줄 노트"
+              },
+              {
+                "id": "fire-slU402_11",
+                "sourceId": "slU402_11",
+                "title": "방염대상물품과 방염성능기준",
+                "number": 49,
+                "ready": true,
+                "seconds": 946,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 소방시설등의 자체점검",
+            "lessons": [
+              {
+                "id": "fire-slU403_1",
+                "sourceId": "slU403_1",
+                "title": "자체점검의 구분과 실시",
+                "number": 50,
+                "ready": true,
+                "seconds": 962,
+                "description": "공채 기출 3문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 소방시설관리사 및 소방시설관리업",
+            "lessons": [
+              {
+                "id": "fire-slU404_2",
+                "sourceId": "slU404_2",
+                "title": "자격의 취소·정지",
+                "number": 51,
+                "ready": true,
+                "seconds": 930,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU404_3",
+                "sourceId": "slU404_3",
+                "title": "등록과 등록기준",
+                "number": 52,
+                "ready": true,
+                "seconds": 925,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU404_4",
+                "sourceId": "slU404_4",
+                "title": "지위승계와 등록취소",
+                "number": 53,
+                "ready": true,
+                "seconds": 931,
+                "description": "공채 기출 3문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제5장 소방용품의 품질관리",
+            "lessons": [
+              {
+                "id": "fire-slU405_1",
+                "sourceId": "slU405_1",
+                "title": "소방용품의 형식승인과 제품검사",
+                "number": 54,
+                "ready": true,
+                "seconds": 913,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "소방시설공사업법",
+        "sections": [
+          {
+            "title": "제1장 총칙",
+            "lessons": [
+              {
+                "id": "fire-slU501_1",
+                "sourceId": "slU501_1",
+                "title": "목적과 용어의 정의",
+                "number": 55,
+                "ready": true,
+                "seconds": 979,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 소방시설업",
+            "lessons": [
+              {
+                "id": "fire-slU502_1",
+                "sourceId": "slU502_1",
+                "title": "소방시설업의 등록과 등록기준",
+                "number": 56,
+                "ready": true,
+                "seconds": 1081,
+                "description": "교재 그림 · 공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU502_2",
+                "sourceId": "slU502_2",
+                "title": "등록의 결격사유와 지위승계",
+                "number": 57,
+                "ready": true,
+                "seconds": 979,
+                "description": "공채 기출 3문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-slU502_3",
+                "sourceId": "slU502_3",
+                "title": "등록취소와 영업정지·과징금",
+                "number": 58,
+                "ready": true,
+                "seconds": 915,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU502_4",
+                "sourceId": "slU502_4",
+                "title": "시공능력 평가와 공시",
+                "number": 59,
+                "ready": true,
+                "seconds": 967,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 소방시설공사등",
+            "lessons": [
+              {
+                "id": "fire-slU503_2",
+                "sourceId": "slU503_2",
+                "title": "착공신고",
+                "number": 60,
+                "ready": true,
+                "seconds": 914,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU503_3",
+                "sourceId": "slU503_3",
+                "title": "완공검사",
+                "number": 61,
+                "ready": true,
+                "seconds": 955,
+                "description": "교재 그림 · 공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU503_4",
+                "sourceId": "slU503_4",
+                "title": "하자보수",
+                "number": 62,
+                "ready": true,
+                "seconds": 926,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU503_5",
+                "sourceId": "slU503_5",
+                "title": "공사감리자의 지정과 업무",
+                "number": 63,
+                "ready": true,
+                "seconds": 987,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU503_6",
+                "sourceId": "slU503_6",
+                "title": "감리원의 배치",
+                "number": 64,
+                "ready": true,
+                "seconds": 1081,
+                "description": "공채 기출 5문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-slU503_7",
+                "sourceId": "slU503_7",
+                "title": "위반사항에 대한 조치",
+                "number": 65,
+                "ready": true,
+                "seconds": 924,
+                "description": "공채 기출 1문제 · 12줄 노트"
+              },
+              {
+                "id": "fire-slU503_9",
+                "sourceId": "slU503_9",
+                "title": "도급의 원칙과 하도급의 제한",
+                "number": 66,
+                "ready": true,
+                "seconds": 951,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 소방기술자",
+            "lessons": [
+              {
+                "id": "fire-slU504_1",
+                "sourceId": "slU504_1",
+                "title": "소방기술자의 의무와 자격",
+                "number": 67,
+                "ready": true,
+                "seconds": 920,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU504_2",
+                "sourceId": "slU504_2",
+                "title": "소방기술자의 배치기준과 실무교육",
+                "number": 68,
+                "ready": true,
+                "seconds": 1151,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제6장 보칙",
+            "lessons": [
+              {
+                "id": "fire-slU506_1",
+                "sourceId": "slU506_1",
+                "title": "감독과 청문",
+                "number": 69,
+                "ready": true,
+                "seconds": 910,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU506_2",
+                "sourceId": "slU506_2",
+                "title": "업무의 위탁",
+                "number": 70,
+                "ready": true,
+                "seconds": 924,
+                "description": "공채 기출 2문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제7장 벌칙",
+            "lessons": [
+              {
+                "id": "fire-slU507_1",
+                "sourceId": "slU507_1",
+                "title": "벌칙",
+                "number": 71,
+                "ready": true,
+                "seconds": 951,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "위험물안전관리법",
+        "sections": [
+          {
+            "title": "제1장 총칙",
+            "lessons": [
+              {
+                "id": "fire-slU601_1",
+                "sourceId": "slU601_1",
+                "title": "목적과 용어의 정의",
+                "number": 72,
+                "ready": true,
+                "seconds": 914,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU601_2",
+                "sourceId": "slU601_2",
+                "title": "위험물의 유별 분류와 지정수량",
+                "number": 73,
+                "ready": true,
+                "seconds": 1088,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU601_3",
+                "sourceId": "slU601_3",
+                "title": "저장·취급의 제한과 기준",
+                "number": 74,
+                "ready": true,
+                "seconds": 1193,
+                "description": "공채 기출 3문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제2장 위험물시설의 설치 및 변경",
+            "lessons": [
+              {
+                "id": "fire-slU602_1",
+                "sourceId": "slU602_1",
+                "title": "설치허가와 변경허가",
+                "number": 75,
+                "ready": true,
+                "seconds": 904,
+                "description": "교재 그림 · 공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-slU602_2",
+                "sourceId": "slU602_2",
+                "title": "완공검사와 지위승계",
+                "number": 76,
+                "ready": true,
+                "seconds": 987,
+                "description": "교재 그림 · 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU602_4",
+                "sourceId": "slU602_4",
+                "title": "탱크안전성능검사와 탱크시험자",
+                "number": 77,
+                "ready": true,
+                "seconds": 1007,
+                "description": "공채 기출 1문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제3장 위험물시설의 안전관리",
+            "lessons": [
+              {
+                "id": "fire-slU603_1",
+                "sourceId": "slU603_1",
+                "title": "위험물안전관리자의 선임과 대리자",
+                "number": 78,
+                "ready": true,
+                "seconds": 888,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU603_2",
+                "sourceId": "slU603_2",
+                "title": "예방규정",
+                "number": 79,
+                "ready": true,
+                "seconds": 897,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU603_3",
+                "sourceId": "slU603_3",
+                "title": "정기점검과 정기검사",
+                "number": 80,
+                "ready": true,
+                "seconds": 949,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU603_4",
+                "sourceId": "slU603_4",
+                "title": "자체소방대",
+                "number": 81,
+                "ready": true,
+                "seconds": 919,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제4장 위험물의 운반 등",
+            "lessons": [
+              {
+                "id": "fire-slU604_1",
+                "sourceId": "slU604_1",
+                "title": "위험물의 운반 기준",
+                "number": 82,
+                "ready": true,
+                "seconds": 1096,
+                "description": "공채 기출 2문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-slU604_2",
+                "sourceId": "slU604_2",
+                "title": "위험물의 운송",
+                "number": 83,
+                "ready": true,
+                "seconds": 1006,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제5장 감독 및 조치명령",
+            "lessons": [
+              {
+                "id": "fire-slU605_1",
+                "sourceId": "slU605_1",
+                "title": "출입·검사와 사고조사",
+                "number": 84,
+                "ready": true,
+                "seconds": 928,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제7장 벌칙",
+            "lessons": [
+              {
+                "id": "fire-slU607_1",
+                "sourceId": "slU607_1",
+                "title": "벌칙",
+                "number": 85,
+                "ready": true,
+                "seconds": 1198,
+                "description": "공채 기출 2문제 · 16줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "제8장 위험물제조소등의 위치·구조 및 설비의 기준",
+            "lessons": [
+              {
+                "id": "fire-slU608_1",
+                "sourceId": "slU608_1",
+                "title": "제조소의 위치·구조·설비",
+                "number": 86,
+                "ready": true,
+                "seconds": 1175,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU608_2",
+                "sourceId": "slU608_2",
+                "title": "옥내·옥외저장소",
+                "number": 87,
+                "ready": true,
+                "seconds": 1019,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU608_3",
+                "sourceId": "slU608_3",
+                "title": "옥외탱크저장소와 방유제",
+                "number": 88,
+                "ready": true,
+                "seconds": 1182,
+                "description": "교재 그림 · 공채 기출 5문제 · 16줄 노트"
+              },
+              {
+                "id": "fire-slU608_4",
+                "sourceId": "slU608_4",
+                "title": "옥내·지하·이동탱크저장소",
+                "number": 89,
+                "ready": true,
+                "seconds": 1008,
+                "description": "교재 그림 · 공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-slU608_6",
+                "sourceId": "slU608_6",
+                "title": "소화설비·경보설비와 소화난이도등급",
+                "number": 90,
+                "ready": true,
+                "seconds": 1048,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "subject": "haengjeongbeop",
+    "label": "행정법총론",
+    "parts": [
+      {
+        "title": "행정법통론",
+        "sections": [
+          {
+            "title": "행정법의 관념",
+            "lessons": [
+              {
+                "id": "fire-haU101",
+                "sourceId": "haU101",
+                "title": "통치행위",
+                "number": 1,
+                "ready": true,
+                "seconds": 907,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정법의 법원",
+            "lessons": [
+              {
+                "id": "fire-haU102",
+                "sourceId": "haU102",
+                "title": "행정법의 법원",
+                "number": 2,
+                "ready": true,
+                "seconds": 1145,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-haU103",
+                "sourceId": "haU103",
+                "title": "행정법의 효력",
+                "number": 3,
+                "ready": true,
+                "seconds": 1105,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정법의 일반원칙",
+            "lessons": [
+              {
+                "id": "fire-haU104",
+                "sourceId": "haU104",
+                "title": "법치행정의 원리",
+                "number": 4,
+                "ready": true,
+                "seconds": 1138,
+                "description": "공채 기출 5문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haGeneralPrinciples",
+                "sourceId": "haGeneralPrinciples",
+                "title": "행정법의 일반원칙",
+                "number": 5,
+                "ready": true,
+                "seconds": 1142,
+                "description": "평등·비례·신뢰보호·부당결부 · 공채 기출 10문제 · 22줄 노트"
+              },
+              {
+                "id": "fire-haU106",
+                "sourceId": "haU106",
+                "title": "행정기본법 총칙",
+                "number": 6,
+                "ready": true,
+                "seconds": 938,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정상 법률관계",
+            "lessons": [
+              {
+                "id": "fire-haU107",
+                "sourceId": "haU107",
+                "title": "행정상 법률관계와 공법·사법의 구별",
+                "number": 7,
+                "ready": true,
+                "seconds": 1097,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-haU108",
+                "sourceId": "haU108",
+                "title": "행정법관계의 발생·변경·소멸",
+                "number": 8,
+                "ready": true,
+                "seconds": 956,
+                "description": "공채 기출 3문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "사인의 공법행위",
+            "lessons": [
+              {
+                "id": "fire-haU109",
+                "sourceId": "haU109",
+                "title": "사인의 공법행위와 신고·신청",
+                "number": 9,
+                "ready": true,
+                "seconds": 978,
+                "description": "공채 기출 9문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "행정작용법",
+        "sections": [
+          {
+            "title": "행정입법",
+            "lessons": [
+              {
+                "id": "fire-haU201",
+                "sourceId": "haU201",
+                "title": "법규명령과 행정규칙",
+                "number": 10,
+                "ready": true,
+                "seconds": 1118,
+                "description": "공채 기출 10문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정행위",
+            "lessons": [
+              {
+                "id": "fire-haU202",
+                "sourceId": "haU202",
+                "title": "행정행위의 관념과 종류",
+                "number": 11,
+                "ready": true,
+                "seconds": 991,
+                "description": "공채 기출 9문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haU203",
+                "sourceId": "haU203",
+                "title": "기속행위와 재량행위",
+                "number": 12,
+                "ready": true,
+                "seconds": 1035,
+                "description": "공채 기출 8문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haU204",
+                "sourceId": "haU204",
+                "title": "법률행위적 행정행위(허가·특허·인가)",
+                "number": 13,
+                "ready": true,
+                "seconds": 1077,
+                "description": "공채 기출 9문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haU205",
+                "sourceId": "haU205",
+                "title": "행정행위의 성립요건과 효력발생요건",
+                "number": 14,
+                "ready": true,
+                "seconds": 927,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU206",
+                "sourceId": "haU206",
+                "title": "행정행위의 효력",
+                "number": 15,
+                "ready": true,
+                "seconds": 917,
+                "description": "공채 기출 3문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haU207",
+                "sourceId": "haU207",
+                "title": "행정행위의 하자와 하자의 승계",
+                "number": 16,
+                "ready": true,
+                "seconds": 1133,
+                "description": "공채 기출 8문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haU208",
+                "sourceId": "haU208",
+                "title": "행정행위의 취소와 철회",
+                "number": 17,
+                "ready": true,
+                "seconds": 1064,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU209",
+                "sourceId": "haU209",
+                "title": "부관",
+                "number": 18,
+                "ready": true,
+                "seconds": 1045,
+                "description": "공채 기출 8문제 · 15줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "그 밖의 행위형식",
+            "lessons": [
+              {
+                "id": "fire-haU210",
+                "sourceId": "haU210",
+                "title": "확약",
+                "number": 19,
+                "ready": true,
+                "seconds": 866,
+                "description": "공채 기출 1문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU211",
+                "sourceId": "haU211",
+                "title": "공법상 계약",
+                "number": 20,
+                "ready": true,
+                "seconds": 996,
+                "description": "공채 기출 11문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU212",
+                "sourceId": "haU212",
+                "title": "행정계획",
+                "number": 21,
+                "ready": true,
+                "seconds": 1123,
+                "description": "공채 기출 5문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haU213",
+                "sourceId": "haU213",
+                "title": "공법상 사실행위",
+                "number": 22,
+                "ready": true,
+                "seconds": 845,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-haU214",
+                "sourceId": "haU214",
+                "title": "행정지도",
+                "number": 23,
+                "ready": true,
+                "seconds": 910,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "행정의 실효성 확보수단",
+        "sections": [
+          {
+            "title": "실효성 확보수단 개관",
+            "lessons": [
+              {
+                "id": "fire-haU301",
+                "sourceId": "haU301",
+                "title": "실효성 확보수단의 체계",
+                "number": 24,
+                "ready": true,
+                "seconds": 970,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정상 강제집행",
+            "lessons": [
+              {
+                "id": "fire-haU302",
+                "sourceId": "haU302",
+                "title": "행정상 강제집행 총설",
+                "number": 25,
+                "ready": true,
+                "seconds": 997,
+                "description": "공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU303",
+                "sourceId": "haU303",
+                "title": "대집행",
+                "number": 26,
+                "ready": true,
+                "seconds": 1040,
+                "description": "공채 기출 9문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU304",
+                "sourceId": "haU304",
+                "title": "이행강제금",
+                "number": 27,
+                "ready": true,
+                "seconds": 1058,
+                "description": "공채 기출 8문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU305",
+                "sourceId": "haU305",
+                "title": "행정상 강제징수",
+                "number": 28,
+                "ready": true,
+                "seconds": 978,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정상 즉시강제",
+            "lessons": [
+              {
+                "id": "fire-haU306",
+                "sourceId": "haU306",
+                "title": "행정상 즉시강제",
+                "number": 29,
+                "ready": true,
+                "seconds": 1071,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정벌",
+            "lessons": [
+              {
+                "id": "fire-haU307",
+                "sourceId": "haU307",
+                "title": "행정벌 총설과 행정형벌",
+                "number": 30,
+                "ready": true,
+                "seconds": 943,
+                "description": "공채 기출 5문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU308",
+                "sourceId": "haU308",
+                "title": "행정질서벌(질서위반행위규제법)",
+                "number": 31,
+                "ready": true,
+                "seconds": 920,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정조사",
+            "lessons": [
+              {
+                "id": "fire-haU309",
+                "sourceId": "haU309",
+                "title": "행정조사와 행정조사기본법",
+                "number": 32,
+                "ready": true,
+                "seconds": 1030,
+                "description": "공채 기출 7문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "새로운 의무이행확보수단",
+            "lessons": [
+              {
+                "id": "fire-haU310",
+                "sourceId": "haU310",
+                "title": "과징금과 제재처분",
+                "number": 33,
+                "ready": true,
+                "seconds": 1128,
+                "description": "공채 기출 7문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU311",
+                "sourceId": "haU311",
+                "title": "공급거부·명단공표 등",
+                "number": 34,
+                "ready": true,
+                "seconds": 980,
+                "description": "공채 기출 2문제 · 15줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "행정절차·정보공개·개인정보 보호",
+        "sections": [
+          {
+            "title": "행정절차법",
+            "lessons": [
+              {
+                "id": "fire-haU401",
+                "sourceId": "haU401",
+                "title": "행정절차의 적용범위",
+                "number": 35,
+                "ready": true,
+                "seconds": 1055,
+                "description": "공채 기출 7문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-haU402",
+                "sourceId": "haU402",
+                "title": "행정절차의 내용",
+                "number": 36,
+                "ready": true,
+                "seconds": 1138,
+                "description": "공채 기출 6문제 · 16줄 노트"
+              },
+              {
+                "id": "fire-haU403",
+                "sourceId": "haU403",
+                "title": "행정절차의 하자",
+                "number": 37,
+                "ready": true,
+                "seconds": 991,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "정보공개제도",
+            "lessons": [
+              {
+                "id": "fire-haU404",
+                "sourceId": "haU404",
+                "title": "공공기관의 정보공개에 관한 법률",
+                "number": 38,
+                "ready": true,
+                "seconds": 1144,
+                "description": "공채 기출 8문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "개인정보 보호",
+            "lessons": [
+              {
+                "id": "fire-haU405",
+                "sourceId": "haU405",
+                "title": "개인정보 보호법",
+                "number": 39,
+                "ready": true,
+                "seconds": 968,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "행정구제법",
+        "sections": [
+          {
+            "title": "사전적 구제제도",
+            "lessons": [
+              {
+                "id": "fire-haU501",
+                "sourceId": "haU501",
+                "title": "옴부즈맨(국민권익위원회)",
+                "number": 40,
+                "ready": true,
+                "seconds": 1053,
+                "description": "공채 기출 1문제 · 13줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "손해전보제도",
+            "lessons": [
+              {
+                "id": "fire-haU502",
+                "sourceId": "haU502",
+                "title": "국가배상(공무원의 직무상 불법행위)",
+                "number": 41,
+                "ready": true,
+                "seconds": 945,
+                "description": "공채 기출 11문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haU503",
+                "sourceId": "haU503",
+                "title": "국가배상(영조물의 설치·관리 하자)",
+                "number": 42,
+                "ready": true,
+                "seconds": 1014,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-haU504",
+                "sourceId": "haU504",
+                "title": "행정상 손실보상",
+                "number": 43,
+                "ready": true,
+                "seconds": 1152,
+                "description": "공채 기출 6문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "행정쟁송법",
+        "sections": [
+          {
+            "title": "행정심판법",
+            "lessons": [
+              {
+                "id": "fire-haU601",
+                "sourceId": "haU601",
+                "title": "행정심판",
+                "number": 44,
+                "ready": true,
+                "seconds": 1155,
+                "description": "공채 기출 9문제 · 14줄 노트"
+              }
+            ]
+          },
+          {
+            "title": "행정소송법",
+            "lessons": [
+              {
+                "id": "fire-haU602",
+                "sourceId": "haU602",
+                "title": "행정소송 개관과 종류",
+                "number": 45,
+                "ready": true,
+                "seconds": 1053,
+                "description": "공채 기출 9문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU603",
+                "sourceId": "haU603",
+                "title": "대상적격(처분성)",
+                "number": 46,
+                "ready": true,
+                "seconds": 1137,
+                "description": "공채 기출 11문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haU604",
+                "sourceId": "haU604",
+                "title": "원고적격과 협의의 소익",
+                "number": 47,
+                "ready": true,
+                "seconds": 1011,
+                "description": "공채 기출 6문제 · 15줄 노트"
+              },
+              {
+                "id": "fire-haU605",
+                "sourceId": "haU605",
+                "title": "피고적격",
+                "number": 48,
+                "ready": true,
+                "seconds": 880,
+                "description": "공채 기출 2문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU606",
+                "sourceId": "haU606",
+                "title": "제소기간",
+                "number": 49,
+                "ready": true,
+                "seconds": 930,
+                "description": "공채 기출 4문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-haU607",
+                "sourceId": "haU607",
+                "title": "가구제(집행정지)",
+                "number": 50,
+                "ready": true,
+                "seconds": 906,
+                "description": "공채 기출 4문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU608",
+                "sourceId": "haU608",
+                "title": "심리와 처분사유의 추가·변경",
+                "number": 51,
+                "ready": true,
+                "seconds": 909,
+                "description": "공채 기출 3문제 · 13줄 노트"
+              },
+              {
+                "id": "fire-haU609",
+                "sourceId": "haU609",
+                "title": "판결의 종류와 효력",
+                "number": 52,
+                "ready": true,
+                "seconds": 956,
+                "description": "공채 기출 3문제 · 14줄 노트"
+              },
+              {
+                "id": "fire-haU610",
+                "sourceId": "haU610",
+                "title": "당사자소송",
+                "number": 53,
+                "ready": true,
+                "seconds": 958,
+                "description": "공채 기출 8문제 · 14줄 노트"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

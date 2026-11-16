@@ -317,6 +317,20 @@ function BoardBody({ scene, shown }) {
         </div>
       )
     }
+    // 앱의 소방청 교재 그림과 설명 표시를 그대로 재생한다.
+    case 'figure': {
+      const fig = scene.figure
+      return <figure className="c103-figure">
+        <Ink on={on(fig.id ?? 'figure')} className="c103-figure__frame">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`${definition.figureBase}/${fig.file}`} alt={fig.caption} loading="eager" decoding="async" />
+          {fig.notes?.map(note => <Ink key={note.id} on={on(note.id)} className={`c103-figure__note is-${note.tone ?? 'gold'}`} style={{ left: `${note.x}%`, top: `${note.y}%` }}>{note.text}</Ink>)}
+        </Ink>
+        <figcaption>[그림 {fig.no}] {fig.caption}</figcaption>
+        <small className="c103-figure__credit">출처: 소방청 「{fig.book}」 {fig.page}쪽 · 공공누리 제1유형</small>
+        {scene.footnotes?.map(note => <Ink key={note.id} on={on(note.id)} className="c103-footnote">{note.text}</Ink>)}
+      </figure>
+    }
     // 계산 강의(표준 9장) — 풀이 줄·수요공급 그래프·현금흐름 시간 막대
     case 'calc':
       return <>
@@ -906,7 +920,7 @@ function ChalkLecturePlayer({ renderTrigger, progressId, renderFooter, initialOp
           <footer className="c103-footer">
             <span>바로 풀어 보기</span>
             {definition.examLinks.map(exam => <a key={exam.href} href={exam.href} target="_blank" rel="noopener noreferrer">{exam.label} ↗</a>)}
-            <a href={definition.sourceUrl} target="_blank" rel="noopener noreferrer">{definition.sourceLabel} ↗</a>
+            {definition.sourceUrl && <a href={definition.sourceUrl} target="_blank" rel="noopener noreferrer">{definition.sourceLabel} ↗</a>}
           </footer>
         ) : null}
         {!full ? renderFooter?.() : null}

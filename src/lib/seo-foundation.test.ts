@@ -58,11 +58,11 @@ describe("search engine foundations", () => {
     ).toBe("/police/community/post-id");
   });
 
-  it("omits hidden exams while publishing existing English concepts", async () => {
+  it("publishes history hubs alongside existing English concepts", async () => {
     const historyUrls = buildStaticSitemapGroup("history").map((entry) => entry.url);
     const englishUrls = buildStaticSitemapGroup("english").map((entry) => entry.url);
 
-    expect(historyUrls).toEqual([]);
+    expect(historyUrls).toContain(`${SITE_URL}/history`);
     expect(englishUrls).toContain(`${SITE_URL}/english/concepts/gong9`);
   });
 
@@ -72,7 +72,7 @@ describe("search engine foundations", () => {
     const urls = home.mainEntity.itemListElement.map(
       (item: { url: string }) => item.url,
     );
-    expect(home.mainEntity.numberOfItems).toBe(17);
+    expect(home.mainEntity.numberOfItems).toBe(18);
     for (const path of [
       "/public-service",
       "/real-estate",
@@ -80,6 +80,7 @@ describe("search engine foundations", () => {
       "/firefighter",
       "/housing",
       "/social-worker",
+      "/history",
       "/english",
       "/gugeo",
       "/haengjeongsa",
@@ -94,7 +95,6 @@ describe("search engine foundations", () => {
     ]) {
       expect(urls).toContain(`${SITE_URL}${path}`);
     }
-    expect(urls).not.toContain(`${SITE_URL}/history`);
   });
 
   it("publishes a sitemap index with one independently crawlable feed per exam", () => {
