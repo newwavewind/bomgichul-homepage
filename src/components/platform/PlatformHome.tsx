@@ -261,7 +261,7 @@ export function PlatformHome() {
                   {exam.title}
                 </h2>
               </div>
-              <div className={lectureHref ? "mt-6 grid grid-cols-2 gap-2" : "mt-6 flex flex-wrap gap-2"}>
+              <div className={lectureHref ? "mt-6 grid grid-cols-3 gap-2" : "mt-6 flex flex-wrap gap-2"}>
                 <ExamCardAction
                   href={exam.learnHref}
                   label={lectureHref ? "기출문제" : "학습 시작"}
@@ -278,7 +278,6 @@ export function PlatformHome() {
                     fresh
                   />
                 )}
-                {lectureHref && <ExamCardAction href={`${exam.learnHref}/textbooks`} label="교재 보기" examTitle={exam.title} compact />}
                 <ExamCardAction
                   href={`${exam.learnHref}/daily`}
                   label="매일 10문제"
