@@ -10,7 +10,7 @@ import police from '@/components/lectures/police/textbooks.json';
 import policeOutline from '@/components/lectures/police/outline.json';
 import policeCatalog from '@/components/lectures/police/catalog.json';
 
-describe('웹 강의·교재 과목별 첫3강 공개와 앱 과목구매 안내', () => {
+describe('웹 강의·교재 과목별 첫3강 공개와 앱 이용 안내', () => {
   it('현재758강 메타데이터를 보존하고 첫3 READY 교재에만 원격 URL을 제공한다', () => {
     for (const [product, manifest, outline, count, pages, release] of [
       ['civil', civil, civilOutline, 311, 12723, '2026-11-04'],
@@ -41,7 +41,7 @@ describe('웹 강의·교재 과목별 첫3강 공개와 앱 과목구매 안내
       }
     }
   });
-  it('강의 첫3강 정책을 유지하고 나머지 교재는 PDF 대신 과목구매 앱 안내를 제공한다', () => {
+  it('강의 첫3강 정책을 유지하고 나머지 교재는 PDF 대신 앱 이용 안내를 제공한다', () => {
     for (const [catalog, outline] of [[civilCatalog, civilOutline], [fireCatalog, fireOutline], [policeCatalog, policeOutline]] as const) {
       for (const group of outline) {
         const ids = group.parts.flatMap(p => p.sections.flatMap(s => s.lessons.map(l => l.id)));
@@ -52,7 +52,7 @@ describe('웹 강의·교재 과목별 첫3강 공개와 앱 과목구매 안내
     expect(source).toContain('preview ? <PlayerBoundary>');
     expect(source).toContain('book.url ? <TextbookButton');
     expect(source).toContain('TextbookAppButton title={book.title}');
-    expect(source).toContain('과목 구매 후 이용하세요');
+    expect(source).toContain('이 교재는 앱에서 이용할 수 있어요');
     const viewer = readFileSync('src/components/lectures/TextbookAccess.tsx', 'utf8');
     expect(viewer).toContain('if (!book.url) return null');
     expect(viewer).toContain('key={book.sha256}');

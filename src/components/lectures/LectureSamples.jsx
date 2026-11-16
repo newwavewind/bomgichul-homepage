@@ -65,9 +65,9 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
       <div className="lecture-download-content">
         <button type="button" className="lecture-download-close" onClick={() => dialog.current?.close()} aria-label="닫기">✕</button>
         <p className="lecture-download-kicker">{siteConfig.appName}</p>
-        <h2 id="lecture-download-title">{selectedKind === 'book' ? '이 교재는 앱에서 과목 구매 후 이용하세요' : '이 강의는 앱에서 만나 보세요'}</h2>
+        <h2 id="lecture-download-title">{selectedKind === 'book' ? '이 교재는 앱에서 이용할 수 있어요' : '이 강의는 앱에서 만나 보세요'}</h2>
         <p className="lecture-download-selected">{subjectLabel} · {selected}</p>
-        <p className="lecture-download-description">{selectedKind === 'book' ? <>홈페이지에서는 각 과목의 첫 {freeBookCount}강 교재를 미리 볼 수 있어요.<br/>이후 교재는 앱에서 해당 과목 구매 후 강의와 함께 이용하세요.</> : <>홈페이지에서는 첫 3강을 미리 볼 수 있어요.<br/>앱에서 이어서 공부할 수 있어요.</>}</p>
+        <p className="lecture-download-description">{selectedKind === 'book' ? <>홈페이지에서는 각 과목의 첫 {freeBookCount}강 교재를 미리 볼 수 있어요.<br/>다른 교재도 앱에서 강의와 함께 이용할 수 있어요.</> : <>홈페이지에서는 첫 3강을 미리 볼 수 있어요.<br/>앱에서 이어서 공부할 수 있어요.</>}</p>
         <AppStoreButtons className="justify-center" links={siteConfig.appLinks}/>
       </div>
     </dialog>

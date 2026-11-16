@@ -44,7 +44,7 @@ function TextbookViewer({ book, onClose }: { book: Textbook & {url: string}; onC
         <button type="button" className="textbook-close" onClick={onClose} aria-label="교재 닫기">✕</button>
       </header>
       <div className="textbook-viewer-toolbar">
-        <span>로그인·구매 없이 열고 저장할 수 있어요.</span>
+        <span>교재를 열고 PDF로 저장할 수 있어요.</span>
         <a href={book.url} target="_blank" rel="noopener noreferrer">새 창에서 열기 ↗</a>
         <button type="button" onClick={save} disabled={saving}>{saving ? 'PDF 저장 준비 중…' : 'PDF 저장 ↓'}</button>
       </div>
@@ -61,5 +61,5 @@ export function TextbookButton({ book, label = '교재' }: { book: Textbook; lab
 }
 
 export function TextbookAppButton({ title, onOpenApp }: { title: string; onOpenApp: () => void }) {
-  return <button type="button" className="textbook-open" onClick={onOpenApp} aria-label={`${title} 교재는 과목 구매 후 앱에서 보기`}><BookIcon/>앱에서 교재 보기</button>;
+  return <button type="button" className="textbook-open" onClick={onOpenApp} aria-label={`${title} 교재 앱에서 보기`}><BookIcon/>앱에서 교재 보기</button>;
 }
