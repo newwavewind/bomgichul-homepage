@@ -1,3 +1,4 @@
+import { compareExamSessionsNewestFirst } from "./session-order";
 import { examRenderKind } from "./exam-render";
 
 /**
@@ -110,7 +111,7 @@ export async function buildHubStats(id: string): Promise<HubStats | null> {
       bySession.set(key, s);
     }
     const labelled = [...units.values()].reduce((a, b) => a + b, 0);
-    const latest = [...bySession.values()].sort((a, b) => b.year - a.year || a.sourceCode.localeCompare(b.sourceCode, "ko"))[0] ?? null;
+    const latest = [...bySession.values()].sort(compareExamSessionsNewestFirst)[0] ?? null;
     subjects.push({
       id: subjectId,
       label,
