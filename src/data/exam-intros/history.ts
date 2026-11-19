@@ -3,7 +3,7 @@ import { EXAM_INTRO_DISCLAIMER, type ExamIntro } from "./types";
 export const historyIntro: ExamIntro = {
   id: "history",
   eyebrow: "한국사능력검정시험 심화",
-  title: "한국사능력검정 시험 안내",
+  title: "한국사능력검정시험 안내",
   summary:
     "국사편찬위원회 한국사능력검정시험 누리집의 2026년 시험일정·기본 정보 기준으로 회차, 수수료, 시험 구성을 정리했습니다. 봄기출은 심화 기출을 중심으로 제공합니다.",
   hubHref: "/history",
@@ -153,5 +153,5 @@ export const historyIntro: ExamIntro = {
     },
   ],
   seoDescription:
-    "한국사능력검정 2026년 회차 일정, 심화·기본 구성, 응시료, 원서 접수 안내. 봄기출에서 심화 기출을 학습하세요.",
+    "한국사능력검정시험(한능검) 2026년 회차 일정, 심화·기본 구성, 응시료, 원서 접수 안내. 봄기출에서 심화 기출문제 정답·해설을 학습하세요.",
 };

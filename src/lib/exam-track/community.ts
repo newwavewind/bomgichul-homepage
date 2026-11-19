@@ -33,7 +33,7 @@ export function communityScopeLabel(scope: CommunityScope): string {
     case "social_worker":
       return "사회복지사 1급";
     case "history":
-      return "한국사능력검정";
+      return "한국사능력검정시험";
     case "english":
       return "공무원 영어";
     case "gugeo":
@@ -320,7 +320,7 @@ export function archiveTitle(scope: CommunityScope): string {
     case "social_worker":
       return "사회복지사 1급 자료실";
     case "history":
-      return "한국사능력검정 자료실";
+      return "한국사능력검정시험 자료실";
     case "english":
       return "공무원 영어 자료실";
     case "gugeo":
@@ -361,7 +361,7 @@ export function archiveEyebrow(scope: CommunityScope): string {
     case "social_worker":
       return "사회복지사 1급 수험 자료 공유";
     case "history":
-      return "한국사능력검정 수험 자료 공유";
+      return "한국사능력검정시험 수험 자료 공유";
     case "english":
       return "공무원 영어 수험 자료 공유";
     case "gugeo":

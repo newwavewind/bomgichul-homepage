@@ -14,7 +14,7 @@ export const DAILY_EXAMS: DailyExamMeta[] = [
   { slug: "firefighter", label: "소방공무원", home: "/firefighter", trackId: "firefighter" },
   { slug: "housing", label: "주택관리사", home: "/housing", trackId: "housing" },
   { slug: "social-worker", label: "사회복지사 1급", home: "/social-worker", trackId: "social_worker" },
-  { slug: "history", label: "한국사능력검정", home: "/history", trackId: "history" },
+  { slug: "history", label: "한국사능력검정시험", home: "/history", trackId: "history" },
   { slug: "english", label: "공무원 영어", home: "/english", trackId: "english" },
   { slug: "gugeo", label: "공무원 국어", home: "/gugeo", trackId: "gugeo" },
   { slug: "haengjeongsa", label: "행정사", home: "/haengjeongsa", trackId: "haengjeongsa" },

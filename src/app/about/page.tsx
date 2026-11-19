@@ -37,7 +37,7 @@ const EXAM_TRACKS = [
   { href: "/firefighter", label: "소방공무원" },
   { href: "/housing", label: "주택관리사" },
   { href: "/social-worker", label: "사회복지사 1급" },
-  { href: "/history", label: "한국사능력검정" },
+  { href: "/history", label: "한국사능력검정시험" },
   { href: "/english", label: "공무원 영어" },
   { href: "/gugeo", label: "공무원 국어" },
   { href: "/haengjeongsa", label: "행정사" },

@@ -66,6 +66,18 @@ describe("search engine foundations", () => {
     expect(englishUrls).toContain(`${SITE_URL}/english/concepts/gong9`);
   });
 
+  it("lists Korean History question URLs so the newly published track can be crawled", () => {
+    const urls = buildStaticSitemapGroup("history").map((entry) => decodeURI(entry.url));
+    expect(urls).toContain(`${SITE_URL}/history/exam/simhwa`);
+    expect(urls.some((url) => /\/history\/exam\/simhwa\/\d{4}\/제\d+회\/\d+$/.test(url))).toBe(
+      true,
+    );
+    // 550문항 전량이 사이트맵에 들어간다 — 감정평가사·물류와 같은 신규 트랙 정책.
+    expect(urls.filter((url) => /\/history\/exam\/simhwa\/\d{4}\/제\d+회\/\d+$/.test(url)).length).toBe(
+      550,
+    );
+  });
+
   it("lists every published exam hub in the home CollectionPage entity", async () => {
     const { buildPlatformHomeJsonLd } = await import("@/lib/seo");
     const home = buildPlatformHomeJsonLd();

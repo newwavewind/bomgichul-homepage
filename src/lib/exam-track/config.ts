@@ -66,16 +66,17 @@ export const SOCIAL_WORKER_TRACK: ExamTrackConfig = {
 
 export const HISTORY_TRACK: ExamTrackConfig = {
   id: "history",
-  label: "한국사능력검정",
-  shortLabel: "한국사",
+  // 공식 시험명(검색어)을 그대로 쓴다 — 「한국사능력검정시험」「한능검」.
+  label: "한국사능력검정시험",
+  shortLabel: "한능검",
   basePath: "/history",
-  eyebrow: "봄기출 · 한국사능력검정",
-  hubTitle: "한국사능력검정 기출 학습의 모든 것",
+  eyebrow: "봄기출 · 한국사능력검정시험",
+  hubTitle: "한국사능력검정시험 심화 기출 학습의 모든 것",
   hubDescription:
-    "심화 최근 11회차(제70~80회) 550문항을 선지마다 해설·근거와 함께 봅니다.",
+    "국사편찬위원회 한국사능력검정시험(한능검) 심화 최근 11회차(제70~80회) 550문항을 선지마다 정답·해설·근거와 함께 봅니다.",
   communityScope: "history",
-  communityTitle: "한국사능력검정 수험생 커뮤니티",
-  sessionEyebrow: "한국사능력검정 심화 기출",
+  communityTitle: "한국사능력검정시험 수험생 커뮤니티",
+  sessionEyebrow: "한국사능력검정시험 심화 기출",
   educationalLevel: "한국사능력검정시험 심화",
   aboutName: "한국사능력검정시험 심화",
 };

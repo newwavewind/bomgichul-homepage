@@ -8,13 +8,21 @@ import { getHistoryConceptCards, getHistoryRounds } from "@/lib/history-content"
 import { buildPageMetadata, buildPublicServiceLearningResourceJsonLd } from "@/lib/seo";
 
 const DESCRIPTION =
-  "한국사능력검정 심화 550문항에 붙은 핵심 개념을 문제 없이 카드만 모아 봅니다. 회차별·시대별로 골라 개념서처럼 이어 읽으세요.";
+  "한국사능력검정시험(한능검) 심화 550문항에 붙은 핵심 개념을 문제 없이 카드만 모아 봅니다. 회차별·시대별로 골라 개념서처럼 이어 읽으세요.";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "한국사능력검정 핵심 개념 모아보기",
-  description: DESCRIPTION,
-  path: "/history/concepts",
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: "한국사능력검정시험 핵심 개념 모아보기",
+    description: DESCRIPTION,
+    path: "/history/concepts",
+  }),
+  keywords: [
+    "한국사능력검정시험",
+    "한능검",
+    "한국사능력검정시험 개념",
+    "한능검 심화 개념",
+  ],
+};
 
 export default function Page() {
   const cards = getHistoryConceptCards();
@@ -27,7 +35,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             buildPublicServiceLearningResourceJsonLd({
-              name: "한국사능력검정 핵심 개념 모아보기",
+              name: "한국사능력검정시험 핵심 개념 모아보기",
               description: DESCRIPTION,
               path: "/history/concepts",
               learningResourceType: "Concept",

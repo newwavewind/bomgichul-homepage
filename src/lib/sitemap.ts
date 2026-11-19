@@ -325,12 +325,15 @@ function getTrackLearningUrls(group: Exclude<SitemapGroup, "core" | "real-estate
         getSocialWorkerExamSessions,
       );
     case "history":
+      // 한국사능력검정시험은 최근 공개·회차 11개·550문항이라 문항 URL 까지 사이트맵에
+      // 실어 발견·색인을 돕는다(감정평가사·물류관리사와 같은 선택). 문항 수가 크게 늘면
+      // 회차까지만 남기고 문항은 회차 목록 링크로 발견하게 되돌린다.
       return getNamespacedTrackUrls(
         "/history",
         HISTORY_SUBJECT_IDS,
         getHistorySubject,
         getHistoryExamSessions,
-        { includeConcepts: false },
+        { includeConcepts: false, includeQuestionUrls: true },
       );
     case "english":
       return [

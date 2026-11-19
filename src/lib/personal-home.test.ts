@@ -5,5 +5,9 @@ describe("personal home", () => {
   it("counts a streak ending today", () => expect(calculateStudyStreak(["2026-08-21", "2026-08-20", "2026-08-19"], "2026-08-21")).toBe(3));
   it("keeps yesterday's streak before today's study", () => expect(calculateStudyStreak(["2026-08-20", "2026-08-19"], "2026-08-21")).toBe(2));
   it("builds a shared track question URL", () => expect(resolveAttemptDestination("housing:civil-law:제28회", 2025, 49)?.href).toContain("/housing/exam/civil-law/2025/"));
-  it("does not surface a hidden exam in recent study", () => expect(resolveAttemptDestination("history:simhwa:제79회", 2026, 1)).toBeNull());
+  it("surfaces Korean History attempts once the exam is public again", () => {
+    const destination = resolveAttemptDestination("history:simhwa:제79회", 2026, 1);
+    expect(destination?.href).toContain("/history/exam/simhwa/2026/");
+    expect(destination?.label).toContain("한국사능력검정시험");
+  });
 });

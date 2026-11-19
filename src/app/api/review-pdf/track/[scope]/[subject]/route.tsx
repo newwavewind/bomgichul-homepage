@@ -18,7 +18,7 @@ const TRACKS = {
   police: { label: "경찰공무원", getSubject: getPoliceSubject },
   housing: { label: "주택관리사", getSubject: getHousingSubject },
   social_worker: { label: "사회복지사 1급", getSubject: getSocialWorkerSubject },
-  history: { label: "한국사능력검정", getSubject: getHistorySubject },
+  history: { label: "한국사능력검정시험", getSubject: getHistorySubject },
   english: { label: "공무원 영어", getSubject: getEnglishSubject },
 } as const;
 
