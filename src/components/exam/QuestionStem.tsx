@@ -79,12 +79,16 @@ export function QuestionStem({
   // 밑줄이 있는 문항에서는 원문을 그대로 쓴다.
   const cleanStem = underlines?.length ? stem : plainStudyText(stem);
   const stemLines = keepLineBreaks ? cleanStem.split("\n") : null;
-  const { intro, boxLines } = stemLines
+  const parsed = stemLines
     ? {
         intro: stemLines[0]!.trim(),
         boxLines: stemLines.slice(1).map((line) => line.trim()).filter(Boolean),
+        boxSections: undefined as
+          | { title: string | null; lines: string[] }[]
+          | undefined,
       }
     : parseQuestionStem(cleanStem);
+  const { intro, boxLines, boxSections } = parsed;
   const headingClass =
     "mb-8 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink";
 
@@ -120,7 +124,14 @@ export function QuestionStem({
     boxLines[0] === cleanStem.slice(proseBoxStart).replace(/\s+$/, "");
   // 자료 줄 안의 밑줄(「밑줄 친 (ㄱ)」) — 줄마다 원문 안 자리를 앞에서부터 찾아 밑줄 offset 를 옮긴다.
   // 상자로 나눌 때 글자를 바꾼 줄(「o 」→「○ 」)은 못 찾으면 밑줄 없이 그린다.
-  const groups = toBoxGroups(boxLines);
+  // 시험지처럼 (가)·(나) 상자와 ㉠·㉡ 상자가 나뉘면 boxSections 를 그대로 쓴다.
+  const groups =
+    boxSections && boxSections.length > 1
+      ? boxSections.map((section) => ({
+          label: section.title,
+          lines: section.lines,
+        }))
+      : toBoxGroups(boxLines);
   const lineOffsets: (number | null)[][] = [];
   let lineCursor = intro.length;
   for (const group of groups) {

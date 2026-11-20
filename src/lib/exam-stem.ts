@@ -1,6 +1,8 @@
 export interface ParsedQuestionStem {
   intro: string;
   boxLines: string[];
+  /** 시험지처럼 자료 상자가 둘 이상일 때(예: (가)·(나) 정의 / ㉠·㉡ 설명) */
+  boxSections?: { title: string | null; lines: string[] }[];
 }
 
 const CIRCLE_AT_START = /^[ㅇ○]\s/;
@@ -179,15 +181,37 @@ function isBoxStartLine(line: string): boolean {
   );
 }
 
+function isDefinitionMaterialLine(line: string): boolean {
+  // (가) … · (나) … — 물음표 뒤 정의 상자 줄
+  return /^\(\s*[가-힣㉠-㉭]\s*\)\s+\S/.test(line.trim());
+}
+
 function parseMultilineStem(stem: string): ParsedQuestionStem | null {
   const lines = stem.split("\n");
   const boxStart = lines.findIndex((line) => isBoxStartLine(line));
   if (boxStart < 0) return null;
 
-  const intro = lines
-    .slice(0, boxStart)
-    .join("\n")
-    .trim();
+  // 시험지처럼 「(가)·(나) 정의 상자」와 「㉠·㉡ 설명 상자」가 나란히 있는 경우 —
+  // 물음표 뒤·㉠ 앞의 (가)/(나) 줄을 위 상자로 떼어 둔다(경찰 형사법 2023-1-Q3 등).
+  let defStart = -1;
+  for (let i = 0; i < boxStart; i++) {
+    const trimmed = lines[i]!.trim();
+    if (!trimmed || !isDefinitionMaterialLine(trimmed)) continue;
+    const earlier = lines.slice(0, i).join("\n");
+    if (!earlier.includes("?")) continue;
+    defStart = i;
+    break;
+  }
+
+  const introCutoff = defStart >= 0 ? defStart : boxStart;
+  const intro = lines.slice(0, introCutoff).join("\n").trim();
+  const defLines =
+    defStart >= 0
+      ? lines
+          .slice(defStart, boxStart)
+          .map((line) => line.trim())
+          .filter(Boolean)
+      : [];
   const boxLines = lines
     .slice(boxStart)
     .filter((line) => line.trim().length > 0)
@@ -204,6 +228,17 @@ function parseMultilineStem(stem: string): ParsedQuestionStem | null {
       if (koreanParts.length >= 2) return koreanParts;
       return [normalizeBulletLine(trimmed)];
     });
+
+  if (defLines.length > 0 && boxLines.length > 0) {
+    return {
+      intro,
+      boxLines: [...defLines, ...boxLines],
+      boxSections: [
+        { title: null, lines: defLines },
+        { title: null, lines: boxLines },
+      ],
+    };
+  }
 
   return { intro, boxLines };
 }
@@ -242,6 +277,7 @@ function pullLatinLinesIntoBox(parsed: ParsedQuestionStem): ParsedQuestionStem {
   return {
     intro: lines.slice(0, cut).join("\n").trim(),
     boxLines: [...lines.slice(cut).map((line) => line.trim()), ...parsed.boxLines],
+    boxSections: parsed.boxSections,
   };
 }
 
