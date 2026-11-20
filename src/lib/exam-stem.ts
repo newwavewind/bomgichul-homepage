@@ -123,6 +123,32 @@ function extractInlineBullets(bulletText: string): string[] {
   return splitLowerOBullets(bulletText);
 }
 
+/**
+ * 표식 없이 줄바꿈으로만 나뉜 자료(「(가) …」「(나) …」) — 한 문단으로 뭉치지 않게 줄마다 나눈다.
+ * 맨 앞 줄이 「(다툼이 있는 경우 판례에 의함)」 단서면 발문 쪽으로 붙인다.
+ */
+function splitPlainMaterialLines(
+  intro: string,
+  rest: string
+): ParsedQuestionStem | null {
+  const lines = rest
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+  let head = intro;
+  if (lines.length > 1 && isDisclaimerProse(lines[0]!)) {
+    head = `${intro} ${lines.shift()}`.replace(/\s{2,}/g, " ");
+  }
+  const labeled = /^\(\s*[^()\s]{1,3}\s*\)\s*\S/;
+  if (lines.length >= 2 && lines.every((line) => labeled.test(line))) {
+    return { intro: head, boxLines: lines };
+  }
+  if (head !== intro && lines.length >= 1) {
+    return { intro: head, boxLines: [lines.join("\n")] };
+  }
+  return null;
+}
+
 function parseInlineMaterialBox(stem: string): ParsedQuestionStem | null {
   const qIdx = stem.indexOf("?");
   if (qIdx < 0) return null;
@@ -137,7 +163,7 @@ function parseInlineMaterialBox(stem: string): ParsedQuestionStem | null {
     // 물음표 뒤에 법령·정의 문장이 통째로 이어지면 질문과 구분해 박스로 감싼다.
     // ox-quiz-app parseQuestionStem 과 동일.
     if (!isDisclaimerProse(rest) && rest.length >= 20) {
-      return { intro, boxLines: [rest] };
+      return splitPlainMaterialLines(intro, rest) ?? { intro, boxLines: [rest] };
     }
     return null;
   }
@@ -153,7 +179,7 @@ function parseInlineMaterialBox(stem: string): ParsedQuestionStem | null {
   const bullets = extractInlineBullets(bulletText);
   if (bullets.length === 0) {
     if (!isDisclaimerProse(rest) && rest.length >= 20) {
-      return { intro, boxLines: [rest] };
+      return splitPlainMaterialLines(intro, rest) ?? { intro, boxLines: [rest] };
     }
     return null;
   }

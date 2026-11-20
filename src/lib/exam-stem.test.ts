@@ -161,6 +161,24 @@ describe("parseQuestionStem", () => {
       },
     ]);
   });
+
+  it("keeps the disclaimer in the intro and boxes (가)/(나) definition lines", () => {
+    const result = parseQuestionStem(
+      [
+        "(가)와 (나)에 관한 설명으로 가장 적절하지 않은 것은? (다툼이 있는 경우 판례에 의함)",
+        "",
+        "(가) 일정한 기간 내에 잘못된 상태를 바로 잡으라는 행정청의 지시를 이행하지 않았다는 것을 구성요건으로 하는 범죄",
+        "(나) ｢형법｣ 제250조 제1항의 살인죄와 같이 그 규정 형식으로 보아 작위를 내용으로 하는 범죄를 부작위에 의하여 범하는 범죄",
+      ].join("\n")
+    );
+    expect(result.intro).toBe(
+      "(가)와 (나)에 관한 설명으로 가장 적절하지 않은 것은? (다툼이 있는 경우 판례에 의함)"
+    );
+    expect(result.boxLines).toEqual([
+      "(가) 일정한 기간 내에 잘못된 상태를 바로 잡으라는 행정청의 지시를 이행하지 않았다는 것을 구성요건으로 하는 범죄",
+      "(나) ｢형법｣ 제250조 제1항의 살인죄와 같이 그 규정 형식으로 보아 작위를 내용으로 하는 범죄를 부작위에 의하여 범하는 범죄",
+    ]);
+  });
 });
 
 describe("stemNeedsConditionBox", () => {
