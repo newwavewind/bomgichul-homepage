@@ -42,7 +42,7 @@ function itemTitle(item: PastExamPdfGroup): string {
   }
 
   rest = rest.replace(/_/g, " · ").replace(/\s+/g, " ").trim();
-  return rest || item.label;
+  return rest;
 }
 
 function displayFileName(name: string): string {
@@ -264,7 +264,7 @@ export function PastExamPdfSearch() {
                         >
                           <div className="web-pdf-row__body">
                             <div className="web-pdf-row__top">
-                              <p className="web-pdf-row__title">{itemTitle(item)}</p>
+                              <p className="web-pdf-row__title">{itemTitle(item) || (file.kind === "question" ? "문제지" : file.kindLabel)}</p>
                               <span
                                 className={`web-pdf-row__kind web-pdf-row__kind--${file.kind}`}
                               >

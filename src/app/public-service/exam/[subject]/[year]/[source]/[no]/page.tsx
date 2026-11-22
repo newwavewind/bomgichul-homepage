@@ -15,6 +15,7 @@ import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import { ExamMaterialFigure } from "@/components/exam/ExamMaterialFigure";
 import { BackLink } from "@/components/ui/BackLink";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
+import { ExamPrintLink } from "@/components/exam/ExamPrintLink";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { examMemoSubjectKey } from "@/lib/question-memos";
@@ -122,7 +123,10 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
               {data.subject.label} 연도 선택
             </BackLink>
           </div>
-          <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} loginNext={detailPath} />
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} loginNext={detailPath} />
+            <ExamPrintLink track="public-service" subject={subjectId} year={exam.year} session={exam.sourceCode} />
+          </div>
         </div>
         <ExamQuestionJumpBar
           questionNos={session.map((item) => item.questionNo)}

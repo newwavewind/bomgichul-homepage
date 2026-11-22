@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { ExamCalendar } from "@/components/platform/ExamCalendar";
 import { PastExamPdfSearch } from "@/components/platform/PastExamPdfSearch";
 import { PersonalHomeGate } from "@/components/platform/PersonalHomeGate";
 import { AdRail } from "@/components/ads/AdRail";
+import { hasExamPrintEditions } from "@/lib/exam-print";
 import { isPublicExamPathVisible } from "@/lib/public-exam-visibility";
 
 const exams = [
@@ -186,14 +186,12 @@ function ExamCardAction({
   label,
   examTitle,
   primary = false,
-  compact = false,
   fresh = false,
 }: {
   href: string;
   label: string;
   examTitle: string;
   primary?: boolean;
-  compact?: boolean;
   fresh?: boolean;
 }) {
   const tone = primary
@@ -206,7 +204,7 @@ function ExamCardAction({
     <Link
       href={href}
       aria-label={fresh ? `${examTitle} ${label} (새로 나옴)` : `${examTitle} ${label}`}
-      className={`relative inline-flex min-h-10 ${compact ? "min-w-0 px-2" : "min-w-[120px] px-4"} items-center justify-center rounded-[16px] border py-2 text-center font-display text-[13px] font-semibold tracking-tight transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007aff] focus-visible:ring-offset-2 ${tone}`}
+      className={`relative inline-flex min-h-10 min-w-0 px-2 items-center justify-center rounded-[16px] border py-2 text-center font-display text-[13px] font-semibold tracking-tight transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007aff] focus-visible:ring-offset-2 ${tone}`}
     >
       {label}
       {fresh ? (
@@ -226,10 +224,13 @@ export function PlatformHome() {
     <div className="relative overflow-hidden bg-white px-4 py-10 md:py-16">
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
         <section className="relative isolate mx-auto mb-10 max-w-5xl overflow-hidden rounded-2xl bg-white px-5 py-8 dark:bg-cream shadow-[0_24px_70px_rgba(0,0,0,0.1)] sm:px-8 sm:py-10 md:px-12 md:py-12" aria-labelledby="platform-home-heading">
-          <div className="pointer-events-none absolute -right-14 -top-20 size-56 rounded-full bg-[#c4baff]/45 blur-2xl" aria-hidden />
-          <div className="pointer-events-none absolute bottom-0 right-0 h-1.5 w-28 bg-[#4d49fc]" aria-hidden />
+          <div className="pointer-events-none absolute -right-14 -top-20 size-56 rounded-full bg-[#b5d9ff]/40 blur-2xl" aria-hidden />
+          <div className="pointer-events-none absolute bottom-0 right-0 h-1.5 w-28 bg-ios-blue" aria-hidden />
           <div className="relative max-w-4xl">
-            <p className="font-mono text-xs tracking-[0.05em] text-[#595959] dark:text-smoke">PAST EXAMS / FREE STUDY</p>
+            <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1 break-keep text-subheading font-light leading-snug tracking-[-0.02em] text-black">
+              <span>비싼 기출문제집 사지 마세요.</span>
+              <span>기출문제와 해설을 무료로 출력하세요.</span>
+            </p>
             <h1 id="platform-home-heading" className="mt-5 max-w-3xl text-[length:calc(clamp(38px,6vw,56px)*var(--reading-font-scale))] font-light leading-[1.08] tracking-[-0.02em] text-black">
               기출문제와 해설,
               <br className="sm:hidden" /> 봄기출
@@ -244,10 +245,12 @@ export function PlatformHome() {
         <section id="exam-selection" className="mx-auto mb-10 grid max-w-5xl gap-5 md:grid-cols-2" aria-label="시험 선택">
           {visibleExams.map((exam) => {
             const lectureHref = "lectureHref" in exam ? exam.lectureHref : undefined;
+            const examId = exam.learnHref.slice(1);
+            const canPrint = hasExamPrintEditions(examId);
             return (
             <article
               key={exam.href}
-              data-exam-card={exam.learnHref.slice(1)}
+              data-exam-card={examId}
               className="flex flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon p-6 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-7 dark:border-mist"
               style={{
                 backgroundImage: `linear-gradient(to bottom right,
@@ -263,12 +266,11 @@ export function PlatformHome() {
                   {exam.title}
                 </h2>
               </div>
-              <div className={lectureHref ? "mt-6 grid grid-cols-3 gap-2" : "mt-6 flex flex-wrap gap-2"}>
+              <div className={`mt-6 grid gap-2 ${lectureHref && canPrint ? "grid-cols-2 lg:grid-cols-4" : lectureHref || canPrint ? "grid-cols-3" : "grid-cols-2"}`}>
                 <ExamCardAction
                   href={exam.learnHref}
                   label={lectureHref ? "기출문제" : "학습 시작"}
                   examTitle={exam.title}
-                  compact={Boolean(lectureHref)}
                   primary
                 />
                 {lectureHref && (
@@ -276,7 +278,6 @@ export function PlatformHome() {
                     href={lectureHref}
                     label="강의 보기"
                     examTitle={exam.title}
-                    compact
                     fresh
                   />
                 )}
@@ -284,8 +285,14 @@ export function PlatformHome() {
                   href={`${exam.learnHref}/daily`}
                   label="매일 10문제"
                   examTitle={exam.title}
-                  compact={Boolean(lectureHref)}
                 />
+                {canPrint && (
+                  <ExamCardAction
+                    href={`/print-exams?exam=${examId}`}
+                    label="출력하기"
+                    examTitle={exam.title}
+                  />
+                )}
               </div>
             </article>
             );
@@ -298,8 +305,6 @@ export function PlatformHome() {
         <PersonalHomeGate guest={null} />
 
         <PastExamPdfSearch />
-
-        <ExamCalendar />
       </div>
     </div>
   );

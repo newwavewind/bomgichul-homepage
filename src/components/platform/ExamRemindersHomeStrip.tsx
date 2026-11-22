@@ -32,15 +32,7 @@ export function ExamRemindersHomeStrip() {
 
   return (
     <div className="mt-5 rounded-2xl border border-mist bg-snow/70 px-4 py-3.5">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="font-display text-[12px] font-semibold text-fog">다가오는 시험 리마인드</p>
-        <Link
-          href="/#exam-calendar"
-          className="font-display text-[12px] font-semibold text-[color:light-dark(#0b5fff,var(--color-carbon))] hover:underline"
-        >
-          달력에서 보기
-        </Link>
-      </div>
+      <p className="font-display text-[12px] font-semibold text-fog">다가오는 시험 리마인드</p>
       <ul className="mt-2 space-y-1.5">
         {rows.map((r) => (
           <li key={r.eventId} className="flex flex-wrap items-baseline justify-between gap-2">

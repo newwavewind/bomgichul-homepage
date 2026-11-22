@@ -1,6 +1,7 @@
 import { QuestionNavLabel } from "@/components/exam/QuestionNavLabel";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { ExamPrintLink } from "@/components/exam/ExamPrintLink";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
 import { ShareToChatButton } from "@/components/chat/ShareToChatButton";
@@ -181,6 +182,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
               questionNo={questionNo}
               loginNext={detailPath}
             />
+            <ExamPrintLink track="real-estate" subject={subject} year={year} session={`제${question.round}회`} />
           </div>
         </div>
 

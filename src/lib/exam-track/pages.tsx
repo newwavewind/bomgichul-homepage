@@ -25,6 +25,7 @@ import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationD
 import { ExamSessionCard } from "@/components/exam/ExamSessionCard";
 import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
+import { ExamPrintLink } from "@/components/exam/ExamPrintLink";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { getTrackQuestionPresentation } from "@/components/exam-track/questionPresentation";
@@ -665,7 +666,10 @@ export async function TrackExamDetailPage({
               {data.subject.label} 연도 선택
             </BackLink>
           </div>
-          <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} loginNext={detailPath} />
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            <BookmarkButton subject={storageSubject} year={exam.year} questionNo={exam.questionNo} loginNext={detailPath} />
+            <ExamPrintLink track={track.basePath.slice(1)} subject={subjectId} year={exam.year} session={exam.sourceCode} />
+          </div>
         </div>
         <ExamQuestionJumpBar
           questionNos={session.map((item) => item.questionNo)}

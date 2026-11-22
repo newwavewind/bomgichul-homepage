@@ -38,9 +38,7 @@ export const PAST_EXAM_YEAR_OPTIONS: number[] = (() => {
 })();
 
 /** 한국사능력검정은 연도 대신 회차 */
-export const PAST_EXAM_ROUND_OPTIONS: number[] = [
-  79, 78, 77, 76, 75, 74, 73, 72, 71, 70,
-];
+export const PAST_EXAM_ROUND_OPTIONS = Array.from({ length: 16 }, (_, index) => 80 - index);
 
 export type PastExamFileKind = "question" | "answer" | "other";
 
