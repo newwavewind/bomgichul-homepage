@@ -72,7 +72,7 @@ export function ExamPrintPicker({ editions, initialEdition }: {
 
 const actionClass = "inline-flex min-h-11 items-center justify-center rounded-xl border px-4 font-display font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ios-blue";
 const secondaryAction = `${actionClass} border-mist bg-white text-ink hover:border-ios-blue`;
-const fileShareAction = `${actionClass} border-transparent bg-[#FEE500] text-[#191919] hover:bg-[#f4dc00] disabled:cursor-wait disabled:opacity-80`;
+const kakaoDownloadAction = `${actionClass} border-transparent bg-[#FEE500] text-[#191919] hover:bg-[#f4dc00]`;
 
 function ExamPrintPreview({ edition, bundled }: { edition: Edition; bundled?: boolean }) {
   const [shareOpen, setShareOpen] = useState(false);
@@ -142,8 +142,8 @@ function ExamPrintFileShare({ href, fileName }: { href: string; fileName: string
   const file = prepared === "unavailable" ? null : prepared;
   const showShare = supportsSharing && prepared !== "unavailable";
   const instructions = showShare && !shareFailed
-    ? "공유 메뉴에서 카카오톡이나 원하는 앱을 선택하세요."
-    : "PDF를 다운로드한 뒤 카카오톡 채팅방에 파일로 첨부하세요.";
+    ? "공유 메뉴에 카카오톡이 없으면 PDF를 다운로드해 채팅방에 파일로 첨부하세요."
+    : "다운로드한 PDF를 카카오톡 채팅방에 파일로 첨부하세요.";
 
   async function sharePdf() {
     if (!file || sharing) return;
@@ -162,12 +162,12 @@ function ExamPrintFileShare({ href, fileName }: { href: string; fileName: string
   return (
     <>
       <div className="flex flex-wrap items-center gap-2">
+        <a className={kakaoDownloadAction} href={href} download={fileName}>카카오톡용 PDF 다운로드</a>
         {showShare && (
-          <button type="button" className={fileShareAction} disabled={!file || sharing} aria-busy={!file || sharing} onClick={sharePdf}>
+          <button type="button" className={`${secondaryAction} disabled:cursor-wait disabled:opacity-80`} disabled={!file || sharing} aria-busy={!file || sharing} onClick={sharePdf}>
             {sharing ? "공유창 여는 중…" : file ? "PDF 파일 공유" : "PDF 준비 중…"}
           </button>
         )}
-        <a className={secondaryAction} href={href} download={fileName}>PDF 다운로드</a>
       </div>
       <p role="status" className="text-sm text-fog">{instructions}</p>
     </>
