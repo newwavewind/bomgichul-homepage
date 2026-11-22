@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ExamPrintPicker } from "@/components/exam/ExamPrintPicker";
 import { BackLink } from "@/components/ui/BackLink";
-import { ARCHIVE_SUBJECT_MAP } from "@/lib/constants";
+import { ARCHIVE_SUBJECT_MAP, SUBJECT_LANDING_INFO } from "@/lib/constants";
 import { examPrintOptions, hasExamPrintEditions } from "@/lib/exam-print";
 import police from "@/data/police/manifest.json";
 import publicService from "@/data/public-service/manifest.json";
@@ -45,6 +45,12 @@ const tracks = [
 
 const available = tracks.filter(([id]) => hasExamPrintEditions(id));
 const description = "공식 시험지, 정답표, 번호별 해설을 한 PDF로 출력할 수 있어요.";
+const realEstateBookletLabels: Partial<Record<string, string>> = {
+  "1": "1차 시험지",
+  "2": "2차 통합 시험지",
+  "2-1": "2차 1교시 시험지",
+  "2-2": "2차 2교시 시험지",
+};
 type PrintQuery = Partial<Record<"exam" | "subject" | "year" | "session", string | string[]>>;
 type PrintProps = { searchParams: Promise<PrintQuery> };
 
@@ -53,7 +59,15 @@ function getPrintSelection({ exam, subject, year, session }: PrintQuery) {
   const editions = selected ? examPrintOptions(selected[0]).map((entry) => {
     const manifestSubject = selected[2].find(({ id }) => id === entry.subject);
     const label = manifestSubject?.label ?? ARCHIVE_SUBJECT_MAP[entry.subject] ?? entry.subject;
-    return { ...entry, subjectLabel: selected[0] === "youth" && manifestSubject ? `${manifestSubject.track} · ${label}` : label };
+    const booklet = /^real-estate-\d{4}-(.+)\.pdf$/.exec(entry.file)?.[1];
+    return {
+      ...entry,
+      subjectLabel: selected[0] === "youth" && manifestSubject ? `${manifestSubject.track} · ${label}` : label,
+      subjectGroup: selected[0] === "real-estate"
+        ? SUBJECT_LANDING_INFO[entry.subject as keyof typeof SUBJECT_LANDING_INFO]?.round
+        : undefined,
+      bookletLabel: booklet ? realEstateBookletLabels[booklet] : undefined,
+    };
   }) : [];
   const initialEdition = editions.find((entry) =>
     entry.subject === subject && String(entry.year) === year && entry.session === session,
@@ -92,6 +106,7 @@ export default async function PrintExamsPage({ searchParams }: PrintProps) {
       {selected ? (
         <ExamPrintPicker
           key={initialEdition ? JSON.stringify([selected[0], initialEdition.subject, initialEdition.year, initialEdition.session]) : selected[0]}
+          examLabel={selected[1]}
           editions={editions}
           initialEdition={initialEdition}
         />
