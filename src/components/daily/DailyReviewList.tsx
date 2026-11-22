@@ -12,8 +12,13 @@ import {
   DailyChoiceContent,
   DailyQuestionBody,
 } from "@/components/daily/DailyQuestionBody";
-import { CitedText } from "@/components/exam/CitedText";
-import { DailyExplanationText } from "@/components/daily/DailyExplanationText";
+import {
+  ExamQuestionSeoExplanations,
+  type SeoExplanationQuestion,
+} from "@/components/exam/ExamQuestionSeoExplanations";
+import { ExplanationChoiceSelection } from "@/components/exam/ExamSeoExplanationDetails";
+import { getDailyReviewExplanations } from "@/lib/daily-challenge/actions";
+import { scopeFromPathname } from "@/lib/exam-track/community";
 import { EnglishPassageNotes } from "@/components/english/EnglishPassageNotes";
 import { splitDailyExplanation } from "@/lib/daily-challenge/explanation";
 import type { DailyReviewItem } from "@/lib/daily-challenge/types";
@@ -25,14 +30,33 @@ import type { DailyReviewItem } from "@/lib/daily-challenge/types";
  * 보이고, 위 번호 줄(넓은 화면은 ‹ › 단추도)·아래 이전/다음 단추·키보드 ←→·휴대폰 옆으로 밀기로 넘긴다. 번호 줄은 해설을 연
  * 뒤에만 맞힘(파랑)·틀림(빨강)을 칠한다 — 해설을 가린 동안 정답이 새지 않게.
  */
+type ReviewExplanations = Awaited<ReturnType<typeof getDailyReviewExplanations>>;
+
 export function DailyReviewList({
+  exam,
+  subjectLabel,
   items,
   showAnswers = true,
 }: {
+  exam: string;
+  subjectLabel: string;
   items: DailyReviewItem[];
   showAnswers?: boolean;
 }) {
   const [rawIndex, setIndex] = useState(0);
+  const [explanations, setExplanations] = useState<ReviewExplanations>({});
+  const questionIds = items.filter((item) => !item.structuredExplanation).map(({ id }) => id).join("\n");
+
+  useEffect(() => {
+    if (!showAnswers || !questionIds) return;
+    let current = true;
+    void getDailyReviewExplanations(exam, questionIds.split("\n")).then((next) => {
+      if (current) setExplanations(next);
+    }).catch(() => {
+      // The saved result has a copy of the explanations for offline review.
+    });
+    return () => { current = false; };
+  }, [exam, questionIds, showAnswers]);
   const index = Math.min(rawIndex, Math.max(0, items.length - 1));
   const sectionRef = useRef<HTMLElement>(null);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
@@ -53,7 +77,7 @@ export function DailyReviewList({
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
       const target = event.target instanceof Element ? event.target : null;
-      if (target?.closest("input, textarea, select, [contenteditable='true']")) return;
+      if (target?.closest("input, textarea, select, [contenteditable='true'], dialog[open]")) return;
       setIndex((current) => {
         const base = Math.min(current, Math.max(0, items.length - 1));
         return Math.max(0, Math.min(items.length - 1, base + (event.key === "ArrowRight" ? 1 : -1)));
@@ -106,7 +130,7 @@ export function DailyReviewList({
         onTouchStart={(event) => {
           const target = event.target as HTMLElement;
           // 옆으로 넘기는 표·입력칸 안에서 시작한 밀기는 넘김으로 보지 않는다.
-          if (target.closest("table, .overflow-x-auto, input, textarea")) {
+          if (target.closest("table, .overflow-x-auto, input, textarea, dialog[open]")) {
             touchStart.current = null;
             return;
           }
@@ -124,7 +148,15 @@ export function DailyReviewList({
           go(index + (dx < 0 ? 1 : -1));
         }}
       >
-        <ReviewCard key={item.id} item={item} index={index} total={items.length} showAnswers={showAnswers} />
+        <ReviewCard
+          key={item.id}
+          item={item}
+          index={index}
+          total={items.length}
+          showAnswers={showAnswers}
+          subjectLabel={subjectLabel}
+          explanation={item.structuredExplanation ?? explanations[item.id]}
+        />
       </div>
 
       <div className="mt-3 grid grid-cols-2 gap-2">
@@ -185,14 +217,24 @@ function ReviewCard({
   index,
   total,
   showAnswers,
+  subjectLabel,
+  explanation,
 }: {
   item: DailyReviewItem;
   index: number;
   total: number;
   showAnswers: boolean;
+  subjectLabel: string;
+  explanation?: ReviewExplanations[string];
 }) {
-  const explanation = splitDailyExplanation(item.explanation, item.choices);
-  const hasChoiceExplanations = Object.keys(explanation.byChoice).length > 0;
+  const question = showAnswers ? explanation?.question ?? savedExplanation(item) : null;
+  const oxTable = dailyOxTableFrom(item.presentation.promptItems, item.choices);
+  const explainedKeys = new Set(question?.items.filter((choice) =>
+    choice.answer?.trim() || choice.explanation?.trim()
+  ).map(({ key }) => key));
+  const showOriginalChoices = !question
+    || Boolean(oxTable || question.comboChoices?.length || item.presentation.choiceHeaders.length)
+    || item.choices.some((choice) => choice.image || choice.translation || !explainedKeys.has(choice.key));
   return (
     <article
       aria-roledescription="slide"
@@ -223,130 +265,41 @@ function ReviewCard({
           <p className="mt-1 whitespace-pre-line text-[15px] leading-7 text-smoke">{item.translation}</p>
         </section>
       ) : null}
-      {(() => {
-        const oxTable = dailyOxTableFrom(
-          item.presentation.promptItems,
-          item.choices,
-        );
-        if (oxTable) {
-          return (
-            <DailyOxComboTable
-              headers={oxTable.headers}
-              rows={oxTable.rows}
-              choices={item.choices}
-              correctKeys={item.correctKeys}
-              pickedKey={item.picked}
-              showAnswers={showAnswers}
-              renderRowExtra={(choice) => {
-                if (!showAnswers || !explanation.byChoice[choice.key]) return null;
-                const isCorrect = item.correctKeys.includes(choice.key);
-                const isPicked = item.picked === choice.key;
-                const explanationLabelStyle = isCorrect
-                  ? "bg-[color:light-dark(#DCEEFF,color-mix(in_srgb,var(--color-snow)_90%,#DCEEFF))] text-[color:light-dark(#0066D6,var(--color-carbon))]"
-                  : isPicked
-                    ? "bg-[color:light-dark(#FFE1E8,color-mix(in_srgb,var(--color-snow)_90%,#FFE1E8))] text-[color:light-dark(#C70036,var(--color-coral))]"
-                    : "bg-[color:light-dark(#EAF3FE,color-mix(in_srgb,var(--color-snow)_90%,#EAF3FE))] text-[color:light-dark(#47739E,var(--color-carbon))]";
-                return (
-                  <div className="px-3 pb-3 sm:px-4">
-                    <div className="flex items-start gap-2.5 rounded-xl bg-white/70 px-3 py-2.5">
-                      <span
-                        className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-[11px] font-bold leading-5 ${explanationLabelStyle}`}
-                      >
-                        해설
-                      </span>
-                      <p className="min-w-0 flex-1 text-sm leading-6 text-smoke">
-                        <CitedText text={explanation.byChoice[choice.key]!} />
-                      </p>
-                    </div>
-                  </div>
-                );
-              }}
-            />
-          );
-        }
-        return (
-      <div className="mt-3 grid gap-2">
-        {item.choices.map((choice) => {
-          const isPicked = item.picked === choice.key;
-          const isCorrect = item.correctKeys.includes(choice.key);
-          const choiceStyle = showAnswers
-            ? isCorrect
-              ? "border-[color:light-dark(#91C6FF,var(--color-mist))] bg-[color:light-dark(#F1F8FF,color-mix(in_srgb,var(--color-snow)_90%,#F1F8FF))]"
-              : isPicked
-                ? "border-[color:light-dark(#FFB3C1,var(--color-mist))] bg-[color:light-dark(#FFF2F5,color-mix(in_srgb,var(--color-snow)_90%,#FFF2F5))]"
-                : "border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white"
-            : "border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white";
-          const explanationLabelStyle = isCorrect
-            ? "bg-[color:light-dark(#DCEEFF,color-mix(in_srgb,var(--color-snow)_90%,#DCEEFF))] text-[color:light-dark(#0066D6,var(--color-carbon))]"
-            : isPicked
-              ? "bg-[color:light-dark(#FFE1E8,color-mix(in_srgb,var(--color-snow)_90%,#FFE1E8))] text-[color:light-dark(#C70036,var(--color-coral))]"
-              : "bg-[color:light-dark(#EAF3FE,color-mix(in_srgb,var(--color-snow)_90%,#EAF3FE))] text-[color:light-dark(#47739E,var(--color-carbon))]";
-          return (
-            <div
-              key={choice.key}
-              className={`rounded-2xl border px-3 py-2.5 text-ink sm:px-4 ${choiceStyle}`}
-            >
-              <div className="flex gap-3">
-                <DailyChoiceBadge
-                  label={choice.label}
-                  tone={
-                    showAnswers
-                      ? isCorrect
-                        ? "selected"
-                        : isPicked
-                          ? "incorrect"
-                          : "default"
-                      : "default"
-                  }
-                />
-                <DailyChoiceContent
-                  choice={choice}
-                  choiceHeaders={item.presentation.choiceHeaders}
-                />
+      {showOriginalChoices && (oxTable ? (
+        <DailyOxComboTable
+          headers={oxTable.headers}
+          rows={oxTable.rows}
+          choices={item.choices}
+          correctKeys={item.correctKeys}
+          pickedKey={item.picked}
+          showAnswers={showAnswers}
+        />
+      ) : (
+        <div className="mt-3 grid gap-2">
+          {item.choices.map((choice) => {
+            const isPicked = showAnswers && item.picked === choice.key;
+            const isCorrect = showAnswers && item.correctKeys.includes(choice.key);
+            const tone = isCorrect ? "selected" : isPicked ? "incorrect" : "default";
+            return (
+              <div key={choice.key} className="flex gap-3 rounded-2xl border border-mist bg-paper px-3 py-2.5 text-ink sm:px-4">
+                <DailyChoiceBadge label={choice.label} tone={tone} />
+                <DailyChoiceContent choice={choice} choiceHeaders={item.presentation.choiceHeaders} />
               </div>
-              {showAnswers && (isPicked || isCorrect) ? (
-                <p
-                  className={`mt-2 pl-9 text-sm font-semibold ${isCorrect ? "text-[color:light-dark(#007AFF,var(--color-carbon))]" : "text-[color:light-dark(#D7003A,var(--color-coral))]"}`}
-                >
-                  {isPicked && isCorrect
-                    ? "내 선택 · 정답"
-                    : isCorrect
-                      ? "정답"
-                      : "내 선택"}
-                </p>
-              ) : null}
-              {showAnswers && explanation.byChoice[choice.key] ? (
-                <div className="mt-3 flex items-start gap-2.5 rounded-xl bg-white/70 px-3 py-2.5">
-                  <span
-                    className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-[11px] font-bold leading-5 ${explanationLabelStyle}`}
-                  >
-                    해설
-                  </span>
-                  <p className="min-w-0 flex-1 text-sm leading-6 text-smoke">
-                    <CitedText text={explanation.byChoice[choice.key]!} />
-                  </p>
-                </div>
-              ) : null}
-            </div>
-          );
-        })}
-      </div>
-        );
-      })()}
-      {showAnswers && (explanation.common || !hasChoiceExplanations) ? (
-        <div className="mt-4 border-t border-[color:light-dark(#e6eef8,var(--color-mist))] pt-4">
-          <p className="text-sm font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
-            {hasChoiceExplanations ? "공통 해설" : "해설"}
-          </p>
-          <div className="mt-1.5">
-            <DailyExplanationText
-              text={
-                explanation.common ||
-                "이 문항의 해설은 문항 페이지에 있습니다."
-              }
-            />
-          </div>
+            );
+          })}
         </div>
+      ))}
+      {question ? (
+        <ExplanationChoiceSelection choice={item.picked ? { number: Number(item.picked), incorrect: !item.ok } : null}>
+          <ExamQuestionSeoExplanations
+            question={question}
+            subjectLabel={subjectLabel}
+            scope={scopeFromPathname(item.href)}
+            glossaryByChoice={explanation?.glossaryByChoice}
+            pickedChoice={item.pickedLabel.normalize("NFKC").replace(/^(\d+)$/, "$1번")}
+            embedded
+          />
+        </ExplanationChoiceSelection>
       ) : null}
       {showAnswers && item.vocab?.length ? (
         <div className="-mt-4">
@@ -356,4 +309,34 @@ function ReviewCard({
       {showAnswers ? <DailyQuestionDiscussion questionId={item.id} /> : null}
     </article>
   );
+}
+
+/** Review sessions saved before the current exam data was loaded remain readable. */
+function savedExplanation(item: DailyReviewItem): SeoExplanationQuestion {
+  const statements = item.presentation.promptItems;
+  const statementNotes = splitDailyExplanation(item.explanation, statements);
+  const hasStatementNotes = Object.keys(statementNotes.byChoice).length > 0;
+  const choices = hasStatementNotes ? statements : item.choices;
+  const { common, byChoice } = hasStatementNotes
+    ? statementNotes
+    : splitDailyExplanation(item.explanation, choices);
+  const path = item.href.split("/");
+  return {
+    year: Number(path.at(path[1] === "exam" ? -2 : -3)),
+    questionNo: Number(path.at(-1)),
+    stem: item.stem,
+    category: item.category,
+    correctChoice: item.correctKeys.length === 1 ? item.correctKeys[0] : undefined,
+    correctChoices: item.correctKeys.length > 1 ? item.correctKeys.map(Number) : undefined,
+    explanationSummary: common || (item.explanation.trim() ? undefined : "이 문항의 해설은 문항 페이지에 있습니다."),
+    items: choices.map((choice) => {
+      const explanation = byChoice[choice.key];
+      const verdict = hasStatementNotes ? explanation?.match(/^\((옳음|틀림)\)\s*/) : null;
+      return {
+        ...choice,
+        answer: verdict ? (verdict[1] === "옳음" ? "O" : "X") : undefined,
+        explanation: verdict ? explanation?.slice(verdict[0].length) : explanation,
+      };
+    }),
+  };
 }

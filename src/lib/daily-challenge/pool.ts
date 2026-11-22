@@ -4,7 +4,9 @@ import { EXAM_SUBJECTS } from "@/lib/constants";
 import { toExamOxCombos } from "@/lib/exam-track/combo-choices";
 import { formatExamRefLabel } from "@/lib/exam-track/sourceLabel";
 import {
+  getExamQuestion,
   getExamQuestionsForSubject,
+  type ExamSubject,
   type ExamQuestion,
 } from "@/lib/exam-questions";
 import { getEnglishSubject, ENGLISH_SUBJECT_IDS } from "@/lib/english-content";
@@ -48,11 +50,16 @@ import {
   pickDailyIdsWithNextDate,
 } from "@/lib/daily-challenge/pick";
 import { getDailyExam } from "@/lib/daily-challenge/exams";
+import type { SeoExplanationQuestion } from "@/components/exam/ExamQuestionSeoExplanations";
+import { scopeFromPathname } from "@/lib/exam-track/community";
+import { examGlossaryTerms } from "@/lib/exam-glossary";
+import { housingExplanationSources } from "@/lib/housing-explanation-sources";
 import type {
   DailyChoice,
   DailyQuestion,
   DailyQuestionPresentation,
   DailyQuestionView,
+  DailyReviewExplanation,
   DailyTAccount,
 } from "@/lib/daily-challenge/types";
 import type { ExamTrackMaterial, ExamTrackTable } from "@/lib/exam-track/types";
@@ -67,6 +74,7 @@ import { itemsRepeatComboChoices } from "@/lib/daily-challenge/presentation";
 export type { DailyChoice, DailyQuestion, DailyQuestionView };
 
 type LooseExam = {
+  id?: string;
   translation?: string;
   vocab?: import("@/lib/exam-track/types").ExamTrackVocabEntry[];
   kind?: string;
@@ -84,6 +92,7 @@ type LooseExam = {
     explanation?: string;
     image?: string;
     translation?: string;
+    sources?: SeoExplanationQuestion["items"][number]["sources"];
     /** 보기형 보기의 참(O)·거짓(X) */
     answer?: string;
   }[];
@@ -347,6 +356,48 @@ const TRACK_LOADERS: Record<
     },
   },
 };
+
+/** Reads the same question and citation metadata as the linked exam detail page. */
+export async function getDailyExplanation(slug: string, daily: DailyQuestion): Promise<DailyReviewExplanation | null> {
+  const questionNo = Number(daily.href.split("/").at(-1));
+  const [, , , , , encodedSource] = daily.href.split("/");
+  const sourceCode = encodedSource ? decodeURIComponent(encodedSource) : undefined;
+  const track = slug === "public-service"
+    ? getPublicServiceSubject(daily.subjectId)
+    : TRACK_LOADERS[slug]?.get(daily.subjectId);
+  const exam: LooseExam | undefined = slug === "real-estate"
+    ? getExamQuestion(daily.subjectId as ExamSubject, daily.year, questionNo)
+    : track?.exams.find((candidate) =>
+      candidate.year === daily.year && candidate.sourceCode === sourceCode && candidate.questionNo === questionNo
+    );
+  if (!exam) return null;
+
+  const examId = exam.id ?? `real-estate/${daily.subjectId}/${daily.year}/${questionNo}`;
+  const verified = slug === "housing" ? housingExplanationSources(examId) : {};
+  const items = (exam.items ?? []).map((item) => ({
+    ...item,
+    text: item.text ?? "",
+    sources: [...(item.sources ?? []), ...(verified[item.key] ?? [])],
+  }));
+  const scope = scopeFromPathname(daily.href);
+  const glossaryByChoice = await examGlossaryTerms(scope, examId, items, exam.vocab);
+  const question: SeoExplanationQuestion = {
+    year: exam.year,
+    questionNo,
+    stem: exam.stem,
+    round: daily.round,
+    sourceCode: exam.sourceCode,
+    category: exam.category,
+    correctChoice: exam.correctChoice,
+    correctChoices: exam.correctChoices,
+    examDate: exam.examDate,
+    lawVersions: exam.lawVersions,
+    explanationSummary: exam.explanationSummary,
+    items,
+    comboChoices: toExamOxCombos(exam.comboChoices, Number(exam.correctChoice)),
+  };
+  return { question, glossaryByChoice };
+}
 
 function buildRealEstate(): DailyQuestion[] {
   const labels = new Map(

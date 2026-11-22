@@ -12,6 +12,7 @@ import {
 } from "@/lib/daily-challenge/exams";
 import {
   getDailyEligiblePool,
+  getDailyExplanation,
   getDailyPool,
   getDailySet,
   listDailySubjects,
@@ -260,18 +261,20 @@ function safeAnswers(value: unknown): AttemptAnswer[] {
   });
 }
 
-function grade(
+async function grade(
+  exam: string,
   set: DailyQuestion[],
   picks: { id: string; key: string; confidence?: DailyConfidence }[],
-): DailyReviewItem[] {
+): Promise<DailyReviewItem[]> {
   const picked = new Map(picks.map((item) => [item.id, item]));
-  return set.map((question) => {
+  return Promise.all(set.map(async (question) => {
     const answer = picked.get(question.id);
     const key = answer?.key ?? "";
     const choice = question.choices.find((item) => item.key === key);
     const answers = question.choices.filter((item) =>
       question.correctKeys.includes(item.key),
     );
+    const structuredExplanation = await getDailyExplanation(exam, question).catch(() => null);
     return {
       id: question.id,
       stem: question.stem,
@@ -284,6 +287,7 @@ function grade(
       pickedLabel: choice?.label ?? "",
       answerLabel: answers.map((item) => item.label).join(", "),
       explanation: question.explanation,
+      ...(structuredExplanation ? { structuredExplanation } : {}),
       ...(question.translation ? { translation: question.translation } : {}),
       ...(question.vocab?.length ? { vocab: question.vocab } : {}),
       ok: question.correctKeys.includes(key),
@@ -291,7 +295,7 @@ function grade(
       category: question.category,
       subcategory: question.subcategory,
     };
-  });
+  }));
 }
 
 function shiftDate(dateKey: string, amount: number) {
@@ -984,7 +988,7 @@ export async function submitDailyAttempt(input: {
       jar.get(cookieName(input.exam, modeKey, subject.id))?.value,
     );
   }
-  const review = grade(set, input.picks ?? []);
+  const review = await grade(input.exam, set, input.picks ?? []);
   const correct = review.filter((item) => item.ok).length;
   const roundHref = set[0]?.roundHref ?? meta.home;
   const defaultReport = makeReport(review, emptyInsights(), 0, null, null);
@@ -1774,6 +1778,18 @@ export async function getFriendBoard(
   }
 }
 
+/** Exam detail pages already publish these explanations. Load them when daily review is opened. */
+export async function getDailyReviewExplanations(slug: string, ids: string[]) {
+  if (!getDailyExam(slug) || !Array.isArray(ids)) return {};
+  const requested = new Set(ids.slice(0, 10));
+  const entries = await Promise.all(
+    getDailyPool(slug).filter(({ id }) => requested.has(id)).map(async (daily) =>
+      [daily.id, await getDailyExplanation(slug, daily).catch(() => null)] as const
+    ),
+  );
+  return Object.fromEntries(entries);
+}
+
 export async function getPublicAttempt(id: string) {
   if (!validUuid(id)) return null;
   try {
@@ -1807,7 +1823,7 @@ export async function getPublicAttempt(id: string) {
             row.mode === "practice" ? "practice" : "ranked",
             row.subject_id,
           );
-    const review = grade(
+    const review = await grade(row.exam_slug,
       set,
       answers.map((item) => ({
         id: item.id,

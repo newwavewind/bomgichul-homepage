@@ -265,7 +265,7 @@ export async function DailyResultPage({
               rank={attempt.rank}
               report={attempt.report}
             />
-            <DailyReviewList items={attempt.review} />
+            <DailyReviewList exam={slug} subjectLabel={attempt.subjectLabel || meta.label} items={attempt.review} />
             <div className="mt-6">
               <ResultActions
                 exam={slug}

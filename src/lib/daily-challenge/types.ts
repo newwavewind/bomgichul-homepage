@@ -4,6 +4,8 @@ import type {
 } from "@/lib/exam-questions";
 import type { ExamTrackMaterial, ExamTrackTable } from "@/lib/exam-track/types";
 import type { UnderlineRange } from "@/lib/underlined-text";
+import type { SeoExplanationQuestion } from "@/components/exam/ExamQuestionSeoExplanations";
+import type { ChoiceGlossary } from "@/lib/exam-glossary";
 
 export type DailyChoice = {
   key: string;
@@ -38,6 +40,11 @@ export type DailyQuestionPresentation = {
   keepStemLines?: boolean;
 };
 
+export type DailyReviewExplanation = {
+  question: SeoExplanationQuestion;
+  glossaryByChoice: Record<string, ChoiceGlossary>;
+};
+
 export type DailyReviewItem = {
   id: string;
   stem: string;
@@ -50,6 +57,7 @@ export type DailyReviewItem = {
   pickedLabel: string;
   answerLabel: string;
   explanation: string;
+  structuredExplanation?: DailyReviewExplanation;
   translation?: string;
   vocab?: DailyVocabEntry[];
   ok: boolean;

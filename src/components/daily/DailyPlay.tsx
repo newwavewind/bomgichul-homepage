@@ -1146,6 +1146,8 @@ export function DailyPlay({
               </button>
             </div>
             <DailyReviewList
+              exam={exam}
+              subjectLabel={subjectLabel}
               items={score.review}
               showAnswers={showReviewAnswers}
             />
