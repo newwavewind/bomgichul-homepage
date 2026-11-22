@@ -92,8 +92,8 @@ export function QuestionMemoComposer({
   }
 
   return (
-    <form className="mb-4" onSubmit={(event) => void submit(event)}>
-      <fieldset disabled={!userId || saving} className="mb-3 flex flex-wrap items-center gap-2">
+    <form className="mb-2" onSubmit={(event) => void submit(event)}>
+      <fieldset disabled={!userId || saving} className="mb-2 flex flex-wrap items-center gap-2">
         <legend className="sr-only">공개 범위</legend>
         {([
           ["public", "공개 · 누구나 보기"],
@@ -111,7 +111,7 @@ export function QuestionMemoComposer({
               }}
               className="peer sr-only"
             />
-            <span className="inline-flex rounded-full border border-mist bg-paper px-3 py-1.5 font-display text-body-sm text-smoke peer-checked:border-ios-blue peer-checked:bg-ios-blue/10 peer-checked:text-ink peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ios-blue">
+            <span className="inline-flex rounded-full border border-mist bg-paper px-3 py-1 font-display text-body-sm text-smoke peer-checked:border-ios-blue peer-checked:bg-ios-blue/10 peer-checked:text-ink peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ios-blue">
               {label}
             </span>
           </label>
@@ -121,12 +121,12 @@ export function QuestionMemoComposer({
         <div className="min-w-0 flex-1">
           <Textarea
             id={id}
-            label={isPrivate ? "비공개 메모 내용" : "공개 글 내용"}
+            aria-label={isPrivate ? "비공개 메모 내용" : "공개 글 내용"}
             value={content}
             onChange={(event) => (isPrivate ? setPrivateDraft : setPublicDraft)(event.target.value)}
-            rows={2}
+            rows={1}
             placeholder={isPrivate ? "나만 볼 메모를 적어 보세요." : "질문, 생각, 암기 팁 등을 나눠 보세요."}
-            className="!py-2.5 text-body-sm"
+            className="min-h-10 max-h-48 !py-2 !text-body-sm [field-sizing:content]"
             disabled={disabled}
           />
         </div>
