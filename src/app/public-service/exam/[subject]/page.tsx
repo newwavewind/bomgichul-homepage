@@ -51,7 +51,12 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
           {[...sessionsBySource.entries()].map(([sourceCode, sourceSessions]) => (
             <ExamSessionGroup key={sourceCode} title={sourceCode}>
               {sourceSessions.map((session) => (
-                <ExamSessionCard key={`${session.year}-${session.sourceCode}`} href={`/public-service/exam/${subjectId}/${session.year}/${encodeURIComponent(session.sourceCode)}`} year={session.year} questionCount={session.count} />
+                <ExamSessionCard
+                  key={`${session.year}-${session.sourceCode}`}
+                  href={`${path}/${session.year}/${encodeURIComponent(session.sourceCode)}/${session.firstQuestionNo}`}
+                  year={session.year}
+                  questionCount={session.count}
+                />
               ))}
             </ExamSessionGroup>
           ))}

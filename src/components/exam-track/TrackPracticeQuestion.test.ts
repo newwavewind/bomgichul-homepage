@@ -77,6 +77,6 @@ describe("practice question materials", () => {
     expect(html).toContain("첫 번째 진술");
     expect(html).toContain("두 번째 진술");
     expect(html).toContain("ㄱ, ㄴ");
-    expect(html).toContain("②");
+    expect(html).toMatch(/<span class="[^"]*\bsize-6\b[^"]*">2<\/span>/);
   });
 });

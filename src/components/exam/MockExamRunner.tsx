@@ -95,8 +95,7 @@ const MockQuestionCard = memo(function MockQuestionCard({
               ))}
             </div>
             <ExamReferenceList entries={q.referenceEntries} />
-            <div className="space-y-2">
-              <p className="font-display text-body-sm font-semibold text-smoke">선택지</p>
+            <div className="space-y-2" role="group" aria-label="선택지">
               {isTableComposite ? (
                 <TableComboChoiceRows
                   comboChoices={enriched.comboChoices}

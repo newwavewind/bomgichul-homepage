@@ -115,6 +115,7 @@ export default async function RandomPracticePage({ params, searchParams }: Rando
           </div>
         ) : (
           <RandomPracticeRunner
+            key={questions.map(({ year, questionNo }) => `${year}-${questionNo}`).join(",")}
             subject={subject}
             questions={questions}
             userId={user?.id ?? null}

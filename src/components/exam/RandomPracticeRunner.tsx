@@ -5,8 +5,8 @@ import Link from "next/link";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
 import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
-import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
-import { PrimaryButton } from "@/components/ui/Button";
+import { ExamOxQuestion, type ExamAnswerState } from "@/components/exam/ExamOxQuestion";
+import { PracticeQuestionFrame } from "@/components/exam/PracticeQuestionFrame";
 import { trackEvent } from "@/lib/analytics";
 import type { ExamQuestion } from "@/lib/exam-questions";
 import type { AttemptResult } from "@/types/database";
@@ -21,6 +21,7 @@ export function RandomPracticeRunner({
   userId?: string | null;
 }) {
   const [index, setIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<number, ExamAnswerState>>({});
   const [results, setResults] = useState<Record<number, AttemptResult>>({});
   const [finished, setFinished] = useState(false);
 
@@ -39,6 +40,7 @@ export function RandomPracticeRunner({
 
   const handleRestart = () => {
     setIndex(0);
+    setAnswers({});
     setResults({});
     setFinished(false);
   };
@@ -77,7 +79,7 @@ export function RandomPracticeRunner({
   }
 
   return (
-    <div>
+    <PracticeQuestionFrame index={index} total={total} onPrevious={() => setIndex(index - 1)} onNext={handleNext}>
       <div className="mb-4 flex items-center justify-between">
         <span className="font-display text-body-sm font-medium text-fog">
           {index + 1} / {total}
@@ -116,14 +118,11 @@ export function RandomPracticeRunner({
         comboChoices={question.comboChoices}
         referenceEntries={question.referenceEntries}
         passageLabel={question.leadEntries?.length ? "<보기>" : undefined}
+        keyboardShortcuts
+        answerState={answers[index]}
+        onAnswerStateChange={(answer) => setAnswers((previous) => ({ ...previous, [index]: answer }))}
         onAttempt={(result) => setResults((r) => ({ ...r, [index]: result }))}
       />
-
-      <div className="mt-4 flex justify-end">
-        <PrimaryButton onClick={handleNext}>
-          {index + 1 >= total ? "결과 보기" : "다음 문제"} →
-        </PrimaryButton>
-      </div>
-    </div>
+    </PracticeQuestionFrame>
   );
 }

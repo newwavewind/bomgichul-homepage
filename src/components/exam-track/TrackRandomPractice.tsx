@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { ExamAnswerState } from "@/components/exam/ExamOxQuestion";
+import { PracticeQuestionFrame } from "@/components/exam/PracticeQuestionFrame";
 import { TrackPracticeQuestion } from "./TrackPracticeQuestion";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
 import { fallbackToc, tocKey, type TrackSubjectToc } from "@/lib/exam-track/toc";
@@ -62,6 +64,7 @@ export function TrackRandomPractice({
   const [collapsed, setCollapsed] = useState(false);
   const [questions, setQuestions] = useState<ExamTrackExam[]>([]);
   const [index, setIndex] = useState(0);
+  const [answers, setAnswers] = useState<Record<number, ExamAnswerState>>({});
   const [results, setResults] = useState<Record<string, "correct" | "wrong">>({});
   const [finished, setFinished] = useState(false);
   const [started, setStarted] = useState(false);
@@ -80,6 +83,7 @@ export function TrackRandomPractice({
     });
     setQuestions(shuffle(pool).slice(0, size));
     setIndex(0);
+    setAnswers({});
     setResults({});
     setFinished(false);
     setStarted(true);
@@ -194,7 +198,12 @@ export function TrackRandomPractice({
       ) : null}
 
       {started && !finished && current ? (
-        <div>
+        <PracticeQuestionFrame
+          index={index}
+          total={questions.length}
+          onPrevious={() => setIndex(index - 1)}
+          onNext={() => (index + 1 >= questions.length ? setFinished(true) : setIndex(index + 1))}
+        >
           <div className="mb-4 flex items-center justify-between font-display text-body-sm text-fog">
             <span>{index + 1} / {questions.length}</span>
             <span>{formatExamRefLabel(scope, current.year, current.sourceCode)} · {current.questionNo}번</span>
@@ -207,21 +216,15 @@ export function TrackRandomPractice({
             exam={current}
             loginNext={loginNextFor(current)}
             initialAttemptResult={attemptOf(current)}
+            keyboardShortcuts
+            answerState={answers[index]}
+            onAnswerStateChange={(answer) => setAnswers((previous) => ({ ...previous, [index]: answer }))}
             onAttempt={(result) => {
               setResults((prev) => ({ ...prev, [tocKey(current)]: result }));
               return onAttempt(current, result);
             }}
           />
-          <div className="mt-5 flex justify-end">
-            <button
-              type="button"
-              onClick={() => (index + 1 >= questions.length ? setFinished(true) : setIndex(index + 1))}
-              className="rounded-full bg-carbon px-5 py-2.5 font-display text-body-sm font-semibold text-paper"
-            >
-              {index + 1 >= questions.length ? "결과 보기" : "다음 문제"} →
-            </button>
-          </div>
-        </div>
+        </PracticeQuestionFrame>
       ) : null}
     </div>
   );

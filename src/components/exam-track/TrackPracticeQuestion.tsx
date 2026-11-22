@@ -1,18 +1,23 @@
 "use client";
 
 import { ExamMaterialFigure } from "@/components/exam/ExamMaterialFigure";
-import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
+import { ExamOxQuestion, type ExamAnswerState } from "@/components/exam/ExamOxQuestion";
 import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
 import { ExamSubjectNotice } from "@/components/exam/ExamSubjectNotice";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
 import { getTrackQuestionPresentation } from "./questionPresentation";
 
-export function TrackPracticeQuestion({ exam, loginNext, initialAttemptResult, onAttempt }: {
+export function TrackPracticeQuestion({
+  exam, loginNext, initialAttemptResult, onAttempt, keyboardShortcuts, answerState, onAnswerStateChange,
+}: {
   exam: ExamTrackExam;
   loginNext: string;
   initialAttemptResult: "correct" | "wrong" | null;
   onAttempt: (result: "correct" | "wrong") => void | Promise<void>;
+  keyboardShortcuts?: boolean;
+  answerState?: ExamAnswerState;
+  onAnswerStateChange?: (answer: ExamAnswerState) => void;
 }) {
   const presentation = getTrackQuestionPresentation(exam);
   return (
@@ -41,6 +46,9 @@ export function TrackPracticeQuestion({ exam, loginNext, initialAttemptResult, o
           explanationSummary={exam.explanationSummary}
           initialAttemptResult={initialAttemptResult}
           onAttempt={onAttempt}
+          keyboardShortcuts={keyboardShortcuts}
+          answerState={answerState}
+          onAnswerStateChange={onAnswerStateChange}
         />
       </div>
     </>
