@@ -1,0 +1,1045 @@
+/* App styles from ExamConceptNote and SourceLinks (historybomgichul 214c52f). */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Isolated preview sizing and the app base reset. */
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 16px; line-height: 1.5; overflow: hidden; }
+body, p, h3, dl, dd, ul, ol { margin: 0; }
+ul, ol { list-style: none; padding: 0; }
+svg { display: block; vertical-align: middle; }
+#root { padding: 0 4px 14px; container-type: inline-size; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+@container (width < 224px) { .ccc-spiral__ring:nth-child(9) { display: none; } }
+@container (width < 246px) { .ccc-spiral__ring:nth-child(10) { display: none; } }
+@container (width < 268px) { .ccc-spiral__ring:nth-child(11) { display: none; } }
+@container (width < 290px) { .ccc-spiral__ring:nth-child(12) { display: none; } }
+@container (width < 312px) { .ccc-spiral__ring:nth-child(13) { display: none; } }
+@container (width < 334px) { .ccc-spiral__ring:nth-child(14) { display: none; } }
+@container (width < 356px) { .ccc-spiral__ring:nth-child(15) { display: none; } }
+@container (width < 378px) { .ccc-spiral__ring:nth-child(16) { display: none; } }
+@container (width < 400px) { .ccc-spiral__ring:nth-child(17) { display: none; } }
+@container (width < 422px) { .ccc-spiral__ring:nth-child(18) { display: none; } }
+@container (width < 444px) { .ccc-spiral__ring:nth-child(19) { display: none; } }
+@container (width < 466px) { .ccc-spiral__ring:nth-child(20) { display: none; } }
+
+/*
+ * 필기노트 — 「안개 위의 바우하우스 포스터」.
+ * 안개빛 바탕(#f0f1f5) 위에 흰 카드, 글은 한밤 남색(#20294c) 한 가지 잉크.
+ * 테·아이콘은 콘플라워(#375390), 색 점은 전기 파랑(#459af8) 하나, 노란 강조(#ffff00)는 한 노트에 한 번.
+ * 평면만 쓴다 — 그라디언트·빛무리 없음. 그림자는 회색이 아니라 남색을 탄다.
+ * 모양은 둘뿐: 카드 12px, 알약 9999px. 판 전체만 24px.
+ */
+.ecn {
+  --ecn-navy: #20294c;
+  --ecn-steel: #375390;
+  --ecn-blue: #459af8;
+  --ecn-fog: #f9f9f9;
+  --ecn-white: #ffffff;
+  --ecn-silver: #c7cbdb;
+  --ecn-mist: #dddfe9;
+  --ecn-smoke: #979db5;
+  --ecn-dusk: #676b89;
+  --ecn-abyss: #042939;
+  --ecn-volt: #ffff00;
+  --ecn-shadow: 0 9px 25px 0 rgba(32, 41, 76, 0.12);
+  --ecn-shadow-sm: 0 4px 11px 0 rgba(32, 41, 76, 0.07), 0 1px 3px 0 rgba(32, 41, 76, 0.12);
+  --ecn-sans: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif;
+
+  position: relative;
+  margin-top: 1rem;
+  padding: 24px 18px 22px;
+  border-radius: 24px;
+  background: var(--ecn-fog);
+  color: var(--ecn-navy);
+  font-family: var(--ecn-sans);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.ecn__aurora {
+  display: none;
+}
+
+/* ── 머리 ───────────────────────────── */
+.ecn__head {
+  padding: 0 4px;
+}
+.ecn__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.ecn__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 10px;
+  border-radius: 9999px;
+  background: var(--ecn-white);
+  box-shadow: 0 1px 4px 0 rgba(32, 41, 76, 0.1);
+  color: var(--ecn-navy);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+.ecn__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--ecn-blue);
+}
+.ecn__kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ecn-smoke);
+  white-space: nowrap;
+}
+.ecn__title {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  color: var(--ecn-navy);
+  text-wrap: balance;
+}
+
+/* ── 몸 ─────────────────────────────── */
+.ecn__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 18px;
+}
+.ecn__block {
+  animation: ecn-rise 380ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--ecn-i, 0) * 50ms);
+}
+
+.ecn__p {
+  margin: 0;
+  padding: 0 4px;
+  font-size: 16px;
+  line-height: 1.78;
+  letter-spacing: -0.01em;
+  color: var(--ecn-navy);
+}
+
+.ecn strong {
+  font-weight: 700;
+  color: var(--ecn-navy);
+  box-shadow: inset 0 -0.38em 0 rgba(69, 154, 248, 0.2);
+}
+
+/* 강조 한 줄 — 노트에서 단 하나의 노란 카드 */
+.ecn__callout {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: #e8f1ff;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.53);
+  color: #20294c;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+}
+.ecn__callout-mark {
+  flex: none;
+  font-size: 14px;
+  line-height: 1.6rem;
+}
+.ecn__callout strong {
+  color: #20294c;
+  box-shadow: none;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* 묶음 카드 — 흰 카드, 남색 그림자, 번호는 안개빛 알약 */
+.ecn__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ecn__stack-card {
+  position: relative;
+  padding: 20px 20px 8px;
+  border-radius: 12px;
+  background: var(--ecn-white);
+  box-shadow: var(--ecn-shadow);
+}
+.ecn__stack-no {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 4px 9px;
+  border-radius: 9999px;
+  background: var(--ecn-fog);
+  color: var(--ecn-steel);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.ecn__stack-name {
+  margin: 0 48px 8px 0;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+  color: var(--ecn-navy);
+}
+.ecn__stack-rows {
+  margin: 0;
+}
+.ecn__stack-row {
+  padding: 11px 0 12px;
+  border-top: 1px solid var(--ecn-mist);
+}
+.ecn__stack-row dt {
+  margin-bottom: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ecn-smoke);
+}
+.ecn__stack-row dd {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+  color: var(--ecn-navy);
+}
+
+/* 연표 — 흰 카드 한 장 안에 콘플라워 세로줄과 점 */
+.ecn__timeline {
+  position: relative;
+  margin: 0;
+  padding: 18px 20px 18px 18px;
+  list-style: none;
+  border-radius: 12px;
+  background: var(--ecn-white);
+  box-shadow: var(--ecn-shadow);
+}
+.ecn__timeline-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 14px auto 1fr;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 0;
+}
+.ecn__timeline-row + .ecn__timeline-row {
+  border-top: 1px solid var(--ecn-mist);
+}
+.ecn__timeline-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--ecn-steel);
+  background: var(--ecn-white);
+  transform: translateY(-1px);
+}
+.ecn__timeline-row:first-child .ecn__timeline-dot {
+  border-color: var(--ecn-blue);
+  background: var(--ecn-blue);
+}
+.ecn__timeline-when {
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ecn-navy);
+  white-space: nowrap;
+}
+.ecn__timeline-what {
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+  color: var(--ecn-navy);
+}
+
+/* 비교 — 둘이면 나란히, 이름은 콘플라워 테의 알약 */
+.ecn__compare {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.ecn__compare--pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.ecn__compare-card {
+  padding: 16px 16px 14px;
+  border-radius: 12px;
+  background: var(--ecn-white);
+  box-shadow: var(--ecn-shadow-sm);
+}
+.ecn__compare-name {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  box-shadow: inset 0 0 0 1.5px var(--ecn-steel);
+  color: var(--ecn-steel);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.ecn__compare-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ecn__compare-list li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+  color: var(--ecn-navy);
+}
+.ecn__compare-list li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.72em;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--ecn-steel);
+}
+
+/* 맨 아래 근거 목록 */
+.ecn .src-links--list {
+  margin-top: 20px;
+  padding: 14px 4px 0;
+  border-top: 1px solid var(--ecn-mist);
+}
+.ecn .src-links__title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ecn-smoke);
+}
+.ecn .src-links__link {
+  background: var(--ecn-white);
+  box-shadow: 0 1px 4px 0 rgba(32, 41, 76, 0.1);
+  color: var(--ecn-navy);
+}
+.ecn .src-links__link:hover,
+.ecn .src-links__link:focus-visible {
+  background: var(--ecn-white);
+  box-shadow: inset 0 0 0 1.5px var(--ecn-blue);
+  color: var(--ecn-blue);
+}
+.ecn .src-links__ext {
+  color: var(--ecn-blue);
+}
+
+@keyframes ecn-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecn__block {
+    animation: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .ecn {
+    padding: 20px 14px 18px;
+    border-radius: 20px;
+  }
+  .ecn__title {
+    font-size: 24px;
+  }
+  .ecn__compare--pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── 어두운 화면 — 같은 남색 가족을 밤빛으로 ── */
+html.dark #root .ecn {
+  --ecn-navy: #e6e9f5;
+  --ecn-steel: #8fa6dc;
+  --ecn-blue: #6cb0ff;
+  --ecn-fog: #141a2c;
+  --ecn-white: #1d2440;
+  --ecn-mist: #2b3355;
+  --ecn-smoke: #8a91ad;
+  --ecn-shadow: 0 9px 25px 0 rgba(0, 0, 0, 0.35);
+  --ecn-shadow-sm: 0 4px 11px 0 rgba(0, 0, 0, 0.3);
+}
+html.dark #root .ecn__callout {
+  /* 밤에도 같은 옅은 하늘빛 판 — 글은 한밤 남색 그대로 */
+  color: #20294c;
+}
+
+/* ════════════════════════════════════════════════════════════
+ * 고급 층 — 포스터 제목, 바우하우스 도형, 블록 머리표, 라벨·값 두 칸,
+ * 이어진 연표 줄, VS 원판, 시험 포인트 카드, 떠오르는 카드
+ * (색은 위 토큰만 쓴다 — 어두운 화면도 그대로 따라온다)
+ * ════════════════════════════════════════════════════════════ */
+.ecn {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* STUDY NOTE — 오른쪽 위 서명. 가는 줄 + 넓은 자간 + 파란 사각 점 */
+.ecn__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  color: var(--ecn-steel);
+  white-space: nowrap;
+  /* 자간이 글 끝에도 붙어 오른쪽 여백이 생기는 것을 걷는다 */
+  margin-right: -0.26em;
+}
+.ecn__kicker::before {
+  content: '';
+  width: 22px;
+  height: 1.5px;
+  border-radius: 9999px;
+  background: var(--ecn-silver);
+}
+.ecn__kicker::after {
+  content: '';
+  order: -1;
+  width: 6px;
+  height: 6px;
+  background: var(--ecn-blue);
+  transform: rotate(45deg);
+}
+.ecn__head {
+  position: relative;
+  z-index: 1;
+}
+
+/* 포스터 제목 — 크게, 아주 촘촘하게 */
+.ecn__title {
+  margin-top: 4px;
+  max-width: 92%;
+  font-size: 32px;
+  line-height: 1.04;
+  letter-spacing: -0.06em;
+}
+.ecn__head::after {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 4px;
+  margin-top: 16px;
+  border-radius: 9999px;
+  background: var(--ecn-blue);
+}
+
+/* 첫 문단은 머리글 — 한 단계 크게 */
+.ecn__body {
+  gap: 22px;
+}
+.ecn__block--p:first-child .ecn__p {
+  font-size: 17.5px;
+  line-height: 1.72;
+  letter-spacing: -0.025em;
+}
+
+/* 블록 머리표 — 작은 대문자식 표식 + 가는 줄 */
+.ecn__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ecn-steel);
+}
+.ecn__label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--ecn-blue);
+}
+.ecn__label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ecn-silver);
+  opacity: 0.7;
+}
+
+/* 떠오르는 카드 */
+.ecn__stack-card,
+.ecn__timeline,
+.ecn__compare-card {
+  transition: transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 220ms ease;
+}
+@media (hover: hover) {
+  .ecn__stack-card:hover,
+  .ecn__compare-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px 0 rgba(32, 41, 76, 0.16);
+  }
+}
+
+/* 묶음 카드 — 이름 아래 짧은 파란 막대, 라벨·값은 두 칸 */
+.ecn__stack-card {
+  padding: 22px 20px 10px;
+}
+.ecn__stack-name {
+  font-size: 20px;
+  letter-spacing: -0.045em;
+  margin-bottom: 12px;
+}
+.ecn__stack-no {
+  top: 22px;
+  background: #e4f0f1;
+  color: #1a1a1a;
+  letter-spacing: 0.06em;
+}
+html.dark #root .ecn__stack-no {
+  background: #e4f0f1;
+  color: #1a1a1a;
+}
+.ecn__stack-row {
+  display: grid;
+  /* 라벨도 본문과 같은 크기 — 「직지심체요절」 같은 긴 라벨이 한 줄에 들도록 칸을 넓힌다 */
+  grid-template-columns: minmax(5.6em, 28%) 1fr;
+  align-items: baseline;
+  gap: 14px;
+  padding: 12px 0;
+}
+.ecn__stack-row dt {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: -0.03em;
+  color: var(--ecn-steel);
+}
+
+/* 연표 — 점을 잇는 세로줄, 해는 굵은 숫자 */
+.ecn__timeline {
+  padding: 14px 20px 14px 18px;
+}
+.ecn__timeline-row {
+  /* 해가 길면(900·901) 칸이 늘어난다 — 짧은 해는 52px 에 맞춰 줄이 선다 */
+  grid-template-columns: 14px minmax(52px, max-content) 1fr;
+  gap: 12px;
+  padding: 11px 0;
+}
+.ecn__timeline-row + .ecn__timeline-row {
+  border-top: 0;
+}
+.ecn__timeline-row::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background: var(--ecn-mist);
+  z-index: 0;
+}
+.ecn__timeline-row:first-child::before {
+  top: 50%;
+}
+.ecn__timeline-row:last-child::before {
+  bottom: 50%;
+}
+.ecn__timeline-dot {
+  position: relative;
+  z-index: 1;
+}
+.ecn__timeline-row:last-child .ecn__timeline-dot {
+  border-color: var(--ecn-navy);
+  background: var(--ecn-navy);
+}
+.ecn__timeline-when {
+  font-size: 17px;
+  letter-spacing: -0.04em;
+}
+
+/* 비교 — 두 카드 사이 VS 원판 */
+.ecn__compare {
+  position: relative;
+}
+.ecn__vs {
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  border-radius: 9999px;
+  background: var(--ecn-navy);
+  color: var(--ecn-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  box-shadow: 0 0 0 4px var(--ecn-fog);
+}
+@media (max-width: 400px) {
+  .ecn__vs {
+    display: none;
+  }
+}
+
+/* 시험 포인트 — 노란 카드, 표식은 이미 머리표가 맡으니 별은 원판으로 */
+.ecn__callout {
+  padding: 18px 20px 18px 18px;
+  font-size: 16.5px;
+  letter-spacing: -0.03em;
+}
+.ecn__callout-mark {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: var(--ecn-white);
+  color: var(--ecn-abyss);
+  font-size: 12px;
+  line-height: 1;
+  margin-top: 1px;
+}
+html.dark #root .ecn__callout-mark {
+  background: #ffffff;
+}
+
+/* 근거 — 머리표와 같은 결 */
+.ecn .src-links--list {
+  border-top: 0;
+  padding-top: 4px;
+}
+.ecn .src-links--list .src-links__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ecn-steel);
+  letter-spacing: 0.14em;
+  font-size: 11px;
+}
+.ecn .src-links--list .src-links__title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ecn-silver);
+  opacity: 0.7;
+}
+
+@media (max-width: 400px) {
+  .ecn__title {
+    font-size: 27px;
+  }
+}
+
+/* ── 필기노트 표식 — 연필 타일 + 형광펜으로 그은 글자 ── */
+.ecn__badge {
+  gap: 9px;
+  padding: 4px 14px 4px 10px;
+  background: var(--ecn-white);
+  box-shadow:
+    0 0 0 1px rgba(32, 41, 76, 0.06),
+    0 6px 16px -6px rgba(32, 41, 76, 0.22);
+}
+.ecn__badge-dot {
+  display: none;
+}
+.ecn__badge-icon {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  color: #161918;
+}
+.ecn__badge-pen {
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+.ecn__badge-text {
+  position: relative;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ecn-navy);
+  z-index: 0;
+}
+/* 형광펜 한 획 — 연필 끝에서 시작해 글자 끝까지 비스듬히 긋는다
+ * (표식이 쌓임 맥락을 만들어 획이 흰 바탕 위·글자 아래에 앉는다) */
+.ecn__badge {
+  position: relative;
+  isolation: isolate;
+}
+.ecn__badge::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  right: 11px;
+  bottom: 6px;
+  height: 7px;
+  border-radius: 3px 6px 4px 2px;
+  background: #ffe866;
+  transform: rotate(-1.5deg) skewX(-12deg);
+  opacity: 0.85;
+  z-index: -1;
+}
+.ecn__badge-icon,
+.ecn__badge-text {
+  position: relative;
+}
+html.dark #root .ecn__badge::after {
+  opacity: 0.4;
+}
+
+/* ── 필기노트 표식 v3 — 알약 없이: 큰 연필 + 굵은 글자 + 연필 끝에서 그은 형광펜 ── */
+.ecn__badge {
+  gap: 8px;
+  padding: 2px 6px 4px 2px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.ecn__badge-icon {
+  width: 30px;
+  height: 30px;
+}
+.ecn__badge-pen {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 2px 3px rgba(32, 41, 76, 0.18));
+}
+.ecn__badge-text {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--ecn-navy);
+}
+.ecn__badge::after {
+  left: 3px;
+  right: 0;
+  bottom: 2px;
+  height: 11px;
+  border-radius: 2px 8px 5px 3px;
+  background: linear-gradient(90deg, rgba(255, 232, 102, 0.55) 0%, #ffe866 18%, #ffe45a 100%);
+  transform: rotate(-1.2deg) skewX(-14deg);
+  opacity: 0.9;
+}
+@media (max-width: 400px) {
+  .ecn__badge-text {
+    font-size: 17px;
+  }
+  .ecn__badge-pen {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+/* 제목 아래 장식은 두지 않는다 */
+.ecn__head::after {
+  display: none;
+}
+
+/* ══ 스프링 제본 — 종이 위쪽에 뚫린 구멍과 은빛 철사 고리 (ExamConceptNote 가 감싼다) ══ */
+.ecn-bound { position: relative; padding-top: 13px; }
+/* 스프링에 묶인 종이 — 위쪽 가장자리가 보이도록 흰 종이에 가는 테와 그림자 */
+.ecn-bound > .ecn {
+  margin-top: 0;
+  padding-top: 40px;
+  background: #ffffff;
+  border-radius: 6px 6px 22px 22px;
+  box-shadow: 0 0 0 1px rgba(32, 41, 76, 0.07), 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 10px 26px rgba(32, 41, 76, 0.1);
+}
+.ccc-spiral {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 14px;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  height: 36px;
+  pointer-events: none;
+}
+.ccc-spiral__ring { flex: 0 0 auto; width: 16px; height: 36px; overflow: visible; }
+html.dark #root .ecn-bound > .ecn { background: #161c33; box-shadow: 0 0 0 1px #2b3355, 0 10px 26px rgba(0, 0, 0, 0.35); }
+
+/* ══ 한눈에 정리(묶음) — 따로 떨어진 카드 여러 장을 흰 카드 한 장으로 합쳐 자리를 줄인다 ══
+ * 항목 사이만 가는 줄로 나누고, 이름 앞에 작은 번호, 라벨·값은 좁은 두 칸에 촘촘히. */
+.ecn__stack {
+  gap: 0;
+  padding: 4px 16px;
+  border-radius: 12px;
+  background: var(--ecn-white);
+  box-shadow: 0 0 0 1px rgba(32, 41, 76, 0.06), 0 4px 14px rgba(32, 41, 76, 0.06);
+}
+.ecn__stack-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 8px;
+  padding: 12px 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  transform: none !important;
+}
+.ecn__stack-card + .ecn__stack-card { border-top: 1px solid var(--ecn-mist); }
+@media (hover: hover) {
+  .ecn__stack-card:hover { box-shadow: none; }
+}
+.ecn__stack-no {
+  position: static;
+  grid-row: 1;
+  align-self: center;
+  padding: 2px 6px;
+  font-size: 10.5px;
+}
+.ecn__stack-name {
+  grid-row: 1;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+}
+.ecn__stack-rows {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+}
+.ecn__stack-row {
+  grid-template-columns: minmax(3.6em, 22%) 1fr;
+  gap: 10px;
+  padding: 3px 0;
+  border-top: 0;
+}
+.ecn__stack-row dt {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ecn-smoke);
+}
+.ecn__stack-row dd {
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+html.dark #root .ecn__stack { background: #161c33; box-shadow: 0 0 0 1px #2b3355; }
+
+/* 책처럼 — 아래 모서리를 둥글리지 않고, 밑으로 종이 여러 장이 겹친 두께를 보인다 */
+.ecn-bound { padding-bottom: 8px; }
+.ecn-bound > .ecn {
+  border-radius: 3px 3px 2px 2px;
+  box-shadow:
+    0 0 0 1px rgba(32, 41, 76, 0.08),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    /* 겹친 종이 — 흰 장과 가는 테를 번갈아 */
+    0 2px 0 -1px #ffffff,
+    0 3px 0 -1px rgba(32, 41, 76, 0.22),
+    0 5px 0 -2px #fbfbfd,
+    0 6px 0 -2px rgba(32, 41, 76, 0.2),
+    0 8px 0 -3px #f6f7fa,
+    0 9px 0 -3px rgba(32, 41, 76, 0.18),
+    /* 책이 바닥에 놓인 그림자 */
+    0 18px 26px -14px rgba(32, 41, 76, 0.35),
+    0 6px 14px rgba(32, 41, 76, 0.06);
+}
+html.dark #root .ecn-bound > .ecn {
+  border-radius: 3px 3px 2px 2px;
+  box-shadow:
+    0 0 0 1px #2b3355,
+    0 3px 0 -1px #222a48,
+    0 6px 0 -2px #1d2440,
+    0 9px 0 -3px #181f38,
+    0 18px 26px -14px rgba(0, 0, 0, 0.6);
+}
+
+/* 시험 포인트 — 공인중개사 앱과 같게: 아이콘 없이, 글씨는 덜 굵게, 바탕은 옅게 */
+.ecn .ecn__callout { display: block; padding: 16px 18px; background: #f5f8fe; font-weight: 500; }
+.ecn .ecn__callout-text { font-weight: 500; }
+html.dark #root .ecn .ecn__callout { background: rgba(120, 150, 255, 0.08); }
+/* 필기노트 모음 공책 — 위 막대와 같은 1px 테두리선(종이 겹 그림자는 그대로) */
+.ccc .ecn-bound > .ecn, .ecn-bound > .ecn { box-shadow: 0 0 0 1px rgba(32,41,76,.16), 0 1px 0 rgba(255,255,255,.9) inset, 0 2px 0 -1px #fff, 0 3px 0 -1px rgba(32,41,76,.22), 0 5px 0 -2px #fbfbfd, 0 6px 0 -2px rgba(32,41,76,.2), 0 8px 0 -3px #f6f7fa, 0 9px 0 -3px rgba(32,41,76,.18), 0 18px 26px -14px rgba(32,41,76,.35), 0 6px 14px rgba(32,41,76,.06); }
+/* 공책 안 오른쪽 위 — 몇 회 몇 번·시대 */
+.ecn__meta { display: inline-flex; align-items: baseline; gap: 6px; min-width: 0; color: #6b7280; font-size: 12px; text-align: right; }
+.ecn__meta b { color: #20294c; font-weight: 700; white-space: nowrap; }
+.ecn__meta span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+html.dark #root .ecn__meta { color: #a3a9bd; }
+html.dark #root .ecn__meta b { color: #e6e9f5; }
+
+/* 해설 밑 「근거」 링크 — SourceLinks.jsx
+ * 핵심 개념 카드와 같은 결: 흰 바탕, 0.5px 강철 테, 숯빛 글씨, 선택된 순간만 시안. */
+.src-links {
+  --src-paper: #ffffff;
+  --src-air: #effbff;
+  --src-steel: #d0d6d7;
+  --src-ash: #7e8486;
+  --src-ink: #1d1f20;
+  --src-cyan: #00d0ff;
+  --src-cyan-ink: #0096b8;
+  --src-halo: #ccf6ff;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  min-width: 0;
+}
+
+.src-links__title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--src-ash);
+}
+
+.src-links__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  min-width: 0;
+  padding: 3px 10px 3px 11px;
+  border-radius: 9999px;
+  background: var(--src-paper);
+  box-shadow: inset 0 0 0 0.5px var(--src-steel), 0 1px 2px rgba(0, 0, 0, 0.03);
+  color: var(--src-ink);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 180ms ease, box-shadow 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.src-links__link:hover,
+.src-links__link:focus-visible {
+  background: var(--src-air);
+  box-shadow: inset 0 0 0 0.5px var(--src-halo), inset 0 0 0 1px rgba(0, 208, 255, 0.2);
+  color: var(--src-cyan-ink);
+}
+
+.src-links__link:active {
+  transform: scale(0.97);
+}
+
+.src-links__link:focus-visible {
+  outline: 2px solid var(--src-cyan);
+  outline-offset: 2px;
+}
+
+.src-links__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.src-links__ext {
+  flex: none;
+  font-size: 11px;
+  color: var(--src-cyan-ink);
+  transition: transform 180ms ease;
+}
+
+.src-links__link:hover .src-links__ext {
+  transform: translate(1px, -1px);
+}
+
+/* 핵심 개념 카드 맨 아래 목록 */
+.src-links--list {
+  display: block;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #e8eff2;
+}
+
+.src-links--list .src-links__title {
+  margin: 0 0 8px;
+}
+
+.src-links__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.src-links__items li {
+  max-width: 100%;
+  min-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .src-links__link,
+  .src-links__ext {
+    transition: none;
+  }
+}
+
+html.dark #root .src-links {
+  --src-paper: #1a1e20;
+  --src-air: #0f2229;
+  --src-steel: #333c40;
+  --src-ash: #8f979a;
+  --src-ink: #e9edee;
+  --src-cyan-ink: #5fe0ff;
+  --src-halo: rgba(0, 208, 255, 0.3);
+}
+
+html.dark #root .src-links--list {
+  border-top-color: #263034;
+}
