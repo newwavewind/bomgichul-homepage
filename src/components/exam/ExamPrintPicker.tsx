@@ -63,6 +63,7 @@ export function ExamPrintPicker({ editions }: { editions: Edition[] }) {
             <div>
               <h2 className="font-display font-semibold text-ink">{selected.subjectLabel} · {selected.year}년 {selected.session}</h2>
               {bundled && <p className="mt-1 text-sm text-fog">같은 시험지에 있는 다른 과목도 함께 출력돼요.</p>}
+              <p className="mt-1 text-sm text-fog">PDF에서 인쇄를 누르면 A4 등 용지 크기를 고를 수 있어요.</p>
             </div>
             <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-xl bg-[#0066d6] px-4 font-display font-semibold text-white hover:bg-[#0057b7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ios-blue">
               PDF 열기·인쇄
