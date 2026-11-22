@@ -272,6 +272,7 @@ function toolsForScope(scope: CommunityScope): NavTool[] {
     { href: hub, label: "학습 홈" },
     { href: "/search", label: "기출 검색" },
     { href: communityBaseHref(scope), label: "커뮤니티" },
+    { href: "/app-services", label: "앱서비스" },
   ];
   // PC앱은 공인중개사만 있다. 다른 시험 화면이나 시험 선택 홈에서는 띄우지 않는다.
   if (scope === "real_estate") {

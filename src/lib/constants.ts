@@ -98,9 +98,8 @@ export function appStoreLinksForScope(
           "https://play.google.com/store/apps/details?id=com.sanghyun.socialworker",
         ios: "https://apps.apple.com/kr/app/id6801141200",
       };
-    // 한국사 — 어느 스토어에도 공개 앱 없음.
     case "history":
-      return { android: null, ios: null };
+      return { android: null, ios: "https://apps.apple.com/kr/app/id6833074462" };
     case "english":
       return {
         android:

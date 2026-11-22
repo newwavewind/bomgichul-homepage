@@ -213,7 +213,12 @@ function HomeHeader({
       }`}
     >
       <div className="mx-auto flex max-w-[var(--page-max-width)] items-center justify-between gap-3 px-4 py-3">
-        <LogoMark />
+        <div className="flex min-w-0 items-center gap-1 sm:gap-4">
+          <LogoMark />
+          <Link href="/app-services" className="inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70 hover:text-ink sm:px-3">
+            앱서비스
+          </Link>
+        </div>
         <div className="flex shrink-0 items-center gap-2">
           <div className="hidden items-center gap-2 md:flex">
             <Link href="/search" className="inline-flex min-h-11 items-center rounded-full px-3 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70">기출 검색</Link>
@@ -303,7 +308,7 @@ function TrackHeader({
                       : pathname === tool.href ||
                         (tool.href !== ctx.hubHref &&
                           pathname.startsWith(tool.href));
-                const className = `inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium transition-colors sm:px-2.5 ${
+                const className = `inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium transition-colors sm:px-2.5 ${tool.href === "/app-services" ? "order-first sm:order-none" : ""} ${
                   active
                     ? "bg-[#007AFF]/12 text-[color:light-dark(#0066D6,var(--color-carbon))] dark:text-carbon"
                     : "text-slate-600 hover:bg-white/70 hover:text-ink"
