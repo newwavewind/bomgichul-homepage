@@ -292,7 +292,10 @@ export function DailyPlay({
         key: nextPicks[item.id]?.key ?? "",
         confidence: nextPicks[item.id]?.confidence ?? null,
       })),
-    });
+    }).catch(() => ({
+      ok: false as const,
+      message: "답안을 제출하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+    }));
     setBusy(false);
     if ("review" in result) {
       try {
