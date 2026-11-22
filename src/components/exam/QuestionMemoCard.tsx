@@ -8,7 +8,7 @@ import { formatKstDateTimeShort } from "@/lib/datetime";
 import { formatDiscussion, parseDiscussion } from "@/lib/question-discussion";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
-import type { PublicMemoComment, PublicQuestionMemo } from "@/types/database";
+import type { PublicMemoComment, QuestionDiscussionMemo } from "@/types/database";
 
 export type MemoViewer = { pending: boolean; userId: string | null; isAdmin?: boolean };
 
@@ -45,9 +45,16 @@ function MemoIdentity({ nickname, createdAt, avatar = true }: { nickname: string
   );
 }
 
-function MemoActions({ label, busy, onEdit, onDelete }: { label: string; busy: boolean; onEdit: () => void; onDelete: () => void }) {
+export function QuestionMemoAuthorActions({ label, busy, onEdit, onDelete, visibilityAction }: {
+  label: string;
+  busy: boolean;
+  onEdit: () => void;
+  onDelete: () => void;
+  visibilityAction?: { label: string; run: () => void };
+}) {
   return (
-    <div className="flex shrink-0 items-center gap-0.5">
+    <div className="flex shrink-0 items-center justify-end gap-0.5">
+      {visibilityAction && <button type="button" className={actionClass} disabled={busy} onClick={visibilityAction.run}>{visibilityAction.label}</button>}
       <button type="button" aria-label={`${label} 수정`} className={actionClass} disabled={busy} onClick={onEdit}>수정</button>
       <button type="button" aria-label={`${label} 삭제`} className={`${actionClass} !text-[color:light-dark(#b91c3c,#fda4af)]`} disabled={busy} onClick={onDelete}>삭제</button>
     </div>
@@ -85,11 +92,12 @@ function MemoDraft({ label, value, onChange, onSubmit, onCancel, submitLabel, ro
   );
 }
 
-export function QuestionMemoCard({ memo, viewer, loginHref, onChanged }: {
-  memo: PublicQuestionMemo;
+export function QuestionMemoCard({ memo, viewer, loginHref, onChanged, onVisibilityChanged }: {
+  memo: QuestionDiscussionMemo;
   viewer: MemoViewer;
   loginHref: string;
   onChanged: () => Promise<void>;
+  onVisibilityChanged: (visibility: QuestionDiscussionMemo["visibility"]) => void;
 }) {
   const [replyOpen, setReplyOpen] = useState(false);
   const [reviewTarget, setReviewTarget] = useState<string | null>(null);
@@ -101,6 +109,7 @@ export function QuestionMemoCard({ memo, viewer, loginHref, onChanged }: {
   const discussion = parseDiscussion(memo.content);
   const userId = viewer.userId;
   const isAuthor = userId === memo.user_id;
+  const isPrivate = memo.visibility === "private";
   const authorCanLike = !isAuthor || memo.liked_by_viewer;
   const canInteract = !viewer.pending && !busy;
   const repliesId = `memo-replies-${memo.id}`;
@@ -141,6 +150,21 @@ export function QuestionMemoCard({ memo, viewer, loginHref, onChanged }: {
     }, afterWrite);
   }
 
+  function changeVisibility() {
+    if (!isAuthor || !canInteract) return;
+    const next = isPrivate ? "public" : "private";
+    if (!window.confirm(isPrivate
+      ? "이 글을 공개하면 누구나 볼 수 있어요. 공개로 전환할까요?"
+      : "이 글을 비공개로 전환할까요? 글과 답글은 공개 목록에서 숨겨집니다.")) return;
+
+    void mutate("공개 범위를 바꾸지 못했어요. 다시 시도해 주세요.", async () => {
+      const { error } = await createClient().from("question_public_memos")
+        .update({ visibility: next }).eq("id", memo.id).eq("user_id", memo.user_id)
+        .eq("updated_at", memo.updated_at).select("id").single();
+      if (error) throw error;
+    }, () => onVisibilityChanged(next));
+  }
+
   function resolveQuestion(acceptedId?: string) {
     updatePost(formatDiscussion(discussion.text, !discussion.resolved || Boolean(acceptedId), acceptedId));
   }
@@ -170,7 +194,7 @@ export function QuestionMemoCard({ memo, viewer, loginHref, onChanged }: {
     }, () => setEdit(null));
   }
 
-  function remove(target: PublicQuestionMemo | PublicMemoComment, isReply: boolean) {
+  function remove(target: QuestionDiscussionMemo | PublicMemoComment, isReply: boolean) {
     if (userId !== target.user_id || !canInteract) return;
     const label = isReply ? "답글" : "글";
     if (!window.confirm(isReply ? "이 답글을 삭제할까요?" : "이 글과 달린 답글을 함께 삭제할까요?")) return;
@@ -209,16 +233,17 @@ export function QuestionMemoCard({ memo, viewer, loginHref, onChanged }: {
     .flatMap((reply) => reply.content.match(staffPrefix)?.[1] ?? []));
 
   return (
-    <article id={`memo-${memo.id}`} className="scroll-mt-24 rounded-2xl border border-mist bg-paper p-4 target:border-ios-blue">
-      <div className="flex items-center justify-between gap-2">
+    <article id={`memo-${memo.id}`} aria-label={isPrivate ? "비공개로 전환한 글" : undefined} className="scroll-mt-24 rounded-2xl border border-mist bg-paper p-4 target:border-ios-blue">
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <MemoIdentity nickname={memo.author.nickname} createdAt={memo.created_at} />
         {isAuthor && (
-          <MemoActions label="글" busy={busy} onEdit={() => { setError(""); setEdit({ id: memo.id, text: discussion.text }); }}
-            onDelete={() => remove(memo, false)} />
+          <QuestionMemoAuthorActions label="글" busy={busy} onEdit={() => { setError(""); setEdit({ id: memo.id, text: discussion.text }); }}
+            onDelete={() => remove(memo, false)}
+            visibilityAction={{ label: isPrivate ? "공개 전환" : "비공개 전환", run: changeVisibility }} />
         )}
       </div>
       <div className="mt-2 space-y-2">
-        {discussion.question && (
+        {!isPrivate && discussion.question && (
           <div className="flex flex-wrap items-center gap-x-3 text-body-sm text-smoke">
             <strong>{discussion.resolved ? "해결됨 · 작성자 확인" : "질문 · 미해결"}</strong>
             {isAuthor && <button type="button" className={actionClass} disabled={busy} onClick={() => resolveQuestion()}>
@@ -231,7 +256,7 @@ export function QuestionMemoCard({ memo, viewer, loginHref, onChanged }: {
           : <p className="whitespace-pre-wrap break-words font-system text-body-sm leading-relaxed text-ink">{discussion.text}</p>}
       </div>
 
-      <div className="mt-1 flex flex-wrap items-center gap-1">
+      {!isPrivate && <div className="mt-1 flex flex-wrap items-center gap-1">
         {userId || viewer.pending ? (
           <button type="button" aria-label={`좋아요 ${memo.like_count}개`} aria-pressed={memo.liked_by_viewer}
             title={memo.liked_by_viewer ? "좋아요 취소" : isAuthor ? "내 글에는 좋아요를 누를 수 없어요" : "좋아요"}
@@ -250,10 +275,10 @@ export function QuestionMemoCard({ memo, viewer, loginHref, onChanged }: {
           <MemoIcon name="link" />
         </button>
         {shareStatus && <span role="status" className="text-reading-detail text-smoke">{shareStatus}</span>}
-      </div>
+      </div>}
       {error && <p role="alert" className="my-2 text-body-sm text-[color:light-dark(#b91c3c,#fda4af)]">{error}</p>}
 
-      {replyOpen && (
+      {!isPrivate && replyOpen && (
         <div id={repliesId} className="mt-2 space-y-3 rounded-xl border border-mist bg-snow p-3 sm:ml-5">
           {memo.comments.map((reply) => {
             const prefix = reply.verifiedByStaff ? reply.content.match(staffPrefix)?.[0] ?? "" : "";
@@ -262,7 +287,7 @@ export function QuestionMemoCard({ memo, viewer, loginHref, onChanged }: {
               <div key={reply.id} className="space-y-1 border-b border-mist pb-3">
                 <div className="flex items-start justify-between gap-2">
                   <MemoIdentity nickname={reply.author.nickname} createdAt={reply.created_at} avatar={false} />
-                  {userId === reply.user_id && <MemoActions label="답글" busy={busy} onEdit={() => {
+                  {userId === reply.user_id && <QuestionMemoAuthorActions label="답글" busy={busy} onEdit={() => {
                     setError("");
                     setEdit({ id: reply.id, text });
                   }} onDelete={() => remove(reply, true)} />}

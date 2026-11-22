@@ -17,7 +17,7 @@ import { BackLink } from "@/components/ui/BackLink";
 import { QuestionMemoPanel } from "@/components/exam/QuestionMemoPanel";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
-import { examMemoSubjectKey, getPublicMemosForQuestion } from "@/lib/question-memos";
+import { examMemoSubjectKey } from "@/lib/question-memos";
 import { getPublicServiceExam, getPublicServiceSubject } from "@/lib/public-service-content";
 import {
   buildBreadcrumbJsonLd,
@@ -74,12 +74,6 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
   const memoSubject = examMemoSubjectKey("public_service", subjectId, source);
   // 공개 메모는 SEO 본문이라 서버에서 그대로 그린다. 내 북마크·풀이기록 같은
   // 개인화는 쿠키를 걷어내려고 클라이언트(각 컴포넌트의 자체 조회)로 옮겼다.
-  const publicMemos = await getPublicMemosForQuestion(
-    memoSubject,
-    exam.year,
-    exam.questionNo,
-    null,
-  );
   const title = `${year}년 ${source} ${data.subject.label} ${exam.questionNo}번 기출문제 해설`;
   const canonicalPath = `/public-service/exam/${subjectId}/${exam.year}/${exam.sourceCode}/${exam.questionNo}`;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -212,7 +206,6 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
             subject={memoSubject}
             year={exam.year}
             questionNo={exam.questionNo}
-            initialMemos={publicMemos}
             loginNext={detailPath}
           />
         </div>

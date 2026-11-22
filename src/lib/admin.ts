@@ -230,7 +230,8 @@ export async function getAdminOverview(): Promise<AdminOverview> {
       .in("category", ["bug", "feedback"]),
     admin
       .from("question_public_memos")
-      .select("id", { count: "exact", head: true }),
+      .select("id", { count: "exact", head: true })
+      .eq("visibility", "public"),
     admin.from("dm_messages").select("id", { count: "exact", head: true }),
     admin
       .from("mock_exam_sessions")
@@ -326,6 +327,7 @@ export async function getAdminPublicMemos(
     .select(
       "id, subject, year, question_no, content, created_at, profiles:user_id(nickname)",
     )
+    .eq("visibility", "public")
     .order("created_at", { ascending: false })
     .limit(limit);
 

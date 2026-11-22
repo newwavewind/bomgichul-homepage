@@ -139,7 +139,7 @@ export interface QuestionNote {
   updated_at: string;
 }
 
-export interface PublicQuestionMemo {
+export interface QuestionDiscussionMemo {
   id: string;
   user_id: string;
   subject: string;
@@ -149,6 +149,7 @@ export interface PublicQuestionMemo {
   created_at: string;
   updated_at: string;
   author: Pick<Profile, "nickname" | "avatar_url">;
+  visibility: "public" | "private";
   like_count: number;
   liked_by_viewer: boolean;
   comments: PublicMemoComment[];

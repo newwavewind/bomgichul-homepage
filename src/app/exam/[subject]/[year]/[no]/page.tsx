@@ -28,7 +28,6 @@ import {
   getExamQuestionsForYear,
   type ExamSubject,
 } from "@/lib/exam-questions";
-import { getPublicMemosForQuestion } from "@/lib/question-memos";
 import {
   absoluteUrl,
   buildBreadcrumbJsonLd,
@@ -112,8 +111,6 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
 
   // 서버는 방문자를 모른다(쿠키를 읽으면 동적 렌더로 떨어진다) — 메모 본문은
   // 공개 데이터라 여기서 그대로 렌더해 SEO 본문으로 남기고, 「내 좋아요」 같은
-  // 개인화는 QuestionMemoPanel 이 클라이언트에서 덧입힌다.
-  const publicMemos = await getPublicMemosForQuestion(subject, year, questionNo);
   const listBase = `/exam/${subject}/${year}`;
   // 로그인 뒤 이 문항으로는 돌아오지만, ?from=(개념 복귀) 문맥은 잃는다 —
   // 서버가 searchParams 를 읽을 수 없어서다. 개념 복귀 중 로그인이 필요한
@@ -287,7 +284,6 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             subject={subject}
             year={year}
             questionNo={questionNo}
-            initialMemos={publicMemos}
             loginNext={detailPath}
           />
         </div>

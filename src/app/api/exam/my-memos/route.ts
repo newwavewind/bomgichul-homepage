@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getUser } from "@/lib/auth";
-import { getPublicMemosForQuestion } from "@/lib/question-memos";
+import { getQuestionMemosForQuestion } from "@/lib/question-memos";
 
 // Fetch the current thread, including viewer-specific likes when signed in.
 export const runtime = "nodejs";
@@ -17,6 +17,10 @@ export async function GET(request: NextRequest) {
   }
 
   const user = await getUser();
-  const memos = await getPublicMemosForQuestion(subject, year, questionNo, user?.id);
-  return NextResponse.json({ memos }, { headers: PRIVATE_HEADERS });
+  try {
+    const memos = await getQuestionMemosForQuestion(subject, year, questionNo, user?.id);
+    return NextResponse.json({ memos }, { headers: PRIVATE_HEADERS });
+  } catch {
+    return NextResponse.json({ error: "discussion_unavailable" }, { status: 503, headers: PRIVATE_HEADERS });
+  }
 }

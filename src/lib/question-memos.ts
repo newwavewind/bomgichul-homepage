@@ -5,7 +5,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type {
   CommunityScope,
   PublicMemoComment,
-  PublicQuestionMemo,
+  QuestionDiscussionMemo,
 } from "@/types/database";
 
 /** 트랙별 메모 키가 서로 겹치지 않도록 (회차·출처 포함) */
@@ -30,6 +30,7 @@ type MemoRow = {
   content: string;
   created_at: string;
   updated_at: string;
+  visibility: QuestionDiscussionMemo["visibility"];
   profiles: ProfileSnippet | ProfileSnippet[] | null;
   question_public_memo_likes: { user_id: string }[] | null;
   question_public_memo_comments:
@@ -51,17 +52,14 @@ function pickProfile(
   return profiles ?? { nickname: "익명", avatar_url: null };
 }
 
-export async function getPublicMemosForQuestion(
+export async function getQuestionMemosForQuestion(
   subject: string,
   year: number,
   questionNo: number,
   viewerUserId?: string | null
-): Promise<PublicQuestionMemo[]> {
+): Promise<QuestionDiscussionMemo[]> {
   if (!isSupabaseConfigured()) return [];
 
-  // 방문자를 모르는 호출(정적 페이지)이 쿠키(createClient)를 만지면 그 페이지가
-  // 통째로 동적 렌더로 떨어진다. 비로그인 방문자는 원래도 세션 없는 anon 으로
-  // 같은 데이터를 읽고 있었으므로(RLS 허용) 공개 클라이언트로 충분하다.
   const supabase = viewerUserId ? await createClient() : createPublicClient();
   const { data, error } = await supabase
     .from("question_public_memos")
@@ -75,6 +73,7 @@ export async function getPublicMemosForQuestion(
       content,
       created_at,
       updated_at,
+      visibility,
       profiles:user_id (nickname, avatar_url),
       question_public_memo_likes (user_id),
       question_public_memo_comments (
@@ -92,15 +91,16 @@ export async function getPublicMemosForQuestion(
     .eq("question_no", questionNo)
     .order("created_at", { ascending: false });
 
-  if (error || !data) return [];
+  if (error) throw error;
 
-  const reviewerIds = new Set((data as MemoRow[]).flatMap(row => (row.question_public_memo_comments ?? []).filter(c => /^\[검수 확인:[a-zA-Z0-9-]+\]\n/.test(c.content)).map(c => c.user_id)));
+  const rows = ((data ?? []) as MemoRow[]).filter((row) => row.visibility === "public" || row.user_id === viewerUserId);
+  const reviewerIds = new Set(rows.flatMap(row => (row.question_public_memo_comments ?? []).filter(c => /^\[검수 확인:[a-zA-Z0-9-]+\]\n/.test(c.content)).map(c => c.user_id)));
   let verifiedReviewers = new Set<string>();
   if (reviewerIds.size && process.env.SUPABASE_SERVICE_ROLE_KEY) {
     const { data: admins } = await createAdminClient().from("admin_users").select("user_id").in("user_id", [...reviewerIds]);
     verifiedReviewers = new Set((admins ?? []).map(row => row.user_id));
   }
-  return (data as MemoRow[]).map((row) => {
+  return rows.map((row) => {
     const author = pickProfile(row.profiles);
     const likes = row.question_public_memo_likes ?? [];
     const comments = (row.question_public_memo_comments ?? [])
@@ -127,6 +127,7 @@ export async function getPublicMemosForQuestion(
       content: row.content,
       created_at: row.created_at,
       updated_at: row.updated_at,
+      visibility: row.visibility,
       author,
       like_count: likes.length,
       liked_by_viewer: viewerUserId
