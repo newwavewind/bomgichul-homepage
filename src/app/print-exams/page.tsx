@@ -72,7 +72,6 @@ export async function generateMetadata({ searchParams }: PrintProps): Promise<Me
     openGraph: {
       title: `${title} | 봄기출`,
       description,
-      images: ["/brand/kakao-share-card.jpg"],
       siteName: "봄기출",
       locale: "ko_KR",
       type: "website",
@@ -93,7 +92,6 @@ export default async function PrintExamsPage({ searchParams }: PrintProps) {
       {selected ? (
         <ExamPrintPicker
           key={initialEdition ? JSON.stringify([selected[0], initialEdition.subject, initialEdition.year, initialEdition.session]) : selected[0]}
-          exam={selected[0]}
           editions={editions}
           initialEdition={initialEdition}
         />

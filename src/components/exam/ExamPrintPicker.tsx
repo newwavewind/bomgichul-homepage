@@ -1,15 +1,12 @@
 "use client";
 
-import { useId, useState } from "react";
-import { KakaoShareButton } from "@/components/daily/KakaoShareButton";
-import { SITE_URL } from "@/lib/constants";
+import { useEffect, useId, useState } from "react";
 
 type Edition = { subject: string; subjectLabel: string; year: number; session: string; file: string };
 
 const selectClassName = "mt-2 min-h-11 w-full rounded-xl border border-mist bg-white px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-ios-blue disabled:bg-paper disabled:opacity-60";
 
-export function ExamPrintPicker({ exam, editions, initialEdition }: {
-  exam: string;
+export function ExamPrintPicker({ editions, initialEdition }: {
   editions: Edition[];
   initialEdition?: Edition;
 }) {
@@ -65,7 +62,6 @@ export function ExamPrintPicker({ exam, editions, initialEdition }: {
       {selected && (
         <ExamPrintPreview
           key={JSON.stringify([selected.subject, selected.year, selected.session])}
-          exam={exam}
           edition={selected}
           bundled={bundled}
         />
@@ -76,44 +72,14 @@ export function ExamPrintPicker({ exam, editions, initialEdition }: {
 
 const actionClass = "inline-flex min-h-11 items-center justify-center rounded-xl border px-4 font-display font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ios-blue";
 const secondaryAction = `${actionClass} border-mist bg-white text-ink hover:border-ios-blue`;
-const kakaoAction = `${actionClass} gap-2 border-transparent bg-[#FEE500] text-[#191919] hover:bg-[#f4dc00] disabled:cursor-wait disabled:opacity-80`;
+const fileShareAction = `${actionClass} border-transparent bg-[#FEE500] text-[#191919] hover:bg-[#f4dc00] disabled:cursor-wait disabled:opacity-80`;
 
-function ExamPrintPreview({ exam, edition, bundled }: { exam: string; edition: Edition; bundled?: boolean }) {
+function ExamPrintPreview({ edition, bundled }: { edition: Edition; bundled?: boolean }) {
   const [shareOpen, setShareOpen] = useState(false);
-  const [shareStatus, setShareStatus] = useState("");
-  const [showShareUrl, setShowShareUrl] = useState(false);
   const sharePanelId = useId();
-  const { subject, subjectLabel, year, session, file } = edition;
+  const { subjectLabel, year, session, file } = edition;
   const href = `/exam-print/${file}`;
-  const sharePath = `/print-exams?${new URLSearchParams({ exam, subject, year: String(year), session })}`;
-  const shareUrl = `${SITE_URL}${sharePath}`;
-  const shareTitle = `${year}년 ${session} ${subjectLabel} 기출문제·해설 PDF`;
-  const shareDescription = "공식 시험지와 정답표, 봄기출 해설을 무료로 보고 인쇄하세요.";
-
-  async function copyLink() {
-    try {
-      await navigator.clipboard.writeText(shareUrl);
-      setShowShareUrl(false);
-      setShareStatus("링크를 복사했어요. 카카오톡 채팅방에도 붙여넣을 수 있어요.");
-    } catch {
-      setShowShareUrl(true);
-      setShareStatus("아래 링크를 직접 복사해 주세요.");
-    }
-  }
-
-  async function shareWithOtherApps() {
-    if (!navigator.share) {
-      setShareStatus("이 브라우저에서는 링크 복사나 이메일로 공유할 수 있어요.");
-      return;
-    }
-    setShareStatus("");
-    try {
-      await navigator.share({ title: shareTitle, text: shareDescription, url: shareUrl });
-    } catch (error) {
-      if (error instanceof DOMException && error.name === "AbortError") return;
-      setShareStatus("공유창을 열 수 없어요. 링크를 복사해 주세요.");
-    }
-  }
+  const fileName = `${year}년 ${session} ${subjectLabel} 기출문제·해설.pdf`.replace(/[<>:"/\\|?*]/g, " ");
 
   return (
     <section className="mt-5 overflow-hidden rounded-2xl border border-mist" aria-label="출력할 기출문제와 해설">
@@ -132,30 +98,78 @@ function ExamPrintPreview({ exam, edition, bundled }: { exam: string; edition: E
           </button>
         </div>
         <p className="basis-full text-sm leading-6 text-fog">
-          기출문제와 해설을 무료로 출력하고, 링크를 친구나 스터디에 자유롭게 공유하세요. 출력물에 있는 출처 표시는 그대로 남겨 주세요.
+          기출문제와 해설을 무료로 출력하고, PDF 파일을 친구나 스터디에 자유롭게 공유하세요. 출력물에 있는 출처 표시는 그대로 남겨 주세요.
         </p>
       </div>
       <div id={sharePanelId} hidden={!shareOpen} className="space-y-2 border-t border-mist bg-paper p-4">
-        <div className="flex flex-wrap items-start gap-2">
-          <KakaoShareButton title={shareTitle} description={shareDescription} path={sharePath} className={kakaoAction}>
-            카카오톡 공유
-          </KakaoShareButton>
-          <button type="button" className={secondaryAction} onClick={copyLink}>링크 복사</button>
-          <button type="button" className={secondaryAction} onClick={shareWithOtherApps}>다른 앱으로 공유</button>
-          <a className={secondaryAction} href={`mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareUrl)}`}>이메일</a>
-        </div>
-        <p role="status" className="text-sm text-fog empty:hidden">{shareStatus}</p>
-        {showShareUrl && (
-          <input
-            aria-label="공유 링크"
-            readOnly
-            value={shareUrl}
-            onFocus={(event) => event.currentTarget.select()}
-            className="min-h-11 w-full rounded-xl border border-mist bg-white px-3 text-sm text-ink"
-          />
-        )}
+        {shareOpen && <ExamPrintFileShare href={href} fileName={fileName} />}
       </div>
       <iframe src={href} title="기출문제와 해설 PDF 미리보기" className="block h-[65vh] min-h-80 w-full border-t border-mist bg-white" />
     </section>
+  );
+}
+
+function ExamPrintFileShare({ href, fileName }: { href: string; fileName: string }) {
+  const supportsSharing = typeof navigator !== "undefined" &&
+    typeof navigator.share === "function" && typeof navigator.canShare === "function";
+  const [prepared, setPrepared] = useState<File | "unavailable" | null>(null);
+  const [sharing, setSharing] = useState(false);
+  const [shareFailed, setShareFailed] = useState(false);
+
+  useEffect(() => {
+    if (!supportsSharing) return;
+    const controller = new AbortController();
+
+    async function preparePdf() {
+      try {
+        const response = await fetch(href, { signal: controller.signal });
+        if (!response.ok) throw new Error("Could not fetch PDF");
+        const blob = await response.blob();
+        if (blob.type !== "application/pdf" || !blob.size) throw new Error("Invalid PDF response");
+        const file = new File([blob], fileName, { type: "application/pdf" });
+        if (!controller.signal.aborted) {
+          setPrepared(navigator.canShare({ files: [file] }) ? file : "unavailable");
+        }
+      } catch {
+        if (!controller.signal.aborted) setPrepared("unavailable");
+      }
+    }
+
+    void preparePdf();
+    return () => controller.abort();
+  }, [fileName, href, supportsSharing]);
+
+  const file = prepared === "unavailable" ? null : prepared;
+  const showShare = supportsSharing && prepared !== "unavailable";
+  const instructions = showShare && !shareFailed
+    ? "공유 메뉴에서 카카오톡이나 원하는 앱을 선택하세요."
+    : "PDF를 다운로드한 뒤 카카오톡 채팅방에 파일로 첨부하세요.";
+
+  async function sharePdf() {
+    if (!file || sharing) return;
+    setSharing(true);
+    setShareFailed(false);
+    try {
+      // Call from the tap while Safari still has user activation.
+      await navigator.share({ files: [file] });
+    } catch (error) {
+      if (!(error instanceof DOMException && error.name === "AbortError")) setShareFailed(true);
+    } finally {
+      setSharing(false);
+    }
+  }
+
+  return (
+    <>
+      <div className="flex flex-wrap items-center gap-2">
+        {showShare && (
+          <button type="button" className={fileShareAction} disabled={!file || sharing} aria-busy={!file || sharing} onClick={sharePdf}>
+            {sharing ? "공유창 여는 중…" : file ? "PDF 파일 공유" : "PDF 준비 중…"}
+          </button>
+        )}
+        <a className={secondaryAction} href={href} download={fileName}>PDF 다운로드</a>
+      </div>
+      <p role="status" className="text-sm text-fog">{instructions}</p>
+    </>
   );
 }

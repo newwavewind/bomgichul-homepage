@@ -77,14 +77,12 @@ export function KakaoShareButton({
   description,
   path,
   imagePath,
-  className = shareButtonClass,
   children,
 }: {
   title: string;
   description: string;
   path: string;
   imagePath?: string;
-  className?: string;
   children: string;
 }) {
   const [hint, setHint] = useState<string | null>(null);
@@ -177,7 +175,7 @@ export function KakaoShareButton({
         onClick={share}
         disabled={busy || !ready}
         aria-busy={busy || !ready}
-        className={className}
+        className={shareButtonClass}
       >
         {busy || !ready ? <LoadingIcon /> : <KakaoBubbleIcon />}
         <span>
