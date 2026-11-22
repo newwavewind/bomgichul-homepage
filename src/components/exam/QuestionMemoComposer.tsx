@@ -124,9 +124,9 @@ export function QuestionMemoComposer({
             aria-label={isPrivate ? "비공개 메모 내용" : "공개 글 내용"}
             value={content}
             onChange={(event) => (isPrivate ? setPrivateDraft : setPublicDraft)(event.target.value)}
-            rows={1}
+            rows={4}
             placeholder={isPrivate ? "나만 볼 메모를 적어 보세요." : "질문, 생각, 암기 팁 등을 나눠 보세요."}
-            className="min-h-10 max-h-48 !py-2 !text-body-sm [field-sizing:content]"
+            className="min-h-[7.5rem] max-h-48 !py-2 !text-body-sm [field-sizing:content]"
             disabled={disabled}
           />
         </div>

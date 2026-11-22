@@ -13,7 +13,6 @@ import type { PublicMemoComment, PublicQuestionMemo } from "@/types/database";
 export type MemoViewer = { pending: boolean; userId: string | null; isAdmin?: boolean };
 
 const actionClass = "inline-flex min-h-9 items-center gap-1.5 rounded-lg px-2 text-body-sm text-smoke transition-colors hover:bg-snow hover:text-ink focus-visible:outline-2 focus-visible:outline-ios-blue disabled:opacity-50";
-const menuItemClass = "block w-full rounded-md px-3 py-2 text-left text-body-sm hover:bg-snow focus-visible:outline-2 focus-visible:outline-ios-blue disabled:opacity-50";
 const staffPrefix = /^\[검수 확인:([a-zA-Z0-9-]+)\]\n/;
 
 const icons = {
@@ -48,21 +47,10 @@ function MemoIdentity({ nickname, createdAt, avatar = true }: { nickname: string
 
 function MemoActions({ label, busy, onEdit, onDelete }: { label: string; busy: boolean; onEdit: () => void; onDelete: () => void }) {
   return (
-    <details className="relative shrink-0">
-      <summary aria-label={`${label} 관리`} className="grid size-9 cursor-pointer list-none place-items-center rounded-lg border border-mist bg-paper text-smoke hover:bg-snow focus-visible:outline-2 focus-visible:outline-ios-blue [&::-webkit-details-marker]:hidden">
-        <span aria-hidden="true">···</span>
-      </summary>
-      <div className="absolute right-0 z-10 mt-1 w-24 rounded-lg border border-mist bg-paper p-1 shadow-md">
-        <button type="button" className={menuItemClass} disabled={busy} onClick={(event) => {
-          event.currentTarget.closest("details")?.removeAttribute("open");
-          onEdit();
-        }}>수정</button>
-        <button type="button" className={`${menuItemClass} text-[color:light-dark(#b91c3c,#fda4af)]`} disabled={busy} onClick={(event) => {
-          event.currentTarget.closest("details")?.removeAttribute("open");
-          onDelete();
-        }}>삭제</button>
-      </div>
-    </details>
+    <div className="flex shrink-0 items-center gap-0.5">
+      <button type="button" aria-label={`${label} 수정`} className={actionClass} disabled={busy} onClick={onEdit}>수정</button>
+      <button type="button" aria-label={`${label} 삭제`} className={`${actionClass} !text-[color:light-dark(#b91c3c,#fda4af)]`} disabled={busy} onClick={onDelete}>삭제</button>
+    </div>
   );
 }
 
