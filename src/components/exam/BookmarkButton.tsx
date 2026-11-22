@@ -21,6 +21,30 @@ interface BookmarkButtonProps {
   loginNext?: string;
 }
 
+const bookmarkFrame =
+  "inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border py-1.5 pl-1.5 pr-3.5 font-display text-reading-detail font-semibold leading-tight transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ios-blue disabled:opacity-70";
+const bookmarkIdle =
+  "border-mist bg-paper text-ink shadow-[var(--shadow-button)] hover:border-ios-blue/40 hover:bg-ios-blue/[0.04]";
+const bookmarkSaved =
+  "border-ios-blue/35 bg-ios-blue/[0.09] text-[color:light-dark(#06529e,#c1ddff)] hover:bg-ios-blue/[0.14]";
+
+function BookmarkMark({ saved = false }: { saved?: boolean }) {
+  return (
+    <span aria-hidden className={`grid size-7 shrink-0 place-items-center rounded-full ${saved
+      ? "bg-[color:light-dark(#0066d6,#8dc5ff)] text-[color:light-dark(#ffffff,#10233a)]"
+      : "bg-ios-blue/10 text-[color:light-dark(#0066d6,#a5ceff)]"}`}>
+      <svg viewBox="0 0 20 20" fill={saved ? "currentColor" : "none"} className="size-4">
+        <path
+          d="M5.5 4.5A1.5 1.5 0 0 1 7 3h6a1.5 1.5 0 0 1 1.5 1.5V17L10 14l-4.5 3V4.5Z"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
 export function BookmarkButton({
   subject,
   year,
@@ -69,20 +93,24 @@ export function BookmarkButton({
     };
   }, [selfResolve, resolvedUserId, subject, year, questionNo]);
 
-  // 확정 비로그인 — 로그인 유도 링크 (기존 모양 그대로).
+  // 비로그인 사용자는 로그인 후 이 문항으로 돌아온다.
   if (resolvedUserId === null) {
     return (
       <Link
         href={`/login?next=${encodeURIComponent(loginNext ?? `/exam/${subject}/${year}/${questionNo}`)}`}
-        className="inline-flex min-h-11 items-center gap-1 rounded-[var(--radius-buttons)] border border-carbon bg-paper px-3 font-display text-[12px] font-medium text-ink transition-colors hover:bg-snow"
+        className={`${bookmarkFrame} ${bookmarkIdle}`}
+        aria-label="북마크 · 로그인 후 저장"
       >
-        <span aria-hidden>☆</span>
-        북마크 · 로그인 후 저장
+        <BookmarkMark />
+        <span className="flex flex-col">
+          <span>북마크</span>
+          <span className="hidden text-reading-note font-normal text-smoke sm:block">로그인 후 저장</span>
+        </span>
       </Link>
     );
   }
 
-  // 로그인 판정 중이거나 북마크 여부를 아직 모르는 동안 — 빈 별을 비활성으로
+  // 로그인 판정 중이거나 북마크 여부를 아직 모르는 동안 — 비활성 상태로
   // 자리만 지킨다. 로그인해 둔 사람에게 「로그인」 링크가 깜빡이면 안 된다.
   if (resolvedUserId === undefined || bookmarked === null) {
     return (
@@ -90,9 +118,9 @@ export function BookmarkButton({
         type="button"
         disabled
         aria-busy="true"
-        className="inline-flex min-h-11 items-center gap-1 rounded-[var(--radius-buttons)] border border-carbon bg-paper px-3 font-display text-[12px] font-medium text-ink opacity-60"
+        className={`${bookmarkFrame} ${bookmarkIdle}`}
       >
-        <span aria-hidden>☆</span>
+        <BookmarkMark />
         북마크
       </button>
     );
@@ -133,13 +161,9 @@ export function BookmarkButton({
       onClick={toggle}
       disabled={loading}
       aria-pressed={bookmarked}
-      className={`inline-flex min-h-11 items-center gap-1 rounded-[var(--radius-buttons)] border border-carbon px-3 font-display text-[12px] font-medium transition-colors disabled:opacity-60 ${
-        bookmarked
-          ? "bg-[#6366f1] text-paper hover:opacity-90"
-          : "bg-paper text-ink hover:bg-snow"
-      }`}
+      className={`${bookmarkFrame} ${bookmarked ? bookmarkSaved : bookmarkIdle}`}
     >
-      <span aria-hidden>{bookmarked ? "★" : "☆"}</span>
+      <BookmarkMark saved={bookmarked} />
       {bookmarked ? "북마크됨" : "북마크"}
     </button>
   );

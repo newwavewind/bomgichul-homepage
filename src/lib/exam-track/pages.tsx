@@ -383,7 +383,6 @@ export async function TrackExamSubjectPage({
           exams={data.exams}
           toc={toc}
         />
-        <SubjectUnitShare exams={data.exams.filter((exam) => examRenderKind(exam))} subjectLabel={data.subject.label} />
         <section className="mt-10">
           {sessions.length === 0 ? (
             // 트랙을 먼저 세우고 기출을 뒤에 싣는 시험(경비지도사)에서 빈 화면 대신 알린다.
@@ -410,6 +409,7 @@ export async function TrackExamSubjectPage({
             ))}
           </div>
         </section>
+        <SubjectUnitShare exams={data.exams.filter((exam) => examRenderKind(exam))} subjectLabel={data.subject.label} />
         <SimpleAppInstallStrip scope={track.communityScope} />
       </div>
     </div>

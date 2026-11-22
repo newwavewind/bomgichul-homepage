@@ -45,7 +45,6 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
         <h1 className="font-display text-heading font-semibold text-ink">9급 공무원 {data.subject.label} 기출문제</h1>
       </header>
       <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} toc={await loadTrackSubjectToc("public-service", subjectId)} />
-      <SubjectUnitShare exams={data.exams} subjectLabel={data.subject.label} />
       <section className="mt-10">
         <div className={`grid gap-6 ${sessionsBySource.size > 1 ? "lg:grid-cols-2" : "max-w-2xl"}`}>
           {[...sessionsBySource.entries()].map(([sourceCode, sourceSessions]) => (
@@ -62,6 +61,7 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
           ))}
         </div>
       </section>
+      <SubjectUnitShare exams={data.exams} subjectLabel={data.subject.label} />
       <SimpleAppInstallStrip scope="public_service" />
       </div>
     </div>
