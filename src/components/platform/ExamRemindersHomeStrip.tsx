@@ -36,7 +36,7 @@ export function ExamRemindersHomeStrip() {
         <p className="font-display text-[12px] font-semibold text-fog">다가오는 시험 리마인드</p>
         <Link
           href="/#exam-calendar"
-          className="font-display text-[12px] font-semibold text-[#0b5fff] hover:underline"
+          className="font-display text-[12px] font-semibold text-[color:light-dark(#0b5fff,var(--color-carbon))] hover:underline"
         >
           달력에서 보기
         </Link>

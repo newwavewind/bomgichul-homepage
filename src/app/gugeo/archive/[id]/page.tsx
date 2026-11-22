@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArchivePostDetailPage } from "@/app/archive/[id]/page";
+import { ArchivePostDetailPage } from "@/app/archive/[id]/archive-post";
 import { getArchivePost } from "@/lib/archive";
 import { absoluteUrl, truncateDescription } from "@/lib/seo";
 import { ARCHIVE_RESOURCE_TYPE_MAP, ARCHIVE_SUBJECT_MAP, SITE_NAME } from "@/lib/constants";

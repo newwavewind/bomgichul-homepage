@@ -41,6 +41,7 @@ function writeJson(key: string, value: unknown) {
 }
 
 const REMINDERS_EVENT = "bom-exam-reminders";
+const ANON_PROGRESS_EVENT = "bom-anon-progress";
 
 function emitExamRemindersChanged() {
   if (typeof window === "undefined") return;
@@ -87,6 +88,7 @@ export function getAnonAttemptCount(): number {
 export function bumpAnonAttemptCount(): number {
   const next = getAnonAttemptCount() + 1;
   writeJson(ATTEMPT_KEY, next);
+  if (typeof window !== "undefined") window.dispatchEvent(new Event(ANON_PROGRESS_EVENT));
   return next;
 }
 
@@ -96,7 +98,20 @@ export function isProgressNudgeDismissed(): boolean {
 
 export function dismissProgressNudge() {
   writeJson(ATTEMPT_DISMISS_KEY, true);
+  if (typeof window !== "undefined") window.dispatchEvent(new Event(ANON_PROGRESS_EVENT));
 }
+
+export function subscribeAnonProgress(onChange: () => void) {
+  window.addEventListener(ANON_PROGRESS_EVENT, onChange);
+  window.addEventListener("storage", onChange);
+  return () => {
+    window.removeEventListener(ANON_PROGRESS_EVENT, onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
+
+export const getAnonProgressNudge = () => shouldShowProgressNudge(false);
+export const getServerAnonProgressNudge = () => false;
 
 export function shouldShowProgressNudge(loggedIn: boolean): boolean {
   if (loggedIn) return false;
@@ -135,11 +150,15 @@ export function removeExamReminder(eventId: string): ExamReminder[] {
 }
 
 /** 오늘(KST YYYY-MM-DD) 기준 앞으로 남은 리마인드 */
-export function upcomingExamReminders(todayIso: string, withinDays = 60): ExamReminder[] {
+export function upcomingExamReminders(
+  todayIso: string,
+  withinDays = 60,
+  reminders = listExamReminders(),
+): ExamReminder[] {
   const limit = (() => {
     const [y, m, d] = todayIso.split("-").map(Number);
     const dt = new Date(Date.UTC(y, m - 1, d + withinDays));
     return `${dt.getUTCFullYear()}-${String(dt.getUTCMonth() + 1).padStart(2, "0")}-${String(dt.getUTCDate()).padStart(2, "0")}`;
   })();
-  return listExamReminders().filter((r) => r.date >= todayIso && r.date <= limit);
+  return reminders.filter((r) => r.date >= todayIso && r.date <= limit);
 }

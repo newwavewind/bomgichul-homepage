@@ -52,7 +52,7 @@ export function DailyQuestionBody({
       {passages.map((passage, index) => (
         <div
           key={index}
-          className="mt-4 whitespace-pre-line rounded-2xl border border-[#d7e3f4] bg-white/85 px-4 py-3 text-[1.0625rem] leading-7 text-ink"
+          className="mt-4 whitespace-pre-line rounded-2xl border border-[color:light-dark(#d7e3f4,var(--color-mist))] bg-white/85 px-4 py-3 text-[1.0625rem] leading-7 text-ink"
         >
           {plainStudyText(passage)}
         </div>
@@ -74,8 +74,8 @@ export function DailyQuestionBody({
         </div>
       ) : null}
       {presentation.promptItems.length ? (
-        <fieldset className="mt-4 min-w-0 rounded-2xl border border-[#d7e3f4] bg-white/85 px-4 pb-4">
-          <legend className="mx-auto px-3 text-center text-xs font-semibold text-[#64748b]">
+        <fieldset className="mt-4 min-w-0 rounded-2xl border border-[color:light-dark(#d7e3f4,var(--color-mist))] bg-white/85 px-4 pb-4">
+          <legend className="mx-auto px-3 text-center text-xs font-semibold text-fog">
             &lt; 보기 &gt;
           </legend>
           <div className="space-y-3 pt-2">
@@ -84,7 +84,7 @@ export function DailyQuestionBody({
                 key={item.key}
                 className="flex gap-2 text-[1.0625rem] leading-7 text-ink"
               >
-                <span className="shrink-0 font-semibold text-[#0066D6]">
+                <span className="shrink-0 font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                   {item.label}
                 </span>
                 <div className="min-w-0 flex-1">
@@ -95,12 +95,12 @@ export function DailyQuestionBody({
                       alt={`${item.label} 보기 자료`}
                       width={1200}
                       height={900}
-                      className="mt-2 h-auto max-h-[520px] w-auto max-w-full rounded-xl border border-[#e6eef8] bg-white object-contain"
+                      className="mt-2 h-auto max-h-[520px] w-auto max-w-full rounded-xl border border-[color:light-dark(#e6eef8,var(--color-mist))] bg-white object-contain"
                       sizes="(max-width: 640px) 100vw, 560px"
                     />
                   ) : null}
                   {item.translation ? (
-                    <p className="mt-1 text-sm leading-6 text-[#64748b]">
+                    <p className="mt-1 text-sm leading-6 text-fog">
                       {item.translation}
                     </p>
                   ) : null}
@@ -117,7 +117,7 @@ export function DailyQuestionBody({
       ) : null}
       {presentation.choiceHeaders.length ? (
         <div
-          className="mt-4 flex gap-3 rounded-xl bg-[#f8fafc] px-3 py-2 text-sm font-semibold text-[#64748b] sm:px-4"
+          className="mt-4 flex gap-3 rounded-xl bg-[color:light-dark(#f8fafc,var(--color-snow))] px-3 py-2 text-sm font-semibold text-fog sm:px-4"
           aria-label="선택지 열 제목"
         >
           <span className="w-6 shrink-0" aria-hidden />
@@ -172,12 +172,12 @@ export function DailyChoiceContent({
           alt={`${choice.label} 선택지 자료`}
           width={1200}
           height={900}
-          className="mt-2 h-auto max-h-[420px] w-auto max-w-full rounded-xl border border-[#e6eef8] bg-white object-contain"
+          className="mt-2 h-auto max-h-[420px] w-auto max-w-full rounded-xl border border-[color:light-dark(#e6eef8,var(--color-mist))] bg-white object-contain"
           sizes="(max-width: 640px) 100vw, 560px"
         />
       ) : null}
       {choice.translation ? (
-        <p className="mt-1 text-sm leading-6 text-[#64748b]">
+        <p className="mt-1 text-sm leading-6 text-fog">
           {choice.translation}
         </p>
       ) : null}

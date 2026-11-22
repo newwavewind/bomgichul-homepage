@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The published PDF.js assets are verified against the locked package during build.
+    "public/pdfjs/**",
     // Cursor/Claude worktrees (linting unrelated snapshots can fail)
     ".claude/worktrees/**",
     // Separate Capacitor app project living inside this repo folder.

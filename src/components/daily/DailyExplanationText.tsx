@@ -12,7 +12,7 @@ export function DailyExplanationText({
   text,
   examDate,
   lawVersions,
-  className = "text-base leading-7 text-[#334155]",
+  className = "text-base leading-7 text-[color:light-dark(#334155,var(--color-ink))]",
 }: {
   text: string;
   examDate?: string;
@@ -46,14 +46,14 @@ export function DailyExplanationText({
         const [, label, verdict, body] = match;
         const right = verdict === "옳음";
         return (
-          <div key={index} className="flex items-start gap-2.5 rounded-xl bg-[#F8FAFC] px-3 py-2.5">
+          <div key={index} className="flex items-start gap-2.5 rounded-xl bg-[color:light-dark(#F8FAFC,var(--color-snow))] px-3 py-2.5">
             <span className="mt-0.5 w-5 shrink-0 text-sm font-semibold text-ink">{label.replace(/\.$/, "")}</span>
             <span
-              className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-[11px] font-bold leading-5 ${right ? "bg-[#DCEEFF] text-[#0066D6]" : "bg-[#FFE1E8] text-[#C70036]"}`}
+              className={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-[11px] font-bold leading-5 ${right ? "bg-[color:light-dark(#DCEEFF,color-mix(in_srgb,var(--color-snow)_90%,#DCEEFF))] text-[color:light-dark(#0066D6,var(--color-carbon))]" : "bg-[color:light-dark(#FFE1E8,color-mix(in_srgb,var(--color-snow)_90%,#FFE1E8))] text-[color:light-dark(#C70036,var(--color-coral))]"}`}
             >
               {verdict}
             </span>
-            <p className="min-w-0 flex-1 text-sm leading-6 text-[#475569]">
+            <p className="min-w-0 flex-1 text-sm leading-6 text-smoke">
               <CitedText text={body} examDate={examDate} lawVersions={lawVersions} />
             </p>
           </div>

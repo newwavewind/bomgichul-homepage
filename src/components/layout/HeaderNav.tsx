@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogoMark } from "@/components/illustrations/LogoMark";
+import { AppearanceControls } from "@/components/layout/AppearanceControls";
 import { OceanRankBadge } from "@/components/ranks/OceanRankBadge";
 import {
   isCommunitySectionPath,
@@ -117,7 +118,7 @@ function AccountCluster({
       <div className={`flex items-center ${compact ? "gap-1.5" : "gap-2"}`}>
         <Link
           href="/login"
-          className="inline-flex h-9 items-center rounded-xl border border-slate-200/90 bg-white px-3 font-display text-[13px] font-medium text-[#0066D6] transition-colors hover:border-[#007AFF]/40 hover:bg-[#007AFF]/[0.06]"
+          className="inline-flex h-9 items-center rounded-xl border border-slate-200/90 bg-white px-3 font-display text-[13px] font-medium text-[color:light-dark(#0066D6,var(--color-carbon))] transition-colors dark:text-carbon hover:border-[#007AFF]/40 hover:bg-[#007AFF]/[0.06]"
         >
           로그인
         </Link>
@@ -213,32 +214,35 @@ function HomeHeader({
     >
       <div className="mx-auto flex max-w-[var(--page-max-width)] items-center justify-between gap-3 px-4 py-3">
         <LogoMark />
-        <div className="hidden items-center gap-2 md:flex">
-          <Link href="/search" className="inline-flex min-h-11 items-center rounded-full px-3 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70">기출 검색</Link>
-          <AccountCluster user={user} unread={unread} authPending={authPending} />
-        </div>
-        <button
-          type="button"
-          className="flex size-10 items-center justify-center rounded-full bg-white text-ink shadow-[inset_0_0_0_1px_rgba(15,23,42,0.08)] md:hidden"
-          aria-label="계정 메뉴"
-          aria-expanded={moreOpen}
-          onClick={() => setMoreOpen((v) => !v)}
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 20 20"
-            fill="none"
-            aria-hidden
+        <div className="flex shrink-0 items-center gap-2">
+          <div className="hidden items-center gap-2 md:flex">
+            <Link href="/search" className="inline-flex min-h-11 items-center rounded-full px-3 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70">기출 검색</Link>
+            <AccountCluster user={user} unread={unread} authPending={authPending} />
+          </div>
+          <AppearanceControls />
+          <button
+            type="button"
+            className="flex size-10 items-center justify-center rounded-full bg-white text-ink shadow-[inset_0_0_0_1px_rgba(15,23,42,0.08)] md:hidden"
+            aria-label="계정 메뉴"
+            aria-expanded={moreOpen}
+            onClick={() => setMoreOpen((v) => !v)}
           >
-            <path
-              d="M3 5H17M3 10H17M3 15H17"
-              stroke="#007AFF"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden
+            >
+              <path
+                d="M3 5H17M3 10H17M3 15H17"
+                stroke="#007AFF"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
       {moreOpen ? (
@@ -301,7 +305,7 @@ function TrackHeader({
                           pathname.startsWith(tool.href));
                 const className = `inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium transition-colors sm:px-2.5 ${
                   active
-                    ? "bg-[#007AFF]/12 text-[#0066D6]"
+                    ? "bg-[#007AFF]/12 text-[color:light-dark(#0066D6,var(--color-carbon))] dark:text-carbon"
                     : "text-slate-600 hover:bg-white/70 hover:text-ink"
                 }`;
                 // PC앱은 다른 사이트라 Link 로 넘기면 클라이언트 라우팅이 걸린다.
@@ -326,8 +330,9 @@ function TrackHeader({
               })}
             </nav>
 
-            <div className="shrink-0">
+            <div className="flex shrink-0 items-center gap-2">
               <AccountCluster user={user} unread={unread} authPending={authPending} compact />
+              <AppearanceControls />
             </div>
           </div>
         </div>

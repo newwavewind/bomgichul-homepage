@@ -394,14 +394,7 @@ const MODEL_LABELS: Record<string, string> = {
   fast: "gpt-5-nano",
 };
 
-/**
- * 링크가 어느 화면으로 돌아갈지. 해설과 개념이 같은 컴포넌트를 쓰므로,
- * 렌더가 시작될 때 그 화면의 경로를 여기 적어 두고 buildHref 가 읽는다.
- * 서버 컴포넌트라 한 요청이 한 번 그리고 끝나므로 값이 섞일 일은 없다.
- */
-let 화면경로 = "/admin/ai-explanations";
-
-function buildHref(params: {
+function buildHref(basePath: string, params: {
   subject?: string;
   exam?: string;
   item?: string;
@@ -413,7 +406,7 @@ function buildHref(params: {
   if (params.exam) qs.set("exam", params.exam);
   if (params.item) qs.set("item", params.item);
   const s = qs.toString();
-  return s ? `${화면경로}?${s}` : 화면경로;
+  return s ? `${basePath}?${s}` : basePath;
 }
 
 function groupByDate(groups: AiExplanationGroupRow[]) {
@@ -456,10 +449,12 @@ const CONCEPT_ITEM_LABEL: Record<string, string> = {
 };
 
 function GroupList({
+  basePath,
   groups,
   date,
   kind = "explanation",
 }: {
+  basePath: string;
   groups: AiExplanationGroupRow[];
   date?: string | null;
   kind?: AiLogKind;
@@ -488,7 +483,7 @@ function GroupList({
                 {formatKstDateLong(`${dateKey}T12:00:00+09:00`)}
               </h3>
               <Link
-                href={buildHref({ date: dateKey })}
+                href={buildHref(basePath, { date: dateKey })}
                 className="font-display text-[12px] text-electric-blue hover:underline"
               >
                 이 날짜만 →
@@ -500,7 +495,7 @@ function GroupList({
               {rows.map((group) => (
                 <li key={`${group.subjectId}:${group.examId}:${group.itemKey}`}>
                   <Link
-                    href={buildHref({
+                    href={buildHref(basePath, {
                       date,
                       subject: group.subjectId,
                       exam: group.examId ?? undefined,
@@ -586,7 +581,6 @@ export default async function AdminAiExplanationsPage({
   kind?: AiLogKind;
   basePath?: string;
 }) {
-  화면경로 = basePath;
   const { subject, exam, item, date: dateParam } = await searchParams;
   const date = dateParam ? parseKstDateKey(dateParam) : null;
   const today = toKstDateKey();
@@ -602,7 +596,7 @@ export default async function AdminAiExplanationsPage({
       <div className="space-y-6">
         <div>
           <Link
-            href={buildHref({ date, subject })}
+            href={buildHref(basePath, { date, subject })}
             className="font-display text-[13px] text-electric-blue hover:underline"
           >
             ← 목록으로
@@ -711,7 +705,7 @@ export default async function AdminAiExplanationsPage({
         <section className="space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <p className="font-display text-[12px] font-semibold text-fog">과목</p>
-            <Link href={buildHref({ date })} className={chipClass(!subject)}>
+            <Link href={buildHref(basePath, { date })} className={chipClass(!subject)}>
               전체
             </Link>
           </div>
@@ -738,7 +732,7 @@ export default async function AdminAiExplanationsPage({
                     {app.subjects.map((s) => (
                       <Link
                         key={s.id}
-                        href={buildHref({ date, subject: s.id })}
+                        href={buildHref(basePath, { date, subject: s.id })}
                         className={chipClass(subject === s.id)}
                       >
                         {subjectNameOnly(s.id)} {s.count}
@@ -776,7 +770,7 @@ export default async function AdminAiExplanationsPage({
         </p>
         {(date || subject) && (
           <Link
-            href={buildHref({})}
+            href={buildHref(basePath, {})}
             className="font-display text-[12px] text-electric-blue hover:underline"
           >
             필터 초기화
@@ -784,7 +778,7 @@ export default async function AdminAiExplanationsPage({
         )}
       </div>
 
-      <GroupList groups={groups} date={date} kind={kind} />
+      <GroupList basePath={basePath} groups={groups} date={date} kind={kind} />
     </div>
   );
 }

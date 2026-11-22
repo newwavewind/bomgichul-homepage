@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DiaryBoard } from "@/app/diary/page";
+import { DiaryBoard } from "@/app/diary/diary-board";
 import { buildPageMetadata } from "@/lib/seo";
 import { communityScopeLabel, diaryTitle } from "@/lib/exam-track/community";
 

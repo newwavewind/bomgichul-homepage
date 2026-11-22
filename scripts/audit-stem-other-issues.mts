@@ -24,6 +24,16 @@ const TRACK_ROOTS: [string, string][] = [
   ["src/data/semusa", "세무사"],
 ];
 
+type RawQuestion = {
+  stem?: unknown;
+  question?: unknown;
+  subject?: { label?: string; id?: string } | string;
+  year?: number | string;
+  questionNo?: number | string;
+  question_no?: number | string;
+  no?: number | string;
+};
+
 type Q = {
   track: string;
   file: string;
@@ -36,13 +46,13 @@ type Q = {
 function collect(file: string, track: string): Q[] {
   const raw = JSON.parse(readFileSync(file, "utf8"));
   const out: Q[] = [];
-  const push = (q: any, sub?: string) => {
+  const push = (q: RawQuestion, sub?: string) => {
     const stem = q?.stem;
     if (typeof stem !== "string") return;
     out.push({
       track,
       file: path.relative(process.cwd(), file),
-      subject: String(q.subject?.label ?? q.subject ?? sub ?? path.basename(file, ".json")),
+      subject: String((typeof q.subject === "object" ? q.subject?.label ?? q.subject : q.subject) ?? sub ?? path.basename(file, ".json")),
       year: q.year,
       questionNo: q.questionNo ?? q.question_no,
       stem,
@@ -50,7 +60,7 @@ function collect(file: string, track: string): Q[] {
   };
   if (Array.isArray(raw)) raw.forEach((q) => push(q));
   else if (Array.isArray(raw.exams))
-    raw.exams.forEach((q: any) => push(q, raw.subject?.label ?? raw.subject?.id));
+    raw.exams.forEach((q: RawQuestion) => push(q, raw.subject?.label ?? raw.subject?.id));
   return out;
 }
 

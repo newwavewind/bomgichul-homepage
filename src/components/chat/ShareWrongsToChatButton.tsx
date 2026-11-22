@@ -55,7 +55,7 @@ export function ShareWrongsToChatButton({
         url.searchParams.set("chat", "1");
         window.history.replaceState({}, "", `${url.pathname}${url.search}`);
       }}
-      className="rounded-full border border-[#007AFF]/30 bg-[#007AFF]/10 px-3 py-1.5 font-display text-[12px] font-semibold text-[#0066D6]"
+      className="rounded-full border border-[#007AFF]/30 bg-[#007AFF]/10 px-3 py-1.5 font-display text-[12px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
     >
       오답 {Math.min(items.length, 12)}문항 채팅 공유
       <span className="sr-only">{subjectLabel}</span>

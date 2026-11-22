@@ -112,7 +112,7 @@ export function ChatToast({
     tone === "error"
       ? "border-rose-200 bg-rose-50 text-rose-800"
       : tone === "success"
-        ? "border-[#007AFF]/25 bg-[#007AFF]/10 text-[#0066D6]"
+        ? "border-[#007AFF]/25 bg-[#007AFF]/10 text-[color:light-dark(#0066D6,var(--color-carbon))]"
         : "border-mist bg-white text-ink";
 
   return (

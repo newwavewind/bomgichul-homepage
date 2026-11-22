@@ -214,7 +214,13 @@ function isDefinitionMaterialLine(line: string): boolean {
 
 function parseMultilineStem(stem: string): ParsedQuestionStem | null {
   const lines = stem.split("\n");
-  const boxStart = lines.findIndex((line) => isBoxStartLine(line));
+  const firstTextLine = lines.findIndex((line) => line.trim());
+  const boxStart = lines.findIndex((line, index) => {
+    const text = line.trim();
+    // 「㉠ ～ ㉣에 대한 이해로 적절하지 않은 것은?」처럼 표지로 시작하는 발문도 있다.
+    const leadsWithQuestion = index === firstTextLine && CIRCLED_ITEM_AT_START.test(text) && text.endsWith("?");
+    return !leadsWithQuestion && isBoxStartLine(text);
+  });
   if (boxStart < 0) return null;
 
   // 시험지처럼 「(가)·(나) 정의 상자」와 「㉠·㉡ 설명 상자」가 나란히 있는 경우 —

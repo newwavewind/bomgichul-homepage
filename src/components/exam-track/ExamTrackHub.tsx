@@ -29,9 +29,9 @@ export function ExamTrackHub({
           <HubExamIntroLink href={`${track.basePath}/intro`} label={track.label} />
         </div>
 
-        {lecturePreview && <Link href={lecturePreview.href} className="group block rounded-2xl border border-[#b8d3c9] bg-[#eef7f2] p-6 transition-colors hover:bg-[#e4f1e9] sm:flex sm:items-center sm:justify-between sm:gap-6">
+        {lecturePreview && <Link href={lecturePreview.href} className="group block rounded-2xl border border-[color:light-dark(#b8d3c9,var(--color-mist))] bg-[color:light-dark(#eef7f2,color-mix(in_srgb,var(--color-snow)_90%,#eef7f2))] p-6 transition-colors hover:bg-[color:light-dark(#e4f1e9,color-mix(in_srgb,var(--color-snow)_90%,#e4f1e9))] dark:border-mist dark:bg-ice dark:hover:bg-snow sm:flex sm:items-center sm:justify-between sm:gap-6">
           <div>
-            <p className="text-xs font-semibold text-[#176859]">봄기출 {track.label} · 칠판 강의 {lecturePreview.total}강</p>
+            <p className="text-xs font-semibold text-[color:light-dark(#176859,var(--color-electric-blue))] dark:text-electric-blue">봄기출 {track.label} · 칠판 강의 {lecturePreview.total}강</p>
             <h2 className="mt-2 text-2xl font-semibold text-ink">설명을 듣고, 판서를 따라 이해하세요</h2>
             <p className="mt-2 text-sm leading-6 text-smoke">음성·판서·자막·요약 노트까지. 각 과목의 첫 3강을 홈페이지에서 미리 볼 수 있어요.</p>
           </div>

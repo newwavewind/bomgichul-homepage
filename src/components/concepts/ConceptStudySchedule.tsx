@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { useConceptReadProgress } from "@/components/concepts/useConceptReadProgress";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
 import {
   countStudiedConcepts,
   formatConceptReads,
   getConceptReadCount,
-  loadConceptReads,
-  type ConceptReadProgress,
 } from "@/lib/concept-reads";
 
 export type StudyScheduleConcept = {
@@ -93,30 +92,11 @@ export function ConceptStudySchedule({
   returnTo: string;
   basePath?: string;
 }) {
-  const [progress, setProgress] = useState<ConceptReadProgress>({});
+  const progress = useConceptReadProgress(userId, subject);
   const [filter, setFilter] = useState<FilterKey>("unread");
   const [loginOpen, setLoginOpen] = useState(false);
   const loginHref = `/login?next=${encodeURIComponent(returnTo)}`;
   const isLoggedIn = Boolean(userId);
-
-  useEffect(() => {
-    if (!userId) {
-      setProgress({});
-      return;
-    }
-    setProgress(loadConceptReads(userId, subject));
-  }, [userId, subject]);
-
-  useEffect(() => {
-    if (!userId) return;
-    const onFocus = () => setProgress(loadConceptReads(userId, subject));
-    window.addEventListener("focus", onFocus);
-    document.addEventListener("visibilitychange", onFocus);
-    return () => {
-      window.removeEventListener("focus", onFocus);
-      document.removeEventListener("visibilitychange", onFocus);
-    };
-  }, [userId, subject]);
 
   const total = concepts.length;
   const studied = isLoggedIn

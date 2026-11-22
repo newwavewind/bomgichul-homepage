@@ -42,7 +42,7 @@ export function EnglishPassageNotes({
                 먼저 스스로 읽어 보세요
               </span>
             </summary>
-            <p className="mt-3 whitespace-pre-line font-system text-[15px] leading-[1.8] text-smoke">
+            <p className="mt-3 whitespace-pre-line font-system text-[length:var(--text-body-sm)] leading-[1.8] text-smoke">
               {exam.translation}
             </p>
           </details>
@@ -61,18 +61,18 @@ export function EnglishPassageNotes({
             {vocab.map((entry, i) => (
               <li key={`${entry.term}-${i}`}>
                 <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                  <span className="font-display text-[15px] font-semibold text-ink">
+                  <span className="font-display text-[length:var(--text-body-sm)] font-semibold text-ink">
                     {entry.term}
                   </span>
-                  <span className="font-system text-[14px] text-smoke">{entry.meaning}</span>
+                  <span className="font-system text-[length:var(--text-reading-detail)] text-smoke">{entry.meaning}</span>
                 </p>
                 {entry.otherMeanings ? (
-                  <p className="mt-1 font-system text-[13px] leading-[1.6] text-fog">
+                  <p className="mt-1 font-system text-[length:var(--text-reading-note)] leading-[1.6] text-fog">
                     다른 뜻 · {entry.otherMeanings}
                   </p>
                 ) : null}
                 {entry.example ? (
-                  <p className="mt-1.5 font-system text-[13px] leading-[1.7] text-smoke">
+                  <p className="mt-1.5 font-system text-[length:var(--text-reading-note)] leading-[1.7] text-smoke">
                     {entry.example}
                     {entry.exampleTranslation ? (
                       <span className="block text-fog">{entry.exampleTranslation}</span>

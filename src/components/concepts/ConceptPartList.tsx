@@ -1,14 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useConceptReadProgress } from "@/components/concepts/useConceptReadProgress";
 import { useMe } from "@/lib/client-session";
 import type { Concept } from "@/lib/concepts";
 import {
   formatConceptReads,
   getConceptReadCount,
-  loadConceptReads,
-  type ConceptReadProgress,
 } from "@/lib/concept-reads";
 
 export interface ConceptSectionGroup {
@@ -42,22 +41,8 @@ export function ConceptPartList({
   const userId = userIdProp !== undefined ? userIdProp : (me.user?.id ?? null);
   const [expanded, setExpanded] = useState<Set<string>>(
     () => new Set(groups.map((g) => g.chapter))
-  );  const [progress, setProgress] = useState<ConceptReadProgress>({});
-
-  useEffect(() => {
-    if (!userId) {
-      setProgress({});
-      return;
-    }
-    setProgress(loadConceptReads(userId, subject));
-    const refresh = () => setProgress(loadConceptReads(userId, subject));
-    window.addEventListener("focus", refresh);
-    document.addEventListener("visibilitychange", refresh);
-    return () => {
-      window.removeEventListener("focus", refresh);
-      document.removeEventListener("visibilitychange", refresh);
-    };
-  }, [userId, subject]);
+  );
+  const progress = useConceptReadProgress(userId, subject);
 
   const toggle = (chapter: string) => {
     setExpanded((prev) => {

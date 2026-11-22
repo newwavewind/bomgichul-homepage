@@ -20,7 +20,7 @@ export function SubjectLearningCard({
     ? "flex min-h-11 items-center justify-center rounded-[12px] py-2.5 text-center font-semibold transition-colors px-1.5 text-xs sm:text-sm"
     : "flex min-h-11 items-center justify-center rounded-[12px] px-3 py-2.5 text-center text-sm font-semibold transition-colors";
   return (
-    <article className="rounded-[20px] border border-[#d8e3ef] bg-paper p-5 shadow-[0_4px_18px_rgba(15,23,42,0.035)] transition-colors hover:border-[#b8cde4]">
+    <article className="rounded-[20px] border border-[color:light-dark(#d8e3ef,var(--color-mist))] bg-paper p-5 shadow-[0_4px_18px_rgba(15,23,42,0.035)] transition-colors hover:border-[color:light-dark(#b8cde4,var(--color-mist))]">
       <p className="mb-3 font-display text-xs text-fog">{badge}</p>
       <h3 className="font-display text-[22px] font-semibold leading-[1.3] text-ink">
         {label}
@@ -38,7 +38,7 @@ export function SubjectLearningCard({
         {dailyHref ? (
           <Link
             href={dailyHref}
-            className={`${actionClass} border border-[#9dbbe0] bg-paper text-carbon hover:bg-[#f4f8fd]`}
+            className={`${actionClass} border border-[color:light-dark(#9dbbe0,var(--color-mist))] bg-paper text-carbon hover:bg-[color:light-dark(#f4f8fd,color-mix(in_srgb,var(--color-snow)_90%,#f4f8fd))]`}
           >
             매일 10문제
           </Link>
@@ -47,7 +47,7 @@ export function SubjectLearningCard({
           <Link
             href={lectureHref}
             aria-label={`${label} 강의 보기 (새로 나옴)`}
-            className={`relative z-[1] ${actionClass} border border-[#f5b7dc] bg-[#ffebf6] text-[#6b1458] hover:bg-[#fff3fa]`}
+            className={`relative z-[1] ${actionClass} border border-[color:light-dark(#f5b7dc,var(--color-mist))] bg-[color:light-dark(#ffebf6,color-mix(in_srgb,var(--color-snow)_90%,#ffebf6))] text-[color:light-dark(#6b1458,var(--color-magenta))] hover:bg-[color:light-dark(#fff3fa,color-mix(in_srgb,var(--color-snow)_90%,#fff3fa))]`}
           >
             강의 보기
             <span

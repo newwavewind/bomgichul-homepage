@@ -105,7 +105,7 @@ export function ExamIntroView({ intro }: { intro: ExamIntro }) {
     <div className="relative overflow-hidden bg-white px-4 py-10 md:py-14">
       <div className="relative mx-auto max-w-3xl space-y-14">
         <header>
-          <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#087f6d]">
+          <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-[color:light-dark(#087f6d,var(--color-electric-blue))]">
             {intro.eyebrow}
           </p>
           <h1 className="mt-3 font-display text-[34px] font-semibold tracking-tight text-ink md:text-[44px]">
@@ -351,7 +351,7 @@ export function ExamIntroView({ intro }: { intro: ExamIntro }) {
           </p>
         </Section>
 
-        <section className="rounded-[24px] border-[1.5px] border-carbon bg-gradient-to-br from-[#e8f5ff] to-[#f4f8ff] p-6 md:p-8">
+        <section className="rounded-[24px] border-[1.5px] border-carbon bg-gradient-to-br from-[color:light-dark(#e8f5ff,color-mix(in_srgb,var(--color-paper)_90%,#e8f5ff))] to-[color:light-dark(#f4f8ff,color-mix(in_srgb,var(--color-paper)_90%,#f4f8ff))] p-6 md:p-8">
           <p className="font-display text-[13px] font-semibold tracking-[0.04em] text-fog">공식 안내</p>
           <ul className="mt-3 space-y-2">
             {intro.officialLinks.map((link) => (

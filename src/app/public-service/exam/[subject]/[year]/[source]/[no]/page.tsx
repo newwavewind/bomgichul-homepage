@@ -185,6 +185,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
           {previous ? (
             <Link
               href={`${listBase}/${previous.questionNo}`}
+              aria-keyshortcuts="ArrowLeft"
               className="rounded-2xl border border-mist px-4 py-3 font-display text-body-sm hover:border-carbon"
             >
               <QuestionNavLabel direction="previous" questionNo={previous.questionNo} />
@@ -196,6 +197,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
           {next ? (
             <Link
               href={`${listBase}/${next.questionNo}`}
+              aria-keyshortcuts="ArrowRight"
               className="rounded-2xl border border-mist px-4 py-3 text-right font-display text-body-sm hover:border-carbon"
             >
               <QuestionNavLabel direction="next" questionNo={next.questionNo} />

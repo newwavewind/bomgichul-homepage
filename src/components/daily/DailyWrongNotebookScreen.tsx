@@ -43,14 +43,14 @@ export async function DailyWrongNotebookPage({
         <BackLink href={dailyHref}>{exam.label} 매일 10문제</BackLink>
 
         <header className="pb-12 pt-14 sm:pb-16 sm:pt-20">
-          <p className="font-mono text-xs tracking-[0.05em] text-[#595959]">
+          <p className="font-mono text-xs tracking-[0.05em] text-[color:light-dark(#595959,var(--color-smoke))]">
             PERSONAL REVIEW ARCHIVE / {exam.label.toUpperCase()}
           </p>
           <h1 className="mt-5 max-w-[920px] text-[clamp(42px,7vw,72px)] font-light leading-[1.06] tracking-[-0.02em] text-black">
             매일 10문제,
             <br className="sm:hidden" /> 특별한 오답노트
           </h1>
-          <p className="mt-7 max-w-2xl text-lg font-normal leading-[1.4] tracking-[-0.01em] text-[#595959]">
+          <p className="mt-7 max-w-2xl text-lg font-normal leading-[1.4] tracking-[-0.01em] text-[color:light-dark(#595959,var(--color-smoke))]">
             틀린 문제는 자동으로 모이고, 다시 맞힌 기록은 복습의 순서가 됩니다.
             필요한 문제와 메모를 한곳에서 이어가세요.
           </p>
@@ -62,7 +62,7 @@ export async function DailyWrongNotebookPage({
               <h2 id="subject-heading" className="text-2xl font-normal tracking-[-0.01em]">
                 과목을 선택하세요
               </h2>
-              <span className="font-mono text-xs tracking-[0.05em] text-[#595959]">
+              <span className="font-mono text-xs tracking-[0.05em] text-[color:light-dark(#595959,var(--color-smoke))]">
                 {subjects.length} SUBJECTS
               </span>
             </div>
@@ -73,7 +73,7 @@ export async function DailyWrongNotebookPage({
                   href={`/${slug}/daily/wrong?subject=${encodeURIComponent(item.id)}`}
                   className="group min-h-44 rounded-2xl border border-black/10 bg-white p-6 transition-colors hover:border-black"
                 >
-                  <span className="font-mono text-xs tracking-[0.05em] text-[#595959]">
+                  <span className="font-mono text-xs tracking-[0.05em] text-[color:light-dark(#595959,var(--color-smoke))]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="mt-14 flex items-end justify-between gap-4 text-lg font-medium tracking-[-0.01em]">
@@ -111,11 +111,11 @@ async function WrongNotebookContent({
     return (
       <section className="relative isolate min-h-[480px] overflow-hidden py-10 sm:py-16" aria-labelledby="login-heading">
         <div className="pointer-events-none absolute inset-0 hidden md:block" aria-hidden>
-          <div className="absolute left-[2%] top-16 w-64 -rotate-6 rounded-2xl bg-[#e4ff97] p-6">
+          <div className="absolute left-[2%] top-16 w-64 -rotate-6 rounded-2xl bg-[color:light-dark(#e4ff97,color-mix(in_srgb,var(--color-snow)_90%,#e4ff97))] p-6">
             <p className="font-mono text-xs tracking-[0.05em]">AUTO COLLECT</p>
             <p className="mt-14 text-2xl font-light">틀린 문제만<br />한곳으로.</p>
           </div>
-          <div className="absolute right-[3%] top-4 w-60 rotate-[7deg] rounded-2xl bg-[#c4baff] p-6">
+          <div className="absolute right-[3%] top-4 w-60 rotate-[7deg] rounded-2xl bg-[color:light-dark(#c4baff,color-mix(in_srgb,var(--color-snow)_90%,#c4baff))] p-6">
             <p className="font-mono text-xs tracking-[0.05em]">REVIEW FLOW</p>
             <div className="mt-12 flex gap-3">
               <span className="size-4 rounded-full bg-black" />
@@ -123,33 +123,33 @@ async function WrongNotebookContent({
               <span className="size-4 rounded-full border border-black" />
             </div>
           </div>
-          <div className="absolute bottom-4 left-[8%] w-56 rotate-3 rounded-2xl bg-[#ffc9c1] p-6">
+          <div className="absolute bottom-4 left-[8%] w-56 rotate-3 rounded-2xl bg-[color:light-dark(#ffc9c1,color-mix(in_srgb,var(--color-snow)_90%,#ffc9c1))] p-6">
             <p className="font-mono text-xs tracking-[0.05em]">PRIVATE NOTE</p>
             <div className="mt-10 h-px bg-black/40" />
             <div className="mt-3 h-px w-3/4 bg-black/40" />
           </div>
-          <div className="absolute bottom-10 right-[8%] w-64 -rotate-3 rounded-2xl bg-[#c7f8fb] p-6">
+          <div className="absolute bottom-10 right-[8%] w-64 -rotate-3 rounded-2xl bg-[color:light-dark(#c7f8fb,color-mix(in_srgb,var(--color-snow)_90%,#c7f8fb))] p-6">
             <p className="font-mono text-xs tracking-[0.05em]">YOUR ARCHIVE</p>
             <p className="mt-12 text-lg font-normal">기록은 사라지지 않습니다.</p>
           </div>
         </div>
 
         <div className="relative z-10 mx-auto max-w-[680px] rounded-2xl bg-white p-6 shadow-[0_24px_70px_rgba(0,0,0,0.1)] sm:p-10 lg:p-12">
-          <span className="inline-flex rounded-lg bg-[#e2e2e2] px-3 py-2 font-mono text-xs tracking-[0.05em] text-black">
+          <span className="inline-flex rounded-lg bg-[color:light-dark(#e2e2e2,var(--color-snow))] px-3 py-2 font-mono text-xs tracking-[0.05em] text-black">
             FREE · SIGN IN REQUIRED
           </span>
           <h2 id="login-heading" className="mt-8 text-[clamp(34px,5vw,56px)] font-light leading-[1.1] tracking-[-0.02em]">
             내 오답의 흐름을
             <br />계속 이어가세요.
           </h2>
-          <p className="mt-6 max-w-xl text-lg font-normal leading-[1.4] tracking-[-0.01em] text-[#595959]">
+          <p className="mt-6 max-w-xl text-lg font-normal leading-[1.4] tracking-[-0.01em] text-[color:light-dark(#595959,var(--color-smoke))]">
             로그인하면 {subjectLabel}에서 틀린 문제가 자동으로 쌓입니다.
             반복 오답, 다시 맞힌 문제, 내 메모를 나만의 기록으로 안전하게 보관합니다.
           </p>
-          <div className="mt-8 grid gap-px overflow-hidden rounded-2xl bg-[#e2e2e2] sm:grid-cols-3">
+          <div className="mt-8 grid gap-px overflow-hidden rounded-2xl bg-[color:light-dark(#e2e2e2,var(--color-snow))] sm:grid-cols-3">
             {["틀린 문제 자동 수집", "복습 순서 자동 정리", "나만 보는 개인 메모"].map((label, index) => (
               <div key={label} className="bg-white p-5">
-                <p className="font-mono text-xs tracking-[0.05em] text-[#595959]">0{index + 1}</p>
+                <p className="font-mono text-xs tracking-[0.05em] text-[color:light-dark(#595959,var(--color-smoke))]">0{index + 1}</p>
                 <p className="mt-5 text-base font-normal">{label}</p>
               </div>
             ))}

@@ -78,10 +78,10 @@ export function DailyReviewList({
         <ol className="flex min-w-0 flex-1 flex-wrap justify-center gap-1 py-1 sm:gap-1.5">
           {items.map((entry, i) => {
             const tone = !showAnswers
-              ? "border-[#DDE9F6] bg-white text-[#475569]"
+              ? "border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white text-smoke"
               : entry.ok
-                ? "border-[#91C6FF] bg-[#F1F8FF] text-[#0066D6]"
-                : "border-[#FFB3C1] bg-[#FFF2F5] text-[#D7003A]";
+                ? "border-[color:light-dark(#91C6FF,var(--color-mist))] bg-[color:light-dark(#F1F8FF,color-mix(in_srgb,var(--color-snow)_90%,#F1F8FF))] text-[color:light-dark(#0066D6,var(--color-carbon))]"
+                : "border-[color:light-dark(#FFB3C1,var(--color-mist))] bg-[color:light-dark(#FFF2F5,color-mix(in_srgb,var(--color-snow)_90%,#FFF2F5))] text-[color:light-dark(#D7003A,var(--color-coral))]";
             const current = i === index;
             return (
               <li key={entry.id}>
@@ -132,7 +132,7 @@ export function DailyReviewList({
           type="button"
           onClick={() => go(index - 1, true)}
           disabled={index === 0}
-          className="flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-[#cfe0f5] bg-white px-4 text-sm font-semibold text-ink transition-colors hover:border-[#007AFF] disabled:cursor-default disabled:opacity-40 disabled:hover:border-[#cfe0f5]"
+          className="flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-[color:light-dark(#cfe0f5,var(--color-mist))] bg-white px-4 text-sm font-semibold text-ink transition-colors hover:border-[#007AFF] disabled:cursor-default disabled:opacity-40 disabled:hover:border-[color:light-dark(#cfe0f5,var(--color-mist))]"
         >
           <span aria-hidden>←</span> 이전 문제
         </button>
@@ -140,7 +140,7 @@ export function DailyReviewList({
           type="button"
           onClick={() => go(index + 1, true)}
           disabled={index === items.length - 1}
-          className="flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-[#007AFF] px-4 text-sm font-semibold text-white transition-colors hover:bg-[#0066D6] disabled:cursor-default disabled:bg-[#cfe0f5] disabled:text-[#64748b]"
+          className="flex min-h-11 items-center justify-center gap-1.5 rounded-xl bg-[#007AFF] px-4 text-sm font-semibold text-white transition-colors hover:bg-[#0066D6] disabled:cursor-default disabled:bg-[color:light-dark(#cfe0f5,color-mix(in_srgb,var(--color-snow)_90%,#cfe0f5))] disabled:text-fog"
         >
           다음 문제 <span aria-hidden>→</span>
         </button>
@@ -164,7 +164,7 @@ function ArrowButton({
       onClick={onClick}
       disabled={disabled}
       aria-label={direction === "prev" ? "이전 문제" : "다음 문제"}
-      className="hidden size-9 shrink-0 items-center justify-center rounded-full border border-[#cfe0f5] bg-white text-ink transition-colors hover:border-[#007AFF] disabled:cursor-default disabled:opacity-35 disabled:hover:border-[#cfe0f5] sm:flex"
+      className="hidden size-9 shrink-0 items-center justify-center rounded-full border border-[color:light-dark(#cfe0f5,var(--color-mist))] bg-white text-ink transition-colors hover:border-[#007AFF] disabled:cursor-default disabled:opacity-35 disabled:hover:border-[color:light-dark(#cfe0f5,var(--color-mist))] sm:flex"
     >
       <svg viewBox="0 0 20 20" className="size-4" aria-hidden>
         <path
@@ -197,15 +197,15 @@ function ReviewCard({
     <article
       aria-roledescription="slide"
       aria-label={`${total}문제 중 ${index + 1}번`}
-      className="rounded-2xl border border-[#e6eef8] bg-white/70 px-2.5 py-3 sm:px-4"
+      className="rounded-2xl border border-[color:light-dark(#e6eef8,var(--color-mist))] bg-white/70 px-2.5 py-3 sm:px-4"
     >
       <div className="flex items-center justify-between gap-3">
-        <p className="min-w-0 text-xs text-[#64748b]">
+        <p className="min-w-0 text-xs text-fog">
           {index + 1} / {total} · {item.sourceLabel}
         </p>
         <Link
           href={item.href}
-          className="shrink-0 text-xs font-medium text-[#64748b] transition-colors hover:text-[#0066D6]"
+          className="shrink-0 text-xs font-medium text-fog transition-colors hover:text-[color:light-dark(#0066D6,var(--color-carbon))]"
         >
           이 문항으로 →
         </Link>
@@ -218,9 +218,9 @@ function ReviewCard({
       />
       {/* 공무원 영어 — 문항 화면과 같은 순서: 지문 해석 → 해설 → 어휘(2026-10-21) */}
       {showAnswers && item.translation ? (
-        <section className="mt-3 rounded-2xl border border-[#e6eef8] bg-[#F8FAFC] px-3 py-2.5 sm:px-4">
-          <p className="text-sm font-semibold text-[#0066D6]">지문 해석</p>
-          <p className="mt-1 whitespace-pre-line text-[15px] leading-7 text-[#475569]">{item.translation}</p>
+        <section className="mt-3 rounded-2xl border border-[color:light-dark(#e6eef8,var(--color-mist))] bg-[color:light-dark(#F8FAFC,var(--color-snow))] px-3 py-2.5 sm:px-4">
+          <p className="text-sm font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">지문 해석</p>
+          <p className="mt-1 whitespace-pre-line text-[15px] leading-7 text-smoke">{item.translation}</p>
         </section>
       ) : null}
       {(() => {
@@ -242,10 +242,10 @@ function ReviewCard({
                 const isCorrect = item.correctKeys.includes(choice.key);
                 const isPicked = item.picked === choice.key;
                 const explanationLabelStyle = isCorrect
-                  ? "bg-[#DCEEFF] text-[#0066D6]"
+                  ? "bg-[color:light-dark(#DCEEFF,color-mix(in_srgb,var(--color-snow)_90%,#DCEEFF))] text-[color:light-dark(#0066D6,var(--color-carbon))]"
                   : isPicked
-                    ? "bg-[#FFE1E8] text-[#C70036]"
-                    : "bg-[#EAF3FE] text-[#47739E]";
+                    ? "bg-[color:light-dark(#FFE1E8,color-mix(in_srgb,var(--color-snow)_90%,#FFE1E8))] text-[color:light-dark(#C70036,var(--color-coral))]"
+                    : "bg-[color:light-dark(#EAF3FE,color-mix(in_srgb,var(--color-snow)_90%,#EAF3FE))] text-[color:light-dark(#47739E,var(--color-carbon))]";
                 return (
                   <div className="px-3 pb-3 sm:px-4">
                     <div className="flex items-start gap-2.5 rounded-xl bg-white/70 px-3 py-2.5">
@@ -254,7 +254,7 @@ function ReviewCard({
                       >
                         해설
                       </span>
-                      <p className="min-w-0 flex-1 text-sm leading-6 text-[#475569]">
+                      <p className="min-w-0 flex-1 text-sm leading-6 text-smoke">
                         <CitedText text={explanation.byChoice[choice.key]!} />
                       </p>
                     </div>
@@ -271,16 +271,16 @@ function ReviewCard({
           const isCorrect = item.correctKeys.includes(choice.key);
           const choiceStyle = showAnswers
             ? isCorrect
-              ? "border-[#91C6FF] bg-[#F1F8FF]"
+              ? "border-[color:light-dark(#91C6FF,var(--color-mist))] bg-[color:light-dark(#F1F8FF,color-mix(in_srgb,var(--color-snow)_90%,#F1F8FF))]"
               : isPicked
-                ? "border-[#FFB3C1] bg-[#FFF2F5]"
-                : "border-[#DDE9F6] bg-white"
-            : "border-[#DDE9F6] bg-white";
+                ? "border-[color:light-dark(#FFB3C1,var(--color-mist))] bg-[color:light-dark(#FFF2F5,color-mix(in_srgb,var(--color-snow)_90%,#FFF2F5))]"
+                : "border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white"
+            : "border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white";
           const explanationLabelStyle = isCorrect
-            ? "bg-[#DCEEFF] text-[#0066D6]"
+            ? "bg-[color:light-dark(#DCEEFF,color-mix(in_srgb,var(--color-snow)_90%,#DCEEFF))] text-[color:light-dark(#0066D6,var(--color-carbon))]"
             : isPicked
-              ? "bg-[#FFE1E8] text-[#C70036]"
-              : "bg-[#EAF3FE] text-[#47739E]";
+              ? "bg-[color:light-dark(#FFE1E8,color-mix(in_srgb,var(--color-snow)_90%,#FFE1E8))] text-[color:light-dark(#C70036,var(--color-coral))]"
+              : "bg-[color:light-dark(#EAF3FE,color-mix(in_srgb,var(--color-snow)_90%,#EAF3FE))] text-[color:light-dark(#47739E,var(--color-carbon))]";
           return (
             <div
               key={choice.key}
@@ -306,7 +306,7 @@ function ReviewCard({
               </div>
               {showAnswers && (isPicked || isCorrect) ? (
                 <p
-                  className={`mt-2 pl-9 text-sm font-semibold ${isCorrect ? "text-[#007AFF]" : "text-[#D7003A]"}`}
+                  className={`mt-2 pl-9 text-sm font-semibold ${isCorrect ? "text-[color:light-dark(#007AFF,var(--color-carbon))]" : "text-[color:light-dark(#D7003A,var(--color-coral))]"}`}
                 >
                   {isPicked && isCorrect
                     ? "내 선택 · 정답"
@@ -322,7 +322,7 @@ function ReviewCard({
                   >
                     해설
                   </span>
-                  <p className="min-w-0 flex-1 text-sm leading-6 text-[#475569]">
+                  <p className="min-w-0 flex-1 text-sm leading-6 text-smoke">
                     <CitedText text={explanation.byChoice[choice.key]!} />
                   </p>
                 </div>
@@ -334,8 +334,8 @@ function ReviewCard({
         );
       })()}
       {showAnswers && (explanation.common || !hasChoiceExplanations) ? (
-        <div className="mt-4 border-t border-[#e6eef8] pt-4">
-          <p className="text-sm font-semibold text-[#0066D6]">
+        <div className="mt-4 border-t border-[color:light-dark(#e6eef8,var(--color-mist))] pt-4">
+          <p className="text-sm font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
             {hasChoiceExplanations ? "공통 해설" : "해설"}
           </p>
           <div className="mt-1.5">

@@ -8,7 +8,7 @@ export function PremiumBadge({ label }: { label: string }) {
         isFull
           ? "bg-[#6366f1] text-paper"
           : isRoundComplete
-            ? "border border-[#6366f1] text-[#6366f1]"
+            ? "border border-[#6366f1] text-[color:light-dark(#6366f1,var(--color-carbon))]"
             : "border border-carbon text-ink"
       }`}
     >

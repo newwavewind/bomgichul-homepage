@@ -20,11 +20,11 @@ export function HubExamIntroLink({ href, label }: { href: string; label: string 
       href={href}
       className="group ml-[54px] inline-flex max-w-[calc(100%-54px)] flex-wrap items-center gap-x-1.5 gap-y-1 font-display text-[13px]"
     >
-      <span className="font-semibold text-[#087f73] group-hover:underline">
+      <span className="font-semibold text-[color:light-dark(#087f73,var(--color-electric-blue))] group-hover:underline">
         {label} 시험 안내
       </span>
-      <span className="text-[#718096]">· 과목 · 일정 · 원서 접수</span>
-      <span aria-hidden="true" className="text-[#718096]">›</span>
+      <span className="text-[color:light-dark(#718096,var(--color-smoke))]">· 과목 · 일정 · 원서 접수</span>
+      <span aria-hidden="true" className="text-[color:light-dark(#718096,var(--color-smoke))]">›</span>
     </Link>
   );
 }

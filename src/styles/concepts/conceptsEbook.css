@@ -904,7 +904,7 @@ html.dark #root .ds-concepts-screen .cx-section__index.liquid-glass.liquid-glass
   border: 1px solid color-mix(in srgb, #007aff 28%, transparent) !important;
   background: color-mix(in srgb, #007aff 10%, var(--cx-ebook-surface)) !important;
   box-shadow: none !important;
-  color: #0066d6 !important;
+  color: light-dark(#0066d6, var(--color-carbon)) !important;
 }
 
 .hp-cx .hp-cx-correct-pack-badge::before {

@@ -16,14 +16,15 @@ export function GuestChatWidget({
   forceOpen?: boolean;
   openNonce?: number;
 }) {
-  const [open, setOpen] = useState(forceOpen);
+  const [open, setOpen] = useState(forceOpen || openNonce !== 0);
   const [onlineUsers, setOnlineUsers] = useState<OnlineUser[]>([]);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
 
-  useEffect(() => {
-    if (!forceOpen && openNonce === 0) return;
-    setOpen(true);
-  }, [forceOpen, openNonce]);
+  const [openRequest, setOpenRequest] = useState({ forceOpen, openNonce });
+  if (openRequest.forceOpen !== forceOpen || openRequest.openNonce !== openNonce) {
+    setOpenRequest({ forceOpen, openNonce });
+    if (forceOpen || openNonce !== 0) setOpen(true);
+  }
 
   useEffect(() => {
     if (!isSupabaseConfigured()) return;

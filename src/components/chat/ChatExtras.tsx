@@ -49,9 +49,11 @@ export function ChatGlobalSearch({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  const [previousQuery, setPreviousQuery] = useState(initialQuery);
+  if (previousQuery !== initialQuery) {
+    setPreviousQuery(initialQuery);
     if (initialQuery) setQ(initialQuery);
-  }, [initialQuery]);
+  }
 
   const run = useCallback(async () => {
     const query = q.trim();
@@ -229,6 +231,11 @@ export function ChatStudyCalendar({
   conversationId: string | null;
 }) {
   const [events, setEvents] = useState<StudyEventRow[]>([]);
+  const [now, setNow] = useState(Date.now);
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 60_000);
+    return () => window.clearInterval(timer);
+  }, []);
   const [cursor, setCursor] = useState(() => {
     const n = new Date();
     return new Date(n.getFullYear(), n.getMonth(), 1);
@@ -342,7 +349,7 @@ export function ChatStudyCalendar({
               {list.slice(0, 2).map((ev) => (
                 <p
                   key={ev.id}
-                  className="mt-0.5 truncate text-[9px] text-[#0066D6]"
+                  className="mt-0.5 truncate text-[9px] text-[color:light-dark(#0066D6,var(--color-carbon))]"
                   title={ev.title}
                 >
                   {ev.title}
@@ -355,7 +362,7 @@ export function ChatStudyCalendar({
       <div className="mt-4 space-y-2">
         <p className="text-[11px] font-semibold text-smoke">다가오는 일정</p>
         {events
-          .filter((e) => e.due_at && new Date(e.due_at).getTime() >= Date.now())
+          .filter((e) => e.due_at && new Date(e.due_at).getTime() >= now)
           .slice(0, 8)
           .map((ev) => (
             <div

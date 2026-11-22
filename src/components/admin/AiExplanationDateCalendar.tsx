@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 const WEEKDAYS = ["일", "월", "화", "수", "목", "금", "토"] as const;
 
@@ -48,12 +48,12 @@ export function AiExplanationDateCalendar({
   const [year, setYear] = useState(initY);
   const [monthIndex0, setMonthIndex0] = useState(initM - 1);
 
-  useEffect(() => {
-    const focus = selectedDate ?? today;
-    const [y, m] = focus.split("-").map(Number);
-    setYear(y);
-    setMonthIndex0(m - 1);
-  }, [selectedDate, today]);
+  const [previousFocus, setPreviousFocus] = useState(initial);
+  if (previousFocus !== initial) {
+    setPreviousFocus(initial);
+    setYear(initY);
+    setMonthIndex0(initM - 1);
+  }
 
   const cells = useMemo(() => buildCells(year, monthIndex0), [year, monthIndex0]);
   const monthPrefix = `${year}-${String(monthIndex0 + 1).padStart(2, "0")}`;

@@ -23,7 +23,7 @@ function metaLine(parts: Array<string | number | undefined | null>) {
 function ViewRibbon({ count }: { count: number }) {
   if (count <= 0) return null;
   return (
-    <p className="mt-2 inline-flex items-center gap-1 rounded-full bg-[#007AFF]/10 px-2 py-0.5 text-[10px] font-semibold text-[#0066D6]">
+    <p className="mt-2 inline-flex items-center gap-1 rounded-full bg-[#007AFF]/10 px-2 py-0.5 text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
       <span aria-hidden>👁</span>
       {count}명 열람
     </p>
@@ -87,11 +87,11 @@ export function ExamCardBubble({
   const body = (
     <>
       {payload.quoted ? (
-        <p className="text-[10px] font-semibold uppercase tracking-wide text-[#0066D6]">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-[color:light-dark(#0066D6,var(--color-carbon))]">
           인용한 기출
         </p>
       ) : (
-        <p className="text-[10px] font-semibold uppercase tracking-wide text-[#0066D6]">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-[color:light-dark(#0066D6,var(--color-carbon))]">
           기출 카드
         </p>
       )}
@@ -111,7 +111,7 @@ export function ExamCardBubble({
         </div>
       )}
       {href ? (
-        <p className="mt-2 text-[11px] font-semibold text-[#0066D6]">
+        <p className="mt-2 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
           해설 보기 →
         </p>
       ) : null}
@@ -227,7 +227,7 @@ export function WrongShareBubble({
               </span>
             ) : null}
             {payload.correctLabel ? (
-              <span className="rounded-full bg-[#007AFF]/10 px-2 py-0.5 text-[#0066D6]">
+              <span className="rounded-full bg-[#007AFF]/10 px-2 py-0.5 text-[color:light-dark(#0066D6,var(--color-carbon))]">
                 정답 {payload.correctLabel}
               </span>
             ) : null}
@@ -235,7 +235,7 @@ export function WrongShareBubble({
           {href ? (
             <Link
               href={href}
-              className="mt-2 inline-block text-[11px] font-semibold text-[#0066D6]"
+              className="mt-2 inline-block text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
               onClick={() => onRecordView?.()}
             >
               해설 보기 →
@@ -265,7 +265,7 @@ export function TimerBubble({
   const done = payload.ended || left <= 0;
   return (
     <div className="max-w-[85%] rounded-2xl border border-[#007AFF]/25 bg-[#007AFF]/8 px-3 py-2.5">
-      <p className="text-[10px] font-semibold text-[#0066D6]">스터디 타이머</p>
+      <p className="text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">스터디 타이머</p>
       <p className="mt-1 font-display text-lg font-bold tabular-nums text-ink">
         {done ? "끝!" : `${mm}:${ss}`}
       </p>
@@ -315,7 +315,7 @@ export function PollBubble({
   return (
     <div className="max-w-[90%] min-w-[200px] rounded-2xl border border-mist bg-white/95 px-3 py-2.5">
       <div className="flex items-center justify-between gap-2">
-        <p className="text-[10px] font-semibold text-[#0066D6]">
+        <p className="text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
           {payload.isQuiz || payload.correctKey ? "퀴즈 폴" : "OX 폴"}
         </p>
         {closed ? (
@@ -343,9 +343,9 @@ export function PollBubble({
               onClick={() => onVote(opt.key)}
               className={`relative w-full overflow-hidden rounded-xl border px-3 py-2 text-left text-[13px] ${
                 isCorrect
-                  ? "border-[#007AFF] bg-[#007AFF]/15 font-semibold text-[#0066D6]"
+                  ? "border-[#007AFF] bg-[#007AFF]/15 font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
                   : selected
-                    ? "border-[#007AFF] bg-[#007AFF]/10 font-semibold text-[#0066D6]"
+                    ? "border-[#007AFF] bg-[#007AFF]/10 font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
                     : "border-mist bg-ice/60 text-ink"
               } ${closed || disabled ? "opacity-90" : ""}`}
             >
@@ -374,7 +374,7 @@ export function PollBubble({
         <p className="mt-2 text-[11px] text-fog">총 {total}표</p>
       ) : null}
       {reveal && payload.correctKey ? (
-        <p className="mt-1.5 text-[11px] font-semibold text-[#0066D6]">
+        <p className="mt-1.5 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
           정답 · {payload.correctKey}
         </p>
       ) : null}
@@ -399,7 +399,7 @@ export function MockInviteBubble({
           : "border-mist bg-white/90"
       }`}
     >
-      <p className="text-[10px] font-semibold text-[#0066D6]">모의고사 같이 풀기</p>
+      <p className="text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">모의고사 같이 풀기</p>
       <p className="mt-1 font-display text-[13px] font-semibold text-ink">
         {payload.label ||
           `${payload.subjectLabel || payload.subject} ${payload.year}년`}
@@ -416,7 +416,7 @@ export function MockInviteBubble({
         ) : null}
         <Link
           href={payload.href}
-          className="rounded-full border border-[#007AFF]/30 px-3 py-1 text-[11px] font-semibold text-[#0066D6]"
+          className="rounded-full border border-[#007AFF]/30 px-3 py-1 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
         >
           전체 화면 →
         </Link>
@@ -446,11 +446,11 @@ export function MockResultBubble({
           : "border-mist bg-white/90"
       }`}
     >
-      <p className="text-[10px] font-semibold text-[#0066D6]">모의고사 결과</p>
+      <p className="text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">모의고사 결과</p>
       <p className="mt-1 font-display text-[13px] font-semibold text-ink">
         {payload.subjectLabel || payload.subject} {payload.year}년
       </p>
-      <p className="mt-1 text-[20px] font-bold tabular-nums text-[#0066D6]">
+      <p className="mt-1 text-[20px] font-bold tabular-nums text-[color:light-dark(#0066D6,var(--color-carbon))]">
         {payload.correct}/{payload.total}
         <span className="ml-1 text-[13px] font-semibold text-smoke">({pct}%)</span>
       </p>
@@ -458,7 +458,7 @@ export function MockResultBubble({
       {payload.href ? (
         <Link
           href={payload.href}
-          className="mt-2 inline-block text-[11px] font-semibold text-[#0066D6]"
+          className="mt-2 inline-block text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
         >
           다시 풀기 →
         </Link>
@@ -503,10 +503,10 @@ export function CheckinBubble({
           : "border-mist bg-white/90"
       }`}
     >
-      <p className="text-[10px] font-semibold text-[#0066D6]">학습 인증</p>
+      <p className="text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">학습 인증</p>
       <p className="mt-1 font-display text-[13px] text-ink">{content}</p>
       {payload.streak ? (
-        <p className="mt-1.5 text-[11px] font-semibold text-[#0066D6]">
+        <p className="mt-1.5 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
           🔥 {payload.streak}일 연속
         </p>
       ) : null}
@@ -557,13 +557,13 @@ export function ReminderBubble({ payload }: { payload: ReminderPayload }) {
     payload.kind === "dday" ? "D-DAY 알림" : payload.kind === "goal" ? "목표 리마인더" : "주간 리마인더";
   return (
     <div className={`mx-auto w-full max-w-[92%] rounded-2xl border px-3 py-2.5 ${tone}`}>
-      <p className="text-[10px] font-semibold text-[#0066D6]">{eyebrow}</p>
+      <p className="text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">{eyebrow}</p>
       <p className="mt-1 font-display text-[13px] font-semibold text-ink">{payload.title}</p>
       {payload.body ? (
         <p className="mt-1 text-[12px] text-smoke">{payload.body}</p>
       ) : null}
       {payload.dday ? (
-        <p className="mt-1.5 text-[11px] font-semibold text-[#0066D6]">시험일 {payload.dday}</p>
+        <p className="mt-1.5 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">시험일 {payload.dday}</p>
       ) : null}
     </div>
   );
@@ -590,7 +590,7 @@ export function ScheduleShareBubble({
         mine ? "border-[#007AFF]/30 bg-[#007AFF]/10" : "border-mist bg-white/90"
       }`}
     >
-      <p className="text-[10px] font-semibold text-[#0066D6]">스터디 일정</p>
+      <p className="text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">스터디 일정</p>
       <p className="mt-1 font-display text-[13px] font-semibold text-ink">{payload.title}</p>
       <p className="mt-1 text-[12px] text-smoke">{when}</p>
       {payload.place ? (
@@ -618,7 +618,7 @@ export function NoteCardBubble({
         mine ? "border-[#007AFF]/30 bg-[#007AFF]/10" : "border-mist bg-white/90"
       }`}
     >
-      <p className="text-[10px] font-semibold text-[#0066D6]">노트 카드</p>
+      <p className="text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">노트 카드</p>
       <p className="mt-1 font-display text-[13px] font-semibold text-ink">
         {payload.title}
       </p>
@@ -638,7 +638,7 @@ export function NoteCardBubble({
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="mt-2 text-[11px] font-semibold text-[#0066D6]"
+          className="mt-2 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
         >
           {open ? "접기" : "더 보기"}
         </button>
@@ -646,7 +646,7 @@ export function NoteCardBubble({
       {payload.sourceHref ? (
         <Link
           href={payload.sourceHref}
-          className="mt-2 block text-[11px] font-semibold text-[#0066D6]"
+          className="mt-2 block text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
         >
           원문 보기 →
         </Link>
@@ -678,7 +678,7 @@ export function LiveSessionBubble({
       }`}
     >
       <div className="flex items-center justify-between gap-2">
-        <p className="text-[10px] font-semibold text-[#0066D6]">라이브 스터디</p>
+        <p className="text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">라이브 스터디</p>
         <span
           className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${
             done ? "bg-slate-200 text-slate-600" : "bg-[#007AFF] text-white"

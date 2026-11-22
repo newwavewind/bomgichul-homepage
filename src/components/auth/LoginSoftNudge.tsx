@@ -19,7 +19,7 @@ export function LoginSoftNudge({
     <div className="rounded-2xl border border-ios-blue/25 bg-ios-blue/[0.06] px-4 py-3.5">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
-          <p className="font-display text-[12px] font-semibold tracking-[0.02em] text-[#087f6d]">
+          <p className="font-display text-[12px] font-semibold tracking-[0.02em] text-[color:light-dark(#087f6d,var(--color-electric-blue))]">
             홈페이지 기능 · 전부 무료
           </p>
           <p className="mt-1 font-display text-[13px] font-semibold text-ink">{title}</p>

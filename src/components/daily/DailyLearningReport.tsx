@@ -43,9 +43,9 @@ export function DailyLearningReportCard({
   return (
     <section
       aria-label="오늘의 학습 리포트"
-      className="mt-3 rounded-2xl border border-[#dbe7f5] bg-[#F5FAFF] p-3"
+      className="mt-3 rounded-2xl border border-[color:light-dark(#dbe7f5,var(--color-mist))] bg-[color:light-dark(#F5FAFF,color-mix(in_srgb,var(--color-snow)_90%,#F5FAFF))] p-3"
     >
-      <dl className="grid grid-cols-4 divide-x divide-[#dbe7f5] text-center">
+      <dl className="grid grid-cols-4 divide-x divide-[color:light-dark(#dbe7f5,var(--color-mist))] text-center">
         <Stat
           label={rank ? "상위" : "순위"}
           value={rank ? (report.percentile ? `${report.percentile}%` : "-") : "연습"}
@@ -65,7 +65,7 @@ export function DailyLearningReportCard({
         </Link>
       ) : null}
       {children ? (
-        <div className="mt-3 border-t border-[#dbe7f5] pt-3">{children}</div>
+        <div className="mt-3 border-t border-[color:light-dark(#dbe7f5,var(--color-mist))] pt-3">{children}</div>
       ) : null}
     </section>
   );
@@ -74,7 +74,7 @@ export function DailyLearningReportCard({
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col-reverse px-1">
-      <dt className="text-[11px] font-medium text-[#64748b]">{label}</dt>
+      <dt className="text-[11px] font-medium text-fog">{label}</dt>
       <dd className="text-[15px] font-bold tabular-nums text-ink">{value}</dd>
     </div>
   );

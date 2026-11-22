@@ -1,4 +1,4 @@
-import { CommunityBoard } from "@/app/community/page";
+import { CommunityBoard } from "@/app/community/community-board";
 import {
   buildCommunityListMetadata,
   type CommunitySearchParams,

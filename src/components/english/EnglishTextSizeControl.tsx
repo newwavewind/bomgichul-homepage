@@ -52,18 +52,18 @@ export function EnglishTextSizeControl() {
   };
 
   const button =
-    "flex size-10 items-center justify-center font-display text-ink transition-colors hover:bg-[#F1F8FF] disabled:opacity-30";
+    "flex size-10 items-center justify-center font-display text-ink transition-colors hover:bg-[color:light-dark(#F1F8FF,color-mix(in_srgb,var(--color-snow)_90%,#F1F8FF))] disabled:opacity-30";
 
   return (
     <div
       role="group"
       aria-label="영어 글씨 크기"
-      className="fixed right-4 top-[76px] z-40 flex flex-col overflow-hidden rounded-2xl border border-[#d7e3f4] bg-white/95 shadow-[0_6px_20px_rgba(15,23,42,0.12)] backdrop-blur"
+      className="fixed right-4 top-[76px] z-40 flex flex-col overflow-hidden rounded-2xl border border-[color:light-dark(#d7e3f4,var(--color-mist))] bg-white/95 shadow-[0_6px_20px_rgba(15,23,42,0.12)] backdrop-blur"
     >
       <button type="button" onClick={() => change(1)} disabled={index === SIZES.length - 1} aria-label="영어 글씨 크게" className={button}>
         <span className="text-[17px] font-semibold">A+</span>
       </button>
-      <span className="border-t border-[#e6eef8]" aria-hidden />
+      <span className="border-t border-[color:light-dark(#e6eef8,var(--color-mist))]" aria-hidden />
       <button type="button" onClick={() => change(-1)} disabled={index === 0} aria-label="영어 글씨 작게" className={button}>
         <span className="text-[13px] font-semibold">A−</span>
       </button>

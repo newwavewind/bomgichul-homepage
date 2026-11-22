@@ -50,7 +50,7 @@ export function RandomPracticeRunner({
       <div className="mx-auto max-w-xl rounded-[var(--radius-largecards)] border border-carbon bg-paper p-8 text-center shadow-[var(--shadow-card)]">
         <p className="font-display text-body-sm text-smoke">랜덤 문제 연습 결과</p>
         <p className="mt-2 font-display text-heading-sm font-bold text-ink">
-          {total}문제 중 <span className="text-[#6366f1]">{correctCount}개</span> 맞혔어요
+          {total}문제 중 <span className="text-[color:light-dark(#6366f1,var(--color-carbon))]">{correctCount}개</span> 맞혔어요
         </p>
         {attemptedCount < total && (
           <p className="mt-2 font-display text-body-sm text-smoke">

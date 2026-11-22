@@ -33,12 +33,24 @@ export function ChatSharePicker({
 }) {
   const [subjects, setSubjects] = useState<SubjectOpt[]>([]);
   const [subject, setSubject] = useState("");
-  const [years, setYears] = useState<number[]>([]);
   const [year, setYear] = useState<number | "">("");
-  const [questions, setQuestions] = useState<QuestionOpt[]>([]);
-  const [wrongs, setWrongs] = useState<QuestionOpt[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [subjectError, setSubjectError] = useState<string | null>(null);
+  const [catalog, setCatalog] = useState<{ key: string; years?: number[]; wrongs?: QuestionOpt[]; error?: string } | null>(null);
+  const [questionResult, setQuestionResult] = useState<{ key: string; items?: QuestionOpt[]; error?: string } | null>(null);
+  const catalogKey = `${mode}:${subject}`;
+  const [previousCatalogKey, setPreviousCatalogKey] = useState(catalogKey);
+  if (previousCatalogKey !== catalogKey) {
+    setPreviousCatalogKey(catalogKey);
+    setYear("");
+  }
+  const currentCatalog = catalog?.key === catalogKey ? catalog : null;
+  const questionKey = subject && year && mode === "exam" ? `${subject}:${year}` : null;
+  const currentQuestions = questionResult?.key === questionKey ? questionResult : null;
+  const years = currentCatalog?.years ?? [];
+  const wrongs = currentCatalog?.wrongs ?? [];
+  const questions = currentQuestions?.items ?? [];
+  const error = currentQuestions?.error ?? currentCatalog?.error ?? subjectError;
+  const loading = Boolean((subject && !currentCatalog) || (questionKey && !currentQuestions));
 
   const subjectLabel =
     subjects.find((s) => s.value === subject)?.label ?? subject;
@@ -49,48 +61,48 @@ export function ChatSharePicker({
       .then((data) => {
         const list = (data.subjects ?? []) as SubjectOpt[];
         setSubjects(list);
-        if (list[0] && !subject) setSubject(list[0].value);
+        setSubject((current) => current || list[0]?.value || "");
       })
-      .catch(() => setError("과목 목록을 불러오지 못했어요."));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      .catch(() => setSubjectError("과목 목록을 불러오지 못했어요."));
   }, []);
 
   useEffect(() => {
     if (!subject) return;
-    setYear("");
-    setQuestions([]);
-    setWrongs([]);
-    setLoading(true);
-    setError(null);
-    const url =
-      mode === "wrong"
-        ? `/api/chat/share-catalog?kind=wrongs&subject=${encodeURIComponent(subject)}`
-        : `/api/chat/share-catalog?kind=years&subject=${encodeURIComponent(subject)}`;
-    void fetch(url)
-      .then((r) => r.json())
+    const controller = new AbortController();
+    const kind = mode === "wrong" ? "wrongs" : "years";
+    void fetch(`/api/chat/share-catalog?kind=${kind}&subject=${encodeURIComponent(subject)}`, { signal: controller.signal })
+      .then((response) => response.json())
       .then((data) => {
-        if (mode === "wrong") {
-          setWrongs(data.items ?? []);
-          if (data.loginRequired) setError("오답 목록은 로그인 후 볼 수 있어요.");
-        } else {
-          setYears(data.years ?? []);
-        }
+        if (controller.signal.aborted) return;
+        setCatalog({
+          key: catalogKey,
+          years: data.years ?? [],
+          wrongs: data.items ?? [],
+          error: data.loginRequired ? "오답 목록은 로그인 후 볼 수 있어요." : undefined,
+        });
       })
-      .catch(() => setError("목록을 불러오지 못했어요."))
-      .finally(() => setLoading(false));
-  }, [subject, mode]);
+      .catch(() => {
+        if (!controller.signal.aborted) setCatalog({ key: catalogKey, error: "목록을 불러오지 못했어요." });
+      });
+    return () => controller.abort();
+  }, [catalogKey, subject, mode]);
 
   useEffect(() => {
-    if (!subject || !year || mode === "wrong" || mode === "mock") return;
-    setLoading(true);
+    if (!questionKey) return;
+    const controller = new AbortController();
     void fetch(
       `/api/chat/share-catalog?kind=questions&subject=${encodeURIComponent(subject)}&year=${year}`,
+      { signal: controller.signal },
     )
-      .then((r) => r.json())
-      .then((data) => setQuestions(data.questions ?? []))
-      .catch(() => setError("문항을 불러오지 못했어요."))
-      .finally(() => setLoading(false));
-  }, [subject, year, mode]);
+      .then((response) => response.json())
+      .then((data) => {
+        if (!controller.signal.aborted) setQuestionResult({ key: questionKey, items: data.questions ?? [] });
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) setQuestionResult({ key: questionKey, error: "문항을 불러오지 못했어요." });
+      });
+    return () => controller.abort();
+  }, [questionKey, subject, year]);
 
   return (
     <div className="mb-2 space-y-2 rounded-xl border border-mist bg-white/90 p-2.5">
@@ -166,7 +178,7 @@ export function ChatSharePicker({
               }
               className="flex w-full flex-col rounded-lg px-2.5 py-2 text-left hover:bg-[#007AFF]/8"
             >
-              <span className="text-[11px] font-semibold text-[#0066D6]">
+              <span className="text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                 {q.year}년 {q.questionNo}번
               </span>
               <span className="line-clamp-2 text-[12px] text-ink">{q.stem}</span>
@@ -196,7 +208,7 @@ export function ChatSharePicker({
                 }
                 className="flex w-full flex-col rounded-lg px-2.5 py-2 text-left hover:bg-[#007AFF]/8"
               >
-                <span className="text-[11px] font-semibold text-[#0066D6]">
+                <span className="text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                   {q.year}년 {q.questionNo}번
                 </span>
                 <span className="line-clamp-2 text-[12px] text-ink">{q.stem}</span>

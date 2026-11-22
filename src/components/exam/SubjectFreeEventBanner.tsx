@@ -11,13 +11,13 @@ export function SubjectFreeEventBanner({ subject }: { subject: ExamSubject }) {
 
   return (
     <div
-      className="relative overflow-hidden rounded-[var(--radius-cards)] border border-carbon bg-gradient-to-br from-[#eef2ff] via-ice to-[#f0fdf4] px-5 py-4 shadow-[var(--shadow-card)]"
+      className="relative overflow-hidden rounded-[var(--radius-cards)] border border-carbon bg-gradient-to-br from-[color:light-dark(#eef2ff,color-mix(in_srgb,var(--color-paper)_90%,#eef2ff))] via-ice to-[color:light-dark(#f0fdf4,color-mix(in_srgb,var(--color-paper)_90%,#f0fdf4))] px-5 py-4 shadow-[var(--shadow-card)]"
       role="status"
     >
       <div className="pointer-events-none absolute -right-6 -top-6 text-5xl opacity-20" aria-hidden>
         🌸
       </div>
-      <p className="font-display text-[11px] font-bold uppercase tracking-widest text-[#6366f1]">
+      <p className="font-display text-[11px] font-bold uppercase tracking-widest text-[color:light-dark(#6366f1,var(--color-carbon))]">
         {event.badge}
       </p>
       <p className="mt-1 font-display text-body font-semibold text-ink">

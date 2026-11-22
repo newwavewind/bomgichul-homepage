@@ -92,27 +92,26 @@ export function GoogleAuthCard({
   const [nextPath, setNextPath] = useState(isSignup ? "/onboarding" : "/");
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("error") === "auth") {
-      const detail = params.get("message");
-      const nextMessage = detail
-        ? decodeURIComponent(detail)
-        : isSignup
+    const frame = window.requestAnimationFrame(() => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("error") === "auth") {
+        const detail = params.get("message");
+        setMessage(detail || (isSignup
           ? "회원가입에 실패했습니다. 다시 시도해주세요."
-          : "로그인에 실패했습니다. 다시 시도해주세요.";
-      window.setTimeout(() => setMessage(nextMessage), 0);
-    }
-
-    setNextPath(readAuthNext(isSignup ? "/onboarding" : "/"));
-
-    if (previewLogin) {
-      try {
-        const saved = window.localStorage.getItem(PREVIEW_EMAIL_KEY);
-        if (saved) setPreviewEmail(saved);
-      } catch {
-        // ignore
+          : "로그인에 실패했습니다. 다시 시도해주세요."));
       }
-    }
+
+      setNextPath(readAuthNext(isSignup ? "/onboarding" : "/"));
+      if (previewLogin) {
+        try {
+          const saved = window.localStorage.getItem(PREVIEW_EMAIL_KEY);
+          if (saved) setPreviewEmail(saved);
+        } catch {
+          // Preview works without browser storage.
+        }
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [isSignup, previewLogin]);
 
   const handleOAuth = async (provider: "google" | "kakao") => {

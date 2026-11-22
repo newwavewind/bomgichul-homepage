@@ -155,7 +155,7 @@ export default function OnboardingPage() {
                 type="button"
                 onClick={handleCheckAvailability}
                 disabled={checking || loading || !username.trim()}
-                className="h-12 shrink-0 rounded-xl border border-[#B9D8FB] bg-white px-4 font-display text-sm font-semibold text-[#007AFF] transition-colors hover:bg-[#F5FAFF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007AFF] disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-12 shrink-0 rounded-xl border border-[color:light-dark(#B9D8FB,var(--color-mist))] bg-white px-4 font-display text-sm font-semibold text-[color:light-dark(#007AFF,var(--color-carbon))] transition-colors hover:bg-[color:light-dark(#F5FAFF,color-mix(in_srgb,var(--color-snow)_90%,#F5FAFF))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007AFF] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {checking ? "확인 중..." : "중복 확인"}
               </button>
@@ -165,9 +165,9 @@ export default function OnboardingPage() {
             </p>
 
             <div aria-live="polite" className="min-h-5">
-              {error && <p className="font-display text-sm text-[#C2413B]">{error}</p>}
+              {error && <p className="font-display text-sm text-[color:light-dark(#C2413B,var(--color-coral))]">{error}</p>}
               {availabilityMessage && (
-                <p className="font-display text-sm font-medium text-[#007AFF]">
+                <p className="font-display text-sm font-medium text-[color:light-dark(#007AFF,var(--color-carbon))]">
                   {availabilityMessage}
                 </p>
               )}

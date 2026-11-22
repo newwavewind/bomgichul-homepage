@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { DailyChoiceBadge } from "@/components/daily/DailyChoiceBadge";
 import { DailyScheduleGuide } from "@/components/daily/DailyScheduleGuide";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useEffectEvent, useRef, useState, type ReactNode } from "react";
+import { hasNativeEnterAction, questionShortcutTarget } from "@/lib/question-shortcuts";
 import { BackLink } from "@/components/ui/BackLink";
 import { DailyCalendar } from "@/components/daily/DailyCalendar";
 import {
@@ -114,6 +115,10 @@ export function DailyPlay({
 }) {
   const signedIn = Boolean(defaultNickname);
   const [step, setStep] = useState<Step>("play");
+  const questionsRef = useRef<HTMLDivElement>(null);
+  const nicknameInputRef = useRef<HTMLInputElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
   const [nickname, setNickname] = useState("");
   const [picks, setPicks] = useState<
     Record<string, { key: string; confidence: DailyConfidence }>
@@ -159,6 +164,10 @@ export function DailyPlay({
     (question) => picks[question.id]?.key,
   ).length;
   const isComplete = answeredCount === questions.length;
+  const keyboardEnabled = step === "play" && !isArchive && questions.length > 0;
+  const asksForNickname = !signedIn && mode === "ranked";
+  const activeQuestion = questions[activeQuestionIndex];
+  const lastChoiceKey = Math.min(activeQuestion?.choices.length ?? 0, 9);
   const calendarStatuses =
     score && mode === "ranked"
       ? {
@@ -172,20 +181,25 @@ export function DailyPlay({
       : insights.calendar;
 
   useEffect(() => {
-    try {
-      const saved = window.sessionStorage.getItem(resultStorageKey);
-      if (!saved) return;
-      const snapshot = JSON.parse(saved) as {
-        score?: DailyScore;
-        picks?: Record<string, { key: string; confidence: DailyConfidence }>;
-        nickname?: string;
-      };
-      if (!snapshot.score || !Array.isArray(snapshot.score.review)) return;
-      setScore(snapshot.score);
-      setPicks(snapshot.picks ?? {});
-      setNickname(snapshot.nickname ?? "");
-      setStep("result");
-    } catch {}
+    const frame = window.requestAnimationFrame(() => {
+      try {
+        const saved = window.sessionStorage.getItem(resultStorageKey);
+        if (!saved) return;
+        const snapshot = JSON.parse(saved) as {
+          score?: DailyScore;
+          picks?: Record<string, { key: string; confidence: DailyConfidence }>;
+          nickname?: string;
+        };
+        if (!snapshot.score || !Array.isArray(snapshot.score.review)) return;
+        setScore(snapshot.score);
+        setPicks(snapshot.picks ?? {});
+        setNickname(snapshot.nickname ?? "");
+        setStep("result");
+      } catch {
+        // A saved result can be unavailable when browser storage is blocked.
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [resultStorageKey]);
 
   useEffect(() => {
@@ -327,6 +341,70 @@ export function DailyPlay({
     }));
   }
 
+  function moveToQuestion(index: number) {
+    const article = questionsRef.current?.querySelector<HTMLElement>(
+      `[data-daily-question="${index}"]`,
+    );
+    if (!article) return false;
+    setActiveQuestionIndex(index);
+    article.focus({ preventScroll: true });
+    article.scrollIntoView({ block: "start" });
+    return true;
+  }
+
+  const handleQuestionKey = useEffectEvent((event: KeyboardEvent) => {
+    if (busy) return;
+    const target = questionShortcutTarget(event);
+    const questionList = questionsRef.current;
+    if (!target || !questionList) return;
+    if (target !== document.body && target !== document.documentElement && !questionList.contains(target)) return;
+
+    const { key } = event;
+    if (key === "ArrowLeft" || key === "ArrowRight") {
+      if (moveToQuestion(activeQuestionIndex + (key === "ArrowLeft" ? -1 : 1))) {
+        event.preventDefault();
+      }
+      return;
+    }
+
+    if (key === "Enter") {
+      const selectedButton = target.closest('button[data-daily-choice][aria-pressed="true"]');
+      if (hasNativeEnterAction(target) && !selectedButton) return;
+      if (!activeQuestion || !picks[activeQuestion.id]?.key) return;
+
+      event.preventDefault();
+      if (moveToQuestion(activeQuestionIndex + 1)) return;
+      if (!isComplete) {
+        moveToQuestion(questions.findIndex((question) => !picks[question.id]?.key));
+        return;
+      }
+      if (asksForNickname) {
+        const input = nicknameInputRef.current;
+        input?.focus({ preventScroll: true });
+        input?.scrollIntoView({ block: "center" });
+      } else {
+        submitRef.current?.click();
+      }
+      return;
+    }
+
+    const choice = questionList.querySelector<HTMLButtonElement>(
+      `[data-daily-question="${activeQuestionIndex}"] button[data-daily-choice="${key}"]`,
+    );
+    if (!choice || choice.disabled) return;
+    event.preventDefault();
+    choice.click();
+    choice.focus({ preventScroll: true });
+    choice.scrollIntoView({ block: "nearest" });
+  });
+
+  useEffect(() => {
+    if (!keyboardEnabled) return;
+    const onKeyDown = (event: KeyboardEvent) => handleQuestionKey(event);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [keyboardEnabled]);
+
   function inputIsRankedResult(result: DailyScore) {
     return mode === "ranked" && result.saved && result.share.rank !== null;
   }
@@ -357,7 +435,7 @@ export function DailyPlay({
   if (questions.length === 0) {
     return (
       <Shell label={label} home={home}>
-        <p className="text-sm text-[#475569]">
+        <p className="text-sm text-smoke">
           오늘 풀 객관식 기출을 찾지 못했습니다.
         </p>
       </Shell>
@@ -461,7 +539,7 @@ export function DailyPlay({
           <h2 className="text-[15px] font-semibold leading-6 text-ink">
             매일 10문제 · 전체 기출 한 바퀴
           </h2>
-          <p className="mt-0.5 text-xs leading-5 text-[#64748b]">
+          <p className="mt-0.5 text-xs leading-5 text-fog">
             {composition.usesRounds
               ? `최신 ${composition.spanCount}회분`
               : `최근 ${composition.spanCount}개년`}{" "}
@@ -470,22 +548,22 @@ export function DailyPlay({
         </div>
         {/* 채점 뒤엔 학습 리포트가 같은 숫자를 보여 줘서 뺀다. */}
         {step !== "result" && !isArchive ? (
-          <div className="flex shrink-0 gap-1 text-[11px] font-medium text-[#475569]">
-            <span className="rounded-md bg-[#f1f5f9] px-2 py-1">
+          <div className="flex shrink-0 gap-1 text-[11px] font-medium text-smoke">
+            <span className="rounded-md bg-snow px-2 py-1">
               연속 {insights.streak}일
             </span>
-            <span className="rounded-md bg-[#f1f5f9] px-2 py-1">
+            <span className="rounded-md bg-snow px-2 py-1">
               이번 달 {insights.monthDone}회
             </span>
           </div>
         ) : null}
       </div>
       <details className="group mt-1.5">
-        <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-[#4d49fc] [&::-webkit-details-marker]:hidden">
+        <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-[color:light-dark(#4d49fc,var(--color-carbon))] [&::-webkit-details-marker]:hidden">
           한 바퀴는 어떻게 도나요?
           <span className="transition-transform group-open:rotate-180" aria-hidden>⌄</span>
         </summary>
-        <ol className="mt-2 space-y-1.5 text-[13px] leading-6 text-[#595959]">
+        <ol className="mt-2 space-y-1.5 text-[13px] leading-6 text-[color:light-dark(#595959,var(--color-smoke))]">
           {[
             ["한 번 섞기", `${subjectLabel} 기출 ${composition.poolCount.toLocaleString()}문제를 카드 섞듯 한 번 섞어 1번부터 ${composition.poolCount.toLocaleString()}번까지 순서를 정합니다.`],
             ["하루 10문제씩 차례로", `첫날은 1~10번, 다음 날은 11~20번처럼 앞에서부터 이어서 냅니다. 한 번 나간 자리는 다시 쓰지 않으니 한 바퀴(약 ${composition.rotationDays}일)를 다 돌 때까지 같은 문제가 두 번 나오지 않습니다.`],
@@ -493,7 +571,7 @@ export function DailyPlay({
             ["누구에게나 같은 순서", "같은 날에는 누가 풀어도 같은 10문제가 나옵니다. 그래서 순위를 공정하게 비교할 수 있습니다."],
           ].map(([title, body], index) => (
             <li key={title} className="flex gap-2.5">
-              <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#4d49fc]/10 font-mono text-[11px] text-[#4d49fc]">
+              <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#4d49fc]/10 font-mono text-[11px] text-[color:light-dark(#4d49fc,var(--color-carbon))]">
                 {index + 1}
               </span>
               <span>
@@ -502,7 +580,7 @@ export function DailyPlay({
             </li>
           ))}
         </ol>
-        <div className="mt-2.5 rounded-xl bg-[#4d49fc]/[0.06] px-3 py-2.5 text-[13px] leading-6 text-[#595959]">
+        <div className="mt-2.5 rounded-xl bg-[#4d49fc]/[0.06] px-3 py-2.5 text-[13px] leading-6 text-[color:light-dark(#595959,var(--color-smoke))]">
           <p>
             <strong className="font-semibold text-black">바퀴는 끝없이 이어집니다.</strong>{" "}
             {Math.floor(365 / Math.max(1, composition.rotationDays)) >= 1
@@ -510,7 +588,7 @@ export function DailyPlay({
               : `한 바퀴에 약 ${composition.rotationDays}일이 걸리고, 다 돌면 다음 바퀴가 이어집니다.`}
           </p>
           {Math.floor(365 / Math.max(1, composition.rotationDays)) >= 2 ? (
-            <p className="mt-1 text-[15px] font-semibold text-[#4d49fc]">
+            <p className="mt-1 text-[15px] font-semibold text-[color:light-dark(#4d49fc,var(--color-carbon))]">
               무려 {Math.floor(365 / Math.max(1, composition.rotationDays))}회독! <span aria-hidden>😲</span>
             </p>
           ) : null}
@@ -527,13 +605,13 @@ export function DailyPlay({
             ))}
           </ul>
         </div>
-        <p className="mt-2 text-xs leading-5 text-[#8a8a8a]">
+        <p className="mt-2 text-xs leading-5 text-[color:light-dark(#8a8a8a,var(--color-smoke))]">
           새 연도 기출이 들어오면 문제 모음이 바뀌어 순서를 새로 섞습니다.
         </p>
       </details>
       <nav
         aria-label="매일 10문제 메뉴"
-        className="mt-2.5 grid grid-cols-3 gap-1 rounded-xl bg-[#EEF3F9] p-1 text-center text-xs font-semibold leading-tight"
+        className="mt-2.5 grid grid-cols-3 gap-1 rounded-xl bg-[color:light-dark(#EEF3F9,color-mix(in_srgb,var(--color-snow)_90%,#EEF3F9))] p-1 text-center text-xs font-semibold leading-tight"
       >
         {step === "result" && mode === "ranked" ? (
           // 채점 뒤 「오늘의 10문제」는 해설을 가린 문제 화면으로 돌아간다.
@@ -547,7 +625,7 @@ export function DailyPlay({
         ) : (
           <Link
             href={rankedDailyHref}
-            className={`flex items-center justify-center rounded-lg px-2 py-2 ${mode === "ranked" ? "bg-[#007AFF] text-white" : "text-[#475569] hover:bg-white"}`}
+            className={`flex items-center justify-center rounded-lg px-2 py-2 ${mode === "ranked" ? "bg-[#007AFF] text-white" : "text-smoke hover:bg-white"}`}
           >
             오늘의 10문제
           </Link>
@@ -555,7 +633,7 @@ export function DailyPlay({
         {nextReview ? (
           <Link
             href={nextReview.href}
-            className={`flex items-center justify-center rounded-lg px-2 py-2 ${mode === "review" ? "bg-[#007AFF] text-white" : "text-[#0066D6] hover:bg-white"}`}
+            className={`flex items-center justify-center rounded-lg px-2 py-2 ${mode === "review" ? "bg-[#007AFF] text-white" : "text-[color:light-dark(#0066D6,var(--color-carbon))] hover:bg-white"}`}
           >
             <span>
               {nextReview.label}
@@ -565,14 +643,14 @@ export function DailyPlay({
         ) : (
           <span
             aria-disabled="true"
-            className={`flex items-center justify-center rounded-lg px-2 py-2 ${mode === "review" ? "bg-[#007AFF] text-white" : "text-[#94a3b8]"}`}
+            className={`flex items-center justify-center rounded-lg px-2 py-2 ${mode === "review" ? "bg-[#007AFF] text-white" : "text-[color:light-dark(#94a3b8,var(--color-smoke))]"}`}
           >
             {mode === "review" ? "틀린 문제 다시 풀기" : "복습할 문제 없음"}
           </span>
         )}
         <Link
           href={`/${exam}/daily/wrong?subject=${encodeURIComponent(subjectId)}`}
-          className="flex items-center justify-center rounded-lg px-2 py-2 text-[#475569] hover:bg-white"
+          className="flex items-center justify-center rounded-lg px-2 py-2 text-smoke hover:bg-white"
         >
           특별한 오답노트
         </Link>
@@ -581,14 +659,14 @@ export function DailyPlay({
   );
 
   return (
-    <div className={`bg-[linear-gradient(180deg,#F5F9FF_0%,#FFFFFF_42%)] py-8 ${step === "result" ? "px-2 sm:px-4" : "px-4"}`}>
+    <div className={`daily-page-background py-8 ${step === "result" ? "px-2 sm:px-4" : "px-4"}`}>
       <div className={`mx-auto flex flex-col gap-4 ${step === "result" ? "max-w-[900px]" : "max-w-xl"}`}>
         <BackLink href={backHref}>
           {label} · {subjectLabel}
         </BackLink>
         <section className="rounded-[28px] border border-white/80 bg-white/75 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl md:p-7">
           {isArchive || mode === "review" || mode === "practice" ? (
-            <p className="mt-2 text-sm leading-6 text-[#475569] first:mt-0">
+            <p className="mt-2 text-sm leading-6 text-smoke first:mt-0">
               {isArchive
                 ? "해당 날짜에 출제된 문제입니다."
                 : mode === "review"
@@ -604,12 +682,12 @@ export function DailyPlay({
           ) : null}
           {mode === "ranked" ? (
             <div
-              className="mt-6 border-b border-[#e6eef8] pb-6 first:mt-0 last:border-b-0 last:pb-0"
+              className="mt-6 border-b border-[color:light-dark(#e6eef8,var(--color-mist))] pb-6 first:mt-0 last:border-b-0 last:pb-0"
               aria-label={`${isArchive ? formatKoreanDate(dateKey) : "오늘"} 순위`}
             >
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="text-xs font-semibold text-[#64748b]">
+                  <p className="text-xs font-semibold text-fog">
                     {isArchive
                       ? `${formatKoreanDate(dateKey)} 순위`
                       : "오늘 순위"}
@@ -622,28 +700,28 @@ export function DailyPlay({
                   type="button"
                   onClick={() => void toggleRanking()}
                   aria-expanded={showAllRanking}
-                  className="rounded-full border border-[#cfe0f5] bg-white px-3 py-2 text-xs font-semibold text-[#0066D6] hover:border-[#007AFF]"
+                  className="rounded-full border border-[color:light-dark(#cfe0f5,var(--color-mist))] bg-white px-3 py-2 text-xs font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))] hover:border-[#007AFF]"
                 >
                   {showAllRanking ? "순위 접기 ↑" : "전체 순위 보기 ↓"}
                 </button>
               </div>
               {rankingLoading ? (
-                <p className="mt-3 text-xs text-[#64748b]">최신 순위를 불러오는 중...</p>
+                <p className="mt-3 text-xs text-fog">최신 순위를 불러오는 중...</p>
               ) : null}
               {rankingError ? (
-                <p className="mt-3 text-xs text-[#B45309]">최신 순위를 불러오지 못했습니다. {isArchive ? "버튼을 다시 눌러주세요." : "잠시 후 자동으로 다시 확인합니다."}</p>
+                <p className="mt-3 text-xs text-[color:light-dark(#B45309,var(--color-amber))]">최신 순위를 불러오지 못했습니다. {isArchive ? "버튼을 다시 눌러주세요." : "잠시 후 자동으로 다시 확인합니다."}</p>
               ) : null}
               {visibleRanking.length > 0 ? (
-                <ol className="mt-4 divide-y divide-[#eef2f7]">
+                <ol className="mt-4 divide-y divide-[color:light-dark(#eef2f7,var(--color-mist))]">
                   {visibleRanking.map((row) => (
                     <li
                       key={`${row.rank}-${row.nickname}`}
-                      className={`flex items-center justify-between gap-3 py-2.5 text-sm first:pt-0 last:pb-0 ${row.mine ? "text-[#0066D6]" : "text-ink"}`}
+                      className={`flex items-center justify-between gap-3 py-2.5 text-sm first:pt-0 last:pb-0 ${row.mine ? "text-[color:light-dark(#0066D6,var(--color-carbon))]" : "text-ink"}`}
                     >
                       <span className="min-w-0 truncate font-semibold">
                         {row.rank}. {row.nickname}
                       </span>
-                      <span className="shrink-0 text-xs text-[#64748b]">
+                      <span className="shrink-0 text-xs text-fog">
                         {row.correct}/{row.total} ·{" "}
                         {row.elapsedMs != null
                           ? formatElapsed(row.elapsedMs)
@@ -653,21 +731,21 @@ export function DailyPlay({
                   ))}
                 </ol>
               ) : (
-                <p className="mt-4 rounded-2xl bg-[#f8fafc] px-4 py-5 text-center text-sm text-[#64748b]">
+                <p className="mt-4 rounded-2xl bg-[color:light-dark(#f8fafc,var(--color-snow))] px-4 py-5 text-center text-sm text-fog">
                   아직 오늘 기록이 없습니다.
                 </p>
               )}
             </div>
           ) : null}
           {challenge ? (
-            <div className="mt-4 rounded-2xl bg-[#E8F4FF] px-4 py-4 first:mt-0">
-              <p className="text-sm font-bold text-[#075AA8]">
+            <div className="mt-4 rounded-2xl bg-[color:light-dark(#E8F4FF,color-mix(in_srgb,var(--color-snow)_90%,#E8F4FF))] px-4 py-4 first:mt-0">
+              <p className="text-sm font-bold text-[color:light-dark(#075AA8,var(--color-carbon))]">
                 {`${challenge.nickname}님이 보낸 무료 기출 10문제`}
               </p>
-              <p className="mt-1 text-xs leading-5 text-[#3B6285]">
+              <p className="mt-1 text-xs leading-5 text-[color:light-dark(#3B6285,var(--color-carbon))]">
                 매일 새로운 기출 10문제를 무료로 풀고, 채점과 해설까지 확인해 보세요.
               </p>
-              <div className="mt-3 flex flex-wrap gap-1.5 text-[11px] font-bold text-[#075AA8]">
+              <div className="mt-3 flex flex-wrap gap-1.5 text-[11px] font-bold text-[color:light-dark(#075AA8,var(--color-carbon))]">
                 <span className="rounded-full bg-white/80 px-2.5 py-1">
                   {subjectLabel}
                 </span>
@@ -681,12 +759,12 @@ export function DailyPlay({
             </div>
           ) : null}
           {challenge ? (
-            <p className="mt-4 rounded-2xl border border-[#cfe3fb] bg-white/80 px-4 py-3 text-sm text-[#0B3A66]">
+            <p className="mt-4 rounded-2xl border border-[color:light-dark(#cfe3fb,var(--color-mist))] bg-white/80 px-4 py-3 text-sm text-[color:light-dark(#0B3A66,var(--color-carbon))]">
               초대한 친구 기록 {challenge.correct}/{challenge.total} · 도전하고
               순위에 이름을 올려보세요.
             </p>
           ) : invitedBy ? (
-            <p className="mt-4 rounded-2xl border border-[#cfe3fb] bg-white/80 px-4 py-3 text-sm text-[#0B3A66]">
+            <p className="mt-4 rounded-2xl border border-[color:light-dark(#cfe3fb,var(--color-mist))] bg-white/80 px-4 py-3 text-sm text-[color:light-dark(#0B3A66,var(--color-carbon))]">
               {invitedBy}님이 {subjectLabel} 오늘의 10문제에 초대했어요.
               함께 풀고 결과를 비교해 보세요.
             </p>
@@ -699,11 +777,11 @@ export function DailyPlay({
               onChange={(event) => setNickname(event.target.value)}
               placeholder="닉네임"
               aria-label="닉네임"
-              className="mt-5 w-full rounded-2xl border border-[#d7e3f4] bg-white px-4 py-3 text-sm outline-none placeholder:text-[#94a3b8] focus:border-[#007AFF]"
+              className="mt-5 w-full rounded-2xl border border-[color:light-dark(#d7e3f4,var(--color-mist))] bg-white px-4 py-3 text-sm outline-none placeholder:text-[color:light-dark(#94a3b8,var(--color-smoke))] focus:border-[#007AFF]"
             />
           ) : null}
           {error && step === "play" ? (
-            <p className="mt-3 text-sm text-[#475569]">{error}</p>
+            <p className="mt-3 text-sm text-smoke">{error}</p>
           ) : null}
         </section>
 
@@ -720,7 +798,7 @@ export function DailyPlay({
               />
             ) : null}
             <div className="flex items-center justify-between text-sm">
-              <span className="font-semibold text-[#0066D6]">
+              <span className="font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                 {isArchive
                   ? "출제 문항"
                   : `${answeredCount}/${questions.length} 답변`}
@@ -728,14 +806,14 @@ export function DailyPlay({
               {isArchive ? (
                 <Link
                   href={`/${exam}/daily?subject=${encodeURIComponent(subjectId)}`}
-                  className="text-[#475569]"
+                  className="text-smoke"
                 >
                   오늘 문제
                 </Link>
               ) : null}
             </div>
             {!isArchive ? (
-              <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[#e6eef8]">
+              <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[color:light-dark(#e6eef8,color-mix(in_srgb,var(--color-snow)_90%,#e6eef8))]">
                 <div
                   className="h-full rounded-full bg-[#007AFF]"
                   style={{
@@ -744,17 +822,35 @@ export function DailyPlay({
                 />
               </div>
             ) : null}
-            <div className="mt-6 space-y-8">
+            {keyboardEnabled ? (
+              <p className="exam-keyboard-hint mt-3 hidden flex-wrap items-center gap-x-3 gap-y-1.5 text-[13px] text-smoke md:flex [@media(pointer:coarse)]:hidden">
+                <span className="font-semibold text-ink" aria-live="polite">
+                  {activeQuestionIndex + 1}/{questions.length}번
+                </span>
+                <span className="inline-flex items-center gap-1.5"><kbd>1</kbd>~<kbd>{lastChoiceKey}</kbd> 선택</span>
+                <span className="inline-flex items-center gap-1.5"><kbd>←</kbd><kbd>→</kbd> 문항 이동</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <kbd>Enter</kbd> 다음 · {asksForNickname ? "마지막 닉네임 확인" : "마지막 제출"}
+                </span>
+              </p>
+            ) : null}
+            <div ref={questionsRef} className="mt-6 space-y-8">
               {questions.map((question, questionIndex) => (
                 <article
                   key={question.id}
-                  className="border-b border-[#e6eef8] pb-8 last:border-b-0 last:pb-0"
+                  data-daily-question={questionIndex}
+                  tabIndex={keyboardEnabled ? -1 : undefined}
+                  aria-label={`${questionIndex + 1}번 문항`}
+                  aria-current={keyboardEnabled && questionIndex === activeQuestionIndex ? "true" : undefined}
+                  onFocusCapture={keyboardEnabled ? () => setActiveQuestionIndex(questionIndex) : undefined}
+                  onPointerDownCapture={keyboardEnabled ? () => setActiveQuestionIndex(questionIndex) : undefined}
+                  className="group/daily-question scroll-mt-24 border-b border-[color:light-dark(#e6eef8,var(--color-mist))] pb-8 outline-none last:border-b-0 last:pb-0"
                 >
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="flex size-7 items-center justify-center rounded-full bg-[#E8F4FF] text-xs font-bold text-[#0066D6]">
+                    <span className="flex size-7 items-center justify-center rounded-full bg-[color:light-dark(#E8F4FF,color-mix(in_srgb,var(--color-snow)_90%,#E8F4FF))] text-xs font-bold text-[color:light-dark(#0066D6,var(--color-carbon))] group-aria-[current=true]/daily-question:ring-2 group-aria-[current=true]/daily-question:ring-carbon/55">
                       {questionIndex + 1}
                     </span>
-                    <p className="text-xs text-[#64748b]">
+                    <p className="text-xs text-fog">
                       {question.sourceLabel}
                     </p>
                     {question.nextDateKey ? (
@@ -763,7 +859,7 @@ export function DailyPlay({
                         onClick={() => setShowScheduleGuide(true)}
                         aria-label={`다음 출제 예정 ${formatKoreanDate(question.nextDateKey)}. 출제 방식 안내 보기`}
                         title={`다음 출제 예정 ${formatKoreanDate(question.nextDateKey)}`}
-                        className="ml-auto rounded-md border border-[#E4EAF1] bg-transparent px-1.5 py-0.5 text-[10px] font-medium leading-4 text-[#77869A] transition-colors hover:border-[#CFDAE6] hover:bg-[#F8FAFC] hover:text-[#52657A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BB9EA]"
+                        className="ml-auto rounded-md border border-[color:light-dark(#E4EAF1,var(--color-mist))] bg-transparent px-1.5 py-0.5 text-[10px] font-medium leading-4 text-[color:light-dark(#77869A,var(--color-smoke))] transition-colors hover:border-[color:light-dark(#CFDAE6,var(--color-mist))] hover:bg-[color:light-dark(#F8FAFC,var(--color-snow))] hover:text-[color:light-dark(#52657A,var(--color-smoke))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8BB9EA]"
                       >
                         다음 출제 {formatCompactNextDate(question.nextDateKey, todayDateKey)}
                       </button>
@@ -792,18 +888,19 @@ export function DailyPlay({
                               : (key) => choose(question.id, key)
                           }
                           disabled={busy}
+                          keyboardShortcuts={keyboardEnabled && activeQuestionIndex === questionIndex}
                         />
                       );
                     }
                     return (
                   <div className="mt-4 grid gap-2">
-                    {question.choices.map((choice) => {
+                    {question.choices.map((choice, choiceIndex) => {
                       const selected = picks[question.id]?.key === choice.key;
                       if (isArchive) {
                         return (
                           <div
                             key={choice.key}
-                            className="rounded-2xl border border-[#DDE9F6] bg-white px-3 py-2.5 text-left text-ink sm:px-4"
+                            className="rounded-2xl border border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white px-3 py-2.5 text-left text-ink sm:px-4"
                           >
                             <div className="flex gap-3">
                               <DailyChoiceBadge label={choice.label} />
@@ -824,7 +921,9 @@ export function DailyPlay({
                           onClick={() => choose(question.id, choice.key)}
                           disabled={busy}
                           aria-pressed={selected}
-                          className={`rounded-2xl border px-3 py-2.5 text-left text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007AFF] focus-visible:ring-offset-2 disabled:opacity-60 sm:px-4 ${selected ? "border-[#91C6FF] bg-[#F1F8FF]" : "border-[#DDE9F6] bg-white hover:border-[#A9D2FF] hover:bg-[#F8FBFF]"}`}
+                          data-daily-choice={choiceIndex + 1}
+                          aria-keyshortcuts={keyboardEnabled && activeQuestionIndex === questionIndex && choiceIndex < 9 ? String(choiceIndex + 1) : undefined}
+                          className={`rounded-2xl border px-3 py-2.5 text-left text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007AFF] focus-visible:ring-offset-2 disabled:opacity-60 sm:px-4 ${selected ? "border-[color:light-dark(#91C6FF,var(--color-mist))] bg-[color:light-dark(#F1F8FF,color-mix(in_srgb,var(--color-snow)_90%,#F1F8FF))]" : "border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white hover:border-[color:light-dark(#A9D2FF,var(--color-mist))] hover:bg-[color:light-dark(#F8FBFF,var(--color-snow))]"}`}
                         >
                           <div className="flex gap-3">
                             <DailyChoiceBadge
@@ -856,44 +955,52 @@ export function DailyPlay({
               </Link>
             ) : (
               <>
-                {/* 닉네임은 오늘 순위에만 쓰인다 — 틀린 문제 다시 풀기·추가 연습엔 묻지 않는다. */}
-                {!signedIn && mode === "ranked" ? (
-                  <div
-                    className={`mt-8 rounded-2xl border p-4 transition-all duration-300 ${isComplete ? "border-[#80BFFF] bg-[#F0F7FF] shadow-[0_8px_24px_rgba(0,122,255,0.10)] ring-4 ring-[#007AFF]/10" : "border-[#dbe7f5] bg-[#f8fafc]"}`}
-                    aria-live="polite"
+                <form onSubmit={(event) => {
+                  event.preventDefault();
+                  if (isComplete && !busy) void finish(picks);
+                }}>
+                  {/* 닉네임은 오늘 순위에만 쓰인다 — 틀린 문제 다시 풀기·추가 연습엔 묻지 않는다. */}
+                  {asksForNickname ? (
+                    <div
+                      className={`mt-8 rounded-2xl border p-4 transition-all duration-300 ${isComplete ? "border-[color:light-dark(#80BFFF,var(--color-mist))] bg-[color:light-dark(#F0F7FF,color-mix(in_srgb,var(--color-snow)_90%,#F0F7FF))] shadow-[0_8px_24px_rgba(0,122,255,0.10)] ring-4 ring-[#007AFF]/10" : "border-[color:light-dark(#dbe7f5,var(--color-mist))] bg-[color:light-dark(#f8fafc,var(--color-snow))]"}`}
+                      aria-live="polite"
+                    >
+                      <p className={`text-sm font-bold ${isComplete ? "text-[color:light-dark(#075AA8,var(--color-carbon))]" : "text-fog"}`}>
+                        {isComplete
+                          ? "답안을 제출하기 전에 닉네임을 확인해 주세요"
+                          : `${questions.length - answeredCount}문제를 더 풀면 닉네임을 입력할 수 있어요`}
+                      </p>
+                      <p id="daily-submit-nickname-hint" className="mt-1 text-xs leading-5 text-fog">
+                        닉네임은 오늘 순위에 표시됩니다. 입력하거나 빈칸으로 두고 Enter를 누르면 제출됩니다.
+                      </p>
+                      <input
+                        id="daily-nickname-submit"
+                        ref={nicknameInputRef}
+                        aria-describedby="daily-submit-nickname-hint"
+                        value={nickname}
+                        maxLength={16}
+                        onChange={(event) => setNickname(event.target.value)}
+                        disabled={!isComplete || busy}
+                        placeholder={isComplete ? "순위에 표시할 닉네임" : "10문제를 모두 선택하면 활성화됩니다"}
+                        aria-label="제출 전 닉네임"
+                        className="mt-3 w-full rounded-2xl border border-[color:light-dark(#cfe0f5,var(--color-mist))] bg-white px-4 py-3 text-sm outline-none placeholder:text-[color:light-dark(#94a3b8,var(--color-smoke))] focus:border-[#007AFF] focus:ring-4 focus:ring-[#007AFF]/10 disabled:cursor-not-allowed disabled:bg-[color:light-dark(#eef2f7,color-mix(in_srgb,var(--color-snow)_90%,#eef2f7))] disabled:text-[color:light-dark(#94a3b8,var(--color-smoke))]"
+                      />
+                    </div>
+                  ) : null}
+                  <button
+                    type="submit"
+                    ref={submitRef}
+                    aria-keyshortcuts={isComplete && activeQuestionIndex === questions.length - 1 ? "Enter" : undefined}
+                    disabled={!isComplete || busy}
+                    className={`${signedIn || mode !== "ranked" ? "mt-8" : "mt-4"} w-full rounded-2xl bg-[#007AFF] px-4 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-[#94a3b8]`}
                   >
-                    <p className={`text-sm font-bold ${isComplete ? "text-[#075AA8]" : "text-[#64748b]"}`}>
-                      {isComplete
-                        ? "답안을 제출하기 전에 닉네임을 확인해 주세요"
-                        : `${questions.length - answeredCount}문제를 더 풀면 닉네임을 입력할 수 있어요`}
-                    </p>
-                    <p className="mt-1 text-xs leading-5 text-[#64748b]">
-                      닉네임은 오늘 순위에 표시되며, 입력하지 않아도 제출할 수 있습니다.
-                    </p>
-                    <input
-                      id="daily-nickname-submit"
-                      value={nickname}
-                      maxLength={16}
-                      onChange={(event) => setNickname(event.target.value)}
-                      disabled={!isComplete || busy}
-                      placeholder={isComplete ? "순위에 표시할 닉네임" : "10문제를 모두 선택하면 활성화됩니다"}
-                      aria-label="제출 전 닉네임"
-                      className="mt-3 w-full rounded-2xl border border-[#cfe0f5] bg-white px-4 py-3 text-sm outline-none placeholder:text-[#94a3b8] focus:border-[#007AFF] focus:ring-4 focus:ring-[#007AFF]/10 disabled:cursor-not-allowed disabled:bg-[#eef2f7] disabled:text-[#94a3b8]"
-                    />
-                  </div>
-                ) : null}
-                <button
-                  type="button"
-                  onClick={() => void finish(picks)}
-                  disabled={!isComplete || busy}
-                  className={`${signedIn || mode !== "ranked" ? "mt-8" : "mt-4"} w-full rounded-2xl bg-[#007AFF] px-4 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-[#94a3b8]`}
-                >
-                  {busy
-                    ? "채점하는 중..."
-                    : isComplete
-                      ? "답안 제출하고 결과 보기"
-                      : `${questions.length - answeredCount}문제 더 답하기`}
-                </button>
+                    {busy
+                      ? "채점하는 중..."
+                      : isComplete
+                        ? "답안 제출하고 결과 보기"
+                        : `${questions.length - answeredCount}문제 더 답하기`}
+                  </button>
+                </form>
                 <div className="mt-4">
                   <DailyInviteCard
                     exam={exam}
@@ -907,7 +1014,7 @@ export function DailyPlay({
                   />
                 </div>
                 {!isComplete ? (
-                  <p className="mt-3 text-center text-xs text-[#64748b]">
+                  <p className="mt-3 text-center text-xs text-fog">
                     모든 문제를 답하면 결과를 볼 수 있습니다.
                   </p>
                 ) : null}
@@ -939,13 +1046,13 @@ export function DailyPlay({
               {!challenge ? rotationIntro : null}
             </DailyLearningReportCard>
             {challenge ? (
-              <p className="mt-3 text-sm text-[#334155]">
+              <p className="mt-3 text-sm text-[color:light-dark(#334155,var(--color-ink))]">
                 {challenge.nickname} {challenge.correct}/{challenge.total} · 나{" "}
                 {score.correct}/{score.total}
               </p>
             ) : null}
             {score.message ? (
-              <p className="mt-3 text-sm text-[#475569]">{score.message}</p>
+              <p className="mt-3 text-sm text-smoke">{score.message}</p>
             ) : null}
             {!score.saved ? (
               <form
@@ -959,7 +1066,7 @@ export function DailyPlay({
                   value={nickname}
                   maxLength={16}
                   onChange={(event) => setNickname(event.target.value)}
-                  className="min-w-0 flex-1 rounded-2xl border border-[#d7e3f4] bg-white px-4 py-3 text-sm outline-none placeholder:text-[#94a3b8]"
+                  className="min-w-0 flex-1 rounded-2xl border border-[color:light-dark(#d7e3f4,var(--color-mist))] bg-white px-4 py-3 text-sm outline-none placeholder:text-[color:light-dark(#94a3b8,var(--color-smoke))]"
                   placeholder="닉네임"
                   aria-label="닉네임"
                 />
@@ -973,14 +1080,14 @@ export function DailyPlay({
               </form>
             ) : null}
             {error ? (
-              <p className="mt-3 text-sm text-[#475569]">{error}</p>
+              <p className="mt-3 text-sm text-smoke">{error}</p>
             ) : null}
             {challenge && liveFriendBoard.length > 0 ? (
-              <section className="mt-5 rounded-3xl border border-[#F7D900] bg-[#FFFBE6] p-4">
-                <p className="text-xs font-bold text-[#6B5300]">
+              <section className="mt-5 rounded-3xl border border-[#F7D900] bg-[color:light-dark(#FFFBE6,color-mix(in_srgb,var(--color-snow)_90%,#FFFBE6))] p-4">
+                <p className="text-xs font-bold text-[color:light-dark(#6B5300,var(--color-amber))]">
                   친구와 함께한 오늘의 기록
                 </p>
-                <ol className="mt-3 divide-y divide-[#F5E9A8]">
+                <ol className="mt-3 divide-y divide-[color:light-dark(#F5E9A8,var(--color-mist))]">
                   {liveFriendBoard.slice(0, 10).map((row) => (
                     <li
                       key={`${row.rank}-${row.nickname}`}
@@ -989,13 +1096,13 @@ export function DailyPlay({
                       <span
                         className={
                           row.mine
-                            ? "font-bold text-[#0066D6]"
+                            ? "font-bold text-[color:light-dark(#0066D6,var(--color-carbon))]"
                             : "font-semibold text-ink"
                         }
                       >
                         {row.rank}. {row.nickname}
                       </span>
-                      <span className="text-xs text-[#64748b]">
+                      <span className="text-xs text-fog">
                         {row.correct}/{row.total} ·{" "}
                         {row.elapsedMs != null
                           ? formatElapsed(row.elapsedMs)
@@ -1008,7 +1115,7 @@ export function DailyPlay({
             ) : null}
             <div
               id="daily-review-questions"
-              className="mt-5 scroll-mt-20 rounded-2xl border border-[#cfe0f5] bg-[#f8fbff] p-3 sm:flex sm:items-center sm:justify-between sm:gap-4 sm:p-4"
+              className="mt-5 scroll-mt-20 rounded-2xl border border-[color:light-dark(#cfe0f5,var(--color-mist))] bg-[color:light-dark(#f8fbff,var(--color-snow))] p-3 sm:flex sm:items-center sm:justify-between sm:gap-4 sm:p-4"
             >
               <div>
                 <p className="text-sm font-semibold text-ink">
@@ -1016,7 +1123,7 @@ export function DailyPlay({
                     ? "정답과 해설을 보고 있어요"
                     : "먼저 문제를 다시 확인해 보세요"}
                 </p>
-                <p className="mt-1 text-xs leading-5 text-[#64748b]">
+                <p className="mt-1 text-xs leading-5 text-fog">
                   {showReviewAnswers
                     ? "버튼을 누르면 해설을 가리고 문제만 볼 수 있습니다."
                     : "내 선택과 정답은 해설을 열기 전까지 표시하지 않습니다."}
@@ -1084,11 +1191,11 @@ function Shell({
   children: ReactNode;
 }) {
   return (
-    <div className="bg-[linear-gradient(180deg,#F5F9FF_0%,#FFFFFF_42%)] px-4 py-8">
+    <div className="daily-page-background px-4 py-8">
       <div className="mx-auto max-w-xl">
         <BackLink href={home}>{label} 학습 홈</BackLink>
         <div className="mt-5 rounded-[28px] border border-white/80 bg-white/75 p-5 shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl md:p-7">
-          <p className="text-xs font-semibold text-[#64748b]">{label}</p>
+          <p className="text-xs font-semibold text-fog">{label}</p>
           {children}
         </div>
       </div>

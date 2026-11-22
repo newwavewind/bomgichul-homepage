@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
+  color-scheme: light;
+  --reading-font-scale: 1;
+  --color-action: #1d4ed8;
+  --color-strong-text: #000000;
+  --color-choice-selected: #eaf5ff;
+  --color-law-link: #1d4ed8;
   /* Blue + teal learning palette — avoid black UI accents */
   --color-ink: #243b53;
   --color-carbon: #1d4ed8;
@@ -33,18 +41,20 @@
   --font-handwritten: var(--font-caveat), cursive;
   --font-system: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
+  --text-reading-note: calc(13px * var(--reading-font-scale));
+  --text-reading-detail: calc(14px * var(--reading-font-scale));
   --text-eyebrow: 12px;
   --leading-eyebrow: 1.5;
   --tracking-eyebrow: 0.04em;
-  --text-body-sm: 15px;
+  --text-body-sm: calc(15px * var(--reading-font-scale));
   --leading-body-sm: 1.5;
   --tracking-body-sm: 0;
-  --text-body: 17px;
+  --text-body: calc(17px * var(--reading-font-scale));
   --leading-body: 1.5;
   --tracking-body: 0;
-  --text-body-lg: 20px;
+  --text-body-lg: calc(20px * var(--reading-font-scale));
   --leading-body-lg: 1.45;
-  --text-subheading: 24px;
+  --text-subheading: calc(24px * var(--reading-font-scale));
   --leading-subheading: 1.35;
   --tracking-subheading: 0;
   --text-heading-sm: 28px;
@@ -81,7 +91,17 @@
   --shadow-card: rgba(15, 23, 42, 0.06) 0px 2px 20px 0px;
 }
 
-@theme inline {
+@theme {
+  --background-color-white: var(--color-paper);
+  --background-color-carbon: var(--color-action);
+  --background-color-midnight: light-dark(#1e40af, #1a3c84);
+  --border-color-white: light-dark(white, var(--color-mist));
+  --text-color-paper: #ffffff;
+  --text-color-black: var(--color-strong-text);
+  --text-color-slate-800: light-dark(#1e293b, #dde7f5);
+  --text-color-slate-900: light-dark(#0f172a, #eef3fc);
+
+
   --color-ink: #243b53;
   --color-carbon: #1d4ed8;
   --color-midnight: #1e40af;
@@ -111,6 +131,54 @@
   --color-ios-blue: #007aff;
 }
 
+:root[data-font-size="85"] { --reading-font-scale: 0.85; }
+:root[data-font-size="115"] { --reading-font-scale: 1.15; }
+:root[data-font-size="130"] { --reading-font-scale: 1.3; }
+:root[data-font-size="145"] { --reading-font-scale: 1.45; }
+
+@media screen {
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-ink: #e5edf8;
+    --color-carbon: #91b8ff;
+    --color-midnight: #a6c5ff;
+    --color-action: #2455c5;
+    --color-smoke: #bacade;
+    --color-fog: #a2b4c9;
+    --color-ash: #788da6;
+    --color-mist: #34465f;
+    --color-paper: #111b2b;
+    --color-snow: #1c2a3d;
+    --color-surface: #1c2a3d;
+    --color-concrete: #788da6;
+    --color-strong-text: #f1f5fc;
+    --color-choice-selected: #1b3556;
+    --color-law-link: #9bbdff;
+    --color-electric-blue: #6ee1d0;
+    --color-iris: #b0aeff;
+    --color-magenta: #f6a2ca;
+    --color-leaf: #79d6a0;
+    --color-coral: #ff9a9a;
+    --color-amber: #ffc478;
+    --color-ice: #143532;
+    --color-lavender: #2d2849;
+    --color-blush: #392638;
+    --color-star: #6ee1d0;
+    --color-marker: #6ee1d0;
+    --color-burnt: #9ee8dc;
+    --color-sky: #bacade;
+    --color-cream: #182437;
+    --color-slate-50: #182437;
+    --color-slate-100: #1f2d42;
+    --color-slate-200: #34465f;
+    --color-slate-300: #4b617b;
+    --color-slate-400: #96a9c0;
+    --color-slate-500: #a7b8ce;
+    --color-slate-600: #bdcce0;
+    --color-slate-700: #cedbef;
+  }
+}
+
 html,
 body {
   background: var(--color-paper);
@@ -120,6 +188,18 @@ body {
   -webkit-font-smoothing: antialiased;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-size: calc(1rem * var(--reading-font-scale));
+}
+
+.appearance-controls {
+  --reading-font-scale: 1;
+}
+
+@media print {
+  :root[data-font-size] { --reading-font-scale: 1; }
 }
 
 button,
@@ -137,6 +217,10 @@ textarea,
   a:active {
     opacity: 0.88;
   }
+}
+
+.daily-page-background {
+  background: linear-gradient(180deg, light-dark(#f3f8ff, var(--color-cream)) 0%, var(--color-paper) 42%);
 }
 
 .font-display { font-family: var(--font-display); }
@@ -278,7 +362,7 @@ textarea,
 /* 고른 선지는 밝은 iOS 블루 배경과 고정 테두리로 표시한다. */
 .study-pick-tap-again {
   border-color: var(--color-ios-blue, #007aff);
-  background-color: #eaf5ff;
+  background-color: var(--color-choice-selected);
   box-shadow: inset 0 0 0 1px var(--color-ios-blue, #007aff);
   transition: background-color 160ms ease-out, border-color 160ms ease-out,
     box-shadow 160ms ease-out;
@@ -293,7 +377,7 @@ textarea,
 /* 해설 근거 링크 — 앱 lawCite 와 같이 본문과 획을 갈라 누를 수 있게 보인다 */
 .law-cite {
   font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
-  color: #1d4ed8;
+  color: var(--color-law-link);
   font-weight: 500;
   font-size: 1.02em;
   letter-spacing: -0.01em;

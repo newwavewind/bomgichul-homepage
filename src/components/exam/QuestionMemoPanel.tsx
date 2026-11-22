@@ -26,7 +26,7 @@ function LoginHint({ href, action }: { href: string; action: string }) {
   return (
     <p className="font-display text-[12px] text-fog">
       {action}{" "}
-      <Link href={href} className="font-medium text-[#6366f1] hover:underline">
+      <Link href={href} className="font-medium text-[color:light-dark(#6366f1,var(--color-carbon))] hover:underline dark:text-iris">
         로그인
       </Link>
     </p>
@@ -127,7 +127,7 @@ function MemoCard({
           }
           className={`inline-flex shrink-0 items-center gap-1 rounded-full border px-2.5 py-1 font-display text-[12px] font-medium transition-colors ${
             memo.liked_by_viewer
-              ? "border-[#6366f1] bg-[#6366f1]/10 text-[#6366f1]"
+              ? "border-[#6366f1] bg-[#6366f1]/10 text-[color:light-dark(#6366f1,var(--color-carbon))]"
               : "border-mist bg-paper text-smoke hover:border-carbon"
           } ${resolvedAnon ? "cursor-default opacity-80" : ""}`}
         >
@@ -206,6 +206,20 @@ function MemoCard({
   );
 }
 
+async function fetchQuestionMemos(subject: string, year: number, questionNo: number, signal?: AbortSignal) {
+  try {
+    const response = await fetch(
+      `/api/exam/my-memos?subject=${encodeURIComponent(subject)}&year=${year}&no=${questionNo}`,
+      { cache: "no-store", signal },
+    );
+    if (!response.ok) return null;
+    const { memos } = (await response.json()) as { memos: PublicQuestionMemo[] | null };
+    return memos;
+  } catch {
+    return null;
+  }
+}
+
 export function QuestionMemoPanel({
   subject,
   year,
@@ -253,25 +267,19 @@ export function QuestionMemoPanel({
    * 안 보이게 됐다 — 개인화 GET 으로 목록을 통째로 다시 받아 갈아끼운다.
    */
   const reload = useCallback(async () => {
-    try {
-      const res = await fetch(
-        `/api/exam/my-memos?subject=${encodeURIComponent(subject)}&year=${year}&no=${questionNo}`,
-        { cache: "no-store" },
-      );
-      if (!res.ok) return;
-      const data = (await res.json()) as { memos: PublicQuestionMemo[] | null };
-      if (data.memos) setMemos(data.memos);
-    } catch {
-      /* 실패하면 지금 목록이 그대로 남는다 — 다음 조작에서 다시 시도된다 */
-    }
+    const nextMemos = await fetchQuestionMemos(subject, year, questionNo);
+    if (nextMemos) setMemos(nextMemos);
   }, [subject, year, questionNo]);
 
-  // 정적 HTML 의 목록에는 「내가 좋아요한 것」이 없고(서버가 방문자를 모른다)
-  // ISR 스냅숏 이후 등록분도 빠져 있다 — 로그인 사용자는 개인화 목록으로
-  // 한 번 덧입힌다. 동적 페이지(userId 프롭이 온 경우)는 이미 개인화돼 있다.
+  // 정적 문항에 로그인 사용자의 최신 메모와 좋아요 상태를 덧입힌다.
   useEffect(() => {
-    if (selfResolve && viewer.userId) void reload();
-  }, [selfResolve, viewer.userId, reload]);
+    if (!selfResolve || !viewer.userId) return;
+    const controller = new AbortController();
+    void fetchQuestionMemos(subject, year, questionNo, controller.signal).then((nextMemos) => {
+      if (nextMemos && !controller.signal.aborted) setMemos(nextMemos);
+    });
+    return () => controller.abort();
+  }, [selfResolve, viewer.userId, subject, year, questionNo]);
 
   const handlePost = async () => {
     const trimmed = content.trim();
@@ -336,7 +344,7 @@ export function QuestionMemoPanel({
           <span>로그인하면 이 문제에 대해 자유롭게 글을 남길 수 있어요.</span>
           <Link
             href={loginHref}
-            className="font-medium text-[#6366f1] hover:underline"
+            className="font-medium text-[color:light-dark(#6366f1,var(--color-carbon))] hover:underline dark:text-iris"
           >
             무료로 로그인
           </Link>

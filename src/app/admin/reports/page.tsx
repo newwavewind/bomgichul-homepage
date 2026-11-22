@@ -58,7 +58,7 @@ export default async function AdminReportsPage({
                     <span className="min-w-0">{p.title}</span>
                     {p.commentCount > 0 ? (
                       <span
-                        className="inline-flex shrink-0 items-center rounded-md bg-[#E8F2FF] px-1.5 py-0.5 font-display text-[11px] font-semibold text-[#007AFF]"
+                        className="inline-flex shrink-0 items-center rounded-md bg-[color:light-dark(#E8F2FF,color-mix(in_srgb,var(--color-snow)_90%,#E8F2FF))] px-1.5 py-0.5 font-display text-[11px] font-semibold text-[color:light-dark(#007AFF,var(--color-carbon))]"
                         aria-label={`답변 ${p.commentCount}개`}
                         title={`답변 ${p.commentCount}개`}
                       >

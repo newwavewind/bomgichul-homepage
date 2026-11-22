@@ -27,6 +27,7 @@ export function DailyOxComboTable({
   selectedKey,
   onSelect,
   disabled = false,
+  keyboardShortcuts = false,
   correctKeys = [],
   pickedKey,
   showAnswers = false,
@@ -38,6 +39,7 @@ export function DailyOxComboTable({
   selectedKey?: string;
   onSelect?: (key: string) => void;
   disabled?: boolean;
+  keyboardShortcuts?: boolean;
   correctKeys?: string[];
   pickedKey?: string;
   showAnswers?: boolean;
@@ -46,9 +48,9 @@ export function DailyOxComboTable({
   const gridCols = `2.25rem repeat(${headers.length}, minmax(0, 1fr))`;
 
   return (
-    <div className="mt-4 overflow-hidden rounded-2xl border border-[#DDE9F6] bg-white">
+    <div className="mt-4 overflow-hidden rounded-2xl border border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white">
       <div
-        className="grid items-center gap-x-2 border-b border-[#E6EEF8] bg-[#F8FBFF] px-3 py-2.5 text-sm font-semibold text-[#64748b] sm:px-4"
+        className="grid items-center gap-x-2 border-b border-[color:light-dark(#E6EEF8,var(--color-mist))] bg-[color:light-dark(#F8FBFF,var(--color-snow))] px-3 py-2.5 text-sm font-semibold text-fog sm:px-4"
         style={{ gridTemplateColumns: gridCols }}
         aria-label="선택지 열 제목"
       >
@@ -59,7 +61,7 @@ export function DailyOxComboTable({
           </span>
         ))}
       </div>
-      <div className="divide-y divide-[#E6EEF8]">
+      <div className="divide-y divide-[color:light-dark(#E6EEF8,var(--color-mist))]">
         {choices.map((choice, index) => {
           const cells = rows[index] ?? [];
           const selected = selectedKey === choice.key;
@@ -67,13 +69,13 @@ export function DailyOxComboTable({
           const isPicked = pickedKey === choice.key;
           const rowClass = showAnswers
             ? isCorrect
-              ? "bg-[#F1F8FF]"
+              ? "bg-[color:light-dark(#F1F8FF,color-mix(in_srgb,var(--color-snow)_90%,#F1F8FF))]"
               : isPicked
-                ? "bg-[#FFF2F5]"
+                ? "bg-[color:light-dark(#FFF2F5,color-mix(in_srgb,var(--color-snow)_90%,#FFF2F5))]"
                 : "bg-white"
             : selected
-              ? "bg-[#F1F8FF]"
-              : "bg-white hover:bg-[#F8FBFF]";
+              ? "bg-[color:light-dark(#F1F8FF,color-mix(in_srgb,var(--color-snow)_90%,#F1F8FF))]"
+              : "bg-white hover:bg-[color:light-dark(#F8FBFF,var(--color-snow))]";
           const badgeTone = showAnswers
             ? isCorrect
               ? "selected"
@@ -108,6 +110,8 @@ export function DailyOxComboTable({
                   onClick={() => onSelect(choice.key)}
                   disabled={disabled}
                   aria-pressed={selected}
+                  data-daily-choice={index + 1}
+                  aria-keyshortcuts={keyboardShortcuts && index < 9 ? String(index + 1) : undefined}
                   className={`grid w-full items-center gap-x-2 px-3 py-3 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007AFF] focus-visible:ring-offset-2 disabled:opacity-60 sm:px-4 ${rowClass}`}
                   style={{ gridTemplateColumns: gridCols }}
                 >
@@ -128,7 +132,7 @@ export function DailyOxComboTable({
               </div>
               {showAnswers && (isPicked || isCorrect) ? (
                 <p
-                  className={`px-3 pb-2.5 pl-12 text-sm font-semibold sm:px-4 sm:pl-14 ${isCorrect ? "text-[#007AFF]" : "text-[#D7003A]"}`}
+                  className={`px-3 pb-2.5 pl-12 text-sm font-semibold sm:px-4 sm:pl-14 ${isCorrect ? "text-[color:light-dark(#007AFF,var(--color-carbon))]" : "text-[color:light-dark(#D7003A,var(--color-coral))]"}`}
                 >
                   {isPicked && isCorrect
                     ? "내 선택 · 정답"

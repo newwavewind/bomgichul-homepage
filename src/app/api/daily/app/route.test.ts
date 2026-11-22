@@ -59,7 +59,7 @@ describe("native app daily API", () => {
         expect(body.questions, `${exam.slug}/${subject.id}`).toHaveLength(10);
         expect(new Set(body.questions.map((q: { id: string }) => q.id)).size).toBe(10);
         for (const question of body.questions) {
-          expect(question.stem).toBeTruthy();
+          expect(question.stem, question.id).toBeTruthy();
           expect(question.choices.length).toBeGreaterThan(1);
           expect(question).not.toHaveProperty("correctKeys");
         }
@@ -68,6 +68,22 @@ describe("native app daily API", () => {
       }
     }, 120_000);
   }
+
+  it("returns the circled-reference Korean prompt in the daily question stem", async () => {
+    vi.setSystemTime(new Date("2026-11-22T10:00:00+09:00"));
+    try {
+      const response = await POST(request({ examSlug: "gugeo", subjectId: "gugeo", deviceId: "circled-prompt-test", arm: false }));
+      expect(response.status).toBe(200);
+      const body = await response.json();
+      expect(body.questions).toContainEqual(expect.objectContaining({
+        id: "gugeo:gugeo:2024:지방직:5",
+        stem: "㉠ ～ ㉣에 대한 이해로 적절하지 않은 것은?",
+        stemBoxLines: [],
+      }));
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 
   it.each([
     ["police", "broker-law", "police-science"],

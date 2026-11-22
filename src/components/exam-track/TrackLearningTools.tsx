@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { TrackPracticeQuestion } from "./TrackPracticeQuestion";
 import { TrackRandomPractice } from "./TrackRandomPractice";
 import type { TrackSubjectToc } from "@/lib/exam-track/toc";
@@ -77,29 +77,29 @@ export function TrackLearningTools({
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
   const [reviewMemos, setReviewMemos] = useState<ReviewMemo[]>([]);
   const [index, setIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [personalDataLoaded, setPersonalDataLoaded] = useState(false);
+  const canLoadPersonalData = Boolean(userId) && isSupabaseConfigured();
+  const loading = canLoadPersonalData && !personalDataLoaded;
   const prefix = `${scope}:${subjectId}:`;
   const loginHref = `/login?next=${encodeURIComponent(`${basePath}/exam/${subjectId}`)}`;
 
-  const refresh = useCallback(async () => {
-    if (pending) return;
-    if (!userId || !isSupabaseConfigured()) {
-      setLoading(false);
-      return;
-    }
+  useEffect(() => {
+    if (pending || !userId || !canLoadPersonalData) return;
+    let active = true;
     const supabase = createClient();
-    const [{ data: attemptRows }, { data: bookmarkRows }, { data: memoRows }] = await Promise.all([
+    void Promise.all([
       supabase.from("question_attempts").select("subject,year,question_no,result").eq("user_id", userId).like("subject", `${prefix}%`),
       supabase.from("question_bookmarks").select("subject,year,question_no").eq("user_id", userId).like("subject", `${prefix}%`),
       supabase.from("question_public_memos").select("subject,year,question_no,content").eq("user_id", userId).like("subject", `${prefix}%`),
-    ]);
-    setAttempts((attemptRows ?? []) as Attempt[]);
-    setBookmarks((bookmarkRows ?? []) as Bookmark[]);
-    setReviewMemos((memoRows ?? []) as ReviewMemo[]);
-    setLoading(false);
-  }, [pending, prefix, userId]);
-
-  useEffect(() => { void refresh(); }, [refresh]);
+    ]).then(([{ data: attemptRows }, { data: bookmarkRows }, { data: memoRows }]) => {
+      if (!active) return;
+      setAttempts((attemptRows ?? []) as Attempt[]);
+      setBookmarks((bookmarkRows ?? []) as Bookmark[]);
+      setReviewMemos((memoRows ?? []) as ReviewMemo[]);
+      setPersonalDataLoaded(true);
+    });
+    return () => { active = false; };
+  }, [canLoadPersonalData, pending, prefix, userId]);
 
   const attemptMap = useMemo(() => new Map(attempts.map((row) => [rowKey(row), row.result])), [attempts]);
   const bookmarkSet = useMemo(() => new Set(bookmarks.map(rowKey)), [bookmarks]);

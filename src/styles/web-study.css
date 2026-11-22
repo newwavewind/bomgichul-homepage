@@ -2,10 +2,10 @@
   max-width: 64rem;
   margin: 1.25rem auto;
   padding: 1.5rem;
-  border: 1px solid #d9e1ed;
+  border: 1px solid light-dark(#d9e1ed, var(--color-mist));
   border-radius: 20px;
-  background: #fff;
-  color: #24354a;
+  background: var(--color-paper);
+  color: light-dark(#24354a, var(--color-ink));
   line-height: 1.7;
 }
 .web-panel h2 {
@@ -14,7 +14,7 @@
   margin-bottom: 0.5rem;
 }
 .web-panel a {
-  color: #215bb0;
+  color: light-dark(#215bb0, var(--color-carbon));
   text-underline-offset: 3px;
 }
 .web-input,
@@ -23,12 +23,12 @@
 .web-summary textarea {
   display: block;
   width: 100%;
-  border: 1px solid #b8c5d8;
+  border: 1px solid light-dark(#b8c5d8, var(--color-mist));
   border-radius: 10px;
   padding: 0.65rem;
   margin: 0.35rem 0 0.75rem;
-  background: white;
-  color: #24354a;
+  background: var(--color-paper);
+  color: light-dark(#24354a, var(--color-ink));
   font-size: 16px;
 }
 .web-actions {
@@ -40,7 +40,7 @@
 .web-actions button,
 .web-actions a {
   padding: 0.55rem 0.8rem;
-  border: 1px solid #b8c5d8;
+  border: 1px solid light-dark(#b8c5d8, var(--color-mist));
   border-radius: 12px;
   font-size: 0.875rem;
   min-height: 44px;
@@ -84,9 +84,9 @@
   position: sticky;
   top: 65px;
   z-index: 20;
-  background: #ffffffed;
+  background: color-mix(in srgb, var(--color-paper) 93%, transparent);
   backdrop-filter: blur(12px);
-  border: 1px solid #d9e1ed;
+  border: 1px solid light-dark(#d9e1ed, var(--color-mist));
   border-radius: 12px;
   padding: 0.7rem;
   display: flex;
@@ -97,7 +97,7 @@
 }
 .web-concept-toc a {
   padding: 0.3rem;
-  color: #215bb0;
+  color: light-dark(#215bb0, var(--color-carbon));
 }
 .hp-cx [id^="cx-sec"] {
   scroll-margin-top: 145px;
@@ -108,7 +108,7 @@
 }
 
 .web-pdf-group {
-  border-bottom: 1px solid #e4ebf5;
+  border-bottom: 1px solid light-dark(#e4ebf5, var(--color-mist));
 }
 
 .web-pdf-group:last-child {
@@ -151,13 +151,13 @@
   font-size: 0.9375rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #1a2b45;
+  color: light-dark(#1a2b45, var(--color-ink));
 }
 
 .web-pdf-group__meta {
   font-size: 0.75rem;
   font-weight: 550;
-  color: #6b7d94;
+  color: light-dark(#6b7d94, var(--color-fog));
   font-variant-numeric: tabular-nums;
 }
 
@@ -175,9 +175,9 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.7rem 0.8rem;
-  border: 1px solid #e7eef7;
+  border: 1px solid light-dark(#e7eef7, var(--color-mist));
   border-radius: 12px;
-  background: #fbfcfe;
+  background: light-dark(#fbfcfe, var(--color-snow));
 }
 
 .web-pdf-row__body {
@@ -203,31 +203,31 @@
   font-weight: 650;
   letter-spacing: -0.02em;
   line-height: 1.3;
-  color: #1a2b45;
+  color: light-dark(#1a2b45, var(--color-ink));
 }
 
 .web-pdf-row__kind {
   flex: 0 0 auto;
   padding: 0.12rem 0.42rem;
   border-radius: 999px;
-  border: 1px solid #d7e2f0;
-  background: #fff;
+  border: 1px solid light-dark(#d7e2f0, var(--color-mist));
+  background: var(--color-paper);
   font-size: 0.625rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #557399;
+  color: light-dark(#557399, var(--color-carbon));
 }
 
 .web-pdf-row__kind--question {
-  border-color: #bfd4f5;
-  background: #eef5ff;
-  color: #1d5bbf;
+  border-color: light-dark(#bfd4f5, var(--color-mist));
+  background: light-dark(#eef5ff, var(--color-choice-selected));
+  color: light-dark(#1d5bbf, var(--color-carbon));
 }
 
 .web-pdf-row__kind--answer {
-  border-color: #c9e6d3;
-  background: #f0faf3;
-  color: #1f7a45;
+  border-color: light-dark(#c9e6d3, var(--color-mist));
+  background: light-dark(#f0faf3, var(--color-ice));
+  color: light-dark(#1f7a45, var(--color-leaf));
 }
 
 .web-pdf-row__filename {
@@ -248,21 +248,21 @@
   justify-content: center;
   min-width: 3.25rem;
   padding: 0.4rem 0.7rem;
-  border: 1.5px solid #1a2b45;
+  border: 1.5px solid light-dark(#1a2b45, var(--color-mist));
   border-radius: 999px;
-  background: #fff;
+  background: var(--color-paper);
   font-family: var(--font-display, inherit);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #1a2b45;
+  color: light-dark(#1a2b45, var(--color-ink));
   text-decoration: none;
 }
 
 .web-pdf-row__dl:hover {
-  background: #eef5ff;
+  background: light-dark(#eef5ff, var(--color-choice-selected));
   border-color: #007aff;
-  color: #0066d6;
+  color: light-dark(#0066d6, var(--color-carbon));
 }
 
 .web-pdf-group__more {
@@ -271,7 +271,7 @@
   font-family: var(--font-display, inherit);
   font-size: 0.8125rem;
   font-weight: 650;
-  color: #0066d6;
+  color: light-dark(#0066d6, var(--color-carbon));
   text-decoration: none;
 }
 
@@ -311,13 +311,23 @@
     max-height: calc(100dvh - 105px);
     overflow: auto;
     padding: 1rem;
-    border: 1px solid #d9e1ed;
+    border: 1px solid light-dark(#d9e1ed, var(--color-mist));
     border-radius: 16px;
   }
   .web-question-layout
     > :not(.web-question-choices):not(.exam-seo-explanations) {
     grid-column: 1/-1;
   }
+}
+.exam-keyboard-hint kbd {
+  min-width: 20px;
+  padding: 1px 5px;
+  border: 1px solid var(--color-mist);
+  border-radius: 5px;
+  background: var(--color-snow);
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
 }
 .web-question-nav-content {
   display: flex;
@@ -336,8 +346,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background: #eef3fa;
-  color: #557399;
+  background: light-dark(#eef3fa, var(--color-snow));
+  color: light-dark(#557399, var(--color-carbon));
 }
 .web-question-nav-copy {
   display: flex;
@@ -350,14 +360,14 @@
 }
 .web-question-nav-caption {
   display: none;
-  color: #6b7d94;
+  color: light-dark(#6b7d94, var(--color-fog));
   font-size: 10px;
   font-weight: 500;
   line-height: 14px;
   white-space: nowrap;
 }
 .web-question-nav-number {
-  color: #243b59;
+  color: light-dark(#243b59, var(--color-ink));
   font-size: 15px;
   font-weight: 650;
   line-height: 18px;
@@ -414,18 +424,18 @@
     height: 56px;
     padding: 0 12px;
     background: var(--color-paper, #fff);
-    border-color: #dce5f0;
-    box-shadow: 0 2px 8px #2038580d, inset 0 1px 0 #fff;
+    border-color: light-dark(#dce5f0, var(--color-mist));
+    box-shadow: 0 2px 8px #2038580d, inset 0 1px 0 light-dark(#fff, var(--color-mist));
     transition: background-color 150ms, border-color 150ms;
   }
   .web-question-nav > a:has(.web-question-nav-content--next) {
-    background: #f4f8ff;
-    border-color: #d5e2f5;
+    background: light-dark(#f4f8ff, var(--color-snow));
+    border-color: light-dark(#d5e2f5, var(--color-mist));
   }
   .web-question-nav > a:hover,
   .web-question-nav > a:active {
-    background: #eaf1fc;
-    border-color: #bccfe9;
+    background: light-dark(#eaf1fc, var(--color-choice-selected));
+    border-color: light-dark(#bccfe9, var(--color-ash));
   }
   .web-question-nav-caption {
     display: block;

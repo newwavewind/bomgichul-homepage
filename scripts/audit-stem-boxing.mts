@@ -22,6 +22,16 @@ const TRACK_ROOTS = [
 
 const BLANK_RE = /\(\s*\)|\([ㄱ-ㅎ]\)|\(　\)/;
 
+type RawQuestion = {
+  stem?: unknown;
+  question?: unknown;
+  subject?: { label?: string; id?: string } | string;
+  year?: number | string;
+  questionNo?: number | string;
+  question_no?: number | string;
+  no?: number | string;
+};
+
 type Q = {
   track: string;
   file: string;
@@ -49,14 +59,14 @@ function trackLabel(dir: string): string {
   return map[base] ?? base;
 }
 
-function pushQ(out: Q[], q: any, meta: Partial<Q>) {
+function pushQ(out: Q[], q: RawQuestion, meta: Partial<Q>) {
   if (!q || typeof q !== "object") return;
   const stem = q.stem ?? q.question;
   if (typeof stem !== "string" || !stem.trim()) return;
   out.push({
     track: meta.track!,
     file: meta.file!,
-    subject: String(q.subject?.label ?? q.subject ?? meta.subject ?? ""),
+    subject: String((typeof q.subject === "object" ? q.subject?.label ?? q.subject : q.subject) ?? meta.subject ?? ""),
     year: q.year ?? meta.year,
     questionNo: q.questionNo ?? q.question_no ?? q.no,
     stem,
@@ -87,10 +97,12 @@ function collectFromFile(file: string, track: string): Q[] {
     if (!v || typeof v !== "object") continue;
     if (Array.isArray(v)) {
       for (const q of v) pushQ(out, q, { ...base, year: Number(k) || k });
-    } else if (Array.isArray((v as any).exams)) {
-      for (const q of (v as any).exams) pushQ(out, q, { ...base, year: Number(k) || k });
-    } else if (Array.isArray((v as any).questions)) {
-      for (const q of (v as any).questions) pushQ(out, q, { ...base, year: Number(k) || k });
+    } else {
+      const nested = v as { exams?: RawQuestion[]; questions?: RawQuestion[] };
+      const questions = Array.isArray(nested.exams) ? nested.exams : nested.questions;
+      if (Array.isArray(questions)) {
+        for (const q of questions) pushQ(out, q, { ...base, year: Number(k) || k });
+      }
     }
   }
   return out;

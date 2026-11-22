@@ -94,8 +94,8 @@ export function DailyCalendar({
     <section
       className={
         embedded
-          ? "mb-5 border-b border-[#e6eef8] pb-5"
-          : "rounded-[24px] border border-[#dbe7f5] bg-white/90 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]"
+          ? "mb-5 border-b border-[color:light-dark(#e6eef8,var(--color-mist))] pb-5"
+          : "rounded-[24px] border border-[color:light-dark(#dbe7f5,var(--color-mist))] bg-white/90 p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)]"
       }
       aria-label="날짜별 매일 10문제"
     >
@@ -104,7 +104,7 @@ export function DailyCalendar({
           <Link
             href={hrefFor(exam, subjectId, previousDay)}
             aria-label={`이전 날짜 ${formatKoreanDate(previousDay)} 문제 보기`}
-            className="flex min-h-12 items-center justify-center rounded-[14px] border border-[#e1e7ef] bg-white/80 text-[#4d78a8] shadow-[0_3px_12px_rgba(15,23,42,0.06)] transition-colors hover:bg-white active:bg-[#f4f7fb]"
+            className="flex min-h-12 items-center justify-center rounded-[14px] border border-[color:light-dark(#e1e7ef,var(--color-mist))] bg-white/80 text-[color:light-dark(#4d78a8,var(--color-carbon))] shadow-[0_3px_12px_rgba(15,23,42,0.06)] transition-colors hover:bg-white active:bg-[color:light-dark(#f4f7fb,var(--color-snow))]"
           >
             <svg
               viewBox="0 0 24 24"
@@ -119,7 +119,7 @@ export function DailyCalendar({
             type="button"
             disabled
             aria-label="이전 날짜는 제공되지 않습니다"
-            className="flex min-h-12 items-center justify-center rounded-[14px] border border-[#e1e7ef] bg-white/50 text-[#b8c2cf]"
+            className="flex min-h-12 items-center justify-center rounded-[14px] border border-[color:light-dark(#e1e7ef,var(--color-mist))] bg-white/50 text-[color:light-dark(#b8c2cf,var(--color-smoke))]"
           >
             <svg
               viewBox="0 0 24 24"
@@ -136,7 +136,7 @@ export function DailyCalendar({
           onClick={() => setOpen((current) => !current)}
           aria-expanded={open}
           aria-controls="daily-calendar-panel"
-          className="flex min-w-0 items-center justify-between rounded-[14px] border border-[#e1e7ef] bg-white/80 px-3 py-2.5 text-left text-[#1d1d1f] shadow-[0_3px_12px_rgba(15,23,42,0.07)] backdrop-blur-xl transition-colors hover:bg-white active:bg-[#f4f7fb] sm:px-4"
+          className="flex min-w-0 items-center justify-between rounded-[14px] border border-[color:light-dark(#e1e7ef,var(--color-mist))] bg-white/80 px-3 py-2.5 text-left text-[color:light-dark(#1d1d1f,var(--color-ink))] shadow-[0_3px_12px_rgba(15,23,42,0.07)] backdrop-blur-xl transition-colors hover:bg-white active:bg-[color:light-dark(#f4f7fb,var(--color-snow))] sm:px-4"
         >
           <span className="flex min-w-0 items-center gap-1.5">
             <span className="truncate text-[15px] font-semibold tracking-[-0.01em]">
@@ -150,7 +150,7 @@ export function DailyCalendar({
               <path d="m5 7.5 5 5 5-5" />
             </svg>
           </span>
-          <span className="flex size-8 shrink-0 items-center justify-center rounded-[10px] bg-[#edf5ff] text-[#4d78a8]">
+          <span className="flex size-8 shrink-0 items-center justify-center rounded-[10px] bg-[color:light-dark(#edf5ff,color-mix(in_srgb,var(--color-snow)_90%,#edf5ff))] text-[color:light-dark(#4d78a8,var(--color-carbon))]">
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -166,7 +166,7 @@ export function DailyCalendar({
           <Link
             href={hrefFor(exam, subjectId, nextDay)}
             aria-label={`다음 날짜 ${formatKoreanDate(nextDay)} 문제 보기`}
-            className="flex min-h-12 items-center justify-center rounded-[14px] border border-[#e1e7ef] bg-white/80 text-[#4d78a8] shadow-[0_3px_12px_rgba(15,23,42,0.06)] transition-colors hover:bg-white active:bg-[#f4f7fb]"
+            className="flex min-h-12 items-center justify-center rounded-[14px] border border-[color:light-dark(#e1e7ef,var(--color-mist))] bg-white/80 text-[color:light-dark(#4d78a8,var(--color-carbon))] shadow-[0_3px_12px_rgba(15,23,42,0.06)] transition-colors hover:bg-white active:bg-[color:light-dark(#f4f7fb,var(--color-snow))]"
           >
             <svg
               viewBox="0 0 24 24"
@@ -181,7 +181,7 @@ export function DailyCalendar({
             type="button"
             disabled
             aria-label="다음 날짜는 아직 열리지 않았습니다"
-            className="flex min-h-12 items-center justify-center rounded-[14px] border border-[#e1e7ef] bg-white/50 text-[#b8c2cf]"
+            className="flex min-h-12 items-center justify-center rounded-[14px] border border-[color:light-dark(#e1e7ef,var(--color-mist))] bg-white/50 text-[color:light-dark(#b8c2cf,var(--color-smoke))]"
           >
             <svg
               viewBox="0 0 24 24"
@@ -199,21 +199,21 @@ export function DailyCalendar({
           <section
             id="daily-calendar-panel"
             aria-label="날짜별 기출 10문제 달력"
-            className="mt-3 w-full overflow-hidden rounded-[20px] border border-[#e1e7ef] bg-white shadow-[0_8px_24px_rgba(15,23,42,0.06)]"
+            className="mt-3 w-full overflow-hidden rounded-[20px] border border-[color:light-dark(#e1e7ef,var(--color-mist))] bg-white shadow-[0_8px_24px_rgba(15,23,42,0.06)]"
           >
-            <header className="grid grid-cols-[auto_1fr_auto] items-center gap-2 border-b border-[#e5e7eb] px-4 py-4 sm:px-6">
+            <header className="grid grid-cols-[auto_1fr_auto] items-center gap-2 border-b border-[color:light-dark(#e5e7eb,var(--color-mist))] px-4 py-4 sm:px-6">
               {dateKey === todayDateKey ? (
                 <button
                   type="button"
                   onClick={() => setVisibleMonth(monthStart(todayDateKey))}
-                  className="rounded-full border border-[#dbe2ea] px-3 py-1.5 text-sm font-semibold text-[#64748b]"
+                  className="rounded-full border border-[color:light-dark(#dbe2ea,var(--color-mist))] px-3 py-1.5 text-sm font-semibold text-fog"
                 >
                   오늘
                 </button>
               ) : (
                 <Link
                   href={hrefFor(exam, subjectId, todayDateKey)}
-                  className="rounded-full border border-[#dbe2ea] px-3 py-1.5 text-sm font-semibold text-[#64748b]"
+                  className="rounded-full border border-[color:light-dark(#dbe2ea,var(--color-mist))] px-3 py-1.5 text-sm font-semibold text-fog"
                 >
                   오늘
                 </Link>
@@ -224,19 +224,19 @@ export function DailyCalendar({
                   type="button"
                   onClick={() => setVisibleMonth(previousMonth)}
                   disabled={!canGoPrevious}
-                  className="flex size-9 shrink-0 items-center justify-center rounded-full text-3xl font-light text-[#334155] hover:bg-[#f1f5f9] disabled:cursor-not-allowed disabled:opacity-25"
+                  className="flex size-9 shrink-0 items-center justify-center rounded-full text-3xl font-light text-[color:light-dark(#334155,var(--color-ink))] hover:bg-snow disabled:cursor-not-allowed disabled:opacity-25"
                   aria-label="이전 달"
                 >
                   ‹
                 </button>
-                <h2 className="whitespace-nowrap text-lg font-bold tracking-[-0.02em] text-[#0f172a] sm:text-2xl">
+                <h2 className="whitespace-nowrap text-lg font-bold tracking-[-0.02em] text-[color:light-dark(#0f172a,var(--color-ink))] sm:text-2xl">
                   {Number(visibleMonth.slice(0, 4))}년 {displayedMonth}월
                 </h2>
                 <button
                   type="button"
                   onClick={() => setVisibleMonth(nextMonth)}
                   disabled={!canGoNext}
-                  className="flex size-9 shrink-0 items-center justify-center rounded-full text-3xl font-light text-[#334155] hover:bg-[#f1f5f9] disabled:cursor-not-allowed disabled:opacity-25"
+                  className="flex size-9 shrink-0 items-center justify-center rounded-full text-3xl font-light text-[color:light-dark(#334155,var(--color-ink))] hover:bg-snow disabled:cursor-not-allowed disabled:opacity-25"
                   aria-label="다음 달"
                 >
                   ›
@@ -247,7 +247,7 @@ export function DailyCalendar({
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="달력 닫기"
-                className="relative size-10 rounded-full hover:bg-[#f1f5f9]"
+                className="relative size-10 rounded-full hover:bg-snow"
               >
                 <span className="absolute left-2 top-1/2 h-px w-6 -translate-y-1/2 rotate-45 bg-[#0f172a]" />
                 <span className="absolute left-2 top-1/2 h-px w-6 -translate-y-1/2 -rotate-45 bg-[#0f172a]" />
@@ -264,15 +264,15 @@ export function DailyCalendar({
             />
 
             <footer className="space-y-4 px-5 py-5 sm:px-7">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-[#64748b]">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-fog">
                 <span className="mr-auto">
                   {Number(visibleMonth.slice(0, 4))}년 {displayedMonth}월 날짜 선택
                 </span>
-                <span className="text-[#007AFF]">★ 만점</span>
-                <span className="text-[#EA580C]">● 복습</span>
-                <span className="text-[#94a3b8]">● 미완료</span>
+                <span className="text-[color:light-dark(#007AFF,var(--color-carbon))]">★ 만점</span>
+                <span className="text-[color:light-dark(#EA580C,var(--color-coral))]">● 복습</span>
+                <span className="text-[color:light-dark(#94a3b8,var(--color-smoke))]">● 미완료</span>
               </div>
-              <p className="border-t border-[#eef2f7] pt-4 text-sm leading-6 text-[#64748b]">
+              <p className="border-t border-[color:light-dark(#eef2f7,var(--color-mist))] pt-4 text-sm leading-6 text-fog">
                 날짜를 누르면 그날의 기출 10문제와 학습 기록을 확인할 수 있습니다.
               </p>
             </footer>
@@ -300,7 +300,7 @@ function MonthGrid({
 }) {
   return (
     <div>
-      <div className="grid grid-cols-7 border-b border-[#e5e7eb] text-center text-sm font-semibold text-[#64748b]">
+      <div className="grid grid-cols-7 border-b border-[color:light-dark(#e5e7eb,var(--color-mist))] text-center text-sm font-semibold text-fog">
         {WEEKDAYS.map((weekday) => (
           <span key={weekday} className="py-3.5">
             {weekday}
@@ -322,7 +322,7 @@ function MonthGrid({
           ) : (
             <span
               key={`empty-${index}`}
-              className="h-16 border-b border-[#edf1f5]"
+              className="h-16 border-b border-[color:light-dark(#edf1f5,var(--color-mist))]"
             />
           ),
         )}
@@ -352,7 +352,7 @@ function DateCell({
   const label = Number(cell.slice(-2));
   if (unavailable) {
     return (
-      <span className="flex h-16 items-center justify-center border-b border-[#edf1f5] text-sm font-semibold text-[#c4c7cc]">
+      <span className="flex h-16 items-center justify-center border-b border-[color:light-dark(#edf1f5,var(--color-mist))] text-sm font-semibold text-[#c4c7cc]">
         {label}
       </span>
     );
@@ -362,16 +362,16 @@ function DateCell({
       href={hrefFor(exam, subjectId, cell)}
       aria-label={`${formatKoreanDate(cell)} 문제 보기${today ? ", 오늘" : ""}${status ? `, ${status.correct}점` : ""}`}
       aria-current={selected ? "date" : undefined}
-      className="group relative flex h-16 items-center justify-center border-b border-[#edf1f5] text-sm font-semibold text-[#0f172a]"
+      className="group relative flex h-16 items-center justify-center border-b border-[color:light-dark(#edf1f5,var(--color-mist))] text-sm font-semibold text-[color:light-dark(#0f172a,var(--color-ink))]"
     >
       <span
-        className={`flex size-10 items-center justify-center rounded-full transition-colors ${selected ? "bg-[#0B2C6B] text-white shadow-[0_4px_12px_rgba(11,44,107,0.24)]" : "group-hover:bg-[#eef5ff] group-hover:text-[#0066D6]"}`}
+        className={`flex size-10 items-center justify-center rounded-full transition-colors ${selected ? "bg-[#0B2C6B] text-white shadow-[0_4px_12px_rgba(11,44,107,0.24)]" : "group-hover:bg-[color:light-dark(#eef5ff,color-mix(in_srgb,var(--color-snow)_90%,#eef5ff))] group-hover:text-[color:light-dark(#0066D6,var(--color-carbon))]"}`}
       >
         {label}
       </span>
       {status ? (
         <span
-          className={`absolute bottom-1 text-[9px] font-bold ${selected ? "text-[#0B2C6B]" : status.needsReview ? "text-[#EA580C]" : "text-[#007AFF]"}`}
+          className={`absolute bottom-1 text-[9px] font-bold ${selected ? "text-[color:light-dark(#0B2C6B,var(--color-carbon))]" : status.needsReview ? "text-[color:light-dark(#EA580C,var(--color-coral))]" : "text-[color:light-dark(#007AFF,var(--color-carbon))]"}`}
         >
           {status.correct === status.total
             ? "★"
@@ -382,7 +382,7 @@ function DateCell({
       ) : today && !selected ? (
         <span className="absolute bottom-1 size-1.5 rounded-full bg-[#007AFF]" />
       ) : cell < todayDateKey ? (
-        <span className="absolute bottom-1 size-1.5 rounded-full bg-[#e2e8f0]" />
+        <span className="absolute bottom-1 size-1.5 rounded-full bg-[color:light-dark(#e2e8f0,color-mix(in_srgb,var(--color-snow)_90%,#e2e8f0))]" />
       ) : null}
     </Link>
   );

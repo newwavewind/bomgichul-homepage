@@ -60,8 +60,8 @@ function GooglePlayMark({ height = 40 }: { height?: number }) {
         />
       </svg>
       <span
-        className="font-sans font-medium leading-none text-[#5F6368]"
-        style={{ fontSize: textSize }}
+        className="font-sans font-medium leading-none text-[color:light-dark(#5F6368,var(--color-smoke))]"
+        style={{ fontSize: `calc(${textSize}px * var(--reading-font-scale, 1))` }}
       >
         Google Play
       </span>

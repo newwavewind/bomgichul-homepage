@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArchiveBoard } from "@/app/archive/page";
+import { ArchiveBoard } from "@/app/archive/archive-board";
 import { buildArchiveListMetadata } from "@/lib/exam-track/archive-seo";
 
 export async function generateMetadata({ searchParams }: { searchParams: SearchParams }): Promise<Metadata> {

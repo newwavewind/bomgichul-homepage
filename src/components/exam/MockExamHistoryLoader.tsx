@@ -21,14 +21,11 @@ export function MockExamHistoryLoader({
 }) {
   const me = useMe();
   const userId = me.user?.id ?? null;
-  const [sessions, setSessions] = useState<MockExamSession[]>([]);
+  const requestKey = `${userId ?? ""}:${subject}:${year}`;
+  const [history, setHistory] = useState<{ key: string; sessions: MockExamSession[] } | null>(null);
 
   useEffect(() => {
-    if (me.pending) return;
-    if (!userId) {
-      setSessions([]);
-      return;
-    }
+    if (me.pending || !userId) return;
     let alive = true;
     void fetch(
       `/api/mock-exam-sessions?subject=${encodeURIComponent(subject)}&year=${year}`,
@@ -37,7 +34,9 @@ export function MockExamHistoryLoader({
       .then(async (res) => {
         if (!res.ok) throw new Error(String(res.status));
         const data = (await res.json()) as { sessions?: MockExamSession[] };
-        if (alive) setSessions(Array.isArray(data.sessions) ? data.sessions : []);
+        if (alive) {
+          setHistory({ key: requestKey, sessions: Array.isArray(data.sessions) ? data.sessions : [] });
+        }
       })
       .catch(() => {
         /* 조회 실패는 기록 없음과 같은 겉모습 — 아무것도 그리지 않는다 */
@@ -45,7 +44,7 @@ export function MockExamHistoryLoader({
     return () => {
       alive = false;
     };
-  }, [subject, year, me.pending, userId]);
+  }, [requestKey, subject, year, me.pending, userId]);
 
-  return <MockExamHistory sessions={sessions} />;
+  return <MockExamHistory sessions={userId && history?.key === requestKey ? history.sessions : []} />;
 }

@@ -286,13 +286,13 @@ function MessageBubble({
         {message.payload &&
         typeof message.payload === "object" &&
         (message.payload as { forwarded?: boolean }).forwarded ? (
-          <p className="mx-2 mt-2 text-[10px] font-semibold text-[#0066D6]">↪ 전달된 메시지</p>
+          <p className="mx-2 mt-2 text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">↪ 전달된 메시지</p>
         ) : null}
         {message.payload &&
         typeof message.payload === "object" &&
         (message.payload as { quoted?: boolean }).quoted &&
         !(message.payload as { forwarded?: boolean }).forwarded ? (
-          <p className="mx-2 mt-2 text-[10px] font-semibold text-[#0066D6]">❝ 인용</p>
+          <p className="mx-2 mt-2 text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">❝ 인용</p>
         ) : null}
         {message.reply_to ? (
           <div
@@ -471,7 +471,7 @@ function MessageBubble({
               {tokenizeChatText(message.content).map((part, i) => {
                 if (part.type === "mention") {
                   return (
-                    <span key={i} className="font-semibold text-[#0066D6]">
+                    <span key={i} className="font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                       {part.value}
                     </span>
                   );
@@ -482,7 +482,7 @@ function MessageBubble({
                       key={i}
                       type="button"
                       onClick={() => onHashtag?.(part.value)}
-                      className="mx-0.5 font-semibold text-[#0066D6] underline-offset-2 hover:underline"
+                      className="mx-0.5 font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))] underline-offset-2 hover:underline"
                     >
                       {part.value}
                     </button>
@@ -524,7 +524,7 @@ function MessageBubble({
             <button
               type="button"
               onClick={onOpenThread}
-              className="mt-1 text-[10px] font-semibold text-[#0066D6]"
+              className="mt-1 text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
             >
               스레드 보기
             </button>
@@ -631,7 +631,7 @@ function MessageBubble({
                   setStickerOpen(true);
                   setActionsOpen(false);
                 }}
-                className="rounded-full px-2 py-1 text-[11px] font-semibold text-[#0066D6] hover:bg-[#007AFF]/10"
+                className="rounded-full px-2 py-1 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))] hover:bg-[#007AFF]/10"
               >
                 스티커
               </button>
@@ -723,34 +723,27 @@ export function ChatWidget({
   openNonce?: number;
 }) {
   const [open, setOpen] = useState(false);
-  const [view, setViewRaw] = useState<View>("friends");
+  const [{ current: view }, setNavigation] = useState<{ current: View; stack: View[] }>({
+    current: "friends",
+    stack: [],
+  });
   const [friendSearchOpen, setFriendSearchOpen] = useState(false);
-  const [viewStack, setViewStack] = useState<View[]>([]);
-  const viewRef = useRef<View>("list");
-  viewRef.current = view;
-  const isRootTab = (v: View) => v === "list" || v === "friends" || v === "topics" || v === "communities";
+  const isRootTab = (value: View) =>
+    value === "list" || value === "friends" || value === "topics" || value === "communities";
   const setView = (next: View) => {
-    const current = viewRef.current;
-    if (current === next) return;
-    if (isRootTab(current) && isRootTab(next)) {
-      setViewRaw(next);
-      return;
-    }
-    setViewStack((stack) => [...stack, current]);
-    setViewRaw(next);
+    setNavigation((previous) => {
+      if (previous.current === next) return previous;
+      const stack = isRootTab(previous.current) && isRootTab(next)
+        ? previous.stack
+        : [...previous.stack, previous.current];
+      return { current: next, stack };
+    });
   };
   const goBack = () => {
-    setViewStack((stack) => {
-      if (stack.length === 0) {
-        setViewRaw("list");
-        viewRef.current = "list";
-        return stack;
-      }
-      const prev = stack[stack.length - 1]!;
-      setViewRaw(prev);
-      viewRef.current = prev;
-      return stack.slice(0, -1);
-    });
+    setNavigation(({ stack }) => ({
+      current: stack.at(-1) ?? "list",
+      stack: stack.slice(0, -1),
+    }));
   };
   const [conversations, setConversations] = useState(initialConversations);
   const [onlineUsers, setOnlineUsers] = useState<OnlineUser[]>([]);
@@ -854,50 +847,53 @@ export function ChatWidget({
 
   useEffect(() => {
     if (!forceOpen && openNonce === 0) return;
-    setOpen(true);
-    const draft = peekChatShareDraft();
-    if (!draft) return;
-    if (draft.mode === "mock_result") {
+    const frame = window.requestAnimationFrame(() => {
+      setOpen(true);
+      const draft = peekChatShareDraft();
+      if (!draft) return;
+      if (draft.mode === "mock_result") {
+        try {
+          sessionStorage.setItem(
+            "bomgichul.pendingMockResult",
+            JSON.stringify(draft),
+          );
+        } catch {
+          /* ignore */
+        }
+        clearChatShareDraft();
+        setView("list");
+        notify("대화를 고른 뒤 모의고사 결과가 전송돼요.", "info");
+        return;
+      }
+      setShareMode(draft.mode);
+      setShareExamId(draft.examId);
+      setShareStem(draft.stem);
+      let meta = [draft.subject, draft.year, draft.questionNo]
+        .filter(Boolean)
+        .join("|");
       try {
-        sessionStorage.setItem(
-          "bomgichul.pendingMockResult",
-          JSON.stringify(draft),
-        );
+        const extra = sessionStorage.getItem("bomgichul.chatShareMeta");
+        if (extra) {
+          meta = extra;
+          sessionStorage.removeItem("bomgichul.chatShareMeta");
+        }
       } catch {
         /* ignore */
       }
-      clearChatShareDraft();
+      setShareMeta(meta);
+      try {
+        const mode = sessionStorage.getItem("bomgichul.chatShareMode");
+        if (mode === "mock") {
+          setShareMode("mock");
+          sessionStorage.removeItem("bomgichul.chatShareMode");
+        }
+      } catch {
+        /* ignore */
+      }
+      if (draft.myPick) setSharePick(draft.myPick);
       setView("list");
-      notify("대화를 고른 뒤 모의고사 결과가 전송돼요.", "info");
-      return;
-    }
-    setShareMode(draft.mode);
-    setShareExamId(draft.examId);
-    setShareStem(draft.stem);
-    let meta = [draft.subject, draft.year, draft.questionNo]
-      .filter(Boolean)
-      .join("|");
-    try {
-      const extra = sessionStorage.getItem("bomgichul.chatShareMeta");
-      if (extra) {
-        meta = extra;
-        sessionStorage.removeItem("bomgichul.chatShareMeta");
-      }
-    } catch {
-      /* ignore */
-    }
-    setShareMeta(meta);
-    try {
-      const mode = sessionStorage.getItem("bomgichul.chatShareMode");
-      if (mode === "mock") {
-        setShareMode("mock");
-        sessionStorage.removeItem("bomgichul.chatShareMode");
-      }
-    } catch {
-      /* ignore */
-    }
-    if (draft.myPick) setSharePick(draft.myPick);
-    setView("list");
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [forceOpen, openNonce]);
   const { rooms: topicRooms, loading: topicsLoading, join: joinTopic } = useTopicRooms(
     open && (view === "topics" || view === "communities"),
@@ -908,12 +904,13 @@ export function ChatWidget({
 
   useEffect(() => {
     const query = parseGichulInlineQuery(draft);
-    if (query === null) {
-      setGichulHits([]);
-      setGichulLoading(false);
-      return;
-    }
+    const controller = new AbortController();
     const timer = window.setTimeout(() => {
+      if (query === null) {
+        setGichulHits([]);
+        setGichulLoading(false);
+        return;
+      }
       void (async () => {
         setGichulLoading(true);
         try {
@@ -952,6 +949,7 @@ export function ChatWidget({
 
           const res = await fetch(
             `/api/chat/share-catalog?kind=questions&subject=${encodeURIComponent(subject)}&year=${year}`,
+            { signal: controller.signal },
           );
           const data = (await res.json()) as {
             questions?: Array<{
@@ -970,15 +968,18 @@ export function ChatWidget({
                 q.stem.toLowerCase().includes(rest),
             );
           }
-          setGichulHits(hits.slice(0, 12));
+          if (!controller.signal.aborted) setGichulHits(hits.slice(0, 12));
         } catch {
-          setGichulHits([]);
+          if (!controller.signal.aborted) setGichulHits([]);
         } finally {
-          setGichulLoading(false);
+          if (!controller.signal.aborted) setGichulLoading(false);
         }
       })();
-    }, 280);
-    return () => window.clearTimeout(timer);
+    }, query === null ? 0 : 280);
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
   }, [draft]);
 
   const unreadTotal = useMemo(
@@ -2766,11 +2767,12 @@ export function ChatWidget({
   };
 
   useEffect(() => {
-    if (open) {
+    if (!open) return;
+    const frame = window.requestAnimationFrame(() => {
       void refreshConversations();
       void refreshFriends();
-      /* scheduled publish: /api/cron/chat (service_role) */
-    }
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [open, refreshConversations, refreshFriends]);
 
   useEffect(() => {
@@ -2779,10 +2781,14 @@ export function ChatWidget({
     return () => window.clearInterval(id);
   }, [open]);
   useEffect(() => {
-    if (view === "friends") void loadMemberDirectory();
+    if (view !== "friends") return;
+    const frame = window.requestAnimationFrame(() => void loadMemberDirectory());
+    return () => window.cancelAnimationFrame(frame);
   }, [view]);
   useEffect(() => {
-    if (view === "bookmarks") void loadBookmarks();
+    if (view !== "bookmarks") return;
+    const frame = window.requestAnimationFrame(() => void loadBookmarks());
+    return () => window.cancelAnimationFrame(frame);
   }, [view, bookmarkFolderFilter]);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -2975,7 +2981,7 @@ export function ChatWidget({
           {view === "thread" && isDraggingFiles ? (
             <div className="pointer-events-none absolute inset-3 z-[80] flex items-center justify-center rounded-[24px] border-2 border-dashed border-[#007AFF]/50 bg-white/85 p-6 text-center shadow-2xl backdrop-blur-md">
               <div>
-                <span className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#007AFF]/10 text-2xl text-[#0066D6]">
+                <span className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#007AFF]/10 text-2xl text-[color:light-dark(#0066D6,var(--color-carbon))]">
                   ⇩
                 </span>
                 <p className="font-display text-base font-semibold text-ink">
@@ -3163,13 +3169,13 @@ export function ChatWidget({
                           <p className="chat-conversation-name truncate font-display font-semibold text-ink">
                             {conversation.title}
                             {conversation.kind === "topic" ? (
-                              <span className="ml-1 text-[10px] font-normal text-[#0066D6]">스터디</span>
+                              <span className="ml-1 text-[10px] font-normal text-[color:light-dark(#0066D6,var(--color-carbon))]">스터디</span>
                             ) : null}
                             {conversation.pinnedAt ? <span className="ml-1 text-[10px]" title="상단 고정">📌</span> : null}
                             {conversation.mutedUntil ? <span className="ml-1 text-[10px]" title="뮤트">🔕</span> : null}
                             {conversation.archivedAt ? <span className="ml-1 text-[10px]" title="보관">📦</span> : null}
                             {conversation.mentionUnread ? (
-                              <span className="ml-1 text-[10px] text-[#0066D6]">@</span>
+                              <span className="ml-1 text-[10px] text-[color:light-dark(#0066D6,var(--color-carbon))]">@</span>
                             ) : null}
                             {conversation.isGroup ? (
                               <span className="ml-1 text-[10px] font-normal text-fog">
@@ -3264,7 +3270,7 @@ export function ChatWidget({
                     </div>
                     <button
                       onClick={() => void respondFriend(friend.id, true)}
-                      className="text-[11px] font-semibold text-[#007AFF]"
+                      className="text-[11px] font-semibold text-[color:light-dark(#007AFF,var(--color-carbon))]"
                     >
                       수락
                     </button>
@@ -3296,9 +3302,9 @@ export function ChatWidget({
                     {profile.nickname}
                   </p>
                   {acceptedFriends.some((friend) => friendProfile(friend).id === profile.id) ? (
-                    <button onClick={() => void startDirectChat(profile)} className="text-[11px] font-semibold text-[#007AFF]">메시지</button>
+                    <button onClick={() => void startDirectChat(profile)} className="text-[11px] font-semibold text-[color:light-dark(#007AFF,var(--color-carbon))]">메시지</button>
                   ) : (
-                    <button onClick={() => void sendFriendRequest(profile)} className="text-[11px] font-semibold text-[#007AFF]">바로 추가</button>
+                    <button onClick={() => void sendFriendRequest(profile)} className="text-[11px] font-semibold text-[color:light-dark(#007AFF,var(--color-carbon))]">바로 추가</button>
                   )}
                 </div>
               ))}
@@ -3332,7 +3338,7 @@ export function ChatWidget({
                         <p className="min-w-0 flex-1 truncate text-[13px] font-semibold">
                           {online.nickname}
                         </p>
-                        <span className="text-[11px] font-semibold text-[#007AFF]">메시지</span>
+                        <span className="text-[11px] font-semibold text-[color:light-dark(#007AFF,var(--color-carbon))]">메시지</span>
                       </button>
                     ))
                   ) : (
@@ -3366,13 +3372,13 @@ export function ChatWidget({
                             {profile.nickname}
                           </p>
                           {online ? (
-                            <p className="text-[10px] font-semibold text-[#007AFF]">접속 중</p>
+                            <p className="text-[10px] font-semibold text-[color:light-dark(#007AFF,var(--color-carbon))]">접속 중</p>
                           ) : null}
                         </div>
                         <button
                           type="button"
                           onClick={() => void startDirectChat(profile)}
-                          className="rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-[#0066D6] hover:bg-[#007AFF]/10"
+                          className="rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))] hover:bg-[#007AFF]/10"
                         >
                           메시지
                         </button>
@@ -3407,7 +3413,7 @@ export function ChatWidget({
                           <button
                             type="button"
                             onClick={() => void startDirectChat(profile)}
-                            className="rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-[#0066D6] hover:bg-[#007AFF]/10"
+                            className="rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))] hover:bg-[#007AFF]/10"
                           >
                             메시지
                           </button>
@@ -3755,7 +3761,7 @@ export function ChatWidget({
                         <b className="block font-display text-[13px] text-ink">
                           {room.topic_label || room.title}
                           {room.posting_mode === "admin_only" ? (
-                            <span className="ml-1.5 rounded-full bg-[#007AFF]/10 px-1.5 py-0.5 text-[10px] font-semibold text-[#0066D6]">
+                            <span className="ml-1.5 rounded-full bg-[#007AFF]/10 px-1.5 py-0.5 text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                               채널
                             </span>
                           ) : null}
@@ -3841,19 +3847,19 @@ export function ChatWidget({
                                 <span className="text-[12px] font-semibold text-ink">
                                   {room.topic_label || room.title}
                                   {room.posting_mode === "admin_only" ? (
-                                    <span className="ml-1 text-[10px] text-[#0066D6]">
+                                    <span className="ml-1 text-[10px] text-[color:light-dark(#0066D6,var(--color-carbon))]">
                                       · 채널
                                     </span>
                                   ) : null}
                                 </span>
-                                <span className="text-[11px] text-[#0066D6]">
+                                <span className="text-[11px] text-[color:light-dark(#0066D6,var(--color-carbon))]">
                                   {room.joined ? "열기" : "입장"}
                                 </span>
                               </button>
                             ))}
                             <a
                               href={communityBaseHref(group.scope as CommunityScope)}
-                              className="block px-3 py-2 text-[11px] font-semibold text-[#0066D6]"
+                              className="block px-3 py-2 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
                             >
                               게시판 커뮤니티 →
                             </a>
@@ -3897,7 +3903,7 @@ export function ChatWidget({
                 <button
                   type="button"
                   onClick={() => setSheet({ type: "new-folder", name: "" })}
-                  className="rounded-full border border-dashed border-[#007AFF]/40 px-2.5 py-1 text-[11px] font-semibold text-[#0066D6]"
+                  className="rounded-full border border-dashed border-[#007AFF]/40 px-2.5 py-1 text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
                 >
                   + 폴더
                 </button>
@@ -4010,7 +4016,7 @@ export function ChatWidget({
             <>
               {view === "thread-detail" && threadRoot ? (
                 <div className="border-b border-[#007AFF]/20 bg-[#007AFF]/8 px-4 py-2">
-                  <p className="text-[12px] font-semibold text-[#0066D6]">
+                  <p className="text-[12px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                     스레드
                     {(replyCountById[threadRootId ?? ""] ?? 0) > 0
                       ? ` · 답글 ${replyCountById[threadRootId ?? ""]}개`
@@ -4121,7 +4127,7 @@ export function ChatWidget({
                   {(activeConversation?.study_dday || activeConversation?.study_goal) ? (
                     <div className={`flex flex-wrap items-center gap-2 ${pinnedList.length || activeConversation?.pinned_message_id ? "mt-1.5" : ""}`}>
                       {activeConversation?.study_dday ? (
-                        <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-semibold text-[#0066D6]">
+                        <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                           시험 D-day · {activeConversation.study_dday}
                         </span>
                       ) : null}
@@ -4326,7 +4332,7 @@ export function ChatWidget({
                     />
                     {shareStem ? (
                       <div className="mb-2 rounded-xl border border-[#007AFF]/20 bg-[#007AFF]/5 px-3 py-2">
-                        <p className="text-[11px] font-semibold text-[#0066D6]">
+                        <p className="text-[11px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                           선택됨 · {shareMeta || shareExamId}
                         </p>
                         <p className="mt-0.5 line-clamp-2 text-[12px] text-ink">{shareStem}</p>
@@ -4429,7 +4435,7 @@ export function ChatWidget({
                 {shareMode === "mock" && shareMeta.includes("|") ? (
                   <button
                     type="button"
-                    className="mb-2 w-full rounded-xl border border-[#007AFF]/25 bg-[#007AFF]/5 px-3 py-2 text-left text-[12px] font-semibold text-[#0066D6]"
+                    className="mb-2 w-full rounded-xl border border-[#007AFF]/25 bg-[#007AFF]/5 px-3 py-2 text-left text-[12px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
                     onClick={() => {
                       const [subject, year] = shareMeta.split("|").map((s) => s.trim());
                       const href =
@@ -4461,7 +4467,7 @@ export function ChatWidget({
                 ) : null}
                 {parseGichulInlineQuery(draft) !== null ? (
                   <div className="mb-2 max-h-40 overflow-y-auto rounded-xl border border-[#007AFF]/25 bg-white/95 shadow-sm">
-                    <p className="border-b border-mist/70 px-3 py-1.5 text-[10px] font-semibold text-[#0066D6]">
+                    <p className="border-b border-mist/70 px-3 py-1.5 text-[10px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                       @기출 · 과목·연도 예: @기출 민법 2024
                     </p>
                     {gichulLoading ? (
@@ -4510,7 +4516,7 @@ export function ChatWidget({
                   </div>
                 ) : null}
                 {channelPostBlocked ? (
-                  <div className="mb-2 rounded-xl border border-[#007AFF]/20 bg-[#007AFF]/5 px-3 py-2 text-[12px] font-semibold text-[#0066D6]">
+                  <div className="mb-2 rounded-xl border border-[#007AFF]/20 bg-[#007AFF]/5 px-3 py-2 text-[12px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                     채널은 운영자만 글을 올릴 수 있어요
                   </div>
                 ) : null}
@@ -4880,7 +4886,7 @@ export function ChatWidget({
               void loadBookmarkFolders();
               setSheet({ type: "new-folder", name: "" });
             }}
-            className="mt-3 text-[12px] font-semibold text-[#0066D6]"
+            className="mt-3 text-[12px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
           >
             + 새 폴더
           </button>

@@ -49,30 +49,26 @@ export function useSubjectExtras(
   subject: string,
 ): { pending: boolean } & SubjectExtras {
   const me = useMe();
-  const [state, setState] = useState<{ pending: boolean } & SubjectExtras>({
-    pending: true,
-    ...ZERO,
-  });
-
   const userId = me.user?.id ?? null;
+  const requestKey = `${userId ?? ""}:${subject}`;
+  const [state, setState] = useState<{ key: string; extras: SubjectExtras } | null>(null);
 
   useEffect(() => {
-    if (me.pending) return;
-    if (!userId) {
-      // 비로그인은 서버까지 갈 것 없이 0 — 지금과 같은 겉모습.
-      setState({ pending: false, ...ZERO });
-      return;
-    }
+    if (me.pending || !userId) return;
     let alive = true;
     void fetchSubjectExtras(subject).then((extras) => {
-      if (alive) setState({ pending: false, ...extras });
+      if (alive) setState({ key: requestKey, extras });
     });
     return () => {
       alive = false;
     };
-  }, [subject, me.pending, userId]);
+  }, [requestKey, subject, me.pending, userId]);
 
-  return state;
+  if (me.pending) return { pending: true, ...ZERO };
+  if (!userId) return { pending: false, ...ZERO };
+  return state?.key === requestKey
+    ? { pending: false, ...state.extras }
+    : { pending: true, ...ZERO };
 }
 
 /**

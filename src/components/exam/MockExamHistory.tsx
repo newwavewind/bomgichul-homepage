@@ -28,7 +28,7 @@ export function MockExamHistory({ sessions }: { sessions: MockExamSession[] }) {
       <p className="mt-1 font-display text-body-sm text-smoke">
         최근 {latest.correct}/{latest.total} ({latestRate}%) · {formatElapsed(latest.elapsed_seconds)}
         {delta != null && (
-          <span className={delta >= 0 ? " text-[#6366f1]" : " text-[#ef4444]"}>
+          <span className={delta >= 0 ? " text-[color:light-dark(#6366f1,var(--color-carbon))]" : " text-[color:light-dark(#ef4444,var(--color-coral))]"}>
             {" "}
             · 이전 대비 {delta >= 0 ? "+" : ""}
             {delta}문항

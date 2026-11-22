@@ -15,7 +15,7 @@ export function ExamReferenceList({
       <legend className="mx-auto px-3 text-center font-display text-body-sm font-medium text-smoke">
         {heading}
       </legend>
-      <dl className="space-y-2 pt-2 font-system text-[15px] leading-7 text-ink">
+      <dl className="space-y-2 pt-2 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">
         {entries.map((entry) => (
           <div key={entry.label} className="flex gap-2">
             <dt className="shrink-0 font-semibold">{entry.label}:</dt>

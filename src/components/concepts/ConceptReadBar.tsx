@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useConceptReadProgress } from "@/components/concepts/useConceptReadProgress";
 import { recordWebStudy, scopeForPath } from "@/lib/web-study";
 import { trackEvent } from "@/lib/analytics";
 import { PrimaryButton, OutlineButton } from "@/components/ui/Button";
@@ -9,9 +10,7 @@ import {
   formatConceptReads,
   getConceptReadCount,
   incrementConceptRead,
-  loadConceptReads,
   resetConceptRead,
-  type ConceptReadProgress,
 } from "@/lib/concept-reads";
 
 function ReadLoginModal({
@@ -92,17 +91,9 @@ export function ConceptReadBar({
   const isLoggedIn = propDriven ? Boolean(isLoggedInProp) : me.user != null;
   const pending = propDriven ? false : me.pending;
 
-  const [progress, setProgress] = useState<ConceptReadProgress>({});
+  const progress = useConceptReadProgress(isLoggedIn ? userId : null, subject);
   const [loginOpen, setLoginOpen] = useState(false);
   const loginHref = `/login?next=${encodeURIComponent(returnTo)}`;
-
-  useEffect(() => {
-    if (!isLoggedIn || !userId) {
-      setProgress({});
-      return;
-    }
-    setProgress(loadConceptReads(userId, subject));
-  }, [isLoggedIn, userId, subject, slug]);
 
   const reads = isLoggedIn ? getConceptReadCount(progress, slug) : 0;
   const studied = reads > 0;
@@ -121,8 +112,7 @@ export function ConceptReadBar({
       setLoginOpen(true);
       return;
     }
-    const { progress: next } = incrementConceptRead(uid, subject, slug);
-    setProgress(next);
+    incrementConceptRead(uid, subject, slug);
     recordWebStudy(uid, {
       id: `concept:${returnTo}`,
       href: returnTo,
@@ -139,7 +129,7 @@ export function ConceptReadBar({
       setLoginOpen(true);
       return;
     }
-    setProgress(resetConceptRead(uid, subject, slug));
+    resetConceptRead(uid, subject, slug);
   }, [resolveUserId, subject, slug]);
 
   return (

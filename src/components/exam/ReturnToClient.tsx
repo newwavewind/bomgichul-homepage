@@ -53,10 +53,12 @@ export function ExamBackLink(props: { listBase: string; listLabel: string }) {
 function ReturnAwareNavLinkInner({
   href,
   className,
+  keyShortcut,
   children,
 }: {
   href: string;
   className: string;
+  keyShortcut?: "ArrowLeft" | "ArrowRight";
   children: React.ReactNode;
 }) {
   const from = useSearchParams().get("from");
@@ -67,6 +69,7 @@ function ReturnAwareNavLinkInner({
       // 복귀 문맥이 붙은 주소는 같은 문항의 딴 이름일 뿐 — 크롤러가 따라가지 않게 한다.
       rel={returnTo ? "nofollow" : undefined}
       className={className}
+      aria-keyshortcuts={keyShortcut}
     >
       {children}
     </Link>
@@ -77,12 +80,13 @@ function ReturnAwareNavLinkInner({
 export function ReturnAwareNavLink(props: {
   href: string;
   className: string;
+  keyShortcut?: "ArrowLeft" | "ArrowRight";
   children: React.ReactNode;
 }) {
   return (
     <Suspense
       fallback={
-        <Link href={props.href} className={props.className}>
+        <Link href={props.href} className={props.className} aria-keyshortcuts={props.keyShortcut}>
           {props.children}
         </Link>
       }

@@ -1,7 +1,7 @@
 type DailyChoiceBadgeTone = "default" | "selected" | "incorrect";
 
 const toneClasses: Record<DailyChoiceBadgeTone, string> = {
-  default: "border-[#D6E7FA] bg-[#F7FBFF] text-[#007AFF]",
+  default: "border-[color:light-dark(#D6E7FA,var(--color-mist))] bg-[color:light-dark(#F7FBFF,var(--color-snow))] text-[color:light-dark(#007AFF,var(--color-carbon))]",
   selected: "border-[#007AFF] bg-[#007AFF] text-white",
   incorrect: "border-[#FF2D55] bg-[#FF2D55] text-white",
 };

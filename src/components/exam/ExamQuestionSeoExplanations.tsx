@@ -53,7 +53,7 @@ function hasRevisionMarker(text: string | null | undefined) {
 function RevisionBadge() {
   return (
     <span
-      className="inline-flex shrink-0 items-center rounded-full border border-[#007AFF]/55 bg-[#007AFF]/14 px-2.5 py-0.5 text-[0.6875rem] font-extrabold tracking-tight text-[#0066D6]"
+      className="inline-flex shrink-0 items-center rounded-full border border-[#007AFF]/55 bg-[#007AFF]/14 px-2.5 py-0.5 text-[0.6875rem] font-extrabold tracking-tight text-[color:light-dark(#0066D6,var(--color-carbon))] dark:text-carbon"
       title="법령 개정이 반영된 해설입니다"
     >
       개정반영

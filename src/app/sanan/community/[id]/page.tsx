@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import {
   CommunityPostDetailPage,
   generateMetadata as generateCommunityPostMetadata,
-} from "@/app/community/[id]/page";
+} from "@/app/community/[id]/community-post";
 
 type Props = { params: Promise<{ id: string }> };
 

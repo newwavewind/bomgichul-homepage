@@ -11,6 +11,15 @@ describe("parseQuestionStem", () => {
     expect(result).toEqual({ intro: "다음 중 옳은 것은?", boxLines: [] });
   });
 
+  it("keeps a Korean question that begins with a circled reference as the prompt", () => {
+    const intro = "㉠ ～ ㉣에 대한 이해로 적절하지 않은 것은?";
+    expect(parseQuestionStem(intro)).toEqual({ intro, boxLines: [] });
+    expect(parseQuestionStem(`${intro}\n㉠ 첫 번째 보기\n㉡ 두 번째 보기`)).toEqual({
+      intro,
+      boxLines: ["㉠ 첫 번째 보기", "㉡ 두 번째 보기"],
+    });
+  });
+
   it("splits an inline ○ bullet box out of a single-line stem", () => {
     const result = parseQuestionStem(
       "다음 중 옳은 것은? ○ 첫 번째 조건입니다 ○ 두 번째 조건입니다"

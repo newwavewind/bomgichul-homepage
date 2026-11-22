@@ -6,7 +6,7 @@ const PROVIDER_STYLE: Record<
 > = {
   google: {
     label: "Google 가입",
-    className: "border-[#c9dafb] bg-[#eef4ff] text-[#2457a7]",
+    className: "border-[color:light-dark(#c9dafb,var(--color-mist))] bg-[color:light-dark(#eef4ff,color-mix(in_srgb,var(--color-snow)_90%,#eef4ff))] text-[color:light-dark(#2457a7,var(--color-carbon))]",
   },
   kakao: {
     label: "카카오 가입",
@@ -14,15 +14,15 @@ const PROVIDER_STYLE: Record<
   },
   app: {
     label: "기존 앱 계정",
-    className: "border-[#cbd5e1] bg-[#f8fafc] text-[#111827]",
+    className: "border-[color:light-dark(#cbd5e1,var(--color-mist))] bg-[color:light-dark(#f8fafc,var(--color-snow))] text-[color:light-dark(#111827,var(--color-ink))]",
   },
   email: {
     label: "이메일 가입",
-    className: "border-[#cbd5e1] bg-white text-[#475569]",
+    className: "border-[color:light-dark(#cbd5e1,var(--color-mist))] bg-white text-smoke",
   },
   other: {
     label: "기타 가입",
-    className: "border-[#dbe2ea] bg-[#f8fafc] text-[#64748b]",
+    className: "border-[color:light-dark(#dbe2ea,var(--color-mist))] bg-[color:light-dark(#f8fafc,var(--color-snow))] text-fog",
   },
 };
 

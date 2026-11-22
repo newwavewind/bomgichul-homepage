@@ -29,14 +29,14 @@ function ConceptBlock({ block }: { block: HistoryConceptBlock }) {
   switch (block.유형) {
     case "p":
       return (
-        <p className="font-system text-[15px] leading-[1.75] text-smoke">
+        <p className="font-system text-[length:var(--text-body-sm)] leading-[1.75] text-smoke">
           {withEmphasis(block.글)}
         </p>
       );
 
     case "callout":
       return (
-        <p className="flex gap-2.5 rounded-2xl border border-amber/35 bg-amber/[0.07] px-4 py-3.5 font-system text-[15px] leading-[1.7] text-ink">
+        <p className="flex gap-2.5 rounded-2xl border border-amber/35 bg-amber/[0.07] px-4 py-3.5 font-system text-[length:var(--text-body-sm)] leading-[1.7] text-ink">
           <span aria-hidden className="shrink-0 text-amber">
             ★
           </span>
@@ -57,7 +57,7 @@ function ConceptBlock({ block }: { block: HistoryConceptBlock }) {
                 {card.행.map((row, ri) => (
                   <div key={ri}>
                     <dt className="font-display text-[11px] font-medium text-fog">{row.라벨}</dt>
-                    <dd className="mt-0.5 font-system text-[14px] leading-[1.6] text-smoke">
+                    <dd className="mt-0.5 font-system text-[length:var(--text-reading-detail)] leading-[1.6] text-smoke">
                       {withEmphasis(row.값)}
                     </dd>
                   </div>
@@ -78,7 +78,7 @@ function ConceptBlock({ block }: { block: HistoryConceptBlock }) {
                 className="absolute left-[-5px] top-[1.15rem] size-2.5 rounded-full border-[1.5px] border-paper bg-ios-blue"
               />
               <span className="font-display text-[13px] font-semibold text-ios-blue">{ev.때}</span>
-              <span className="font-system text-[15px] leading-[1.65] text-smoke">
+              <span className="font-system text-[length:var(--text-body-sm)] leading-[1.65] text-smoke">
                 {withEmphasis(ev.일)}
               </span>
             </li>
@@ -96,7 +96,7 @@ function ConceptBlock({ block }: { block: HistoryConceptBlock }) {
                 {group.항목.map((point, pi) => (
                   <li
                     key={pi}
-                    className="flex gap-2 font-system text-[14px] leading-[1.6] text-smoke"
+                    className="flex gap-2 font-system text-[length:var(--text-reading-detail)] leading-[1.6] text-smoke"
                   >
                     <span aria-hidden className="mt-[0.45rem] size-1 shrink-0 rounded-full bg-fog" />
                     <span>{withEmphasis(point)}</span>
@@ -125,7 +125,7 @@ export function HistoryConceptNote({ concept }: { concept?: Note | null }) {
         <span className="rounded-full border border-carbon/30 bg-paper px-2.5 py-1 font-display text-[11px] font-semibold text-ink">
           핵심 개념
         </span>
-        <h3 className="font-display text-[17px] font-semibold tracking-tight text-ink">
+        <h3 className="font-display text-[length:var(--text-body)] font-semibold tracking-tight text-ink">
           {concept.제목}
         </h3>
       </header>

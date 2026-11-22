@@ -387,7 +387,7 @@ export async function TrackExamSubjectPage({
             // 트랙을 먼저 세우고 기출을 뒤에 싣는 시험(경비지도사)에서 빈 화면 대신 알린다.
             <p className="max-w-2xl rounded-[var(--radius-cards)] border border-mist bg-paper px-5 py-4 font-display text-body-sm text-smoke">
               {data.subject.label} 연도별 문항은{" "}
-              <Link href={track.basePath} className="font-semibold text-[#0066d6] underline-offset-2 hover:underline">
+              <Link href={track.basePath} className="font-semibold text-[color:light-dark(#0066d6,var(--color-carbon))] underline-offset-2 hover:underline">
                 {track.shortLabel} 학습 홈
               </Link>
               의 다른 과목에서 해설과 함께 풀 수 있습니다.
@@ -755,7 +755,7 @@ export async function TrackExamDetailPage({
                 {track.id === "english" && exam.translation ? (
                   <section className="mb-6 rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3">
                     <h3 className="font-display text-body-sm font-semibold text-ink">지문 해석</h3>
-                    <p className="mt-2 whitespace-pre-line font-system text-[15px] leading-[1.8] text-smoke">
+                    <p className="mt-2 whitespace-pre-line font-system text-[length:var(--text-body-sm)] leading-[1.8] text-smoke">
                       {exam.translation}
                     </p>
                   </section>
@@ -775,6 +775,7 @@ export async function TrackExamDetailPage({
           {previous ? (
             <Link
               href={`${listBase}/${previous.questionNo}`}
+              aria-keyshortcuts={isSubjective ? undefined : "ArrowLeft"}
               className="rounded-2xl border border-mist px-4 py-3 font-display text-body-sm hover:border-carbon"
             >
               <QuestionNavLabel direction="previous" questionNo={previous.questionNo} />
@@ -786,6 +787,7 @@ export async function TrackExamDetailPage({
           {next ? (
             <Link
               href={`${listBase}/${next.questionNo}`}
+              aria-keyshortcuts={isSubjective ? undefined : "ArrowRight"}
               className="rounded-2xl border border-mist px-4 py-3 text-right font-display text-body-sm hover:border-carbon"
             >
               <QuestionNavLabel direction="next" questionNo={next.questionNo} />

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import {
   PAST_EXAM_SCOPE_OPTIONS,
   PAST_EXAM_YEAR_OPTIONS,
@@ -9,13 +9,13 @@ import {
   type PastExamPdfGroup,
 } from "@/lib/past-exam-search-shared";
 
-type Status = "idle" | "loading" | "ready" | "error";
+type SearchResult = { key: string; items: PastExamPdfGroup[]; status: "ready" | "error" };
 
 function chipClass(active: boolean) {
   return `rounded-xl px-3 py-1.5 font-display text-[12px] font-semibold transition-colors ${
     active
       ? "bg-[#007AFF] text-white"
-      : "border border-slate-200/90 bg-white text-slate-600 hover:border-[#007AFF]/35 hover:text-[#0066D6]"
+      : "border border-slate-200/90 bg-white text-slate-600 hover:border-[#007AFF]/35 hover:text-[color:light-dark(#0066D6,var(--color-carbon))] dark:hover:text-carbon"
   }`;
 }
 
@@ -66,9 +66,7 @@ export function PastExamPdfSearch() {
   const [scope, setScope] = useState<(typeof PAST_EXAM_SCOPE_OPTIONS)[number]["value"]>("all");
   const [year, setYear] = useState<number | null>(null);
   const [round, setRound] = useState<number | null>(null);
-  const [items, setItems] = useState<PastExamPdfGroup[]>([]);
-  const [status, setStatus] = useState<Status>("idle");
-  const abortRef = useRef<AbortController | null>(null);
+  const [result, setResult] = useState<SearchResult | null>(null);
   const isHistory = scope === "history";
 
   useEffect(() => {
@@ -85,46 +83,34 @@ export function PastExamPdfSearch() {
     }
   };
 
-  const load = useCallback(
-    async (
-      q: string,
-      nextScope: typeof scope,
-      nextYear: number | null,
-      nextRound: number | null,
-    ) => {
-      abortRef.current?.abort();
-      const controller = new AbortController();
-      abortRef.current = controller;
-      setStatus("loading");
-      try {
-        const params = new URLSearchParams();
-        if (q) params.set("q", q);
-        if (nextScope !== "all") params.set("scope", nextScope);
-        if (nextScope === "history") {
-          if (nextRound) params.set("round", String(nextRound));
-        } else if (nextYear) {
-          params.set("year", String(nextYear));
-        }
-        const res = await fetch(`/api/past-exam-pdfs?${params}`, {
-          signal: controller.signal,
-        });
-        if (!res.ok) throw new Error(String(res.status));
-        const body = (await res.json()) as { items: PastExamPdfGroup[] };
-        setItems(body.items ?? []);
-        setStatus("ready");
-      } catch (err) {
-        if ((err as Error).name === "AbortError") return;
-        setItems([]);
-        setStatus("error");
-      }
-    },
-    [],
-  );
+  const params = new URLSearchParams();
+  if (debouncedQ) params.set("q", debouncedQ);
+  if (scope !== "all") params.set("scope", scope);
+  if (isHistory && round) params.set("round", String(round));
+  if (!isHistory && year) params.set("year", String(year));
+  const searchKey = params.toString();
 
   useEffect(() => {
-    void load(debouncedQ, scope, year, round);
-  }, [debouncedQ, scope, year, round, load]);
+    const controller = new AbortController();
+    void fetch(`/api/past-exam-pdfs?${searchKey}`, { signal: controller.signal })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(String(response.status));
+        const body = (await response.json()) as { items: PastExamPdfGroup[] };
+        if (!controller.signal.aborted) {
+          setResult({ key: searchKey, items: body.items ?? [], status: "ready" });
+        }
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) {
+          setResult({ key: searchKey, items: [], status: "error" });
+        }
+      });
+    return () => controller.abort();
+  }, [searchKey]);
 
+  const currentResult = result?.key === searchKey ? result : null;
+  const items = currentResult?.items ?? [];
+  const status = currentResult?.status ?? "loading";
   const groups = new Map<string, PastExamPdfGroup[]>();
   for (const item of items) { const key = `${item.scope}:${item.round ?? item.year ?? item.key}`; groups.set(key, [...(groups.get(key) ?? []), item]); }
   const emptyHint =
@@ -139,11 +125,11 @@ export function PastExamPdfSearch() {
   return (
     <section
       id="past-exam-pdfs"
-      className="mx-auto mb-10 max-w-5xl scroll-mt-24 rounded-[28px] border-[1.5px] border-carbon/15 bg-gradient-to-br from-[#f7fbff] to-[#eef5ff]/70 p-5 shadow-[var(--shadow-card)] md:p-8"
+      className="mx-auto mb-10 max-w-5xl scroll-mt-24 rounded-[28px] border-[1.5px] border-carbon/15 bg-gradient-to-br from-[color:light-dark(#f7fbff,var(--color-paper))] to-[color:light-dark(#eef5ff,color-mix(in_srgb,var(--color-paper)_90%,#eef5ff))]/70 p-5 dark:from-surface dark:to-paper shadow-[var(--shadow-card)] md:p-8"
       aria-label="기출 문제·정답 PDF"
     >
       <div className="max-w-2xl">
-        <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#0A84FF]">
+        <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-[color:light-dark(#0A84FF,var(--color-carbon))] dark:text-carbon">
           기출 원본 PDF
         </p>
         <h2 className="mt-1 font-display text-[24px] font-semibold tracking-tight text-ink md:text-[28px]">

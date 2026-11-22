@@ -321,7 +321,7 @@ export function MockExamRunner({
             url.searchParams.set("chat", "1");
             window.history.replaceState({}, "", `${url.pathname}${url.search}`);
           }}
-          className="rounded-full border border-[#007AFF]/30 bg-[#007AFF]/10 px-3 py-1.5 font-display text-[12px] font-semibold text-[#0066D6]"
+          className="rounded-full border border-[#007AFF]/30 bg-[#007AFF]/10 px-3 py-1.5 font-display text-[12px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
         >
           채팅으로 같이 풀기 초대
         </button>
@@ -330,7 +330,7 @@ export function MockExamRunner({
         <div className="mb-8 rounded-[var(--radius-largecards)] border border-carbon bg-paper p-6 text-center shadow-[var(--shadow-card)]">
           <p className="font-display text-body-sm text-smoke">{year}년 시험 모드 결과</p>
           <p className="mt-2 font-display text-heading-sm font-bold text-ink">
-            {total}문제 중 <span className="text-[#6366f1]">{correctCount}개</span> 정답
+            {total}문제 중 <span className="text-[color:light-dark(#6366f1,var(--color-carbon))]">{correctCount}개</span> 정답
           </p>
           <p className="mt-1 font-display text-body-sm text-smoke">
             소요 시간 {formatElapsed(elapsed)}
@@ -359,7 +359,7 @@ export function MockExamRunner({
                 url.searchParams.set("chat", "1");
                 window.history.replaceState({}, "", `${url.pathname}${url.search}`);
               }}
-              className="rounded-full border border-[#007AFF]/30 bg-[#007AFF]/10 px-4 py-2 font-display text-[13px] font-semibold text-[#0066D6]"
+              className="rounded-full border border-[#007AFF]/30 bg-[#007AFF]/10 px-4 py-2 font-display text-[13px] font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]"
             >
               채팅에 결과 공유
             </button>

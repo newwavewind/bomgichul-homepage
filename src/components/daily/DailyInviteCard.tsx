@@ -59,7 +59,7 @@ export function DailyInviteCard({
       : `${inviterNickname ? `${inviterNickname}님의 초대 · ` : ""}문제를 풀기 전에도 친구와 공유하고 함께 시작할 수 있어요.`;
 
   return (
-    <section className="rounded-[24px] border border-[#f1dc00] bg-[#fffbea] p-4 shadow-[0_8px_24px_rgba(60,30,30,0.08)]">
+    <section className="rounded-[24px] border border-[#f1dc00] bg-[color:light-dark(#fffbea,color-mix(in_srgb,var(--color-snow)_90%,#fffbea))] p-4 shadow-[0_8px_24px_rgba(60,30,30,0.08)]">
       <div className="mb-3 flex items-center gap-3">
         <span
           className="flex size-10 items-center justify-center rounded-2xl bg-[#FEE500] text-[#191919] shadow-sm"
@@ -70,10 +70,10 @@ export function DailyInviteCard({
           </svg>
         </span>
         <div>
-          <p className="text-sm font-bold text-[#3C1E1E]">
+          <p className="text-sm font-bold text-[color:light-dark(#3C1E1E,var(--color-ink))]">
             같이 풀 사람 초대하기
           </p>
-          <p className="text-xs text-[#6b5144]">
+          <p className="text-xs text-[color:light-dark(#6b5144,var(--color-smoke))]">
             {completedAttempt
               ? "내 기록을 보내고 친구와 결과를 비교해 보세요."
               : "정답을 제출하기 전에도 친구와 바로 공유할 수 있어요."}

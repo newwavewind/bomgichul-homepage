@@ -181,7 +181,7 @@ export function TrackRandomPractice({
         <div className="mx-auto max-w-xl rounded-[var(--radius-largecards)] border border-carbon bg-paper p-8 text-center">
           <p className="font-display text-body-sm text-smoke">랜덤 문제 연습 결과</p>
           <p className="mt-2 font-display text-heading-sm font-bold text-ink">
-            {questions.length}문제 중 <span className="text-[#6366f1]">{Object.values(results).filter((r) => r === "correct").length}개</span> 맞혔어요
+            {questions.length}문제 중 <span className="text-[color:light-dark(#6366f1,var(--color-carbon))]">{Object.values(results).filter((r) => r === "correct").length}개</span> 맞혔어요
           </p>
           <button
             type="button"

@@ -82,8 +82,7 @@ export function KakaoShareButton({
 }) {
   const [hint, setHint] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [ready, setReady] = useState(false);
-  const [useFallback, setUseFallback] = useState(false);
+  const [prepared, setPrepared] = useState<{ imageUrl: string; fallback: boolean } | null>(null);
   const key = process.env.NEXT_PUBLIC_KAKAO_JAVASCRIPT_KEY;
   const imageUrl = imagePath
     ? imagePath.startsWith("http")
@@ -91,29 +90,25 @@ export function KakaoShareButton({
       : `${SITE_URL}${imagePath}`
     : `${SITE_URL}/brand/kakao-share-card.jpg`;
 
-  useEffect(() => {
-    let cancelled = false;
-    setReady(false);
-    setUseFallback(false);
-    if (!key) {
-      setUseFallback(true);
-      setReady(true);
-      return;
-    }
+  const current = prepared?.imageUrl === imageUrl ? prepared : null;
+  const ready = !key || current !== null;
+  const useFallback = !key || current?.fallback;
+  const statusHint = ready ? hint : "문제 카드와 공유 기능을 미리 준비하고 있어요.";
 
-    setHint("문제 카드와 공유 기능을 미리 준비하고 있어요.");
+  useEffect(() => {
+    if (!key) return;
+    let cancelled = false;
     void Promise.all([prepareImage(imageUrl), loadKakao()])
       .then(() => {
         if (cancelled) return;
         if (!window.Kakao) throw new Error("kakao");
         if (!window.Kakao.isInitialized()) window.Kakao.init(key);
-        setReady(true);
+        setPrepared({ imageUrl, fallback: false });
         setHint(null);
       })
       .catch(() => {
         if (cancelled) return;
-        setUseFallback(true);
-        setReady(true);
+        setPrepared({ imageUrl, fallback: true });
         setHint(null);
       });
 
@@ -153,7 +148,7 @@ export function KakaoShareButton({
         setHint(null);
         return;
       } catch {
-        setUseFallback(true);
+        setPrepared({ imageUrl, fallback: true });
       }
     }
 
@@ -182,12 +177,12 @@ export function KakaoShareButton({
           {!ready ? "공유 준비 중…" : busy ? "공유창 여는 중…" : children}
         </span>
       </button>
-      {hint ? (
+      {statusHint ? (
         <p
           aria-live="polite"
-          className="px-1 text-center text-xs leading-5 text-[#5b4636]"
+          className="px-1 text-center text-xs leading-5 text-[color:light-dark(#5b4636,var(--color-ink))]"
         >
-          {hint}
+          {statusHint}
         </p>
       ) : null}
     </div>

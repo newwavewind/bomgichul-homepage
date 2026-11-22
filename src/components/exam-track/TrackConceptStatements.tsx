@@ -26,7 +26,7 @@ export function TrackConceptStatements({ statements }: { statements: TrackConcep
         return (
           <article key={statement.id} className="rounded-2xl border border-[var(--cx-ebook-line)] bg-[var(--cx-ebook-chip)] px-5 py-4">
             <div className="flex items-start gap-3">
-              <span className={`mt-0.5 font-display text-[15px] font-bold ${correct ? "text-ios-blue" : "text-[#ef6a2c]"}`}>{correct ? "O" : "X"}</span>
+              <span className={`mt-0.5 font-display text-[15px] font-bold ${correct ? "text-ios-blue" : "text-[color:light-dark(#ef6a2c,var(--color-coral))]"}`}>{correct ? "O" : "X"}</span>
               <div className="min-w-0 flex-1">
                 <p className="font-system text-[15px] leading-7 text-ink">{plainStatementText(statement.text)}</p>
                 {statement.explanation ? <p className="mt-3 border-t border-[var(--cx-ebook-line)] pt-3 font-system text-[14px] leading-6 text-smoke">{plainStatementText(statement.explanation)}</p> : null}

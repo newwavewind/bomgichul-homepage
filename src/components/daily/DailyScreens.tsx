@@ -243,18 +243,18 @@ export async function DailyResultPage({
   const attempt = attemptId ? await getPublicAttempt(attemptId) : null;
 
   return (
-    <div className="bg-[linear-gradient(180deg,#f3f8ff_0%,#ffffff_40%)] px-2 py-8 sm:px-4">
+    <div className="daily-page-background px-2 py-8 sm:px-4">
       <div className="mx-auto max-w-[900px] rounded-[24px] border border-white/80 bg-white/75 p-2.5 shadow-[0_10px_30px_rgba(15,23,42,0.06)] backdrop-blur-xl sm:p-5 md:p-7">
         {attempt && attempt.exam === slug ? (
           <>
-            <p className="text-sm text-[#0066D6]">
+            <p className="text-sm text-[color:light-dark(#0066D6,var(--color-carbon))]">
               {formatKoreanDate(attempt.dateKey)} · {attempt.subjectLabel} ·{" "}
               {attempt.nickname}
             </p>
             <h1 className="mt-1 font-display text-2xl font-semibold text-ink">
               {attempt.correct}/{attempt.total}
             </h1>
-            <p className="mt-1 text-sm text-[#475569]">
+            <p className="mt-1 text-sm text-smoke">
               {formatElapsed(attempt.elapsedMs)}
               {attempt.rank ? ` · 오늘 ${attempt.rank}위` : ""}
             </p>
@@ -290,7 +290,7 @@ export async function DailyResultPage({
             <h1 className="font-display text-2xl font-semibold text-ink">
               매일 10문제
             </h1>
-            <p className="mt-2 text-sm text-[#475569]">
+            <p className="mt-2 text-sm text-smoke">
               저장된 결과를 찾지 못했습니다.
             </p>
             <Link
@@ -356,9 +356,9 @@ export async function DailyRanksPage({
   const dailyHref = `/${slug}/daily?subject=${encodeURIComponent(subject.id)}${dateQuery}`;
 
   return (
-    <div className="bg-[linear-gradient(180deg,#f3f8ff_0%,#ffffff_40%)] px-4 py-8">
+    <div className="daily-page-background px-4 py-8">
       <div className="mx-auto max-w-xl">
-        <p className="text-xs font-semibold text-[#64748b]">{meta.label}</p>
+        <p className="text-xs font-semibold text-fog">{meta.label}</p>
         <h1 className="mt-1 font-display text-2xl font-semibold text-ink">
           {subject.label} 순위
         </h1>
@@ -375,20 +375,20 @@ export async function DailyRanksPage({
         </div>
         <ol className="mt-4 space-y-2">
           {rows.length === 0 ? (
-            <li className="rounded-2xl bg-white/80 px-4 py-6 text-sm text-[#475569]">
+            <li className="rounded-2xl bg-white/80 px-4 py-6 text-sm text-smoke">
               아직 기록이 없습니다.
             </li>
           ) : (
             rows.map((row) => (
               <li
                 key={`${row.rank}-${row.nickname}`}
-                className={`flex items-center justify-between rounded-2xl px-4 py-3 ${row.mine ? "bg-[#E8F4FF]" : "bg-white/80"}`}
+                className={`flex items-center justify-between rounded-2xl px-4 py-3 ${row.mine ? "bg-[color:light-dark(#E8F4FF,color-mix(in_srgb,var(--color-snow)_90%,#E8F4FF))]" : "bg-white/80"}`}
               >
                 <div>
                   <p className="text-sm font-semibold text-ink">
                     {row.rank}. {row.nickname}
                   </p>
-                  <p className="text-xs text-[#64748b]">
+                  <p className="text-xs text-fog">
                     {board === "total"
                       ? `${row.days}일 · 맞힌 수 ${row.correct}`
                       : `${row.correct}/${row.total}${row.elapsedMs != null ? ` · ${formatElapsed(row.elapsedMs)}` : ""}`}
@@ -412,4 +412,4 @@ export async function DailyRanksPage({
 const tabOn =
   "rounded-full bg-[#007AFF] px-4 py-2 text-sm font-semibold text-white";
 const tabOff =
-  "rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#334155]";
+  "rounded-full bg-white px-4 py-2 text-sm font-semibold text-[color:light-dark(#334155,var(--color-ink))]";

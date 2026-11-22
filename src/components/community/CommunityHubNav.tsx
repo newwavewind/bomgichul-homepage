@@ -53,7 +53,7 @@ export function CommunityHubNav({ scope }: { scope: CommunityScope }) {
   return (
     <nav
       aria-label="커뮤니티 메뉴"
-      className="mb-8 flex gap-1 rounded-2xl border border-[#007AFF]/15 bg-gradient-to-r from-[#E8F1FF]/80 to-[#F7FAFC] p-1.5"
+      className="mb-8 flex gap-1 rounded-2xl border border-[#007AFF]/15 bg-gradient-to-r from-[color:light-dark(#E8F1FF,color-mix(in_srgb,var(--color-paper)_90%,#E8F1FF))]/80 to-[color:light-dark(#F7FAFC,var(--color-paper))] p-1.5"
     >
       {tabs.map((tab) => {
         const active = current === tab.id;

@@ -16,6 +16,7 @@ import {
 } from "@/lib/constants";
 import { buildOrganizationJsonLd } from "@/lib/seo";
 import { isPublicExamVisible } from "@/lib/public-exam-visibility";
+import { appearanceInitScript } from "@/lib/appearance";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -168,10 +169,14 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
+      suppressHydrationWarning
       className={`${outfit.variable} ${caveat.variable} h-full antialiased`}
     >
       {/* 소유 확인은 metadata의 google-adsense-account와 ads.txt로 유지한다.
           광고 스크립트는 활성화된 콘텐츠 슬롯에서만 불러온다. */}
+      <head>
+        <script id="bomgichul-appearance" dangerouslySetInnerHTML={{ __html: appearanceInitScript }} />
+      </head>
       <body className="flex min-h-full flex-col bg-paper text-ink">
         <script
           type="application/ld+json"

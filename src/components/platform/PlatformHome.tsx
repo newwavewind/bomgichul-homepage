@@ -197,10 +197,10 @@ function ExamCardAction({
   fresh?: boolean;
 }) {
   const tone = primary
-    ? "border-[#0066d6]/35 bg-[#007aff] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_2px_8px_rgba(0,102,214,0.18)] hover:bg-[#0066d6] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_5px_14px_rgba(0,102,214,0.22)]"
+    ? "border-[#0066d6]/35 bg-[#007aff] text-white dark:bg-carbon dark:hover:bg-[#1e469f] shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_2px_8px_rgba(0,102,214,0.18)] hover:bg-[#0066d6] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_5px_14px_rgba(0,102,214,0.22)]"
     : fresh
-      ? "z-[1] border-[#f5b7dc] bg-[#ffebf6] text-[#6b1458] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_8px_rgba(232,80,180,0.1)] hover:bg-[#fff3fa] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_5px_14px_rgba(232,80,180,0.16)]"
-      : "border-[#007aff]/30 bg-white/80 text-[#0066d6] shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_2px_8px_rgba(0,102,214,0.06)] hover:bg-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_5px_14px_rgba(0,102,214,0.12)]";
+      ? "z-[1] border-[#f5b7dc] bg-[#ffebf6] text-[#6b1458] shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_8px_rgba(232,80,180,0.1)] hover:bg-[#fff3fa] dark:border-mist dark:bg-blush dark:text-magenta dark:shadow-none dark:hover:bg-lavender hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_5px_14px_rgba(232,80,180,0.16)]"
+      : "border-[#007aff]/30 bg-white/80 text-[#0066d6] dark:border-mist dark:text-carbon dark:shadow-none shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_2px_8px_rgba(0,102,214,0.06)] hover:bg-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_5px_14px_rgba(0,102,214,0.12)]";
 
   return (
     <Link
@@ -225,16 +225,16 @@ export function PlatformHome() {
   return (
     <div className="relative overflow-hidden bg-white px-4 py-10 md:py-16">
       <div className="relative mx-auto max-w-[var(--page-max-width)]">
-        <section className="relative isolate mx-auto mb-10 max-w-5xl overflow-hidden rounded-2xl bg-white px-5 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.1)] sm:px-8 sm:py-10 md:px-12 md:py-12" aria-labelledby="platform-home-heading">
+        <section className="relative isolate mx-auto mb-10 max-w-5xl overflow-hidden rounded-2xl bg-white px-5 py-8 dark:bg-cream shadow-[0_24px_70px_rgba(0,0,0,0.1)] sm:px-8 sm:py-10 md:px-12 md:py-12" aria-labelledby="platform-home-heading">
           <div className="pointer-events-none absolute -right-14 -top-20 size-56 rounded-full bg-[#c4baff]/45 blur-2xl" aria-hidden />
           <div className="pointer-events-none absolute bottom-0 right-0 h-1.5 w-28 bg-[#4d49fc]" aria-hidden />
           <div className="relative max-w-4xl">
-            <p className="font-mono text-xs tracking-[0.05em] text-[#595959]">PAST EXAMS / FREE STUDY</p>
-            <h1 id="platform-home-heading" className="mt-5 max-w-3xl text-[clamp(38px,6vw,56px)] font-light leading-[1.08] tracking-[-0.02em] text-black">
+            <p className="font-mono text-xs tracking-[0.05em] text-[#595959] dark:text-smoke">PAST EXAMS / FREE STUDY</p>
+            <h1 id="platform-home-heading" className="mt-5 max-w-3xl text-[length:calc(clamp(38px,6vw,56px)*var(--reading-font-scale))] font-light leading-[1.08] tracking-[-0.02em] text-black">
               기출문제와 해설,
               <br className="sm:hidden" /> 봄기출
             </h1>
-            <p className="mt-6 max-w-4xl text-base font-normal leading-[1.6] tracking-[-0.007em] text-[#595959] sm:text-lg sm:leading-[1.5]">
+            <p className="mt-6 max-w-4xl text-[length:calc(1rem*var(--reading-font-scale))] font-normal leading-[1.6] tracking-[-0.007em] text-[#595959] dark:text-smoke sm:text-[length:calc(1.125rem*var(--reading-font-scale))] sm:leading-[1.5]">
               {visibleExams.map((exam) => exam.title).join(", ")} 시험의 과목별 기출문제와
               해설을 무료로 학습하세요.
             </p>
@@ -248,9 +248,11 @@ export function PlatformHome() {
             <article
               key={exam.href}
               data-exam-card={exam.learnHref.slice(1)}
-              className="flex flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon p-6 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-7"
+              className="flex flex-col overflow-hidden rounded-[28px] border-[1.5px] border-carbon p-6 shadow-[var(--shadow-card)] transition-transform duration-200 hover:-translate-y-1 md:p-7 dark:border-mist"
               style={{
-                backgroundImage: `linear-gradient(to bottom right, ${exam.accentFrom}, ${exam.accentTo})`,
+                backgroundImage: `linear-gradient(to bottom right,
+                  light-dark(${exam.accentFrom}, color-mix(in srgb, var(--color-paper) 87%, ${exam.accentFrom})),
+                  light-dark(${exam.accentTo}, var(--color-paper)))`,
               }}
             >
               <div>

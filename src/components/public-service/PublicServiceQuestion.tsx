@@ -75,6 +75,7 @@ export function PublicServiceQuestion({
       initialAttemptResult={attemptResult}
       onAttempt={saveAttempt}
       renderExplanation={!revealSubject}
+      keyboardShortcuts={Boolean(revealSubject)}
     />
   );
 }

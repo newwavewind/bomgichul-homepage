@@ -119,7 +119,7 @@ export function DailyAchievementGarden({
 
   return (
     <section
-      className={`relative overflow-hidden border border-[#DCE6DF] bg-[radial-gradient(circle_at_9%_0%,rgba(211,229,216,0.9),transparent_38%),linear-gradient(145deg,#F8FBF8_0%,#F4F8F6_54%,#F6F8FC_100%)] shadow-[0_18px_50px_rgba(28,55,43,0.08)] ${
+      className={`relative overflow-hidden border border-[color:light-dark(#DCE6DF,var(--color-mist))] bg-[radial-gradient(circle_at_9%_0%,light-dark(rgba(211,229,216,0.9),rgba(80,129,119,0.18)),transparent_38%),linear-gradient(145deg,light-dark(#F8FBF8,var(--color-paper))_0%,light-dark(#F4F8F6,var(--color-paper))_54%,light-dark(#F6F8FC,var(--color-paper))_100%)] shadow-[0_18px_50px_rgba(28,55,43,0.08)] ${
         isDashboard ? "rounded-[32px] p-5 sm:p-7" : "rounded-[24px] p-4"
       }`}
       aria-label={`${subjectLabel} 학습 성취`}
@@ -127,39 +127,39 @@ export function DailyAchievementGarden({
       <div className="pointer-events-none absolute -right-16 -top-20 size-48 rounded-full border border-white/70 bg-white/30" />
       <div className="relative flex items-start justify-between gap-4">
         <div>
-          <p className="text-[11px] font-semibold tracking-[0.14em] text-[#688071]">
+          <p className="text-[11px] font-semibold tracking-[0.14em] text-[color:light-dark(#688071,var(--color-smoke))]">
             LEARNING GARDEN
           </p>
-          <h2 className={`${isDashboard ? "mt-2 text-2xl" : "mt-1 text-lg"} font-display font-semibold tracking-[-0.025em] text-[#173A2B]`}>
+          <h2 className={`${isDashboard ? "mt-2 text-2xl" : "mt-1 text-lg"} font-display font-semibold tracking-[-0.025em] text-[color:light-dark(#173A2B,var(--color-ink))]`}>
             나의 학습 정원
           </h2>
-          <p className="mt-1 text-xs leading-5 text-[#65746D]">
+          <p className="mt-1 text-xs leading-5 text-[color:light-dark(#65746D,var(--color-smoke))]">
             풀수록 자라고, 기록은 메달로 남습니다.
           </p>
         </div>
-        <span className="rounded-full border border-white/90 bg-white/75 px-3 py-1.5 text-[11px] font-semibold text-[#4C6659] shadow-sm backdrop-blur">
+        <span className="rounded-full border border-white/90 bg-white/75 px-3 py-1.5 text-[11px] font-semibold text-[color:light-dark(#4C6659,var(--color-smoke))] shadow-sm backdrop-blur">
           메달 {earned}/{MEDALS.length}
         </span>
       </div>
 
       <div className={`relative mt-4 grid items-stretch gap-3 ${isDashboard ? "md:grid-cols-[1.05fr_1.3fr]" : "grid-cols-[0.92fr_1.08fr]"}`}>
-        <div className="relative min-h-[164px] overflow-hidden rounded-[22px] border border-white/90 bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(235,243,237,0.88))] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.95)]">
-          <div className="absolute inset-x-3 bottom-3 h-12 rounded-[50%] bg-[#DDE9DF]/65 blur-xl" />
+        <div className="relative min-h-[164px] overflow-hidden rounded-[22px] border border-white/90 bg-[linear-gradient(180deg,light-dark(rgba(255,255,255,0.9),color-mix(in_srgb,var(--color-paper)_90%,transparent)),light-dark(rgba(235,243,237,0.88),var(--color-paper)))] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.95)]">
+          <div className="absolute inset-x-3 bottom-3 h-12 rounded-[50%] bg-[color:light-dark(#DDE9DF,color-mix(in_srgb,var(--color-snow)_90%,#DDE9DF))]/65 blur-xl" />
           <StudyTree stage={tree.stage} large={isDashboard} />
           <div className="relative mt-1 flex items-end justify-between gap-2">
             <div>
-              <p className="text-[11px] font-medium text-[#718078]">누적 학습</p>
-              <p className="mt-0.5 font-display text-lg font-semibold text-[#204535]">
+              <p className="text-[11px] font-medium text-[color:light-dark(#718078,var(--color-smoke))]">누적 학습</p>
+              <p className="mt-0.5 font-display text-lg font-semibold text-[color:light-dark(#204535,var(--color-ink))]">
                 {stats.learningDays.toLocaleString()}일
               </p>
             </div>
-            <p className="max-w-[98px] text-right text-[10px] leading-4 text-[#718078]">
+            <p className="max-w-[98px] text-right text-[10px] leading-4 text-[color:light-dark(#718078,var(--color-smoke))]">
               {tree.remaining > 0
                 ? `다음 성장까지 ${tree.remaining}일`
                 : "최종 성장 단계"}
             </p>
           </div>
-          <div className="relative mt-2 h-1 overflow-hidden rounded-full bg-[#DDE7DF]">
+          <div className="relative mt-2 h-1 overflow-hidden rounded-full bg-[color:light-dark(#DDE7DF,color-mix(in_srgb,var(--color-snow)_90%,#DDE7DF))]">
             <div
               className="h-full rounded-full bg-[linear-gradient(90deg,#7B9D86,#3F765C)] transition-[width] duration-700"
               style={{ width: `${tree.progress}%` }}
@@ -171,14 +171,14 @@ export function DailyAchievementGarden({
           <div className="flex items-center gap-3">
             <CollectionRing percent={collectionPercent} />
             <div className="min-w-0">
-              <p className="text-[11px] font-medium text-[#718078]">최근 10개년 수집</p>
-              <p className="mt-0.5 font-display text-lg font-semibold text-[#243B53]">
+              <p className="text-[11px] font-medium text-[color:light-dark(#718078,var(--color-smoke))]">최근 10개년 수집</p>
+              <p className="mt-0.5 font-display text-lg font-semibold text-ink">
                 {stats.uniqueSolved.toLocaleString()}
-                <span className="ml-1 text-xs font-medium text-[#7A8794]">
+                <span className="ml-1 text-xs font-medium text-[color:light-dark(#7A8794,var(--color-smoke))]">
                   / {stats.poolCount.toLocaleString()}문제
                 </span>
               </p>
-              <p className="mt-1 text-[10px] leading-4 text-[#7A8794]">
+              <p className="mt-1 text-[10px] leading-4 text-[color:light-dark(#7A8794,var(--color-smoke))]">
                 {stats.yearsCompleted > 0
                   ? `${stats.yearsCompleted}개 연도 완주`
                   : `${stats.yearsStarted}/${stats.totalYears}개 연도 수집 시작`}
@@ -202,25 +202,25 @@ export function DailyAchievementGarden({
               className={`group relative min-w-0 overflow-hidden rounded-[18px] border px-1.5 py-2 text-center transition-transform duration-200 hover:-translate-y-0.5 ${
                 state.tier
                   ? "border-white/90 bg-white/80 shadow-[0_7px_18px_rgba(38,55,46,0.07)]"
-                  : "border-[#E1E7E3] bg-[#F2F5F3]/75"
+                  : "border-[color:light-dark(#E1E7E3,var(--color-mist))] bg-[color:light-dark(#F2F5F3,var(--color-snow))]/75"
               }`}
             >
               <MedalIcon id={medal.key} tier={state.tier} />
-              <p className="mt-1 truncate text-[10px] font-semibold text-[#334A3F]">
+              <p className="mt-1 truncate text-[10px] font-semibold text-[color:light-dark(#334A3F,var(--color-ink))]">
                 {medal.label}
               </p>
               {isDashboard ? (
                 <>
-                  <p className="mt-0.5 text-[9px] text-[#829087]">
+                  <p className="mt-0.5 text-[9px] text-[color:light-dark(#829087,var(--color-smoke))]">
                     {state.tier ? TIER_NAMES[state.tier] : medal.description}
                   </p>
-                  <div className="mx-auto mt-1.5 h-0.5 w-9 overflow-hidden rounded-full bg-[#DEE5E0]">
+                  <div className="mx-auto mt-1.5 h-0.5 w-9 overflow-hidden rounded-full bg-[color:light-dark(#DEE5E0,var(--color-snow))]">
                     <div
                       className="h-full rounded-full bg-[#668A74]"
                       style={{ width: `${state.progress}%` }}
                     />
                   </div>
-                  <p className="mt-1 text-[9px] tabular-nums text-[#87948D]">
+                  <p className="mt-1 text-[9px] tabular-nums text-[color:light-dark(#87948D,var(--color-smoke))]">
                     {value.toLocaleString()}{medal.suffix ?? ""}
                     {!state.tier || state.tier !== "platinum"
                       ? ` / ${state.next.toLocaleString()}${medal.suffix ?? ""}`
@@ -236,10 +236,10 @@ export function DailyAchievementGarden({
       {!isDashboard ? (
         <Link
           href={`/${exam}/daily/progress?subject=${encodeURIComponent(subjectId)}`}
-          className="relative mt-3 flex min-h-10 items-center justify-between rounded-[14px] border border-white/90 bg-white/70 px-3.5 text-xs font-semibold text-[#3D5D4C] shadow-sm transition-colors hover:bg-white"
+          className="relative mt-3 flex min-h-10 items-center justify-between rounded-[14px] border border-white/90 bg-white/70 px-3.5 text-xs font-semibold text-[color:light-dark(#3D5D4C,var(--color-ink))] shadow-sm transition-colors hover:bg-white"
         >
           <span>수집 도감과 메달 자세히 보기</span>
-          <span aria-hidden className="text-base font-light text-[#668A74]">→</span>
+          <span aria-hidden className="text-base font-light text-[color:light-dark(#668A74,var(--color-smoke))]">→</span>
         </Link>
       ) : null}
     </section>
@@ -248,9 +248,9 @@ export function DailyAchievementGarden({
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl bg-[#F4F7F5] px-2 py-2">
-      <p className="text-[#839087]">{label}</p>
-      <p className="mt-0.5 truncate font-semibold tabular-nums text-[#40554A]">{value}</p>
+    <div className="rounded-xl bg-[color:light-dark(#F4F7F5,var(--color-snow))] px-2 py-2">
+      <p className="text-[color:light-dark(#839087,var(--color-smoke))]">{label}</p>
+      <p className="mt-0.5 truncate font-semibold tabular-nums text-[color:light-dark(#40554A,var(--color-ink))]">{value}</p>
     </div>
   );
 }
@@ -274,7 +274,7 @@ function CollectionRing({ percent }: { percent: number }) {
           strokeDasharray={`${dash} ${circumference - dash}`}
         />
       </svg>
-      <span className="absolute inset-0 flex items-center justify-center text-[11px] font-semibold tabular-nums text-[#365847]">
+      <span className="absolute inset-0 flex items-center justify-center text-[11px] font-semibold tabular-nums text-[color:light-dark(#365847,var(--color-ink))]">
         {percent}%
       </span>
     </div>

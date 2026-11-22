@@ -78,8 +78,8 @@ export function CommunityLikeButton({
         aria-describedby={errorMessage ? `like-error-${targetType}-${targetId}` : undefined}
         className={`inline-flex min-h-8 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-3 py-1 font-display text-[12px] font-semibold transition-colors ${
           liked
-            ? "border-[#f4a8b8] bg-[#fff1f4] text-[#be3658]"
-            : "border-mist bg-paper text-fog hover:border-[#f4a8b8] hover:text-[#be3658]"
+            ? "border-[color:light-dark(#f4a8b8,var(--color-mist))] bg-[color:light-dark(#fff1f4,color-mix(in_srgb,var(--color-snow)_90%,#fff1f4))] text-[color:light-dark(#be3658,var(--color-coral))]"
+            : "border-mist bg-paper text-fog hover:border-[color:light-dark(#f4a8b8,var(--color-mist))] hover:text-[color:light-dark(#be3658,var(--color-coral))]"
         } disabled:cursor-default disabled:opacity-55`}
       >
         <span aria-hidden className="text-[15px] leading-none">
@@ -91,7 +91,7 @@ export function CommunityLikeButton({
         <span
           id={`like-error-${targetType}-${targetId}`}
           role="status"
-          className="max-w-52 font-display text-[11px] font-medium leading-snug text-[#be3658]"
+          className="max-w-52 font-display text-[11px] font-medium leading-snug text-[color:light-dark(#be3658,var(--color-coral))]"
         >
           {errorMessage}
         </span>

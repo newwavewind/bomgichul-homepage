@@ -76,23 +76,23 @@ function RankCard({ rank }: { rank: OceanRank }) {
           <span
             className={`rounded-full px-2.5 py-1 font-display text-[11px] font-semibold leading-none ${
               finalRank
-                ? "bg-[#fff3ce] text-[#81580d]"
+                ? "bg-[color:light-dark(#fff3ce,color-mix(in_srgb,var(--color-snow)_90%,#fff3ce))] text-[color:light-dark(#81580d,var(--color-amber))]"
                 : legendary
-                  ? "bg-[#e8f7fa] text-[#155e75]"
+                  ? "bg-[color:light-dark(#e8f7fa,color-mix(in_srgb,var(--color-snow)_90%,#e8f7fa))] text-[color:light-dark(#155e75,var(--color-electric-blue))]"
                   : "bg-snow text-fog"
             }`}
           >
             Lv.{rank.level}
           </span>
           {finalRank && (
-            <span className="font-display text-[10px] font-semibold text-[#a66b00]">
+            <span className="font-display text-[10px] font-semibold text-[color:light-dark(#a66b00,var(--color-amber))]">
               FINAL
             </span>
           )}
         </div>
         <h3
           className={`truncate font-display text-[18px] font-semibold leading-tight md:text-[20px] ${
-            finalRank ? "text-[#6f4b0b]" : "text-ink"
+            finalRank ? "text-[color:light-dark(#6f4b0b,var(--color-amber))]" : "text-ink"
           }`}
         >
           {rank.name}
@@ -110,7 +110,7 @@ export function OceanRankShowcase() {
 
   return (
     <div className="mx-auto max-w-[var(--page-max-width)] px-4 py-8 md:py-12">
-      <section className="relative overflow-hidden rounded-[28px] border-[1.5px] border-carbon bg-[#edf9fb] px-5 py-8 shadow-[var(--shadow-card)] md:px-10 md:py-11">
+      <section className="relative overflow-hidden rounded-[28px] border-[1.5px] border-carbon bg-[color:light-dark(#edf9fb,color-mix(in_srgb,var(--color-snow)_90%,#edf9fb))] px-5 py-8 shadow-[var(--shadow-card)] md:px-10 md:py-11">
         <div
           className="pointer-events-none absolute -right-14 -top-16 h-56 w-56 rounded-full border-[32px] border-white/45"
           aria-hidden
@@ -129,7 +129,7 @@ export function OceanRankShowcase() {
             </p>
           </div>
 
-          <div className="rounded-[22px] border border-[#b8dce4] bg-paper/95 p-5 shadow-[0_8px_30px_rgba(15,118,110,0.10)] md:p-6">
+          <div className="rounded-[22px] border border-[color:light-dark(#b8dce4,var(--color-mist))] bg-paper/95 p-5 shadow-[0_8px_30px_rgba(15,118,110,0.10)] md:p-6">
             <p className="font-display text-[12px] font-semibold text-fog">아이디 옆에는 이렇게 보여요</p>
             <div className="mt-4 flex flex-wrap items-center gap-2.5">
               <span className="font-display text-body font-semibold text-ink">봄기출러</span>
@@ -209,7 +209,7 @@ export function OceanRankShowcase() {
         <div className="border-t border-mist">
           <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="bg-carbon px-6 py-7 text-paper md:px-8 md:py-9">
-              <p className="font-display text-[11px] font-semibold tracking-[0.13em] text-[#8ad3dd]">
+              <p className="font-display text-[11px] font-semibold tracking-[0.13em] text-[color:light-dark(#8ad3dd,var(--color-electric-blue))]">
                 HOW TO LEVEL UP
               </p>
               <h3 className="mt-2 font-display text-heading-sm font-semibold">
@@ -220,7 +220,7 @@ export function OceanRankShowcase() {
                 자동으로 다음 바다 레벨이 아이디 옆에 표시돼요.
               </p>
               <div className="mt-6 rounded-[18px] border border-white/20 bg-white/10 px-4 py-4">
-                <p className="font-display text-[11px] font-semibold text-[#8ad3dd]">점수 계산식</p>
+                <p className="font-display text-[11px] font-semibold text-[color:light-dark(#8ad3dd,var(--color-electric-blue))]">점수 계산식</p>
                 <p className="mt-2 font-display text-[13px] font-semibold leading-relaxed text-paper">
                   출석일 × 1 + 게시글 × 2 + 모두의 개념 × 3 + 댓글 × 1 + 받은 좋아요 × 2
                 </p>
@@ -245,8 +245,8 @@ export function OceanRankShowcase() {
                   </article>
                 ))}
               </div>
-              <div className="mt-5 rounded-[18px] border border-[#b8dce4] bg-[#f0fbfd] px-4 py-4">
-                <p className="font-display text-[12px] font-semibold text-[#155e75]">예시</p>
+              <div className="mt-5 rounded-[18px] border border-[color:light-dark(#b8dce4,var(--color-mist))] bg-[color:light-dark(#f0fbfd,color-mix(in_srgb,var(--color-snow)_90%,#f0fbfd))] px-4 py-4">
+                <p className="font-display text-[12px] font-semibold text-[color:light-dark(#155e75,var(--color-electric-blue))]">예시</p>
                 <p className="mt-1.5 font-display text-[12px] leading-relaxed text-smoke">
                   20일 출석 + 게시글 3개 + 모두의 개념 1개 + 댓글 5개 + 받은 좋아요 2개 = 38점,
                   <strong className="ml-1 font-semibold text-ink">Lv.2 멸치</strong>예요.

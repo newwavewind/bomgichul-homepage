@@ -237,6 +237,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             referenceEntries={question.referenceEntries}
             passageLabel={question.leadEntries?.length ? "<보기>" : undefined}
             renderExplanation={false}
+            keyboardShortcuts
             loginNext={detailPath}
           />
           {hasExamQuestionSeoExplanations(question) ? <ExamSeoExplanationDetails
@@ -259,6 +260,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           {prev ? (
             <ReturnAwareNavLink
               href={`${listBase}/${prev.questionNo}`}
+              keyShortcut="ArrowLeft"
               className="rounded-2xl border border-mist px-4 py-3 font-display text-body-sm hover:border-carbon"
             >
               <QuestionNavLabel direction="previous" questionNo={prev.questionNo} />
@@ -270,6 +272,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
           {next ? (
             <ReturnAwareNavLink
               href={`${listBase}/${next.questionNo}`}
+              keyShortcut="ArrowRight"
               className="rounded-2xl border border-mist px-4 py-3 text-right font-display text-body-sm hover:border-carbon"
             >
               <QuestionNavLabel direction="next" questionNo={next.questionNo} />

@@ -73,11 +73,11 @@ export function ResultActions({
         </Link>
       </div>
       {hasStoreLink ? (
-        <section className="rounded-[24px] border border-[#d7e3f4] bg-white/80 px-4 py-5 text-center shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+        <section className="rounded-[24px] border border-[color:light-dark(#d7e3f4,var(--color-mist))] bg-white/80 px-4 py-5 text-center shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
           <p className="text-sm font-bold text-ink">
             {examLabel || label} 전용 앱에서 이어서 공부하기
           </p>
-          <p className="mt-1 text-xs leading-5 text-[#64748b]">
+          <p className="mt-1 text-xs leading-5 text-fog">
             내 기기에 맞는 스토어에서 전용 앱을 내려받으세요.
           </p>
           <AppStoreButtons
@@ -92,4 +92,4 @@ export function ResultActions({
 }
 
 const quietButton =
-  "inline-flex min-h-11 items-center justify-center rounded-2xl border border-[#d7e3f4] bg-white/80 px-4 py-2 text-center text-sm font-semibold text-[#334155]";
+  "inline-flex min-h-11 items-center justify-center rounded-2xl border border-[color:light-dark(#d7e3f4,var(--color-mist))] bg-white/80 px-4 py-2 text-center text-sm font-semibold text-[color:light-dark(#334155,var(--color-ink))]";

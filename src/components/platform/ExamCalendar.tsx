@@ -126,12 +126,11 @@ export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } 
   }, [loggedIn]);
 
   const upcoming = useMemo(
-    () => upcomingExamReminders(todayIso).slice(0, 4),
+    () => upcomingExamReminders(todayIso, 60, reminders).slice(0, 4),
     [todayIso, reminders]
   );
 
   const cells = useMemo(() => buildCells(year, monthIndex0), [year, monthIndex0]);
-  const monthEvents = useMemo(() => eventsInMonth(year, monthIndex0), [year, monthIndex0]);
   const selectedEvents = useMemo(() => eventsOnDate(selectedIso).filter(e=>examFilter==="all"||e.examKey===examFilter), [selectedIso,examFilter]);
 
   const goMonth = (delta: number) => {
@@ -185,13 +184,13 @@ export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } 
   return (
     <section
       id="exam-calendar"
-      className="mx-auto mb-12 max-w-5xl scroll-mt-24 rounded-[28px] border-[1.5px] border-carbon/15 bg-gradient-to-br from-[#e8f5ff]/50 to-[#f4f8ff]/80 p-5 shadow-[var(--shadow-card)] md:p-8"
+      className="mx-auto mb-12 max-w-5xl scroll-mt-24 rounded-[28px] border-[1.5px] border-carbon/15 bg-gradient-to-br from-[color:light-dark(#e8f5ff,color-mix(in_srgb,var(--color-paper)_90%,#e8f5ff))]/50 to-[color:light-dark(#f4f8ff,color-mix(in_srgb,var(--color-paper)_90%,#f4f8ff))]/80 p-5 shadow-[var(--shadow-card)] md:p-8"
       aria-label="시험 달력"
     >
       <div className="mb-5"><label className="font-semibold">일정 볼 시험 <select className="web-input" value={examFilter} onChange={e=>{setExamFilter(e.target.value);if(e.target.value!=="all")selectExam(e.target.value);}}><option value="all">전체 시험</option>{EXAM_CHOICES.map(([id,label])=><option key={id} value={id}>{label}</option>)}</select></label><h3 className="font-semibold">가까운 접수·시험·발표 일정</h3><ul className="space-y-2 mt-3">{EXAM_CALENDAR_EVENTS.filter(e=>(examFilter==="all"||e.examKey===examFilter)&&(e.endDate??e.date)>=todayIso&&e.kind!=="other").sort((a,b)=>(a.date<todayIso?a.endDate??a.date:a.date).localeCompare(b.date<todayIso?b.endDate??b.date:b.date)).slice(0,5).map(event=><li key={event.id}><Link href={event.href} className="text-blue-700">{examLabel(event.examKey)} · {examCalendarKindLabel(event.kind)} · {event.title}</Link><span className="block text-sm">{formatRange(event)}</span></li>)}</ul>{!EXAM_CALENDAR_EVENTS.some(e=>(examFilter==="all"||e.examKey===examFilter)&&(e.endDate??e.date)>=todayIso&&e.kind!=="other")&&<p>예정된 일정이 없습니다. 해당 시험 안내에서 공식 공고를 확인하세요.</p>}</div>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-[#087f6d]">
+          <p className="font-display text-[13px] font-semibold tracking-[0.05em] text-[color:light-dark(#087f6d,var(--color-electric-blue))] dark:text-electric-blue">
             시험 달력
           </p>
           <h2 className="mt-1 font-display text-[24px] font-semibold tracking-tight text-ink md:text-[28px]">
@@ -281,7 +280,7 @@ export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } 
                 onClick={() => setSelectedIso(cell.iso)}
                 className={[
                   "relative flex min-h-[52px] flex-col items-stretch border-b border-r border-mist/70 px-1.5 py-1.5 text-left transition-colors md:min-h-[64px]",
-                  isSelected ? "bg-[#e8f5ff]" : hasEvents ? "bg-white hover:bg-snow" : "bg-white hover:bg-snow/60",
+                  isSelected ? "bg-[color:light-dark(#e8f5ff,color-mix(in_srgb,var(--color-snow)_90%,#e8f5ff))] dark:bg-snow" : hasEvents ? "bg-white hover:bg-snow" : "bg-white hover:bg-snow/60",
                 ].join(" ")}
                 aria-pressed={isSelected}
                 aria-label={`${formatKoDate(cell.iso)}${hasEvents ? `, 일정 ${dayEvents.length}건` : ""}`}
@@ -289,7 +288,7 @@ export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } 
                 <span
                   className={[
                     "inline-flex h-7 w-7 items-center justify-center rounded-full font-display text-[13px] font-semibold",
-                    isToday ? "bg-carbon text-paper" : isSelected ? "text-[#0b5fff]" : "text-ink",
+                    isToday ? "bg-carbon text-paper" : isSelected ? "text-[color:light-dark(#0b5fff,var(--color-carbon))] dark:text-carbon" : "text-ink",
                   ].join(" ")}
                 >
                   {cell.day}
@@ -354,7 +353,7 @@ export function ExamCalendar({ loggedIn: loggedInProp }: { loggedIn?: boolean } 
                 <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
                   <Link
                     href={event.href}
-                    className="inline-flex font-display text-body-sm font-semibold text-[#0b5fff] underline-offset-2 hover:underline"
+                    className="inline-flex font-display text-body-sm font-semibold text-[color:light-dark(#0b5fff,var(--color-carbon))] dark:text-carbon underline-offset-2 hover:underline"
                   >
                     {examLabel(event.examKey)} 안내 보기 →
                   </Link>

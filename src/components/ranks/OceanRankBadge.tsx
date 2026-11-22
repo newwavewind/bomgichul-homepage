@@ -20,7 +20,7 @@ export function OceanRankBadge({
 
   return (
     <span
-      className={`inline-flex shrink-0 items-center text-[#155e75] ${
+      className={`inline-flex shrink-0 items-center text-[color:light-dark(#155e75,var(--color-electric-blue))] ${
         medium ? "gap-1.5" : "gap-1"
       } ${className}`}
       aria-label={`나의 바다 레벨: Lv.${rank.level} ${rank.name}`}
@@ -55,7 +55,7 @@ export function OceanRankBadge({
       </span>
       {!iconOnly ? (
         <span
-          className={`whitespace-nowrap rounded-full border border-[#b8dce4] bg-[#f0fbfd] font-display font-semibold leading-none shadow-[0_1px_2px_rgba(15,23,42,0.05)] ${
+          className={`whitespace-nowrap rounded-full border border-[color:light-dark(#b8dce4,var(--color-mist))] bg-[color:light-dark(#f0fbfd,color-mix(in_srgb,var(--color-snow)_90%,#f0fbfd))] font-display font-semibold leading-none shadow-[0_1px_2px_rgba(15,23,42,0.05)] ${
             medium ? "px-2.5 py-1.5 text-[13px]" : "px-2 py-1 text-[10px]"
           }`}
         >

@@ -97,7 +97,7 @@ function ZoomOverlay({ src, alt, onClose }: { src: string; alt: string; onClose:
         onTouchEnd={() => { pinch.current = null; drag.current = null; }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} draggable={false} className="max-h-full max-w-full select-none transition-transform duration-75" style={{ transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`, cursor: scale > MIN_SCALE ? "grab" : "zoom-in" }} />
+        <img src={src} alt={alt} draggable={false} className="max-h-full max-w-full select-none bg-[#fff] transition-transform duration-75" style={{ transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`, cursor: scale > MIN_SCALE ? "grab" : "zoom-in" }} />
       </div>
       <p className="shrink-0 px-4 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] text-center font-display text-[11px] text-smoke">두 손가락으로 벌리거나 두 번 누르면 커집니다 · 끌어서 이동</p>
     </div>,
@@ -131,7 +131,7 @@ export function ExamMaterialFigure({
     <>
       <figure className="mb-6 overflow-hidden rounded-[var(--radius-cards)] border border-mist bg-white">
         <button type="button" onClick={() => setOpen(true)} aria-label={`${alt} 크게 보기`} className="group relative block w-full cursor-zoom-in bg-white p-3">
-          <Image src={material.image} alt={imageAlt} width={material.width ?? 1200} height={material.height ?? 900} className="mx-auto h-auto max-h-[720px] w-auto max-w-full" sizes="(max-width: 900px) 100vw, 860px" priority={questionNo <= 2} />
+          <Image src={material.image} alt={imageAlt} width={material.width ?? 1200} height={material.height ?? 900} className="mx-auto h-auto max-h-[720px] w-auto max-w-full bg-[#fff]" sizes="(max-width: 900px) 100vw, 860px" priority={questionNo <= 2} />
           <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full border border-mist bg-white/95 px-2 py-1 font-display text-[11px] font-bold text-smoke shadow-sm transition group-hover:border-carbon group-hover:text-carbon" aria-hidden>
             <ZoomIcon className="h-3.5 w-3.5" /> 크게
           </span>

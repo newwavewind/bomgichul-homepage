@@ -75,17 +75,17 @@ function CurvePlot({ compact }: { compact: boolean }) {
 
 export function DailyForgettingCurve() {
   return (
-    <figure className="mt-5 overflow-hidden rounded-[22px] border border-[#DBE7F3] bg-[#F8FBFF] shadow-[0_12px_32px_rgba(31,69,115,0.06)]">
+    <figure className="mt-5 overflow-hidden rounded-[22px] border border-[color:light-dark(#DBE7F3,var(--color-mist))] bg-[color:light-dark(#F8FBFF,var(--color-snow))] shadow-[0_12px_32px_rgba(31,69,115,0.06)]">
       <div className="flex flex-wrap items-start justify-between gap-3 px-4 pt-5 sm:px-6">
         <div>
-          <p className="text-[11px] font-bold tracking-[0.12em] text-[#0066D6]">1885 · ORIGINAL OBSERVATIONS</p>
+          <p className="text-[11px] font-bold tracking-[0.12em] text-[color:light-dark(#0066D6,var(--color-carbon))]">1885 · ORIGINAL OBSERVATIONS</p>
           <h4 className="mt-1 text-base font-semibold text-ink">에빙하우스의 실제 관측값</h4>
         </div>
-        <span className="rounded-full border border-[#D8E7F7] bg-white px-3 py-1 text-xs font-semibold text-[#41637F]">
+        <span className="rounded-full border border-[color:light-dark(#D8E7F7,var(--color-mist))] bg-white px-3 py-1 text-xs font-semibold text-[color:light-dark(#41637F,var(--color-carbon))]">
           실측 7개 시점
         </span>
       </div>
-      <p className="px-4 pt-2 text-sm leading-6 text-[#52657C] sm:px-6">
+      <p className="px-4 pt-2 text-sm leading-6 text-[color:light-dark(#52657C,var(--color-smoke))] sm:px-6">
         무의미 음절을 학습한 뒤 다시 익힐 때, 처음보다 절약된 학습 시간의 비율입니다.
       </p>
       <div className="px-2 pt-3 sm:px-4">
@@ -95,8 +95,8 @@ export function DailyForgettingCurve() {
       <dl className="grid grid-cols-4 gap-1.5 px-4 pb-4 sm:grid-cols-7 sm:gap-2 sm:px-6 sm:pb-5">
         {observations.map((observation) => (
           <div key={observation.label} className="rounded-xl border border-white bg-white/90 px-2 py-2 text-center shadow-[0_2px_7px_rgba(39,73,108,0.04)]">
-            <dt className="text-[11px] font-medium text-[#64748B]">{observation.label}</dt>
-            <dd className="mt-0.5 text-sm font-bold tabular-nums text-[#075AA8]">{observation.savings}%</dd>
+            <dt className="text-[11px] font-medium text-fog">{observation.label}</dt>
+            <dd className="mt-0.5 text-sm font-bold tabular-nums text-[color:light-dark(#075AA8,var(--color-carbon))]">{observation.savings}%</dd>
           </div>
         ))}
       </dl>

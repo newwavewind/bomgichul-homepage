@@ -64,7 +64,7 @@ function MaterialTable({ table }: { table: ExamStructuredTable }) {
       {table.lead ? <p className="whitespace-pre-line font-display text-body leading-relaxed text-ink">{plainStudyText(table.lead)}</p> : null}
       <div className="overflow-x-auto rounded-[var(--radius-cards)] border border-carbon bg-white p-3">
         {table.caption ? <p className="mb-2 text-center font-display text-body-sm font-medium text-smoke">{plainStudyText(table.caption)}</p> : null}
-        <table className="w-full border-collapse font-system text-[14px] text-ink" style={{ minWidth: `${Math.max(20, columns * 6)}rem` }}>
+        <table className="w-full border-collapse font-system text-[length:var(--text-reading-detail)] text-ink" style={{ minWidth: `${Math.max(20, columns * 6)}rem` }}>
           {headerRows.length ? (
             <thead>
               {headerRows.map((row, rowIndex) => (
@@ -95,7 +95,7 @@ function MaterialTable({ table }: { table: ExamStructuredTable }) {
           </tbody>
         </table>
         {table.notes?.length ? (
-          <ul className="mt-3 space-y-1 font-system text-[13px] leading-relaxed text-smoke">
+          <ul className="mt-3 space-y-1 font-system text-[length:var(--text-reading-note)] leading-relaxed text-smoke">
             {table.notes.map((note, index) => <li key={index}>※ {plainStudyText(note)}</li>)}
           </ul>
         ) : null}
@@ -115,7 +115,7 @@ function TAccounts({ accounts }: { accounts: ExamTAccount[] }) {
             {[account.debit ?? [], account.credit ?? []].map((entries, side) => (
               <div key={side} className={`min-w-0 flex-1 space-y-1 px-2 ${side === 1 ? "border-l border-ash" : ""}`}>
                 {entries.map(([label, amount], entryIndex) => (
-                  <div key={entryIndex} className="flex justify-between gap-2 font-system text-[13px] text-ink"><span>{label}</span><span className="tabular-nums">{amount}</span></div>
+                  <div key={entryIndex} className="flex justify-between gap-2 font-system text-[length:var(--text-reading-note)] text-ink"><span>{label}</span><span className="tabular-nums">{amount}</span></div>
                 ))}
               </div>
             ))}

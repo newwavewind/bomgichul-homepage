@@ -38,20 +38,23 @@ export function DailyQuestionStem({
   }
 
   let lineCursor = intro.length;
+  const lineOffsets: number[] = [];
+  for (const line of boxLines) {
+    const offset = underlines?.length ? cleanStem.indexOf(line.trim(), lineCursor) : -1;
+    lineOffsets.push(offset);
+    if (offset >= 0) lineCursor = offset + line.length;
+  }
 
   return (
     <>
       <Heading className="mt-3 whitespace-pre-line text-[1.0625rem] font-semibold leading-7 text-ink">
         {renderUnderlinedText(intro, underlines)}
       </Heading>
-      <fieldset className="mt-4 min-w-0 rounded-2xl border border-[#d7e3f4] bg-white/85 px-4 pb-3">
+      <fieldset className="mt-4 min-w-0 rounded-2xl border border-[color:light-dark(#d7e3f4,var(--color-mist))] bg-white/85 px-4 pb-3">
         <div className="space-y-2.5 pt-3">
           {boxLines.map((line, index) => {
             const match = line.match(/^([ㄱ-ㅎ]\.)\s*(.*)$/);
-            const offset = underlines?.length
-              ? cleanStem.indexOf(line.trim(), lineCursor)
-              : -1;
-            if (offset >= 0) lineCursor = offset + line.length;
+            const offset = lineOffsets[index];
             const body =
               offset >= 0
                 ? renderUnderlinedText(line, underlines, offset)

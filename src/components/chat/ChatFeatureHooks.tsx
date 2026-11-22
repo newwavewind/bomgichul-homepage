@@ -41,7 +41,8 @@ export function useChatPrefs(userId: string | null) {
   }, [userId]);
 
   useEffect(() => {
-    void refresh();
+    const frame = window.requestAnimationFrame(() => void refresh());
+    return () => window.cancelAnimationFrame(frame);
   }, [refresh]);
 
   const save = useCallback(
@@ -98,7 +99,9 @@ export function useTopicRooms(enabled: boolean) {
   }, []);
 
   useEffect(() => {
-    if (enabled) void refresh();
+    if (!enabled) return;
+    const frame = window.requestAnimationFrame(() => void refresh());
+    return () => window.cancelAnimationFrame(frame);
   }, [enabled, refresh]);
 
   const join = useCallback(

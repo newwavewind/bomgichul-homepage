@@ -1,18 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { useMe, fetchMe } from "@/lib/client-session";
 import { LoginSoftNudge } from "@/components/auth/LoginSoftNudge";
 import {
   bumpAnonAttemptCount,
   dismissProgressNudge,
-  shouldShowProgressNudge,
+  getAnonProgressNudge,
+  getServerAnonProgressNudge,
+  subscribeAnonProgress,
 } from "@/lib/login-nudges";
 import { CitedText } from "@/components/exam/CitedText";
 import { recordWebStudy, scopeForPath, type StudyEntry } from "@/lib/web-study";
 import { trackEvent } from "@/lib/analytics";
 import { plainStudyText } from "@/lib/study-text";
+import { hasNativeEnterAction, questionShortcutTarget } from "@/lib/question-shortcuts";
 import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
 import type { ExamReferenceEntry } from "@/lib/exam-questions";
 import {
@@ -56,6 +59,7 @@ export function ExamOxQuestion({
   initialAttemptResult = null,
   onAttempt,
   renderExplanation = true,
+  keyboardShortcuts = false,
   userId,
   loginNext,
 }: {
@@ -78,6 +82,7 @@ export function ExamOxQuestion({
   initialAttemptResult?: "correct" | "wrong" | null;
   onAttempt?: (result: "correct" | "wrong") => void | Promise<void>;
   renderExplanation?: boolean;
+  keyboardShortcuts?: boolean;
   /**
    * null 확정 비로그인 — 진도·오답 유도 배너를 켠다.
    * 생략하면(정적 문항 페이지) /api/me 로 스스로 해결한다.
@@ -95,6 +100,17 @@ export function ExamOxQuestion({
   const questionHref = loginNext ?? pathname;
   const journalId = `${questionHref}#${examId}`;
   const isComposite = comboChoices.length > 0;
+  const choicesRef = useRef<HTMLDivElement>(null);
+  const choiceNumbers = isComposite
+    ? comboChoices.map((choice) => choice.no)
+    : items.map((item, index) => Number(item.key || index + 1));
+  const shortcutNumbers = keyboardShortcuts
+    ? choiceNumbers.filter((choice) => Number.isInteger(choice) && choice >= 1 && choice <= 9)
+    : [];
+  const firstShortcut = shortcutNumbers[0];
+  const lastShortcut = shortcutNumbers[shortcutNumbers.length - 1];
+  const hasShortcutRange = shortcutNumbers.length > 1 &&
+    shortcutNumbers.every((choice, index) => choice === firstShortcut + index);
   const oxComboTable = isComposite
     ? (() => {
         const headers = jamoHeadersFromItems(items);
@@ -111,7 +127,11 @@ export function ExamOxQuestion({
   const inlineExplanation = renderExplanation && revealed;
   const [previousExamId,setPreviousExamId] = useState(examId);
   if(previousExamId !== examId){setPreviousExamId(examId);setSelected(null);setRevealed(false);}
-  const [showProgressNudge, setShowProgressNudge] = useState(false);
+  const showProgressNudge = useSyncExternalStore(
+    subscribeAnonProgress,
+    getAnonProgressNudge,
+    getServerAnonProgressNudge,
+  );
   // 확정답안이 둘 이상을 정답으로 인정한 문항(복수정답·전항정답)은 그 가운데 무엇을 골라도 정답이다.
   // 번호 하나만 보면 공식 정답을 골랐는데 오답이 뜬다 — 앱 채점기(getCorrectChoiceNos)와 같게 본다.
   const acceptedChoices =
@@ -126,12 +146,6 @@ export function ExamOxQuestion({
     (selected === null
       ? initialAttemptResult === "wrong"
       : hasAnswerKey && !acceptedChoices.includes(selected));
-
-  useEffect(() => {
-    if (revealed && isAnon) {
-      setShowProgressNudge(shouldShowProgressNudge(false));
-    }
-  }, [revealed, isAnon]);
 
   /**
    * 채점은 한 번뿐이고 되돌리지 않는다.
@@ -151,12 +165,7 @@ export function ExamOxQuestion({
       else recordWebStudy(actor, entry);
       trackEvent("web_question_completed", {scope:scopeForPath(pathname),result});
     }
-    // 채점 순간 아직 pending 이면 익명 집계 한 번을 놓치지만, 위 effect 가
-    // isAnon 확정 뒤 다시 돌아 배너 판단은 회복된다.
-    if (isAnon) {
-      bumpAnonAttemptCount();
-      setShowProgressNudge(shouldShowProgressNudge(false));
-    }
+    if (isAnon) bumpAnonAttemptCount();
     if (selected !== null && hasAnswerKey) {
       void onAttempt?.(acceptedChoices.includes(selected) ? "correct" : "wrong");
     }
@@ -170,8 +179,50 @@ export function ExamOxQuestion({
     }
   };
 
+  const handleShortcut = useEffectEvent((event: KeyboardEvent) => {
+    const { key } = event;
+    const target = questionShortcutTarget(event);
+    const article = choicesRef.current?.closest("article");
+    if (!target || !article) return;
+    if (target !== document.body && target !== document.documentElement && !article.contains(target)) return;
+
+    if (key === "ArrowLeft" || key === "ArrowRight") {
+      // Follow the rendered link so the question's existing return context is preserved.
+      const link = article.querySelector<HTMLAnchorElement>('.web-question-nav > a[aria-keyshortcuts="' + key + '"]');
+      if (!link) return;
+      event.preventDefault();
+      link.click();
+      return;
+    }
+
+    if (revealed) return;
+    if (key === "Enter") {
+      // A focused control still gets its native Enter behavior.
+      if (selected === null || hasNativeEnterAction(target)) return;
+      event.preventDefault();
+      reveal();
+      return;
+    }
+
+    const choiceButton = choicesRef.current?.querySelector<HTMLButtonElement>(
+      'button[aria-keyshortcuts="' + key + '"]',
+    );
+    if (!choiceButton) return;
+    event.preventDefault();
+    setSelected(Number(key));
+    choiceButton.focus({ preventScroll: true });
+    choiceButton.scrollIntoView({ block: "nearest" });
+  });
+
+  useEffect(() => {
+    if (!keyboardShortcuts) return;
+    const onKeyDown = (event: KeyboardEvent) => handleShortcut(event);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [keyboardShortcuts]);
+
   return (
-    <div className="space-y-4 web-question-choices">
+    <div ref={choicesRef} className="space-y-4 web-question-choices">
       {isComposite ? (
         <div className="space-y-3">
           {/*
@@ -188,7 +239,7 @@ export function ExamOxQuestion({
             ) : null}
             <div className={`space-y-2.5 ${passageLabel ? "pt-2" : "pt-4"}`}>
               {passageLead.map((line, i) => (
-                <p key={`${examId}-lead-${i}`} className="font-system text-[15px] leading-7 text-ink">
+                <p key={`${examId}-lead-${i}`} className="font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">
                   {plainStudyText(line)}
                 </p>
               ))}
@@ -197,13 +248,13 @@ export function ExamOxQuestion({
                   <span className="font-display font-semibold text-ink">
                     {item.label ?? item.key}
                   </span>
-                  <span className="flex-1 font-system text-[15px] leading-7 text-ink">
+                  <span className="flex-1 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">
                     {plainStudyText(item.text)}
                   </span>
                   {revealed && item.answer ? (
                     <span
                       className={`font-display text-[13px] font-bold ${
-                        item.answer === "O" ? "text-[#6366f1]" : "text-[#ef4444]"
+                        item.answer === "O" ? "text-[color:light-dark(#6366f1,var(--color-carbon))] dark:text-iris" : "text-[color:light-dark(#ef4444,var(--color-coral))] dark:text-coral"
                       }`}
                     >
                       {item.answer}
@@ -242,6 +293,8 @@ export function ExamOxQuestion({
                     <div key={`${examId}-combo-${choice.no}`}>
                       <button
                         type="button"
+                        aria-pressed={selectedItem}
+                        aria-keyshortcuts={!revealed && shortcutNumbers.includes(choice.no) ? String(choice.no) : undefined}
                         onClick={() => {
                           if (revealed) return;
                           if (selectedItem) reveal();
@@ -266,7 +319,7 @@ export function ExamOxQuestion({
                         {cells.map((cell, cellIndex) => (
                           <span
                             key={cellIndex}
-                            className="text-center font-system text-[15px] leading-7 text-ink"
+                            className="text-center font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink"
                           >
                             {cell}
                           </span>
@@ -296,6 +349,8 @@ export function ExamOxQuestion({
                 <button
                   key={`${examId}-combo-${choice.no}`}
                   type="button"
+                  aria-pressed={selectedItem}
+                  aria-keyshortcuts={!revealed && shortcutNumbers.includes(choice.no) ? String(choice.no) : undefined}
                   onClick={() => {
                     if (revealed) return;
                     if (selectedItem) reveal();
@@ -313,7 +368,7 @@ export function ExamOxQuestion({
                 >
                   <div className="flex gap-3">
                     <span className="font-display font-semibold text-ink">{choice.label}</span>
-                    <span className="flex-1 font-system text-[15px] leading-7 text-ink">
+                    <span className="flex-1 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">
                       {plainStudyText(choice.text)}
                     </span>
                   </div>
@@ -338,7 +393,7 @@ export function ExamOxQuestion({
             </div>
           ) : null}
           {items.map((item, index) => {
-            const choice = Number(item.key || index + 1);
+            const choice = choiceNumbers[index];
             const selectedItem = selected === choice;
             // 채점 뒤에는 고른 자리와 정답만 남기고 나머지는 물러선다.
             // 앱이 하던 것이다 — 다섯 줄이 같은 무게로 남아 있으면 어디를
@@ -349,6 +404,8 @@ export function ExamOxQuestion({
               <button
                 key={`${examId}-${item.key}`}
                 type="button"
+                aria-pressed={selectedItem}
+                aria-keyshortcuts={!revealed && shortcutNumbers.includes(choice) ? String(choice) : undefined}
                 // 고른 번호를 한 번 더 누르면 바로 채점한다 — 아래 단추까지
                 // 손을 내리지 않아도 되게 앱이 두었던 길이다.
                 onClick={() => {
@@ -371,7 +428,7 @@ export function ExamOxQuestion({
                     {item.label ?? choice}
                   </span>
                   {choiceHeaders.length >= 2 && item.text.split("/").length === choiceHeaders.length ? (
-                    <span className="grid flex-1 gap-2 text-center font-system text-[15px] leading-7 text-ink" style={{ gridTemplateColumns: `repeat(${choiceHeaders.length}, minmax(0, 1fr))` }}>
+                    <span className="grid flex-1 gap-2 text-center font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink" style={{ gridTemplateColumns: `repeat(${choiceHeaders.length}, minmax(0, 1fr))` }}>
                       {item.text.split("/").map((cell, cellIndex) => <span key={cellIndex}>{plainStudyText(cell.trim())}</span>)}
                     </span>
                   ) : item.image ? (
@@ -379,15 +436,15 @@ export function ExamOxQuestion({
                       {/* 글은 그림을 옮겨 적은 것이라 둘 다 보이면 같은 선지가 두 번 읽힌다 — 화면 읽기용으로만 남긴다 */}
                       {item.text ? <span className="sr-only">{plainStudyText(item.text)}</span> : null}
                       {/* eslint-disable-next-line @next/next/no-img-element -- 크기가 제각각인 시험지 그림이라 원본 비율을 그대로 둔다 */}
-                      <img src={item.image} alt={item.text ? plainStudyText(item.text) : `${item.label ?? ""} 선지 그림`} loading="lazy" className="h-auto max-h-60 w-auto max-w-full rounded-md border border-mist bg-white" />
+                      <img src={item.image} alt={item.text ? plainStudyText(item.text) : `${item.label ?? ""} 선지 그림`} loading="lazy" className="h-auto max-h-60 w-auto max-w-full rounded-md border border-mist bg-[#fff]" />
                     </span>
                   ) : (
-                    <span className="flex-1 font-system text-[15px] leading-7 text-ink">{plainStudyText(item.text)}</span>
+                    <span className="flex-1 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">{plainStudyText(item.text)}</span>
                   )}
                   {revealed && item.answer ? (
                     <span
                       className={`font-display text-[13px] font-bold ${
-                        item.answer === "O" ? "text-[#6366f1]" : "text-[#ef4444]"
+                        item.answer === "O" ? "text-[color:light-dark(#6366f1,var(--color-carbon))] dark:text-iris" : "text-[color:light-dark(#ef4444,var(--color-coral))] dark:text-coral"
                       }`}
                     >
                       {item.answer}
@@ -403,6 +460,25 @@ export function ExamOxQuestion({
         </div>
       )}
 
+      {keyboardShortcuts ? (
+        <p className="exam-keyboard-hint hidden flex-wrap items-center gap-x-4 gap-y-1.5 font-system text-[13px] text-smoke md:flex [@media(pointer:coarse)]:hidden">
+          {!revealed && shortcutNumbers.length > 0 ? (
+            <>
+              <span className="inline-flex items-center gap-1.5">
+                {hasShortcutRange ? (
+                  <><kbd>{firstShortcut}</kbd><span>~</span><kbd>{lastShortcut}</kbd></>
+                ) : shortcutNumbers.map((choice, index) => <kbd key={index}>{choice}</kbd>)}
+                선택
+              </span>
+              <span className="inline-flex items-center gap-1.5"><kbd>Enter</kbd> 채점</span>
+            </>
+          ) : null}
+          <span className="inline-flex items-center gap-1.5">
+            <kbd aria-label="왼쪽 방향키">←</kbd><kbd aria-label="오른쪽 방향키">→</kbd> 문항 이동
+          </span>
+        </p>
+      ) : null}
+
       {/* 고른 뒤 한 번 더 누르면 채점된다는 것을 알린다. 알리지 않으면
           아무도 두 번 누르지 않는다 — 앱이 선지 아래에 두던 안내다. */}
       {/* 채점 전에만 남는다 — 채점하고 나면 안내도 단추도 할 일이 없다 */}
@@ -414,6 +490,7 @@ export function ExamOxQuestion({
           <button
             type="button"
             disabled={selected === null}
+            aria-keyshortcuts={keyboardShortcuts ? "Enter" : undefined}
             onClick={reveal}
             className="web-grade-button w-full rounded-2xl bg-carbon px-5 py-4 font-display text-body-sm font-semibold text-paper disabled:cursor-not-allowed disabled:opacity-35"
           >
@@ -451,17 +528,14 @@ export function ExamOxQuestion({
               body="오답·북마크·최근 학습이 계정에 이어지고, 다른 기기에서도 그대로입니다. 홈페이지 기능은 전부 무료예요."
               href={loginHref}
               cta="무료로 로그인하고 이어하기"
-              onDismiss={() => {
-                dismissProgressNudge();
-                setShowProgressNudge(false);
-              }}
+              onDismiss={dismissProgressNudge}
             />
           ) : null}
           {/* 선지 해설은 각 선지 바로 아래에 붙였다(2026-10-21) — 여기는 공통 해설만 */}
           {renderExplanation && explanationSummary ? (
             <section className="rounded-2xl border border-mist bg-paper px-5 py-4" aria-label="공통 해설">
               <h2 className="font-display text-body-sm font-semibold text-ink">공통 해설</h2>
-              <p className="mt-2 font-system text-[14px] leading-6 text-smoke">
+              <p className="mt-2 font-system text-[length:var(--text-reading-detail)] leading-[1.72] text-smoke">
                 <CitedText text={explanationSummary} examDate={examDate} lawVersions={lawVersions} />
               </p>
             </section>
@@ -482,8 +556,8 @@ function InlineExplanation({
   lawVersions?: Record<string, string>;
 }) {
   return (
-    <span className="mt-3 flex w-full items-start gap-2.5 rounded-xl bg-white/70 px-3 py-2.5 text-left font-system text-[14px] leading-6 text-smoke">
-      <span className="mt-0.5 shrink-0 rounded-full bg-[#EAF3FE] px-2 py-0.5 font-display text-[11px] font-bold leading-5 text-[#47739E]">
+    <span className="mt-3 flex w-full items-start gap-2.5 rounded-xl bg-white/70 px-3 py-2.5 text-left font-system text-[length:var(--text-reading-detail)] leading-[1.72] text-smoke">
+      <span className="mt-0.5 shrink-0 rounded-full bg-[color:light-dark(#EAF3FE,color-mix(in_srgb,var(--color-snow)_90%,#EAF3FE))] px-2 py-0.5 font-display text-[11px] font-bold leading-5 text-[color:light-dark(#47739E,var(--color-carbon))] dark:bg-snow dark:text-carbon">
         해설
       </span>
       <span className="min-w-0 flex-1">

@@ -81,7 +81,7 @@ function LoginHint({ href, action }: { href: string; action: string }) {
   return (
     <p className="font-display text-[12px] text-fog">
       {action}{" "}
-      <Link href={href} className="font-medium text-[#0f766e] hover:underline">
+      <Link href={href} className="font-medium text-electric-blue hover:underline">
         로그인
       </Link>
     </p>
@@ -112,15 +112,15 @@ function CommunityPostCard({
   const [showComments, setShowComments] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [busy, setBusy] = useState(false);
-  const [viewCount, setViewCount] = useState(post.view_count);
+  const [views, setViews] = useState({ postId: post.id, initial: post.view_count, count: post.view_count });
+  if (views.postId !== post.id || views.initial !== post.view_count) {
+    setViews({ postId: post.id, initial: post.view_count, count: post.view_count });
+  }
+  const viewCount = views.count;
   const viewedRef = useRef(false);
 
   // 조회가 끝나기 전에는 「로그인 후 이용」류를 그리지 않는다(깜빡임 방지).
   const showLoggedOutUi = !userId && !loginPending;
-
-  useEffect(() => {
-    setViewCount(post.view_count);
-  }, [post.view_count, post.id]);
 
   useEffect(() => {
     if (!isSupabaseConfigured()) return;
@@ -136,7 +136,11 @@ function CommunityPostCard({
     void supabase
       .rpc("increment_concept_community_post_view", { p_post_id: post.id })
       .then(({ error }) => {
-        if (!error) setViewCount((n) => n + 1);
+        if (!error) {
+          setViews((current) => current.postId === post.id
+            ? { ...current, count: current.count + 1 }
+            : current);
+        }
       });
   }, [post.id]);
 
@@ -574,7 +578,7 @@ export function ConceptCommunityPanel({
               {status ? (
                 <p
                   className={`font-display text-[12px] ${
-                    status.tone === "ok" ? "text-[#0f766e]" : "text-burnt"
+                    status.tone === "ok" ? "text-electric-blue" : "text-burnt"
                   }`}
                   role="status"
                 >
