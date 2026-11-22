@@ -8,6 +8,7 @@ import {
   ExamQuestionSeoExplanations,
   hasExamQuestionSeoExplanations,
 } from "@/components/exam/ExamQuestionSeoExplanations";
+import { examGlossaryTerms } from "@/lib/exam-glossary";
 import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
 import { QuestionStem } from "@/components/exam/QuestionStem";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
@@ -177,6 +178,8 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
             <ExamQuestionSeoExplanations
               question={{ ...exam, comboChoices: [] }}
               subjectLabel={data.subject.label}
+              scope="public_service"
+              glossaryByChoice={await examGlossaryTerms("public_service", exam.id, exam.items)}
               embedded
             />
           </ExamSeoExplanationDetails> : null}

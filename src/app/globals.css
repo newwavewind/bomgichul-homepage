@@ -329,6 +329,9 @@ textarea,
 .ai-provider-dot--claude {
   background-color: #d97757;
 }
+.ai-provider-dot--perplexity {
+  background-color: #20808d;
+}
 
 /* Exam AI dropdown + speech-bubble hint (app ConceptsScreen parity) */
 .exam-ai__hint::before,

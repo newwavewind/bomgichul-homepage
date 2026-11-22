@@ -1,4 +1,8 @@
+import { CitedText } from "@/components/exam/CitedText";
+import { ExplanationAppFeatures, ExplanationAppTools } from "@/components/exam/ExplanationAppFeatures";
+import { appStoreLinksForScope } from "@/lib/constants";
 import { plainStudyText } from "@/lib/study-text";
+import type { CommunityScope } from "@/types/database";
 import type { ExamTrackExamBlank } from "@/lib/exam-track/types";
 
 /** 주관식(단답형) 지문 — 빈칸 ( ㄱ )이 들어 있는 법령 조문 인용문 */
@@ -25,16 +29,20 @@ export function SubjectiveAnswer({
   year,
   questionNo,
   subjectLabel,
+  prompt,
   blanks = [],
   explanation,
   legalSources = [],
+  scope,
 }: {
   year: number;
   questionNo: number;
   subjectLabel: string;
+  prompt?: string;
   blanks?: ExamTrackExamBlank[];
   explanation?: string;
   legalSources?: string[];
+  scope: CommunityScope;
 }) {
   const answered = blanks.filter((blank) => blank.answer?.trim());
   if (answered.length === 0 && !explanation?.trim()) return null;
@@ -62,11 +70,9 @@ export function SubjectiveAnswer({
       ) : null}
 
       {explanation?.trim() ? (
-        <div className="rounded-[var(--radius-buttons)] border border-mist bg-snow px-4 py-3">
-          <p className="font-display text-body-sm font-medium text-ink">해설</p>
-          <p className="mt-2 whitespace-pre-wrap font-display text-body-sm leading-relaxed text-smoke">
-            {plainStudyText(explanation)}
-          </p>
+        <div className="exam-explanation-card">
+          <p className="exam-explanation-eyebrow text-smoke">해설</p>
+          <p className="exam-explanation-copy"><CitedText text={explanation} /></p>
         </div>
       ) : null}
 
@@ -82,6 +88,14 @@ export function SubjectiveAnswer({
           </ul>
         </div>
       ) : null}
+      <ExplanationAppFeatures links={appStoreLinksForScope(scope)}>
+        <ExplanationAppTools questionPrompt={[
+          `${subjectLabel} ${year}년 ${questionNo}번 단답형 기출의 핵심 개념을 설명해 주세요.`,
+          prompt,
+          ...answered.map(({ label, answer }) => `${label}. ${answer}`),
+          explanation,
+        ].filter(Boolean).join("\n\n")} />
+      </ExplanationAppFeatures>
     </section>
   );
 }

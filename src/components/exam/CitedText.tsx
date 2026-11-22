@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { splitLawCites, type LawCitePart } from "@/lib/law-link";
 import { plainStudyText } from "@/lib/study-text";
 
@@ -23,12 +24,23 @@ export function CitedText({
   className,
   examDate,
   lawVersions,
+  glossaryTerms = [],
 }: {
   text: string;
   className?: string;
   examDate?: string;
   lawVersions?: Record<string, string>;
+  glossaryTerms?: readonly string[];
 }) {
+  const terms = [...new Set(glossaryTerms.filter(Boolean))].sort((a, b) => b.length - a.length);
+  const pattern = terms.length
+    ? new RegExp(`(${terms.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "gi")
+    : null;
+  const withGlossary = (value: string) => pattern
+    ? value.split(pattern).map((part, index) => index % 2
+      ? <span className="exam-glossary-underline" key={index}>{part}</span>
+      : <Fragment key={index}>{part}</Fragment>)
+    : value;
   const plain = plainStudyText(text);
   const mark = plain.search(CURRENT_NOTE);
   const head = mark < 0 ? plain : plain.slice(0, mark);
@@ -36,7 +48,7 @@ export function CitedText({
   const headParts = splitLawCites(head);
   const tailParts = tail ? splitLawCites(tail) : [];
   if (!headParts.length && !tailParts.length) {
-    return className ? <span className={className}>{plain}</span> : <>{plain}</>;
+    return className ? <span className={className}>{withGlossary(plain)}</span> : <>{withGlossary(plain)}</>;
   }
   const parts: (LawCitePart & { examDay?: boolean })[] = [
     ...(headParts.length ? toExamDay(headParts, lawVersions) : [{ text: head }]),
@@ -57,7 +69,7 @@ export function CitedText({
             {part.text}
           </a>
         ) : (
-          <span key={i}>{part.text}</span>
+          <span key={i}>{withGlossary(part.text)}</span>
         )
       )}
     </span>

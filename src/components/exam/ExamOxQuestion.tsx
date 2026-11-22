@@ -2,6 +2,7 @@
 
 import { useEffect, useEffectEvent, useRef, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
+import { DailyChoiceBadge } from "@/components/daily/DailyChoiceBadge";
 import { useMe, fetchMe } from "@/lib/client-session";
 import { LoginSoftNudge } from "@/components/auth/LoginSoftNudge";
 import {
@@ -33,6 +34,13 @@ export type ExamOxItem = {
   image?: string;
 };
 
+export type ExamAnswerState = {
+  selected: number | null;
+  revealed: boolean;
+};
+
+const UNANSWERED: ExamAnswerState = { selected: null, revealed: false };
+
 export type ExamOxCombo = {
   no: number;
   label: string;
@@ -60,6 +68,8 @@ export function ExamOxQuestion({
   onAttempt,
   renderExplanation = true,
   keyboardShortcuts = false,
+  answerState,
+  onAnswerStateChange,
   userId,
   loginNext,
 }: {
@@ -83,6 +93,8 @@ export function ExamOxQuestion({
   onAttempt?: (result: "correct" | "wrong") => void | Promise<void>;
   renderExplanation?: boolean;
   keyboardShortcuts?: boolean;
+  answerState?: ExamAnswerState;
+  onAnswerStateChange?: (answer: ExamAnswerState) => void;
   /**
    * null 확정 비로그인 — 진도·오답 유도 배너를 켠다.
    * 생략하면(정적 문항 페이지) /api/me 로 스스로 해결한다.
@@ -121,12 +133,17 @@ export function ExamOxQuestion({
         );
       })()
     : null;
-  const [selected, setSelected] = useState<number | null>(null);
-  const [revealed, setRevealed] = useState(false);
+  const [localAnswer, setLocalAnswer] = useState(UNANSWERED);
+  const { selected, revealed } = answerState ?? localAnswer;
+  const updateAnswer = onAnswerStateChange ?? setLocalAnswer;
+  const selectChoice = (choice: number) => updateAnswer({ selected: choice, revealed: false });
   // 해설을 이 컴포넌트가 그릴 때(랜덤 문제 등) 채점 뒤 각 선지 아래에 그 선지 해설을 붙인다
   const inlineExplanation = renderExplanation && revealed;
-  const [previousExamId,setPreviousExamId] = useState(examId);
-  if(previousExamId !== examId){setPreviousExamId(examId);setSelected(null);setRevealed(false);}
+  const [previousExamId, setPreviousExamId] = useState(examId);
+  if (previousExamId !== examId) {
+    setPreviousExamId(examId);
+    setLocalAnswer(UNANSWERED);
+  }
   const showProgressNudge = useSyncExternalStore(
     subscribeAnonProgress,
     getAnonProgressNudge,
@@ -156,7 +173,7 @@ export function ExamOxQuestion({
    */
   const reveal = () => {
     if (revealed) return;
-    setRevealed(true);
+    updateAnswer({ selected, revealed: true });
     if (selected !== null && hasAnswerKey) {
       const result = acceptedChoices.includes(selected) ? "correct" : "wrong";
       const entry: Omit<StudyEntry,"day"> = {id: journalId, href: questionHref, title: document.querySelector("h1")?.textContent || examId, scope: scopeForPath(pathname), result,
@@ -173,7 +190,7 @@ export function ExamOxQuestion({
     if (revealEvent) {
       window.dispatchEvent(
         new CustomEvent("exam:answer_revealed", {
-          detail: { ...revealEvent, open: true },
+          detail: { ...revealEvent, open: true, selectedChoice: selected, incorrect: selected !== null && hasAnswerKey && !isCorrect },
         })
       );
     }
@@ -187,11 +204,12 @@ export function ExamOxQuestion({
     if (target !== document.body && target !== document.documentElement && !article.contains(target)) return;
 
     if (key === "ArrowLeft" || key === "ArrowRight") {
-      // Follow the rendered link so the question's existing return context is preserved.
-      const link = article.querySelector<HTMLAnchorElement>('.web-question-nav > a[aria-keyshortcuts="' + key + '"]');
-      if (!link) return;
+      const navigation = article.querySelector<HTMLElement>(
+        `nav :is(a[href], button:not(:disabled))[aria-keyshortcuts="${key}"]`,
+      );
+      if (!navigation) return;
       event.preventDefault();
-      link.click();
+      navigation.click();
       return;
     }
 
@@ -209,7 +227,7 @@ export function ExamOxQuestion({
     );
     if (!choiceButton) return;
     event.preventDefault();
-    setSelected(Number(key));
+    selectChoice(Number(key));
     choiceButton.focus({ preventScroll: true });
     choiceButton.scrollIntoView({ block: "nearest" });
   });
@@ -298,7 +316,7 @@ export function ExamOxQuestion({
                         onClick={() => {
                           if (revealed) return;
                           if (selectedItem) reveal();
-                          else setSelected(choice.no);
+                          else selectChoice(choice.no);
                         }}
                         className={`grid w-full items-center gap-x-3 px-4 py-3 text-left transition-colors ${
                           selectedItem
@@ -313,9 +331,7 @@ export function ExamOxQuestion({
                           gridTemplateColumns: `2.25rem repeat(${oxComboTable.headers.length}, minmax(0, 1fr))`,
                         }}
                       >
-                        <span className="font-display font-semibold text-ink">
-                          {choice.label}
-                        </span>
+                        <DailyChoiceBadge label={choice.label} tone={selectedItem ? (revealed && !isAccepted ? "incorrect" : "selected") : "default"} />
                         {cells.map((cell, cellIndex) => (
                           <span
                             key={cellIndex}
@@ -341,8 +357,7 @@ export function ExamOxQuestion({
             </div>
           ) : (
             <>
-          <p className="pt-1 font-display text-body-sm font-semibold text-smoke">선택지</p>
-          <div className="space-y-3">
+          <div className="space-y-3" role="group" aria-label="선택지">
             {comboChoices.map((choice) => {
               const selectedItem = selected === choice.no;
               return (
@@ -354,7 +369,7 @@ export function ExamOxQuestion({
                   onClick={() => {
                     if (revealed) return;
                     if (selectedItem) reveal();
-                    else setSelected(choice.no);
+                    else selectChoice(choice.no);
                   }}
                   className={`w-full rounded-2xl border px-4 py-4 text-left transition-colors ${
                     selectedItem
@@ -367,7 +382,7 @@ export function ExamOxQuestion({
                   }`}
                 >
                   <div className="flex gap-3">
-                    <span className="font-display font-semibold text-ink">{choice.label}</span>
+                    <DailyChoiceBadge label={choice.label} tone={selectedItem ? (revealed && hasAnswerKey && !isCorrect ? "incorrect" : "selected") : "default"} />
                     <span className="flex-1 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">
                       {plainStudyText(choice.text)}
                     </span>
@@ -411,7 +426,7 @@ export function ExamOxQuestion({
                 onClick={() => {
                   if (revealed) return;
                   if (selectedItem) reveal();
-                  else setSelected(choice);
+                  else selectChoice(choice);
                 }}
                 className={`w-full rounded-2xl border px-4 py-4 text-left transition-colors ${
                   isAnswer
@@ -424,9 +439,7 @@ export function ExamOxQuestion({
                 } ${muted ? "opacity-45" : ""}`}
               >
                 <div className="flex gap-3">
-                  <span className="font-display font-semibold text-ink">
-                    {item.label ?? choice}
-                  </span>
+                  <DailyChoiceBadge label={item.label ?? String(choice)} tone={selectedItem ? (revealed && hasAnswerKey && !isCorrect ? "incorrect" : "selected") : "default"} />
                   {choiceHeaders.length >= 2 && item.text.split("/").length === choiceHeaders.length ? (
                     <span className="grid flex-1 gap-2 text-center font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink" style={{ gridTemplateColumns: `repeat(${choiceHeaders.length}, minmax(0, 1fr))` }}>
                       {item.text.split("/").map((cell, cellIndex) => <span key={cellIndex}>{plainStudyText(cell.trim())}</span>)}
@@ -501,33 +514,29 @@ export function ExamOxQuestion({
 
       {revealed ? (
         <div className="space-y-4">
-          <div
-            className={`inline-flex max-w-full rounded-lg border px-3 py-1.5 ${
-              (selected === null ? initialAttemptResult === "correct" : isCorrect)
-                ? "border-[#6366f1]/35 bg-[#6366f1]/8"
-                : "border-[#ef4444]/35 bg-[#ef4444]/8"
-            }`}
-          >
-            <p className="font-display text-[13px] font-semibold text-ink">
-              {(selected === null ? initialAttemptResult === "correct" : isCorrect)
-                ? allAccepted ? "정답입니다 — 확정답안에서 모든 번호를 정답으로 인정한 문항입니다." : "정답입니다."
-                : `정답은 ${hasAnswerKey ? answerLabel : "?번"}입니다.`}
+          {renderExplanation ? (
+            <p role="status" className="font-display text-body-sm font-semibold text-ink">
+              {isCorrect ? (allAccepted ? answerLabel : "정답") : hasAnswerKey ? `정답 ${answerLabel}` : "채점 완료"}
             </p>
-          </div>
+          ) : (
+            <span className="sr-only" role="status">
+              {hasAnswerKey && selected !== null ? (isCorrect ? "정답" : "오답") : "채점 완료"}
+            </span>
+          )}
           {isAnon && answeredWrong ? (
             <LoginSoftNudge
               title="오답노트에 넣어 두기"
-              body="틀린 문항을 모아 약점만 복습할 수 있어요. 오답노트·북마크·해설 모두 무료이고, 로그인만 하면 바로 열립니다."
+              body="로그인하면 틀린 문항을 오답노트에 모아 다시 풀 수 있어요."
               href={loginHref}
-              cta="무료로 로그인하고 저장"
+              cta="로그인하고 저장"
             />
           ) : null}
           {isAnon && showProgressNudge ? (
             <LoginSoftNudge
               title="지금까지 푼 건 이 기기에만 남아 있어요"
-              body="오답·북마크·최근 학습이 계정에 이어지고, 다른 기기에서도 그대로입니다. 홈페이지 기능은 전부 무료예요."
+              body="로그인하면 오답·북마크·최근 학습을 다른 기기에서도 이어갈 수 있어요."
               href={loginHref}
-              cta="무료로 로그인하고 이어하기"
+              cta="로그인하고 이어하기"
               onDismiss={dismissProgressNudge}
             />
           ) : null}

@@ -1,4 +1,5 @@
 import { compareExamSessionsNewestFirst } from "./session-order";
+import { isRenderableExam } from "./exam-render";
 import type { ExamTrackSubjectContent } from "./types";
 import { findTrackConceptsForExamQuestion } from "./concept-matches";
 
@@ -29,6 +30,7 @@ export function createTrackContent(contentBySubject: Record<string, ExamTrackSub
       { year: number; sourceCode: string; count: number; firstQuestionNo: number }
     >();
     for (const exam of subject.exams) {
+      if (!isRenderableExam(exam)) continue;
       const key = `${exam.year}-${exam.sourceCode}`;
       const current = sessions.get(key) ?? {
         year: exam.year,

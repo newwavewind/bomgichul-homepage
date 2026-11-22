@@ -1,5 +1,6 @@
 import { WebStudyTracker } from "@/components/web-study/WebStudyTracker";
 import "@/styles/web-study.css";
+import "@/styles/exam-explanation.css";
 import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Outfit, Caveat } from "next/font/google";

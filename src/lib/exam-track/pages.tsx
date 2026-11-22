@@ -19,6 +19,8 @@ import {
   ExamQuestionSeoExplanations,
   hasExamQuestionSeoExplanations,
 } from "@/components/exam/ExamQuestionSeoExplanations";
+import { examGlossaryTerms } from "@/lib/exam-glossary";
+import { housingExplanationSources } from "@/lib/housing-explanation-sources";
 import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
 import { ExamSessionCard } from "@/components/exam/ExamSessionCard";
 import { ExamSessionGroup } from "@/components/exam/ExamSessionGroup";
@@ -399,7 +401,7 @@ export async function TrackExamSubjectPage({
                 {groupSessions.map((session) => (
                   <ExamSessionCard
                     key={`${session.year}-${session.sourceCode}`}
-                    href={`${track.basePath}/exam/${subjectId}/${session.year}/${encodeURIComponent(session.sourceCode)}`}
+                    href={`${path}/${session.year}/${encodeURIComponent(session.sourceCode)}/${session.firstQuestionNo}`}
                     year={session.year}
                     questionCount={session.count}
                   />
@@ -634,7 +636,13 @@ export async function TrackExamDetailPage({
    * 넘겼는데, 그러면 해설에서 ①~④ 중 무엇이 정답인지 적히지 않는다. 화면 쪽과 같은
    * 값을 쓰도록 맞춘다.
    */
-  const seoQuestion = { ...exam, comboChoices: toExamOxCombos(exam.comboChoices, exam.correctChoice) };
+  const verifiedSources = track.id === "housing" ? housingExplanationSources(exam.id) : {};
+  const glossaryByChoice = await examGlossaryTerms(track.communityScope, exam.id, exam.items, exam.vocab);
+  const seoQuestion = {
+    ...exam,
+    items: exam.items.map((item) => ({ ...item, sources: [...(item.sources ?? []), ...(verifiedSources[item.key] ?? [])] })),
+    comboChoices: toExamOxCombos(exam.comboChoices, exam.correctChoice),
+  };
   /*
    * 「모두 몇 개인가」 문항의 보기 상자는 지문(㉠~㉤)과 한 문장으로 이어진다.
    * 도입부만 지문 위에 따로 상자로 두면 쉼표에서 끊겨 문장이 잘린 것처럼 읽히므로,
@@ -713,9 +721,11 @@ export async function TrackExamDetailPage({
                   year={exam.year}
                   questionNo={exam.questionNo}
                   subjectLabel={data.subject.label}
+                  prompt={exam.prompt}
                   blanks={exam.blanks}
                   explanation={exam.explanation}
                   legalSources={exam.legalSources}
+                  scope={track.communityScope}
                 />
               </ExamSeoExplanationDetails>
             </>
@@ -763,6 +773,8 @@ export async function TrackExamDetailPage({
                 <ExamQuestionSeoExplanations
                   question={seoQuestion}
                   subjectLabel={data.subject.label}
+                  scope={track.communityScope}
+                  glossaryByChoice={glossaryByChoice}
                   embedded
                 />
               </ExamSeoExplanationDetails> : null}

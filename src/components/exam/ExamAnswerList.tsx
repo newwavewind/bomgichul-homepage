@@ -131,7 +131,6 @@ export function ExamAnswerList({
               <ExamReferenceList entries={referenceEntries} />
             </div>
           ) : null}
-          <p className="mb-2 mt-5 font-display text-body-sm font-semibold text-smoke">선택지</p>
           {isTableComposite ? (
             <TableComboChoiceRows
               comboChoices={resolvedComboChoices}
@@ -189,16 +188,16 @@ export function ExamAnswerList({
         <div className="mt-4 space-y-3">
           <LoginSoftNudge
             title="오답노트에 넣어 두기"
-            body="틀린 문항을 모아 약점만 복습할 수 있어요. 오답노트·북마크·해설 모두 무료이고, 로그인만 하면 바로 열립니다."
+            body="로그인하면 틀린 문항을 오답노트에 모아 다시 풀 수 있어요."
             href={loginHref}
-            cta="무료로 로그인하고 저장"
+            cta="로그인하고 저장"
           />
           {showProgressNudge ? (
             <LoginSoftNudge
               title="지금까지 푼 건 이 기기에만 남아 있어요"
-              body="오답·북마크·최근 학습이 계정에 이어지고, 다른 기기에서도 그대로입니다. 홈페이지 기능은 전부 무료예요."
+              body="로그인하면 오답·북마크·최근 학습을 다른 기기에서도 이어갈 수 있어요."
               href={loginHref}
-              cta="무료로 로그인하고 이어하기"
+              cta="로그인하고 이어하기"
               onDismiss={() => {
                 dismissProgressNudge();
                 setShowProgressNudge(false);

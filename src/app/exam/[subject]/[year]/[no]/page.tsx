@@ -8,6 +8,7 @@ import {
   ExamQuestionSeoExplanations,
   hasExamQuestionSeoExplanations,
 } from "@/components/exam/ExamQuestionSeoExplanations";
+import { examGlossaryTerms } from "@/lib/exam-glossary";
 import { ExamSeoExplanationDetails } from "@/components/exam/ExamSeoExplanationDetails";
 import { ExamQuestionJumpBar } from "@/components/exam/ExamQuestionJumpBar";
 import { QuestionStem } from "@/components/exam/QuestionStem";
@@ -249,6 +250,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             <ExamQuestionSeoExplanations
               question={question}
               subjectLabel={label}
+              glossaryByChoice={await examGlossaryTerms("real_estate", `real-estate/${subject}/${year}/${questionNo}`, question.items)}
               embedded
             />
           </ExamSeoExplanationDetails> : null}

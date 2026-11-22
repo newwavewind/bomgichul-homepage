@@ -3,7 +3,7 @@
 const MAX_URL_PROMPT_LEN = 1800;
 const CHOICE_MARKERS = ["①", "②", "③", "④", "⑤"];
 
-export type AiServiceId = "chatgpt" | "gemini" | "claude";
+export type AiServiceId = "chatgpt" | "gemini" | "claude" | "perplexity";
 
 export const AI_SERVICES: {
   id: AiServiceId;
@@ -33,10 +33,23 @@ export const AI_SERVICES: {
   },
 ];
 
+export const QUESTION_AI_SERVICES: typeof AI_SERVICES = [
+  ...AI_SERVICES,
+  {
+    id: "perplexity",
+    label: "Perplexity",
+    mode: "url",
+    baseUrl: "https://www.perplexity.ai/",
+    buildUrl: (prompt) => `https://www.perplexity.ai/search?q=${encodeURIComponent(prompt)}`,
+  },
+];
+
 export interface ExamItemPromptInput {
+  examLabel?: string;
+  sessionLabel?: string;
   subjectLabel: string;
   year: number;
-  round: number;
+  round?: number;
   questionNo: number;
   category: string;
   stem: string;
@@ -58,6 +71,8 @@ function choiceMarker(key: string): string {
 }
 
 export function buildExamItemAiPrompt({
+  examLabel = "공인중개사",
+  sessionLabel,
   subjectLabel,
   year,
   round,
@@ -71,7 +86,7 @@ export function buildExamItemAiPrompt({
   const meta = [
     subjectLabel,
     `${year}년`,
-    `제${round}회`,
+    sessionLabel || (round != null ? `제${round}회` : ""),
     `${questionNo}번`,
     category,
     item.label,
@@ -81,19 +96,19 @@ export function buildExamItemAiPrompt({
 
   const choiceNo = parseInt(item.key, 10);
   const lines = [
-    `[공인중개사 기출] 아래 내용을 바탕으로 관련 조문·판례·헷갈리는 포인트를 자세히 설명해 주세요.`,
+    `[${examLabel} 기출] 아래 문항과 보기의 핵심 개념과 헷갈리기 쉬운 이유를 설명해 주세요. 관련 조문이나 판례가 있는 경우에만 근거를 함께 알려 주세요.`,
     "",
     `【출처】 ${meta}`,
     `【지문】\n${stem}`,
     `【보기 ${item.label}】\n${item.text}`,
-    `【기출 정답】 ${choiceMarker(correctChoice)}`,
+    correctChoice ? `【기출 정답】 ${correctChoice.split("·").map(choiceMarker).join("·")}` : "",
   ];
 
   if (!Number.isNaN(choiceNo) && correctChoice === item.key) {
     lines.push("【참고】 이 보기가 기출 정답입니다.");
   }
 
-  lines.push(`【이 보기 O/X】 ${item.answer}`);
+  if (item.answer) lines.push(`【이 보기 O/X】 ${item.answer}`);
 
   if (includeExplanation && item.explanation) {
     lines.push(`【해설】\n${item.explanation}`);
@@ -161,9 +176,9 @@ export async function copyText(text: string): Promise<boolean> {
 export async function openAiService(
   serviceId: AiServiceId,
   prompt: string
-): Promise<{ copied: boolean; serviceId: AiServiceId }> {
-  const service = AI_SERVICES.find((s) => s.id === serviceId);
-  if (!service) return { copied: false, serviceId };
+): Promise<{ copied: boolean; prefilled: boolean; serviceId: AiServiceId }> {
+  const service = QUESTION_AI_SERVICES.find((s) => s.id === serviceId);
+  if (!service) return { copied: false, prefilled: false, serviceId };
 
   const useUrl =
     service.mode === "url" &&
@@ -171,14 +186,12 @@ export async function openAiService(
     prompt.length <= MAX_URL_PROMPT_LEN &&
     service.buildUrl(prompt).length <= 8000;
 
-  let copied = false;
-
-  if (!useUrl) {
-    copied = await copyText(prompt);
-    window.open(service.baseUrl, "_blank", "noopener,noreferrer");
-  } else {
-    window.open(service.buildUrl!(prompt), "_blank", "noopener,noreferrer");
+  if (useUrl && service.buildUrl) {
+    window.open(service.buildUrl(prompt), "_blank", "noopener,noreferrer");
+    return { copied: false, prefilled: true, serviceId };
   }
 
-  return { copied, serviceId };
+  const copying = copyText(prompt).catch(() => false);
+  window.open(service.baseUrl, "_blank", "noopener,noreferrer");
+  return { copied: await copying, prefilled: false, serviceId };
 }

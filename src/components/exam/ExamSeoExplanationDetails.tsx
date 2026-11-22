@@ -1,8 +1,24 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { DailyChoiceBadge } from "@/components/daily/DailyChoiceBadge";
 
 const EVENT_NAME = "exam:answer_revealed";
+type ChoiceSelection = { number: number; incorrect: boolean } | null;
+const RevealedChoice = createContext<ChoiceSelection>(null);
+
+export function ExplanationChoiceSelection({ choice, children }: { choice: ChoiceSelection; children: React.ReactNode }) {
+  return <RevealedChoice.Provider value={choice}>{children}</RevealedChoice.Provider>;
+}
+
+export function ExplanationChoiceBadge({ label, choiceNumber }: { label: string; choiceNumber?: number }) {
+  const choice = useContext(RevealedChoice);
+  if (!/^\d+$/.test(label.normalize("NFKC"))) {
+    return <span className="shrink-0 font-display text-body-sm font-semibold text-ink">{label}</span>;
+  }
+  const tone = !choice || choice.number !== choiceNumber ? "default" : choice.incorrect ? "incorrect" : "selected";
+  return <DailyChoiceBadge label={label} tone={tone} />;
+}
 
 /**
  * 해설을 항상 HTML에 두고(details), 정답 확인 시 자동으로 여닫는다.
@@ -27,6 +43,7 @@ export function ExamSeoExplanationDetails({
   externallyToggled?: boolean;
   children: React.ReactNode;
 }) {
+  const [choice, setChoice] = useState<{ number: number; incorrect: boolean } | null>(null);
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const summaryRef = useRef<HTMLElement>(null);
 
@@ -45,6 +62,8 @@ export function ExamSeoExplanationDetails({
         year: number;
         questionNo: number;
         open?: boolean;
+        selectedChoice?: number | null;
+        incorrect?: boolean;
       }>;
       const detail = ce.detail;
       if (!detail) return;
@@ -53,6 +72,7 @@ export function ExamSeoExplanationDetails({
       if (detail.questionNo !== questionNo) return;
       const el = detailsRef.current;
       if (el) el.open = detail.open ?? true;
+      if (detail.selectedChoice != null) setChoice({ number: detail.selectedChoice, incorrect: Boolean(detail.incorrect) });
     };
 
     window.addEventListener(EVENT_NAME, handler as EventListener);
@@ -75,7 +95,7 @@ export function ExamSeoExplanationDetails({
           </span>
         </span>
       </summary>
-      <div className="pt-2">{children}</div>
+      <div className="pt-2"><ExplanationChoiceSelection choice={choice}>{children}</ExplanationChoiceSelection></div>
     </details>
   );
 }

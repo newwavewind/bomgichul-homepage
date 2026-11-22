@@ -1,0 +1,240 @@
+.exam-explanation-card {
+  --explanation-line: light-dark(rgb(17 18 20 / 10%), rgb(255 255 255 / 12%));
+  --explanation-accent: light-dark(#4d49d5, #b6b3ff);
+  --explanation-accent-wash: light-dark(#f1f0ff, #29264b);
+  padding: 1.125rem;
+  border-radius: 1rem;
+  background: light-dark(#fff, var(--color-paper));
+  box-shadow: inset 0 0 0 1px var(--explanation-line), 0 1.125rem 3rem -2.125rem rgb(0 0 0 / 22%);
+  overflow-wrap: anywhere;
+}
+
+.exam-explanation-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  margin-bottom: .625rem;
+  font-size: var(--text-body-sm);
+}
+
+.exam-explanation-eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--explanation-line);
+}
+
+.exam-explanation-source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .3125rem;
+  padding: .25rem .625rem .25rem .5rem;
+  border-radius: .5rem;
+  background: light-dark(#e9fbfc, #1b3c42);
+  color: light-dark(#173b40, #baeff2);
+  text-align: left;
+}
+
+.exam-explanation-source-badge:hover {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.exam-explanation-copy {
+  font-size: var(--text-body-sm);
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  color: var(--color-ink);
+}
+
+.exam-explanation-sources {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  min-width: 0;
+}
+
+.exam-explanation-sources-title {
+  margin-right: 4px;
+  color: light-dark(#ff7237, #ff865a);
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: calc(11px * var(--reading-font-scale, 1));
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+.exam-explanation-source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  padding: 5px 12px 5px 13px;
+  border-radius: 999px;
+  background: light-dark(#fff, #17181a);
+  box-shadow: inset 0 0 0 1px light-dark(rgb(17 18 20 / 22%), rgb(255 255 255 / 26%));
+  color: light-dark(#111214, #f2f2f3);
+  font-size: calc(12.5px * var(--reading-font-scale, 1));
+  font-weight: 450;
+  line-height: 1.5;
+  letter-spacing: -.007em;
+  text-decoration: none;
+  transition: background 180ms ease, box-shadow 180ms ease, color 180ms ease;
+}
+
+.exam-explanation-source-link:hover,
+.exam-explanation-source-link:focus-visible {
+  background: var(--explanation-accent-wash);
+  box-shadow: inset 0 0 0 1px var(--explanation-accent);
+  color: var(--explanation-accent);
+}
+
+.exam-explanation-source-link:focus-visible {
+  outline: 2px solid var(--explanation-accent);
+  outline-offset: 2px;
+}
+
+.exam-explanation-source-arrow {
+  flex: none;
+  color: var(--explanation-accent);
+  font-size: calc(11px * var(--reading-font-scale, 1));
+}
+
+.exam-choice-glossary {
+  margin-top: 14px;
+  padding: 11px 0 2px;
+  border-top: 1px solid light-dark(#edf1f6, #303d51);
+}
+
+.exam-choice-glossary-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 8px;
+  color: light-dark(#7a8598, #9aa9bf);
+  font-size: calc(11.5px * var(--reading-font-scale, 1));
+  font-weight: 500;
+  letter-spacing: -.01em;
+}
+
+.exam-choice-glossary-title svg {
+  width: 18px;
+  height: 18px;
+  color: light-dark(#6384c3, #9ab7f2);
+}
+
+.exam-choice-glossary-term {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 30px;
+  max-width: 100%;
+  padding: 4px 8px;
+  border: 1px solid light-dark(#e3e8f0, #3a4860);
+  border-radius: 16px;
+  background: light-dark(#fff, transparent);
+  color: light-dark(#52627b, #bac8dd);
+  font-size: calc(12.5px * var(--reading-font-scale, 1));
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -.02em;
+}
+
+button.exam-choice-glossary-term:hover {
+  border-color: light-dark(#b9cbea, #536f99);
+  background: light-dark(#f8faff, #243148);
+}
+
+.exam-choice-glossary-term:focus-visible {
+  outline: 2px solid #8aa7db;
+  outline-offset: 3px;
+}
+
+.exam-choice-glossary-term svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: light-dark(#9aa9bd, #8297b6);
+}
+
+.exam-choice-glossary-definition {
+  margin: 0;
+  padding: 8px 2px 4px;
+  color: light-dark(#48556d, #c2cede);
+  font-size: calc(14px * var(--reading-font-scale, 1));
+  line-height: 1.75;
+  letter-spacing: -.01em;
+  word-break: keep-all;
+  white-space: pre-wrap;
+}
+
+.exam-choice-glossary-first > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.exam-choice-glossary-first > summary::-webkit-details-marker {
+  display: none;
+}
+
+.exam-choice-glossary-first[open] > summary svg {
+  transform: rotate(45deg);
+}
+
+.exam-glossary-underline {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: light-dark(#6384c3, #9ab7f2);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: .23em;
+}
+
+.exam-explanation-actions {
+  margin-top: .875rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--explanation-line);
+}
+
+.exam-explanation-ai {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 2rem;
+  padding: .25rem .875rem;
+  border-radius: 999px;
+  background: var(--explanation-accent-wash);
+  color: var(--explanation-accent);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+}
+
+.exam-explanation-ai:hover {
+  box-shadow: inset 0 0 0 1px var(--explanation-accent);
+}
+
+.exam-explanation-notebook {
+  background: light-dark(#f4f7fd, var(--color-snow));
+  border: 1px solid var(--color-mist);
+  border-radius: .875rem;
+}
+
+.exam-app-feature-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(100% - 2rem, 29rem);
+  max-height: calc(100% - 2rem);
+  overflow-anchor: none;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--color-mist);
+  border-radius: 1.25rem;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 0 1.5rem 4rem rgb(12 22 42 / 28%);
+}
+
+.exam-app-feature-dialog::backdrop {
+  background: rgb(9 16 32 / 54%);
+}

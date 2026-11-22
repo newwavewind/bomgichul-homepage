@@ -1,10 +1,23 @@
 import { CitedText } from "@/components/exam/CitedText";
+import { ExplanationAiAction, ExplanationAppFeatures, ExplanationAppTools } from "@/components/exam/ExplanationAppFeatures";
+import { ExamExplanationGlossary } from "@/components/exam/ExamExplanationGlossary";
+import { appStoreLinksForScope } from "@/lib/constants";
+import { buildExamItemAiPrompt } from "@/lib/ai-links";
+import { communityScopeLabel } from "@/lib/exam-track/community";
+import type { ChoiceGlossary } from "@/lib/exam-glossary";
+import { ExplanationChoiceBadge } from "@/components/exam/ExamSeoExplanationDetails";
+import { ExplanationSourceLinks, prepareExplanationSources, type ExplanationSource } from "@/components/exam/ExamExplanationSources";
+import type { CommunityScope } from "@/types/database";
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 import { plainStudyText } from "@/lib/study-text";
 
-type SeoExplanationQuestion = {
+export type SeoExplanationQuestion = {
   year: number;
   questionNo: number;
+  stem?: string;
+  round?: number;
+  sourceCode?: string;
+  category?: string;
   correctChoice?: string | number;
   /** 복수정답·전항정답 */
   correctChoices?: number[];
@@ -17,6 +30,7 @@ type SeoExplanationQuestion = {
     text: string;
     answer?: string;
     explanation?: string;
+    sources?: ExplanationSource[];
   }[];
   comboChoices?: {
     no: number;
@@ -29,6 +43,7 @@ type SeoExplanationQuestion = {
 
 export function hasExamQuestionSeoExplanations(question: SeoExplanationQuestion) {
   return Boolean(
+    question.correctChoices?.length ||
     String(question.correctChoice ?? "").trim() ||
     question.explanationSummary?.trim() ||
     question.items.some(
@@ -61,19 +76,102 @@ function RevisionBadge() {
   );
 }
 
-/**
- * 해설을 서버 HTML에 포함해 검색엔진이 본문을 색인할 수 있게 합니다.
- */
+function EvidenceCheck() {
+  return (
+    <svg aria-hidden className="size-[1em] shrink-0" viewBox="0 0 16 16" fill="none">
+      <path d="m3.5 8.4 2.9 2.9 6.1-6.6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ExplanationCard({
+  label,
+  choiceNumber,
+  text,
+  answer,
+  explanation,
+  sources = [],
+  glossary,
+  examDate,
+  lawVersions,
+  aiPrompt,
+  hasApp,
+}: {
+  label: string;
+  choiceNumber?: number;
+  text: string;
+  answer?: string;
+  explanation?: string;
+  sources?: ExplanationSource[];
+  glossary?: ChoiceGlossary;
+  examDate?: string;
+  lawVersions?: Record<string, string>;
+  aiPrompt: string;
+  hasApp: boolean;
+}) {
+  const { body, links, hasEvidence } = prepareExplanationSources(explanation, sources, lawVersions);
+
+  return (
+    <li className="exam-explanation-card">
+      <div className="mb-3 flex items-start gap-3">
+        <ExplanationChoiceBadge label={label} choiceNumber={choiceNumber} />
+        <p className="min-w-0 flex-1 font-display text-body-sm font-medium leading-relaxed text-ink">
+          {plainStudyText(text)}
+        </p>
+        {answer ? (
+          <span className={`shrink-0 rounded-full px-2.5 py-0.5 font-display text-body-sm font-semibold ${
+            answer === "O"
+              ? "bg-emerald-500/10 text-emerald-800 dark:text-emerald-300"
+              : "bg-rose-500/10 text-rose-800 dark:text-rose-300"
+          }`}>
+            <span className="sr-only">정오 </span>{answer}
+          </span>
+        ) : null}
+      </div>
+      {explanation?.trim() ? (
+        <>
+          <div className="exam-explanation-eyebrow">
+            {hasEvidence ? (
+              <span className="exam-explanation-source-badge">
+                <EvidenceCheck /> 확실한 근거가 있는 해설
+              </span>
+            ) : (
+              <span className="text-smoke">해설</span>
+            )}
+          </div>
+          {body ? (
+            <p className="exam-explanation-copy">
+              <CitedText text={body} examDate={examDate} lawVersions={lawVersions} glossaryTerms={glossary?.terms} />
+            </p>
+          ) : null}
+        </>
+      ) : null}
+      {links.length > 0 ? <ExplanationSourceLinks sources={links} /> : null}
+      <ExamExplanationGlossary glossary={glossary} hasApp={hasApp} />
+      <div className="exam-explanation-actions"><ExplanationAiAction prompt={aiPrompt} /></div>
+    </li>
+  );
+}
+
+/** 해설 본문은 채점 전에도 서버 HTML에 포함한다. */
 export function ExamQuestionSeoExplanations({
   question,
   subjectLabel,
   embedded = false,
+  scope = "real_estate",
+  glossaryByChoice = {},
+  pickedChoice,
 }: {
   question: SeoExplanationQuestion;
   subjectLabel: string;
   /** details 등 상위 래퍼 안에 넣을 때 바깥 여백·구분선 제거 */
   embedded?: boolean;
+  scope?: CommunityScope;
+  glossaryByChoice?: Record<string, ChoiceGlossary>;
+  pickedChoice?: string;
 }) {
+  const links = appStoreLinksForScope(scope);
+  const hasApp = Boolean(links.ios || links.android);
   const summary = question.explanationSummary?.trim() ?? "";
   const comboChoices = question.comboChoices ?? [];
   /*
@@ -102,12 +200,24 @@ export function ExamQuestionSeoExplanations({
   const choiceNos = question.correctChoices?.length ? question.correctChoices : null;
   const single = String(question.correctChoice ?? "").trim();
   const correctChoice = choiceNos
-    ? choiceNos.length > 1 && choiceNos.length >= question.items.length
+    ? choiceNos.length > 1 && choiceNos.length === (comboChoices.length || question.items.length)
       ? "모든 번호(전항정답)"
       : `${choiceNos.join("·")}번`
     : single
       ? `${single}번`
       : "";
+  const promptContext = {
+    examLabel: communityScopeLabel(scope),
+    subjectLabel,
+    year: question.year,
+    round: question.round,
+    sessionLabel: question.sourceCode,
+    questionNo: question.questionNo,
+    category: question.category ?? "",
+    stem: [question.stem, ...(comboChoices.length ? question.items.map((item) => `${item.label ?? item.key} ${item.text}`) : [])]
+      .filter(Boolean).map((text) => plainStudyText(text!)).join("\n"),
+    correctChoice: choiceNos?.join("·") ?? single,
+  };
   if (correctChoice) {
     blocksForCopy.push(`정답\n${correctChoice}`);
   }
@@ -164,70 +274,81 @@ export function ExamQuestionSeoExplanations({
         <CopyToClipboardButton text={copyText} label="해설 복사" event="exam_explanation_copy" />
       </div>
 
-      {correctChoice ? (
-        <div className="mb-4 rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3">
-          <p className="font-display text-body-sm font-semibold text-ink">
-            정답: {correctChoice}
-          </p>
-        </div>
-      ) : null}
-
-      {summary ? (
-        <div className="mb-6 rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3">
-          <p className="font-display text-body-sm font-medium text-ink">해설 요약</p>
-          <p className="mt-2 whitespace-pre-wrap font-display text-body-sm leading-relaxed text-smoke">
-            <CitedText text={summary} examDate={question.examDate} lawVersions={question.lawVersions} />
-          </p>
-        </div>
-      ) : null}
-
-      {itemsWithAnswerOrExpl.length > 0 ? (
-        <ol className="space-y-4">
-          {itemsWithAnswerOrExpl.map((item) => (
-            <li
-              key={item.key}
-              className="rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3"
-            >
-              <p className="font-display text-body-sm font-medium text-ink">
-                {item.label ?? item.key} {plainStudyText(item.text)}
+      <ExplanationAppFeatures links={links}>
+        {correctChoice || pickedChoice ? (
+          <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 font-display text-body-sm text-smoke">
+            {correctChoice ? (
+              <p className="flex items-center gap-2">
+                정답 <strong className="rounded-full bg-snow px-3 py-1 font-semibold text-ink">{correctChoice}</strong>
               </p>
-              {item.answer ? (
-                <p className="mt-1 font-display text-body-sm text-smoke">
-                  정답: {item.answer}
-                </p>
-              ) : null}
-              {item.explanation ? (
-                <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                  <CitedText text={item.explanation} examDate={question.examDate} lawVersions={question.lawVersions} />
-                </p>
-              ) : null}
-            </li>
-          ))}
-        </ol>
-      ) : null}
+            ) : null}
+            {pickedChoice ? (
+              <p className="flex items-center gap-2">
+                내 선택 <strong className="rounded-full bg-snow px-3 py-1 font-semibold text-ink">{pickedChoice}</strong>
+              </p>
+            ) : null}
+          </div>
+        ) : null}
 
-      {comboWithExplanation.length > 0 ? (
-        <ol className={`space-y-4 ${itemsWithAnswerOrExpl.length > 0 ? "mt-4" : ""}`}>
-          {comboWithExplanation.map((choice) => (
-            <li
-              key={choice.no}
-              className="rounded-[var(--radius-buttons)] border border-mist/70 px-4 py-3"
-            >
-              <p className="font-display text-body-sm font-medium text-ink">
-                {choice.label} {plainStudyText(choice.text)}
-              </p>
-              {typeof choice.isCorrect === "boolean" ? (
-                <p className="mt-1 font-display text-body-sm text-smoke">
-                  {choice.isCorrect ? "정답: O" : "정답: X"}
-                </p>
-              ) : null}
-              <p className="mt-2 font-display text-body-sm leading-relaxed text-smoke">
-                <CitedText text={choice.explanation ?? ""} examDate={question.examDate} lawVersions={question.lawVersions} />
-              </p>
-            </li>
-          ))}
-        </ol>
-      ) : null}
+        {summary ? (
+          <div className="exam-explanation-notebook mb-5 px-4 py-3">
+            <p className="font-display text-body-sm font-semibold text-ink">해설 요약</p>
+            <p className="exam-explanation-copy mt-2">
+              <CitedText text={summary} examDate={question.examDate} lawVersions={question.lawVersions} />
+            </p>
+          </div>
+        ) : null}
+
+        {itemsWithAnswerOrExpl.length > 0 ? (
+          <ol className="space-y-4">
+            {itemsWithAnswerOrExpl.map((item) => (
+              <ExplanationCard
+                key={item.key}
+                label={item.label ?? item.key}
+                choiceNumber={comboChoices.length ? undefined : Number(item.key)}
+                text={item.text}
+                answer={item.answer}
+                explanation={item.explanation}
+                sources={item.sources}
+                glossary={glossaryByChoice[item.key]}
+                aiPrompt={buildExamItemAiPrompt({
+                  ...promptContext,
+                  item: { ...item, label: item.label ?? item.key, answer: item.answer ?? "" },
+                })}
+                examDate={question.examDate}
+                lawVersions={question.lawVersions}
+                hasApp={hasApp}
+              />
+            ))}
+          </ol>
+        ) : null}
+
+        {comboWithExplanation.length > 0 ? (
+          <ol className={`space-y-4 ${itemsWithAnswerOrExpl.length > 0 ? "mt-4" : ""}`}>
+            {comboWithExplanation.map((choice) => (
+              <ExplanationCard
+                key={choice.no}
+                label={choice.label}
+                choiceNumber={choice.no}
+                text={choice.text}
+                answer={typeof choice.isCorrect === "boolean" ? (choice.isCorrect ? "O" : "X") : undefined}
+                explanation={choice.explanation}
+                glossary={glossaryByChoice[String(choice.no)]}
+                aiPrompt={buildExamItemAiPrompt({
+                  ...promptContext,
+                  item: { ...choice, key: String(choice.no), answer: typeof choice.isCorrect === "boolean" ? (choice.isCorrect ? "O" : "X") : "" },
+                })}
+                examDate={question.examDate}
+                lawVersions={question.lawVersions}
+                hasApp={hasApp}
+              />
+            ))}
+          </ol>
+        ) : null}
+        <ExplanationAppTools questionPrompt={itemsWithAnswerOrExpl.length + comboWithExplanation.length === 0
+          ? [`${subjectLabel} ${question.year}년 ${question.questionNo}번 기출을 설명해 주세요.`, question.stem, summary].filter(Boolean).join("\n\n")
+          : undefined} />
+      </ExplanationAppFeatures>
     </section>
   );
 }

@@ -60,6 +60,7 @@ export interface ExamTrackExamItem {
   text: string;
   answer?: "O" | "X" | string;
   explanation?: string;
+  sources?: { label: string; url: string }[];
   taxonomy_unit_id?: string;
   /** 공무원 영어 — 그 선지 낱말의 뜻 */
   translation?: string;

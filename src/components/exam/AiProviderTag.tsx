@@ -2,6 +2,7 @@ const PROVIDER_LABELS = {
   chatgpt: "GPT",
   gemini: "Gemini",
   claude: "Claude",
+  perplexity: "Perplexity",
 } as const;
 
 export type AiProviderId = keyof typeof PROVIDER_LABELS;
