@@ -26,29 +26,34 @@ const SDK_INTEGRITY =
 // Kakao app 1574876: the image, title, button, and source/footer all use
 // https://www.bomgichul.com/${path}. sendDefault fixes the footer at the homepage.
 const DAILY_SHARE_TEMPLATE_ID = 138107;
+let sdkLoad: Promise<void> | undefined;
 
 function loadKakao() {
   if (window.Kakao) return Promise.resolve();
-  return new Promise<void>((resolve, reject) => {
-    const existing = document.querySelector<HTMLScriptElement>(
-      `script[src="${SDK}"]`,
-    );
-    if (existing) {
-      existing.addEventListener("load", () => resolve(), { once: true });
-      existing.addEventListener("error", () => reject(new Error("kakao")), {
-        once: true,
-      });
-      return;
-    }
+  if (sdkLoad) return sdkLoad;
+  sdkLoad = new Promise<void>((resolve, reject) => {
     const script = document.createElement("script");
+    const fail = () => {
+      window.clearTimeout(timeout);
+      script.remove();
+      reject(new Error("kakao"));
+    };
+    const timeout = window.setTimeout(fail, 8_000);
     script.src = SDK;
     script.async = true;
     script.integrity = SDK_INTEGRITY;
     script.crossOrigin = "anonymous";
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error("kakao"));
+    script.onload = () => {
+      window.clearTimeout(timeout);
+      resolve();
+    };
+    script.onerror = fail;
     document.head.appendChild(script);
+  }).catch((error) => {
+    sdkLoad = undefined;
+    throw error;
   });
+  return sdkLoad;
 }
 
 function prepareImage(src: string) {
@@ -72,12 +77,14 @@ export function KakaoShareButton({
   description,
   path,
   imagePath,
+  className = shareButtonClass,
   children,
 }: {
   title: string;
   description: string;
   path: string;
   imagePath?: string;
+  className?: string;
   children: string;
 }) {
   const [hint, setHint] = useState<string | null>(null);
@@ -170,7 +177,7 @@ export function KakaoShareButton({
         onClick={share}
         disabled={busy || !ready}
         aria-busy={busy || !ready}
-        className={shareButtonClass}
+        className={className}
       >
         {busy || !ready ? <LoadingIcon /> : <KakaoBubbleIcon />}
         <span>

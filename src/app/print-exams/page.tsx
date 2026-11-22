@@ -22,8 +22,6 @@ import gamjeong from "@/data/gamjeong/manifest.json";
 import mullyu from "@/data/mullyu/manifest.json";
 import youth from "@/data/youth/manifest.json";
 
-export const metadata: Metadata = { title: "기출문제·해설 출력" };
-
 const tracks = [
   ["public-service", "공무원", publicService],
   ["real-estate", "공인중개사", []],
@@ -45,19 +43,45 @@ const tracks = [
   ["youth", "청소년상담사", youth],
 ] as const;
 
-export default async function PrintExamsPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ exam?: string | string[] }>;
-}) {
-  const { exam } = await searchParams;
-  const available = tracks.filter(([id]) => hasExamPrintEditions(id));
+const available = tracks.filter(([id]) => hasExamPrintEditions(id));
+const description = "공식 시험지, 정답표, 번호별 해설을 한 PDF로 출력할 수 있어요.";
+type PrintQuery = Partial<Record<"exam" | "subject" | "year" | "session", string | string[]>>;
+type PrintProps = { searchParams: Promise<PrintQuery> };
+
+function getPrintSelection({ exam, subject, year, session }: PrintQuery) {
   const selected = available.find(([id]) => id === exam);
   const editions = selected ? examPrintOptions(selected[0]).map((entry) => {
-    const subject = selected[2].find(({ id }) => id === entry.subject);
-    const label = subject?.label ?? ARCHIVE_SUBJECT_MAP[entry.subject] ?? entry.subject;
-    return { ...entry, subjectLabel: selected[0] === "youth" && subject ? `${subject.track} · ${label}` : label };
+    const manifestSubject = selected[2].find(({ id }) => id === entry.subject);
+    const label = manifestSubject?.label ?? ARCHIVE_SUBJECT_MAP[entry.subject] ?? entry.subject;
+    return { ...entry, subjectLabel: selected[0] === "youth" && manifestSubject ? `${manifestSubject.track} · ${label}` : label };
   }) : [];
+  const initialEdition = editions.find((entry) =>
+    entry.subject === subject && String(entry.year) === year && entry.session === session,
+  );
+  return { selected, editions, initialEdition };
+}
+
+export async function generateMetadata({ searchParams }: PrintProps): Promise<Metadata> {
+  const { selected, initialEdition } = getPrintSelection(await searchParams);
+  const title = initialEdition
+    ? `${initialEdition.year}년 ${initialEdition.session} ${initialEdition.subjectLabel} 기출문제·해설 PDF`
+    : [selected?.[1], "기출문제·해설 출력"].filter(Boolean).join(" ");
+  return {
+    title,
+    description,
+    openGraph: {
+      title: `${title} | 봄기출`,
+      description,
+      images: ["/brand/kakao-share-card.jpg"],
+      siteName: "봄기출",
+      locale: "ko_KR",
+      type: "website",
+    },
+  };
+}
+
+export default async function PrintExamsPage({ searchParams }: PrintProps) {
+  const { selected, editions, initialEdition } = getPrintSelection(await searchParams);
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
@@ -65,9 +89,14 @@ export default async function PrintExamsPage({
       <h1 className="mt-6 font-display text-heading font-bold text-ink">
         {selected ? `${selected[1]} 기출문제·해설 출력` : "기출문제·해설 출력"}
       </h1>
-      <p className="mb-6 mt-2 text-sm text-fog">공식 시험지, 정답표, 번호별 해설을 한 PDF로 출력할 수 있어요.</p>
+      <p className="mb-6 mt-2 text-sm text-fog">{description}</p>
       {selected ? (
-        <ExamPrintPicker key={selected[0]} editions={editions} />
+        <ExamPrintPicker
+          key={initialEdition ? JSON.stringify([selected[0], initialEdition.subject, initialEdition.year, initialEdition.session]) : selected[0]}
+          exam={selected[0]}
+          editions={editions}
+          initialEdition={initialEdition}
+        />
       ) : (
         <div className="grid gap-3 sm:grid-cols-2">
           {available.map(([id, title]) => (
