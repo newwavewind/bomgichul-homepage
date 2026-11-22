@@ -1,6 +1,6 @@
 "use client";
 
-import { QuestionNoteEditor } from "@/components/exam/QuestionNoteEditor";
+import { QuestionMemoComposer } from "@/components/exam/QuestionMemoComposer";
 import { parseDiscussion, formatDiscussion } from "@/lib/question-discussion";
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
@@ -254,12 +254,8 @@ export function QuestionMemoPanel({
     setPrevIdentity(identity);
     setMemos(initialMemos);
   }
-  const [content, setContent] = useState("");
-  const [saving, setSaving] = useState(false);
-  const [postError, setPostError] = useState("");
-  const loginHref = `/login?next=${encodeURIComponent(
-    loginNext ?? `/exam/${subject}/${year}/${questionNo}`,
-  )}`;
+  const returnTo = loginNext ?? `/exam/${subject}/${year}/${questionNo}`;
+  const loginHref = `/login?next=${encodeURIComponent(returnTo)}`;
 
   /**
    * 등록·좋아요·댓글 뒤의 새로고침. 예전에는 router.refresh() 였는데, 페이지가
@@ -281,64 +277,42 @@ export function QuestionMemoPanel({
     return () => controller.abort();
   }, [selfResolve, viewer.userId, subject, year, questionNo]);
 
-  const handlePost = async () => {
-    const trimmed = content.trim();
-    if (!viewer.userId || !trimmed || saving || !isSupabaseConfigured()) return;
-    setSaving(true);
-    const supabase = createClient();
-    const { error } = await supabase.from("question_public_memos").insert({
+  const handlePost = async (content: string) => {
+    if (!viewer.userId || !isSupabaseConfigured()) return false;
+    const { error } = await createClient().from("question_public_memos").insert({
       user_id: viewer.userId,
       subject,
       year,
       question_no: questionNo,
-      content: trimmed,
+      content,
     });
-    setPostError(error ? "등록하지 못했습니다. 내용을 확인하고 다시 시도해 주세요." : "");
-    if (!error) {
-      setContent("");
-      // 새 메모는 다른 방문자에게도 바로 보여야 한다 — 정적 캐시를 비운다.
-      requestRevalidate();
-      await reload();
-    }
-    setSaving(false);
+    if (error) return false;
+    requestRevalidate();
+    void reload();
+    return true;
   };
 
   return (
-    <>
     <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper px-5 py-4">
       <div className="mb-3 flex items-baseline justify-between gap-3">
         <h2 className="font-display text-body font-semibold text-ink">
           이 문제에 대한 이야기
         </h2>
         <p className="min-w-0 font-display text-[12px] text-fog">
-          누구나 볼 수 있는 공개 게시판입니다. 개인 기록은 아래 개인 메모를 이용하세요.
+          공개 글은 누구나 보고, 비공개 메모는 본인만 볼 수 있어요.
         </p>
       </div>
 
-      {postError && <p role="alert">{postError}</p>}
       {viewer.userId || viewer.pending ? (
-        <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end">
-          <div className="min-w-0 flex-1">
-            <Textarea
-              id={`public-memo-${subject}-${year}-${questionNo}`}
-              label="공개 글 내용"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              rows={2}
-              placeholder="질문, 생각, 암기 팁 등 자유롭게 남겨보세요."
-              className="!py-2.5 text-body-sm"
-              disabled={viewer.pending}
-            />
-          </div>
-          <PrimaryButton
-            size="sm"
-            onClick={handlePost}
-            disabled={viewer.pending || saving || !content.trim()}
-            className="shrink-0 self-end"
-          >
-            {saving ? "등록 중..." : "공개 등록"}
-          </PrimaryButton>
-        </div>
+        <QuestionMemoComposer
+          key={`${identity}:${viewer.userId}`}
+          subject={subject}
+          year={year}
+          questionNo={questionNo}
+          userId={viewer.userId}
+          loginNext={returnTo}
+          postPublic={handlePost}
+        />
       ) : (
         <div className="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 font-display text-body-sm text-smoke">
           <span>로그인하면 이 문제에 대해 자유롭게 글을 남길 수 있어요.</span>
@@ -346,14 +320,14 @@ export function QuestionMemoPanel({
             href={loginHref}
             className="font-medium text-[color:light-dark(#6366f1,var(--color-carbon))] hover:underline dark:text-iris"
           >
-            무료로 로그인
+            로그인
           </Link>
         </div>
       )}
 
       {memos.length === 0 ? (
         <p className="py-4 text-center font-display text-body-sm text-fog">
-          아직 남긴 메모가 없어요.
+          아직 공개 글이 없어요.
         </p>
       ) : (
         <div>
@@ -375,16 +349,5 @@ export function QuestionMemoPanel({
         </div>
       )}
     </div>
-    <div className="mt-4">
-      <QuestionNoteEditor
-        key={`${identity}:${viewer.userId}`}
-        subject={subject}
-        year={year}
-        questionNo={questionNo}
-        userId={viewer.userId}
-        loginNext={loginNext ?? `/exam/${subject}/${year}/${questionNo}`}
-      />
-    </div>
-    </>
   );
 }
