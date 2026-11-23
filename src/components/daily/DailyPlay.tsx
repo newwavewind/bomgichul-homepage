@@ -23,6 +23,7 @@ import { DailyReviewList } from "@/components/daily/DailyReviewList";
 import { DailyInviteCard } from "@/components/daily/DailyInviteCard";
 import { ResultActions } from "@/components/daily/ResultActions";
 import {
+  getCumulativeBoard,
   getTodayBoard,
   startDailyAttempt,
   submitDailyAttempt,
@@ -129,6 +130,24 @@ export function DailyPlay({
   const [ranking, setRanking] = useState(todayRanking);
   const [rankingSynced, setRankingSynced] = useState(true);
   const [showAllRanking, setShowAllRanking] = useState(false);
+  // 「누적」 순위 — 누를 때만 불러온다(모든 날의 기록을 모으는 조회라 매번 미리 부르지 않는다)
+  const [board, setBoard] = useState<"today" | "total">("today");
+  const [totalRanking, setTotalRanking] = useState<BoardRow[] | null>(null);
+  const [totalLoading, setTotalLoading] = useState(false);
+  const [totalError, setTotalError] = useState(false);
+  async function showTotalBoard() {
+    setBoard("total");
+    if (totalRanking || totalLoading) return;
+    setTotalLoading(true);
+    setTotalError(false);
+    try {
+      setTotalRanking(await getCumulativeBoard(exam, subjectId));
+    } catch {
+      setTotalError(true);
+    } finally {
+      setTotalLoading(false);
+    }
+  }
   const [rankingLoading, setRankingLoading] = useState(false);
   const [rankingError, setRankingError] = useState(false);
   const [showScheduleGuide, setShowScheduleGuide] = useState(false);
@@ -688,6 +707,46 @@ export function DailyPlay({
               className="mt-6 border-b border-[color:light-dark(#e6eef8,var(--color-mist))] pb-6 first:mt-0 last:border-b-0 last:pb-0"
               aria-label={`${isArchive ? formatKoreanDate(dateKey) : "오늘"} 순위`}
             >
+              <div className="mb-3 inline-flex rounded-full bg-[color:light-dark(#eef3f9,var(--color-snow))] p-1 text-xs font-semibold" role="tablist" aria-label="순위 종류">
+                <button type="button" role="tab" aria-selected={board === "today"} onClick={() => setBoard("today")}
+                  className={`rounded-full px-3.5 py-1.5 ${board === "today" ? "bg-white text-[color:light-dark(#0066D6,var(--color-carbon))] shadow-sm" : "text-fog"}`}>
+                  {isArchive ? formatKoreanDate(dateKey) : "오늘"}
+                </button>
+                <button type="button" role="tab" aria-selected={board === "total"} onClick={() => void showTotalBoard()}
+                  className={`rounded-full px-3.5 py-1.5 ${board === "total" ? "bg-white text-[color:light-dark(#0066D6,var(--color-carbon))] shadow-sm" : "text-fog"}`}>
+                  누적
+                </button>
+              </div>
+              {board === "total" ? (
+                <>
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-xs font-semibold text-fog">누적 순위 · 푼 날과 맞힌 수</p>
+                      <h2 className="mt-0.5 text-base font-semibold text-ink">상위 10명</h2>
+                    </div>
+                    <Link href={`/${exam}/daily/ranks?subject=${encodeURIComponent(subjectId)}&board=total`}
+                      className="rounded-full border border-[color:light-dark(#cfe0f5,var(--color-mist))] bg-white px-3 py-2 text-xs font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))] hover:border-[#007AFF]">
+                      전체 누적 순위 →
+                    </Link>
+                  </div>
+                  {totalLoading ? <p className="mt-3 text-xs text-fog">누적 순위를 불러오는 중...</p> : null}
+                  {totalError ? <p className="mt-3 text-xs text-[color:light-dark(#B45309,var(--color-amber))]">누적 순위를 불러오지 못했습니다. 「누적」을 다시 눌러 주세요.</p> : null}
+                  {totalRanking && totalRanking.length > 0 ? (
+                    <ol className="mt-4 divide-y divide-[color:light-dark(#eef2f7,var(--color-mist))]">
+                      {totalRanking.slice(0, 10).map((row) => (
+                        <li key={`${row.rank}-${row.nickname}`}
+                          className={`flex items-center justify-between gap-3 py-2.5 text-sm first:pt-0 last:pb-0 ${row.mine ? "text-[color:light-dark(#0066D6,var(--color-carbon))]" : "text-ink"}`}>
+                          <span className="min-w-0 truncate font-semibold">{row.rank}. {row.nickname}</span>
+                          <span className="shrink-0 text-xs text-fog">{row.days}일 · 맞힌 수 {row.correct}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  ) : totalRanking ? (
+                    <p className="mt-4 rounded-2xl bg-[color:light-dark(#f8fafc,var(--color-snow))] px-4 py-5 text-center text-sm text-fog">아직 누적 기록이 없습니다.</p>
+                  ) : null}
+                </>
+              ) : (
+              <>
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-xs font-semibold text-fog">
@@ -737,6 +796,8 @@ export function DailyPlay({
                 <p className="mt-4 rounded-2xl bg-[color:light-dark(#f8fafc,var(--color-snow))] px-4 py-5 text-center text-sm text-fog">
                   아직 오늘 기록이 없습니다.
                 </p>
+              )}
+              </>
               )}
             </div>
           ) : null}
