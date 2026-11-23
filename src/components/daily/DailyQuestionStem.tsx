@@ -18,7 +18,7 @@ export function DailyQuestionStem({
 }) {
   const cleanStem = underlines?.length ? stem : plainStudyText(stem);
   const lines = keepLineBreaks ? cleanStem.split("\n") : null;
-  const { intro, boxLines } = lines
+  const parsed = lines
     ? {
         intro: lines[0]?.trim() ?? "",
         boxLines: lines
@@ -27,6 +27,17 @@ export function DailyQuestionStem({
           .filter(Boolean),
       }
     : parseQuestionStem(cleanStem);
+  const { intro } = parsed;
+  // 공무원 영어 문장 삽입·순서 배열 — 주어진 문장·글(지문 첫 문단)은 따로 된 상자에 둔다.
+  let boxLines = parsed.boxLines;
+  let given: string | null = null;
+  if (/주어진 (문장|글)/.test(intro) && boxLines.length > 0) {
+    const cut = boxLines[0]!.indexOf("\n\n");
+    if (cut > 0) {
+      given = boxLines[0]!.slice(0, cut).trim();
+      boxLines = [boxLines[0]!.slice(cut).trim(), ...boxLines.slice(1)];
+    }
+  }
   const Heading = heading;
 
   if (boxLines.length === 0) {
@@ -50,6 +61,11 @@ export function DailyQuestionStem({
       <Heading className="mt-3 whitespace-pre-line text-[1.0625rem] font-semibold leading-7 text-ink">
         {renderUnderlinedText(intro, underlines)}
       </Heading>
+      {given ? (
+        <fieldset className="mt-4 min-w-0 rounded-2xl border-2 border-[color:light-dark(#b9c9e0,var(--color-mist))] bg-white/85 px-4 py-3">
+          <p className="whitespace-pre-line text-[1.0625rem] leading-7 text-ink">{given}</p>
+        </fieldset>
+      ) : null}
       <fieldset className="mt-4 min-w-0 rounded-2xl border border-[color:light-dark(#d7e3f4,var(--color-mist))] bg-white/85 px-4 pb-3">
         <div className="space-y-2.5 pt-3">
           {boxLines.map((line, index) => {

@@ -88,7 +88,18 @@ export function QuestionStem({
           | undefined,
       }
     : parseQuestionStem(cleanStem);
-  const { intro, boxLines, boxSections } = parsed;
+  const { intro, boxSections } = parsed;
+  // 공무원 영어 문장 삽입·순서 배열 — 주어진 문장·글은 지문 첫 문단이다. 시험지처럼 따로 된 상자에 둔다.
+  let boxLines = parsed.boxLines;
+  let givenFirst = false;
+  if (/주어진 (문장|글)/.test(intro) && boxLines.length > 0) {
+    const first = boxLines[0]!;
+    const cut = first.indexOf("\n\n");
+    if (cut > 0) {
+      boxLines = [first.slice(0, cut).trim(), first.slice(cut).trim(), ...boxLines.slice(1)];
+      givenFirst = true;
+    }
+  }
   const headingClass =
     "mb-8 max-w-3xl font-display text-body-lg font-normal leading-relaxed text-ink";
 
@@ -131,7 +142,12 @@ export function QuestionStem({
           label: section.title,
           lines: section.lines,
         }))
-      : toBoxGroups(boxLines);
+      : givenFirst
+        ? [
+            { label: null, lines: [boxLines[0]!] },
+            ...toBoxGroups(boxLines.slice(1)),
+          ]
+        : toBoxGroups(boxLines);
   const lineOffsets: (number | null)[][] = [];
   let lineCursor = intro.length;
   for (const group of groups) {
@@ -159,7 +175,9 @@ export function QuestionStem({
       {groups.map((group, gi) => (
         <fieldset
           key={gi}
-          className="mb-8 min-w-0 max-w-3xl rounded-[var(--radius-cards)] border border-carbon px-5 pb-4 last:mb-8"
+          className={`min-w-0 max-w-3xl rounded-[var(--radius-cards)] border-carbon px-5 pb-4 last:mb-8 ${
+            givenFirst && gi === 0 ? "mb-4 border-2" : "mb-8 border"
+          }`}
         >
           {group.label ? (
             <legend className="mx-auto px-3 text-center font-display text-body-sm font-medium text-smoke">
@@ -182,7 +200,7 @@ export function QuestionStem({
               return (
                 <p
                   key={i}
-                  className={`font-display leading-relaxed ${
+                  className={`whitespace-pre-line font-display leading-relaxed ${
                     isJamoItem
                       ? "mt-1.5 text-body text-ink first:mt-0"
                       : isSubItem
