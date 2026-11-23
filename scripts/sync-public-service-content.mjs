@@ -69,6 +69,68 @@ const subjects = [
   { id: "hoegyewonri", label: "회계원리", sourceSubject: "회계원리", conceptFile: "hoegyewonri.js", track: "회계 계열" },
 ];
 
+/** 앱 reference_table / table → 홈페이지 ExamStructuredTable */
+function toHomepageTable(question) {
+  const rt = question.reference_table ?? question.table;
+  if (!rt || typeof rt !== "object") return null;
+
+  if (rt.layout === "policy_agenda_crosstab") {
+    const colLabels = Array.isArray(rt.col_labels) ? rt.col_labels.map((label) => String(label ?? "")) : [];
+    const corner = [rt.row_header, rt.col_header].filter(Boolean).join(" / ") || "구분";
+    const rows = Array.isArray(rt.rows)
+      ? rt.rows
+          .filter((row) => row && typeof row === "object")
+          .map((row) => [String(row.label ?? ""), ...(Array.isArray(row.cells) ? row.cells.map((cell) => String(cell ?? "")) : [])])
+      : [];
+    if (!rows.length) return null;
+    return {
+      headers: [corner, ...colLabels],
+      rows,
+      ...(Array.isArray(question.reference_table_notes) && question.reference_table_notes.length
+        ? { notes: question.reference_table_notes.map(String) }
+        : {}),
+    };
+  }
+
+  if (rt.layout === "choice_rows" || Array.isArray(rt.headers) || Array.isArray(rt.rows)) {
+    const headers = Array.isArray(rt.headers) ? rt.headers.map((header) => String(header ?? "")) : [];
+    const rows = Array.isArray(rt.rows)
+      ? rt.rows
+          .filter((row) => Array.isArray(row))
+          .map((row) => row.map((cell) => String(cell ?? "").replace(/\n/g, " ")))
+      : [];
+    if (!rows.length) return null;
+    return {
+      ...(headers.length ? { headers } : {}),
+      rows,
+      ...(Array.isArray(rt.notes) && rt.notes.length ? { notes: rt.notes.map(String) } : {}),
+      ...(Array.isArray(question.reference_table_notes) && question.reference_table_notes.length
+        ? { notes: question.reference_table_notes.map(String) }
+        : {}),
+    };
+  }
+
+  return null;
+}
+
+function examMaterialFields(question) {
+  const out = {};
+  const table = toHomepageTable(question);
+  if (table) out.table = table;
+  if (typeof question.stem_tail === "string" && question.stem_tail.trim()) out.stemTail = question.stem_tail;
+  if (Array.isArray(question.t_accounts) && question.t_accounts.length) out.tAccounts = question.t_accounts;
+  if (Array.isArray(question.choice_headers) && question.choice_headers.length) {
+    out.choiceHeaders = question.choice_headers;
+  }
+  if (question.figure) {
+    out.material = {
+      image: question.figure,
+      ...(question.figure_first ? { figureFirst: true } : {}),
+    };
+  }
+  return out;
+}
+
 const examFiles = (await readdir(examRoot)).filter((name) => name.endsWith(".json") && name !== "index.json");
 const allExams = [];
 for (const file of examFiles) {
@@ -80,7 +142,14 @@ await mkdir(outputRoot, { recursive: true });
 const manifest = [];
 
 for (const subject of subjects) {
-  const moduleUrl = `${pathToFileURL(path.join(conceptRoot, subject.conceptFile)).href}?sync=${Date.now()}`;
+  const conceptPath = path.join(conceptRoot, subject.conceptFile);
+  try {
+    await readFile(conceptPath);
+  } catch {
+    console.warn(`건너뜀(개념 파일 없음): ${subject.label} (${subject.conceptFile})`);
+    continue;
+  }
+  const moduleUrl = `${pathToFileURL(conceptPath).href}?sync=${Date.now()}`;
   const concepts = (await import(moduleUrl)).default;
   const exams = allExams
     .filter((question) => subject.sourceSubject ? question.subject === subject.sourceSubject : !question.subject)
@@ -100,6 +169,7 @@ for (const subject of subjects) {
       explanationSummary: question.explanation_summary,
       items: question.items,
       comboChoices: question.combo_choices,
+      ...examMaterialFields(question),
     }));
 
   const years = [...new Set(exams.map((question) => question.year))].sort((a, b) => b - a);

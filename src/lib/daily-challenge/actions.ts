@@ -634,10 +634,32 @@ function buildInsights(
   }
 
   const month = monthDateKey.slice(0, 7);
-  const newestYear = Math.max(0, ...pool.map((question) => question.year));
-  const eligiblePool = pool.filter(
-    (question) => question.year >= newestYear - 9,
-  );
+  // pool 은 이미 한 과목. 한국사처럼 round 가 있으면 최근 10회, 아니면 최근 10년.
+  const rounds = [
+    ...new Set(
+      pool
+        .map((question) => question.round)
+        .filter(
+          (round): round is number => typeof round === "number" && Number.isFinite(round) && round > 0,
+        ),
+    ),
+  ].sort((a, b) => b - a);
+  const eligiblePool =
+    rounds.length > 0
+      ? (() => {
+          const keep = new Set(rounds.slice(0, 10));
+          return pool.filter(
+            (question) =>
+              question.round != null && keep.has(question.round),
+          );
+        })()
+      : (() => {
+          const newestYear = Math.max(
+            0,
+            ...pool.map((question) => question.year),
+          );
+          return pool.filter((question) => question.year >= newestYear - 9);
+        })();
   const eligibleById = new Map(
     eligiblePool.map((question) => [question.id, question]),
   );

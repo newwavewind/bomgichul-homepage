@@ -7,13 +7,17 @@ export function trackHidesExamSourceLabel(trackId: string): boolean {
   return trackId === "firefighter";
 }
 
-/** 「2026년 국가직 3번」→ 소방에서는 「2026년 3번」 */
+/** 「2026년 국가직 3번」→ 소방에서는 「2026년 3번」, 한국사는 「제80회 3번」 */
 export function formatExamRefLabel(
   trackId: string,
   year: number,
   sourceCode: string,
   questionNo?: number,
 ): string {
+  if (trackId === "history") {
+    const round = sourceCode?.trim() || `제${year}회`;
+    return questionNo != null ? `${round} ${questionNo}번` : round;
+  }
   const hide = trackHidesExamSourceLabel(trackId);
   if (questionNo != null) {
     return hide ? `${year}년 ${questionNo}번` : `${year}년 ${sourceCode} ${questionNo}번`;

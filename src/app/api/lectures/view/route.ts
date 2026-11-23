@@ -1,6 +1,8 @@
 import { randomUUID } from "crypto";
 import { NextResponse, type NextRequest } from "next/server";
 import catalog from "@/components/lectures/catalog.json";
+import firefighterCatalog from "@/components/lectures/firefighter/catalog.json";
+import policeCatalog from "@/components/lectures/police/catalog.json";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createPublicClient } from "@/lib/supabase/public";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
@@ -10,7 +12,7 @@ import {
 } from "@/lib/site-visits";
 
 const LECTURE_IDS = new Set(
-  catalog.flatMap((group) => group.lectures.map((lecture) => lecture.id))
+  [...catalog, ...firefighterCatalog, ...policeCatalog].flatMap((group) => group.lectures.map((lecture) => lecture.id))
 );
 
 function cookieOptions() {

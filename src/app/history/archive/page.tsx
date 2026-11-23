@@ -6,7 +6,7 @@ export async function generateMetadata({ searchParams }: { searchParams: SearchP
   return buildArchiveListMetadata({
     searchParams,
     scope: "history",
-    description: "한국사능력검정 기출·연표·요약 자료를 올리고 다운로드하세요.",
+    description: "한국사능력검정시험(한능검) 기출·연표·요약 자료를 올리고 다운로드하세요.",
   });
 }
 

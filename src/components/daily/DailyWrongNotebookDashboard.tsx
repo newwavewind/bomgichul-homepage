@@ -328,6 +328,7 @@ function WrongCard({
             presentation={item.presentation}
             questionNo={index}
             heading="h3"
+            subjectId={item.id.split(":")[1]}
           />
           <p className="mt-4 text-sm text-[color:light-dark(#595959,var(--color-smoke))]">
             {item.choiceStats
@@ -361,9 +362,9 @@ function WrongCard({
                   key={choice.key}
                   className={`rounded-2xl border px-3 py-3 sm:px-4 ${isCorrect ? "border-[#4d49fc] bg-[color:light-dark(#f3f2ff,color-mix(in_srgb,var(--color-snow)_90%,#f3f2ff))]" : "border-black/10 bg-white"}`}
                 >
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 has-[[aria-label]]:items-center">
                     <DailyChoiceBadge label={choice.label} tone={isCorrect ? "selected" : "default"} />
-                    <DailyChoiceContent choice={choice} choiceHeaders={item.presentation.choiceHeaders} />
+                    <DailyChoiceContent choice={choice} choiceHeaders={item.presentation.choiceHeaders} questionId={item.id} />
                   </div>
                   {isCorrect ? <p className="mt-2 pl-9 text-base font-medium text-[color:light-dark(#4d49fc,var(--color-carbon))]">정답</p> : null}
                   <ChoiceRate item={item} choiceKey={choice.key} />

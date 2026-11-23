@@ -12,7 +12,9 @@ export default function robots(): MetadataRoute.Robots {
       // 크롤은 열어 두고 각 페이지의 noindex·404·308 로 뺀다. edit 화면은 공개 링크가 없어 그대로 막는다.
       disallow: [
         "/admin/",
-        "/auth/",
+        // /auth/ 는 여기서 막지 않는다. /auth/login 등은 실제로는 404 인데
+        // robots 로 막히면 Google 이 「색인이 생성되었으나 robots.txt에 의해 차단됨」으로
+        // 남기고, 404 를 읽어 목록에서 빼지 못한다. 크롤은 열어 404·noindex 로 정리한다.
         "/community/*/edit",
         "/public-service/community/*/edit",
         "/police/community/*/edit",
@@ -49,11 +51,10 @@ export default function robots(): MetadataRoute.Robots {
         "/gamjeong/archive/*/edit",
         "/mullyu/archive/*/edit",
         "/youth/archive/*/edit",
-        "/exam/*/random",
-        "/exam/*/wrong",
-        "/exam/*/review",
-        "/exam/*/bookmarks",
-        "/exam/*/*/mock",
+        // /exam/*/random·wrong·review·bookmarks·/exam/*/*/mock 은 여기서 막지 않는다.
+        // 연도 목록 등 공개 페이지에서 링크되어 색인이 잡히면, robots 로 막혀 noindex 를
+        // 읽지 못해 「색인이 생성되었으나 robots.txt에 의해 차단됨」으로 남는다.
+        // 크롤은 열어 두고 각 페이지의 noindex 로 뺀다.
       ],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,

@@ -14,11 +14,20 @@ const description =
     ? `경비지도사 1차 법학개론·민간경비론, 2차 경비업법과 선택과목(소방학·범죄학·경호학·기계경비개론·기계경비기획 및 설계) 기출 ${examTotal.toLocaleString("ko-KR")}문항을 선지마다 해설과 함께 봅니다.`
     : "경비지도사 1차 법학개론·민간경비론, 2차 경비업법과 선택과목(소방학·범죄학·경호학·기계경비개론·기계경비기획 및 설계) 기출을 과목별·회차별로 학습합니다.";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "경비지도사 1·2차 기출문제·해설",
-  description,
-  path: "/gyeongbi",
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: "경비지도사 1·2차 기출문제·정답·해설",
+    description,
+    path: "/gyeongbi",
+  }),
+  keywords: [
+    "경비지도사",
+    "경비지도사 기출문제",
+    "민간경비론",
+    "경비업법",
+    "법학개론",
+  ],
+};
 
 export default function Page() {
   return (

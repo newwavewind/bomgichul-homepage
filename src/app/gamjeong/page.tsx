@@ -11,11 +11,20 @@ const description =
     ? `감정평가사 1차 민법·경제학원론·부동산학원론·감정평가관계법규·회계학 기출 ${examTotal.toLocaleString("ko-KR")}문항을 선지마다 해설과 함께 봅니다.`
     : "감정평가사 1차 민법·경제학원론·부동산학원론·감정평가관계법규·회계학 기출을 과목별·회차별로 학습합니다.";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "감정평가사 1차 기출문제·해설",
-  description,
-  path: "/gamjeong",
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: "감정평가사 1차 기출문제·정답·해설",
+    description,
+    path: "/gamjeong",
+  }),
+  keywords: [
+    "감정평가사",
+    "감정평가사 1차",
+    "감정평가사 기출문제",
+    "감정평가관계법규",
+    "부동산학원론",
+  ],
+};
 
 export default function Page() {
   return (

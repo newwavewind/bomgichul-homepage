@@ -67,8 +67,8 @@ const exams = [
   {
     href: "/history/intro",
     learnHref: "/history",
-    eyebrow: "국가공인 · 심화",
-    title: "한국사능력검정",
+    eyebrow: "국가공인 · 한능검 심화",
+    title: "한국사능력검정시험",
     // 앞 다섯 카드가 파랑(206°)·민트(163°)·남보라(226°)·주황(31°)·분홍(340°)을 쓰고 있어
     // 색상환에서 가장 비어 있던 연둣빛(95°)을 골랐다 — 어느 카드와도 60° 넘게 떨어진다.
     accentFrom: "#f0ffe5",
@@ -299,7 +299,7 @@ export function PlatformHome() {
           })}
         </section>
 
-        <AdRail adsense="hub" spacingClassName="mx-auto mb-10 max-w-5xl" />
+        <AdRail coupang spacingClassName="mx-auto mb-10 max-w-5xl" />
 
         {/* 로그인 시에만 「나의 학습 홈」 — 손님 환영판은 제거 */}
         <PersonalHomeGate guest={null} />

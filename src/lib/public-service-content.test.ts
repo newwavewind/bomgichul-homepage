@@ -22,7 +22,7 @@ describe("공무원 공개 콘텐츠", () => {
       concepts += subject!.concepts.length;
       exams += subject!.exams.length;
     }
-    expect(concepts).toBe(581);
+    expect(concepts).toBe(582);
     expect(exams).toBe(3960);
   });
 

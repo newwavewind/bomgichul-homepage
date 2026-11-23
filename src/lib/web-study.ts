@@ -31,7 +31,7 @@ const ALL_EXAM_CHOICES = [
   ["housing", "주택관리사", "전문자격"],
   ["social-worker", "사회복지사 1급", "전문자격"],
   ["english", "공무원 영어", "어학·한국사"],
-  ["history", "한국사능력검정", "어학·한국사"],
+  ["history", "한국사능력검정시험", "어학·한국사"],
   ["gugeo", "공무원 국어", "공무원"],
   ["haengjeongsa", "행정사", "전문자격"],
   ["semusa", "세무사", "전문자격"],

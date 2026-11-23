@@ -257,6 +257,7 @@ function ReviewCard({
         presentation={item.presentation}
         questionNo={index + 1}
         heading="h3"
+        subjectId={item.id.split(":")[1]}
       />
       {/* 공무원 영어 — 문항 화면과 같은 순서: 지문 해석 → 해설 → 어휘(2026-10-21) */}
       {showAnswers && item.translation ? (
@@ -283,7 +284,7 @@ function ReviewCard({
             return (
               <div key={choice.key} className="flex gap-3 rounded-2xl border border-mist bg-paper px-3 py-2.5 text-ink sm:px-4">
                 <DailyChoiceBadge label={choice.label} tone={tone} />
-                <DailyChoiceContent choice={choice} choiceHeaders={item.presentation.choiceHeaders} />
+                <DailyChoiceContent choice={choice} choiceHeaders={item.presentation.choiceHeaders} questionId={item.id} />
               </div>
             );
           })}

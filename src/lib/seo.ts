@@ -337,7 +337,7 @@ export function buildPlatformHomeJsonLd() {
     ...(isPublicExamVisible("history")
       ? [
           {
-            name: "한국사능력검정 심화 기출 학습",
+            name: "한국사능력검정시험 심화 기출 학습",
             url: absoluteUrl("/history"),
           },
         ]

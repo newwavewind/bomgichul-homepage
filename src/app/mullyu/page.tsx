@@ -11,11 +11,22 @@ const description =
     ? `물류관리사 물류관리론·화물운송론·국제물류론·보관하역론·물류관련법규 기출 ${examTotal.toLocaleString("ko-KR")}문항을 선지마다 해설과 함께 봅니다.`
     : "물류관리사 물류관리론·화물운송론·국제물류론·보관하역론·물류관련법규 기출을 과목별·회차별로 학습합니다.";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "물류관리사 기출문제·해설",
-  description,
-  path: "/mullyu",
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: "물류관리사 기출문제·정답·해설",
+    description,
+    path: "/mullyu",
+  }),
+  keywords: [
+    "물류관리사",
+    "물류관리사 기출문제",
+    "물류관리론",
+    "화물운송론",
+    "국제물류론",
+    "보관하역론",
+    "물류관련법규",
+  ],
+};
 
 export default function Page() {
   return (

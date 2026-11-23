@@ -2,7 +2,7 @@
 /**
  * 한국사능력검정 학습 데이터를 앱(historybomgichul)에서 홈페이지 형식으로 옮긴다.
  *
- * 앱은 회차별 파일(75~79.json)에 문항을 그대로 담지만, 홈페이지의 트랙은
+ * 앱은 회차별 파일(70~80.json)에 문항을 그대로 담지만, 홈페이지의 트랙은
  * 「과목 하나 = 파일 하나」에 years·sources·exams 를 함께 두는 형태다.
  * 그 사이를 여기서 맞춘다.
  *
@@ -10,6 +10,7 @@
  *   · year   — 앱은 회차 번호(75)를 year 자리에 넣지만, 홈페이지 URL 은 연도를 쓴다.
  *              heldOn 의 실제 연도(2025·2026)를 year 로, 「제75회」를 sourceCode 로 나눈다.
  *   · label  — 앱 선지에는 ①②③ 라벨이 없어 key 로 만들어 준다.
+ *   · sources — 선지 해설·핵심 개념의 근거 링크(대백과·우리역사넷 등). 그대로 싣는다.
  *   · concept — 문항별 핵심 개념 카드. 다른 시험에는 없는 한국사만의 자산이라 그대로 살린다.
  *   · material — 자료 이미지 경로. 파일은 public/exam/history 로 함께 복사한다.
  *
@@ -87,6 +88,7 @@ function convert() {
           text: it.text,
           answer: it.answer,
           explanation: it.explanation,
+          ...(it.sources?.length ? { sources: it.sources } : {}),
         })),
       });
     }

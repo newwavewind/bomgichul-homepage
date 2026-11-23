@@ -59,7 +59,7 @@ function rows() {
     ...trackRows("주택관리사", "/housing", HOUSING_SUBJECT_IDS, getHousingSubject),
     ...trackRows("사회복지사 1급", "/social-worker", SOCIAL_WORKER_SUBJECT_IDS, getSocialWorkerSubject),
     ...(isPublicExamVisible("history")
-      ? trackRows("한국사능력검정", "/history", HISTORY_SUBJECT_IDS, getHistorySubject)
+      ? trackRows("한국사능력검정시험", "/history", HISTORY_SUBJECT_IDS, getHistorySubject)
       : []),
     ...trackRows("공무원 영어", "/english", ENGLISH_SUBJECT_IDS, getEnglishSubject),
     ...trackRows("공무원 국어", "/gugeo", GUGEO_SUBJECT_IDS, getGugeoSubject),

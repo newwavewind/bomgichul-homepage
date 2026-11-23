@@ -130,6 +130,27 @@ function toHomepageTable(q) {
     };
   }
 
+  if (rt.layout === "policy_agenda_crosstab") {
+    const colLabels = Array.isArray(rt.col_labels) ? rt.col_labels.map((label) => String(label ?? "")) : [];
+    const corner = [rt.row_header, rt.col_header].filter(Boolean).join(" / ") || "구분";
+    const rows = Array.isArray(rt.rows)
+      ? rt.rows
+          .filter((row) => row && typeof row === "object")
+          .map((row) => [
+            String(row.label ?? ""),
+            ...(Array.isArray(row.cells) ? row.cells.map((cell) => String(cell ?? "")) : []),
+          ])
+      : [];
+    if (!rows.length) return null;
+    return {
+      headers: [corner, ...colLabels],
+      rows,
+      ...(Array.isArray(q.reference_table_notes) && q.reference_table_notes.length
+        ? { notes: q.reference_table_notes.map(String) }
+        : {}),
+    };
+  }
+
   const headers = Array.isArray(rt.headers) ? rt.headers.map((h) => String(h ?? "")) : [];
   const assetHeaders = Array.isArray(rt.asset_headers)
     ? rt.asset_headers.map((h) => String(h ?? ""))

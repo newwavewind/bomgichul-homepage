@@ -39,7 +39,7 @@ const SCOPE_LABELS: Record<string, string> = {
   firefighter: "소방공무원",
   housing: "주택관리사",
   social_worker: "사회복지사 1급",
-  history: "한국사능력검정",
+  history: "한국사능력검정시험",
   english: "공무원 영어",
   gugeo: "공무원 국어",
   haengjeongsa: "행정사",

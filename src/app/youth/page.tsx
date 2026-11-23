@@ -14,11 +14,20 @@ const description =
     ? `청소년상담사 1급·2급·3급 필기 ${subjects.length}과목 기출 ${examTotal.toLocaleString("ko-KR")}문항을 선지마다 해설과 함께 봅니다.`
     : "청소년상담사 1급·2급·3급 필기 기출을 급수별·과목별·회차별로 학습합니다.";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "청소년상담사 기출문제·해설",
-  description,
-  path: "/youth",
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: "청소년상담사 기출문제·정답·해설",
+    description,
+    path: "/youth",
+  }),
+  keywords: [
+    "청소년상담사",
+    "청소년상담사 1급",
+    "청소년상담사 2급",
+    "청소년상담사 3급",
+    "청소년상담사 기출문제",
+  ],
+};
 
 export default function Page() {
   return (
