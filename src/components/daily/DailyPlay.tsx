@@ -169,8 +169,9 @@ export function DailyPlay({
     (question) => picks[question.id]?.key,
   ).length;
   const isComplete = answeredCount === questions.length;
-  const keyboardEnabled = step === "play" && !isArchive && questions.length > 0;
-  const asksForNickname = !signedIn && mode === "ranked";
+  const keyboardEnabled = step === "play" && questions.length > 0;
+  // 지난 날짜 문제도 풀 수 있다 — 연습으로 채점하고 순위에는 넣지 않으니 닉네임은 묻지 않는다
+  const asksForNickname = !signedIn && mode === "ranked" && !isArchive;
   const activeQuestion = questions[activeQuestionIndex];
   const lastChoiceKey = Math.min(activeQuestion?.choices.length ?? 0, 9);
   const calendarStatuses =
@@ -285,9 +286,10 @@ export function DailyPlay({
     const result = await submitDailyAttempt({
       exam,
       subject: subjectId,
-      mode,
+      mode: isArchive ? "practice" : mode,
       practicePage,
       reviewSource,
+      archiveDate: isArchive ? dateKey : null,
       challengeId: challenge?.id ?? null,
       timerToken,
       deviceId: deviceId(),
@@ -827,7 +829,7 @@ export function DailyPlay({
             <div className="flex items-center justify-between text-sm">
               <span className="font-semibold text-[color:light-dark(#0066D6,var(--color-carbon))]">
                 {isArchive
-                  ? "출제 문항"
+                  ? `지난 문제 · ${answeredCount}/${questions.length} 답변`
                   : `${answeredCount}/${questions.length} 답변`}
               </span>
               {isArchive ? (
@@ -839,7 +841,12 @@ export function DailyPlay({
                 </Link>
               ) : null}
             </div>
-            {!isArchive ? (
+            {isArchive ? (
+              <p className="mt-2 text-xs leading-5 text-fog">
+                지난 날짜 문제도 풀 수 있어요. 연습으로 채점하고 해설을 보여 주며, 순위에는 들지 않아요.
+              </p>
+            ) : null}
+            {questions.length > 0 ? (
               <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[color:light-dark(#e6eef8,color-mix(in_srgb,var(--color-snow)_90%,#e6eef8))]">
                 <div
                   className="h-full rounded-full bg-[#007AFF]"
@@ -909,11 +916,7 @@ export function DailyPlay({
                           rows={oxTable.rows}
                           choices={question.choices}
                           selectedKey={picks[question.id]?.key}
-                          onSelect={
-                            isArchive
-                              ? undefined
-                              : (key) => choose(question.id, key)
-                          }
+                          onSelect={(key) => choose(question.id, key)}
                           disabled={busy}
                           keyboardShortcuts={keyboardEnabled && activeQuestionIndex === questionIndex}
                         />
@@ -923,24 +926,6 @@ export function DailyPlay({
                   <div className="mt-4 grid gap-2">
                     {question.choices.map((choice, choiceIndex) => {
                       const selected = picks[question.id]?.key === choice.key;
-                      if (isArchive) {
-                        return (
-                          <div
-                            key={choice.key}
-                            className="rounded-2xl border border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white px-3 py-2.5 text-left text-ink sm:px-4"
-                          >
-                            <div className="flex gap-3">
-                              <DailyChoiceBadge label={choice.label} />
-                              <DailyChoiceContent
-                                choice={choice}
-                                choiceHeaders={
-                                  question.presentation.choiceHeaders
-                                }
-                              />
-                            </div>
-                          </div>
-                        );
-                      }
                       return (
                         <button
                           key={choice.key}
@@ -973,14 +958,7 @@ export function DailyPlay({
                 </article>
               ))}
             </div>
-            {isArchive ? (
-              <Link
-                href={`/${exam}/daily?subject=${encodeURIComponent(subjectId)}`}
-                className="mt-8 flex w-full items-center justify-center rounded-2xl bg-[#007AFF] px-4 py-3 text-sm font-semibold text-white"
-              >
-                오늘의 10문제 풀기
-              </Link>
-            ) : (
+            {(
               <>
                 <form onSubmit={(event) => {
                   event.preventDefault();

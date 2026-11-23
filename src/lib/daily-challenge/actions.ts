@@ -934,6 +934,8 @@ export async function submitDailyAttempt(input: {
   mode: DailyMode;
   practicePage?: number;
   reviewSource?: string;
+  /** 지난 날짜(YYYY-MM-DD)의 10문제를 연습으로 풀 때 — 그날 출제분으로 채점하고 순위에는 넣지 않는다 */
+  archiveDate?: string | null;
   challengeId?: string | null;
   timerToken?: string | null;
   deviceId: string;
@@ -976,6 +978,14 @@ export async function submitDailyAttempt(input: {
               question.category === original.category)),
       );
     graduationFor = original && set.length ? original.id : null;
+  } else if (
+    input.mode === "practice" &&
+    typeof input.archiveDate === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(input.archiveDate) &&
+    input.archiveDate < dateKey
+  ) {
+    // 지난 날짜 문제 다시 풀기 — 그날 순위 출제분 그대로 채점한다(연습 기록, 순위 밖)
+    set = getDailySet(input.exam, input.archiveDate, "ranked", subject.id);
   } else {
     set = getDailySet(input.exam, dateKey, input.mode, subject.id, page);
   }
