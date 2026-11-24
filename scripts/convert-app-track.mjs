@@ -491,6 +491,9 @@ function richExam(q, meta, key, filePrefix) {
     const marked = unmark(star(q.stem_marked));
     if (marked.text === stem) underlines.push(...marked.ranges);
     else console.warn("stem_marked 가 지문과 달라 밑줄을 버린다:", q.id);
+  } else if (Array.isArray(q.underlines) && q.underlines.length) {
+    // 발문 밑줄을 자리로 담은 앱(exam.underlines, 발문 글 기준) — 별표를 「∗」로 바꿔도 글자 수는 같다
+    underlines.push(...q.underlines);
   }
   let table;
   let material;
@@ -564,6 +567,7 @@ function richExam(q, meta, key, filePrefix) {
         key: it.key,
         label: it.label ?? "①②③④⑤"[Number(it.key) - 1] ?? it.key,
         text: star(unmark(it.text).text),
+        ...(Array.isArray(it.underlines) && it.underlines.length ? { underlines: it.underlines } : {}),
         ...(image ? { image } : {}),
         answer: it.answer,
         explanation: star(it.explanation),
@@ -592,10 +596,17 @@ for (const file of EMPTY ? [] : readdirSync(dir).filter((f) => f.endsWith(".json
       continue;
     }
     let stem = q.stem ?? "";
+    // 발문 밑줄 — 앱 exam.underlines(발문 글 기준)와 자료 줄의 `__…__` 표시(발문 뒤에 붙인 자리로 옮긴다)
+    const underlines = Array.isArray(q.underlines) ? [...q.underlines] : [];
     let table;
     let material;
     if (Array.isArray(q.material_lines) && q.material_lines.length) {
-      stem = `${stem}\n${q.material_lines.join("\n")}`;
+      for (const raw of q.material_lines) {
+        const { text, ranges } = unmark(String(raw ?? ""));
+        const at = stem.length + 1;
+        stem = `${stem}\n${text}`;
+        for (const [s, e] of ranges) underlines.push([at + s, at + e]);
+      }
       counts.lines += 1;
     } else if (Array.isArray(q.material_content) && q.material_content.length) {
       table = toTables(q.material_content);
@@ -617,6 +628,7 @@ for (const file of EMPTY ? [] : readdirSync(dir).filter((f) => f.endsWith(".json
       questionNo: q.question_no,
       points: 1,
       stem,
+      ...(underlines.length ? { underlines } : {}),
       ...(table ? { table } : {}),
       ...(material ? { material } : {}),
       ...(q.stem_tail ? { stemTail: q.stem_tail } : {}),
@@ -636,6 +648,7 @@ for (const file of EMPTY ? [] : readdirSync(dir).filter((f) => f.endsWith(".json
           key: it.key,
           label: it.label ?? "①②③④⑤"[Number(it.key) - 1] ?? it.key,
           text: it.text,
+          ...(Array.isArray(it.underlines) && it.underlines.length ? { underlines: it.underlines } : {}),
           ...(image ? { image } : {}),
           answer: it.answer,
           explanation: it.explanation,

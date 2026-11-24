@@ -152,7 +152,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
             </div>
           </div>
           <div className="mt-5">
-            <QuestionStem stem={exam.stem} questionNo={exam.questionNo} />
+            <QuestionStem stem={exam.stem} questionNo={exam.questionNo} underlines={exam.underlines ?? null} />
           </div>
           {exam.material?.figureFirst ? <ExamMaterialFigure material={exam.material} questionNo={exam.questionNo} /> : null}
           <PublicServiceExamMaterials table={exam.table} tAccounts={exam.tAccounts} stemTail={exam.stemTail} />

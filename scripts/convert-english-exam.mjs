@@ -86,6 +86,8 @@ for (const series of SERIES) {
           key: it.key,
           label: '①②③④⑤'[Number(it.key) - 1] ?? it.key,
           text: it.text,
+          // 「밑줄 친 부분이 어법상 …」 선지의 밑줄 자리(선지 글 기준)
+          ...(it.underlines?.length ? { underlines: it.underlines } : {}),
           answer: it.answer,
           explanation: it.explanation,
         })),

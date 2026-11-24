@@ -44,6 +44,8 @@ for (const [id, label] of subjects) {
     source: exam.source,
     questionNo: exam.question_no,
     stem: exam.stem,
+    // 「밑줄 친 …」 발문의 밑줄 자리(발문 글 기준) — 앱 exam.underlines
+    ...(exam.underlines?.length ? { underlines: exam.underlines } : {}),
     questionType: exam.question_type,
     correctChoice: exam.correct_choice,
     category: exam.category,
@@ -53,6 +55,7 @@ for (const [id, label] of subjects) {
       key: String(item.key),
       label: item.label,
       text: item.text,
+      ...(item.underlines?.length ? { underlines: item.underlines } : {}),
       answer: item.answer,
       explanation: item.explanation,
       taxonomy_unit_id: item.taxonomy_unit_id,

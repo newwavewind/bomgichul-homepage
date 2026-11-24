@@ -92,6 +92,8 @@ type LooseExam = {
     explanation?: string;
     image?: string;
     translation?: string;
+    /** 선지 글 안 밑줄 자리 — 「밑줄 친 부분이 …」 문항(국어·영어) */
+    underlines?: [number, number][];
     sources?: SeoExplanationQuestion["items"][number]["sources"];
     /** 보기형 보기의 참(O)·거짓(X) */
     answer?: string;
@@ -546,6 +548,16 @@ function extractLawChangeNote(explanation: string): string | null {
   return notes.length ? [...new Set(notes)].join("\n") : null;
 }
 
+/** 글 앞 공백을 잘라 낸 만큼 밑줄 자리를 당긴다 — 선지 글은 trim 해서 싣는다 */
+function trimmedUnderlines(
+  text: string,
+  underlines: [number, number][] | undefined,
+): { underlines?: [number, number][] } {
+  if (!underlines?.length) return {};
+  const lead = text.length - text.trimStart().length;
+  return { underlines: underlines.map(([start, end]) => [start - lead, end - lead] as [number, number]) };
+}
+
 function buildPresentation(
   exam: LooseExam,
   hasCombos: boolean,
@@ -623,6 +635,7 @@ function normalizeChoices(exam: LooseExam): {
     text: item.text!.trim(),
     image: item.image,
     translation: item.translation,
+    ...trimmedUnderlines(item.text!, item.underlines),
   }));
   const listed = exam.correctChoices?.length
     ? exam.correctChoices.map(String)

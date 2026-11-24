@@ -10,6 +10,7 @@ import { ExplanationSourceLinks, prepareExplanationSources, type ExplanationSour
 import type { CommunityScope } from "@/types/database";
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 import { plainStudyText } from "@/lib/study-text";
+import { renderStudyText, type UnderlineRange } from "@/lib/underlined-text";
 
 export type SeoExplanationQuestion = {
   year: number;
@@ -31,6 +32,8 @@ export type SeoExplanationQuestion = {
     answer?: string;
     explanation?: string;
     sources?: ExplanationSource[];
+    /** 선지 글 안 밑줄 자리 — 「밑줄 친 부분이 …」 문항(국어·영어) */
+    underlines?: readonly UnderlineRange[];
   }[];
   comboChoices?: {
     no: number;
@@ -88,6 +91,7 @@ function ExplanationCard({
   label,
   choiceNumber,
   text,
+  underlines,
   answer,
   explanation,
   sources = [],
@@ -100,6 +104,7 @@ function ExplanationCard({
   label: string;
   choiceNumber?: number;
   text: string;
+  underlines?: readonly UnderlineRange[];
   answer?: string;
   explanation?: string;
   sources?: ExplanationSource[];
@@ -116,7 +121,7 @@ function ExplanationCard({
       <div className="mb-3 flex items-start gap-3">
         <ExplanationChoiceBadge label={label} choiceNumber={choiceNumber} />
         <p className="min-w-0 flex-1 font-display text-body-sm font-medium leading-relaxed text-ink">
-          {plainStudyText(text)}
+          {renderStudyText(text, underlines)}
         </p>
         {answer ? (
           <span className={`shrink-0 rounded-full px-2.5 py-0.5 font-display text-body-sm font-semibold ${
@@ -307,6 +312,7 @@ export function ExamQuestionSeoExplanations({
                 label={item.label ?? item.key}
                 choiceNumber={comboChoices.length ? undefined : Number(item.key)}
                 text={item.text}
+                underlines={item.underlines}
                 answer={item.answer}
                 explanation={item.explanation}
                 sources={item.sources}

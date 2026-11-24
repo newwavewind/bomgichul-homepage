@@ -2,6 +2,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import english from "@/data/english/gong9.json";
+import gugeo from "@/data/gugeo/gugeo.json";
 import type { ExamTrackExam } from "@/lib/exam-track/types";
 import { TrackPracticeQuestion } from "./TrackPracticeQuestion";
 
@@ -21,6 +22,14 @@ function render(exam: ExamTrackExam) {
 }
 
 describe("practice question materials", () => {
+  it("underlines the asked part of each choice for 국어 2020 국가직 2번 (책깨나)", () => {
+    const exam = gugeo.exams.find((q) => q.id === "국가직국어-2020-Q2")!;
+    const html = render(exam as ExamTrackExam);
+    for (const word of ["골아떨어졌겠지", "깨나", "곤욕", "그러고 나서"]) {
+      expect(html).toMatch(new RegExp(`<u[^>]*>${word}</u>`));
+    }
+  });
+
   it("renders the original recycling passage image before the choices for English 2026 national Q7", () => {
     const exam = english.exams.find((q) => q.year === 2026 && q.sourceCode === "국가직" && q.questionNo === 7)!;
     const html = render(exam as ExamTrackExam);

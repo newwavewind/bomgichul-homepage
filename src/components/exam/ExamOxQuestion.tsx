@@ -16,6 +16,7 @@ import { CitedText } from "@/components/exam/CitedText";
 import { recordWebStudy, scopeForPath, type StudyEntry } from "@/lib/web-study";
 import { trackEvent } from "@/lib/analytics";
 import { plainStudyText } from "@/lib/study-text";
+import { renderStudyText } from "@/lib/underlined-text";
 import { hasNativeEnterAction, questionShortcutTarget } from "@/lib/question-shortcuts";
 import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
 import type { ExamReferenceEntry } from "@/lib/exam-questions";
@@ -32,6 +33,8 @@ export type ExamOxItem = {
   explanation?: string;
   /** 그래프·도면처럼 글이 아닌 선지 — 산업안전지도사·공인노무사 몇 문항 */
   image?: string;
+  /** 선지 글 안 밑줄 자리 `[시작, 끝)` — 「밑줄 친 부분이 …」 문항(국어·영어) */
+  underlines?: [number, number][];
 };
 
 export type ExamAnswerState = {
@@ -267,7 +270,7 @@ export function ExamOxQuestion({
                     {item.label ?? item.key}
                   </span>
                   <span className="flex-1 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">
-                    {plainStudyText(item.text)}
+                    {renderStudyText(item.text, item.underlines)}
                   </span>
                   {revealed && item.answer ? (
                     <span
@@ -452,7 +455,7 @@ export function ExamOxQuestion({
                       <img src={item.image} alt={item.text ? plainStudyText(item.text) : `${item.label ?? ""} 선지 그림`} loading="lazy" className="h-auto max-h-60 w-auto max-w-full rounded-md border border-mist bg-[#fff]" />
                     </span>
                   ) : (
-                    <span className="flex-1 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">{plainStudyText(item.text)}</span>
+                    <span className="flex-1 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">{renderStudyText(item.text, item.underlines)}</span>
                   )}
                   {revealed && item.answer ? (
                     <span

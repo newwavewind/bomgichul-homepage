@@ -11170,6 +11170,12 @@
           "key": "1",
           "label": "①",
           "text": "They are not interested in reading poetry, still more in writing.",
+          "underlines": [
+            [
+              43,
+              53
+            ]
+          ],
           "answer": "X",
           "explanation": "부정문 뒤에 「더더욱 아니다」를 이을 때는 still less 를 쓴다. still more 는 긍정문 뒤에 「더더욱 그렇다」를 이을 때 쓴다. 앞 절이 are not interested 라는 부정이므로 still less in writing 이라야 한다."
         },
@@ -11177,6 +11183,12 @@
           "key": "2",
           "label": "②",
           "text": "Once confirmed, the order will be sent for delivery to your address.",
+          "underlines": [
+            [
+              0,
+              14
+            ]
+          ],
           "answer": "O",
           "explanation": "Once confirmed 는 Once it is confirmed 에서 주어와 be동사를 줄인 꼴이다. 생략된 주어가 주절의 the order 와 같고 주문은 확인되는 쪽이라 과거분사가 맞다."
         },
@@ -11184,6 +11196,12 @@
           "key": "3",
           "label": "③",
           "text": "Provided that the ferry leaves on time, we should arrive at the harbor by morning.",
+          "underlines": [
+            [
+              0,
+              13
+            ]
+          ],
           "answer": "O",
           "explanation": "provided that 은 「~라면」이라는 조건 접속사다. 조건절에서 미래를 현재로 쓰므로 leaves 가 옳다."
         },
@@ -11191,6 +11209,12 @@
           "key": "4",
           "label": "④",
           "text": "Foreign journalists hope to cover as much news as possible during their short stay in the capital.",
+          "underlines": [
+            [
+              37,
+              46
+            ]
+          ],
           "answer": "O",
           "explanation": "as … as possible 은 「가능한 한 ~하게」다. news 는 셀 수 없는 명사라 much 로 받는 것도 맞다."
         }
@@ -13549,6 +13573,12 @@
           "key": "1",
           "label": "①",
           "text": "You must plan not to spend too much on the project.",
+          "underlines": [
+            [
+              14,
+              26
+            ]
+          ],
           "answer": "O",
           "explanation": "plan 은 to부정사를 목적어로 받고, 그 부정사를 부정할 때는 not 을 to 앞에 둔다."
         },
@@ -13556,6 +13586,12 @@
           "key": "2",
           "label": "②",
           "text": "My dog disappeared last month and hasn’t been seen since.",
+          "underlines": [
+            [
+              7,
+              18
+            ]
+          ],
           "answer": "O",
           "explanation": "개는 보이는 쪽이라 수동 완료 hasn't been seen 이 맞고, since 가 「그 뒤로」라는 부사로 쓰였다."
         },
@@ -13563,6 +13599,12 @@
           "key": "3",
           "label": "③",
           "text": "I’m sad that the people who daughter I look after are moving away.",
+          "underlines": [
+            [
+              24,
+              27
+            ]
+          ],
           "answer": "X",
           "explanation": "「그 사람들의 딸」이라는 소유 관계이므로 소유격 관계대명사 whose 라야 한다. who 는 주격이라 뒤에 명사 daughter 를 데리고 올 수 없다."
         },
@@ -13570,6 +13612,12 @@
           "key": "4",
           "label": "④",
           "text": "I bought a book on my trip, and it was twice as expensive as it was at home.",
+          "underlines": [
+            [
+              39,
+              60
+            ]
+          ],
           "answer": "O",
           "explanation": "배수 표현은 「배수사 + as 원급 as」 순서다. twice as expensive as 가 그 꼴이다."
         }
@@ -18474,6 +18522,12 @@
           "key": "1",
           "label": "①",
           "text": "I should have gone this morning, but I was feeling a bit ill.",
+          "underlines": [
+            [
+              2,
+              18
+            ]
+          ],
           "answer": "O",
           "explanation": "should have p.p. 는 「~했어야 했는데 하지 않았다」는 뜻이다. but 뒤에 그러지 못한 사정이 이어져 맞물린다."
         },
@@ -18481,6 +18535,12 @@
           "key": "2",
           "label": "②",
           "text": "These days we do not save as much money as we used to.",
+          "underlines": [
+            [
+              40,
+              53
+            ]
+          ],
           "answer": "O",
           "explanation": "as ~ as 사이에 much money 가 들어간 원급 비교이고, used to 뒤에는 반복을 피해 동사가 생략되었다."
         },
@@ -18488,6 +18548,12 @@
           "key": "3",
           "label": "③",
           "text": "The rescue squad was happy to discover an alive man.",
+          "underlines": [
+            [
+              39,
+              51
+            ]
+          ],
           "answer": "X",
           "explanation": "alive 는 서술 자리에만 쓰는 형용사라 명사 앞에서 꾸미지 못한다. a living man 또는 a man alive 라야 한다. a-로 시작하는 asleep·afraid·awake 도 같은 무리다."
         },
@@ -18495,6 +18561,12 @@
           "key": "4",
           "label": "④",
           "text": "The picture was looked at carefully by the art critic.",
+          "underlines": [
+            [
+              12,
+              25
+            ]
+          ],
           "answer": "O",
           "explanation": "구동사 look at 을 수동으로 만든 꼴이라 at 을 남겨 두어야 한다. was looked at by ~ 가 옳다."
         }
@@ -48491,6 +48563,12 @@
       "questionNo": 4,
       "points": 1,
       "stem": "밑줄 친 부분의 의미와 가장 가까운 것을 고르시오\n\nA : He thinks he can achieve anything.\nB: Yes, he needs to keep his feet on the ground.",
+      "underlines": [
+        [
+          88,
+          116
+        ]
+      ],
       "questionType": "correct",
       "correctChoice": 4,
       "category": "어휘",

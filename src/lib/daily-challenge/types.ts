@@ -13,6 +13,8 @@ export type DailyChoice = {
   text: string;
   image?: string;
   translation?: string;
+  /** 선지 글 안 밑줄 자리 `[시작, 끝)` — 「밑줄 친 부분이 …」 문항(국어·영어) */
+  underlines?: UnderlineRange[];
 };
 
 export type DailyMode = "ranked" | "practice" | "review";

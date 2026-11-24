@@ -11,6 +11,7 @@ import type {
   DailyQuestionPresentation,
 } from "@/lib/daily-challenge/types";
 import { plainStudyText } from "@/lib/study-text";
+import { renderStudyText } from "@/lib/underlined-text";
 import { dailyFormulaExamId, getExamFormulaChoice } from "@/components/exam/formulas/examFormulaChoice";
 
 export function DailyQuestionBody({
@@ -180,7 +181,7 @@ export function DailyChoiceContent({
             ))}
           </span>
         ) : (
-          <span>{plainStudyText(choice.text)}</span>
+          <span>{renderStudyText(choice.text, choice.underlines)}</span>
         )
       ) : null}
       {choice.image ? (

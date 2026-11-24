@@ -161,6 +161,8 @@ for (const subject of subjects) {
       source: question.source,
       questionNo: question.question_no,
       stem: question.stem,
+      // 「밑줄 친 …」 발문의 밑줄 자리(발문 글 기준) — 앱 exam.underlines
+      ...(question.underlines?.length ? { underlines: question.underlines } : {}),
       questionType: question.question_type,
       correctChoice: question.correct_choice,
       category: question.category,

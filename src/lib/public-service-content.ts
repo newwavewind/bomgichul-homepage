@@ -79,6 +79,8 @@ export interface PublicServiceExam {
   tAccounts?: PublicServiceTAccount[];
   choiceHeaders?: string[];
   stem: string;
+  /** 발문 안 밑줄 자리 `[시작, 끝)` — 「밑줄 친 …」 문항(앱 exam.underlines) */
+  underlines?: [number, number][];
   questionType?: string;
   correctChoice?: number;
   correctChoices?: number[];

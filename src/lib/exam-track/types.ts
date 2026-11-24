@@ -72,6 +72,8 @@ export interface ExamTrackExamItem {
   translation?: string;
   /** 그래프·도면처럼 글이 아닌 선지(산업안전지도사·공인노무사) */
   image?: string;
+  /** 선지 글 안 밑줄 자리 `[시작, 끝)` — 「밑줄 친 부분이 …」 문항(국어·영어) */
+  underlines?: [number, number][];
 }
 
 /** 주관식(단답형) 문항의 빈칸 하나 — 지문의 ( ㄱ ) 자리와 그 정답 */

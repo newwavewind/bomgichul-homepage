@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { plainStudyText } from "@/lib/study-text";
 
 export type UnderlineRange = readonly [number, number];
 
@@ -60,4 +61,16 @@ export function inlineBoxStartOffset(stem: string): number | null {
   const after = stem.slice(qIdx + 1);
   const lead = after.match(/^\s*/)?.[0].length ?? 0;
   return qIdx + 1 + lead;
+}
+
+/**
+ * 선지·보기 글 — 밑줄(`underlines`, 그 글 안 자리)이 있으면 원문 그대로 밑줄을 긋고,
+ * 없으면 여느 때처럼 `*` 표시를 지운 글을 낸다. 자리는 원문 기준이라 밑줄이 있을 때는 지우지 않는다.
+ * 「밑줄 친 부분이 바르게 쓰이지 않은 것은?」처럼 선지마다 밑줄이 곧 묻는 자리인 문항(국어·영어)에 쓴다.
+ */
+export function renderStudyText(
+  text: string,
+  underlines?: readonly UnderlineRange[] | null
+): ReactNode {
+  return underlines?.length ? renderUnderlinedText(text, underlines) : plainStudyText(text);
 }

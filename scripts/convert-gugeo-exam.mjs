@@ -53,6 +53,8 @@ for (const series of SERIES) {
         questionNo: q.question_no,
         points: 1,
         stem: q.stem,
+        // 발문 밑줄 자리 — 앱 exam.underlines(발문 글 기준 [시작, 끝))
+        ...(q.underlines?.length ? { underlines: q.underlines } : {}),
         questionType: q.question_type,
         correctChoice: q.correct_choice,
         category: q.category,
@@ -65,6 +67,8 @@ for (const series of SERIES) {
           key: it.key,
           label: it.label ?? "①②③④⑤"[Number(it.key) - 1] ?? it.key,
           text: it.text,
+          // 「밑줄 친 부분이 …」 선지의 밑줄 자리(선지 글 기준) — 원본 시험지로 채운 것(앱 e365d8d)
+          ...(it.underlines?.length ? { underlines: it.underlines } : {}),
           answer: it.answer,
           explanation: it.explanation,
         })),
