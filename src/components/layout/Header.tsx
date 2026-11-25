@@ -5,6 +5,7 @@ import { HeaderNav } from "@/components/layout/HeaderNav";
 import { DailyStudyTracker } from "@/components/analytics/DailyStudyTracker";
 import { fetchMe, invalidateMe, useSignedInHint, type MeUser } from "@/lib/client-session";
 import { createClient } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 /**
  * 머리를 클라이언트에서 그린다.
@@ -33,8 +34,10 @@ export function Header() {
 
     // 로그인·로그아웃은 RSC 내비게이션이라 레이아웃이 남는다 — 세션 변화를
     // 직접 듣고 다시 묻지 않으면 머리가 옛 상태로 남는다.
-    const supabase = createClient();
-    const { data: sub } = supabase.auth.onAuthStateChange((event) => {
+    if (!isSupabaseConfigured()) {
+      return () => { alive = false; };
+    }
+    const { data: sub } = createClient().auth.onAuthStateChange((event) => {
       if (event === "SIGNED_IN" || event === "SIGNED_OUT" || event === "USER_UPDATED") {
         invalidateMe();
         load();

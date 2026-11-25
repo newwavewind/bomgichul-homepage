@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/api/pc-access/lecture/**": ["./data/police-pro-lectures/*.json"],
+  },
   async redirects() {
     return [
       // Confirmed successors of retired concept pages.

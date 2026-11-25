@@ -1,0 +1,32 @@
+.pc-plan {
+  scroll-margin-top: 100px; padding: 20px; display: grid; gap: 16px; border: 1px solid var(--color-mist);
+  border-radius: 22px; background: var(--color-paper); color: var(--color-ink)
+}
+.pc-plan-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 14px }
+.pc-plan h2,.pc-plan-dialog h2 { font-size: 1.3rem; font-weight: 750; letter-spacing: -.025em }
+.pc-plan-top p,.pc-plan-bottom p { color: var(--color-smoke); font-size: .85rem }
+.pc-plan-badge { color: light-dark(#06559d, #b3d6ff); margin-inline-start: 3px; font-weight: 700 }
+.pc-plan-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px }
+.pc-plan-option { padding: 12px; border: 1px solid var(--color-mist); border-radius: 14px }
+.pc-plan-option.is-current {
+  background: light-dark(#eff6ff, #202f44); border-color: light-dark(#bdd6f5, #465d7b)
+}
+.pc-plan-option div { display: flex; align-items: center; gap: 8px; flex-wrap: wrap }
+.pc-plan-option h3 { font-weight: 750 }
+.pc-plan-option p { font-size: .85rem; color: var(--color-smoke); margin-top: 3px }
+.pc-plan-option span { font-size: .72rem; color: light-dark(#1b569b, #b5d2f5); font-weight: 700 }
+.pc-plan-bottom { display: flex; gap: 8px 16px; align-items: center; justify-content: space-between; flex-wrap: wrap }
+.pc-plan-primary,.pc-plan-secondary { display: inline-grid; place-items: center; min-height: 44px; border-radius: 12px; padding: 8px 14px; font-weight: 700; font-size: .9rem }
+.pc-plan-primary { background: #075bb0; color: #fff }
+.pc-plan-primary:disabled,.pc-plan-secondary:disabled { opacity: .6 }
+.pc-plan-secondary { background: light-dark(#ebf3fc, #29374e); color: light-dark(#154a84, #bfdafb) }
+.pc-plan-dialog { margin: auto; width: min(420px,calc(100% - 24px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid var(--color-mist); border-radius: 22px; background: var(--color-paper); color: var(--color-ink) }
+.pc-plan-dialog::backdrop { background: rgb(13 23 43 / 52%) }
+.pc-plan-dialog-content { padding: 20px; display: grid; gap: 12px; text-align: left }
+.pc-plan-dialog-content header { display: flex; justify-content: space-between; align-items: flex-start }
+.pc-plan-dialog-content p { line-height: 1.55; margin: 0 }
+.pc-plan-dialog-content header p { color: var(--color-smoke); font-size: .82rem; font-weight: 700 }
+.pc-plan-qr { justify-self: center; width: min(232px,100%); height: auto; background: white; border-radius: 12px; image-rendering: pixelated }
+.pc-plan-clock { text-align: center; font-variant-numeric: tabular-nums; font-weight: 700 }
+.pc-plan-close { width: 44px; height: 44px; border-radius: 50%; background: var(--color-snow); font-size: 1.4rem }
+.pc-plan-error { color: light-dark(#9c3425, #ffb5a9); font-size: .9rem }

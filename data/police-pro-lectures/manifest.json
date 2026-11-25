@@ -1,0 +1,20 @@
+{
+  "appCommit": "5c9129105cac98f7f260075bc8528fd16221376b",
+  "subjects": {
+    "constitution": {
+      "public": 3,
+      "paid": 42,
+      "sha256": "b00c4d5642d6454ba12f5b96b6c709dca8f42bf227a1f91e5abc06a4a403b689"
+    },
+    "criminal-law": {
+      "public": 3,
+      "paid": 89,
+      "sha256": "2730845cfa7c36e3321cfd5dbf883a61e3b495b923249cacff579d4348710fcd"
+    },
+    "police-science": {
+      "public": 3,
+      "paid": 92,
+      "sha256": "96d2a9605c544a68de2331bec7372a0fe41687e83ad13c65480f7e680a165c88"
+    }
+  }
+}

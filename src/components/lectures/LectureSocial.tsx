@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
+import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { SITE_URL } from '@/lib/constants';
 import { lectureBoardImage } from '@/lib/lecture-share';
 import { lecturePagePath, lectureSiteConfig } from '@/lib/lecture-sites';
@@ -13,7 +14,14 @@ type Comment = { id: string; user_id: string; parent_id: string | null; content:
 const nickname = (comment: Comment) => (Array.isArray(comment.profiles) ? comment.profiles[0] : comment.profiles)?.nickname || '수강생';
 const PAGE_SIZE = 100;
 
-export default function LectureSocial({lectureId, subject, title, site = 'real-estate'}: {lectureId: string; subject: string; title: string; site?: string}) {
+type LectureSocialProps = { lectureId: string; subject: string; title: string; site?: string };
+
+export default function LectureSocial(props: LectureSocialProps) {
+  if (!isSupabaseConfigured()) return null;
+  return <ConnectedLectureSocial {...props} />;
+}
+
+function ConnectedLectureSocial({lectureId, subject, title, site = 'real-estate'}: LectureSocialProps) {
   const client = useMemo(() => createClient(), []);
   const [userId, setUserId] = useState<string | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
