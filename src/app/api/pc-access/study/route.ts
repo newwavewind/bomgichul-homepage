@@ -1,9 +1,9 @@
 import { getPcViewer, pcJson } from '@/lib/pc-access/session';
 import { hasPcPro } from '@/lib/pc-access/pro';
-import { readPcStudy, readPcNotebook, getPcStudyCounts, readPcGlossary, readPcGlossaryLabels, type PcStudy } from '@/lib/pc-access/study';
+import { readPcStudy, getPcStudyCounts, type PcStudy } from '@/lib/pc-access/study';
 import { isPcStudyFeature } from '@/lib/pc-access/study-features';
 import { isPcSubject } from '@/lib/pc-access/catalog';
-import { pcQuestionFeatures, pcQuestionHasNotebook, pcQuestionLocation, pcQuestionOffers, pcQuestionPath } from '@/lib/pc-access/study-context';
+import { pcQuestionLocation, pcQuestionOffers, pcQuestionPath } from '@/lib/pc-access/study-context';
 import verifiedTraps from '../../../../../data/pc-pro-study/verified-traps.json';
 
 export async function GET(request: Request) {
@@ -11,76 +11,21 @@ export async function GET(request: Request) {
   const feature = params.get('feature');
   const path = params.get('question');
   const scope = params.get('scope');
-  const term = params.get('term');
-  const key = params.get('choice');
-  const glossary = feature === 'glossary' || feature === 'term-exam';
-  const questionBundle = feature === 'question';
   const studyFeature = isPcStudyFeature(feature) ? feature : undefined;
-  const notebook = feature === 'notebook';
-  const questionFeature = feature === 'choices' || feature === 'traps' || notebook;
-  if ((!glossary && !notebook && !questionBundle && !studyFeature) || (Boolean(path) !== (glossary || questionFeature || questionBundle))) {
+  const questionFeature = feature === 'choices' || feature === 'traps';
+  if (!studyFeature || Boolean(path) !== questionFeature) {
     return pcJson({ error: '학습 기능을 확인해 주세요.' }, 400);
   }
   const location = path ? pcQuestionLocation(path) : null;
-  if ((path && !location) || (glossary && (!term || term.length > 100 || !key || key.length > 12))) {
-    return pcJson({ error: '문항과 용어를 확인해 주세요.' }, 400);
-  }
+  if (path && !location) return pcJson({ error: '문항을 확인해 주세요.' }, 400);
   const options = location && path ? pcQuestionOffers(path, studyFeature).map(offer => offer.id)
-    : isPcSubject(scope) && studyFeature && getPcStudyCounts(scope)?.[studyFeature] ? [scope] : [];
+    : isPcSubject(scope) && getPcStudyCounts(scope)?.[studyFeature] ? [scope] : [];
   if (!options.length) return pcJson({ error: '이 항목의 Pro 자료가 없어요.' }, 404);
   try {
     const viewer = await getPcViewer();
-    const publicGlossary = async () => questionBundle && location
-      ? { glossaryLabels: await readPcGlossaryLabels(pcQuestionPath(location)) } : {};
-    if (!viewer) return pcJson({ error: '로그인하고 이 과목의 Pro를 이용하세요.', ...await publicGlossary() }, 401);
-    const pool = () => import('@/lib/daily-challenge/pool');
+    if (!viewer) return pcJson({ error: '로그인하고 이 과목의 Pro를 이용하세요.' }, 401);
     for (const id of options) {
       if (!await hasPcPro(viewer.id, id, viewer.beta)) continue;
-      if (questionBundle && location) {
-        const href = pcQuestionPath(location);
-        const [study, note, definitions, glossaryData, questions] = await Promise.all([
-          pcQuestionFeatures(href).length ? readPcStudy(id) : null,
-          pcQuestionHasNotebook(href) ? readPcNotebook(id, href) : null,
-          pool().then(module => module.getQuestionGlossaryDefinitions(location)),
-          readPcGlossary(id, href),
-          pool(),
-        ]);
-        if (glossaryData) {
-          for (const list of Object.values(glossaryData.related)) {
-            const first = list[0];
-            const exam = first && questions.getGlossaryExam(first.href);
-            if (exam) first.first = exam;
-          }
-        }
-        return pcJson({
-          glossary: glossaryData,
-          traps: study ? questionTraps(study, id, href) : [],
-          note,
-          definitions,
-        });
-      }
-      if (glossary && location && term && key) {
-        const native = await readPcGlossary(id, pcQuestionPath(location));
-        const entry = native?.terms[key]?.find(value => value.term === term);
-        if (feature === 'term-exam') {
-          const requested = params.get('related');
-          const matching = entry && native && Object.hasOwn(native.related, term)
-            ? native.related[term].find(value => value.href === requested) : undefined;
-          const exam = matching ? (await pool()).getGlossaryExam(matching.href) : null;
-          return exam ? pcJson({ exam }) : pcJson({ error: '이 용어의 관련 기출을 찾지 못했어요.' }, 404);
-        }
-        if (native?.terms[key]?.length) {
-          return entry ? pcJson({ definition: entry.def }) : pcJson({ error: '이 문항에 없는 용어예요.' }, 404);
-        }
-        const { getQuestionGlossary } = await pool();
-        const fallback = await getQuestionGlossary(location, key, term);
-        return fallback ? pcJson({ definition: fallback.definition }) : pcJson({ error: '이 문항에 없는 용어예요.' }, 404);
-      }
-      if (notebook && location) {
-        const note = await readPcNotebook(id, pcQuestionPath(location));
-        if (note) return pcJson({ note });
-        continue;
-      }
       const study = await readPcStudy(id);
       if (!study) continue;
       const href = location && pcQuestionPath(location);
@@ -117,7 +62,7 @@ export async function GET(request: Request) {
         return pcJson({ law: study.law });
       }
     }
-    return pcJson({ error: '이 기능을 쓰려면 해당 과목의 Pro를 연결해 주세요.', ...await publicGlossary() }, 403);
+    return pcJson({ error: '이 기능을 쓰려면 해당 과목의 Pro를 연결해 주세요.' }, 403);
   } catch {
     return pcJson({ error: '학습 자료를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.' }, 503);
   }

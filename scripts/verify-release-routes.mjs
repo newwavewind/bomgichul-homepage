@@ -5,6 +5,7 @@ const paths=JSON.parse(readFileSync('.next/server/app-paths-manifest.json','utf8
 const required=[
  '/api/daily/app/route',
  '/api/pc-access/web/route', '/api/pc-access/mobile/route',
+ '/api/pc-access/study/route', '/api/pc-access/study-context/route', '/api/exam-sources/route',
  '/api/pc-access/lecture/[lecture]/route', '/api/pc-access/lecture/[lecture]/[scene]/route',
  ...['real-estate','firefighter','police'].flatMap(site=>[
   `/${site}/lectures/page`, `/${site}/lectures/[subject]/page`, `/${site}/textbooks/page`,

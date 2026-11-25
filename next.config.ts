@@ -4,8 +4,26 @@ import { withBotId } from "botid/next/config";
 const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/exam-sources": ["./data/exam-source-previews.json.gz"],
-    "/api/pc-access/study": ["./data/pc-pro-study/*.json.gz", "./data/pc-pro-notes/*.json.gz", "./data/pc-pro-glossary/*.json.gz"],
+    "/api/pc-access/study": ["./data/pc-pro-study/*.json.gz"],
+    "/api/pc-access/study-context": [
+      "./data/pc-pro-notes/*.json.gz", "./data/pc-pro-glossary/*.json.gz", "./data/pc-pro-question-traps.json.gz",
+    ],
     "/api/pc-access/lecture/**": ["./data/police-pro-lectures/*.json", "./data/real-estate-pro-lectures/*.json", "./data/firefighter-pro-lectures/*.json"],
+  },
+  outputFileTracingExcludes: {
+    "/api/pc-access/study": ["./data/pc-pro-notes/*.json.gz", "./data/pc-pro-glossary/*.json.gz", "./data/pc-pro-question-traps.json.gz"],
+    "/api/pc-access/study-context": ["./data/pc-pro-study/*.json.gz"],
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [{
+        source: "/api/pc-access/study",
+        destination: "/api/pc-access/study-context",
+        has: [{ type: "query", key: "feature", value: "(?:question|glossary|term-exam|notebook)" }],
+      }],
+      afterFiles: [],
+      fallback: [],
+    };
   },
   async redirects() {
     return [

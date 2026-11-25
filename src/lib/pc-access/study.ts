@@ -118,3 +118,17 @@ export async function readPcGlossaryLabels(href: string): Promise<GlossaryLabels
   const catalog = await glossaryLabels;
   return Object.hasOwn(catalog, href) ? catalog[href] : {};
 }
+
+let contextualTraps: Promise<Record<string, Record<string, StudyTrap[]>>> | undefined;
+
+export async function readPcQuestionTraps(scope: string, href: string): Promise<StudyTrap[]> {
+  contextualTraps ??= readFile(path.join(process.cwd(), 'data', 'pc-pro-question-traps.json.gz'))
+    .then(buffer => decompress(buffer))
+    .then(buffer => JSON.parse(buffer.toString('utf8')))
+    .catch(error => {
+      contextualTraps = undefined;
+      throw error;
+    });
+  const catalog = await contextualTraps;
+  return catalog[scope]?.[href] ?? [];
+}

@@ -322,6 +322,7 @@ for (const program of programs) {
 if (!glossaryOnly) {
   await writeFile(path.join(output,'manifest.json'),JSON.stringify({sourceCommits,scopes:manifest},null,2)+'\n');
   console.log(Object.keys(manifest).length,'study scopes');
+  await import('./sync-pc-pro-question-traps.mjs');
 }
 
 await import("./sync-pc-pro-glossary-labels.mjs");
