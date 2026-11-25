@@ -1,4 +1,4 @@
-import { audioSource, hasPolicePro, paidLectureSubject, readPaidLecture } from '@/lib/pc-access/pro';
+import { audioSource, hasPcPro, paidLectureSubject, readPaidLecture } from '@/lib/pc-access/pro';
 import { getPcViewer, pcJson } from '@/lib/pc-access/session';
 
 export async function GET(request: Request, { params }: { params: Promise<{ lecture: string; scene: string }> }) {
@@ -8,7 +8,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ lect
     if (!subject) return pcJson({ error: '강의를 찾을 수 없어요.' }, 404);
     const viewer = await getPcViewer();
     if (!viewer) return pcJson({ error: '먼저 로그인해 주세요.' }, 401);
-    if (!await hasPolicePro(viewer.id, subject)) return pcJson({ error: '이 과목의 Pro 수강권을 연결해 주세요.' }, 403);
+    if (!await hasPcPro(viewer.id, subject, viewer.beta)) return pcJson({ error: '이 과목의 Pro 수강권을 연결해 주세요.' }, 403);
     const definition = await readPaidLecture(subject, lecture);
     const source = definition && audioSource(definition, scene);
     if (!source) return pcJson({ error: '음원을 찾을 수 없어요.' }, 404);

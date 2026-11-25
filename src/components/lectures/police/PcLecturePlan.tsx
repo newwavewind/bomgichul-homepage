@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import qrcode from 'qrcode-generator';
-import { PC_SUBJECTS, type PcSubject } from '@/lib/pc-access/catalog';
+import { PC_SUBJECTS, pcSite, type PcSubject } from '@/lib/pc-access/catalog';
+import { lectureSiteConfig, lecturePagePath } from '@/lib/lecture-sites';
 import './pc-plan.css';
 
 type Pairing = { token: string; expiresAt: string; image: string };
@@ -29,6 +30,9 @@ export default function PcLecturePlan({ subject, loggedIn, account, pro, linking
   subject: PcSubject; loggedIn: boolean; account: string | null; pro: boolean; linkingAvailable: boolean;
 }) {
   const name = PC_SUBJECTS[subject].title;
+  const site = pcSite(subject);
+  const planId = site + '-pc-plan';
+  const exam = lectureSiteConfig(site).examLabel;
   const router = useRouter();
   const dialog = useRef<HTMLDialogElement>(null);
   const [pairing, setPairing] = useState<Pairing | null>(null);
@@ -114,8 +118,8 @@ export default function PcLecturePlan({ subject, loggedIn, account, pro, linking
   }
 
   const seconds = deadline ? Math.max(0, Math.ceil((Date.parse(deadline) - now) / 1000)) : 0;
-  const login = `/login?next=${encodeURIComponent(`/police/lectures/${subject}#police-pc-plan`)}`;
-  return <section id="police-pc-plan" className="pc-plan" aria-labelledby="pc-plan-title">
+  const login = `/login?next=${encodeURIComponent(`${lecturePagePath(site, subject)}#${planId}`)}`;
+  return <section id={planId} className="pc-plan" aria-labelledby="pc-plan-title">
     <div className="pc-plan-top">
       <h2 id="pc-plan-title">{name} 이용 플랜</h2>
       {account && <p>{account} {pro && <span className="pc-plan-badge">✓ Pro 이용 중</span>}</p>}
@@ -131,7 +135,7 @@ export default function PcLecturePlan({ subject, loggedIn, account, pro, linking
       </div>
     </div>
     {!pro && <div className="pc-plan-bottom">
-      <p>경찰 앱에서 구매한 과목을 연결하면 PC에서도 Pro를 이용할 수 있어요.</p>
+      <p>{exam} 앱에서 구매한 과목을 연결하면 PC에서도 Pro를 이용할 수 있어요.</p>
       {linkingAvailable && (loggedIn
         ? <button type="button" className="pc-plan-primary" onClick={() => { dialog.current?.showModal(); void start(); }}>앱 구매 연동</button>
         : <Link className="pc-plan-primary" href={login}>로그인하고 앱 구매 연동</Link>)}
@@ -149,7 +153,7 @@ export default function PcLecturePlan({ subject, loggedIn, account, pro, linking
           <button type="button" className="pc-plan-primary" disabled={busy} onClick={() => void finish()}>연결 완료</button>
         </> : status === 'expired' ? <p role="status">QR이 만료됐어요. 새 QR을 만들어 주세요.</p>
           : pairing ? <>
-            <p>경찰 앱에서 같은 과목을 열고 <strong>QR 연동</strong>을 눌러 찍어 주세요.</p>
+            <p>{exam} 앱에서 같은 과목을 열고 <strong>QR 연동</strong>을 눌러 찍어 주세요.</p>
             {/* Generated locally from the one-time token. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="pc-plan-qr" src={pairing.image} alt={`${name} Pro 연결 QR 코드`} width={232} height={232}/>

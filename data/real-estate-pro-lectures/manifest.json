@@ -1,0 +1,35 @@
+{
+  "appCommit": "f62378a981205c813b4aa23a505747d0eb24b856",
+  "subjects": {
+    "realestate": {
+      "public": 3,
+      "paid": 47,
+      "sha256": "5f656fc32a782f8f4d5991fdb1d09c4d13ad61fccb3d54194143b06db3562796"
+    },
+    "civillaw": {
+      "public": 3,
+      "paid": 64,
+      "sha256": "afc9f05c276b17b7502528ab105c75a1e412666956b963d152c9ebd0fed76b86"
+    },
+    "broker-law": {
+      "public": 3,
+      "paid": 52,
+      "sha256": "0fc91700ef77813afd3dc8f3e23a2863f728daf7585e6276d039322d72fa7942"
+    },
+    "registry-law": {
+      "public": 3,
+      "paid": 35,
+      "sha256": "7216835964053fd69f8d89e3f601bb7c8d4823f104b9acf4fbef874437a9595f"
+    },
+    "realestate-tax": {
+      "public": 3,
+      "paid": 30,
+      "sha256": "60a18b0ab66cfcec96c0b29bc6f4164965d10862bed1ba51c4aeb09e390f3a8a"
+    },
+    "realestate-public-law": {
+      "public": 3,
+      "paid": 65,
+      "sha256": "a60e957c9dea3cc60407ba3bedd8944b94297e3a75407eaf7f193444dac86db6"
+    }
+  }
+}

@@ -2,9 +2,10 @@ import 'server-only';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createAdminClient } from '@/lib/supabase/admin';
-import outline from '@/components/lectures/police/outline.json';
-import { isPcSubject, type PcSubject } from './catalog';
-import { verifyStorePurchase, type Store } from './store';
+import policeOutline from '@/components/lectures/police/outline.json';
+import realEstateOutline from '@/components/lectures/outline.json';
+import { isPcSubject, pcSite, type PcSubject } from './catalog';
+import { verifyStorePurchase, type Store, type StoreEnvironment } from './store';
 
 const freshness = 5 * 60 * 1000;
 const audioOrigin = 'https://pub-018addf460ef45fcad17018a675217b0.r2.dev';
@@ -16,8 +17,8 @@ type Lecture = {
 const definitions = new Map<PcSubject, Promise<Record<string, Lecture>>>();
 
 export function paidLectureSubject(lectureId: string): PcSubject | null {
-  if (!/^police-(hn|hs|gc)U\d+_\d+$/.test(lectureId)) return null;
-  for (const group of outline) {
+  if (!/^[a-zA-Z0-9_-]{1,100}$/.test(lectureId)) return null;
+  for (const group of [...policeOutline, ...realEstateOutline]) {
     if (!isPcSubject(group.subject)) continue;
     if (group.parts.some(part => part.sections.some(section => section.lessons.some(
       lesson => lesson.id === lectureId && lesson.number > 3 && lesson.ready,
@@ -30,7 +31,7 @@ export async function readPaidLecture(subject: PcSubject, lectureId: string): Pr
   if (paidLectureSubject(lectureId) !== subject) return null;
   let catalog = definitions.get(subject);
   if (!catalog) {
-    catalog = readFile(path.join(process.cwd(), 'data/police-pro-lectures', `${subject}.json`), 'utf8')
+    catalog = readFile(path.join(process.cwd(), 'data', `${pcSite(subject)}-pro-lectures`, `${subject}.json`), 'utf8')
       .then(content => JSON.parse(content))
       .catch(error => { definitions.delete(subject); throw error; });
     definitions.set(subject, catalog);
@@ -47,18 +48,21 @@ export function audioSource(lecture: Lecture, sceneFile: string): URL | null {
 }
 
 /** Fresh store state gates playback. A transient store error never marks a purchase refunded. */
-export async function hasPolicePro(userId: string, subject: PcSubject): Promise<boolean> {
+export async function hasPcPro(userId: string, subject: PcSubject, beta = false): Promise<boolean> {
   const admin = createAdminClient();
   const { data, error } = await admin.from('police_pc_purchases')
-    .select('purchase_key,platform,proof,checked_at')
+    .select('purchase_key,platform,proof,checked_at,purchase_environment,test_expires_at')
     .eq('user_id', userId).eq('subject', subject).is('revoked_at', null)
     .order('checked_at', { ascending: false });
   if (error) throw error;
-  const cutoff = Date.now() - freshness;
-  if (data.some(row => Date.parse(row.checked_at) > cutoff)) return true;
-  for (const row of data) {
+  const now = Date.now();
+  const cutoff = now - freshness;
+  const active = data.filter(row => row.purchase_environment === 'production' ||
+    (beta && row.purchase_environment === 'sandbox' && Date.parse(row.test_expires_at) > now));
+  if (active.some(row => Date.parse(row.checked_at) > cutoff)) return true;
+  for (const row of active) {
     const checkedAt = new Date().toISOString();
-    const verified = await verifyStorePurchase(row.platform as Store, row.proof, subject);
+    const verified = await verifyStorePurchase(row.platform as Store, row.proof, subject, row.purchase_environment as StoreEnvironment);
     const valid = verified?.key === row.purchase_key;
     const { data: saved, error: updateError } = await admin.from('police_pc_purchases')
       .update(valid ? { checked_at: checkedAt } : { checked_at: checkedAt, revoked_at: checkedAt })

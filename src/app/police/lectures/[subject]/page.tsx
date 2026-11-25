@@ -8,7 +8,7 @@ import LectureSamples from '@/components/lectures/LectureSamples';
 import PcLecturePlan from '@/components/lectures/police/PcLecturePlan';
 import { isPcSubject } from '@/lib/pc-access/catalog';
 import { getPcViewer } from '@/lib/pc-access/session';
-import { hasPolicePro } from '@/lib/pc-access/pro';
+import { hasPcPro } from '@/lib/pc-access/pro';
 import { storeVerificationConfigured } from '@/lib/pc-access/store';
 import { AppStoreButtons } from '@/components/ui/AppStoreButtons';
 import { lectureSiteConfig, lecturePagePath } from '@/lib/lecture-sites';
@@ -39,7 +39,7 @@ export default async function PoliceLectureSubjectPage({params, searchParams}: P
   if (!group || !curriculum || !isPcSubject(subject)) notFound();
   const {lecture} = await searchParams;
   const viewer = await getPcViewer().catch(() => null);
-  const pro = viewer ? await hasPolicePro(viewer.id, subject).catch(() => false) : false;
+  const pro = viewer ? await hasPcPro(viewer.id, subject, viewer.beta).catch(() => false) : false;
   const initialLectureId = curriculum.parts.some(part => part.sections.some(section =>
     section.lessons.some(item => item.id === lecture && (item.number <= 3 || pro)),
   )) ? lecture : undefined;
@@ -54,7 +54,7 @@ export default async function PoliceLectureSubjectPage({params, searchParams}: P
       {catalog.map(item => <Link key={item.subject} href={lecturePagePath('police', item.subject)} aria-current={item.subject === subject ? 'page' : undefined} className={`rounded-full border px-4 py-2.5 text-[13px] font-semibold transition-colors ${item.subject === subject ? 'border-carbon bg-carbon text-white' : 'border-[color:light-dark(#d8e3ef,var(--color-mist))] bg-white text-smoke hover:bg-snow'}`}>{item.label}</Link>)}
     </nav>
     <PcLecturePlan key={subject} subject={subject} loggedIn={Boolean(viewer)} account={viewer?.label ?? null} pro={pro} linkingAvailable={storeVerificationConfigured()}/>
-    <LectureSamples policePro={pro} key={`${subject}:${initialLectureId || 'list'}`} site="police" subject={subject} initialLectureId={initialLectureId} lectures={group.lectures} parts={curriculum.parts} subjectLabel={group.label}/>
+    <LectureSamples pcPro={pro} key={`${subject}:${initialLectureId || 'list'}`} site="police" subject={subject} initialLectureId={initialLectureId} lectures={group.lectures} parts={curriculum.parts} subjectLabel={group.label}/>
     <section id="lecture-app" className="scroll-mt-24 rounded-[24px] border border-[color:light-dark(#d8e3ef,var(--color-mist))] bg-[color:light-dark(#f3f7fc,color-mix(in_srgb,var(--color-snow)_90%,#f3f7fc))] px-6 py-9 md:flex md:items-center md:justify-between md:gap-10 md:px-9">
       <div className="max-w-xl space-y-3">
         <p className="text-xs font-semibold tracking-wide text-carbon">{site.appName}</p>

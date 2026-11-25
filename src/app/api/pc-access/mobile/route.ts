@@ -1,7 +1,7 @@
 import { createAdminClient } from '@/lib/supabase/admin';
 import { productSubject } from '@/lib/pc-access/catalog';
 import { pcJson, validQrToken } from '@/lib/pc-access/session';
-import { digest, isStoreProof, storeVerificationConfigured, verifyStorePurchase } from '@/lib/pc-access/store';
+import { digest, isStoreProof, pcTesterAllowed, storeVerificationConfigured, verifyStorePurchase } from '@/lib/pc-access/store';
 
 function cors(request: Request): Record<string, string> | null {
   const origin = request.headers.get('origin');
@@ -21,7 +21,7 @@ export function OPTIONS(request: Request) {
 
 export async function POST(request: Request) {
   const headers = cors(request);
-  if (!headers) return pcJson({ error: '봄기출 경찰 앱에서 연결해 주세요.' }, 403);
+  if (!headers) return pcJson({ error: '봄기출 앱에서 연결해 주세요.' }, 403);
   const respond = (data: unknown, status = 200) => pcJson(data, status, headers);
   try {
     if (!request.headers.get('content-type')?.includes('application/json')) return respond({ error: '잘못된 요청이에요.' }, 415);
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     }
     const admin = createAdminClient();
     const hash = digest(body.token);
-    const { data: row, error } = await admin.from('police_pc_requests').select('account_label,subject,expires_at,completed_at')
+    const { data: row, error } = await admin.from('police_pc_requests').select('account_label,user_id,subject,expires_at,completed_at')
       .eq('token_hash', hash).maybeSingle();
     if (error) throw error;
     if (!row || row.completed_at || Date.parse(row.expires_at) <= Date.now()) {
@@ -48,7 +48,12 @@ export async function POST(request: Request) {
     const { data: reserved, error: reserveError } = await admin.rpc('reserve_police_pc_verification', { p_hash: hash, p_subject: subject });
     if (reserveError) throw reserveError;
     if (!reserved) return respond({ error: 'PC에서 연결 상태를 확인하거나 새 QR을 만들어 주세요.' }, 409);
-    const verified = await verifyStorePurchase(platform, proof, subject);
+    let verified = await verifyStorePurchase(platform, proof, subject);
+    if (!verified && platform === 'ios' && process.env.BOMGICHUL_PC_TEST_EMAIL_SHA256) {
+      const { data, error: userError } = await admin.auth.admin.getUserById(row.user_id);
+      if (userError) throw userError;
+      if (pcTesterAllowed(data.user)) verified = await verifyStorePurchase(platform, proof, subject, 'sandbox');
+    }
     if (!verified) return respond({ error: '이 과목의 유효한 결제를 확인하지 못했어요.' }, 422);
     const { data: saved, error: saveError } = await admin.from('police_pc_requests').update({ verified_purchase: verified })
       .eq('token_hash', hash).gt('expires_at', new Date().toISOString()).is('verified_purchase', null)

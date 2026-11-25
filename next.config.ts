@@ -3,7 +3,7 @@ import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
-    "/api/pc-access/lecture/**": ["./data/police-pro-lectures/*.json"],
+    "/api/pc-access/lecture/**": ["./data/police-pro-lectures/*.json", "./data/real-estate-pro-lectures/*.json"],
   },
   async redirects() {
     return [

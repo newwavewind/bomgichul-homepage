@@ -2,6 +2,7 @@ import 'server-only';
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
+import { pcTesterAllowed } from './store';
 
 export async function getPcViewer() {
   if (!isSupabaseConfigured()) return null;
@@ -16,7 +17,7 @@ export async function getPcViewer() {
   const label = { google: 'Google', kakao: '카카오', apple: 'Apple' }[provider as string] || '봄기출';
   const raw = user.email?.split('@')[0] || user.user_metadata?.full_name || user.user_metadata?.name;
   const alias = typeof raw === 'string' ? Array.from(raw.trim())[0] : '';
-  return { id: user.id, sessionId, label: `${label} · ${alias ? `${alias}○○` : user.id.slice(-4)} 계정` };
+  return { id: user.id, sessionId, beta: pcTesterAllowed(user), label: `${label} · ${alias ? `${alias}○○` : user.id.slice(-4)} 계정` };
 }
 
 export const validQrToken = (value: unknown): value is string => typeof value === 'string' && /^[a-zA-Z0-9_-]{43}$/.test(value);
