@@ -13,7 +13,7 @@ function BookIcon() {
   return <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 3h11l3 3v15H5z"/><path d="M15 3v4h4M8 11h8M8 15h8"/></svg>;
 }
 
-function TextbookViewer({ book, onClose }: { book: Textbook & {url: string}; onClose: () => void }) {
+function TextbookViewer({ book, pro, onClose }: { book: Textbook & {url: string}; pro: boolean; onClose: () => void }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const request = useRef<AbortController | null>(null);
   const [saving, setSaving] = useState(false);
@@ -40,13 +40,13 @@ function TextbookViewer({ book, onClose }: { book: Textbook & {url: string}; onC
   return <dialog ref={dialog} className="textbook-viewer" aria-labelledby="textbook-viewer-title" onCancel={onClose} onClick={event => { if (event.target === dialog.current) onClose(); }}>
     <div className="textbook-viewer-content">
       <header className="textbook-viewer-header">
-        <div><p>무료 교재 · {book.pages.toLocaleString()}쪽</p><h2 id="textbook-viewer-title">{book.title}</h2></div>
+        <div><p>{pro ? 'Pro 교재' : '무료 교재'} · {book.pages.toLocaleString()}쪽</p><h2 id="textbook-viewer-title">{book.title}</h2></div>
         <button type="button" className="textbook-close" onClick={onClose} aria-label="교재 닫기">✕</button>
       </header>
       <div className="textbook-viewer-toolbar">
-        <span>교재를 열고 PDF로 저장할 수 있어요.</span>
+        <span>{pro ? '교재를 웹에서 읽을 수 있어요.' : '교재를 열고 PDF로 저장할 수 있어요.'}</span>
         <a href={book.url} target="_blank" rel="noopener noreferrer">새 창에서 열기 ↗</a>
-        <button type="button" onClick={save} disabled={saving}>{saving ? 'PDF 저장 준비 중…' : 'PDF 저장 ↓'}</button>
+        {!pro && <button type="button" onClick={save} disabled={saving}>{saving ? 'PDF 저장 준비 중…' : 'PDF 저장 ↓'}</button>}
       </div>
       {error && <p role="alert" className="textbook-error">{error}</p>}
       <TextbookPages url={book.url} title={book.title}/>
@@ -54,10 +54,10 @@ function TextbookViewer({ book, onClose }: { book: Textbook & {url: string}; onC
   </dialog>;
 }
 
-export function TextbookButton({ book, label = '교재' }: { book: Textbook; label?: string }) {
+export function TextbookButton({ book, label = '교재', pro = false }: { book: Textbook; label?: string; pro?: boolean }) {
   const [open, setOpen] = useState(false);
   if (!book.url) return null;
-  return <><button type="button" className="textbook-open" onClick={() => setOpen(true)} aria-label={`${book.title} 샘플 교재 열기`}><BookIcon/>{label}</button>{open && <TextbookViewer key={book.sha256} book={{...book,url:book.url}} onClose={() => setOpen(false)}/>}</>;
+  return <><button type="button" className="textbook-open" onClick={() => setOpen(true)} aria-label={`${book.title} ${pro ? 'Pro' : '샘플'} 교재 열기`}><BookIcon/>{label}</button>{open && <TextbookViewer key={book.sha256} pro={pro} book={{...book,url:book.url}} onClose={() => setOpen(false)}/>}</>;
 }
 
 export function TextbookAppButton({ title, onOpenApp }: { title: string; onOpenApp: () => void }) {

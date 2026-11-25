@@ -717,7 +717,7 @@ export function PremiumVisual() {
         <div className="rounded-xl border border-carbon bg-carbon p-3 text-paper">
           <p className="font-display text-[11px] font-semibold opacity-80">유료</p>
           <p className="mt-2 rounded-lg border border-paper/20 bg-paper/10 px-2 py-2 text-center font-display text-[12px]">
-            PC앱 · 모바일 앱
+            웹 Pro · 모바일 앱
           </p>
           <p className="mt-2 font-display text-[10px] opacity-80">
             과목별로 구매해서 이용

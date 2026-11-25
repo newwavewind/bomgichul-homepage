@@ -1,0 +1,928 @@
+{
+  "sourceCommits": {
+    "police": "17e7826d2486c4661ebad41e87611a8d16a810de",
+    "real-estate": "0d933d417cec54d6555a9961beec6d0cbcf0b39a",
+    "public-service": "6b68b76a46a4c941771fe3392101721ea8fde3fd",
+    "housing": "e4d5d4850bf5af55a4f4943910e0a18e8c5b8588",
+    "social-worker": "8c77caa10c0c67de4aa96315ec6c7b0b8d9796bd",
+    "english": "abd42217fbfe0e49af8613e4906027ffc9c99974",
+    "history": "be2d196b76725899e825d9d823b56690bf20a818",
+    "firefighter": "6dc625641dd8bab364e25c979fd70a398d7dc584",
+    "gugeo": "dd97c0fd8c4bf58e5d62abd835648afa4bebb262",
+    "gamjeong": "bf461a050ebb99c361b6515d9472ecf851d5d4a9",
+    "gyeongbi": "32b7d04dec4bc7571325ca2f64de67e42b932208",
+    "haengjeongsa": "9e2ba3b13d048efe723a43ed8bc7add6c8c0dcd3",
+    "mullyu": "2748f6c79eb956776af7c7c902d6aa8f8e654d12",
+    "nomusa": "6400ea8a7c7dfaac5665ad18c056b3446f0c5c04",
+    "sanan": "f4643ff61938f32f8308b37e674824967f173143",
+    "semusa": "2645e794727769ed9484e3e8f0d3f5f9670d8bc1",
+    "sonhae": "c558baa2f887b13b2f31d09d310e9115fa0cf2b9",
+    "youth": "7b17abdfd1da70cdf1d3fb0ffb7e1ee9fe794a59"
+  },
+  "scopes": {
+    "constitution": {
+      "cells": 78,
+      "choices": 1611,
+      "traps": 288,
+      "law": 981,
+      "ox": 75,
+      "audio": 75
+    },
+    "criminal-law": {
+      "cells": 128,
+      "choices": 2452,
+      "traps": 628,
+      "law": 1570,
+      "ox": 839,
+      "audio": 839
+    },
+    "police-science": {
+      "cells": 182,
+      "choices": 2461,
+      "traps": 529,
+      "law": 780,
+      "ox": 87,
+      "audio": 87
+    },
+    "civillaw": {
+      "cells": 86,
+      "choices": 1849,
+      "traps": 541,
+      "law": 860,
+      "ox": 1362,
+      "audio": 1362
+    },
+    "realestate": {
+      "cells": 72,
+      "choices": 1945,
+      "traps": 244,
+      "law": 132,
+      "ox": 924,
+      "audio": 924
+    },
+    "broker-law": {
+      "cells": 74,
+      "choices": 1853,
+      "traps": 473,
+      "law": 354,
+      "ox": 1026,
+      "audio": 1026
+    },
+    "registry-law": {
+      "cells": 67,
+      "choices": 1163,
+      "traps": 227,
+      "law": 289,
+      "ox": 577,
+      "audio": 577
+    },
+    "realestate-tax": {
+      "cells": 48,
+      "choices": 782,
+      "traps": 211,
+      "law": 209,
+      "ox": 454,
+      "audio": 454
+    },
+    "realestate-public-law": {
+      "cells": 91,
+      "choices": 1921,
+      "traps": 442,
+      "law": 553,
+      "ox": 813,
+      "audio": 813
+    },
+    "public-service-hangjunghak-national": {
+      "cells": 119,
+      "choices": 800,
+      "traps": 102,
+      "law": 254,
+      "ox": 488,
+      "audio": 488
+    },
+    "public-service-hangjunghak-local": {
+      "cells": 119,
+      "choices": 800,
+      "traps": 96,
+      "law": 254,
+      "ox": 411,
+      "audio": 411
+    },
+    "public-service-haengjeongbeop-national": {
+      "cells": 127,
+      "choices": 800,
+      "traps": 141,
+      "law": 876,
+      "ox": 564,
+      "audio": 564
+    },
+    "public-service-haengjeongbeop-local": {
+      "cells": 127,
+      "choices": 800,
+      "traps": 165,
+      "law": 876,
+      "ox": 580,
+      "audio": 580
+    },
+    "public-service-gwansebeop-national": {
+      "cells": 85,
+      "choices": 800,
+      "traps": 193,
+      "law": 342,
+      "ox": 506,
+      "audio": 506
+    },
+    "public-service-hyeongbeop-national": {
+      "cells": 90,
+      "choices": 800,
+      "traps": 138,
+      "law": 608,
+      "ox": 620,
+      "audio": 620
+    },
+    "public-service-hyeongso-national": {
+      "cells": 89,
+      "choices": 804,
+      "traps": 164,
+      "law": 630,
+      "ox": 730,
+      "audio": 730
+    },
+    "public-service-hyeongsogaeron-national": {
+      "cells": 96,
+      "choices": 801,
+      "traps": 168,
+      "law": 652,
+      "ox": 735,
+      "audio": 735
+    },
+    "public-service-gyojeonghak-national": {
+      "cells": 74,
+      "choices": 796,
+      "traps": 175,
+      "law": 339,
+      "ox": 562,
+      "audio": 562
+    },
+    "public-service-gyoyukhak-national": {
+      "cells": 84,
+      "choices": 800,
+      "traps": 42,
+      "law": 91,
+      "ox": 204,
+      "audio": 204
+    },
+    "public-service-gyoyukhak-local": {
+      "cells": 84,
+      "choices": 795,
+      "traps": 54,
+      "law": 91,
+      "ox": 253,
+      "audio": 253
+    },
+    "public-service-gukjebeop-national": {
+      "cells": 67,
+      "choices": 716,
+      "traps": 147,
+      "law": 25,
+      "ox": 555,
+      "audio": 555
+    },
+    "public-service-sebeop-national": {
+      "cells": 109,
+      "choices": 772,
+      "traps": 182,
+      "law": 378,
+      "ox": 542,
+      "audio": 542
+    },
+    "public-service-jibangsebeop-local": {
+      "cells": 70,
+      "choices": 800,
+      "traps": 223,
+      "law": 292,
+      "ox": 590,
+      "audio": 590
+    },
+    "public-service-nodongbeop-national": {
+      "cells": 61,
+      "choices": 720,
+      "traps": 148,
+      "law": 332,
+      "ox": 541,
+      "audio": 541
+    },
+    "public-service-bokji-national": {
+      "cells": 99,
+      "choices": 800,
+      "traps": 95,
+      "law": 145,
+      "ox": 330,
+      "audio": 330
+    },
+    "public-service-bokji-local": {
+      "cells": 99,
+      "choices": 796,
+      "traps": 85,
+      "law": 145,
+      "ox": 346,
+      "audio": 346
+    },
+    "public-service-hoegyehak-national": {
+      "cells": 95,
+      "choices": 628,
+      "traps": 59,
+      "law": 64,
+      "ox": 242,
+      "audio": 242
+    },
+    "public-service-hoegyehak-local": {
+      "cells": 95,
+      "choices": 800,
+      "traps": 44,
+      "law": 64,
+      "ox": 242,
+      "audio": 242
+    },
+    "public-service-hoegyewonri-national": {
+      "cells": 62,
+      "choices": 680,
+      "traps": 64,
+      "law": 3,
+      "ox": 253,
+      "audio": 253
+    },
+    "housing-accounting": {
+      "cells": 66,
+      "choices": 940,
+      "traps": 29,
+      "law": 0,
+      "ox": 118,
+      "audio": 118
+    },
+    "housing-facilities": {
+      "cells": 87,
+      "choices": 1195,
+      "traps": 184,
+      "law": 39,
+      "ox": 597,
+      "audio": 597
+    },
+    "housing-civil-law": {
+      "cells": 79,
+      "choices": 1200,
+      "traps": 0,
+      "law": 759,
+      "ox": 807,
+      "audio": 807
+    },
+    "housing-housing-law": {
+      "cells": 80,
+      "choices": 720,
+      "traps": 0,
+      "law": 348,
+      "ox": 392,
+      "audio": 392
+    },
+    "housing-housing-admin": {
+      "cells": 62,
+      "choices": 720,
+      "traps": 0,
+      "law": 269,
+      "ox": 355,
+      "audio": 355
+    },
+    "social-worker-human-behavior": {
+      "cells": 81,
+      "choices": 1250,
+      "traps": 0,
+      "law": 1,
+      "ox": 630,
+      "audio": 630
+    },
+    "social-worker-research": {
+      "cells": 58,
+      "choices": 1250,
+      "traps": 172,
+      "law": 1,
+      "ox": 566,
+      "audio": 566
+    },
+    "social-worker-practice": {
+      "cells": 66,
+      "choices": 1250,
+      "traps": 110,
+      "law": 26,
+      "ox": 272,
+      "audio": 272
+    },
+    "social-worker-practice-skills": {
+      "cells": 63,
+      "choices": 1250,
+      "traps": 0,
+      "law": 6,
+      "ox": 421,
+      "audio": 421
+    },
+    "social-worker-community": {
+      "cells": 51,
+      "choices": 1250,
+      "traps": 115,
+      "law": 53,
+      "ox": 359,
+      "audio": 359
+    },
+    "social-worker-policy": {
+      "cells": 44,
+      "choices": 1250,
+      "traps": 229,
+      "law": 177,
+      "ox": 620,
+      "audio": 620
+    },
+    "social-worker-administration": {
+      "cells": 55,
+      "choices": 1250,
+      "traps": 180,
+      "law": 36,
+      "ox": 566,
+      "audio": 566
+    },
+    "social-worker-law": {
+      "cells": 95,
+      "choices": 1250,
+      "traps": 290,
+      "law": 427,
+      "ox": 629,
+      "audio": 629
+    },
+    "english-english": {
+      "cells": 69,
+      "choices": 1600,
+      "traps": 0,
+      "law": 0,
+      "ox": 0,
+      "audio": 0
+    },
+    "english-english-national": {
+      "cells": 35,
+      "choices": 800,
+      "traps": 0,
+      "law": 0,
+      "ox": 0,
+      "audio": 0
+    },
+    "english-english-local": {
+      "cells": 34,
+      "choices": 800,
+      "traps": 0,
+      "law": 0,
+      "ox": 0,
+      "audio": 0
+    },
+    "history-history": {
+      "cells": 160,
+      "choices": 4000,
+      "traps": 0,
+      "law": 0,
+      "ox": 0,
+      "audio": 0
+    },
+    "firefighter-sobang": {
+      "cells": 72,
+      "choices": 792,
+      "traps": 85,
+      "law": 83,
+      "ox": 270,
+      "audio": 270
+    },
+    "firefighter-sobangbeop": {
+      "cells": 93,
+      "choices": 1500,
+      "traps": 239,
+      "law": 217,
+      "ox": 157,
+      "audio": 157
+    },
+    "firefighter-haengjeongbeop": {
+      "cells": 66,
+      "choices": 800,
+      "traps": 146,
+      "law": 805,
+      "ox": 704,
+      "audio": 704
+    },
+    "gugeo-gugeo": {
+      "cells": 98,
+      "choices": 1600,
+      "traps": 0,
+      "law": 0,
+      "ox": 0,
+      "audio": 0
+    },
+    "gugeo-gugeo-national": {
+      "cells": 98,
+      "choices": 1600,
+      "traps": 0,
+      "law": 0,
+      "ox": 0,
+      "audio": 0
+    },
+    "gugeo-gugeo-local": {
+      "cells": 98,
+      "choices": 1600,
+      "traps": 0,
+      "law": 0,
+      "ox": 0,
+      "audio": 0
+    },
+    "gamjeong-minbeop": {
+      "cells": 68,
+      "choices": 2000,
+      "traps": 483,
+      "law": 916,
+      "ox": 1081,
+      "audio": 1081
+    },
+    "gamjeong-gyeongje": {
+      "cells": 49,
+      "choices": 1990,
+      "traps": 220,
+      "law": 0,
+      "ox": 273,
+      "audio": 273
+    },
+    "gamjeong-budongsan": {
+      "cells": 54,
+      "choices": 1995,
+      "traps": 260,
+      "law": 184,
+      "ox": 607,
+      "audio": 607
+    },
+    "gamjeong-beopgyu": {
+      "cells": 125,
+      "choices": 2000,
+      "traps": 412,
+      "law": 613,
+      "ox": 696,
+      "audio": 696
+    },
+    "gamjeong-hoegye": {
+      "cells": 64,
+      "choices": 2000,
+      "traps": 81,
+      "law": 2,
+      "ox": 236,
+      "audio": 236
+    },
+    "gyeongbi-beophak": {
+      "cells": 89,
+      "choices": 1600,
+      "traps": 210,
+      "law": 573,
+      "ox": 402,
+      "audio": 402
+    },
+    "gyeongbi-mingan": {
+      "cells": 62,
+      "choices": 1600,
+      "traps": 188,
+      "law": 51,
+      "ox": 574,
+      "audio": 574
+    },
+    "gyeongbi-gyeongbibeop": {
+      "cells": 62,
+      "choices": 1600,
+      "traps": 296,
+      "law": 167,
+      "ox": 453,
+      "audio": 453
+    },
+    "gyeongbi-sobang": {
+      "cells": 33,
+      "choices": 1600,
+      "traps": 120,
+      "law": 41,
+      "ox": 97,
+      "audio": 97
+    },
+    "gyeongbi-beomjoe": {
+      "cells": 55,
+      "choices": 1600,
+      "traps": 61,
+      "law": 50,
+      "ox": 182,
+      "audio": 182
+    },
+    "gyeongbi-gyeongho": {
+      "cells": 36,
+      "choices": 1600,
+      "traps": 200,
+      "law": 61,
+      "ox": 465,
+      "audio": 465
+    },
+    "gyeongbi-gigye": {
+      "cells": 102,
+      "choices": 1598,
+      "traps": 84,
+      "law": 14,
+      "ox": 162,
+      "audio": 162
+    },
+    "gyeongbi-gigyeseolgye": {
+      "cells": 75,
+      "choices": 1579,
+      "traps": 78,
+      "law": 12,
+      "ox": 149,
+      "audio": 149
+    },
+    "haengjeongsa-minbeop": {
+      "cells": 83,
+      "choices": 1250,
+      "traps": 274,
+      "law": 392,
+      "ox": 970,
+      "audio": 970
+    },
+    "haengjeongsa-haengjeongbeop": {
+      "cells": 72,
+      "choices": 1250,
+      "traps": 283,
+      "law": 468,
+      "ox": 886,
+      "audio": 886
+    },
+    "haengjeongsa-haengjeonghak": {
+      "cells": 129,
+      "choices": 1250,
+      "traps": 161,
+      "law": 108,
+      "ox": 710,
+      "audio": 710
+    },
+    "mullyu-gwalli": {
+      "cells": 80,
+      "choices": 1995,
+      "traps": 145,
+      "law": 0,
+      "ox": 378,
+      "audio": 378
+    },
+    "mullyu-unsong": {
+      "cells": 85,
+      "choices": 2000,
+      "traps": 138,
+      "law": 0,
+      "ox": 443,
+      "audio": 443
+    },
+    "mullyu-gukje": {
+      "cells": 79,
+      "choices": 2000,
+      "traps": 152,
+      "law": 0,
+      "ox": 499,
+      "audio": 499
+    },
+    "mullyu-bogwan": {
+      "cells": 56,
+      "choices": 2000,
+      "traps": 130,
+      "law": 0,
+      "ox": 388,
+      "audio": 388
+    },
+    "mullyu-beopgyu": {
+      "cells": 95,
+      "choices": 2000,
+      "traps": 380,
+      "law": 510,
+      "ox": 541,
+      "audio": 541
+    },
+    "nomusa-nodong1": {
+      "cells": 80,
+      "choices": 1475,
+      "traps": 283,
+      "law": 432,
+      "ox": 986,
+      "audio": 986
+    },
+    "nomusa-nodong2": {
+      "cells": 70,
+      "choices": 1475,
+      "traps": 300,
+      "law": 305,
+      "ox": 1026,
+      "audio": 1026
+    },
+    "nomusa-minbeop": {
+      "cells": 99,
+      "choices": 1475,
+      "traps": 434,
+      "law": 701,
+      "ox": 1064,
+      "audio": 1064
+    },
+    "nomusa-sahoeboheom": {
+      "cells": 97,
+      "choices": 1475,
+      "traps": 269,
+      "law": 352,
+      "ox": 680,
+      "audio": 680
+    },
+    "nomusa-gyeongyeong": {
+      "cells": 82,
+      "choices": 1475,
+      "traps": 83,
+      "law": 0,
+      "ox": 238,
+      "audio": 238
+    },
+    "nomusa-gyeongje": {
+      "cells": 54,
+      "choices": 1463,
+      "traps": 229,
+      "law": 0,
+      "ox": 577,
+      "audio": 577
+    },
+    "sanan-sanbeop": {
+      "cells": 69,
+      "choices": 1250,
+      "traps": 173,
+      "law": 241,
+      "ox": 294,
+      "audio": 294
+    },
+    "sanan-sanil": {
+      "cells": 42,
+      "choices": 1239,
+      "traps": 54,
+      "law": 55,
+      "ox": 197,
+      "audio": 197
+    },
+    "sanan-gieop": {
+      "cells": 65,
+      "choices": 1250,
+      "traps": 108,
+      "law": 38,
+      "ox": 316,
+      "audio": 316
+    },
+    "semusa-jaejeonghak": {
+      "cells": 108,
+      "choices": 2000,
+      "traps": 212,
+      "law": 40,
+      "ox": 834,
+      "audio": 834
+    },
+    "semusa-sebeopgaeron": {
+      "cells": 148,
+      "choices": 2000,
+      "traps": 308,
+      "law": 520,
+      "ox": 711,
+      "audio": 711
+    },
+    "semusa-hoegyegaeron": {
+      "cells": 123,
+      "choices": 2000,
+      "traps": 95,
+      "law": 0,
+      "ox": 302,
+      "audio": 302
+    },
+    "semusa-sangbeop": {
+      "cells": 113,
+      "choices": 2000,
+      "traps": 556,
+      "law": 448,
+      "ox": 1199,
+      "audio": 1199
+    },
+    "semusa-minbeop": {
+      "cells": 126,
+      "choices": 2000,
+      "traps": 554,
+      "law": 523,
+      "ox": 1132,
+      "audio": 1132
+    },
+    "semusa-haengjeongsosong": {
+      "cells": 56,
+      "choices": 2000,
+      "traps": 399,
+      "law": 400,
+      "ox": 926,
+      "audio": 926
+    },
+    "sonhae-sangbeop": {
+      "cells": 59,
+      "choices": 1000,
+      "traps": 299,
+      "law": 78,
+      "ox": 549,
+      "audio": 549
+    },
+    "sonhae-nongeoeop": {
+      "cells": 41,
+      "choices": 1000,
+      "traps": 145,
+      "law": 89,
+      "ox": 301,
+      "audio": 301
+    },
+    "sonhae-nonghak": {
+      "cells": 49,
+      "choices": 1000,
+      "traps": 47,
+      "law": 0,
+      "ox": 132,
+      "audio": 132
+    },
+    "youth-g1-sagye": {
+      "cells": 37,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 95,
+      "audio": 95
+    },
+    "youth-g1-beop": {
+      "cells": 76,
+      "choices": 1125,
+      "traps": 0,
+      "law": 209,
+      "ox": 129,
+      "audio": 129
+    },
+    "youth-g1-yeongu": {
+      "cells": 38,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 111,
+      "audio": 111
+    },
+    "youth-g1-bihaeng": {
+      "cells": 37,
+      "choices": 1125,
+      "traps": 0,
+      "law": 71,
+      "ox": 93,
+      "audio": 93
+    },
+    "youth-g1-seong": {
+      "cells": 35,
+      "choices": 1125,
+      "traps": 0,
+      "law": 20,
+      "ox": 135,
+      "audio": 135
+    },
+    "youth-g1-yakmul": {
+      "cells": 38,
+      "choices": 1125,
+      "traps": 0,
+      "law": 17,
+      "ox": 124,
+      "audio": 124
+    },
+    "youth-g1-wigi": {
+      "cells": 40,
+      "choices": 1125,
+      "traps": 0,
+      "law": 25,
+      "ox": 66,
+      "audio": 66
+    },
+    "youth-g2-iron": {
+      "cells": 66,
+      "choices": 1125,
+      "traps": 0,
+      "law": 7,
+      "ox": 127,
+      "audio": 127
+    },
+    "youth-g2-yeongu": {
+      "cells": 45,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 124,
+      "audio": 124
+    },
+    "youth-g2-cheukjeong": {
+      "cells": 46,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 160,
+      "audio": 160
+    },
+    "youth-g2-isang": {
+      "cells": 80,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 146,
+      "audio": 146
+    },
+    "youth-g2-jinro": {
+      "cells": 29,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 148,
+      "audio": 148
+    },
+    "youth-g2-jipdan": {
+      "cells": 59,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 71,
+      "audio": 71
+    },
+    "youth-g2-gajok": {
+      "cells": 64,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 107,
+      "audio": 107
+    },
+    "youth-g2-hakeop": {
+      "cells": 26,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 94,
+      "audio": 94
+    },
+    "youth-g3-baldal": {
+      "cells": 75,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 157,
+      "audio": 157
+    },
+    "youth-g3-jipdan": {
+      "cells": 59,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 55,
+      "audio": 55
+    },
+    "youth-g3-cheukjeong": {
+      "cells": 63,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 223,
+      "audio": 223
+    },
+    "youth-g3-sangdam": {
+      "cells": 63,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 113,
+      "audio": 113
+    },
+    "youth-g3-hakseup": {
+      "cells": 41,
+      "choices": 1125,
+      "traps": 0,
+      "law": 0,
+      "ox": 183,
+      "audio": 183
+    },
+    "youth-g3-ihae": {
+      "cells": 45,
+      "choices": 1125,
+      "traps": 0,
+      "law": 89,
+      "ox": 89,
+      "audio": 89
+    },
+    "youth-g3-suryeon": {
+      "cells": 51,
+      "choices": 1125,
+      "traps": 0,
+      "law": 75,
+      "ox": 68,
+      "audio": 68
+    }
+  }
+}

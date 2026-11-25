@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PcLecturePlan from '@/components/lectures/police/PcLecturePlan';
+import { getPcStudyCounts } from '@/lib/pc-access/study';
 import { PC_APPS } from '@/lib/pc-access/catalog';
 import { hasPcPro } from '@/lib/pc-access/pro';
 import { getPcViewer } from '@/lib/pc-access/session';
@@ -29,7 +30,7 @@ export default async function PcProExam({ params, searchParams }: Props) {
         className="rounded-full border border-mist px-4 py-2 text-sm font-medium text-carbon aria-[current=page]:bg-carbon aria-[current=page]:text-white"
       >{entry.title}</Link>)}
     </nav>
-    {!lecture && <PcLecturePlan key={offer.id} subject={offer.id} loggedIn={Boolean(viewer)} account={viewer?.label ?? null} pro={pro}
+    {!lecture && <PcLecturePlan studyAvailable={Boolean(getPcStudyCounts(offer.id))} key={offer.id} subject={offer.id} loggedIn={Boolean(viewer)} account={viewer?.label ?? null} pro={pro}
       linkingAvailable={storeVerificationConfigured()}/>}
   </main>;
 }

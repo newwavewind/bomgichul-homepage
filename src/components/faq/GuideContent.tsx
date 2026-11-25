@@ -13,7 +13,6 @@ import {
 import { Tag } from "@/components/ui/Tag";
 import {
   appStoreLinksForScope,
-  PC_APP_URL,
 } from "@/lib/constants";
 import {
   archiveBaseHref,
@@ -44,7 +43,7 @@ function tocForScope(scope: CommunityScope) {
       { href: "#news", label: "5. 뉴스" },
       { href: "#account", label: "6. 로그인·프로필" },
       { href: "#premium", label: "7. 이용 범위" },
-      { href: "#apps", label: "8. 앱·PC앱" },
+      { href: "#apps", label: "8. 앱·웹 Pro" },
     ];
   }
   return [
@@ -390,16 +389,14 @@ export function GuideContent({
                 유료
               </Tag>
               <ul className="space-y-1.5 font-display text-[13px] text-paper/95">
-                <li>· PC앱(app.bomgichul.com)</li>
+                <li>· 앱 구매 과목의 웹 Pro 기능</li>
                 <li>· 모바일 앱</li>
               </ul>
             </ElevatedCard>
           </div>
           <p className="font-display text-body-sm">
-            이 홈페이지는{" "}
-            <strong className="text-ink">모든 과목과 모든 기능이 무료</strong>
-            입니다. 로그인만 하면 북마크·오답노트처럼 기록이 남는 기능까지 다 쓸
-            수 있어요. 과목을 구매해야 하는 것은 PC앱과 모바일 앱뿐입니다.
+            기출 풀이와 기본 학습 기능은 홈페이지에서 이용할 수 있어요.
+            모바일 앱에서 구매한 과목을 홈페이지 계정에 QR로 연결하면 해당 과목의 웹 Pro 기능이 열려요.
           </p>
         </DocsSection>
       )}
@@ -409,7 +406,7 @@ export function GuideContent({
           {isRE ? "08" : "06"} · 앱
         </p>
         <SectionHeading as="h2" className="mb-4">
-          {isRE ? "모바일 앱과 PC앱" : "모바일 앱"}
+          {isRE ? "모바일 앱과 웹 Pro" : "모바일 앱"}
         </SectionHeading>
         <div className={`grid gap-4 ${isRE ? "md:grid-cols-2" : ""}`}>
           <FeatureCard tint="ice">
@@ -452,19 +449,16 @@ export function GuideContent({
             <FeatureCard tint="lavender">
               <Tag className="mb-3 !text-[11px]">PC</Tag>
               <p className="font-display text-subheading font-semibold text-ink">
-                PC앱
+                웹 Pro
               </p>
               <p className="mt-2 font-display text-body-sm text-smoke">
-                큰 화면에서 학습할 때 쓰는 별도 앱입니다. 과목별로 구매해야
-                이용할 수 있어요.
+                앱에서 구매한 과목을 QR로 연결하면 홈페이지에서 Pro 기능을 이용할 수 있어요.
               </p>
               <a
-                href={PC_APP_URL}
+                href="/pc-pro"
                 className="mt-4 inline-flex rounded-full border border-carbon bg-paper px-3 py-1.5 font-display text-[12px] font-medium text-ink"
-                target="_blank"
-                rel="noreferrer"
               >
-                app.bomgichul.com
+                구매 과목 연결하기
               </a>
             </FeatureCard>
           )}

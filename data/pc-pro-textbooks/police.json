@@ -1,0 +1,897 @@
+{
+  "sourceCommit": "17e7826d2486c4661ebad41e87611a8d16a810de",
+  "books": {
+    "police-hnU102_1": {
+      "sha256": "6f849f9149bb7049a129aba5dd2dc6bb053227a508c6110a475fb0155ae780b3",
+      "path": "/textbooks/police/2026-11-11/6f849f9149bb7049a129aba5dd2dc6bb053227a508c6110a475fb0155ae780b3/hnU102_1.pdf"
+    },
+    "police-hnU102_2": {
+      "sha256": "991ddae94b325491b3328e1bba3a8eed0ae0fcc57cd64707ba070cd22af9a8a2",
+      "path": "/textbooks/police/2026-11-11/991ddae94b325491b3328e1bba3a8eed0ae0fcc57cd64707ba070cd22af9a8a2/hnU102_2.pdf"
+    },
+    "police-hnU102_3": {
+      "sha256": "e1dd1d5c835d45a0d227a6153cfab0cfd49fce63c6b4bf8c1637561e116425a1",
+      "path": "/textbooks/police/2026-11-11/e1dd1d5c835d45a0d227a6153cfab0cfd49fce63c6b4bf8c1637561e116425a1/hnU102_3.pdf"
+    },
+    "police-hnU102_4": {
+      "sha256": "3e418ab0109ad86e5145ba4a1434253a85c511dc9db169ab57a15f4c70d780ac",
+      "path": "/textbooks/police/2026-11-11/3e418ab0109ad86e5145ba4a1434253a85c511dc9db169ab57a15f4c70d780ac/hnU102_4.pdf"
+    },
+    "police-hnU102_5": {
+      "sha256": "d1937b1865114b10d96df396c84617f617d84cf1ed5849b1569242d9e906bb43",
+      "path": "/textbooks/police/2026-11-11/d1937b1865114b10d96df396c84617f617d84cf1ed5849b1569242d9e906bb43/hnU102_5.pdf"
+    },
+    "police-hnU102_6": {
+      "sha256": "d886349a8b120d3965686f91f60f49a50512142de89217e9d6dbf60c0df93ef3",
+      "path": "/textbooks/police/2026-11-11/d886349a8b120d3965686f91f60f49a50512142de89217e9d6dbf60c0df93ef3/hnU102_6.pdf"
+    },
+    "police-hnU201_1": {
+      "sha256": "abc228d1f7a3c92f501587f62ae68f6b7cec9db28346310003cf78fed1fed148",
+      "path": "/textbooks/police/2026-11-11/abc228d1f7a3c92f501587f62ae68f6b7cec9db28346310003cf78fed1fed148/hnU201_1.pdf"
+    },
+    "police-hnU201_2": {
+      "sha256": "4bfdb7f318af105484abdc1c83283b94460550c4651a44a7ac3a9a76914f3503",
+      "path": "/textbooks/police/2026-11-11/4bfdb7f318af105484abdc1c83283b94460550c4651a44a7ac3a9a76914f3503/hnU201_2.pdf"
+    },
+    "police-hnU201_4": {
+      "sha256": "0b2bae55ef15da9a0e89b18a75376e2612709f4f4004ab87b629be7febd3bfb7",
+      "path": "/textbooks/police/2026-11-11/0b2bae55ef15da9a0e89b18a75376e2612709f4f4004ab87b629be7febd3bfb7/hnU201_4.pdf"
+    },
+    "police-hnU201_5": {
+      "sha256": "52541d0ce5a10bd3f226d8ed42378a142bb2d85336df0dfa33008eb87b4c4c99",
+      "path": "/textbooks/police/2026-11-11/52541d0ce5a10bd3f226d8ed42378a142bb2d85336df0dfa33008eb87b4c4c99/hnU201_5.pdf"
+    },
+    "police-hnU201_6": {
+      "sha256": "1dc501dda24fd0a30cc3389dd4dce6d7be984b559a1f891400b7f9556a80c44c",
+      "path": "/textbooks/police/2026-11-11/1dc501dda24fd0a30cc3389dd4dce6d7be984b559a1f891400b7f9556a80c44c/hnU201_6.pdf"
+    },
+    "police-hnU301_1": {
+      "sha256": "4f4a7f7c9e1c0d4372bffd4b8c2a7cb64ea2773404cf8d577e580b2cdd10c2f5",
+      "path": "/textbooks/police/2026-11-11/4f4a7f7c9e1c0d4372bffd4b8c2a7cb64ea2773404cf8d577e580b2cdd10c2f5/hnU301_1.pdf"
+    },
+    "police-hnU301_2": {
+      "sha256": "fc9acd6f2a0ebcb33feb1528a263bbe31d1acfa4271fb8fe73d9ffae4fcefa98",
+      "path": "/textbooks/police/2026-11-11/fc9acd6f2a0ebcb33feb1528a263bbe31d1acfa4271fb8fe73d9ffae4fcefa98/hnU301_2.pdf"
+    },
+    "police-hnU301_3": {
+      "sha256": "9efc29ffe20fcf40ac167abb31692313792ad5f0542c542f8ebb6c44bc840de2",
+      "path": "/textbooks/police/2026-11-11/9efc29ffe20fcf40ac167abb31692313792ad5f0542c542f8ebb6c44bc840de2/hnU301_3.pdf"
+    },
+    "police-hnU302_1": {
+      "sha256": "afd86231f7438111f5d082c9d779c92d8d42ddb8f761cb61e09694aef2e9d974",
+      "path": "/textbooks/police/2026-11-11/afd86231f7438111f5d082c9d779c92d8d42ddb8f761cb61e09694aef2e9d974/hnU302_1.pdf"
+    },
+    "police-hnU401_2": {
+      "sha256": "5dd314afd188769c9c09cabe36586c4291570c044f570c963e5a394f2bfad40c",
+      "path": "/textbooks/police/2026-11-11/5dd314afd188769c9c09cabe36586c4291570c044f570c963e5a394f2bfad40c/hnU401_2.pdf"
+    },
+    "police-hnU401_3": {
+      "sha256": "5b27a8dd0ae3be7e1ac7c6b4e7f0a6b1b6de29388dc784d9aba0529c9b7030b5",
+      "path": "/textbooks/police/2026-11-11/5b27a8dd0ae3be7e1ac7c6b4e7f0a6b1b6de29388dc784d9aba0529c9b7030b5/hnU401_3.pdf"
+    },
+    "police-hnU401_4": {
+      "sha256": "8b0a0e4ef7bbbb3131d81cd524df34aa8d7c6632090e0eec473d41cfde6b50e5",
+      "path": "/textbooks/police/2026-11-11/8b0a0e4ef7bbbb3131d81cd524df34aa8d7c6632090e0eec473d41cfde6b50e5/hnU401_4.pdf"
+    },
+    "police-hnU402_1": {
+      "sha256": "64096b1cb24a64b1d0981a64390fa442b75e7b46f68fb78534a14b7572360a31",
+      "path": "/textbooks/police/2026-11-11/64096b1cb24a64b1d0981a64390fa442b75e7b46f68fb78534a14b7572360a31/hnU402_1.pdf"
+    },
+    "police-hnU402_2": {
+      "sha256": "1573a155b68d9dd483f7bbab625a1abd1a4cbf155eaa793627317168ccc52ef5",
+      "path": "/textbooks/police/2026-11-11/1573a155b68d9dd483f7bbab625a1abd1a4cbf155eaa793627317168ccc52ef5/hnU402_2.pdf"
+    },
+    "police-hnU402_4": {
+      "sha256": "cdee4db96fdf0a3befb8cf45920bc76caabf0948cb8eb7e042f767e7fe285773",
+      "path": "/textbooks/police/2026-11-11/cdee4db96fdf0a3befb8cf45920bc76caabf0948cb8eb7e042f767e7fe285773/hnU402_4.pdf"
+    },
+    "police-hnU402_5": {
+      "sha256": "da287236cb4fa767f96c3b2bb1bce4d752671d30874c66654696108d4087c398",
+      "path": "/textbooks/police/2026-11-11/da287236cb4fa767f96c3b2bb1bce4d752671d30874c66654696108d4087c398/hnU402_5.pdf"
+    },
+    "police-hnU403_1": {
+      "sha256": "fc76bd96662a291234317c39615b4517b6a83d2a60ceeccfea9e5c5b042e547e",
+      "path": "/textbooks/police/2026-11-11/fc76bd96662a291234317c39615b4517b6a83d2a60ceeccfea9e5c5b042e547e/hnU403_1.pdf"
+    },
+    "police-hnU403_2": {
+      "sha256": "6f87a929ba85e40e79c7969cc30c4e8bd33655151c566e260d3de9d69c249e74",
+      "path": "/textbooks/police/2026-11-11/6f87a929ba85e40e79c7969cc30c4e8bd33655151c566e260d3de9d69c249e74/hnU403_2.pdf"
+    },
+    "police-hnU403_3": {
+      "sha256": "90916de53420c39541dfbc2d347d61187beaa50ff980e77e7980f7aafb900e2f",
+      "path": "/textbooks/police/2026-11-11/90916de53420c39541dfbc2d347d61187beaa50ff980e77e7980f7aafb900e2f/hnU403_3.pdf"
+    },
+    "police-hnU403_4": {
+      "sha256": "bea0a5c12076e765b7c993a9b2a824855a5fe69799f8922029a54af8142e86b2",
+      "path": "/textbooks/police/2026-11-11/bea0a5c12076e765b7c993a9b2a824855a5fe69799f8922029a54af8142e86b2/hnU403_4.pdf"
+    },
+    "police-hnU403_5": {
+      "sha256": "ea96ffe0069c40173ac37d5675708eab4726946729c1081c78970e84e2b2e8f1",
+      "path": "/textbooks/police/2026-11-11/ea96ffe0069c40173ac37d5675708eab4726946729c1081c78970e84e2b2e8f1/hnU403_5.pdf"
+    },
+    "police-hnU501_1": {
+      "sha256": "19970ad0e91a40031eb628107cee1d076b0f49384e96032f916d55df248a68d1",
+      "path": "/textbooks/police/2026-11-11/19970ad0e91a40031eb628107cee1d076b0f49384e96032f916d55df248a68d1/hnU501_1.pdf"
+    },
+    "police-hnU501_2": {
+      "sha256": "a00bbf30a02473843c195b2297027c3c119448991f90f31688a2515307594d51",
+      "path": "/textbooks/police/2026-11-11/a00bbf30a02473843c195b2297027c3c119448991f90f31688a2515307594d51/hnU501_2.pdf"
+    },
+    "police-hnU601_1": {
+      "sha256": "c30ad81f4ddb28578aad48f200a88280da98541eff3f5f70dd1f2286a84a6990",
+      "path": "/textbooks/police/2026-11-11/c30ad81f4ddb28578aad48f200a88280da98541eff3f5f70dd1f2286a84a6990/hnU601_1.pdf"
+    },
+    "police-hnU601_2": {
+      "sha256": "90c16b912900f316e4b568789c35cc36fc421dca44208815313f3b8a8c850647",
+      "path": "/textbooks/police/2026-11-11/90c16b912900f316e4b568789c35cc36fc421dca44208815313f3b8a8c850647/hnU601_2.pdf"
+    },
+    "police-hnU701_1": {
+      "sha256": "6a95ef6ce90240848b1918725b3d0bbe29f59bd33e69de49dbe82c79f86fde38",
+      "path": "/textbooks/police/2026-11-11/6a95ef6ce90240848b1918725b3d0bbe29f59bd33e69de49dbe82c79f86fde38/hnU701_1.pdf"
+    },
+    "police-hnU701_2": {
+      "sha256": "37c419ef33aad3bd5a37a50f8ddb48630d67ffbfe4f895a77325fc1563d9a094",
+      "path": "/textbooks/police/2026-11-11/37c419ef33aad3bd5a37a50f8ddb48630d67ffbfe4f895a77325fc1563d9a094/hnU701_2.pdf"
+    },
+    "police-hnU701_3": {
+      "sha256": "8978fac477344b470dbeda395dcb2769f92d2479366c4e7ce6110f3f89bdda4a",
+      "path": "/textbooks/police/2026-11-11/8978fac477344b470dbeda395dcb2769f92d2479366c4e7ce6110f3f89bdda4a/hnU701_3.pdf"
+    },
+    "police-hnU701_4": {
+      "sha256": "78f2181afa2296c8bf55ea651cbcc4530714f681caeb410212923b8283ec10dc",
+      "path": "/textbooks/police/2026-11-11/78f2181afa2296c8bf55ea651cbcc4530714f681caeb410212923b8283ec10dc/hnU701_4.pdf"
+    },
+    "police-hnU701_5": {
+      "sha256": "f6c76d59ece4a24e827dc7771a1d31de39ef6d258a7f4fad126df09944a423e0",
+      "path": "/textbooks/police/2026-11-11/f6c76d59ece4a24e827dc7771a1d31de39ef6d258a7f4fad126df09944a423e0/hnU701_5.pdf"
+    },
+    "police-hnU801_1": {
+      "sha256": "f7cec903c626228d9f233a3cd6f52d750817596a39cab46161c80d405aa8e91e",
+      "path": "/textbooks/police/2026-11-11/f7cec903c626228d9f233a3cd6f52d750817596a39cab46161c80d405aa8e91e/hnU801_1.pdf"
+    },
+    "police-hnU801_2": {
+      "sha256": "0d6151833a7425505b3f63aa5913d41d0ef79f4c3bd3eafae9579c42081d34bd",
+      "path": "/textbooks/police/2026-11-11/0d6151833a7425505b3f63aa5913d41d0ef79f4c3bd3eafae9579c42081d34bd/hnU801_2.pdf"
+    },
+    "police-hnU801_3": {
+      "sha256": "26e92cdeb1ea4b3f691006c06addc25fff612ea4dbff0b708a7f64b00d8ca074",
+      "path": "/textbooks/police/2026-11-11/26e92cdeb1ea4b3f691006c06addc25fff612ea4dbff0b708a7f64b00d8ca074/hnU801_3.pdf"
+    },
+    "police-hnU801_4": {
+      "sha256": "77194122963e1ec052f194a1acac37530a64a06cde6e7f142fce8335c26be830",
+      "path": "/textbooks/police/2026-11-11/77194122963e1ec052f194a1acac37530a64a06cde6e7f142fce8335c26be830/hnU801_4.pdf"
+    },
+    "police-hnU801_5": {
+      "sha256": "c562587bd67edce7d0f2a0937cd4cb21f63c1c850a8b5e6e253651d824da7562",
+      "path": "/textbooks/police/2026-11-11/c562587bd67edce7d0f2a0937cd4cb21f63c1c850a8b5e6e253651d824da7562/hnU801_5.pdf"
+    },
+    "police-hnU901_1": {
+      "sha256": "14b8bf36157a194a18b17f7d0af535b2b29acc55e1639c3a805fbcaa5587c5e3",
+      "path": "/textbooks/police/2026-11-11/14b8bf36157a194a18b17f7d0af535b2b29acc55e1639c3a805fbcaa5587c5e3/hnU901_1.pdf"
+    },
+    "police-hsU102_1": {
+      "sha256": "402979e1871a34df225796595fd6d741ac6edf244181671ed4ecb79abdce76fa",
+      "path": "/textbooks/police/2026-11-11/402979e1871a34df225796595fd6d741ac6edf244181671ed4ecb79abdce76fa/hsU102_1.pdf"
+    },
+    "police-hsU201_1": {
+      "sha256": "368f74ab582970a4526691ad403fc4bfdd0144b4f07c314e04ff6622681ca234",
+      "path": "/textbooks/police/2026-11-11/368f74ab582970a4526691ad403fc4bfdd0144b4f07c314e04ff6622681ca234/hsU201_1.pdf"
+    },
+    "police-hsU201_2": {
+      "sha256": "6ed35b9932edd970dd4b3c76f0cfe1c3194c6e45af4f61372709dee429961a88",
+      "path": "/textbooks/police/2026-11-11/6ed35b9932edd970dd4b3c76f0cfe1c3194c6e45af4f61372709dee429961a88/hsU201_2.pdf"
+    },
+    "police-hsU202_1": {
+      "sha256": "478f31f6696df8460e563fb07153e7ff63dcac89d37a001acd509963aa816b3f",
+      "path": "/textbooks/police/2026-11-11/478f31f6696df8460e563fb07153e7ff63dcac89d37a001acd509963aa816b3f/hsU202_1.pdf"
+    },
+    "police-hsU202_2": {
+      "sha256": "4929a5acb7a1110e5ce8b52613d828bee1bfd6815dc560ae686e066eb067f02f",
+      "path": "/textbooks/police/2026-11-11/4929a5acb7a1110e5ce8b52613d828bee1bfd6815dc560ae686e066eb067f02f/hsU202_2.pdf"
+    },
+    "police-hsU202_3": {
+      "sha256": "1b9497ebccb190bc95e7957486a44a36a2ffd9110ef91e1e68b7159089c29012",
+      "path": "/textbooks/police/2026-11-11/1b9497ebccb190bc95e7957486a44a36a2ffd9110ef91e1e68b7159089c29012/hsU202_3.pdf"
+    },
+    "police-hsU202_4": {
+      "sha256": "dbb9eece47c264df6f5f3392aff49e66a796884510d5c866a2637783e77ce503",
+      "path": "/textbooks/police/2026-11-11/dbb9eece47c264df6f5f3392aff49e66a796884510d5c866a2637783e77ce503/hsU202_4.pdf"
+    },
+    "police-hsU203_1": {
+      "sha256": "6cd2c37fdebe6301b88d6a5df2305051f548724b8431ceaf1b392d2b1f520b60",
+      "path": "/textbooks/police/2026-11-11/6cd2c37fdebe6301b88d6a5df2305051f548724b8431ceaf1b392d2b1f520b60/hsU203_1.pdf"
+    },
+    "police-hsU203_2": {
+      "sha256": "8c0168d87b9ab198ee6ea5867f674fc7d9264429f5359d04d3d63ea70326cfdb",
+      "path": "/textbooks/police/2026-11-11/8c0168d87b9ab198ee6ea5867f674fc7d9264429f5359d04d3d63ea70326cfdb/hsU203_2.pdf"
+    },
+    "police-hsU203_3": {
+      "sha256": "a412fa44365de8ab2b8a9e808c95194cfcf603d132760d4b09ed6dd889ca688b",
+      "path": "/textbooks/police/2026-11-11/a412fa44365de8ab2b8a9e808c95194cfcf603d132760d4b09ed6dd889ca688b/hsU203_3.pdf"
+    },
+    "police-hsU204_1": {
+      "sha256": "3eb0539a6bf57884fb22eb7836d91a3ea8d7b211cddf493e14b663b79d216fac",
+      "path": "/textbooks/police/2026-11-11/3eb0539a6bf57884fb22eb7836d91a3ea8d7b211cddf493e14b663b79d216fac/hsU204_1.pdf"
+    },
+    "police-hsU204_2": {
+      "sha256": "73c0ebdb30759f437ea78b12b157f14b7f07ae31dc54166d94eb73c2b8c95cc5",
+      "path": "/textbooks/police/2026-11-11/73c0ebdb30759f437ea78b12b157f14b7f07ae31dc54166d94eb73c2b8c95cc5/hsU204_2.pdf"
+    },
+    "police-hsU204_3": {
+      "sha256": "320e7c498ba363880d7a5f06cfa49a2728d599783581db7dadab2a41e96c5f64",
+      "path": "/textbooks/police/2026-11-11/320e7c498ba363880d7a5f06cfa49a2728d599783581db7dadab2a41e96c5f64/hsU204_3.pdf"
+    },
+    "police-hsU204_4": {
+      "sha256": "59420c12a6691a151e15cfd83a09e75fa0ef56a90b06b7adbb0bfafe2b86384b",
+      "path": "/textbooks/police/2026-11-11/59420c12a6691a151e15cfd83a09e75fa0ef56a90b06b7adbb0bfafe2b86384b/hsU204_4.pdf"
+    },
+    "police-hsU204_5": {
+      "sha256": "2a8a6bff0a457430bebac0c05a725856dedb0776587c75a07415c5d516a9d29e",
+      "path": "/textbooks/police/2026-11-11/2a8a6bff0a457430bebac0c05a725856dedb0776587c75a07415c5d516a9d29e/hsU204_5.pdf"
+    },
+    "police-hsU205_1": {
+      "sha256": "8fa7b2353ee2c9a3c9a2b9983ceba2402491cc68a25aced37d9424932782ce40",
+      "path": "/textbooks/police/2026-11-11/8fa7b2353ee2c9a3c9a2b9983ceba2402491cc68a25aced37d9424932782ce40/hsU205_1.pdf"
+    },
+    "police-hsU205_3": {
+      "sha256": "8a7fbecbc297236f9e437eb68ab5b14a496c50b8f6679b20ba4816df7e6ab24a",
+      "path": "/textbooks/police/2026-11-11/8a7fbecbc297236f9e437eb68ab5b14a496c50b8f6679b20ba4816df7e6ab24a/hsU205_3.pdf"
+    },
+    "police-hsU205_4": {
+      "sha256": "04dfadf84010a1c9287bbd1d6543913fdb52148af0171c91af954e0ba95c2326",
+      "path": "/textbooks/police/2026-11-11/04dfadf84010a1c9287bbd1d6543913fdb52148af0171c91af954e0ba95c2326/hsU205_4.pdf"
+    },
+    "police-hsU206_1": {
+      "sha256": "a66fca88b2e3605002326903c4be2adaf723a5085930be4aceff52ec53b3069d",
+      "path": "/textbooks/police/2026-11-11/a66fca88b2e3605002326903c4be2adaf723a5085930be4aceff52ec53b3069d/hsU206_1.pdf"
+    },
+    "police-hsU206_2": {
+      "sha256": "ad28a875627e56176237f1e893964f774558aebb42b36d05271c9289188feedc",
+      "path": "/textbooks/police/2026-11-11/ad28a875627e56176237f1e893964f774558aebb42b36d05271c9289188feedc/hsU206_2.pdf"
+    },
+    "police-hsU207_1": {
+      "sha256": "95e6357a8c9193edb52bef8f63e1b406b8672e7fc9c850943b9b20ef735e57d5",
+      "path": "/textbooks/police/2026-11-11/95e6357a8c9193edb52bef8f63e1b406b8672e7fc9c850943b9b20ef735e57d5/hsU207_1.pdf"
+    },
+    "police-hsU207_2": {
+      "sha256": "a4ea5d80cd031ffca056a2f285dd285a1a97e87edc8c32dd85108a004ca6c5a2",
+      "path": "/textbooks/police/2026-11-11/a4ea5d80cd031ffca056a2f285dd285a1a97e87edc8c32dd85108a004ca6c5a2/hsU207_2.pdf"
+    },
+    "police-hsU207_3": {
+      "sha256": "d8290449f2e7f15b7cce9a6c1aa9afdb914c0c4e7a0153c9aff2a384398ec6fb",
+      "path": "/textbooks/police/2026-11-11/d8290449f2e7f15b7cce9a6c1aa9afdb914c0c4e7a0153c9aff2a384398ec6fb/hsU207_3.pdf"
+    },
+    "police-hsU207_4": {
+      "sha256": "f1ec9fd09d4092ad1157a4cdf06fa6a5b6cba139a60a9d2376c1bd38ac2017f5",
+      "path": "/textbooks/police/2026-11-11/f1ec9fd09d4092ad1157a4cdf06fa6a5b6cba139a60a9d2376c1bd38ac2017f5/hsU207_4.pdf"
+    },
+    "police-hsU207_5": {
+      "sha256": "af401102f64b04f2fd46baee7ce00f2fef4998c4843b323b6d0d202e4a2570f6",
+      "path": "/textbooks/police/2026-11-11/af401102f64b04f2fd46baee7ce00f2fef4998c4843b323b6d0d202e4a2570f6/hsU207_5.pdf"
+    },
+    "police-hsU208_1": {
+      "sha256": "779888b5e29c550489cc31f02959bacab6c4669ab3ad6d9a008ffc1ef08c3a6f",
+      "path": "/textbooks/police/2026-11-11/779888b5e29c550489cc31f02959bacab6c4669ab3ad6d9a008ffc1ef08c3a6f/hsU208_1.pdf"
+    },
+    "police-hsU208_2": {
+      "sha256": "e71cf9524416a938cc4faec65e33db20bb4fb9a26c1a180f7d38e55cf89ad9c1",
+      "path": "/textbooks/police/2026-11-11/e71cf9524416a938cc4faec65e33db20bb4fb9a26c1a180f7d38e55cf89ad9c1/hsU208_2.pdf"
+    },
+    "police-hsU301_1": {
+      "sha256": "2d9273c47ffef824f64ecb418af3aa1fa0f63451d541c935a2ef7aba5946355b",
+      "path": "/textbooks/police/2026-11-11/2d9273c47ffef824f64ecb418af3aa1fa0f63451d541c935a2ef7aba5946355b/hsU301_1.pdf"
+    },
+    "police-hsU301_2": {
+      "sha256": "8deafac08c85f19756216457e01fb1b1846da02f68e62623c5bd927ad740189a",
+      "path": "/textbooks/police/2026-11-11/8deafac08c85f19756216457e01fb1b1846da02f68e62623c5bd927ad740189a/hsU301_2.pdf"
+    },
+    "police-hsU301_5": {
+      "sha256": "8c0a117ee3e16aa96787be946bd08ae82c3a9f3db7cabf9913b9c6fc3e9228e8",
+      "path": "/textbooks/police/2026-11-11/8c0a117ee3e16aa96787be946bd08ae82c3a9f3db7cabf9913b9c6fc3e9228e8/hsU301_5.pdf"
+    },
+    "police-hsU401_1": {
+      "sha256": "4f691d66b3fb2553da5e55e91f5b0e366c4307b86bc198dfe7fdc9d92cf17a44",
+      "path": "/textbooks/police/2026-11-11/4f691d66b3fb2553da5e55e91f5b0e366c4307b86bc198dfe7fdc9d92cf17a44/hsU401_1.pdf"
+    },
+    "police-hsU401_2": {
+      "sha256": "c588ebb33de7ed2df4c01b4fb9a94fc795200186fde8efe5239209f2ea552733",
+      "path": "/textbooks/police/2026-11-11/c588ebb33de7ed2df4c01b4fb9a94fc795200186fde8efe5239209f2ea552733/hsU401_2.pdf"
+    },
+    "police-hsU401_3": {
+      "sha256": "c18cc9373dae2302324f951b72ee4823f0fd4a68edbd8381ccc044f5d56e16e9",
+      "path": "/textbooks/police/2026-11-11/c18cc9373dae2302324f951b72ee4823f0fd4a68edbd8381ccc044f5d56e16e9/hsU401_3.pdf"
+    },
+    "police-hsU401_4": {
+      "sha256": "b5a6465d54c84e43ec36c000da89be998134b05670b3ff6c73cc632e8c6ceeaf",
+      "path": "/textbooks/police/2026-11-11/b5a6465d54c84e43ec36c000da89be998134b05670b3ff6c73cc632e8c6ceeaf/hsU401_4.pdf"
+    },
+    "police-hsU402_1": {
+      "sha256": "3c4cbca08cd29f93bb42ed5832a92a37603fc3da3da09e4ba18eb80ce0679a23",
+      "path": "/textbooks/police/2026-11-11/3c4cbca08cd29f93bb42ed5832a92a37603fc3da3da09e4ba18eb80ce0679a23/hsU402_1.pdf"
+    },
+    "police-hsU402_2": {
+      "sha256": "5d0bd1441a5a00965d0fe4679e6dcb576dba518fd500cae951bf054571c32a0e",
+      "path": "/textbooks/police/2026-11-11/5d0bd1441a5a00965d0fe4679e6dcb576dba518fd500cae951bf054571c32a0e/hsU402_2.pdf"
+    },
+    "police-hsU402_4": {
+      "sha256": "1730cc916f7d31f0744abf03217ebffcf4a6901f7a85ed43b0e9cfb43f5902c9",
+      "path": "/textbooks/police/2026-11-11/1730cc916f7d31f0744abf03217ebffcf4a6901f7a85ed43b0e9cfb43f5902c9/hsU402_4.pdf"
+    },
+    "police-hsU403_1": {
+      "sha256": "a039593fa6e1b5668832220ab491de61d4cfed8989c7a8370ffe8f1f4fb3536e",
+      "path": "/textbooks/police/2026-11-11/a039593fa6e1b5668832220ab491de61d4cfed8989c7a8370ffe8f1f4fb3536e/hsU403_1.pdf"
+    },
+    "police-hsU403_2": {
+      "sha256": "ce640c0eeed7d92be470ac6eae50fc725fa3ea685d7d07ed81e2b58f77fb93c6",
+      "path": "/textbooks/police/2026-11-11/ce640c0eeed7d92be470ac6eae50fc725fa3ea685d7d07ed81e2b58f77fb93c6/hsU403_2.pdf"
+    },
+    "police-hsU404_1": {
+      "sha256": "f7f56038caa643b685e4f0bb14692591ae4561447ed5e85058ebec1daabb0ae1",
+      "path": "/textbooks/police/2026-11-11/f7f56038caa643b685e4f0bb14692591ae4561447ed5e85058ebec1daabb0ae1/hsU404_1.pdf"
+    },
+    "police-hsU404_2": {
+      "sha256": "4f4078eb9200d0851a3ade06d47e0081ec9df04c5290584432cabd4b5763ee20",
+      "path": "/textbooks/police/2026-11-11/4f4078eb9200d0851a3ade06d47e0081ec9df04c5290584432cabd4b5763ee20/hsU404_2.pdf"
+    },
+    "police-hsU405_1": {
+      "sha256": "7ba79f670a26a6edcec531065a8f43236d023f209f4476af6c46ffb6c6b1ad90",
+      "path": "/textbooks/police/2026-11-11/7ba79f670a26a6edcec531065a8f43236d023f209f4476af6c46ffb6c6b1ad90/hsU405_1.pdf"
+    },
+    "police-hsU405_2": {
+      "sha256": "5fc09a2762e2b64a1c6d3e67074d9f7d84015d636484b7bb0f5f9308f46a60c9",
+      "path": "/textbooks/police/2026-11-11/5fc09a2762e2b64a1c6d3e67074d9f7d84015d636484b7bb0f5f9308f46a60c9/hsU405_2.pdf"
+    },
+    "police-hsU405_4": {
+      "sha256": "4b8142c1e234a24558cfeee72ae5b009035d3773aeb16bd1465281397311d0ff",
+      "path": "/textbooks/police/2026-11-11/4b8142c1e234a24558cfeee72ae5b009035d3773aeb16bd1465281397311d0ff/hsU405_4.pdf"
+    },
+    "police-hsU405_6": {
+      "sha256": "0e74b351a9c4728ded538b34a9cd1a213cd98f81a320b0545da015cd765a9cfc",
+      "path": "/textbooks/police/2026-11-11/0e74b351a9c4728ded538b34a9cd1a213cd98f81a320b0545da015cd765a9cfc/hsU405_6.pdf"
+    },
+    "police-hsU405_7": {
+      "sha256": "bdd1f11fee4552cf09fe5fc73a7b8ddaa059b6b5e5ae1941c52208c72739ea38",
+      "path": "/textbooks/police/2026-11-11/bdd1f11fee4552cf09fe5fc73a7b8ddaa059b6b5e5ae1941c52208c72739ea38/hsU405_7.pdf"
+    },
+    "police-hsU405_8": {
+      "sha256": "b1499319f5987f7dc8e6549d3354c0f15c2fb20f5f4ea87b0d775fbd8f081ab8",
+      "path": "/textbooks/police/2026-11-11/b1499319f5987f7dc8e6549d3354c0f15c2fb20f5f4ea87b0d775fbd8f081ab8/hsU405_8.pdf"
+    },
+    "police-hsU405_9": {
+      "sha256": "3c1fa5c943445902afe9be78c43289ecdb37285644de6f5d62c8e04deb0da0bd",
+      "path": "/textbooks/police/2026-11-11/3c1fa5c943445902afe9be78c43289ecdb37285644de6f5d62c8e04deb0da0bd/hsU405_9.pdf"
+    },
+    "police-hsU501_1": {
+      "sha256": "e7075e1fc57cb48418b35153c3e0d1d89634d7475a858d81aa6de4516969af7a",
+      "path": "/textbooks/police/2026-11-11/e7075e1fc57cb48418b35153c3e0d1d89634d7475a858d81aa6de4516969af7a/hsU501_1.pdf"
+    },
+    "police-hsU501_2": {
+      "sha256": "90d99c4544dcbeae5cef589f3a81aeeb74013d087d000e67b330a421b2ff1d82",
+      "path": "/textbooks/police/2026-11-11/90d99c4544dcbeae5cef589f3a81aeeb74013d087d000e67b330a421b2ff1d82/hsU501_2.pdf"
+    },
+    "police-hsU501_3": {
+      "sha256": "256c5ef312a7c8ab057e0f396af3d0957b66f262e6d86d0e90c830f994e3a7d8",
+      "path": "/textbooks/police/2026-11-11/256c5ef312a7c8ab057e0f396af3d0957b66f262e6d86d0e90c830f994e3a7d8/hsU501_3.pdf"
+    },
+    "police-hsU502_1": {
+      "sha256": "f0ae9298543466c4e031607bf148ede0f7113337fe7d2bd6f158e8a46006c7ae",
+      "path": "/textbooks/police/2026-11-11/f0ae9298543466c4e031607bf148ede0f7113337fe7d2bd6f158e8a46006c7ae/hsU502_1.pdf"
+    },
+    "police-hsU502_2": {
+      "sha256": "cd373268d6b7ba958b172cc830dfe18b91c8027d23781b4b03cb1ccadb451ec6",
+      "path": "/textbooks/police/2026-11-11/cd373268d6b7ba958b172cc830dfe18b91c8027d23781b4b03cb1ccadb451ec6/hsU502_2.pdf"
+    },
+    "police-hsU502_3": {
+      "sha256": "3fc73884cae2b62efa496f78a8079c62806edb70bbaa2c4858f0a7bb941d80a6",
+      "path": "/textbooks/police/2026-11-11/3fc73884cae2b62efa496f78a8079c62806edb70bbaa2c4858f0a7bb941d80a6/hsU502_3.pdf"
+    },
+    "police-hsU503_2": {
+      "sha256": "b96377e2b0f7d238e3856d332d627ecf006f35b5723b3b7839b2418777dcfebd",
+      "path": "/textbooks/police/2026-11-11/b96377e2b0f7d238e3856d332d627ecf006f35b5723b3b7839b2418777dcfebd/hsU503_2.pdf"
+    },
+    "police-hsU503_3": {
+      "sha256": "88c8e67f11f360d57e4edcf973391da8130671b548ba9a5af04051206a7107ad",
+      "path": "/textbooks/police/2026-11-11/88c8e67f11f360d57e4edcf973391da8130671b548ba9a5af04051206a7107ad/hsU503_3.pdf"
+    },
+    "police-hsU602_1": {
+      "sha256": "0333264b34f9bf2684ff33575ee73a3427a53cda203af4bd4d2a6b35d34bba4c",
+      "path": "/textbooks/police/2026-11-11/0333264b34f9bf2684ff33575ee73a3427a53cda203af4bd4d2a6b35d34bba4c/hsU602_1.pdf"
+    },
+    "police-hsU602_2": {
+      "sha256": "4b90d73f7ac73a090ac41677a4c824587671cf16cb65bdfb1a878bec20924ea9",
+      "path": "/textbooks/police/2026-11-11/4b90d73f7ac73a090ac41677a4c824587671cf16cb65bdfb1a878bec20924ea9/hsU602_2.pdf"
+    },
+    "police-hsU602_3": {
+      "sha256": "68ed35f6f06e5337b7fed08af9735be7aa87180f8232fec16a4dc1dbfe38e77b",
+      "path": "/textbooks/police/2026-11-11/68ed35f6f06e5337b7fed08af9735be7aa87180f8232fec16a4dc1dbfe38e77b/hsU602_3.pdf"
+    },
+    "police-hsU602_4": {
+      "sha256": "d8f3fe9c4df1ce886675f75c97264e223bee7583f1a5877043a71b54d49822d4",
+      "path": "/textbooks/police/2026-11-11/d8f3fe9c4df1ce886675f75c97264e223bee7583f1a5877043a71b54d49822d4/hsU602_4.pdf"
+    },
+    "police-hsU602_5": {
+      "sha256": "70cf71610d458a2e3d15acfd03806af655e9352a9e111ee83538b55a2fcc3b1c",
+      "path": "/textbooks/police/2026-11-11/70cf71610d458a2e3d15acfd03806af655e9352a9e111ee83538b55a2fcc3b1c/hsU602_5.pdf"
+    },
+    "police-hsU602_6": {
+      "sha256": "4fe5ef635a9b770dff457101fb272429dd064c75369872b647d98246e7c02a4c",
+      "path": "/textbooks/police/2026-11-11/4fe5ef635a9b770dff457101fb272429dd064c75369872b647d98246e7c02a4c/hsU602_6.pdf"
+    },
+    "police-hsU701_1": {
+      "sha256": "ba32f8b83b3dfb6074d54984013196e62737e3eb93bdefec337ad11119b6b658",
+      "path": "/textbooks/police/2026-11-11/ba32f8b83b3dfb6074d54984013196e62737e3eb93bdefec337ad11119b6b658/hsU701_1.pdf"
+    },
+    "police-hsU701_2": {
+      "sha256": "2c991b49bfc44aeea203fba2a99c8b709fcf180c45ef7eab6bed65890dd60827",
+      "path": "/textbooks/police/2026-11-11/2c991b49bfc44aeea203fba2a99c8b709fcf180c45ef7eab6bed65890dd60827/hsU701_2.pdf"
+    },
+    "police-hsU701_3": {
+      "sha256": "5e6d7cb852c23aacfe9d6f9a0e26c8183c85260816b6337d6e4022ac6ba2df27",
+      "path": "/textbooks/police/2026-11-11/5e6d7cb852c23aacfe9d6f9a0e26c8183c85260816b6337d6e4022ac6ba2df27/hsU701_3.pdf"
+    },
+    "police-hsU702_1": {
+      "sha256": "419fccdf258aca8490bf277fec66df32a7d07dc8102533de6e010ac8194afdf8",
+      "path": "/textbooks/police/2026-11-11/419fccdf258aca8490bf277fec66df32a7d07dc8102533de6e010ac8194afdf8/hsU702_1.pdf"
+    },
+    "police-hsU702_3": {
+      "sha256": "235aca865a76542e0dd3f666da9d8de29e4572b5d79c556dfa7c6b0197a835a9",
+      "path": "/textbooks/police/2026-11-11/235aca865a76542e0dd3f666da9d8de29e4572b5d79c556dfa7c6b0197a835a9/hsU702_3.pdf"
+    },
+    "police-hsU703_1": {
+      "sha256": "e2e49c90efb6de53ab4b30c383ae978ef232380d859e732784d91d982ca6640e",
+      "path": "/textbooks/police/2026-11-11/e2e49c90efb6de53ab4b30c383ae978ef232380d859e732784d91d982ca6640e/hsU703_1.pdf"
+    },
+    "police-hsU703_2": {
+      "sha256": "19efadd11d3bb9ce4c0c15c16c0c2b2c813998910b664a7e99bd91acbeea5246",
+      "path": "/textbooks/police/2026-11-11/19efadd11d3bb9ce4c0c15c16c0c2b2c813998910b664a7e99bd91acbeea5246/hsU703_2.pdf"
+    },
+    "police-hsU704_1": {
+      "sha256": "c8ec0c474bdfb4f92e808e18d3289bdf52e74d835706b8673d090c1575076c37",
+      "path": "/textbooks/police/2026-11-11/c8ec0c474bdfb4f92e808e18d3289bdf52e74d835706b8673d090c1575076c37/hsU704_1.pdf"
+    },
+    "police-hsU801_1": {
+      "sha256": "502651b90c26a437a6df0d8d13ddba3cf378d42712440cab14f5227326bdd9a6",
+      "path": "/textbooks/police/2026-11-11/502651b90c26a437a6df0d8d13ddba3cf378d42712440cab14f5227326bdd9a6/hsU801_1.pdf"
+    },
+    "police-hsU801_3": {
+      "sha256": "b522147a3360a4b889f38657eddc76850d90c1496234b05bf4bec84e0b5e1f26",
+      "path": "/textbooks/police/2026-11-11/b522147a3360a4b889f38657eddc76850d90c1496234b05bf4bec84e0b5e1f26/hsU801_3.pdf"
+    },
+    "police-hsU801_4": {
+      "sha256": "e9f9a2948a14b0d6405ea100a831ec0171cca5e65706f460fb77283c3aeec990",
+      "path": "/textbooks/police/2026-11-11/e9f9a2948a14b0d6405ea100a831ec0171cca5e65706f460fb77283c3aeec990/hsU801_4.pdf"
+    },
+    "police-hsU802_1": {
+      "sha256": "d2741b5ec8ed1dc47ab2de47685f45baa66127de695f36a36e5341d7b891e318",
+      "path": "/textbooks/police/2026-11-11/d2741b5ec8ed1dc47ab2de47685f45baa66127de695f36a36e5341d7b891e318/hsU802_1.pdf"
+    },
+    "police-hsU802_2": {
+      "sha256": "613c7a48e235158a67da6fe18c00a564904adb1701a98d9afce6e2f670e2b0b0",
+      "path": "/textbooks/police/2026-11-11/613c7a48e235158a67da6fe18c00a564904adb1701a98d9afce6e2f670e2b0b0/hsU802_2.pdf"
+    },
+    "police-hsU802_3": {
+      "sha256": "2a42c0dd526050f66bea781f758e73ff1249dd74e758d4213e2a1920daff7c31",
+      "path": "/textbooks/police/2026-11-11/2a42c0dd526050f66bea781f758e73ff1249dd74e758d4213e2a1920daff7c31/hsU802_3.pdf"
+    },
+    "police-hsU803_2": {
+      "sha256": "bb61099e546a02ad3da2ad08a0940fdebff7e6314f7ceba6edf78cfb3f5b8ba4",
+      "path": "/textbooks/police/2026-11-11/bb61099e546a02ad3da2ad08a0940fdebff7e6314f7ceba6edf78cfb3f5b8ba4/hsU803_2.pdf"
+    },
+    "police-hsU803_3": {
+      "sha256": "5d2f02fece74deb42c3068b75b77516278a6449bc5872fc410bebb306e427dfc",
+      "path": "/textbooks/police/2026-11-11/5d2f02fece74deb42c3068b75b77516278a6449bc5872fc410bebb306e427dfc/hsU803_3.pdf"
+    },
+    "police-hsU901_1": {
+      "sha256": "c23927614d813063354348588ef9469f7f51a5e508fd39b244beb580babe586d",
+      "path": "/textbooks/police/2026-11-11/c23927614d813063354348588ef9469f7f51a5e508fd39b244beb580babe586d/hsU901_1.pdf"
+    },
+    "police-hsU901_2": {
+      "sha256": "84487caa5d2b2c2a445ea5ade0834e293c6fd45b62f7a3b0370180c7882293f5",
+      "path": "/textbooks/police/2026-11-11/84487caa5d2b2c2a445ea5ade0834e293c6fd45b62f7a3b0370180c7882293f5/hsU901_2.pdf"
+    },
+    "police-hsU901_3": {
+      "sha256": "719d421171105f1eb6fe48db0a91767858a8c9cec76a7cf23698cb4f0ed55665",
+      "path": "/textbooks/police/2026-11-11/719d421171105f1eb6fe48db0a91767858a8c9cec76a7cf23698cb4f0ed55665/hsU901_3.pdf"
+    },
+    "police-hsU902_1": {
+      "sha256": "414d5183785f72082362a006f0f3bdfbb8c05581d9ceb49beed376121e542ed6",
+      "path": "/textbooks/police/2026-11-11/414d5183785f72082362a006f0f3bdfbb8c05581d9ceb49beed376121e542ed6/hsU902_1.pdf"
+    },
+    "police-hsU902_2": {
+      "sha256": "3391fb692d6672123349e2dd188a32dc2033c993d7fd4e9ba6169d1f850a3abe",
+      "path": "/textbooks/police/2026-11-11/3391fb692d6672123349e2dd188a32dc2033c993d7fd4e9ba6169d1f850a3abe/hsU902_2.pdf"
+    },
+    "police-hsU902_3": {
+      "sha256": "539046e53f39915b9b52fbc4d3e33c774826b58b53ef955b8fff4bb2acc22a47",
+      "path": "/textbooks/police/2026-11-11/539046e53f39915b9b52fbc4d3e33c774826b58b53ef955b8fff4bb2acc22a47/hsU902_3.pdf"
+    },
+    "police-hsU902_4": {
+      "sha256": "8a54faf96857a6fcee4fc568f045edd2daf93c897f839c6d2412e4fccc55db8a",
+      "path": "/textbooks/police/2026-11-11/8a54faf96857a6fcee4fc568f045edd2daf93c897f839c6d2412e4fccc55db8a/hsU902_4.pdf"
+    },
+    "police-hsU902_5": {
+      "sha256": "1be5e4523efdb44bd4f47310d7436ba8f27ef271ca13c674b0630bcc217139bc",
+      "path": "/textbooks/police/2026-11-11/1be5e4523efdb44bd4f47310d7436ba8f27ef271ca13c674b0630bcc217139bc/hsU902_5.pdf"
+    },
+    "police-hsU903_1": {
+      "sha256": "da45f708195b5c66decf588873e8c6a23b4931bdf34a8010ac017de34998d005",
+      "path": "/textbooks/police/2026-11-11/da45f708195b5c66decf588873e8c6a23b4931bdf34a8010ac017de34998d005/hsU903_1.pdf"
+    },
+    "police-hsU903_2": {
+      "sha256": "a81add12f88be8be659ffbea282e9a90fbd33dd745617f674a6b900a1f8ebfa8",
+      "path": "/textbooks/police/2026-11-11/a81add12f88be8be659ffbea282e9a90fbd33dd745617f674a6b900a1f8ebfa8/hsU903_2.pdf"
+    },
+    "police-hsU903_3": {
+      "sha256": "0a1cafbff9c8e0f6d07755b2d6d2a4413ddacfb0714194b3365f599507c1b53d",
+      "path": "/textbooks/police/2026-11-11/0a1cafbff9c8e0f6d07755b2d6d2a4413ddacfb0714194b3365f599507c1b53d/hsU903_3.pdf"
+    },
+    "police-gcU102_1": {
+      "sha256": "8f82b11b3d179599b7a4031ef59bf75b07b8d5008502d74c4832a92d64b5d028",
+      "path": "/textbooks/police/2026-11-11/8f82b11b3d179599b7a4031ef59bf75b07b8d5008502d74c4832a92d64b5d028/gcU102_1.pdf"
+    },
+    "police-gcU102_3": {
+      "sha256": "69ecd3216440f850aabd312bb3cb7aa90cecf89c23e70e09f0bce4df1fe8385f",
+      "path": "/textbooks/police/2026-11-11/69ecd3216440f850aabd312bb3cb7aa90cecf89c23e70e09f0bce4df1fe8385f/gcU102_3.pdf"
+    },
+    "police-gcU103_1": {
+      "sha256": "8308cc8e944b246d9bee9f12cd7e38112d5751f1b4b303a3031ff4e8dcae7051",
+      "path": "/textbooks/police/2026-11-11/8308cc8e944b246d9bee9f12cd7e38112d5751f1b4b303a3031ff4e8dcae7051/gcU103_1.pdf"
+    },
+    "police-gcU103_2": {
+      "sha256": "7c0df3bac698fa2bbfd6243bd012bcbe70fbbd788bd14acb76c2ba4b9eaa4171",
+      "path": "/textbooks/police/2026-11-11/7c0df3bac698fa2bbfd6243bd012bcbe70fbbd788bd14acb76c2ba4b9eaa4171/gcU103_2.pdf"
+    },
+    "police-gcU201_1": {
+      "sha256": "a73f25e6fc9df308ca93d1f3fa0db4930dddd473fc94ae357119bbf7d520a6c2",
+      "path": "/textbooks/police/2026-11-11/a73f25e6fc9df308ca93d1f3fa0db4930dddd473fc94ae357119bbf7d520a6c2/gcU201_1.pdf"
+    },
+    "police-gcU201_2": {
+      "sha256": "dce51acb53759fa5bf2954d06711cc485c459be443947a86f4a93539f6f38098",
+      "path": "/textbooks/police/2026-11-11/dce51acb53759fa5bf2954d06711cc485c459be443947a86f4a93539f6f38098/gcU201_2.pdf"
+    },
+    "police-gcU201_3": {
+      "sha256": "b5c97ef0e2d13ede7207d389f4a873869f487bb05f6c7e01e7faa412e3d9ca9a",
+      "path": "/textbooks/police/2026-11-11/b5c97ef0e2d13ede7207d389f4a873869f487bb05f6c7e01e7faa412e3d9ca9a/gcU201_3.pdf"
+    },
+    "police-gcU201_4": {
+      "sha256": "0d5e5f92d251f10672d2ac59bea25a48937cae3436c8de0ad6b56e49feeab586",
+      "path": "/textbooks/police/2026-11-11/0d5e5f92d251f10672d2ac59bea25a48937cae3436c8de0ad6b56e49feeab586/gcU201_4.pdf"
+    },
+    "police-gcU202_1": {
+      "sha256": "0a517f3082095b479bc77344f5f5949cfde4796d6bd0531517c3b27a11fa1556",
+      "path": "/textbooks/police/2026-11-11/0a517f3082095b479bc77344f5f5949cfde4796d6bd0531517c3b27a11fa1556/gcU202_1.pdf"
+    },
+    "police-gcU202_2": {
+      "sha256": "f443b7785da2850814482925b6817a4de3378894426658af139bd1a957e196dc",
+      "path": "/textbooks/police/2026-11-11/f443b7785da2850814482925b6817a4de3378894426658af139bd1a957e196dc/gcU202_2.pdf"
+    },
+    "police-gcU202_3": {
+      "sha256": "2c7196ac50321155c44bd34d23ec9e0f07208249cf67f78e821b3850a501eb03",
+      "path": "/textbooks/police/2026-11-11/2c7196ac50321155c44bd34d23ec9e0f07208249cf67f78e821b3850a501eb03/gcU202_3.pdf"
+    },
+    "police-gcU203_1": {
+      "sha256": "8c8d255ae543e7d73e257f21f26fbda866d5366bc7f8fad608472e711210b173",
+      "path": "/textbooks/police/2026-11-11/8c8d255ae543e7d73e257f21f26fbda866d5366bc7f8fad608472e711210b173/gcU203_1.pdf"
+    },
+    "police-gcU203_2": {
+      "sha256": "4195903e8f0b65533dee304e5786c8e0ffdb4079303c87e6c3fba05e6f7fc11d",
+      "path": "/textbooks/police/2026-11-11/4195903e8f0b65533dee304e5786c8e0ffdb4079303c87e6c3fba05e6f7fc11d/gcU203_2.pdf"
+    },
+    "police-gcU301_1": {
+      "sha256": "645e9858a3c5b02cdc072bc535af9c084109063bcd12124ae1f6f4d7818abe8b",
+      "path": "/textbooks/police/2026-11-11/645e9858a3c5b02cdc072bc535af9c084109063bcd12124ae1f6f4d7818abe8b/gcU301_1.pdf"
+    },
+    "police-gcU301_2": {
+      "sha256": "ce8f0f959d4af5681dbf023613ba191076dc55e2852b5b840dfa108dd001cd7b",
+      "path": "/textbooks/police/2026-11-11/ce8f0f959d4af5681dbf023613ba191076dc55e2852b5b840dfa108dd001cd7b/gcU301_2.pdf"
+    },
+    "police-gcU302_1": {
+      "sha256": "635b6fef7948752810ad34d40cdd49650f677eb38c1bb97abe1bb53323f86573",
+      "path": "/textbooks/police/2026-11-11/635b6fef7948752810ad34d40cdd49650f677eb38c1bb97abe1bb53323f86573/gcU302_1.pdf"
+    },
+    "police-gcU302_2": {
+      "sha256": "9ee3e766f927fb779d66da9fe8fd442520be758d9bbbf0ce144fab647fe3e74a",
+      "path": "/textbooks/police/2026-11-11/9ee3e766f927fb779d66da9fe8fd442520be758d9bbbf0ce144fab647fe3e74a/gcU302_2.pdf"
+    },
+    "police-gcU303_1": {
+      "sha256": "cf74e7dfeecdbf2677a488c8b657c5f3238ca6e5a15d61eb5f5dc55c0b0efc5b",
+      "path": "/textbooks/police/2026-11-11/cf74e7dfeecdbf2677a488c8b657c5f3238ca6e5a15d61eb5f5dc55c0b0efc5b/gcU303_1.pdf"
+    },
+    "police-gcU303_2": {
+      "sha256": "cd80fae951957be062aded79bb5dc13c1a68279120d97825ff738f19fa3ed013",
+      "path": "/textbooks/police/2026-11-11/cd80fae951957be062aded79bb5dc13c1a68279120d97825ff738f19fa3ed013/gcU303_2.pdf"
+    },
+    "police-gcU303_3": {
+      "sha256": "e89162fefd9521096ab744defdc2b3c94a06bf43e3aec43b420b4684ac669dbc",
+      "path": "/textbooks/police/2026-11-11/e89162fefd9521096ab744defdc2b3c94a06bf43e3aec43b420b4684ac669dbc/gcU303_3.pdf"
+    },
+    "police-gcU304_1": {
+      "sha256": "9e064260f158196b967c66e6cc2561568b2d93aeb4dacc6c42867ed3203dc191",
+      "path": "/textbooks/police/2026-11-11/9e064260f158196b967c66e6cc2561568b2d93aeb4dacc6c42867ed3203dc191/gcU304_1.pdf"
+    },
+    "police-gcU304_2": {
+      "sha256": "40f316b367c0607717b453d970e63ebded8fe59be9e851c5642de42271e36a8e",
+      "path": "/textbooks/police/2026-11-11/40f316b367c0607717b453d970e63ebded8fe59be9e851c5642de42271e36a8e/gcU304_2.pdf"
+    },
+    "police-gcU401_3": {
+      "sha256": "014e8eeeb6db820403336585e3f713c7bb18590230d114b9a47431269fa8eeb3",
+      "path": "/textbooks/police/2026-11-11/014e8eeeb6db820403336585e3f713c7bb18590230d114b9a47431269fa8eeb3/gcU401_3.pdf"
+    },
+    "police-gcU401_4": {
+      "sha256": "49579f572e1939a778ac3026e725150ebded7096da93df5ecb4d5ec712069039",
+      "path": "/textbooks/police/2026-11-11/49579f572e1939a778ac3026e725150ebded7096da93df5ecb4d5ec712069039/gcU401_4.pdf"
+    },
+    "police-gcU402_1": {
+      "sha256": "0dad17eb32442bec908e7ed69a9a647a4fc4a1c7cfde81add70089b0443e6572",
+      "path": "/textbooks/police/2026-11-11/0dad17eb32442bec908e7ed69a9a647a4fc4a1c7cfde81add70089b0443e6572/gcU402_1.pdf"
+    },
+    "police-gcU501_2": {
+      "sha256": "a270b0b9ac9e6ca6f5bc72cecf72e0348a3e3c9659eab1dd9963274218f706c1",
+      "path": "/textbooks/police/2026-11-11/a270b0b9ac9e6ca6f5bc72cecf72e0348a3e3c9659eab1dd9963274218f706c1/gcU501_2.pdf"
+    },
+    "police-gcU502_1": {
+      "sha256": "c15466019a426ca91ab1f6b89e887d1e7ea69fe0747b4629e919df30c04e0cd5",
+      "path": "/textbooks/police/2026-11-11/c15466019a426ca91ab1f6b89e887d1e7ea69fe0747b4629e919df30c04e0cd5/gcU502_1.pdf"
+    },
+    "police-gcU502_2": {
+      "sha256": "114546a79ee8a648009b9719daf6e3eb3a1b735719e53a556b97c5e2036d042f",
+      "path": "/textbooks/police/2026-11-11/114546a79ee8a648009b9719daf6e3eb3a1b735719e53a556b97c5e2036d042f/gcU502_2.pdf"
+    },
+    "police-gcU502_3": {
+      "sha256": "4627e7ff3d0553a4d0fcecf78fdb45741ac15f88d1b75842a7cdfa86a1851728",
+      "path": "/textbooks/police/2026-11-11/4627e7ff3d0553a4d0fcecf78fdb45741ac15f88d1b75842a7cdfa86a1851728/gcU502_3.pdf"
+    },
+    "police-gcU503_1": {
+      "sha256": "70aa4dc43b9eb15d32e1e13a4804e57284e4366b067a857c017f4a5278eced7c",
+      "path": "/textbooks/police/2026-11-11/70aa4dc43b9eb15d32e1e13a4804e57284e4366b067a857c017f4a5278eced7c/gcU503_1.pdf"
+    },
+    "police-gcU503_2": {
+      "sha256": "1a0f095ac9d3d770cc4446138f2688ab35989879d16b54c7f9c0b107965126e5",
+      "path": "/textbooks/police/2026-11-11/1a0f095ac9d3d770cc4446138f2688ab35989879d16b54c7f9c0b107965126e5/gcU503_2.pdf"
+    },
+    "police-gcU503_3": {
+      "sha256": "0d9a39f2b2177b727d04253801ebc6c4b21cb65fcf2094a4bab99292e4133612",
+      "path": "/textbooks/police/2026-11-11/0d9a39f2b2177b727d04253801ebc6c4b21cb65fcf2094a4bab99292e4133612/gcU503_3.pdf"
+    },
+    "police-gcU503_4": {
+      "sha256": "85a9edd0c1d16af9bab1194cdcc0f42e5f3fd73b7a48ba41be92474bcbacdd2e",
+      "path": "/textbooks/police/2026-11-11/85a9edd0c1d16af9bab1194cdcc0f42e5f3fd73b7a48ba41be92474bcbacdd2e/gcU503_4.pdf"
+    },
+    "police-gcU504_1": {
+      "sha256": "ad28860fc541d99cb97a7095a6649394418546ff53220a53dc8ffec020b1b4fa",
+      "path": "/textbooks/police/2026-11-11/ad28860fc541d99cb97a7095a6649394418546ff53220a53dc8ffec020b1b4fa/gcU504_1.pdf"
+    },
+    "police-gcU504_2": {
+      "sha256": "218951b13da8140d96af88feeec63d93cb3887cce7140fa9dbf1dd4329b4819c",
+      "path": "/textbooks/police/2026-11-11/218951b13da8140d96af88feeec63d93cb3887cce7140fa9dbf1dd4329b4819c/gcU504_2.pdf"
+    },
+    "police-gcU504_3": {
+      "sha256": "d12d0ba6a00f6405df2272558e8f5367334c35394a6b8a6a45947002fa45d0d7",
+      "path": "/textbooks/police/2026-11-11/d12d0ba6a00f6405df2272558e8f5367334c35394a6b8a6a45947002fa45d0d7/gcU504_3.pdf"
+    },
+    "police-gcU505_1": {
+      "sha256": "61280e1ff8658db64ba0d401490962807d18ec323776cedbcbb5f5ecfb98b65e",
+      "path": "/textbooks/police/2026-11-11/61280e1ff8658db64ba0d401490962807d18ec323776cedbcbb5f5ecfb98b65e/gcU505_1.pdf"
+    },
+    "police-gcU505_2": {
+      "sha256": "7a9956e23dc16fcf9a21abff549bf5a178d53fafc76d85e3e45e67295db67773",
+      "path": "/textbooks/police/2026-11-11/7a9956e23dc16fcf9a21abff549bf5a178d53fafc76d85e3e45e67295db67773/gcU505_2.pdf"
+    },
+    "police-gcU505_3": {
+      "sha256": "2df0968cf3a22e1b119ab032f9443af2cc567c8a2a01c8c489c6c762375d9b5e",
+      "path": "/textbooks/police/2026-11-11/2df0968cf3a22e1b119ab032f9443af2cc567c8a2a01c8c489c6c762375d9b5e/gcU505_3.pdf"
+    },
+    "police-gcU506_1": {
+      "sha256": "1c1056bef999e4548c08cd79658bbc46f8ab4b6e9566d92fdf23914ac6cb41ef",
+      "path": "/textbooks/police/2026-11-11/1c1056bef999e4548c08cd79658bbc46f8ab4b6e9566d92fdf23914ac6cb41ef/gcU506_1.pdf"
+    },
+    "police-gcU506_2": {
+      "sha256": "b809e079ae4bb9b2f51c0cda8b9b36ce76f1b51fc33ee7634329f8b2cb5afa8f",
+      "path": "/textbooks/police/2026-11-11/b809e079ae4bb9b2f51c0cda8b9b36ce76f1b51fc33ee7634329f8b2cb5afa8f/gcU506_2.pdf"
+    },
+    "police-gcU506_3": {
+      "sha256": "877ed6df963e48cfd985bf1f56813b6a9cd2511ae2678ec1e55f1509f5d61e9f",
+      "path": "/textbooks/police/2026-11-11/877ed6df963e48cfd985bf1f56813b6a9cd2511ae2678ec1e55f1509f5d61e9f/gcU506_3.pdf"
+    },
+    "police-gcU506_4": {
+      "sha256": "3a46228c1e127ca33a09f4aa8b695ccfa925ef5cfb333cadc1b567b8d0765aaf",
+      "path": "/textbooks/police/2026-11-11/3a46228c1e127ca33a09f4aa8b695ccfa925ef5cfb333cadc1b567b8d0765aaf/gcU506_4.pdf"
+    },
+    "police-gcU506_5": {
+      "sha256": "f61dff4dc73633f1062121072502193d84f8f6be5539395677086d54e745837c",
+      "path": "/textbooks/police/2026-11-11/f61dff4dc73633f1062121072502193d84f8f6be5539395677086d54e745837c/gcU506_5.pdf"
+    },
+    "police-gcU601_1": {
+      "sha256": "acbfdc8fb7da7ae7932cde0f1bb3a57628356da7f5facb2985dfef9d4bab1864",
+      "path": "/textbooks/police/2026-11-11/acbfdc8fb7da7ae7932cde0f1bb3a57628356da7f5facb2985dfef9d4bab1864/gcU601_1.pdf"
+    },
+    "police-gcU601_2": {
+      "sha256": "aae5e45271af05b0c6207b3b8b84b15309862f082a7c143d45662cc63d506bc9",
+      "path": "/textbooks/police/2026-11-11/aae5e45271af05b0c6207b3b8b84b15309862f082a7c143d45662cc63d506bc9/gcU601_2.pdf"
+    },
+    "police-gcU601_3": {
+      "sha256": "58ab449ef283ae8c44765d494539dabd1c13fe55f138e8fdf046545005f7dacf",
+      "path": "/textbooks/police/2026-11-11/58ab449ef283ae8c44765d494539dabd1c13fe55f138e8fdf046545005f7dacf/gcU601_3.pdf"
+    },
+    "police-gcU601_4": {
+      "sha256": "0a966dfb16cef6bf6123a7773816058a7ba94d06496207f8fe87fbd0c83466db",
+      "path": "/textbooks/police/2026-11-11/0a966dfb16cef6bf6123a7773816058a7ba94d06496207f8fe87fbd0c83466db/gcU601_4.pdf"
+    },
+    "police-gcU602_1": {
+      "sha256": "9078417f16254dccf6d1ce31e472b46d4b46bae59cd27c673f4a0675c7af42c9",
+      "path": "/textbooks/police/2026-11-11/9078417f16254dccf6d1ce31e472b46d4b46bae59cd27c673f4a0675c7af42c9/gcU602_1.pdf"
+    },
+    "police-gcU602_2": {
+      "sha256": "8d08070d7a077e3f9a905c4ef627db3f4588865b72916b19c9e1cf48a7f31efb",
+      "path": "/textbooks/police/2026-11-11/8d08070d7a077e3f9a905c4ef627db3f4588865b72916b19c9e1cf48a7f31efb/gcU602_2.pdf"
+    },
+    "police-gcU602_3": {
+      "sha256": "c8399f0f963348847f49f4682a1d03c433107c01ec5ebaef65b459e1f1efde2b",
+      "path": "/textbooks/police/2026-11-11/c8399f0f963348847f49f4682a1d03c433107c01ec5ebaef65b459e1f1efde2b/gcU602_3.pdf"
+    },
+    "police-gcU602_4": {
+      "sha256": "c585fd5fbad6ecaf227664ad39b9d928ad22d83c0890fc9b959bca601d3a6c36",
+      "path": "/textbooks/police/2026-11-11/c585fd5fbad6ecaf227664ad39b9d928ad22d83c0890fc9b959bca601d3a6c36/gcU602_4.pdf"
+    },
+    "police-gcU602_5": {
+      "sha256": "85aeee50fc558787c270e963f44de6f8d7f09cf04ac5706bee48634513b68ace",
+      "path": "/textbooks/police/2026-11-11/85aeee50fc558787c270e963f44de6f8d7f09cf04ac5706bee48634513b68ace/gcU602_5.pdf"
+    },
+    "police-gcU603_1": {
+      "sha256": "f6404bf847d44c85c4e296f1451f9988ef600a1f5e6ed8b6c5369abdf7f1a1af",
+      "path": "/textbooks/police/2026-11-11/f6404bf847d44c85c4e296f1451f9988ef600a1f5e6ed8b6c5369abdf7f1a1af/gcU603_1.pdf"
+    },
+    "police-gcU603_2": {
+      "sha256": "2caf6b542148c71d915c80e6af70902753e506b171a6f462ae99423e5edceef9",
+      "path": "/textbooks/police/2026-11-11/2caf6b542148c71d915c80e6af70902753e506b171a6f462ae99423e5edceef9/gcU603_2.pdf"
+    },
+    "police-gcU603_3": {
+      "sha256": "61f625f638d3a69021e6f2e6869d3931951622a65acf90fda7255f4796b8007a",
+      "path": "/textbooks/police/2026-11-11/61f625f638d3a69021e6f2e6869d3931951622a65acf90fda7255f4796b8007a/gcU603_3.pdf"
+    },
+    "police-gcU603_4": {
+      "sha256": "8eb982dd7467f613f2d15588d46144fc3afe260be7ffe76e8619d75c48f9877f",
+      "path": "/textbooks/police/2026-11-11/8eb982dd7467f613f2d15588d46144fc3afe260be7ffe76e8619d75c48f9877f/gcU603_4.pdf"
+    },
+    "police-gcU603_5": {
+      "sha256": "544edf75d5b3dbb43a8961b9cf68674b1132f956c15a1f5862a446ee3c52421a",
+      "path": "/textbooks/police/2026-11-11/544edf75d5b3dbb43a8961b9cf68674b1132f956c15a1f5862a446ee3c52421a/gcU603_5.pdf"
+    },
+    "police-gcU604_1": {
+      "sha256": "0b6f1519996d16287bcb3dcc8dbb79c466117e3ef21a412d4e990fa72b339cb9",
+      "path": "/textbooks/police/2026-11-11/0b6f1519996d16287bcb3dcc8dbb79c466117e3ef21a412d4e990fa72b339cb9/gcU604_1.pdf"
+    },
+    "police-gcU604_2": {
+      "sha256": "cf0134ae882d6474a1b8fbcd0dd9cf86d88ed72b4e8103f58242a3676ce42409",
+      "path": "/textbooks/police/2026-11-11/cf0134ae882d6474a1b8fbcd0dd9cf86d88ed72b4e8103f58242a3676ce42409/gcU604_2.pdf"
+    },
+    "police-gcU604_3": {
+      "sha256": "30210d0580420e1b716874fd809595d0ca8aac3141287a38387f627fabe33240",
+      "path": "/textbooks/police/2026-11-11/30210d0580420e1b716874fd809595d0ca8aac3141287a38387f627fabe33240/gcU604_3.pdf"
+    },
+    "police-gcU604_4": {
+      "sha256": "319e5310e34e016b16162cd0d3ca98ac51dfc0ee024d649a01b8fa588ceccffa",
+      "path": "/textbooks/police/2026-11-11/319e5310e34e016b16162cd0d3ca98ac51dfc0ee024d649a01b8fa588ceccffa/gcU604_4.pdf"
+    },
+    "police-gcU604_5": {
+      "sha256": "8f5e692b4b6eacddc2c48678a1f6658572ced8e5597dd9682114ba09c9571322",
+      "path": "/textbooks/police/2026-11-11/8f5e692b4b6eacddc2c48678a1f6658572ced8e5597dd9682114ba09c9571322/gcU604_5.pdf"
+    },
+    "police-gcU605_1": {
+      "sha256": "f40ddc08ad4c20e9f246b04fb650cf8c48b679a3a78435b5867896023fa78d92",
+      "path": "/textbooks/police/2026-11-11/f40ddc08ad4c20e9f246b04fb650cf8c48b679a3a78435b5867896023fa78d92/gcU605_1.pdf"
+    },
+    "police-gcU605_3": {
+      "sha256": "d890905d2684be918a310feaea781e50465bd7b6e46250dc0ee9f26a79014587",
+      "path": "/textbooks/police/2026-11-11/d890905d2684be918a310feaea781e50465bd7b6e46250dc0ee9f26a79014587/gcU605_3.pdf"
+    },
+    "police-gcU605_4": {
+      "sha256": "08b53e7a1489f10c69a95b2db80eda7d874970adedcef4a18e9a816f85fcfd5f",
+      "path": "/textbooks/police/2026-11-11/08b53e7a1489f10c69a95b2db80eda7d874970adedcef4a18e9a816f85fcfd5f/gcU605_4.pdf"
+    },
+    "police-gcU605_5": {
+      "sha256": "1c55d97674edefc97a2bcdcd81eced2d1cb2be4bd1f25fdd1a390dd6638e46b9",
+      "path": "/textbooks/police/2026-11-11/1c55d97674edefc97a2bcdcd81eced2d1cb2be4bd1f25fdd1a390dd6638e46b9/gcU605_5.pdf"
+    },
+    "police-gcU605_6": {
+      "sha256": "17799f31dad6bcf21a5acbe50900794b5114b9efec8877d1825e359002055d67",
+      "path": "/textbooks/police/2026-11-11/17799f31dad6bcf21a5acbe50900794b5114b9efec8877d1825e359002055d67/gcU605_6.pdf"
+    },
+    "police-gcU605_7": {
+      "sha256": "1de248c3d3fe73d4ea7338b7c8df005759c978121bf41576f5eaef2cd08d72b2",
+      "path": "/textbooks/police/2026-11-11/1de248c3d3fe73d4ea7338b7c8df005759c978121bf41576f5eaef2cd08d72b2/gcU605_7.pdf"
+    },
+    "police-gcU606_1": {
+      "sha256": "cbb69c4b4b3a6feee7c6c6ddb1d9a179d654be5b99ad9dcae17a6e52129e7d8f",
+      "path": "/textbooks/police/2026-11-11/cbb69c4b4b3a6feee7c6c6ddb1d9a179d654be5b99ad9dcae17a6e52129e7d8f/gcU606_1.pdf"
+    },
+    "police-gcU606_2": {
+      "sha256": "dd42d7a8464d10aab78d53ebfc7e650eb10b73cfaf483fa732b759a2d4866c32",
+      "path": "/textbooks/police/2026-11-11/dd42d7a8464d10aab78d53ebfc7e650eb10b73cfaf483fa732b759a2d4866c32/gcU606_2.pdf"
+    },
+    "police-gcU606_3": {
+      "sha256": "5b4efa10c0a730313cd402269c3e63974b8f6d41301e70e19df44872b504f2e8",
+      "path": "/textbooks/police/2026-11-11/5b4efa10c0a730313cd402269c3e63974b8f6d41301e70e19df44872b504f2e8/gcU606_3.pdf"
+    },
+    "police-gcU607_1": {
+      "sha256": "a63c25ecdf4f3e42a6b38bc9eeef78ba18c6956e14b5aa83460e180f719a3f3f",
+      "path": "/textbooks/police/2026-11-11/a63c25ecdf4f3e42a6b38bc9eeef78ba18c6956e14b5aa83460e180f719a3f3f/gcU607_1.pdf"
+    },
+    "police-gcU607_2": {
+      "sha256": "d9538fb3da96d96e84c504abf83c7b19c32330c0337c73d79bd922fa4204c66f",
+      "path": "/textbooks/police/2026-11-11/d9538fb3da96d96e84c504abf83c7b19c32330c0337c73d79bd922fa4204c66f/gcU607_2.pdf"
+    },
+    "police-gcU607_3": {
+      "sha256": "4371d8e072a046524fd626ef1d0101007f03e76f87e285eb2c1844942669d5d9",
+      "path": "/textbooks/police/2026-11-11/4371d8e072a046524fd626ef1d0101007f03e76f87e285eb2c1844942669d5d9/gcU607_3.pdf"
+    },
+    "police-gcU608_1": {
+      "sha256": "345a12861305147daa08cec1fb139c264f4c94ffc9bf046e7b5225da86d1adef",
+      "path": "/textbooks/police/2026-11-11/345a12861305147daa08cec1fb139c264f4c94ffc9bf046e7b5225da86d1adef/gcU608_1.pdf"
+    },
+    "police-gcU608_3": {
+      "sha256": "3dec727207c9c66b20ebf6a00af689160971b1691de2dd408dca649975ecd12b",
+      "path": "/textbooks/police/2026-11-11/3dec727207c9c66b20ebf6a00af689160971b1691de2dd408dca649975ecd12b/gcU608_3.pdf"
+    },
+    "police-gcU608_4": {
+      "sha256": "3270d08fe89cdd7ee78e815b52a296464a127bb20b86504570d563932de22fcb",
+      "path": "/textbooks/police/2026-11-11/3270d08fe89cdd7ee78e815b52a296464a127bb20b86504570d563932de22fcb/gcU608_4.pdf"
+    },
+    "police-gcU701_1": {
+      "sha256": "d38b6046ad8f40b1e96770c46973168f078a605c81bdf77bcdf2f9706e13116a",
+      "path": "/textbooks/police/2026-11-11/d38b6046ad8f40b1e96770c46973168f078a605c81bdf77bcdf2f9706e13116a/gcU701_1.pdf"
+    },
+    "police-gcU701_2": {
+      "sha256": "be57a01a5896e57263207ce0806603310929bc26f44ddac1f4e74233ca068ba5",
+      "path": "/textbooks/police/2026-11-11/be57a01a5896e57263207ce0806603310929bc26f44ddac1f4e74233ca068ba5/gcU701_2.pdf"
+    },
+    "police-gcU702_1": {
+      "sha256": "198d835babe3b847b29cc6a27bfec13488237511651f5dac15c2f9147a27884e",
+      "path": "/textbooks/police/2026-11-11/198d835babe3b847b29cc6a27bfec13488237511651f5dac15c2f9147a27884e/gcU702_1.pdf"
+    },
+    "police-gcU702_2": {
+      "sha256": "0ff2487082feed153f028da0e872067977efc2827c46f35a2274be1c9a018291",
+      "path": "/textbooks/police/2026-11-11/0ff2487082feed153f028da0e872067977efc2827c46f35a2274be1c9a018291/gcU702_2.pdf"
+    },
+    "police-gcU703_1": {
+      "sha256": "c8236d424bed1d93ec9016d71366230cfbf9055d469530421b6ec23d025b7cd3",
+      "path": "/textbooks/police/2026-11-11/c8236d424bed1d93ec9016d71366230cfbf9055d469530421b6ec23d025b7cd3/gcU703_1.pdf"
+    },
+    "police-gcU703_2": {
+      "sha256": "c5a0473e80d115c1dc30958cb27c5d655b5344d66825baacff79b73eea7ccc51",
+      "path": "/textbooks/police/2026-11-11/c5a0473e80d115c1dc30958cb27c5d655b5344d66825baacff79b73eea7ccc51/gcU703_2.pdf"
+    },
+    "police-gcU703_3": {
+      "sha256": "03ae3edde5bf7beb0d4e7baa9b2aaf2007e9cd4109cfc4a367948873dc88ee3e",
+      "path": "/textbooks/police/2026-11-11/03ae3edde5bf7beb0d4e7baa9b2aaf2007e9cd4109cfc4a367948873dc88ee3e/gcU703_3.pdf"
+    },
+    "police-gcU704_2": {
+      "sha256": "416794e5d7881de609b4fa7f23b745cff4c64fb432000d9831713b193ac10c5d",
+      "path": "/textbooks/police/2026-11-11/416794e5d7881de609b4fa7f23b745cff4c64fb432000d9831713b193ac10c5d/gcU704_2.pdf"
+    },
+    "police-gcU705_1": {
+      "sha256": "d0f063fef45d0586b4bc4d1500aba8c876f33fe33abdf81cc947c545df76f917",
+      "path": "/textbooks/police/2026-11-11/d0f063fef45d0586b4bc4d1500aba8c876f33fe33abdf81cc947c545df76f917/gcU705_1.pdf"
+    },
+    "police-gcU705_2": {
+      "sha256": "ba5b7cc49e815a0e6596a03cf50d5cc648b418d214e8e4f25d511a368a1a321a",
+      "path": "/textbooks/police/2026-11-11/ba5b7cc49e815a0e6596a03cf50d5cc648b418d214e8e4f25d511a368a1a321a/gcU705_2.pdf"
+    },
+    "police-gcU706_1": {
+      "sha256": "4fe87919a6de05463fb707d315da88121a0f8e33b9116240e20d69a86d9eb833",
+      "path": "/textbooks/police/2026-11-11/4fe87919a6de05463fb707d315da88121a0f8e33b9116240e20d69a86d9eb833/gcU706_1.pdf"
+    },
+    "police-gcU706_2": {
+      "sha256": "fccf4e75a953f1d36cf4cba4d8464e33618cbb877d6e72cccc0913246d209ee4",
+      "path": "/textbooks/police/2026-11-11/fccf4e75a953f1d36cf4cba4d8464e33618cbb877d6e72cccc0913246d209ee4/gcU706_2.pdf"
+    },
+    "police-gcU707_2": {
+      "sha256": "6eafc8b37f002fc1ade2257deeca9b9d19580e90170b2f29418c388cdccf28e9",
+      "path": "/textbooks/police/2026-11-11/6eafc8b37f002fc1ade2257deeca9b9d19580e90170b2f29418c388cdccf28e9/gcU707_2.pdf"
+    },
+    "police-gcU708_2": {
+      "sha256": "5ea1419bedc38f55a8b2bdd89bf92bd07167235d7f11626ebfe69e60561f91bb",
+      "path": "/textbooks/police/2026-11-11/5ea1419bedc38f55a8b2bdd89bf92bd07167235d7f11626ebfe69e60561f91bb/gcU708_2.pdf"
+    }
+  }
+}

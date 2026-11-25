@@ -26,8 +26,8 @@ async function webRequest(body: object) {
   return response.data;
 }
 
-export default function PcLecturePlan({ subject, loggedIn, account, pro, linkingAvailable }: {
-  subject: PcSubject; loggedIn: boolean; account: string | null; pro: boolean; linkingAvailable: boolean;
+export default function PcLecturePlan({ subject, loggedIn, account, pro, linkingAvailable, studyAvailable = false }: {
+  subject: PcSubject; loggedIn: boolean; account: string | null; pro: boolean; linkingAvailable: boolean; studyAvailable?: boolean;
 }) {
   const { title: name, exam, site: appSite, lectureSubject } = PC_SUBJECTS[subject];
   const site = pcSite(subject);
@@ -134,6 +134,10 @@ export default function PcLecturePlan({ subject, loggedIn, account, pro, linking
         <p>{lectureSubject ? '전체 강의와 과목별 Pro 기능' : '구매한 학습권의 Pro 이용 상태 확인'}</p>
       </div>
     </div>
+    {studyAvailable && <div className="pc-plan-bottom">
+      <p>이 과목에서 이용할 수 있는 Pro 학습 기능을 확인해 보세요.</p>
+      <Link href={'/pc-pro/study/' + subject} className="pc-plan-secondary">Pro 학습 {pro ? '열기' : '보기'} →</Link>
+    </div>}
     {!pro && <div className="pc-plan-bottom">
       <p>{exam} 앱에서 구매한 과목을 연결하면 PC에서도 Pro를 이용할 수 있어요.</p>
       {linkingAvailable && (loggedIn

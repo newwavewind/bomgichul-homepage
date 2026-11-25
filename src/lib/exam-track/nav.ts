@@ -1,5 +1,5 @@
 import type { CommunityScope } from "@/types/database";
-import { EXAM_SUBJECTS, PC_APP_URL } from "@/lib/constants";
+import { EXAM_SUBJECTS } from "@/lib/constants";
 import {
   archiveBaseHref,
   communityBaseHref,
@@ -274,10 +274,7 @@ function toolsForScope(scope: CommunityScope): NavTool[] {
     { href: communityBaseHref(scope), label: "커뮤니티" },
     { href: "/app-services", label: "앱서비스" },
   ];
-  // PC앱은 공인중개사만 있다. 다른 시험 화면이나 시험 선택 홈에서는 띄우지 않는다.
-  if (scope === "real_estate") {
-    tools.push({ href: PC_APP_URL, label: "PC앱", external: true });
-  }
+  tools.push({ href: "/pc-pro", label: "PC Pro" });
   return tools;
 }
 

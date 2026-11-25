@@ -54,12 +54,16 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
               <div className="lecture-row-action">
                 {preview ? <PlayerBoundary><Suspense fallback={<button className="lecture-preview-button" disabled>준비 중…</button>}>
                   <Player lectureId={lesson.id} progressId={`homepage-sample:${lesson.id}`} initialOpen={initialLectureId === lesson.id} renderFooter={() => <LectureSocial lectureId={lesson.id} subject={subject} title={lesson.title} site={site}/>} renderTrigger={play => <button className="lecture-preview-button" onClick={play} aria-label={`${lesson.number}강 ${lesson.title} 재생`}><span aria-hidden="true">▶</span> 재생</button>}/>
-                </Suspense></PlayerBoundary> : (site === 'police' || site === 'real-estate') && lesson.ready
+                </Suspense></PlayerBoundary> : lesson.ready
                   ? pcPro
                     ? <PlayerBoundary><ProLectureButton lesson={lesson} site={site} subject={subject} initialOpen={initialLectureId === lesson.id}/></PlayerBoundary>
                     : <a className="lecture-app-button" href={`#${site}-pc-plan`} aria-label={`${lesson.number}강 ${lesson.title} Pro 수강권`}>Pro 수강 <span aria-hidden="true">↗</span></a>
                   : <button type="button" className="lecture-app-button" onClick={() => openApp(lesson.title)} aria-label={`${lesson.number}강 ${lesson.title} 앱에서 보기`}>앱에서 보기 <span aria-hidden="true">↗</span></button>}
-                {book && (book.url ? <TextbookButton book={book}/> : <TextbookAppButton title={book.title} onOpenApp={() => openApp(book.title, 'book')}/>)}
+                {book && (book.url
+                  ? <TextbookButton book={book}/>
+                  : pcPro && lesson.ready
+                    ? <TextbookButton book={{ ...book, url: '/api/pc-access/textbook/' + lesson.id }} pro/>
+                    : <TextbookAppButton title={book.title} onOpenApp={() => openApp(book.title, 'book')}/>)}
               </div>
             </li>;
           }))}
@@ -72,7 +76,7 @@ export default function LectureSamples({ lectures, parts, subjectLabel, subject,
         <p className="lecture-download-kicker">{siteConfig.appName}</p>
         <h2 id="lecture-download-title">{selectedKind === 'book' ? '이 교재는 앱에서 이용할 수 있어요' : '이 강의는 앱에서 만나 보세요'}</h2>
         <p className="lecture-download-selected">{subjectLabel} · {selected}</p>
-        <p className="lecture-download-description">{selectedKind === 'book' ? <>홈페이지에서는 각 과목의 첫 {freeBookCount}강 교재를 미리 볼 수 있어요.<br/>다른 교재도 앱에서 강의와 함께 이용할 수 있어요.</> : <>홈페이지에서는 첫 3강을 미리 볼 수 있어요.<br/>앱에서 이어서 공부할 수 있어요.</>}</p>
+        <p className="lecture-download-description">{selectedKind === 'book' ? <>홈페이지에서는 각 과목의 첫 {freeBookCount}강 교재를 미리 볼 수 있어요.<br/>해당 과목을 Pro로 연결하면 나머지 교재도 홈페이지에서 볼 수 있어요.</> : <>홈페이지에서는 첫 3강을 미리 볼 수 있어요.<br/>앱에서 이어서 공부할 수 있어요.</>}</p>
         <AppStoreButtons className="justify-center" links={siteConfig.appLinks}/>
       </div>
     </dialog>

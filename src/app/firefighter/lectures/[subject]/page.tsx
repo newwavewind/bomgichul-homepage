@@ -6,6 +6,7 @@ import outline from '@/components/lectures/firefighter/outline.json';
 import lectureManifest from '@/components/lectures/firefighter/source-manifest.json';
 import LectureSamples from '@/components/lectures/LectureSamples';
 import PcLecturePlan from '@/components/lectures/police/PcLecturePlan';
+import { getPcStudyCounts } from '@/lib/pc-access/study';
 import { lecturePcSubject } from '@/lib/pc-access/catalog';
 import { getPcViewer } from '@/lib/pc-access/session';
 import { hasPcPro } from '@/lib/pc-access/pro';
@@ -52,7 +53,7 @@ export default async function FirefighterLectureSubjectPage({params, searchParam
     <nav aria-label="맛보기 강의 과목" className="flex flex-wrap gap-2 border-b border-[color:light-dark(#d8e3ef,var(--color-mist))] pb-6">
       {catalog.map(item => <Link key={item.subject} href={lecturePagePath('firefighter', item.subject)} aria-current={item.subject === subject ? 'page' : undefined} className={`rounded-full border px-4 py-2.5 text-[13px] font-semibold transition-colors ${item.subject === subject ? 'border-carbon bg-carbon text-white' : 'border-[color:light-dark(#d8e3ef,var(--color-mist))] bg-white text-smoke hover:bg-snow'}`}>{item.label}</Link>)}
     </nav>
-    <PcLecturePlan subject={offer} loggedIn={Boolean(viewer)} account={viewer?.label ?? null} pro={pro} linkingAvailable={storeVerificationConfigured()}/>
+    <PcLecturePlan studyAvailable={Boolean(getPcStudyCounts(offer))} subject={offer} loggedIn={Boolean(viewer)} account={viewer?.label ?? null} pro={pro} linkingAvailable={storeVerificationConfigured()}/>
     <LectureSamples pcPro={pro} key={`${subject}:${initialLectureId || 'list'}`} site="firefighter" subject={subject} initialLectureId={initialLectureId} lectures={group.lectures} parts={curriculum.parts} subjectLabel={group.label}/>
     <section id="lecture-app" className="scroll-mt-24 rounded-[24px] border border-[color:light-dark(#d8e3ef,var(--color-mist))] bg-[color:light-dark(#f3f7fc,color-mix(in_srgb,var(--color-snow)_90%,#f3f7fc))] px-6 py-9 md:flex md:items-center md:justify-between md:gap-10 md:px-9">
       <div className="max-w-xl space-y-3">

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { PC_STUDY_FEATURES } from "@/lib/pc-access/study-features";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { appServiceFeatures } from "@/lib/app-service-features";
 import { appStoreLinksForScope } from "@/lib/constants";
@@ -33,6 +35,39 @@ export default function AppServicesPage() {
           내 시험 앱 찾기 ↓
         </a>
       </header>
+
+      <section aria-labelledby="pc-pro-features" className="mb-10 space-y-6 rounded-3xl border border-ios-blue/20 bg-snow p-5 sm:p-7">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 id="pc-pro-features" className="font-display text-subheading font-semibold text-ink">앱에서 구매한 과목을 웹에서도</h2>
+            <p className="mt-2 max-w-xl text-body-sm leading-relaxed text-smoke">
+              봄기출 앱의 구매 내역을 홈페이지 계정에 연결하면 해당 과목의 PC Pro 기능이 열려요. 기존 구매자는 구매 복원으로 연결할 수 있어요.
+            </p>
+          </div>
+          <Link href="/pc-pro" className="inline-flex min-h-11 items-center rounded-full bg-carbon px-5 py-2 font-display text-body-sm font-semibold text-paper">
+            PC Pro 과목 선택
+          </Link>
+        </div>
+        <ol className="grid gap-3 text-body-sm font-medium text-ink sm:grid-cols-3">
+          <li><strong className="mr-2 text-carbon">1</strong> 웹에 로그인하고 구매 과목의 QR 열기</li>
+          <li><strong className="mr-2 text-carbon">2</strong> 앱에서 QR을 찍고 구매 확인</li>
+          <li><strong className="mr-2 text-carbon">3</strong> 웹에서 연결 완료</li>
+        </ol>
+        <div className="border-t border-mist pt-5">
+          <h3 className="font-display text-body font-semibold text-ink">웹 Pro에서 할 수 있는 공부</h3>
+          <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+            <li className="rounded-xl border border-mist bg-paper p-3">
+              <p className="font-semibold text-ink">칠판 강의·교재</p>
+              <p className="mt-1 text-body-sm text-smoke">경찰공무원·공인중개사·소방공무원의 연동한 과목에서 전체 강의와 교재를 엽니다.</p>
+            </li>
+            {PC_STUDY_FEATURES.map(feature => <li key={feature.id} className="rounded-xl border border-mist bg-paper p-3">
+              <p className="font-semibold text-ink">{feature.title}</p>
+              <p className="mt-1 text-body-sm text-smoke">{feature.description}</p>
+            </li>)}
+          </ul>
+          <p className="mt-4 text-body-sm text-smoke">제공하는 기능과 자료는 시험·과목에 따라 달라요. PC Pro에서 구매 과목을 선택해 확인하세요.</p>
+        </div>
+      </section>
 
       <section aria-labelledby="app-highlights" className="mb-10">
         <h2 id="app-highlights" className="mb-3 font-display text-subheading font-semibold text-ink">앱에서 더 할 수 있는 공부</h2>
@@ -79,8 +114,8 @@ export default function AppServicesPage() {
                 <tr id={id} className="scroll-mt-24 border-y border-mist bg-snow target:bg-ios-blue/15">
                   <th scope="rowgroup" colSpan={3} className="px-2.5 py-2.5 font-display font-semibold text-ink sm:px-5">{name}</th>
                 </tr>
-                {rows.map(([label, app, web, availability]) => {
-                  const appOnly = Boolean(app && !web);
+                {rows.map(([label, app, web, availability, pro]) => {
+                  const appOnly = Boolean(app && !web && !pro);
                   return (
                     <tr key={label} className="border-b border-mist align-top last:border-b-0">
                       <th scope="row" className="break-keep px-2.5 py-2.5 font-display font-medium text-ink [overflow-wrap:anywhere] sm:px-5">
@@ -96,7 +131,8 @@ export default function AppServicesPage() {
                         {availability ? <p className="mt-1 text-reading-note font-normal text-smoke">{availability}</p> : null}
                       </td>
                       <td className="break-keep px-2.5 py-2.5 text-smoke [overflow-wrap:anywhere] sm:px-5">
-                        {web ?? <span aria-label="웹에서 제공하지 않음" className="text-fog">—</span>}
+                        {web ?? (!pro && <span aria-label="웹에서 제공하지 않음" className="text-fog">—</span>)}
+                        {pro && <span className="mt-1 block"><strong className="mr-1 text-carbon">Pro</strong>{pro}</span>}
                       </td>
                     </tr>
                   );
