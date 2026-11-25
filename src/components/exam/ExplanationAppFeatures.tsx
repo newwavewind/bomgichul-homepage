@@ -3,6 +3,8 @@
 import { createContext, useContext, useId, useRef, useState, type ReactNode } from "react";
 import { ExamExplanationAiMenu } from "@/components/exam/ExamExplanationAiMenu";
 import { HistoryNotebookPreview } from "@/components/history/HistoryNotebookPreview";
+import { PcNotebookAction } from "@/components/pc-pro/PcStudyAction";
+import type { PcQuestionAccess } from "@/lib/pc-access/study-features";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import type { AppStoreLinks } from "@/lib/constants";
 
@@ -108,16 +110,17 @@ export function ExplanationAiAction({ prompt }: { prompt: string }) {
   return <ExamExplanationAiMenu prompt={prompt} openInApp={open ? (trigger) => open("ai", trigger) : undefined} />;
 }
 
-export function ExplanationAppTools({ questionPrompt }: { questionPrompt?: string }) {
+export function ExplanationAppTools({ questionPrompt, notebookPro }: { questionPrompt?: string; notebookPro?: PcQuestionAccess }) {
   const open = useContext(OpenFeature);
-  if (!open && !questionPrompt) return null;
+  if (!open && !questionPrompt && !notebookPro) return null;
 
   const toolClass = "rounded-full border border-mist bg-paper px-3.5 py-2 font-display text-body-sm font-medium text-ink hover:bg-snow";
   return (
     <div className="exam-explanation-notebook mt-5 flex flex-wrap items-center gap-2.5 px-4 py-3">
-      <ExplanationAppFeatureButton feature="notes" className={toolClass}>
-        필기노트 보기 <span aria-hidden>→</span>
-      </ExplanationAppFeatureButton>
+      {notebookPro ? <PcNotebookAction question={notebookPro.path} offers={notebookPro.offers} className={toolClass}/>
+        : <ExplanationAppFeatureButton feature="notes" className={toolClass}>
+          필기노트 보기 <span aria-hidden>→</span>
+        </ExplanationAppFeatureButton>}
       {questionPrompt ? <ExplanationAiAction prompt={questionPrompt} /> : null}
     </div>
   );

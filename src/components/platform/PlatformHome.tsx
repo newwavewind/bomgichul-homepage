@@ -227,10 +227,6 @@ export function PlatformHome() {
           <div className="pointer-events-none absolute -right-14 -top-20 size-56 rounded-full bg-[#b5d9ff]/40 blur-2xl" aria-hidden />
           <div className="pointer-events-none absolute bottom-0 right-0 h-1.5 w-28 bg-ios-blue" aria-hidden />
           <div className="relative max-w-4xl">
-            <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1 break-keep text-subheading font-light leading-snug tracking-[-0.02em] text-black">
-              <span>비싼 기출문제집 사지 마세요.</span>
-              <span>기출문제와 해설을 무료로 출력하세요.</span>
-            </p>
             <h1 id="platform-home-heading" className="mt-5 max-w-3xl text-[length:calc(clamp(38px,6vw,56px)*var(--reading-font-scale))] font-light leading-[1.08] tracking-[-0.02em] text-black">
               기출문제와 해설,
               <br className="sm:hidden" /> 봄기출

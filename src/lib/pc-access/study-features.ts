@@ -7,3 +7,12 @@ export const PC_STUDY_FEATURES = [
   { id: 'audio', title: '포켓 오디오', description: '포켓 지문과 정답, 해설을 이어서 듣습니다.' },
 ] as const;
 export type PcStudyFeature = typeof PC_STUDY_FEATURES[number]['id'];
+
+export type PcStudyOffer = { id: string; title: string; plan: string };
+
+export function isPcStudyFeature(value: string | null): value is PcStudyFeature {
+  return PC_STUDY_FEATURES.some(({ id }) => id === value);
+}
+
+export type PcQuestionAccess = { path: string; offers: PcStudyOffer[] };
+export type PcQuestionFeature = { feature: PcStudyFeature; offers: PcStudyOffer[] };

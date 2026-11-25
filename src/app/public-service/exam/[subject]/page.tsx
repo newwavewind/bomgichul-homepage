@@ -1,3 +1,4 @@
+import { PcSubjectTools } from "@/components/pc-pro/PcSubjectTools";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
@@ -44,7 +45,7 @@ export default async function PublicServiceExamSubjectPage({ params }: Props) {
       <header className="mt-6 border-b border-mist pb-8">
         <h1 className="font-display text-heading font-semibold text-ink">9급 공무원 {data.subject.label} 기출문제</h1>
       </header>
-      <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} toc={await loadTrackSubjectToc("public-service", subjectId)} />
+      <TrackLearningTools scope="public_service" subjectId={subjectId} basePath="/public-service" exams={data.exams} proTools={<PcSubjectTools site={"public-service"} subject={subjectId} features={["ox", "audio"]} />} toc={await loadTrackSubjectToc("public-service", subjectId)} />
       <section className="mt-10">
         <div className={`grid gap-6 ${sessionsBySource.size > 1 ? "lg:grid-cols-2" : "max-w-2xl"}`}>
           {[...sessionsBySource.entries()].map(([sourceCode, sourceSessions]) => (

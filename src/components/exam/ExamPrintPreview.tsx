@@ -18,7 +18,7 @@ export function ExamPrintPreview({ title, href, fileName, details, generatedFile
   const safeFileName = fileName.replace(/[<>:"/\\|?*]/g, " ");
 
   return (
-    <section className="mt-5 overflow-hidden rounded-2xl border border-mist" aria-label="출력할 기출문제와 해설">
+    <section className="mt-5 overflow-hidden rounded-2xl border border-mist" aria-label="출력할 PDF">
       <div className="flex flex-wrap items-center justify-between gap-3 bg-paper p-4">
         <div>
           <h2 className="font-display font-semibold text-ink">{title}</h2>
@@ -35,13 +35,13 @@ export function ExamPrintPreview({ title, href, fileName, details, generatedFile
           </button>
         </div>
         <p className="basis-full text-sm leading-6 text-fog">
-          기출문제와 해설을 무료로 출력하고, PDF 파일을 친구나 스터디에 자유롭게 공유하세요. 출력물에 있는 출처 표시는 그대로 남겨 주세요.
+          이 PDF를 무료로 출력하거나 친구와 공유할 수 있어요. 출력물에 있는 출처 표시는 그대로 남겨 주세요.
         </p>
       </div>
       <div id={sharePanelId} hidden={!shareOpen} className="space-y-2 border-t border-mist bg-paper p-4">
         {shareOpen && <ExamPrintFileShare href={href} fileName={safeFileName} generatedFile={generatedFile} />}
       </div>
-      <iframe src={href} title="기출문제와 해설 PDF 미리보기" className="block h-[65vh] min-h-80 w-full border-t border-mist bg-white" />
+      <iframe src={href} title="기출 PDF 미리보기" className="block h-[65vh] min-h-80 w-full border-t border-mist bg-white" />
     </section>
   );
 }

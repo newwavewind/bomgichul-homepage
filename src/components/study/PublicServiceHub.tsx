@@ -1,3 +1,4 @@
+import { pcStudyOffers } from "@/lib/pc-access/study-context";
 import subjects from "@/data/public-service/manifest.json";
 import {
   HubBackButton,
@@ -20,7 +21,7 @@ export function PublicServiceHub() {
           <HubExamIntroLink href="/public-service/intro" label="공무원" />
         </div>
 
-        <PublicServiceSubjectBrowser subjects={subjects} />
+        <PublicServiceSubjectBrowser subjects={subjects} cellOffers={Object.fromEntries(subjects.map(subject => [subject.id, pcStudyOffers("public-service", subject.id, "cells")]))} />
 
         <ExamTrackHubGuide id="public_service" basePath="/public-service" label="9급 공무원" />
 

@@ -1,3 +1,4 @@
+import { pcQuestionFeatures, pcQuestionOffers, pcQuestionHasNotebook } from "@/lib/pc-access/study-context";
 import { QuestionNavLabel } from "@/components/exam/QuestionNavLabel";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -117,6 +118,7 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
   // 서버가 searchParams 를 읽을 수 없어서다. 개념 복귀 중 로그인이 필요한
   // 경우는 ConceptReturnLoginGate 가 from 을 이어붙여 따로 보낸다.
   const detailPath = `${listBase}/${questionNo}`;
+  const proAccess = { path: detailPath, offers: pcQuestionOffers(detailPath) };
 
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "기출문제 해설", path: "/" },
@@ -245,10 +247,13 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             year={year}
             questionNo={questionNo}
             externallyToggled
+            practice={{ question: detailPath, features: pcQuestionFeatures(detailPath) }}
           >
             <ExamQuestionSeoExplanations
               question={question}
               subjectLabel={label}
+              glossaryPro={proAccess.offers.length ? proAccess : undefined}
+              notebookPro={proAccess.offers.length && pcQuestionHasNotebook(detailPath) ? proAccess : undefined}
               glossaryByChoice={await examGlossaryTerms("real_estate", `real-estate/${subject}/${year}/${questionNo}`, question.items)}
               embedded
             />

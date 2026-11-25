@@ -1,6 +1,8 @@
 "use client";
 
 import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { PcQuestionPractice } from "@/components/pc-pro/PcStudyAction";
+import type { PcQuestionFeature } from "@/lib/pc-access/study-features";
 import { DailyChoiceBadge } from "@/components/daily/DailyChoiceBadge";
 
 const EVENT_NAME = "exam:answer_revealed";
@@ -35,12 +37,14 @@ export function ExamSeoExplanationDetails({
   year,
   questionNo,
   externallyToggled = false,
+  practice,
   children,
 }: {
   subject: string;
   year: number;
   questionNo: number;
   externallyToggled?: boolean;
+  practice?: { question: string; features: PcQuestionFeature[] };
   children: React.ReactNode;
 }) {
   const [choice, setChoice] = useState<{ number: number; incorrect: boolean } | null>(null);
@@ -95,7 +99,9 @@ export function ExamSeoExplanationDetails({
           </span>
         </span>
       </summary>
-      <div className="pt-2"><ExplanationChoiceSelection choice={choice}>{children}</ExplanationChoiceSelection></div>
+      <div className="pt-2"><ExplanationChoiceSelection choice={choice}>
+        {practice?.features.length ? <PcQuestionPractice {...practice}>{children}</PcQuestionPractice> : children}
+      </ExplanationChoiceSelection></div>
     </details>
   );
 }

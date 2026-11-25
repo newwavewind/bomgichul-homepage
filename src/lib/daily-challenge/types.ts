@@ -1,3 +1,4 @@
+import type { PcStudyOffer } from "@/lib/pc-access/study-features";
 import type {
   ExamReferenceEntry,
   ExamQuestionTable,
@@ -45,6 +46,7 @@ export type DailyQuestionPresentation = {
 export type DailyReviewExplanation = {
   question: SeoExplanationQuestion;
   glossaryByChoice: Record<string, ChoiceGlossary>;
+  glossaryOffers?: PcStudyOffer[];
 };
 
 export type DailyReviewItem = {

@@ -1,3 +1,5 @@
+import { PcStudyAction } from "@/components/pc-pro/PcStudyAction";
+import type { PcStudyOffer } from "@/lib/pc-access/study-features";
 import Link from "next/link";
 export function SubjectLearningCard({
   label,
@@ -6,6 +8,7 @@ export function SubjectLearningCard({
   examHref,
   dailyHref,
   lectureHref,
+  cellOffers = [],
 }: {
   label: string;
   badge: string;
@@ -13,9 +16,10 @@ export function SubjectLearningCard({
   examHref: string;
   dailyHref?: string;
   lectureHref?: string;
+  cellOffers?: PcStudyOffer[];
 }) {
-  const columns = lectureHref && dailyHref ? 3 : dailyHref ? 2 : 1;
-  const compact = columns === 3;
+  const columns = 1 + Number(Boolean(dailyHref)) + Number(Boolean(lectureHref)) + Number(cellOffers.length > 0);
+  const compact = columns >= 3;
   const actionClass = compact
     ? "flex min-h-11 items-center justify-center rounded-[12px] py-2.5 text-center font-semibold transition-colors px-1.5 text-xs sm:text-sm"
     : "flex min-h-11 items-center justify-center rounded-[12px] px-3 py-2.5 text-center text-sm font-semibold transition-colors";
@@ -28,7 +32,7 @@ export function SubjectLearningCard({
       <p className="mt-1.5 font-display text-sm leading-5 text-smoke">
         {examCount > 0 ? `기출 ${examCount}문항` : "연도별 기출과 선지 해설"}
       </p>
-      <div className={`mt-5 grid gap-2 ${columns === 3 ? "grid-cols-3" : columns === 2 ? "grid-cols-2" : ""}`}>
+      <div className={`mt-5 grid gap-2 ${columns === 4 ? "grid-cols-2" : columns === 3 ? "grid-cols-3" : columns === 2 ? "grid-cols-2" : ""}`}>
         <Link
           href={examHref}
           className={`${actionClass} bg-carbon text-paper hover:bg-midnight`}
@@ -43,6 +47,7 @@ export function SubjectLearningCard({
             매일 10문제
           </Link>
         ) : null}
+        <PcStudyAction feature="cells" offers={cellOffers} subjectLabel={label} className={`${actionClass} gap-1 border border-mist bg-paper text-carbon hover:bg-snow`}/>
         {lectureHref ? (
           <Link
             href={lectureHref}

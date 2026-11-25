@@ -1,3 +1,4 @@
+import { PcSubjectTools } from "@/components/pc-pro/PcSubjectTools";
 import Link from "next/link";
 import { BackLink } from "@/components/ui/BackLink";
 import { notFound } from "next/navigation";
@@ -91,6 +92,7 @@ export default async function DailyReviewPage({ params }: ReviewPageProps) {
           </p>
         </div>
 
+        <div className="mb-6 flex flex-wrap gap-2"><PcSubjectTools site={"real-estate"} subject={subject} features={["ox", "audio"]} /></div>
         {!user ? (
           <div className="rounded-[var(--radius-cards)] border border-carbon bg-paper p-8 text-center">
             <p className="font-display text-body text-smoke">

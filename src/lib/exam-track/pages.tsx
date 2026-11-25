@@ -1,3 +1,5 @@
+import { pcQuestionFeatures, pcQuestionOffers, pcQuestionHasNotebook } from "@/lib/pc-access/study-context";
+import { PcSubjectTools } from "@/components/pc-pro/PcSubjectTools";
 import { QuestionNavLabel } from "@/components/exam/QuestionNavLabel";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -211,6 +213,7 @@ export async function TrackConceptListPage({
             {track.label} {data.subject.label} 기출문제 →
           </Link>
         </header>
+        <div className="mt-5"><PcSubjectTools site={track.basePath.slice(1)} subject={subjectId} features={["law"]} /></div>
         <div className="mt-10"><TrackConceptPartList groups={groups} hrefBase={`${track.basePath}/concepts/${subjectId}`} /></div>
         <SimpleAppInstallStrip scope={track.communityScope} />
       </div>
@@ -383,6 +386,7 @@ export async function TrackExamSubjectPage({
           basePath={track.basePath}
           exams={data.exams}
           toc={toc}
+          proTools={<PcSubjectTools site={track.basePath.slice(1)} subject={subjectId} features={["ox", "audio"]} />}
         />
         <section className="mt-10">
           {sessions.length === 0 ? (
@@ -593,6 +597,7 @@ export async function TrackExamDetailPage({
   const next = position >= 0 && position < session.length - 1 ? session[position + 1] : null;
   const listBase = `${track.basePath}/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}`;
   const detailPath = `${listBase}/${exam.questionNo}`;
+  const proAccess = { path: detailPath, offers: pcQuestionOffers(detailPath) };
   const storageSubject = `${track.communityScope}:${subjectId}:${source}`;
   const memoSubject = examMemoSubjectKey(track.communityScope, subjectId, source);
   // 공개 메모는 SEO 본문이라 서버에서 그대로 그린다. 내 북마크·풀이기록 같은
@@ -758,6 +763,7 @@ export async function TrackExamDetailPage({
                 year={exam.year}
                 questionNo={exam.questionNo}
                 externallyToggled
+                practice={{ question: detailPath, features: pcQuestionFeatures(detailPath) }}
               >
                 {/* 영어 지문 해석은 앱처럼 정답 확인 뒤 해설 칸에 함께 펼친다(2026-10-21) —
                     예전엔 선지 아래에 접혀 있어 해설 칸만 보고 「해석이 없다」고 여겼다. */}
@@ -773,6 +779,8 @@ export async function TrackExamDetailPage({
                   question={seoQuestion}
                   subjectLabel={data.subject.label}
                   scope={track.communityScope}
+                  glossaryPro={proAccess.offers.length ? proAccess : undefined}
+                  notebookPro={proAccess.offers.length && pcQuestionHasNotebook(detailPath) ? proAccess : undefined}
                   glossaryByChoice={glossaryByChoice}
                   embedded
                 />

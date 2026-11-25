@@ -21,6 +21,8 @@ type PcOffer = {
   productId: string;
   bundle: string;
   subjectId: string;
+  webId?: string;
+  source?: string;
   site: string;
   exam: string;
   platforms: readonly string[];

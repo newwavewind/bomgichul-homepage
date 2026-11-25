@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import type { PcStudy, PocketQuestion, StudyChoice, StudyLaw, StudySheet, StudySource, StudyTrap } from '@/lib/pc-access/study';
-import { PC_STUDY_FEATURES, type PcStudyFeature } from '@/lib/pc-access/study-features';
+import type { PcStudy, PocketQuestion, StudyChoice, StudyLaw, StudySheet, StudySource } from '@/lib/pc-access/study';
+import type { PcStudyFeature } from '@/lib/pc-access/study-features';
+import { CitedText } from '@/components/exam/CitedText';
 import './pc-study.css';
 
 function Sources({ sources }: { sources: StudySource[] }) {
@@ -66,38 +67,24 @@ function CellStudy({ sheets }: { sheets: StudySheet[] }) {
   </div>;
 }
 
-function AnswerCard({ item }: { item: StudyChoice | PocketQuestion }) {
+function AnswerCard({ item, compact = false }: { item: StudyChoice | PocketQuestion; compact?: boolean }) {
   const [answer, setAnswer] = useState<boolean | null>(null);
   const match = 'mode' in item && item.mode === 'match';
   const positive = match ? '해당함' : 'O';
   const negative = match ? '해당 없음' : 'X';
   return <article className="pc-study-card">
-    <p className="pc-study-kicker">{item.source}</p>
-    {'stem' in item && <p>{item.stem}</p>}
-    <h2>{item.text}</h2>
+    {compact ? <p className="pc-study-kicker">선지 {item.id.split('::').at(-1)}</p> : <p className="pc-study-kicker">{item.source}</p>}
+    {!compact && 'stem' in item && <p>{item.stem}</p>}
+    {compact ? <p className="font-semibold">{item.text}</p> : <h2>{item.text}</h2>}
     <div className="pc-study-actions" role="group" aria-label="선지 판단">
       <button type="button" aria-pressed={answer === true} onClick={() => setAnswer(true)}>{positive}</button>
       <button type="button" aria-pressed={answer === false} onClick={() => setAnswer(false)}>{negative}</button>
     </div>
     {answer !== null && <div className="pc-study-feedback">
       <strong role="status">{answer === item.answer ? '정답' : '오답'} · {item.answer ? positive : negative}</strong>
-      {item.explanation && <p>{item.explanation}</p>}
+      {item.explanation && <p><CitedText text={item.explanation}/></p>}
     </div>}
-    {item.href && <Sources sources={[{label:'원문 기출 보기',url:item.href}]}/>}
-  </article>;
-}
-
-function TrapCard({ item }: { item: StudyTrap }) {
-  const [open,setOpen] = useState(false);
-  return <article className="pc-study-card">
-    <p className="pc-study-kicker">{item.source}</p>
-    <h2>{item.before}<mark>{item.wrong}</mark>{item.after}</h2>
-    <button type="button" onClick={() => setOpen(!open)} aria-expanded={open}>{open ? '바른 표현 접기' : '바른 표현 보기'}</button>
-    {open && <div className="pc-study-feedback">
-      <h3>{item.before}<strong>{item.right}</strong>{item.after}</h3>
-      {item.explanation && <p>{item.explanation}</p>}
-    </div>}
-    {item.href && <Sources sources={[{label:'원문 기출 보기',url:item.href}]}/>}
+    {!compact && item.href && <Sources sources={[{label:'원문 기출 보기',url:item.href}]}/>}
   </article>;
 }
 
@@ -167,28 +154,36 @@ function AudioCard({ item, onNext }: { item: PocketQuestion; onNext: () => void 
   </article>;
 }
 
-function StudyDeck({ feature, data }: { feature: Exclude<PcStudyFeature,'cells'>; data: PcStudy }) {
+function StudyDeck({ feature, items }: { feature: 'audio' | 'ox' | 'law'; items: (PocketQuestion | StudyLaw)[] }) {
   const [index,setIndex] = useState(0);
-  const count = (feature === 'audio' ? data.ox : data[feature]).length;
-  const item = feature === 'choices' ? data.choices[index] : data.ox[index];
-  let card;
-  switch (feature) {
-    case 'choices': case 'ox': card = <AnswerCard key={item.id} item={item}/>; break;
-    case 'traps': card = <TrapCard key={data.traps[index].id} item={data.traps[index]}/>; break;
-    case 'law': card = <LawCard key={data.law[index].id} item={data.law[index]}/>; break;
-    case 'audio': card = <AudioCard key={item.id} item={item} onNext={() => setIndex(value => Math.min(value + 1,count - 1))}/>; break;
-  }
-  return <div className="pc-study-deck">{card}<Stepper index={index} count={count} onChange={setIndex}/></div>;
+  const item = items[index];
+  const next = () => setIndex(value => Math.min(value + 1, items.length - 1));
+  return <div className="pc-study-deck">
+    {'type' in item ? <LawCard key={item.id} item={item}/>
+      : feature === 'audio' ? <AudioCard key={item.id} item={item} onNext={next}/>
+        : <AnswerCard key={item.id} item={item}/>}
+    <Stepper index={index} count={items.length} onChange={setIndex}/>
+  </div>;
 }
 
-export default function PcStudyRoom({ data }: { data: PcStudy }) {
-  const features = PC_STUDY_FEATURES.filter(({id}) => id === 'audio' ? data.audio : data[id].length > 0);
-  const [active,setActive] = useState<PcStudyFeature>(features[0].id);
-  return <div className="pc-study-room">
-    <nav aria-label="PC Pro 학습 기능" className="pc-study-tabs">
-      {features.map(feature => <button type="button" key={feature.id} aria-pressed={active === feature.id}
-        onClick={() => setActive(feature.id)}>{feature.title}</button>)}
-    </nav>
-    {active === 'cells' ? <CellStudy sheets={data.cells}/> : <StudyDeck key={active} feature={active} data={data}/>}
-  </div>;
+export default function PcStudyPanel({ feature, results }: { feature: PcStudyFeature; results: Partial<PcStudy> }) {
+  let content;
+  if (feature === 'cells' && results.cells?.length) {
+    content = <CellStudy sheets={results.cells}/>;
+  } else if (feature === 'choices' && results.choices?.length) {
+    content = results.choices.map(item => <AnswerCard key={item.id} item={item} compact/>);
+  } else if (feature === 'traps' && results.traps?.length) {
+    content = results.traps.map(item => <article className="pc-study-card pc-trap-pair" key={item.id}>
+      <p><span className="pc-trap-label pc-trap-label--wrong">틀린 곳</span>{item.before}<mark>{item.wrong}</mark>{item.after}</p>
+      <p><span className="pc-trap-label pc-trap-label--right">바르게</span>{item.before}<strong>{item.right}</strong>{item.after}</p>
+      {item.explanation && <CitedText text={item.explanation}/>}
+    </article>);
+  } else if ((feature === 'audio' || feature === 'ox') && results.ox?.length) {
+    content = <StudyDeck feature={feature} items={results.ox}/>;
+  } else if (feature === 'law' && results.law?.length) {
+    content = <StudyDeck feature={feature} items={results.law}/>;
+  } else {
+    content = <p>연결된 학습 자료가 아직 없어요.</p>;
+  }
+  return <div className="pc-study-room">{content}</div>;
 }

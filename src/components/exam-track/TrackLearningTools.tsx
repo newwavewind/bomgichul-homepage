@@ -56,6 +56,7 @@ export function TrackLearningTools({
   basePath,
   exams: allExams,
   toc = null,
+  proTools,
 }: {
   scope: "public_service" | "police" | "firefighter" | "housing" | "social_worker" | "history" | "english" | "gugeo" | "haengjeongsa" | "semusa" | "sanan" | "sonhae" | "nomusa" | "gyeongbi" | "gamjeong" | "mullyu" | "youth";
   subjectId: string;
@@ -63,6 +64,7 @@ export function TrackLearningTools({
   exams: ExamTrackExam[];
   /** 교재 목차(편 → 장) — 랜덤 문제 단원 필터에 쓴다. 없으면 문항 분류로 세운다 */
   toc?: TrackSubjectToc | null;
+  proTools?: React.ReactNode;
 }) {
   /*
    * 로그인 상태를 서버 프롭으로 받지 않고 스스로 알아낸다 — 페이지가 쿠키를
@@ -172,12 +174,13 @@ export function TrackLearningTools({
           <a href={reviewPdfHref} className="rounded-full border border-carbon px-4 py-2 font-display text-body-sm font-semibold text-ink">복습 PDF 저장</a>
         )}
       </div>
-      <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]">
         {MODE_LABELS.map((item) => (
           <button key={item.id} type="button" onClick={() => selectMode(item.id)} className={`rounded-2xl border px-3 py-3 font-display text-body-sm font-semibold ${mode === item.id ? "border-ios-blue bg-ios-blue/[0.08] text-ios-blue" : "border-mist bg-paper text-ink hover:border-carbon"}`}>
             <span aria-hidden className="mr-1">{item.icon}</span>{item.label}
           </button>
         ))}
+        {proTools}
       </div>
       {/* 랜덤 문제는 공인중개사처럼 로그인 없이도 연도·단원을 골라 푼다(2026-10-21) */}
       {mode === "random" ? (
@@ -193,7 +196,7 @@ export function TrackLearningTools({
       {!pending && !userId && mode && mode !== "random" ? (
         <div className="mt-5 rounded-2xl border border-ios-blue/25 bg-ios-blue/[0.06] p-6 text-center">
           <p className="font-display text-body font-semibold text-ink">
-            홈페이지 기능은 전부 무료예요. 로그인만 하면 학습 기록·오답노트·북마크·랜덤·복습·PDF를
+            로그인하면 학습 기록·오답노트·북마크·랜덤·복습·PDF를
             결제 없이 쓸 수 있어요.
           </p>
           <Link href={loginHref} className="mt-4 inline-flex rounded-full bg-ios-blue px-5 py-2.5 font-display text-body-sm font-semibold text-white">무료로 로그인</Link>

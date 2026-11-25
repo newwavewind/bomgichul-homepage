@@ -1,3 +1,4 @@
+import { pcQuestionOffers, type PcQuestionLocation } from "@/lib/pc-access/study-context";
 import "server-only";
 
 import { EXAM_SUBJECTS } from "@/lib/constants";
@@ -52,7 +53,7 @@ import {
 import { getDailyExam } from "@/lib/daily-challenge/exams";
 import type { SeoExplanationQuestion } from "@/components/exam/ExamQuestionSeoExplanations";
 import { scopeFromPathname } from "@/lib/exam-track/community";
-import { examGlossaryTerms } from "@/lib/exam-glossary";
+import { examGlossaryTerms, findExamGlossaryDefinition } from "@/lib/exam-glossary";
 import { housingExplanationSources } from "@/lib/housing-explanation-sources";
 import type {
   DailyChoice,
@@ -359,19 +360,31 @@ const TRACK_LOADERS: Record<
   },
 };
 
+function lookupExplanationExam({site, subject, year, source, no}: PcQuestionLocation): LooseExam | undefined {
+  if (site === "real-estate") return getExamQuestion(subject as ExamSubject, year, no) ?? undefined;
+  const track = site === "public-service" ? getPublicServiceSubject(subject) : TRACK_LOADERS[site]?.get(subject);
+  return track?.exams.find(exam => exam.year === year && exam.sourceCode === source && exam.questionNo === no);
+}
+
+export async function getQuestionGlossary(location: PcQuestionLocation, key: string, term: string) {
+  const exam = lookupExplanationExam(location);
+  if (!exam) return null;
+  const id = exam.id ?? `real-estate/${location.subject}/${location.year}/${location.no}`;
+  const scope = scopeFromPathname(location.site === "real-estate" ? "/exam" : "/" + location.site);
+  const items = (exam.items ?? []).filter(item => item.key === key).map(item => ({ ...item, text: item.text ?? "" }));
+  const entry = (await examGlossaryTerms(scope, id, items, exam.vocab))[key];
+  if (!entry?.terms.includes(term)) return null;
+  const definition = (entry.terms[0] === term ? entry.firstDefinition : null)
+    || exam.vocab?.find(item => item.term === term)?.meaning;
+  return { definition: definition ?? await findExamGlossaryDefinition(scope, term) };
+}
+
 /** Reads the same question and citation metadata as the linked exam detail page. */
 export async function getDailyExplanation(slug: string, daily: DailyQuestion): Promise<DailyReviewExplanation | null> {
   const questionNo = Number(daily.href.split("/").at(-1));
   const [, , , , , encodedSource] = daily.href.split("/");
-  const sourceCode = encodedSource ? decodeURIComponent(encodedSource) : undefined;
-  const track = slug === "public-service"
-    ? getPublicServiceSubject(daily.subjectId)
-    : TRACK_LOADERS[slug]?.get(daily.subjectId);
-  const exam: LooseExam | undefined = slug === "real-estate"
-    ? getExamQuestion(daily.subjectId as ExamSubject, daily.year, questionNo)
-    : track?.exams.find((candidate) =>
-      candidate.year === daily.year && candidate.sourceCode === sourceCode && candidate.questionNo === questionNo
-    );
+  const source = encodedSource ? decodeURIComponent(encodedSource) : undefined;
+  const exam = lookupExplanationExam({ site: slug, subject: daily.subjectId, year: daily.year, source, no: questionNo });
   if (!exam) return null;
 
   const examId = exam.id ?? `real-estate/${daily.subjectId}/${daily.year}/${questionNo}`;
@@ -398,7 +411,10 @@ export async function getDailyExplanation(slug: string, daily: DailyQuestion): P
     items,
     comboChoices: toExamOxCombos(exam.comboChoices, Number(exam.correctChoice)),
   };
-  return { question, glossaryByChoice };
+  const glossaryOffers = pcQuestionOffers(daily.href);
+  return { question, glossaryOffers, glossaryByChoice: glossaryOffers.length
+    ? Object.fromEntries(Object.entries(glossaryByChoice).map(([key, entry]) => [key, { terms: entry.terms }]))
+    : glossaryByChoice };
 }
 
 function buildRealEstate(): DailyQuestion[] {

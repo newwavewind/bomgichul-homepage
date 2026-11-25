@@ -1,3 +1,4 @@
+import { PcSubjectTools } from "@/components/pc-pro/PcSubjectTools";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -180,6 +181,7 @@ export default async function ConceptSubjectPage({ params }: ConceptSubjectPageP
         {/* 읽음 표시의 localStorage 이름공간(userId)은 ConceptPartList 가
             클라이언트에서 스스로 얻는다 — 서버 getUser() 는 페이지 전체를
             동적 렌더로 떨어뜨리기 때문이다. */}
+        <div className="my-5"><PcSubjectTools site={"real-estate"} subject={subject} features={["law"]} /></div>
         <ConceptPartList
           subject={subject}
           groups={groups}

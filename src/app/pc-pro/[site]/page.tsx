@@ -1,3 +1,4 @@
+import { pcStudyReturnPath } from "@/lib/pc-access/study-context";
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PcLecturePlan from '@/components/lectures/police/PcLecturePlan';
@@ -30,7 +31,7 @@ export default async function PcProExam({ params, searchParams }: Props) {
         className="rounded-full border border-mist px-4 py-2 text-sm font-medium text-carbon aria-[current=page]:bg-carbon aria-[current=page]:text-white"
       >{entry.title}</Link>)}
     </nav>
-    {!lecture && <PcLecturePlan studyAvailable={Boolean(getPcStudyCounts(offer.id))} key={offer.id} subject={offer.id} loggedIn={Boolean(viewer)} account={viewer?.label ?? null} pro={pro}
+    {!lecture && <PcLecturePlan studyHref={getPcStudyCounts(offer.id) ? pcStudyReturnPath(offer.id) : undefined} key={offer.id} subject={offer.id} loggedIn={Boolean(viewer)} account={viewer?.label ?? null} pro={pro}
       linkingAvailable={storeVerificationConfigured()}/>}
   </main>;
 }

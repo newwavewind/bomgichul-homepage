@@ -1,3 +1,4 @@
+import { pcStudyOffers } from "@/lib/pc-access/study-context";
 import Link from "next/link";
 import {
   HubBackButton,
@@ -38,7 +39,7 @@ export function ExamTrackHub({
           <span className="mt-5 inline-flex shrink-0 rounded-full bg-[#176859] px-5 py-3 text-sm font-semibold text-white sm:mt-0">칠판 강의 미리보기 <span aria-hidden="true" className="ml-2">→</span></span>
         </Link>}
 
-        <ExamTrackSubjectBrowser track={track} subjects={subjects} />
+        <ExamTrackSubjectBrowser track={track} subjects={subjects} cellOffers={Object.fromEntries(subjects.map(subject => [subject.id, pcStudyOffers(track.basePath.slice(1), subject.id, "cells")]))} />
 
         <ExamTrackHubGuide id={track.id} basePath={track.basePath} label={track.label} />
 

@@ -1,9 +1,10 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { ExamPrintBatchPicker } from "@/components/exam/ExamPrintBatchPicker";
+import { ExamPrintExplanationOption } from "./ExamPrintExplanationOption";
 import { ExamPrintPreview } from "@/components/exam/ExamPrintPreview";
-import type { ExamPrintEdition } from "@/lib/exam-print-batch";
+import type { ExamPrintEdition, ExamPrintMergeRequest, ExamPrintMergeResponse } from "@/lib/exam-print-batch";
 
 const selectClassName = "mt-2 min-h-11 w-full rounded-xl border border-mist bg-white px-3 py-2 text-ink focus-visible:outline-2 focus-visible:outline-ios-blue disabled:bg-paper disabled:opacity-60";
 
@@ -58,6 +59,7 @@ function SingleExamPrintPicker({ editions, initialEdition }: {
   const subjects = new Map(editions.map(({ subject, subjectLabel }) => [subject, subjectLabel]));
   const [subject, setSubject] = useState(initialEdition?.subject ?? (subjects.size === 1 ? editions[0].subject : ""));
   const [year, setYear] = useState(initialEdition ? String(initialEdition.year) : "");
+  const [includeExplanations, setIncludeExplanations] = useState(true);
   const [session, setSession] = useState(initialEdition?.session ?? "");
   const forSubject = editions.filter((entry) => entry.subject === subject);
   const years = [...new Set(forSubject.map((entry) => entry.year))].sort((a, b) => b - a);
@@ -103,8 +105,9 @@ function SingleExamPrintPicker({ editions, initialEdition }: {
             {sessions.map((entry) => <option key={entry.session} value={entry.session}>{entry.session}</option>)}
           </select>
         </label>
+        <ExamPrintExplanationOption value={includeExplanations} onChange={setIncludeExplanations} className="sm:col-span-3" />
       </div>
-      {selected && (
+      {selected && (includeExplanations ? (
         <ExamPrintPreview
           key={JSON.stringify([selected.subject, selected.year, selected.session])}
           title={`${selected.subjectLabel} · ${selected.year}년 ${selected.session}`}
@@ -112,7 +115,42 @@ function SingleExamPrintPicker({ editions, initialEdition }: {
           fileName={`${selected.year}년 ${selected.session} ${selected.subjectLabel} 기출문제·해설.pdf`}
           details={bundled ? "같은 시험지에 있는 다른 과목도 함께 출력돼요." : undefined}
         />
-      )}
+      ) : <AnswerOnlyPreview key={selected.file}
+        file={selected.file} title={`${selected.year}년 ${selected.session} ${selected.subjectLabel} 기출문제·정답표`} />)}
     </>
   );
+}
+
+function AnswerOnlyPreview({ file, title }: { file: string; title: string }) {
+  const [result, setResult] = useState<{ href: string; file: Blob } | null>(null);
+  const [error, setError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  useEffect(() => {
+    let worker: Worker | undefined;
+    let href: string | undefined;
+    function fail() { setError(true); worker?.terminate(); }
+    try {
+      worker = new Worker(new URL("./exam-print-merge.worker.ts", import.meta.url));
+      worker.onerror = fail;
+      worker.onmessageerror = fail;
+      worker.onmessage = ({ data }: MessageEvent<ExamPrintMergeResponse>) => {
+        if (data.type === "error") fail();
+        if (data.type === "complete") {
+          href = URL.createObjectURL(data.file);
+          setResult({ href, file: data.file });
+          worker?.terminate();
+        }
+      };
+      worker.postMessage({ files: [file], includeExplanations: false, title } satisfies ExamPrintMergeRequest);
+    } catch { fail(); }
+    return () => { worker?.terminate(); if (href) URL.revokeObjectURL(href); };
+  }, [file, title, attempt]);
+  if (error) return <div className="mt-5 flex items-center gap-3" role="alert">
+    <p>시험지 PDF를 준비하지 못했어요.</p>
+    <button type="button" className="rounded-lg border border-mist px-3 py-2" onClick={() => {
+      setError(false); setAttempt(value => value + 1);
+    }}>다시 시도</button>
+  </div>;
+  if (!result) return <p className="mt-5 text-sm text-fog" role="status">시험지와 정답표를 준비하는 중…</p>;
+  return <ExamPrintPreview href={result.href} title={title} fileName={title + ".pdf"} generatedFile={result.file} />;
 }

@@ -58,3 +58,27 @@ export async function examGlossaryTerms(
   }
   return byChoice;
 }
+
+const termsByScope = new Map<CommunityScope, Promise<Map<string, string>>>();
+
+/** Reuse existing definitions from the same exam when this choice only links the term. */
+export async function findExamGlossaryDefinition(scope: CommunityScope, term: string) {
+  let pending = termsByScope.get(scope);
+  if (!pending) {
+    pending = (async () => {
+      const source = (await firstDefinitions[scope]?.())?.default as Definitions | undefined;
+      const terms = new Map<string, string>();
+      for (const [id, definitions] of Object.entries(source ?? {})) {
+        const entry = glossaryByExam[id];
+        if (!entry || Array.isArray(entry)) continue;
+        for (const [key, definition] of Object.entries(definitions)) {
+          const name = entry[key]?.[0];
+          if (name && definition && !terms.has(name)) terms.set(name, definition);
+        }
+      }
+      return terms;
+    })();
+    termsByScope.set(scope, pending);
+  }
+  return (await pending).get(term) ?? null;
+}

@@ -109,6 +109,8 @@ export interface ExamTrackMaterial {
   image: string;
   width?: number;
   height?: number;
+  /** The original image contains the complete passageText transcription. */
+  passageTextIsTranscript?: boolean;
   /** 그림을 글로 옮긴 설명(감정평가사 figure_alt) — 대체 글 */
   alt?: string;
 }

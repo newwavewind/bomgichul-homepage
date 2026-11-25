@@ -27,9 +27,10 @@ export function DailyQuestionBody({
   heading?: "h2" | "h3";
   subjectId?: string;
 }) {
+  const transcript = presentation.material?.passageTextIsTranscript ? presentation.passageText?.trim() : null;
   const passages = [presentation.passage, presentation.passageText]
     .map((value) => value?.trim() ?? "")
-    .filter((value, index, all) => value && all.indexOf(value) === index);
+    .filter((value, index, all) => value && value !== transcript && all.indexOf(value) === index);
 
   return (
     <>
@@ -70,6 +71,7 @@ export function DailyQuestionBody({
           />
         </div>
       ) : null}
+      {transcript && <p className="sr-only">{plainStudyText(transcript)}</p>}
       {presentation.leadEntries.length ? (
         <div className="mt-4">
           <ExamReferenceList

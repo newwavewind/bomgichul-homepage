@@ -1,3 +1,4 @@
+import { PcSubjectTools } from "@/components/pc-pro/PcSubjectTools";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -54,6 +55,7 @@ export default async function PublicServiceConceptListPage({ params }: Props) {
           9급 공무원 {data.subject.label} 기출문제 →
         </Link>
       </header>
+      <div className="mt-5"><PcSubjectTools site={"public-service"} subject={subjectId} features={["law"]} /></div>
       <div className="mt-10"><TrackConceptPartList groups={groups} hrefBase={`/public-service/concepts/${subjectId}`} /></div>
         <SimpleAppInstallStrip scope="public_service" />
       </div>

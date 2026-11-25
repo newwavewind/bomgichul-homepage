@@ -1,3 +1,5 @@
+import { PcGlossaryTerm } from "@/components/pc-pro/PcStudyAction";
+import type { PcQuestionAccess } from "@/lib/pc-access/study-features";
 import { ExplanationAppFeatureButton } from "@/components/exam/ExplanationAppFeatures";
 import type { ChoiceGlossary } from "@/lib/exam-glossary";
 
@@ -9,9 +11,10 @@ function TermPlus() {
   );
 }
 
-export function ExamExplanationGlossary({ glossary, hasApp }: { glossary?: ChoiceGlossary; hasApp: boolean }) {
+export function ExamExplanationGlossary({ glossary, hasApp, choice, pro }: { glossary?: ChoiceGlossary; hasApp: boolean; choice: string; pro?: PcQuestionAccess }) {
   if (!glossary?.terms.length) return null;
-  const { terms, firstDefinition } = glossary;
+  const { terms } = glossary;
+  const firstDefinition = pro ? undefined : glossary.firstDefinition;
   const remaining = firstDefinition ? terms.slice(1) : terms;
 
   return (
@@ -38,7 +41,11 @@ export function ExamExplanationGlossary({ glossary, hasApp }: { glossary?: Choic
         ) : null}
         {remaining.map((term) => (
           <li key={term}>
-            {hasApp ? (
+            {pro ? (
+              <PcGlossaryTerm question={pro.path} choice={choice} term={term} offers={pro.offers}>
+                {term} <TermPlus />
+              </PcGlossaryTerm>
+            ) : hasApp ? (
               <ExplanationAppFeatureButton feature="glossary" className="exam-choice-glossary-term">
                 {term} <TermPlus />
               </ExplanationAppFeatureButton>

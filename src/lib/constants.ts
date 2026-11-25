@@ -143,24 +143,21 @@ export function appStoreLinksForScope(
         ios: "https://apps.apple.com/kr/app/id6816073525",
       };
     case "gyeongbi":
-      // App Store 공개. Google Play 는 아직 공개 페이지 없음(404).
       return {
-        android: null,
+        android: "https://play.google.com/store/apps/details?id=com.sanghyun.gyeongbi",
         ios: "https://apps.apple.com/kr/app/id6819304028",
       };
     case "gamjeong":
-      // App Store 공개. Google Play 는 아직 공개 페이지 없음(404).
       return {
-        android: null,
+        android: "https://play.google.com/store/apps/details?id=com.sanghyun.gamjeong",
         ios: "https://apps.apple.com/kr/app/id6821985622",
       };
     case "mullyu":
       // 2026-10-28 App Store 심사 대기, Play 는 공개 페이지 없음(404).
       return { android: null, ios: null };
     case "youth":
-      // App Store 공개. Google Play 는 아직 공개 페이지 없음(404).
       return {
-        android: null,
+        android: "https://play.google.com/store/apps/details?id=com.sanghyun.youthcounselor",
         ios: "https://apps.apple.com/kr/app/id6824690861",
       };
     default:

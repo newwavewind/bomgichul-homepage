@@ -1,5 +1,6 @@
 "use client";
 
+import type { PcStudyOffer } from "@/lib/pc-access/study-features";
 import { useMemo } from "react";
 import { SubjectLearningCard } from "@/components/study/SubjectLearningCard";
 
@@ -8,21 +9,24 @@ import type { ExamTrackConfig, ExamTrackManifestItem } from "@/lib/exam-track/ty
 function SubjectCard({
   track,
   subject,
+  offers,
 }: {
   track: ExamTrackConfig;
   subject: ExamTrackManifestItem;
-  index: number;
+  offers?: PcStudyOffer[];
 }) {
-  return <SubjectLearningCard label={subject.label} badge={subject.track} examCount={subject.examCount} examHref={`${track.basePath}/exam/${subject.id}`} dailyHref={`${track.basePath}/daily?subject=${encodeURIComponent(subject.id)}`} />;
+  return <SubjectLearningCard label={subject.label} badge={subject.track} examCount={subject.examCount} examHref={`${track.basePath}/exam/${subject.id}`} cellOffers={offers} dailyHref={`${track.basePath}/daily?subject=${encodeURIComponent(subject.id)}`} />;
 
 }
 
 export function ExamTrackSubjectBrowser({
   track,
   subjects,
+  cellOffers,
 }: {
   track: ExamTrackConfig;
   subjects: ExamTrackManifestItem[];
+  cellOffers: Record<string, PcStudyOffer[]>;
 }) {
   const tracks = useMemo(() => {
     const grouped = new Map<string, ExamTrackManifestItem[]>();
@@ -39,8 +43,8 @@ export function ExamTrackSubjectBrowser({
     <section id={`${track.id}-subjects`}>
       {tracks.length <= 1 ? (
         <div className="grid gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
-          {(tracks[0]?.[1] ?? subjects).map((subject, index) => (
-            <SubjectCard key={subject.id} track={track} subject={subject} index={index} />
+          {(tracks[0]?.[1] ?? subjects).map((subject) => (
+            <SubjectCard key={subject.id} track={track} subject={subject} offers={cellOffers[subject.id]} />
           ))}
         </div>
       ) : (
@@ -56,7 +60,7 @@ export function ExamTrackSubjectBrowser({
                     key={subject.id}
                     track={track}
                     subject={subject}
-                    index={subjects.findIndex((item) => item.id === subject.id)}
+                    offers={cellOffers[subject.id]}
                   />
                 ))}
               </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import type { PcStudyOffer } from "@/lib/pc-access/study-features";
 import { useMemo, useState } from "react";
 import { SubjectLearningCard } from "@/components/study/SubjectLearningCard";
 
@@ -16,12 +17,12 @@ interface PublicServiceSubject {
   examCount: number;
 }
 
-function SubjectCard({ subject, badge }: { subject: PublicServiceSubject; index: number; badge?: string }) {
-  return <SubjectLearningCard label={subject.label} badge={badge ?? subject.track} examCount={subject.examCount} examHref={`/public-service/exam/${subject.id}`} dailyHref={`/public-service/daily?subject=${encodeURIComponent(subject.id)}`} />;
+function SubjectCard({ subject, badge, offers }: { subject: PublicServiceSubject; badge?: string; offers?: PcStudyOffer[] }) {
+  return <SubjectLearningCard label={subject.label} badge={badge ?? subject.track} examCount={subject.examCount} examHref={`/public-service/exam/${subject.id}`} cellOffers={offers} dailyHref={`/public-service/daily?subject=${encodeURIComponent(subject.id)}`} />;
 
 }
 
-export function PublicServiceSubjectBrowser({ subjects }: { subjects: PublicServiceSubject[] }) {
+export function PublicServiceSubjectBrowser({ subjects, cellOffers }: { subjects: PublicServiceSubject[]; cellOffers: Record<string, PcStudyOffer[]> }) {
   const [mode, setMode] = useState<"subject" | "track">("track");
   const subjectsById = useMemo(() => new Map(subjects.map((subject) => [subject.id, subject])), [subjects]);
   const seriesGroups = useMemo(() => {
@@ -51,7 +52,7 @@ export function PublicServiceSubjectBrowser({ subjects }: { subjects: PublicServ
 
       {mode === "subject" ? (
         <div className="grid gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
-          {sortedSubjects.map((subject, index) => <SubjectCard key={subject.id} subject={subject} index={index} />)}
+          {sortedSubjects.map((subject) => <SubjectCard key={subject.id} subject={subject} offers={cellOffers[subject.id]} />)}
         </div>
       ) : (
         <div className="space-y-10 md:space-y-12">
@@ -72,7 +73,7 @@ export function PublicServiceSubjectBrowser({ subjects }: { subjects: PublicServ
                       </div>
                       <div className="grid gap-3 md:grid-cols-2 md:gap-4 xl:max-w-[66.666%]">
                         {seriesSubjects.map((subject) => (
-                          <SubjectCard key={`${series.id}-${subject.id}`} subject={subject} index={subjects.findIndex((item) => item.id === subject.id)} badge={series.label} />
+                          <SubjectCard key={`${series.id}-${subject.id}`} subject={subject} offers={cellOffers[subject.id]} badge={series.label} />
                         ))}
                       </div>
                     </section>

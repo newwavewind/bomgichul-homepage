@@ -1,3 +1,4 @@
+import { PcSubjectTools } from "@/components/pc-pro/PcSubjectTools";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -108,6 +109,7 @@ export default async function ExamSubjectPage({ params }: ExamSubjectPageProps) 
             >
               ★ 북마크<SubjectBookmarkCount subject={subject} />
             </Link>
+            <PcSubjectTools site={"real-estate"} subject={subject} features={["ox", "audio"]} />
           </div>
         </section>
 

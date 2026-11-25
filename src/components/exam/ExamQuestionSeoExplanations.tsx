@@ -1,3 +1,4 @@
+import type { PcQuestionAccess } from "@/lib/pc-access/study-features";
 import { CitedText } from "@/components/exam/CitedText";
 import { ExplanationAiAction, ExplanationAppFeatures, ExplanationAppTools } from "@/components/exam/ExplanationAppFeatures";
 import { ExamExplanationGlossary } from "@/components/exam/ExamExplanationGlossary";
@@ -96,6 +97,8 @@ function ExplanationCard({
   explanation,
   sources = [],
   glossary,
+  choiceKey,
+  glossaryPro,
   examDate,
   lawVersions,
   aiPrompt,
@@ -109,6 +112,8 @@ function ExplanationCard({
   explanation?: string;
   sources?: AttachedExplanationSource[];
   glossary?: ChoiceGlossary;
+  choiceKey: string;
+  glossaryPro?: PcQuestionAccess;
   examDate?: string;
   lawVersions?: Record<string, string>;
   aiPrompt: string;
@@ -152,7 +157,7 @@ function ExplanationCard({
         </>
       ) : null}
       {links.length > 0 ? <ExplanationSourceLinks sources={links} /> : null}
-      <ExamExplanationGlossary glossary={glossary} hasApp={hasApp} />
+      <ExamExplanationGlossary glossary={glossary} hasApp={hasApp} choice={choiceKey} pro={glossaryPro} />
       <div className="exam-explanation-actions"><ExplanationAiAction prompt={aiPrompt} /></div>
     </li>
   );
@@ -165,6 +170,8 @@ export function ExamQuestionSeoExplanations({
   embedded = false,
   scope = "real_estate",
   glossaryByChoice = {},
+  glossaryPro,
+  notebookPro,
   pickedChoice,
 }: {
   question: SeoExplanationQuestion;
@@ -173,6 +180,8 @@ export function ExamQuestionSeoExplanations({
   embedded?: boolean;
   scope?: CommunityScope;
   glossaryByChoice?: Record<string, ChoiceGlossary>;
+  glossaryPro?: PcQuestionAccess;
+  notebookPro?: PcQuestionAccess;
   pickedChoice?: string;
 }) {
   const links = appStoreLinksForScope(scope);
@@ -317,6 +326,8 @@ export function ExamQuestionSeoExplanations({
                 explanation={item.explanation}
                 sources={item.sources}
                 glossary={glossaryByChoice[item.key]}
+                choiceKey={item.key}
+                glossaryPro={glossaryPro}
                 aiPrompt={buildExamItemAiPrompt({
                   ...promptContext,
                   item: { ...item, label: item.label ?? item.key, answer: item.answer ?? "" },
@@ -340,6 +351,8 @@ export function ExamQuestionSeoExplanations({
                 answer={typeof choice.isCorrect === "boolean" ? (choice.isCorrect ? "O" : "X") : undefined}
                 explanation={choice.explanation}
                 glossary={glossaryByChoice[String(choice.no)]}
+                choiceKey={String(choice.no)}
+                glossaryPro={glossaryPro}
                 aiPrompt={buildExamItemAiPrompt({
                   ...promptContext,
                   item: { ...choice, key: String(choice.no), answer: typeof choice.isCorrect === "boolean" ? (choice.isCorrect ? "O" : "X") : "" },
@@ -351,7 +364,7 @@ export function ExamQuestionSeoExplanations({
             ))}
           </ol>
         ) : null}
-        <ExplanationAppTools questionPrompt={itemsWithAnswerOrExpl.length + comboWithExplanation.length === 0
+        <ExplanationAppTools notebookPro={notebookPro} questionPrompt={itemsWithAnswerOrExpl.length + comboWithExplanation.length === 0
           ? [`${subjectLabel} ${question.year}년 ${question.questionNo}번 기출을 설명해 주세요.`, question.stem, summary].filter(Boolean).join("\n\n")
           : undefined} />
       </ExplanationAppFeatures>

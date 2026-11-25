@@ -297,6 +297,7 @@ function ReviewCard({
             subjectLabel={subjectLabel}
             scope={scopeFromPathname(item.href)}
             glossaryByChoice={explanation?.glossaryByChoice}
+            glossaryPro={explanation?.glossaryOffers?.length ? { path: item.href, offers: explanation.glossaryOffers } : undefined}
             pickedChoice={item.pickedLabel.normalize("NFKC").replace(/^(\d+)$/, "$1번")}
             embedded
           />

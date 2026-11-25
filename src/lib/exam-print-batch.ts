@@ -57,7 +57,7 @@ export function examPrintSessionKey(year: number, session: string) {
   return `${year}/${session}`;
 }
 
-export type ExamPrintMergeRequest = { files: string[]; title: string };
+export type ExamPrintMergeRequest = { files: string[]; title: string; includeExplanations?: boolean };
 
 export type ExamPrintMergeResponse =
   | { type: "progress"; done: number }

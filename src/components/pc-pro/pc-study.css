@@ -30,3 +30,46 @@
  .pc-study-sheet-layout { grid-template-columns: 1fr; }
  .pc-study-sheet-list ul { max-height: 12rem; }
 }
+
+.pc-context-button, .pc-context-tabs button {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  border-radius: .8rem; border: 1px solid var(--color-mist); background: var(--color-paper);
+  color: var(--color-carbon); min-height: 2.75rem; padding: .5rem .75rem;
+  font-size: .875rem; font-weight: 650; cursor: pointer;
+}
+.pc-context-tabs { display: flex; align-items: center; flex-wrap: wrap; gap: .25rem; padding: .25rem; margin-bottom: .8rem; border-radius: .9rem; background: var(--color-snow); }
+.pc-context-tabs button { flex: 1 0 auto; min-height: 2.4rem; padding-inline: .6rem; border-color: transparent; background: transparent; }
+.pc-context-tabs button[aria-pressed=true] { border-color: var(--color-mist); background: var(--color-paper); color: var(--color-ink); box-shadow: var(--shadow-button); }
+.pc-context-button:hover, .pc-context-tabs button:hover { border-color: var(--color-carbon); }
+.pc-access-pro { display: inline-block; color: var(--color-electric-blue); font-size: .68rem; font-weight: 750; line-height: 1; white-space: nowrap; }
+.pc-access-dialog { position: fixed; inset: 0; margin: auto; width: min(31rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); border: 1px solid var(--color-mist); border-radius: 1.25rem; background: var(--color-paper); color: var(--color-ink); padding: 0; box-shadow: 0 20px 70px #001b4133; }
+.pc-access-dialog--wide { width: min(68rem, calc(100vw - 2rem)); }
+.pc-access-dialog::backdrop { background: #10223e80; }
+.pc-access-inner { display: grid; grid-template-rows: auto minmax(0, 1fr); max-height: calc(100dvh - 2rem); }
+.pc-access-inner > header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--color-mist); }
+.pc-access-inner h2 { font-size: 1.25rem; font-weight: 700; }
+.pc-access-close { display: grid; place-items: center; flex-shrink: 0; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--color-snow); font-size: 1.35rem; color: var(--color-ink); cursor: pointer; }
+.pc-access-body { padding: 1.25rem; overflow-y: auto; min-height: 6rem; }
+.pc-access-editions { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.pc-access-editions button { border: 1px solid var(--color-mist); border-radius: 1rem; color: var(--color-ink); padding: .5rem .75rem; font-size: .875rem; cursor: pointer; }
+.pc-access-editions button[aria-pressed=true] { border-color: var(--color-carbon); background: var(--color-snow); }
+.pc-access-note { color: var(--color-smoke); font-size: .875rem; }
+.pc-access-gate { padding: 1rem; border: 1px solid var(--color-mist); border-radius: 1rem; background: var(--color-snow); line-height: 1.65; }
+.pc-access-gate h3 { font-weight: 700; }
+.pc-access-gate p { margin-top: .25rem; font-size: .9rem; }
+.pc-access-primary { display: inline-flex; padding: .45rem .8rem; margin: .75rem .4rem 0 0; border-radius: .75rem; background: var(--color-carbon); color: var(--color-paper); font-size: .85rem; font-weight: 650; cursor: pointer; }
+.pc-access-definition { white-space: pre-line; line-height: 1.8; }
+.pc-trap-label { display: inline-block; padding: .1rem .45rem; margin-right: .4rem; border-radius: 999px; font-size: .75rem; font-weight: 700; }
+.pc-trap-label--wrong { background: #ffe4e8; color: #88133d; }
+.pc-trap-label--right { background: #dff5ec; color: #125541; }
+.pc-trap-pair > span { color: var(--color-smoke); font-size: .88rem; line-height: 1.6; }
+@media (max-width: 420px) {
+  .pc-access-dialog { width: calc(100vw - 1rem); max-height: calc(100dvh - 1rem); }
+  .pc-access-inner { max-height: calc(100dvh - 1rem); }
+  .pc-access-body { padding: .85rem; }
+}
+.pc-context-notebook { display: grid; gap: 1rem; line-height: 1.8; }
+.pc-context-notebook ul { display: grid; gap: .5rem; padding: .9rem .9rem .9rem 2rem; border-radius: 1rem; background: var(--color-snow); list-style: disc; }
+.pc-context-notebook h3 { color: var(--color-carbon); font-weight: 700; }
+.pc-notebook-compare { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit,minmax(min(100%,12rem),1fr)); }
+.pc-notebook-compare > div { border: 1px solid var(--color-mist); border-radius: .75rem; padding: .65rem .85rem; }

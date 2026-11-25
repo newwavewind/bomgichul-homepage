@@ -30,3 +30,25 @@ export async function readPcStudy(scope: string): Promise<PcStudy | null> {
   const compressed = await readFile(file);
   return JSON.parse((await decompress(compressed)).toString('utf8'));
 }
+
+export type PcNotebook = {
+  intro: string;
+  points: string[];
+  contrast?: { title: string; left: { label: string; body: string }; right: { label: string; body: string } };
+  insight?: string;
+  pattern?: string;
+  pitfall?: string;
+  example?: string;
+};
+
+export async function readPcNotebook(scope: string, href: string): Promise<PcNotebook | null> {
+  if (!getPcStudyCounts(scope)) return null;
+  const file = path.join(process.cwd(), 'data', 'pc-pro-notes', scope + '.json.gz');
+  const compressed = await readFile(file).catch(error => {
+    if (error.code === 'ENOENT') return null;
+    throw error;
+  });
+  if (!compressed) return null;
+  const notes: Record<string, PcNotebook> = JSON.parse((await decompress(compressed)).toString('utf8'));
+  return Object.hasOwn(notes, href) ? notes[href] : null;
+}

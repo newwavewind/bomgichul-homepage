@@ -1,5 +1,6 @@
 "use client";
 
+import { ExamPrintExplanationOption } from "./ExamPrintExplanationOption";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import {
   ExamPrintPreview,
@@ -47,6 +48,7 @@ export function ExamPrintBatchPicker({ examLabel, editions }: { examLabel: strin
   const years = useMemo(() => [...new Set(editions.map((entry) => entry.year))].sort((a, b) => a - b), [editions]);
   const [bookletsSelected, setBookletsSelected] = useState(() =>
     new Set(booklets.length === 1 ? [booklets[0].bookletKey] : []));
+  const [includeExplanations, setIncludeExplanations] = useState(true);
   const [yearMode, setYearMode] = useState<YearMode>("pick");
   const [yearsSelected, setYearsSelected] = useState(new Set<number>());
   const [startYear, setStartYear] = useState(years[0]);
@@ -85,7 +87,7 @@ export function ExamPrintBatchPicker({ examLabel, editions }: { examLabel: strin
   const matching = selectedBooklets.filter(({ year, session }) =>
     !excludedSessions.has(examPrintSessionKey(year, session)));
   const included = matching.filter(({ file }) => !excluded.has(file));
-  const key = included.map(({ file }) => file).join("|");
+  const key = (includeExplanations ? "full|" : "answers|") + included.map(({ file }) => file).join("|");
   const allBookletsSelected = visibleBooklets.every(({ bookletKey }) => bookletsSelected.has(bookletKey));
   const ready = result?.key === key ? result : null;
   const emptyMessage = matching.length ? "시험지를 한 개 이상 선택하세요."
@@ -114,7 +116,7 @@ export function ExamPrintBatchPicker({ examLabel, editions }: { examLabel: strin
     const lastYear = includedYears[includedYears.length - 1];
     const contiguous = includedYears.length > 2 && lastYear - firstYear + 1 === includedYears.length;
     const period = contiguous ? `${firstYear}–${lastYear}년` : `${includedYears.join("·")}년`;
-    const title = `${examLabel} ${period} 묶음 기출문제·해설`;
+    const title = `${examLabel} ${period} 묶음 ${includeExplanations ? "기출문제·해설" : "기출문제·정답표"}`;
     try {
       const worker = new Worker(new URL("./exam-print-merge.worker.ts", import.meta.url));
       workerRef.current = worker;
@@ -138,7 +140,7 @@ export function ExamPrintBatchPicker({ examLabel, editions }: { examLabel: strin
         }
       };
       setProgress(0);
-      worker.postMessage({ files: included.map(({ file }) => file), title } satisfies ExamPrintMergeRequest);
+      worker.postMessage({ files: included.map(({ file }) => file), title, includeExplanations } satisfies ExamPrintMergeRequest);
     } catch {
       stop();
       setError(true);
@@ -297,6 +299,8 @@ export function ExamPrintBatchPicker({ examLabel, editions }: { examLabel: strin
               </div>
             </fieldset>
           )}
+
+          <ExamPrintExplanationOption value={includeExplanations} onChange={setIncludeExplanations} disabled={busy} />
 
           {matching.length > 0 && (
             <details className="rounded-xl border border-mist bg-slate-50 px-3">

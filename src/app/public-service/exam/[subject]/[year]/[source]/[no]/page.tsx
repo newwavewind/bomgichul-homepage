@@ -1,3 +1,4 @@
+import { pcQuestionFeatures, pcQuestionOffers, pcQuestionHasNotebook } from "@/lib/pc-access/study-context";
 import { QuestionNavLabel } from "@/components/exam/QuestionNavLabel";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -71,6 +72,7 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
   const next = position >= 0 && position < session.length - 1 ? session[position + 1] : null;
   const listBase = `/public-service/exam/${subjectId}/${exam.year}/${encodeURIComponent(exam.sourceCode)}`;
   const detailPath = `${listBase}/${exam.questionNo}`;
+  const proAccess = { path: detailPath, offers: pcQuestionOffers(detailPath) };
   const storageSubject = `public_service:${subjectId}:${source}`;
   const memoSubject = examMemoSubjectKey("public_service", subjectId, source);
   // 공개 메모는 SEO 본문이라 서버에서 그대로 그린다. 내 북마크·풀이기록 같은
@@ -172,11 +174,14 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
             year={exam.year}
             questionNo={exam.questionNo}
             externallyToggled
+            practice={{ question: detailPath, features: pcQuestionFeatures(detailPath) }}
           >
             <ExamQuestionSeoExplanations
               question={{ ...exam, comboChoices: [] }}
               subjectLabel={data.subject.label}
               scope="public_service"
+              glossaryPro={proAccess.offers.length ? proAccess : undefined}
+              notebookPro={proAccess.offers.length && pcQuestionHasNotebook(detailPath) ? proAccess : undefined}
               glossaryByChoice={await examGlossaryTerms("public_service", exam.id, exam.items)}
               embedded
             />
