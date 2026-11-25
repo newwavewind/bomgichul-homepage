@@ -4,7 +4,8 @@ import path from 'node:path';
 import { createAdminClient } from '@/lib/supabase/admin';
 import policeOutline from '@/components/lectures/police/outline.json';
 import realEstateOutline from '@/components/lectures/outline.json';
-import { isPcSubject, pcSite, type PcSubject } from './catalog';
+import firefighterOutline from '@/components/lectures/firefighter/outline.json';
+import { lecturePcSubject, pcSite, PC_SUBJECTS, type PcSubject } from './catalog';
 import { verifyStorePurchase, type Store, type StoreEnvironment } from './store';
 
 const freshness = 5 * 60 * 1000;
@@ -18,20 +19,22 @@ const definitions = new Map<PcSubject, Promise<Record<string, Lecture>>>();
 
 export function paidLectureSubject(lectureId: string): PcSubject | null {
   if (!/^[a-zA-Z0-9_-]{1,100}$/.test(lectureId)) return null;
-  for (const group of [...policeOutline, ...realEstateOutline]) {
-    if (!isPcSubject(group.subject)) continue;
-    if (group.parts.some(part => part.sections.some(section => section.lessons.some(
+  const programs = [['police', policeOutline], ['real-estate', realEstateOutline], ['firefighter', firefighterOutline]] as const;
+  for (const [site, outline] of programs) {
+    const group = outline.find(group => group.parts.some(part => part.sections.some(section => section.lessons.some(
       lesson => lesson.id === lectureId && lesson.number > 3 && lesson.ready,
-    )))) return group.subject;
+    ))));
+    if (group) return lecturePcSubject(site, group.subject) ?? null;
   }
   return null;
 }
 
 export async function readPaidLecture(subject: PcSubject, lectureId: string): Promise<Lecture | null> {
-  if (paidLectureSubject(lectureId) !== subject) return null;
+  const site = pcSite(subject);
+  if (!site || paidLectureSubject(lectureId) !== subject) return null;
   let catalog = definitions.get(subject);
   if (!catalog) {
-    catalog = readFile(path.join(process.cwd(), 'data', `${pcSite(subject)}-pro-lectures`, `${subject}.json`), 'utf8')
+    catalog = readFile(path.join(process.cwd(), 'data', `${site}-pro-lectures`, `${PC_SUBJECTS[subject].lectureSubject}.json`), 'utf8')
       .then(content => JSON.parse(content))
       .catch(error => { definitions.delete(subject); throw error; });
     definitions.set(subject, catalog);

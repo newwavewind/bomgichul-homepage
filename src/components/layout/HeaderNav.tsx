@@ -218,6 +218,9 @@ function HomeHeader({
           <Link href="/app-services" className="inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70 hover:text-ink sm:px-3">
             앱서비스
           </Link>
+          <Link href="/pc-pro" className="inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70 hover:text-ink sm:px-3">
+            PC Pro
+          </Link>
         </div>
         <div className="flex shrink-0 items-center gap-2">
           <div className="hidden items-center gap-2 md:flex">

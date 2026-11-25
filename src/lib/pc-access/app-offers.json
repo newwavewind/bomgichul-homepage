@@ -1,0 +1,1410 @@
+[
+  {
+    "site": "public-service",
+    "title": "공무원",
+    "bundle": "com.sanghyun.publicofficial",
+    "subjects": [
+      {
+        "id": "public-service-hangjunghak-national",
+        "subjectId": "hangjunghak",
+        "title": "행정학개론 · 국가직",
+        "productId": "premium_unlock_hangjunghak_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-hangjunghak-local",
+        "subjectId": "hangjunghak",
+        "title": "행정학개론 · 지방직",
+        "productId": "premium_unlock_hangjunghak_local",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "지방직"
+      },
+      {
+        "id": "public-service-haengjeongbeop-national",
+        "subjectId": "haengjeongbeop",
+        "title": "행정법총론 · 국가직",
+        "productId": "premium_unlock_haengjeongbeop_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-haengjeongbeop-local",
+        "subjectId": "haengjeongbeop",
+        "title": "행정법총론 · 지방직",
+        "productId": "premium_unlock_haengjeongbeop_local",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "지방직"
+      },
+      {
+        "id": "public-service-gwansebeop-national",
+        "subjectId": "gwansebeop",
+        "title": "관세법개론 · 국가직",
+        "productId": "premium_unlock_gwansebeop_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-hyeongbeop-national",
+        "subjectId": "hyeongbeop",
+        "title": "형법 · 국가직",
+        "productId": "premium_unlock_hyeongbeop_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-hyeongso-national",
+        "subjectId": "hyeongso",
+        "title": "형사소송법 · 국가직",
+        "productId": "premium_unlock_hyeongso_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-hyeongsogaeron-national",
+        "subjectId": "hyeongsogaeron",
+        "title": "형사소송법개론 · 국가직",
+        "productId": "premium_unlock_hyeongsogaeron_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-gyojeonghak-national",
+        "subjectId": "gyojeonghak",
+        "title": "교정학개론 · 국가직",
+        "productId": "premium_unlock_gyojeonghak_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-gyoyukhak-national",
+        "subjectId": "gyoyukhak",
+        "title": "교육학개론 · 국가직",
+        "productId": "premium_unlock_gyoyukhak_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-gyoyukhak-local",
+        "subjectId": "gyoyukhak",
+        "title": "교육학개론 · 지방직",
+        "productId": "premium_unlock_gyoyukhak_local",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "지방직"
+      },
+      {
+        "id": "public-service-gukjebeop-national",
+        "subjectId": "gukjebeop",
+        "title": "국제법개론 · 국가직",
+        "productId": "premium_unlock_gukjebeop_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-sebeop-national",
+        "subjectId": "sebeop",
+        "title": "세법개론 · 국가직",
+        "productId": "premium_unlock_sebeop_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-jibangsebeop-local",
+        "subjectId": "jibangsebeop",
+        "title": "지방세법 · 지방직",
+        "productId": "premium_unlock_jibangsebeop_local",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "지방직"
+      },
+      {
+        "id": "public-service-nodongbeop-national",
+        "subjectId": "nodongbeop",
+        "title": "노동법개론 · 국가직",
+        "productId": "premium_unlock_nodongbeop_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-bokji-national",
+        "subjectId": "bokji",
+        "title": "사회복지학개론 · 국가직",
+        "productId": "premium_unlock_bokji_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-bokji-local",
+        "subjectId": "bokji",
+        "title": "사회복지학개론 · 지방직",
+        "productId": "premium_unlock_bokji_local",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "지방직"
+      },
+      {
+        "id": "public-service-hoegyehak-national",
+        "subjectId": "hoegyehak",
+        "title": "회계학 · 국가직",
+        "productId": "premium_unlock_hoegyehak_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      },
+      {
+        "id": "public-service-hoegyehak-local",
+        "subjectId": "hoegyehak",
+        "title": "회계학 · 지방직",
+        "productId": "premium_unlock_hoegyehak_local",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "지방직"
+      },
+      {
+        "id": "public-service-hoegyewonri-national",
+        "subjectId": "hoegyewonri",
+        "title": "회계원리 · 국가직",
+        "productId": "premium_unlock_hoegyewonri_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직"
+      }
+    ]
+  },
+  {
+    "site": "housing",
+    "title": "주택관리사",
+    "bundle": "com.sanghyun.housing",
+    "subjects": [
+      {
+        "id": "housing-accounting",
+        "subjectId": "accounting",
+        "title": "회계원리",
+        "productId": "premium_unlock_accounting",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "housing-facilities",
+        "subjectId": "facilities",
+        "title": "공동주택시설개론",
+        "productId": "premium_unlock_facilities",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "housing-civil-law",
+        "subjectId": "civil-law",
+        "title": "민법",
+        "productId": "premium_unlock_civillaw",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "housing-housing-law",
+        "subjectId": "housing-law",
+        "title": "주택관리관계법규",
+        "productId": "premium_unlock_housinglaw",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "housing-housing-admin",
+        "subjectId": "housing-admin",
+        "title": "공동주택관리실무",
+        "productId": "premium_unlock_housingadmin",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "social-worker",
+    "title": "사회복지사 1급",
+    "bundle": "com.sanghyun.socialworker",
+    "subjects": [
+      {
+        "id": "social-worker-human-behavior",
+        "subjectId": "human-behavior",
+        "title": "인간행동과 사회환경",
+        "productId": "premium_unlock_human_behavior",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "social-worker-research",
+        "subjectId": "research",
+        "title": "사회복지조사론",
+        "productId": "premium_unlock_research",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "social-worker-practice",
+        "subjectId": "practice",
+        "title": "사회복지실천론",
+        "productId": "premium_unlock_practice",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "social-worker-practice-skills",
+        "subjectId": "practice-skills",
+        "title": "사회복지실천기술론",
+        "productId": "premium_unlock_practice_skills",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "social-worker-community",
+        "subjectId": "community",
+        "title": "지역사회복지론",
+        "productId": "premium_unlock_community",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "social-worker-policy",
+        "subjectId": "policy",
+        "title": "사회복지정책론",
+        "productId": "premium_unlock_policy",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "social-worker-administration",
+        "subjectId": "administration",
+        "title": "사회복지행정론",
+        "productId": "premium_unlock_administration",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "social-worker-law",
+        "subjectId": "law",
+        "title": "사회복지법제론",
+        "productId": "premium_unlock_law",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "english",
+    "title": "9급 공무원 영어",
+    "bundle": "com.sanghyun.english",
+    "subjects": [
+      {
+        "id": "english-english",
+        "subjectId": "english",
+        "title": "9급 공무원 영어 · 국가직·지방직 전체",
+        "productId": "premium_unlock_english_all",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "english-english-national",
+        "subjectId": "english",
+        "title": "9급 공무원 영어 · 국가직(예전 학습권)",
+        "productId": "premium_unlock_english_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직",
+        "legacy": true
+      },
+      {
+        "id": "english-english-local",
+        "subjectId": "english",
+        "title": "9급 공무원 영어 · 지방직(예전 학습권)",
+        "productId": "premium_unlock_english_local",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "지방직",
+        "legacy": true
+      }
+    ]
+  },
+  {
+    "site": "history",
+    "title": "한국사능력검정시험",
+    "bundle": "com.sanghyun.history",
+    "subjects": [
+      {
+        "id": "history-history",
+        "subjectId": "history",
+        "title": "한국사능력검정시험 심화",
+        "productId": "premium_unlock_history",
+        "platforms": [
+          "ios"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "firefighter",
+    "title": "소방공무원",
+    "bundle": "com.sanghyun.firefighter",
+    "subjects": [
+      {
+        "id": "firefighter-sobang",
+        "subjectId": "sobang",
+        "title": "소방학개론",
+        "productId": "premium_unlock_fire_sobang_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직",
+        "lectureSubject": "sobang"
+      },
+      {
+        "id": "firefighter-sobangbeop",
+        "subjectId": "sobangbeop",
+        "title": "소방관계법규",
+        "productId": "premium_unlock_fire_sobangbeop_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직",
+        "lectureSubject": "sobangbeop"
+      },
+      {
+        "id": "firefighter-haengjeongbeop",
+        "subjectId": "haengjeongbeop",
+        "title": "행정법총론",
+        "productId": "premium_unlock_fire_haengjeongbeop_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "source": "국가직",
+        "lectureSubject": "haengjeongbeop"
+      }
+    ]
+  },
+  {
+    "site": "gugeo",
+    "title": "공무원 국어",
+    "bundle": "com.sanghyun.gugeo",
+    "subjects": [
+      {
+        "id": "gugeo-gugeo",
+        "subjectId": "gugeo",
+        "title": "9급 공무원 국어 · 국가직·지방직 전체",
+        "productId": "premium_unlock_gugeo_all",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gugeo-gugeo-national",
+        "subjectId": "gugeo",
+        "title": "9급 공무원 국어 · 국가직(예전 학습권)",
+        "productId": "premium_unlock_gugeo_national",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "legacy": true
+      },
+      {
+        "id": "gugeo-gugeo-local",
+        "subjectId": "gugeo",
+        "title": "9급 공무원 국어 · 지방직(예전 학습권)",
+        "productId": "premium_unlock_gugeo_local",
+        "platforms": [
+          "ios",
+          "android"
+        ],
+        "legacy": true
+      }
+    ]
+  },
+  {
+    "site": "gamjeong",
+    "title": "감정평가사",
+    "bundle": "com.sanghyun.gamjeong",
+    "subjects": [
+      {
+        "id": "gamjeong-minbeop",
+        "subjectId": "minbeop",
+        "title": "민법(총칙, 물권에 관한 규정)",
+        "productId": "premium_unlock_gamjeong_minbeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gamjeong-gyeongje",
+        "subjectId": "gyeongje",
+        "title": "경제학원론",
+        "productId": "premium_unlock_gamjeong_gyeongje",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gamjeong-budongsan",
+        "subjectId": "budongsan",
+        "title": "부동산학원론",
+        "productId": "premium_unlock_gamjeong_budongsan",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gamjeong-beopgyu",
+        "subjectId": "beopgyu",
+        "title": "감정평가관계법규",
+        "productId": "premium_unlock_gamjeong_beopgyu",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gamjeong-hoegye",
+        "subjectId": "hoegye",
+        "title": "회계학",
+        "productId": "premium_unlock_gamjeong_hoegye",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gamjeong-silmu",
+        "subjectId": "silmu",
+        "title": "감정평가실무",
+        "productId": "premium_unlock_gamjeong_silmu",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gamjeong-iron",
+        "subjectId": "iron",
+        "title": "감정평가이론",
+        "productId": "premium_unlock_gamjeong_iron",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gamjeong-bosang",
+        "subjectId": "bosang",
+        "title": "감정평가 및 보상법규",
+        "productId": "premium_unlock_gamjeong_bosang",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "gyeongbi",
+    "title": "경비지도사",
+    "bundle": "com.sanghyun.gyeongbi",
+    "subjects": [
+      {
+        "id": "gyeongbi-beophak",
+        "subjectId": "beophak",
+        "title": "법학개론",
+        "productId": "premium_unlock_beophak",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gyeongbi-mingan",
+        "subjectId": "mingan",
+        "title": "민간경비론",
+        "productId": "premium_unlock_mingan",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gyeongbi-gyeongbibeop",
+        "subjectId": "gyeongbibeop",
+        "title": "경비업법(청원경찰법 포함)",
+        "productId": "premium_unlock_gyeongbibeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gyeongbi-sobang",
+        "subjectId": "sobang",
+        "title": "소방학",
+        "productId": "premium_unlock_sobang",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gyeongbi-beomjoe",
+        "subjectId": "beomjoe",
+        "title": "범죄학",
+        "productId": "premium_unlock_beomjoe",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gyeongbi-gyeongho",
+        "subjectId": "gyeongho",
+        "title": "경호학",
+        "productId": "premium_unlock_gyeongho",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gyeongbi-gigye",
+        "subjectId": "gigye",
+        "title": "기계경비개론",
+        "productId": "premium_unlock_gigye",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "gyeongbi-gigyeseolgye",
+        "subjectId": "gigyeseolgye",
+        "title": "기계경비기획 및 설계",
+        "productId": "premium_unlock_gigyeseolgye",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "haengjeongsa",
+    "title": "행정사",
+    "bundle": "com.sanghyun.haengjeongsa",
+    "subjects": [
+      {
+        "id": "haengjeongsa-minbeop",
+        "subjectId": "minbeop",
+        "title": "민법(총칙)",
+        "productId": "premium_unlock_haengjeongsa_minbeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "haengjeongsa-haengjeongbeop",
+        "subjectId": "haengjeongbeop",
+        "title": "행정법",
+        "productId": "premium_unlock_haengjeongsa_haengjeongbeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "haengjeongsa-haengjeonghak",
+        "subjectId": "haengjeonghak",
+        "title": "행정학개론(지방자치행정 포함)",
+        "productId": "premium_unlock_haengjeongsa_haengjeonghak",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "haengjeongsa-minbeopgyeyak",
+        "subjectId": "minbeopgyeyak",
+        "title": "민법(계약)",
+        "productId": "premium_unlock_haengjeongsa_minbeopgyeyak",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "haengjeongsa-haengjeongjeolcha",
+        "subjectId": "haengjeongjeolcha",
+        "title": "행정절차론(행정절차법 포함)",
+        "productId": "premium_unlock_haengjeongsa_haengjeongjeolcha",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "haengjeongsa-silmubeop",
+        "subjectId": "silmubeop",
+        "title": "행정사실무법(행정심판사례, 비송사건절차법)",
+        "productId": "premium_unlock_haengjeongsa_silmubeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "haengjeongsa-samugwanri",
+        "subjectId": "samugwanri",
+        "title": "사무관리론(민원 처리에 관한 법률 및 행정업무의 운영 및 혁신에 관한 규정 포함)",
+        "productId": "premium_unlock_haengjeongsa_samugwanri",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "mullyu",
+    "title": "물류관리사",
+    "bundle": "com.sanghyun.mullyu",
+    "subjects": [
+      {
+        "id": "mullyu-gwalli",
+        "subjectId": "gwalli",
+        "title": "물류관리론",
+        "productId": "premium_unlock_mullyu_gwalli",
+        "platforms": [
+          "android"
+        ]
+      },
+      {
+        "id": "mullyu-unsong",
+        "subjectId": "unsong",
+        "title": "화물운송론",
+        "productId": "premium_unlock_mullyu_unsong",
+        "platforms": [
+          "android"
+        ]
+      },
+      {
+        "id": "mullyu-gukje",
+        "subjectId": "gukje",
+        "title": "국제물류론",
+        "productId": "premium_unlock_mullyu_gukje",
+        "platforms": [
+          "android"
+        ]
+      },
+      {
+        "id": "mullyu-bogwan",
+        "subjectId": "bogwan",
+        "title": "보관하역론",
+        "productId": "premium_unlock_mullyu_bogwan",
+        "platforms": [
+          "android"
+        ]
+      },
+      {
+        "id": "mullyu-beopgyu",
+        "subjectId": "beopgyu",
+        "title": "물류 관련 법규",
+        "productId": "premium_unlock_mullyu_beopgyu",
+        "platforms": [
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "nomusa",
+    "title": "공인노무사",
+    "bundle": "com.sanghyun.nomusa",
+    "subjects": [
+      {
+        "id": "nomusa-nodong1",
+        "subjectId": "nodong1",
+        "title": "노동법(1)",
+        "productId": "premium_unlock_nomusa_nodong1",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-nodong2",
+        "subjectId": "nodong2",
+        "title": "노동법(2)",
+        "productId": "premium_unlock_nomusa_nodong2",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-minbeop",
+        "subjectId": "minbeop",
+        "title": "민법(총칙·채권)",
+        "productId": "premium_unlock_nomusa_minbeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-sahoeboheom",
+        "subjectId": "sahoeboheom",
+        "title": "사회보험법",
+        "productId": "premium_unlock_nomusa_sahoeboheom",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-gyeongyeong",
+        "subjectId": "gyeongyeong",
+        "title": "경영학개론",
+        "productId": "premium_unlock_nomusa_gyeongyeong",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-gyeongje",
+        "subjectId": "gyeongje",
+        "title": "경제학원론",
+        "productId": "premium_unlock_nomusa_gyeongje",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-nodongbeop2",
+        "subjectId": "nodongbeop2",
+        "title": "노동법(2차)",
+        "productId": "premium_unlock_nomusa_nodongbeop2",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-insanomu",
+        "subjectId": "insanomu",
+        "title": "인사노무관리론",
+        "productId": "premium_unlock_nomusa_insanomu",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-haengjeongjaengsong",
+        "subjectId": "haengjeongjaengsong",
+        "title": "행정쟁송법",
+        "productId": "premium_unlock_nomusa_haengjeongjaengsong",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-gyeongyeongjojik",
+        "subjectId": "gyeongyeongjojik",
+        "title": "경영조직론",
+        "productId": "premium_unlock_nomusa_gyeongyeongjojik",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-nodonggyeongje",
+        "subjectId": "nodonggyeongje",
+        "title": "노동경제학",
+        "productId": "premium_unlock_nomusa_nodonggyeongje",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "nomusa-minsasosong",
+        "subjectId": "minsasosong",
+        "title": "민사소송법",
+        "productId": "premium_unlock_nomusa_minsasosong",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "sanan",
+    "title": "산업안전지도사",
+    "bundle": "com.sanghyun.sanan",
+    "subjects": [
+      {
+        "id": "sanan-sanbeop",
+        "subjectId": "sanbeop",
+        "title": "산업안전보건법령",
+        "productId": "premium_unlock_sanbeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sanan-sanil",
+        "subjectId": "sanil",
+        "title": "산업안전일반",
+        "productId": "premium_unlock_sanil",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sanan-gieop",
+        "subjectId": "gieop",
+        "title": "기업진단·지도",
+        "productId": "premium_unlock_gieop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sanan-gigye",
+        "subjectId": "gigye",
+        "title": "기계안전공학",
+        "productId": "premium_unlock_sanan_gigye",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sanan-jeongi",
+        "subjectId": "jeongi",
+        "title": "전기안전공학",
+        "productId": "premium_unlock_sanan_jeongi",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sanan-hwagong",
+        "subjectId": "hwagong",
+        "title": "화공안전공학",
+        "productId": "premium_unlock_sanan_hwagong",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sanan-geonseol",
+        "subjectId": "geonseol",
+        "title": "건설안전공학",
+        "productId": "premium_unlock_sanan_geonseol",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "semusa",
+    "title": "세무사",
+    "bundle": "com.sanghyun.semusa",
+    "subjects": [
+      {
+        "id": "semusa-jaejeonghak",
+        "subjectId": "jaejeonghak",
+        "title": "재정학",
+        "productId": "premium_unlock_jaejeonghak",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "semusa-sebeopgaeron",
+        "subjectId": "sebeopgaeron",
+        "title": "세법학개론",
+        "productId": "premium_unlock_sebeopgaeron",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "semusa-hoegyegaeron",
+        "subjectId": "hoegyegaeron",
+        "title": "회계학개론",
+        "productId": "premium_unlock_hoegyegaeron",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "semusa-sangbeop",
+        "subjectId": "sangbeop",
+        "title": "상법(회사편)",
+        "productId": "premium_unlock_sangbeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "semusa-minbeop",
+        "subjectId": "minbeop",
+        "title": "민법(총칙)",
+        "productId": "premium_unlock_minbeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "semusa-haengjeongsosong",
+        "subjectId": "haengjeongsosong",
+        "title": "행정소송법",
+        "productId": "premium_unlock_haengjeongsosong",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "semusa-hoegye1",
+        "subjectId": "hoegye1",
+        "title": "회계학 1부",
+        "productId": "premium_unlock_hoegye1",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "semusa-hoegye2",
+        "subjectId": "hoegye2",
+        "title": "회계학 2부",
+        "productId": "premium_unlock_hoegye2",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "semusa-sebeophak1",
+        "subjectId": "sebeophak1",
+        "title": "세법학 1부",
+        "productId": "premium_unlock_sebeophak1",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "semusa-sebeophak2",
+        "subjectId": "sebeophak2",
+        "title": "세법학 2부",
+        "productId": "premium_unlock_sebeophak2",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "sonhae",
+    "title": "손해평가사",
+    "bundle": "com.sanghyun.sonhae",
+    "subjects": [
+      {
+        "id": "sonhae-sangbeop",
+        "subjectId": "sangbeop",
+        "title": "「상법」 보험편",
+        "productId": "premium_unlock_sonhae_sangbeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sonhae-nongeoeop",
+        "subjectId": "nongeoeop",
+        "title": "농어업재해보험법령",
+        "productId": "premium_unlock_sonhae_nongeoeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sonhae-nonghak",
+        "subjectId": "nonghak",
+        "title": "농학개론 중 재배학 및 원예작물학",
+        "productId": "premium_unlock_sonhae_nonghak",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sonhae-ironsilmu",
+        "subjectId": "ironsilmu",
+        "title": "농작물재해보험 및 가축재해보험의 이론과 실무",
+        "productId": "premium_unlock_sonhae_ironsilmu",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "sonhae-sonhaepyeongga",
+        "subjectId": "sonhaepyeongga",
+        "title": "농작물재해보험 및 가축재해보험 손해평가의 이론과 실무",
+        "productId": "premium_unlock_sonhae_sonhaepyeongga",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  },
+  {
+    "site": "youth",
+    "title": "청소년상담사",
+    "bundle": "com.sanghyun.youthcounselor",
+    "subjects": [
+      {
+        "id": "youth-g1-sagye",
+        "subjectId": "g1_sagye",
+        "title": "1급 상담사 교육 및 사례지도",
+        "productId": "premium_unlock_youth_g1_sagye",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g1-beop",
+        "subjectId": "g1_beop",
+        "title": "1급 청소년 관련 법과 행정",
+        "productId": "premium_unlock_youth_g1_beop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g1-yeongu",
+        "subjectId": "g1_yeongu",
+        "title": "1급 상담연구방법론의 실제",
+        "productId": "premium_unlock_youth_g1_yeongu",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g1-bihaeng",
+        "subjectId": "g1_bihaeng",
+        "title": "1급 비행상담",
+        "productId": "premium_unlock_youth_g1_bihaeng",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g1-seong",
+        "subjectId": "g1_seong",
+        "title": "1급 성상담",
+        "productId": "premium_unlock_youth_g1_seong",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g1-yakmul",
+        "subjectId": "g1_yakmul",
+        "title": "1급 약물상담",
+        "productId": "premium_unlock_youth_g1_yakmul",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g1-wigi",
+        "subjectId": "g1_wigi",
+        "title": "1급 위기상담",
+        "productId": "premium_unlock_youth_g1_wigi",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g2-iron",
+        "subjectId": "g2_iron",
+        "title": "2급 청소년 상담의 이론과 실제",
+        "productId": "premium_unlock_youth_g2_iron",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g2-yeongu",
+        "subjectId": "g2_yeongu",
+        "title": "2급 상담연구방법론의 기초",
+        "productId": "premium_unlock_youth_g2_yeongu",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g2-cheukjeong",
+        "subjectId": "g2_cheukjeong",
+        "title": "2급 심리측정 평가의 활용",
+        "productId": "premium_unlock_youth_g2_cheukjeong",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g2-isang",
+        "subjectId": "g2_isang",
+        "title": "2급 이상심리",
+        "productId": "premium_unlock_youth_g2_isang",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g2-jinro",
+        "subjectId": "g2_jinro",
+        "title": "2급 진로상담",
+        "productId": "premium_unlock_youth_g2_jinro",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g2-jipdan",
+        "subjectId": "g2_jipdan",
+        "title": "2급 집단상담",
+        "productId": "premium_unlock_youth_g2_jipdan",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g2-gajok",
+        "subjectId": "g2_gajok",
+        "title": "2급 가족상담",
+        "productId": "premium_unlock_youth_g2_gajok",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g2-hakeop",
+        "subjectId": "g2_hakeop",
+        "title": "2급 학업상담",
+        "productId": "premium_unlock_youth_g2_hakeop",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g3-baldal",
+        "subjectId": "g3_baldal",
+        "title": "3급 발달심리",
+        "productId": "premium_unlock_youth_g3_baldal",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g3-jipdan",
+        "subjectId": "g3_jipdan",
+        "title": "3급 집단상담의 기초",
+        "productId": "premium_unlock_youth_g3_jipdan",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g3-cheukjeong",
+        "subjectId": "g3_cheukjeong",
+        "title": "3급 심리측정 및 평가",
+        "productId": "premium_unlock_youth_g3_cheukjeong",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g3-sangdam",
+        "subjectId": "g3_sangdam",
+        "title": "3급 상담이론",
+        "productId": "premium_unlock_youth_g3_sangdam",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g3-hakseup",
+        "subjectId": "g3_hakseup",
+        "title": "3급 학습이론",
+        "productId": "premium_unlock_youth_g3_hakseup",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g3-ihae",
+        "subjectId": "g3_ihae",
+        "title": "3급 청소년이해론",
+        "productId": "premium_unlock_youth_g3_ihae",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      },
+      {
+        "id": "youth-g3-suryeon",
+        "subjectId": "g3_suryeon",
+        "title": "3급 청소년수련활동론",
+        "productId": "premium_unlock_youth_g3_suryeon",
+        "platforms": [
+          "ios",
+          "android"
+        ]
+      }
+    ]
+  }
+]

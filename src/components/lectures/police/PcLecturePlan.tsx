@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import qrcode from 'qrcode-generator';
 import { PC_SUBJECTS, pcSite, type PcSubject } from '@/lib/pc-access/catalog';
-import { lectureSiteConfig, lecturePagePath } from '@/lib/lecture-sites';
+import { lecturePagePath } from '@/lib/lecture-sites';
 import './pc-plan.css';
 
 type Pairing = { token: string; expiresAt: string; image: string };
@@ -29,10 +29,9 @@ async function webRequest(body: object) {
 export default function PcLecturePlan({ subject, loggedIn, account, pro, linkingAvailable }: {
   subject: PcSubject; loggedIn: boolean; account: string | null; pro: boolean; linkingAvailable: boolean;
 }) {
-  const name = PC_SUBJECTS[subject].title;
+  const { title: name, exam, site: appSite, lectureSubject } = PC_SUBJECTS[subject];
   const site = pcSite(subject);
-  const planId = site + '-pc-plan';
-  const exam = lectureSiteConfig(site).examLabel;
+  const planId = appSite + '-pc-plan';
   const router = useRouter();
   const dialog = useRef<HTMLDialogElement>(null);
   const [pairing, setPairing] = useState<Pairing | null>(null);
@@ -118,7 +117,8 @@ export default function PcLecturePlan({ subject, loggedIn, account, pro, linking
   }
 
   const seconds = deadline ? Math.max(0, Math.ceil((Date.parse(deadline) - now) / 1000)) : 0;
-  const login = `/login?next=${encodeURIComponent(`${lecturePagePath(site, subject)}#${planId}`)}`;
+  const planPath = site && lectureSubject ? lecturePagePath(site, lectureSubject) : '/pc-pro/' + appSite + '?subject=' + subject;
+  const login = '/login?next=' + encodeURIComponent(planPath + '#' + planId);
   return <section id={planId} className="pc-plan" aria-labelledby="pc-plan-title">
     <div className="pc-plan-top">
       <h2 id="pc-plan-title">{name} 이용 플랜</h2>
@@ -127,11 +127,11 @@ export default function PcLecturePlan({ subject, loggedIn, account, pro, linking
     <div className="pc-plan-options">
       <div className={!pro ? 'pc-plan-option is-current' : 'pc-plan-option'}>
         <div><h3>기본</h3>{!pro && <span>현재</span>}</div>
-        <p>첫 3강 무료 수강</p>
+        <p>{lectureSubject ? '첫 3강 무료 수강' : '공개 학습 기능 이용'}</p>
       </div>
       <div className={pro ? 'pc-plan-option is-current' : 'pc-plan-option'}>
         <div><h3>Pro</h3>{pro && <span>현재</span>}</div>
-        <p>전체 강의와 {name} Pro 기능</p>
+        <p>{lectureSubject ? '전체 강의와 과목별 Pro 기능' : '구매한 학습권의 Pro 이용 상태 확인'}</p>
       </div>
     </div>
     {!pro && <div className="pc-plan-bottom">
@@ -147,7 +147,7 @@ export default function PcLecturePlan({ subject, loggedIn, account, pro, linking
           <button type="button" className="pc-plan-close" aria-label="닫기" onClick={() => dialog.current?.close()}>×</button></header>
         {status === 'linked' ? <>
           <p role="status">연결했어요. 홈페이지에서 {name} Pro 기능을 이용할 수 있어요.</p>
-          <button type="button" className="pc-plan-primary" onClick={() => dialog.current?.close()}>강의 보기</button>
+          <button type="button" className="pc-plan-primary" onClick={() => dialog.current?.close()}>{lectureSubject ? '강의 보기' : '확인'}</button>
         </> : status === 'approved' ? <>
           <p role="status">앱에서 구매를 확인했어요. {account}에 연결을 완료하세요.</p>
           <button type="button" className="pc-plan-primary" disabled={busy} onClick={() => void finish()}>연결 완료</button>

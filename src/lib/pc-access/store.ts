@@ -1,6 +1,6 @@
 import 'server-only';
 import { createHash, sign } from 'node:crypto';
-import { PC_SUBJECTS, pcSite, type PcSubject } from './catalog';
+import { PC_SUBJECTS, platformInOffer, type PcSubject } from './catalog';
 
 export type Store = 'ios' | 'android';
 export type StoreEnvironment = 'production' | 'sandbox';
@@ -113,8 +113,8 @@ async function googlePurchase(proof: string, productId: string, bundle: string) 
 }
 
 export async function verifyStorePurchase(platform: Store, proof: string, subject: PcSubject, environment: StoreEnvironment = 'production') {
-  const productId = PC_SUBJECTS[subject].productId;
-  const bundle = pcSite(subject) === 'police' ? 'com.sanghyun.police' : 'com.sanghyun.civillaw';
+  if (!platformInOffer(subject, platform)) return null;
+  const { productId, bundle } = PC_SUBJECTS[subject];
   if (platform === 'android' && environment === 'sandbox') return null;
   const id = await (platform === 'ios' ? applePurchase(proof, productId, bundle, environment) : googlePurchase(proof, productId, bundle));
   if (!id) return null;

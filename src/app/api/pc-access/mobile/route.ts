@@ -1,5 +1,5 @@
 import { createAdminClient } from '@/lib/supabase/admin';
-import { productSubject } from '@/lib/pc-access/catalog';
+import { mobileOffer, productSubject } from '@/lib/pc-access/catalog';
 import { pcJson, validQrToken } from '@/lib/pc-access/session';
 import { digest, isStoreProof, pcTesterAllowed, storeVerificationConfigured, verifyStorePurchase } from '@/lib/pc-access/store';
 
@@ -26,8 +26,7 @@ export async function POST(request: Request) {
   try {
     if (!request.headers.get('content-type')?.includes('application/json')) return respond({ error: '잘못된 요청이에요.' }, 415);
     const body = await request.json().catch(() => null);
-    const subject = productSubject(body?.productId);
-    if (!body || !subject || !validQrToken(body.token) || !['inspect', 'approve'].includes(body.action)) {
+    if (!body || (body.bundle === undefined && !productSubject(body.productId)) || !validQrToken(body.token) || !['inspect', 'approve'].includes(body.action)) {
       return respond({ error: '홈페이지 강의에서 만든 QR을 확인해 주세요.' }, 400);
     }
     const admin = createAdminClient();
@@ -38,8 +37,12 @@ export async function POST(request: Request) {
     if (!row || row.completed_at || Date.parse(row.expires_at) <= Date.now()) {
       return respond({ error: 'QR이 만료됐거나 이미 사용됐어요. PC에서 새 QR을 만들어 주세요.' }, 410);
     }
-    if (row.subject !== subject) return respond({ error: '앱과 홈페이지에서 같은 과목을 선택해 주세요.' }, 409);
-    if (body.action === 'inspect') return respond({ label: row.account_label });
+    const offer = mobileOffer(body, row.subject);
+    if (!offer) return respond({ error: '앱과 홈페이지에서 같은 시험과 과목을 선택해 주세요.' }, 409);
+    const subject = offer.id;
+    if (body.action === 'inspect') return respond({
+      label: row.account_label, offer: offer.id, title: offer.title, productId: offer.productId,
+    });
     const { platform, proof } = body;
     if ((platform !== 'ios' && platform !== 'android') || !isStoreProof(platform, proof)) {
       return respond({ error: '유효한 스토어 구매 내역을 찾지 못했어요.' }, 400);

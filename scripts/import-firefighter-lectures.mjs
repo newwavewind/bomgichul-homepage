@@ -10,6 +10,9 @@ const source = process.argv[process.argv.indexOf('--source') + 1];
 if (!process.argv.includes('--source') || !source) throw new Error('Supply --source /path/to/the/current/firefighter/app');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const target = path.join(root, 'src/components/lectures/firefighter');
+const proOnly = process.argv.includes('--pro');
+const proDir = path.join(root, 'data/firefighter-pro-lectures');
+const proSubjects = {};
 const pkg = JSON.parse(await readFile(path.join(source, 'package.json'), 'utf8'));
 if (pkg.name !== 'firebomgichul') throw new Error('The source must be the firefighter app');
 const { build } = createRequire(path.join(source, 'package.json'))('esbuild');
@@ -28,8 +31,11 @@ const figureBase = playerSource.match(/const FIGURE_BASE\s*=\s*['"]([^'"]+)['"]/
 if (!figureBase) throw new Error('The original textbook figure URL must be preserved');
 const labels = { sobang: '소방학개론', sobangbeop: '소방관계법규', haengjeongbeop: '행정법총론' };
 const catalog = [], outline = [], imports = [], sourceHashes = {};
-await mkdir(path.join(target, 'data'), { recursive: true });
-await mkdir(path.join(target, 'players'), { recursive: true });
+if (proOnly) await mkdir(proDir, { recursive: true });
+else {
+  await mkdir(path.join(target, 'data'), { recursive: true });
+  await mkdir(path.join(target, 'players'), { recursive: true });
+}
 for (const [subject, label] of Object.entries(labels)) {
   let number = 0;
   // Empty curriculum slots are not lectures. Keep the app's order of actual lessons.
@@ -37,10 +43,20 @@ for (const [subject, label] of Object.entries(labels)) {
     const lecture = app.getChalkLecture(subject, item);
     return { id: `fire-${lecture.id}`, sourceId: lecture.id, title: item.titleKo, number: ++number, ready: true, seconds: Math.round(app.lectureTotalSeconds(lecture.id)), description: lecture.description || '' };
   }) })).filter(section => section.lessons.length) })).filter(part => part.sections.length);
-  const previews = parts.flatMap(part => part.sections.flatMap(section => section.lessons)).slice(0, 3);
+  const allLessons = parts.flatMap(part => part.sections.flatMap(section => section.lessons));
+  const previews = allLessons.slice(0, 3);
+  const paid = {};
   if (previews.length !== 3) throw new Error(`${label}: three available lessons required`);
   const lectures = [];
-  for (const lesson of previews) {
+  if (proOnly) {
+    const publicOutline = JSON.parse(await readFile(path.join(target, 'outline.json'), 'utf8'));
+    const webLessons = publicOutline.find(group => group.subject === subject).parts
+      .flatMap(part => part.sections.flatMap(section => section.lessons));
+    if (JSON.stringify(webLessons.map(x => x.id)) !== JSON.stringify(allLessons.map(x => x.id))) {
+      throw new Error(`Update the public outline before exporting ${subject}`);
+    }
+  }
+  for (const lesson of proOnly ? allLessons.slice(3) : previews) {
     const id = lesson.sourceId;
     const component = id[0].toUpperCase() + id.slice(1) + 'MicroLecture.jsx';
     const original = (await bundled(`export {default} from './src/components/concepts/${component}';`, [capture])).default;
@@ -56,17 +72,33 @@ for (const [subject, label] of Object.entries(labels)) {
       return { label: exam.label, href: `/firefighter/exam/${subject}/${match[2]}/${encodeURIComponent(match[3])}/${match[4]}` };
     });
     const definition = { ...original, boundedWriting: true, subject, figureBase, examLinks };
+    if (proOnly) {
+      paid[lesson.id] = definition;
+      continue;
+    }
     await writeFile(path.join(target, 'data', `${id}.json`), JSON.stringify(definition) + '\n');
     await writeFile(path.join(target, 'players', `${id}.jsx`), `import createChalkLecture from '../../player/createChalkLecture';\nimport definition from '../data/${id}.json';\nexport default createChalkLecture(definition);\n`);
     imports.push(`  '${lesson.id}': lazy(() => import('./players/${id}')),`);
     lectures.push({ id: lesson.id, sourceId: id, title: lesson.title, description: lesson.description, seconds, sceneCount: original.scenes.length });
     sourceHashes[id] = { scenes: hash(original.scenes), cues: hash(original.cues), audioBase: original.audioBase, sceneCount: original.scenes.length };
   }
+  if (proOnly) {
+    const data = JSON.stringify(paid) + '\n';
+    await writeFile(path.join(proDir, subject + '.json'), data);
+    proSubjects[subject] = { public: previews.length, paid: Object.keys(paid).length,
+      sha256: createHash('sha256').update(data).digest('hex') };
+  }
   catalog.push({ subject, label, lectures });
   outline.push({ subject, label, parts });
 }
 const count = outline.reduce((sum, group) => sum + group.parts.flatMap(part => part.sections.flatMap(section => section.lessons)).length, 0);
 if (count !== app.CHALK_LECTURES.length) throw new Error('Some registered app lectures were not matched to the curriculum');
+const sourceCommit = execFileSync('git', ['-C', source, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+if (proOnly) {
+  await writeFile(path.join(proDir, 'manifest.json'), JSON.stringify({ appCommit: sourceCommit, subjects: proSubjects }, null, 2) + '\n');
+  console.log(proSubjects);
+  process.exit(0);
+}
 await writeFile(path.join(target, 'catalog.json'), JSON.stringify(catalog, null, 2) + '\n');
 await writeFile(path.join(target, 'outline.json'), JSON.stringify(outline, null, 2) + '\n');
 await writeFile(path.join(target, 'players.jsx'), `import { lazy } from 'react';\nexport const firefighterPlayers = {\n${imports.join('\n')}\n};\n`);

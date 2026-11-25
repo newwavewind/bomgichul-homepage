@@ -2,10 +2,12 @@ import { describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import policeOutline from '@/components/lectures/police/outline.json';
+import firefighterOutline from '@/components/lectures/firefighter/outline.json';
+import firefighterManifest from '../../../data/firefighter-pro-lectures/manifest.json';
 import realEstateOutline from '@/components/lectures/outline.json';
 import policeManifest from '../../../data/police-pro-lectures/manifest.json';
 import realEstateManifest from '../../../data/real-estate-pro-lectures/manifest.json';
-import { PC_SUBJECTS, isPcSubject, pcSite, productSubject } from './catalog';
+import { PC_APPS, PC_SUBJECTS, lecturePcSubject, mobileOffer, pcSite, platformInOffer, productSubject } from './catalog';
 
 vi.mock('server-only', () => ({}));
 vi.mock('@/lib/pc-access/session', async importOriginal => ({
@@ -24,22 +26,53 @@ import { hasPcPro, paidLectureSubject, readPaidLecture } from './pro';
 
 const viewer = { id: 'test-user', sessionId: 'test-session', beta: false, label: 'Google · 가○○ 계정' };
 
+describe('앱과 결제 상품 범위', () => {
+  it('같은 앱과 과목의 검증된 상품만 받고 기존 앱 형식도 허용한다', () => {
+    const connected = PC_APPS.flatMap(app => app.subjects.map(offer => ({ ...offer, bundle: app.bundle })));
+    expect(new Set(connected.map(offer => offer.id)).size).toBe(connected.length);
+    for (const offer of connected) {
+      expect(mobileOffer({ bundle: offer.bundle, subjectId: offer.subjectId }, offer.id)?.id).toBe(offer.id);
+      expect(mobileOffer(offer, offer.id)?.id).toBe(offer.id);
+      expect(mobileOffer({ ...offer, bundle: 'com.other.app' }, offer.id)).toBeUndefined();
+      expect(mobileOffer({ ...offer, productId: 'premium_unlock' }, offer.id)).toBeUndefined();
+      expect(mobileOffer({ productId: offer.productId }, offer.id)).toBeUndefined();
+    }
+    expect(mobileOffer({ productId: 'premium_unlock' }, 'civillaw')?.bundle).toBe('com.sanghyun.civillaw');
+    expect(platformInOffer('history-history', 'android')).toBe(false);
+    expect(platformInOffer('history-history', 'ios')).toBe(true);
+  });
+  it('공무원 국가직과 지방직 및 영어 기존 학습권을 따로 확인한다', () => {
+    for (const [whole, part] of [
+      ['public-service-hangjunghak-national', 'public-service-hangjunghak-local'],
+      ['english-english', 'english-english-local'],
+    ]) {
+      const scope = PC_SUBJECTS[whole];
+      expect(mobileOffer(scope, part)).toBeUndefined();
+      expect(mobileOffer(scope, whole)?.id).toBe(whole);
+    }
+  });
+});
+
 describe('과목별 PC Pro 강의', () => {
   it('전체 공개 목록과 검증된 유료 원본의 수·과목·해시가 일치한다', async () => {
     const subjects: Record<string, { public: number; paid: number; sha256: string }> = {
-      ...policeManifest.subjects, ...realEstateManifest.subjects,
+      ...policeManifest.subjects, ...realEstateManifest.subjects, ...firefighterManifest.subjects,
     };
-    for (const group of [...policeOutline, ...realEstateOutline]) {
-      if (!isPcSubject(group.subject)) throw new Error('Unknown subject');
-      const subject = group.subject;
-      const content = await readFile(`data/${pcSite(subject)}-pro-lectures/${subject}.json`);
+    const outlines = [
+      ['police', policeOutline], ['real-estate', realEstateOutline], ['firefighter', firefighterOutline],
+    ] as const;
+    for (const [site, outline] of outlines) for (const group of outline) {
+      const subject = lecturePcSubject(site, group.subject);
+      if (!subject) throw new Error('Unknown subject');
+      const content = await readFile(`data/${pcSite(subject)}-pro-lectures/${group.subject}.json`);
       const definitions = JSON.parse(content.toString());
       const lessons = group.parts.flatMap(part => part.sections.flatMap(section => section.lessons));
-      expect(productSubject(PC_SUBJECTS[subject].productId)).toBe(subject);
+      if (site !== 'firefighter') expect(productSubject(PC_SUBJECTS[subject].productId)).toBe(subject);
+      else expect(mobileOffer(PC_SUBJECTS[subject], subject)?.id).toBe(subject);
       expect(lessons.filter(lesson => lesson.number <= 3)).toHaveLength(3);
       expect(Object.keys(definitions)).toEqual(lessons.filter(lesson => lesson.ready && lesson.number > 3).map(lesson => lesson.id));
-      expect(Object.keys(definitions)).toHaveLength(subjects[subject].paid);
-      expect(createHash('sha256').update(content).digest('hex')).toBe(subjects[subject].sha256);
+      expect(Object.keys(definitions)).toHaveLength(subjects[group.subject].paid);
+      expect(createHash('sha256').update(content).digest('hex')).toBe(subjects[group.subject].sha256);
       for (const lesson of lessons) {
         expect(paidLectureSubject(lesson.id)).toBe(lesson.number <= 3 ? null : subject);
         if (lesson.number > 3) expect(definitions[lesson.id].scenes.length).toBeGreaterThan(0);

@@ -1,0 +1,20 @@
+{
+  "appCommit": "c2945474137d32be70686a6b27a521946aa65cfd",
+  "subjects": {
+    "sobang": {
+      "public": 3,
+      "paid": 69,
+      "sha256": "0c1bee3122a0f53a5822508a29dd0d48fa27d46f6d8836b8950a6784caa9533c"
+    },
+    "sobangbeop": {
+      "public": 3,
+      "paid": 87,
+      "sha256": "f035c4410711e61c9e3ed8da1071bda75bb39076238a10e2c6a7518356a578da"
+    },
+    "haengjeongbeop": {
+      "public": 3,
+      "paid": 50,
+      "sha256": "73d9684033a7f8dfb0e5d63d678c4571467114e9c3ef03ac55cc14cde41d2ba6"
+    }
+  }
+}
