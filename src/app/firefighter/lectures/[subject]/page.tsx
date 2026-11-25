@@ -7,7 +7,7 @@ import outline from '@/components/lectures/firefighter/outline.json';
 import lectureManifest from '@/components/lectures/firefighter/source-manifest.json';
 import LectureSamples from '@/components/lectures/LectureSamples';
 import PcLecturePlan from '@/components/lectures/police/PcLecturePlan';
-import { getPcStudyCounts } from '@/lib/pc-access/study';
+import { getPcStudyCounts } from '@/lib/pc-access/study-context';
 import { lecturePcSubject } from '@/lib/pc-access/catalog';
 import { getPcViewer } from '@/lib/pc-access/session';
 import { hasPcPro } from '@/lib/pc-access/pro';

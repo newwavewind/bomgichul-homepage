@@ -1,6 +1,6 @@
 import { getPcViewer, pcJson } from '@/lib/pc-access/session';
 import { hasPcPro } from '@/lib/pc-access/pro';
-import { readPcNotebook, readPcGlossary, readPcGlossaryLabels, readPcQuestionTraps } from '@/lib/pc-access/study';
+import { readPcNotebook, readPcGlossary, readPcGlossaryLabels, readPcQuestionTraps } from '@/lib/pc-access/question-study';
 import { pcQuestionHasNotebook, pcQuestionLocation, pcQuestionOffers, pcQuestionPath } from '@/lib/pc-access/study-context';
 
 export async function GET(request: Request) {

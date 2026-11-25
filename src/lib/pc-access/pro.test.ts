@@ -22,7 +22,8 @@ vi.mock('@/lib/pc-access/pro', async importOriginal => ({
 import { GET as definitionRoute } from '@/app/api/pc-access/lecture/[lecture]/route';
 import { GET as audioRoute } from '@/app/api/pc-access/lecture/[lecture]/[scene]/route';
 import { getPcViewer } from './session';
-import { hasPcPro, paidLectureSubject, readPaidLecture } from './pro';
+import { hasPcPro } from './pro';
+import { paidLectureSubject, readPaidLecture } from './lectures';
 
 const viewer = { id: 'test-user', sessionId: 'test-session', beta: false, label: 'Google · 가○○ 계정' };
 

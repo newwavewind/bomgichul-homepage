@@ -1,9 +1,9 @@
 import { getPcViewer, pcJson } from '@/lib/pc-access/session';
 import { hasPcPro } from '@/lib/pc-access/pro';
-import { readPcStudy, getPcStudyCounts, type PcStudy } from '@/lib/pc-access/study';
+import { readPcStudy, type PcStudy } from '@/lib/pc-access/study';
 import { isPcStudyFeature } from '@/lib/pc-access/study-features';
 import { isPcSubject } from '@/lib/pc-access/catalog';
-import { pcQuestionLocation, pcQuestionOffers, pcQuestionPath } from '@/lib/pc-access/study-context';
+import { getPcStudyCounts, pcQuestionLocation, pcQuestionOffers, pcQuestionPath } from '@/lib/pc-access/study-context';
 import verifiedTraps from '../../../../../data/pc-pro-study/verified-traps.json';
 
 export async function GET(request: Request) {

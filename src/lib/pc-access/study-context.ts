@@ -1,7 +1,6 @@
 import 'server-only';
-
 import { isPcSubject, PC_SUBJECTS, pcSite } from './catalog';
-import { getPcStudyCounts } from './study';
+import manifest from '../../../data/pc-pro-study/manifest.json';
 import type { PcStudyFeature, PcStudyOffer } from './study-features';
 import questionFeatures from '../../../data/pc-pro-study/question-index.json';
 import notebookPaths from '../../../data/pc-pro-notes/index.json';
@@ -12,6 +11,11 @@ const webSubjects: Record<string, string> = { english: 'gong9', history: 'simhwa
 const offers = Object.values(PC_SUBJECTS);
 const notebooks = new Set(notebookPaths);
 const index: Readonly<Record<string, number>> = questionFeatures;
+const scopes: Readonly<Record<string, Partial<Record<PcStudyFeature, number>>>> = manifest.scopes;
+
+export function getPcStudyCounts(scope: string) {
+  return Object.hasOwn(scopes, scope) ? scopes[scope] : null;
+}
 
 export function pcQuestionLocation(path: string): PcQuestionLocation | null {
   if (path.length > 240) return null;

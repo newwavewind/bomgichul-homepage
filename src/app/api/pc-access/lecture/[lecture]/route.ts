@@ -1,4 +1,5 @@
-import { hasPcPro, paidLectureSubject, readPaidLecture } from '@/lib/pc-access/pro';
+import { hasPcPro } from '@/lib/pc-access/pro';
+import { paidLectureSubject, readPaidLecture } from '@/lib/pc-access/lectures';
 import { getPcViewer, pcJson } from '@/lib/pc-access/session';
 
 export async function GET(_request: Request, { params }: { params: Promise<{ lecture: string }> }) {

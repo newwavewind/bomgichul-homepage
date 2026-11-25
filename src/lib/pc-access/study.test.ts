@@ -9,7 +9,8 @@ import realEstateBooks from '../../../data/pc-pro-textbooks/real-estate.json';
 import firefighterBooks from '../../../data/pc-pro-textbooks/firefighter.json';
 import { GET } from '@/app/api/pc-access/textbook/[lecture]/route';
 import { getPcViewer } from './session';
-import { hasPcPro, paidLectureSubject } from './pro';
+import { hasPcPro } from './pro';
+import { paidLectureSubject } from './lectures';
 
 vi.mock('server-only', () => ({}));
 vi.mock('./session', async importOriginal => ({

@@ -1,4 +1,5 @@
-import { hasPcPro, paidLectureSubject } from '@/lib/pc-access/pro';
+import { hasPcPro } from '@/lib/pc-access/pro';
+import { paidLectureSubject } from '@/lib/pc-access/lectures';
 import { getPcViewer, pcJson } from '@/lib/pc-access/session';
 import { proTextbookUrl } from '@/lib/pc-access/textbooks';
 

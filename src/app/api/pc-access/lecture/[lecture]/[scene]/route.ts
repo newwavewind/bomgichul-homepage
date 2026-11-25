@@ -1,4 +1,5 @@
-import { audioSource, hasPcPro, paidLectureSubject, readPaidLecture } from '@/lib/pc-access/pro';
+import { hasPcPro } from '@/lib/pc-access/pro';
+import { audioSource, paidLectureSubject, readPaidLecture } from '@/lib/pc-access/lectures';
 import { getPcViewer, pcJson } from '@/lib/pc-access/session';
 
 export async function GET(request: Request, { params }: { params: Promise<{ lecture: string; scene: string }> }) {

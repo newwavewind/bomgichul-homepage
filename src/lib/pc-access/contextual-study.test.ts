@@ -8,7 +8,7 @@ vi.mock('./session', async load => ({
 vi.mock('./pro', () => ({ hasPcPro: vi.fn() }));
 
 import { GET } from '@/app/api/pc-access/study/route';
-import { GET as getStudyContext } from '@/app/api/pc-access/study-context/route';
+import { GET as getStudyContext } from '@/app/api/pc-access/question-data/route';
 import { getPcViewer } from './session';
 import { hasPcPro } from './pro';
 import { pcQuestionFeatures, pcQuestionHasNotebook, pcQuestionOffers } from './study-context';

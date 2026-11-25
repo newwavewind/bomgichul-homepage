@@ -6,7 +6,7 @@ import catalog from '@/components/lectures/catalog.json';
 import outline from '@/components/lectures/outline.json';
 import LectureSamples from '@/components/lectures/LectureSamples';
 import PcLecturePlan from '@/components/lectures/police/PcLecturePlan';
-import { getPcStudyCounts } from '@/lib/pc-access/study';
+import { getPcStudyCounts } from '@/lib/pc-access/study-context';
 import { isPcSubject } from '@/lib/pc-access/catalog';
 import { getPcViewer } from '@/lib/pc-access/session';
 import { hasPcPro } from '@/lib/pc-access/pro';

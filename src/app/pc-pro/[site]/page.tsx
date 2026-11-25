@@ -2,7 +2,7 @@ import { pcStudyReturnPath } from "@/lib/pc-access/study-context";
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PcLecturePlan from '@/components/lectures/police/PcLecturePlan';
-import { getPcStudyCounts } from '@/lib/pc-access/study';
+import { getPcStudyCounts } from '@/lib/pc-access/study-context';
 import { PC_APPS } from '@/lib/pc-access/catalog';
 import { hasPcPro } from '@/lib/pc-access/pro';
 import { getPcViewer } from '@/lib/pc-access/session';
