@@ -11,13 +11,18 @@ type Pairing = { token: string; expiresAt: string; image: string };
 type Status = 'waiting' | 'approved' | 'expired' | 'linked';
 
 async function webRequest(body: object) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 12000);
+  const fallback = '구매 연동 서버에 연결하지 못했어요. 잠시 뒤에 다시 시도해 주세요.';
   const response = await fetch('/api/pc-access/web', {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
-    signal: AbortSignal.timeout(12000),
-  });
-  const data = await response.json();
-  if (!response.ok) throw new Error(data.error || '연결에 실패했어요. 다시 시도해 주세요.');
-  return data;
+    signal: controller.signal,
+  }).then(async result => ({ ok: result.ok, data: await result.json() }))
+    .catch(() => null)
+    .finally(() => clearTimeout(timeout));
+  if (!response || !response.data || typeof response.data !== 'object') throw new Error(fallback);
+  if (!response.ok) throw new Error(typeof response.data.error === 'string' ? response.data.error : fallback);
+  return response.data;
 }
 
 export default function PcLecturePlan({ subject, loggedIn, account, pro, linkingAvailable }: {
