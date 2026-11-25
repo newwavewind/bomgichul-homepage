@@ -60,12 +60,16 @@ export default function AppServicesPage() {
               <p className="font-semibold text-ink">칠판 강의·교재</p>
               <p className="mt-1 text-body-sm text-smoke">경찰공무원·공인중개사·소방공무원의 연동한 과목에서 전체 강의와 교재를 엽니다.</p>
             </li>
-            {PC_STUDY_FEATURES.map(feature => <li key={feature.id} className="rounded-xl border border-mist bg-paper p-3">
+            {[...PC_STUDY_FEATURES, {
+              id: "glossary", title: "용어 사전", description: "선지 해설에서 용어를 눌러 뜻을 확인합니다.",
+            }, {
+              id: "notebook", title: "필기노트", description: "문항 해설 아래에서 핵심 포인트와 비교 노트를 엽니다.",
+            }].map(feature => <li key={feature.id} className="rounded-xl border border-mist bg-paper p-3">
               <p className="font-semibold text-ink">{feature.title}</p>
               <p className="mt-1 text-body-sm text-smoke">{feature.description}</p>
             </li>)}
           </ul>
-          <p className="mt-4 text-body-sm text-smoke">제공하는 기능과 자료는 시험·과목에 따라 달라요. PC Pro에서 구매 과목을 선택해 확인하세요.</p>
+          <p className="mt-4 text-body-sm text-smoke">연동을 마치면 과목 카드, 복습 도구, 문항 해설에서 해당 기능을 열 수 있어요. 자료는 과목과 문항에 따라 달라요.</p>
         </div>
       </section>
 
