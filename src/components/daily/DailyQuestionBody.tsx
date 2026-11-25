@@ -19,12 +19,14 @@ export function DailyQuestionBody({
   presentation,
   questionNo,
   heading = "h2",
+  expandableFigures = true,
   subjectId,
 }: {
   stem: string;
   presentation: DailyQuestionPresentation;
   questionNo: number;
   heading?: "h2" | "h3";
+  expandableFigures?: boolean;
   subjectId?: string;
 }) {
   const transcript = presentation.material?.passageTextIsTranscript ? presentation.passageText?.trim() : null;
@@ -47,6 +49,7 @@ export function DailyQuestionBody({
           <ExamMaterialFigure
             material={presentation.material}
             questionNo={questionNo}
+            expandable={expandableFigures}
           />
         </div>
       ) : null}
@@ -68,6 +71,7 @@ export function DailyQuestionBody({
           <ExamMaterialFigure
             material={presentation.material}
             questionNo={questionNo}
+            expandable={expandableFigures}
           />
         </div>
       ) : null}

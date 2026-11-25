@@ -8,7 +8,6 @@ import { EnglishPassageNotes } from "@/components/english/EnglishPassageNotes";
 import { ExamMaterialFigure } from "@/components/exam/ExamMaterialFigure";
 import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
 import { ExamSubjectNotice } from "@/components/exam/ExamSubjectNotice";
-import { HistoryConceptNote } from "@/components/history/HistoryConceptNote";
 import { TrackConceptDetailView } from "@/components/exam-track/TrackConceptDetailView";
 import { TrackConceptPartList, type TrackConceptPartGroup } from "@/components/exam-track/TrackConceptPartList";
 import type { TrackConceptStatement } from "@/components/exam-track/TrackConceptStatements";
@@ -753,11 +752,6 @@ export async function TrackExamDetailPage({
               />
               {/* 영어는 선지 해설만으로 끝나지 않는다 — 지문 해석과 그 문항에서
                   챙길 어휘를 같은 자리에 붙인다. 다른 트랙에는 이 자료가 없다. */}
-              {/* 한국사의 핵심 개념 카드 — 선지 해설이 「왜 이 선지가 참·거짓인가」를
-                  답한다면, 이 카드는 「이 문항을 풀려면 무엇을 알아야 했는가」를
-                  답한다. 늘 펼쳐 두고 서버에서 그린다 — 채점해야만 나오게 하면
-                  크롤러가 이 본문을 영영 못 읽는다. */}
-              {exam.concept ? <HistoryConceptNote concept={exam.concept} /> : null}
               {hasExamQuestionSeoExplanations(seoQuestion) ? <ExamSeoExplanationDetails
                 subject={storageSubject}
                 year={exam.year}

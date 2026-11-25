@@ -7,7 +7,8 @@ import { buildExamItemAiPrompt } from "@/lib/ai-links";
 import { communityScopeLabel } from "@/lib/exam-track/community";
 import type { ChoiceGlossary } from "@/lib/exam-glossary";
 import { ExplanationChoiceBadge } from "@/components/exam/ExamSeoExplanationDetails";
-import { ExplanationSourceLinks, prepareExplanationSources, type AttachedExplanationSource } from "@/components/exam/ExamExplanationSources";
+import { ExplanationSourceLinks } from "@/components/exam/ExplanationSourceLinks";
+import { prepareExplanationSources, type AttachedExplanationSource } from "@/components/exam/ExamExplanationSources";
 import type { CommunityScope } from "@/types/database";
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 import { plainStudyText } from "@/lib/study-text";
@@ -20,6 +21,7 @@ export type SeoExplanationQuestion = {
   round?: number;
   sourceCode?: string;
   category?: string;
+  subcategory?: string;
   correctChoice?: string | number;
   /** 복수정답·전항정답 */
   correctChoices?: number[];
@@ -364,7 +366,7 @@ export function ExamQuestionSeoExplanations({
             ))}
           </ol>
         ) : null}
-        <ExplanationAppTools notebookPro={notebookPro} questionPrompt={itemsWithAnswerOrExpl.length + comboWithExplanation.length === 0
+        <ExplanationAppTools notebookPro={notebookPro} noteTitle={question.subcategory || question.category || subjectLabel} questionPrompt={itemsWithAnswerOrExpl.length + comboWithExplanation.length === 0
           ? [`${subjectLabel} ${question.year}년 ${question.questionNo}번 기출을 설명해 주세요.`, question.stem, summary].filter(Boolean).join("\n\n")
           : undefined} />
       </ExplanationAppFeatures>

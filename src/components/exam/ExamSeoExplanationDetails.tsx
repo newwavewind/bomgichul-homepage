@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { PcQuestionPractice } from "@/components/pc-pro/PcStudyAction";
+import { PcQuestionPractice, PcQuestionStudyProvider } from "@/components/pc-pro/PcStudyAction";
 import type { PcQuestionFeature } from "@/lib/pc-access/study-features";
 import { DailyChoiceBadge } from "@/components/daily/DailyChoiceBadge";
 
@@ -100,7 +100,9 @@ export function ExamSeoExplanationDetails({
         </span>
       </summary>
       <div className="pt-2"><ExplanationChoiceSelection choice={choice}>
-        {practice?.features.length ? <PcQuestionPractice {...practice}>{children}</PcQuestionPractice> : children}
+        <PcQuestionStudyProvider question={practice?.question}>
+          {practice?.features.length ? <PcQuestionPractice features={practice.features}>{children}</PcQuestionPractice> : children}
+        </PcQuestionStudyProvider>
       </ExplanationChoiceSelection></div>
     </details>
   );

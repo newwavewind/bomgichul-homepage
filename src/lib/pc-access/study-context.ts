@@ -76,10 +76,9 @@ export function pcQuestionOffers(path: string, feature?: PcStudyFeature) {
 export function pcQuestionFeatures(path: string) {
   const location = pcQuestionLocation(path);
   const mask = location ? index[pcQuestionPath(location)] ?? 0 : 0;
-  return ([['choices', 1], ['traps', 2]] as const).flatMap(([feature, bit]) => {
-    const offers = mask & bit ? pcQuestionOffers(path, feature) : [];
-    return offers.length ? [{ feature, offers }] : [];
-  });
+  const feature = 'traps' as const;
+  const offers = mask & 2 ? pcQuestionOffers(path, feature) : [];
+  return offers.length ? [{ feature, offers }] : [];
 }
 
 export function pcQuestionHasNotebook(path: string) {

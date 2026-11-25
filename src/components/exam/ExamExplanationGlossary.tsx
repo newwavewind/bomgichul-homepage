@@ -1,4 +1,6 @@
-import { PcGlossaryTerm } from "@/components/pc-pro/PcStudyAction";
+"use client";
+
+import { PcGlossaryTerm, useQuestionGlossaryTerms } from "@/components/pc-pro/PcStudyAction";
 import type { PcQuestionAccess } from "@/lib/pc-access/study-features";
 import { ExplanationAppFeatureButton } from "@/components/exam/ExplanationAppFeatures";
 import type { ChoiceGlossary } from "@/lib/exam-glossary";
@@ -12,9 +14,10 @@ function TermPlus() {
 }
 
 export function ExamExplanationGlossary({ glossary, hasApp, choice, pro }: { glossary?: ChoiceGlossary; hasApp: boolean; choice: string; pro?: PcQuestionAccess }) {
-  if (!glossary?.terms.length) return null;
-  const { terms } = glossary;
-  const firstDefinition = pro ? undefined : glossary.firstDefinition;
+  const native = useQuestionGlossaryTerms(choice);
+  const terms = native?.length ? native : glossary?.terms ?? [];
+  if (!terms.length && !pro) return null;
+  const firstDefinition = pro ? undefined : glossary?.firstDefinition;
   const remaining = firstDefinition ? terms.slice(1) : terms;
 
   return (
@@ -39,10 +42,17 @@ export function ExamExplanationGlossary({ glossary, hasApp, choice, pro }: { glo
             </details>
           </li>
         ) : null}
+        {pro && !terms.length && (
+          <li className="max-w-full has-[.exam-choice-glossary-definition]:basis-full">
+            <PcGlossaryTerm choice={choice} term="용어 사전" offers={pro.offers} emptyMessage="이 선지에 등록된 용어가 없어요.">
+              용어 보기 <span className="pc-access-pro">Pro</span> <TermPlus />
+            </PcGlossaryTerm>
+          </li>
+        )}
         {remaining.map((term) => (
-          <li key={term}>
+          <li key={term} className="max-w-full has-[.exam-choice-glossary-definition]:basis-full">
             {pro ? (
-              <PcGlossaryTerm question={pro.path} choice={choice} term={term} offers={pro.offers}>
+              <PcGlossaryTerm choice={choice} term={term} offers={pro.offers}>
                 {term} <TermPlus />
               </PcGlossaryTerm>
             ) : hasApp ? (

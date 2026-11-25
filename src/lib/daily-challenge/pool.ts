@@ -1,4 +1,4 @@
-import { pcQuestionOffers, type PcQuestionLocation } from "@/lib/pc-access/study-context";
+import { pcQuestionLocation, pcQuestionOffers, type PcQuestionLocation } from "@/lib/pc-access/study-context";
 import "server-only";
 
 import { EXAM_SUBJECTS } from "@/lib/constants";
@@ -51,9 +51,10 @@ import {
   pickDailyIdsWithNextDate,
 } from "@/lib/daily-challenge/pick";
 import { getDailyExam } from "@/lib/daily-challenge/exams";
+import type { PocketOriginal } from "@/lib/pc-access/study";
 import type { SeoExplanationQuestion } from "@/components/exam/ExamQuestionSeoExplanations";
 import { scopeFromPathname } from "@/lib/exam-track/community";
-import { examGlossaryTerms, findExamGlossaryDefinition } from "@/lib/exam-glossary";
+import { examGlossaryTerms, findExamGlossaryDefinition, type ChoiceGlossary } from "@/lib/exam-glossary";
 import { housingExplanationSources } from "@/lib/housing-explanation-sources";
 import type {
   DailyChoice,
@@ -366,17 +367,63 @@ function lookupExplanationExam({site, subject, year, source, no}: PcQuestionLoca
   return track?.exams.find(exam => exam.year === year && exam.sourceCode === source && exam.questionNo === no);
 }
 
-export async function getQuestionGlossary(location: PcQuestionLocation, key: string, term: string) {
+/** Project the same web question content used by the examination page, without its answer. */
+export function getPocketOriginals(paths: string[]): Record<string, PocketOriginal> {
+  return Object.fromEntries([...new Set(paths)].flatMap(path => {
+    const location = pcQuestionLocation(path);
+    const exam = location && lookupExplanationExam(location);
+    const normalized = exam && normalizeChoices(exam);
+    if (!exam?.stem || !normalized) return [];
+    return [[path, {
+      questionNo: exam.questionNo,
+      stem: exam.stem,
+      choices: normalized.choices,
+      presentation: buildPresentation(exam, normalized.hasCombos),
+    }]];
+  }));
+}
+
+export function getGlossaryExam(path: string) {
+  const location = pcQuestionLocation(path);
+  const exam = location && lookupExplanationExam(location);
+  const normalized = exam && normalizeChoices(exam);
+  if (!exam?.stem || !normalized) return null;
+  return {
+    questionNo: exam.questionNo,
+    stem: exam.stem,
+    correctKeys: normalized.correctKeys,
+    choices: normalized.choices,
+    presentation: buildPresentation(exam, normalized.hasCombos),
+  };
+}
+
+async function questionGlossary(location: PcQuestionLocation) {
   const exam = lookupExplanationExam(location);
   if (!exam) return null;
   const id = exam.id ?? `real-estate/${location.subject}/${location.year}/${location.no}`;
   const scope = scopeFromPathname(location.site === "real-estate" ? "/exam" : "/" + location.site);
-  const items = (exam.items ?? []).filter(item => item.key === key).map(item => ({ ...item, text: item.text ?? "" }));
-  const entry = (await examGlossaryTerms(scope, id, items, exam.vocab))[key];
-  if (!entry?.terms.includes(term)) return null;
-  const definition = (entry.terms[0] === term ? entry.firstDefinition : null)
-    || exam.vocab?.find(item => item.term === term)?.meaning;
-  return { definition: definition ?? await findExamGlossaryDefinition(scope, term) };
+  const items = (exam.items ?? []).map(item => ({ ...item, text: item.text ?? "" }));
+  const entries = await examGlossaryTerms(scope, id, items, exam.vocab);
+  const definition = (entry: ChoiceGlossary, term: string) =>
+    Promise.resolve((entry.terms[0] === term ? entry.firstDefinition : null)
+      || exam.vocab?.find(item => item.term === term)?.meaning
+      || findExamGlossaryDefinition(scope, term));
+  return { entries, definition };
+}
+
+export async function getQuestionGlossary(location: PcQuestionLocation, key: string, term: string) {
+  const glossary = await questionGlossary(location);
+  const entry = glossary?.entries[key];
+  return entry?.terms.includes(term) && glossary ? { definition: await glossary.definition(entry, term) } : null;
+}
+
+export async function getQuestionGlossaryDefinitions(location: PcQuestionLocation) {
+  const glossary = await questionGlossary(location);
+  if (!glossary) return {};
+  return Object.fromEntries(await Promise.all(Object.entries(glossary.entries).map(async ([key, entry]) => [
+    key,
+    Object.fromEntries(await Promise.all(entry.terms.map(async term => [term, await glossary.definition(entry, term)]))),
+  ])));
 }
 
 /** Reads the same question and citation metadata as the linked exam detail page. */

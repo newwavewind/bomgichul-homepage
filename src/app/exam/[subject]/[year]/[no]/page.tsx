@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import { ExamPrintLink } from "@/components/exam/ExamPrintLink";
 import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
-import { ShareToChatButton } from "@/components/chat/ShareToChatButton";
 import {
   ExamQuestionSeoExplanations,
   hasExamQuestionSeoExplanations,
@@ -170,14 +169,6 @@ export default async function ExamQuestionPage({ params }: ExamQuestionPageProps
             listLabel={`${label} 연도 선택`}
           />
           <div className="flex flex-wrap items-center justify-end gap-2">
-            <ShareToChatButton
-              mode="exam"
-              examId={`${subject}-${year}-${questionNo}`}
-              subject={subject}
-              year={year}
-              questionNo={questionNo}
-              stem={question.stem}
-            />
             <BookmarkButton
               subject={subject}
               year={year}

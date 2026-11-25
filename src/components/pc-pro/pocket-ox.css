@@ -1,0 +1,218 @@
+.fillblank-card--ox {
+  position: relative;
+  border-radius: 21px;
+  border-color: #dfe6e0;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 9px 28px rgba(26, 50, 34, 0.07);
+  transform-origin: 50% 100%;
+}
+
+html[data-theme="dark"] .fillblank-card--ox {
+  border-color: var(--dm-border-subtle);
+  background: var(--dm-surface-1);
+  box-shadow: 0 9px 28px rgba(0, 0, 0, 0.28);
+}
+
+/* 더미 — 뒤에 두 장이 비친다. 남은 분량이 손끝에 느껴진다 */
+.fillblank-deck {
+  position: relative;
+  isolation: isolate;
+}
+
+.fillblank-deck::before,
+.fillblank-deck::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 21px;
+  border: 1px solid #dfe6e0;
+  background: #fff;
+  transform: translateY(8px) scale(0.965);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.fillblank-deck::after {
+  transform: translateY(16px) scale(0.93);
+  opacity: 0.55;
+}
+
+.fillblank-deck[data-stack='1']::after,
+.fillblank-deck[data-stack='0']::before,
+.fillblank-deck[data-stack='0']::after {
+  display: none;
+}
+
+html[data-theme="dark"] .fillblank-deck::before,
+html[data-theme="dark"] .fillblank-deck::after {
+  border-color: var(--dm-border-subtle);
+  background: var(--dm-surface-1);
+}
+
+.fillblank-judge__nav {
+  flex: 0 0 2.25rem;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0.75rem;
+  background: none;
+  box-shadow: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.fillblank-judge__nav:hover:not(:disabled) {
+  color: #475569;
+}
+
+.fillblank-judge__nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.fillblank-judge__nav:focus-visible {
+  outline: 2px solid #214d37;
+  outline-offset: 2px;
+}
+
+html[data-theme="dark"] .fillblank-judge__nav {
+  color: var(--dm-text-3, #94a3b8);
+}
+
+.fillblank-judge__btn {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* 획으로 그린 O·X — 글자가 아니라 표식이다. 두 획의 굵기·크기를 같게 두어
+   한쪽으로 손이 기울지 않게 한다 */
+.fillblank-judge__btn svg {
+  width: 1.625rem;
+  height: 1.625rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+/* 시험의 색 그대로 — X 는 붉고 O 는 푸른 초록이다 */
+.fillblank-judge__btn--X {
+  border-color: #f7d4d1;
+  background: linear-gradient(180deg, #fff6f5 0%, #fdeceb 100%);
+  color: #c0392f;
+  box-shadow:
+    0 1px 2px rgba(146, 40, 32, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.fillblank-judge__btn--X:hover {
+  background: linear-gradient(180deg, #fdeceb 0%, #fbdedb 100%);
+}
+
+.fillblank-judge__btn--O {
+  border-color: #c8e4d5;
+  background: linear-gradient(180deg, #f4fbf7 0%, #e8f5ee 100%);
+  color: #1a7a52;
+  box-shadow:
+    0 1px 2px rgba(26, 77, 55, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.fillblank-judge__btn--O:hover {
+  background: linear-gradient(180deg, #e8f5ee 0%, #dcefe4 100%);
+}
+
+.fillblank-judge__btn:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.fillblank-judge__btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+html[data-theme="dark"] .fillblank-judge__btn--X {
+  border-color: color-mix(in srgb, #ef4444 32%, var(--dm-border-subtle));
+  background: color-mix(in srgb, #ef4444 13%, var(--dm-surface-2));
+  color: #fca5a5;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .fillblank-judge__btn--X:hover {
+  background: color-mix(in srgb, #ef4444 19%, var(--dm-surface-2));
+}
+
+html[data-theme="dark"] .fillblank-judge__btn--O {
+  border-color: color-mix(in srgb, #10b981 32%, var(--dm-border-subtle));
+  background: color-mix(in srgb, #10b981 13%, var(--dm-surface-2));
+  color: #6ee7b7;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .fillblank-judge__btn--O:hover {
+  background: color-mix(in srgb, #10b981 19%, var(--dm-surface-2));
+}
+
+
+.fillblank-verdict { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; padding: 9px 12px; border-radius: 12px; font-size: 14px; font-weight: 700; }
+.fillblank-verdict.is-correct { background: #e7f6ec; color: #17663a; }
+.fillblank-verdict.is-wrong { background: #fdecec; color: #b42318; }
+html[data-theme="dark"] .fillblank-verdict.is-correct { background: #163524; color: #8fe0ad; }
+html[data-theme="dark"] .fillblank-verdict.is-wrong { background: #3d1c1a; color: #ffa39b; }
+
+
+.pc-access-dialog:has(.pc-pocket-ox) {
+  width: min(38rem, calc(100vw - 1.25rem));
+  --dm-border-subtle: #343b3e;
+  --dm-surface-1: #20282b;
+  --dm-surface-2: #222e2b;
+}
+.pc-access-dialog:has(.pc-pocket-ox) > .pc-access-inner > header {
+  background: light-dark(#eef5f0, #20282b);
+}
+.pc-access-dialog:has(.pc-pocket-ox) .pc-access-body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+.pc-access-dialog:has(.pc-pocket-ox) .pc-access-editions { margin: 10px 14px 0; }
+.pc-pocket-ox { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; min-height: 0; background: light-dark(#f5f8f6, #181f22); }
+.pocket-ox-progress { display: flex; align-items: center; gap: 12px; padding: 14px 20px 4px; color: var(--color-smoke); font-size: .81rem; }
+.pocket-ox-progress span { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pocket-ox-progress progress { flex: 1; height: 6px; accent-color: light-dark(#316b4d, #6bb38a); }
+.pocket-ox-content { overflow-y: auto; padding: 12px 18px 24px; }
+.pc-pocket-ox .fillblank-card--ox { padding: clamp(12px, 3vw, 20px); border: 1px solid light-dark(#dfe6e0, #343b3e); }
+.pocket-ox-meta { padding: 1px 1px 10px; color: var(--color-smoke); font-size: .82rem; }
+.pocket-ox-statement { padding: clamp(12px, 3vw, 20px); border: 1px solid light-dark(#dfe6e0, #343b3e); border-radius: 16px; background: light-dark(#f7faf8, #24302c); }
+.pocket-ox-statement h3 { margin: 0; font-size: clamp(1rem, 2.7vw, 1.22rem); font-weight: 700; line-height: 1.65; overflow-wrap: anywhere; }
+.pocket-ox-explanation { margin-top: 12px; }
+.pocket-ox-explanation summary { width: fit-content; color: light-dark(#214d37, #a9dfc1); cursor: pointer; font-size: .87rem; font-weight: 650; }
+.pocket-ox-explanation p { margin-top: 8px; line-height: 1.6; }
+.pc-pocket-ox .fillblank-thumbbar { padding: 10px 16px 14px; background: light-dark(#f5f8f6, #181f22); }
+.pc-pocket-ox .fillblank-thumbbar__hint { margin: 0 0 8px; text-align: center; font-size: .78rem; color: var(--color-smoke); }
+.pc-pocket-ox .fillblank-actions--judge { display: flex; align-items: center; gap: 7px; }
+.pc-pocket-ox .fillblank-judge__btn { min-height: 58px; }
+.pc-pocket-ox .fillblank-judge__btn[aria-pressed="true"] { outline: 2px solid currentColor; outline-offset: -3px; }
+.pc-pocket-ox .fillblank-judge__nav { min-height: 44px; }

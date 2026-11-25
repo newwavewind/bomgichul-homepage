@@ -42,6 +42,12 @@ for (const scope of Object.keys(manifest.scopes)) {
     if (!note.intro.trim() || !note.points.every(point => typeof point === 'string')) continue;
     mapped[href] = Object.fromEntries(['intro','points','contrast','insight','pattern','pitfall','example']
       .filter(key => note[key]).map(key => [key,note[key]]));
+    const sources = (Array.isArray(note.sources) ? note.sources : []).flatMap(src => {
+      const label = src?.label || src?.title || src?.name || src?.text;
+      const url = src?.url || src?.href || src?.sourceUrl;
+      return typeof label === 'string' && /^https:\/\//u.test(url) ? [{ label, url }] : [];
+    });
+    if (sources.length) mapped[href].sources = sources;
     allPaths.add(href);
   }
   if (Object.keys(mapped).length) {

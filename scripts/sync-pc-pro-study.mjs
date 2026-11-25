@@ -19,6 +19,9 @@ programs.unshift(
     .map(id => ({ id, subjectId: id, webId: id })) },
 );
 const output = 'data/pc-pro-study';
+const glossaryOutput = 'data/pc-pro-glossary';
+const glossaryOnly = process.argv.includes('--glossary-only');
+await mkdir(glossaryOutput, { recursive: true });
 await mkdir(output, { recursive: true });
 const manifest = {};
 const cacheDir = await mkdtemp(path.join(tmpdir(), 'pc-pro-study-import-'));
@@ -45,7 +48,7 @@ function examEntry(exam, site, offer, webIds) {
   const route = site === 'real-estate' ? '/exam/' + subject + '/' + year + '/' + no
     : '/' + site + '/exam/' + subject + '/' + year + '/' + encodeURIComponent(source) + '/' + no;
   return {
-    id, year, source, no, label: [year, source, no + '번'].filter(Boolean).join(' · '), href: webIds.has(id) ? route : undefined,
+    id, year, source, no, appExam: exam, label: [year, source, no + '번'].filter(Boolean).join(' · '), href: webIds.has(id) ? route : undefined,
     stem: clean(exam.stem ?? exam.question), type: exam.questionType ?? exam.question_type,
     visual: Boolean(exam.table || exam.materials?.length || (exam.compositeLayout ?? exam.composite_layout) === 'table'),
     items: exam.items ?? [],
@@ -69,58 +72,50 @@ function choiceRows(exams) {
   });
 }
 
-function rawCell(value, exams) {
-  const [text, ...refs] = Array.isArray(value) ? value : [value];
-  return {
-    text: clean(text),
-    notes: refs.filter(ref => typeof ref === 'object' && ref?.type === 'expl').map(ref => ref.text),
-    sources: refs.flatMap(ref => {
-      if (typeof ref === 'string') {
-        const [id, key] = ref.split('#');
-        const exam = exams.get(id);
-        return exam ? [{ label: exam.label + (key ? ' · ' + key + '번 선지' : ''), url: exam.href }] : [];
-      }
-      if (ref?.type === 'law' && ref.name) return [{
-        label: [ref.name, ref.article].filter(Boolean).join(' '),
-        url: 'https://www.law.go.kr/법령/' + encodeURIComponent(ref.name)
-          + (ref.article ? '/' + encodeURIComponent(ref.article.split(/\s/u)[0]) : ''),
-      }];
-      if (ref?.type === 'case') return [{ label: [ref.court, ref.caseNo ?? ref.number ?? ref.id].filter(Boolean).join(' '), url: safeLink(ref.url) }];
-      return [];
-    }).filter(source => source.label),
+function workbookData(sheets, exams, fixes, explTermsFor, choiceFixFor) {
+  const used = new Map();
+  const add = (id, key = null) => {
+    if (!exams.has(id)) return;
+    if (!used.has(id)) used.set(id, new Set());
+    if (key !== null) used.get(id).add(String(key));
   };
-}
-
-function normalizeGenericCells(deck, key, exams) {
-  return (deck.groups ?? []).flatMap(group => group.chapters.flatMap(chapter => chapter.topics.map(topic => ({
-    id: key + '-' + chapter.id + '-' + topic.id, group: group.title + ' · ' + chapter.title, title: topic.title,
-    columns: Array.from({ length: Math.max(0, ...topic.rows.map(row => row.length - 1)) },
-      (_, index) => topic.columns?.[index + 1] ?? (index === 0 ? '핵심 기준' : '비교·유의점 ' + index)),
-    rows: topic.rows.map(([label, ...cells]) => ({ label, cells: cells.map(cell => rawCell(cell, exams)) })),
-  }))));
-}
-
-function originalCells(sheets, exams) {
-  return sheets.map(sheet => ({
-    id: sheet.id, group: sheet.group, title: sheet.title, columns: sheet.columns.map(c => c.label),
-    rows: sheet.rows.filter(row => row.kind !== 'band').map(row => ({
-      label: row.label,
-      cells: row.cells.map(cell => {
-        const refs = cell.examRefs ?? (cell.items ?? []).map(([year,no,choice]) => ['민법-' + year + '-Q' + no, choice]);
-        const sources = refs.flatMap(([id,key]) => {
-          const e = exams.get(id);
-          return e ? [{ label: e.label + ' · ' + key + '번 선지', url: e.href }] : [];
-        });
-        const former = (cell.sources ?? cell.references ?? []).flatMap(ref => {
-          if (ref.type === 'law') return rawCell(['',ref],exams).sources;
-          if (ref.label) return [{ label: ref.label, url: safeLink(ref.url) }];
-          return rawCell(['', ref],exams).sources;
-        });
-        return { text: clean(cell.value), notes: [cell.explanation, cell.detail].filter(v => typeof v === 'string' && v !== cell.value),
-          sources: [...sources,...former] };
-      }),
-    })),
+  const related = list => list?.filter(exam => {
+    add(exam.id);
+    return exams.has(exam.id);
+  }).map(({ id, stem, year, round, source, question_no }) => ({
+    id, stem, year, round, source, question_no, href: exams.get(id).href,
   }));
+  const cells = sheets.map(sheet => ({
+    ...sheet,
+    relatedExams: related(sheet.relatedExams),
+    rows: sheet.rows.map(row => row.kind === 'band' ? row : {
+      ...row,
+      relatedExams: related(row.relatedExams),
+      cells: row.cells.map(cell => {
+        const refs = cell.examRefs ?? (cell.items ?? []).map(([year,no,key]) => ['민법-' + year + '-Q' + no, key]);
+        refs.forEach(([id,key]) => add(id,key));
+        return { ...cell, examRefs: refs, sources: cell.sources ?? [] };
+      }),
+    }),
+  }));
+  const cellExams = [...used].map(([id, keys]) => {
+    const { appExam, href, year, source, stem, no, type } = exams.get(id);
+    const { round, underlines, passage, passageText, passage_text, extraPassage, passageImage, passage_image,
+      table, composite_layout, compositeLayout, materials, referenceEntries } = appExam;
+    const pickItem = item => ({
+      key: item.key, label: item.label, text: item.text, answer: item.answer,
+      explanation: item.explanation, sources: item.sources, underlines: item.underlines, image: item.image,
+      terms: explTermsFor(id, item.key).map(({ term, def, hanja }) => ({ term, def, hanja })),
+      fix: choiceFixFor(fixes, id, item),
+    });
+    return {
+      id, href, year, source, stem, round, question_no: no, question_type: type, underlines,
+      passage, passageText, passage_text, extraPassage, passageImage, passage_image,
+      table, materials, referenceEntries, composite_layout: composite_layout ?? compositeLayout,
+      items: (appExam.items ?? []).filter(item => keys.has(String(item.key))).map(pickItem),
+    };
+  });
+  return { cells, cellExams };
 }
 
 function lawRows(articles, cases, exams) {
@@ -143,6 +138,64 @@ function lawRows(articles, cases, exams) {
   }).sort((a,b) => b.citations - a.citations);
 }
 
+async function glossaryData(rows, glossary, points, basis, articles) {
+  const entries = {};
+  const sources = {};
+  const related = {};
+  const byId = new Map(rows.filter(row => row.href).map(row => [row.id, row]));
+  const byTerm = new Map();
+  for (const row of byId.values()) {
+    const terms = {};
+    for (const item of row.items) {
+      const list = glossary.explTermsFor?.(row.id, item.key) ?? [];
+      if (!list.length) continue;
+      const results = [];
+      for (const native of list) {
+        const { term, def, hanja, ex } = native;
+        if (!term || !def) continue;
+        if (!byTerm.has(term)) byTerm.set(term, new Map());
+        byTerm.get(term).set(row.href, { href: row.href, label: row.label });
+        const point = points.termPoint?.(term, row.id);
+        const references = [];
+        const day = row.appExam.examDate ?? row.appExam.exam_date ?? null;
+        for (const chip of basis.termBasisLinks?.(native, day) ?? []) {
+          if (!safeLink(chip.url)) continue;
+          if (!Object.hasOwn(sources, chip.url)) {
+            const full = chip.caseNo ? await articles.findCaseText?.(chip.caseNo) : await articles.findArticleText?.(chip.law, chip.jo);
+            sources[chip.url] = full?.lines?.length && !full.missing ? {
+              title: [chip.caseNo ? full.court : full.law,
+                chip.caseNo ? full.caseNo : full.article,
+                full.name ?? full.title].filter(Boolean).join(' '),
+              lines: full.lines.map(displayLine),
+              date: full.effectiveDate ?? full.date,
+              url: safeLink(full.url) ?? chip.url,
+            } : null;
+          }
+          references.push({ label: chip.label, url: chip.url });
+        }
+        const examples = Array.isArray(ex) ? ex.map(example => {
+          if (!Array.isArray(example)) return null;
+          const [id, choice, year, edition, no] = example;
+          const original = byId.get(id);
+          const selected = original?.items.find(item => String(item.key) === String(choice));
+          return original && selected ? {
+            label: [year, /^\d+$/u.test(edition ?? '') ? null : edition, no + '번'].filter(Boolean).join(' · '),
+            href: original.href, stem: original.stem, choice: selected.text, choiceLabel: selected.label,
+            explanation: selected.explanation, answer: selected.answer,
+          } : null;
+        }) : undefined;
+        results.push({ term, def, hanja, point, ...(references.length ? { references } : {}), examples });
+      }
+      if (results.length) terms[String(item.key)] = results;
+    }
+    if (Object.keys(terms).length) entries[row.href] = terms;
+  }
+  for (const [term, questions] of byTerm) {
+    if (questions.size >= 2) related[term] = [...questions.values()];
+  }
+  return { entries, sources, related };
+}
+
 for (const program of programs) {
   const { site } = program;
   if (!roots[site]) throw new Error('Missing current source checkout for ' + site);
@@ -152,6 +205,19 @@ for (const program of programs) {
   const packages = await import(pathToFileURL(path.join(root,'node_modules/vite/dist/node/index.js')));
   const vite = await packages.createServer({ root, configFile:false, cacheDir:path.join(cacheDir,site), optimizeDeps:{noDiscovery:true,include:[]}, server:{ middlewareMode:true, hmr:false, watch:null, ws:false }, appType:'custom' });
   const files = await fileList(path.join(nativeData,'cellStudy'));
+  const cellEngine = await fileExists(path.join(root, 'src/cellstudy/cellStudyEngine.js'))
+    ? await vite.ssrLoadModule('/src/cellstudy/cellStudyEngine.js') : null;
+  const glossary = await fileExists(path.join(nativeData, 'explTermsIndex.js'))
+    ? await vite.ssrLoadModule('/src/data/explTermsIndex.js') : {};
+  const appFixes = await fileExists(path.join(nativeData, 'choiceFixes.js'))
+    ? await vite.ssrLoadModule('/src/data/choiceFixes.js') : {};
+  const nativeModule = async (uri) => await fileExists(path.join(root, uri))
+    ? vite.ssrLoadModule('/' + uri) : {};
+  const [points, basis, articles] = await Promise.all([
+    nativeModule('src/data/explTermPoints.js'),
+    nativeModule('src/utils/termBasisLinks.js'),
+    nativeModule('src/data/termArticleText.js'),
+  ]);
   const fixFiles = await fileList(path.join(nativeData,'choiceFixes'));
   const report = [];
   const nativeLoader = await fileExists(path.join(nativeData,'subjectDataLoader.js'))
@@ -185,21 +251,32 @@ for (const program of programs) {
       const rows = scoped.map(exam => examEntry(exam,site,offer,webIds)).filter(Boolean)
         .map(e => ({ ...e, href: e.href && webSources.get(e.id) && site !== 'real-estate'
           ? e.href.replace('/'+encodeURIComponent(e.source)+'/'+e.no, '/'+encodeURIComponent(webSources.get(e.id))+'/'+e.no) : e.href }));
+      if (glossary.explTermsFor) {
+        const data = await glossaryData(rows, glossary, points, basis, articles);
+        if (Object.keys(data.entries).length) {
+          await writeFile(path.join(glossaryOutput, id + '.json.gz'), gzipSync(JSON.stringify(data) + '\n'));
+          if (glossaryOnly) report.push([id, Object.keys(data.entries).length]);
+        }
+      }
+      if (glossaryOnly) continue;
       const exams = new Map(rows.map(row => [row.id,row]));
       const choices = choiceRows(rows);
       let cells = [];
       if (site === 'real-estate' && subjectId === 'civillaw') {
-        const {CIVIL_CELL_TOPIC_SHEETS} = await vite.ssrLoadModule('/src/data/civilLawCellStudy.js');
-        cells = originalCells(CIVIL_CELL_TOPIC_SHEETS,exams);
+        const {CIVIL_CELL_SHEETS} = await vite.ssrLoadModule('/src/data/civilLawCellStudy.js');
+        cells = CIVIL_CELL_SHEETS;
       } else if (site === 'real-estate') {
-        const {loadSubjectCellStudy,buildSubjectCellSheets} = await vite.ssrLoadModule('/src/data/subjectCellStudy.js');
-        cells = originalCells(buildSubjectCellSheets(await loadSubjectCellStudy(subjectId),scoped),exams);
-      } else {
+        const {loadSubjectCellStudy,buildSubjectCellSheets,chapterSubjectCellSheets} = await vite.ssrLoadModule('/src/data/subjectCellStudy.js');
+        const catalog = await loadSubjectCellStudy(subjectId);
+        cells = chapterSubjectCellSheets(buildSubjectCellSheets(catalog, scoped), catalog.topics);
+      } else if (cellEngine) {
         const keys = [...new Set(rows.map(e => examCode(e.id)).filter(Boolean))];
         for (const key of keys) {
           if (!files.includes(key+'.js')) continue;
           const deck = await vite.ssrLoadModule('/src/data/cellStudy/'+key+'.js');
-          cells.push(...normalizeGenericCells(deck.default,key,exams));
+          const sheets = cellEngine.buildCellSheets(deck.default);
+          cells.push(...sheets.map(sheet => ({ ...sheet, id: keys.length === 1 ? sheet.id : key + '-' + sheet.id,
+            unitId: keys.length === 1 ? sheet.unitId : key + '-' + sheet.unitId })));
         }
       }
       const fixes = {};
@@ -230,16 +307,21 @@ for (const program of programs) {
       }
       const ox = choices.filter(choice => pocketIds.has(choice.id) && choice.mode === 'ox').map(({stem,mode, ...choice}) => choice);
       const audioAvailable = ox.length > 0 && await fileExists(path.join(nativeData,'pocketAudioSupport.js'));
+      const workbook = workbookData(cells, exams, fixes, glossary.explTermsFor ?? (() => []), appFixes.choiceFixFor ?? (() => null));
       const values = { cells, choices, traps, law, ox, audio: audioAvailable };
       const counts = Object.fromEntries(Object.entries(values).map(([key,value]) => [key,Array.isArray(value)?value.length:value?ox.length:0]));
       if (Object.values(counts).some(Boolean)) {
         manifest[id] = counts;
-        await writeFile(path.join(output,id+'.json.gz'),gzipSync(JSON.stringify(values)+'\n',{level:9}));
+        await writeFile(path.join(output,id+'.json.gz'),gzipSync(JSON.stringify({ ...values, ...workbook })+'\n',{level:9}));
       }
       report.push([id,counts]);
     }
     console.log(site,JSON.stringify(report));
   } finally { await vite.close(); }
 }
-await writeFile(path.join(output,'manifest.json'),JSON.stringify({sourceCommits,scopes:manifest},null,2)+'\n');
-console.log(Object.keys(manifest).length,'study scopes');
+if (!glossaryOnly) {
+  await writeFile(path.join(output,'manifest.json'),JSON.stringify({sourceCommits,scopes:manifest},null,2)+'\n');
+  console.log(Object.keys(manifest).length,'study scopes');
+}
+
+await import("./sync-pc-pro-glossary-labels.mjs");

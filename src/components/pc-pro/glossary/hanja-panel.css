@@ -1,0 +1,121 @@
+/* 한자 글자 풀이 — 경찰공무원 앱 lawTerms.css 의 ltm-hanja 그대로 */
+.ltm-hanja { margin: 8px 0 0; }
+.ltm-hanja__hanja {
+  margin: 8px 0 6px;
+  color: #0c0a09;
+  font-family: 'Noto Serif KR', 'AppleMyungjo', 'Batang', serif;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  word-break: keep-all;
+  text-align: center;
+}
+.ltm-hanja__how { margin: 0 0 14px; }
+.ltm-hanja__parts {
+  margin: 0;
+  color: #44403c;
+  font-size: 14.5px;
+  line-height: 1.6;
+  word-break: keep-all;
+  text-align: center;
+}
+.ltm-hanja__parts span { white-space: nowrap; }
+.ltm-hanja__parts i { color: #a8a29e; font-style: normal; }
+.ltm-hanja__p-hun { color: #44403c; }
+.ltm-hanja__p-eum { color: #3398e1; font-weight: 700; }
+.ltm-hanja__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #e8e6e5;
+}
+.ltm-hanja__item { border-bottom: 1px solid #e8e6e5; }
+.ltm-hanja__row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto minmax(5.5rem, auto);
+  align-items: center;
+  column-gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 12px 2px;
+}
+.ltm-hanja__ch {
+  color: #0c0a09;
+  font-family: 'Noto Serif KR', 'AppleMyungjo', 'Batang', serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.02;
+  text-align: center;
+}
+.ltm-hanja__hun {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  color: #3d3a37;
+  font-size: 17px;
+}
+.ltm-hanja__hun b { color: #3398e1; font-weight: 700; }
+.ltm-hanja__hun.is-empty { color: #a8a29e; }
+.ltm-hanja__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ltm-hanja__stroke {
+  color: #3d3a37;
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.ltm-hanja__rep { color: #a8a29e; font-size: 11.5px; }
+.ltm-hanja__grade {
+  color: #a8a29e;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.ltm-hanja__rule {
+  align-self: stretch;
+  width: 1px;
+  margin: 10px 0;
+  background: #e8e6e5;
+}
+.ltm-hanja__rad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 5.5rem;
+  padding: 2px 4px 2px 2px;
+  text-align: center;
+}
+.ltm-hanja__rad-k { color: #a8a29e; font-size: 11px; letter-spacing: 0.04em; }
+.ltm-hanja__rad-v {
+  color: #57534e;
+  font-size: 13.5px;
+  line-height: 1.3;
+  word-break: keep-all;
+}
+.ltm-hanja__rad-v b {
+  color: #0c0a09;
+  font-family: 'Noto Serif KR', 'AppleMyungjo', 'Batang', serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.05;
+  vertical-align: -3px;
+}
+html[data-theme="dark"] .ltm-hanja__hanja,
+html[data-theme="dark"] .ltm-hanja__ch { color: #fafaf9; }
+html[data-theme="dark"] .ltm-hanja__parts { color: #d6d3d1; }
+html[data-theme="dark"] .ltm-hanja__p-hun { color: #e7e5e4; }
+html[data-theme="dark"] .ltm-hanja__list,
+html[data-theme="dark"] .ltm-hanja__item { border-color: #2e2a27; }
+html[data-theme="dark"] .ltm-hanja__hun { color: #d6d3d1; }
+html[data-theme="dark"] .ltm-hanja__rule { background: #2e2a27; }
+html[data-theme="dark"] .ltm-hanja__rad-v { color: #d6d3d1; }
+html[data-theme="dark"] .ltm-hanja__rad-v b { color: #fafaf9; }
+html[data-theme="dark"] .ltm-hanja__stroke { color: #e7e5e4; }
+html[data-theme="dark"] .ltm-hanja__grade { color: #a8a29e; }

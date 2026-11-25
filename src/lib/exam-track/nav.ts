@@ -270,11 +270,10 @@ function toolsForScope(scope: CommunityScope): NavTool[] {
   const hub = trackHubHref(scope);
   const tools: NavTool[] = [
     { href: hub, label: "학습 홈" },
+    { href: "/pc-pro", label: "PC Pro" },
     { href: "/search", label: "기출 검색" },
     { href: communityBaseHref(scope), label: "커뮤니티" },
-    { href: "/app-services", label: "앱서비스" },
   ];
-  tools.push({ href: "/pc-pro", label: "PC Pro" });
   return tools;
 }
 

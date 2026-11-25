@@ -110,14 +110,14 @@ export function ExplanationAiAction({ prompt }: { prompt: string }) {
   return <ExamExplanationAiMenu prompt={prompt} openInApp={open ? (trigger) => open("ai", trigger) : undefined} />;
 }
 
-export function ExplanationAppTools({ questionPrompt, notebookPro }: { questionPrompt?: string; notebookPro?: PcQuestionAccess }) {
+export function ExplanationAppTools({ questionPrompt, notebookPro, noteTitle = "" }: { questionPrompt?: string; notebookPro?: PcQuestionAccess; noteTitle?: string }) {
   const open = useContext(OpenFeature);
   if (!open && !questionPrompt && !notebookPro) return null;
 
   const toolClass = "rounded-full border border-mist bg-paper px-3.5 py-2 font-display text-body-sm font-medium text-ink hover:bg-snow";
   return (
     <div className="exam-explanation-notebook mt-5 flex flex-wrap items-center gap-2.5 px-4 py-3">
-      {notebookPro ? <PcNotebookAction question={notebookPro.path} offers={notebookPro.offers} className={toolClass}/>
+      {notebookPro ? <PcNotebookAction title={noteTitle} offers={notebookPro.offers} className={toolClass}/>
         : <ExplanationAppFeatureButton feature="notes" className={toolClass}>
           필기노트 보기 <span aria-hidden>→</span>
         </ExplanationAppFeatureButton>}

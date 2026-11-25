@@ -1,5 +1,7 @@
 "use client";
 
+import { PcQuestionStudyProvider } from "@/components/pc-pro/PcStudyAction";
+
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { DailyChoiceBadge } from "@/components/daily/DailyChoiceBadge";
@@ -291,6 +293,7 @@ function ReviewCard({
         </div>
       ))}
       {question ? (
+        <PcQuestionStudyProvider question={explanation?.glossaryOffers?.length ? item.href : undefined}>
         <ExplanationChoiceSelection choice={item.picked ? { number: Number(item.picked), incorrect: !item.ok } : null}>
           <ExamQuestionSeoExplanations
             question={question}
@@ -302,6 +305,7 @@ function ReviewCard({
             embedded
           />
         </ExplanationChoiceSelection>
+        </PcQuestionStudyProvider>
       ) : null}
       {showAnswers && item.vocab?.length ? (
         <div className="-mt-4">

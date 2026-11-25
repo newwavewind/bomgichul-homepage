@@ -23,7 +23,7 @@ const testViewer = { id: 'test', sessionId: 'test', beta: false, label: 'test' }
 describe('contextual Pro study', () => {
   it('offers only the matching exam edition and real practice for the shown question', () => {
     expect(pcQuestionOffers(path(2026)).map(offer => offer.id)).toEqual([national]);
-    expect(pcQuestionFeatures(path(2026)).map(entry => entry.feature)).toEqual(['choices', 'traps']);
+    expect(pcQuestionFeatures(path(2026)).map(entry => entry.feature)).toEqual(['traps']);
     expect(pcQuestionHasNotebook(path(2026))).toBe(true);
   });
 
@@ -33,10 +33,17 @@ describe('contextual Pro study', () => {
     expect(guest.status).toBe(401);
     expect(await guest.json()).not.toHaveProperty('definition');
     expect(guest.headers.get('cache-control')).toBe('private, no-store');
+    const bundle = await request('question', { question: glossary.question });
+    expect(bundle.status).toBe(401);
+    const bundleData = await bundle.json();
+    expect(bundleData).not.toHaveProperty('glossary');
+    expect(bundleData.glossaryLabels['2']).toEqual(expect.arrayContaining(['기부채납']));
+    expect(bundleData).not.toHaveProperty('definitions');
     vi.mocked(getPcViewer).mockResolvedValue(testViewer);
     vi.mocked(hasPcPro).mockImplementation(async (_, scope) => scope === local);
     expect((await request('notebook', { question: path(2026) })).status).toBe(403);
     expect((await request('choices', { question: path(2026) })).status).toBe(403);
+    expect((await request('term-exam', { ...glossary, related: path(2026) })).status).toBe(403);
   });
 
   it('serves the exact question, source-backed correction, notebook and term to its subscriber', async () => {

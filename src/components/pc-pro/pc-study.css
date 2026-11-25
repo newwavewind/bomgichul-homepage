@@ -14,22 +14,8 @@
 .pc-study-sources a, .pc-study-sources li > span { display: inline-flex; border-radius: 999px; background: var(--color-snow); color: var(--color-carbon); padding: .35rem .65rem; font-size: .83rem; }
 .pc-study-feedback { display: grid; gap: .5rem; background: var(--color-snow); border-radius: .75rem; padding: 1rem; }
 .pc-study-feedback h3 { font-weight: 600; }
-.pc-study-card mark { border-radius: .2rem; padding: 0 .15rem; background: #fee4ad; color: #32240a; }
-.pc-study-sheet-layout { display: grid; grid-template-columns: minmax(12rem, 17rem) minmax(0,1fr); gap: 1rem; }
-.pc-study-sheet-list input { min-width: 0; width: 100%; border: 1px solid var(--color-mist); border-radius: .6rem; padding: .6rem; color: var(--color-ink); background: var(--color-snow); }
-.pc-study-sheet-list ul { display: grid; gap: .35rem; max-height: 55vh; overflow-y: auto; }
-.pc-study-sheet-list li button { width: 100%; text-align: left; font-size: .9rem; }
-.pc-study-table-scroll { overflow-x: auto; }
-.pc-study-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
-.pc-study-table :is(td,th) { min-width: 8rem; border: 1px solid var(--color-mist); padding: .5rem; overflow-wrap: anywhere; }
-.pc-study-table th { background: var(--color-snow); }
-.pc-study-table td button { width: 100%; text-align: left; font-weight: 500; border: 0; }
 .pc-study-law-lines { display: grid; gap: .4rem; }
 .pc-study-blank { display: inline-block; min-width: 4.5em; height: 1.1em; border-bottom: 2px solid var(--color-carbon); vertical-align: -.1em; }
-@media (max-width: 680px) {
- .pc-study-sheet-layout { grid-template-columns: 1fr; }
- .pc-study-sheet-list ul { max-height: 12rem; }
-}
 
 .pc-context-button, .pc-context-tabs button {
   display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
@@ -68,8 +54,85 @@
   .pc-access-inner { max-height: calc(100dvh - 1rem); }
   .pc-access-body { padding: .85rem; }
 }
-.pc-context-notebook { display: grid; gap: 1rem; line-height: 1.8; }
-.pc-context-notebook ul { display: grid; gap: .5rem; padding: .9rem .9rem .9rem 2rem; border-radius: 1rem; background: var(--color-snow); list-style: disc; }
-.pc-context-notebook h3 { color: var(--color-carbon); font-weight: 700; }
-.pc-notebook-compare { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fit,minmax(min(100%,12rem),1fr)); }
-.pc-notebook-compare > div { border: 1px solid var(--color-mist); border-radius: .75rem; padding: .65rem .85rem; }
+
+.exam-explanation-notebook:has(.ecn-bound) { padding: 0; background: transparent; border: 0; }
+.pc-notebook-inline { min-width: 0; }
+.pc-notebook-inline:has(.ecn-bound) { flex: 1 0 100%; }
+.pc-notebook-sources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; color: var(--ecn-steel); font-size: .82em; }
+.exam-choice-glossary-term[aria-expanded=true] svg { transform: rotate(45deg); }
+
+/* The authorized workbook uses the app viewport inside the website's native dialog. */
+.pc-access-dialog:has(.civil-sheet-screen) {
+  inset: 0; width: 100vw; max-width: none; height: 100dvh; max-height: none;
+  margin: 0; border: 0; border-radius: 0; box-shadow: none; background: light-dark(#f1f5f9, #181c22);
+}
+.pc-access-dialog:has(.civil-sheet-screen) > .pc-access-inner { display: block; max-height: none; }
+.pc-access-dialog:has(.civil-sheet-screen) > .pc-access-inner > header { display: none; }
+.pc-access-dialog:has(.civil-sheet-screen) > .pc-access-inner > .pc-access-body { padding: 0; overflow: visible; }
+.pc-access-body > .civil-sheet-screen {
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --app-font-body: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--app-font-body);
+  width: 100%; margin: 0 auto; color: var(--sheet-ink);
+  background: var(--sheet-surface);
+}
+@media (min-width: 900px) {
+  .pc-access-body > .civil-sheet-screen {
+    max-width: 1380px; box-shadow: 0 0 0 1px #0f172a0f, 0 12px 40px #0f172a14;
+  }
+  .pc-access-body > .civil-sheet-wide { max-width: none; }
+  .pc-access-body .civil-sheet-shell {
+    max-width: none; padding-inline: clamp(20px, 2.5vw, 42px); padding-bottom: 28px;
+  }
+  .pc-workbook-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 18px; margin-top: 14px; }
+  .pc-workbook-grid[data-detail="true"] { grid-template-columns: minmax(0, 1fr) clamp(322px, 33vw, 480px); }
+  .pc-workbook-grid .civil-sheet-workbook { min-width: 0; margin-top: 0; }
+  .pc-workbook-grid .civil-sheet-scroll { max-height: max(300px, calc(100dvh - 326px)); }
+  .pc-workbook-grid .civil-sheet-grid { font-size: 1rem; }
+  .pc-workbook-grid .civil-sheet-subject-col { width: clamp(130px, 17%, 210px); }
+  .pc-workbook-detail { min-width: 0; max-height: max(350px, calc(100dvh - 240px)); overflow-y: auto; }
+  .pc-workbook-detail .civil-sheet-detail { margin-top: 0; }
+  .pc-workbook-detail .civil-sheet-detail-title { position: sticky; top: 0; z-index: 2; }
+  .pc-workbook-detail .civil-sheet-modal-nav { margin-top: 10px; border: 1px solid var(--sheet-line); border-radius: 12px; }
+}
+.pc-access-body > .civil-sheet-screen .pc-workbook-settings { display: flex; justify-content: flex-end; padding-top: 10px; }
+.pc-access-body > .civil-sheet-screen .civil-sheet-modal {
+  position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none;
+  margin: 0; border: none; color: var(--sheet-ink); background: color-mix(in srgb, #0b1410 46%, transparent);
+}
+
+.pc-study-keyboard-hint { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem .85rem; margin-top: .65rem; font-size: .75rem; color: var(--color-smoke); }
+.pc-study-keyboard-hint kbd { display: inline-grid; place-items: center; min-width: 1.1rem; min-height: 1.1rem; margin-right: .2rem; padding: 0 .2rem; border: 1px solid var(--color-mist); border-radius: .25rem; background: var(--color-snow); }
+@media (hover: none) { .pc-study-keyboard-hint { display: none; } }
+
+.pc-pocket-original { border-top: 1px solid var(--color-mist); padding-top: .75rem; }
+.pc-pocket-original summary {
+  display: inline-flex; align-items: center; gap: .5rem; cursor: pointer; list-style: none;
+  border-radius: 999px; background: var(--color-snow); color: var(--color-carbon);
+  padding: .4rem .7rem; font-size: .83rem; font-weight: 650;
+}
+.pc-pocket-original summary::-webkit-details-marker { display: none; }
+.pc-pocket-original summary::after { content: ''; width: .45rem; height: .45rem; border: solid currentColor; border-width: 0 1.4px 1.4px 0; transform: rotate(45deg); }
+.pc-pocket-original[open] summary::after { transform: rotate(225deg); }
+.pc-pocket-original[open] .pc-pocket-original-open, .pc-pocket-original:not([open]) .pc-pocket-original-close { display: none; }
+.pc-pocket-original-body { margin-top: .75rem; padding: .8rem; border: 1px solid var(--color-mist); border-radius: .75rem; background: var(--color-snow); }
+.pc-pocket-original-body ol { display: grid; gap: .45rem; margin-top: .85rem; }
+.pc-pocket-original-body li { display: flex; align-items: flex-start; gap: .55rem; font-size: .9rem; padding-block: .25rem; }
+.pc-pocket-original-label { flex-shrink: 0; color: var(--color-carbon); font-weight: 650; }
+
+.pc-trap-change {
+  padding: .08em .23em;
+  border-radius: .25em;
+  font-weight: 700;
+  text-decoration-thickness: .08em;
+}
+.pc-trap-change--wrong {
+  background: light-dark(#fde2e7, #51232f);
+  color: light-dark(#a51d38, #ffc3cf);
+}
+.pc-trap-change--right {
+  background: light-dark(#dff5ec, #194737);
+  color: light-dark(#126347, #b0f6d4);
+  text-underline-offset: .17em;
+}

@@ -1,0 +1,116 @@
+/* 용어 사전 괄호 한자 — 진하게, 눌러서 풀이 */
+.term-hanja {
+  display: inline;
+  margin: 0 0 0 3px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #3d4560;
+  font-family: 'Noto Serif KR', 'AppleMyungjo', 'Batang', serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}
+.term-hanja__u {
+  text-decoration: underline dotted rgba(61, 69, 96, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.term-hanja:focus-visible {
+  outline: 2px solid #3ba6f1;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+html[data-theme="dark"] .term-hanja,
+html[data-theme="dark"] .term-hanja {
+  color: #c9cfdd;
+}
+html[data-theme="dark"] .term-hanja__u {
+  text-decoration-color: rgba(201, 207, 221, 0.35);
+}
+
+/* 한자 풀이 창 */
+.hj-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: rgba(12, 10, 9, 0.42);
+}
+.hj-modal__card {
+  width: min(420px, 100%);
+  max-height: min(86vh, 760px);
+  overflow-y: auto;
+  padding: 18px 18px 14px;
+  border: 1px solid #e8e6e5;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: rgba(17, 12, 46, 0.18) 0 12px 45px 0;
+  scrollbar-width: none;
+  text-align: left;
+}
+.hj-modal__card::-webkit-scrollbar { display: none; }
+.hj-modal__kicker {
+  margin: 0;
+  color: #3398e1;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.hj-modal__term {
+  margin: 6px 0 0;
+  color: #0c0a09;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.hj-modal__foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+.hj-modal__pos {
+  color: #a8a29e;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+.hj-modal__nav {
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #e8e6e5;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #0c0a09;
+  font-size: 20px;
+  line-height: 36px;
+  cursor: pointer;
+}
+.hj-modal__close {
+  display: block;
+  margin: 14px auto 0;
+  padding: 9px 26px;
+  border: 1px solid #e8e6e5;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #0c0a09;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+html[data-theme="dark"] .hj-modal__card { border-color: #2e2a27; background: #1c1917; }
+html[data-theme="dark"] .hj-modal__term { color: #fafaf9; }
+html[data-theme="dark"] .hj-modal__nav,
+html[data-theme="dark"] .hj-modal__close {
+  border-color: #2e2a27;
+  background: #1c1917;
+  color: #fafaf9;
+}

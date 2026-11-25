@@ -171,7 +171,7 @@ function page(
 const CORE_PAGES: MetadataRoute.Sitemap = [
   page("/", "weekly", 1),
   page("/about", "yearly", 0.4),
-  page("/app-services", "monthly", 0.7),
+  page("/pc-pro", "monthly", 0.7),
   page("/contact", "yearly", 0.3),
   page("/privacy", "yearly", 0.3),
   page("/terms", "yearly", 0.3),

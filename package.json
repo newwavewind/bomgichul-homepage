@@ -23,6 +23,7 @@
     "@supabase/ssr": "^0.12.0",
     "@supabase/supabase-js": "^2.109.0",
     "botid": "^1.5.11",
+    "html-to-image": "1.11.13",
     "mermaid": "^11.17.2",
     "next": "16.2.10",
     "pdf-lib": "1.17.1",

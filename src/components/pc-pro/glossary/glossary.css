@@ -1,0 +1,130 @@
+.sx-terms__basis { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.sx-terms__basis-link { display: inline-flex; align-items: center; padding: 1px 8px; border: 1px solid #dfe4ee; border-radius: 9999px; background: #ffffff; color: #4b5578; font-size: 11.5px; font-weight: 500; line-height: 1.6; text-decoration: none; }
+.sx-terms__basis-link span { color: #3398e1; }
+html[data-theme="dark"] .sx-terms__basis-link { border-color: #3a4060; background: transparent; color: #c3c9de; }
+.sx-tdef { display: flex; flex-direction: column; gap: 6px; }
+.sx-tdef__line { display: grid; grid-template-columns: 2.6em 1fr; gap: 6px; align-items: baseline; }
+.sx-tdef__head { color: #4f6ad8; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; }
+.sx-tdef__line--세법 .sx-tdef__head { color: #b0702a; }
+.sx-tdef__line--규정 .sx-tdef__head { color: #b0702a; }
+.sx-tdef__line--시험 .sx-tdef__head { color: #c2525f; }
+.sx-tdef__line--예 .sx-tdef__head { color: #2f8a5b; }
+html[data-theme="dark"] .sx-tdef__head { color: #8ea3ff; }
+html[data-theme="dark"] .sx-tdef__line--세법 .sx-tdef__head,
+html[data-theme="dark"] .sx-tdef__line--규정 .sx-tdef__head { color: #e0a462; }
+html[data-theme="dark"] .sx-tdef__line--시험 .sx-tdef__head { color: #f0909e; }
+html[data-theme="dark"] .sx-tdef__line--예 .sx-tdef__head { color: #6fcf9b; }
+
+/* 「시험」 줄 — 가지마다 줄을 나누고 관련 기출을 붙인다 */
+.sx-tb { display: flex; flex-direction: column; gap: 9px; }
+.sx-tb__item { display: grid; grid-template-columns: 1.15em 1fr; gap: 4px; align-items: baseline; }
+.sx-tb__no { color: #c2525f; font-weight: 700; }
+.sx-tb__text { min-width: 0; }
+.sx-tb__val { font-weight: 700; color: #1f2430; }
+.sx-tb__wrong { color: #9aa0ab; }
+.sx-tb__meta { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-left: 6px; vertical-align: 1px; }
+.sx-tb__src {
+  display: inline-flex; align-items: center; padding: 0 6px; border: 1px solid #dfe3ee; border-radius: 999px;
+  background: #fff; color: #4b5260; font-size: 10.5px; font-weight: 600; line-height: 16px; cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.sx-tb__src:hover { border-color: #c2525f; color: #c2525f; }
+.sx-tb__src--off { cursor: default; color: #a0a6b1; border-style: dashed; }
+
+html[data-theme="dark"] .sx-tb__no { color: #f0909e; }
+html[data-theme="dark"] .sx-tb__val { color: #eef0f5; }
+html[data-theme="dark"] .sx-tb__wrong { color: #aeb8cf; }
+html[data-theme="dark"] .sx-tb__src { background: #1c1f27; border-color: #3a3f4b; color: #b2b8c4; }
+html[data-theme="dark"] .sx-tb__src:hover { border-color: #f0909e; color: #f0909e; }
+
+/* 용어 사전 덧붙임 — 시험 포인트·조문 펼침·나온 기출 (2026-11-24) */
+.sx-terms__point { display: block; margin-top: 8px; padding: 8px 10px; border-radius: 10px; background: #f3f6fd; color: #36415a; font-size: 13.5px; line-height: 1.65; }
+.sx-terms__point b { display: block; margin-bottom: 2px; color: #3555a8; font-size: 11.5px; font-weight: 700; letter-spacing: 0.01em; }
+.sx-terms__basis-link[aria-expanded='true'] { border-color: #8aa4dc; background: #eef3ff; }
+.sx-terms__article { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; padding: 10px 12px; border: 1px solid #dfe4ee; border-radius: 10px; background: #fbfcfe; color: #36415a; font-size: 13px; line-height: 1.7; }
+.sx-terms__article strong { color: #26324d; font-size: 12.5px; font-weight: 700; }
+.sx-terms__article-out { align-self: flex-start; margin-top: 2px; padding: 0; border: 0; background: none; color: #3d63b8; font-size: 12px; font-weight: 600; cursor: pointer; }
+.sx-terms__exams { display: flex; width: fit-content; align-items: center; gap: 4px; margin-top: 10px; padding: 6px 12px; border: 0; border-radius: 9999px; background: #f6f8fe; color: #3d5a9e; font-size: 12.5px; font-weight: 450; cursor: pointer; }
+.sx-terms__exams:focus-visible, .sx-terms__article-out:focus-visible { outline: 2px solid #6384c3; outline-offset: 2px; }
+html[data-theme="dark"] .sx-terms__point { background: #1f2a3e; color: #c8d3e6; }
+html[data-theme="dark"] .sx-terms__point b { color: #9ab7f2; }
+html[data-theme="dark"] .sx-terms__basis-link[aria-expanded='true'] { border-color: #5b78b0; background: #243148; }
+html[data-theme="dark"] .sx-terms__article { border-color: #3a4860; background: #1a2333; color: #c8d3e6; }
+html[data-theme="dark"] .sx-terms__article strong { color: #dde6f5; }
+html[data-theme="dark"] .sx-terms__article-out { color: #9ab7f2; }
+html[data-theme="dark"] .sx-terms__exams { background: #1c2536; color: #b9ccf5; }
+.sx-terms__article strong small { margin-left: 6px; color: #7a8598; font-size: 11px; font-weight: 500; }
+.src-links__article { flex-basis: 100%; width: 100%; margin-top: 4px; text-align: left; }
+.src-links__link[aria-expanded='true'] { box-shadow: inset 0 0 0 1px #8aa4dc; background: #eef3ff; }
+html[data-theme="dark"] .src-links__link[aria-expanded='true'] { background: #243148; }
+
+.pc-glossary-details { min-width: 0; }
+.pc-glossary-details button:not(:disabled) { cursor: pointer; }
+.pc-glossary-details button:disabled { opacity: .5; }
+.pc-glossary-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  width: min(450px, calc(100vw - 28px));
+  max-height: 90dvh;
+  border-radius: 18px;
+  background: transparent;
+  color: var(--color-ink);
+}
+.pc-glossary-dialog::backdrop { background: #12182670; }
+.pc-glossary-dialog .hj-modal__card { width: 100%; max-width: none; }
+.pc-glossary-related { display: grid; gap: 10px; margin-top: 12px; }
+.pc-glossary-related ol { display: grid; gap: 6px; }
+.pc-glossary-related li button { display: flex; width: 100%; gap: 8px; align-items: baseline; text-align: left; padding: 8px 10px; border: 1px solid var(--color-mist); border-radius: 10px; font-size: .9em; }
+.pc-glossary-related li button[aria-pressed="true"] { border-color: var(--color-carbon); background: var(--color-snow); }
+.pc-glossary-related li button[data-correct="true"] { border-color: light-dark(#21834e, #9addb7); color: light-dark(#17663a, #9addb7); }
+.pc-glossary-related .hj-modal__nav:disabled { opacity: .45; }
+.sx-terms__row { display: block; padding: 0; max-width: 100%; }
+.sx-terms__row + .sx-terms__row { border-top: 0; }
+.sx-terms__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  min-height: 30px;
+  padding: 4px 8px;
+  border: 1px solid #e3e8f0;
+  border-radius: 16px;
+  background: #fff;
+  color: #52627b;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  list-style: none;
+}
+.sx-terms__toggle::-webkit-details-marker { display: none; }
+.sx-terms__toggle:hover { border-color: #b9cbea; background: #f8faff; }
+.sx-terms__toggle:focus-visible { outline: 2px solid #8aa7db; outline-offset: 3px; }
+
+.sx-terms__chevron { width: 12px; height: 12px; flex-shrink: 0; color: #9aa9bd; }
+.sx-terms__row[data-open="true"] { flex-basis: 100%; }
+.sx-terms__row[data-open="true"] .sx-terms__toggle { border-color: #cddbf0; color: #36598e; background: #f7faff; }
+.sx-terms__row[data-open="true"] .sx-terms__chevron { display: none; }
+.sx-terms__close { display: none; }
+.sx-terms__row[data-open="true"] .sx-terms__toggle { cursor: default; padding-block: 2px; padding-right: 3px; }
+.sx-terms__row[data-open="true"] .sx-terms__close { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 32px; height: 32px; padding: 6px; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+.sx-terms__close svg { width: 20px; height: 20px; opacity: .6; }
+.sx-terms__close:hover { background: rgba(99,132,195,.08); }
+.sx-terms__close:focus-visible { outline: 2px solid #8aa7db; outline-offset: -2px; }
+.sx-terms__definition { padding: 10px 2px 4px; color: #48556d; font-size: 14px; line-height: 1.75; letter-spacing: -0.01em; word-break: keep-all; }
+html[data-theme="dark"] .sx-terms { border-color: #303d51; background: transparent; }
+html[data-theme="dark"] .sx-terms__label { color: #9aa9bf; }
+html[data-theme="dark"] .sx-terms__icon { background: none; color: #9ab7f2; }
+html[data-theme="dark"] .sx-terms__toggle { color: #bac8dd; border-color: #3a4860; background: transparent; }
+html[data-theme="dark"] .sx-terms__toggle:hover,
+html[data-theme="dark"] .sx-terms__row[data-open="true"] .sx-terms__toggle { color: #c1d4fa; border-color: #536f99; background: #243148; }
+html[data-theme="dark"] .sx-terms__definition { color: #c2cede; }
+html[data-theme="dark"] .sx-terms__chevron { color: #8297b6; }
+
+
+.exam-choice-glossary li:has(.sx-terms__row[data-open="true"]) { flex-basis: 100%; }
+.sx-terms__row[data-open="true"] > .sx-terms__toggle { width: fit-content; max-width: 100%; }

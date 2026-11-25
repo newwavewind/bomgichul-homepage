@@ -215,9 +215,6 @@ function HomeHeader({
       <div className="mx-auto flex max-w-[var(--page-max-width)] items-center justify-between gap-3 px-4 py-3">
         <div className="flex min-w-0 items-center gap-1 sm:gap-4">
           <LogoMark />
-          <Link href="/app-services" className="inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70 hover:text-ink sm:px-3">
-            앱서비스
-          </Link>
           <Link href="/pc-pro" className="inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium text-slate-600 hover:bg-white/70 hover:text-ink sm:px-3">
             PC Pro
           </Link>
@@ -294,11 +291,11 @@ function TrackHeader({
     >
       <div className="border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
         <div className="mx-auto max-w-[var(--page-max-width)] px-3 pt-3 sm:px-4">
-          <div className="flex items-center gap-1.5 pb-2.5 sm:gap-2">
+          <div className="grid grid-cols-[auto_1fr] items-center gap-x-2 gap-y-0.5 pb-2.5 sm:flex">
             <LogoMark />
 
             <nav
-              className="flex min-w-0 flex-1 items-center justify-start gap-0.5 overflow-x-auto px-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-1 sm:px-3 [&::-webkit-scrollbar]:hidden"
+              className="order-last col-span-2 flex min-w-0 flex-1 items-center justify-start gap-0.5 overflow-x-auto px-1 sm:order-none [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-1 sm:px-3 [&::-webkit-scrollbar]:hidden"
               aria-label="바로가기"
             >
               {ctx.tools.map((tool) => {
@@ -311,7 +308,7 @@ function TrackHeader({
                       : pathname === tool.href ||
                         (tool.href !== ctx.hubHref &&
                           pathname.startsWith(tool.href));
-                const className = `inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium transition-colors sm:px-2.5 ${tool.href === "/app-services" ? "order-first sm:order-none" : ""} ${
+                const className = `inline-flex min-h-11 shrink-0 items-center rounded-lg px-2 font-display text-[13px] font-medium transition-colors sm:px-2.5 ${
                   active
                     ? "bg-[#007AFF]/12 text-[color:light-dark(#0066D6,var(--color-carbon))] dark:text-carbon"
                     : "text-slate-600 hover:bg-white/70 hover:text-ink"
@@ -331,14 +328,14 @@ function TrackHeader({
                   );
                 }
                 return (
-                  <Link key={tool.href} href={tool.href} className={className}>
+                  <Link key={tool.href} href={tool.href} className={className} aria-current={active ? "page" : undefined}>
                     {tool.label}
                   </Link>
                 );
               })}
             </nav>
 
-            <div className="flex shrink-0 items-center gap-2">
+            <div className="flex shrink-0 items-center justify-self-end gap-2">
               <AccountCluster user={user} unread={unread} authPending={authPending} compact />
               <AppearanceControls />
             </div>

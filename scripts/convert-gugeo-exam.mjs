@@ -19,6 +19,13 @@ const exams = [];
 const years = new Set();
 const sources = new Set();
 const copiedImages = new Set();
+const unchangedImages = new Set();
+const existingPath = path.join(OUT_DIR, "gugeo.json");
+const verifiedTranscripts = new Map(
+  (existsSync(existingPath) ? JSON.parse(readFileSync(existingPath, "utf8")).exams : [])
+    .filter((question) => question.material?.passageTextIsTranscript)
+    .map((question) => [question.id, question]),
+);
 
 mkdirSync(OUT_DIR, { recursive: true });
 mkdirSync(IMG_OUT, { recursive: true });
@@ -37,10 +44,18 @@ for (const series of SERIES) {
         const from = path.join(APP, "public", "exam-images", name);
         if (existsSync(from)) {
           if (!copiedImages.has(name)) {
-            copyFileSync(from, path.join(IMG_OUT, name));
+            const destination = path.join(IMG_OUT, name);
+            if (existsSync(destination) && readFileSync(from).equals(readFileSync(destination))) {
+              unchangedImages.add(name);
+            }
+            copyFileSync(from, destination);
             copiedImages.add(name);
           }
           material = { image: `/exam/gugeo/${name}` };
+          const previous = verifiedTranscripts.get(q.id);
+          if (unchangedImages.has(name) && previous?.material.image === material.image && previous.passageText === q.passageText) {
+            material.passageTextIsTranscript = true;
+          }
         }
       }
 

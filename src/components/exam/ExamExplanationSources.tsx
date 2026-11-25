@@ -125,18 +125,3 @@ export function prepareExplanationSources(
   }
   return { body, links: [...links.values()], hasEvidence: links.size > 0 || inlineUrls.size > 0 };
 }
-
-export function ExplanationSourceLinks({ sources }: { sources: ExplanationSource[] }) {
-  return (
-    <div className="exam-explanation-sources">
-      <span className="exam-explanation-sources-title">근거</span>
-      {sources.map(({ label, url }) => (
-        <a key={`${url}|${label}`} href={url} target="_blank" rel="noopener noreferrer" className="exam-explanation-source-link">
-          <span>{label}</span>
-          <span className="exam-explanation-source-arrow" aria-hidden>↗</span>
-          <span className="sr-only"> (새 창에서 열림)</span>
-        </a>
-      ))}
-    </div>
-  );
-}

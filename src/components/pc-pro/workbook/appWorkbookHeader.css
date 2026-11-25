@@ -1,0 +1,382 @@
+.concept-cards-d4 {
+  --cc-forest: #1a3300;
+  --cc-yellow: #ffe95c;
+  --cc-cream: #fcfaf5;
+  --cc-pencil: #b6b6b6;
+  --cc-muted: #6b6b6b;
+  --cc-mint: #d5f5c2;
+  --cc-teal: #a8e5e5;
+  --cc-blush: #f6d0ff;
+  --cc-terra: #cb5521;
+  --cc-radius-btn: 6px;
+  --cc-radius-card: 12px;
+  --cc-radius-nav: 16px;
+  --cc-shadow-subtle: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  --cc-shadow-nav: rgba(255, 235, 90, 0.1) 0px 33px 72px 0px,
+    rgba(255, 235, 90, 0.05) 0px 132px 132px 0px;
+  --font-display: var(--app-font-body);
+  --font-mono: 'Roboto Mono', ui-monospace, monospace;
+  --d4-screen-inset-top: calc(22px + var(--safe-area-inset-top));
+  --d4-screen-inset-x: 20px;
+  --cc-ref-green: #bfe8a4;
+  --cc-ref-green-dark: #2d5a27;
+  --cc-ref-purple: #e8b8f2;
+  --cc-ref-purple-dark: #6b2d7a;
+  --cc-ref-ink: #1a3300;
+
+  min-height: 100vh;
+  background-color: #fafafb;
+  color: var(--cc-forest);
+  font-family: inherit;
+  position: relative;
+  overflow-x: hidden;
+}
+
+html[data-platform='ios'] .concept-cards-d4 {
+  --d4-screen-inset-top: calc(21px + var(--safe-area-inset-top));
+}
+
+.concept-cards-d4 *,
+.concept-cards-d4 *::before,
+.concept-cards-d4 *::after {
+  box-sizing: border-box;
+}
+
+.cc-d4-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--d4-screen-inset-top) var(--d4-screen-inset-x) 36px;
+}
+
+.sh-d4-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.sh-d4-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.sh-d4-header-actions--settings {
+  max-width: none;
+}
+
+.sh-d4-header-row--title-line {
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.sh-d4-header-row--title-line .cc-d4-title--screen {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+.sh-d4-header-row--title-line .sh-d4-header-actions--settings {
+  align-self: center;
+}
+
+.sh-d4-title-back {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sh-d4-title-back .cc-d4-ref-back {
+  transition: transform 0.12s ease;
+}
+
+.sh-d4-title-back:active .cc-d4-ref-back {
+  transform: scale(0.94);
+}
+
+.cc-d4-header-card {
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 26px 22px 20px;
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 22px;
+  box-shadow:
+    0 8px 32px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.4);
+  text-align: left;
+}
+
+.cc-d4-header-card--compact {
+  padding: 14px 16px 12px;
+  margin-bottom: 12px;
+}
+
+.cc-d4-header-card--compact .cc-d4-title--screen {
+  font-size: clamp(1.375rem, 4.8vw, 1.625rem);
+  line-height: 1.05;
+}
+
+.cc-d4-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.875rem, 6vw, 2.35rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #111;
+}
+
+.cc-d4-highlight {
+  background: none;
+  padding: 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+html[data-theme="dark"] .cc-d4-title .cc-d4-highlight {
+  color: inherit;
+}
+
+html[data-theme="dark"] .concept-cards-d4 {
+  background-color: var(--dm-bg);
+  color: var(--dm-text-1);
+}
+
+html[data-theme="dark"] .concept-cards-d4 .cc-d4-header-card {
+  background: rgba(30, 41, 59, 0.55);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .concept-cards-d4 .cc-d4-title {
+  color: var(--dm-text-1);
+}
+
+.cc-d4-ref-back {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 0.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.18);
+  background-image: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  box-shadow:
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.95),
+    0 2px 8px rgba(15, 23, 42, 0.08);
+  color: #161918;
+  cursor: pointer;
+  transition: background 0.15s;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.cc-d4-ref-back:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.cc-d4-ref-back svg {
+  width: 20px;
+  height: 20px;
+}
+
+.concept-cards-d4 .cc-d4-header-card {
+  border-style: solid !important;
+}
+
+html[data-theme="dark"] .concept-cards-d4 {
+  background-color: var(--dm-bg);
+  color: var(--dm-text-1);
+  --cc-ref-green: color-mix(in srgb, var(--dm-success) 16%, transparent);
+  --cc-ref-green-dark: var(--dm-success);
+  --cc-ref-purple: color-mix(in srgb, var(--dm-accent-violet) 14%, transparent);
+  --cc-ref-purple-dark: var(--dm-accent-violet);
+  --cc-ref-ink: var(--dm-border);
+  --cc-forest: var(--dm-text-1);
+}
+
+html[data-theme="dark"] .concept-cards-d4 .cc-d4-ref-back,
+html[data-theme="dark"] .cc-d4-ref-back {
+  background: var(--dm-surface-1, #1e293b);
+  border-color: var(--dm-border, #475569);
+  color: var(--dm-text-1, #f1f5f9);
+}
+
+html[data-theme="dark"] .concept-cards-d4 .cc-d4-ref-back:hover,
+html[data-theme="dark"] .cc-d4-ref-back:hover {
+  background: var(--dm-hover-surface, #334155);
+}
+/* 설정 기어 — 애플 리퀴드 글라스 원형 버튼 */
+
+.settings-gear-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  box-shadow:
+    0 2px 10px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.04);
+  color: rgba(60, 60, 67, 0.78);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.settings-gear-btn:hover {
+  color: #007aff;
+  border-color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 18px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.03);
+}
+
+.settings-gear-btn:active {
+  transform: scale(0.9);
+  transition-duration: 0.1s;
+}
+
+.settings-gear-btn[aria-expanded='true'] {
+  color: #007aff;
+}
+
+/* 홀로그램 헤어라인 링 — hover/열림 시 은은하게 */
+.settings-gear-btn__halo {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from 220deg,
+    rgba(0, 122, 255, 0) 0%,
+    rgba(0, 122, 255, 0.6) 25%,
+    rgba(88, 86, 214, 0.55) 50%,
+    rgba(255, 45, 85, 0.35) 72%,
+    rgba(0, 122, 255, 0) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: opacity 0.35s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.settings-gear-btn:hover .settings-gear-btn__halo,
+.settings-gear-btn[aria-expanded='true'] .settings-gear-btn__halo {
+  opacity: 1;
+  transform: rotate(120deg);
+}
+
+/* 기어 글리프 — hover 시 회전, 열림 시 반바퀴 */
+.settings-gear-btn__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.12));
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.settings-gear-btn:hover .settings-gear-btn__icon {
+  transform: rotate(60deg);
+}
+
+.settings-gear-btn[aria-expanded='true'] .settings-gear-btn__icon {
+  transform: rotate(180deg);
+}
+
+.settings-gear-btn--compact {
+  width: 2.125rem;
+  height: 2.125rem;
+}
+
+.settings-gear-btn--compact .settings-gear-btn__icon {
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
+
+/* 다크 모드 — 어두운 글라스 */
+html[data-theme="dark"] .settings-gear-btn {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  color: rgba(235, 235, 245, 0.72);
+}
+
+html[data-theme="dark"] .settings-gear-btn:hover {
+  color: #0a84ff;
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+html[data-theme="dark"] .settings-gear-btn[aria-expanded='true'] {
+  color: #0a84ff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .settings-gear-btn,
+  .settings-gear-btn__icon,
+  .settings-gear-btn__halo {
+    transition: none;
+  }
+}
