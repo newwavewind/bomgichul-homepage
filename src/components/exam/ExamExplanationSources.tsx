@@ -29,16 +29,17 @@ export function normalizeAttachedSource(
   lawVersions?: Record<string, string>,
 ): ExplanationSource | null {
   if (!raw || typeof raw !== "object") return null;
-  if (typeof raw.label === "string" && typeof raw.url === "string") {
-    const label = raw.label.trim();
-    const url = raw.url.trim();
+  const source = raw as Record<string, unknown>;
+  if (typeof source.label === "string" && typeof source.url === "string") {
+    const label = source.label.trim();
+    const url = source.url.trim();
     if (!label || !url.startsWith("https://")) return null;
     return { label, url };
   }
 
-  if (raw.type === "law" && typeof raw.name === "string" && raw.name.trim()) {
-    const name = raw.name.trim();
-    const articleRaw = typeof raw.article === "string" ? raw.article.trim() : "";
+  if (source.type === "law" && typeof source.name === "string" && source.name.trim()) {
+    const name = source.name.trim();
+    const articleRaw = typeof source.article === "string" ? source.article.trim() : "";
     const match = ARTICLE_META.exec(articleRaw);
     const articleNum = match?.[1];
     const articleOf = match?.[2];
@@ -49,8 +50,8 @@ export function normalizeAttachedSource(
     return { label, url };
   }
 
-  if ((raw.type === "case" || raw.type === "precedent") && typeof raw.number === "string") {
-    const number = raw.number.trim();
+  if ((source.type === "case" || source.type === "precedent") && typeof source.number === "string") {
+    const number = source.number.trim();
     if (!number) return null;
     return { label: number, url: precedentUrl(number) };
   }
