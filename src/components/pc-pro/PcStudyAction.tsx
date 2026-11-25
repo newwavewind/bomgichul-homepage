@@ -50,7 +50,8 @@ function StudyStatus({ result, retry, offers }: { result: StudyResponse | null; 
     const login = '/login?next=' + encodeURIComponent(window.location.pathname + window.location.search);
     return <div className="pc-access-gate">
       <h3>구매한 과목을 연결해 주세요</h3>
-      <p>앱에서 구매한 과목을 홈페이지 계정에 QR로 연결하면 이용할 수 있어요.</p>
+      <p>앱에서 이미 구매한 과목을 QR로 연결하면 추가 결제 없이 이용할 수 있어요.</p>
+      {result.status === 403 && offers.length > 1 && <p>앱에서 결제한 상품을 선택해 주세요.</p>}
       {result.status === 401 ? <Link href={login} className="pc-access-primary">로그인하기</Link>
         : offers.map(offer => <Link key={offer.id} className="pc-access-primary" href={offer.plan}>
           {offers.length > 1 ? offer.title + ' 연결' : '앱 구매 연동'}

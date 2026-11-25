@@ -378,7 +378,7 @@
       {
         "id": "english-english",
         "subjectId": "english",
-        "title": "9급 공무원 영어 · 국가직·지방직 전체",
+        "title": "9급 공무원 영어 · 국가직·지방직 통합 구매",
         "productId": "premium_unlock_english_all",
         "platforms": [
           "ios",
@@ -388,7 +388,7 @@
       {
         "id": "english-english-national",
         "subjectId": "english",
-        "title": "9급 공무원 영어 · 국가직(예전 학습권)",
+        "title": "9급 공무원 영어 · 국가직 단독 구매",
         "productId": "premium_unlock_english_national",
         "platforms": [
           "ios",
@@ -400,7 +400,7 @@
       {
         "id": "english-english-local",
         "subjectId": "english",
-        "title": "9급 공무원 영어 · 지방직(예전 학습권)",
+        "title": "9급 공무원 영어 · 지방직 단독 구매",
         "productId": "premium_unlock_english_local",
         "platforms": [
           "ios",
@@ -478,7 +478,7 @@
       {
         "id": "gugeo-gugeo",
         "subjectId": "gugeo",
-        "title": "9급 공무원 국어 · 국가직·지방직 전체",
+        "title": "9급 공무원 국어 · 국가직·지방직 통합 구매",
         "productId": "premium_unlock_gugeo_all",
         "platforms": [
           "ios",
@@ -488,7 +488,7 @@
       {
         "id": "gugeo-gugeo-national",
         "subjectId": "gugeo",
-        "title": "9급 공무원 국어 · 국가직(예전 학습권)",
+        "title": "9급 공무원 국어 · 국가직 단독 구매",
         "productId": "premium_unlock_gugeo_national",
         "platforms": [
           "ios",
@@ -499,7 +499,7 @@
       {
         "id": "gugeo-gugeo-local",
         "subjectId": "gugeo",
-        "title": "9급 공무원 국어 · 지방직(예전 학습권)",
+        "title": "9급 공무원 국어 · 지방직 단독 구매",
         "productId": "premium_unlock_gugeo_local",
         "platforms": [
           "ios",

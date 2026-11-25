@@ -23,6 +23,11 @@ export default async function PcProExam({ params, searchParams }: Props) {
   return <main className="mx-auto max-w-4xl space-y-5 px-4 py-10">
     <Link className="text-sm font-medium text-carbon" href="/pc-pro">← PC Pro 시험 선택</Link>
     <h1 className="text-3xl font-semibold text-ink">{app.title} PC Pro</h1>
+    {app.subjects.some(entry => "legacy" in entry && entry.legacy) && (
+      <p className="text-sm leading-relaxed text-smoke">
+        앱에서 결제한 상품을 골라 QR로 연결해 주세요. 국가직이나 지방직을 따로 구매한 경우에도 기존 구매 내역으로 연결할 수 있어요.
+      </p>
+    )}
     <nav aria-label="구매한 과목" className="flex flex-wrap gap-2">
       {app.subjects.map(entry => <Link
         key={entry.id}
