@@ -1,16 +1,66 @@
-import { splitLawCites } from "@/lib/law-link";
+import { lawUrl, precedentUrl, splitLawCites } from "@/lib/law-link";
 import { plainStudyText } from "@/lib/study-text";
 
 export type ExplanationSource = { label: string; url: string };
+
+/** 데이터에 실리는 출처 — 링크형({label,url}) 또는 법령·판례 검증 메타 */
+export type AttachedExplanationSource =
+  | ExplanationSource
+  | {
+      type?: string;
+      name?: string;
+      article?: string;
+      number?: string;
+      label?: string;
+      url?: string;
+      verifiedAt?: string;
+      via?: string;
+    };
 
 const CURRENT_NOTE = /\[(?:개정|판례변경)\]/;
 const SEPARATORS = /^(?:[\s,，·]|및)*$/;
 // 조문 링크가 호·목까지 잡지 못한 경우에는 괄호 안의 전체 인용을 표시한다.
 const LOCATORS = /^(?:[\s,，·~]|및|같은\s*법|시행령|시행규칙|별[표지]\s*\d+(?:의\d+)?|제\d+(?:조|항|호)(?:의\d+)?|서식|[가-하]목|단서|본문|전단|후단)+$/;
+const ARTICLE_META = /제\s*(\d+)\s*조(?:\s*의\s*(\d+))?/;
+
+/** 공무원 등 재집필 출처(법·판례 메타)를 근거 칩용 {label,url}로 만든다. */
+export function normalizeAttachedSource(
+  raw: AttachedExplanationSource | null | undefined,
+  lawVersions?: Record<string, string>,
+): ExplanationSource | null {
+  if (!raw || typeof raw !== "object") return null;
+  if (typeof raw.label === "string" && typeof raw.url === "string") {
+    const label = raw.label.trim();
+    const url = raw.url.trim();
+    if (!label || !url.startsWith("https://")) return null;
+    return { label, url };
+  }
+
+  if (raw.type === "law" && typeof raw.name === "string" && raw.name.trim()) {
+    const name = raw.name.trim();
+    const articleRaw = typeof raw.article === "string" ? raw.article.trim() : "";
+    const match = ARTICLE_META.exec(articleRaw);
+    const articleNum = match?.[1];
+    const articleOf = match?.[2];
+    const articleKey = articleNum ? (articleOf ? `${articleNum}의${articleOf}` : articleNum) : undefined;
+    const label = articleRaw ? `${name} ${articleRaw.replace(/\s+/g, "")}` : name;
+    const version = articleKey ? lawVersions?.[`${name}|${articleKey}`] : undefined;
+    const url = version ?? (articleNum ? lawUrl(name, articleNum, articleOf) : lawUrl(name));
+    return { label, url };
+  }
+
+  if ((raw.type === "case" || raw.type === "precedent") && typeof raw.number === "string") {
+    const number = raw.number.trim();
+    if (!number) return null;
+    return { label: number, url: precedentUrl(number) };
+  }
+
+  return null;
+}
 
 export function prepareExplanationSources(
   explanation: string | undefined,
-  sources: ExplanationSource[] = [],
+  sources: AttachedExplanationSource[] = [],
   lawVersions?: Record<string, string>,
 ) {
   const text = plainStudyText(explanation ?? "");
@@ -63,8 +113,11 @@ export function prepareExplanationSources(
       inlineUrls.add(version ?? part.href);
     }
   }
+  const attached = sources
+    .map((source) => normalizeAttachedSource(source, lawVersions))
+    .filter((source): source is ExplanationSource => source != null);
   const links = new Map<string, ExplanationSource>();
-  for (const source of [...chips, ...sources]) {
+  for (const source of [...chips, ...attached]) {
     if (source.label.trim() && source.url.startsWith("https://") && !inlineUrls.has(source.url)) {
       links.set(`${source.url}|${source.label}`, source);
     }

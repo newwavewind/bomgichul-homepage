@@ -6,7 +6,7 @@ import { buildExamItemAiPrompt } from "@/lib/ai-links";
 import { communityScopeLabel } from "@/lib/exam-track/community";
 import type { ChoiceGlossary } from "@/lib/exam-glossary";
 import { ExplanationChoiceBadge } from "@/components/exam/ExamSeoExplanationDetails";
-import { ExplanationSourceLinks, prepareExplanationSources, type ExplanationSource } from "@/components/exam/ExamExplanationSources";
+import { ExplanationSourceLinks, prepareExplanationSources, type AttachedExplanationSource } from "@/components/exam/ExamExplanationSources";
 import type { CommunityScope } from "@/types/database";
 import { CopyToClipboardButton } from "@/components/ui/CopyToClipboardButton";
 import { plainStudyText } from "@/lib/study-text";
@@ -31,7 +31,7 @@ export type SeoExplanationQuestion = {
     text: string;
     answer?: string;
     explanation?: string;
-    sources?: ExplanationSource[];
+    sources?: AttachedExplanationSource[];
     /** 선지 글 안 밑줄 자리 — 「밑줄 친 부분이 …」 문항(국어·영어) */
     underlines?: readonly UnderlineRange[];
   }[];
@@ -107,7 +107,7 @@ function ExplanationCard({
   underlines?: readonly UnderlineRange[];
   answer?: string;
   explanation?: string;
-  sources?: ExplanationSource[];
+  sources?: AttachedExplanationSource[];
   glossary?: ChoiceGlossary;
   examDate?: string;
   lawVersions?: Record<string, string>;

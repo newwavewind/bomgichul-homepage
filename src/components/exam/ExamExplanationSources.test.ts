@@ -32,4 +32,41 @@ describe("choice explanation sources", () => {
     const result = prepareExplanationSources("헌법 제8조의 내용이다(헌법 제8조).");
     expect(result.links).toEqual([]);
   });
+
+  it("turns verified law metadata into evidence links instead of crashing", () => {
+    const result = prepareExplanationSources("특별회계도 국회 심의를 받는다.", [
+      {
+        type: "law",
+        name: "국가재정법",
+        article: "제5조",
+        verifiedAt: "2026-09-30",
+        via: "law.go.kr OPEN API",
+      },
+    ]);
+    expect(result.links).toEqual([
+      {
+        label: "국가재정법 제5조",
+        url: "https://www.law.go.kr/법령/%EA%B5%AD%EA%B0%80%EC%9E%AC%EC%A0%95%EB%B2%95/%EC%A0%9C5%EC%A1%B0",
+      },
+    ]);
+    expect(result.hasEvidence).toBe(true);
+  });
+
+  it("turns case metadata into precedent search links", () => {
+    const result = prepareExplanationSources("판례의 취지다.", [
+      { type: "case", number: "2014도11315", verifiedAt: "2026-09-30", via: "law.go.kr" },
+    ]);
+    expect(result.links).toEqual([
+      {
+        label: "2014도11315",
+        url: "https://www.law.go.kr/LSW/precSc.do?menuId=7&query=2014%EB%8F%8411315",
+      },
+    ]);
+  });
+
+  it("ignores attached sources that have neither a link nor law/case fields", () => {
+    const result = prepareExplanationSources("설명만 있다.", [{ type: "note" } as never]);
+    expect(result.links).toEqual([]);
+    expect(result.hasEvidence).toBe(false);
+  });
 });
