@@ -54,10 +54,13 @@ export default async function EnglishSyntaxDetail({ params }: Props) {
       <div className="es-workspace es-detail-layout mt-6">
         <article className="es-reader es-detail-overview">
           <header>
-            <p className="es-kicker">{unit?.name ?? card.primaryTag}</p>
+            <p className="es-detail-meta">
+              <span className="es-detail-number">{card.no}번</span>
+              <span className="es-kicker">{unit?.name ?? card.primaryTag}</span>
+            </p>
             <EnglishSyntaxDetailActions id={card.id} sentence={sentence} clip={practice?.card.audio} />
           </header>
-          <h1><span className="es-practice-no">{card.no}</span> <span lang="en">{sentence}</span></h1>
+          <h1 lang="en">{sentence}</h1>
           {corrected && <div className="es-detail-correction"><strong>기출 오답을 고친 문장</strong><br /><del lang="en">{card.sentence}</del></div>}
           <section className="es-section">
             <h2>해석</h2>
