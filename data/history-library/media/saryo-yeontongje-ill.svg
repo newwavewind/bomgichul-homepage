@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>연통제와 교통국 — 임시 정부의 두 비밀 연락망</title>
+<desc>왼쪽은 연통제의 감독부·총감부·사감부 계통과 하는 일, 오른쪽은 교통국의 안동 교통사무국과 각 지역 교통국 및 하는 일을 정리한 도식.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">연통제와 교통국 — 임시 정부의 두 비밀 연락망</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1919년 상하이 대한민국 임시 정부 · 국내와 만주를 잇다</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="560" y="190" width="480" height="86" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="232" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">대한민국 임시 정부</text>
+<text x="800" y="264" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1919년 4월 상하이</text>
+<rect x="60" y="320" width="700" height="600" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="410" y="372" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">연통제</text>
+<text x="410" y="410" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">내무부 · 행정 조직</text>
+<rect x="840" y="320" width="700" height="600" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1190" y="372" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">교통국</text>
+<text x="1190" y="410" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">교통부 · 통신 조직</text>
+<line x1="700" y1="276" x2="420" y2="316" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="900" y1="276" x2="1180" y2="316" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="150" y="440" width="520" height="64" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="190" y="483" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">도</text>
+<text x="630" y="483" font-size="30" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">감독부</text>
+<line x1="410" y1="504" x2="410" y2="530" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="150" y="532" width="520" height="64" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="190" y="575" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">부 · 군</text>
+<text x="630" y="575" font-size="30" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">총감부</text>
+<line x1="410" y1="596" x2="410" y2="622" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="150" y="624" width="520" height="64" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="190" y="667" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">면</text>
+<text x="630" y="667" font-size="30" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">사감부</text>
+<text x="410" y="744" font-size="25" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1919.7.10 국무원령 제1호 「임시연통제」</text>
+<text x="150" y="794" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 정부 법령 · 공문 전달</text>
+<text x="150" y="834" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 독립 자금 모아 보내기</text>
+<text x="150" y="874" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 국내 사정 정기 보고</text>
+<rect x="930" y="440" width="520" height="74" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1190" y="476" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">안동 교통사무국</text>
+<text x="1190" y="504" font-size="22" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1919년 5월 · 국내와 잇는 길목</text>
+<line x1="1190" y1="514" x2="1190" y2="552" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="930" y="556" width="520" height="120" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1190" y="604" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">평안도 · 함경남도</text>
+<text x="1190" y="648" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">황해도 · 만주의 교통국</text>
+<text x="1190" y="744" font-size="25" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">「임시지방교통사무국장정」(1919)</text>
+<text x="930" y="794" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 정보 모으기</text>
+<text x="930" y="834" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 기밀문서 · 무기 나르기</text>
+<text x="930" y="874" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 사람 이어 주기</text>
+<text x="800" y="965" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">연통제는 1921년 후반까지, 교통국은 1922년까지 활발히 움직였다</text>
+</svg>

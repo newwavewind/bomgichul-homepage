@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>형평사(1923) — 백정의 신분 해방 운동</title>
+<desc>왼쪽 위는 갑오개혁으로 법에서 신분제가 없어졌으나 백정이 호적·입학 등에서 계속 차별받은 배경과 일본 수평사 소식, 왼쪽 아래는 사칙 제3조의 네 목적과 본사·지사·분사 조직, 오른쪽은 1923년 창립에서 1924년 지사 12·분사 64, 본사 이전을 둘러싼 분열, 1925년 서울 통합 대회, 1935년 대동사로 바뀌기까지의 연표.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<radialGradient id="glow"><stop offset="0" stop-color="#00d0ff" stop-opacity="0.55"/><stop offset="0.45" stop-color="#00d0ff" stop-opacity="0.2"/><stop offset="1" stop-color="#00d0ff" stop-opacity="0"/></radialGradient>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60.0" y="92.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">형평사(1923) — 백정의 신분 해방 운동</text>
+<text x="60.0" y="140.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1923년 4월 25일 경남 진주에서 창립 · 백정 차별에 맞선 사회 운동</text>
+<text x="1540.0" y="92.0" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="700" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="190.5" width="699" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="230.5" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">배경</text>
+<text x="84.0" y="292.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1894 갑오개혁 → 법으로는 신분제 폐지</text>
+<text x="84.0" y="329.5" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">그러나 호적에 「도한」 · 붉은 점으로 표시,</text>
+<text x="84.0" y="367.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">자녀 입학 거부 등 차별이 계속됨</text>
+<text x="84.0" y="404.6" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1922 일본 수평사 조직 소식에 자극</text>
+<rect x="60" y="460" width="700" height="290" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="460.5" width="699" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="500.2" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">사칙 제3조 · 형평사의 목적</text>
+<rect x="84" y="540" width="316" height="64" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="242.0" y="583.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">계급 타파</text>
+<rect x="420" y="540" width="316" height="64" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="578.0" y="583.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">모욕적 칭호 폐지</text>
+<rect x="84" y="624" width="316" height="64" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="242.0" y="667.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">교육 권장</text>
+<rect x="420" y="624" width="316" height="64" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="578.0" y="667.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">서로의 친목</text>
+<text x="84.0" y="730.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">창립: 이학찬 · 강상호 · 신현수 · 천석구 · 장지필 등</text>
+<rect x="60" y="770" width="700" height="160" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="770.5" width="699" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="810.5" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조직</text>
+<text x="84.0" y="873.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">본사(진주) → 지사(각 도) → 분사(각 군)</text>
+<rect x="800" y="190" width="740" height="740" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="836" y1="237" x2="836" y2="837" stroke="#00d0ff" stroke-width="1.5"/>
+<rect x="860" y="216" width="656" height="80" fill="#effbff" stroke="#00d0ff" stroke-width="0.5"/>
+<circle cx="836" cy="237" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="836" cy="237" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="872.0" y="246.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1923.4.25</text>
+<text x="1012.0" y="246.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">진주에서 형평사 창립</text>
+<text x="1012.0" y="282.0" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">창립 총회에 회원 80여 명</text>
+<circle cx="836" cy="349" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="836" cy="349" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="872.0" y="358.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1924</text>
+<text x="1012.0" y="358.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">창립 1년 만에 지사 12 · 분사 64</text>
+<circle cx="836" cy="425" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="836" cy="425" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="872.0" y="434.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1924</text>
+<text x="1012.0" y="434.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">본사 서울 이전을 두고 분열</text>
+<text x="1012.0" y="470.0" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">혁신동맹(서울) ↔ 진주 본사</text>
+<circle cx="836" cy="537" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="836" cy="537" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="872.0" y="546.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1924.8</text>
+<text x="1012.0" y="546.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">대전 통일 대회</text>
+<text x="1012.0" y="582.0" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조선형평사 중앙총본부를 서울에</text>
+<rect x="860" y="628" width="656" height="44" fill="#effbff" stroke="#00d0ff" stroke-width="0.5"/>
+<circle cx="836" cy="649" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="836" cy="649" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="872.0" y="658.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1925.4</text>
+<text x="1012.0" y="658.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">서울에서 전조선 형평 대회 · 통합</text>
+<circle cx="836" cy="725" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="836" cy="725" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="872.0" y="734.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1931~33</text>
+<text x="1012.0" y="734.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">해소 논쟁 · 형평청년전위동맹 사건</text>
+<text x="1012.0" y="770.0" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세력이 빠르게 줄어듦</text>
+<circle cx="836" cy="837" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="836" cy="837" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="872.0" y="846.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1935.4</text>
+<text x="1012.0" y="846.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">대동사로 이름을 바꿈</text>
+<text x="1012.0" y="882.0" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일제에 영합하는 단체로 바뀜</text>
+</svg>

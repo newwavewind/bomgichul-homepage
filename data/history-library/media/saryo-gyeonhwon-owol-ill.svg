@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>견훤의 외교</title>
+<desc>가운데 후백제를 두고 오월·후당·거란·일본과 주고받은 외교 내용을 네 칸으로 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">견훤의 외교</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">후백제가 사신을 주고받은 나라들 — 오월·후당·거란·일본</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="590" y="480" width="420" height="160" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5" filter="url(#plate)"/>
+<text x="800" y="545" font-size="40" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">후백제</text>
+<text x="800" y="598" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">900년 완산주(전주)에 도읍</text>
+<rect x="60" y="215" width="520" height="226" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="215.5" width="519" height="58" fill="#ccf6ff"/>
+<text x="84" y="255" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">오월 (중국)</text>
+<text x="90" y="320" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사신을 보내 예를 갖춤</text>
+<text x="90" y="366" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">오월 왕이 답례 사신을 보내고</text>
+<text x="90" y="412" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">검교태보 벼슬을 더해 줌</text>
+<line x1="630" y1="480" x2="594" y2="328" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1020" y="215" width="520" height="180" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1020.5" y="215.5" width="519" height="58" fill="#ccf6ff"/>
+<text x="1044" y="255" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">후당 (중국)</text>
+<text x="1050" y="320" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">925년 번국을 칭함</text>
+<text x="1050" y="366" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">「백제왕」 칭호를 받음</text>
+<line x1="970" y1="480" x2="1006" y2="305" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="720" width="520" height="180" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="720.5" width="519" height="58" fill="#ccf6ff"/>
+<text x="84" y="760" font-size="30" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">거란</text>
+<text x="90" y="825" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">927년 거란 사신을</text>
+<text x="90" y="871" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">바닷길로 돌려보내려 함</text>
+<line x1="630" y1="640" x2="594" y2="810" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<rect x="1020" y="720" width="520" height="180" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1020.5" y="720.5" width="519" height="58" fill="#ccf6ff"/>
+<text x="1044" y="760" font-size="30" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">일본</text>
+<text x="1050" y="825" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">922년과 929년에</text>
+<text x="1050" y="871" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사신을 보냄</text>
+<line x1="970" y1="640" x2="1006" y2="810" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<text x="800" y="960" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">건국 초부터 바다 건너 중국·거란·일본과 외교에 힘씀</text>
+</svg>

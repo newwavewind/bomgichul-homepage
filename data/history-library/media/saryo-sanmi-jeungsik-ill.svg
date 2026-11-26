@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>산미 증식 계획(1920)</title>
+<desc>산미 증식 계획이 시작·중단·재개된 흐름과, 증산 방법, 쌀이 일본으로 빠져나간 결과를 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">산미 증식 계획(1920)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조선을 일본의 식량 공급 기지로 삼으려 한 쌀 증산 계획</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">계획의 흐름</text>
+<rect x="60" y="245" width="700" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="296" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1918</text>
+<text x="200" y="296" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일본 쌀 폭동 — 식량 부족</text>
+<line x1="410" y1="329" x2="410" y2="363" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="367" width="700" height="82" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="418" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1920</text>
+<text x="200" y="418" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">제1차 계획 시작</text>
+<line x1="410" y1="451" x2="410" y2="485" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="489" width="700" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="540" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1926</text>
+<text x="200" y="540" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">제2차 계획 이어 감</text>
+<line x1="410" y1="573" x2="410" y2="607" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="611" width="700" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="662" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1934</text>
+<text x="200" y="662" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중단 — 일본 쌀값 하락</text>
+<line x1="410" y1="695" x2="410" y2="729" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="733" width="700" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="784" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1940</text>
+<text x="200" y="784" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">다시 시행 — 중일 전쟁 뒤 군량</text>
+<text x="840" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">쌀을 늘리려 한 방법</text>
+<rect x="840" y="245" width="340" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="840.5" y="245.5" width="339" height="54" fill="#ccf6ff"/>
+<text x="1010" y="283" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">토지 개량</text>
+<text x="1010" y="340" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">수리 시설 고치기</text>
+<text x="1010" y="378" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(수리 조합)·땅 개간</text>
+<rect x="1200" y="245" width="340" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1200.5" y="245.5" width="339" height="54" fill="#ccf6ff"/>
+<text x="1370" y="283" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">농사 개량</text>
+<text x="1370" y="340" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">품종 개량</text>
+<text x="1370" y="378" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">비료 쓰기</text>
+<text x="840" y="470" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">결과</text>
+<rect x="840" y="493" width="700" height="72" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="870" y="539" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">쌀 생산은 늘었다</text>
+<line x1="1190" y1="567" x2="1190" y2="593" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="840" y="597" width="700" height="72" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="870" y="643" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">늘어난 것보다 더 많은 쌀이 일본으로</text>
+<line x1="1190" y1="671" x2="1190" y2="697" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="840" y="701" width="700" height="72" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="870" y="747" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조선 사람이 먹을 쌀은 줄었다</text>
+<line x1="1190" y1="775" x2="1190" y2="801" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="840" y="805" width="700" height="72" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="870" y="851" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">만주에서 잡곡을 들여와 끼니를 이었다</text>
+</svg>

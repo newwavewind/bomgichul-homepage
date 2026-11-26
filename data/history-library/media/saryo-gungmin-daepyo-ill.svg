@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>국민 대표 회의(1923) — 창조파와 개조파</title>
+<desc>위는 1921년 소집 촉구 선언부터 1923년 회의 결렬까지의 연표, 아래는 창조파와 개조파의 주장을 맞세운 도식.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">국민 대표 회의(1923) — 창조파와 개조파</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">상하이 · 국내외 120여 단체 대표 · 독립운동의 앞길과 임시 정부 문제</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="130" y1="300" x2="1470" y2="300" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="250" cy="300" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="250" y="276" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1921.2</text>
+<text x="250" y="346" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">박은식 · 김창숙 등</text>
+<text x="250" y="384" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">소집 촉구 선언</text>
+<circle cx="640" cy="300" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="640" y="276" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1923.1.3</text>
+<text x="640" y="346" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">회의 개막</text>
+<text x="640" y="384" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">의장 김동삼</text>
+<circle cx="1030" cy="300" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1030" y="276" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1923.5</text>
+<text x="1030" y="346" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">개조파 만주 대표</text>
+<text x="1030" y="384" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사임</text>
+<circle cx="1370" cy="300" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1370" y="276" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">결렬</text>
+<text x="1370" y="346" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">창조파만</text>
+<text x="1370" y="384" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">따로 회의</text>
+<text x="800" y="500" font-size="34" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">임시 정부를 어떻게 할 것인가?</text>
+<rect x="60" y="540" width="680" height="330" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="400" y="600" font-size="42" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">창조파</text>
+<text x="400" y="648" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">없애고 새로 세운다</text>
+<text x="400" y="712" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">임시 정부를 해체</text>
+<text x="400" y="760" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">새 정부(새 기관)를 창설</text>
+<text x="400" y="808" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 회의를 따로 이어 감</text>
+<rect x="860" y="540" width="680" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1200" y="600" font-size="42" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">개조파</text>
+<text x="1200" y="648" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">두고 고쳐 쓴다</text>
+<text x="1200" y="712" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">임시 정부는 유지</text>
+<text x="1200" y="760" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조직과 운영을 개편</text>
+<text x="1200" y="808" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 만주 대표 등이 사임</text>
+<text x="800" y="712" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">VS</text>
+<text x="800" y="940" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">63일 동안 이어졌으나 합의하지 못함 → 독립운동 세력의 통합이 뒤로 미뤄짐</text>
+</svg>

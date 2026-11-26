@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img">
+<title>남북 유엔 동시 가입(1991) — 북방 외교의 열매</title>
+<desc>1973년 6·23 선언의 동시 가입 제안, 1988년 7·7 선언과 북방 외교, 1990년 소련 수교, 1991년 9월 남북 유엔 동시 가입, 그 뒤 남북 기본 합의서·비핵화 공동 선언과 1992년 중국 수교로 이어지는 흐름을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">남북 유엔 동시 가입(1991) — 북방 외교의 열매</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남과 북이 함께 유엔 회원국이 되어 국제 사회에서 각각 인정받음</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="345" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="232" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1973.6.23</text>
+<text x="232" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">6 · 23 선언</text>
+<text x="232" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남북 유엔 동시 가입</text>
+<text x="232" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">처음으로 제안</text>
+<line x1="408" y1="325" x2="432" y2="325" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="435" y="200" width="345" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="607" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1988.7.7</text>
+<text x="607" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">7 · 7 선언</text>
+<text x="607" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노태우 정부</text>
+<text x="607" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">북방 외교 시작</text>
+<line x1="783" y1="325" x2="807" y2="325" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="810" y="200" width="345" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="982" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1990</text>
+<text x="982" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">소련과 수교</text>
+<text x="982" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">공산권 나라들과</text>
+<text x="982" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">관계를 넓힘</text>
+<line x1="1158" y1="325" x2="1182" y2="325" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1185" y="200" width="345" height="250" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1357" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1991.9</text>
+<text x="1357" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">유엔 동시 가입</text>
+<text x="1357" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남한과 북한이</text>
+<text x="1357" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">함께 회원국이 됨</text>
+<line x1="800" y1="470" x2="800" y2="520" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="540" width="450" height="170" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="285" y="610" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">남북 기본 합의서</text>
+<text x="285" y="664" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1991.12 채택 · 1992.2 발효</text>
+<line x1="516" y1="625" x2="568" y2="625" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="575" y="540" width="450" height="170" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="610" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">비핵화 공동 선언</text>
+<text x="800" y="664" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1992.2 함께 발효</text>
+<line x1="1031" y1="625" x2="1083" y2="625" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1090" y="540" width="450" height="170" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1315" y="610" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1992 중국과 수교</text>
+<text x="1315" y="664" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">북방 외교 마무리</text>
+<rect x="60" y="750" width="1480" height="150" fill="#ffffff" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="800" y="812" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">유엔 동시 가입은 남북 관계 개선의 발판</text>
+<text x="800" y="858" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이듬해 남북 기본 합의서 발효로 이어짐</text>
+</svg>

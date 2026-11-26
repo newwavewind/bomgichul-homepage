@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>홍문관 — 집현전을 이은 학술·언론 기관</title>
+<desc>왼쪽은 집현전 폐지 뒤 1478년 홍문관이 서고, 연산군 때 진독청으로 바뀌었다가 되살아나 1894년 경연청이 되기까지의 흐름도, 오른쪽은 홍문관이 맡은 일과 삼사 구성을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">홍문관 — 집현전을 이은 학술·언론 기관</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1478년(성종 9) 예문관에서 옛 집현전 직제를 떼어 세움 · 별칭 옥당(玉堂)</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="860" height="86" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="257" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세조가 집현전을 없앰 → 그 일을 예문관이 나눠 맡음</text>
+<line x1="490" y1="293" x2="490" y2="329" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="335" width="860" height="86" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="387" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1478년(성종 9) 집현전 직제를 떼어 홍문관 설치</text>
+<line x1="490" y1="423" x2="490" y2="459" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="465" width="860" height="86" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="517" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1504년 연산군이 진독청으로 바꿈</text>
+<line x1="490" y1="553" x2="490" y2="589" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="595" width="860" height="86" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="647" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1506년(중종 1) 홍문관을 되살림</text>
+<line x1="490" y1="683" x2="490" y2="719" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="725" width="860" height="86" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="777" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1894년 갑오개혁 · 예문관과 합쳐 경연청으로</text>
+<rect x="980" y="205" width="560" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">홍문관이 맡은 일</text>
+<text x="1010" y="310" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 궁중의 서적을 관리</text>
+<text x="1010" y="365" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 나라의 문서를 작성</text>
+<text x="1010" y="420" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 왕의 자문에 응함</text>
+<text x="1010" y="475" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 학술과 언론을 함께 맡음</text>
+<rect x="980" y="575" width="560" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="575.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="615" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">삼사(三司)</text>
+<text x="1010" y="680" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 사헌부</text>
+<text x="1010" y="735" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 사간원</text>
+<text x="1010" y="790" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">· 홍문관 (옥당)</text>
+<text x="1010" y="845" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 셋을 묶어 삼사라 부름</text>
+</svg>

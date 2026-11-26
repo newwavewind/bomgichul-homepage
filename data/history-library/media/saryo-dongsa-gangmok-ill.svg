@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>안정복의 『동사강목』</title>
+<desc>안정복 『동사강목』의 편찬 과정, 강과 목으로 나누어 적는 강목체, 서문이 꼽은 역사 서술의 다섯 원칙을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">안정복의 『동사강목』</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이익의 제자 안정복이 강목체로 쓴 우리 역사</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">편찬 과정</text>
+<rect x="60" y="250" width="620" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="300.0" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1756년(영조 32) 편찬 시작</text>
+<line x1="370.0" y1="332" x2="370.0" y2="366" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="370" width="620" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="420.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">3년 만에 초고 완성</text>
+<line x1="370.0" y1="452" x2="370.0" y2="486" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="490" width="620" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="540.0" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1778년 완성 — 본편 17권·부록 3권</text>
+<text x="60" y="668" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">강목체 — 『자치통감강목』을 본뜸</text>
+<rect x="60" y="696" width="150" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="135" y="742" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">강(綱)</text>
+<text x="236" y="742" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">큰 사건의 요점을 적음</text>
+<rect x="60" y="786" width="150" height="70" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="135" y="832" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">목(目)</text>
+<text x="236" y="832" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">관련 내용을 자세히 적음</text>
+<text x="60" y="920" font-size="25" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">다룬 범위: 단군 조선 → 고려 말 · 정통 국가와 비정통 국가를 구별</text>
+<rect x="760" y="250" width="780" height="388" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="760.5" y="250.5" width="779" height="58" fill="#ccf6ff"/>
+<text x="784" y="290" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">서문이 꼽은 역사가의 큰 법</text>
+<text x="790" y="348" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">① 나라의 계통을 밝힌다</text>
+<text x="790" y="408" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">② 왕위 찬탈·반역을 엄하게 다룬다</text>
+<text x="790" y="468" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">③ 옳고 그름을 바로 가린다</text>
+<text x="790" y="528" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">④ 충절을 기린다</text>
+<text x="790" y="588" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">⑤ 제도를 자세히 적는다</text>
+</svg>

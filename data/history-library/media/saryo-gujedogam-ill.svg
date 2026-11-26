@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>고려의 구제도감과 동서대비원</title>
+<desc>동서대비원 설치에서 구제도감, 진제도감으로 이어지는 흐름도와 각 기관이 상설인지 임시인지를 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">고려의 구제도감과 동서대비원</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">전염병 환자를 고치고 굶주린 백성을 돌본 관청들</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="256" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1036년(정종 2) 이전 동서대비원이 세워짐</text>
+<line x1="490" y1="289" x2="490" y2="323" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="327" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="378" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">개경 동·서에 하나씩: 병자 치료, 옷·먹을 것</text>
+<line x1="490" y1="411" x2="490" y2="445" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="449" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="500" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1109년(예종 4) 도성에 전염병 → 구제도감</text>
+<line x1="490" y1="533" x2="490" y2="567" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="571" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="622" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">환자를 치료하고 시신을 거두어 묻음</text>
+<line x1="490" y1="655" x2="490" y2="689" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="693" width="860" height="82" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="744" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1348년(충목왕 4) 굶주림에 진제도감 설치</text>
+<rect x="980" y="205" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">상설과 임시</text>
+<text x="1010" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 동서대비원: 상설 기관</text>
+<text x="1010" y="363" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 구제도감: 임시 관서</text>
+<text x="1010" y="415" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 진제도감: 굶주림 구호용 임시</text>
+<rect x="980" y="484" width="560" height="192" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="484.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="524" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">구제도감이 한 일</text>
+<text x="1010" y="590" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 전염병 환자 치료</text>
+<text x="1010" y="642" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 시신을 묻어 드러나지 않게</text>
+</svg>

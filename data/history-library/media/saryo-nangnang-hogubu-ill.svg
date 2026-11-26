@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>낙랑군 초원 4년 호구부 — 고을마다 집과 사람을 세다</title>
+<desc>낙랑군에 딸린 25개 현마다 호(집)와 구(사람)의 수를 적은 목간 문서의 짜임을 한 줄 형식으로 보이고, 이 자료로 알 수 있는 군현 지배의 모습과 자료의 한계를 정리한 그림. 실제 숫자는 적지 않았다.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">낙랑군 초원 4년 호구부 — 고을마다 집과 사람을 세다</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한 원제 초원 4년(서기전 45) · 평양시 낙랑구역 귀틀무덤 출토 목간</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="214" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">목간에 적힌 짜임 (현 하나에 한 줄)</text>
+<rect x="60" y="236" width="1480" height="298" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="236.5" width="492" height="58" fill="#ccf6ff"/>
+<text x="306.0" y="276" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">현 이름</text>
+<rect x="553.5" y="236.5" width="493" height="58" fill="#ccf6ff"/>
+<text x="800.0" y="276" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">호(戶) = 집 수</text>
+<rect x="1047.5" y="236.5" width="492" height="58" fill="#ccf6ff"/>
+<text x="1293.0" y="276" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">구(口) = 사람 수</text>
+<line x1="60" y1="294" x2="1540" y2="294" stroke="#00d0ff" stroke-width="0.8"/>
+<text x="306.0" y="346" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○○현</text>
+<text x="800.0" y="346" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○ ○ ○</text>
+<text x="1293.0" y="346" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○ ○ ○</text>
+<line x1="60" y1="374" x2="1540" y2="374" stroke="#00d0ff" stroke-width="0.8"/>
+<text x="306.0" y="426" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○○현</text>
+<text x="800.0" y="426" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○ ○ ○</text>
+<text x="1293.0" y="426" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○ ○ ○</text>
+<line x1="60" y1="454" x2="1540" y2="454" stroke="#00d0ff" stroke-width="0.8"/>
+<text x="306.0" y="506" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○○현</text>
+<text x="800.0" y="506" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○ ○ ○</text>
+<text x="1293.0" y="506" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○ ○ ○</text>
+<text x="800" y="576" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">… 이런 줄이 25개 현만큼 고을별로 이어짐</text>
+<rect x="60" y="610" width="700" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="610.5" width="699" height="58" fill="#ccf6ff"/>
+<text x="84" y="650.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">알 수 있는 것</text>
+<text x="84" y="713" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한 군현이 주민을 숫자로 파악함</text>
+<text x="84" y="754.2" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">고을(현)마다 집과 사람 수를 관리</text>
+<text x="84" y="795.4000000000001" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서기전 1세기 중엽 낙랑군의 주민 구성</text>
+<rect x="800" y="610" width="740" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="800.5" y="610.5" width="739" height="58" fill="#ccf6ff"/>
+<text x="824" y="650.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">함께 알아 둘 것</text>
+<text x="824" y="713" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">낙랑군: 서기전 108년 한 무제가</text>
+<text x="824" y="754.2" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">위만조선 지역에 설치한 군</text>
+<text x="824" y="795.4000000000001" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">북한의 추가 보고가 없어 분석에 한계</text>
+<text x="60" y="920" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">○ 표시는 자리만 보인 것으로, 실제 숫자는 목간 원문에서 확인해야 함</text>
+</svg>

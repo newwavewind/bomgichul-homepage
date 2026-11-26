@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img">
+<title>용암포 사건에서 러일 전쟁으로(1896~1904)</title>
+<desc>위는 아관 파천 뒤 러시아의 이권 획득, 1903년 용암포 점령과 조차 가조약, 일본·영국의 반대, 1904년 2월 러일 전쟁으로 이어지는 흐름, 가운데는 사건에 얽힌 나라들의 처지를 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="46" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">용암포 사건에서 러일 전쟁으로(1896~1904)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">압록강 하구를 둘러싼 러시아와 일본의 대립</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="210" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="110" y1="290" x2="1490" y2="290" stroke="#00d0ff" stroke-width="1.2" marker-end="url(#ah)"/>
+<circle cx="282" cy="290" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="282" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1896</text>
+<text x="282" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">아관 파천</text>
+<text x="282" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">러시아 영향력 커짐</text>
+<circle cx="627" cy="290" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="627" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">이후</text>
+<text x="627" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">삼림 채벌권 등</text>
+<text x="627" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">압록강·두만강 유역 이권</text>
+<circle cx="972" cy="290" r="9" fill="#0096b8" stroke="#0096b8" stroke-width="1"/>
+<text x="972" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1903</text>
+<text x="972" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">용암포 점령</text>
+<text x="972" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조차 가조약 · 일본 반발</text>
+<rect x="807" y="226" width="329" height="160" fill="none" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<circle cx="1317" cy="290" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1317" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1904.2</text>
+<text x="1317" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">러일 전쟁</text>
+<text x="1317" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대립이 전쟁으로</text>
+<text x="800" y="458" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">누가 무엇을 원했나</text>
+<rect x="60" y="484" width="480" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="300" y="546" font-size="36" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">러시아</text>
+<text x="300" y="600" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">만주 주둔군이</text>
+<text x="300" y="638" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">압록강 하구 · 용암포로</text>
+<text x="300" y="676" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">땅을 빌려 쓰겠다(조차)</text>
+<rect x="560" y="484" width="480" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="546" font-size="36" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">대한 제국</text>
+<text x="800" y="600" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조차 요구를 받음</text>
+<text x="800" y="638" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">열강 사이에서</text>
+<text x="800" y="676" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이권을 내줌</text>
+<rect x="1060" y="484" width="480" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1300" y="546" font-size="36" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">일본 · 영국</text>
+<text x="1300" y="600" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">러시아의 남하에</text>
+<text x="1300" y="638" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">강하게 반대</text>
+<text x="1300" y="676" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 대립 격화</text>
+<text x="800" y="940" font-size="23" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">※ 조차(租借): 남의 나라 땅을 일정 기간 빌려 다스리는 것 · 용암포는 압록강 어귀에 있는 포구</text>
+</svg>

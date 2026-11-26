@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img">
+<title>교육 입국 조서(1895) — 교육의 세 줄기</title>
+<desc>위는 1895년 2월 조서 발표에서 한성 사범 학교 관제, 외국어 학교·소학교 관제로 이어지는 흐름, 가운데는 덕양·체양·지양의 세 줄기, 아래는 조서의 핵심 문구를 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="46" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">교육 입국 조서(1895) — 교육의 세 줄기</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">2차 갑오개혁 때 고종이 조칙으로 밝힌 「교육으로 나라를 세운다」는 뜻</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="210" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="110" y1="290" x2="1490" y2="290" stroke="#00d0ff" stroke-width="1.2" marker-end="url(#ah)"/>
+<circle cx="282" cy="290" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="282" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1894~1895</text>
+<text x="282" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">갑오개혁</text>
+<text x="282" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">근대 제도 개편</text>
+<circle cx="627" cy="290" r="9" fill="#0096b8" stroke="#0096b8" stroke-width="1"/>
+<text x="627" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1895.2.2(음)</text>
+<text x="627" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">교육 입국 조서</text>
+<text x="627" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">교육은 나라 보존의 근본</text>
+<rect x="462" y="226" width="329" height="160" fill="none" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<circle cx="972" cy="290" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="972" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1895.4</text>
+<text x="972" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">한성 사범 학교 관제</text>
+<text x="972" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">교사를 기르는 학교</text>
+<circle cx="1317" cy="290" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1317" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">이어서</text>
+<text x="1317" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">외국어 학교·소학교 관제</text>
+<text x="1317" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">근대 학제의 틀</text>
+<text x="800" y="458" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">교육의 세 줄기(綱紀) — 조서의 순서대로</text>
+<rect x="60" y="484" width="480" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="300" y="546" font-size="36" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">덕양(德養)</text>
+<text x="300" y="600" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">오륜의 행실을 닦아</text>
+<text x="300" y="638" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">덕을 기름</text>
+<rect x="560" y="484" width="480" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="546" font-size="36" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">체양(體養)</text>
+<text x="800" y="600" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">몸을 튼튼히</text>
+<text x="800" y="638" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">기름</text>
+<rect x="1060" y="484" width="480" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1300" y="546" font-size="36" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">지양(智養)</text>
+<text x="1300" y="600" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지식을 넓혀</text>
+<text x="1300" y="638" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">슬기를 기름</text>
+<text x="800" y="764" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조서의 핵심 문구</text>
+<rect x="60" y="786" width="480" height="90" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="300" y="840" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">교육은 국가 보존의 근본</text>
+<rect x="560" y="786" width="480" height="90" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="840" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">허명을 버리고 실용을 숭상</text>
+<rect x="1060" y="786" width="480" height="90" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1300" y="840" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">학교를 널리 세워 인재 양성</text>
+<text x="800" y="940" font-size="23" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">※ 「입국(立國)」은 나라를 세운다는 뜻 — 백성의 학식으로 나라를 다시 일으키려 함</text>
+</svg>

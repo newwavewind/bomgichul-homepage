@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>대구 2·28 민주 운동(1960)</title>
+<desc>왼쪽은 3·15 정·부통령 선거를 앞둔 일요일 등교 지시에서 대구 고등학생 시위, 마산 의거와 4·19 혁명으로 이어지는 흐름도, 오른쪽은 학생들의 구호와 이 운동의 의의를 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">대구 2·28 민주 운동(1960)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">3·15 선거를 앞두고 대구 고등학생들이 일으킨 시위</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="248" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1960. 3. 15. 정 · 부통령 선거를 앞둠</text>
+<line x1="490" y1="278" x2="490" y2="318" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="322" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="370" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">2. 28.(일) 대구에서 민주당 부통령 후보 장면 유세</text>
+<line x1="490" y1="400" x2="490" y2="440" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="444" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="492" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">학생들이 유세장에 못 가게 일요일 등교 지시</text>
+<line x1="490" y1="522" x2="490" y2="562" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="566" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="614" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">경북고 학생들을 시작으로 고등학생들이 거리로</text>
+<line x1="490" y1="644" x2="490" y2="684" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="688" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="736" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1,500여 명이 경찰과 부딪치며 도청 쪽으로 행진</text>
+<line x1="490" y1="766" x2="490" y2="806" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="810" width="860" height="76" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="858" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">3 · 15 마산 의거 → 4 · 19 혁명으로 이어짐</text>
+<rect x="980" y="205" width="560" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">학생들이 외친 것</text>
+<text x="1010" y="310" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 「학원을 정치 도구로</text>
+<text x="1036" y="360" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">삼지 말라」</text>
+<text x="1010" y="410" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 학원의 자유를 달라</text>
+<text x="1010" y="460" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 일요일 등교는 핑계 (시험 등)</text>
+<rect x="980" y="555" width="560" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="555.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="595" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">이 운동의 자리</text>
+<text x="1010" y="660" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 정부가 동원하지 않은</text>
+<text x="1036" y="710" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">학생 스스로의 시위</text>
+<text x="1010" y="760" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">· 4 · 19 혁명의 도화선</text>
+<text x="1010" y="810" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 민주주의 의식을 일깨움</text>
+</svg>

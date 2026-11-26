@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>마한의 집과 무덤 — 초옥토실과 주구묘</title>
+<desc>왼쪽은 『삼국지』가 무덤처럼 생기고 문이 위에 있다고 적은 마한의 풀 지붕 흙집(초옥토실)을 단면으로 나타낸 그림, 오른쪽은 네모난 도랑을 두르고 가운데에 나무널을 둔 방형 주구묘를 위에서 본 그림, 아래는 주구묘가 확인된 유적과 분구묘로의 발전.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">마한의 집과 무덤 — 초옥토실과 주구묘</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『삼국지』 위서 동이전 한(韓)조 · 3세기 무렵 마한의 생활</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="196" width="720" height="520" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="196.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="84" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">집 — 초옥토실(草屋土室)</text>
+<line x1="100" y1="560" x2="740" y2="560" stroke="#8a7a5a" stroke-width="3"/>
+<path d="M180 560 Q 180 330 420 320 Q 660 330 660 560 Z" fill="#f3e6c4" stroke="#a08850" stroke-width="2"/>
+<path d="M200 470 Q 215 345 420 336 Q 625 345 640 470" fill="none" stroke="#c8b070" stroke-width="10" stroke-dasharray="3 9" opacity="0.8"/>
+<rect x="390" y="306" width="60" height="22" fill="#ffffff" stroke="#0096b8" stroke-width="2"/>
+<path d="M180 560 L 660 560 L 660 600 L 180 600 Z" fill="#e8dcc0" opacity="0.6"/>
+<circle cx="310" cy="512" r="14" fill="#7a62d6" opacity="0.75"/><rect x="297" y="528" width="26" height="32" rx="8" fill="#7a62d6" opacity="0.55"/>
+<circle cx="380" cy="512" r="14" fill="#7a62d6" opacity="0.75"/><rect x="367" y="528" width="26" height="32" rx="8" fill="#7a62d6" opacity="0.55"/>
+<circle cx="460" cy="512" r="14" fill="#7a62d6" opacity="0.75"/><rect x="447" y="528" width="26" height="32" rx="8" fill="#7a62d6" opacity="0.55"/>
+<circle cx="530" cy="512" r="14" fill="#7a62d6" opacity="0.75"/><rect x="517" y="528" width="26" height="32" rx="8" fill="#7a62d6" opacity="0.55"/>
+<line x1="560" y1="282" x2="462" y2="312" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="570" y="276" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">문이 위쪽에</text>
+<text x="86" y="302" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">풀로 이은 지붕</text>
+<line x1="150" y1="312" x2="214" y2="380" stroke="#5d6365" stroke-width="2" marker-end="url(#ah)"/>
+<text x="420" y="450" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">무덤처럼 둥근 흙집</text>
+<text x="100" y="648" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">온 집안이 한데 지내며 나이·남녀의 구별이 없다</text>
+<text x="100" y="690" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">舉家共在中, 無長幼男女之別</text>
+<rect x="820" y="196" width="720" height="520" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="820.5" y="196.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="844" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">무덤 — 방형 주구묘(方形周溝墓)</text>
+<rect x="940" y="300" width="300" height="300" fill="#d7f3fb" stroke="#0096b8" stroke-width="2"/>
+<rect x="975" y="335" width="230" height="230" fill="#f3e6c4" stroke="#a08850" stroke-width="1.5"/>
+<rect x="1060" y="410" width="60" height="80" fill="#ffffff" stroke="#7a62d6" stroke-width="2.5"/>
+<text x="1270" y="330" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">네모난 도랑</text>
+<text x="1270" y="368" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">= 주구(周溝)</text>
+<line x1="1265" y1="340" x2="1225" y2="340" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="1270" y="450" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">나무널 같은</text>
+<text x="1270" y="488" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">매장 시설</text>
+<line x1="1265" y1="462" x2="1126" y2="450" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<text x="1270" y="566" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">도랑 안쪽</text>
+<text x="1270" y="602" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">매장 구역</text>
+<line x1="1265" y1="576" x2="1210" y2="540" stroke="#5d6365" stroke-width="2" marker-end="url(#ah)"/>
+<text x="1090" y="650" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">위에서 내려다본 모습</text>
+<text x="1090" y="690" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">초기 철기~원삼국시대 서해안을 따라 유행</text>
+<rect x="60" y="744" width="1480" height="188" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="796" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">확인된 유적</text>
+<text x="330" y="796" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">보령 관창리 · 익산 영등동 — 1990년대 중반 조사로 알려짐</text>
+<text x="90" y="850" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">뒤의 변화</text>
+<text x="330" y="850" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">주구묘</text>
+<line x1="450" y1="840" x2="540" y2="840" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="556" y="850" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">규모가 큰 분구묘로 발전</text>
+<text x="90" y="904" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">시험 단서</text>
+<text x="330" y="904" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">초옥토실 · 무덤 같은 집 · 문이 위 → 마한(삼한)</text>
+</svg>

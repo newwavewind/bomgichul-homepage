@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>광주 신창동 유적 — 젖은 땅이 지켜 낸 마을</title>
+<desc>왼쪽은 물기 많은 저습지 흙 속에서 나무·칠기·볍씨처럼 썩기 쉬운 유물이 남는 까닭을 보인 단면, 오른쪽은 이곳에서 나온 유물을 농사·베 짜기·수레와 악기 등으로 묶은 표, 아래는 1963년 독무덤 조사에서 1992년 저습지 확인과 사적 지정까지의 흐름.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">광주 신창동 유적 — 젖은 땅이 지켜 낸 마을</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">광주광역시 광산구 · 영산강 상류 · 서기전 2세기 무렵~원삼국시대</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="196" width="560" height="520" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="196.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="84" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">왜 썩지 않았을까</text>
+<rect x="100" y="290" width="480" height="70" fill="#e8dcc0" stroke="#a08850"/>
+<rect x="100" y="360" width="480" height="200" fill="#9ccfe0" fill-opacity="0.55" stroke="#0096b8"/>
+<text x="340" y="334" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">위쪽 흙</text>
+<text x="340" y="404" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">물에 잠긴 낮은 땅(저습지)</text>
+<rect x="150" y="440" width="120" height="22" rx="4" fill="#8a6a40"/>
+<ellipse cx="350" cy="480" rx="44" ry="20" fill="#7a2a20" stroke="#3a1a10" stroke-width="1.5"/>
+<ellipse cx="440" cy="455" rx="6" ry="10" fill="#c9a24a"/>
+<ellipse cx="460" cy="471" rx="6" ry="10" fill="#c9a24a"/>
+<ellipse cx="480" cy="455" rx="6" ry="10" fill="#c9a24a"/>
+<ellipse cx="500" cy="471" rx="6" ry="10" fill="#c9a24a"/>
+<ellipse cx="520" cy="455" rx="6" ry="10" fill="#c9a24a"/>
+<ellipse cx="540" cy="471" rx="6" ry="10" fill="#c9a24a"/>
+<text x="210" y="500" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">나무</text>
+<text x="350" y="530" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">칠기</text>
+<text x="490" y="512" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">볍씨</text>
+<text x="90" y="620" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">물기 많은 흙에 묻혀 나무 · 칠기 · 볍씨처럼</text>
+<text x="90" y="662" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">썩기 쉬운 유물이 그대로 남았다</text>
+<rect x="660" y="196" width="880" height="520" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="660.5" y="196.5" width="879" height="58" fill="#ccf6ff"/>
+<text x="684" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">나온 유물로 본 마을 생활</text>
+<line x1="690" y1="328" x2="1510" y2="328" stroke="#ccf6ff" stroke-width="1.5"/>
+<text x="690" y="300" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">농사</text>
+<text x="870" y="300" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">볍씨 · 괭이 · 낫자루 같은 농기구</text>
+<line x1="690" y1="408" x2="1510" y2="408" stroke="#ccf6ff" stroke-width="1.5"/>
+<text x="690" y="380" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">옷감</text>
+<text x="870" y="380" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">베틀 부속 · 삼베 · 비단 조각 → 베 짜기 · 누에치기</text>
+<line x1="690" y1="488" x2="1510" y2="488" stroke="#ccf6ff" stroke-width="1.5"/>
+<text x="690" y="460" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">그릇</text>
+<text x="870" y="460" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">옻칠한 그릇(칠기)</text>
+<line x1="690" y1="568" x2="1510" y2="568" stroke="#ccf6ff" stroke-width="1.5"/>
+<text x="690" y="540" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">탈것</text>
+<text x="870" y="540" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">수레바퀴</text>
+<line x1="690" y1="648" x2="1510" y2="648" stroke="#ccf6ff" stroke-width="1.5"/>
+<text x="690" y="620" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">음악 · 의례</text>
+<text x="870" y="620" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">현악기</text>
+<rect x="60" y="744" width="1480" height="188" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="800" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1963년</text>
+<text x="240" y="800" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">독무덤 53기가 조사되며 알려짐</text>
+<text x="90" y="854" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1992년</text>
+<text x="240" y="854" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">국립광주박물관 발굴로 저습지 확인 → 같은 해 사적 지정</text>
+<text x="90" y="908" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">의미</text>
+<text x="240" y="908" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">당시 농촌 마을의 생활과 의례를 되살릴 수 있는 대표 유적</text>
+</svg>

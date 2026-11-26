@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>기유약조(1609)</title>
+<desc>임진왜란 뒤 조선이 내건 세 조건과 1609년 기유약조, 이후 통신사 파견으로 이어진 흐름, 계해약조와 견준 세견선·세사미두 숫자를 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">기유약조(1609)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">광해군 1년, 대마도주와 맺어 일본과 국교를 다시 연 약조</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">국교를 다시 열기까지</text>
+<rect x="60" y="245" width="700" height="72" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="291.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1592 임진왜란 — 국교가 끊김</text>
+<line x1="410.0" y1="319" x2="410.0" y2="347" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="351" width="700" height="72" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="397.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조선이 내건 조건을 일본이 따름</text>
+<line x1="410.0" y1="425" x2="410.0" y2="453" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="457" width="700" height="72" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="503.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1609 광해군 1 — 기유약조</text>
+<line x1="410.0" y1="531" x2="410.0" y2="559" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="563" width="700" height="72" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="609.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">통신사를 일본에 보냄</text>
+<rect x="820" y="205" width="720" height="350" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="820.5" y="205.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="844" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조선이 내건 세 조건</text>
+<text x="850" y="307" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 일본이 국서를 먼저 보낼 것</text>
+<text x="850" y="359" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 왕릉을 파헤친 범인을 보낼 것</text>
+<text x="850" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 끌려간 사람을 돌려보낼 것</text>
+<text x="868" y="463" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 이를 따른 뒤 통교 허락</text>
+<text x="60" y="690" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">계해약조(1443)와 견주면</text>
+<rect x="60" y="715" width="700" height="190" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="410.0" y="777" font-size="30" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">세견선</text>
+<text x="410.0" y="843" font-size="54" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">50척 → 20척</text>
+<text x="410.0" y="889" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">특송선 3척 포함</text>
+<rect x="820" y="715" width="720" height="190" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1180.0" y="777" font-size="30" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">세사미두</text>
+<text x="1180.0" y="843" font-size="54" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">200석 → 100석</text>
+<text x="1180.0" y="889" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조선이 해마다 내려 주는 쌀 · 콩</text>
+<text x="60" y="955" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">부산포 왜관에 머무는 날수까지 정해, 계해약조보다 일본을 더 엄하게 묶었다.</text>
+</svg>

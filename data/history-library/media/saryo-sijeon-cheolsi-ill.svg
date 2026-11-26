@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>시전 상인의 상권 수호 — 외국 상인과의 경쟁</title>
+<desc>왼쪽은 1882년 조청 상민 수륙 무역 장정으로 청 상인이 한성에 점포를 열게 된 일, 1880년대 후반 외국 상인의 내지 통상 확대, 시전 상인의 철시와 한성 철수 요구, 1898년 황국 중앙 총상회 결성을 차례로 놓은 흐름도. 오른쪽은 시험 단서.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<radialGradient id="glow"><stop offset="0" stop-color="#00d0ff" stop-opacity="0.55"/><stop offset="0.45" stop-color="#00d0ff" stop-opacity="0.2"/><stop offset="1" stop-color="#00d0ff" stop-opacity="0"/></radialGradient>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#ffffff"/>
+<text x="48.0" y="84.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">시전 상인의 상권 수호 — 외국 상인과의 경쟁</text>
+<text x="48.0" y="130.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">개항 뒤 외국 상인이 한성까지 들어오자 시전 상인이 벌인 철시와 상권 수호 운동</text>
+<text x="1552.0" y="84.0" font-size="26" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">정리 그림</text>
+<rect x="48" y="152" width="64" height="4" fill="#00d0ff"/>
+<line x1="112" y1="154" x2="1552" y2="154" stroke="#2a2c2d" stroke-opacity="0.18" stroke-width="1"/>
+<rect x="48" y="180" width="960" height="770" fill="#ffffff" stroke="#2a2c2d" stroke-opacity="0.55" stroke-width="0.5"/>
+<line x1="94" y1="308" x2="94" y2="708" stroke="#00d0ff" stroke-width="1.5"/>
+<rect x="80" y="226" width="900" height="44" fill="#2a2c2d" fill-opacity="0.04"/>
+<rect x="80" y="226" width="5" height="44" fill="#7a62d6"/>
+<text x="102.0" y="257.0" font-size="26" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">외국 상인이 한성 안으로</text>
+<rect x="114" y="282" width="866" height="92" fill="#effbff" stroke="#00d0ff" stroke-width="0.5"/>
+<circle cx="94" cy="308" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="94" cy="308" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="128.0" y="318.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1882</text>
+<text x="350.0" y="318.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조청 상민 수륙 무역 장정</text>
+<text x="350.0" y="358.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">청 상인이 한성(양화진)에 점포를 엶</text>
+<circle cx="94" cy="418" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="94" cy="418" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="128.0" y="428.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1880년대 후반</text>
+<text x="350.0" y="428.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">외국 상인의 내지 통상 본격화</text>
+<text x="350.0" y="468.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조선 상인이 타격을 입음</text>
+<rect x="80" y="516" width="900" height="44" fill="#2a2c2d" fill-opacity="0.04"/>
+<rect x="80" y="516" width="5" height="44" fill="#7a62d6"/>
+<text x="102.0" y="547.0" font-size="26" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">시전 상인의 대응</text>
+<rect x="114" y="572" width="866" height="92" fill="#effbff" stroke="#00d0ff" stroke-width="0.5"/>
+<circle cx="94" cy="598" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="94" cy="598" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="128.0" y="608.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">철시</text>
+<text x="350.0" y="608.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">가게 문을 닫고 항의</text>
+<text x="350.0" y="648.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">외국 상인의 한성 철수를 요구</text>
+<circle cx="94" cy="708" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="94" cy="708" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="128.0" y="718.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1898</text>
+<text x="350.0" y="718.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">황국 중앙 총상회 결성</text>
+<text x="350.0" y="758.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">외국 상인의 영업 지역 제한을 요구</text>
+<rect x="1040" y="180" width="512" height="400" fill="#ffffff" stroke="#2a2c2d" stroke-opacity="0.55" stroke-width="0.5"/>
+<rect x="1040.25" y="180.25" width="511.5" height="58" fill="#effbff"/>
+<rect x="1040" y="180" width="5" height="58" fill="#00d0ff"/>
+<line x1="1040" y1="238" x2="1552" y2="238" stroke="#00d0ff" stroke-width="0.5"/>
+<text x="1066.0" y="219.8" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">시험에 나오는 단서</text>
+<circle cx="1072" cy="278.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="288.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">시전 상인</text>
+<circle cx="1072" cy="332.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="342.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">철시(가게 문을 닫음)</text>
+<circle cx="1072" cy="386.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="396.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">외국 상인 도성 밖 퇴거 요구</text>
+<circle cx="1072" cy="440.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="450.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한성 개잔(점포 개설)</text>
+<rect x="1040" y="612" width="512" height="338" fill="#ffffff" stroke="#2a2c2d" stroke-opacity="0.55" stroke-width="0.5"/>
+<rect x="1040.25" y="612.25" width="511.5" height="58" fill="#effbff"/>
+<rect x="1040" y="612" width="5" height="58" fill="#7a62d6"/>
+<line x1="1040" y1="670" x2="1552" y2="670" stroke="#00d0ff" stroke-width="0.5"/>
+<text x="1066.0" y="651.8" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">함께 묶이는 말</text>
+<circle cx="1072" cy="710.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="720.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조청 상민 수륙 무역 장정</text>
+<circle cx="1072" cy="766.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="776.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">내지 통상</text>
+<circle cx="1072" cy="822.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="832.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">황국 중앙 총상회(1898)</text>
+</svg>

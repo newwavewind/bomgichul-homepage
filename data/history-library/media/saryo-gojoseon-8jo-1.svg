@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Apple SD Gothic Neo','Noto Sans KR','Pretendard',sans-serif">
+  <title>고조선 범금 8조 가운데 전하는 세 조항</title>
+  <rect width="800" height="500" fill="#effbff"/>
+  <text x="400" y="62" text-anchor="middle" font-size="30" font-weight="700" fill="#2a2c2d">범금 8조 · 전하는 세 조항</text>
+  <text x="400" y="96" text-anchor="middle" font-size="17" fill="#7e8486">『한서』 지리지</text>
+  <g stroke="#00d0ff" stroke-width="2" fill="#ffffff">
+    <rect x="40" y="130" width="220" height="300"/>
+    <rect x="290" y="130" width="220" height="300"/>
+    <rect x="540" y="130" width="220" height="300"/>
+  </g>
+  <g fill="#ccf6ff">
+    <rect x="41" y="131" width="218" height="58"/>
+    <rect x="291" y="131" width="218" height="58"/>
+    <rect x="541" y="131" width="218" height="58"/>
+  </g>
+  <g text-anchor="middle" font-size="20" font-weight="700" fill="#0096b8">
+    <text x="150" y="169">사람을 죽이면</text>
+    <text x="400" y="169">사람을 다치게 하면</text>
+    <text x="650" y="169">도둑질하면</text>
+  </g>
+  <g stroke="#0096b8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 210 v44 m-12 -12 l12 12 l12 -12"/>
+    <path d="M400 210 v44 m-12 -12 l12 12 l12 -12"/>
+    <path d="M650 210 v44 m-12 -12 l12 12 l12 -12"/>
+  </g>
+  <g text-anchor="middle" font-size="26" font-weight="700" fill="#2a2c2d">
+    <text x="150" y="302">곧 죽음으로</text>
+    <text x="150" y="336">갚는다</text>
+    <text x="400" y="302">곡식으로</text>
+    <text x="400" y="336">갚는다</text>
+    <text x="650" y="302">노비로 삼는다</text>
+  </g>
+  <text x="650" y="336" text-anchor="middle" font-size="18" fill="#434647">남자는 노(奴), 여자는 비(婢)</text>
+  <g text-anchor="middle" font-size="17" fill="#7e8486">
+    <text x="150" y="392">생명 존중</text>
+    <text x="400" y="392">노동력 중시</text>
+    <text x="650" y="392">사유 재산 · 신분</text>
+  </g>
+  <text x="400" y="470" text-anchor="middle" font-size="18" fill="#434647">죄를 면하려면 한 사람에 50만 전 — 화폐가 쓰인 계급 사회</text>
+</svg>

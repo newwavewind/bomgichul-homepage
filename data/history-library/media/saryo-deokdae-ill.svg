@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>덕대와 광산 개발</title>
+<desc>물주가 돈을 대고 덕대가 광산 노동자를 고용해 채굴하는 덕대제의 구조와, 설점수세제에서 한말까지의 흐름을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">덕대와 광산 개발</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">돈 대는 물주, 채굴을 맡는 덕대, 일하는 노동자</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="420" height="240" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="419" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">물주</text>
+<text x="90" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 자본을 가진 사람</text>
+<text x="90" y="361" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 덕대에게 자금을 댐</text>
+<rect x="590" y="205" width="420" height="240" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="590.5" y="205.5" width="419" height="58" fill="#ccf6ff"/>
+<text x="614" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">덕대</text>
+<text x="620" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 광산 주인과 계약</text>
+<text x="620" y="361" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 채굴을 직접 맡은 경영자</text>
+<text x="620" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 노동자를 고용 · 관리</text>
+<rect x="1120" y="205" width="420" height="240" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1120.5" y="205.5" width="419" height="58" fill="#ccf6ff"/>
+<text x="1144" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">광산 노동자</text>
+<text x="1150" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 덕대에게 고용되어</text>
+<text x="1150" y="361" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 직접 광석을 캠</text>
+<line x1="488" y1="355" x2="582" y2="355" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<line x1="1018" y1="355" x2="1112" y2="355" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<text x="535.0" y="337" font-size="24" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">자금</text>
+<text x="1065.0" y="337" font-size="24" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">고용</text>
+<text x="60" y="520" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">흐름</text>
+<rect x="60" y="545" width="335" height="230" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="545.5" width="334" height="58" fill="#ccf6ff"/>
+<text x="227.5" y="585" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1651 효종 2</text>
+<text x="227.5" y="660" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">설점수세제 —</text>
+<text x="227.5" y="708" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">민간이 캐고 나라는 세금만</text>
+<line x1="401" y1="660" x2="435" y2="660" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="441" y="545" width="335" height="230" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="441.5" y="545.5" width="334" height="58" fill="#ccf6ff"/>
+<text x="608.5" y="585" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조선 후기</text>
+<text x="608.5" y="660" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">덕대제가</text>
+<text x="608.5" y="708" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">본격적으로 퍼짐</text>
+<line x1="782" y1="660" x2="816" y2="660" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="822" y="545" width="335" height="230" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="822.5" y="545.5" width="334" height="58" fill="#ccf6ff"/>
+<text x="989.5" y="585" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">한말</text>
+<text x="989.5" y="660" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사금광을 중심으로</text>
+<text x="989.5" y="708" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">널리 확산</text>
+<line x1="1163" y1="660" x2="1197" y2="660" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="1203" y="545" width="335" height="230" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1203.5" y="545.5" width="334" height="58" fill="#ccf6ff"/>
+<text x="1370.5" y="585" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1905 이후</text>
+<text x="1370.5" y="660" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일본 자본이 들어와</text>
+<text x="1370.5" y="708" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">덕대는 하청업자로</text>
+<rect x="60" y="860" width="1480" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="800" y="910" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">자본(물주)과 경영(덕대)과 노동이 나뉜 민영 광업</text>
+</svg>

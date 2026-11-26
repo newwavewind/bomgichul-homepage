@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>저고여 피살(1225)과 몽골의 첫 침입</title>
+<desc>위는 1219년 강동성 전투, 1221·1224년 저고여의 공물 재촉, 1225년 저고여 피살, 1231년 몽골의 첫 침입을 잇는 연표, 아래는 사신 피살 뒤 고려와 몽골이 각각 어떻게 대응했는지 정리한 흐름도.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">저고여 피살(1225)과 몽골의 첫 침입</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">강동성 전투에서 1231년 침입까지 — 사신 피살이 침략의 구실이 되다</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="1480" height="200" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="110" y1="300" x2="1490" y2="300" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="200" cy="300" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="200" y="278" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1219</text>
+<text x="200" y="346" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">강동성 전투</text>
+<text x="200" y="384" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">그 뒤 해마다 공물 요구</text>
+<circle cx="560" cy="300" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="560" y="278" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1221 · 1224</text>
+<text x="560" y="346" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">저고여가 옴</text>
+<text x="560" y="384" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">무거운 공물 재촉</text>
+<circle cx="1000" cy="300" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1000" y="278" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1225(고종 12)</text>
+<text x="1000" y="346" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">저고여 피살</text>
+<text x="1000" y="384" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">압록강 부근 귀국길</text>
+<circle cx="1380" cy="300" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1380" y="278" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1231</text>
+<text x="1380" y="346" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">몽골의 첫 침입</text>
+<rect x="840" y="210" width="320" height="180" fill="none" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="60" y="480" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">사신이 죽은 뒤</text>
+<rect x="60" y="510" width="700" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="565.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">돌아가던 길에 압록강 부근에서 피살</text>
+<text x="86" y="605.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">수달 가죽만 챙기고 다른 공물은 들판에 버림</text>
+<line x1="760" y1="575" x2="836" y2="575" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="840" y="510" width="700" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="866" y="585.4" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">고려: 「금나라 도적의 짓」이라고 알림</text>
+<line x1="1190" y1="644" x2="1190" y2="700" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="840" y="704" width="700" height="130" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="866" y="779.4" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">몽골: 고려를 의심해 국교를 끊음</text>
+<line x1="836" y1="769" x2="764" y2="769" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="704" width="700" height="130" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="759.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1231년 이 사건을 구실로 고려를 침략</text>
+<text x="86" y="799.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">몽골의 첫 침입</text>
+<rect x="60" y="870" width="1480" height="86" fill="#ffffff" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="800" y="924" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">저고여 피살 → 국교 단절 → 1231년 몽골의 1차 침입</text>
+</svg>

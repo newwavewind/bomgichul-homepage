@@ -1,3 +1,4 @@
+import { historyLibraryLinks } from "@/components/history/library/HistoryLibraryLinks";
 import Link from "next/link";
 import { PastExamPdfSearch } from "@/components/platform/PastExamPdfSearch";
 import { PersonalHomeGate } from "@/components/platform/PersonalHomeGate";
@@ -6,6 +7,15 @@ import { hasExamPrintEditions } from "@/lib/exam-print";
 import { isPublicExamPathVisible } from "@/lib/public-exam-visibility";
 
 const exams = [
+  {
+    href: "/history/intro",
+    learnHref: "/history",
+    eyebrow: "국가공인 · 한능검 심화",
+    title: "한국사능력검정시험",
+    accentFrom: "#f0ffe5",
+    accentTo: "#f8fff2",
+    cta: "한국사 알아보기",
+  },
   {
     href: "/public-service/intro",
     learnHref: "/public-service",
@@ -63,17 +73,6 @@ const exams = [
     accentFrom: "#fff0f5",
     accentTo: "#fff8fb",
     cta: "사회복지사 알아보기",
-  },
-  {
-    href: "/history/intro",
-    learnHref: "/history",
-    eyebrow: "국가공인 · 한능검 심화",
-    title: "한국사능력검정시험",
-    // 앞 다섯 카드가 파랑(206°)·민트(163°)·남보라(226°)·주황(31°)·분홍(340°)을 쓰고 있어
-    // 색상환에서 가장 비어 있던 연둣빛(95°)을 골랐다 — 어느 카드와도 60° 넘게 떨어진다.
-    accentFrom: "#f0ffe5",
-    accentTo: "#f8fff2",
-    cta: "한국사 알아보기",
   },
   {
     href: "/english/intro",
@@ -187,12 +186,14 @@ function ExamCardAction({
   examTitle,
   primary = false,
   fresh = false,
+  prefetch,
 }: {
   href: string;
   label: string;
   examTitle: string;
   primary?: boolean;
   fresh?: boolean;
+  prefetch?: false;
 }) {
   const tone = primary
     ? "border-[#0066d6]/35 bg-[#007aff] text-white dark:bg-carbon dark:hover:bg-[#1e469f] shadow-[inset_0_1px_0_rgba(255,255,255,0.24),0_2px_8px_rgba(0,102,214,0.18)] hover:bg-[#0066d6] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_5px_14px_rgba(0,102,214,0.22)]"
@@ -203,6 +204,7 @@ function ExamCardAction({
   return (
     <Link
       href={href}
+      prefetch={prefetch}
       aria-label={fresh ? `${examTitle} ${label} (새로 나옴)` : `${examTitle} ${label}`}
       className={`relative inline-flex min-h-10 min-w-0 px-2 items-center justify-center rounded-[16px] border py-2 text-center font-display text-[13px] font-semibold tracking-tight transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007aff] focus-visible:ring-offset-2 ${tone}`}
     >
@@ -262,7 +264,7 @@ export function PlatformHome() {
                   {exam.title}
                 </h2>
               </div>
-              <div className={`mt-6 grid gap-2 ${lectureHref && canPrint ? "grid-cols-2 lg:grid-cols-4" : lectureHref || canPrint ? "grid-cols-3" : "grid-cols-2"}`}>
+              <div className="mt-6 grid grid-cols-3 gap-2 max-[359px]:grid-cols-2">
                 <ExamCardAction
                   href={exam.learnHref}
                   label={lectureHref ? "기출문제" : "학습 시작"}
@@ -289,6 +291,9 @@ export function PlatformHome() {
                     examTitle={exam.title}
                   />
                 )}
+                {examId === "history" && historyLibraryLinks.map(({ key, title, href }) => (
+                  <ExamCardAction key={key} href={href} label={title} examTitle={exam.title} prefetch={false}/>
+                ))}
               </div>
             </article>
             );

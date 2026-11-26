@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>고려의 재면법</title>
+<desc>촌전에서 수령·호부·삼사·안찰사로 이어지는 재해 확인 절차와, 손실 정도에 따라 면제하는 세목을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">고려의 재면법</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">재해로 흉작이 든 논밭의 세를 덜어 주는 절차 — 『고려사』 식화지</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="225" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">① 재해 확인 절차 (문종 4년, 1050)</text>
+<rect x="60" y="250" width="260" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="250.5" width="259" height="58" fill="#ccf6ff"/>
+<text x="190" y="291" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">촌전</text>
+<text x="190" y="352" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">알림</text>
+<line x1="324" y1="315" x2="356" y2="315" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="360" y="250" width="260" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="360.5" y="250.5" width="259" height="58" fill="#ccf6ff"/>
+<text x="490" y="291" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">수령</text>
+<text x="490" y="352" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">직접 살핌</text>
+<line x1="624" y1="315" x2="656" y2="315" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="660" y="250" width="260" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="660.5" y="250.5" width="259" height="58" fill="#ccf6ff"/>
+<text x="790" y="291" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">호부</text>
+<text x="790" y="352" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">보고 받음</text>
+<line x1="924" y1="315" x2="956" y2="315" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="960" y="250" width="260" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="960.5" y="250.5" width="259" height="58" fill="#ccf6ff"/>
+<text x="1090" y="291" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">삼사</text>
+<text x="1090" y="352" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">허실 따짐</text>
+<line x1="1224" y1="315" x2="1256" y2="315" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="1260" y="250" width="260" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1260.5" y="250.5" width="259" height="58" fill="#ccf6ff"/>
+<text x="1390" y="291" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">안찰사</text>
+<text x="1390" y="352" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">관원 보내 재심</text>
+<text x="800" y="430" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">재해 원인: 홍수 · 가뭄 · 병충해 · 서리 → 확인되면 조세를 덜어 줌</text>
+<text x="60" y="505" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">② 손실 정도에 따른 면제 (1결의 작황을 10분으로 봄)</text>
+<rect x="60" y="530" width="300" height="72" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="210.0" y="576.08" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">손실 4분</text>
+<line x1="364" y1="566" x2="416" y2="566" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="420" y="530" width="1120" height="72" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="450" y="576" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조 면제</text>
+<rect x="60" y="620" width="300" height="72" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="210.0" y="666.08" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">손실 6분</text>
+<line x1="364" y1="656" x2="416" y2="656" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="420" y="620" width="1120" height="72" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="450" y="666" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조 + 포 면제</text>
+<rect x="60" y="710" width="300" height="72" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="210.0" y="756.08" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">손실 7분</text>
+<line x1="364" y1="746" x2="416" y2="746" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="420" y="710" width="1120" height="72" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="450" y="756" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조 + 포 + 역 모두 면제</text>
+<rect x="60" y="860" width="1480" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="800" y="910" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">고려 말 과전법의 답험손실법으로 이어짐</text>
+</svg>

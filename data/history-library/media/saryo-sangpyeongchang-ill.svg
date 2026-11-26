@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>의창과 상평창</title>
+<desc>왼쪽은 흑창에서 이름을 바꾼 구휼 기관 의창, 오른쪽은 개경·서경과 12목에 둔 물가 조절 기관 상평창을 나란히 놓고, 아래에 상평창이 곡식을 사고파는 원리를 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">의창과 상평창</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">성종 대 민생 안정 정책 — 빌려주는 곳과 값을 고르는 곳</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="720" height="380" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">의창(義倉) — 986년(성종 5)</text>
+<text x="90" y="315" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">태조 때의 흑창에 쌀 1만 석을 더해</text>
+<text x="90" y="367" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이름을 바꿈</text>
+<text x="90" y="419" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">흉년에 가난한 백성에게</text>
+<text x="90" y="471" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">곡식을 빌려주는 구휼 기관</text>
+<text x="90" y="523" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 빈민 구제</text>
+<rect x="820" y="205" width="720" height="380" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="820.5" y="205.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="844" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">상평창(常平倉) — 993년(성종 12)</text>
+<text x="850" y="315" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">개경 · 서경과 12목에 설치</text>
+<text x="850" y="367" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한나라 식화지의 법을 본뜸</text>
+<text x="850" y="419" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">풍년에 사들이고 흉년에 팔아</text>
+<text x="850" y="471" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">곡식값(물가)을 고르게 함</text>
+<text x="850" y="523" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 물가 조절</text>
+<rect x="60" y="625" width="1480" height="315" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="680" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">상평창이 물가를 고르는 원리</text>
+<rect x="110" y="720" width="580" height="90" fill="#ccf6ff" stroke="#0096b8" stroke-width="1"/>
+<text x="400" y="777" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">풍년 · 곡식이 남아 값이 쌈</text>
+<rect x="910" y="720" width="580" height="90" fill="#ccf6ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1200" y="777" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">흉년 · 곡식이 모자라 값이 비쌈</text>
+<line x1="400" y1="812" x2="400" y2="850" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="1200" y1="812" x2="1200" y2="850" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<text x="400" y="895" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">나라가 곡식을 사들임</text>
+<text x="1200" y="895" font-size="28" fill="#7a62d6" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">나라가 곡식을 풀어 팖</text>
+</svg>

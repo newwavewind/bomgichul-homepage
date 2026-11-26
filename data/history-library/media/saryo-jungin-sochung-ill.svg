@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>조선 후기 중인과 통청 운동</title>
+<desc>중인이 양반과 상민 사이의 신분이며 기술관과 서리·향리로 이루어졌다는 점, 받은 차별, 통청 운동의 흐름을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조선 후기 중인과 통청 운동</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">기술직 중인이 청요직에 나아갈 길을 요구하다</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="600" height="735" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="599" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">신분 속 중인의 자리</text>
+<rect x="130" y="300" width="460" height="100" fill="#ffffff" stroke="#0096b8" stroke-width="1"/>
+<text x="360" y="362" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">양반</text>
+<rect x="130" y="450" width="460" height="100" fill="#ccf6ff" stroke="#7a62d6" stroke-width="1"/>
+<text x="360" y="512" font-size="32" fill="#7a62d6" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">중인</text>
+<rect x="130" y="600" width="460" height="100" fill="#ffffff" stroke="#0096b8" stroke-width="1"/>
+<text x="360" y="662" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">상민(양인)</text>
+<rect x="130" y="750" width="460" height="100" fill="#ffffff" stroke="#0096b8" stroke-width="1"/>
+<text x="360" y="812" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">천민</text>
+<text x="360" y="920" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중인은 양반과 상민(양인) 사이의 신분</text>
+<rect x="700" y="205" width="840" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="700.5" y="205.5" width="839" height="58" fill="#ccf6ff"/>
+<text x="724" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">누가 중인인가</text>
+<text x="730" y="320" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">기술관</text>
+<text x="880" y="320" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">역관 · 의관 · 천문관 · 율관 등</text>
+<text x="730" y="380" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">행정 실무</text>
+<text x="880" y="380" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서리 · 향리</text>
+<text x="730" y="450" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">차별</text>
+<text x="880" y="450" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">제도상 당상관에 오를 수 없음</text>
+<text x="730" y="510" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">성장</text>
+<text x="880" y="510" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">공로로 당상 품계에 오른 이도 많음</text>
+<rect x="700" y="575" width="840" height="365" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="700.5" y="575.5" width="839" height="58" fill="#ccf6ff"/>
+<text x="724" y="615" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조선 후기의 통청 운동</text>
+<rect x="730" y="665" width="780" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1120" y="710" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서얼 유생의 대규모 허통 상소(1823 · 1848 · 1851)</text>
+<line x1="1120" y1="738" x2="1120" y2="780" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="730" y="785" width="780" height="70" fill="#ccf6ff" stroke="#7a62d6" stroke-width="1"/>
+<text x="1120" y="830" font-size="26" fill="#7a62d6" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">기술직 중인도 관직 제한 철폐를 요구</text>
+<text x="1120" y="905" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 신분 차별을 풀려는 움직임</text>
+</svg>

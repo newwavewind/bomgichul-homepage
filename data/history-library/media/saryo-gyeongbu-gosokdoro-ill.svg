@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>경부 고속 도로 개통(1970)</title>
+<desc>1967년 제2차 경제 개발 5개년 계획 시작, 1968년 2월 1일 경부 고속 도로 착공, 1968년 경인 고속 도로 개통, 1970년 7월 7일 경부 고속 도로 전 구간 개통을 잇는 연표와 구간·시기·의미를 정리한 카드로 된 정리 그림.</desc>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">경부 고속 도로 개통(1970)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">제2차 경제 개발 5개년 계획 때 놓인 고속 국도 제1호선</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="270" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="100" y1="290" x2="1500" y2="290" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="245" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="245" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1967년</text>
+<text x="245" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">제2차 경제 개발</text>
+<text x="245" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">5개년 계획 시작</text>
+<circle cx="615" cy="290" r="12" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<text x="615" y="262" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1968. 2. 1.</text>
+<text x="615" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">경부 고속 도로</text>
+<text x="615" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">착공</text>
+<circle cx="985" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="985" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1968년</text>
+<text x="985" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경인 고속 도로 개통</text>
+<text x="985" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">우리나라 첫 고속 도로</text>
+<circle cx="1355" cy="290" r="12" fill="#ccf6ff" stroke="#7a62d6" stroke-width="2"/>
+<text x="1355" y="262" font-size="27" fill="#7a62d6" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1970. 7. 7.</text>
+<text x="1355" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">경부 고속 도로</text>
+<text x="1355" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">전 구간 개통</text>
+<rect x="60" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="86" y="533" font-size="31" fill="#5d6365" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">어디를 잇나</text>
+<text x="90" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">서울 압구정동(기점)</text>
+<text x="296" y="674" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">↓</text>
+<text x="90" y="728" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">부산 구서동(종점)</text>
+<text x="90" y="782" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">수도권과 영남을 잇는</text>
+<text x="90" y="836" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">교통의 큰 줄기</text>
+<rect x="564" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="564.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="590" y="533" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">언제 놓였나</text>
+<text x="594" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">박정희 정부 시기</text>
+<text x="594" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">제2차 경제 개발</text>
+<text x="594" y="728" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">5개년 계획 기간</text>
+<text x="594" y="782" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">착공 뒤 2년 5개월 만에</text>
+<text x="594" y="836" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">전 구간 완공</text>
+<rect x="1067" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1067.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="1093" y="533" font-size="31" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">기억할 점</text>
+<text x="1097" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">고속 국도 제1호선</text>
+<text x="1097" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경인 고속 도로에 이어</text>
+<text x="1097" y="728" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">두 번째 고속 도로</text>
+<text x="1097" y="782" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사람과 물자가 오가는</text>
+<text x="1097" y="836" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">시간이 크게 줄어듦</text>
+</svg>

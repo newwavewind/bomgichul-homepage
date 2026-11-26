@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>상수리 제도</title>
+<desc>지방 주의 향리 한 사람을 왕경으로 올려 보내 여러 관서에 머물게 한 상수리 제도의 흐름과 목적, 안길의 사례, 고려 기인 제도로 이어진 관계를 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">상수리 제도</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지방의 향리를 서울(왕경)에 머물게 한 통일 신라의 제도</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="440" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">지방의 주(州)</text>
+<text x="84" y="315" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">각 주의 향리</text>
+<text x="84" y="365" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">차례대로 한 사람씩</text>
+<text x="84" y="415" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">예) 무진주의 안길</text>
+<line x1="510" y1="355" x2="640" y2="355" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="575" y="330" font-size="24" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">상수(上守)</text>
+<rect x="650" y="205" width="440" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="650.5" y="205.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="674" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">왕경(서울)</text>
+<text x="674" y="315" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">여러 관서(諸曹)에</text>
+<text x="674" y="365" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일정 기간 머물며 근무</text>
+<text x="674" y="415" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">예) 거득공이 안길을</text>
+<text x="674" y="455" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">후하게 대접함</text>
+<rect x="1150" y="205" width="390" height="300" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1345" y="280" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">목적</text>
+<text x="1345" y="345" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지방 세력을</text>
+<text x="1345" y="391" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서울에 붙잡아 두어</text>
+<text x="1345" y="437" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지방을 통제함</text>
+<rect x="60" y="555" width="1480" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="612" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사례의 출전: 『삼국유사』 권2 기이 「문호왕법민」</text>
+<text x="90" y="665" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">문무왕 때 무진주 향리 안길이 상수할 차례가 되어 왕경에 옴 → 문무왕의 서제 거득공과 얽힌 이야기</text>
+<rect x="60" y="745" width="640" height="147" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="380" y="805" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">통일 신라</text>
+<text x="380" y="855" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">상수리 제도</text>
+<line x1="705" y1="818" x2="890" y2="818" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="797" y="795" font-size="24" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이어짐</text>
+<rect x="900" y="745" width="640" height="147" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1220" y="805" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">고려</text>
+<text x="1220" y="855" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">기인(其人) 제도</text>
+</svg>

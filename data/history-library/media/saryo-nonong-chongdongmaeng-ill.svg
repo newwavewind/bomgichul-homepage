@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>조선 노농 총동맹(1924~1927) — 합쳤다가 다시 나뉨</title>
+<desc>위는 1923년 따로 추진되던 조선 노동 연맹회 쪽과 조선 노농 대회 준비회 쪽, 남선 노농 동맹이 1924년 4월 18일 하나로 모여 조선 노농 총동맹을 만든 갈래 그림, 가운데는 강령과 노동·농민 결의, 아래는 1925년 분립 결정 뒤 1927년 9월 조선 노동 총동맹과 조선 농민 총동맹으로 나뉜 흐름.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<radialGradient id="glow"><stop offset="0" stop-color="#00d0ff" stop-opacity="0.55"/><stop offset="0.45" stop-color="#00d0ff" stop-opacity="0.2"/><stop offset="1" stop-color="#00d0ff" stop-opacity="0"/></radialGradient>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60.0" y="92.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조선 노농 총동맹(1924~1927) — 합쳤다가 다시 나뉨</text>
+<text x="60.0" y="140.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노동 운동과 농민 운동을 함께 이끈 중앙 단체</text>
+<text x="1540.0" y="92.0" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="452" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="286.0" y="236.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조선 노동 연맹회</text>
+<text x="286.0" y="276.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1923.9 총동맹 발기</text>
+<path d="M286 304 C286 340 800 330 800 366" fill="none" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="574" y="190" width="452" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800.0" y="236.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조선 노농 대회 준비회</text>
+<text x="800.0" y="276.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노동 공제회 잔류파 · 노동 대회</text>
+<path d="M800 304 C800 340 800 330 800 366" fill="none" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1088" y="190" width="452" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1314.0" y="236.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">남선 노농 동맹</text>
+<text x="1314.0" y="276.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남쪽 지방의 노농 단체</text>
+<path d="M1314 304 C1314 340 800 330 800 366" fill="none" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="330" y="372" width="940" height="92" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="800.0" y="418.0" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1924.4.18 서울 · 조선 노농 총동맹 창립</text>
+<text x="800.0" y="452.0" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">167개 단체 대표 204명 → 260여 단체 · 회원 5만 3천여 명</text>
+<rect x="60" y="490" width="470" height="268" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="490.5" width="469" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="530.5" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">강령</text>
+<text x="84.0" y="592.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노농 계급을 해방해</text>
+<text x="84.0" y="628.4" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">새 사회를 실현</text>
+<text x="84.0" y="664.8" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">자본 계급과 끝까지 투쟁</text>
+<text x="84.0" y="701.2" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노농의 복리 · 경제 향상</text>
+<rect x="565" y="490" width="470" height="268" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="565.5" y="490.5" width="469" height="58" fill="#ccf6ff"/>
+<text x="589.0" y="530.5" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">노동 결의</text>
+<text x="589.0" y="592.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노동 시간 8시간</text>
+<text x="589.0" y="628.4" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">최저 임금 1원</text>
+<text x="589.0" y="664.8" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노동 단체 조직 · 지원</text>
+<rect x="1070" y="490" width="470" height="268" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1070.5" y="490.5" width="469" height="58" fill="#ccf6ff"/>
+<text x="1094.0" y="530.5" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">농민(소작) 결의</text>
+<text x="1094.0" y="592.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">소작료 3할 이내</text>
+<text x="1094.0" y="628.4" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지세 · 공과금은 지주 부담</text>
+<text x="1094.0" y="664.8" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">소작인 단체를 면 단위로</text>
+<text x="1094.0" y="701.2" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">동척 이민 폐지</text>
+<rect x="60" y="782" width="1480" height="148" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90.0" y="830.0" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1925.11</text>
+<text x="230.0" y="830.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사회주의 분파 다툼 · 일제 탄압 → 농민 동맹과 노동 동맹으로 분립 결정</text>
+<text x="90.0" y="896.0" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1927.9.6</text>
+<rect x="230.0" y="866.0" width="252.7" height="40" rx="20.0" fill="#effbff" stroke="#00d0ff" stroke-width="1"/><text x="356.4" y="895.8" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'SF Mono','Menlo','Consolas',monospace" font-weight="700">조선 노동 총동맹</text>
+<rect x="506.7" y="866.0" width="252.7" height="40" rx="20.0" fill="#effbff" stroke="#7a62d6" stroke-width="1"/><text x="633.1" y="895.8" font-size="28" fill="#7a62d6" text-anchor="middle" font-family="'SF Mono','Menlo','Consolas',monospace" font-weight="700">조선 농민 총동맹</text>
+<text x="771.4" y="896.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">으로 나뉨</text>
+</svg>

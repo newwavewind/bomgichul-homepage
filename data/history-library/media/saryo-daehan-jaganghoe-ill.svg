@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img">
+<title>대한 자강회(1906~1907) — 애국 계몽 운동</title>
+<desc>위는 1905년 헌정 연구회에서 1906년 대한 자강회 조직, 1907년 해산, 대한 협회로 이어지는 흐름, 가운데는 대한 자강회의 목표와 활동을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="46" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">대한 자강회(1906~1907) — 애국 계몽 운동</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">교육과 산업으로 나라의 힘을 길러 독립의 바탕을 마련하자</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="210" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="110" y1="290" x2="1490" y2="290" stroke="#00d0ff" stroke-width="1.2" marker-end="url(#ah)"/>
+<circle cx="282" cy="290" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="282" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1905.5</text>
+<text x="282" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">헌정 연구회</text>
+<text x="282" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이준 · 양한묵 등</text>
+<circle cx="627" cy="290" r="9" fill="#0096b8" stroke="#0096b8" stroke-width="1"/>
+<text x="627" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1906.4</text>
+<text x="627" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">대한 자강회</text>
+<text x="627" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서울에서 조직</text>
+<rect x="462" y="226" width="329" height="160" fill="none" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<circle cx="972" cy="290" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="972" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1907.8</text>
+<text x="972" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">강제 해산</text>
+<text x="972" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">내부대신 명의</text>
+<circle cx="1317" cy="290" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1317" y="268" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">뒤이어</text>
+<text x="1317" y="334" font-size="24" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">대한 협회</text>
+<text x="1317" y="372" font-size="21" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">자강회를 이은 단체</text>
+<text x="800" y="458" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">목표와 활동</text>
+<rect x="60" y="484" width="355" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="237" y="546" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">교육 진흥</text>
+<text x="237" y="600" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">학교와 교육으로</text>
+<text x="237" y="638" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">국민을 깨우침</text>
+<rect x="435" y="484" width="355" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="612" y="546" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">식산흥업</text>
+<text x="612" y="600" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">산업을 일으켜</text>
+<text x="612" y="638" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">나라의 부를 키움</text>
+<rect x="810" y="484" width="355" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="987" y="546" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">강연 · 월보</text>
+<text x="987" y="600" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">강연회를 열고</text>
+<text x="987" y="638" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『대한자강회월보』 발행</text>
+<rect x="1185" y="484" width="355" height="230" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1362" y="546" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">지회 설치</text>
+<text x="1362" y="600" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지방에 지회를 두어</text>
+<text x="1362" y="638" font-size="23" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">운동을 넓힘</text>
+<text x="800" y="940" font-size="23" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">※ 자강(自强): 스스로 힘을 길러 강해짐 · 현실 참여 운동을 펼치다 이완용 내각 때 해산당함</text>
+</svg>

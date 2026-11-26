@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>오희문의 『쇄미록』 — 9년 3개월의 피란 일기</title>
+<desc>위는 오희문이 한양을 떠난 1591년 11월 27일부터 돌아온 다음 날인 1601년 2월 27일까지의 기간과 일곱 책에 담긴 일록의 이름을 연도 막대 위에 놓은 그림, 아래는 일기에 담긴 전쟁 기록, 백성의 삶, 지방 사회 기록을 세 칸으로 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<radialGradient id="glow"><stop offset="0" stop-color="#00d0ff" stop-opacity="0.55"/><stop offset="0.45" stop-color="#00d0ff" stop-opacity="0.2"/><stop offset="1" stop-color="#00d0ff" stop-opacity="0"/></radialGradient>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60.0" y="92.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">오희문의 『쇄미록』 — 9년 3개월의 피란 일기</text>
+<text x="60.0" y="140.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1591년 11월 27일 한양을 떠난 날부터 1601년 2월 27일까지 · 7책 필사본</text>
+<text x="1540.0" y="92.0" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="380" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="120" y="262" width="1360" height="16" fill="#00d0ff" fill-opacity="0.35" stroke="#0096b8" stroke-width="1"/>
+<line x1="144.5" y1="254" x2="144.5" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="144.5" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1592</text>
+<line x1="291.5" y1="254" x2="291.5" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="291.5" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1593</text>
+<line x1="438.6" y1="254" x2="438.6" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="438.6" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1594</text>
+<line x1="585.6" y1="254" x2="585.6" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="585.6" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1595</text>
+<line x1="732.6" y1="254" x2="732.6" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="732.6" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1596</text>
+<line x1="879.6" y1="254" x2="879.6" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="879.6" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1597</text>
+<line x1="1026.7" y1="254" x2="1026.7" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="1026.7" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1598</text>
+<line x1="1173.7" y1="254" x2="1173.7" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="1173.7" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1599</text>
+<line x1="1320.7" y1="254" x2="1320.7" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="1320.7" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1600</text>
+<line x1="1467.7" y1="254" x2="1467.7" y2="286" stroke="#0096b8" stroke-width="1"/>
+<text x="1467.7" y="316.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif">1601</text>
+<text x="120.0" y="242.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1591.11.27 한양을 떠남</text>
+<text x="1480.0" y="242.0" font-size="27" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1601.2.27 돌아온 다음 날까지</text>
+<path d="M187.4 296 l-9 -16 h18 z" fill="#7a62d6"/>
+<path d="M879.6 296 l-9 -16 h18 z" fill="#7a62d6"/>
+<text x="201.4" y="350.0" font-size="26" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1592 임진왜란</text>
+<text x="893.6" y="350.0" font-size="26" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1597 정유재란</text>
+<rect x="84" y="380" width="214" height="168" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="84.5" y="380.5" width="213" height="48" fill="#ccf6ff"/>
+<text x="191.0" y="414.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1책</text>
+<text x="191.0" y="472.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">임진남행일록</text>
+<text x="191.0" y="512.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">임진일기</text>
+<rect x="316" y="380" width="214" height="168" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="316.5" y="380.5" width="213" height="48" fill="#ccf6ff"/>
+<text x="423.0" y="414.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">2책</text>
+<text x="423.0" y="472.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">계사일록</text>
+<rect x="548" y="380" width="214" height="168" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="548.5" y="380.5" width="213" height="48" fill="#ccf6ff"/>
+<text x="655.0" y="414.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">3책</text>
+<text x="655.0" y="472.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">갑오일록</text>
+<rect x="780" y="380" width="214" height="168" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="780.5" y="380.5" width="213" height="48" fill="#ccf6ff"/>
+<text x="887.0" y="414.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">4책</text>
+<text x="887.0" y="472.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">을미 · 병신</text>
+<text x="887.0" y="512.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">· 정유일록</text>
+<rect x="1012" y="380" width="214" height="168" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1012.5" y="380.5" width="213" height="48" fill="#ccf6ff"/>
+<text x="1119.0" y="414.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">5 · 6책</text>
+<text x="1119.0" y="472.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">정유일록</text>
+<rect x="1244" y="380" width="214" height="168" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1244.5" y="380.5" width="213" height="48" fill="#ccf6ff"/>
+<text x="1351.0" y="414.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">7책</text>
+<text x="1351.0" y="472.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">기해 · 경자</text>
+<text x="1351.0" y="512.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">· 신축일록</text>
+<text x="800.0" y="600.0" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">책 이름은 『시전』의 「쇄혜미혜 유리지자」(초라하게 떠도는 사람)에서 따옴</text>
+<rect x="60" y="630" width="472" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="630.5" width="471" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="670.5" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">전쟁 기록</text>
+<text x="84.0" y="732.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">각지의 전황 · 용인 전투의 패배</text>
+<text x="84.0" y="769.5" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">명군의 원병과 화의</text>
+<text x="84.0" y="807.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">곽재우 · 김면 · 김천일 · 고경명</text>
+<text x="84.0" y="844.6" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 김덕령 · 조헌 등 의병 활동</text>
+<rect x="564" y="630" width="472" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="564.5" y="630.5" width="471" height="58" fill="#ccf6ff"/>
+<text x="588.0" y="670.5" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">백성의 삶</text>
+<text x="588.0" y="732.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">피란민이 떠돎</text>
+<text x="588.0" y="769.5" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">굶주림과 유행병</text>
+<text x="588.0" y="807.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">군사 징발 · 군량 조달로</text>
+<text x="588.0" y="844.6" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">농민이 흩어짐</text>
+<rect x="1068" y="630" width="472" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1068.5" y="630.5" width="471" height="58" fill="#ccf6ff"/>
+<text x="1092.0" y="670.5" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">지방 사회</text>
+<text x="1092.0" y="732.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">수령 · 아전 · 향청 좌수</text>
+<text x="1092.0" y="769.5" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">공물 징수 · 군량 수송</text>
+<text x="1092.0" y="807.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노비의 신공 · 매매 · 소송</text>
+<text x="1092.0" y="844.6" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">각지의 산물과 풍속</text>
+</svg>

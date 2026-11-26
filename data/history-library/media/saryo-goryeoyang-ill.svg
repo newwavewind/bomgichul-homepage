@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>몽골풍과 고려양</title>
+<desc>몽골과의 전쟁이 끝난 뒤 사람과 물자가 오가며 원에는 고려양이, 고려에는 몽골풍이 퍼지는 흐름도와, 각각의 대표적인 예를 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">몽골풍과 고려양</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">13세기 후반부터 고려와 원 사이에 서로 섞인 풍속</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="256" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">몽골과의 전쟁이 끝남 (13세기 후반)</text>
+<line x1="490" y1="289" x2="490" y2="323" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="327" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="378" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">고려와 원 사이에 사람 · 물자가 활발히 오감</text>
+<line x1="490" y1="411" x2="490" y2="445" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="449" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="500" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">원으로 간 고려 여인들이 고려 풍속을 전함</text>
+<line x1="490" y1="533" x2="490" y2="567" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="571" width="860" height="82" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="622" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">원 궁중 · 귀족 사회에 고려양이 퍼짐</text>
+<line x1="490" y1="655" x2="490" y2="689" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="693" width="860" height="82" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="744" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">고려 왕실 · 관리 사이에 몽골풍이 유행</text>
+<rect x="980" y="205" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">고려양 (고려 → 원)</text>
+<text x="1010" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 고려식 옷 · 신발 · 모자</text>
+<text x="1010" y="363" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 만두 · 떡 같은 음식</text>
+<text x="1010" y="415" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 네모 깃 반소매 궁중 옷 (시)</text>
+<rect x="980" y="484" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="484.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="524" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">몽골풍 (원 → 고려)</text>
+<text x="1010" y="590" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 변발 · 호복</text>
+<text x="1010" y="642" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 고고(몽골식 모자)</text>
+<text x="1010" y="694" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 충렬왕 무렵부터 유행</text>
+
+</svg>

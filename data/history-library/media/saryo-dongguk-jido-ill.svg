@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>정상기의 동국지도와 백리척</title>
+<desc>왼쪽은 지도 한쪽에 그려 넣은 100리 막대 자 백리척으로 거리를 재는 방법, 오른쪽은 동국지도가 관청과 후대 지도로 이어진 흐름, 아래는 지도의 특징을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">정상기의 동국지도와 백리척</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">18세기 중엽 — 백리척으로 거리를 잰 지도</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="720" height="420" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">백리척(百里尺) — 지도 위의 자</text>
+<text x="90" y="315" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지도 한쪽에 100리 길이를 막대로 그려 넣음</text>
+<rect x="130" y="350" width="180" height="40" fill="#0096b8" stroke="#0096b8" stroke-width="1"/>
+<rect x="310" y="350" width="180" height="40" fill="#ffffff" stroke="#0096b8" stroke-width="1"/>
+<rect x="490" y="350" width="180" height="40" fill="#0096b8" stroke="#0096b8" stroke-width="1"/>
+<text x="310" y="425" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">100리</text>
+<text x="490" y="425" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">200리</text>
+<text x="670" y="425" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">300리</text>
+<text x="130" y="425" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">0</text>
+<text x="90" y="490" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">두 고을 사이를 자로 재면</text>
+<text x="90" y="535" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">막대 몇 개 길이인지로 실제 거리를 셈</text>
+<text x="90" y="590" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 이전 지도에 없던 독특한 축척 방식</text>
+<rect x="820" y="205" width="720" height="420" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="820.5" y="205.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="844" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">지도가 이어진 길</text>
+<text x="850" y="300" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">18세기 중엽</text>
+<text x="1110" y="300" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정상기(1678~1752)가 만듦</text>
+<line x1="940" y1="314" x2="940" y2="350" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<text x="850" y="384" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1757년(영조 33)</text>
+<text x="1110" y="384" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조정에 알려져 관청에서 널리 씀</text>
+<line x1="940" y1="398" x2="940" y2="434" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<text x="850" y="468" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1770년(영조 46)</text>
+<text x="1110" y="468" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">신경준의 『여지도』가 바탕으로 삼음</text>
+<line x1="940" y1="482" x2="940" y2="518" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<text x="850" y="552" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">근대 측량 지도 이전</text>
+<text x="1110" y="552" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이 지도의 국토 모습이 계속 쓰임</text>
+<rect x="60" y="665" width="1480" height="275" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="720" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">지도의 특징</text>
+<rect x="90" y="755" width="455" height="150" fill="#ccf6ff" stroke="#0096b8" stroke-width="1"/>
+<text x="317" y="820" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">8도를 도별로</text>
+<text x="317" y="866" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">그린 채색 지도첩</text>
+<rect x="575" y="755" width="455" height="150" fill="#ccf6ff" stroke="#0096b8" stroke-width="1"/>
+<text x="802" y="820" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">일그러졌던 북부 지방을</text>
+<text x="802" y="866" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">실제에 가깝게 고침</text>
+<rect x="1060" y="755" width="455" height="150" fill="#ccf6ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1287" y="820" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">백두대간 산줄기 · 산성 · 관문</text>
+<text x="1287" y="866" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">육로 · 해로를 자세히</text>
+</svg>

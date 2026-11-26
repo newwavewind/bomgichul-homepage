@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>개발 제한 구역(1971)</title>
+<desc>도시 시가지, 그 둘레를 두른 개발 제한 구역, 바깥 지역을 겹동그라미로 나타내고, 설정 까닭·법 근거·확대 과정을 카드로 정리한 정리 그림.</desc>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">개발 제한 구역(1971)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">도시 둘레에 띠처럼 묶어 건물을 함부로 못 짓게 한 땅 — 그린벨트</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="680" height="770" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<circle cx="400" cy="575" r="300" fill="#ffffff" stroke="#5d6365" stroke-width="1.5" stroke-dasharray="8 8"/>
+<circle cx="400" cy="575" r="250" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<circle cx="400" cy="575" r="140" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="400" y="565" font-size="32" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">도시 시가지</text>
+<text x="400" y="609" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사람·공장이 몰림</text>
+<text x="400" y="397" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">개발 제한 구역</text>
+<text x="400" y="775" font-size="26" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">녹지를 지키는 띠</text>
+<text x="400" y="847" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">그 바깥 지역</text>
+<text x="90" y="236" font-size="24" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">구조를 단순하게 그린 그림</text>
+<rect x="780" y="190" width="760" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="780.5" y="190.5" width="759" height="62" fill="#ccf6ff"/>
+<text x="806" y="233" font-size="31" fill="#5d6365" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">왜 묶었나</text>
+<text x="810" y="310" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서울 인구: 1960년 약 250만 명</text>
+<text x="810" y="360" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 1970년 550만 명 넘게 늘어남</text>
+<text x="810" y="410" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">도시가 끝없이 밖으로 번지는 것을 막으려고</text>
+<rect x="780" y="470" width="760" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="780.5" y="470.5" width="759" height="62" fill="#ccf6ff"/>
+<text x="806" y="513" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">어떻게 정했나</text>
+<text x="810" y="590" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1971년 「도시계획법」 개정으로 법에 둠</text>
+<text x="810" y="640" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1971년 7월 서울 둘레에 처음 지정</text>
+<text x="810" y="690" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">영국의 그린벨트 제도 등을 참고</text>
+<rect x="780" y="750" width="760" height="210" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="780.5" y="750.5" width="759" height="62" fill="#ccf6ff"/>
+<text x="806" y="793" font-size="31" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">어디까지 넓혔나</text>
+<text x="810" y="870" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1977년 4월 여천까지 모두 8차</text>
+<text x="810" y="920" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">14개 도시권에 지정 — 박정희 정부 국토 정책</text>
+</svg>

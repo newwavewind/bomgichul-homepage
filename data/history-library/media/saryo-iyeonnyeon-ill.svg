@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>이연년 형제의 난(1237)</title>
+<desc>왼쪽은 1237년 이연년 형제가 원율·담양의 무리를 모아 해양 등을 점령하고 나주성을 에워쌌다가 김경손에게 진압되기까지의 흐름도, 오른쪽은 봉기의 배경과 서경의 최광수의 난과 견준 표.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">이연년 형제의 난(1237)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">몽골의 3차 침입 때 전라도에서 「백제」를 내건 봉기</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="880" height="112" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="246.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1237년(고종 24) 원율 · 담양의 떠돌이 무리를 모음</text>
+<text x="86" y="286.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">나주목에 딸린 원율의 이연년 형제</text>
+<line x1="500.0" y1="314" x2="500.0" y2="328" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="332" width="880" height="112" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="378.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">「백적도원수」라 자칭</text>
+<text x="86" y="418.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">백제도원수를 잘못 적은 것으로 봄 → 백제 부흥</text>
+<line x1="500.0" y1="446" x2="500.0" y2="460" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="464" width="880" height="112" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="530.4" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">해양 등 여러 주현을 쳐서 떨어뜨림</text>
+<line x1="500.0" y1="578" x2="500.0" y2="592" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="596" width="880" height="112" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="662.4" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">나주성을 에워쌈</text>
+<line x1="500.0" y1="710" x2="500.0" y2="724" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="728" width="880" height="112" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="794.4" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">전라도 지휘사 김경손이 진압</text>
+<text x="1000" y="222" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">옛 나라 부흥을 내건 두 봉기</text>
+<rect x="1000" y="250" width="540" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1026" y="296.3" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">최광수의 난</text>
+<text x="1026" y="335.4" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1217 · 서경</text>
+<text x="1026" y="374.6" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">고구려 부흥</text>
+<rect x="1000" y="420" width="540" height="150" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1026" y="466.3" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">이연년 형제의 난</text>
+<text x="1026" y="505.4" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1237 · 원율 · 담양</text>
+<text x="1026" y="544.6" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">백제 부흥</text>
+<rect x="1000" y="610" width="540" height="220" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1026" y="671.7" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">배경</text>
+<text x="1026" y="710.9" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">몽골의 3차 침입(1235~1239)</text>
+<text x="1026" y="750.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대장경 조판 부담</text>
+<text x="1026" y="789.2" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 지방민의 고통</text>
+<rect x="60" y="870" width="1480" height="86" fill="#ffffff" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="800" y="924" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">김경손이 나주에 들어왔다는 말을 듣고 나주성을 에워쌌다 — 사료의 마지막 줄</text>
+</svg>

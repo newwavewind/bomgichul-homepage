@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>장사 상륙 작전(1950)</title>
+<desc>전쟁 발발, 낙동강 방어선, 장사 상륙 작전, 인천 상륙 작전, 서울 수복을 잇는 연표와 작전의 목적, 투입 부대, 결과를 정리한 카드로 된 정리 그림.</desc>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">장사 상륙 작전(1950)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">인천 상륙 작전을 돕기 위한 동해안의 양동 작전</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="270" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="100" y1="290" x2="1500" y2="290" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="208" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="208" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1950. 6. 25.</text>
+<text x="208" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">6·25 전쟁</text>
+<text x="208" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">시작</text>
+<circle cx="504" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="504" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1950. 8.</text>
+<text x="504" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">낙동강</text>
+<text x="504" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">방어선</text>
+<circle cx="800" cy="290" r="12" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<text x="800" y="262" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1950. 9. 14.</text>
+<text x="800" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">장사 상륙 작전</text>
+<text x="800" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경북 영덕 장사리</text>
+<circle cx="1096" cy="290" r="12" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<text x="1096" y="262" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1950. 9. 15.</text>
+<text x="1096" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">인천 상륙 작전</text>
+<text x="1096" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서해안</text>
+<circle cx="1392" cy="290" r="12" fill="#ccf6ff" stroke="#7a62d6" stroke-width="2"/>
+<text x="1392" y="262" font-size="27" fill="#7a62d6" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1950. 9. 28.</text>
+<text x="1392" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">서울 수복</text>
+<text x="1392" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">국군·유엔군</text>
+<rect x="60" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="86" y="533" font-size="31" fill="#5d6365" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">왜 했나</text>
+<text x="90" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">인천 상륙을 앞두고</text>
+<text x="90" y="692" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">적의 눈을</text>
+<text x="90" y="746" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">동해안으로 돌리는</text>
+<text x="90" y="800" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">양동 작전</text>
+<rect x="563" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="563.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="589" y="533" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">누가 갔나</text>
+<text x="593" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대구에서 조직된</text>
+<text x="593" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">학도기간대</text>
+<text x="799" y="728" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">↓</text>
+<text x="593" y="782" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">국군 유격 부대로 편입</text>
+<text x="593" y="836" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">학도병이 중심</text>
+<rect x="1067" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1067.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="1093" y="533" font-size="31" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">결과</text>
+<text x="1097" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">해안에 상륙해</text>
+<text x="1097" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">적과 싸움</text>
+<text x="1097" y="746" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">100여 명이 희생</text>
+<text x="1097" y="800" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 인천 상륙 성공에 기여</text>
+</svg>

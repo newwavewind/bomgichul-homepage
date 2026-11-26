@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>영정법(1635)</title>
+<desc>세종 때 공법의 54등급, 15세기 말부터 굳은 1결당 4~6두 관례, 1635년 영정법으로 법이 된 흐름과, 전세 밖의 대동미·삼수미 부담을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">영정법(1635)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">인조 13년, 풍흉과 관계없이 전세를 고정한 법</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">바뀌어 온 흐름</text>
+<rect x="60" y="245" width="800" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="295.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세종 공법 — 전분 6등 × 연분 9등 = 54등급</text>
+<line x1="460.0" y1="327" x2="460.0" y2="361" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="365" width="800" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="415.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">15세기 말 — 풍흉 상관없이 최저 세율 관례</text>
+<line x1="460.0" y1="447" x2="460.0" y2="481" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="485" width="800" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="535.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1635 인조 13 — 영정법으로 법에 올림</text>
+<rect x="920" y="205" width="620" height="350" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="920.5" y="205.5" width="619" height="58" fill="#ccf6ff"/>
+<text x="944" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">영정법의 기준</text>
+<text x="950" y="307" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 땅의 비옥도로 9등급</text>
+<text x="950" y="359" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 상상전 1결 20두</text>
+<text x="968" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">⋯</text>
+<text x="950" y="463" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 하중전 6두 · 하하전 4두</text>
+<text x="950" y="515" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 풍흉은 따지지 않음</text>
+<text x="60" y="640" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">실제로 낸 몫 (1결당)</text>
+<rect x="60" y="665" width="460" height="200" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="290.0" y="727" font-size="30" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">전세</text>
+<text x="290.0" y="793" font-size="54" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">4 ~ 6두</text>
+<text x="290.0" y="849" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대부분 하중 · 하하전</text>
+<text x="560" y="780" font-size="56" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">+</text>
+<rect x="600" y="665" width="440" height="200" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="820.0" y="727" font-size="30" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">대동미</text>
+<text x="820.0" y="793" font-size="54" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">12두</text>
+<text x="1080" y="780" font-size="56" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">+</text>
+<rect x="1120" y="665" width="420" height="200" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1330.0" y="727" font-size="30" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">삼수미</text>
+<text x="1330.0" y="793" font-size="54" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">2두</text>
+<text x="60" y="940" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">전세는 낮아졌지만 여러 부담이 더해져 농민의 짐은 여전히 무거웠다.</text>
+</svg>

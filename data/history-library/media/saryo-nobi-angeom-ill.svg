@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>광종의 노비안검법</title>
+<desc>왼쪽은 노비안검법이 나오기까지의 배경과 실시·결과를 잇는 흐름도, 오른쪽은 이 법에 대한 반발과 광종의 다른 왕권 강화 정책을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">광종의 노비안검법</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">956년(광종 7), 억울하게 노비가 된 사람을 양인으로</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/><rect x="60" y="205" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="256" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">후삼국 전란 속에 양인이 노비로 떨어짐</text>
+<line x1="490.0" y1="289" x2="490.0" y2="323" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="327" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="378" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">호족·공신이 많은 노비를 거느림</text>
+<line x1="490.0" y1="411" x2="490.0" y2="445" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="449" width="860" height="82" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="500" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">956년(광종 7) 노비안검법 실시</text>
+<line x1="490.0" y1="533" x2="490.0" y2="567" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="571" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="622" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">본래 양인이던 노비를 가려 양인으로 되돌림</text>
+<line x1="490.0" y1="655" x2="490.0" y2="689" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="693" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="744" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">호족 세력은 약해지고, 세금 내는 양인은 늘어남</text>
+<rect x="980" y="205" width="560" height="270" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">반발</text>
+<text x="1010" y="315" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">공신들이 모두 탄식하며 원망</text>
+<text x="1010" y="367" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대목왕후가 말렸으나 듣지 않음</text>
+<text x="1010" y="419" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">성종 때 최승로가 상서로 비판</text>
+<rect x="980" y="505" width="560" height="270" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="505.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="545" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">광종의 다른 개혁</text>
+<text x="1010" y="615" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">958년 과거제 실시(쌍기)</text>
+<text x="1010" y="667" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">960년 백관의 공복 제정</text>
+<text x="1010" y="719" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">광덕·준풍 연호, 황제 칭호</text>
+<rect x="60" y="860" width="1480" height="90" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/><text x="90" y="917" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">목표는 하나 — 호족을 누르고 왕권을 강하게</text><text x="1510" y="917" font-size="25" fill="#5d6365" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">최승로 시무 28조와 함께 출제</text>
+</svg>

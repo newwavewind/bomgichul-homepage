@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>미송리형 토기 — 고조선 문화권의 단서</title>
+<desc>왼쪽은 몸통에 가로줄 무늬를 두르고 양옆에 손잡이를 단 미송리형 토기의 생김새를 단순하게 나타낸 모식도, 오른쪽은 이름의 유래·시기·분포와, 비파형 동검·고인돌과 함께 고조선 문화 범위를 가늠하는 단서로 쓰인다는 점을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60.0" y="92.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">미송리형 토기 — 고조선 문화권의 단서</text>
+<text x="60.0" y="140.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">청동기 시대, 중국 동북 ~ 한반도 서북에서만 나오는 토기</text>
+<text x="1540.0" y="92.0" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="560" height="740" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="190.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="230.0" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">생김새 (모식도)</text>
+<path d="M280 300 L280 330 C270 360 170 400 165 520 C160 640 220 740 270 790 L410 790 C460 740 520 640 515 520 C510 400 410 360 400 330 L400 300 Z" fill="#f4ead9" stroke="#2a2c2d" stroke-width="3"/>
+<line x1="190" y1="430" x2="490" y2="430" stroke="#2a2c2d" stroke-width="2" stroke-opacity="0.7"/>
+<line x1="170" y1="465" x2="510" y2="465" stroke="#2a2c2d" stroke-width="2" stroke-opacity="0.7"/>
+<line x1="170" y1="500" x2="510" y2="500" stroke="#2a2c2d" stroke-width="2" stroke-opacity="0.7"/>
+<line x1="170" y1="535" x2="510" y2="535" stroke="#2a2c2d" stroke-width="2" stroke-opacity="0.7"/>
+<line x1="170" y1="570" x2="510" y2="570" stroke="#2a2c2d" stroke-width="2" stroke-opacity="0.7"/>
+<line x1="170" y1="605" x2="510" y2="605" stroke="#2a2c2d" stroke-width="2" stroke-opacity="0.7"/>
+<path d="M168 470 C125 470 125 540 164 545" fill="none" stroke="#2a2c2d" stroke-width="7" stroke-linecap="round"/>
+<path d="M512 470 C555 470 555 540 516 545" fill="none" stroke="#2a2c2d" stroke-width="7" stroke-linecap="round"/>
+<line x1="560" y1="505" x2="598" y2="420" stroke="#0096b8" stroke-width="2"/><text x="530.0" y="405.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">양쪽 손잡이</text>
+<line x1="340" y1="610" x2="340" y2="640" stroke="#0096b8" stroke-width="0"/><text x="340.0" y="690.0" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">가로줄 무늬</text>
+<line x1="340" y1="660" x2="340" y2="615" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="340.0" y="850.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">항아리 모양 · 조롱박형 단지라고도 부름</text>
+<text x="340.0" y="895.0" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">※ 특정 유물이 아닌 특징만 나타낸 그림</text>
+<rect x="660" y="190" width="880" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="660.5" y="190.5" width="879" height="58" fill="#ccf6ff"/>
+<text x="684.0" y="230.0" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">이름 · 시기 · 분포</text>
+<text x="684.0" y="294.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">평안북도 의주 미송리 유적에서 이름을 땀</text>
+<text x="684.0" y="338.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중심 시기: 대체로 기원전 8 ~ 7세기</text>
+<text x="684.0" y="382.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중국 동북 지역 ~ 한반도 서북 지역,</text>
+<text x="684.0" y="426.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">좁은 범위에서만 출토</text>
+<rect x="660" y="520" width="880" height="170" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="660.5" y="520.5" width="879" height="58" fill="#ccf6ff"/>
+<text x="684.0" y="560.0" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">시간에 따른 변화</text>
+<text x="684.0" y="624.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">가로줄 수가 줄어들고</text>
+<text x="684.0" y="668.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">손잡이 모양도 간단해짐</text>
+<rect x="660" y="720" width="880" height="210" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="690.0" y="772.0" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">고조선 문화권을 가리키는 세 단서</text>
+<rect x="690" y="800" width="265" height="100" fill="#ccf6ff" stroke="#00d0ff" stroke-width="0.8"/>
+<text x="822.5" y="843.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">미송리형 토기</text>
+<text x="822.5" y="881.0" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이 그림의 토기</text>
+<rect x="975" y="800" width="265" height="100" fill="#ccf6ff" stroke="#00d0ff" stroke-width="0.8"/>
+<text x="1107.5" y="843.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">비파형 동검</text>
+<text x="1107.5" y="881.0" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">요령식 동검</text>
+<rect x="1260" y="800" width="265" height="100" fill="#ccf6ff" stroke="#00d0ff" stroke-width="0.8"/>
+<text x="1392.5" y="843.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">고인돌</text>
+<text x="1392.5" y="881.0" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">청동기 시대 무덤</text>
+</svg>

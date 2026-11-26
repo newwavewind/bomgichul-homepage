@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>『칠정산 내편』(1442)</title>
+<desc>칠정에 해당하는 해·달·수성·금성·화성·목성·토성 일곱 천체와, 1432년 연구 명령부터 1442년 완성까지의 흐름, 책의 특징을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">『칠정산 내편』(1442)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세종 24년, 한양을 기준으로 해·달·다섯 별의 움직임을 계산한 역법서</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">칠정(七政) — 일곱 천체</text>
+<circle cx="130" cy="320" r="62" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="130" y="331" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">해</text>
+<circle cx="340" cy="320" r="62" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="340" y="331" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">달</text>
+<circle cx="550" cy="320" r="62" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="550" y="331" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">수성</text>
+<circle cx="760" cy="320" r="62" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="760" y="331" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">금성</text>
+<circle cx="970" cy="320" r="62" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="970" y="331" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">화성</text>
+<circle cx="1180" cy="320" r="62" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1180" y="331" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">목성</text>
+<circle cx="1390" cy="320" r="62" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1390" y="331" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">토성</text>
+<text x="60" y="440" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">만든 흐름</text>
+<rect x="60" y="465" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="513.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1432 세종 14 — 정인지 · 정흠지 · 정초에게 연구 명</text>
+<line x1="490.0" y1="543" x2="490.0" y2="573" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="577" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="625.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">원나라 수시력의 원리와 계산법을 풀이</text>
+<line x1="490.0" y1="655" x2="490.0" y2="685" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="689" width="860" height="76" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="737.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1442 세종 24 — 이순지 · 김담 등이 완성</text>
+<rect x="980" y="415" width="560" height="348" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="415.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="455" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">책의 특징</text>
+<text x="1010" y="517" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 일곱 천체의 운행 계산법</text>
+<text x="1010" y="569" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 끝에 한양 기준 표를 실음</text>
+<text x="1028" y="621" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">— 동지 · 하지 뒤 해 뜨고</text>
+<text x="1054" y="673" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지는 시각, 밤낮의 길이</text>
+<text x="1010" y="725" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 오늘날 천체력과 비슷한 구실</text>
+<text x="60" y="950" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중국 역법을 그대로 쓰지 않고 우리 땅에서 직접 천체 운행을 계산하게 되었다.</text>
+</svg>

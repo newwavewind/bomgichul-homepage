@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { PcStudyAction } from "@/components/pc-pro/PcStudyAction";
 import type { PcStudyOffer } from "@/lib/pc-access/study-features";
 import Link from "next/link";
@@ -9,6 +10,7 @@ export function SubjectLearningCard({
   dailyHref,
   lectureHref,
   cellOffers = [],
+  extraActions,
 }: {
   label: string;
   badge: string;
@@ -17,6 +19,7 @@ export function SubjectLearningCard({
   dailyHref?: string;
   lectureHref?: string;
   cellOffers?: PcStudyOffer[];
+  extraActions?: ReactNode;
 }) {
   const columns = 1 + Number(Boolean(dailyHref)) + Number(Boolean(lectureHref)) + Number(cellOffers.length > 0);
   const compact = columns >= 3;
@@ -64,6 +67,7 @@ export function SubjectLearningCard({
           </Link>
         ) : null}
       </div>
+      {extraActions}
     </article>
   );
 }

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">
+<title>보안회의 황무지 개간권 반대 운동(1904)</title>
+<desc>1904년 러일 전쟁 중 일본의 황무지 개간권 요구, 보안회 조직과 반대 운동, 일본의 탄압, 대한 제국 정부의 거절로 이어지는 흐름을 정리한 그림.</desc>
+<rect width="960" height="620" fill="#ffffff"/>
+<text x="40" y="58" font-size="30" font-weight="700" fill="#1b2a4a">보안회의 황무지 개간권 반대 운동</text>
+<text x="40" y="92" font-size="19" fill="#4a5876">1904년 · 러일 전쟁 중</text>
+<text x="920" y="58" font-size="18" fill="#0a8fc2" text-anchor="end">정리 그림</text>
+<line x1="40" y1="112" x2="920" y2="112" stroke="#7fd3f0" stroke-width="1.5"/>
+<rect x="40" y="136" width="880" height="118" rx="10" fill="#e3f5fc" stroke="#7fd3f0"/>
+<text x="64" y="172" font-size="20" font-weight="700" fill="#0a8fc2">일본의 요구 (1904년 6월)</text>
+<text x="64" y="208" font-size="19" fill="#1b2a4a">일본인 나가모리가 일본 공사를 통해 <tspan font-weight="700">산림·천택(냇가와 못)·황무지</tspan>를</text>
+<text x="64" y="238" font-size="19" fill="#1b2a4a">개간할 권리를 넘겨 달라고 요구 → 넘기면 나라 땅을 모두 빼앗길 위험</text>
+<g stroke="#0a8fc2" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M480 260 V292 m-8 -9 l8 9 l8 -9"/></g>
+<rect x="40" y="298" width="880" height="164" rx="10" fill="#ffffff" stroke="#0a8fc2" stroke-width="2"/>
+<text x="64" y="334" font-size="20" font-weight="700" fill="#0a8fc2">보안회 (1904년 7월 13일, 서울 종로)</text>
+<text x="64" y="368" font-size="18" fill="#4a5876">송수만·심상진 등이 조직 · 이름은 「보국안민(나라를 돕고 백성을 편안하게)」의 뜻</text>
+<g font-size="18" fill="#1b2a4a" text-anchor="middle">
+<rect x="64" y="386" width="260" height="56" rx="8" fill="#e3f5fc" stroke="#7fd3f0"/>
+<text x="194" y="420">연설회로 반대 여론</text>
+<rect x="350" y="386" width="260" height="56" rx="8" fill="#e3f5fc" stroke="#7fd3f0"/>
+<text x="480" y="420">통문을 돌려 호소</text>
+<rect x="636" y="386" width="260" height="56" rx="8" fill="#e3f5fc" stroke="#7fd3f0"/>
+<text x="766" y="420">각국 공관에 호소문</text>
+</g>
+<g stroke="#0a8fc2" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M260 468 V500 m-8 -9 l8 9 l8 -9"/><path d="M700 468 V500 m-8 -9 l8 9 l8 -9"/></g>
+<rect x="40" y="506" width="420" height="86" rx="10" fill="#ffffff" stroke="#7fd3f0"/>
+<text x="250" y="542" font-size="19" font-weight="700" fill="#1b2a4a" text-anchor="middle">일본: 헌병·경찰로 탄압</text>
+<text x="250" y="572" font-size="17" fill="#4a5876" text-anchor="middle">보안회 활동을 억누름</text>
+<rect x="500" y="506" width="420" height="86" rx="10" fill="#e3f5fc" stroke="#0a8fc2" stroke-width="2"/>
+<text x="710" y="542" font-size="19" font-weight="700" fill="#0a8fc2" text-anchor="middle">대한 제국 정부: 요구 거절</text>
+<text x="710" y="572" font-size="17" fill="#1b2a4a" text-anchor="middle">황무지 개간권 요구를 막아 냄</text>
+</svg>

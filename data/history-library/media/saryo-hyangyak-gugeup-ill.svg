@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>『향약구급방』 — 우리 약재로 급한 병을 다스린 책</title>
+<desc>왼쪽은 비싼 중국 약재(당재) 대신 우리 땅에서 나는 약재(향약)를 쓰게 한 책의 뜻, 오른쪽은 1236년 무렵 강화도 대장도감 간행부터 1417년 의흥현 중간본, 일본 궁내청 서릉부에 남은 1부까지 책이 전해 온 길을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">『향약구급방』 — 우리 약재로 급한 병을 다스린 책</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지금 전하는 우리나라 의방서 가운데 가장 오래된 책 · 3권 1책</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">무엇을 바꾸려 했나</text>
+<rect x="60" y="250" width="680" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="315.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">당재(唐材)</text>
+<text x="86" y="355.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중국에서 들여오는 약재 — 비싸고 구하기 어려움</text>
+<line x1="400" y1="404" x2="400" y2="462" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="466" width="680" height="150" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="531.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">향약(鄕藥)</text>
+<text x="86" y="571.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">우리 땅에서 나는 약재 — 쉽게 구할 수 있음</text>
+<line x1="400" y1="620" x2="400" y2="678" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="682" width="680" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="747.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">갑작스러운 병(구급)에 쓰는 처방</text>
+<text x="86" y="787.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">향약으로 다스리는 방법을 모음</text>
+<text x="820" y="222" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">책이 전해 온 길</text>
+<rect x="820" y="250" width="720" height="150" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="846" y="315.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1236년(고종 23) 무렵 처음 간행</text>
+<text x="846" y="355.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">강화도 대장도감(팔만대장경을 새기던 곳)</text>
+<line x1="1180.0" y1="402" x2="1180.0" y2="454" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="820" y="458" width="720" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="846" y="523.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1417년(태종 17) 다시 찍음(중간본)</text>
+<text x="846" y="563.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경상도 의흥현에서 간행</text>
+<line x1="1180.0" y1="610" x2="1180.0" y2="662" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="820" y="666" width="720" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="846" y="731.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">지금 남은 것: 중간본 1부</text>
+<text x="846" y="771.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일본 궁내청 서릉부 소장 · 고려 간본은 전하지 않음</text>
+<rect x="60" y="870" width="1480" height="86" fill="#ffffff" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="800" y="924" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">외국산 약재를 향약으로 대신하려는 「향약 자립」의 첫걸음</text>
+</svg>

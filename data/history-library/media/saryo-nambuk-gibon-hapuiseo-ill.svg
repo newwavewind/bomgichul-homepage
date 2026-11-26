@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>남북 기본 합의서(1991) — 화해 · 불가침 · 교류 협력</title>
+<desc>위는 서문과 4개 장 25개 조로 된 남북 기본 합의서의 짜임(남북 화해, 남북 불가침, 남북 교류·협력, 수정 및 발효)과 남북 관계를 잠정적 특수 관계로 본 성격, 아래는 1972년 7·4 남북 공동 성명에서 1991년 채택, 한반도 비핵화 공동 선언, 1992년 발효와 부속 합의서까지의 연표.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<radialGradient id="glow"><stop offset="0" stop-color="#00d0ff" stop-opacity="0.55"/><stop offset="0.45" stop-color="#00d0ff" stop-opacity="0.2"/><stop offset="1" stop-color="#00d0ff" stop-opacity="0"/></radialGradient>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60.0" y="92.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">남북 기본 합의서(1991) — 화해 · 불가침 · 교류 협력</text>
+<text x="60.0" y="140.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">「남북 사이의 화해와 불가침 및 교류 · 협력에 관한 합의서」의 짜임과 흐름</text>
+<text x="1540.0" y="92.0" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="196" width="1480" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="196.5" width="1479" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="236.5" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">서문</text>
+<text x="84.0" y="299.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">7 · 4 남북 공동 성명의 통일 3대 원칙을 다시 확인 · 남북 관계는 나라와 나라 사이가 아닌</text>
+<text x="84.0" y="338.1" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">통일을 지향하는 과정에서 잠정적으로 형성되는 특수 관계</text>
+<rect x="60" y="372" width="350" height="190" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="372.5" width="349" height="58" fill="#ccf6ff"/>
+<text x="235.0" y="411.8" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">제1장 남북 화해</text>
+<text x="235.0" y="475.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서로의 체제를</text>
+<text x="235.0" y="516.2" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">인정하고 존중</text>
+<rect x="436" y="372" width="350" height="190" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="436.5" y="372.5" width="349" height="58" fill="#ccf6ff"/>
+<text x="611.0" y="411.8" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">제2장 남북 불가침</text>
+<text x="611.0" y="475.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">무력을 쓰지 않고</text>
+<text x="611.0" y="516.2" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">무력으로 침략하지 않음</text>
+<rect x="812" y="372" width="350" height="190" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="812.5" y="372.5" width="349" height="58" fill="#ccf6ff"/>
+<text x="987.0" y="411.8" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">제3장 교류 · 협력</text>
+<text x="987.0" y="475.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">여러 분야의</text>
+<text x="987.0" y="516.2" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">교류와 협력</text>
+<rect x="1188" y="372" width="350" height="190" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1188.5" y="372.5" width="349" height="58" fill="#ccf6ff"/>
+<text x="1363.0" y="411.8" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">제4장 수정 · 발효</text>
+<text x="1363.0" y="475.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">고치는 절차와</text>
+<text x="1363.0" y="516.2" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">효력이 생기는 때</text>
+<text x="800.0" y="600.0" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">4개 장 25개 조 · 이전의 7 · 4 남북 공동 성명보다 격식을 갖춘 정부 사이의 공식 문서</text>
+<rect x="60" y="630" width="1480" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="110" y1="730" x2="1490" y2="730" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="190" cy="730" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="190.0" y="708.0" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1972</text>
+<text x="190.0" y="776.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">7 · 4 남북 공동 성명</text>
+<circle cx="470" cy="730" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="470.0" y="708.0" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1991.12.13</text>
+<text x="470.0" y="776.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">합의서 채택 · 서명</text>
+<circle cx="760" cy="730" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="760.0" y="708.0" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1991.12.31</text>
+<text x="760.0" y="776.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">비핵화 공동 선언 채택</text>
+<circle cx="1050" cy="730" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1050.0" y="708.0" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1992.2.19</text>
+<text x="1050.0" y="776.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">두 문서가 함께 발효</text>
+<circle cx="1360" cy="730" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1360.0" y="708.0" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1992.9</text>
+<text x="1360.0" y="776.0" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">부속 합의서 3건 채택</text>
+<text x="190.0" y="820.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">통일 3대 원칙</text>
+<text x="470.0" y="820.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서울 · 제5차</text>
+<text x="470.0" y="858.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남북 고위급 회담</text>
+<text x="760.0" y="820.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">판문점 대표 접촉</text>
+<text x="760.0" y="858.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 1992.1.20 서명</text>
+<text x="1050.0" y="820.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">평양 · 제6차</text>
+<text x="1050.0" y="858.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남북 고위급 회담</text>
+<text x="1360.0" y="820.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">평양 · 제8차</text>
+<text x="1360.0" y="858.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남북 고위급 회담</text>
+<rect x="338" y="680" width="264" height="230" fill="none" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+</svg>

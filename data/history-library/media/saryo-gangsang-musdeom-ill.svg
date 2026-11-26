@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>강상무덤 — 돌무지무덤과 순장 논쟁</title>
+<desc>왼쪽은 돌담으로 세 구역을 나눈 묘역 한가운데 가장 큰 7호 묘광을 두고 나머지 22기가 둘러싼 모습을 단순화한 배치도, 오른쪽은 생김새와 출토 유물, 순장설과 그 반론, 두 견해가 함께 가리키는 계층 분화를 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">강상무덤 — 돌무지무덤과 순장 논쟁</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중국 요령성 대련시 감정자구 · 청동기 시대 돌무지무덤 · 1964년 조중발굴대 발굴</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="214" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">무덤 배치 (단순화)</text>
+<rect x="60" y="236" width="700" height="560" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="100" y="276" width="620" height="480" fill="#effbff" stroke="#5d6365" stroke-width="5" stroke-dasharray="14 7"/>
+<line x1="307" y1="276" x2="307" y2="756" stroke="#5d6365" stroke-width="5" stroke-dasharray="14 7"/>
+<line x1="513" y1="276" x2="513" y2="756" stroke="#5d6365" stroke-width="5" stroke-dasharray="14 7"/>
+<rect x="350.0" y="471.0" width="120" height="90" fill="#ccf6ff" stroke="#0096b8" stroke-width="3"/>
+<text x="410.0" y="528.0" font-size="34" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">7호</text>
+<rect x="145" y="304" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="240" y="304" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="145" y="396" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="240" y="396" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="145" y="488" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="240" y="488" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="145" y="580" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="240" y="580" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="145" y="672" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="240" y="672" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="352" y="304" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="447" y="304" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="558" y="304" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="653" y="304" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="558" y="396" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="653" y="396" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="558" y="488" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="653" y="488" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="558" y="580" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="653" y="580" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="558" y="672" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<rect x="653" y="672" width="50" height="34" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<text x="410.0" y="840" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">점선 = 돌담 · 작은 네모 = 나머지 묘광 22기 (7호 포함 23기)</text>
+<text x="410.0" y="878" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(실제 위치·크기가 아니라 구성만 보인 그림)</text>
+<rect x="800" y="196" width="740" height="224" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="800.5" y="196.5" width="739" height="58" fill="#ccf6ff"/>
+<text x="824" y="236.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">생김새</text>
+<text x="824" y="299" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">언덕 위에 돌담을 쌓아 묘역을 셋으로 나눔</text>
+<text x="824" y="340.2" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">자갈로 덮은 돌무지무덤 · 대부분 화장</text>
+<text x="824" y="381.4" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">인골 144구 넘게 확인</text>
+<rect x="800" y="439.6" width="740" height="182" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="800.5" y="440.1" width="739" height="58" fill="#ccf6ff"/>
+<text x="824" y="480.1" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">나온 물건</text>
+<text x="824" y="542.6" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">비파형 동검 · 창 · 청동 팔찌</text>
+<text x="824" y="583.8000000000001" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">돌 거푸집 · 대롱구슬 같은 장신구</text>
+<rect x="800" y="642.0" width="740" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="824" y="688.0" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">해석은 두 갈래</text>
+<text x="824" y="734.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">순장설 — 7호 주인을 위해 많은 사람을 함께 묻음</text>
+<text x="824" y="774.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">반론 — 강제로 죽인 흔적이 없어 순장이 아니라고 봄</text>
+<line x1="1170" y1="794.0" x2="1170" y2="826.0" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="1170" y="868.0" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">어느 쪽이든 수장 집단의 우월한 지위 → 계층 분화</text>
+</svg>

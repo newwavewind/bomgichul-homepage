@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>훈련도감(1593)</title>
+<desc>1593년 설치부터 1746년 『속대전』에 오르기까지의 흐름과, 포수·살수·사수의 삼수병, 급료를 받는 직업 군인이라는 특징을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">훈련도감(1593)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">선조 26년, 임진왜란 중에 세운 직업 군인 부대</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">세워지고 자리 잡기까지</text>
+<rect x="60" y="245" width="800" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="295.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1593. 8 선조의 명 — 임시 기구로 설치</text>
+<line x1="460.0" y1="327" x2="460.0" y2="361" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="365" width="800" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="415.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1593.10 유성룡 건의 — 『기효신서』로 훈련</text>
+<line x1="460.0" y1="447" x2="460.0" y2="481" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="485" width="800" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="535.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1602 삼수미를 거두어 재정 마련</text>
+<line x1="460.0" y1="567" x2="460.0" y2="601" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="605" width="800" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="655.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1746 영조 22 — 『속대전』에 오른 상설 군영</text>
+<text x="920" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">삼수병 — 세 갈래 병사</text>
+<rect x="920" y="245" width="190" height="170" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1015" y="315" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">포수</text>
+<text x="1015" y="380" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조총</text>
+<rect x="1130" y="245" width="190" height="170" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1225" y="315" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">살수</text>
+<text x="1225" y="380" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">창 · 칼</text>
+<rect x="1340" y="245" width="190" height="170" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1435" y="315" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">사수</text>
+<text x="1435" y="380" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">활</text>
+<rect x="920" y="470" width="620" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="920.5" y="470.5" width="619" height="58" fill="#ccf6ff"/>
+<text x="944" y="510" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">직업 군인</text>
+<text x="950" y="572" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 급료: 한 달에 쌀 6말</text>
+<text x="950" y="624" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 교대 없이 늘 근무</text>
+<text x="950" y="676" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 양인이 돌아가며 서던</text>
+<text x="968" y="728" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">의무병과 성격이 다름</text>
+<text x="60" y="935" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">임진왜란에서 조총의 위력을 겪은 뒤, 총 · 창 · 활을 나누어 익히는 상비군을 만든 것이다.</text>
+</svg>

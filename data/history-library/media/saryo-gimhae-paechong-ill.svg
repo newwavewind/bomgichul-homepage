@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>김해 회현리 조개더미 — 쌓인 쓰레기가 남긴 기록</title>
+<desc>왼쪽은 흙층 사이에 조개껍데기 층이 쌓이고 그 속에 뼈와 토기가 남은 조개더미의 단면, 오른쪽은 이곳에서 나온 화천·탄화미·타날문토기가 각각 무엇을 알려 주는지 정리한 카드, 아래는 1907년 발견부터 2000년 김해 봉황동 유적 지정까지의 흐름.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">김해 회현리 조개더미 — 쌓인 쓰레기가 남긴 기록</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경상남도 김해시 봉황대 언덕 · 원삼국시대~삼국시대</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="196" width="640" height="520" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="196.5" width="639" height="58" fill="#ccf6ff"/>
+<text x="84" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조개더미의 단면</text>
+<rect x="100" y="270" width="340" height="60" fill="#e8dcc0" stroke="#a08850" stroke-width="1"/>
+<text x="460" y="310.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">흙</text>
+<rect x="100" y="330" width="340" height="90" fill="#f7f3ea" stroke="#a08850" stroke-width="1"/>
+<path d="M109 350.0 Q 118 334.0 127 350.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M132 387.0 Q 141 371.0 150 387.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M155 364.0 Q 164 348.0 173 364.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M178 401.0 Q 187 385.0 196 401.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M201 378.0 Q 210 362.0 219 378.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M224 355.0 Q 233 339.0 242 355.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M247 392.0 Q 256 376.0 265 392.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M270 369.0 Q 279 353.0 288 369.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M293 406.0 Q 302 390.0 311 406.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M316 383.0 Q 325 367.0 334 383.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M339 360.0 Q 348 344.0 357 360.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M362 397.0 Q 371 381.0 380 397.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M385 374.0 Q 394 358.0 403 374.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M408 351.0 Q 417 335.0 426 351.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<text x="460" y="385.0" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조개껍데기 층</text>
+<rect x="100" y="420" width="340" height="50" fill="#e8dcc0" stroke="#a08850" stroke-width="1"/>
+<text x="460" y="455.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">흙</text>
+<rect x="100" y="470" width="340" height="100" fill="#f7f3ea" stroke="#a08850" stroke-width="1"/>
+<path d="M119 490.0 Q 128 474.0 137 490.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M142 527.0 Q 151 511.0 160 527.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M165 494.0 Q 174 478.0 183 494.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M188 531.0 Q 197 515.0 206 531.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M211 498.0 Q 220 482.0 229 498.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M234 535.0 Q 243 519.0 252 535.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M257 502.0 Q 266 486.0 275 502.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M280 539.0 Q 289 523.0 298 539.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M303 506.0 Q 312 490.0 321 506.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M326 543.0 Q 335 527.0 344 543.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M349 510.0 Q 358 494.0 367 510.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M372 547.0 Q 381 531.0 390 547.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M395 514.0 Q 404 498.0 413 514.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<path d="M418 551.0 Q 427 535.0 436 551.0 Z" fill="#ffffff" stroke="#9aa3a6" stroke-width="1.2"/>
+<text x="460" y="530.0" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조개껍데기 층</text>
+<rect x="100" y="570" width="340" height="40" fill="#d8c8a0" stroke="#a08850" stroke-width="1"/>
+<text x="460" y="600.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">바닥 흙</text>
+<rect x="200" y="360" width="34" height="12" rx="6" fill="#ece4d0" stroke="#7a6a50" stroke-width="1.5"/>
+<path d="M250 496 l40 0 l-6 26 l-28 0 z" fill="#c98a5a" stroke="#7a4a2a" stroke-width="1.5"/>
+<text x="196" y="352" font-size="24" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">뼈</text>
+<text x="300" y="556" font-size="24" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">토기 조각</text>
+<text x="90" y="648" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조개껍데기의 석회 성분 덕분에</text>
+<text x="90" y="690" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">뼈 · 토기 같은 유물이 잘 남는다</text>
+<rect x="740" y="196" width="800" height="156" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="900" y="254" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">화천(貨泉)</text>
+<text x="900" y="296" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중국 신(新)나라의 돈</text>
+<text x="900" y="334" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 바다 건너 중국과 교역</text>
+<circle cx="820" cy="274" r="50" fill="#9fc4b0" stroke="#4f7a64" stroke-width="2"/>
+<rect x="805" y="259" width="30" height="30" fill="#ffffff" stroke="#4f7a64" stroke-width="2"/>
+<text x="852" y="285" font-size="26" fill="#2f5040" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">貨</text>
+<text x="788" y="285" font-size="26" fill="#2f5040" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">泉</text>
+<rect x="740" y="372" width="800" height="156" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="900" y="430" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">탄화미(炭化米)</text>
+<text x="900" y="472" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">불에 타 숯처럼 된 쌀</text>
+<text x="900" y="510" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 벼농사를 지었다</text>
+<ellipse cx="784" cy="436" rx="10" ry="15" fill="#3a3330" transform="rotate(-20 784 436)"/>
+<ellipse cx="808" cy="436" rx="10" ry="15" fill="#3a3330" transform="rotate(3 808 436)"/>
+<ellipse cx="832" cy="436" rx="10" ry="15" fill="#3a3330" transform="rotate(-14 832 436)"/>
+<ellipse cx="856" cy="436" rx="10" ry="15" fill="#3a3330" transform="rotate(9 856 436)"/>
+<ellipse cx="784" cy="464" rx="10" ry="15" fill="#3a3330" transform="rotate(-8 784 464)"/>
+<ellipse cx="808" cy="464" rx="10" ry="15" fill="#3a3330" transform="rotate(15 808 464)"/>
+<ellipse cx="832" cy="464" rx="10" ry="15" fill="#3a3330" transform="rotate(-2 832 464)"/>
+<rect x="740" y="548" width="800" height="156" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="900" y="606" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">타날문토기</text>
+<text x="900" y="648" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">두드려 만든 토기</text>
+<text x="900" y="686" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 이곳에서 많이 나옴</text>
+<path d="M780 586 L860 586 L850 636 Q 820 678 790 636 Z" fill="#b9b2a6" stroke="#6b645a" stroke-width="2"/>
+<line x1="786" y1="592" x2="792" y2="640" stroke="#6b645a" stroke-width="1.2"/>
+<line x1="801" y1="592" x2="806" y2="640" stroke="#6b645a" stroke-width="1.2"/>
+<line x1="816" y1="592" x2="820" y2="640" stroke="#6b645a" stroke-width="1.2"/>
+<line x1="831" y1="592" x2="834" y2="640" stroke="#6b645a" stroke-width="1.2"/>
+<line x1="846" y1="592" x2="848" y2="640" stroke="#6b645a" stroke-width="1.2"/>
+<rect x="60" y="744" width="1480" height="188" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="800" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1907년</text>
+<text x="240" y="800" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">처음 발견 — 「김해패총」으로 불림</text>
+<text x="90" y="854" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">2000년</text>
+<text x="240" y="854" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">봉황대 유적과 묶어 「김해 봉황동 유적」(사적)이 됨</text>
+<text x="90" y="908" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">의미</text>
+<text x="240" y="908" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">금관가야의 중심 거주지로 여겨짐</text>
+</svg>

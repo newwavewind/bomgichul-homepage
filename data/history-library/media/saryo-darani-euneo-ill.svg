@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>다라니 은어 풀이</title>
+<desc>진성여왕 때 길에 뿌려진 다라니 꼴 은어를 여섯 마디로 나누어 원문과 풀이를 나란히 놓고, 아래에 왕거인 투옥과 당시 혼란을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">다라니 은어 풀이</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">진성여왕 때 길에 뿌려진 숨은 말과 그 뜻 — 『삼국유사』 권2</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">숨은 말(원문)</text>
+<text x="560" y="222" font-size="30" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">풀이하는 이들이 읽은 뜻</text>
+<rect x="60" y="250" width="1480" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="84" y="294" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">南無亡國</text>
+<text x="330" y="294" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">나무망국</text>
+<line x1="500" y1="283" x2="545" y2="283" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<text x="560" y="294" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">「나무」(귀의한다)에 「망국」을 붙임 — 나라가 망한다</text>
+<rect x="60" y="326" width="1480" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="84" y="370" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">刹尼那帝</text>
+<text x="330" y="370" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">찰니나제</text>
+<line x1="500" y1="359" x2="545" y2="359" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<text x="560" y="370" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">여주(女主), 곧 진성여왕</text>
+<rect x="60" y="402" width="1480" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="84" y="446" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">判尼判尼蘇判尼</text>
+<text x="330" y="446" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">판니판니소판니</text>
+<line x1="500" y1="435" x2="545" y2="435" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<text x="560" y="446" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">두 소판 — 소판은 벼슬 이름(위홍 등)</text>
+<rect x="60" y="478" width="1480" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="84" y="522" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">于于三阿干</text>
+<text x="330" y="522" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">우우삼아간</text>
+<line x1="500" y1="511" x2="545" y2="511" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<text x="560" y="522" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">왕이 아끼는 서너 명의 신하</text>
+<rect x="60" y="554" width="1480" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="84" y="598" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">鳧伊</text>
+<text x="330" y="598" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">부이</text>
+<line x1="500" y1="587" x2="545" y2="587" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<text x="560" y="598" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">부호(鳧好) 부인 — 왕의 유모</text>
+<rect x="60" y="630" width="1480" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="84" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">娑婆訶</text>
+<text x="330" y="674" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사바하</text>
+<line x1="500" y1="663" x2="545" y2="663" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<text x="560" y="674" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">주문을 끝맺는 말</text>
+<rect x="60" y="720" width="700" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="410.0" y="769.72" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">왕과 권신: 왕거인이 지었다며 옥에 가둠</text>
+<rect x="840" y="720" width="700" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1190.0" y="769.72" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">888년 무렵부터 세금이 끊기고 봉기가 잇따름</text>
+<text x="800" y="856" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">다라니는 불교 주문. 주문 꼴을 빌려 정치를 비꼰 글이다.</text>
+</svg>

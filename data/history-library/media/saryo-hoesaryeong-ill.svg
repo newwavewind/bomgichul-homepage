@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>회사령(1910~1920) — 회사 설립을 허가제로 묶다</title>
+<desc>위는 회사를 세우려면 조선 총독의 허가를 받아야 하고 조건을 어기면 사업 정지·금지·지점 폐쇄·해산까지 명할 수 있게 한 회사령의 흐름도와, 정관을 만들고 등기만 하면 되던 일본 상법의 자유 설립과의 비교, 아래는 한국 안에 본점을 둔 회사 수를 1911년과 1920년에 민족별로 견준 막대그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<radialGradient id="glow"><stop offset="0" stop-color="#00d0ff" stop-opacity="0.55"/><stop offset="0.45" stop-color="#00d0ff" stop-opacity="0.2"/><stop offset="1" stop-color="#00d0ff" stop-opacity="0"/></radialGradient>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60.0" y="92.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">회사령(1910~1920) — 회사 설립을 허가제로 묶다</text>
+<text x="60.0" y="140.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1910년 12월 29일 제령 제13호 · 1911년 1월 1일부터 1920년 3월 31일까지 시행</text>
+<text x="1540.0" y="92.0" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="196" width="300" height="196" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="196.5" width="299" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">회사 설립 신청</text>
+<text x="84.0" y="299.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조선 밖 회사의</text>
+<text x="84.0" y="340.2" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">본점 · 지점 설치도 (제2조)</text>
+<line x1="368" y1="294" x2="420" y2="294" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="428" y="196" width="330" height="196" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="428.5" y="196.5" width="329" height="58" fill="#ccf6ff"/>
+<text x="452.0" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조선 총독의 허가</text>
+<text x="452.0" y="299.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">허가를 받아야</text>
+<text x="452.0" y="340.2" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">회사를 세움 (제1조)</text>
+<line x1="766" y1="294" x2="818" y2="294" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="826" y="196" width="714" height="196" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="826.5" y="196.5" width="713" height="58" fill="#ccf6ff"/>
+<text x="850.0" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">허가 조건 · 공공질서 · 풍속 위반 때 (제5조)</text>
+<text x="850.0" y="299.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사업 정지 · 금지, 지점 폐쇄,</text>
+<text x="850.0" y="340.2" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">회사 해산까지 명령할 수 있음</text>
+<rect x="60" y="420" width="1480" height="128" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90.0" y="470.0" font-size="30" fill="#5d6365" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">일본 「상법」</text>
+<text x="340.0" y="470.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">자유 설립 — 정관을 만들고 등기만 하면 회사가 생김</text>
+<text x="90.0" y="520.0" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조선 「회사령」</text>
+<text x="340.0" y="520.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">허가주의 — 총독이 허가하지 않으면 회사를 세울 수 없음</text>
+<rect x="60" y="576" width="1480" height="356" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90.0" y="624.0" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">한국 안에 본점을 둔 회사 수</text>
+<text x="1510.0" y="624.0" font-size="26" fill="#5d6365" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">단위: 개 · 합동 설립 회사는 뺌</text>
+<text x="90.0" y="728.0" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1911</text>
+<text x="200.0" y="708.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한국인</text>
+<rect x="300" y="684" width="51" height="34" fill="#00d0ff" fill-opacity="0.55" stroke="#0096b8" stroke-width="0.8"/>
+<text x="363.3" y="710.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'SF Mono','Menlo','Consolas',monospace" font-weight="700">27</text>
+<text x="200.0" y="758.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일본인</text>
+<rect x="300" y="734" width="207" height="34" fill="#c9b8ff" fill-opacity="0.6" stroke="#7a62d6" stroke-width="0.8"/>
+<text x="519.1" y="760.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'SF Mono','Menlo','Consolas',monospace" font-weight="700">109</text>
+<text x="90.0" y="856.0" font-size="32" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1920</text>
+<text x="200.0" y="836.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한국인</text>
+<rect x="300" y="812" width="188" height="34" fill="#00d0ff" fill-opacity="0.55" stroke="#0096b8" stroke-width="0.8"/>
+<text x="500.1" y="838.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'SF Mono','Menlo','Consolas',monospace" font-weight="700">99</text>
+<text x="200.0" y="886.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일본인</text>
+<rect x="300" y="862" width="787" height="34" fill="#c9b8ff" fill-opacity="0.6" stroke="#7a62d6" stroke-width="0.8"/>
+<text x="1098.6" y="888.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'SF Mono','Menlo','Consolas',monospace" font-weight="700">414</text>
+<text x="1510.0" y="790.0" font-size="27" fill="#7a62d6" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">일본인 회사는 거의 다 허가</text>
+<text x="1510.0" y="830.0" font-size="27" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조선인 회사는 엄격히 규제 · 해산 명령</text>
+</svg>

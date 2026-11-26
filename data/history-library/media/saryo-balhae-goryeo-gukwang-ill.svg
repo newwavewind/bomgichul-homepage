@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>발해 무왕이 일본에 보낸 국서</title>
+<desc>발해 무왕 국서의 핵심 구절 두 개와, 무왕 즉위부터 727년 일본에 첫 사신을 보내기까지의 배경을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">발해 무왕이 일본에 보낸 국서</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『속일본기』 신귀 5년(728) 정월 기사에 실린 국서</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="700" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="699" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">국서에서 스스로 밝힌 뿌리</text>
+<text x="90" y="315" font-size="40" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">復高麗之舊居</text>
+<text x="90" y="360" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">고구려(고려)의 옛 땅을 되찾음</text>
+<text x="90" y="440" font-size="40" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">有扶餘之遺俗</text>
+<text x="90" y="485" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">부여의 풍속을 이어 가짐</text>
+<rect x="60" y="570" width="700" height="150" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="630" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 발해가 고구려를 이은 나라임을 밝힘</text>
+<text x="90" y="680" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『속일본기』도 발해를 「옛 고려국」이라 적음</text>
+<rect x="60" y="755" width="700" height="137" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="812" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">보낸 사람: 무왕 대무예(武藝)</text>
+<text x="90" y="860" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">아들 문왕 대에도 일본과 사신이 여러 차례 오감</text>
+<rect x="820" y="205" width="720" height="104" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="845" y="248" font-size="24" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">719년</text>
+<text x="845" y="287" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">무왕 즉위, 영역을 넓힘</text>
+<line x1="1180" y1="311" x2="1180" y2="343" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="820" y="347" width="720" height="104" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="845" y="411" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">당과 흑수말갈이 가까워짐</text>
+<line x1="1180" y1="453" x2="1180" y2="485" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="820" y="489" width="720" height="104" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="845" y="553" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">신라를 견제할 상대가 필요해짐</text>
+<line x1="1180" y1="595" x2="1180" y2="627" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="820" y="631" width="720" height="104" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="845" y="674" font-size="24" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">727년</text>
+<text x="845" y="713" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">일본에 처음 사신을 보냄</text>
+<line x1="1180" y1="737" x2="1180" y2="769" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="820" y="773" width="720" height="104" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="845" y="816" font-size="24" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">728년 정월</text>
+<text x="845" y="855" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">사신이 국서를 일본 조정에 올림</text>
+</svg>

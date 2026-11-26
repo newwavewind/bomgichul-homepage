@@ -3,12 +3,20 @@ import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
+    "/history/library": ["./data/history-library/*.json.gz"],
+    "/api/pc-access/history-library": ["./data/history-library/records.json.gz"],
+    "/api/pc-access/history-library/media/**": ["./data/history-library/media/*"],
     "/api/exam-sources": ["./data/exam-source-previews.json.gz"],
     "/api/pc-access/study": ["./data/pc-pro-study/*.json.gz"],
     "/api/pc-access/question-data": [
       "./data/pc-pro-notes/*.json.gz", "./data/pc-pro-glossary/*.json.gz", "./data/pc-pro-question-traps.json.gz",
     ],
     "/api/pc-access/lecture/**": ["./data/police-pro-lectures/*.json", "./data/real-estate-pro-lectures/*.json", "./data/firefighter-pro-lectures/*.json"],
+  },
+  outputFileTracingExcludes: {
+    "/history/library": ["./data/history-library/media/**"],
+    "/api/pc-access/history-library": ["./data/history-library/media/**", "./data/history-library/catalogue.json.gz"],
+    "/api/pc-access/history-library/media/**": ["./data/history-library/*.json.gz"],
   },
   async rewrites() {
     return {

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>농경문 청동기 — 앞뒤에 새긴 농사와 새</title>
+<desc>가운데에 방패 모양 청동판의 두 면을 나란히 놓고, 한 면에는 따비로 밭을 가는 사람·괭이를 든 사람·밭고랑, 다른 면에는 나뭇가지 끝에 마주 앉은 새가 새겨졌음을 글로 표시한 모식도, 아래에는 만든 시기·입수 경위·보물 지정을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60.0" y="92.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">농경문 청동기 — 앞뒤에 새긴 농사와 새</text>
+<text x="60.0" y="140.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">방패 모양 청동판에 그림을 새긴 의기(儀器) · 국립중앙박물관 소장</text>
+<text x="1540.0" y="92.0" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="400.0" y="225.0" font-size="31" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">한쪽 면 — 농사짓는 모습</text>
+<path d="M130 290 Q130 250 170 250 L630 250 Q670 250 670 290 L670 620 Q670 650 640 650 L160 650 Q130 650 130 620 Z" fill="#e7efe9" stroke="#2a2c2d" stroke-width="3"/>
+<rect x="180" y="300" width="440" height="80" fill="#ffffff" stroke="#00d0ff"/>
+<text x="400.0" y="352.0" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">따비로 밭을 가는 사람</text>
+<rect x="180" y="410" width="440" height="80" fill="#ffffff" stroke="#00d0ff"/>
+<text x="400.0" y="462.0" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">괭이를 든 사람</text>
+<rect x="180" y="520" width="440" height="80" fill="#ffffff" stroke="#00d0ff"/>
+<text x="400.0" y="572.0" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">밭고랑</text>
+<text x="1200.0" y="225.0" font-size="31" fill="#7a62d6" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">다른 면 — 나뭇가지 위의 새</text>
+<path d="M930 290 Q930 250 970 250 L1430 250 Q1470 250 1470 290 L1470 620 Q1470 650 1440 650 L960 650 Q930 650 930 620 Z" fill="#e7efe9" stroke="#2a2c2d" stroke-width="3"/>
+<line x1="1200" y1="610" x2="1200" y2="470" stroke="#7a5a3a" stroke-width="6"/>
+<line x1="1200" y1="470" x2="1090" y2="420" stroke="#7a5a3a" stroke-width="5"/>
+<line x1="1200" y1="470" x2="1310" y2="420" stroke="#7a5a3a" stroke-width="5"/>
+<circle cx="1090" cy="404" r="15" fill="#7a62d6"/><circle cx="1310" cy="404" r="15" fill="#7a62d6"/>
+<text x="1200.0" y="325.0" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">나뭇가지 끝에 새가 마주 앉음</text>
+<text x="800.0" y="700.0" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">두 면을 함께 보면 → 농사와 제사가 이어져 있었음을 보여 줌</text>
+<text x="800.0" y="742.0" font-size="23" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">※ 위 그림은 새긴 내용을 글로 옮긴 모식도이며, 실제 유물의 선을 따라 그린 것이 아님</text>
+<rect x="60" y="775" width="1480" height="165" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90.0" y="822.0" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">언제</text><text x="220.0" y="822.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서기전 3세기 무렵 — 후기 청동기 ~ 초기 철기 시대</text>
+<text x="90.0" y="867.0" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">어디서</text><text x="220.0" y="867.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1970년 대전의 고철 수집인에게서 사들임 · 출토지는 「대전」이라고만 전함</text>
+<text x="90.0" y="912.0" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">지정</text><text x="220.0" y="912.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">2014년 보물 지정 · 국립중앙박물관 소장</text>
+</svg>

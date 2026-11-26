@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>『별건곤』과 1920~30년대 경성</title>
+<desc>『개벽』 창간과 폐간, 『별건곤』 창간과 종간을 잇는 연표와 잡지의 성격, 백화점·모던 걸 같은 도시 소비문화, 토막민 같은 도시 빈민을 정리한 카드로 된 정리 그림.</desc>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">『별건곤』과 1920~30년대 경성</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">개벽사의 취미 잡지에 비친 도시의 빛과 그늘</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="270" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="100" y1="290" x2="1500" y2="290" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="208" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="208" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1920년</text>
+<text x="208" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">개벽사</text>
+<text x="208" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『개벽』 창간</text>
+<circle cx="504" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="504" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1926. 8.</text>
+<text x="504" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『개벽』</text>
+<text x="504" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">강제 폐간</text>
+<circle cx="800" cy="290" r="12" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<text x="800" y="262" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1926. 11.</text>
+<text x="800" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">『별건곤』 창간</text>
+<text x="800" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">취미·읽을거리 잡지</text>
+<circle cx="1096" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="1096" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1930년대</text>
+<text x="1096" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경성에</text>
+<text x="1096" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">백화점이 늘어남</text>
+<circle cx="1392" cy="290" r="12" fill="#ccf6ff" stroke="#7a62d6" stroke-width="2"/>
+<text x="1392" y="262" font-size="27" fill="#7a62d6" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1934. 7.</text>
+<text x="1392" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">통권 74호로</text>
+<text x="1392" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">종간</text>
+<rect x="60" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="86" y="533" font-size="31" fill="#5d6365" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">어떤 잡지인가</text>
+<text x="90" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">개벽사가 펴낸 월간지</text>
+<text x="90" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『개벽』의 뒤를 이음</text>
+<text x="90" y="746" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">취미·가벼운 읽을거리</text>
+<text x="90" y="800" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사회 문제를 다룬 글도 실림</text>
+<rect x="563" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="563.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="589" y="533" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">도시의 빛</text>
+<text x="593" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">화신백화점 같은</text>
+<text x="593" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">근대 상업 시설</text>
+<text x="593" y="746" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">소비문화가 퍼지고</text>
+<text x="593" y="800" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">모던 걸·모던 보이 등장</text>
+<rect x="1067" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1067.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="1093" y="533" font-size="31" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">도시의 그늘</text>
+<text x="1097" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일자리를 찾아 몰려온</text>
+<text x="1097" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">가난한 사람들</text>
+<text x="1303" y="728" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">↓</text>
+<text x="1097" y="782" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">변두리에 움막을 짓고 삶</text>
+<text x="1097" y="836" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">토막민</text>
+</svg>

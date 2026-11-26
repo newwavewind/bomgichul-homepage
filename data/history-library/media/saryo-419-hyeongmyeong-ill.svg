@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img">
+<title>4 · 19 혁명(1960) — 부정 선거에서 새 정부까지</title>
+<desc>1960년 3·15 부정 선거와 마산 시위, 4월 김주열 시신 발견, 4월 19일 대규모 시위, 4월 25일 대학 교수단 시위, 이승만 하야, 허정 과도 정부와 장면 정부 출범까지를 차례로 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">4 · 19 혁명(1960) — 부정 선거에서 새 정부까지</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">학생과 시민이 이승만 정권의 독재와 3 · 15 부정 선거에 맞섬</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="345" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="232" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1960.3.15</text>
+<text x="232" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">부정 선거</text>
+<text x="232" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정 · 부통령 선거</text>
+<text x="232" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">마산 등에서 항의 시위</text>
+<line x1="408" y1="325" x2="432" y2="325" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="435" y="200" width="345" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="607" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1960.4.11</text>
+<text x="607" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">김주열 시신 발견</text>
+<text x="607" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">마산 앞바다</text>
+<text x="607" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">분노가 전국으로 번짐</text>
+<line x1="783" y1="325" x2="807" y2="325" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="810" y="200" width="345" height="250" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="982" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1960.4.19</text>
+<text x="982" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">대규모 시위</text>
+<text x="982" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">학생이 중심</text>
+<text x="982" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경찰 발포로 많은 희생</text>
+<line x1="1158" y1="325" x2="1182" y2="325" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1185" y="200" width="345" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1357" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1960.4.25</text>
+<text x="1357" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">대학 교수단 시위</text>
+<text x="1357" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">300여 명 행진</text>
+<text x="1357" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">학생 지지 · 사임 요구</text>
+<line x1="800" y1="470" x2="800" y2="520" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="540" width="450" height="170" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="285" y="610" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">이승만 하야</text>
+<text x="285" y="664" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">4월 26일 물러나겠다고 발표</text>
+<line x1="516" y1="625" x2="568" y2="625" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="575" y="540" width="450" height="170" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="610" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">허정 과도 정부</text>
+<text x="800" y="664" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">새 선거 때까지 나라를 맡음</text>
+<line x1="1031" y1="625" x2="1083" y2="625" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1090" y="540" width="450" height="170" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1315" y="610" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">장면 정부</text>
+<text x="1315" y="664" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">의원 내각제 아래 출범</text>
+<rect x="60" y="750" width="1480" height="150" fill="#ffffff" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="800" y="812" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">학생과 시민의 힘으로 독재 정권을 무너뜨린 민주 혁명</text>
+<text x="800" y="858" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">헌법 전문에 「4 · 19 민주 이념을 계승」한다고 적혀 있음</text>
+</svg>

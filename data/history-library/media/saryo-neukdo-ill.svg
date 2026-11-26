@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>사천 늑도 — 바다 건너 물건이 모이던 섬</title>
+<desc>왼쪽 낙랑·중국 쪽에서 온 낙랑계 토기와 청동 거울, 반량전·오수전, 오른쪽 왜(북부 규슈)에서 온 야요이 토기가 가운데 늑도에서 만나는 모습을 화살표로 정리하고, 아래에 저울추·유구·발굴 내력을 적은 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">사천 늑도 — 바다 건너 물건이 모이던 섬</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경상남도 사천의 작은 섬 · 초기 철기 시대 후반(서기전 2~1세기) · 2003년 사적</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="230" width="440" height="265" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="230.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="84" y="270.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">낙랑 · 중국 쪽</text>
+<text x="84" y="333" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">낙랑계 토기</text>
+<text x="84" y="374.2" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">청동 거울</text>
+<text x="84" y="415.4" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">반량전 · 오수전</text>
+<text x="84" y="456.59999999999997" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중국 화폐</text>
+<rect x="1100" y="230" width="440" height="182" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1100.5" y="230.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="1124" y="270.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">왜 (북부 규슈) 쪽</text>
+<text x="1124" y="333" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">야요이 토기</text>
+<text x="1124" y="374.2" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">바다 건너 왜에서 옴</text>
+<circle cx="800" cy="380" r="170" fill="#ffffff" stroke="#0096b8" stroke-width="3"/>
+<text x="800" y="350" font-size="54" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">늑도</text>
+<text x="800" y="400" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">교역 중계지</text>
+<text x="800" y="440" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(국제 무역항)</text>
+<line x1="504" y1="380" x2="622" y2="380" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="1096" y1="380" x2="978" y2="380" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="600" width="700" height="224" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="600.5" width="699" height="58" fill="#ccf6ff"/>
+<text x="84" y="640.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">섬에서 나온 흔적</text>
+<text x="84" y="703" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조개더미 · 집터 · 무덤 · 고상 건물터</text>
+<text x="84" y="744.2" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">흙 · 돌 · 쇠로 만든 저울추</text>
+<text x="84" y="785.4000000000001" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">물건을 달아 사고판 증거</text>
+<rect x="800" y="600" width="740" height="224" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="800.5" y="600.5" width="739" height="58" fill="#ccf6ff"/>
+<text x="824" y="640.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">발굴과 평가</text>
+<text x="824" y="703" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1985~1986년 부산대학교박물관 발굴</text>
+<text x="824" y="744.2" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">2003년 국가 사적 지정</text>
+<text x="824" y="785.4000000000001" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">낙랑과 왜를 잇는 장거리 교역의 길목</text>
+</svg>

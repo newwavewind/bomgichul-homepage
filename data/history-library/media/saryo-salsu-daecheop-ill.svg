@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>을지문덕과 살수 대첩(612)</title>
+<desc>왼쪽은 수 양제의 침입에서 수군이 살수에서 크게 패하기까지의 흐름도, 오른쪽은 을지문덕이 우중문에게 보낸 오언시 네 구절과 그 뜻을 나란히 놓은 정리 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">을지문덕과 살수 대첩(612)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">영양왕 23년, 수 양제의 대군을 물리친 싸움</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="780" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="244" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">수 양제의 대군이 고구려를 침입</text>
+<line x1="450" y1="268" x2="450" y2="292" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="296" width="780" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="340" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">우중문 · 우문술의 9군 30만 5천 명이 압록강을 건넘</text>
+<line x1="450" y1="364" x2="450" y2="388" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="392" width="780" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="436" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">을지문덕이 싸울 때마다 거짓으로 져 줌</text>
+<line x1="450" y1="460" x2="450" y2="484" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="488" width="780" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="532" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">평양성 가까이까지 끌어들임</text>
+<line x1="450" y1="556" x2="450" y2="580" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="584" width="780" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="628" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">우중문에게 시를 보내 조롱</text>
+<line x1="450" y1="652" x2="450" y2="676" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="680" width="780" height="66" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="724" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지친 수군이 물러남</text>
+<line x1="450" y1="748" x2="450" y2="772" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="776" width="780" height="66" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="820" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">7월 살수(지금의 청천강)에서 크게 패함</text>
+<text x="60" y="910" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">요동성까지 살아 돌아간 군사는 2,700명뿐이었다고 전함</text>
+<rect x="900" y="200" width="640" height="740" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="900.5" y="200.5" width="639" height="58" fill="#ccf6ff"/>
+<text x="924" y="240" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">여수장우중문시 (與隋將于仲文詩)</text>
+<text x="940" y="330" font-size="40" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">神策究天文</text>
+<text x="940" y="380" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">신기한 꾀는 하늘의 이치를 꿰뚫고</text>
+<text x="940" y="470" font-size="40" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">妙算窮地理</text>
+<text x="940" y="520" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">오묘한 셈은 땅의 이치를 다 알았네</text>
+<text x="940" y="610" font-size="40" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">戰勝功旣高</text>
+<text x="940" y="660" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">싸움에 이겨 공이 이미 높으니</text>
+<text x="940" y="750" font-size="40" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">知足願云止</text>
+<text x="940" y="800" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">만족함을 알고 그만 그치기를</text>
+<line x1="930" y1="872" x2="1510" y2="872" stroke="#00d0ff" stroke-width="1"/>
+<text x="940" y="915" font-size="26" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">칭찬하는 척 「이제 그만 돌아가라」고 놀린 시</text>
+</svg>

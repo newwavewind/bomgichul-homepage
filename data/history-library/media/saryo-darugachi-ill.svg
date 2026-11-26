@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>다루가치(1232)</title>
+<desc>몽골의 첫 침입 뒤 다루가치가 파견되고 고려가 강화도로 도읍을 옮기고 윤복창이 피살되기까지의 흐름도와, 다루가치의 성격 및 개경 환도 뒤의 모습을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">다루가치(1232)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">고종 19년 전후, 몽골이 고려에 보낸 감독관</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="256" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">몽골의 첫 침입 뒤 강화를 맺음</text>
+<line x1="490" y1="289" x2="490" y2="323" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="327" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="378" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">다루가치 72명이 개경 · 북계 등에 머묾</text>
+<line x1="490" y1="411" x2="490" y2="445" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="449" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="500" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">북계 용강 · 선주에 다루가치 4명이 옴 (1232)</text>
+<line x1="490" y1="533" x2="490" y2="567" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="571" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="622" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">6월 강화도로 도읍을 옮기고 다루가치를 없애려 함</text>
+<line x1="490" y1="655" x2="490" y2="689" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="693" width="860" height="82" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="744" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">7월 윤복창이 선주에서 다루가치에게 피살</text>
+<rect x="980" y="205" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">다루가치란</text>
+<text x="1010" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 몽골이 정복지에 보낸 관리</text>
+<text x="1010" y="363" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 군사 · 행정을 감독</text>
+<text x="1010" y="415" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 한자로 達魯花赤(달로화적)</text>
+<rect x="980" y="484" width="560" height="192" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="484.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="524" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">개경 환도 뒤</text>
+<text x="1010" y="590" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 1270~1278년 개경에 머묾</text>
+<text x="1010" y="642" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 고려 내정에 간섭</text>
+
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">
+<title>정치도감과 기삼만 사건의 흐름</title>
+<rect width="960" height="580" fill="#ffffff"/>
+<text x="480.0" y="52" text-anchor="middle" font-size="30" font-weight="700" fill="#1b2a4a">정치도감과 기삼만 사건 (1347)</text>
+<text x="480.0" y="84" text-anchor="middle" font-size="17" font-weight="400" fill="#5b6475">『고려사절요』 충목왕 3년 · 개혁 기구와 원 세력이 부딪친 사건</text>
+<text x="260" y="128" text-anchor="middle" font-size="20" font-weight="700" fill="#0096d6">고려의 개혁</text>
+<text x="700" y="128" text-anchor="middle" font-size="20" font-weight="700" fill="#5b6475">원의 기구 · 친원 세력</text>
+<rect x="60" y="148" width="400" height="74" rx="10" fill="#ffffff" stroke="#0096d6" stroke-width="2"/>
+<text x="260" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="#0096d6">1347 충목왕</text>
+<text x="260" y="204" text-anchor="middle" font-size="17" font-weight="400" fill="#1b2a4a">정치도감을 둠</text>
+<line x1="260" y1="224" x2="260" y2="240" stroke="#0096d6" stroke-width="3" stroke-linecap="round"/>
+<path d="M254.8 229.2 L260 240 L265.2 229.2" fill="none" stroke="#0096d6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="60" y="242" width="400" height="74" rx="10" fill="#ffffff" stroke="#0096d6" stroke-width="2"/>
+<text x="260" y="272" text-anchor="middle" font-size="18" font-weight="700" fill="#0096d6">조사</text>
+<text x="260" y="298" text-anchor="middle" font-size="17" font-weight="400" fill="#1b2a4a">권세가가 빼앗은 땅·불법</text>
+<line x1="260" y1="318" x2="260" y2="334" stroke="#0096d6" stroke-width="3" stroke-linecap="round"/>
+<path d="M254.8 323.2 L260 334 L265.2 323.2" fill="none" stroke="#0096d6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="60" y="336" width="400" height="74" rx="10" fill="#ffffff" stroke="#0096d6" stroke-width="2"/>
+<text x="260" y="366" text-anchor="middle" font-size="18" font-weight="700" fill="#0096d6">처벌</text>
+<text x="260" y="392" text-anchor="middle" font-size="17" font-weight="400" fill="#1b2a4a">기황후의 친척 동생 기삼만을 매질해 순군옥에 가둠</text>
+<line x1="260" y1="412" x2="260" y2="428" stroke="#0096d6" stroke-width="3" stroke-linecap="round"/>
+<path d="M254.8 417.2 L260 428 L265.2 417.2" fill="none" stroke="#0096d6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="60" y="430" width="400" height="60" rx="10" fill="#e3f5fd" stroke="#0096d6" stroke-width="2"/>
+<text x="260" y="467" text-anchor="middle" font-size="18" font-weight="700" fill="#1b2a4a">기삼만이 스무 날 남짓 만에 옥에서 죽음</text>
+<path d="M462 460 H490 V185" fill="none" stroke="#0096d6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="490" y1="185" x2="516" y2="185" stroke="#0096d6" stroke-width="3" stroke-linecap="round"/>
+<path d="M505.2 190.2 L516 185 L505.2 179.8" fill="none" stroke="#0096d6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="520" y="148" width="380" height="74" rx="10" fill="#f4f6f9" stroke="#5b6475" stroke-width="1.5"/>
+<text x="710" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="#5b6475">반격</text>
+<text x="710" y="204" text-anchor="middle" font-size="16" font-weight="400" fill="#1b2a4a">정동행성 이문소가 정치관 서호·전녹생을 가둠</text>
+<line x1="710" y1="224" x2="710" y2="240" stroke="#5b6475" stroke-width="3" stroke-linecap="round"/>
+<path d="M704.8 229.2 L710 240 L715.2 229.2" fill="none" stroke="#5b6475" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="520" y="242" width="380" height="74" rx="10" fill="#f4f6f9" stroke="#5b6475" stroke-width="1.5"/>
+<text x="710" y="272" text-anchor="middle" font-size="18" font-weight="700" fill="#5b6475">압박</text>
+<text x="710" y="298" text-anchor="middle" font-size="17" font-weight="400" fill="#1b2a4a">원도 사신을 보내 정치관을 매질함</text>
+<line x1="710" y1="318" x2="710" y2="334" stroke="#5b6475" stroke-width="3" stroke-linecap="round"/>
+<path d="M704.8 323.2 L710 334 L715.2 323.2" fill="none" stroke="#5b6475" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="520" y="336" width="380" height="74" rx="10" fill="#f4f6f9" stroke="#5b6475" stroke-width="1.5"/>
+<text x="710" y="366" text-anchor="middle" font-size="18" font-weight="700" fill="#5b6475">결과</text>
+<text x="710" y="392" text-anchor="middle" font-size="17" font-weight="400" fill="#1b2a4a">개혁은 석 달 만에 힘을 잃음</text>
+<rect x="520" y="430" width="380" height="60" rx="10" fill="#f4f6f9" stroke="#5b6475" stroke-width="1.5"/>
+<text x="710" y="467" text-anchor="middle" font-size="18" font-weight="700" fill="#1b2a4a">1349년(충정왕 1) 정치도감 폐지</text>
+<line x1="710" y1="412" x2="710" y2="428" stroke="#5b6475" stroke-width="3" stroke-linecap="round"/>
+<path d="M704.8 417.2 L710 428 L715.2 417.2" fill="none" stroke="#5b6475" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="480" y="560" text-anchor="middle" font-size="16" font-weight="400" fill="#5b6475">원 간섭기에는 개혁이 원과 기황후 일족 같은 친원 세력에 막혀 오래가지 못했다</text>
+</svg>

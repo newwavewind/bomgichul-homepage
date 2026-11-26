@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>팔관회와 국제 교류</title>
+<desc>팔관회의 진행과 1034년 송 상인·동서번·탐라의 토산물 헌상이 관례가 된 흐름도, 참석 세력과 행사의 성격을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">팔관회와 국제 교류</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">개경에서는 11월, 서경에서는 10월에 열린 고려의 국가 행사</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="256" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">11월 팔관회: 왕이 신봉루에서 관리에게 잔치</text>
+<line x1="490" y1="289" x2="490" y2="323" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="327" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="378" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이튿날 대회: 다시 잔치를 내리고 음악 감상</text>
+<line x1="490" y1="411" x2="490" y2="445" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="449" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="500" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1034년(덕종 3) 송 상인·동서번·탐라가 토산물</text>
+<line x1="490" y1="533" x2="490" y2="567" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="571" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="622" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">자리를 주어 함께 음악을 보게 함</text>
+<line x1="490" y1="655" x2="490" y2="689" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="693" width="860" height="82" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="744" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">이후 정해진 절차(관례)가 됨</text>
+<rect x="980" y="205" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">토산물을 바친 이들</text>
+<text x="1010" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 송의 상인</text>
+<text x="1010" y="363" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 동번·서번 (여진)</text>
+<text x="1010" y="415" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 탐라국</text>
+<rect x="980" y="484" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="484.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="524" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">행사의 성격</text>
+<text x="1010" y="590" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 불교 행사</text>
+<text x="1010" y="642" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 토착 신앙의 제사</text>
+<text x="1010" y="694" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 국제 교류와 무역의 기회</text>
+</svg>

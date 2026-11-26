@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>광주 학생 항일 운동 — 나주역에서 전국으로</title>
+<desc>왼쪽은 1929년 10월 30일 나주역 충돌, 11월 3일 광주 학생 시위, 목포·나주를 거쳐 서울(12월 9일)과 전국으로 번진 과정, 신간회 진상 조사와 12월 13일 민중 대회 계획 좌절을 차례로 놓은 연표. 오른쪽은 참가 규모와 시험 단서.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<radialGradient id="glow"><stop offset="0" stop-color="#00d0ff" stop-opacity="0.55"/><stop offset="0.45" stop-color="#00d0ff" stop-opacity="0.2"/><stop offset="1" stop-color="#00d0ff" stop-opacity="0"/></radialGradient>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#ffffff"/>
+<text x="48.0" y="84.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">광주 학생 항일 운동 — 나주역에서 전국으로</text>
+<text x="48.0" y="130.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1929년 10월 나주역 충돌부터 이듬해 초까지 운동이 번져 간 차례</text>
+<text x="1552.0" y="84.0" font-size="26" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">정리 그림</text>
+<rect x="48" y="152" width="64" height="4" fill="#00d0ff"/>
+<line x1="112" y1="154" x2="1552" y2="154" stroke="#2a2c2d" stroke-opacity="0.18" stroke-width="1"/>
+<rect x="48" y="180" width="960" height="770" fill="#ffffff" stroke="#2a2c2d" stroke-opacity="0.55" stroke-width="0.5"/>
+<line x1="94" y1="308" x2="94" y2="778" stroke="#00d0ff" stroke-width="1.5"/>
+<rect x="80" y="226" width="900" height="44" fill="#2a2c2d" fill-opacity="0.04"/>
+<rect x="80" y="226" width="5" height="44" fill="#7a62d6"/>
+<text x="102.0" y="257.0" font-size="26" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">광주에서 시작</text>
+<circle cx="94" cy="308" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="94" cy="308" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="128.0" y="318.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1929. 10. 30.</text>
+<text x="340.0" y="318.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">나주역에서 한일 학생 충돌</text>
+<text x="340.0" y="358.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일본인 학생이 한국인 여학생을 희롱</text>
+<rect x="114" y="392" width="866" height="92" fill="#effbff" stroke="#00d0ff" stroke-width="0.5"/>
+<circle cx="94" cy="418" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="94" cy="418" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="128.0" y="428.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">11. 3.</text>
+<text x="340.0" y="428.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">광주 학생들의 가두 투쟁</text>
+<text x="340.0" y="468.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">광주 고보·광주 사범 학생들이 나섬</text>
+<rect x="80" y="516" width="900" height="44" fill="#2a2c2d" fill-opacity="0.04"/>
+<rect x="80" y="516" width="5" height="44" fill="#7a62d6"/>
+<text x="102.0" y="547.0" font-size="26" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">전국으로 번짐</text>
+<circle cx="94" cy="598" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="94" cy="598" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="128.0" y="608.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">11월</text>
+<text x="340.0" y="608.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">목포·나주 학생들의 시위</text>
+<rect x="114" y="642" width="866" height="92" fill="#effbff" stroke="#00d0ff" stroke-width="0.5"/>
+<circle cx="94" cy="668" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="94" cy="668" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="128.0" y="678.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">12. 9.</text>
+<text x="340.0" y="678.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">서울 학생들이 궐기</text>
+<text x="340.0" y="718.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이어 전국 학교로 시위·동맹 휴학</text>
+<circle cx="94" cy="778" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="94" cy="778" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="128.0" y="788.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">12. 13.</text>
+<text x="340.0" y="788.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">신간회의 민중 대회 계획</text>
+<text x="340.0" y="828.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경찰 탄압으로 간부들이 붙잡힘</text>
+<rect x="1040" y="180" width="512" height="330" fill="#ffffff" stroke="#2a2c2d" stroke-opacity="0.55" stroke-width="0.5"/>
+<rect x="1040.25" y="180.25" width="511.5" height="58" fill="#effbff"/>
+<rect x="1040" y="180" width="5" height="58" fill="#00d0ff"/>
+<line x1="1040" y1="238" x2="1552" y2="238" stroke="#00d0ff" stroke-width="0.5"/>
+<text x="1066.0" y="219.8" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">신간회의 대응</text>
+<circle cx="1072" cy="278.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="288.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">김병로·허헌 등이 진상 조사</text>
+<circle cx="1072" cy="332.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="342.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">12. 13. 민중 대회 계획</text>
+<circle cx="1072" cy="386.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="396.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조병옥·한용운 등 검거</text>
+<rect x="1040" y="542" width="512" height="408" fill="#ffffff" stroke="#2a2c2d" stroke-opacity="0.55" stroke-width="0.5"/>
+<rect x="1040.25" y="542.25" width="511.5" height="58" fill="#effbff"/>
+<rect x="1040" y="542" width="5" height="58" fill="#7a62d6"/>
+<line x1="1040" y1="600" x2="1552" y2="600" stroke="#00d0ff" stroke-width="0.5"/>
+<text x="1066.0" y="581.8" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">규모와 평가</text>
+<circle cx="1072" cy="640.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="650.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">참가 학교 194개</text>
+<circle cx="1072" cy="696.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="706.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">참가 학생 5만 4,000여 명</text>
+<circle cx="1072" cy="752.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="762.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">3·1 운동 이후 최대 민족 운동</text>
+<circle cx="1072" cy="808.3" r="4" fill="#0096b8"/>
+<text x="1088.0" y="818.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1930년 초까지 이어짐</text>
+</svg>

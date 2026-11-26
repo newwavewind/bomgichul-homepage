@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>발해 이불병좌상</title>
+<desc>두 부처가 나란히 앉고 양옆에 협시가 선 이불병좌상의 구성 요소를 도식으로 나타내고, 출토지·소장처·재질·크기와 의미를 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">발해 이불병좌상</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">두 부처가 나란히 앉은 발해의 돌 불상 — 구성 도식</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<ellipse cx="380" cy="490" rx="120" ry="240" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<ellipse cx="600" cy="490" rx="120" ry="240" fill="#ffffff" stroke="#00d0ff" stroke-width="2"/>
+<circle cx="380" cy="420" r="42" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<path d="M300 640 Q305 480 380 470 Q455 480 460 640 Z" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<circle cx="600" cy="420" r="42" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<path d="M520 640 Q525 480 600 470 Q675 480 680 640 Z" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<circle cx="165" cy="520" r="26" fill="#ffffff" stroke="#7a62d6" stroke-width="2"/>
+<rect x="137" y="550" width="56" height="140" rx="20" fill="#ffffff" stroke="#7a62d6" stroke-width="2"/>
+<circle cx="815" cy="520" r="26" fill="#ffffff" stroke="#7a62d6" stroke-width="2"/>
+<rect x="787" y="550" width="56" height="140" rx="20" fill="#ffffff" stroke="#7a62d6" stroke-width="2"/>
+<rect x="230" y="640" width="520" height="90" fill="#ffffff" stroke="#0096b8" stroke-width="2"/>
+<text x="380" y="600" font-size="26" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">석가불</text>
+<text x="600" y="600" font-size="26" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">다보불</text>
+<text x="490" y="695" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">네모난 대좌</text>
+<text x="165" y="725" font-size="24" fill="#7a62d6" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">협시</text>
+<text x="815" y="725" font-size="24" fill="#7a62d6" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">협시</text>
+<text x="490" y="232" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">배 모양 광배 두 개</text>
+<text x="490" y="800" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">※ 실제 모습이 아니라 구성만 나타낸 도식</text>
+<text x="490" y="850" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">높이 29cm · 응회암을 통째로 깎음</text>
+<rect x="960" y="205" width="580" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="960.5" y="205.5" width="579" height="58" fill="#ccf6ff"/>
+<text x="984" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">어디서 나와 어디에 있나</text>
+<text x="984" y="300" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 출토: 중국 지린성 훈춘</text>
+<text x="1004.25" y="350" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">반랍성(팔련성) 터</text>
+<text x="1004.25" y="400" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">= 발해 동경 용원부 유적</text>
+<text x="984" y="450" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 소장: 일본 도쿄국립박물관</text>
+<rect x="960" y="565" width="580" height="327" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="960.5" y="565.5" width="579" height="58" fill="#ccf6ff"/>
+<text x="984" y="605" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">무엇을 새겼나</text>
+<text x="984" y="660" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 『법화경』 견보탑품: 석가불이</text>
+<text x="1003.5" y="710" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">다보탑 안에서 다보불과 나란히 앉음</text>
+<text x="984" y="760" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 동경 용원부에서만 8구 이상 출토</text>
+<text x="984" y="810" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 고구려 불교 미술을 이었다는 평가</text>
+</svg>

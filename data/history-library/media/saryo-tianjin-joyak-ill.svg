@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>톈진 조약(1885)</title>
+<desc>갑신정변 뒤 청과 일본이 맺은 톈진 조약의 두 핵심 조항과, 통지 조항이 청일 전쟁으로 이어진 흐름을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">톈진 조약(1885)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">갑신정변 뒤 청과 일본이 맺은 군대 철수 약속</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="760" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="256" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1884년 갑신정변</text>
+<line x1="440.0" y1="289" x2="440.0" y2="323" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="327" width="760" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="378" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">청·일 군대가 서울에 함께 머묾</text>
+<line x1="440.0" y1="411" x2="440.0" y2="445" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="449" width="760" height="82" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="500" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1885년 톈진 조약 (이홍장·이토)</text>
+<line x1="440.0" y1="533" x2="440.0" y2="567" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="571" width="760" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="622" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1894년 동학 농민 운동 → 청 파병</text>
+<line x1="440.0" y1="655" x2="440.0" y2="689" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="693" width="760" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="744" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일본도 파병 → 청일 전쟁</text>
+<rect x="880" y="205" width="660" height="198" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="880.5" y="205.5" width="659" height="58" fill="#ccf6ff"/>
+<text x="904" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조항 ① 철수</text>
+<text x="910" y="319.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">청은 주둔군을, 일본은 공사관 경비병을</text>
+<text x="910" y="369.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서명한 날부터 넉 달 안에 모두 철수</text>
+<rect x="880" y="433" width="660" height="248" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="880.5" y="433.5" width="659" height="58" fill="#ccf6ff"/>
+<text x="904" y="473" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조항 ② 파병 통지</text>
+<text x="910" y="547.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">앞으로 조선에 파병하려면</text>
+<text x="910" y="597.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">먼저 상대국에 문서로 알림</text>
+<text x="910" y="647.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일이 끝나면 곧 철수</text>
+<rect x="880" y="711" width="660" height="120" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="910" y="761" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">일본이 조선에 군대를 보낼 권리를</text>
+<text x="910" y="805" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">청과 똑같이 얻게 된 셈</text>
+<text x="880" y="960" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조선은 빠진 채 청·일 두 나라끼리 맺은 조약</text>
+</svg>

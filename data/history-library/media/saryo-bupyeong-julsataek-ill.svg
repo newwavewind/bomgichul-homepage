@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>부평 미쓰비시 줄사택</title>
+<desc>1937년 중일 전쟁, 1938년 국가 총동원법, 1939년 모집, 1942년 관 알선, 1944년 국민 징용으로 이어지는 노무 동원 연표와 줄사택의 모습·동원 방식·의미를 정리한 카드로 된 정리 그림.</desc>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">부평 미쓰비시 줄사택</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">전시 노무 동원과 군수 공장 노동자의 집</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="270" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="100" y1="290" x2="1500" y2="290" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="240" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="240" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1937년</text>
+<text x="240" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중일 전쟁</text>
+<circle cx="520" cy="290" r="12" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<text x="520" y="262" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1938년</text>
+<text x="520" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">국가 총동원법</text>
+<text x="520" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">공포</text>
+<circle cx="800" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="800" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1939년</text>
+<text x="800" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">「모집」으로</text>
+<text x="800" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노무 동원 시작</text>
+<circle cx="1080" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="1080" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1942년</text>
+<text x="1080" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">「관 알선」</text>
+<text x="1080" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">행정 기관이 나섬</text>
+<circle cx="1360" cy="290" r="12" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<text x="1360" y="262" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1944년</text>
+<text x="1360" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">「국민 징용」</text>
+<text x="1360" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">강제로 끌어감</text>
+<rect x="60" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="86" y="533" font-size="31" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">줄사택이란</text>
+<text x="90" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">작은 집 여러 채가</text>
+<text x="90" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">한 줄로 길게 붙은</text>
+<text x="90" y="728" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노동자 숙소</text>
+<text x="90" y="800" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">부평의 미쓰비시 공장에서</text>
+<text x="90" y="854" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일하던 조선인이 살았음</text>
+<rect x="563" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="563.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="589" y="533" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">어떻게 데려왔나</text>
+<text x="593" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">기업이 인원을 신청</text>
+<text x="799" y="674" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">↓</text>
+<text x="593" y="728" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">행정 기관이 사람을 모아</text>
+<text x="799" y="782" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">↓</text>
+<text x="593" y="836" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">군수 공장·탄광 등으로 보냄</text>
+<text x="593" y="890" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(나라 안팎 모두)</text>
+<rect x="1066" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1066.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="1092" y="533" font-size="31" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">무엇을 보여 주나</text>
+<text x="1096" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">전쟁 물자를 만드는</text>
+<text x="1096" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">한반도 안의 군수 공장에도</text>
+<text x="1096" y="728" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">강제 동원이 있었음</text>
+<text x="1096" y="800" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">노동자의 생활이 남은</text>
+<text x="1096" y="854" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">강제 동원의 흔적</text>
+</svg>

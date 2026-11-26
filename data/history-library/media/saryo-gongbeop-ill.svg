@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>공법(1444)</title>
+<desc>왼쪽은 땅의 비옥도에 따라 여섯 등급으로 나눈 전분 6등법, 오른쪽은 수확 정도에 따라 상상년 20두에서 하하년 4두까지 아홉 등급으로 나눈 연분 9등법 표.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">공법(1444)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세종 26년, 땅의 등급과 그해 풍흉으로 세금을 정한 법</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="640" height="296" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="639" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">전분 6등법 — 땅의 등급</text>
+<text x="90" y="307" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 땅이 기름진 정도로 1~6등</text>
+<text x="90" y="359" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 여러 도의 땅을 한데 견주어 매김</text>
+<text x="90" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 땅 등급을 바로잡아</text>
+<text x="108" y="463" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세금을 고르게 거둠</text>
+<rect x="60" y="555" width="640" height="296" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="555.5" width="639" height="58" fill="#ccf6ff"/>
+<text x="84" y="595" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">달라진 점</text>
+<text x="90" y="657" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 전에는 해마다 논밭을 살펴</text>
+<text x="108" y="709" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">손실만큼 세금을 깎아 줌</text>
+<text x="90" y="761" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 관리 · 향리 마음대로라 폐단</text>
+<text x="90" y="813" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 공법으로 기준을 정해 고르게</text>
+<rect x="760" y="205" width="780" height="700" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="760.5" y="205.5" width="779" height="58" fill="#ccf6ff"/>
+<text x="784" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">연분 9등법 — 그해 풍흉</text>
+<text x="800" y="305" font-size="25" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">등급</text>
+<text x="1020" y="305" font-size="25" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">수확 (10분 기준)</text>
+<text x="1500" y="305" font-size="25" fill="#5d6365" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1결당 세금</text>
+<rect x="780" y="325" width="740" height="56" fill="#ccf6ff"/>
+<text x="800" y="363" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">상상년</text>
+<text x="1020" y="363" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">10분 모두 거둠</text>
+<text x="1500" y="363" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">20두</text>
+<text x="800" y="425" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">상중년</text>
+<text x="1020" y="425" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">9분</text>
+<text x="1500" y="425" font-size="28" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">18두</text>
+<text x="800" y="487" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">상하년</text>
+<text x="1020" y="487" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">8분</text>
+<text x="1500" y="487" font-size="28" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">16두</text>
+<text x="800" y="549" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중상년</text>
+<text x="1020" y="549" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">7분</text>
+<text x="1500" y="549" font-size="28" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">14두</text>
+<text x="800" y="611" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중중년</text>
+<text x="1020" y="611" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">6분</text>
+<text x="1500" y="611" font-size="28" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">12두</text>
+<text x="800" y="673" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중하년</text>
+<text x="1020" y="673" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">5분</text>
+<text x="1500" y="673" font-size="28" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">10두</text>
+<text x="800" y="735" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">하상년</text>
+<text x="1020" y="735" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">4분</text>
+<text x="1500" y="735" font-size="28" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">8두</text>
+<text x="800" y="797" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">하중년</text>
+<text x="1020" y="797" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">3분</text>
+<text x="1500" y="797" font-size="28" fill="#2a2c2d" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">6두</text>
+<rect x="780" y="821" width="740" height="56" fill="#ccf6ff"/>
+<text x="800" y="859" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">하하년</text>
+<text x="1020" y="859" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">2분</text>
+<text x="1500" y="859" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">4두</text>
+<text x="60" y="950" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">뒤에는 풍흉을 낮춰 보고하는 관행 탓에 하하년 1결 4두로 굳어졌다.</text>
+</svg>

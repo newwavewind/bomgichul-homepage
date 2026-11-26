@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>임꺽정</title>
+<desc>사료가 말하는 도적이 생기는 사슬(재상의 탐욕, 수령의 수탈, 살길 없는 백성)과 임꺽정의 출신·근거지, 1559년부터 1562년 붙잡히기까지의 흐름을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">임꺽정</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">명종 때 황해도 일대에서 관아를 털던 무리의 우두머리</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">사료가 말하는 도적의 뿌리</text>
+<rect x="60" y="245" width="700" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="295.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">재상이 깨끗하지 못함 (탐욕이 풍조)</text>
+<line x1="410.0" y1="327" x2="410.0" y2="361" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="365" width="700" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="415.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">수령이 백성을 긁어 감</text>
+<line x1="410.0" y1="447" x2="410.0" y2="481" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="485" width="700" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="535.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">하소연할 곳 없는 백성 → 도적</text>
+<rect x="820" y="205" width="720" height="350" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="820.5" y="205.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="844" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">누구였나</text>
+<text x="850" y="307" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 양주의 백정 출신</text>
+<text x="850" y="359" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 명종 때 — 흉년, 척신의 횡포</text>
+<text x="868" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(윤원형 · 이량)</text>
+<text x="850" y="463" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 근거지: 황해도 구월산 등지</text>
+<text x="850" y="515" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 관아를 습격하고 창고를 텀</text>
+<text x="60" y="620" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">움직임과 끝</text>
+<rect x="60" y="645" width="460" height="190" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="290" y="710" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1559</text>
+<text x="290" y="770" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">개성 근처에 나타남</text>
+<line x1="522" y1="740" x2="556" y2="740" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="560" y="645" width="460" height="190" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="790" y="710" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1560</text>
+<text x="790" y="770" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서울까지 출몰</text>
+<text x="790" y="812" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">12월 서림 붙잡힘</text>
+<line x1="1022" y1="740" x2="1056" y2="740" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1060" y="645" width="460" height="190" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1290" y="710" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1562. 1</text>
+<text x="1290" y="770" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">황해도 서흥에서 붙잡혀 죽음</text>
+<text x="60" y="920" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조정은 여러 도에 대장을 두어 토벌에 나섰다.</text>
+</svg>

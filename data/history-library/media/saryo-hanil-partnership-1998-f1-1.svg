@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">
+<title>21세기 새로운 한일 파트너십 공동 선언(1998)</title>
+<desc>1998년 10월 도쿄에서 김대중 대통령과 오부치 게이조 총리가 발표한 공동 선언의 핵심과, 뒤이은 일본 대중문화 개방·새 한일 어업 협정·6·15 남북 공동 선언을 잇는 정리 그림.</desc>
+<rect width="960" height="600" fill="#ffffff"/>
+<text x="40" y="58" font-size="30" font-weight="700" fill="#1b2a4a">21세기 새로운 한일 파트너십 공동 선언</text>
+<text x="40" y="92" font-size="19" fill="#4a5876">1998년 10월 · 도쿄 한일 정상 회담</text>
+<text x="920" y="58" font-size="18" fill="#0a8fc2" text-anchor="end">정리 그림</text>
+<line x1="40" y1="112" x2="920" y2="112" stroke="#7fd3f0" stroke-width="1.5"/>
+<rect x="40" y="136" width="250" height="96" rx="10" fill="#e3f5fc" stroke="#7fd3f0"/>
+<text x="165" y="176" font-size="22" font-weight="700" fill="#1b2a4a" text-anchor="middle">김대중 대통령</text>
+<text x="165" y="208" font-size="17" fill="#4a5876" text-anchor="middle">대한민국</text>
+<rect x="670" y="136" width="250" height="96" rx="10" fill="#e3f5fc" stroke="#7fd3f0"/>
+<text x="795" y="176" font-size="22" font-weight="700" fill="#1b2a4a" text-anchor="middle">오부치 게이조 총리</text>
+<text x="795" y="208" font-size="17" fill="#4a5876" text-anchor="middle">일본</text>
+<g stroke="#0a8fc2" stroke-width="2.5" fill="none" stroke-linecap="round">
+<path d="M296 184 H664"/><path d="M306 174 l-10 10 l10 10"/><path d="M654 174 l10 10 l-10 10"/>
+</g>
+<text x="480" y="172" font-size="19" font-weight="700" fill="#0a8fc2" text-anchor="middle">공동 선언 발표</text>
+<rect x="40" y="256" width="880" height="150" rx="10" fill="#ffffff" stroke="#0a8fc2" stroke-width="2"/>
+<text x="64" y="292" font-size="20" font-weight="700" fill="#0a8fc2">선언의 핵심</text>
+<text x="64" y="330" font-size="20" fill="#1b2a4a">· 일본은 식민지 지배로 한국 국민에게 큰 손해와 고통을 준 사실을 받아들이고</text>
+<text x="84" y="358" font-size="20" fill="#1b2a4a"><tspan font-weight="700">통절한 반성과 사죄</tspan>의 뜻을 밝혔다 — 공식 문서에 처음 적힘</text>
+<text x="64" y="392" font-size="20" fill="#1b2a4a">· 두 나라는 과거를 넘어 미래를 향해 함께 협력하기로 약속</text>
+<line x1="70" y1="500" x2="890" y2="500" stroke="#7fd3f0" stroke-width="2"/>
+<g font-size="17" text-anchor="middle">
+<circle cx="140" cy="500" r="10" fill="#0a8fc2"/>
+<text x="140" y="470" font-weight="700" fill="#0a8fc2">1998. 10.</text>
+<text x="140" y="536" fill="#1b2a4a" font-weight="700">공동 선언</text>
+<circle cx="380" cy="500" r="8" fill="#ffffff" stroke="#0a8fc2" stroke-width="2.5"/>
+<text x="380" y="470" font-weight="700" fill="#1b2a4a">1998. 10.</text>
+<text x="380" y="536" fill="#1b2a4a">일본 대중문화</text>
+<text x="380" y="560" fill="#1b2a4a">일부 개방(단계적)</text>
+<circle cx="610" cy="500" r="8" fill="#ffffff" stroke="#0a8fc2" stroke-width="2.5"/>
+<text x="610" y="470" font-weight="700" fill="#1b2a4a">1998. 11.</text>
+<text x="610" y="536" fill="#1b2a4a">새 한일 어업</text>
+<text x="610" y="560" fill="#1b2a4a">협정 서명</text>
+<circle cx="830" cy="500" r="8" fill="#ffffff" stroke="#0a8fc2" stroke-width="2.5"/>
+<text x="830" y="470" font-weight="700" fill="#1b2a4a">2000. 6.</text>
+<text x="830" y="536" fill="#1b2a4a">남북 정상 회담</text>
+<text x="830" y="560" fill="#1b2a4a">6·15 공동 선언</text>
+</g>
+<text x="40" y="440" font-size="16" fill="#4a5876">김대중 정부 때의 흐름</text>
+</svg>

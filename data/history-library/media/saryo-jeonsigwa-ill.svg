@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>전시과의 정비 과정</title>
+<desc>위는 역분전에서 시정·개정·경정 전시과로 이어지는 연표, 아래는 각 단계에서 땅을 나누어 준 기준과 전지·시지의 뜻을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+<filter id="plate" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.2" flood-color="#2a2c2d" flood-opacity="0.16"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">전시과의 정비 과정</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">토지 제도의 흐름 — 역분전에서 경정 전시과까지</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<line x1="120" y1="300" x2="1480" y2="300" stroke="#00d0ff" stroke-width="3"/>
+<circle cx="200" cy="300" r="13" fill="#0096b8"/>
+<text x="200" y="255" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">940</text>
+<text x="200" y="355" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">역분전</text>
+<text x="200" y="395" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">태조 23년</text>
+<circle cx="530" cy="300" r="13" fill="#7a62d6"/>
+<text x="530" y="255" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">976</text>
+<text x="530" y="355" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">시정 전시과</text>
+<text x="530" y="395" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경종 1년</text>
+<circle cx="860" cy="300" r="13" fill="#0096b8"/>
+<text x="860" y="255" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">998</text>
+<text x="860" y="355" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">개정 전시과</text>
+<text x="860" y="395" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">목종 1년</text>
+<circle cx="1150" cy="300" r="13" fill="#00d0ff"/>
+<text x="1150" y="255" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1014 · 1034</text>
+<text x="1150" y="355" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">고쳐 정함</text>
+<text x="1150" y="395" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">현종 · 덕종</text>
+<circle cx="1420" cy="300" r="13" fill="#0096b8"/>
+<text x="1420" y="255" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1076</text>
+<text x="1420" y="355" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">경정 전시과</text>
+<text x="1420" y="395" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">문종 30년</text>
+<rect x="60" y="450" width="455" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="450.5" width="454" height="58" fill="#ccf6ff"/>
+<text x="84" y="490" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">시정 전시과</text>
+<text x="90" y="560" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">관품의 높고 낮음과</text>
+<text x="90" y="612" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">함께 인품을 반영</text>
+<text x="90" y="664" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">직관 · 산관 모두에게</text>
+<text x="90" y="716" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">처음으로 지급</text>
+<rect x="572" y="450" width="455" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="572.5" y="450.5" width="454" height="58" fill="#ccf6ff"/>
+<text x="596" y="490" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">개정 전시과</text>
+<text x="602" y="560" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">인품을 빼고</text>
+<text x="602" y="612" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">관직(관품)만 기준</text>
+<text x="602" y="664" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">전직 · 현직 관리</text>
+<text x="602" y="716" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">모두에게 지급</text>
+<rect x="1085" y="450" width="455" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1085.5" y="450.5" width="454" height="58" fill="#ccf6ff"/>
+<text x="1109" y="490" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">경정 전시과</text>
+<text x="1115" y="560" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">관직을 기준으로</text>
+<text x="1115" y="612" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">현직 관리에게만</text>
+<text x="1115" y="664" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지급</text>
+<text x="1115" y="716" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">— 전시과의 최종 정비</text>
+<rect x="60" y="820" width="1480" height="120" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="868" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">전지(田地)  곡식을 거두는 땅</text>
+<text x="820" y="868" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">시지(柴地)  땔감을 얻는 땅</text>
+<text x="90" y="915" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">관리 · 군인 · 서리 등에게 등급에 따라 두 가지 땅을 함께 나누어 줌</text>
+</svg>

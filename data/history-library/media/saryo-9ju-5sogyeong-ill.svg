@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>신문왕의 9주 5소경(685)</title>
+<desc>9주를 옛 신라·가야, 옛 고구려, 옛 백제 땅으로 나누어 세 묶음으로 보이고, 오른쪽에 5소경과 지금 지명, 아래에 685년 완비와 757년 이름 고침을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">신문왕의 9주 5소경(685)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">통일 뒤 넓어진 땅을 고르게 다스리려 갖춘 지방 제도</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">9주 (757년 경덕왕이 고친 이름까지)</text>
+<rect x="60" y="250" width="305" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="250.5" width="304" height="57" fill="#ccf6ff"/>
+<text x="84" y="290" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">옛 신라 · 가야 땅</text>
+<text x="90" y="352" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사벌주 → 상주</text>
+<text x="90" y="398" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">삽량주 → 양주</text>
+<text x="90" y="444" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">청주(菁州) → 강주</text>
+<rect x="390" y="250" width="305" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="390.5" y="250.5" width="304" height="57" fill="#ccf6ff"/>
+<text x="414" y="290" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">옛 고구려 땅</text>
+<text x="420" y="352" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한산주 → 한주</text>
+<text x="420" y="398" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">수약주 → 삭주</text>
+<text x="420" y="444" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">하서주 → 명주</text>
+<rect x="720" y="250" width="305" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="720.5" y="250.5" width="304" height="57" fill="#ccf6ff"/>
+<text x="744" y="290" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">옛 백제 땅</text>
+<text x="750" y="352" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">웅천주 → 웅주</text>
+<text x="750" y="398" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">완산주 → 전주</text>
+<text x="750" y="444" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">무진주 → 무주</text>
+<text x="60" y="548" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 땅을 고르게 나누어 옛 세 나라 땅에 3주씩 둠</text>
+<text x="60" y="590" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 685년 완산주를 다시 두고 청주를 떼어 두어 9주 완비</text>
+<text x="60" y="632" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 주의 우두머리는 총관(뒤에 도독)</text>
+<rect x="1100" y="200" width="440" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1100.5" y="200.5" width="439" height="57" fill="#ccf6ff"/>
+<text x="1124" y="240" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">5소경 — 작은 서울</text>
+<text x="1130" y="302" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">국원소경 → 충주</text>
+<text x="1130" y="358" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">북원소경 → 원주</text>
+<text x="1130" y="414" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">금관소경 → 김해</text>
+<text x="1130" y="470" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">서원소경 → 청주(淸州)</text>
+<text x="1130" y="526" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">남원소경 → 남원</text>
+<text x="1130" y="582" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">우두머리는 사신(仕臣)</text>
+<text x="1130" y="630" font-size="23" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">보라색은 685년에 새로 둔 곳</text>
+<rect x="60" y="690" width="1480" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="740" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">왜 두었나</text>
+<text x="90" y="790" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경주(금성)가 나라의 동남쪽 끝에 치우쳐 있어, 교통의 요지에 작은 서울을 두어 보완</text>
+<text x="90" y="836" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남원소경에는 여러 주 · 군의 백성을 옮겨 나누어 살게 함</text>
+<text x="90" y="882" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">757년(경덕왕 16) 주 · 소경 · 군 · 현 이름을 중국식으로 고침</text>
+</svg>

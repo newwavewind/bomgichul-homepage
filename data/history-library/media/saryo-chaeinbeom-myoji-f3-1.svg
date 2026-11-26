@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">
+<title>채인범 묘지명 — 광종이 받아들인 송나라 사람</title>
+<desc>채인범이 970년 송 사신을 따라 고려에 와 광종에게 벼슬을 받고, 성종 때 상서예부시랑이 되었다가 998년 죽고 1024년 묘지명이 만들어진 흐름과 광종의 귀화인 등용을 정리한 그림</desc>
+<rect width="960" height="600" fill="#ffffff"/>
+<text x="40" y="62" font-size="32" fill="#1c2b4a" text-anchor="start" font-weight="700">채인범 묘지명</text>
+<text x="40" y="98" font-size="19" fill="#55627a" text-anchor="start">광종이 받아들인 송나라 천주 사람</text>
+<text x="920" y="62" font-size="17" fill="#00a3d9" text-anchor="end" font-weight="700">정리 그림</text>
+<line x1="40" y1="118" x2="920" y2="118" stroke="#00a3d9" stroke-width="2"/>
+<rect x="40" y="160" width="880" height="175" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<line x1="70" y1="230" x2="890" y2="230" stroke="#00a3d9" stroke-width="3"/>
+<circle cx="152" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="152" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">970 (광종 21)</text>
+<text x="152" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">송 사신을 따라</text>
+<text x="152" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">고려에 옴</text>
+<circle cx="316" cy="230" r="11" fill="#00a3d9" stroke="#00a3d9" stroke-width="3"/>
+<text x="316" y="206" font-size="18" fill="#00a3d9" text-anchor="middle" font-weight="700">광종</text>
+<text x="316" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle" font-weight="700">예빈성 낭중</text>
+<text x="316" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">집·땅·노비 받음</text>
+<circle cx="480" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="480" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">성종</text>
+<text x="480" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">상서예부시랑</text>
+<circle cx="644" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="644" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">998</text>
+<text x="644" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">세상을 떠남</text>
+<circle cx="808" cy="230" r="11" fill="#00a3d9" stroke="#00a3d9" stroke-width="3"/>
+<text x="808" y="206" font-size="18" fill="#00a3d9" text-anchor="middle" font-weight="700">1024</text>
+<text x="808" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle" font-weight="700">무덤을 옮기며</text>
+<text x="808" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">묘지명 새김</text>
+<rect x="40" y="370" width="280" height="170" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="40" y="370" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="40" y="400" width="280" height="16" fill="#e3f6fd"/>
+<text x="180" y="401" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">광종의 개혁</text>
+<text x="60" y="450" font-size="17" fill="#1c2b4a" text-anchor="start">노비안검법</text>
+<text x="60" y="478" font-size="17" fill="#1c2b4a" text-anchor="start">과거제</text>
+<text x="60" y="506" font-size="17" fill="#1c2b4a" text-anchor="start">→ 호족 누르고 왕권 강화</text>
+<rect x="340" y="370" width="280" height="170" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="340" y="370" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="340" y="400" width="280" height="16" fill="#e3f6fd"/>
+<text x="480" y="401" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">귀화인 등용</text>
+<text x="360" y="450" font-size="17" fill="#1c2b4a" text-anchor="start">중국에서 온 사람을</text>
+<text x="360" y="478" font-size="17" fill="#1c2b4a" text-anchor="start">새 관리로 씀</text>
+<text x="360" y="506" font-size="17" fill="#1c2b4a" text-anchor="start">쌍기, 채인범 등</text>
+<rect x="640" y="370" width="280" height="170" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="640" y="370" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="640" y="400" width="280" height="16" fill="#e3f6fd"/>
+<text x="780" y="401" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">묘지명</text>
+<text x="660" y="450" font-size="17" fill="#1c2b4a" text-anchor="start">현존 가장 오래된</text>
+<text x="660" y="478" font-size="17" fill="#1c2b4a" text-anchor="start">고려 묘지명</text>
+<text x="660" y="506" font-size="17" fill="#1c2b4a" text-anchor="start">국립중앙박물관 소장</text>
+<text x="480" y="570" font-size="16" fill="#55627a" text-anchor="middle">송나라 천주 사람이 고려의 관리로 일생을 마침</text>
+</svg>

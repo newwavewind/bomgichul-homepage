@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>탕평비(1742)</title>
+<desc>탕평비에 새긴 글귀를 군자의 공정한 마음과 소인의 사사로운 생각 두 줄로 나누어 풀이하고, 비를 세운 때·곳·뜻을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">탕평비(1742)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">영조 18년, 성균관 반수교 위에 세운 비</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">비에 새긴 두 구절</text>
+<rect x="60" y="245" width="900" height="210" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="100" y="340" font-size="56" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">周而弗比</text>
+<text x="100" y="405" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">두루 어울리되 치우치지 않음</text>
+<line x1="964" y1="350" x2="1016" y2="350" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1020" y="245" width="520" height="210" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1280" y="325" font-size="30" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">군자의</text>
+<text x="1280" y="390" font-size="36" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">公心 공정한 마음</text>
+<rect x="60" y="495" width="900" height="210" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="100" y="590" font-size="56" fill="#5d6365" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">比而弗周</text>
+<text x="100" y="655" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한쪽에 치우쳐 두루 어울리지 못함</text>
+<line x1="964" y1="600" x2="1016" y2="600" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1020" y="495" width="520" height="210" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1280" y="575" font-size="30" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">소인의</text>
+<text x="1280" y="640" font-size="36" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">私意 사사로운 생각</text>
+<rect x="60" y="740" width="1480" height="170" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="740.5" width="1479" height="58" fill="#ccf6ff"/>
+<text x="84" y="780" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">세운 뜻</text>
+<text x="90" y="842" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 『논어』 위정편 구절을 영조가 고쳐 짓고 직접 씀 — 장차 관리가 될 유생에게 편을 가르지 말라고 알림</text>
+<text x="60" y="960" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">영조는 즉위 직후인 1725년부터 붕당을 누르고 인재를 고루 쓰는 탕평책을 폈다.</text>
+</svg>

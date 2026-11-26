@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">
+<title>두모진 해관 수세(1878)</title>
+<desc>1876년 강화도 조약과 무관세 무역, 1878년 9월 두모진 해관 수세, 일본의 항의와 군함 시위, 12월 수세 중단, 1882년 조미 조약 관세 조항, 1883년 조일 통상 장정과 해관 설치를 잇는 연표</desc>
+<rect width="960" height="600" fill="#ffffff"/>
+<text x="40" y="62" font-size="32" fill="#1c2b4a" text-anchor="start" font-weight="700">두모진 해관 수세</text>
+<text x="40" y="98" font-size="19" fill="#55627a" text-anchor="start">1878년 · 관세를 되찾으려던 첫 시도</text>
+<text x="920" y="62" font-size="17" fill="#00a3d9" text-anchor="end" font-weight="700">정리 그림</text>
+<line x1="40" y1="118" x2="920" y2="118" stroke="#00a3d9" stroke-width="2"/>
+<rect x="40" y="160" width="880" height="175" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<line x1="70" y1="230" x2="890" y2="230" stroke="#00a3d9" stroke-width="3"/>
+<circle cx="152" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="152" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">1876</text>
+<text x="152" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">강화도 조약</text>
+<text x="152" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">무관세 무역</text>
+<circle cx="316" cy="230" r="11" fill="#00a3d9" stroke="#00a3d9" stroke-width="3"/>
+<text x="316" y="206" font-size="18" fill="#00a3d9" text-anchor="middle" font-weight="700">1878. 9. 28.</text>
+<text x="316" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle" font-weight="700">두모진 해관</text>
+<text x="316" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">세금 거두기</text>
+<circle cx="480" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="480" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">그 뒤</text>
+<text x="480" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">일본 항의</text>
+<text x="480" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">군함 무력 시위</text>
+<circle cx="644" cy="230" r="11" fill="#00a3d9" stroke="#00a3d9" stroke-width="3"/>
+<text x="644" y="206" font-size="18" fill="#00a3d9" text-anchor="middle" font-weight="700">1878. 12. 26.</text>
+<text x="644" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle" font-weight="700">두모진 수세</text>
+<text x="644" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">중단</text>
+<circle cx="808" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="808" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">1882~1883</text>
+<text x="808" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">관세 조항</text>
+<text x="808" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">개항장 해관</text>
+<rect x="40" y="370" width="280" height="170" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="40" y="370" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="40" y="400" width="280" height="16" fill="#e3f6fd"/>
+<text x="180" y="401" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">누구에게서 거뒀나</text>
+<text x="60" y="450" font-size="17" fill="#1c2b4a" text-anchor="start">부산 두모진에서</text>
+<text x="60" y="478" font-size="17" fill="#1c2b4a" text-anchor="start">일본 상인과 거래하는</text>
+<text x="60" y="506" font-size="17" fill="#1c2b4a" text-anchor="start">조선 상인에게서</text>
+<rect x="340" y="370" width="280" height="170" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="340" y="370" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="340" y="400" width="280" height="16" fill="#e3f6fd"/>
+<text x="480" y="401" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">일본의 주장</text>
+<text x="360" y="450" font-size="17" fill="#1c2b4a" text-anchor="start">조약 위반이다</text>
+<text x="360" y="478" font-size="17" fill="#1c2b4a" text-anchor="start">→ 군함을 보내</text>
+<text x="360" y="506" font-size="17" fill="#1c2b4a" text-anchor="start">무력으로 압박</text>
+<rect x="640" y="370" width="280" height="170" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="640" y="370" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="640" y="400" width="280" height="16" fill="#e3f6fd"/>
+<text x="780" y="401" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">관세를 되찾기까지</text>
+<text x="660" y="450" font-size="17" fill="#1c2b4a" text-anchor="start">1882 조·미 조약: 첫 관세</text>
+<text x="660" y="478" font-size="17" fill="#1c2b4a" text-anchor="start">1883 조·일 통상 장정</text>
+<text x="660" y="506" font-size="17" fill="#1c2b4a" text-anchor="start">인천·부산 등에 해관</text>
+<text x="480" y="570" font-size="16" fill="#55627a" text-anchor="middle">무관세 무역은 7년 가까이 이어졌다</text>
+</svg>

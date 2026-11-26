@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>미쓰야 협정(1925)과 만주의 3부</title>
+<desc>위는 1920년대 중반 만주의 참의부·정의부·신민부, 가운데는 1925년 미쓰야 협정의 내용, 아래는 3부 통합 운동으로 이어진 흐름을 정리한 도식.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">미쓰야 협정(1925)과 만주의 3부</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">일본(조선 총독부)과 만주 군벌이 맺은 한국인 단속 협정</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="196" width="480" height="150" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="300" y="256" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">참의부</text>
+<text x="300" y="306" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1924 · 임시 정부 직할</text>
+<rect x="560" y="196" width="480" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="256" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">정의부</text>
+<text x="800" y="306" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1924 · 남만주</text>
+<rect x="1060" y="196" width="480" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1300" y="256" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">신민부</text>
+<text x="1300" y="306" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1925 · 북만주</text>
+<text x="800" y="392" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">동포 사회를 다스리며 독립군을 기름</text>
+<rect x="60" y="430" width="1480" height="250" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<rect x="110" y="470" width="400" height="90" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="310" y="525" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">일본(조선 총독부)</text>
+<rect x="1090" y="470" width="400" height="90" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1290" y="525" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">만주의 중국 군벌</text>
+<text x="800" y="512" font-size="36" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1925 미쓰야 협정</text>
+<line x1="520" y1="515" x2="640" y2="515" stroke="#0096b8" stroke-width="2"/>
+<line x1="960" y1="515" x2="1080" y2="515" stroke="#0096b8" stroke-width="2"/>
+<text x="800" y="620" font-size="32" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">중국 관헌이 한국 독립운동가를 붙잡아 → 일본에 넘긴다</text>
+<line x1="800" y1="680" x2="800" y2="730" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="736" width="1480" height="90" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="794" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">독립군은 일본과 중국 관헌 양쪽의 단속을 받아 활동이 크게 위축됨</text>
+<line x1="800" y1="826" x2="800" y2="866" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="800" y="920" font-size="31" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">3부 통합 운동 → 1929년 남만주의 국민부 등으로 다시 묶임</text>
+</svg>

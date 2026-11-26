@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>국민 기초 생활 보장법(1999)</title>
+<desc>왼쪽은 생활 보호법 제정에서 외환 위기, 국민 기초 생활 보장법의 제정과 시행까지의 흐름도, 오른쪽은 이 법의 일곱 가지 급여와 목적 조문을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">국민 기초 생활 보장법(1999)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">외환 위기 뒤 만든 공공 부조의 마지막 안전망</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="251" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1961년 생활 보호법 제정</text>
+<line x1="490" y1="284" x2="490" y2="318" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="322" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="373" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1997년 외환 위기 → 실업 · 빈곤이 크게 늘어남</text>
+<line x1="490" y1="406" x2="490" y2="440" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="444" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="495" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1999. 9. 7. 국민 기초 생활 보장법 제정</text>
+<line x1="490" y1="528" x2="490" y2="562" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="566" width="860" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="617" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">2000. 10. 1. 시행 · 생활 보호법 폐지</text>
+<line x1="490" y1="650" x2="490" y2="684" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="688" width="860" height="82" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="739" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">최저 생활 보장 + 자활(스스로 일어섬) 돕기</text>
+<rect x="980" y="205" width="560" height="330" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">일곱 가지 급여</text>
+<text x="1010" y="310" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 생계 · 주거 · 의료</text>
+<text x="1010" y="360" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 교육 · 해산 · 장제</text>
+<text x="1010" y="410" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">· 자활</text>
+<text x="1010" y="460" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(장제: 장례를 치르는 데 드는 비용)</text>
+<rect x="980" y="575" width="560" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="575.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="615" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">제1조(목적)에 담긴 뜻</text>
+<text x="1010" y="680" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 생활이 어려운 사람에게</text>
+<text x="1036" y="730" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">필요한 급여를 줌</text>
+<text x="1010" y="780" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">· 가난을 나라가 함께 책임짐</text>
+<text x="1010" y="830" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 일할 수 있으면 자활을 도움</text>
+</svg>

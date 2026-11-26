@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>설총의 「화왕계」</title>
+<desc>꽃의 왕 화왕(모란)을 가운데 두고, 아름다운 장미와 바른말 하는 할미꽃(백두옹)이 찾아온 우화의 구도와, 신문왕이 이를 경계로 삼은 흐름을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">설총의 「화왕계」</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">신문왕에게 들려준 꽃나라 우화</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="560" y="205" width="480" height="190" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="800" y="262" font-size="34" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">화왕(花王) = 모란</text>
+<text x="800" y="312" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">꽃의 왕</text>
+<text x="800" y="358" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 임금(신문왕)을 빗댐</text>
+<rect x="60" y="450" width="640" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="450.5" width="639" height="58" fill="#ccf6ff"/>
+<text x="84" y="490" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">장미(薔薇)</text>
+<text x="84" y="560" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 고운 모습으로 왕을 찾아옴</text>
+<text x="84" y="610" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 달콤한 말로 곁에 있기를 청함</text>
+<text x="84" y="660" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 아첨하는 신하를 빗댐</text>
+<rect x="900" y="450" width="640" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="900.5" y="450.5" width="639" height="58" fill="#ccf6ff"/>
+<text x="924" y="490" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">할미꽃(백두옹, 白頭翁)</text>
+<text x="924" y="560" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 소박한 차림으로 찾아옴</text>
+<text x="924" y="610" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 왕에게 바른말로 일깨움</text>
+<text x="924" y="660" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 곧고 바른 신하를 빗댐</text>
+<line x1="700" y1="575" x2="800" y2="400" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="900" y1="575" x2="800" y2="400" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="740" width="1480" height="152" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="797" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">신문왕이 재미있는 이야기를 청함  →  설총이 들려준 우화  →  왕이 글로 써서 뒤의 임금이 경계로 삼게 함</text>
+<text x="90" y="852" font-size="25" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">출전: 『삼국사기』 권46 설총전(제목 없이 실림)  ·  설총: 원효의 아들, 우리말로 9경을 읽어 가르침</text>
+</svg>

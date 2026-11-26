@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>정묘호란(1627)</title>
+<desc>1623년 인조반정 뒤 친명배금 정책에서 1627년 후금 침입, 의주·안주·평양·황주로 내려온 길, 인조의 강화도 피란, 형제 관계 화의, 1636년 병자호란으로 이어진 흐름을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">정묘호란(1627)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">인조 5년, 후금이 침입해 형제 관계를 맺은 전쟁</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">원인</text>
+<rect x="60" y="245" width="700" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="293.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1623 인조반정 — 서인 정권</text>
+<line x1="410.0" y1="323" x2="410.0" y2="353" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="357" width="700" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="405.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">친명배금 · 가도의 모문룡 지원</text>
+<line x1="410.0" y1="435" x2="410.0" y2="465" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="469" width="700" height="76" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="517.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1627. 1 후금 침입 (아민, 3만)</text>
+<text x="820" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">후금군이 내려온 길</text>
+<rect x="820" y="245" width="150" height="76" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="895" y="293" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">의주</text>
+<line x1="972" y1="283" x2="996" y2="283" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1000" y="245" width="150" height="76" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1075" y="293" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">안주</text>
+<line x1="1152" y1="283" x2="1176" y2="283" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1180" y="245" width="150" height="76" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1255" y="293" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">평양</text>
+<line x1="1332" y1="283" x2="1356" y2="283" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1360" y="245" width="150" height="76" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1435" y="293" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">황주</text>
+<rect x="820" y="370" width="720" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="820.5" y="370.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="844" y="410" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">조선의 대응</text>
+<text x="850" y="472" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 인조는 강화도로 피란</text>
+<text x="850" y="524" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 정봉수 · 이립 등 의병이</text>
+<text x="868" y="576" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">후금군의 뒤를 침</text>
+<text x="60" y="690" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">결과</text>
+<rect x="60" y="715" width="700" height="190" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="410" y="785" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1627. 3. 3 화의</text>
+<text x="410" y="850" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">두 나라를 형제의 나라로 일컬음</text>
+<line x1="764" y1="810" x2="816" y2="810" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="820" y="715" width="720" height="190" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1180" y="785" font-size="30" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">관계가 나빠짐</text>
+<text x="1180" y="850" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">→ 1636 병자호란</text>
+<text x="60" y="955" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">맹약문에는 서로 국경을 지키고 억지 요구를 하지 않는다는 약속이 담겼다.</text>
+</svg>

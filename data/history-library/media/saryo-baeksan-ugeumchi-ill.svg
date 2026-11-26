@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>백산 봉기와 우금치</title>
+<desc>1894년 고부 봉기부터 백산 봉기, 2차 봉기와 우금치 전투에 이르는 흐름과 백산 4대 강령을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">백산 봉기와 우금치</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1894년 동학 농민 운동 — 1차 봉기에서 2차 봉기의 패배까지</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="225" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1894년의 흐름</text>
+<rect x="60" y="250" width="260" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="190" y="302" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">고부 봉기</text>
+<text x="190" y="350" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">시작</text>
+<line x1="324" y1="315" x2="356" y2="315" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="360" y="250" width="260" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="490" y="302" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">무장 창의문</text>
+<text x="490" y="350" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">전봉준 발표</text>
+<line x1="624" y1="315" x2="656" y2="315" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="660" y="250" width="260" height="130" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="790" y="302" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">백산 봉기</text>
+<text x="790" y="350" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">4대 강령</text>
+<line x1="924" y1="315" x2="956" y2="315" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="960" y="250" width="260" height="130" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1090" y="302" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">2차 봉기</text>
+<text x="1090" y="350" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남접 · 북접</text>
+<line x1="1224" y1="315" x2="1256" y2="315" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="1260" y="250" width="260" height="130" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1390" y="302" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">우금치 전투</text>
+<text x="1390" y="350" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">공주, 패배</text>
+<path d="M60 400 V412 H880 V400" fill="none" stroke="#5d6365" stroke-width="1.5"/>
+<path d="M960 400 V412 H1520 V400" fill="none" stroke="#5d6365" stroke-width="1.5"/>
+<text x="470" y="446" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1차 봉기 (봄)</text>
+<text x="1240" y="446" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">2차 봉기 (가을)</text>
+<rect x="60" y="490" width="1480" height="320" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="490.5" width="1479" height="58" fill="#ccf6ff"/>
+<text x="84" y="530" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">백산 4대 강령 — 동도대장 전봉준</text>
+<text x="90" y="596" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1. 사람을 죽이지 말고 재물을 해치지 말 것</text>
+<text x="90" y="650" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">2. 충효를 다해 세상을 구하고 백성을 편안히 할 것  (보국안민)</text>
+<text x="90" y="704" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">3. 일본 오랑캐를 몰아낼 것  (반침략)</text>
+<text x="90" y="758" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">4. 서울로 올라가 권세 있는 자들을 없앨 것  (반봉건)</text>
+<rect x="60" y="860" width="1480" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="800" y="910" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">지역 민란 → 반봉건 · 반침략 운동으로 확대 → 우금치에서 꺾임</text>
+</svg>

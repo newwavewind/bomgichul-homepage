@@ -2,6 +2,7 @@
 
 import type { PcStudyOffer } from "@/lib/pc-access/study-features";
 import { useMemo } from "react";
+import { HistoryLibraryLinks } from "@/components/history/library/HistoryLibraryLinks";
 import { SubjectLearningCard } from "@/components/study/SubjectLearningCard";
 
 import type { ExamTrackConfig, ExamTrackManifestItem } from "@/lib/exam-track/types";
@@ -15,7 +16,7 @@ function SubjectCard({
   subject: ExamTrackManifestItem;
   offers?: PcStudyOffer[];
 }) {
-  return <SubjectLearningCard label={subject.label} badge={subject.track} examCount={subject.examCount} examHref={`${track.basePath}/exam/${subject.id}`} cellOffers={offers} dailyHref={`${track.basePath}/daily?subject=${encodeURIComponent(subject.id)}`} />;
+  return <SubjectLearningCard label={subject.label} badge={subject.track} examCount={subject.examCount} examHref={`${track.basePath}/exam/${subject.id}`} cellOffers={offers} extraActions={track.id === "history" && subject.id === "simhwa" ? <HistoryLibraryLinks /> : undefined} dailyHref={`${track.basePath}/daily?subject=${encodeURIComponent(subject.id)}`} />;
 
 }
 

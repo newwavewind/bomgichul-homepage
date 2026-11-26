@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>매소성 전투(675) — 나당 전쟁의 분수령</title>
+<desc>위는 당의 한반도 지배 시도, 675년 매소성 전투에서 이근행의 당군 20만을 몰아내고 전마 30,380필을 얻은 일, 기벌포 해전에서 설인귀의 당군을 격파한 일, 당군이 한반도에서 물러난 흐름도. 아래는 660년 백제 멸망, 668년 고구려 멸망, 670년 나당 전쟁 시작, 675년 매소성 전투, 676년 기벌포 해전까지의 연표.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">매소성 전투(675) — 나당 전쟁의 분수령</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">신라가 당군을 몰아내고 삼국 통일을 지켜 낸 7년 전쟁</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="340" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="190.5" width="339" height="58" fill="#ccf6ff"/>
+<text x="230.0" y="230.5" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">당의 야심</text>
+<text x="230.0" y="300" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">백제 · 고구려 멸망 뒤</text>
+<text x="230.0" y="342" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한반도 전체를</text>
+<text x="230.0" y="384" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지배하려 함</text>
+<line x1="405" y1="315" x2="435" y2="315" stroke="#0096b8" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="440" y="190" width="340" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="2.5"/>
+<rect x="440.5" y="190.5" width="339" height="58" fill="#00d0ff"/>
+<text x="610.0" y="230.5" font-size="32" fill="#ffffff" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">매소성 전투</text>
+<text x="610.0" y="300" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">675년 9월 29일</text>
+<text x="610.0" y="342" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">이근행의 당군 20만 격퇴</text>
+<text x="610.0" y="384" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">전마 30,380필 획득</text>
+<line x1="785" y1="315" x2="815" y2="315" stroke="#0096b8" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="820" y="190" width="340" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="820.5" y="190.5" width="339" height="58" fill="#ccf6ff"/>
+<text x="990.0" y="230.5" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">기벌포 해전</text>
+<text x="990.0" y="300" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">676년</text>
+<text x="990.0" y="342" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">설인귀의 당군을</text>
+<text x="990.0" y="384" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">금강 하구에서 격파</text>
+<line x1="1165" y1="315" x2="1195" y2="315" stroke="#0096b8" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="1200" y="190" width="340" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1200.5" y="190.5" width="339" height="58" fill="#ccf6ff"/>
+<text x="1370.0" y="230.5" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">당군 철수</text>
+<text x="1370.0" y="300" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">보급이 끊긴 당군이</text>
+<text x="1370.0" y="342" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">북쪽으로 물러남</text>
+<text x="1370.0" y="384" font-size="28" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 한반도에서 철수</text>
+<rect x="60" y="464" width="1480" height="80" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="515" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">매소성 승리로 당의 육군이 꺾이고, 기벌포에서 수군까지 꺾이며 전쟁이 끝남</text>
+<rect x="60" y="568" width="1480" height="372" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="96" y1="610" x2="96" y2="898" stroke="#00d0ff" stroke-width="1.5"/>
+<circle cx="96" cy="610" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="96" cy="610" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="132" y="619" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">660년</text>
+<text x="240" y="619" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">백제 멸망</text>
+<text x="470" y="619" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">나 · 당 연합군의 공격</text>
+<circle cx="96" cy="682" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="96" cy="682" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="132" y="691" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">668년</text>
+<text x="240" y="691" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">고구려 멸망</text>
+<text x="470" y="691" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">나 · 당 연합군이 평양성 함락</text>
+<circle cx="96" cy="754" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="96" cy="754" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="132" y="763" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">670년</text>
+<text x="240" y="763" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">나당 전쟁 시작</text>
+<text x="470" y="763" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">신라가 당군과 맞서 싸움을 시작</text>
+<rect x="120" y="796" width="1396" height="60" fill="#effbff" stroke="#00d0ff" stroke-width="0.5"/>
+<circle cx="96" cy="826" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="96" cy="826" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="132" y="835" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">675년</text>
+<text x="240" y="835" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">매소성 전투</text>
+<text x="470" y="835" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이근행의 당군 20만을 몰아냄</text>
+<circle cx="96" cy="898" r="7" fill="#00d0ff" stroke="#ffffff" stroke-width="2"/><circle cx="96" cy="898" r="8.5" fill="none" stroke="#2a2c2d" stroke-width="0.6"/>
+<text x="132" y="907" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">676년</text>
+<text x="240" y="907" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">기벌포 해전</text>
+<text x="470" y="907" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">설인귀의 당군을 격파 → 전쟁 끝</text>
+</svg>

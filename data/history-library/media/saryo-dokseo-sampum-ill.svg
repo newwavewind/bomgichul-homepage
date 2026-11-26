@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>원성왕의 독서삼품과(788)</title>
+<desc>활쏘기로 사람을 뽑던 방식에서 유교 경전 독서 수준에 따라 상품·중품·하품으로 나누어 뽑는 방식으로 바뀐 흐름과 등급별 읽은 책을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">원성왕의 독서삼품과(788)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">책 읽은 정도를 세 등급으로 나누어 벼슬길에 내보냄</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="420" height="120" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="270" y="255" font-size="28" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이전</text>
+<text x="270" y="300" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">활쏘기로 사람을 뽑음</text>
+<line x1="270" y1="327" x2="270" y2="383" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="387" width="420" height="150" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="270" y="440" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">788년(원성왕 4) 봄</text>
+<text x="270" y="488" font-size="36" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">독서삼품과</text>
+<text x="270" y="522" font-size="24" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(독서출신과)</text>
+<rect x="60" y="580" width="420" height="312" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="580.5" width="419" height="58" fill="#ccf6ff"/>
+<text x="84" y="620" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">제도의 성격</text>
+<text x="84" y="682" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 다루는 책이 국학 교재와</text>
+<text x="103.5" y="732" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">거의 겹침</text>
+<text x="84" y="782" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 국학 학생의 졸업 시험과</text>
+<text x="103.5" y="832" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">같은 성격으로 보는 견해가 많음</text>
+<rect x="540" y="205" width="1000" height="192" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="540" y="205" width="150" height="192" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="615" y="313.0" font-size="34" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">상품</text>
+<text x="720" y="261" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『춘추좌씨전』·『예기』·『문선』을</text>
+<text x="720" y="305" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">읽어 뜻을 꿰뚫고</text>
+<text x="720" y="349" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『논어』·『효경』에도 밝음</text>
+<rect x="540" y="419" width="1000" height="104" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="540" y="419" width="150" height="104" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="615" y="483.0" font-size="34" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">중품</text>
+<text x="720" y="475" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『곡례』·『논어』·『효경』을 읽음</text>
+<rect x="540" y="545" width="1000" height="104" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="540" y="545" width="150" height="104" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="615" y="609.0" font-size="34" fill="#2a2c2d" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">하품</text>
+<text x="720" y="601" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『곡례』·『효경』을 읽음</text>
+<rect x="540" y="681" width="1000" height="140" fill="#ffffff" stroke="#7a62d6" stroke-width="1.5"/>
+<text x="570" y="733" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">등급을 뛰어넘어 뽑음</text>
+<text x="570" y="783" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">5경 · 3사 · 제자백가에 두루 통한 사람</text>
+</svg>

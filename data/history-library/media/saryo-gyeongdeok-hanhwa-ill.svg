@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>경덕왕의 한화 정책(757 · 759)</title>
+<desc>757년 월봉 폐지와 녹읍 부활, 주 이름을 중국식으로 고친 예, 759년 관직 이름을 고친 예를 표로 정리하고, 776년 혜공왕이 옛 이름으로 되돌린 것을 덧붙인 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">경덕왕의 한화 정책(757 · 759)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">당의 제도를 본떠 이름을 바꾸고, 귀족에게 녹읍을 돌려주다</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="700" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="699" height="57" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">757년 ① 관리의 보수</text>
+<text x="90" y="307" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">안팎 관리의 월봉(달마다 주는 곡식) 폐지</text>
+<text x="90" y="357" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">녹읍을 다시 줌 — 689년 폐지 뒤 68년 만</text>
+<text x="90" y="407" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 진골 귀족의 경제 기반이 되살아남</text>
+<rect x="60" y="485" width="700" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="485.5" width="699" height="57" fill="#ccf6ff"/>
+<text x="84" y="525" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">757년 ② 땅 이름을 중국식으로</text>
+<text x="100" y="600" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사벌주</text>
+<line x1="400" y1="590" x2="470" y2="590" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="490" y="600" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">상주</text>
+<text x="100" y="680" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">삽량주</text>
+<line x1="400" y1="670" x2="470" y2="670" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="490" y="680" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">양주</text>
+<text x="100" y="760" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한산주</text>
+<line x1="400" y1="750" x2="470" y2="750" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="490" y="760" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">한주</text>
+<text x="100" y="840" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">주 · 소경 · 군 · 현</text>
+<line x1="400" y1="830" x2="470" y2="830" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="490" y="840" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">중국식 한자 이름</text>
+<rect x="820" y="205" width="720" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="820.5" y="205.5" width="719" height="57" fill="#ccf6ff"/>
+<text x="844" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">759년 ③ 관직 이름을 중국식으로</text>
+<text x="860" y="330" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">병부 · 창부의 경 · 감</text>
+<line x1="1230" y1="320" x2="1300" y2="320" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="1320" y="330" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">시랑</text>
+<text x="860" y="420" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대사</text>
+<line x1="1230" y1="410" x2="1300" y2="410" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="1320" y="420" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">낭중</text>
+<text x="860" y="510" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대부분의 관청 · 관직</text>
+<line x1="1230" y1="500" x2="1300" y2="500" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<text x="1320" y="510" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">당식 이름</text>
+<rect x="820" y="685" width="720" height="250" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="850" y="740" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">그 뒤</text>
+<text x="850" y="792" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">혜공왕 때(776) 관직 이름을 옛것으로 되돌림</text>
+<text x="850" y="840" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">왕권 강화의 개혁은 오래가지 못하고</text>
+<text x="850" y="888" font-size="27" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">귀족의 힘이 다시 커지는 흐름으로</text>
+</svg>

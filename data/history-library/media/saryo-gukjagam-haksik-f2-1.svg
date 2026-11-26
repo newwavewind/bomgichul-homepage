@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">
+<title>인종 때 국자감 경사 6학과 입학 자격</title>
+<desc>식목도감이 정한 학식에 따라 국자감을 유학부(국자학·태학·사문학)와 기술학부(율학·서학·산학)로 나누고, 아버지 품계에 따라 들어갈 학교가 달랐음을 정리한 표.</desc>
+<rect width="960" height="640" fill="#ffffff"/>
+<text x="40" y="58" font-size="30" font-weight="700" fill="#1b2a4a">국자감 경사 6학 — 누가 어디에 들어가나</text>
+<text x="40" y="92" font-size="19" fill="#4a5876">고려 인종 때 식목도감이 정한 학식(學式)</text>
+<text x="920" y="58" font-size="18" fill="#0a8fc2" text-anchor="end">정리 그림</text>
+<line x1="40" y1="112" x2="920" y2="112" stroke="#7fd3f0" stroke-width="1.5"/>
+<rect x="40" y="132" width="880" height="44" fill="#0a8fc2"/>
+<g font-size="19" font-weight="700" fill="#ffffff"><text x="60" y="161">갈래</text><text x="200" y="161">학교</text><text x="360" y="161">입학 자격 (주로 아버지·할아버지의 품계)</text></g>
+<rect x="40" y="176" width="880" height="282" fill="#ffffff" stroke="#7fd3f0"/>
+<rect x="40" y="176" width="130" height="282" fill="#e3f5fc" stroke="#7fd3f0"/>
+<text x="105" y="306" font-size="20" font-weight="700" fill="#1b2a4a" text-anchor="middle">유학부</text>
+<text x="105" y="334" font-size="15" fill="#4a5876" text-anchor="middle">유교 경전</text>
+<line x1="170" y1="270" x2="920" y2="270" stroke="#7fd3f0"/><line x1="170" y1="364" x2="920" y2="364" stroke="#7fd3f0"/>
+<g font-size="21" font-weight="700" fill="#0a8fc2"><text x="200" y="220">국자학</text><text x="200" y="314">태학</text><text x="200" y="408">사문학</text></g>
+<g font-size="18" fill="#1b2a4a">
+<text x="360" y="214"><tspan font-weight="700">문무관 3품 이상</tspan>의 아들·손자</text>
+<text x="360" y="244" font-size="15" fill="#4a5876">훈관 2품으로 현공 이상인 자, 경관 4품으로 3품 이상 훈봉을 지닌 자의 아들</text>
+<text x="360" y="308"><tspan font-weight="700">문무관 5품 이상</tspan>의 아들·손자</text>
+<text x="360" y="338" font-size="15" fill="#4a5876">정·종 3품관의 증손, 훈관 3품 이상으로 봉작이 있는 자의 아들</text>
+<text x="360" y="402"><tspan font-weight="700">문무관 7품 이상</tspan>의 아들</text>
+<text x="360" y="432" font-size="15" fill="#4a5876">훈관 3품 이상으로 봉작이 없는 자, 4품으로 봉작이 있는 자의 아들</text>
+</g>
+<rect x="40" y="458" width="880" height="100" fill="#ffffff" stroke="#7fd3f0"/>
+<rect x="40" y="458" width="130" height="100" fill="#e3f5fc" stroke="#7fd3f0"/>
+<text x="105" y="502" font-size="20" font-weight="700" fill="#1b2a4a" text-anchor="middle">기술학부</text>
+<text x="105" y="530" font-size="15" fill="#4a5876" text-anchor="middle">실무 기술</text>
+<text x="200" y="500" font-size="21" font-weight="700" fill="#0a8fc2">율학·서학·산학</text>
+<text x="200" y="532" font-size="15" fill="#4a5876">법률 · 글씨 · 셈</text>
+<text x="360" y="500" font-size="18" fill="#1b2a4a"><tspan font-weight="700">8품 이하 관리의 아들</tspan>과 서인(평민)</text>
+<text x="360" y="530" font-size="15" fill="#4a5876">입학 대상이 유학부보다 훨씬 넓음</text>
+<g stroke="#0a8fc2" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M80 600 H880 m-12 -9 l12 9 l-12 9"/></g>
+<text x="80" y="590" font-size="16" fill="#1b2a4a">높은 품계</text>
+<text x="880" y="590" font-size="16" fill="#1b2a4a" text-anchor="end">낮은 품계·평민</text>
+<text x="480" y="628" font-size="16" fill="#4a5876" text-anchor="middle">아버지의 품계가 높을수록 위쪽 학교에 들어감 — 신분에 따른 교육</text>
+</svg>

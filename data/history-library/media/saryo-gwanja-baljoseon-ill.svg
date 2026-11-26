@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>『관자』의 발 · 조선 — 문피로 알려진 나라</title>
+<desc>왼쪽은 제나라(관중·환공), 오른쪽은 8천 리 밖의 발·조선을 두고 그 사이를 문피(무늬 있는 가죽)가 오가는 모습을 화살표로 나타내고, 아래에 규도편·경중갑편의 내용과 책이 쓰인 시기의 문제를 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60.0" y="92.0" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">『관자』의 발 · 조선 — 문피로 알려진 나라</text>
+<text x="60.0" y="140.0" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">고조선에 관한 가장 이른 기록 가운데 하나</text>
+<text x="1540.0" y="92.0" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="520" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="200.5" width="519" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="240.0" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">제(齊)나라</text>
+<text x="84.0" y="304.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">재상 관중 · 군주 환공의</text>
+<text x="84.0" y="348.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">문답 형식을 빌린 책 『관자』</text>
+<text x="84.0" y="392.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(서기전 7세기의 인물)</text>
+<rect x="1020" y="200" width="520" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1020.5" y="200.5" width="519" height="58" fill="#ccf6ff"/>
+<text x="1044.0" y="240.0" font-size="31" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">발(發) · 조선(朝鮮)</text>
+<text x="1044.0" y="304.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">제나라에서 8천 리 떨어진</text>
+<text x="1044.0" y="348.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">곳으로 적힘</text>
+<text x="1044.0" y="392.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">특산물: 문피(무늬 있는 가죽)</text>
+<line x1="1010" y1="300" x2="592" y2="300" stroke="#7a62d6" stroke-width="3" marker-end="url(#ahl)"/>
+<text x="800.0" y="285.0" font-size="34" fill="#7a62d6" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">문피</text>
+<text x="800.0" y="345.0" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">제나라에 알려진 귀한 물품</text>
+<line x1="592" y1="400" x2="1010" y2="400" stroke="#0096b8" stroke-width="2" stroke-dasharray="8 6" marker-end="url(#ah)"/>
+<text x="800.0" y="388.0" font-size="24" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">교역 · 조공 관계의 상대로 언급</text>
+<rect x="60" y="490" width="720" height="260" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="490.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="84.0" y="530.0" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">규도편 (揆度)</text>
+<text x="84.0" y="594.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">「발 · 조선의 문피」를</text>
+<text x="84.0" y="638.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">천하의 귀한 재물 일곱 가지 가운데</text>
+<text x="84.0" y="682.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">하나로 꼽음</text>
+<rect x="820" y="490" width="720" height="260" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="820.5" y="490.5" width="719" height="58" fill="#ccf6ff"/>
+<text x="844.0" y="530.0" font-size="31" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">경중갑편 (輕重甲)</text>
+<text x="844.0" y="594.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">발 · 조선이 조공하지 않으면</text>
+<text x="844.0" y="638.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">문피를 화폐로 삼아</text>
+<text x="844.0" y="682.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">오게 하라고 말함</text>
+<rect x="60" y="780" width="1480" height="160" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90.0" y="830.0" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">읽을 때 주의</text>
+<text x="90.0" y="878.0" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">책은 관중의 이름을 빌렸지만 주된 내용은 전국 시대(서기전 402 ~ 221) 제나라 사람들이 씀</text>
+<text x="90.0" y="920.0" font-size="27" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 제와 조선의 교역이 정확히 어느 때의 일인지는 단정하기 어려움</text>
+</svg>

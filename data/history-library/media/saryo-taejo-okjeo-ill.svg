@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>태조왕(재위 53~146) — 동옥저를 쳐서 성읍으로</title>
+<desc>태조왕의 영역 확장을 정리한 그림. 가운데 고구려에서 56년 동옥저를 정복해 성읍으로 삼고 동쪽은 창해(동해), 남쪽은 살수까지 국경을 넓힌 일, 68년 갈사국 병합, 후한 군현 공격을 화살표로 보이고, 아래에 7세 즉위와 태후 섭정, 소국 지배층의 관료 흡수를 적었다.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">태조왕(재위 53~146) — 동옥저를 쳐서 성읍으로</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『삼국사기』 권15 고구려본기 태조대왕 · 고구려 제6대 왕</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="600" y="330" width="400" height="200" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="600.5" y="330.5" width="399" height="58" fill="#ccf6ff"/>
+<text x="624" y="369.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">고구려 태조왕</text>
+<text x="624" y="430" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">7세에 즉위,</text>
+<text x="624" y="474" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">태후가 섭정</text>
+<rect x="1140" y="196" width="400" height="190" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1140.5" y="196.5" width="399" height="58" fill="#ccf6ff"/>
+<text x="1164" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">56년 · 태조왕 4년</text>
+<text x="1164" y="296" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">동옥저를 쳐서</text>
+<text x="1164" y="340" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">그 땅을 성읍으로 삼음</text>
+<line x1="1004" y1="380" x2="1134" y2="300" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1140" y="420" width="400" height="200" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1140.5" y="420.5" width="399" height="58" fill="#ccf6ff"/>
+<text x="1164" y="459.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">넓힌 국경</text>
+<text x="1164" y="520" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">동쪽 → 창해(滄海, 동해)</text>
+<text x="1164" y="566" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">남쪽 → 살수(薩水)</text>
+<line x1="1004" y1="450" x2="1134" y2="500" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="196" width="400" height="190" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="196.5" width="399" height="58" fill="#ccf6ff"/>
+<text x="84" y="235.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">68년</text>
+<text x="84" y="296" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">부여 망명 세력이 세운</text>
+<text x="84" y="340" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">갈사국을 병합</text>
+<line x1="596" y1="380" x2="466" y2="300" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="420" width="400" height="200" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="420.5" width="399" height="58" fill="#ccf6ff"/>
+<text x="84" y="459.8" font-size="30" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">후한 군현</text>
+<text x="84" y="520" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">후한의 군현을</text>
+<text x="84" y="566" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">공격</text>
+<line x1="596" y1="470" x2="466" y2="510" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<rect x="60" y="660" width="1480" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="660.5" width="1479" height="58" fill="#ccf6ff"/>
+<text x="84" y="699.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">나라의 틀을 다지다</text>
+<text x="90" y="770" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">정복한 주변 소국의 지배층을 관료로 받아들여 고구려가 국가로 발전할 기틀을 마련</text>
+<rect x="60" y="840" width="1480" height="92" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="898" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">시험 단서</text>
+<text x="300" y="898" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">동옥저 정복 · 창해 · 살수 · 성읍 → 고구려 태조왕</text>
+</svg>

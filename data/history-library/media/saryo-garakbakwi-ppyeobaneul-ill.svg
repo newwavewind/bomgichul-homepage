@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>가락바퀴와 뼈바늘 — 실을 뽑아 옷을 짓다</title>
+<desc>왼쪽은 가락바퀴에 막대(가락)를 꽂아 돌리며 식물 섬유를 꼬아 실을 뽑는 모습, 가운데는 짐승 뼈를 갈아 만든 뼈바늘, 오른쪽은 그 실과 바늘로 옷을 만드는 흐름을 정리하고 아래에 시대 정보를 적은 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">가락바퀴와 뼈바늘 — 실을 뽑아 옷을 짓다</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">신석기 시대의 원시 수공업 · 실 뽑기(방적)와 바느질</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="210" width="440" height="470" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="210.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="84" y="250.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">① 가락바퀴로 실 뽑기</text>
+<path d="M200 300 C230 310 250 330 268 360" stroke="#8a7a5a" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M188 296 C222 312 246 334 266 362" stroke="#b9a77c" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M268 360 L280 400" stroke="#5d6365" stroke-width="3" fill="none"/>
+<line x1="280" y1="400" x2="280" y2="610" stroke="#7a5a3a" stroke-width="7" stroke-linecap="round"/>
+<ellipse cx="280" cy="560" rx="78" ry="22" fill="#9a8f80" stroke="#2a2c2d" stroke-width="2"/>
+<ellipse cx="280" cy="553" rx="78" ry="22" fill="#c8bba6" stroke="#2a2c2d" stroke-width="2"/>
+<ellipse cx="280" cy="553" rx="9" ry="4" fill="#5d6365"/>
+<path d="M190 600 A100 26 0 0 0 370 600" stroke="#0096b8" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+<text x="380" y="312" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">식물 섬유</text>
+<text x="310" y="470" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">가락(막대)</text>
+<text x="380" y="560" font-size="26" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">가락바퀴</text>
+<text x="280" y="655" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">돌리면 섬유가 꼬여 실이 된다</text>
+<rect x="580" y="210" width="440" height="470" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="580.5" y="210.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="604" y="250.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">② 뼈바늘</text>
+<path d="M650 470 L930 430 L945 432 L940 440 L660 480 Z" fill="#ece3cf" stroke="#2a2c2d" stroke-width="2"/>
+<ellipse cx="672" cy="474" rx="9" ry="4" fill="#effbff" stroke="#2a2c2d" stroke-width="1.5" transform="rotate(-8 672 474)"/>
+<path d="M672 474 C640 500 640 540 700 560 C760 580 800 560 820 600" stroke="#0096b8" stroke-width="2.5" fill="none"/>
+<text x="800" y="320" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">짐승 뼈를 갈아 만든 바늘</text>
+<text x="800" y="372" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">끝은 뾰족, 머리에 실 꿰는 구멍</text>
+<text x="800" y="655" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">뽑은 실을 꿰어 꿰맨다</text>
+<line x1="504" y1="445" x2="572" y2="445" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="1024" y1="445" x2="1092" y2="445" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1100" y="210" width="440" height="470" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1100.5" y="210.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="1124" y="250.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">③ 만든 것</text>
+<rect x="1140" y="300" width="360" height="150" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1320" y="365" font-size="40" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">옷</text>
+<text x="1320" y="415" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">실을 꿰어 지어 입음</text>
+<rect x="60" y="730" width="1480" height="210" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="730.5" width="1479" height="58" fill="#ccf6ff"/>
+<text x="84" y="770.5" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">시대와 시험 단서</text>
+<text x="84" y="833" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 가락바퀴는 신석기 시대부터 청동기 시대까지 쓰인 방적구(방추차)다</text>
+<text x="84" y="876" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 뼈 · 흙 · 돌 · 도자기 등으로 만들었다</text>
+<text x="84" y="919" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">· 시험 단서: 「가락바퀴와 뼈바늘로 옷을 만들었다」 → 신석기 시대</text>
+</svg>

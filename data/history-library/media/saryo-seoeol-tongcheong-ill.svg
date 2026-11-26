@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>서얼 허통 운동의 흐름</title>
+<desc>서얼금고법으로 막힌 관직 진출이 1777년 정유절목, 1779년 규장각 검서관 등용, 1823년 계미절목, 1848·1851년 대규모 상소로 이어진 과정을 연표로 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">서얼 허통 운동의 흐름</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">막힌 벼슬길을 열어 달라 — 정조 대에서 철종 대까지</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="1480" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="1479" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">서얼(庶孼)이란?</text>
+<text x="90" y="315" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">양반의 첩에게서 난 자손 — 서얼금고법 때문에 관직 진출이 막혀 있었음</text>
+<rect x="60" y="395" width="1480" height="545" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="90" y="425" width="330" height="64" fill="#ccf6ff" stroke="#0096b8" stroke-width="1"/>
+<text x="255" y="465" font-size="26" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1777년(정조 1) 3월</text>
+<text x="460" y="465" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">정유절목</text>
+<text x="760" y="465" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서얼이 오를 수 있는 관직을 넓힘</text>
+<line x1="255" y1="491" x2="255" y2="543" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="90" y="545" width="330" height="64" fill="#ccf6ff" stroke="#0096b8" stroke-width="1"/>
+<text x="255" y="585" font-size="26" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1779년(정조 3)</text>
+<text x="460" y="585" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">규장각 검서관</text>
+<text x="760" y="585" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">유득공 · 이덕무 · 박제가 · 서이수 등용</text>
+<line x1="255" y1="611" x2="255" y2="663" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="90" y="665" width="330" height="64" fill="#ccf6ff" stroke="#7a62d6" stroke-width="1"/>
+<text x="255" y="705" font-size="26" fill="#7a62d6" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1823년(순조 23)</text>
+<text x="460" y="705" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">계미절목</text>
+<text x="760" y="705" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서얼 유생 9,996명의 집단 상소</text>
+<line x1="255" y1="731" x2="255" y2="783" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<rect x="90" y="785" width="330" height="64" fill="#ccf6ff" stroke="#7a62d6" stroke-width="1"/>
+<text x="255" y="825" font-size="26" fill="#7a62d6" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1848년 · 1851년</text>
+<text x="460" y="825" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">대규모 상소</text>
+<text x="760" y="825" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">철종 무렵까지 허통 요구가 이어짐</text>
+<text x="1510" y="925" font-size="24" fill="#5d6365" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정조실록: 「서얼의 벼슬길을 막는 것은 우리나라에만 있는 법」</text>
+</svg>

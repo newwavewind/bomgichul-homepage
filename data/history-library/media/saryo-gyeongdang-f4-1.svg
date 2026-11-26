@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" width="960" height="570" role="img" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">
+<title>고구려의 경당</title>
+<desc>『구당서』 고려전의 경당 기록을 장소·배우는 사람·배우는 것으로 나누고, 수도의 태학과 비교한 정리 그림</desc>
+<rect width="960" height="570" fill="#ffffff"/>
+<text x="40" y="62" font-size="32" fill="#1c2b4a" text-anchor="start" font-weight="700">고구려의 경당</text>
+<text x="40" y="98" font-size="19" fill="#55627a" text-anchor="start">『구당서』 고려전 — 「各於街衢造大屋, 謂之扃堂」</text>
+<text x="920" y="62" font-size="17" fill="#00a3d9" text-anchor="end" font-weight="700">정리 그림</text>
+<line x1="40" y1="118" x2="920" y2="118" stroke="#00a3d9" stroke-width="2"/>
+<rect x="40" y="140" width="280" height="180" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="40" y="140" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="40" y="170" width="280" height="16" fill="#e3f6fd"/>
+<text x="180" y="171" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">어디에</text>
+<text x="60" y="220" font-size="17" fill="#1c2b4a" text-anchor="start">큰길가에 지은 큰 집</text>
+<text x="60" y="248" font-size="17" fill="#1c2b4a" text-anchor="start">가난하고 낮은 집안까지</text>
+<text x="60" y="276" font-size="17" fill="#1c2b4a" text-anchor="start">저마다 지음</text>
+<rect x="340" y="140" width="280" height="180" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="340" y="140" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="340" y="170" width="280" height="16" fill="#e3f6fd"/>
+<text x="480" y="171" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">누가</text>
+<text x="360" y="220" font-size="17" fill="#1c2b4a" text-anchor="start">혼인하기 전의</text>
+<text x="360" y="248" font-size="17" fill="#1c2b4a" text-anchor="start">젊은이(자제)</text>
+<text x="360" y="276" font-size="17" fill="#1c2b4a" text-anchor="start">밤낮으로 모임</text>
+<rect x="640" y="140" width="280" height="180" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="640" y="140" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="640" y="170" width="280" height="16" fill="#e3f6fd"/>
+<text x="780" y="171" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">무엇을</text>
+<text x="660" y="220" font-size="17" fill="#1c2b4a" text-anchor="start">책 읽기</text>
+<text x="660" y="248" font-size="17" fill="#1c2b4a" text-anchor="start">→ 유교 경전</text>
+<text x="660" y="276" font-size="17" fill="#1c2b4a" text-anchor="start">활쏘기 → 군사 훈련</text>
+<rect x="40" y="345" width="880" height="160" rx="10" fill="#e3f6fd"/>
+<text x="260" y="385" font-size="22" fill="#0a6f94" text-anchor="middle" font-weight="700">태학</text>
+<text x="700" y="385" font-size="22" fill="#0a6f94" text-anchor="middle" font-weight="700">경당</text>
+<line x1="480" y1="365" x2="480" y2="485" stroke="#9fdcf2" stroke-width="2"/>
+<text x="260" y="423" font-size="18" fill="#1c2b4a" text-anchor="middle">372년(소수림왕 2) 세움</text>
+<text x="260" y="453" font-size="18" fill="#1c2b4a" text-anchor="middle">수도의 귀족 자제 교육</text>
+<text x="700" y="423" font-size="18" fill="#1c2b4a" text-anchor="middle">세운 때는 분명하지 않음</text>
+<text x="700" y="453" font-size="18" fill="#1c2b4a" text-anchor="middle">427년 평양 천도 뒤로 보는 견해</text>
+<text x="700" y="483" font-size="18" fill="#1c2b4a" text-anchor="middle" font-weight="700">더 넓은 계층의 젊은이 교육</text>
+<text x="480" y="540" font-size="16" fill="#55627a" text-anchor="middle">고구려 사람들은 책을 아꼈다 — 문무를 함께 익힌 청소년 교육 기관</text>
+</svg>

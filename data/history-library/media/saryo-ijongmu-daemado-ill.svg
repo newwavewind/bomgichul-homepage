@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>쓰시마 정벌(1419)</title>
+<desc>1419년 쓰시마 정벌에 나선 병선 227척을 경기·충청·전라·경상도별 막대로 나타내고, 5월 왜구 침입부터 7월 3일 귀환까지의 흐름을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">쓰시마 정벌(1419)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세종 1년, 이종무가 왜구의 근거지 대마도를 친 기해동정</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">도별 병선 수 — 모두 227척</text>
+<text x="60" y="298" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">경기</text>
+<rect x="200" y="262" width="46.0" height="54" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="262.0" y="300" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">10척</text>
+<text x="60" y="388" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">충청도</text>
+<rect x="200" y="352" width="147.2" height="54" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="363.2" y="390" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">32척</text>
+<text x="60" y="478" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">전라도</text>
+<rect x="200" y="442" width="271.4" height="54" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="487.4" y="480" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">59척</text>
+<text x="60" y="568" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">경상도</text>
+<rect x="200" y="532" width="579.5999999999999" height="54" fill="#0096b8" stroke="#0096b8" stroke-width="1.5"/>
+<text x="795.5999999999999" y="570" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">126척</text>
+<rect x="1000" y="205" width="540" height="348" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1000.5" y="205.5" width="539" height="58" fill="#ccf6ff"/>
+<text x="1024" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">군세</text>
+<text x="1030" y="307" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 병선 227척</text>
+<text x="1030" y="359" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 군사 1만 7,285명</text>
+<text x="1030" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 65일치 식량</text>
+<text x="1030" y="463" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 지휘: 삼군 도체찰사</text>
+<text x="1048" y="515" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이종무</text>
+<text x="60" y="640" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">흐름</text>
+<rect x="60" y="665" width="335" height="180" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="227" y="712" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">5월</text>
+<text x="227" y="766" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">왜선이 충청도</text>
+<text x="227" y="806" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">비인현 노략질</text>
+<line x1="399" y1="755" x2="431" y2="755" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="435" y="665" width="335" height="180" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="602" y="712" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">6월 17일</text>
+<text x="602" y="766" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">거제도 떠났으나</text>
+<text x="602" y="806" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">바람 탓에 되돌아옴</text>
+<line x1="774" y1="755" x2="806" y2="755" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="810" y="665" width="335" height="180" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="977" y="712" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">6월 19일</text>
+<text x="977" y="766" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">다시 출정, 왜구의</text>
+<text x="977" y="806" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">배와 집을 불태움</text>
+<line x1="1149" y1="755" x2="1181" y2="755" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1185" y="665" width="335" height="180" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1352" y="712" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">7월 3일</text>
+<text x="1352" y="766" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">거제도로</text>
+<text x="1352" y="806" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">돌아옴</text>
+<text x="60" y="940" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">상왕 태종이 이끈 정벌로, 그해 간지를 따 기해동정이라 부른다.</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">
+<title>6·25 전쟁 중국군 개입부터 서울 재수복까지 흐름</title>
+<rect width="960" height="640" fill="#ffffff"/>
+<text x="480.0" y="52" text-anchor="middle" font-size="30" font-weight="700" fill="#1b2a4a">중국군 개입과 1·4 후퇴</text>
+<text x="480.0" y="84" text-anchor="middle" font-size="17" font-weight="400" fill="#5b6475">6·25 전쟁 1950년 가을 ~ 1951년 봄 · 서울을 두고 오르내린 전선</text>
+<text x="70" y="150" text-anchor="start" font-size="16" font-weight="700" fill="#5b6475">북쪽</text>
+<text x="70" y="440" text-anchor="start" font-size="16" font-weight="700" fill="#5b6475">남쪽</text>
+<line x1="120" y1="450" x2="120" y2="136" stroke="#9fdcf5" stroke-width="2" stroke-linecap="round"/>
+<path d="M125.2 146.8 L120 136 L114.8 146.8" fill="none" stroke="#9fdcf5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="150" y1="330" x2="900" y2="330" stroke="#d5dbe5" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="910" y="326" text-anchor="start" font-size="15" font-weight="700" fill="#5b6475">서울</text>
+<path d="M190 330 L340 200 L500 260 L650 410 L820 330" fill="none" stroke="#0096d6" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="190" cy="330" r="9" fill="#0096d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="340" cy="200" r="9" fill="#0096d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="500" cy="260" r="9" fill="#0096d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="650" cy="410" r="9" fill="#1b2a4a" stroke="#ffffff" stroke-width="2"/>
+<circle cx="820" cy="330" r="9" fill="#0096d6" stroke="#ffffff" stroke-width="2"/>
+<text x="190" y="366" text-anchor="middle" font-size="17" font-weight="700" fill="#0096d6">1950. 9. 28</text>
+<text x="190" y="390" text-anchor="middle" font-size="16" font-weight="400" fill="#1b2a4a">서울 수복</text>
+<text x="340" y="128" text-anchor="middle" font-size="17" font-weight="700" fill="#0096d6">1950. 10.</text>
+<text x="340" y="152" text-anchor="middle" font-size="16" font-weight="400" fill="#1b2a4a">압록강·두만강</text>
+<text x="340" y="175" text-anchor="middle" font-size="16" font-weight="400" fill="#1b2a4a">가까이 북진</text>
+<text x="484" y="298" text-anchor="end" font-size="17" font-weight="700" fill="#0096d6">1950. 11.~12.</text>
+<text x="484" y="322" text-anchor="end" font-size="16" font-weight="400" fill="#1b2a4a">중국군 공세로 후퇴</text>
+<text x="484" y="345" text-anchor="end" font-size="16" font-weight="400" fill="#1b2a4a">12. 24 흥남 철수</text>
+<text x="650" y="446" text-anchor="middle" font-size="17" font-weight="700" fill="#1b2a4a">1951. 1. 4  (1·4 후퇴)</text>
+<text x="650" y="470" text-anchor="middle" font-size="16" font-weight="400" fill="#1b2a4a">서울을 다시 잃음</text>
+<text x="650" y="493" text-anchor="middle" font-size="16" font-weight="400" fill="#1b2a4a">정부는 부산으로</text>
+<text x="820" y="366" text-anchor="middle" font-size="17" font-weight="700" fill="#0096d6">1951. 3. 중순</text>
+<text x="820" y="390" text-anchor="middle" font-size="16" font-weight="400" fill="#1b2a4a">서울을 되찾음</text>
+<rect x="60" y="530" width="840" height="90" rx="10" fill="#e3f5fd" stroke="#e3f5fd" stroke-width="0"/>
+<text x="480" y="564" text-anchor="middle" font-size="16" font-weight="400" fill="#1b2a4a">중국군이 끼어들자 국군과 유엔군은 북쪽에서 밀려 내려왔고, 1951년 1월 4일 서울을 다시 내주었다</text>
+<text x="480" y="596" text-anchor="middle" font-size="16" font-weight="400" fill="#1b2a4a">두 달 뒤 서울을 되찾았고, 이후 전선은 지금의 휴전선 부근에서 오르내렸다</text>
+</svg>

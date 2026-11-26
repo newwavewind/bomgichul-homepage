@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>충주 다인철소의 항쟁 — 소(所)에서 현(縣)으로</title>
+<desc>왼쪽은 고려의 특수 행정 구역인 향·부곡·소와 소에서 철·금·은 같은 물품을 만들어 바친 일을, 오른쪽은 충주 다인철소 사람들이 몽골군을 막아 1255년 익안현으로 승격되기까지를 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">충주 다인철소의 항쟁 — 소(所)에서 현(縣)으로</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1255년(고종 42), 몽골군을 막아 낸 공으로 익안현이 되다</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">고려의 특수 행정 구역</text>
+<rect x="60" y="250" width="212" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="166.0" y="317.2" font-size="34" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">향</text>
+<rect x="292" y="250" width="212" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="398.0" y="317.2" font-size="34" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">부곡</text>
+<rect x="524" y="250" width="212" height="110" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="630.0" y="317.2" font-size="34" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">소(所)</text>
+<line x1="586" y1="364" x2="586" y2="420" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="424" width="680" height="170" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="480.3" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">소: 물품을 만들어 바치던 곳</text>
+<text x="86" y="519.4" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">철 · 금 · 은 같은 물품을 생산</text>
+<text x="86" y="558.6" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">다인철소 = 충주 지역의 철을 만드는 소</text>
+<text x="820" y="222" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">몽골 침입과 승격</text>
+<rect x="820" y="250" width="720" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="846" y="315.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">다인철소 사람들</text>
+<text x="846" y="355.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">충주 지역 · 철을 만들어 바치던 주민</text>
+<line x1="1180.0" y1="402" x2="1180.0" y2="454" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="820" y="458" width="720" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="846" y="523.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">몽골이 쳐들어오자 힘을 다해 싸움</text>
+<text x="846" y="563.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">몽골군을 막아 냄</text>
+<line x1="1180.0" y1="610" x2="1180.0" y2="662" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="820" y="666" width="720" height="150" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="846" y="731.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1255년(고종 42) 익안현으로 승격</text>
+<text x="846" y="771.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">특수 구역 「소」 → 일반 군현 「현」</text>
+<rect x="60" y="632" width="680" height="200" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="683.7" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">볼 곳</text>
+<text x="86" y="722.9" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사료의 「그 소를 올려 익안현으로」</text>
+<text x="86" y="762.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">= 공을 세워 신분이 낮은 구역이</text>
+<text x="86" y="801.2" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">   일반 군현이 되었다는 뜻</text>
+<rect x="60" y="870" width="1480" height="86" fill="#ffffff" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="800" y="924" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">몽골 침입기에는 일반 백성과 특수 행정 구역 주민까지 항쟁에 나섰다</text>
+</svg>

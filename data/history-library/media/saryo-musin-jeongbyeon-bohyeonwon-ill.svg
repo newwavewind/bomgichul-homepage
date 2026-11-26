@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img">
+<title>무신 정변(1170)과 무신 집권자의 흐름</title>
+<desc>위는 1170년 보현원 사건의 진행, 가운데는 이의방·정중부에서 경대승, 이의민, 최충헌과 최씨 4대, 김준, 임연·임유무로 이어지는 무신 집권자 순서도, 아래는 성립기·확립기·붕괴기를 길이에 맞춰 나눈 100년 띠.</desc>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="50" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">무신 정변(1170)과 무신 집권자의 흐름</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">보현원 사건에서 무신 정권이 끝나는 1270년까지 약 100년</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+
+<rect x="60" y="190" width="456" height="124" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="288" y="242" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1170년 의종의</text>
+<text x="288" y="284" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">보현원 행차</text>
+<line x1="522" y1="252" x2="566" y2="252" stroke="#0096b8" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="572" y="190" width="456" height="124" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="242" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">이의방·이고가 정중부를</text>
+<text x="800" y="284" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">앞세워 문신을 죽임</text>
+<line x1="1034" y1="252" x2="1078" y2="252" stroke="#0096b8" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="1084" y="190" width="456" height="124" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1312" y="242" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">의종을 거제로 내쫓고</text>
+<text x="1312" y="284" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">명종을 세움</text>
+<rect x="60.5" y="190.5" width="9" height="123" fill="#00d0ff"/>
+<rect x="60" y="372" width="334" height="160" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="372.5" width="333" height="50" fill="#ccf6ff"/>
+<text x="82" y="409" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1170</text>
+<text x="82" y="468" font-size="32" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">이의방 · 정중부</text>
+<text x="82" y="510" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정변을 이끎</text>
+<line x1="399" y1="472" x2="437" y2="472" stroke="#0096b8" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="442" y="372" width="334" height="160" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="442.5" y="372.5" width="333" height="50" fill="#ccf6ff"/>
+<text x="464" y="409" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1179</text>
+<text x="464" y="468" font-size="32" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">경대승</text>
+<text x="464" y="510" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정중부를 죽임</text>
+<line x1="781" y1="472" x2="819" y2="472" stroke="#0096b8" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="824" y="372" width="334" height="160" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="824.5" y="372.5" width="333" height="50" fill="#ccf6ff"/>
+<text x="846" y="409" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1183</text>
+<text x="846" y="468" font-size="32" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">이의민</text>
+<text x="846" y="510" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">경대승 병사 뒤</text>
+<line x1="1163" y1="472" x2="1201" y2="472" stroke="#0096b8" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="1206" y="372" width="334" height="160" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1206.5" y="372.5" width="333" height="50" fill="#ccf6ff"/>
+<text x="1228" y="409" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1196</text>
+<text x="1228" y="468" font-size="32" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">최충헌</text>
+<text x="1228" y="510" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이의민을 죽임</text>
+<rect x="60" y="582" width="334" height="160" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="582.5" width="333" height="50" fill="#ccf6ff"/>
+<text x="82" y="619" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">최씨 정권</text>
+<text x="82" y="678" font-size="32" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">최우·최항·최의</text>
+<text x="82" y="720" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">4대 60여 년 세습</text>
+<line x1="399" y1="682" x2="437" y2="682" stroke="#0096b8" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="442" y="582" width="334" height="160" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="442.5" y="582.5" width="333" height="50" fill="#ccf6ff"/>
+<text x="464" y="619" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1258</text>
+<text x="464" y="678" font-size="32" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">김준</text>
+<text x="464" y="720" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">최의를 없앰</text>
+<line x1="781" y1="682" x2="819" y2="682" stroke="#0096b8" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="824" y="582" width="334" height="160" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="824.5" y="582.5" width="333" height="50" fill="#ccf6ff"/>
+<text x="846" y="619" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1268</text>
+<text x="846" y="678" font-size="32" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">임연</text>
+<text x="846" y="720" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">김준을 죽임</text>
+<line x1="1163" y1="682" x2="1201" y2="682" stroke="#0096b8" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="1206" y="582" width="334" height="160" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1206.5" y="582.5" width="333" height="50" fill="#ccf6ff"/>
+<text x="1228" y="619" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1270</text>
+<text x="1228" y="678" font-size="32" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">임유무 제거</text>
+<text x="1228" y="720" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">무신 정권 끝</text>
+<path d="M1373 534 V557 H227 V578" fill="none" stroke="#0096b8" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="100" y="852" width="364" height="56" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="282" y="890" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">성립기</text>
+<rect x="464" y="852" width="868" height="56" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="898" y="890" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">확립기 · 최씨 정권</text>
+<rect x="1332" y="852" width="168" height="56" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1416" y="890" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">붕괴기</text>
+<text x="100" y="944" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1170</text>
+<text x="464" y="944" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1196</text>
+<text x="1332" y="944" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1258</text>
+<text x="1500" y="944" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','AppleMyungjo',serif" font-weight="700">1270</text>
+<text x="100" y="834" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">무신 정권 100년을 길이대로</text>
+</svg>

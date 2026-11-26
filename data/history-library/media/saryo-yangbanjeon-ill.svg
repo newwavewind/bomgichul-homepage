@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>박지원의 「양반전」</title>
+<desc>정선 양반이 환곡 빚 때문에 신분을 팔고 부자가 매매 문서를 보고 달아나는 줄거리와, 작품이 풍자한 대상·작품 정보를 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">박지원의 「양반전」</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">양반 신분을 사고파는 이야기로 양반을 꼬집은 소설</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">이야기의 줄거리</text>
+<rect x="60" y="250" width="860" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="300.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정선의 가난한 양반, 환곡 빚이 천 석에 이름</text>
+<line x1="490.0" y1="332" x2="490.0" y2="362" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="366" width="860" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="416.0" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">마을 부자에게 양반 신분을 팖</text>
+<line x1="490.0" y1="448" x2="490.0" y2="478" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="482" width="860" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="532.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">군수가 신분 매매 문서를 만듦</text>
+<line x1="490.0" y1="564" x2="490.0" y2="594" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="598" width="860" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="648.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">「양반은 백성을 함부로 부릴 수 있다」는 조목</text>
+<line x1="490.0" y1="680" x2="490.0" y2="710" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="714" width="860" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="764.0" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">부자: 「나를 도둑놈으로 만들 작정이오?」</text>
+<rect x="980" y="250" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="250.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="290" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">무엇을 풍자했나</text>
+<text x="1010" y="348" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 양반의 무능</text>
+<text x="1010" y="400" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 양반의 허위</text>
+<text x="1010" y="452" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 신분을 사고파는 세태</text>
+<rect x="980" y="534" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="534.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="574" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">작품 정보</text>
+<text x="1010" y="632" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 지은이: 박지원(정조 때)</text>
+<text x="1010" y="684" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 한문 단편 소설</text>
+<text x="1010" y="736" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 『연암집』 「방경각외전」</text>
+</svg>

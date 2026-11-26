@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>효종의 북벌론</title>
+<desc>병자호란 패배 뒤 효종이 청을 치자며 군사를 키웠으나 실제 북벌은 하지 못하고 나선 정벌만 한 과정을 배경·준비·결과로 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">효종의 북벌론</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">병자호란의 치욕을 씻고 청을 치자는 주장</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="440" height="400" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">배경</text>
+<text x="90" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 1637 병자호란 패배</text>
+<text x="90" y="361" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 인조가 청에 항복</text>
+<text x="90" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 청이 중원을 차지하고</text>
+<text x="108" y="461" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">명이 무너짐</text>
+<text x="90" y="511" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 효종은 청에 볼모로</text>
+<text x="108" y="561" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">갔다 돌아와 즉위</text>
+<rect x="580" y="205" width="440" height="400" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="580.5" y="205.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="604" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">준비 — 효종(재위 1649~1659)</text>
+<text x="610" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 송시열 등</text>
+<text x="628" y="361" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">청에 맞서자는 신하 중용</text>
+<text x="610" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 국방 강화</text>
+<text x="610" y="461" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 화포 개량</text>
+<text x="610" y="511" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 군사 훈련</text>
+<rect x="1100" y="205" width="440" height="400" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1100.5" y="205.5" width="439" height="58" fill="#ccf6ff"/>
+<text x="1124" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">결과</text>
+<text x="1130" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 청을 칠 기회는</text>
+<text x="1148" y="361" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">끝내 얻지 못함</text>
+<text x="1130" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 실제 출병은</text>
+<text x="1148" y="461" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">나선 정벌 두 차례뿐</text>
+<text x="1148" y="511" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(청의 요청으로</text>
+<text x="1148" y="561" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">러시아군과 싸움)</text>
+<line x1="508" y1="405" x2="572" y2="405" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<line x1="1028" y1="405" x2="1092" y2="405" stroke="#0096b8" stroke-width="3" marker-end="url(#ah)"/>
+<text x="60" y="690" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">그 뒤</text>
+<rect x="60" y="712" width="1480" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="758" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">17세기 말 명을 되살릴 가능성이 사라지자, 북벌론은 조정이 아닌</text>
+<text x="90" y="800" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">재야 인물들 사이에서 주로 이어짐</text>
+<rect x="60" y="860" width="1480" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="800" y="910" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">북벌 = 청 정벌 계획 · 실제로 싸운 상대는 나선(러시아)</text>
+</svg>

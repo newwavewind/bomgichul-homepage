@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>대무신왕(재위 18~44) — 부여 정벌과 낙랑 정복</title>
+<desc>대무신왕 때의 일을 연도순으로 놓은 흐름도. 21년 부여 정벌 출병과 22년 부여왕 대소의 죽음, 32년 호동 왕자가 최리의 딸을 시켜 낙랑의 북과 뿔피리를 부수게 하고 최리의 항복을 받은 일, 그해 11월 호동의 죽음, 37년 낙랑 습격을 차례로 보인다.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">대무신왕(재위 18~44) — 부여 정벌과 낙랑 정복</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『삼국사기』 권14 고구려본기 대무신왕 · 고구려 제3대 왕</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<line x1="100" y1="300" x2="1500" y2="300" stroke="#00d0ff" stroke-width="3"/>
+<circle cx="100" cy="300" r="12" fill="#0096b8"/>
+<text x="124" y="286" font-size="34" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">21년</text>
+<text x="124" y="340" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대무신왕 4년</text>
+<rect x="60" y="370" width="340" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="84" y="436" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">부여 정벌에 나섬</text>
+<circle cx="480" cy="300" r="12" fill="#0096b8"/>
+<text x="504" y="286" font-size="34" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">22년</text>
+<text x="504" y="340" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대무신왕 5년</text>
+<rect x="440" y="370" width="340" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="464" y="436" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">부여왕 대소를 죽임</text>
+<circle cx="860" cy="300" r="12" fill="#0096b8"/>
+<text x="884" y="286" font-size="34" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">32년</text>
+<text x="884" y="340" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대무신왕 15년</text>
+<rect x="820" y="370" width="340" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="844" y="436" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">호동, 최리의 딸과 혼인</text>
+<circle cx="1240" cy="300" r="12" fill="#0096b8"/>
+<text x="1264" y="286" font-size="34" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">37년</text>
+<text x="1264" y="340" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대무신왕 20년</text>
+<rect x="1200" y="370" width="340" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1224" y="436" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">낙랑을 습격해 멸함</text>
+<rect x="60" y="520" width="1100" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="520.5" width="1099" height="58" fill="#ccf6ff"/>
+<text x="84" y="559.8" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">낙랑의 북과 뿔피리(鼓角) — 32년</text>
+<rect x="90" y="610" width="320" height="120" fill="#f6fdff" stroke="#00d0ff" stroke-width="1"/>
+<text x="110" y="656" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">적이 오면</text>
+<text x="110" y="700" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">저절로 울리는 북·뿔피리</text>
+<line x1="412" y1="670" x2="446" y2="670" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="450" y="610" width="320" height="120" fill="#f6fdff" stroke="#00d0ff" stroke-width="1"/>
+<text x="470" y="656" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">최리의 딸이 몰래</text>
+<text x="470" y="700" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">북 가죽·뿔피리 입을 찢음</text>
+<line x1="772" y1="670" x2="806" y2="670" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="810" y="610" width="320" height="120" fill="#f6fdff" stroke="#00d0ff" stroke-width="1"/>
+<text x="830" y="656" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">호동의 권유로</text>
+<text x="830" y="700" font-size="26" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">고구려가 낙랑을 습격</text>
+<text x="90" y="786" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">→ 고구려군이 쳐들어오자 낙랑왕 최리가 항복</text>
+<rect x="1190" y="520" width="350" height="300" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1190.5" y="520.5" width="349" height="58" fill="#ccf6ff"/>
+<text x="1214" y="559.8" font-size="30" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">그 뒤</text>
+<text x="1214" y="630" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">호동은 그해</text>
+<text x="1214" y="672" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">11월 스스로</text>
+<text x="1214" y="714" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">목숨을 끊음</text>
+<rect x="60" y="850" width="1480" height="82" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="902" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">시험 단서</text>
+<text x="300" y="902" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">부여왕 대소 · 호동 왕자 · 최리 · 북과 뿔피리(자명고 이야기) → 고구려 대무신왕</text>
+</svg>

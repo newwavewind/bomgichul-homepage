@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>계유정난(1453)</title>
+<desc>1452년 단종 즉위부터 1453년 수양 대군의 거사, 정난공신 책봉, 1455년 세조 즉위까지의 흐름과 사건에 얽힌 인물을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">계유정난(1453)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">단종 1년, 수양 대군이 대신들을 죽이고 권력을 잡은 사건</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="253.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1452 문종이 죽고 13세 단종 즉위</text>
+<line x1="490.0" y1="283" x2="490.0" y2="313" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="317" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="365.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">황보인 · 김종서 등 대신이 정권을 잡음</text>
+<line x1="490.0" y1="395" x2="490.0" y2="425" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="429" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="477.0" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1453.10 수양 대군이 대신들을 제거</text>
+<line x1="490.0" y1="507" x2="490.0" y2="537" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="541" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="589.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정권 · 병권 장악, 정난공신 43명 책봉</text>
+<line x1="490.0" y1="619" x2="490.0" y2="649" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="653" width="860" height="76" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="701.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1455 단종에게서 왕위를 받아 세조 즉위</text>
+<rect x="980" y="205" width="560" height="192" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">수양 대군 쪽</text>
+<text x="1010" y="307" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 수양 대군(뒤의 세조)</text>
+<text x="1010" y="359" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 권람 · 한명회 · 홍달손</text>
+<rect x="980" y="455" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="455.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="495" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">제거된 쪽</text>
+<text x="1010" y="557" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 김종서 · 황보인 등 대신</text>
+<text x="1010" y="609" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 안평 대군과 함께 모반을</text>
+<text x="1028" y="661" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">꾀했다는 죄를 씌움</text>
+<text x="60" y="880" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">수양 대군은 가장 먼저 김종서를 쳐야 한다고 보았다.</text>
+</svg>

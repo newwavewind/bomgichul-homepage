@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>의정부 서사제(1436)</title>
+<desc>6조에서 의정부, 왕, 다시 6조로 이어지는 보고 경로와 6조가 왕에게 바로 아뢰는 예외, 1400년부터 1455년까지 제도가 바뀐 흐름을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">의정부 서사제(1436)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세종 18년, 6조의 일을 의정부가 먼저 헤아려 왕에게 올리게 한 제도</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">보고와 시행의 순서</text>
+<rect x="60" y="245" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="293.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">① 6조가 맡은 일을 의정부에 올림</text>
+<line x1="490.0" y1="323" x2="490.0" y2="353" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="357" width="860" height="76" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="405.0" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">② 의정부가 옳고 그름을 헤아림</text>
+<line x1="490.0" y1="435" x2="490.0" y2="465" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="469" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="517.0" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">③ 왕에게 아뢰어 뜻을 받음</text>
+<line x1="490.0" y1="547" x2="490.0" y2="577" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="581" width="860" height="76" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="629.0" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">④ 6조로 내려보내 시행</text>
+<rect x="980" y="205" width="560" height="348" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">예외 — 6조가 왕에게 바로</text>
+<text x="1010" y="307" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 이조 · 병조의 관리 임명</text>
+<text x="1010" y="359" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 병조의 군사 동원</text>
+<text x="1010" y="411" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 형조의 형벌 결정</text>
+<text x="1028" y="463" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">(사형수는 빼고)</text>
+<text x="1010" y="515" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 시행 뒤 곧바로 의정부에 알림</text>
+<text x="60" y="732" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">제도가 바뀐 흐름</text>
+<rect x="60" y="760" width="330" height="120" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="225" y="808" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1400 정종 2</text>
+<text x="225" y="852" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">의정부 설치</text>
+<line x1="394" y1="820" x2="426" y2="820" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="430" y="760" width="330" height="120" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="595" y="808" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1414 태종 14</text>
+<text x="595" y="852" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">6조 직계제</text>
+<line x1="764" y1="820" x2="796" y2="820" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="800" y="760" width="330" height="120" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="965" y="808" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1436 세종 18</text>
+<text x="965" y="852" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">의정부 서사제</text>
+<line x1="1134" y1="820" x2="1166" y2="820" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1170" y="760" width="330" height="120" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1335" y="808" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1455 세조 1</text>
+<text x="1335" y="852" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">6조 직계제 부활</text>
+<text x="60" y="950" font-size="27" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세종 때는 황희 같은 재상이 의정부에서 나랏일을 이끌었다.</text>
+</svg>

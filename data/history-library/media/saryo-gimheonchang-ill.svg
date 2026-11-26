@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>김헌창의 난(822)</title>
+<desc>785년 김주원이 왕위에 오르지 못한 일부터 822년 김헌창의 반란과 진압, 825년 아들 김범문의 반란까지 흐름도, 오른쪽에 반란의 내용과 의미를 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">김헌창의 난(822)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">신라 하대, 왕위 다툼이 지방의 큰 내란으로 번지다</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="900" height="96" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="265" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">785년 선덕왕이 죽은 뒤 김주원 대신 김경신(원성왕) 즉위</text>
+<line x1="510" y1="303" x2="510" y2="341" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="345" width="900" height="96" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="405" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">822년(헌덕왕 14) 아들 김헌창이 웅천주(공주)에서 반란</text>
+<line x1="510" y1="443" x2="510" y2="481" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="485" width="900" height="96" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="545" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">나라 이름 장안, 연호 경운 — 새 나라를 세우려 함</text>
+<line x1="510" y1="583" x2="510" y2="621" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="625" width="900" height="96" fill="#ccf6ff" stroke="#0096b8" stroke-width="1"/>
+<text x="90" y="685" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">관군에 밀려 웅진성이 함락되자 김헌창 자결</text>
+<line x1="510" y1="723" x2="510" y2="761" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="765" width="900" height="96" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="825" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">825년 아들 김범문도 고달산에서 반란, 진압됨</text>
+<rect x="1010" y="205" width="530" height="380" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1010.5" y="205.5" width="529" height="57" fill="#ccf6ff"/>
+<text x="1034" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">반란에 끌어들인 곳</text>
+<text x="1040" y="307" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">무진주 · 완산주</text>
+<text x="1040" y="363" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">청주 · 사벌주의 도독</text>
+<text x="1040" y="419" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">국원 · 서원 · 금관소경의 사신</text>
+<text x="1040" y="475" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">여러 군 · 현의 수령</text>
+<text x="1040" y="531" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 충청 · 전라 · 경상 일부</text>
+<rect x="1010" y="620" width="530" height="315" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1010.5" y="620.5" width="529" height="57" fill="#ccf6ff"/>
+<text x="1034" y="660" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">무엇을 보여 주나</text>
+<text x="1040" y="722" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">진골 귀족의 왕위 다툼이 격화</text>
+<text x="1040" y="778" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중앙의 힘이 약해지고</text>
+<text x="1040" y="834" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지방 세력이 자라는 신라 하대</text>
+</svg>

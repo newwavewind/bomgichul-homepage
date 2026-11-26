@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">
+<title>조·명 연합군의 평양성 탈환(1593)</title>
+<desc>임진왜란 발발부터 평양성 탈환, 벽제관 패배, 행주 대첩까지의 흐름과 평양성 전투의 군대 구성·공격·결과를 정리한 그림</desc>
+<rect width="960" height="600" fill="#ffffff"/>
+<text x="40" y="62" font-size="32" fill="#1c2b4a" text-anchor="start" font-weight="700">조·명 연합군의 평양성 탈환</text>
+<text x="40" y="98" font-size="19" fill="#55627a" text-anchor="start">1593년 1월 · 『선조수정실록』</text>
+<text x="920" y="62" font-size="17" fill="#00a3d9" text-anchor="end" font-weight="700">정리 그림</text>
+<line x1="40" y1="118" x2="920" y2="118" stroke="#00a3d9" stroke-width="2"/>
+<rect x="40" y="160" width="880" height="175" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<line x1="70" y1="230" x2="890" y2="230" stroke="#00a3d9" stroke-width="3"/>
+<circle cx="152" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="152" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">1592. 4.</text>
+<text x="152" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">임진왜란</text>
+<text x="152" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">일어남</text>
+<circle cx="316" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="316" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">1592.</text>
+<text x="316" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">일본군</text>
+<text x="316" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">평양성 차지</text>
+<circle cx="480" cy="230" r="11" fill="#00a3d9" stroke="#00a3d9" stroke-width="3"/>
+<text x="480" y="206" font-size="18" fill="#00a3d9" text-anchor="middle" font-weight="700">1593. 1.</text>
+<text x="480" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle" font-weight="700">조·명 연합군</text>
+<text x="480" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">평양성 탈환</text>
+<circle cx="644" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="644" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">1593. 1. 말</text>
+<text x="644" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">이여송,</text>
+<text x="644" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">벽제관에서 패배</text>
+<circle cx="808" cy="230" r="8" fill="#ffffff" stroke="#00a3d9" stroke-width="3"/>
+<text x="808" y="206" font-size="18" fill="#55627a" text-anchor="middle" font-weight="700">1593. 2.</text>
+<text x="808" y="266" font-size="17" fill="#1c2b4a" text-anchor="middle">권율,</text>
+<text x="808" y="291" font-size="17" fill="#1c2b4a" text-anchor="middle">행주 대첩</text>
+<rect x="40" y="370" width="280" height="170" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="40" y="370" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="40" y="400" width="280" height="16" fill="#e3f6fd"/>
+<text x="180" y="401" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">누가 싸웠나</text>
+<text x="60" y="450" font-size="17" fill="#1c2b4a" text-anchor="start">명군: 제독 이여송</text>
+<text x="60" y="478" font-size="17" fill="#1c2b4a" text-anchor="start">조선: 관군과 승병</text>
+<text x="60" y="506" font-size="17" fill="#1c2b4a" text-anchor="start">상대: 일본군</text>
+<text x="60" y="534" font-size="17" fill="#1c2b4a" text-anchor="start">(고니시 유키나가)</text>
+<rect x="340" y="370" width="280" height="170" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="340" y="370" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="340" y="400" width="280" height="16" fill="#e3f6fd"/>
+<text x="480" y="401" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">어떻게 싸웠나</text>
+<text x="360" y="450" font-size="17" fill="#1c2b4a" text-anchor="start">성을 빙 둘러 진을 침</text>
+<text x="360" y="478" font-size="17" fill="#1c2b4a" text-anchor="start">칠성문·보통문·함구문</text>
+<text x="360" y="506" font-size="17" fill="#1c2b4a" text-anchor="start">등을 대포로 공격</text>
+<text x="360" y="534" font-size="17" fill="#1c2b4a" text-anchor="start">「대낮이 어두워졌다」</text>
+<rect x="640" y="370" width="280" height="170" rx="10" fill="#ffffff" stroke="#9fdcf2" stroke-width="1.5"/>
+<rect x="640" y="370" width="280" height="46" rx="10" fill="#e3f6fd"/>
+<rect x="640" y="400" width="280" height="16" fill="#e3f6fd"/>
+<text x="780" y="401" font-size="19" fill="#0a6f94" text-anchor="middle" font-weight="700">결과</text>
+<text x="660" y="450" font-size="17" fill="#1c2b4a" text-anchor="start">평양성을 되찾음</text>
+<text x="660" y="478" font-size="17" fill="#1c2b4a" text-anchor="start">일본군은 남쪽으로</text>
+<text x="660" y="506" font-size="17" fill="#1c2b4a" text-anchor="start">물러남</text>
+<text x="660" y="534" font-size="17" fill="#1c2b4a" text-anchor="start">→ 연합군이 남쪽으로 진격</text>
+<text x="480" y="570" font-size="16" fill="#55627a" text-anchor="middle">명군의 참전과 조선 관군·승병의 합세로 평양성을 되찾음</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>신해박해(진산 사건)의 흐름</title>
+<desc>1790년 구베아 주교의 제사 금지 서한, 1791년 진산의 윤지충이 어머니 장례에서 신주를 불사르고 제사를 지내지 않은 일, 남인 홍낙안 등의 공격, 윤지충·권상연의 처형으로 이어진 흐름을 정리한 그림.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">신해박해(진산 사건)의 흐름</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1791년(정조 15) — 제사 문제로 일어난 천주교 박해</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="215" width="1480" height="120" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="215.5" width="330" height="119" fill="#ccf6ff" stroke="#ccf6ff" stroke-width="1"/>
+<text x="225" y="285" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1790년</text>
+<text x="420" y="285" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">북경의 구베아 주교가 조상 제사를 금하는 사목 서한을 조선 교회에 보냄</text>
+<line x1="225" y1="337" x2="225" y2="383" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="385" width="1480" height="120" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="385.5" width="330" height="119" fill="#ccf6ff" stroke="#ccf6ff" stroke-width="1"/>
+<text x="225" y="455" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1791년 5월 · 전라도 진산</text>
+<text x="420" y="455" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">윤지충이 어머니 권씨 장례에서 신주를 불사르고 제사를 지내지 않음</text>
+<line x1="225" y1="507" x2="225" y2="553" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="555" width="1480" height="120" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="555.5" width="330" height="119" fill="#ccf6ff" stroke="#ccf6ff" stroke-width="1"/>
+<text x="225" y="625" font-size="27" fill="#7a62d6" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">반발</text>
+<text x="420" y="625" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">불효 · 패륜이라는 비난 — 남인 홍낙안 등이 정치 문제로 키움</text>
+<line x1="225" y1="677" x2="225" y2="723" stroke="#7a62d6" stroke-width="2" marker-end="url(#ahl)"/>
+<rect x="60" y="725" width="1480" height="120" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="725.5" width="330" height="119" fill="#ccf6ff" stroke="#ccf6ff" stroke-width="1"/>
+<text x="225" y="795" font-size="27" fill="#7a62d6" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">결말</text>
+<text x="420" y="795" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정조 · 채제공은 파장을 줄이려 하면서 윤지충과 외사촌 권상연을 참수</text>
+<rect x="60" y="895" width="1480" height="60" fill="#ccf6ff" stroke="#7a62d6" stroke-width="1"/>
+<text x="800" y="935" font-size="28" fill="#7a62d6" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">이 일을 신해박해 또는 진산 사건이라 한다</text>
+</svg>

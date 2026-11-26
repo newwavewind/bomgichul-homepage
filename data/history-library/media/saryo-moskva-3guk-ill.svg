@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img">
+<title>모스크바 3국 외상 회의(1945) — 한국 문제 결정</title>
+<desc>위는 미·영·소 세 나라 장관이 모인 모스크바 회의, 가운데는 한국 문제 결정의 세 갈래(임시 정부 수립, 미·소 공동 위원회, 최고 5년 신탁 통치), 아래는 반탁·찬탁 대립에서 좌우 합작 운동까지 이어지는 흐름을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">모스크바 3국 외상 회의(1945) — 한국 문제 결정</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1945년 12월 16~25일 · 미국 번스 국무장관 · 소련 몰로토프 · 영국 베빈 외무장관</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="480" height="100" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="300" y="232" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">미국</text>
+<text x="300" y="272" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">번스 국무장관</text>
+<rect x="560" y="190" width="480" height="100" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="232" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">소련</text>
+<text x="800" y="272" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">몰로토프 외무 장관</text>
+<rect x="1060" y="190" width="480" height="100" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1300" y="232" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">영국</text>
+<text x="1300" y="272" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">베빈 외무 장관</text>
+<text x="800" y="342" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">한국 문제 결정 — 독립 국가를 다시 세우는 순서</text>
+<rect x="60" y="370" width="450" height="200" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="285" y="422" font-size="34" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">①</text>
+<text x="285" y="470" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">임시 정부 수립</text>
+<text x="285" y="514" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">한국 민주주의</text>
+<text x="285" y="548" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">임시 정부를 세운다</text>
+<line x1="516" y1="470" x2="568" y2="470" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="575" y="370" width="450" height="200" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="422" font-size="34" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">②</text>
+<text x="800" y="470" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">미 · 소 공동 위원회</text>
+<text x="800" y="514" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">남쪽 미군 · 북쪽 소련군</text>
+<text x="800" y="548" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">사령부 대표로 구성</text>
+<line x1="1031" y1="470" x2="1083" y2="470" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1090" y="370" width="450" height="200" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1315" y="422" font-size="34" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">③</text>
+<text x="1315" y="470" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">최고 5년 신탁 통치</text>
+<text x="1315" y="514" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">4개국이 맡는 방안을</text>
+<text x="1315" y="548" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">공동 위원회가 협의</text>
+<text x="800" y="624" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">「신탁 통치」 소식이 전해지자 나라 안 좌우가 크게 갈라짐</text>
+<rect x="60" y="660" width="1480" height="230" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="110" y1="760" x2="1490" y2="760" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="220" cy="760" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="220" y="738" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1945.12</text>
+<text x="220" y="804" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">반탁 · 찬탁 대립</text>
+<text x="220" y="842" font-size="23" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">우익 반탁 · 좌익 지지로</text>
+<circle cx="610" cy="760" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="610" y="738" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1946.3</text>
+<text x="610" y="804" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">제1차 미 · 소 공동 위원회</text>
+<text x="610" y="842" font-size="23" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서울에서 열림</text>
+<circle cx="990" cy="760" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="990" y="738" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1946.5</text>
+<text x="990" y="804" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">공동 위원회 결렬</text>
+<text x="990" y="842" font-size="23" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">임시 정부 논의 멈춤</text>
+<circle cx="1380" cy="760" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1380" y="738" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1946.7</text>
+<text x="1380" y="804" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">좌우 합작 위원회</text>
+<text x="1380" y="842" font-size="23" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">김규식 · 여운형</text>
+<text x="800" y="950" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">※ 회의 결정은 영문 · 러시아문 공문서이며, 이 그림은 그 한국 조항의 줄거리만 간추린 것</text>
+</svg>

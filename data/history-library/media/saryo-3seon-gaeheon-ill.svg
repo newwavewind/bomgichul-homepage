@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img">
+<title>3선 개헌(1969) — 연임 두 번에서 세 번으로</title>
+<desc>1962년 헌법의 연임 한 번 제한, 1969년 공화당의 개헌 추진, 9월 14일 새벽 국회 특별회의실 변칙 통과, 10월 17일 국민투표 확정, 1971년 박정희 3선과 1972년 유신 체제로 이어지는 흐름을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">3선 개헌(1969) — 연임 두 번에서 세 번으로</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">박정희 대통령의 세 번째 출마 길을 연 헌법 개정</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="345" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="232" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1962</text>
+<text x="232" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">5차 개헌 헌법</text>
+<text x="232" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">대통령 임기 4년</text>
+<text x="232" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">연임은 한 번까지</text>
+<line x1="408" y1="325" x2="432" y2="325" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="435" y="200" width="345" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="607" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1969</text>
+<text x="607" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">공화당 개헌 추진</text>
+<text x="607" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">박정희 3선이 목표</text>
+<text x="607" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">야당 · 학생 거센 반대</text>
+<line x1="783" y1="325" x2="807" y2="325" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="810" y="200" width="345" height="250" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="982" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1969.9.14</text>
+<text x="982" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">새벽 변칙 통과</text>
+<text x="982" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">국회 특별회의실</text>
+<text x="982" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">여당계 의원 122명만</text>
+<line x1="1158" y1="325" x2="1182" y2="325" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1185" y="200" width="345" height="250" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1357" y="252" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1969.10.17</text>
+<text x="1357" y="312" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">국민투표 확정</text>
+<text x="1357" y="362" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">찬성 65.1%</text>
+<text x="1357" y="402" font-size="25" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">계속 재임 3기까지</text>
+<line x1="800" y1="470" x2="800" y2="520" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="540" width="450" height="170" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="285" y="610" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1971 대통령 선거</text>
+<text x="285" y="664" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">박정희 세 번째 당선</text>
+<line x1="516" y1="625" x2="568" y2="625" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="575" y="540" width="450" height="170" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="800" y="610" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">장기 집권</text>
+<text x="800" y="664" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">권력이 한 사람에게 쏠림</text>
+<line x1="1031" y1="625" x2="1083" y2="625" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1090" y="540" width="450" height="170" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1315" y="610" font-size="32" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1972 유신 체제</text>
+<text x="1315" y="664" font-size="26" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">장기 집권의 완성</text>
+<rect x="60" y="750" width="1480" height="150" fill="#ffffff" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="800" y="812" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">「대통령의 계속 재임은 3기에 한한다」 — 개정된 제69조 ③</text>
+<text x="800" y="858" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">연임 제한을 풀어 장기 집권의 문을 연 개헌</text>
+</svg>

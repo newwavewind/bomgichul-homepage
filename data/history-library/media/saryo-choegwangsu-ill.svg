@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>최광수의 난(1217)</title>
+<desc>왼쪽은 1217년 서경 병마사 휘하 군졸 최광수가 서경성을 차지하고 고구려 흥복 병마사를 자칭했다가 정준유 등에게 살해되기까지의 흐름도, 오른쪽은 봉기의 배경과 이연년 형제의 난과 견준 표.</desc>
+<defs>
+<marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker>
+<marker id="ahl" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#7a62d6"/></marker>
+</defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">최광수의 난(1217)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">거란 유종이 쳐들어온 때, 서경에서 「고구려」를 내건 봉기</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="200" width="880" height="112" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="246.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1217년(고종 4) 거란 유종이 쳐들어옴</text>
+<text x="86" y="286.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서경 병마사 최유공 휘하의 군졸 최광수</text>
+<line x1="500.0" y1="314" x2="500.0" y2="328" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="332" width="880" height="112" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="398.4" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">싸움터로 가지 않고 서경성을 차지함</text>
+<line x1="500.0" y1="446" x2="500.0" y2="460" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="464" width="880" height="112" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="510.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">「고구려 흥복 병마사 금오위 섭상장군」 자칭</text>
+<text x="86" y="550.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">고구려 부흥을 내걸음</text>
+<line x1="500.0" y1="578" x2="500.0" y2="592" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="596" width="880" height="112" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="642.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">관원을 두고 군사를 모아 북계 여러 성에 격문</text>
+<text x="86" y="682.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">다른 지역 세력은 호응하지 않음</text>
+<line x1="500.0" y1="710" x2="500.0" y2="724" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="728" width="880" height="112" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="86" y="774.9" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">같은 마을 출신 분대녹사 정준유 등에게 살해</text>
+<text x="86" y="814.0" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">봉기는 곧 끝남</text>
+<text x="1000" y="222" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">옛 나라 부흥을 내건 두 봉기</text>
+<rect x="1000" y="250" width="540" height="150" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1026" y="296.3" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">최광수의 난</text>
+<text x="1026" y="335.4" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1217 · 서경</text>
+<text x="1026" y="374.6" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">고구려 부흥</text>
+<rect x="1000" y="420" width="540" height="150" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1026" y="466.3" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">이연년 형제의 난</text>
+<text x="1026" y="505.4" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1237 · 원율 · 담양</text>
+<text x="1026" y="544.6" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">백제 부흥</text>
+<rect x="1000" y="610" width="540" height="220" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="1026" y="691.3" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">배경</text>
+<text x="1026" y="730.4" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지방관의 수탈</text>
+<text x="1026" y="769.6" font-size="26" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">서경 지역에 쌓인 불만</text>
+<rect x="60" y="870" width="1480" height="86" fill="#ffffff" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="800" y="924" font-size="30" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">「고구려 흥복」 = 고구려를 다시 일으킨다는 뜻 — 서경에서 내건 구호</text>
+</svg>

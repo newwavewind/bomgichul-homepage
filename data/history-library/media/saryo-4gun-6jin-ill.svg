@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>4군 6진</title>
+<desc>서북쪽 압록강 방면의 4군과 동북쪽 두만강 하류의 6진을 나란히 놓고, 개척한 인물과 새 땅을 다스린 방법을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">4군 6진</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">세종 때 압록강 · 두만강까지 북쪽 국경을 넓힌 일</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="700" height="312" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="205.5" width="699" height="58" fill="#ccf6ff"/>
+<text x="84" y="245" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">4군 — 서북쪽 압록강 방면</text>
+<text x="90" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 1433 세종 15 최윤덕</text>
+<text x="90" y="367" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 평안도 도절제사로</text>
+<text x="108" y="423" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">파저강 일대 여진(이만주) 정벌</text>
+<text x="90" y="479" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 압록강 쪽에 4군을 둠</text>
+<rect x="840" y="205" width="700" height="312" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="840.5" y="205.5" width="699" height="58" fill="#ccf6ff"/>
+<text x="864" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">6진 — 동북쪽 두만강 하류</text>
+<text x="870" y="311" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 1433 세종 15 김종서가</text>
+<text x="888" y="367" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">함길도 도관찰사로 7~8년 개척</text>
+<text x="870" y="423" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 1434 세종 16부터 차례로 설치</text>
+<text x="870" y="479" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 여섯 진: 아래 표</text>
+<rect x="840" y="545" width="105" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="892.5" y="590.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">종성</text>
+<rect x="957" y="545" width="105" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1009.5" y="590.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">온성</text>
+<rect x="1074" y="545" width="105" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1126.5" y="590.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">회령</text>
+<rect x="1191" y="545" width="105" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1243.5" y="590.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">경원</text>
+<rect x="1308" y="545" width="105" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1360.5" y="590.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">경흥</text>
+<rect x="1425" y="545" width="105" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="1477.5" y="590.0" font-size="28" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">부령</text>
+<text x="60" y="690" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">새 땅을 다스린 방법</text>
+<rect x="60" y="712" width="700" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="758" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">사민 — 남쪽 여러 도의 백성을</text>
+<text x="90" y="800" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">옮겨 살게 함</text>
+<rect x="840" y="712" width="700" height="110" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="870" y="758" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">토관 — 그 지역 출신을</text>
+<text x="870" y="800" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">관리로 써서 다스림</text>
+<rect x="60" y="860" width="1480" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="800" y="910" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">북쪽 국경이 압록강 · 두만강 연안까지 뻗침</text>
+</svg>

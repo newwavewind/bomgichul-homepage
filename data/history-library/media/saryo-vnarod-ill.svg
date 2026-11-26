@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>브나로드 운동 — 신문사의 문맹 퇴치 운동</title>
+<desc>위는 1929년 조선일보의 문자 보급 운동과 1931~1934년 동아일보의 네 차례 운동을 잇는 연표, 아래는 운동의 내용과 끝을 정리한 도식.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">브나로드 운동 — 신문사의 문맹 퇴치 운동</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">「브나로드」 = 러시아 말로 「민중 속으로」</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="280" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="130" y1="310" x2="1470" y2="310" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="250" cy="310" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="250" y="286" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1929</text>
+<text x="250" y="356" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조선일보</text>
+<text x="250" y="394" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">문자 보급 운동</text>
+<circle cx="700" cy="310" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="700" y="286" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1931~</text>
+<text x="700" y="356" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">동아일보</text>
+<text x="700" y="394" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">제1~3회 「브나로드」</text>
+<circle cx="1150" cy="310" r="9" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1150" y="286" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">~1934</text>
+<text x="1150" y="356" font-size="27" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">동아일보</text>
+<text x="1150" y="394" font-size="26" fill="#5d6365" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">제4회 「계몽운동」</text>
+<text x="250" y="440" font-size="25" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">귀향 남녀 학생 문자 보급</text>
+<text x="925" y="440" font-size="25" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1931~1934년 네 차례 전국 규모</text>
+<rect x="560" y="224" width="730" height="232" fill="none" stroke="#0096b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<rect x="60" y="510" width="1480" height="78" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="100" y="560" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">누가</text>
+<text x="300" y="560" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">학생 계몽대</text>
+<rect x="60" y="602" width="1480" height="78" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="100" y="652" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">어디서</text>
+<text x="300" y="652" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">농촌으로 내려가</text>
+<rect x="60" y="694" width="1480" height="78" fill="#ccf6ff" stroke="#00d0ff" stroke-width="1"/>
+<text x="100" y="744" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">무엇을</text>
+<text x="300" y="744" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">한글과 셈 가르치기 · 생활 계몽</text>
+<rect x="60" y="786" width="1480" height="78" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="100" y="836" font-size="30" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">교재</text>
+<text x="300" y="836" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">『한글공부』를 펴내 나누어 줌</text>
+<text x="800" y="920" font-size="31" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">조선 총독부가 금지하여 더 이어지지 못함</text>
+</svg>

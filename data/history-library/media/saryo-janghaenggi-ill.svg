@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>지원병 환송 장행기</title>
+<desc>중일전쟁, 육군 특별 지원병령, 창씨개명, 징병제 공포를 잇는 연표와 장행회의 뜻, 강요된 지원, 자료 속 단서를 정리한 카드로 된 정리 그림.</desc>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">지원병 환송 장행기</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">「지원」이라는 이름 아래 끌려간 조선 청년들</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="190" width="1480" height="270" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<line x1="100" y1="290" x2="1500" y2="290" stroke="#00d0ff" stroke-width="1.2"/>
+<circle cx="208" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="208" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1937. 7.</text>
+<text x="208" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">중일전쟁</text>
+<text x="208" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">시작</text>
+<circle cx="504" cy="290" r="12" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<text x="504" y="262" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1938. 2.</text>
+<text x="504" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">육군 특별</text>
+<text x="504" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">지원병령 공포</text>
+<circle cx="800" cy="290" r="12" fill="#ccf6ff" stroke="#0096b8" stroke-width="2"/>
+<text x="800" y="262" font-size="27" fill="#0096b8" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1940. 2.</text>
+<text x="800" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">창씨개명</text>
+<text x="800" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">신고 강요 시작</text>
+<circle cx="1096" cy="290" r="12" fill="#ccf6ff" stroke="#7a62d6" stroke-width="2"/>
+<text x="1096" y="262" font-size="27" fill="#7a62d6" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1943. 3.</text>
+<text x="1096" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">징병제 공포</text>
+<text x="1096" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">지원병제 폐지</text>
+<circle cx="1392" cy="290" r="8" fill="#ffffff" stroke="#5d6365" stroke-width="2"/>
+<text x="1392" y="262" font-size="27" fill="#5d6365" text-anchor="middle" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1944년</text>
+<text x="1392" y="340" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">조선 청년</text>
+<text x="1392" y="376" font-size="25" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">징병 실시</text>
+<rect x="60" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="86" y="533" font-size="31" fill="#5d6365" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">장행회란</text>
+<text x="90" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">군대로 떠나는 사람을</text>
+<text x="90" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">장하게 보내는 모임</text>
+<text x="90" y="746" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">지원병 환송 행사</text>
+<text x="90" y="800" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">관청·학교·마을이 엶</text>
+<rect x="563" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="563.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="589" y="533" font-size="31" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">강요된 지원</text>
+<text x="593" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">행정 기관과</text>
+<text x="593" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">어용 단체가 지원을 독려</text>
+<text x="593" y="746" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1938년 지원자 약 3천 명</text>
+<text x="799" y="800" font-size="30" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">↓</text>
+<text x="593" y="854" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">1942년 25만여 명</text>
+<rect x="1067" y="490" width="473" height="450" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="1067.5" y="490.5" width="472" height="62" fill="#ccf6ff"/>
+<text x="1093" y="533" font-size="31" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">자료 속 단서</text>
+<text x="1097" y="620" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">떠나는 청년을</text>
+<text x="1097" y="674" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">일본식 이름으로 부름</text>
+<text x="1097" y="746" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">지원병·장행회</text>
+<text x="1097" y="800" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">황국 신민화 정책</text>
+<text x="1097" y="854" font-size="30" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">→ 1930년대 후반 이후</text>
+</svg>

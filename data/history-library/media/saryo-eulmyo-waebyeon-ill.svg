@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>을묘왜변(1555)과 비변사의 상설화</title>
+<desc>왼쪽은 1555년 5월 왜구가 달량포를 에워싸고 영암·강진 일대를 약탈한 뒤 토벌되기까지의 흐름도, 오른쪽은 1510년 삼포왜란 때 임시 기구로 시작한 비변사가 1555년 상설 기구가 된 과정을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">을묘왜변(1555)과 비변사의 상설화</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">1555년(명종 10) 5월 · 전라도 남해안 달량포 일대</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60" y="205" width="860" height="86" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="257" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">왜선 70여 척이 달량 앞바다에 정박</text>
+<line x1="490" y1="293" x2="490" y2="329" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="335" width="860" height="86" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="387" font-size="29" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">이진포·달량포에서 나뉘어 상륙, 달량성 포위</text>
+<line x1="490" y1="423" x2="490" y2="459" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="465" width="860" height="86" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="517" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">영암·강진 일대를 약탈</text>
+<line x1="490" y1="553" x2="490" y2="589" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="595" width="860" height="86" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="90" y="647" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">절도사 원적·장흥 부사 한온 전사</text>
+<line x1="490" y1="683" x2="490" y2="719" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="60" y="725" width="860" height="86" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="90" y="777" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">이준경을 도순찰사로 보내 토벌</text>
+<rect x="980" y="205" width="560" height="700" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="980.5" y="205.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="1004" y="245" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">비변사의 변천</text>
+<circle cx="1030" cy="320" r="10" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1060" y="330" font-size="34" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1510</text>
+<text x="1060" y="385" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">삼포왜란(경오왜변)</text>
+<text x="1060" y="435" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">지변사재상을 모은 임시 기구</text>
+<circle cx="1030" cy="600" r="10" fill="#00d0ff" stroke="#0096b8" stroke-width="1"/>
+<text x="1060" y="610" font-size="34" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">1555</text>
+<text x="1060" y="665" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">을묘왜변을 계기로</text>
+<text x="1060" y="715" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">청사를 갖춘 상설 기구</text>
+<line x1="1030" y1="345" x2="1030" y2="590" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+</svg>

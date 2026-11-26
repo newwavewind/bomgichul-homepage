@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 1000" role="img">
+<title>정약용의 여전론(1799)</title>
+<desc>정약용 여전론의 마을 단위 묶음(여·리·방·읍), 공동 경작에서 일한 날수에 따른 분배까지의 흐름과 원칙을 정리한 그림.</desc>
+<defs><marker id="ah" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="5.5" markerHeight="5.5" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M1 1.5 L11 6 L1 10.5 L3.6 6 z" fill="#0096b8"/></marker></defs>
+<rect width="1600" height="1000" fill="#effbff"/>
+<text x="60" y="92" font-size="48" fill="#2a2c2d" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">정약용의 여전론(1799)</text>
+<text x="60" y="140" font-size="28" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">곡산부사 정약용이 구상한 마을 공동 경작안</text>
+<text x="1540" y="92" font-size="28" fill="#0096b8" text-anchor="end" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정리 그림</text>
+<line x1="60" y1="166" x2="1540" y2="166" stroke="#00d0ff" stroke-width="1"/>
+<text x="60" y="222" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">마을 단위 묶음</text>
+<rect x="60" y="250" width="200" height="70" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="160" y="296" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">여 3개</text>
+<line x1="264" y1="285" x2="336" y2="285" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="340" y="250" width="160" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="420" y="296" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">리</text>
+<rect x="60" y="350" width="200" height="70" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="160" y="396" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">리 5개</text>
+<line x1="264" y1="385" x2="336" y2="385" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="340" y="350" width="160" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="420" y="396" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">방</text>
+<rect x="60" y="450" width="200" height="70" fill="#ffffff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="160" y="496" font-size="29" fill="#2a2c2d" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">방 5개</text>
+<line x1="264" y1="485" x2="336" y2="485" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="340" y="450" width="160" height="70" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="420" y="496" font-size="29" fill="#0096b8" text-anchor="middle" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">읍</text>
+<rect x="60" y="575" width="560" height="244" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<rect x="60.5" y="575.5" width="559" height="58" fill="#ccf6ff"/>
+<text x="84" y="615" font-size="29" fill="#0096b8" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">여전론의 원칙</text>
+<text x="90" y="673" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 농사짓는 사람만 땅을 얻는다</text>
+<text x="90" y="725" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 여 사람들이 땅을 함께 짓는다</text>
+<text x="90" y="777" font-size="27" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">· 일한 날수만큼 나눠 받는다</text>
+<text x="60" y="900" font-size="25" fill="#5d6365" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">정전제·균전제·한전제는 현실성이 떨어진다고 보고 내놓은 방안</text>
+<text x="700" y="222" font-size="29" fill="#7a62d6" text-anchor="start" font-family="'Noto Serif KR','Nanum Myeongjo','AppleMyungjo',serif" font-weight="700">한 해 농사의 흐름</text>
+<rect x="700" y="250" width="840" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="730" y="300.0" font-size="28" fill="#7a62d6" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">여장의 지시에 따라 여 사람들이 함께 경작</text>
+<line x1="1120.0" y1="332" x2="1120.0" y2="362" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="700" y="366" width="840" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="730" y="416.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">여장이 사람마다 일한 날을 장부에 적음</text>
+<line x1="1120.0" y1="448" x2="1120.0" y2="478" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="700" y="482" width="840" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="730" y="532.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">가을, 거둔 곡식을 여장의 집에 모음</text>
+<line x1="1120.0" y1="564" x2="1120.0" y2="594" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="700" y="598" width="840" height="80" fill="#ffffff" stroke="#00d0ff" stroke-width="1"/>
+<text x="730" y="648.0" font-size="28" fill="#2a2c2d" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif">나라에 낼 세금과 여장의 봉급을 먼저 뗌</text>
+<line x1="1120.0" y1="680" x2="1120.0" y2="710" stroke="#0096b8" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="700" y="714" width="840" height="80" fill="#ccf6ff" stroke="#0096b8" stroke-width="1.5"/>
+<text x="730" y="764.0" font-size="28" fill="#0096b8" text-anchor="start" font-family="'Pretendard','Apple SD Gothic Neo',sans-serif" font-weight="700">나머지를 장부의 일한 날수대로 나눔</text>
+</svg>
