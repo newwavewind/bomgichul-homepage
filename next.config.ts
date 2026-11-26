@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
     "/api/pc-access/lecture/**": ["./data/police-pro-lectures/*.json", "./data/real-estate-pro-lectures/*.json", "./data/firefighter-pro-lectures/*.json"],
   },
   outputFileTracingExcludes: {
+    "/api/exam-sources": ["./data/history-library/**", "./data/pc-pro-*/**", "./data/pc-pro-question-traps.json.gz"],
     "/history/library": ["./data/history-library/media/**"],
     "/api/pc-access/history-library": ["./data/history-library/media/**", "./data/history-library/catalogue.json.gz"],
     "/api/pc-access/history-figures/**": ["./data/history-library/*.json.gz"],
