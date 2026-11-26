@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type Ref } from "react";
 
 export type RankAccess = "login" | "profile" | "ready";
 
@@ -13,8 +13,8 @@ type RankRow = {
   is_me: boolean;
 };
 
-export function EnglishWordbookRank({ access, refresh, onStart }: {
-  access: RankAccess; refresh: number; onStart?: () => void;
+export function EnglishWordbookRank({ access, refresh, onStart, sectionRef }: {
+  access: RankAccess; refresh: number; onStart?: () => void; sectionRef?: Ref<HTMLElement>;
 }) {
   const [period, setPeriod] = useState<"today" | "all">("today");
   const [showAll, setShowAll] = useState(false);
@@ -38,7 +38,7 @@ export function EnglishWordbookRank({ access, refresh, onStart }: {
     return () => request.abort();
   }, [key, period]);
 
-  return <section id="es-wordbook-rank" className="es-word-rank" aria-labelledby="es-wordbook-rank-title">
+  return <section ref={sectionRef} tabIndex={-1} id="es-wordbook-rank" className="es-word-rank" aria-labelledby="es-wordbook-rank-title">
     <header className="es-rank-head">
       <h2 id="es-wordbook-rank-title">단어장 순위</h2>
       <div className="es-tabs" aria-label="순위 기간">

@@ -210,6 +210,7 @@ export function ExamOxQuestion({
     if (target !== document.body && target !== document.documentElement && !article.contains(target)) return;
 
     if (key === "ArrowLeft" || key === "ArrowRight") {
+      if (embedded) return;
       const navigation = article.querySelector<HTMLElement>(
         `nav :is(a[href], button:not(:disabled))[aria-keyshortcuts="${key}"]`,
       );
@@ -492,9 +493,9 @@ export function ExamOxQuestion({
               <span className="inline-flex items-center gap-1.5"><kbd>Enter</kbd> 채점</span>
             </>
           ) : null}
-          <span className="inline-flex items-center gap-1.5">
+          {!embedded && <span className="inline-flex items-center gap-1.5">
             <kbd aria-label="왼쪽 방향키">←</kbd><kbd aria-label="오른쪽 방향키">→</kbd> 문항 이동
-          </span>
+          </span>}
         </p>
       ) : null}
 

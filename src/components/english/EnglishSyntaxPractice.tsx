@@ -184,7 +184,7 @@ export function EnglishSyntaxPractice({ firstDay, initialDay, initialCardId }: {
 
   return (
     <div className="es-workspace">
-      <aside className="es-sidebar es-syntax-sidebar" aria-label="암기 문장 목록">
+      <aside className="es-sidebar" aria-label="암기 문장 목록">
         <div className="es-filters">
           <label className="es-field">학습 분량
             <select value={day} onChange={(event) => {
