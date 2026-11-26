@@ -1,6 +1,7 @@
+import { historyLibraryAccess } from "@/lib/history-library-access";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getHistoryCatalogue, findHistoryRecord, historyLibraryAccess } from "@/lib/history-library";
+import { getHistoryCatalogue, findHistoryRecord } from "@/lib/history-library";
 import { libraryView } from "@/lib/history-library-model";
 import { HistoryLibrary } from "@/components/history/library/HistoryLibrary";
 import { historyLibraryLinks } from "@/components/history/library/HistoryLibraryLinks";

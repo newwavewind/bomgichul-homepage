@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/history/library": ["./data/history-library/*.json.gz"],
     "/api/pc-access/history-library": ["./data/history-library/records.json.gz"],
-    "/api/pc-access/history-library/media/**": ["./data/history-library/media/*"],
+    "/api/pc-access/history-figures/**": ["./data/history-library/media/*"],
     "/api/exam-sources": ["./data/exam-source-previews.json.gz"],
     "/api/pc-access/study": ["./data/pc-pro-study/*.json.gz"],
     "/api/pc-access/question-data": [
@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
   outputFileTracingExcludes: {
     "/history/library": ["./data/history-library/media/**"],
     "/api/pc-access/history-library": ["./data/history-library/media/**", "./data/history-library/catalogue.json.gz"],
-    "/api/pc-access/history-library/media/**": ["./data/history-library/*.json.gz"],
+    "/api/pc-access/history-figures/**": ["./data/history-library/*.json.gz"],
   },
   async rewrites() {
     return {

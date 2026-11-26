@@ -1,4 +1,5 @@
-import { historyLibraryAccess, readHistoryLibraryImage } from "@/lib/history-library";
+import { historyLibraryAccess } from "@/lib/history-library-access";
+import { readHistoryLibraryImage } from "@/lib/history-library-image";
 
 export async function GET(_: Request, { params }: { params: Promise<{ file: string }> }) {
   const access = await historyLibraryAccess();

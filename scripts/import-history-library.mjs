@@ -58,7 +58,7 @@ async function linkAsset(file) {
     await copyFile(path.join(app, 'public', file), path.join(mediaPath, name));
     copied.add(name);
   }
-  return `/api/pc-access/history-library/media/${name}`;
+  return `/api/pc-access/history-figures/${name}`;
 }
 
 const sources = await Promise.all(data.sources.map(async item => ({

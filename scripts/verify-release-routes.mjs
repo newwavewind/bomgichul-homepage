@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto'
 const paths=JSON.parse(readFileSync('.next/server/app-paths-manifest.json','utf8'))
 const required=[
  '/api/daily/app/route',
- '/history/library/page', '/api/pc-access/history-library/route', '/api/pc-access/history-library/media/[file]/route',
+ '/history/library/page', '/api/pc-access/history-library/route', '/api/pc-access/history-figures/[file]/route',
  '/api/pc-access/web/route', '/api/pc-access/mobile/route',
  '/api/pc-access/study/route', '/api/pc-access/question-data/route', '/api/exam-sources/route',
  '/api/pc-access/lecture/[lecture]/route', '/api/pc-access/lecture/[lecture]/[scene]/route',
@@ -17,7 +17,7 @@ for(const route of required)if(!paths[route])throw Error(`Release route missing:
 const studyTraceOwners = [
   [/\/data\/history-library\/catalogue\.json\.gz$/, ['/history/library/page']],
   [/\/data\/history-library\/records\.json\.gz$/, ['/history/library/page', '/api/pc-access/history-library/route']],
-  [/\/data\/history-library\/media\/[^/]+$/, ['/api/pc-access/history-library/media/[file]/route']],
+  [/\/data\/history-library\/media\/[^/]+$/, ['/api/pc-access/history-figures/[file]/route']],
   [/\/data\/pc-pro-study\/[^/]+\.json\.gz$/, ['/api/pc-access/study/route']],
   [/\/data\/(?:(?:pc-pro-glossary|pc-pro-notes)\/[^/]+|pc-pro-question-traps)\.json\.gz$/, ['/api/pc-access/question-data/route']],
 ]

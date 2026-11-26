@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { GET as record } from "@/app/api/pc-access/history-library/route";
-import { GET as media } from "@/app/api/pc-access/history-library/media/[file]/route";
+import { GET as media } from "@/app/api/pc-access/history-figures/[file]/route";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { HistoryLibrary } from "@/components/history/library/HistoryLibrary";
