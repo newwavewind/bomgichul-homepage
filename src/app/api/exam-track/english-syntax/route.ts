@@ -18,7 +18,7 @@ import { getUnitNote } from "@/data/english/syntax-notes";
 
 const PAGE_SIZE = 50;
 
-// 목록에는 문장 한 줄만 싣는다 — 전문(끊어읽기·문법·어휘)은 상세 페이지 몫이다.
+// 상세 분석을 제외한 목록용 기본 정보.
 function toSummary(card: EnglishSyntaxCard) {
   return { id: card.id, no: card.no, sentence: card.sentence, seriesLabel: card.seriesLabel };
 }
@@ -56,7 +56,10 @@ export function GET(request: Request) {
 
   if (searchParams.get("view") === "number") {
     return NextResponse.json(
-      { kind: "number", cards: ENGLISH_SYNTAX_CARDS.map(toSummary) },
+      {
+        kind: "number",
+        cards: ENGLISH_SYNTAX_CARDS.map((card) => ({ ...toSummary(card), translation: card.translation })),
+      },
       { headers: { "cache-control": CACHE_CONTROL } },
     );
   }

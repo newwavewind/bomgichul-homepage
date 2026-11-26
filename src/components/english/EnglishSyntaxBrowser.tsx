@@ -23,7 +23,7 @@ type UnitPayload = {
   focuses: string[];
   cards: SyntaxCardSummary[];
 };
-type NumberPayload = { kind: "number"; cards: SyntaxCardSummary[] };
+type NumberPayload = { kind: "number"; cards: (SyntaxCardSummary & { translation: string })[] };
 type Payload = UnitPayload | NumberPayload;
 
 export function ViewTabs({ view }: { view: "group" | "number" }) {
@@ -135,9 +135,14 @@ function NumberView({ payload }: { payload: NumberPayload }) {
             <span className="min-w-10 font-display text-body-sm font-semibold text-ios-blue">
               {card.no}
             </span>
-            <span className="font-system text-body leading-7 text-ink">
-              {card.sentence}{" "}
-              <em className="not-italic text-[12px] text-fog">{card.seriesLabel}</em>
+            <span className="min-w-0">
+              <span className="block font-system text-body leading-7 text-ink">
+                <span lang="en">{card.sentence}</span>{" "}
+                <em className="not-italic text-[12px] text-fog">{card.seriesLabel}</em>
+              </span>
+              <span lang="ko" className="mt-1 block font-display text-body-sm leading-6 text-smoke">
+                {card.translation}
+              </span>
             </span>
           </Link>
         </li>
