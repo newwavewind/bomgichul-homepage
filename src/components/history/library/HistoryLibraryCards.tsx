@@ -1,8 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { useRef, useState } from "react";
-import type { ExamLink, HistoryPerson, HistorySource, LibraryImage, LibraryLink, PersonSummary, SourceSummary } from "@/lib/history-library-model";
+import { useId, useRef, useState } from "react";
+import { DailyQuestionStem } from "@/components/daily/DailyQuestionStem";
+import { ExplanationChoiceSelection } from "@/components/exam/ExamSeoExplanationDetails";
+import { ExamMaterialFigure } from "@/components/exam/ExamMaterialFigure";
+import { ExamOxQuestion, type ExamAnswerState } from "@/components/exam/ExamOxQuestion";
+import { ExamQuestionSeoExplanations } from "@/components/exam/ExamQuestionSeoExplanations";
+import { PcQuestionStudyProvider } from "@/components/pc-pro/PcStudyAction";
+import type { ExamLink, HistoryPerson, HistoryQuestionPreview, HistorySource, LibraryImage, LibraryLink, PersonSummary, SourceSummary } from "@/lib/history-library-model";
 
 const oldHangul = /[\u1100-\u11ff\ua960-\ua97f\ud7b0-\ud7ff]/u;
 const attributionLabels: Record<string, string> = {
@@ -25,11 +30,56 @@ export function ReferenceLinks({ links, title = "출처" }: { links?: LibraryLin
 }
 
 function ExamLinks({ links, title }: { links: ExamLink[]; title: string }) {
+  const panelId = useId();
+  const [active, setActive] = useState<ExamLink | null>(null);
+  const [previews, setPreviews] = useState<Record<string, HistoryQuestionPreview | "loading" | "error">>({});
+  const preview = active ? previews[active.href] : undefined;
+
+  function load(href: string) {
+    setPreviews(current => ({ ...current, [href]: "loading" }));
+    void fetch("/api/history/question-preview?" + new URLSearchParams({ href }))
+      .then(async response => {
+        if (!response.ok) throw new Error("기출문제를 불러오지 못했어요.");
+        const question = await response.json() as HistoryQuestionPreview;
+        setPreviews(current => ({ ...current, [href]: question }));
+      }).catch(() => setPreviews(current => ({ ...current, [href]: "error" })));
+  }
+
+  function toggle(link: ExamLink) {
+    setActive(active?.href === link.href ? null : link);
+    if (!previews[link.href]) load(link.href);
+  }
+
   if (!links.length) return null;
   return <section>
     <h3 className="sry-sec__label">{title}</h3>
-    <div className="sry-exams">{links.map(({ label, href }) => <Link href={href} key={href} prefetch={false}>{label}<span className="sr-only"> 문제 보기</span></Link>)}</div>
+    <div className="sry-exams">{links.map(link => <button type="button" key={link.href} aria-expanded={active?.href === link.href}
+      aria-controls={panelId} onClick={() => toggle(link)}>{link.label}<span className="sr-only"> 기출문제</span></button>)}</div>
+    <div id={panelId} hidden={!active} className="hl-exam-preview" role="region" aria-label={active ? `${active.label} 기출문제` : undefined}>
+      {active && (preview === "error" ? <p role="status">기출문제를 불러오지 못했어요. <button type="button" onClick={() => load(active.href)}>다시 열기</button></p>
+        : !preview || preview === "loading" ? <p role="status">기출문제를 여는 중이에요.</p>
+          : <RelatedQuestion key={active.href} label={active.label} question={preview}/>)}
+    </div>
   </section>;
+}
+
+function RelatedQuestion({ label, question }: { label: string; question: HistoryQuestionPreview }) {
+  const [answer, setAnswer] = useState<ExamAnswerState>({ selected: null, revealed: false });
+  const accepted = question.correctChoices?.length ? question.correctChoices : [question.correctChoice];
+  const picked = answer.selected === null ? null : { number: answer.selected, incorrect: !accepted.includes(answer.selected) };
+  return <PcQuestionStudyProvider question={question.glossaryPro?.path}>
+    <p className="hl-meta">{label}</p>
+    <DailyQuestionStem stem={question.stem} heading="h3"/>
+    <div className="hl-exam-figure"><ExamMaterialFigure material={question.material} questionNo={question.questionNo}/></div>
+    <div className="hl-exam-choices">
+      <ExamOxQuestion examId={question.id} items={question.items} correctChoice={question.correctChoice}
+        correctChoices={question.correctChoices} answerState={answer} onAnswerStateChange={setAnswer} renderExplanation={false} embedded/>
+    </div>
+    {answer.revealed && <ExplanationChoiceSelection choice={picked}>
+      <ExamQuestionSeoExplanations question={question} subjectLabel="한국사 심화" scope="history" embedded
+        glossaryByChoice={question.glossaryByChoice} glossaryPro={question.glossaryPro} pickedChoice={picked ? `${picked.number}번` : undefined}/>
+    </ExplanationChoiceSelection>}
+  </PcQuestionStudyProvider>;
 }
 
 function Picture({ image, portrait, children }: { image: LibraryImage; portrait?: boolean; children?: React.ReactNode }) {

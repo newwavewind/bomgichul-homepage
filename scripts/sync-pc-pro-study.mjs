@@ -21,6 +21,10 @@ programs.unshift(
 const output = 'data/pc-pro-study';
 const glossaryOutput = 'data/pc-pro-glossary';
 const glossaryOnly = process.argv.includes('--glossary-only');
+const selectedSite = process.argv.find(arg => arg.startsWith('--site='))?.slice('--site='.length);
+if (selectedSite && (!glossaryOnly || !programs.some(program => program.site === selectedSite))) {
+  throw new Error('--site requires --glossary-only and a known site');
+}
 await mkdir(glossaryOutput, { recursive: true });
 await mkdir(output, { recursive: true });
 const manifest = {};
@@ -147,7 +151,7 @@ async function glossaryData(rows, glossary, points, basis, articles) {
   for (const row of byId.values()) {
     const terms = {};
     for (const item of row.items) {
-      const list = glossary.explTermsFor?.(row.id, item.key) ?? [];
+      const list = glossary.explTermsFor?.(row.id, item.key, item) ?? [];
       if (!list.length) continue;
       const results = [];
       for (const native of list) {
@@ -196,8 +200,30 @@ async function glossaryData(rows, glossary, points, basis, articles) {
   return { entries, sources, related };
 }
 
+async function historyGlossary(nativeData) {
+  const directory = path.join(nativeData, 'subjects/history');
+  const [terms, hanja] = await Promise.all(['explTerms.json', 'hanjaTerms.json'].map(name => load(path.join(directory, name))));
+  const heads = new Map();
+  for (const entry of hanja) {
+    if (entry.term.length >= 2 && entry.def) heads.set(entry.term, heads.has(entry.term) ? null : entry);
+  }
+  return {
+    explTermsFor(id, key, item) {
+      const entries = new Map((terms[`${id}|${key}`] ?? []).map(entry => [entry.term, entry]));
+      const additional = new Map();
+      for (const word of item?.text?.match(/[가-힣]+/gu) ?? []) {
+        const term = heads.get(word) ?? heads.get(word.replace(/(?:에서는|에게서|으로|에서|에게|에는|이라|이고|와|과|이|가|은|는|을|를|의|에|로)$/u, ''));
+        if (term && !entries.has(term.term)) additional.set(term.term, term);
+      }
+      // Prefer headwords with an encyclopedia entry when adding terms from the choice text.
+      return [...entries.values(), ...[...additional.values()].sort((a, b) => Number(Boolean(b.ek)) - Number(Boolean(a.ek))).slice(0, 2)];
+    },
+  };
+}
+
 for (const program of programs) {
   const { site } = program;
+  if (selectedSite && site !== selectedSite) continue;
   if (!roots[site]) throw new Error('Missing current source checkout for ' + site);
   const root = path.resolve(roots[site]);
   sourceCommits[site] = execFileSync('git', ['rev-parse', 'HEAD'], { cwd:root, encoding:'utf8' }).trim();
@@ -207,17 +233,21 @@ for (const program of programs) {
   const files = await fileList(path.join(nativeData,'cellStudy'));
   const cellEngine = await fileExists(path.join(root, 'src/cellstudy/cellStudyEngine.js'))
     ? await vite.ssrLoadModule('/src/cellstudy/cellStudyEngine.js') : null;
-  const glossary = await fileExists(path.join(nativeData, 'explTermsIndex.js'))
-    ? await vite.ssrLoadModule('/src/data/explTermsIndex.js') : {};
+  const glossary = site === 'history' ? await historyGlossary(nativeData)
+    : await fileExists(path.join(nativeData, 'explTermsIndex.js')) ? await vite.ssrLoadModule('/src/data/explTermsIndex.js') : {};
   const appFixes = await fileExists(path.join(nativeData, 'choiceFixes.js'))
     ? await vite.ssrLoadModule('/src/data/choiceFixes.js') : {};
   const nativeModule = async (uri) => await fileExists(path.join(root, uri))
     ? vite.ssrLoadModule('/' + uri) : {};
-  const [points, basis, articles] = await Promise.all([
+  const [points, nativeBasis, articles] = await Promise.all([
     nativeModule('src/data/explTermPoints.js'),
     nativeModule('src/utils/termBasisLinks.js'),
     nativeModule('src/data/termArticleText.js'),
   ]);
+  const basis = site === 'history' ? {
+    termBasisLinks: ({ ek, basis }) => /^E\d{7}$/u.test(ek ?? '')
+      ? [{ label: basis ?? '한국민족문화대백과사전', url: 'https://encykorea.aks.ac.kr/Article/' + ek }] : [],
+  } : nativeBasis;
   const fixFiles = await fileList(path.join(nativeData,'choiceFixes'));
   const report = [];
   const nativeLoader = await fileExists(path.join(nativeData,'subjectDataLoader.js'))
@@ -237,6 +267,7 @@ for (const program of programs) {
       const webExams = Array.isArray(web) ? web : web.exams ?? [];
       const webIds = new Set(webExams.map(exam => exam.id ?? syllables[webId]+'-'+exam.year+'-Q'+exam.questionNo));
       const webSources = new Map(webExams.map(exam => [exam.id ?? syllables[webId]+'-'+exam.year+'-Q'+exam.questionNo, exam.sourceCode]));
+      const webHistoryRows = site === 'history' ? new Map(webExams.map(exam => [exam.id, examEntry(exam, site, offer, webIds)])) : null;
       if (!loadedExams.has(subjectId)) {
         let originals;
         try {
@@ -249,8 +280,13 @@ for (const program of programs) {
       const scoped = native.filter(exam => !offer.source || site === 'firefighter' ||
         [exam.sourceCode,exam.source_code,exam.source,webSources.get(exam.id)].some(s => clean(s).includes(offer.source)));
       const rows = scoped.map(exam => examEntry(exam,site,offer,webIds)).filter(Boolean)
-        .map(e => ({ ...e, href: e.href && webSources.get(e.id) && site !== 'real-estate'
-          ? e.href.replace('/'+encodeURIComponent(e.source)+'/'+e.no, '/'+encodeURIComponent(webSources.get(e.id))+'/'+e.no) : e.href }));
+        .map(e => {
+          // The history app stores the round in its year field. Use the web question's calendar year.
+          const history = webHistoryRows?.get(e.id);
+          if (history) return { ...e, href: history.href, label: history.label };
+          return { ...e, href: e.href && webSources.get(e.id) && site !== 'real-estate'
+            ? e.href.replace('/'+encodeURIComponent(e.source)+'/'+e.no, '/'+encodeURIComponent(webSources.get(e.id))+'/'+e.no) : e.href };
+        });
       if (glossary.explTermsFor) {
         const data = await glossaryData(rows, glossary, points, basis, articles);
         if (Object.keys(data.entries).length) {

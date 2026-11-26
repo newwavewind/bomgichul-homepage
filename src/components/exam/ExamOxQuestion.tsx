@@ -70,6 +70,7 @@ export function ExamOxQuestion({
   initialAttemptResult = null,
   onAttempt,
   renderExplanation = true,
+  embedded = false,
   keyboardShortcuts = false,
   answerState,
   onAnswerStateChange,
@@ -95,6 +96,8 @@ export function ExamOxQuestion({
   initialAttemptResult?: "correct" | "wrong" | null;
   onAttempt?: (result: "correct" | "wrong") => void | Promise<void>;
   renderExplanation?: boolean;
+  /** The surrounding reader provides the context and keeps grading local. */
+  embedded?: boolean;
   keyboardShortcuts?: boolean;
   answerState?: ExamAnswerState;
   onAnswerStateChange?: (answer: ExamAnswerState) => void;
@@ -109,7 +112,7 @@ export function ExamOxQuestion({
   const me = useMe();
   // 판정 중(pending)에는 익명 취급하지 않는다 — 로그인해 둔 사람에게
   // 로그인 유도 배너가 깜빡 나타나면 안 된다. 익명은 판정이 끝난 뒤 확정된다.
-  const isAnon = userId === undefined ? !me.pending && !me.user : userId === null;
+  const isAnon = !embedded && (userId === undefined ? !me.pending && !me.user : userId === null);
   const loginHref = `/login?next=${encodeURIComponent(loginNext ?? pathname ?? "/")}`;
   const actor = (userId === undefined ? me.user?.id : userId) ?? "guest";
   const questionHref = loginNext ?? pathname;
@@ -177,7 +180,7 @@ export function ExamOxQuestion({
   const reveal = () => {
     if (revealed) return;
     updateAnswer({ selected, revealed: true });
-    if (selected !== null && hasAnswerKey) {
+    if (!embedded && selected !== null && hasAnswerKey) {
       const result = acceptedChoices.includes(selected) ? "correct" : "wrong";
       const entry: Omit<StudyEntry,"day"> = {id: journalId, href: questionHref, title: document.querySelector("h1")?.textContent || examId, scope: scopeForPath(pathname), result,
         answerSummary: [`정답: ${answerLabel}`, explanationSummary, ...items.filter(item => item.explanation).map(item => `${item.label ?? item.key}: ${plainStudyText(item.explanation!)}`)].filter(Boolean).join("\n")};
@@ -519,7 +522,8 @@ export function ExamOxQuestion({
         <div className="space-y-4">
           {renderExplanation ? (
             <p role="status" className="font-display text-body-sm font-semibold text-ink">
-              {isCorrect ? (allAccepted ? answerLabel : "정답") : hasAnswerKey ? `정답 ${answerLabel}` : "채점 완료"}
+              {embedded && hasAnswerKey ? `${isCorrect ? "맞았어요." : "틀렸어요."} 정답 ${answerLabel}`
+                : isCorrect ? (allAccepted ? answerLabel : "정답") : hasAnswerKey ? `정답 ${answerLabel}` : "채점 완료"}
             </p>
           ) : (
             <span className="sr-only" role="status">

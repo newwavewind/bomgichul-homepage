@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     "/history/library": ["./data/history-library/*.json.gz"],
     "/api/pc-access/history-library": ["./data/history-library/records.json.gz"],
     "/api/pc-access/history-figures/**": ["./data/history-library/media/*"],
-    "/api/exam-sources": ["./data/exam-source-previews.json.gz"],
+    "/api/exam-sources": ["./data/exam-source-previews.json.gz", "./data/history-source-previews.json.gz"],
     "/api/pc-access/study": ["./data/pc-pro-study/*.json.gz"],
     "/api/pc-access/question-data": [
       "./data/pc-pro-notes/*.json.gz", "./data/pc-pro-glossary/*.json.gz", "./data/pc-pro-question-traps.json.gz",

@@ -1,7 +1,18 @@
+import type { ExamTrackExam, ExamTrackExamItem } from "@/lib/exam-track/types";
+import type { ChoiceGlossary } from "@/lib/exam-glossary";
+import type { PcQuestionAccess } from "@/lib/pc-access/study-features";
+
 export type LibraryView = "sources" | "people" | "dynasties";
 export type RecordKind = "sources" | "people";
 export type LibraryLink = { label: string; url: string };
 export type ExamLink = { label: string; href: string };
+export type HistoryQuestionPreview = Pick<ExamTrackExam, "id" | "year" | "round" | "sourceCode" | "category" | "subcategory" |
+  "questionNo" | "material" | "correctChoice" | "correctChoices" | "explanationSummary"> & {
+  stem: string;
+  items: ExamTrackExamItem[];
+  glossaryByChoice: Record<string, ChoiceGlossary>;
+  glossaryPro?: PcQuestionAccess;
+};
 type Captions = { title?: string; short?: string; body?: string };
 export type Credit = { org?: string; author?: string; license?: string; version?: string; url?: string };
 export type LibraryImage = { file: string; alt?: string; kind?: string; fit?: string; caption?: Captions; credit?: Credit };
@@ -23,8 +34,9 @@ export type HistoryPerson = Omit<PersonSummary, "count"> & {
   portrait?: { file: string; description?: string; credit?: string; generated?: boolean; caption?: string; license?: string; licenseUrl?: string; sourceUrl?: string; sourceLabel?: string; sourceNote?: string; relatedSource?: LibraryLink };
 };
 export type HistoryDynasty = {
-  id: string; name: string; era: string; period?: string; note?: string; sources: LibraryLink[];
-  rulers: { id: string; name: string; hanja?: string; period?: string; note?: string; personId: string | null }[];
+  id: string; name: string; era: string; kind: string; span?: string; aliases: string[]; supplementary?: boolean;
+  detail?: string; note?: string; names?: string; related: string[]; sources: LibraryLink[];
+  rulers: { id: string; name: string; hanja?: string; order?: number; period?: string; note?: string; aliases?: string[]; personId: string | null }[];
 };
 export type HistoryCatalogue = {
   appCommit: string; periods: string[]; themes: string[]; dynastyEras: string[];

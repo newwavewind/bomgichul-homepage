@@ -108,8 +108,19 @@ const catalogue = {
   people: people.map(({ id, name, hanja, era, aliases, role, lifespan, period, exams }) =>
     ({ id, name, hanja, era, aliases, role, lifespan, period, count: exams.length })),
 };
+const previewSources = sources.slice(0, 10);
+const previewPeople = people.slice(0, 10);
+const preview = {
+  sources: previewSources.map(({ id }) => id),
+  people: previewPeople.map(({ id }) => id),
+  media: [...new Set([
+    ...previewSources.flatMap(({ images }) => images.map(({ file }) => file)),
+    ...previewPeople.map(({ portrait }) => portrait?.file),
+  ].filter(file => file?.startsWith('/api/pc-access/history-figures/')).map(file => path.posix.basename(file)))],
+};
 await Promise.all([
   writeFile(path.join(output, 'catalogue.json.gz'), gzipSync(JSON.stringify(catalogue))),
   writeFile(path.join(output, 'records.json.gz'), gzipSync(JSON.stringify({ sources, people }))),
+  writeFile(path.join(output, 'preview.json'), JSON.stringify(preview, null, 2) + '\n'),
 ]);
 console.log(`${sources.length} 사료, ${people.length} 인물, ${data.dynasties.length} 왕조, ${copied.size} 이미지 (${catalogue.appCommit})`);

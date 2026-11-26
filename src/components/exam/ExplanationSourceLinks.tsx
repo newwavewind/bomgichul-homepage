@@ -35,7 +35,9 @@ export function ExplanationSourceLinks({ sources }: { sources: ExplanationSource
     {expanded && <section className="exam-source-preview" aria-label={expanded.label + ' 근거'}>
       <strong>{preview?.title ?? expanded.label}</strong>
       {preview?.date && <small>{preview.date}</small>}
+      {preview?.summary && <small>학습 요약</small>}
       {preview?.lines.map((line, index) => <p key={index}>{line}</p>)}
+      {!preview && key && <p role="status">{loaded?.query !== query ? '근거를 불러오는 중이에요.' : '이 출처의 미리보기는 원문 페이지에서 확인할 수 있어요.'}</p>}
       <a href={preview?.url ?? expanded.url} target="_blank" rel="noopener noreferrer">원문 페이지 열기 ↗<span className="sr-only"> (새 창에서 열림)</span></a>
     </section>}
   </div>;

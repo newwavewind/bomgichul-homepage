@@ -1,8 +1,12 @@
-export type ExamSourcePreview = { title: string; date?: string; url: string; lines: string[] };
+export type ExamSourcePreview = { title: string; date?: string; url: string; lines: string[]; summary?: boolean };
 
 export function sourcePreviewKey(href: string, label: string) {
   try {
     const url = new URL(href);
+    if (url.hostname === 'encykorea.aks.ac.kr') {
+      const match = /^\/Article\/(E\d{7})\/?$/iu.exec(url.pathname);
+      return url.protocol === 'https:' && match ? 'aks:' + match[1].toUpperCase() : null;
+    }
     if (!['law.go.kr', 'www.law.go.kr'].includes(url.hostname)) return null;
     const route = decodeURIComponent(url.pathname);
     if (/\/(?:prec|detc)/iu.test(route)) {

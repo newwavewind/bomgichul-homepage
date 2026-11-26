@@ -1,0 +1,38 @@
+{
+  "sources": [
+    "saryo-jeongok-jumeokdokki",
+    "saryo-heungsu-ai",
+    "saryo-seumbe-jjireugae",
+    "saryo-gongju-seokjangni",
+    "saryo-dongsamdong-paechong",
+    "saryo-bitsalmunui-togi",
+    "saryo-yeosu-ando-paechong",
+    "saryo-amsadong",
+    "saryo-garakbakwi-ppyeobaneul",
+    "saryo-bangudae"
+  ],
+  "people": [
+    "r-gojoseon-1",
+    "exam-person-공자",
+    "r-gojoseon-2",
+    "exam-person-맹자",
+    "r-gojoseon-3",
+    "exam-person-유방(한-고조)",
+    "exam-person-항우",
+    "exam-person-진승",
+    "r-gojoseon-4",
+    "r-wiman-1"
+  ],
+  "media": [
+    "saryo-jeongok-jumeokdokki-1.webp",
+    "saryo-heungsu-ai-1.webp",
+    "saryo-seumbe-jjireugae-1.webp",
+    "saryo-gongju-seokjangni-1.webp",
+    "saryo-dongsamdong-paechong-1.webp",
+    "saryo-bitsalmunui-togi-1.webp",
+    "saryo-yeosu-ando-paechong-ill.svg",
+    "saryo-amsadong-1.webp",
+    "saryo-garakbakwi-ppyeobaneul-ill.svg",
+    "saryo-bangudae-1.webp"
+  ]
+}

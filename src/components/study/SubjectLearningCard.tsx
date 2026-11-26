@@ -26,6 +26,7 @@ export function SubjectLearningCard({
   const actionClass = compact
     ? "flex min-h-11 items-center justify-center rounded-[12px] py-2.5 text-center font-semibold transition-colors px-1.5 text-xs sm:text-sm"
     : "flex min-h-11 items-center justify-center rounded-[12px] px-3 py-2.5 text-center text-sm font-semibold transition-colors";
+  const secondaryActionClass = `${actionClass} border border-[color:light-dark(#9dbbe0,var(--color-mist))] bg-paper text-carbon hover:bg-[color:light-dark(#f4f8fd,color-mix(in_srgb,var(--color-snow)_90%,#f4f8fd))]`;
   return (
     <article className="rounded-[20px] border border-[color:light-dark(#d8e3ef,var(--color-mist))] bg-paper p-5 shadow-[0_4px_18px_rgba(15,23,42,0.035)] transition-colors hover:border-[color:light-dark(#b8cde4,var(--color-mist))]">
       <p className="mb-3 font-display text-xs text-fog">{badge}</p>
@@ -45,7 +46,7 @@ export function SubjectLearningCard({
         {dailyHref ? (
           <Link
             href={dailyHref}
-            className={`${actionClass} border border-[color:light-dark(#9dbbe0,var(--color-mist))] bg-paper text-carbon hover:bg-[color:light-dark(#f4f8fd,color-mix(in_srgb,var(--color-snow)_90%,#f4f8fd))]`}
+            className={secondaryActionClass}
           >
             매일 10문제
           </Link>
@@ -54,16 +55,10 @@ export function SubjectLearningCard({
         {lectureHref ? (
           <Link
             href={lectureHref}
-            aria-label={`${label} 강의 보기 (새로 나옴)`}
-            className={`relative z-[1] ${actionClass} border border-[color:light-dark(#f5b7dc,var(--color-mist))] bg-[color:light-dark(#ffebf6,color-mix(in_srgb,var(--color-snow)_90%,#ffebf6))] text-[color:light-dark(#6b1458,var(--color-magenta))] hover:bg-[color:light-dark(#fff3fa,color-mix(in_srgb,var(--color-snow)_90%,#fff3fa))]`}
+            aria-label={`${label} 강의 보기`}
+            className={secondaryActionClass}
           >
             강의 보기
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -right-1.5 -top-2 rotate-[-8deg] rounded-full border border-white bg-[#e8ff3a] px-[7px] py-[2px] font-display text-[9px] font-extrabold leading-none tracking-[0.12em] text-[#355000] shadow-[0_1px_5px_rgba(90,120,0,0.28)]"
-            >
-              NEW
-            </span>
           </Link>
         ) : null}
       </div>
