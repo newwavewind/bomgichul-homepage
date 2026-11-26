@@ -33,10 +33,11 @@ export async function GET(request: Request) {
   try {
     const historyKeys = keys.filter(key => key.startsWith('aks:'));
     const lawKeys = keys.filter(key => !key.startsWith('aks:'));
-    const groups = await Promise.all([
+    const collections = [
       { keys: historyKeys, collection: 'history' },
       { keys: lawKeys, collection: 'law' },
-    ].map(async ({ keys, collection }: { keys: string[]; collection: Collection }) => {
+    ] as const;
+    const groups = await Promise.all(collections.map(async ({ keys, collection }) => {
       if (!keys.length) return [];
       const source = await readCatalogue(collection);
       return keys.flatMap(key => Object.hasOwn(source, key) ? [[key, source[key]] as const] : []);
