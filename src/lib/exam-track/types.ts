@@ -111,6 +111,8 @@ export interface ExamTrackMaterial {
   height?: number;
   /** The original image contains the complete passageText transcription. */
   passageTextIsTranscript?: boolean;
+  /** 실제 시험지에서 발문과 자료 전체를 함께 추출한 이미지. */
+  originalPaper?: boolean;
   /** 그림을 글로 옮긴 설명(감정평가사 figure_alt) — 대체 글 */
   alt?: string;
 }

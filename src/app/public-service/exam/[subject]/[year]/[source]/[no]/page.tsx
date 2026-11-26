@@ -21,6 +21,8 @@ import { BookmarkButton } from "@/components/exam/BookmarkButton";
 import { SimpleAppInstallStrip } from "@/components/ui/SimpleAppInstallStrip";
 import { examMemoSubjectKey } from "@/lib/question-memos";
 import { getPublicServiceExam, getPublicServiceSubject } from "@/lib/public-service-content";
+import { getPublicServiceOriginalPaper } from "@/lib/public-service-original-papers";
+import { originalPromptMaterial } from "@/lib/exam-track/original-paper";
 import {
   buildBreadcrumbJsonLd,
   buildExamPageDescription,
@@ -64,6 +66,9 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
   const data = getPublicServiceSubject(subjectId);
   const exam = getPublicServiceExam(subjectId, Number(year), source, Number(no));
   if (!data || !exam) notFound();
+  const paper = getPublicServiceOriginalPaper(exam.id);
+  const originalMaterial = originalPromptMaterial(paper);
+  const originalChoices = paper && { header: paper.header, rows: paper.rows };
   const session = data.exams
     .filter((item) => item.year === Number(year) && item.sourceCode === source)
     .sort((a, b) => a.questionNo - b.questionNo);
@@ -153,18 +158,28 @@ export default async function PublicServiceExamDetailPage({ params }: Props) {
             ) : null}
             </div>
           </div>
-          <div className="mt-5">
-            <QuestionStem stem={exam.stem} questionNo={exam.questionNo} underlines={exam.underlines ?? null} />
-          </div>
-          {exam.material?.figureFirst ? <ExamMaterialFigure material={exam.material} questionNo={exam.questionNo} /> : null}
-          <PublicServiceExamMaterials table={exam.table} tAccounts={exam.tAccounts} stemTail={exam.stemTail} />
+          {originalMaterial ? (
+            <div className="mt-5">
+              <ExamMaterialFigure material={originalMaterial} questionNo={exam.questionNo} />
+            </div>
+          ) : (
+            <>
+              <div className="mt-5">
+                <QuestionStem stem={exam.stem} questionNo={exam.questionNo} underlines={exam.underlines ?? null} />
+              </div>
+              {exam.material?.figureFirst ? <ExamMaterialFigure material={exam.material} questionNo={exam.questionNo} /> : null}
+              <PublicServiceExamMaterials table={exam.table} tAccounts={exam.tAccounts} stemTail={exam.stemTail} />
+            </>
+          )}
         </header>
         <div className="mt-6 web-question-layout">
-          {!exam.material?.figureFirst ? (
+          {!originalMaterial && !exam.material?.figureFirst ? (
             <ExamMaterialFigure material={exam.material} questionNo={exam.questionNo} />
           ) : null}
           <PublicServiceQuestion
             exam={exam}
+            originalChoices={originalChoices}
+            originalPromptRendered={Boolean(originalMaterial)}
             subjectLabel={data.subject.label}
             storageSubject={storageSubject}
             revealSubject={storageSubject}

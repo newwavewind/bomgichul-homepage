@@ -284,7 +284,7 @@ function ReviewCard({
             const isCorrect = showAnswers && item.correctKeys.includes(choice.key);
             const tone = isCorrect ? "selected" : isPicked ? "incorrect" : "default";
             return (
-              <div key={choice.key} className="flex gap-3 rounded-2xl border border-mist bg-paper px-3 py-2.5 text-ink sm:px-4">
+              <div key={choice.key} className={"flex gap-3 rounded-2xl border border-mist bg-paper px-3 py-2.5 text-ink sm:px-4" + (choice.originalImage ? " items-center [&>span:first-child]:mt-0" : "")}>
                 <DailyChoiceBadge label={choice.label} tone={tone} />
                 <DailyChoiceContent choice={choice} choiceHeaders={item.presentation.choiceHeaders} questionId={item.id} />
               </div>

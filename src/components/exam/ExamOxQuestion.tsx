@@ -19,6 +19,9 @@ import { plainStudyText } from "@/lib/study-text";
 import { renderStudyText } from "@/lib/underlined-text";
 import { hasNativeEnterAction, questionShortcutTarget } from "@/lib/question-shortcuts";
 import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
+import { OriginalExamChoiceHeader, OriginalExamChoiceImage } from "@/components/exam/OriginalExamChoiceImage";
+import { itemsRepeatComboChoices } from "@/lib/daily-challenge/presentation";
+import type { OriginalExamChoices } from "@/lib/exam-track/original-paper";
 import type { ExamReferenceEntry } from "@/lib/exam-questions";
 import {
   getOxComboTable,
@@ -67,6 +70,8 @@ export function ExamOxQuestion({
   passageLead = [],
   passageLabel,
   choiceHeaders = [],
+  originalChoices,
+  originalPromptRendered = false,
   initialAttemptResult = null,
   onAttempt,
   renderExplanation = true,
@@ -93,6 +98,8 @@ export function ExamOxQuestion({
   passageLead?: string[];
   passageLabel?: string;
   choiceHeaders?: string[];
+  originalChoices?: OriginalExamChoices;
+  originalPromptRendered?: boolean;
   initialAttemptResult?: "correct" | "wrong" | null;
   onAttempt?: (result: "correct" | "wrong") => void | Promise<void>;
   renderExplanation?: boolean;
@@ -129,7 +136,10 @@ export function ExamOxQuestion({
   const lastShortcut = shortcutNumbers[shortcutNumbers.length - 1];
   const hasShortcutRange = shortcutNumbers.length > 1 &&
     shortcutNumbers.every((choice, index) => choice === firstShortcut + index);
-  const oxComboTable = isComposite
+  const showCompositePrompt = !originalPromptRendered && (
+    passageLead.length > 0 || (items.length > 0 && !itemsRepeatComboChoices(items, comboChoices))
+  );
+  const oxComboTable = isComposite && !originalChoices?.rows?.length
     ? (() => {
         const headers = jamoHeadersFromItems(items);
         if (!headers) return null;
@@ -256,7 +266,7 @@ export function ExamOxQuestion({
             따로 떼어 두면 그 상자가 쉼표에서 끊겨 문장이 잘린 것처럼 읽힌다.
             그래서 도입부와 지문을 같은 상자에 담고, O/X 는 각 줄 끝에 붙인다.
           */}
-          <fieldset className="min-w-0 rounded-[var(--radius-cards)] border border-carbon px-5 pb-4">
+          {showCompositePrompt ? <fieldset className="min-w-0 rounded-[var(--radius-cards)] border border-carbon px-5 pb-4">
             {passageLabel ? (
               <legend className="mx-auto px-3 text-center font-display text-body-sm font-medium text-smoke">
                 {passageLabel}
@@ -291,8 +301,9 @@ export function ExamOxQuestion({
                 </div>
               ))}
             </div>
-          </fieldset>
+          </fieldset> : null}
           <ExamReferenceList entries={referenceEntries} />
+          {originalChoices?.header ? <OriginalExamChoiceHeader image={originalChoices.header} /> : null}
           {oxComboTable ? (
             <div className="overflow-hidden rounded-[var(--radius-cards)] border border-mist bg-paper">
               <div
@@ -367,6 +378,7 @@ export function ExamOxQuestion({
           <div className="space-y-3" role="group" aria-label="선택지">
             {comboChoices.map((choice) => {
               const selectedItem = selected === choice.no;
+              const originalImage = originalChoices?.rows?.[choice.no - 1];
               return (
                 <button
                   key={`${examId}-combo-${choice.no}`}
@@ -388,11 +400,13 @@ export function ExamOxQuestion({
                       : "border-mist bg-paper hover:border-ash"
                   }`}
                 >
-                  <div className="flex gap-3">
+                  <div className={originalImage ? "flex items-center gap-3 [&>span:first-child]:mt-0" : "flex gap-3"}>
                     <DailyChoiceBadge label={choice.label} tone={selectedItem ? (revealed && hasAnswerKey && !isCorrect ? "incorrect" : "selected") : "default"} />
-                    <span className="flex-1 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">
-                      {plainStudyText(choice.text)}
-                    </span>
+                    {originalImage ? <OriginalExamChoiceImage image={originalImage} alt={plainStudyText(choice.text)} /> : (
+                      <span className="flex-1 font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink">
+                        {plainStudyText(choice.text)}
+                      </span>
+                    )}
                   </div>
                   {inlineExplanation && choice.explanation ? (
                     <InlineExplanation text={choice.explanation} examDate={examDate} lawVersions={lawVersions} />
@@ -406,7 +420,7 @@ export function ExamOxQuestion({
         </div>
       ) : (
         <div className="space-y-3">
-          {choiceHeaders.length >= 2 ? (
+          {originalChoices?.header ? <OriginalExamChoiceHeader image={originalChoices.header} /> : choiceHeaders.length >= 2 && !originalChoices?.rows?.length ? (
             <div className="flex gap-3 px-4 font-display text-[12px] font-semibold text-smoke" aria-label="선택지 열 제목">
               <span className="w-5 shrink-0" aria-hidden />
               <div className="grid flex-1 gap-2 text-center" style={{ gridTemplateColumns: `repeat(${choiceHeaders.length}, minmax(0, 1fr))` }}>
@@ -416,6 +430,7 @@ export function ExamOxQuestion({
           ) : null}
           {items.map((item, index) => {
             const choice = choiceNumbers[index];
+            const originalImage = originalChoices?.rows?.[choice - 1];
             const selectedItem = selected === choice;
             // 채점 뒤에는 고른 자리와 정답만 남기고 나머지는 물러선다.
             // 앱이 하던 것이다 — 다섯 줄이 같은 무게로 남아 있으면 어디를
@@ -445,9 +460,9 @@ export function ExamOxQuestion({
                       : "border-mist bg-paper hover:border-ash"
                 } ${muted ? "opacity-45" : ""}`}
               >
-                <div className="flex gap-3">
+                <div className={originalImage ? "flex items-center gap-3 [&>span:first-child]:mt-0" : "flex gap-3"}>
                   <DailyChoiceBadge label={item.label ?? String(choice)} tone={selectedItem ? (revealed && hasAnswerKey && !isCorrect ? "incorrect" : "selected") : "default"} />
-                  {choiceHeaders.length >= 2 && item.text.split("/").length === choiceHeaders.length ? (
+                  {originalImage ? <OriginalExamChoiceImage image={originalImage} alt={plainStudyText(item.text)} /> : choiceHeaders.length >= 2 && item.text.split("/").length === choiceHeaders.length ? (
                     <span className="grid flex-1 gap-2 text-center font-system text-[length:var(--text-body-sm)] leading-[1.85] text-ink" style={{ gridTemplateColumns: `repeat(${choiceHeaders.length}, minmax(0, 1fr))` }}>
                       {item.text.split("/").map((cell, cellIndex) => <span key={cellIndex}>{plainStudyText(cell.trim())}</span>)}
                     </span>

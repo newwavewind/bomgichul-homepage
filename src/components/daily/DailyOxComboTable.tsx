@@ -12,6 +12,7 @@ export function dailyOxTableFrom(
   promptItems: { key?: string; label?: string }[],
   choices: DailyChoice[],
 ) {
+  if (choices.some((choice) => choice.originalImage)) return null;
   const headers = jamoHeadersFromItems(promptItems);
   if (!headers) return null;
   return getOxComboTable(

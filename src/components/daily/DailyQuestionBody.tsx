@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { DailyQuestionStem } from "@/components/daily/DailyQuestionStem";
+import { OriginalExamChoiceHeader, OriginalExamChoiceImage } from "@/components/exam/OriginalExamChoiceImage";
 import { ExamMaterialFigure } from "@/components/exam/ExamMaterialFigure";
 import { ExamReferenceList } from "@/components/exam/ExamReferenceList";
 import { ExamStructuredMaterials } from "@/components/exam/ExamStructuredMaterials";
@@ -29,6 +30,17 @@ export function DailyQuestionBody({
   expandableFigures?: boolean;
   subjectId?: string;
 }) {
+  if (presentation.material?.originalPaper) {
+    return (
+      <>
+        <ExamSubjectNotice notice={presentation.notice} className="mt-4" />
+        <div className="mt-4">
+          <ExamMaterialFigure material={presentation.material} questionNo={questionNo} expandable={expandableFigures} />
+        </div>
+        {presentation.originalChoiceHeader ? <OriginalExamChoiceHeader image={presentation.originalChoiceHeader} compact /> : null}
+      </>
+    );
+  }
   const transcript = presentation.material?.passageTextIsTranscript ? presentation.passageText?.trim() : null;
   const passages = [presentation.passage, presentation.passageText]
     .map((value) => value?.trim() ?? "")
@@ -126,6 +138,7 @@ export function DailyQuestionBody({
           <ExamReferenceList entries={presentation.referenceEntries} />
         </div>
       ) : null}
+      {presentation.originalChoiceHeader ? <OriginalExamChoiceHeader image={presentation.originalChoiceHeader} compact /> : null}
       {presentation.choiceHeaders.length ? (
         <div
           className="mt-4 flex gap-3 rounded-xl bg-[color:light-dark(#f8fafc,var(--color-snow))] px-3 py-2 text-sm font-semibold text-fog sm:px-4"
@@ -157,6 +170,7 @@ export function DailyChoiceContent({
   choiceHeaders?: string[];
   questionId?: string;
 }) {
+  if (choice.originalImage) return <OriginalExamChoiceImage image={choice.originalImage} alt={plainStudyText(choice.text)} />;
   const Formula = getExamFormulaChoice(dailyFormulaExamId(questionId), choice.key);
   const cells = choice.text.split("/").map((cell) => cell.trim());
   const showCells =

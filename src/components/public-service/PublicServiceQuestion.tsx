@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ExamOxQuestion } from "@/components/exam/ExamOxQuestion";
 import { toExamOxCombos } from "@/lib/exam-track/combo-choices";
 import type { PublicServiceExam } from "@/lib/public-service-content";
+import type { OriginalExamChoices } from "@/lib/exam-track/original-paper";
 import { useMe } from "@/lib/client-session";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
@@ -17,10 +18,14 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
  */
 export function PublicServiceQuestion({
   exam,
+  originalChoices,
+  originalPromptRendered,
   revealSubject,
   storageSubject,
 }: {
   exam: PublicServiceExam;
+  originalChoices?: OriginalExamChoices;
+  originalPromptRendered?: boolean;
   revealSubject?: string;
   subjectLabel?: string;
   storageSubject?: string;
@@ -72,6 +77,8 @@ export function PublicServiceQuestion({
       explanationSummary={exam.explanationSummary}
       comboChoices={toExamOxCombos(exam.comboChoices, exam.correctChoice)}
       choiceHeaders={exam.choiceHeaders}
+      originalChoices={originalChoices}
+      originalPromptRendered={originalPromptRendered}
       initialAttemptResult={attemptResult}
       onAttempt={saveAttempt}
       renderExplanation={!revealSubject}

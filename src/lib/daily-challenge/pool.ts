@@ -72,6 +72,8 @@ import type {
 import type { UnderlineRange } from "@/lib/underlined-text";
 import { plainStudyText } from "@/lib/study-text";
 import { itemsRepeatComboChoices } from "@/lib/daily-challenge/presentation";
+import { getPublicServiceOriginalPaper } from "@/lib/public-service-original-papers";
+import { originalPromptMaterial } from "@/lib/exam-track/original-paper";
 
 export type { DailyChoice, DailyQuestion, DailyQuestionView };
 
@@ -525,6 +527,15 @@ function fromTrackExam(
   const stem = exam.stem?.trim();
   const built = normalizeChoices(exam);
   if (!stem || !built || !exam.sourceCode) return [];
+  const paper = slug === "public-service" && exam.id ? getPublicServiceOriginalPaper(exam.id) : undefined;
+  const presentation = buildPresentation(exam, built.hasCombos);
+  const material = originalPromptMaterial(paper);
+  if (material) presentation.material = material;
+  if (paper?.rows?.length) presentation.choiceHeaders = [];
+  if (paper?.header) presentation.originalChoiceHeader = paper.header;
+  const choices = paper?.rows?.length
+    ? built.choices.map((choice) => ({ ...choice, originalImage: paper.rows?.[Number(choice.key) - 1] }))
+    : built.choices;
   const source = encodeURIComponent(exam.sourceCode);
   const base = `/${slug}/exam/${subjectId}/${exam.year}/${source}`;
   return [
@@ -532,8 +543,8 @@ function fromTrackExam(
       id: `${slug}:${subjectId}:${exam.year}:${exam.sourceCode}:${exam.questionNo}`,
       subjectId,
       stem,
-      presentation: buildPresentation(exam, built.hasCombos),
-      choices: built.choices,
+      presentation,
+      choices,
       correctKeys: built.correctKeys,
       href: `${base}/${exam.questionNo}`,
       roundHref: base,

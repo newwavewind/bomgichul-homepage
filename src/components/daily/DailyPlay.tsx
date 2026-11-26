@@ -937,7 +937,7 @@ export function DailyPlay({
                           aria-keyshortcuts={keyboardEnabled && activeQuestionIndex === questionIndex && choiceIndex < 9 ? String(choiceIndex + 1) : undefined}
                           className={`rounded-2xl border px-3 py-2.5 text-left text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007AFF] focus-visible:ring-offset-2 disabled:opacity-60 sm:px-4 ${selected ? "border-[color:light-dark(#91C6FF,var(--color-mist))] bg-[color:light-dark(#F1F8FF,color-mix(in_srgb,var(--color-snow)_90%,#F1F8FF))]" : "border-[color:light-dark(#DDE9F6,var(--color-mist))] bg-white hover:border-[color:light-dark(#A9D2FF,var(--color-mist))] hover:bg-[color:light-dark(#F8FBFF,var(--color-snow))]"}`}
                         >
-                          <div className="flex gap-3">
+                          <div className={choice.originalImage ? "flex items-center gap-3 [&>span:first-child]:mt-0" : "flex gap-3"}>
                             <DailyChoiceBadge
                               label={choice.label}
                               tone={selected ? "selected" : "default"}

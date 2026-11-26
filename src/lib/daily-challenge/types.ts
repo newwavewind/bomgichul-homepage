@@ -4,6 +4,7 @@ import type {
   ExamQuestionTable,
 } from "@/lib/exam-questions";
 import type { ExamTrackMaterial, ExamTrackTable } from "@/lib/exam-track/types";
+import type { OriginalExamImage } from "@/lib/exam-track/original-paper";
 import type { UnderlineRange } from "@/lib/underlined-text";
 import type { SeoExplanationQuestion } from "@/components/exam/ExamQuestionSeoExplanations";
 import type { ChoiceGlossary } from "@/lib/exam-glossary";
@@ -13,6 +14,7 @@ export type DailyChoice = {
   label: string;
   text: string;
   image?: string;
+  originalImage?: OriginalExamImage;
   translation?: string;
   /** 선지 글 안 밑줄 자리 `[시작, 끝)` — 「밑줄 친 부분이 …」 문항(국어·영어) */
   underlines?: UnderlineRange[];
@@ -39,6 +41,7 @@ export type DailyQuestionPresentation = {
   leadEntries: ExamReferenceEntry[];
   referenceEntries: ExamReferenceEntry[];
   choiceHeaders: string[];
+  originalChoiceHeader?: OriginalExamImage;
   underlines?: UnderlineRange[];
   keepStemLines?: boolean;
 };
