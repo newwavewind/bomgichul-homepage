@@ -1,3 +1,4 @@
+import { englishStudyLinks } from "@/components/english/EnglishStudyLinks";
 import { historyLibraryLinks } from "@/components/history/library/HistoryLibraryLinks";
 import Link from "next/link";
 import { PastExamPdfSearch } from "@/components/platform/PastExamPdfSearch";
@@ -46,6 +47,15 @@ const exams = [
     cta: "경찰 알아보기",
   },
   {
+    href: "/english/intro",
+    learnHref: "/english",
+    eyebrow: "9급 공채 · 국가직 · 지방직",
+    title: "공무원 영어",
+    accentFrom: "#f6f0ff",
+    accentTo: "#fbf8ff",
+    cta: "공무원 영어 알아보기",
+  },
+  {
     href: "/firefighter/intro",
     learnHref: "/firefighter",
     lectureHref: "/firefighter/lectures/sobang",
@@ -73,18 +83,6 @@ const exams = [
     accentFrom: "#fff0f5",
     accentTo: "#fff8fb",
     cta: "사회복지사 알아보기",
-  },
-  {
-    href: "/english/intro",
-    learnHref: "/english",
-    eyebrow: "9급 공채 · 국가직 · 지방직",
-    title: "공무원 영어",
-    // 앞 여섯이 31°·95°·163°·206°·226°·340° 를 쓰고 있어, 일곱 번째는 60° 규칙을
-    // 지킬 수가 없다 — 가장 벌어진 틈이 226°~340° 인데 그 한가운데도 57° 다.
-    // 그래서 규칙을 지키는 대신 최소 간격이 가장 큰 자리(283°)를 골랐다.
-    accentFrom: "#f6f0ff",
-    accentTo: "#fbf8ff",
-    cta: "공무원 영어 알아보기",
   },
   {
     href: "/gugeo/intro",
@@ -278,6 +276,9 @@ export function PlatformHome() {
                     examTitle={exam.title}
                   />
                 )}
+                {examId === "english" && englishStudyLinks.map(({ title, href }) => (
+                  <ExamCardAction key={href} href={href} label={title} examTitle={exam.title} prefetch={false} />
+                ))}
                 {examId === "history" && historyLibraryLinks.map(({ key, title, href }) => (
                   <ExamCardAction key={key} href={href} label={title} examTitle={exam.title} prefetch={false}/>
                 ))}

@@ -2,6 +2,7 @@
 
 import type { PcStudyOffer } from "@/lib/pc-access/study-features";
 import { useMemo } from "react";
+import { EnglishStudyLinks } from "@/components/english/EnglishStudyLinks";
 import { HistoryLibraryLinks } from "@/components/history/library/HistoryLibraryLinks";
 import { SubjectLearningCard } from "@/components/study/SubjectLearningCard";
 
@@ -16,8 +17,18 @@ function SubjectCard({
   subject: ExamTrackManifestItem;
   offers?: PcStudyOffer[];
 }) {
-  return <SubjectLearningCard label={subject.label} badge={subject.track} examCount={subject.examCount} examHref={`${track.basePath}/exam/${subject.id}`} cellOffers={offers} extraActions={track.id === "history" && subject.id === "simhwa" ? <HistoryLibraryLinks /> : undefined} dailyHref={`${track.basePath}/daily?subject=${encodeURIComponent(subject.id)}`} />;
-
+  const english = track.id === "english" && subject.id === "gong9";
+  const history = track.id === "history" && subject.id === "simhwa";
+  return <SubjectLearningCard
+    label={subject.label}
+    badge={subject.track}
+    examCount={subject.examCount}
+    examHref={`${track.basePath}/exam/${subject.id}`}
+    dailyHref={`${track.basePath}/daily?subject=${encodeURIComponent(subject.id)}`}
+    cellOffers={offers}
+    showCellProBadge={!english}
+    extraActions={english ? <EnglishStudyLinks /> : history ? <HistoryLibraryLinks /> : undefined}
+  />;
 }
 
 export function ExamTrackSubjectBrowser({

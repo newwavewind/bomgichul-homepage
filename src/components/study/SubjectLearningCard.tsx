@@ -10,6 +10,7 @@ export function SubjectLearningCard({
   dailyHref,
   lectureHref,
   cellOffers = [],
+  showCellProBadge = true,
   extraActions,
 }: {
   label: string;
@@ -19,6 +20,7 @@ export function SubjectLearningCard({
   dailyHref?: string;
   lectureHref?: string;
   cellOffers?: PcStudyOffer[];
+  showCellProBadge?: boolean;
   extraActions?: ReactNode;
 }) {
   const columns = 1 + Number(Boolean(dailyHref)) + Number(Boolean(lectureHref)) + Number(cellOffers.length > 0);
@@ -51,7 +53,8 @@ export function SubjectLearningCard({
             매일 10문제
           </Link>
         ) : null}
-        <PcStudyAction feature="cells" offers={cellOffers} subjectLabel={label} className={`${actionClass} gap-1 border border-mist bg-paper text-carbon hover:bg-snow`}/>
+        <PcStudyAction feature="cells" offers={cellOffers} subjectLabel={label} showProBadge={showCellProBadge}
+          className={`${actionClass} gap-1 border border-mist bg-paper text-carbon hover:bg-snow`} />
         {lectureHref ? (
           <Link
             href={lectureHref}

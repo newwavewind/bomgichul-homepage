@@ -31,6 +31,15 @@ export const metadata: Metadata = buildPageMetadata({
 function GroupIndex() {
   return (
     <div className="space-y-5">
+      <nav aria-label="전체 구문 분류" className="flex flex-wrap gap-2">
+        {ENGLISH_SYNTAX_GROUPS.map((group) => (
+          <a key={group.id} href={`#syntax-${group.id}`}
+            className="inline-flex items-center gap-2 rounded-full border border-mist bg-paper px-3.5 py-2 font-display text-body-sm font-semibold text-ink hover:border-ios-blue">
+            {group.name}
+            <span className="text-fog">{group.units.length}개</span>
+          </a>
+        ))}
+      </nav>
       {ENGLISH_SYNTAX_GROUPS.map((group) => {
         const unitCounts = group.units.map((unit) => ({
           unit,
@@ -40,7 +49,8 @@ function GroupIndex() {
         return (
           <section
             key={group.id}
-            className="rounded-3xl border border-mist bg-white p-5 shadow-[var(--shadow-subtle)]"
+            id={`syntax-${group.id}`}
+            className="scroll-mt-28 rounded-3xl border border-mist bg-white p-5 shadow-[var(--shadow-subtle)]"
           >
             <div className="flex items-start gap-3">
               <span className="inline-flex h-9 min-w-9 items-center justify-center rounded-xl bg-ios-blue/10 font-display text-body-sm font-bold text-ios-blue">
@@ -100,15 +110,15 @@ export default function EnglishSyntaxPage() {
             구문 <span className="text-ios-blue">올인원</span>
           </h1>
           <p className="mt-3 max-w-3xl font-system text-body leading-7 text-smoke">
-            기출 문장 1,050개를 한 문장씩 문장 성분·직독직해·문법·어휘로 나눴습니다. 번호는
-            국가직과 지방직을 연도순으로 합친 앱의 최신 통합 번호와 같습니다.
+            국가직·지방직 기출 1,050문장을 큰 분류 6개와 세부 구문 32개로 모았습니다.
+            문장을 열면 문장 성분, 직독직해, 문법과 어휘를 볼 수 있습니다.
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             <span className="rounded-full bg-paper px-3 py-1.5 font-display text-body-sm font-semibold text-ink">
               1,050 문장
             </span>
             <span className="rounded-full bg-paper px-3 py-1.5 font-display text-body-sm font-semibold text-ink">
-              {ENGLISH_SYNTAX_GROUPS.reduce((sum, group) => sum + group.units.length, 0)} 구문
+              {ENGLISH_SYNTAX_GROUPS.reduce((sum, group) => sum + group.units.length, 0)} 세부 구문
             </span>
           </div>
         </header>

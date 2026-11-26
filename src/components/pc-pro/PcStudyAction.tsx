@@ -108,8 +108,8 @@ function AccessDialog({ title, className, button, label, wide, prepare, children
   </>;
 }
 
-export function PcStudyAction({ feature, offers, className, subjectLabel }: {
-  feature: PcStudyFeature; className?: string; subjectLabel?: string;
+export function PcStudyAction({ feature, offers, className, subjectLabel, showProBadge = true }: {
+  feature: PcStudyFeature; className?: string; subjectLabel?: string; showProBadge?: boolean;
 } & OfferProps) {
   const [active, setActive] = useState(offers.length === 1 ? offers[0] : null);
   const [prepared, setPrepared] = useState(false);
@@ -120,9 +120,9 @@ export function PcStudyAction({ feature, offers, className, subjectLabel }: {
     ? new URLSearchParams({ feature, scope, ...(format ? { format } : {}) }).toString() : null);
   if (!offers.length) return null;
   const title = titleOf(feature) ?? '';
-  return <AccessDialog title={title} label={subjectLabel ? subjectLabel + ' ' + title + ' Pro' : undefined}
+  return <AccessDialog title={title} label={subjectLabel ? `${subjectLabel} ${title}${showProBadge ? ' Pro' : ''}` : undefined}
     wide={feature === 'cells'} className={className ?? 'pc-context-button'} prepare={prepare}
-    button={<>{title} <span className="pc-access-pro">Pro</span></>}>
+    button={<>{title}{showProBadge && <> <span className="pc-access-pro">Pro</span></>}</>}>
     {offers.length > 1 && <div className="pc-access-editions" role="group" aria-label="구매한 학습권 선택">
       {offers.map(offer => <button key={offer.id} type="button" aria-pressed={active?.id === offer.id}
         onClick={() => setActive(offer)}>{offer.title}</button>)}

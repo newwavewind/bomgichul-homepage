@@ -3,6 +3,9 @@ import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
+    "/api/exam-track/english-study": ["./data/english-study/*.json.gz"],
+    "/api/exam-track/english-wordbook-rank": ["./data/english-study/wordbook.json.gz"],
+    "/english/concepts/gong9/**": ["./data/english-study/syntax-practice.json.gz"],
     "/history/library": ["./data/history-library/*.json.gz"],
     "/api/pc-access/history-library": ["./data/history-library/records.json.gz"],
     "/api/pc-access/history-figures/**": ["./data/history-library/media/*"],

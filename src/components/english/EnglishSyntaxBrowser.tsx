@@ -28,7 +28,7 @@ type Payload = UnitPayload | NumberPayload;
 
 export function ViewTabs({ view }: { view: "group" | "number" }) {
   return (
-    <nav className="my-7 flex gap-2" aria-label="구문 보기 방식">
+    <nav className="my-7 flex flex-wrap gap-2" aria-label="구문 보기 방식">
       <Link
         href="/english/concepts/gong9"
         className={`rounded-full px-4 py-2 font-display text-body-sm font-semibold ${
@@ -44,6 +44,10 @@ export function ViewTabs({ view }: { view: "group" | "number" }) {
         }`}
       >
         번호순
+      </Link>
+      <Link href="/english/concepts/gong9/practice" prefetch={false}
+        className="rounded-full border border-ios-blue/30 bg-ios-blue/10 px-4 py-2 font-display text-body-sm font-semibold text-ios-blue hover:border-ios-blue">
+        암기 연습
       </Link>
     </nav>
   );
