@@ -8,7 +8,7 @@ import {
 import { getUnitNote } from "@/data/english/syntax-notes";
 
 /*
- * 구문 올인원의 쿼리 화면(단원 보기 ?unit= · 번호순 보기 ?view=number&page=)용 데이터.
+ * 구문 올인원의 쿼리 화면(단원 보기 ?unit= · 전체 번호순 보기 ?view=number)용 데이터.
  *
  * 페이지에서 searchParams 를 읽으면 그 페이지가 통째로 동적 렌더가 되어 CDN
  * 캐시가 죽고, 그렇다고 원본(2.7MB)을 클라이언트 번들에 담을 수도 없다.
@@ -50,6 +50,13 @@ export function GET(request: Request) {
         focuses,
         cards: cards.map(toSummary),
       },
+      { headers: { "cache-control": CACHE_CONTROL } },
+    );
+  }
+
+  if (searchParams.get("view") === "number") {
+    return NextResponse.json(
+      { kind: "number", cards: ENGLISH_SYNTAX_CARDS.map(toSummary) },
       { headers: { "cache-control": CACHE_CONTROL } },
     );
   }

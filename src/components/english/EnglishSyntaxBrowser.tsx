@@ -23,7 +23,7 @@ type UnitPayload = {
   focuses: string[];
   cards: SyntaxCardSummary[];
 };
-type NumberPayload = { kind: "number"; page: number; pages: number; cards: SyntaxCardSummary[] };
+type NumberPayload = { kind: "number"; cards: SyntaxCardSummary[] };
 type Payload = UnitPayload | NumberPayload;
 
 export function ViewTabs({ view }: { view: "group" | "number" }) {
@@ -38,7 +38,7 @@ export function ViewTabs({ view }: { view: "group" | "number" }) {
         구문별
       </Link>
       <Link
-        href="/english/concepts/gong9?view=number&page=1"
+        href="/english/concepts/gong9?view=number"
         className={`rounded-full px-4 py-2 font-display text-body-sm font-semibold ${
           view === "number" ? "bg-ios-blue text-white" : "bg-paper text-smoke"
         }`}
@@ -122,57 +122,27 @@ function UnitView({ payload }: { payload: UnitPayload }) {
 }
 
 function NumberView({ payload }: { payload: NumberPayload }) {
-  const { page: currentPage, pages, cards } = payload;
   return (
-    <div>
-      <div className="rounded-3xl border border-mist bg-white px-5 shadow-[var(--shadow-subtle)]">
-        <ul className="divide-y divide-mist">
-          {cards.map((card) => (
-            <li key={card.id}>
-              <Link
-                href={`/english/concepts/gong9/${encodeURIComponent(card.id)}`}
-                className="flex gap-4 py-4"
-              >
-                <span className="min-w-10 font-display text-body-sm font-semibold text-ios-blue">
-                  {card.no}
-                </span>
-                <span className="font-system text-body leading-7 text-ink">
-                  {card.sentence}{" "}
-                  <em className="not-italic text-[12px] text-fog">{card.seriesLabel}</em>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <nav className="mt-6 flex items-center justify-center gap-3">
-        <Link
-          aria-disabled={currentPage <= 1}
-          className={`rounded-full border px-4 py-2 font-display text-body-sm ${
-            currentPage <= 1
-              ? "pointer-events-none border-mist text-fog"
-              : "border-ios-blue text-ios-blue"
-          }`}
-          href={`/english/concepts/gong9?view=number&page=${Math.max(1, currentPage - 1)}`}
-        >
-          ← 이전
-        </Link>
-        <span className="font-display text-body-sm text-smoke">
-          {currentPage} / {pages}
-        </span>
-        <Link
-          aria-disabled={currentPage >= pages}
-          className={`rounded-full border px-4 py-2 font-display text-body-sm ${
-            currentPage >= pages
-              ? "pointer-events-none border-mist text-fog"
-              : "border-ios-blue text-ios-blue"
-          }`}
-          href={`/english/concepts/gong9?view=number&page=${Math.min(pages, currentPage + 1)}`}
-        >
-          다음 →
-        </Link>
-      </nav>
-    </div>
+    <ol aria-label="번호순 구문 목록"
+      className="divide-y divide-mist rounded-3xl border border-mist bg-white px-5 shadow-[var(--shadow-subtle)]">
+      {payload.cards.map((card) => (
+        <li key={card.id}>
+          <Link
+            href={`/english/concepts/gong9/${encodeURIComponent(card.id)}`}
+            prefetch={false}
+            className="flex gap-4 py-4"
+          >
+            <span className="min-w-10 font-display text-body-sm font-semibold text-ios-blue">
+              {card.no}
+            </span>
+            <span className="font-system text-body leading-7 text-ink">
+              {card.sentence}{" "}
+              <em className="not-italic text-[12px] text-fog">{card.seriesLabel}</em>
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ol>
   );
 }
 
@@ -180,11 +150,10 @@ export function EnglishSyntaxBrowser({ children }: { children: React.ReactNode }
   const query = useSearchParams();
   const showNumber = query.get("view") === "number";
   const unitId = !showNumber && query.get("unit") ? query.get("unit") : null;
-  const page = Math.max(1, Number(query.get("page")) || 1);
   const requestKey = unitId
     ? `unit=${encodeURIComponent(unitId)}`
     : showNumber
-      ? `page=${page}`
+      ? "view=number"
       : null;
 
   const [result, setResult] = useState<{ key: string; payload: Payload | null } | null>(null);
