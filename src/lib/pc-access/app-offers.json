@@ -778,6 +778,7 @@
         "title": "물류관리론",
         "productId": "premium_unlock_mullyu_gwalli",
         "platforms": [
+          "ios",
           "android"
         ]
       },
@@ -787,6 +788,7 @@
         "title": "화물운송론",
         "productId": "premium_unlock_mullyu_unsong",
         "platforms": [
+          "ios",
           "android"
         ]
       },
@@ -796,6 +798,7 @@
         "title": "국제물류론",
         "productId": "premium_unlock_mullyu_gukje",
         "platforms": [
+          "ios",
           "android"
         ]
       },
@@ -805,6 +808,7 @@
         "title": "보관하역론",
         "productId": "premium_unlock_mullyu_bogwan",
         "platforms": [
+          "ios",
           "android"
         ]
       },
@@ -814,6 +818,7 @@
         "title": "물류 관련 법규",
         "productId": "premium_unlock_mullyu_beopgyu",
         "platforms": [
+          "ios",
           "android"
         ]
       }
