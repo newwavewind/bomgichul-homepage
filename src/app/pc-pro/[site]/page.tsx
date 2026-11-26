@@ -16,7 +16,8 @@ export default async function PcProExam({ params, searchParams }: Props) {
   const { subject } = await searchParams;
   const app = PC_APPS.find(entry => entry.site === site);
   if (!app) notFound();
-  const offer = app.subjects.find(entry => entry.id === subject) ?? app.subjects[0];
+  const offer = subject ? app.subjects.find(entry => entry.id === subject) : app.subjects[0];
+  if (!offer) notFound();
   const lecture = site === 'firefighter';
   const viewer = !lecture ? await getPcViewer().catch(() => null) : null;
   const pro = viewer ? await hasPcPro(viewer.id, offer.id, viewer.beta).catch(() => false) : false;

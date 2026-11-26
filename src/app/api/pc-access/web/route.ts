@@ -1,6 +1,6 @@
 import { randomBytes } from 'node:crypto';
 import { createAdminClient } from '@/lib/supabase/admin';
-import { isPcSubject } from '@/lib/pc-access/catalog';
+import { canLinkPcSubject } from '@/lib/pc-access/catalog';
 import { digest, storeVerificationConfigured } from '@/lib/pc-access/store';
 import { getPcViewer, pcJson, validQrToken } from '@/lib/pc-access/session';
 
@@ -11,8 +11,11 @@ export async function POST(request: Request) {
     if (!viewer) return pcJson({ error: '홈페이지에 먼저 로그인해 주세요.' }, 401);
     const body = await request.json().catch(() => null);
     if (!body) return pcJson({ error: '잘못된 요청이에요.' }, 400);
+    if (body.action === 'start' && !canLinkPcSubject(body.subject)) {
+      return pcJson({ error: '이 과목은 앱 구매 QR 연동 대상이 아니에요.' }, 400);
+    }
     const admin = createAdminClient();
-    if (body.action === 'start' && isPcSubject(body.subject)) {
+    if (body.action === 'start') {
       if (!storeVerificationConfigured()) return pcJson({ error: '앱 구매 연동을 준비 중이에요.' }, 503);
       const token = randomBytes(32).toString('base64url');
       const { data, error } = await admin.rpc('start_police_pc_request', {

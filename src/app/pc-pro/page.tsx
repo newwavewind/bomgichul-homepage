@@ -47,6 +47,7 @@ export default function PcProPage() {
 
       <section id="pc-pro-connect" aria-labelledby="pc-pro-connect-heading" className="mb-10 scroll-mt-24">
         <h2 id="pc-pro-connect-heading" className="font-display text-subheading font-semibold text-ink">앱 구매 연결</h2>
+        <p className="mt-2 text-body-sm text-smoke">객관식 과목의 앱 구매 내역을 QR로 연결할 수 있어요.</p>
         <ol className="mt-4 grid gap-3 text-body-sm text-ink sm:grid-cols-3">
           {[
             "웹에 로그인하고 구매한 과목의 QR을 열어요.",

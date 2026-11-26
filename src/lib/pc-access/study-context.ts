@@ -1,5 +1,5 @@
 import 'server-only';
-import { isPcSubject, PC_SUBJECTS, pcSite } from './catalog';
+import { canLinkPcSubject, isPcSubject, PC_SUBJECTS, pcSite } from './catalog';
 import manifest from '../../../data/pc-pro-study/manifest.json';
 import type { PcStudyFeature, PcStudyOffer } from './study-features';
 import questionFeatures from '../../../data/pc-pro-study/question-index.json';
@@ -8,7 +8,7 @@ import { lecturePagePath } from '@/lib/lecture-sites';
 
 export type PcQuestionLocation = { site: string; subject: string; year: number; source?: string; no: number };
 const webSubjects: Record<string, string> = { english: 'gong9', history: 'simhwa' };
-const offers = Object.values(PC_SUBJECTS);
+const offers = Object.values(PC_SUBJECTS).filter(offer => canLinkPcSubject(offer.id));
 const notebooks = new Set(notebookPaths);
 const index: Readonly<Record<string, number>> = questionFeatures;
 const scopes: Readonly<Record<string, Partial<Record<PcStudyFeature, number>>>> = manifest.scopes;

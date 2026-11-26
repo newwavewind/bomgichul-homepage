@@ -572,7 +572,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "gamjeong-iron",
@@ -582,7 +583,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "gamjeong-bosang",
@@ -592,7 +594,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       }
     ]
   },
@@ -726,7 +729,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "haengjeongsa-haengjeongjeolcha",
@@ -736,7 +740,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "haengjeongsa-silmubeop",
@@ -746,7 +751,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "haengjeongsa-samugwanri",
@@ -756,7 +762,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       }
     ]
   },
@@ -885,7 +892,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "nomusa-insanomu",
@@ -895,7 +903,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "nomusa-haengjeongjaengsong",
@@ -905,7 +914,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "nomusa-gyeongyeongjojik",
@@ -915,7 +925,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "nomusa-nodonggyeongje",
@@ -925,7 +936,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "nomusa-minsasosong",
@@ -935,7 +947,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       }
     ]
   },
@@ -982,7 +995,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "sanan-jeongi",
@@ -992,7 +1006,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "sanan-hwagong",
@@ -1002,7 +1017,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "sanan-geonseol",
@@ -1012,7 +1028,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       }
     ]
   },
@@ -1089,7 +1106,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "semusa-hoegye2",
@@ -1099,7 +1117,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "semusa-sebeophak1",
@@ -1109,7 +1128,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "semusa-sebeophak2",
@@ -1119,7 +1139,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       }
     ]
   },
@@ -1166,7 +1187,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       },
       {
         "id": "sonhae-sonhaepyeongga",
@@ -1176,7 +1198,8 @@
         "platforms": [
           "ios",
           "android"
-        ]
+        ],
+        "questionFormat": "written"
       }
     ]
   },

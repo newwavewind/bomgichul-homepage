@@ -23,19 +23,19 @@ type PcOffer = {
   subjectId: string;
   webId?: string;
   source?: string;
+  questionFormat?: string;
   site: string;
   exam: string;
   platforms: readonly string[];
   lectureSubject?: string;
 };
-export const PC_APPS = appOffers;
 export const PC_SUBJECTS: Readonly<Record<string, PcOffer>> = Object.fromEntries([
   ...Object.entries(coreSubjects).map(([id, offer]): [string, PcOffer] => {
     const police = offer.site === 'police';
     return [id, { ...offer, id, subjectId: id, lectureSubject: id, exam: police ? '경찰공무원' : '공인중개사',
       bundle: police ? 'com.sanghyun.police' : 'com.sanghyun.civillaw', platforms: ['ios', 'android'] }];
   }),
-  ...PC_APPS.flatMap(app => app.subjects.map((offer): [string, PcOffer] => [
+  ...appOffers.flatMap(app => app.subjects.map((offer): [string, PcOffer] => [
     offer.id, { ...offer, site: app.site, exam: app.title, bundle: app.bundle },
   ])),
 ]);
@@ -53,13 +53,22 @@ export function isPcSubject(value: unknown): value is PcSubject {
   return typeof value === 'string' && Object.hasOwn(PC_SUBJECTS, value);
 }
 
+export function canLinkPcSubject(value: unknown): value is PcSubject {
+  return isPcSubject(value) && PC_SUBJECTS[value].questionFormat !== 'written';
+}
+
+export const PC_APPS = appOffers.map(app => ({
+  ...app,
+  subjects: app.subjects.filter(offer => canLinkPcSubject(offer.id)),
+}));
+
 export function productSubject(productId: unknown): PcSubject | undefined {
   // The original police and real-estate builds only send the product ID.
   return Object.entries(coreSubjects).find(([, offer]) => offer.productId === productId)?.[0];
 }
 
 export function mobileOffer(request: { bundle?: unknown; subjectId?: unknown; productId?: unknown }, scope: string) {
-  if (!isPcSubject(scope)) return undefined;
+  if (!canLinkPcSubject(scope)) return undefined;
   const offer = PC_SUBJECTS[scope];
   if (request.bundle === undefined) return productSubject(request.productId) === scope ? offer : undefined;
   return request.bundle === offer.bundle && request.subjectId === offer.subjectId &&

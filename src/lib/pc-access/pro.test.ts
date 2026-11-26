@@ -7,7 +7,7 @@ import firefighterManifest from '../../../data/firefighter-pro-lectures/manifest
 import realEstateOutline from '@/components/lectures/outline.json';
 import policeManifest from '../../../data/police-pro-lectures/manifest.json';
 import realEstateManifest from '../../../data/real-estate-pro-lectures/manifest.json';
-import { PC_APPS, PC_SUBJECTS, lecturePcSubject, mobileOffer, pcSite, platformInOffer, productSubject } from './catalog';
+import { PC_APPS, PC_SUBJECTS, canLinkPcSubject, lecturePcSubject, mobileOffer, pcSite, platformInOffer, productSubject } from './catalog';
 
 vi.mock('server-only', () => ({}));
 vi.mock('@/lib/pc-access/session', async importOriginal => ({
@@ -28,6 +28,21 @@ import { paidLectureSubject, readPaidLecture } from './lectures';
 const viewer = { id: 'test-user', sessionId: 'test-session', beta: false, label: 'Google · 가○○ 계정' };
 
 describe('앱과 결제 상품 범위', () => {
+  it('주관식 2차는 QR 연동에서 제외하고 객관식 2차에는 연동을 제공한다', () => {
+    const listed = new Set(PC_APPS.flatMap(app => app.subjects.map(offer => offer.id)));
+    const written = Object.values(PC_SUBJECTS).filter(offer => offer.questionFormat === 'written');
+    expect(written).toHaveLength(23);
+    for (const offer of written) {
+      expect(listed.has(offer.id)).toBe(false);
+      expect(canLinkPcSubject(offer.id)).toBe(false);
+      expect(mobileOffer(offer, offer.id)).toBeUndefined();
+    }
+    for (const id of ['housing-housing-law', 'housing-housing-admin', 'gyeongbi-gyeongbibeop']) {
+      expect(listed.has(id)).toBe(true);
+      expect(canLinkPcSubject(id)).toBe(true);
+      expect(mobileOffer(PC_SUBJECTS[id], id)?.id).toBe(id);
+    }
+  });
   it('같은 앱과 과목의 검증된 상품만 받고 기존 앱 형식도 허용한다', () => {
     const connected = PC_APPS.flatMap(app => app.subjects.map(offer => ({ ...offer, bundle: app.bundle })));
     expect(new Set(connected.map(offer => offer.id)).size).toBe(connected.length);
